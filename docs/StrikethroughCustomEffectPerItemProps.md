@@ -1,0 +1,16 @@
+
+
+# StrikethroughCustomEffectPerItemProps
+
+customEffectPerItem effect in strikethrough pricing payload.
+
+## Properties
+
+| Name | Type | Description | Notes |
+|------------ | ------------- | ------------- | -------------|
+|**effectId** | **Long** | ID of the effect. |  |
+|**name** | **String** | The type of the custom effect. |  |
+|**payload** | **Object** | The JSON payload of the custom effect. |  |
+
+
+

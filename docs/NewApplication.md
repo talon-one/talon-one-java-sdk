@@ -1,0 +1,58 @@
+
+
+# NewApplication
+
+
+## Properties
+
+| Name | Type | Description | Notes |
+|------------ | ------------- | ------------- | -------------|
+|**name** | **String** | The name of this application. |  |
+|**description** | **String** | A longer description of the application. |  [optional] |
+|**timezone** | **String** | A string containing an IANA timezone descriptor. |  |
+|**currency** | **String** | The default currency for new customer sessions. |  |
+|**caseSensitivity** | [**CaseSensitivityEnum**](#CaseSensitivityEnum) | The case sensitivity behavior to check coupon codes in the campaigns of this Application. |  [optional] |
+|**attributes** | **Object** | Arbitrary properties associated with this campaign. |  [optional] |
+|**limits** | [**List&lt;LimitConfig&gt;**](LimitConfig.md) | Default limits for campaigns created in this application. |  [optional] |
+|**defaultDiscountScope** | [**DefaultDiscountScopeEnum**](#DefaultDiscountScopeEnum) | The default scope to apply &#x60;setDiscount&#x60; effects on if no scope was provided with the effect.  |  [optional] |
+|**enableCascadingDiscounts** | **Boolean** | Indicates if discounts should cascade for this Application. |  [optional] |
+|**enableFlattenedCartItems** | **Boolean** | Indicates if cart items of quantity larger than one should be separated into different items of quantity one.  |  [optional] |
+|**attributesSettings** | [**AttributesSettings**](AttributesSettings.md) |  |  [optional] |
+|**sandbox** | **Boolean** | Indicates if this is a live or sandbox Application. |  [optional] |
+|**enablePartialDiscounts** | **Boolean** | Indicates if this Application supports partial discounts. |  [optional] |
+|**defaultDiscountAdditionalCostPerItemScope** | [**DefaultDiscountAdditionalCostPerItemScopeEnum**](#DefaultDiscountAdditionalCostPerItemScopeEnum) | The default scope to apply &#x60;setDiscountPerItem&#x60; effects on if no scope was provided with the effect.  |  [optional] |
+|**key** | **String** | Hex key for HMAC-signing API calls as coming from this application (16 hex digits). |  [optional] |
+|**enableCampaignStateManagement** | **Boolean** | Indicates whether the campaign staging and revisions feature is enabled for the Application.  **Important:** After this feature is enabled, it cannot be disabled.  |  [optional] |
+
+
+
+## Enum: CaseSensitivityEnum
+
+| Name | Value |
+|---- | -----|
+| SENSITIVE | &quot;sensitive&quot; |
+| INSENSITIVE_UPPERCASE | &quot;insensitive-uppercase&quot; |
+| INSENSITIVE_LOWERCASE | &quot;insensitive-lowercase&quot; |
+
+
+
+## Enum: DefaultDiscountScopeEnum
+
+| Name | Value |
+|---- | -----|
+| SESSION_TOTAL | &quot;sessionTotal&quot; |
+| CART_ITEMS | &quot;cartItems&quot; |
+| ADDITIONAL_COSTS | &quot;additionalCosts&quot; |
+
+
+
+## Enum: DefaultDiscountAdditionalCostPerItemScopeEnum
+
+| Name | Value |
+|---- | -----|
+| PRICE | &quot;price&quot; |
+| ITEM_TOTAL | &quot;itemTotal&quot; |
+| ADDITIONAL_COSTS | &quot;additionalCosts&quot; |
+
+
+

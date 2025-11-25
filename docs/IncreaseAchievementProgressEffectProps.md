@@ -1,0 +1,20 @@
+
+
+# IncreaseAchievementProgressEffectProps
+
+The properties specific to the \"increaseAchievementProgress\" effect. This gets triggered whenever a validated rule contained an \"increase customer progress\" effect.
+
+## Properties
+
+| Name | Type | Description | Notes |
+|------------ | ------------- | ------------- | -------------|
+|**achievementId** | **Long** | The internal ID of the achievement. |  |
+|**achievementName** | **String** | The name of the achievement. |  |
+|**progressTrackerId** | **Long** | The internal ID of the achievement progress tracker. |  [optional] |
+|**delta** | **BigDecimal** | The value by which the customer&#39;s current progress in the achievement is increased. |  |
+|**value** | **BigDecimal** | The current progress of the customer in the achievement. |  |
+|**target** | **BigDecimal** | The target value to complete the achievement. |  |
+|**isJustCompleted** | **Boolean** | Indicates if the customer has completed the achievement in the current session. |  |
+
+
+

@@ -1,0 +1,25 @@
+
+
+# LoyaltySubLedger
+
+Ledger of Balance in Loyalty Program for a Customer.
+
+## Properties
+
+| Name | Type | Description | Notes |
+|------------ | ------------- | ------------- | -------------|
+|**total** | **BigDecimal** | **DEPRECATED** Use &#x60;totalActivePoints&#x60; property instead. Total amount of currently active and available points in the customer&#39;s balance.  |  |
+|**totalActivePoints** | **BigDecimal** | Total amount of currently active and available points in the customer&#39;s balance. |  |
+|**totalPendingPoints** | **BigDecimal** | Total amount of pending points, which are not active yet but will become active in the future. |  |
+|**totalSpentPoints** | **BigDecimal** | Total amount of points already spent by this customer. |  |
+|**totalExpiredPoints** | **BigDecimal** | Total amount of points, that expired without ever being spent. |  |
+|**totalNegativePoints** | **BigDecimal** | Total amount of negative points. This implies that &#x60;totalActivePoints&#x60; is &#x60;0&#x60;. |  |
+|**transactions** | [**List&lt;LoyaltyLedgerEntry&gt;**](LoyaltyLedgerEntry.md) | List of all events that have happened such as additions, subtractions and expiries. |  [optional] |
+|**expiringPoints** | [**List&lt;LoyaltyLedgerEntry&gt;**](LoyaltyLedgerEntry.md) | List of all points that will expire. |  [optional] |
+|**activePoints** | [**List&lt;LoyaltyLedgerEntry&gt;**](LoyaltyLedgerEntry.md) | List of all currently active points. |  [optional] |
+|**pendingPoints** | [**List&lt;LoyaltyLedgerEntry&gt;**](LoyaltyLedgerEntry.md) | List of all points pending activation. |  [optional] |
+|**expiredPoints** | [**List&lt;LoyaltyLedgerEntry&gt;**](LoyaltyLedgerEntry.md) | List of expired points. |  [optional] |
+|**currentTier** | [**Tier**](Tier.md) | Tier for which the ledger is eligible. |  [optional] |
+
+
+

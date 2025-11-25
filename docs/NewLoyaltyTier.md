@@ -1,0 +1,15 @@
+
+
+# NewLoyaltyTier
+
+A tier in a loyalty program.
+
+## Properties
+
+| Name | Type | Description | Notes |
+|------------ | ------------- | ------------- | -------------|
+|**name** | **String** | The name of the tier. |  |
+|**minPoints** | **BigDecimal** | The minimum amount of points required to enter the tier. |  |
+
+
+

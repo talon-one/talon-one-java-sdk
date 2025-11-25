@@ -1,0 +1,14 @@
+
+
+# NewCampaignStoreBudgetStoreLimit
+
+
+## Properties
+
+| Name | Type | Description | Notes |
+|------------ | ------------- | ------------- | -------------|
+|**storeId** | **Long** | The ID of the store. You can get this ID with the [List stores](#tag/Stores/operation/listStores) endpoint.  |  |
+|**limit** | **BigDecimal** | The value to set for the limit. |  |
+
+
+
