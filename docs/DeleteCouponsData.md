@@ -14,15 +14,7 @@
 |**applicationID** | **Long** |  |  |
 |**campaignID** | **Long** |  |  |
 |**totalResultSize** | **Long** |  |  |
-|**notificationType** | [**NotificationTypeEnum**](#NotificationTypeEnum) | The type of the notification |  |
-
-
-
-## Enum: NotificationTypeEnum
-
-| Name | Value |
-|---- | -----|
-| COUPONS_DELETED | &quot;CouponsDeleted&quot; |
+|**notificationType** | **String** | The type of the notification |  |
 
 
 

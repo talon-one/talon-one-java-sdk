@@ -13,15 +13,7 @@
 |**typeOfChange** | **String** |  |  |
 |**operation** | **String** |  |  |
 |**employeeName** | **String** |  |  |
-|**notificationType** | [**NotificationTypeEnum**](#NotificationTypeEnum) | The type of the not |  |
-
-
-
-## Enum: NotificationTypeEnum
-
-| Name | Value |
-|---- | -----|
-| COUPON_CREATED | &quot;CouponCreated&quot; |
+|**notificationType** | **String** | The type of the not |  |
 
 
 

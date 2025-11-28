@@ -15,8 +15,7 @@ The strikethrough labels notification for an application.
 |**totalBatches** | **Long** | The total number of batches for the notification. |  |
 |**trigger** | [**StrikethroughTrigger**](StrikethroughTrigger.md) |  |  |
 |**changedItems** | [**List&lt;StrikethroughChangedItem&gt;**](StrikethroughChangedItem.md) |  |  |
-|**notificationType** | [**NotificationTypeEnum**](#NotificationTypeEnum) | The type of notification. |  |
-|**sentAt** | **OffsetDateTime** | Timestamp at which the notification was sent. |  |
+|**notificationType** | **String** | The type of the notification |  |
 
 
 
@@ -25,14 +24,6 @@ The strikethrough labels notification for an application.
 | Name | Value |
 |---- | -----|
 | V2 | &quot;v2&quot; |
-
-
-
-## Enum: NotificationTypeEnum
-
-| Name | Value |
-|---- | -----|
-| STRIKETHROUGH_PRICE | &quot;StrikethroughPrice&quot; |
 
 
 

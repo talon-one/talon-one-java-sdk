@@ -114,14 +114,6 @@ public class NewManagementKeyTest {
     }
 
     /**
-     * Test the property 'lastUsed'
-     */
-    @Test
-    public void lastUsedTest() {
-        // TODO: test lastUsed
-    }
-
-    /**
      * Test the property 'key'
      */
     @Test

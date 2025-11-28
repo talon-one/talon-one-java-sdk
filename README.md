@@ -6,7 +6,7 @@ The stable version of this SDK is available [here](https://github.com/talon-one/
 
 This SDK supports all of the operations of Talon.One's Integration API and Management API.
 
-If you use Maven, we also host [Maven Artifacts](https://github.com/talon-one/maven-artefacts).
+If you use Maven, we also host [Maven Artifacts](https://github.com/talon-one/talon-one-maven-artifacts).
 
 ## Requirements
 
@@ -39,7 +39,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>one.talon</groupId>
   <artifactId>talon-one-client</artifactId>
-  <version>25.27</version>
+  <version>25.26</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -49,7 +49,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "one.talon:talon-one-client:25.27"
+compile "one.talon:talon-one-client:25.26"
 ```
 
 ### Others
@@ -424,8 +424,6 @@ Class | Method | HTTP request | Description
 - [AchievementProgress](docs/AchievementProgress.md)
 - [AchievementProgressWithDefinition](docs/AchievementProgressWithDefinition.md)
 - [AchievementStatusEntry](docs/AchievementStatusEntry.md)
-- [ActivateLoyaltyPoints](docs/ActivateLoyaltyPoints.md)
-- [ActivateLoyaltyPointsResponse](docs/ActivateLoyaltyPointsResponse.md)
 - [ActivateUserRequest](docs/ActivateUserRequest.md)
 - [AddFreeItemEffectProps](docs/AddFreeItemEffectProps.md)
 - [AddItemCatalogAction](docs/AddItemCatalogAction.md)
@@ -513,7 +511,6 @@ Class | Method | HTTP request | Description
 - [CampaignEvaluationTreeChangedNotification](docs/CampaignEvaluationTreeChangedNotification.md)
 - [CampaignGroup](docs/CampaignGroup.md)
 - [CampaignGroupEntity](docs/CampaignGroupEntity.md)
-- [CampaignLogSummary](docs/CampaignLogSummary.md)
 - [CampaignNotificationBase](docs/CampaignNotificationBase.md)
 - [CampaignNotificationGeneric](docs/CampaignNotificationGeneric.md)
 - [CampaignNotificationItemBase](docs/CampaignNotificationItemBase.md)
@@ -612,7 +609,6 @@ Class | Method | HTTP request | Description
 - [Event](docs/Event.md)
 - [EventType](docs/EventType.md)
 - [EventV2](docs/EventV2.md)
-- [EventV3](docs/EventV3.md)
 - [ExpiringCardPointsData](docs/ExpiringCardPointsData.md)
 - [ExpiringCardPointsNotification](docs/ExpiringCardPointsNotification.md)
 - [ExpiringCouponsData](docs/ExpiringCouponsData.md)
@@ -696,10 +692,7 @@ Class | Method | HTTP request | Description
 - [IntegrationEntity](docs/IntegrationEntity.md)
 - [IntegrationEvent](docs/IntegrationEvent.md)
 - [IntegrationEventV2Request](docs/IntegrationEventV2Request.md)
-- [IntegrationEventV3Request](docs/IntegrationEventV3Request.md)
-- [IntegrationEventV3Response](docs/IntegrationEventV3Response.md)
 - [IntegrationProfileEntity](docs/IntegrationProfileEntity.md)
-- [IntegrationProfileEntityV3](docs/IntegrationProfileEntityV3.md)
 - [IntegrationRequest](docs/IntegrationRequest.md)
 - [IntegrationState](docs/IntegrationState.md)
 - [IntegrationStateV2](docs/IntegrationStateV2.md)
@@ -861,9 +854,6 @@ Class | Method | HTTP request | Description
 - [PriceType](docs/PriceType.md)
 - [PriceTypeReferenceDetail](docs/PriceTypeReferenceDetail.md)
 - [PriceTypeReferences](docs/PriceTypeReferences.md)
-- [PrismaticFlow](docs/PrismaticFlow.md)
-- [PrismaticFlowConfig](docs/PrismaticFlowConfig.md)
-- [PrismaticFlowWithConfig](docs/PrismaticFlowWithConfig.md)
 - [Product](docs/Product.md)
 - [ProductSearchMatch](docs/ProductSearchMatch.md)
 - [ProductUnitAnalytics](docs/ProductUnitAnalytics.md)

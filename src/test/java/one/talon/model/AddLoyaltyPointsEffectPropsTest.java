@@ -151,20 +151,4 @@ public class AddLoyaltyPointsEffectPropsTest {
         // TODO: test bundleName
     }
 
-    /**
-     * Test the property 'awaitsActivation'
-     */
-    @Test
-    public void awaitsActivationTest() {
-        // TODO: test awaitsActivation
-    }
-
-    /**
-     * Test the property 'validityDuration'
-     */
-    @Test
-    public void validityDurationTest() {
-        // TODO: test validityDuration
-    }
-
 }

@@ -7,17 +7,9 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**notificationType** | [**NotificationTypeEnum**](#NotificationTypeEnum) | The type of the notification |  |
+|**notificationType** | **String** | The type of the notification |  |
 |**totalResultSize** | **Long** | The total size of the result set. |  |
 |**data** | [**List&lt;CampaignCollectionEditedNotificationItem&gt;**](CampaignCollectionEditedNotificationItem.md) | A list of campaign notification data. |  [optional] |
-
-
-
-## Enum: NotificationTypeEnum
-
-| Name | Value |
-|---- | -----|
-| CAMPAIGN_NOTIFICATION | &quot;CampaignNotification&quot; |
 
 
 

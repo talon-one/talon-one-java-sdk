@@ -122,16 +122,6 @@ public class AddLoyaltyPointsEffectProps {
   @javax.annotation.Nullable
   private String bundleName;
 
-  public static final String SERIALIZED_NAME_AWAITS_ACTIVATION = "awaitsActivation";
-  @SerializedName(SERIALIZED_NAME_AWAITS_ACTIVATION)
-  @javax.annotation.Nullable
-  private Boolean awaitsActivation;
-
-  public static final String SERIALIZED_NAME_VALIDITY_DURATION = "validityDuration";
-  @SerializedName(SERIALIZED_NAME_VALIDITY_DURATION)
-  @javax.annotation.Nullable
-  private String validityDuration;
-
   public AddLoyaltyPointsEffectProps() {
   }
 
@@ -401,44 +391,6 @@ public class AddLoyaltyPointsEffectProps {
   }
 
 
-  public AddLoyaltyPointsEffectProps awaitsActivation(@javax.annotation.Nullable Boolean awaitsActivation) {
-    this.awaitsActivation = awaitsActivation;
-    return this;
-  }
-
-  /**
-   * If &#x60;true&#x60;, the loyalty points are pending until  action-based activation takes place. The &#x60;startDate&#x60; parameter automatically  defaults to &#x60;on_action&#x60;. 
-   * @return awaitsActivation
-   */
-  @javax.annotation.Nullable
-  public Boolean getAwaitsActivation() {
-    return awaitsActivation;
-  }
-
-  public void setAwaitsActivation(@javax.annotation.Nullable Boolean awaitsActivation) {
-    this.awaitsActivation = awaitsActivation;
-  }
-
-
-  public AddLoyaltyPointsEffectProps validityDuration(@javax.annotation.Nullable String validityDuration) {
-    this.validityDuration = validityDuration;
-    return this;
-  }
-
-  /**
-   * The duration for which the points remain active, relative to the  activation date. Example: &#x60;30D&#x60;.   **Note**: This value is only returned if &#x60;awaitsActivation&#x60; is &#x60;true&#x60;  and &#x60;expiryDate&#x60; is not set. 
-   * @return validityDuration
-   */
-  @javax.annotation.Nullable
-  public String getValidityDuration() {
-    return validityDuration;
-  }
-
-  public void setValidityDuration(@javax.annotation.Nullable String validityDuration) {
-    this.validityDuration = validityDuration;
-  }
-
-
 
   @Override
   public boolean equals(Object o) {
@@ -462,14 +414,12 @@ public class AddLoyaltyPointsEffectProps {
         Objects.equals(this.cartItemSubPosition, addLoyaltyPointsEffectProps.cartItemSubPosition) &&
         Objects.equals(this.cardIdentifier, addLoyaltyPointsEffectProps.cardIdentifier) &&
         Objects.equals(this.bundleIndex, addLoyaltyPointsEffectProps.bundleIndex) &&
-        Objects.equals(this.bundleName, addLoyaltyPointsEffectProps.bundleName) &&
-        Objects.equals(this.awaitsActivation, addLoyaltyPointsEffectProps.awaitsActivation) &&
-        Objects.equals(this.validityDuration, addLoyaltyPointsEffectProps.validityDuration);
+        Objects.equals(this.bundleName, addLoyaltyPointsEffectProps.bundleName);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, programId, subLedgerId, value, desiredValue, recipientIntegrationId, startDate, expiryDate, transactionUUID, cartItemPosition, cartItemSubPosition, cardIdentifier, bundleIndex, bundleName, awaitsActivation, validityDuration);
+    return Objects.hash(name, programId, subLedgerId, value, desiredValue, recipientIntegrationId, startDate, expiryDate, transactionUUID, cartItemPosition, cartItemSubPosition, cardIdentifier, bundleIndex, bundleName);
   }
 
   @Override
@@ -490,8 +440,6 @@ public class AddLoyaltyPointsEffectProps {
     sb.append("    cardIdentifier: ").append(toIndentedString(cardIdentifier)).append("\n");
     sb.append("    bundleIndex: ").append(toIndentedString(bundleIndex)).append("\n");
     sb.append("    bundleName: ").append(toIndentedString(bundleName)).append("\n");
-    sb.append("    awaitsActivation: ").append(toIndentedString(awaitsActivation)).append("\n");
-    sb.append("    validityDuration: ").append(toIndentedString(validityDuration)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -528,8 +476,6 @@ public class AddLoyaltyPointsEffectProps {
     openapiFields.add("cardIdentifier");
     openapiFields.add("bundleIndex");
     openapiFields.add("bundleName");
-    openapiFields.add("awaitsActivation");
-    openapiFields.add("validityDuration");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -586,9 +532,6 @@ public class AddLoyaltyPointsEffectProps {
       }
       if ((jsonObj.get("bundleName") != null && !jsonObj.get("bundleName").isJsonNull()) && !jsonObj.get("bundleName").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `bundleName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("bundleName").toString()));
-      }
-      if ((jsonObj.get("validityDuration") != null && !jsonObj.get("validityDuration").isJsonNull()) && !jsonObj.get("validityDuration").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `validityDuration` to be a primitive type in the JSON string but got `%s`", jsonObj.get("validityDuration").toString()));
       }
   }
 

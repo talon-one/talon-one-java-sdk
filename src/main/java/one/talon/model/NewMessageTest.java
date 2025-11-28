@@ -143,11 +143,6 @@ public class NewMessageTest {
   @javax.annotation.Nullable
   private List<Long> applicationIds = new ArrayList<>();
 
-  public static final String SERIALIZED_NAME_AUTHENTICATION_ID = "authenticationId";
-  @SerializedName(SERIALIZED_NAME_AUTHENTICATION_ID)
-  @javax.annotation.Nullable
-  private Long authenticationId;
-
   public NewMessageTest() {
   }
 
@@ -289,25 +284,6 @@ public class NewMessageTest {
   }
 
 
-  public NewMessageTest authenticationId(@javax.annotation.Nullable Long authenticationId) {
-    this.authenticationId = authenticationId;
-    return this;
-  }
-
-  /**
-   * The ID of the credential that this webhook is using.
-   * @return authenticationId
-   */
-  @javax.annotation.Nullable
-  public Long getAuthenticationId() {
-    return authenticationId;
-  }
-
-  public void setAuthenticationId(@javax.annotation.Nullable Long authenticationId) {
-    this.authenticationId = authenticationId;
-  }
-
-
 
   @Override
   public boolean equals(Object o) {
@@ -323,13 +299,12 @@ public class NewMessageTest {
         Objects.equals(this.url, newMessageTest.url) &&
         Objects.equals(this.payload, newMessageTest.payload) &&
         Objects.equals(this.params, newMessageTest.params) &&
-        Objects.equals(this.applicationIds, newMessageTest.applicationIds) &&
-        Objects.equals(this.authenticationId, newMessageTest.authenticationId);
+        Objects.equals(this.applicationIds, newMessageTest.applicationIds);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(headers, verb, url, payload, params, applicationIds, authenticationId);
+    return Objects.hash(headers, verb, url, payload, params, applicationIds);
   }
 
   @Override
@@ -342,7 +317,6 @@ public class NewMessageTest {
     sb.append("    payload: ").append(toIndentedString(payload)).append("\n");
     sb.append("    params: ").append(toIndentedString(params)).append("\n");
     sb.append("    applicationIds: ").append(toIndentedString(applicationIds)).append("\n");
-    sb.append("    authenticationId: ").append(toIndentedString(authenticationId)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -371,7 +345,6 @@ public class NewMessageTest {
     openapiFields.add("payload");
     openapiFields.add("params");
     openapiFields.add("applicationIds");
-    openapiFields.add("authenticationId");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();

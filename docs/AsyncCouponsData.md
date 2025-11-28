@@ -11,15 +11,7 @@
 |**typeOfChange** | **String** |  |  |
 |**operation** | **String** |  |  |
 |**employeeName** | **String** |  |  |
-|**notificationType** | [**NotificationTypeEnum**](#NotificationTypeEnum) | The type of the notification |  |
-
-
-
-## Enum: NotificationTypeEnum
-
-| Name | Value |
-|---- | -----|
-| ASYNC_COUPONS_CREATED | &quot;AsyncCouponsCreated&quot; |
+|**notificationType** | **String** | The type of the notification |  |
 
 
 
