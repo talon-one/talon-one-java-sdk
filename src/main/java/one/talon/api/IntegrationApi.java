@@ -382,7 +382,7 @@ public class IntegrationApi {
     }
     /**
      * Build call for createCouponReservation
-     * @param couponValue The code of the coupon. (required)
+     * @param couponValue The code of the coupon.  **Important:** The coupon code requires [URL encoding](https://www.w3schools.com/tags//ref_urlencode.asp)  if it contains special characters. For example, you must encode &#x60;SUMMER25%OFF&#x60; as &#x60;SUMMER25%25OFF&#x60;.  (required)
      * @param couponReservations body (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -461,8 +461,8 @@ public class IntegrationApi {
 
     /**
      * Create coupon reservation
-     * Create a coupon reservation for the specified customer profiles on the specified coupon. You can also create a reservation via the Campaign Manager using the [Create coupon code reservation](https://docs.talon.one/docs/product/rules/effects/using-effects#reserving-a-coupon-code) effect.  **Note:**  - If the **Reservation mandatory** option was selected when creating the specified coupon, the endpoint creates a **hard** reservation, meaning only users who have this coupon code reserved can redeem it. Otherwise, the endpoint creates a **soft** reservation, meaning the coupon is associated with the specified customer profiles (they show up when using the [List customer data](https://docs.talon.one/integration-api#operation/getCustomerInventory) endpoint), but any user can redeem it. This can be useful, for example, to display a _coupon wallet_ for customers when they visit your store.  - If the **Coupon visibility** option was selected when creating the specified coupon, the coupon code is implicitly soft-reserved for all customers, and the code will be returned for all customer profiles in the [List customer data](https://docs.talon.one/integration-api#operation/getCustomerInventory) endpoint.  - This endpoint overrides the coupon reservation limit set when [the coupon is created](https://docs.talon.one/docs/product/campaigns/coupons/creating-coupons). To ensure that coupons cannot be reserved after the reservation limit is reached, use the [Create coupon code reservation](https://docs.talon.one/docs/product/rules/effects/using-effects#reserving-a-coupon-code) effect in the Rule Builder and the [Update customer session](https://docs.talon.one/integration-api#tag/Customer-sessions/operation/updateCustomerSessionV2) endpoint.  To delete a reservation, use the [Delete reservation](https://docs.talon.one/integration-api#tag/Coupons/operation/deleteCouponReservation) endpoint. 
-     * @param couponValue The code of the coupon. (required)
+     * Create a coupon reservation for the specified customer profiles on the specified coupon.  You can also create a reservation via the Campaign Manager using the [Create coupon code reservation](https://docs.talon.one/docs/product/rules/effects/using-effects#reserving-a-coupon-code) effect.  **Note:**  - If the **Reservation mandatory** option was selected when creating the   specified coupon, the endpoint creates a **hard** reservation, meaning only users who have   this coupon code reserved can redeem it.   Otherwise, the endpoint creates a **soft** reservation, meaning the coupon   is associated with the specified customer profiles (they show up when using   the [List customer data](https://docs.talon.one/integration-api#operation/getCustomerInventory)   endpoint), but any user can redeem it.   This can be useful, for example, to display a _coupon wallet_ for customers   when they visit your store.  - If the **Coupon visibility** option was selected when creating the   specified coupon, the coupon code is implicitly soft-reserved for all customers, and the code   will be returned for all customer profiles in the [List customer   data](https://docs.talon.one/integration-api#operation/getCustomerInventory) endpoint.  - This endpoint overrides the coupon reservation limit set when   [the coupon is created](https://docs.talon.one/docs/product/campaigns/coupons/creating-coupons).  To ensure that coupons cannot be reserved after the reservation limit is reached, use the [Create coupon code reservation](https://docs.talon.one/docs/product/rules/effects/using-effects#reserving-a-coupon-code) effect in the Rule Builder and the [Update customer session](https://docs.talon.one/integration-api#tag/Customer-sessions/operation/updateCustomerSessionV2) endpoint.  To delete a reservation, use the [Delete reservation](https://docs.talon.one/integration-api#tag/Coupons/operation/deleteCouponReservation) endpoint. 
+     * @param couponValue The code of the coupon.  **Important:** The coupon code requires [URL encoding](https://www.w3schools.com/tags//ref_urlencode.asp)  if it contains special characters. For example, you must encode &#x60;SUMMER25%OFF&#x60; as &#x60;SUMMER25%25OFF&#x60;.  (required)
      * @param couponReservations body (required)
      * @return Coupon
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -483,8 +483,8 @@ public class IntegrationApi {
 
     /**
      * Create coupon reservation
-     * Create a coupon reservation for the specified customer profiles on the specified coupon. You can also create a reservation via the Campaign Manager using the [Create coupon code reservation](https://docs.talon.one/docs/product/rules/effects/using-effects#reserving-a-coupon-code) effect.  **Note:**  - If the **Reservation mandatory** option was selected when creating the specified coupon, the endpoint creates a **hard** reservation, meaning only users who have this coupon code reserved can redeem it. Otherwise, the endpoint creates a **soft** reservation, meaning the coupon is associated with the specified customer profiles (they show up when using the [List customer data](https://docs.talon.one/integration-api#operation/getCustomerInventory) endpoint), but any user can redeem it. This can be useful, for example, to display a _coupon wallet_ for customers when they visit your store.  - If the **Coupon visibility** option was selected when creating the specified coupon, the coupon code is implicitly soft-reserved for all customers, and the code will be returned for all customer profiles in the [List customer data](https://docs.talon.one/integration-api#operation/getCustomerInventory) endpoint.  - This endpoint overrides the coupon reservation limit set when [the coupon is created](https://docs.talon.one/docs/product/campaigns/coupons/creating-coupons). To ensure that coupons cannot be reserved after the reservation limit is reached, use the [Create coupon code reservation](https://docs.talon.one/docs/product/rules/effects/using-effects#reserving-a-coupon-code) effect in the Rule Builder and the [Update customer session](https://docs.talon.one/integration-api#tag/Customer-sessions/operation/updateCustomerSessionV2) endpoint.  To delete a reservation, use the [Delete reservation](https://docs.talon.one/integration-api#tag/Coupons/operation/deleteCouponReservation) endpoint. 
-     * @param couponValue The code of the coupon. (required)
+     * Create a coupon reservation for the specified customer profiles on the specified coupon.  You can also create a reservation via the Campaign Manager using the [Create coupon code reservation](https://docs.talon.one/docs/product/rules/effects/using-effects#reserving-a-coupon-code) effect.  **Note:**  - If the **Reservation mandatory** option was selected when creating the   specified coupon, the endpoint creates a **hard** reservation, meaning only users who have   this coupon code reserved can redeem it.   Otherwise, the endpoint creates a **soft** reservation, meaning the coupon   is associated with the specified customer profiles (they show up when using   the [List customer data](https://docs.talon.one/integration-api#operation/getCustomerInventory)   endpoint), but any user can redeem it.   This can be useful, for example, to display a _coupon wallet_ for customers   when they visit your store.  - If the **Coupon visibility** option was selected when creating the   specified coupon, the coupon code is implicitly soft-reserved for all customers, and the code   will be returned for all customer profiles in the [List customer   data](https://docs.talon.one/integration-api#operation/getCustomerInventory) endpoint.  - This endpoint overrides the coupon reservation limit set when   [the coupon is created](https://docs.talon.one/docs/product/campaigns/coupons/creating-coupons).  To ensure that coupons cannot be reserved after the reservation limit is reached, use the [Create coupon code reservation](https://docs.talon.one/docs/product/rules/effects/using-effects#reserving-a-coupon-code) effect in the Rule Builder and the [Update customer session](https://docs.talon.one/integration-api#tag/Customer-sessions/operation/updateCustomerSessionV2) endpoint.  To delete a reservation, use the [Delete reservation](https://docs.talon.one/integration-api#tag/Coupons/operation/deleteCouponReservation) endpoint. 
+     * @param couponValue The code of the coupon.  **Important:** The coupon code requires [URL encoding](https://www.w3schools.com/tags//ref_urlencode.asp)  if it contains special characters. For example, you must encode &#x60;SUMMER25%OFF&#x60; as &#x60;SUMMER25%25OFF&#x60;.  (required)
      * @param couponReservations body (required)
      * @return ApiResponse&lt;Coupon&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -506,8 +506,8 @@ public class IntegrationApi {
 
     /**
      * Create coupon reservation (asynchronously)
-     * Create a coupon reservation for the specified customer profiles on the specified coupon. You can also create a reservation via the Campaign Manager using the [Create coupon code reservation](https://docs.talon.one/docs/product/rules/effects/using-effects#reserving-a-coupon-code) effect.  **Note:**  - If the **Reservation mandatory** option was selected when creating the specified coupon, the endpoint creates a **hard** reservation, meaning only users who have this coupon code reserved can redeem it. Otherwise, the endpoint creates a **soft** reservation, meaning the coupon is associated with the specified customer profiles (they show up when using the [List customer data](https://docs.talon.one/integration-api#operation/getCustomerInventory) endpoint), but any user can redeem it. This can be useful, for example, to display a _coupon wallet_ for customers when they visit your store.  - If the **Coupon visibility** option was selected when creating the specified coupon, the coupon code is implicitly soft-reserved for all customers, and the code will be returned for all customer profiles in the [List customer data](https://docs.talon.one/integration-api#operation/getCustomerInventory) endpoint.  - This endpoint overrides the coupon reservation limit set when [the coupon is created](https://docs.talon.one/docs/product/campaigns/coupons/creating-coupons). To ensure that coupons cannot be reserved after the reservation limit is reached, use the [Create coupon code reservation](https://docs.talon.one/docs/product/rules/effects/using-effects#reserving-a-coupon-code) effect in the Rule Builder and the [Update customer session](https://docs.talon.one/integration-api#tag/Customer-sessions/operation/updateCustomerSessionV2) endpoint.  To delete a reservation, use the [Delete reservation](https://docs.talon.one/integration-api#tag/Coupons/operation/deleteCouponReservation) endpoint. 
-     * @param couponValue The code of the coupon. (required)
+     * Create a coupon reservation for the specified customer profiles on the specified coupon.  You can also create a reservation via the Campaign Manager using the [Create coupon code reservation](https://docs.talon.one/docs/product/rules/effects/using-effects#reserving-a-coupon-code) effect.  **Note:**  - If the **Reservation mandatory** option was selected when creating the   specified coupon, the endpoint creates a **hard** reservation, meaning only users who have   this coupon code reserved can redeem it.   Otherwise, the endpoint creates a **soft** reservation, meaning the coupon   is associated with the specified customer profiles (they show up when using   the [List customer data](https://docs.talon.one/integration-api#operation/getCustomerInventory)   endpoint), but any user can redeem it.   This can be useful, for example, to display a _coupon wallet_ for customers   when they visit your store.  - If the **Coupon visibility** option was selected when creating the   specified coupon, the coupon code is implicitly soft-reserved for all customers, and the code   will be returned for all customer profiles in the [List customer   data](https://docs.talon.one/integration-api#operation/getCustomerInventory) endpoint.  - This endpoint overrides the coupon reservation limit set when   [the coupon is created](https://docs.talon.one/docs/product/campaigns/coupons/creating-coupons).  To ensure that coupons cannot be reserved after the reservation limit is reached, use the [Create coupon code reservation](https://docs.talon.one/docs/product/rules/effects/using-effects#reserving-a-coupon-code) effect in the Rule Builder and the [Update customer session](https://docs.talon.one/integration-api#tag/Customer-sessions/operation/updateCustomerSessionV2) endpoint.  To delete a reservation, use the [Delete reservation](https://docs.talon.one/integration-api#tag/Coupons/operation/deleteCouponReservation) endpoint. 
+     * @param couponValue The code of the coupon.  **Important:** The coupon code requires [URL encoding](https://www.w3schools.com/tags//ref_urlencode.asp)  if it contains special characters. For example, you must encode &#x60;SUMMER25%OFF&#x60; as &#x60;SUMMER25%25OFF&#x60;.  (required)
      * @param couponReservations body (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -1079,7 +1079,7 @@ public class IntegrationApi {
     }
     /**
      * Build call for deleteCouponReservation
-     * @param couponValue The code of the coupon. (required)
+     * @param couponValue The code of the coupon.  **Important:** The coupon code requires [URL encoding](https://www.w3schools.com/tags//ref_urlencode.asp)  if it contains special characters. For example, you must encode &#x60;SUMMER25%OFF&#x60; as &#x60;SUMMER25%25OFF&#x60;.  (required)
      * @param couponReservations body (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -1159,7 +1159,7 @@ public class IntegrationApi {
     /**
      * Delete coupon reservations
      * Remove all the coupon reservations from the provided customer profile integration IDs and the provided coupon code. 
-     * @param couponValue The code of the coupon. (required)
+     * @param couponValue The code of the coupon.  **Important:** The coupon code requires [URL encoding](https://www.w3schools.com/tags//ref_urlencode.asp)  if it contains special characters. For example, you must encode &#x60;SUMMER25%OFF&#x60; as &#x60;SUMMER25%25OFF&#x60;.  (required)
      * @param couponReservations body (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1179,7 +1179,7 @@ public class IntegrationApi {
     /**
      * Delete coupon reservations
      * Remove all the coupon reservations from the provided customer profile integration IDs and the provided coupon code. 
-     * @param couponValue The code of the coupon. (required)
+     * @param couponValue The code of the coupon.  **Important:** The coupon code requires [URL encoding](https://www.w3schools.com/tags//ref_urlencode.asp)  if it contains special characters. For example, you must encode &#x60;SUMMER25%OFF&#x60; as &#x60;SUMMER25%25OFF&#x60;.  (required)
      * @param couponReservations body (required)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1201,7 +1201,7 @@ public class IntegrationApi {
     /**
      * Delete coupon reservations (asynchronously)
      * Remove all the coupon reservations from the provided customer profile integration IDs and the provided coupon code. 
-     * @param couponValue The code of the coupon. (required)
+     * @param couponValue The code of the coupon.  **Important:** The coupon code requires [URL encoding](https://www.w3schools.com/tags//ref_urlencode.asp)  if it contains special characters. For example, you must encode &#x60;SUMMER25%OFF&#x60; as &#x60;SUMMER25%25OFF&#x60;.  (required)
      * @param couponReservations body (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -2755,6 +2755,7 @@ public class IntegrationApi {
      * @param transactionUUIDs Filter the results by a list of transaction UUIDs.  To include multiple IDs, repeat the parameter for each one, for example,  &#x60;?transactionUUIDs&#x3D;uuid1&amp;transactionUUIDs&#x3D;uuid2&#x60;.  The response contains only data associated with the specified transactions.  (optional)
      * @param pageSize The number of items in the response. (optional, default to 50)
      * @param skip The number of items to skip when paging through large result sets. (optional)
+     * @param awaitsActivation If &#x60;true&#x60;: Filters results to include only point transactions that have action-based activation and have not expired. If &#x60;false&#x60;: Returns an error.  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -2768,7 +2769,7 @@ public class IntegrationApi {
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getLoyaltyCardTransactionsCall(Long loyaltyProgramId, String loyaltyCardId, List<String> subledgerId, String loyaltyTransactionType, OffsetDateTime startDate, OffsetDateTime endDate, List<String> customerSessionIDs, List<String> transactionUUIDs, Long pageSize, Long skip, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getLoyaltyCardTransactionsCall(Long loyaltyProgramId, String loyaltyCardId, List<String> subledgerId, String loyaltyTransactionType, OffsetDateTime startDate, OffsetDateTime endDate, List<String> customerSessionIDs, List<String> transactionUUIDs, Long pageSize, Long skip, Boolean awaitsActivation, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -2827,6 +2828,10 @@ public class IntegrationApi {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("skip", skip));
         }
 
+        if (awaitsActivation != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("awaitsActivation", awaitsActivation));
+        }
+
         final String[] localVarAccepts = {
             "application/json"
         };
@@ -2847,7 +2852,7 @@ public class IntegrationApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getLoyaltyCardTransactionsValidateBeforeCall(Long loyaltyProgramId, String loyaltyCardId, List<String> subledgerId, String loyaltyTransactionType, OffsetDateTime startDate, OffsetDateTime endDate, List<String> customerSessionIDs, List<String> transactionUUIDs, Long pageSize, Long skip, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getLoyaltyCardTransactionsValidateBeforeCall(Long loyaltyProgramId, String loyaltyCardId, List<String> subledgerId, String loyaltyTransactionType, OffsetDateTime startDate, OffsetDateTime endDate, List<String> customerSessionIDs, List<String> transactionUUIDs, Long pageSize, Long skip, Boolean awaitsActivation, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'loyaltyProgramId' is set
         if (loyaltyProgramId == null) {
             throw new ApiException("Missing the required parameter 'loyaltyProgramId' when calling getLoyaltyCardTransactions(Async)");
@@ -2858,7 +2863,7 @@ public class IntegrationApi {
             throw new ApiException("Missing the required parameter 'loyaltyCardId' when calling getLoyaltyCardTransactions(Async)");
         }
 
-        return getLoyaltyCardTransactionsCall(loyaltyProgramId, loyaltyCardId, subledgerId, loyaltyTransactionType, startDate, endDate, customerSessionIDs, transactionUUIDs, pageSize, skip, _callback);
+        return getLoyaltyCardTransactionsCall(loyaltyProgramId, loyaltyCardId, subledgerId, loyaltyTransactionType, startDate, endDate, customerSessionIDs, transactionUUIDs, pageSize, skip, awaitsActivation, _callback);
 
     }
 
@@ -2875,6 +2880,7 @@ public class IntegrationApi {
      * @param transactionUUIDs Filter the results by a list of transaction UUIDs.  To include multiple IDs, repeat the parameter for each one, for example,  &#x60;?transactionUUIDs&#x3D;uuid1&amp;transactionUUIDs&#x3D;uuid2&#x60;.  The response contains only data associated with the specified transactions.  (optional)
      * @param pageSize The number of items in the response. (optional, default to 50)
      * @param skip The number of items to skip when paging through large result sets. (optional)
+     * @param awaitsActivation If &#x60;true&#x60;: Filters results to include only point transactions that have action-based activation and have not expired. If &#x60;false&#x60;: Returns an error.  (optional)
      * @return GetLoyaltyCardTransactions200Response
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2887,8 +2893,8 @@ public class IntegrationApi {
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
      */
-    public GetLoyaltyCardTransactions200Response getLoyaltyCardTransactions(Long loyaltyProgramId, String loyaltyCardId, List<String> subledgerId, String loyaltyTransactionType, OffsetDateTime startDate, OffsetDateTime endDate, List<String> customerSessionIDs, List<String> transactionUUIDs, Long pageSize, Long skip) throws ApiException {
-        ApiResponse<GetLoyaltyCardTransactions200Response> localVarResp = getLoyaltyCardTransactionsWithHttpInfo(loyaltyProgramId, loyaltyCardId, subledgerId, loyaltyTransactionType, startDate, endDate, customerSessionIDs, transactionUUIDs, pageSize, skip);
+    public GetLoyaltyCardTransactions200Response getLoyaltyCardTransactions(Long loyaltyProgramId, String loyaltyCardId, List<String> subledgerId, String loyaltyTransactionType, OffsetDateTime startDate, OffsetDateTime endDate, List<String> customerSessionIDs, List<String> transactionUUIDs, Long pageSize, Long skip, Boolean awaitsActivation) throws ApiException {
+        ApiResponse<GetLoyaltyCardTransactions200Response> localVarResp = getLoyaltyCardTransactionsWithHttpInfo(loyaltyProgramId, loyaltyCardId, subledgerId, loyaltyTransactionType, startDate, endDate, customerSessionIDs, transactionUUIDs, pageSize, skip, awaitsActivation);
         return localVarResp.getData();
     }
 
@@ -2905,6 +2911,7 @@ public class IntegrationApi {
      * @param transactionUUIDs Filter the results by a list of transaction UUIDs.  To include multiple IDs, repeat the parameter for each one, for example,  &#x60;?transactionUUIDs&#x3D;uuid1&amp;transactionUUIDs&#x3D;uuid2&#x60;.  The response contains only data associated with the specified transactions.  (optional)
      * @param pageSize The number of items in the response. (optional, default to 50)
      * @param skip The number of items to skip when paging through large result sets. (optional)
+     * @param awaitsActivation If &#x60;true&#x60;: Filters results to include only point transactions that have action-based activation and have not expired. If &#x60;false&#x60;: Returns an error.  (optional)
      * @return ApiResponse&lt;GetLoyaltyCardTransactions200Response&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2917,8 +2924,8 @@ public class IntegrationApi {
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<GetLoyaltyCardTransactions200Response> getLoyaltyCardTransactionsWithHttpInfo(Long loyaltyProgramId, String loyaltyCardId, List<String> subledgerId, String loyaltyTransactionType, OffsetDateTime startDate, OffsetDateTime endDate, List<String> customerSessionIDs, List<String> transactionUUIDs, Long pageSize, Long skip) throws ApiException {
-        okhttp3.Call localVarCall = getLoyaltyCardTransactionsValidateBeforeCall(loyaltyProgramId, loyaltyCardId, subledgerId, loyaltyTransactionType, startDate, endDate, customerSessionIDs, transactionUUIDs, pageSize, skip, null);
+    public ApiResponse<GetLoyaltyCardTransactions200Response> getLoyaltyCardTransactionsWithHttpInfo(Long loyaltyProgramId, String loyaltyCardId, List<String> subledgerId, String loyaltyTransactionType, OffsetDateTime startDate, OffsetDateTime endDate, List<String> customerSessionIDs, List<String> transactionUUIDs, Long pageSize, Long skip, Boolean awaitsActivation) throws ApiException {
+        okhttp3.Call localVarCall = getLoyaltyCardTransactionsValidateBeforeCall(loyaltyProgramId, loyaltyCardId, subledgerId, loyaltyTransactionType, startDate, endDate, customerSessionIDs, transactionUUIDs, pageSize, skip, awaitsActivation, null);
         Type localVarReturnType = new TypeToken<GetLoyaltyCardTransactions200Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -2936,6 +2943,7 @@ public class IntegrationApi {
      * @param transactionUUIDs Filter the results by a list of transaction UUIDs.  To include multiple IDs, repeat the parameter for each one, for example,  &#x60;?transactionUUIDs&#x3D;uuid1&amp;transactionUUIDs&#x3D;uuid2&#x60;.  The response contains only data associated with the specified transactions.  (optional)
      * @param pageSize The number of items in the response. (optional, default to 50)
      * @param skip The number of items to skip when paging through large result sets. (optional)
+     * @param awaitsActivation If &#x60;true&#x60;: Filters results to include only point transactions that have action-based activation and have not expired. If &#x60;false&#x60;: Returns an error.  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -2949,9 +2957,9 @@ public class IntegrationApi {
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getLoyaltyCardTransactionsAsync(Long loyaltyProgramId, String loyaltyCardId, List<String> subledgerId, String loyaltyTransactionType, OffsetDateTime startDate, OffsetDateTime endDate, List<String> customerSessionIDs, List<String> transactionUUIDs, Long pageSize, Long skip, final ApiCallback<GetLoyaltyCardTransactions200Response> _callback) throws ApiException {
+    public okhttp3.Call getLoyaltyCardTransactionsAsync(Long loyaltyProgramId, String loyaltyCardId, List<String> subledgerId, String loyaltyTransactionType, OffsetDateTime startDate, OffsetDateTime endDate, List<String> customerSessionIDs, List<String> transactionUUIDs, Long pageSize, Long skip, Boolean awaitsActivation, final ApiCallback<GetLoyaltyCardTransactions200Response> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getLoyaltyCardTransactionsValidateBeforeCall(loyaltyProgramId, loyaltyCardId, subledgerId, loyaltyTransactionType, startDate, endDate, customerSessionIDs, transactionUUIDs, pageSize, skip, _callback);
+        okhttp3.Call localVarCall = getLoyaltyCardTransactionsValidateBeforeCall(loyaltyProgramId, loyaltyCardId, subledgerId, loyaltyTransactionType, startDate, endDate, customerSessionIDs, transactionUUIDs, pageSize, skip, awaitsActivation, _callback);
         Type localVarReturnType = new TypeToken<GetLoyaltyCardTransactions200Response>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -3173,6 +3181,7 @@ public class IntegrationApi {
      * @param endDate Date and time by which results are returned. Results are filtered by transaction creation date.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered.  (optional)
      * @param pageSize The number of items in the response. (optional, default to 50)
      * @param skip The number of items to skip when paging through large result sets. (optional)
+     * @param awaitsActivation If &#x60;true&#x60;: Filters results to include only point transactions that have action-based activation and have not expired. If &#x60;false&#x60;: Returns an error.  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -3186,7 +3195,7 @@ public class IntegrationApi {
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getLoyaltyProgramProfileTransactionsCall(Long loyaltyProgramId, String integrationId, List<String> customerSessionIDs, List<String> transactionUUIDs, String subledgerId, String loyaltyTransactionType, OffsetDateTime startDate, OffsetDateTime endDate, Long pageSize, Long skip, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getLoyaltyProgramProfileTransactionsCall(Long loyaltyProgramId, String integrationId, List<String> customerSessionIDs, List<String> transactionUUIDs, String subledgerId, String loyaltyTransactionType, OffsetDateTime startDate, OffsetDateTime endDate, Long pageSize, Long skip, Boolean awaitsActivation, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -3245,6 +3254,10 @@ public class IntegrationApi {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("skip", skip));
         }
 
+        if (awaitsActivation != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("awaitsActivation", awaitsActivation));
+        }
+
         final String[] localVarAccepts = {
             "application/json"
         };
@@ -3265,7 +3278,7 @@ public class IntegrationApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getLoyaltyProgramProfileTransactionsValidateBeforeCall(Long loyaltyProgramId, String integrationId, List<String> customerSessionIDs, List<String> transactionUUIDs, String subledgerId, String loyaltyTransactionType, OffsetDateTime startDate, OffsetDateTime endDate, Long pageSize, Long skip, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getLoyaltyProgramProfileTransactionsValidateBeforeCall(Long loyaltyProgramId, String integrationId, List<String> customerSessionIDs, List<String> transactionUUIDs, String subledgerId, String loyaltyTransactionType, OffsetDateTime startDate, OffsetDateTime endDate, Long pageSize, Long skip, Boolean awaitsActivation, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'loyaltyProgramId' is set
         if (loyaltyProgramId == null) {
             throw new ApiException("Missing the required parameter 'loyaltyProgramId' when calling getLoyaltyProgramProfileTransactions(Async)");
@@ -3276,7 +3289,7 @@ public class IntegrationApi {
             throw new ApiException("Missing the required parameter 'integrationId' when calling getLoyaltyProgramProfileTransactions(Async)");
         }
 
-        return getLoyaltyProgramProfileTransactionsCall(loyaltyProgramId, integrationId, customerSessionIDs, transactionUUIDs, subledgerId, loyaltyTransactionType, startDate, endDate, pageSize, skip, _callback);
+        return getLoyaltyProgramProfileTransactionsCall(loyaltyProgramId, integrationId, customerSessionIDs, transactionUUIDs, subledgerId, loyaltyTransactionType, startDate, endDate, pageSize, skip, awaitsActivation, _callback);
 
     }
 
@@ -3293,6 +3306,7 @@ public class IntegrationApi {
      * @param endDate Date and time by which results are returned. Results are filtered by transaction creation date.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered.  (optional)
      * @param pageSize The number of items in the response. (optional, default to 50)
      * @param skip The number of items to skip when paging through large result sets. (optional)
+     * @param awaitsActivation If &#x60;true&#x60;: Filters results to include only point transactions that have action-based activation and have not expired. If &#x60;false&#x60;: Returns an error.  (optional)
      * @return GetLoyaltyProgramProfileTransactions200Response
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -3305,8 +3319,8 @@ public class IntegrationApi {
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
      */
-    public GetLoyaltyProgramProfileTransactions200Response getLoyaltyProgramProfileTransactions(Long loyaltyProgramId, String integrationId, List<String> customerSessionIDs, List<String> transactionUUIDs, String subledgerId, String loyaltyTransactionType, OffsetDateTime startDate, OffsetDateTime endDate, Long pageSize, Long skip) throws ApiException {
-        ApiResponse<GetLoyaltyProgramProfileTransactions200Response> localVarResp = getLoyaltyProgramProfileTransactionsWithHttpInfo(loyaltyProgramId, integrationId, customerSessionIDs, transactionUUIDs, subledgerId, loyaltyTransactionType, startDate, endDate, pageSize, skip);
+    public GetLoyaltyProgramProfileTransactions200Response getLoyaltyProgramProfileTransactions(Long loyaltyProgramId, String integrationId, List<String> customerSessionIDs, List<String> transactionUUIDs, String subledgerId, String loyaltyTransactionType, OffsetDateTime startDate, OffsetDateTime endDate, Long pageSize, Long skip, Boolean awaitsActivation) throws ApiException {
+        ApiResponse<GetLoyaltyProgramProfileTransactions200Response> localVarResp = getLoyaltyProgramProfileTransactionsWithHttpInfo(loyaltyProgramId, integrationId, customerSessionIDs, transactionUUIDs, subledgerId, loyaltyTransactionType, startDate, endDate, pageSize, skip, awaitsActivation);
         return localVarResp.getData();
     }
 
@@ -3323,6 +3337,7 @@ public class IntegrationApi {
      * @param endDate Date and time by which results are returned. Results are filtered by transaction creation date.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered.  (optional)
      * @param pageSize The number of items in the response. (optional, default to 50)
      * @param skip The number of items to skip when paging through large result sets. (optional)
+     * @param awaitsActivation If &#x60;true&#x60;: Filters results to include only point transactions that have action-based activation and have not expired. If &#x60;false&#x60;: Returns an error.  (optional)
      * @return ApiResponse&lt;GetLoyaltyProgramProfileTransactions200Response&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -3335,8 +3350,8 @@ public class IntegrationApi {
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<GetLoyaltyProgramProfileTransactions200Response> getLoyaltyProgramProfileTransactionsWithHttpInfo(Long loyaltyProgramId, String integrationId, List<String> customerSessionIDs, List<String> transactionUUIDs, String subledgerId, String loyaltyTransactionType, OffsetDateTime startDate, OffsetDateTime endDate, Long pageSize, Long skip) throws ApiException {
-        okhttp3.Call localVarCall = getLoyaltyProgramProfileTransactionsValidateBeforeCall(loyaltyProgramId, integrationId, customerSessionIDs, transactionUUIDs, subledgerId, loyaltyTransactionType, startDate, endDate, pageSize, skip, null);
+    public ApiResponse<GetLoyaltyProgramProfileTransactions200Response> getLoyaltyProgramProfileTransactionsWithHttpInfo(Long loyaltyProgramId, String integrationId, List<String> customerSessionIDs, List<String> transactionUUIDs, String subledgerId, String loyaltyTransactionType, OffsetDateTime startDate, OffsetDateTime endDate, Long pageSize, Long skip, Boolean awaitsActivation) throws ApiException {
+        okhttp3.Call localVarCall = getLoyaltyProgramProfileTransactionsValidateBeforeCall(loyaltyProgramId, integrationId, customerSessionIDs, transactionUUIDs, subledgerId, loyaltyTransactionType, startDate, endDate, pageSize, skip, awaitsActivation, null);
         Type localVarReturnType = new TypeToken<GetLoyaltyProgramProfileTransactions200Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -3354,6 +3369,7 @@ public class IntegrationApi {
      * @param endDate Date and time by which results are returned. Results are filtered by transaction creation date.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered.  (optional)
      * @param pageSize The number of items in the response. (optional, default to 50)
      * @param skip The number of items to skip when paging through large result sets. (optional)
+     * @param awaitsActivation If &#x60;true&#x60;: Filters results to include only point transactions that have action-based activation and have not expired. If &#x60;false&#x60;: Returns an error.  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -3367,16 +3383,16 @@ public class IntegrationApi {
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getLoyaltyProgramProfileTransactionsAsync(Long loyaltyProgramId, String integrationId, List<String> customerSessionIDs, List<String> transactionUUIDs, String subledgerId, String loyaltyTransactionType, OffsetDateTime startDate, OffsetDateTime endDate, Long pageSize, Long skip, final ApiCallback<GetLoyaltyProgramProfileTransactions200Response> _callback) throws ApiException {
+    public okhttp3.Call getLoyaltyProgramProfileTransactionsAsync(Long loyaltyProgramId, String integrationId, List<String> customerSessionIDs, List<String> transactionUUIDs, String subledgerId, String loyaltyTransactionType, OffsetDateTime startDate, OffsetDateTime endDate, Long pageSize, Long skip, Boolean awaitsActivation, final ApiCallback<GetLoyaltyProgramProfileTransactions200Response> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getLoyaltyProgramProfileTransactionsValidateBeforeCall(loyaltyProgramId, integrationId, customerSessionIDs, transactionUUIDs, subledgerId, loyaltyTransactionType, startDate, endDate, pageSize, skip, _callback);
+        okhttp3.Call localVarCall = getLoyaltyProgramProfileTransactionsValidateBeforeCall(loyaltyProgramId, integrationId, customerSessionIDs, transactionUUIDs, subledgerId, loyaltyTransactionType, startDate, endDate, pageSize, skip, awaitsActivation, _callback);
         Type localVarReturnType = new TypeToken<GetLoyaltyProgramProfileTransactions200Response>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for getReservedCustomers
-     * @param couponValue The code of the coupon. (required)
+     * @param couponValue The code of the coupon.  **Important:** The coupon code requires [URL encoding](https://www.w3schools.com/tags//ref_urlencode.asp)  if it contains special characters. For example, you must encode &#x60;SUMMER25%OFF&#x60; as &#x60;SUMMER25%25OFF&#x60;.  (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -3449,7 +3465,7 @@ public class IntegrationApi {
     /**
      * List customers that have this coupon reserved
      * Return all customers that have this coupon marked as reserved. This includes hard and soft reservations. 
-     * @param couponValue The code of the coupon. (required)
+     * @param couponValue The code of the coupon.  **Important:** The coupon code requires [URL encoding](https://www.w3schools.com/tags//ref_urlencode.asp)  if it contains special characters. For example, you must encode &#x60;SUMMER25%OFF&#x60; as &#x60;SUMMER25%25OFF&#x60;.  (required)
      * @return GetReservedCustomers200Response
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -3470,7 +3486,7 @@ public class IntegrationApi {
     /**
      * List customers that have this coupon reserved
      * Return all customers that have this coupon marked as reserved. This includes hard and soft reservations. 
-     * @param couponValue The code of the coupon. (required)
+     * @param couponValue The code of the coupon.  **Important:** The coupon code requires [URL encoding](https://www.w3schools.com/tags//ref_urlencode.asp)  if it contains special characters. For example, you must encode &#x60;SUMMER25%OFF&#x60; as &#x60;SUMMER25%25OFF&#x60;.  (required)
      * @return ApiResponse&lt;GetReservedCustomers200Response&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -3492,7 +3508,7 @@ public class IntegrationApi {
     /**
      * List customers that have this coupon reserved (asynchronously)
      * Return all customers that have this coupon marked as reserved. This includes hard and soft reservations. 
-     * @param couponValue The code of the coupon. (required)
+     * @param couponValue The code of the coupon.  **Important:** The coupon code requires [URL encoding](https://www.w3schools.com/tags//ref_urlencode.asp)  if it contains special characters. For example, you must encode &#x60;SUMMER25%OFF&#x60; as &#x60;SUMMER25%25OFF&#x60;.  (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object

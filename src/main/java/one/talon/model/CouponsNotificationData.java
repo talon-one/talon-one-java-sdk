@@ -78,10 +78,62 @@ public class CouponsNotificationData {
   @javax.annotation.Nullable
   private Long totalResultSize;
 
+  /**
+   * The type of the notification
+   */
+  @JsonAdapter(NotificationTypeEnum.Adapter.class)
+  public enum NotificationTypeEnum {
+    COUPON_UPDATED("CouponUpdated"),
+    
+    COUPON_DELETED("CouponDeleted");
+
+    private String value;
+
+    NotificationTypeEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static NotificationTypeEnum fromValue(String value) {
+      for (NotificationTypeEnum b : NotificationTypeEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    }
+
+    public static class Adapter extends TypeAdapter<NotificationTypeEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final NotificationTypeEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public NotificationTypeEnum read(final JsonReader jsonReader) throws IOException {
+        String value =  jsonReader.nextString();
+        return NotificationTypeEnum.fromValue(value);
+      }
+    }
+
+    public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      String value = jsonElement.getAsString();
+      NotificationTypeEnum.fromValue(value);
+    }
+  }
+
   public static final String SERIALIZED_NAME_NOTIFICATION_TYPE = "NotificationType";
   @SerializedName(SERIALIZED_NAME_NOTIFICATION_TYPE)
   @javax.annotation.Nonnull
-  private String notificationType;
+  private NotificationTypeEnum notificationType;
 
   public CouponsNotificationData() {
   }
@@ -189,7 +241,7 @@ public class CouponsNotificationData {
   }
 
 
-  public CouponsNotificationData notificationType(@javax.annotation.Nonnull String notificationType) {
+  public CouponsNotificationData notificationType(@javax.annotation.Nonnull NotificationTypeEnum notificationType) {
     this.notificationType = notificationType;
     return this;
   }
@@ -199,11 +251,11 @@ public class CouponsNotificationData {
    * @return notificationType
    */
   @javax.annotation.Nonnull
-  public String getNotificationType() {
+  public NotificationTypeEnum getNotificationType() {
     return notificationType;
   }
 
-  public void setNotificationType(@javax.annotation.Nonnull String notificationType) {
+  public void setNotificationType(@javax.annotation.Nonnull NotificationTypeEnum notificationType) {
     this.notificationType = notificationType;
   }
 
@@ -332,6 +384,8 @@ public class CouponsNotificationData {
       if (!jsonObj.get("NotificationType").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `NotificationType` to be a primitive type in the JSON string but got `%s`", jsonObj.get("NotificationType").toString()));
       }
+      // validate the required field `NotificationType`
+      NotificationTypeEnum.validateJsonElement(jsonObj.get("NotificationType"));
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {

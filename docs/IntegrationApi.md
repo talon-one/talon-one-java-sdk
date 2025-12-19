@@ -197,7 +197,7 @@ public class Example {
 
 Create coupon reservation
 
-Create a coupon reservation for the specified customer profiles on the specified coupon. You can also create a reservation via the Campaign Manager using the [Create coupon code reservation](https://docs.talon.one/docs/product/rules/effects/using-effects#reserving-a-coupon-code) effect.  **Note:**  - If the **Reservation mandatory** option was selected when creating the specified coupon, the endpoint creates a **hard** reservation, meaning only users who have this coupon code reserved can redeem it. Otherwise, the endpoint creates a **soft** reservation, meaning the coupon is associated with the specified customer profiles (they show up when using the [List customer data](https://docs.talon.one/integration-api#operation/getCustomerInventory) endpoint), but any user can redeem it. This can be useful, for example, to display a _coupon wallet_ for customers when they visit your store.  - If the **Coupon visibility** option was selected when creating the specified coupon, the coupon code is implicitly soft-reserved for all customers, and the code will be returned for all customer profiles in the [List customer data](https://docs.talon.one/integration-api#operation/getCustomerInventory) endpoint.  - This endpoint overrides the coupon reservation limit set when [the coupon is created](https://docs.talon.one/docs/product/campaigns/coupons/creating-coupons). To ensure that coupons cannot be reserved after the reservation limit is reached, use the [Create coupon code reservation](https://docs.talon.one/docs/product/rules/effects/using-effects#reserving-a-coupon-code) effect in the Rule Builder and the [Update customer session](https://docs.talon.one/integration-api#tag/Customer-sessions/operation/updateCustomerSessionV2) endpoint.  To delete a reservation, use the [Delete reservation](https://docs.talon.one/integration-api#tag/Coupons/operation/deleteCouponReservation) endpoint. 
+Create a coupon reservation for the specified customer profiles on the specified coupon.  You can also create a reservation via the Campaign Manager using the [Create coupon code reservation](https://docs.talon.one/docs/product/rules/effects/using-effects#reserving-a-coupon-code) effect.  **Note:**  - If the **Reservation mandatory** option was selected when creating the   specified coupon, the endpoint creates a **hard** reservation, meaning only users who have   this coupon code reserved can redeem it.   Otherwise, the endpoint creates a **soft** reservation, meaning the coupon   is associated with the specified customer profiles (they show up when using   the [List customer data](https://docs.talon.one/integration-api#operation/getCustomerInventory)   endpoint), but any user can redeem it.   This can be useful, for example, to display a _coupon wallet_ for customers   when they visit your store.  - If the **Coupon visibility** option was selected when creating the   specified coupon, the coupon code is implicitly soft-reserved for all customers, and the code   will be returned for all customer profiles in the [List customer   data](https://docs.talon.one/integration-api#operation/getCustomerInventory) endpoint.  - This endpoint overrides the coupon reservation limit set when   [the coupon is created](https://docs.talon.one/docs/product/campaigns/coupons/creating-coupons).  To ensure that coupons cannot be reserved after the reservation limit is reached, use the [Create coupon code reservation](https://docs.talon.one/docs/product/rules/effects/using-effects#reserving-a-coupon-code) effect in the Rule Builder and the [Update customer session](https://docs.talon.one/integration-api#tag/Customer-sessions/operation/updateCustomerSessionV2) endpoint.  To delete a reservation, use the [Delete reservation](https://docs.talon.one/integration-api#tag/Coupons/operation/deleteCouponReservation) endpoint. 
 
 ### Example
 ```java
@@ -221,7 +221,7 @@ public class Example {
     //api_key_v1.setApiKeyPrefix("Token");
 
     IntegrationApi apiInstance = new IntegrationApi(defaultClient);
-    String couponValue = "couponValue_example"; // String | The code of the coupon.
+    String couponValue = "couponValue_example"; // String | The code of the coupon.  **Important:** The coupon code requires [URL encoding](https://www.w3schools.com/tags//ref_urlencode.asp)  if it contains special characters. For example, you must encode `SUMMER25%OFF` as `SUMMER25%25OFF`. 
     CouponReservations couponReservations = new CouponReservations(); // CouponReservations | body
     try {
       Coupon result = apiInstance.createCouponReservation(couponValue, couponReservations);
@@ -241,7 +241,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **couponValue** | **String**| The code of the coupon. | |
+| **couponValue** | **String**| The code of the coupon.  **Important:** The coupon code requires [URL encoding](https://www.w3schools.com/tags//ref_urlencode.asp)  if it contains special characters. For example, you must encode &#x60;SUMMER25%OFF&#x60; as &#x60;SUMMER25%25OFF&#x60;.  | |
 | **couponReservations** | [**CouponReservations**](CouponReservations.md)| body | |
 
 ### Return type
@@ -581,7 +581,7 @@ public class Example {
     //api_key_v1.setApiKeyPrefix("Token");
 
     IntegrationApi apiInstance = new IntegrationApi(defaultClient);
-    String couponValue = "couponValue_example"; // String | The code of the coupon.
+    String couponValue = "couponValue_example"; // String | The code of the coupon.  **Important:** The coupon code requires [URL encoding](https://www.w3schools.com/tags//ref_urlencode.asp)  if it contains special characters. For example, you must encode `SUMMER25%OFF` as `SUMMER25%25OFF`. 
     CouponReservations couponReservations = new CouponReservations(); // CouponReservations | body
     try {
       apiInstance.deleteCouponReservation(couponValue, couponReservations);
@@ -600,7 +600,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **couponValue** | **String**| The code of the coupon. | |
+| **couponValue** | **String**| The code of the coupon.  **Important:** The coupon code requires [URL encoding](https://www.w3schools.com/tags//ref_urlencode.asp)  if it contains special characters. For example, you must encode &#x60;SUMMER25%OFF&#x60; as &#x60;SUMMER25%25OFF&#x60;.  | |
 | **couponReservations** | [**CouponReservations**](CouponReservations.md)| body | |
 
 ### Return type
@@ -1339,7 +1339,7 @@ public class Example {
 
 <a id="getLoyaltyCardTransactions"></a>
 # **getLoyaltyCardTransactions**
-> GetLoyaltyCardTransactions200Response getLoyaltyCardTransactions(loyaltyProgramId, loyaltyCardId, subledgerId, loyaltyTransactionType, startDate, endDate, customerSessionIDs, transactionUUIDs, pageSize, skip)
+> GetLoyaltyCardTransactions200Response getLoyaltyCardTransactions(loyaltyProgramId, loyaltyCardId, subledgerId, loyaltyTransactionType, startDate, endDate, customerSessionIDs, transactionUUIDs, pageSize, skip, awaitsActivation)
 
 List card&#39;s transactions
 
@@ -1377,8 +1377,9 @@ public class Example {
     List<String> transactionUUIDs = Arrays.asList(); // List<String> | Filter the results by a list of transaction UUIDs.  To include multiple IDs, repeat the parameter for each one, for example,  `?transactionUUIDs=uuid1&transactionUUIDs=uuid2`.  The response contains only data associated with the specified transactions. 
     Long pageSize = 50L; // Long | The number of items in the response.
     Long skip = 56L; // Long | The number of items to skip when paging through large result sets.
+    Boolean awaitsActivation = true; // Boolean | If `true`: Filters results to include only point transactions that have action-based activation and have not expired. If `false`: Returns an error. 
     try {
-      GetLoyaltyCardTransactions200Response result = apiInstance.getLoyaltyCardTransactions(loyaltyProgramId, loyaltyCardId, subledgerId, loyaltyTransactionType, startDate, endDate, customerSessionIDs, transactionUUIDs, pageSize, skip);
+      GetLoyaltyCardTransactions200Response result = apiInstance.getLoyaltyCardTransactions(loyaltyProgramId, loyaltyCardId, subledgerId, loyaltyTransactionType, startDate, endDate, customerSessionIDs, transactionUUIDs, pageSize, skip, awaitsActivation);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling IntegrationApi#getLoyaltyCardTransactions");
@@ -1405,6 +1406,7 @@ public class Example {
 | **transactionUUIDs** | [**List&lt;String&gt;**](String.md)| Filter the results by a list of transaction UUIDs.  To include multiple IDs, repeat the parameter for each one, for example,  &#x60;?transactionUUIDs&#x3D;uuid1&amp;transactionUUIDs&#x3D;uuid2&#x60;.  The response contains only data associated with the specified transactions.  | [optional] |
 | **pageSize** | **Long**| The number of items in the response. | [optional] [default to 50] |
 | **skip** | **Long**| The number of items to skip when paging through large result sets. | [optional] |
+| **awaitsActivation** | **Boolean**| If &#x60;true&#x60;: Filters results to include only point transactions that have action-based activation and have not expired. If &#x60;false&#x60;: Returns an error.  | [optional] |
 
 ### Return type
 
@@ -1517,7 +1519,7 @@ public class Example {
 
 <a id="getLoyaltyProgramProfileTransactions"></a>
 # **getLoyaltyProgramProfileTransactions**
-> GetLoyaltyProgramProfileTransactions200Response getLoyaltyProgramProfileTransactions(loyaltyProgramId, integrationId, customerSessionIDs, transactionUUIDs, subledgerId, loyaltyTransactionType, startDate, endDate, pageSize, skip)
+> GetLoyaltyProgramProfileTransactions200Response getLoyaltyProgramProfileTransactions(loyaltyProgramId, integrationId, customerSessionIDs, transactionUUIDs, subledgerId, loyaltyTransactionType, startDate, endDate, pageSize, skip, awaitsActivation)
 
 List customer&#39;s loyalty transactions
 
@@ -1555,8 +1557,9 @@ public class Example {
     OffsetDateTime endDate = OffsetDateTime.now(); // OffsetDateTime | Date and time by which results are returned. Results are filtered by transaction creation date.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, `T23:59:59` to specify the end of the day. The time zone setting considered is `UTC`. If you do not include a time component, a default time value of `T00:00:00` (midnight) in `UTC` is considered. 
     Long pageSize = 50L; // Long | The number of items in the response.
     Long skip = 56L; // Long | The number of items to skip when paging through large result sets.
+    Boolean awaitsActivation = true; // Boolean | If `true`: Filters results to include only point transactions that have action-based activation and have not expired. If `false`: Returns an error. 
     try {
-      GetLoyaltyProgramProfileTransactions200Response result = apiInstance.getLoyaltyProgramProfileTransactions(loyaltyProgramId, integrationId, customerSessionIDs, transactionUUIDs, subledgerId, loyaltyTransactionType, startDate, endDate, pageSize, skip);
+      GetLoyaltyProgramProfileTransactions200Response result = apiInstance.getLoyaltyProgramProfileTransactions(loyaltyProgramId, integrationId, customerSessionIDs, transactionUUIDs, subledgerId, loyaltyTransactionType, startDate, endDate, pageSize, skip, awaitsActivation);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling IntegrationApi#getLoyaltyProgramProfileTransactions");
@@ -1583,6 +1586,7 @@ public class Example {
 | **endDate** | **OffsetDateTime**| Date and time by which results are returned. Results are filtered by transaction creation date.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered.  | [optional] |
 | **pageSize** | **Long**| The number of items in the response. | [optional] [default to 50] |
 | **skip** | **Long**| The number of items to skip when paging through large result sets. | [optional] |
+| **awaitsActivation** | **Boolean**| If &#x60;true&#x60;: Filters results to include only point transactions that have action-based activation and have not expired. If &#x60;false&#x60;: Returns an error.  | [optional] |
 
 ### Return type
 
@@ -1635,7 +1639,7 @@ public class Example {
     //api_key_v1.setApiKeyPrefix("Token");
 
     IntegrationApi apiInstance = new IntegrationApi(defaultClient);
-    String couponValue = "couponValue_example"; // String | The code of the coupon.
+    String couponValue = "couponValue_example"; // String | The code of the coupon.  **Important:** The coupon code requires [URL encoding](https://www.w3schools.com/tags//ref_urlencode.asp)  if it contains special characters. For example, you must encode `SUMMER25%OFF` as `SUMMER25%25OFF`. 
     try {
       GetReservedCustomers200Response result = apiInstance.getReservedCustomers(couponValue);
       System.out.println(result);
@@ -1654,7 +1658,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **couponValue** | **String**| The code of the coupon. | |
+| **couponValue** | **String**| The code of the coupon.  **Important:** The coupon code requires [URL encoding](https://www.w3schools.com/tags//ref_urlencode.asp)  if it contains special characters. For example, you must encode &#x60;SUMMER25%OFF&#x60; as &#x60;SUMMER25%25OFF&#x60;.  | |
 
 ### Return type
 

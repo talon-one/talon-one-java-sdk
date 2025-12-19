@@ -1,7 +1,8 @@
-.github/workflows/maven.yml
+.github/workflows/autorelease.yml
+.github/workflows/test.yml
 .gitignore
-.openapi-generator-ignore
 .travis.yml
+Example.java
 Makefile
 README.md
 api/openapi.yaml
@@ -115,6 +116,7 @@ docs/CampaignEvaluationTreeChangedMessage.md
 docs/CampaignEvaluationTreeChangedNotification.md
 docs/CampaignGroup.md
 docs/CampaignGroupEntity.md
+docs/CampaignLogSummary.md
 docs/CampaignNotificationBase.md
 docs/CampaignNotificationGeneric.md
 docs/CampaignNotificationItemBase.md
@@ -213,6 +215,7 @@ docs/EvaluableCampaignIds.md
 docs/Event.md
 docs/EventType.md
 docs/EventV2.md
+docs/EventV3.md
 docs/ExpiringCardPointsData.md
 docs/ExpiringCardPointsNotification.md
 docs/ExpiringCouponsData.md
@@ -297,7 +300,10 @@ docs/IntegrationCustomerSessionResponse.md
 docs/IntegrationEntity.md
 docs/IntegrationEvent.md
 docs/IntegrationEventV2Request.md
+docs/IntegrationEventV3Request.md
+docs/IntegrationEventV3Response.md
 docs/IntegrationProfileEntity.md
+docs/IntegrationProfileEntityV3.md
 docs/IntegrationRequest.md
 docs/IntegrationState.md
 docs/IntegrationStateV2.md
@@ -750,6 +756,7 @@ src/main/java/one/talon/model/CampaignEvaluationTreeChangedMessage.java
 src/main/java/one/talon/model/CampaignEvaluationTreeChangedNotification.java
 src/main/java/one/talon/model/CampaignGroup.java
 src/main/java/one/talon/model/CampaignGroupEntity.java
+src/main/java/one/talon/model/CampaignLogSummary.java
 src/main/java/one/talon/model/CampaignNotificationBase.java
 src/main/java/one/talon/model/CampaignNotificationGeneric.java
 src/main/java/one/talon/model/CampaignNotificationItemBase.java
@@ -848,6 +855,7 @@ src/main/java/one/talon/model/EvaluableCampaignIds.java
 src/main/java/one/talon/model/Event.java
 src/main/java/one/talon/model/EventType.java
 src/main/java/one/talon/model/EventV2.java
+src/main/java/one/talon/model/EventV3.java
 src/main/java/one/talon/model/ExpiringCardPointsData.java
 src/main/java/one/talon/model/ExpiringCardPointsNotification.java
 src/main/java/one/talon/model/ExpiringCouponsData.java
@@ -931,7 +939,10 @@ src/main/java/one/talon/model/IntegrationCustomerSessionResponse.java
 src/main/java/one/talon/model/IntegrationEntity.java
 src/main/java/one/talon/model/IntegrationEvent.java
 src/main/java/one/talon/model/IntegrationEventV2Request.java
+src/main/java/one/talon/model/IntegrationEventV3Request.java
+src/main/java/one/talon/model/IntegrationEventV3Response.java
 src/main/java/one/talon/model/IntegrationProfileEntity.java
+src/main/java/one/talon/model/IntegrationProfileEntityV3.java
 src/main/java/one/talon/model/IntegrationRequest.java
 src/main/java/one/talon/model/IntegrationState.java
 src/main/java/one/talon/model/IntegrationStateV2.java
@@ -1355,6 +1366,7 @@ src/test/java/one/talon/model/CampaignEvaluationTreeChangedMessageTest.java
 src/test/java/one/talon/model/CampaignEvaluationTreeChangedNotificationTest.java
 src/test/java/one/talon/model/CampaignGroupEntityTest.java
 src/test/java/one/talon/model/CampaignGroupTest.java
+src/test/java/one/talon/model/CampaignLogSummaryTest.java
 src/test/java/one/talon/model/CampaignNotificationBaseTest.java
 src/test/java/one/talon/model/CampaignNotificationGenericTest.java
 src/test/java/one/talon/model/CampaignNotificationItemBaseTest.java
@@ -1454,6 +1466,7 @@ src/test/java/one/talon/model/EvaluableCampaignIdsTest.java
 src/test/java/one/talon/model/EventTest.java
 src/test/java/one/talon/model/EventTypeTest.java
 src/test/java/one/talon/model/EventV2Test.java
+src/test/java/one/talon/model/EventV3Test.java
 src/test/java/one/talon/model/ExpiringCardPointsDataTest.java
 src/test/java/one/talon/model/ExpiringCardPointsNotificationTest.java
 src/test/java/one/talon/model/ExpiringCouponsDataTest.java
@@ -1537,7 +1550,10 @@ src/test/java/one/talon/model/IntegrationCustomerSessionResponseTest.java
 src/test/java/one/talon/model/IntegrationEntityTest.java
 src/test/java/one/talon/model/IntegrationEventTest.java
 src/test/java/one/talon/model/IntegrationEventV2RequestTest.java
+src/test/java/one/talon/model/IntegrationEventV3RequestTest.java
+src/test/java/one/talon/model/IntegrationEventV3ResponseTest.java
 src/test/java/one/talon/model/IntegrationProfileEntityTest.java
+src/test/java/one/talon/model/IntegrationProfileEntityV3Test.java
 src/test/java/one/talon/model/IntegrationRequestTest.java
 src/test/java/one/talon/model/IntegrationStateTest.java
 src/test/java/one/talon/model/IntegrationStateV2Test.java

@@ -99,6 +99,11 @@ public class NewManagementKey {
   @javax.annotation.Nullable
   private Boolean disabled;
 
+  public static final String SERIALIZED_NAME_LAST_USED = "lastUsed";
+  @SerializedName(SERIALIZED_NAME_LAST_USED)
+  @javax.annotation.Nullable
+  private OffsetDateTime lastUsed;
+
   public static final String SERIALIZED_NAME_KEY = "key";
   @SerializedName(SERIALIZED_NAME_KEY)
   @javax.annotation.Nonnull
@@ -294,6 +299,25 @@ public class NewManagementKey {
   }
 
 
+  public NewManagementKey lastUsed(@javax.annotation.Nullable OffsetDateTime lastUsed) {
+    this.lastUsed = lastUsed;
+    return this;
+  }
+
+  /**
+   * The last time the management key was used.
+   * @return lastUsed
+   */
+  @javax.annotation.Nullable
+  public OffsetDateTime getLastUsed() {
+    return lastUsed;
+  }
+
+  public void setLastUsed(@javax.annotation.Nullable OffsetDateTime lastUsed) {
+    this.lastUsed = lastUsed;
+  }
+
+
   public NewManagementKey key(@javax.annotation.Nonnull String key) {
     this.key = key;
     return this;
@@ -332,12 +356,13 @@ public class NewManagementKey {
         Objects.equals(this.accountID, newManagementKey.accountID) &&
         Objects.equals(this.created, newManagementKey.created) &&
         Objects.equals(this.disabled, newManagementKey.disabled) &&
+        Objects.equals(this.lastUsed, newManagementKey.lastUsed) &&
         Objects.equals(this.key, newManagementKey.key);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, expiryDate, endpoints, allowedApplicationIds, id, createdBy, accountID, created, disabled, key);
+    return Objects.hash(name, expiryDate, endpoints, allowedApplicationIds, id, createdBy, accountID, created, disabled, lastUsed, key);
   }
 
   @Override
@@ -353,6 +378,7 @@ public class NewManagementKey {
     sb.append("    accountID: ").append(toIndentedString(accountID)).append("\n");
     sb.append("    created: ").append(toIndentedString(created)).append("\n");
     sb.append("    disabled: ").append(toIndentedString(disabled)).append("\n");
+    sb.append("    lastUsed: ").append(toIndentedString(lastUsed)).append("\n");
     sb.append("    key: ").append(toIndentedString(key)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -385,6 +411,7 @@ public class NewManagementKey {
     openapiFields.add("accountID");
     openapiFields.add("created");
     openapiFields.add("disabled");
+    openapiFields.add("lastUsed");
     openapiFields.add("key");
 
     // a set of required properties/fields (JSON key names)
