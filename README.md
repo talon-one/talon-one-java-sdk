@@ -80,6 +80,7 @@ import com.google.gson.Gson;
 import one.talon.ApiClient;
 import one.talon.api.IntegrationApi;
 import one.talon.api.ManagementApi;
+import one.talon.auth.ApiKeyAuth;
 import one.talon.model.*;
 
 import java.util.*;
@@ -87,13 +88,17 @@ import java.util.*;
 public class TalonApiTest {
     public static void main(String[] args) {
         Gson gson = new Gson();
-        IntegrationApi iApi = new IntegrationApi(new ApiClient("api_key_v1"));
+        ApiClient apiClient = new ApiClient();
 
-        // Setup: basePath
-        iApi.getApiClient().setBasePath("https://yourbaseurl.talon.one"); // No trailing slash!
-        // Setup: when using 'api_key_v1', set apiKey & apiKeyPrefix must be provided
-        iApi.getApiClient().setApiKeyPrefix("ApiKey-v1");
-        iApi.getApiClient().setApiKey("dbc644d33aa74d582bd9479c59e16f970fe13bf34a208c39d6c7fa7586968468");
+        // Setup: Base path
+        apiClient.setBasePath(https://yourbaseurl.talon.one"); // No trailing slash!
+
+        // Setup: Authorization
+        ApiKeyAuth apiKeyV1 = (ApiKeyAuth) apiClient.getAuthentication("api_key_v1");
+        apiKeyV1.setApiKeyPrefix("ApiKey-v1");
+        apiKeyV1.setApiKey("dbc644d33aa74d582bd9479c59e16f970fe13bf34a208c39d6c7fa7586968468");
+
+        IntegrationApi iApi = new IntegrationApi(apiClient);
 
         try {
           // Creating a cart item object
@@ -114,8 +119,8 @@ public class TalonApiTest {
                 .customerSession(customerSession)
                 // Optional parameter of requested information to be present on the response related to the customer session update
                 .responseContent(Arrays.asList(
-                    IntegrationRequest.ResponseContentEnum.CUSTOMERSESSION,
-                    IntegrationRequest.ResponseContentEnum.CUSTOMERPROFILE
+                    IntegrationRequest.ResponseContentEnum.CUSTOMER_SESSION,
+                    IntegrationRequest.ResponseContentEnum.CUSTOMER_PROFILE
                 ));
 
             // Flag to communicate whether the request is a "dry run"
@@ -165,18 +170,22 @@ package com.example.consumer;
 import one.talon.ApiClient;
 import one.talon.api.IntegrationApi;
 import one.talon.api.ManagementApi;
+import one.talon.auth.ApiKeyAuth;
 import one.talon.model.*;
 
 public class TalonApiTest {
     public static void main(String[] args) {
-        // Management API example to load application with id 7
-        ManagementApi mApi = new ManagementApi(new ApiClient("management_key"));
+        ApiClient apiClient = new ApiClient();
 
-        // Setup: basePath
-        mApi.getApiClient().setBasePath("https://yourbaseurl.talon.one"); // No trailing slash!
-        // Setup: when using 'management_key', set apiKey & apiKeyPrefix must be provided
-        mApi.getApiClient().setApiKeyPrefix("ManagementKey-v1");
-        mApi.getApiClient().setApiKey("2f0dce055da01ae595005d7d79154bae7448d319d5fc7c5b2951fadd6ba1ea07");
+        // Setup: Base path
+        apiClient.setBasePath("https://yourbaseurl.talon.one"); // No trailing slash!
+
+        // Setup: Authorization
+        ApiKeyAuth apiKeyV1 = (ApiKeyAuth) apiClient.getAuthentication("management_key");
+        apiKeyV1.setApiKeyPrefix("ManagementKey-v1");
+        apiKeyV1.setApiKey("2f0dce055da01ae595005d7d79154bae7448d319d5fc7c5b2951fadd6ba1ea07");
+
+        ManagementApi iApi = new ManagementApi(apiClient);
 
         try {
             // Calling `getApplication` function with the desired id (7)

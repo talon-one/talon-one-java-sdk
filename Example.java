@@ -15,13 +15,14 @@ public class Example {
         Gson gson = new Gson();
         ApiClient apiClient = new ApiClient();
 
-        // Setup: basePath
+        // Setup: Base path
         apiClient.setBasePath("http://localhost:9000");
 
+        // Setup: Authorization
         ApiKeyAuth apiKeyV1 = (ApiKeyAuth) apiClient.getAuthentication("api_key_v1");
         apiKeyV1.setApiKeyPrefix("ApiKey-v1");
         apiKeyV1.setApiKey(System.getenv("TALON_API_KEY"));
-        
+
         IntegrationApi iApi = new IntegrationApi(apiClient);
 
         // Creating a cart item object
