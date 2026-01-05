@@ -5,6 +5,7 @@ import com.google.gson.Gson;
 import one.talon.ApiClient;
 import one.talon.api.IntegrationApi;
 import one.talon.api.ManagementApi;
+import one.talon.auth.ApiKeyAuth;
 import one.talon.model.*;
 
 import java.util.*;
@@ -12,13 +13,16 @@ import java.util.*;
 public class Example {
     public static void main(String[] args) throws Exception {
         Gson gson = new Gson();
-        IntegrationApi iApi = new IntegrationApi(new ApiClient("api_key_v1"));
+        ApiClient apiClient = new ApiClient();
 
         // Setup: basePath
-        iApi.getApiClient().setBasePath("http://localhost:9000");
-        // Setup: when using 'api_key_v1', set apiKey & apiKeyPrefix must be provided
-        iApi.getApiClient().setApiKeyPrefix("ApiKey-v1");
-        iApi.getApiClient().setApiKey(System.getenv("TALON_API_KEY"));
+        apiClient.setBasePath("http://localhost:9000");
+
+        ApiKeyAuth apiKeyV1 = (ApiKeyAuth) apiClient.getAuthentication("api_key_v1");
+        apiKeyV1.setApiKeyPrefix("ApiKey-v1");
+        apiKeyV1.setApiKey(System.getenv("TALON_API_KEY"));
+        
+        IntegrationApi iApi = new IntegrationApi(apiClient);
 
         // Creating a cart item object
         CartItem cartItem = new CartItem();
@@ -39,8 +43,8 @@ public class Example {
                 // Optional parameter of requested information to be present on the response
                 // related to the customer session update
                 .responseContent(Arrays.asList(
-                        IntegrationRequest.ResponseContentEnum.CUSTOMERSESSION,
-                        IntegrationRequest.ResponseContentEnum.CUSTOMERPROFILE));
+                        IntegrationRequest.ResponseContentEnum.CUSTOMER_SESSION,
+                        IntegrationRequest.ResponseContentEnum.CUSTOMER_PROFILE));
 
         // Flag to communicate whether the request is a "dry run"
         Boolean dryRun = false;
