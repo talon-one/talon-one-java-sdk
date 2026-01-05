@@ -141,6 +141,14 @@ public class CustomerSessionTest {
     }
 
     /**
+     * Test the property 'updateCount'
+     */
+    @Test
+    public void updateCountTest() {
+        // TODO: test updateCount
+    }
+
+    /**
      * Test the property 'discounts'
      */
     @Test

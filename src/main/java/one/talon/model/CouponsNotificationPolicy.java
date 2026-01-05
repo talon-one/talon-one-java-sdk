@@ -126,7 +126,7 @@ public class CouponsNotificationPolicy {
   public static final String SERIALIZED_NAME_INCLUDE_DATA = "includeData";
   @SerializedName(SERIALIZED_NAME_INCLUDE_DATA)
   @javax.annotation.Nullable
-  private Boolean includeData = null;
+  private Boolean includeData;
 
   public static final String SERIALIZED_NAME_BATCH_SIZE = "batchSize";
   @SerializedName(SERIALIZED_NAME_BATCH_SIZE)

@@ -173,6 +173,11 @@ public class CustomerSession {
   @javax.annotation.Nonnull
   private Boolean firstSession;
 
+  public static final String SERIALIZED_NAME_UPDATE_COUNT = "updateCount";
+  @SerializedName(SERIALIZED_NAME_UPDATE_COUNT)
+  @javax.annotation.Nonnull
+  private Long updateCount;
+
   public static final String SERIALIZED_NAME_DISCOUNTS = "discounts";
   @SerializedName(SERIALIZED_NAME_DISCOUNTS)
   @javax.annotation.Nonnull
@@ -430,6 +435,25 @@ public class CustomerSession {
   }
 
 
+  public CustomerSession updateCount(@javax.annotation.Nonnull Long updateCount) {
+    this.updateCount = updateCount;
+    return this;
+  }
+
+  /**
+   * The number of times the session was updated. When the session is created, this value is initialized to &#x60;1&#x60;.
+   * @return updateCount
+   */
+  @javax.annotation.Nonnull
+  public Long getUpdateCount() {
+    return updateCount;
+  }
+
+  public void setUpdateCount(@javax.annotation.Nonnull Long updateCount) {
+    this.updateCount = updateCount;
+  }
+
+
   public CustomerSession discounts(@javax.annotation.Nonnull Map<String, BigDecimal> discounts) {
     this.discounts = discounts;
     return this;
@@ -498,13 +522,14 @@ public class CustomerSession {
         Objects.equals(this.total, customerSession.total) &&
         Objects.equals(this.attributes, customerSession.attributes) &&
         Objects.equals(this.firstSession, customerSession.firstSession) &&
+        Objects.equals(this.updateCount, customerSession.updateCount) &&
         Objects.equals(this.discounts, customerSession.discounts) &&
         Objects.equals(this.updated, customerSession.updated);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(integrationId, created, applicationId, profileId, coupon, referral, state, cartItems, identifiers, total, attributes, firstSession, discounts, updated);
+    return Objects.hash(integrationId, created, applicationId, profileId, coupon, referral, state, cartItems, identifiers, total, attributes, firstSession, updateCount, discounts, updated);
   }
 
   @Override
@@ -523,6 +548,7 @@ public class CustomerSession {
     sb.append("    total: ").append(toIndentedString(total)).append("\n");
     sb.append("    attributes: ").append(toIndentedString(attributes)).append("\n");
     sb.append("    firstSession: ").append(toIndentedString(firstSession)).append("\n");
+    sb.append("    updateCount: ").append(toIndentedString(updateCount)).append("\n");
     sb.append("    discounts: ").append(toIndentedString(discounts)).append("\n");
     sb.append("    updated: ").append(toIndentedString(updated)).append("\n");
     sb.append("}");
@@ -559,6 +585,7 @@ public class CustomerSession {
     openapiFields.add("total");
     openapiFields.add("attributes");
     openapiFields.add("firstSession");
+    openapiFields.add("updateCount");
     openapiFields.add("discounts");
     openapiFields.add("updated");
 
@@ -568,6 +595,7 @@ public class CustomerSession {
     openapiRequiredFields.add("created");
     openapiRequiredFields.add("applicationId");
     openapiRequiredFields.add("firstSession");
+    openapiRequiredFields.add("updateCount");
     openapiRequiredFields.add("discounts");
     openapiRequiredFields.add("updated");
   }

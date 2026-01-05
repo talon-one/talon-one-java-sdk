@@ -8,6 +8,7 @@ README.md
 api/openapi.yaml
 build.gradle
 build.sbt
+docker-compose.yml
 docs/APIError.md
 docs/AcceptCouponEffectProps.md
 docs/AcceptReferralEffectProps.md
