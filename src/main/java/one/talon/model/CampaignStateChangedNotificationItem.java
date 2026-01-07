@@ -14,6 +14,7 @@
 package one.talon.model;
 
 import java.util.Objects;
+import java.util.Locale;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -44,13 +45,14 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.Locale;
 
 import one.talon.JSON;
 
 /**
  * CampaignStateChangedNotificationItem
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.13.0-SNAPSHOT")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.17.0")
 public class CampaignStateChangedNotificationItem {
   public static final String SERIALIZED_NAME_EVENT = "Event";
   @SerializedName(SERIALIZED_NAME_EVENT)
@@ -227,19 +229,10 @@ public class CampaignStateChangedNotificationItem {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("Event");
-    openapiFields.add("campaign");
-    openapiFields.add("oldState");
-    openapiFields.add("newState");
-    openapiFields.add("ruleset");
+    openapiFields = new HashSet<String>(Arrays.asList("Event", "campaign", "oldState", "newState", "ruleset"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("Event");
-    openapiRequiredFields.add("campaign");
-    openapiRequiredFields.add("oldState");
-    openapiRequiredFields.add("newState");
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("Event", "campaign", "oldState", "newState"));
   }
 
   /**
@@ -251,7 +244,7 @@ public class CampaignStateChangedNotificationItem {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!CampaignStateChangedNotificationItem.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in CampaignStateChangedNotificationItem is not found in the empty JSON string", CampaignStateChangedNotificationItem.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field(s) %s in CampaignStateChangedNotificationItem is not found in the empty JSON string", CampaignStateChangedNotificationItem.openapiRequiredFields.toString()));
         }
       }
 
@@ -259,27 +252,27 @@ public class CampaignStateChangedNotificationItem {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!CampaignStateChangedNotificationItem.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `CampaignStateChangedNotificationItem` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(Locale.ROOT, "The field `%s` in the JSON string is not defined in the `CampaignStateChangedNotificationItem` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : CampaignStateChangedNotificationItem.openapiRequiredFields) {
         if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if (!jsonObj.get("Event").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `Event` to be a primitive type in the JSON string but got `%s`", jsonObj.get("Event").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `Event` to be a primitive type in the JSON string but got `%s`", jsonObj.get("Event").toString()));
       }
       // validate the required field `campaign`
       Campaign.validateJsonElement(jsonObj.get("campaign"));
       if (!jsonObj.get("oldState").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `oldState` to be a primitive type in the JSON string but got `%s`", jsonObj.get("oldState").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `oldState` to be a primitive type in the JSON string but got `%s`", jsonObj.get("oldState").toString()));
       }
       if (!jsonObj.get("newState").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `newState` to be a primitive type in the JSON string but got `%s`", jsonObj.get("newState").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `newState` to be a primitive type in the JSON string but got `%s`", jsonObj.get("newState").toString()));
       }
       // validate the optional field `ruleset`
       if (jsonObj.get("ruleset") != null && !jsonObj.get("ruleset").isJsonNull()) {

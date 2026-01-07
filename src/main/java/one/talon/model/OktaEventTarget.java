@@ -14,6 +14,7 @@
 package one.talon.model;
 
 import java.util.Objects;
+import java.util.Locale;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -42,13 +43,14 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.Locale;
 
 import one.talon.JSON;
 
 /**
  * Target of the specific Okta event.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.13.0-SNAPSHOT")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.17.0")
 public class OktaEventTarget {
   public static final String SERIALIZED_NAME_TYPE = "type";
   @SerializedName(SERIALIZED_NAME_TYPE)
@@ -173,16 +175,10 @@ public class OktaEventTarget {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("type");
-    openapiFields.add("alternateId");
-    openapiFields.add("displayName");
+    openapiFields = new HashSet<String>(Arrays.asList("type", "alternateId", "displayName"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("type");
-    openapiRequiredFields.add("alternateId");
-    openapiRequiredFields.add("displayName");
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("type", "alternateId", "displayName"));
   }
 
   /**
@@ -194,7 +190,7 @@ public class OktaEventTarget {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!OktaEventTarget.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in OktaEventTarget is not found in the empty JSON string", OktaEventTarget.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field(s) %s in OktaEventTarget is not found in the empty JSON string", OktaEventTarget.openapiRequiredFields.toString()));
         }
       }
 
@@ -202,25 +198,25 @@ public class OktaEventTarget {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!OktaEventTarget.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `OktaEventTarget` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(Locale.ROOT, "The field `%s` in the JSON string is not defined in the `OktaEventTarget` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : OktaEventTarget.openapiRequiredFields) {
         if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if (!jsonObj.get("type").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("type").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("type").toString()));
       }
       if (!jsonObj.get("alternateId").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `alternateId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("alternateId").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `alternateId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("alternateId").toString()));
       }
       if (!jsonObj.get("displayName").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `displayName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("displayName").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `displayName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("displayName").toString()));
       }
   }
 

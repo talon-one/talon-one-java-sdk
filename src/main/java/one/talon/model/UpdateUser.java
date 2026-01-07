@@ -14,6 +14,7 @@
 package one.talon.model;
 
 import java.util.Objects;
+import java.util.Locale;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -44,13 +45,14 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.Locale;
 
 import one.talon.JSON;
 
 /**
  * UpdateUser
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.13.0-SNAPSHOT")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.17.0")
 public class UpdateUser {
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
@@ -313,16 +315,10 @@ public class UpdateUser {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("name");
-    openapiFields.add("state");
-    openapiFields.add("isAdmin");
-    openapiFields.add("policy");
-    openapiFields.add("roles");
-    openapiFields.add("applicationNotificationSubscriptions");
+    openapiFields = new HashSet<String>(Arrays.asList("name", "state", "isAdmin", "policy", "roles", "applicationNotificationSubscriptions"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
   /**
@@ -334,7 +330,7 @@ public class UpdateUser {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!UpdateUser.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in UpdateUser is not found in the empty JSON string", UpdateUser.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field(s) %s in UpdateUser is not found in the empty JSON string", UpdateUser.openapiRequiredFields.toString()));
         }
       }
 
@@ -342,26 +338,26 @@ public class UpdateUser {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!UpdateUser.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `UpdateUser` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(Locale.ROOT, "The field `%s` in the JSON string is not defined in the `UpdateUser` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("name") != null && !jsonObj.get("name").isJsonNull()) && !jsonObj.get("name").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
       }
       if ((jsonObj.get("state") != null && !jsonObj.get("state").isJsonNull()) && !jsonObj.get("state").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `state` to be a primitive type in the JSON string but got `%s`", jsonObj.get("state").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `state` to be a primitive type in the JSON string but got `%s`", jsonObj.get("state").toString()));
       }
       // validate the optional field `state`
       if (jsonObj.get("state") != null && !jsonObj.get("state").isJsonNull()) {
         StateEnum.validateJsonElement(jsonObj.get("state"));
       }
       if ((jsonObj.get("policy") != null && !jsonObj.get("policy").isJsonNull()) && !jsonObj.get("policy").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `policy` to be a primitive type in the JSON string but got `%s`", jsonObj.get("policy").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `policy` to be a primitive type in the JSON string but got `%s`", jsonObj.get("policy").toString()));
       }
       // ensure the optional json data is an array if present
       if (jsonObj.get("roles") != null && !jsonObj.get("roles").isJsonNull() && !jsonObj.get("roles").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `roles` to be an array in the JSON string but got `%s`", jsonObj.get("roles").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `roles` to be an array in the JSON string but got `%s`", jsonObj.get("roles").toString()));
       }
   }
 

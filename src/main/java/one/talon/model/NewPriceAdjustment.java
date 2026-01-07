@@ -14,6 +14,7 @@
 package one.talon.model;
 
 import java.util.Objects;
+import java.util.Locale;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -45,13 +46,14 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.Locale;
 
 import one.talon.JSON;
 
 /**
  * NewPriceAdjustment
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.13.0-SNAPSHOT")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.17.0")
 public class NewPriceAdjustment {
   public static final String SERIALIZED_NAME_PRICE_TYPE = "priceType";
   @SerializedName(SERIALIZED_NAME_PRICE_TYPE)
@@ -291,19 +293,10 @@ public class NewPriceAdjustment {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("priceType");
-    openapiFields.add("price");
-    openapiFields.add("referenceId");
-    openapiFields.add("calculatedAt");
-    openapiFields.add("effectiveFrom");
-    openapiFields.add("effectiveUntil");
-    openapiFields.add("contextId");
+    openapiFields = new HashSet<String>(Arrays.asList("priceType", "price", "referenceId", "calculatedAt", "effectiveFrom", "effectiveUntil", "contextId"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("priceType");
-    openapiRequiredFields.add("referenceId");
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("priceType", "referenceId"));
   }
 
   /**
@@ -315,7 +308,7 @@ public class NewPriceAdjustment {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!NewPriceAdjustment.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in NewPriceAdjustment is not found in the empty JSON string", NewPriceAdjustment.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field(s) %s in NewPriceAdjustment is not found in the empty JSON string", NewPriceAdjustment.openapiRequiredFields.toString()));
         }
       }
 
@@ -323,25 +316,25 @@ public class NewPriceAdjustment {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!NewPriceAdjustment.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `NewPriceAdjustment` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(Locale.ROOT, "The field `%s` in the JSON string is not defined in the `NewPriceAdjustment` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : NewPriceAdjustment.openapiRequiredFields) {
         if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if (!jsonObj.get("priceType").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `priceType` to be a primitive type in the JSON string but got `%s`", jsonObj.get("priceType").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `priceType` to be a primitive type in the JSON string but got `%s`", jsonObj.get("priceType").toString()));
       }
       if (!jsonObj.get("referenceId").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `referenceId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("referenceId").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `referenceId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("referenceId").toString()));
       }
       if ((jsonObj.get("contextId") != null && !jsonObj.get("contextId").isJsonNull()) && !jsonObj.get("contextId").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `contextId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("contextId").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `contextId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("contextId").toString()));
       }
   }
 

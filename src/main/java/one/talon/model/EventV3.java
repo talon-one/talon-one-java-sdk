@@ -14,6 +14,7 @@
 package one.talon.model;
 
 import java.util.Objects;
+import java.util.Locale;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -44,13 +45,14 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.Locale;
 
 import one.talon.JSON;
 
 /**
  * EventV3
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.13.0-SNAPSHOT")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.17.0")
 public class EventV3 {
   public static final String SERIALIZED_NAME_PROFILE_ID = "profileId";
   @SerializedName(SERIALIZED_NAME_PROFILE_ID)
@@ -313,21 +315,10 @@ public class EventV3 {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("profileId");
-    openapiFields.add("storeIntegrationId");
-    openapiFields.add("evaluableCampaignIds");
-    openapiFields.add("integrationId");
-    openapiFields.add("type");
-    openapiFields.add("attributes");
-    openapiFields.add("connectedSessionID");
-    openapiFields.add("previousEventID");
+    openapiFields = new HashSet<String>(Arrays.asList("profileId", "storeIntegrationId", "evaluableCampaignIds", "integrationId", "type", "attributes", "connectedSessionID", "previousEventID"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("profileId");
-    openapiRequiredFields.add("integrationId");
-    openapiRequiredFields.add("type");
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("profileId", "integrationId", "type"));
   }
 
   /**
@@ -339,7 +330,7 @@ public class EventV3 {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!EventV3.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in EventV3 is not found in the empty JSON string", EventV3.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field(s) %s in EventV3 is not found in the empty JSON string", EventV3.openapiRequiredFields.toString()));
         }
       }
 
@@ -347,38 +338,38 @@ public class EventV3 {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!EventV3.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `EventV3` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(Locale.ROOT, "The field `%s` in the JSON string is not defined in the `EventV3` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : EventV3.openapiRequiredFields) {
         if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if (!jsonObj.get("profileId").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `profileId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("profileId").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `profileId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("profileId").toString()));
       }
       if ((jsonObj.get("storeIntegrationId") != null && !jsonObj.get("storeIntegrationId").isJsonNull()) && !jsonObj.get("storeIntegrationId").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `storeIntegrationId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("storeIntegrationId").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `storeIntegrationId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("storeIntegrationId").toString()));
       }
       // ensure the optional json data is an array if present
       if (jsonObj.get("evaluableCampaignIds") != null && !jsonObj.get("evaluableCampaignIds").isJsonNull() && !jsonObj.get("evaluableCampaignIds").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `evaluableCampaignIds` to be an array in the JSON string but got `%s`", jsonObj.get("evaluableCampaignIds").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `evaluableCampaignIds` to be an array in the JSON string but got `%s`", jsonObj.get("evaluableCampaignIds").toString()));
       }
       if (!jsonObj.get("integrationId").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `integrationId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("integrationId").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `integrationId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("integrationId").toString()));
       }
       if (!jsonObj.get("type").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("type").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("type").toString()));
       }
       if ((jsonObj.get("connectedSessionID") != null && !jsonObj.get("connectedSessionID").isJsonNull()) && !jsonObj.get("connectedSessionID").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `connectedSessionID` to be a primitive type in the JSON string but got `%s`", jsonObj.get("connectedSessionID").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `connectedSessionID` to be a primitive type in the JSON string but got `%s`", jsonObj.get("connectedSessionID").toString()));
       }
       if ((jsonObj.get("previousEventID") != null && !jsonObj.get("previousEventID").isJsonNull()) && !jsonObj.get("previousEventID").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `previousEventID` to be a primitive type in the JSON string but got `%s`", jsonObj.get("previousEventID").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `previousEventID` to be a primitive type in the JSON string but got `%s`", jsonObj.get("previousEventID").toString()));
       }
   }
 

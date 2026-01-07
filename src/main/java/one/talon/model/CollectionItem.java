@@ -14,6 +14,7 @@
 package one.talon.model;
 
 import java.util.Objects;
+import java.util.Locale;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -42,13 +43,14 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.Locale;
 
 import one.talon.JSON;
 
 /**
  * CollectionItem
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.13.0-SNAPSHOT")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.17.0")
 public class CollectionItem {
   public static final String SERIALIZED_NAME_ITEM = "item";
   @SerializedName(SERIALIZED_NAME_ITEM)
@@ -121,12 +123,10 @@ public class CollectionItem {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("item");
+    openapiFields = new HashSet<String>(Arrays.asList("item"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("item");
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("item"));
   }
 
   /**
@@ -138,7 +138,7 @@ public class CollectionItem {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!CollectionItem.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in CollectionItem is not found in the empty JSON string", CollectionItem.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field(s) %s in CollectionItem is not found in the empty JSON string", CollectionItem.openapiRequiredFields.toString()));
         }
       }
 
@@ -146,19 +146,19 @@ public class CollectionItem {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!CollectionItem.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `CollectionItem` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(Locale.ROOT, "The field `%s` in the JSON string is not defined in the `CollectionItem` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : CollectionItem.openapiRequiredFields) {
         if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if (!jsonObj.get("item").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `item` to be a primitive type in the JSON string but got `%s`", jsonObj.get("item").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `item` to be a primitive type in the JSON string but got `%s`", jsonObj.get("item").toString()));
       }
   }
 

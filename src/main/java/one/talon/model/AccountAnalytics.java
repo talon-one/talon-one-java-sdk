@@ -14,6 +14,7 @@
 package one.talon.model;
 
 import java.util.Objects;
+import java.util.Locale;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -43,13 +44,14 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.Locale;
 
 import one.talon.JSON;
 
 /**
  * AccountAnalytics
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.13.0-SNAPSHOT")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.17.0")
 public class AccountAnalytics {
   public static final String SERIALIZED_NAME_APPLICATIONS = "applications";
   @SerializedName(SERIALIZED_NAME_APPLICATIONS)
@@ -616,50 +618,10 @@ public class AccountAnalytics {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("applications");
-    openapiFields.add("liveApplications");
-    openapiFields.add("sandboxApplications");
-    openapiFields.add("campaigns");
-    openapiFields.add("activeCampaigns");
-    openapiFields.add("liveActiveCampaigns");
-    openapiFields.add("coupons");
-    openapiFields.add("activeCoupons");
-    openapiFields.add("expiredCoupons");
-    openapiFields.add("referralCodes");
-    openapiFields.add("activeReferralCodes");
-    openapiFields.add("expiredReferralCodes");
-    openapiFields.add("activeRules");
-    openapiFields.add("users");
-    openapiFields.add("roles");
-    openapiFields.add("customAttributes");
-    openapiFields.add("webhooks");
-    openapiFields.add("loyaltyPrograms");
-    openapiFields.add("liveLoyaltyPrograms");
-    openapiFields.add("lastUpdatedAt");
+    openapiFields = new HashSet<String>(Arrays.asList("applications", "liveApplications", "sandboxApplications", "campaigns", "activeCampaigns", "liveActiveCampaigns", "coupons", "activeCoupons", "expiredCoupons", "referralCodes", "activeReferralCodes", "expiredReferralCodes", "activeRules", "users", "roles", "customAttributes", "webhooks", "loyaltyPrograms", "liveLoyaltyPrograms", "lastUpdatedAt"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("applications");
-    openapiRequiredFields.add("liveApplications");
-    openapiRequiredFields.add("sandboxApplications");
-    openapiRequiredFields.add("campaigns");
-    openapiRequiredFields.add("activeCampaigns");
-    openapiRequiredFields.add("liveActiveCampaigns");
-    openapiRequiredFields.add("coupons");
-    openapiRequiredFields.add("activeCoupons");
-    openapiRequiredFields.add("expiredCoupons");
-    openapiRequiredFields.add("referralCodes");
-    openapiRequiredFields.add("activeReferralCodes");
-    openapiRequiredFields.add("expiredReferralCodes");
-    openapiRequiredFields.add("activeRules");
-    openapiRequiredFields.add("users");
-    openapiRequiredFields.add("roles");
-    openapiRequiredFields.add("customAttributes");
-    openapiRequiredFields.add("webhooks");
-    openapiRequiredFields.add("loyaltyPrograms");
-    openapiRequiredFields.add("liveLoyaltyPrograms");
-    openapiRequiredFields.add("lastUpdatedAt");
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("applications", "liveApplications", "sandboxApplications", "campaigns", "activeCampaigns", "liveActiveCampaigns", "coupons", "activeCoupons", "expiredCoupons", "referralCodes", "activeReferralCodes", "expiredReferralCodes", "activeRules", "users", "roles", "customAttributes", "webhooks", "loyaltyPrograms", "liveLoyaltyPrograms", "lastUpdatedAt"));
   }
 
   /**
@@ -671,7 +633,7 @@ public class AccountAnalytics {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!AccountAnalytics.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in AccountAnalytics is not found in the empty JSON string", AccountAnalytics.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field(s) %s in AccountAnalytics is not found in the empty JSON string", AccountAnalytics.openapiRequiredFields.toString()));
         }
       }
 
@@ -679,14 +641,14 @@ public class AccountAnalytics {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!AccountAnalytics.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `AccountAnalytics` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(Locale.ROOT, "The field `%s` in the JSON string is not defined in the `AccountAnalytics` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : AccountAnalytics.openapiRequiredFields) {
         if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();

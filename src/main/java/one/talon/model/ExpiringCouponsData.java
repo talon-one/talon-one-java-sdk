@@ -14,6 +14,7 @@
 package one.talon.model;
 
 import java.util.Objects;
+import java.util.Locale;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -45,13 +46,14 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.Locale;
 
 import one.talon.JSON;
 
 /**
  * ExpiringCouponsData
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.13.0-SNAPSHOT")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.17.0")
 public class ExpiringCouponsData {
   public static final String SERIALIZED_NAME_COUPON_VALUE = "CouponValue";
   @SerializedName(SERIALIZED_NAME_COUPON_VALUE)
@@ -369,25 +371,10 @@ public class ExpiringCouponsData {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("CouponValue");
-    openapiFields.add("CreatedDate");
-    openapiFields.add("ValidFrom");
-    openapiFields.add("ValidUntil");
-    openapiFields.add("CampaignId");
-    openapiFields.add("CustomerProfileId");
-    openapiFields.add("UsageLimit");
-    openapiFields.add("UsageCounter");
-    openapiFields.add("BatchId");
-    openapiFields.add("Attributes");
+    openapiFields = new HashSet<String>(Arrays.asList("CouponValue", "CreatedDate", "ValidFrom", "ValidUntil", "CampaignId", "CustomerProfileId", "UsageLimit", "UsageCounter", "BatchId", "Attributes"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("CouponValue");
-    openapiRequiredFields.add("CampaignId");
-    openapiRequiredFields.add("UsageLimit");
-    openapiRequiredFields.add("UsageCounter");
-    openapiRequiredFields.add("Attributes");
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("CouponValue", "CampaignId", "UsageLimit", "UsageCounter", "Attributes"));
   }
 
   /**
@@ -399,7 +386,7 @@ public class ExpiringCouponsData {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!ExpiringCouponsData.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in ExpiringCouponsData is not found in the empty JSON string", ExpiringCouponsData.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field(s) %s in ExpiringCouponsData is not found in the empty JSON string", ExpiringCouponsData.openapiRequiredFields.toString()));
         }
       }
 
@@ -407,25 +394,25 @@ public class ExpiringCouponsData {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!ExpiringCouponsData.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `ExpiringCouponsData` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(Locale.ROOT, "The field `%s` in the JSON string is not defined in the `ExpiringCouponsData` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : ExpiringCouponsData.openapiRequiredFields) {
         if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if (!jsonObj.get("CouponValue").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `CouponValue` to be a primitive type in the JSON string but got `%s`", jsonObj.get("CouponValue").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `CouponValue` to be a primitive type in the JSON string but got `%s`", jsonObj.get("CouponValue").toString()));
       }
       if ((jsonObj.get("CustomerProfileId") != null && !jsonObj.get("CustomerProfileId").isJsonNull()) && !jsonObj.get("CustomerProfileId").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `CustomerProfileId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("CustomerProfileId").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `CustomerProfileId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("CustomerProfileId").toString()));
       }
       if ((jsonObj.get("BatchId") != null && !jsonObj.get("BatchId").isJsonNull()) && !jsonObj.get("BatchId").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `BatchId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("BatchId").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `BatchId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("BatchId").toString()));
       }
   }
 

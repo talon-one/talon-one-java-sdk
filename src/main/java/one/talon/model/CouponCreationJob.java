@@ -14,6 +14,7 @@
 package one.talon.model;
 
 import java.util.Objects;
+import java.util.Locale;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -47,13 +48,14 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.Locale;
 
 import one.talon.JSON;
 
 /**
  * CouponCreationJob
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.13.0-SNAPSHOT")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.17.0")
 public class CouponCreationJob {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -688,48 +690,10 @@ public class CouponCreationJob {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("id");
-    openapiFields.add("created");
-    openapiFields.add("campaignId");
-    openapiFields.add("applicationId");
-    openapiFields.add("accountId");
-    openapiFields.add("usageLimit");
-    openapiFields.add("discountLimit");
-    openapiFields.add("reservationLimit");
-    openapiFields.add("startDate");
-    openapiFields.add("expiryDate");
-    openapiFields.add("numberOfCoupons");
-    openapiFields.add("couponSettings");
-    openapiFields.add("attributes");
-    openapiFields.add("batchId");
-    openapiFields.add("status");
-    openapiFields.add("createdAmount");
-    openapiFields.add("failCount");
-    openapiFields.add("errors");
-    openapiFields.add("createdBy");
-    openapiFields.add("communicated");
-    openapiFields.add("chunkExecutionCount");
-    openapiFields.add("chunkSize");
+    openapiFields = new HashSet<String>(Arrays.asList("id", "created", "campaignId", "applicationId", "accountId", "usageLimit", "discountLimit", "reservationLimit", "startDate", "expiryDate", "numberOfCoupons", "couponSettings", "attributes", "batchId", "status", "createdAmount", "failCount", "errors", "createdBy", "communicated", "chunkExecutionCount", "chunkSize"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("id");
-    openapiRequiredFields.add("created");
-    openapiRequiredFields.add("campaignId");
-    openapiRequiredFields.add("applicationId");
-    openapiRequiredFields.add("accountId");
-    openapiRequiredFields.add("usageLimit");
-    openapiRequiredFields.add("numberOfCoupons");
-    openapiRequiredFields.add("attributes");
-    openapiRequiredFields.add("batchId");
-    openapiRequiredFields.add("status");
-    openapiRequiredFields.add("createdAmount");
-    openapiRequiredFields.add("failCount");
-    openapiRequiredFields.add("errors");
-    openapiRequiredFields.add("createdBy");
-    openapiRequiredFields.add("communicated");
-    openapiRequiredFields.add("chunkExecutionCount");
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("id", "created", "campaignId", "applicationId", "accountId", "usageLimit", "numberOfCoupons", "attributes", "batchId", "status", "createdAmount", "failCount", "errors", "createdBy", "communicated", "chunkExecutionCount"));
   }
 
   /**
@@ -741,7 +705,7 @@ public class CouponCreationJob {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!CouponCreationJob.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in CouponCreationJob is not found in the empty JSON string", CouponCreationJob.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field(s) %s in CouponCreationJob is not found in the empty JSON string", CouponCreationJob.openapiRequiredFields.toString()));
         }
       }
 
@@ -749,14 +713,14 @@ public class CouponCreationJob {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!CouponCreationJob.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `CouponCreationJob` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(Locale.ROOT, "The field `%s` in the JSON string is not defined in the `CouponCreationJob` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : CouponCreationJob.openapiRequiredFields) {
         if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
@@ -765,16 +729,16 @@ public class CouponCreationJob {
         CodeGeneratorSettings.validateJsonElement(jsonObj.get("couponSettings"));
       }
       if (!jsonObj.get("batchId").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `batchId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("batchId").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `batchId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("batchId").toString()));
       }
       if (!jsonObj.get("status").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `status` to be a primitive type in the JSON string but got `%s`", jsonObj.get("status").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `status` to be a primitive type in the JSON string but got `%s`", jsonObj.get("status").toString()));
       }
       // ensure the required json array is present
       if (jsonObj.get("errors") == null) {
         throw new IllegalArgumentException("Expected the field `linkedContent` to be an array in the JSON string but got `null`");
       } else if (!jsonObj.get("errors").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `errors` to be an array in the JSON string but got `%s`", jsonObj.get("errors").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `errors` to be an array in the JSON string but got `%s`", jsonObj.get("errors").toString()));
       }
   }
 

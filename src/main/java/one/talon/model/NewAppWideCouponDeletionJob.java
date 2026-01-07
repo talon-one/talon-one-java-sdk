@@ -14,6 +14,7 @@
 package one.talon.model;
 
 import java.util.Objects;
+import java.util.Locale;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -45,13 +46,14 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.Locale;
 
 import one.talon.JSON;
 
 /**
  * NewAppWideCouponDeletionJob
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.13.0-SNAPSHOT")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.17.0")
 public class NewAppWideCouponDeletionJob {
   public static final String SERIALIZED_NAME_FILTERS = "filters";
   @SerializedName(SERIALIZED_NAME_FILTERS)
@@ -158,14 +160,10 @@ public class NewAppWideCouponDeletionJob {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("filters");
-    openapiFields.add("campaignids");
+    openapiFields = new HashSet<String>(Arrays.asList("filters", "campaignids"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("filters");
-    openapiRequiredFields.add("campaignids");
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("filters", "campaignids"));
   }
 
   /**
@@ -177,7 +175,7 @@ public class NewAppWideCouponDeletionJob {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!NewAppWideCouponDeletionJob.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in NewAppWideCouponDeletionJob is not found in the empty JSON string", NewAppWideCouponDeletionJob.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field(s) %s in NewAppWideCouponDeletionJob is not found in the empty JSON string", NewAppWideCouponDeletionJob.openapiRequiredFields.toString()));
         }
       }
 
@@ -185,14 +183,14 @@ public class NewAppWideCouponDeletionJob {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!NewAppWideCouponDeletionJob.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `NewAppWideCouponDeletionJob` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(Locale.ROOT, "The field `%s` in the JSON string is not defined in the `NewAppWideCouponDeletionJob` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : NewAppWideCouponDeletionJob.openapiRequiredFields) {
         if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
@@ -202,7 +200,7 @@ public class NewAppWideCouponDeletionJob {
       if (jsonObj.get("campaignids") == null) {
         throw new IllegalArgumentException("Expected the field `linkedContent` to be an array in the JSON string but got `null`");
       } else if (!jsonObj.get("campaignids").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `campaignids` to be an array in the JSON string but got `%s`", jsonObj.get("campaignids").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `campaignids` to be an array in the JSON string but got `%s`", jsonObj.get("campaignids").toString()));
       }
   }
 

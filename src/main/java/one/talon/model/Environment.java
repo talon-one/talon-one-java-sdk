@@ -14,6 +14,7 @@
 package one.talon.model;
 
 import java.util.Objects;
+import java.util.Locale;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -57,13 +58,14 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.Locale;
 
 import one.talon.JSON;
 
 /**
  * Environment
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.13.0-SNAPSHOT")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.17.0")
 public class Environment {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -622,33 +624,10 @@ public class Environment {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("id");
-    openapiFields.add("created");
-    openapiFields.add("applicationId");
-    openapiFields.add("slots");
-    openapiFields.add("functions");
-    openapiFields.add("templates");
-    openapiFields.add("variables");
-    openapiFields.add("giveawaysPools");
-    openapiFields.add("loyaltyPrograms");
-    openapiFields.add("achievements");
-    openapiFields.add("attributes");
-    openapiFields.add("additionalCosts");
-    openapiFields.add("audiences");
-    openapiFields.add("collections");
-    openapiFields.add("applicationCartItemFilters");
-    openapiFields.add("priceTypes");
+    openapiFields = new HashSet<String>(Arrays.asList("id", "created", "applicationId", "slots", "functions", "templates", "variables", "giveawaysPools", "loyaltyPrograms", "achievements", "attributes", "additionalCosts", "audiences", "collections", "applicationCartItemFilters", "priceTypes"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("id");
-    openapiRequiredFields.add("created");
-    openapiRequiredFields.add("applicationId");
-    openapiRequiredFields.add("slots");
-    openapiRequiredFields.add("functions");
-    openapiRequiredFields.add("templates");
-    openapiRequiredFields.add("variables");
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("id", "created", "applicationId", "slots", "functions", "templates", "variables"));
   }
 
   /**
@@ -660,7 +639,7 @@ public class Environment {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!Environment.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in Environment is not found in the empty JSON string", Environment.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field(s) %s in Environment is not found in the empty JSON string", Environment.openapiRequiredFields.toString()));
         }
       }
 
@@ -668,20 +647,20 @@ public class Environment {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!Environment.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `Environment` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(Locale.ROOT, "The field `%s` in the JSON string is not defined in the `Environment` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : Environment.openapiRequiredFields) {
         if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       // ensure the json data is an array
       if (!jsonObj.get("slots").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `slots` to be an array in the JSON string but got `%s`", jsonObj.get("slots").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `slots` to be an array in the JSON string but got `%s`", jsonObj.get("slots").toString()));
       }
 
       JsonArray jsonArrayslots = jsonObj.getAsJsonArray("slots");
@@ -691,7 +670,7 @@ public class Environment {
       };
       // ensure the json data is an array
       if (!jsonObj.get("functions").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `functions` to be an array in the JSON string but got `%s`", jsonObj.get("functions").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `functions` to be an array in the JSON string but got `%s`", jsonObj.get("functions").toString()));
       }
 
       JsonArray jsonArrayfunctions = jsonObj.getAsJsonArray("functions");
@@ -701,7 +680,7 @@ public class Environment {
       };
       // ensure the json data is an array
       if (!jsonObj.get("templates").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `templates` to be an array in the JSON string but got `%s`", jsonObj.get("templates").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `templates` to be an array in the JSON string but got `%s`", jsonObj.get("templates").toString()));
       }
 
       JsonArray jsonArraytemplates = jsonObj.getAsJsonArray("templates");
@@ -710,14 +689,14 @@ public class Environment {
         TemplateDef.validateJsonElement(jsonArraytemplates.get(i));
       };
       if (!jsonObj.get("variables").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `variables` to be a primitive type in the JSON string but got `%s`", jsonObj.get("variables").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `variables` to be a primitive type in the JSON string but got `%s`", jsonObj.get("variables").toString()));
       }
       if (jsonObj.get("giveawaysPools") != null && !jsonObj.get("giveawaysPools").isJsonNull()) {
         JsonArray jsonArraygiveawaysPools = jsonObj.getAsJsonArray("giveawaysPools");
         if (jsonArraygiveawaysPools != null) {
           // ensure the json data is an array
           if (!jsonObj.get("giveawaysPools").isJsonArray()) {
-            throw new IllegalArgumentException(String.format("Expected the field `giveawaysPools` to be an array in the JSON string but got `%s`", jsonObj.get("giveawaysPools").toString()));
+            throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `giveawaysPools` to be an array in the JSON string but got `%s`", jsonObj.get("giveawaysPools").toString()));
           }
 
           // validate the optional field `giveawaysPools` (array)
@@ -731,7 +710,7 @@ public class Environment {
         if (jsonArrayloyaltyPrograms != null) {
           // ensure the json data is an array
           if (!jsonObj.get("loyaltyPrograms").isJsonArray()) {
-            throw new IllegalArgumentException(String.format("Expected the field `loyaltyPrograms` to be an array in the JSON string but got `%s`", jsonObj.get("loyaltyPrograms").toString()));
+            throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `loyaltyPrograms` to be an array in the JSON string but got `%s`", jsonObj.get("loyaltyPrograms").toString()));
           }
 
           // validate the optional field `loyaltyPrograms` (array)
@@ -745,7 +724,7 @@ public class Environment {
         if (jsonArrayachievements != null) {
           // ensure the json data is an array
           if (!jsonObj.get("achievements").isJsonArray()) {
-            throw new IllegalArgumentException(String.format("Expected the field `achievements` to be an array in the JSON string but got `%s`", jsonObj.get("achievements").toString()));
+            throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `achievements` to be an array in the JSON string but got `%s`", jsonObj.get("achievements").toString()));
           }
 
           // validate the optional field `achievements` (array)
@@ -759,7 +738,7 @@ public class Environment {
         if (jsonArrayattributes != null) {
           // ensure the json data is an array
           if (!jsonObj.get("attributes").isJsonArray()) {
-            throw new IllegalArgumentException(String.format("Expected the field `attributes` to be an array in the JSON string but got `%s`", jsonObj.get("attributes").toString()));
+            throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `attributes` to be an array in the JSON string but got `%s`", jsonObj.get("attributes").toString()));
           }
 
           // validate the optional field `attributes` (array)
@@ -773,7 +752,7 @@ public class Environment {
         if (jsonArrayadditionalCosts != null) {
           // ensure the json data is an array
           if (!jsonObj.get("additionalCosts").isJsonArray()) {
-            throw new IllegalArgumentException(String.format("Expected the field `additionalCosts` to be an array in the JSON string but got `%s`", jsonObj.get("additionalCosts").toString()));
+            throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `additionalCosts` to be an array in the JSON string but got `%s`", jsonObj.get("additionalCosts").toString()));
           }
 
           // validate the optional field `additionalCosts` (array)
@@ -787,7 +766,7 @@ public class Environment {
         if (jsonArrayaudiences != null) {
           // ensure the json data is an array
           if (!jsonObj.get("audiences").isJsonArray()) {
-            throw new IllegalArgumentException(String.format("Expected the field `audiences` to be an array in the JSON string but got `%s`", jsonObj.get("audiences").toString()));
+            throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `audiences` to be an array in the JSON string but got `%s`", jsonObj.get("audiences").toString()));
           }
 
           // validate the optional field `audiences` (array)
@@ -801,7 +780,7 @@ public class Environment {
         if (jsonArraycollections != null) {
           // ensure the json data is an array
           if (!jsonObj.get("collections").isJsonArray()) {
-            throw new IllegalArgumentException(String.format("Expected the field `collections` to be an array in the JSON string but got `%s`", jsonObj.get("collections").toString()));
+            throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `collections` to be an array in the JSON string but got `%s`", jsonObj.get("collections").toString()));
           }
 
           // validate the optional field `collections` (array)
@@ -815,7 +794,7 @@ public class Environment {
         if (jsonArrayapplicationCartItemFilters != null) {
           // ensure the json data is an array
           if (!jsonObj.get("applicationCartItemFilters").isJsonArray()) {
-            throw new IllegalArgumentException(String.format("Expected the field `applicationCartItemFilters` to be an array in the JSON string but got `%s`", jsonObj.get("applicationCartItemFilters").toString()));
+            throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `applicationCartItemFilters` to be an array in the JSON string but got `%s`", jsonObj.get("applicationCartItemFilters").toString()));
           }
 
           // validate the optional field `applicationCartItemFilters` (array)
@@ -829,7 +808,7 @@ public class Environment {
         if (jsonArraypriceTypes != null) {
           // ensure the json data is an array
           if (!jsonObj.get("priceTypes").isJsonArray()) {
-            throw new IllegalArgumentException(String.format("Expected the field `priceTypes` to be an array in the JSON string but got `%s`", jsonObj.get("priceTypes").toString()));
+            throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `priceTypes` to be an array in the JSON string but got `%s`", jsonObj.get("priceTypes").toString()));
           }
 
           // validate the optional field `priceTypes` (array)

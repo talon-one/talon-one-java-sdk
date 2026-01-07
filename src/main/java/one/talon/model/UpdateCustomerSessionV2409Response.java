@@ -14,6 +14,7 @@
 package one.talon.model;
 
 import java.util.Objects;
+import java.util.Locale;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -44,13 +45,14 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.Locale;
 
 import one.talon.JSON;
 
 /**
  * UpdateCustomerSessionV2409Response
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.13.0-SNAPSHOT")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.17.0")
 public class UpdateCustomerSessionV2409Response {
   public static final String SERIALIZED_NAME_MESSAGE = "message";
   @SerializedName(SERIALIZED_NAME_MESSAGE)
@@ -183,13 +185,10 @@ public class UpdateCustomerSessionV2409Response {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("message");
-    openapiFields.add("errors");
-    openapiFields.add("StatusCode");
+    openapiFields = new HashSet<String>(Arrays.asList("message", "errors", "StatusCode"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
   /**
@@ -201,7 +200,7 @@ public class UpdateCustomerSessionV2409Response {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!UpdateCustomerSessionV2409Response.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in UpdateCustomerSessionV2409Response is not found in the empty JSON string", UpdateCustomerSessionV2409Response.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field(s) %s in UpdateCustomerSessionV2409Response is not found in the empty JSON string", UpdateCustomerSessionV2409Response.openapiRequiredFields.toString()));
         }
       }
 
@@ -209,16 +208,16 @@ public class UpdateCustomerSessionV2409Response {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!UpdateCustomerSessionV2409Response.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `UpdateCustomerSessionV2409Response` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(Locale.ROOT, "The field `%s` in the JSON string is not defined in the `UpdateCustomerSessionV2409Response` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("message") != null && !jsonObj.get("message").isJsonNull()) && !jsonObj.get("message").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `message` to be a primitive type in the JSON string but got `%s`", jsonObj.get("message").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `message` to be a primitive type in the JSON string but got `%s`", jsonObj.get("message").toString()));
       }
       // ensure the optional json data is an array if present
       if (jsonObj.get("errors") != null && !jsonObj.get("errors").isJsonNull() && !jsonObj.get("errors").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `errors` to be an array in the JSON string but got `%s`", jsonObj.get("errors").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `errors` to be an array in the JSON string but got `%s`", jsonObj.get("errors").toString()));
       }
   }
 

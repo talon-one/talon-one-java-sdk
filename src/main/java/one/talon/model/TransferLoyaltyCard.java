@@ -14,6 +14,7 @@
 package one.talon.model;
 
 import java.util.Objects;
+import java.util.Locale;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -42,13 +43,14 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.Locale;
 
 import one.talon.JSON;
 
 /**
  * TransferLoyaltyCard
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.13.0-SNAPSHOT")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.17.0")
 public class TransferLoyaltyCard {
   public static final String SERIALIZED_NAME_NEW_CARD_IDENTIFIER = "newCardIdentifier";
   @SerializedName(SERIALIZED_NAME_NEW_CARD_IDENTIFIER)
@@ -147,13 +149,10 @@ public class TransferLoyaltyCard {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("newCardIdentifier");
-    openapiFields.add("blockReason");
+    openapiFields = new HashSet<String>(Arrays.asList("newCardIdentifier", "blockReason"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("newCardIdentifier");
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("newCardIdentifier"));
   }
 
   /**
@@ -165,7 +164,7 @@ public class TransferLoyaltyCard {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!TransferLoyaltyCard.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in TransferLoyaltyCard is not found in the empty JSON string", TransferLoyaltyCard.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field(s) %s in TransferLoyaltyCard is not found in the empty JSON string", TransferLoyaltyCard.openapiRequiredFields.toString()));
         }
       }
 
@@ -173,22 +172,22 @@ public class TransferLoyaltyCard {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!TransferLoyaltyCard.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `TransferLoyaltyCard` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(Locale.ROOT, "The field `%s` in the JSON string is not defined in the `TransferLoyaltyCard` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : TransferLoyaltyCard.openapiRequiredFields) {
         if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if (!jsonObj.get("newCardIdentifier").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `newCardIdentifier` to be a primitive type in the JSON string but got `%s`", jsonObj.get("newCardIdentifier").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `newCardIdentifier` to be a primitive type in the JSON string but got `%s`", jsonObj.get("newCardIdentifier").toString()));
       }
       if ((jsonObj.get("blockReason") != null && !jsonObj.get("blockReason").isJsonNull()) && !jsonObj.get("blockReason").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `blockReason` to be a primitive type in the JSON string but got `%s`", jsonObj.get("blockReason").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `blockReason` to be a primitive type in the JSON string but got `%s`", jsonObj.get("blockReason").toString()));
       }
   }
 

@@ -14,6 +14,7 @@
 package one.talon.model;
 
 import java.util.Objects;
+import java.util.Locale;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -45,13 +46,14 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.Locale;
 
 import one.talon.JSON;
 
 /**
  * CouponsNotificationData
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.13.0-SNAPSHOT")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.17.0")
 public class CouponsNotificationData {
   public static final String SERIALIZED_NAME_TYPE_OF_CHANGE = "TypeOfChange";
   @SerializedName(SERIALIZED_NAME_TYPE_OF_CHANGE)
@@ -314,20 +316,10 @@ public class CouponsNotificationData {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("TypeOfChange");
-    openapiFields.add("Operation");
-    openapiFields.add("EmployeeName");
-    openapiFields.add("data");
-    openapiFields.add("totalResultSize");
-    openapiFields.add("NotificationType");
+    openapiFields = new HashSet<String>(Arrays.asList("TypeOfChange", "Operation", "EmployeeName", "data", "totalResultSize", "NotificationType"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("TypeOfChange");
-    openapiRequiredFields.add("Operation");
-    openapiRequiredFields.add("EmployeeName");
-    openapiRequiredFields.add("NotificationType");
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("TypeOfChange", "Operation", "EmployeeName", "NotificationType"));
   }
 
   /**
@@ -339,7 +331,7 @@ public class CouponsNotificationData {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!CouponsNotificationData.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in CouponsNotificationData is not found in the empty JSON string", CouponsNotificationData.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field(s) %s in CouponsNotificationData is not found in the empty JSON string", CouponsNotificationData.openapiRequiredFields.toString()));
         }
       }
 
@@ -347,32 +339,32 @@ public class CouponsNotificationData {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!CouponsNotificationData.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `CouponsNotificationData` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(Locale.ROOT, "The field `%s` in the JSON string is not defined in the `CouponsNotificationData` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : CouponsNotificationData.openapiRequiredFields) {
         if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if (!jsonObj.get("TypeOfChange").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `TypeOfChange` to be a primitive type in the JSON string but got `%s`", jsonObj.get("TypeOfChange").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `TypeOfChange` to be a primitive type in the JSON string but got `%s`", jsonObj.get("TypeOfChange").toString()));
       }
       if (!jsonObj.get("Operation").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `Operation` to be a primitive type in the JSON string but got `%s`", jsonObj.get("Operation").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `Operation` to be a primitive type in the JSON string but got `%s`", jsonObj.get("Operation").toString()));
       }
       if (!jsonObj.get("EmployeeName").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `EmployeeName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("EmployeeName").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `EmployeeName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("EmployeeName").toString()));
       }
       if (jsonObj.get("data") != null && !jsonObj.get("data").isJsonNull()) {
         JsonArray jsonArraydata = jsonObj.getAsJsonArray("data");
         if (jsonArraydata != null) {
           // ensure the json data is an array
           if (!jsonObj.get("data").isJsonArray()) {
-            throw new IllegalArgumentException(String.format("Expected the field `data` to be an array in the JSON string but got `%s`", jsonObj.get("data").toString()));
+            throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `data` to be an array in the JSON string but got `%s`", jsonObj.get("data").toString()));
           }
 
           // validate the optional field `data` (array)
@@ -382,7 +374,7 @@ public class CouponsNotificationData {
         }
       }
       if (!jsonObj.get("NotificationType").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `NotificationType` to be a primitive type in the JSON string but got `%s`", jsonObj.get("NotificationType").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `NotificationType` to be a primitive type in the JSON string but got `%s`", jsonObj.get("NotificationType").toString()));
       }
       // validate the required field `NotificationType`
       NotificationTypeEnum.validateJsonElement(jsonObj.get("NotificationType"));

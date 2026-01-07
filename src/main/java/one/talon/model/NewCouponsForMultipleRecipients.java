@@ -14,6 +14,7 @@
 package one.talon.model;
 
 import java.util.Objects;
+import java.util.Locale;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -46,13 +47,14 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.Locale;
 
 import one.talon.JSON;
 
 /**
  * NewCouponsForMultipleRecipients
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.13.0-SNAPSHOT")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.17.0")
 public class NewCouponsForMultipleRecipients {
   public static final String SERIALIZED_NAME_USAGE_LIMIT = "usageLimit";
   @SerializedName(SERIALIZED_NAME_USAGE_LIMIT)
@@ -355,20 +357,10 @@ public class NewCouponsForMultipleRecipients {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("usageLimit");
-    openapiFields.add("discountLimit");
-    openapiFields.add("reservationLimit");
-    openapiFields.add("startDate");
-    openapiFields.add("expiryDate");
-    openapiFields.add("attributes");
-    openapiFields.add("recipientsIntegrationIds");
-    openapiFields.add("validCharacters");
-    openapiFields.add("couponPattern");
+    openapiFields = new HashSet<String>(Arrays.asList("usageLimit", "discountLimit", "reservationLimit", "startDate", "expiryDate", "attributes", "recipientsIntegrationIds", "validCharacters", "couponPattern"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("recipientsIntegrationIds");
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("recipientsIntegrationIds"));
   }
 
   /**
@@ -380,7 +372,7 @@ public class NewCouponsForMultipleRecipients {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!NewCouponsForMultipleRecipients.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in NewCouponsForMultipleRecipients is not found in the empty JSON string", NewCouponsForMultipleRecipients.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field(s) %s in NewCouponsForMultipleRecipients is not found in the empty JSON string", NewCouponsForMultipleRecipients.openapiRequiredFields.toString()));
         }
       }
 
@@ -388,14 +380,14 @@ public class NewCouponsForMultipleRecipients {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!NewCouponsForMultipleRecipients.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `NewCouponsForMultipleRecipients` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(Locale.ROOT, "The field `%s` in the JSON string is not defined in the `NewCouponsForMultipleRecipients` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : NewCouponsForMultipleRecipients.openapiRequiredFields) {
         if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
@@ -403,14 +395,14 @@ public class NewCouponsForMultipleRecipients {
       if (jsonObj.get("recipientsIntegrationIds") == null) {
         throw new IllegalArgumentException("Expected the field `linkedContent` to be an array in the JSON string but got `null`");
       } else if (!jsonObj.get("recipientsIntegrationIds").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `recipientsIntegrationIds` to be an array in the JSON string but got `%s`", jsonObj.get("recipientsIntegrationIds").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `recipientsIntegrationIds` to be an array in the JSON string but got `%s`", jsonObj.get("recipientsIntegrationIds").toString()));
       }
       // ensure the optional json data is an array if present
       if (jsonObj.get("validCharacters") != null && !jsonObj.get("validCharacters").isJsonNull() && !jsonObj.get("validCharacters").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `validCharacters` to be an array in the JSON string but got `%s`", jsonObj.get("validCharacters").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `validCharacters` to be an array in the JSON string but got `%s`", jsonObj.get("validCharacters").toString()));
       }
       if ((jsonObj.get("couponPattern") != null && !jsonObj.get("couponPattern").isJsonNull()) && !jsonObj.get("couponPattern").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `couponPattern` to be a primitive type in the JSON string but got `%s`", jsonObj.get("couponPattern").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `couponPattern` to be a primitive type in the JSON string but got `%s`", jsonObj.get("couponPattern").toString()));
       }
   }
 

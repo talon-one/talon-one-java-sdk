@@ -14,6 +14,7 @@
 package one.talon.model;
 
 import java.util.Objects;
+import java.util.Locale;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -46,13 +47,14 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.Locale;
 
 import one.talon.JSON;
 
 /**
  * Customer-specific information about loyalty points.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.13.0-SNAPSHOT")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.17.0")
 public class LoyaltyProgramLedgers {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -263,20 +265,10 @@ public class LoyaltyProgramLedgers {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("id");
-    openapiFields.add("title");
-    openapiFields.add("name");
-    openapiFields.add("joinDate");
-    openapiFields.add("ledger");
-    openapiFields.add("subLedgers");
+    openapiFields = new HashSet<String>(Arrays.asList("id", "title", "name", "joinDate", "ledger", "subLedgers"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("id");
-    openapiRequiredFields.add("title");
-    openapiRequiredFields.add("name");
-    openapiRequiredFields.add("ledger");
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("id", "title", "name", "ledger"));
   }
 
   /**
@@ -288,7 +280,7 @@ public class LoyaltyProgramLedgers {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!LoyaltyProgramLedgers.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in LoyaltyProgramLedgers is not found in the empty JSON string", LoyaltyProgramLedgers.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field(s) %s in LoyaltyProgramLedgers is not found in the empty JSON string", LoyaltyProgramLedgers.openapiRequiredFields.toString()));
         }
       }
 
@@ -296,22 +288,22 @@ public class LoyaltyProgramLedgers {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!LoyaltyProgramLedgers.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `LoyaltyProgramLedgers` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(Locale.ROOT, "The field `%s` in the JSON string is not defined in the `LoyaltyProgramLedgers` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : LoyaltyProgramLedgers.openapiRequiredFields) {
         if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if (!jsonObj.get("title").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `title` to be a primitive type in the JSON string but got `%s`", jsonObj.get("title").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `title` to be a primitive type in the JSON string but got `%s`", jsonObj.get("title").toString()));
       }
       if (!jsonObj.get("name").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
       }
       // validate the required field `ledger`
       LedgerInfo.validateJsonElement(jsonObj.get("ledger"));

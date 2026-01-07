@@ -14,6 +14,7 @@
 package one.talon.model;
 
 import java.util.Objects;
+import java.util.Locale;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -45,13 +46,14 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.Locale;
 
 import one.talon.JSON;
 
 /**
  * CampaignSetBranchNode
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.13.0-SNAPSHOT")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.17.0")
 public class CampaignSetBranchNode {
   /**
    * Indicates the node type.
@@ -550,27 +552,10 @@ public class CampaignSetBranchNode {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("type");
-    openapiFields.add("name");
-    openapiFields.add("operator");
-    openapiFields.add("elements");
-    openapiFields.add("groupId");
-    openapiFields.add("locked");
-    openapiFields.add("description");
-    openapiFields.add("evaluationMode");
-    openapiFields.add("evaluationScope");
+    openapiFields = new HashSet<String>(Arrays.asList("type", "name", "operator", "elements", "groupId", "locked", "description", "evaluationMode", "evaluationScope"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("type");
-    openapiRequiredFields.add("name");
-    openapiRequiredFields.add("operator");
-    openapiRequiredFields.add("elements");
-    openapiRequiredFields.add("groupId");
-    openapiRequiredFields.add("locked");
-    openapiRequiredFields.add("evaluationMode");
-    openapiRequiredFields.add("evaluationScope");
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("type", "name", "operator", "elements", "groupId", "locked", "evaluationMode", "evaluationScope"));
   }
 
   /**
@@ -582,7 +567,7 @@ public class CampaignSetBranchNode {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!CampaignSetBranchNode.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in CampaignSetBranchNode is not found in the empty JSON string", CampaignSetBranchNode.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field(s) %s in CampaignSetBranchNode is not found in the empty JSON string", CampaignSetBranchNode.openapiRequiredFields.toString()));
         }
       }
 
@@ -590,33 +575,33 @@ public class CampaignSetBranchNode {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!CampaignSetBranchNode.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `CampaignSetBranchNode` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(Locale.ROOT, "The field `%s` in the JSON string is not defined in the `CampaignSetBranchNode` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : CampaignSetBranchNode.openapiRequiredFields) {
         if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if (!jsonObj.get("type").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("type").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("type").toString()));
       }
       // validate the required field `type`
       TypeEnum.validateJsonElement(jsonObj.get("type"));
       if (!jsonObj.get("name").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
       }
       if (!jsonObj.get("operator").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `operator` to be a primitive type in the JSON string but got `%s`", jsonObj.get("operator").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `operator` to be a primitive type in the JSON string but got `%s`", jsonObj.get("operator").toString()));
       }
       // validate the required field `operator`
       OperatorEnum.validateJsonElement(jsonObj.get("operator"));
       // ensure the json data is an array
       if (!jsonObj.get("elements").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `elements` to be an array in the JSON string but got `%s`", jsonObj.get("elements").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `elements` to be an array in the JSON string but got `%s`", jsonObj.get("elements").toString()));
       }
 
       JsonArray jsonArrayelements = jsonObj.getAsJsonArray("elements");
@@ -625,15 +610,15 @@ public class CampaignSetBranchNode {
         CampaignSetNode.validateJsonElement(jsonArrayelements.get(i));
       };
       if ((jsonObj.get("description") != null && !jsonObj.get("description").isJsonNull()) && !jsonObj.get("description").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `description` to be a primitive type in the JSON string but got `%s`", jsonObj.get("description").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `description` to be a primitive type in the JSON string but got `%s`", jsonObj.get("description").toString()));
       }
       if (!jsonObj.get("evaluationMode").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `evaluationMode` to be a primitive type in the JSON string but got `%s`", jsonObj.get("evaluationMode").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `evaluationMode` to be a primitive type in the JSON string but got `%s`", jsonObj.get("evaluationMode").toString()));
       }
       // validate the required field `evaluationMode`
       EvaluationModeEnum.validateJsonElement(jsonObj.get("evaluationMode"));
       if (!jsonObj.get("evaluationScope").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `evaluationScope` to be a primitive type in the JSON string but got `%s`", jsonObj.get("evaluationScope").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `evaluationScope` to be a primitive type in the JSON string but got `%s`", jsonObj.get("evaluationScope").toString()));
       }
       // validate the required field `evaluationScope`
       EvaluationScopeEnum.validateJsonElement(jsonObj.get("evaluationScope"));

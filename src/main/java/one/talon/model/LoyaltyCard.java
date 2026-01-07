@@ -14,6 +14,7 @@
 package one.talon.model;
 
 import java.util.Objects;
+import java.util.Locale;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -49,13 +50,14 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.Locale;
 
 import one.talon.JSON;
 
 /**
  * LoyaltyCard
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.13.0-SNAPSHOT")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.17.0")
 public class LoyaltyCard {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -535,32 +537,10 @@ public class LoyaltyCard {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("id");
-    openapiFields.add("created");
-    openapiFields.add("programID");
-    openapiFields.add("programName");
-    openapiFields.add("programTitle");
-    openapiFields.add("status");
-    openapiFields.add("blockReason");
-    openapiFields.add("identifier");
-    openapiFields.add("usersPerCardLimit");
-    openapiFields.add("profiles");
-    openapiFields.add("ledger");
-    openapiFields.add("subledgers");
-    openapiFields.add("modified");
-    openapiFields.add("oldCardIdentifier");
-    openapiFields.add("newCardIdentifier");
-    openapiFields.add("batchId");
+    openapiFields = new HashSet<String>(Arrays.asList("id", "created", "programID", "programName", "programTitle", "status", "blockReason", "identifier", "usersPerCardLimit", "profiles", "ledger", "subledgers", "modified", "oldCardIdentifier", "newCardIdentifier", "batchId"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("id");
-    openapiRequiredFields.add("created");
-    openapiRequiredFields.add("programID");
-    openapiRequiredFields.add("status");
-    openapiRequiredFields.add("identifier");
-    openapiRequiredFields.add("usersPerCardLimit");
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("id", "created", "programID", "status", "identifier", "usersPerCardLimit"));
   }
 
   /**
@@ -572,7 +552,7 @@ public class LoyaltyCard {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!LoyaltyCard.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in LoyaltyCard is not found in the empty JSON string", LoyaltyCard.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field(s) %s in LoyaltyCard is not found in the empty JSON string", LoyaltyCard.openapiRequiredFields.toString()));
         }
       }
 
@@ -580,38 +560,38 @@ public class LoyaltyCard {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!LoyaltyCard.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `LoyaltyCard` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(Locale.ROOT, "The field `%s` in the JSON string is not defined in the `LoyaltyCard` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : LoyaltyCard.openapiRequiredFields) {
         if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("programName") != null && !jsonObj.get("programName").isJsonNull()) && !jsonObj.get("programName").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `programName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("programName").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `programName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("programName").toString()));
       }
       if ((jsonObj.get("programTitle") != null && !jsonObj.get("programTitle").isJsonNull()) && !jsonObj.get("programTitle").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `programTitle` to be a primitive type in the JSON string but got `%s`", jsonObj.get("programTitle").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `programTitle` to be a primitive type in the JSON string but got `%s`", jsonObj.get("programTitle").toString()));
       }
       if (!jsonObj.get("status").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `status` to be a primitive type in the JSON string but got `%s`", jsonObj.get("status").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `status` to be a primitive type in the JSON string but got `%s`", jsonObj.get("status").toString()));
       }
       if ((jsonObj.get("blockReason") != null && !jsonObj.get("blockReason").isJsonNull()) && !jsonObj.get("blockReason").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `blockReason` to be a primitive type in the JSON string but got `%s`", jsonObj.get("blockReason").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `blockReason` to be a primitive type in the JSON string but got `%s`", jsonObj.get("blockReason").toString()));
       }
       if (!jsonObj.get("identifier").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `identifier` to be a primitive type in the JSON string but got `%s`", jsonObj.get("identifier").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `identifier` to be a primitive type in the JSON string but got `%s`", jsonObj.get("identifier").toString()));
       }
       if (jsonObj.get("profiles") != null && !jsonObj.get("profiles").isJsonNull()) {
         JsonArray jsonArrayprofiles = jsonObj.getAsJsonArray("profiles");
         if (jsonArrayprofiles != null) {
           // ensure the json data is an array
           if (!jsonObj.get("profiles").isJsonArray()) {
-            throw new IllegalArgumentException(String.format("Expected the field `profiles` to be an array in the JSON string but got `%s`", jsonObj.get("profiles").toString()));
+            throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `profiles` to be an array in the JSON string but got `%s`", jsonObj.get("profiles").toString()));
           }
 
           // validate the optional field `profiles` (array)
@@ -625,13 +605,13 @@ public class LoyaltyCard {
         LedgerInfo.validateJsonElement(jsonObj.get("ledger"));
       }
       if ((jsonObj.get("oldCardIdentifier") != null && !jsonObj.get("oldCardIdentifier").isJsonNull()) && !jsonObj.get("oldCardIdentifier").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `oldCardIdentifier` to be a primitive type in the JSON string but got `%s`", jsonObj.get("oldCardIdentifier").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `oldCardIdentifier` to be a primitive type in the JSON string but got `%s`", jsonObj.get("oldCardIdentifier").toString()));
       }
       if ((jsonObj.get("newCardIdentifier") != null && !jsonObj.get("newCardIdentifier").isJsonNull()) && !jsonObj.get("newCardIdentifier").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `newCardIdentifier` to be a primitive type in the JSON string but got `%s`", jsonObj.get("newCardIdentifier").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `newCardIdentifier` to be a primitive type in the JSON string but got `%s`", jsonObj.get("newCardIdentifier").toString()));
       }
       if ((jsonObj.get("batchId") != null && !jsonObj.get("batchId").isJsonNull()) && !jsonObj.get("batchId").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `batchId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("batchId").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `batchId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("batchId").toString()));
       }
   }
 

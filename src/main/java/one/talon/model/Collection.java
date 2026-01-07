@@ -14,6 +14,7 @@
 package one.talon.model;
 
 import java.util.Objects;
+import java.util.Locale;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -45,13 +46,14 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.Locale;
 
 import one.talon.JSON;
 
 /**
  * Collection
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.13.0-SNAPSHOT")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.17.0")
 public class Collection {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -426,28 +428,10 @@ public class Collection {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("id");
-    openapiFields.add("created");
-    openapiFields.add("accountId");
-    openapiFields.add("modified");
-    openapiFields.add("description");
-    openapiFields.add("subscribedApplicationsIds");
-    openapiFields.add("name");
-    openapiFields.add("modifiedBy");
-    openapiFields.add("createdBy");
-    openapiFields.add("applicationId");
-    openapiFields.add("campaignId");
-    openapiFields.add("payload");
+    openapiFields = new HashSet<String>(Arrays.asList("id", "created", "accountId", "modified", "description", "subscribedApplicationsIds", "name", "modifiedBy", "createdBy", "applicationId", "campaignId", "payload"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("id");
-    openapiRequiredFields.add("created");
-    openapiRequiredFields.add("accountId");
-    openapiRequiredFields.add("modified");
-    openapiRequiredFields.add("name");
-    openapiRequiredFields.add("createdBy");
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("id", "created", "accountId", "modified", "name", "createdBy"));
   }
 
   /**
@@ -459,7 +443,7 @@ public class Collection {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!Collection.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in Collection is not found in the empty JSON string", Collection.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field(s) %s in Collection is not found in the empty JSON string", Collection.openapiRequiredFields.toString()));
         }
       }
 
@@ -467,30 +451,30 @@ public class Collection {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!Collection.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `Collection` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(Locale.ROOT, "The field `%s` in the JSON string is not defined in the `Collection` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : Collection.openapiRequiredFields) {
         if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("description") != null && !jsonObj.get("description").isJsonNull()) && !jsonObj.get("description").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `description` to be a primitive type in the JSON string but got `%s`", jsonObj.get("description").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `description` to be a primitive type in the JSON string but got `%s`", jsonObj.get("description").toString()));
       }
       // ensure the optional json data is an array if present
       if (jsonObj.get("subscribedApplicationsIds") != null && !jsonObj.get("subscribedApplicationsIds").isJsonNull() && !jsonObj.get("subscribedApplicationsIds").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `subscribedApplicationsIds` to be an array in the JSON string but got `%s`", jsonObj.get("subscribedApplicationsIds").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `subscribedApplicationsIds` to be an array in the JSON string but got `%s`", jsonObj.get("subscribedApplicationsIds").toString()));
       }
       if (!jsonObj.get("name").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
       }
       // ensure the optional json data is an array if present
       if (jsonObj.get("payload") != null && !jsonObj.get("payload").isJsonNull() && !jsonObj.get("payload").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `payload` to be an array in the JSON string but got `%s`", jsonObj.get("payload").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `payload` to be an array in the JSON string but got `%s`", jsonObj.get("payload").toString()));
       }
   }
 

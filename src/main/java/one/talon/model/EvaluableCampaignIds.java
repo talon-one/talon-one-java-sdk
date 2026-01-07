@@ -14,6 +14,7 @@
 package one.talon.model;
 
 import java.util.Objects;
+import java.util.Locale;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -44,13 +45,14 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.Locale;
 
 import one.talon.JSON;
 
 /**
  * EvaluableCampaignIds
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.13.0-SNAPSHOT")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.17.0")
 public class EvaluableCampaignIds {
   public static final String SERIALIZED_NAME_EVALUABLE_CAMPAIGN_IDS = "evaluableCampaignIds";
   @SerializedName(SERIALIZED_NAME_EVALUABLE_CAMPAIGN_IDS)
@@ -131,11 +133,10 @@ public class EvaluableCampaignIds {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("evaluableCampaignIds");
+    openapiFields = new HashSet<String>(Arrays.asList("evaluableCampaignIds"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
   /**
@@ -147,7 +148,7 @@ public class EvaluableCampaignIds {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!EvaluableCampaignIds.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in EvaluableCampaignIds is not found in the empty JSON string", EvaluableCampaignIds.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field(s) %s in EvaluableCampaignIds is not found in the empty JSON string", EvaluableCampaignIds.openapiRequiredFields.toString()));
         }
       }
 
@@ -155,13 +156,13 @@ public class EvaluableCampaignIds {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!EvaluableCampaignIds.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `EvaluableCampaignIds` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(Locale.ROOT, "The field `%s` in the JSON string is not defined in the `EvaluableCampaignIds` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       // ensure the optional json data is an array if present
       if (jsonObj.get("evaluableCampaignIds") != null && !jsonObj.get("evaluableCampaignIds").isJsonNull() && !jsonObj.get("evaluableCampaignIds").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `evaluableCampaignIds` to be an array in the JSON string but got `%s`", jsonObj.get("evaluableCampaignIds").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `evaluableCampaignIds` to be an array in the JSON string but got `%s`", jsonObj.get("evaluableCampaignIds").toString()));
       }
   }
 

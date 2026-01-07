@@ -14,6 +14,7 @@
 package one.talon.model;
 
 import java.util.Objects;
+import java.util.Locale;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -42,13 +43,14 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.Locale;
 
 import one.talon.JSON;
 
 /**
  * FeaturesFeed
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.13.0-SNAPSHOT")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.17.0")
 public class FeaturesFeed {
   public static final String SERIALIZED_NAME_TITLE = "title";
   @SerializedName(SERIALIZED_NAME_TITLE)
@@ -147,12 +149,10 @@ public class FeaturesFeed {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("title");
-    openapiFields.add("pubDate");
+    openapiFields = new HashSet<String>(Arrays.asList("title", "pubDate"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
   /**
@@ -164,7 +164,7 @@ public class FeaturesFeed {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!FeaturesFeed.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in FeaturesFeed is not found in the empty JSON string", FeaturesFeed.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field(s) %s in FeaturesFeed is not found in the empty JSON string", FeaturesFeed.openapiRequiredFields.toString()));
         }
       }
 
@@ -172,15 +172,15 @@ public class FeaturesFeed {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!FeaturesFeed.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `FeaturesFeed` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(Locale.ROOT, "The field `%s` in the JSON string is not defined in the `FeaturesFeed` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("title") != null && !jsonObj.get("title").isJsonNull()) && !jsonObj.get("title").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `title` to be a primitive type in the JSON string but got `%s`", jsonObj.get("title").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `title` to be a primitive type in the JSON string but got `%s`", jsonObj.get("title").toString()));
       }
       if ((jsonObj.get("pubDate") != null && !jsonObj.get("pubDate").isJsonNull()) && !jsonObj.get("pubDate").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `pubDate` to be a primitive type in the JSON string but got `%s`", jsonObj.get("pubDate").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `pubDate` to be a primitive type in the JSON string but got `%s`", jsonObj.get("pubDate").toString()));
       }
   }
 

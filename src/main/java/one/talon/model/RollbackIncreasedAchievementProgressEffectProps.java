@@ -14,6 +14,7 @@
 package one.talon.model;
 
 import java.util.Objects;
+import java.util.Locale;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -43,13 +44,14 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.Locale;
 
 import one.talon.JSON;
 
 /**
  * The properties specific to the \&quot;rollbackIncreasedAchievementProgress\&quot; effect. This gets triggered whenever a closed session where the &#x60;increaseAchievementProgress&#x60; effect was triggered is cancelled. This is applicable only when the customer has not completed the achievement.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.13.0-SNAPSHOT")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.17.0")
 public class RollbackIncreasedAchievementProgressEffectProps {
   public static final String SERIALIZED_NAME_ACHIEVEMENT_ID = "achievementId";
   @SerializedName(SERIALIZED_NAME_ACHIEVEMENT_ID)
@@ -252,22 +254,10 @@ public class RollbackIncreasedAchievementProgressEffectProps {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("achievementId");
-    openapiFields.add("achievementName");
-    openapiFields.add("progressTrackerId");
-    openapiFields.add("decreaseProgressBy");
-    openapiFields.add("currentProgress");
-    openapiFields.add("target");
+    openapiFields = new HashSet<String>(Arrays.asList("achievementId", "achievementName", "progressTrackerId", "decreaseProgressBy", "currentProgress", "target"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("achievementId");
-    openapiRequiredFields.add("achievementName");
-    openapiRequiredFields.add("progressTrackerId");
-    openapiRequiredFields.add("decreaseProgressBy");
-    openapiRequiredFields.add("currentProgress");
-    openapiRequiredFields.add("target");
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("achievementId", "achievementName", "progressTrackerId", "decreaseProgressBy", "currentProgress", "target"));
   }
 
   /**
@@ -279,7 +269,7 @@ public class RollbackIncreasedAchievementProgressEffectProps {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!RollbackIncreasedAchievementProgressEffectProps.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in RollbackIncreasedAchievementProgressEffectProps is not found in the empty JSON string", RollbackIncreasedAchievementProgressEffectProps.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field(s) %s in RollbackIncreasedAchievementProgressEffectProps is not found in the empty JSON string", RollbackIncreasedAchievementProgressEffectProps.openapiRequiredFields.toString()));
         }
       }
 
@@ -287,19 +277,19 @@ public class RollbackIncreasedAchievementProgressEffectProps {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!RollbackIncreasedAchievementProgressEffectProps.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `RollbackIncreasedAchievementProgressEffectProps` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(Locale.ROOT, "The field `%s` in the JSON string is not defined in the `RollbackIncreasedAchievementProgressEffectProps` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : RollbackIncreasedAchievementProgressEffectProps.openapiRequiredFields) {
         if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if (!jsonObj.get("achievementName").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `achievementName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("achievementName").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `achievementName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("achievementName").toString()));
       }
   }
 

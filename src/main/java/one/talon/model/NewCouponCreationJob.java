@@ -14,6 +14,7 @@
 package one.talon.model;
 
 import java.util.Objects;
+import java.util.Locale;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -45,13 +46,14 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.Locale;
 
 import one.talon.JSON;
 
 /**
  * NewCouponCreationJob
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.13.0-SNAPSHOT")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.17.0")
 public class NewCouponCreationJob {
   public static final String SERIALIZED_NAME_USAGE_LIMIT = "usageLimit";
   @SerializedName(SERIALIZED_NAME_USAGE_LIMIT)
@@ -314,20 +316,10 @@ public class NewCouponCreationJob {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("usageLimit");
-    openapiFields.add("discountLimit");
-    openapiFields.add("reservationLimit");
-    openapiFields.add("startDate");
-    openapiFields.add("expiryDate");
-    openapiFields.add("numberOfCoupons");
-    openapiFields.add("couponSettings");
-    openapiFields.add("attributes");
+    openapiFields = new HashSet<String>(Arrays.asList("usageLimit", "discountLimit", "reservationLimit", "startDate", "expiryDate", "numberOfCoupons", "couponSettings", "attributes"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("numberOfCoupons");
-    openapiRequiredFields.add("attributes");
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("numberOfCoupons", "attributes"));
   }
 
   /**
@@ -339,7 +331,7 @@ public class NewCouponCreationJob {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!NewCouponCreationJob.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in NewCouponCreationJob is not found in the empty JSON string", NewCouponCreationJob.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field(s) %s in NewCouponCreationJob is not found in the empty JSON string", NewCouponCreationJob.openapiRequiredFields.toString()));
         }
       }
 
@@ -347,14 +339,14 @@ public class NewCouponCreationJob {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!NewCouponCreationJob.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `NewCouponCreationJob` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(Locale.ROOT, "The field `%s` in the JSON string is not defined in the `NewCouponCreationJob` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : NewCouponCreationJob.openapiRequiredFields) {
         if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();

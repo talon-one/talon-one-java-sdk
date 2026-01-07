@@ -14,6 +14,7 @@
 package one.talon.model;
 
 import java.util.Objects;
+import java.util.Locale;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -45,13 +46,14 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.Locale;
 
 import one.talon.JSON;
 
 /**
  * GetLoyaltyCardTransactions200Response
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.13.0-SNAPSHOT")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.17.0")
 public class GetLoyaltyCardTransactions200Response {
   public static final String SERIALIZED_NAME_HAS_MORE = "hasMore";
   @SerializedName(SERIALIZED_NAME_HAS_MORE)
@@ -158,14 +160,10 @@ public class GetLoyaltyCardTransactions200Response {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("hasMore");
-    openapiFields.add("data");
+    openapiFields = new HashSet<String>(Arrays.asList("hasMore", "data"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("hasMore");
-    openapiRequiredFields.add("data");
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("hasMore", "data"));
   }
 
   /**
@@ -177,7 +175,7 @@ public class GetLoyaltyCardTransactions200Response {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!GetLoyaltyCardTransactions200Response.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in GetLoyaltyCardTransactions200Response is not found in the empty JSON string", GetLoyaltyCardTransactions200Response.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field(s) %s in GetLoyaltyCardTransactions200Response is not found in the empty JSON string", GetLoyaltyCardTransactions200Response.openapiRequiredFields.toString()));
         }
       }
 
@@ -185,20 +183,20 @@ public class GetLoyaltyCardTransactions200Response {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!GetLoyaltyCardTransactions200Response.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `GetLoyaltyCardTransactions200Response` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(Locale.ROOT, "The field `%s` in the JSON string is not defined in the `GetLoyaltyCardTransactions200Response` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : GetLoyaltyCardTransactions200Response.openapiRequiredFields) {
         if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       // ensure the json data is an array
       if (!jsonObj.get("data").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `data` to be an array in the JSON string but got `%s`", jsonObj.get("data").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `data` to be an array in the JSON string but got `%s`", jsonObj.get("data").toString()));
       }
 
       JsonArray jsonArraydata = jsonObj.getAsJsonArray("data");

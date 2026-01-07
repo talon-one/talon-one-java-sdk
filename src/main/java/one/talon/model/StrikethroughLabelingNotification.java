@@ -14,6 +14,7 @@
 package one.talon.model;
 
 import java.util.Objects;
+import java.util.Locale;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -47,13 +48,14 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.Locale;
 
 import one.talon.JSON;
 
 /**
  * The strikethrough labels notification for an application.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.13.0-SNAPSHOT")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.17.0")
 public class StrikethroughLabelingNotification {
   /**
    * The version of the strikethrough pricing notification.
@@ -416,24 +418,10 @@ public class StrikethroughLabelingNotification {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("version");
-    openapiFields.add("validFrom");
-    openapiFields.add("applicationId");
-    openapiFields.add("currentBatch");
-    openapiFields.add("totalBatches");
-    openapiFields.add("trigger");
-    openapiFields.add("changedItems");
-    openapiFields.add("NotificationType");
+    openapiFields = new HashSet<String>(Arrays.asList("version", "validFrom", "applicationId", "currentBatch", "totalBatches", "trigger", "changedItems", "NotificationType"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("applicationId");
-    openapiRequiredFields.add("currentBatch");
-    openapiRequiredFields.add("totalBatches");
-    openapiRequiredFields.add("trigger");
-    openapiRequiredFields.add("changedItems");
-    openapiRequiredFields.add("NotificationType");
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("applicationId", "currentBatch", "totalBatches", "trigger", "changedItems", "NotificationType"));
   }
 
   /**
@@ -445,7 +433,7 @@ public class StrikethroughLabelingNotification {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!StrikethroughLabelingNotification.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in StrikethroughLabelingNotification is not found in the empty JSON string", StrikethroughLabelingNotification.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field(s) %s in StrikethroughLabelingNotification is not found in the empty JSON string", StrikethroughLabelingNotification.openapiRequiredFields.toString()));
         }
       }
 
@@ -453,19 +441,19 @@ public class StrikethroughLabelingNotification {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!StrikethroughLabelingNotification.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `StrikethroughLabelingNotification` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(Locale.ROOT, "The field `%s` in the JSON string is not defined in the `StrikethroughLabelingNotification` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : StrikethroughLabelingNotification.openapiRequiredFields) {
         if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("version") != null && !jsonObj.get("version").isJsonNull()) && !jsonObj.get("version").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `version` to be a primitive type in the JSON string but got `%s`", jsonObj.get("version").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `version` to be a primitive type in the JSON string but got `%s`", jsonObj.get("version").toString()));
       }
       // validate the optional field `version`
       if (jsonObj.get("version") != null && !jsonObj.get("version").isJsonNull()) {
@@ -475,7 +463,7 @@ public class StrikethroughLabelingNotification {
       StrikethroughTrigger.validateJsonElement(jsonObj.get("trigger"));
       // ensure the json data is an array
       if (!jsonObj.get("changedItems").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `changedItems` to be an array in the JSON string but got `%s`", jsonObj.get("changedItems").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `changedItems` to be an array in the JSON string but got `%s`", jsonObj.get("changedItems").toString()));
       }
 
       JsonArray jsonArraychangedItems = jsonObj.getAsJsonArray("changedItems");
@@ -484,7 +472,7 @@ public class StrikethroughLabelingNotification {
         StrikethroughChangedItem.validateJsonElement(jsonArraychangedItems.get(i));
       };
       if (!jsonObj.get("NotificationType").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `NotificationType` to be a primitive type in the JSON string but got `%s`", jsonObj.get("NotificationType").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `NotificationType` to be a primitive type in the JSON string but got `%s`", jsonObj.get("NotificationType").toString()));
       }
       // validate the required field `NotificationType`
       NotificationTypeEnum.validateJsonElement(jsonObj.get("NotificationType"));

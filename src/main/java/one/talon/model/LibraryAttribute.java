@@ -14,6 +14,7 @@
 package one.talon.model;
 
 import java.util.Objects;
+import java.util.Locale;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -44,13 +45,14 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.Locale;
 
 import one.talon.JSON;
 
 /**
  * LibraryAttribute
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.13.0-SNAPSHOT")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.17.0")
 public class LibraryAttribute {
   /**
    * The name of the entity that can have this attribute. When creating or updating the entities of a given type, you can include an &#x60;attributes&#x60; object with keys corresponding to the &#x60;name&#x60; of the custom attributes for that type.
@@ -413,24 +415,10 @@ public class LibraryAttribute {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("entity");
-    openapiFields.add("name");
-    openapiFields.add("title");
-    openapiFields.add("type");
-    openapiFields.add("description");
-    openapiFields.add("presets");
-    openapiFields.add("suggestions");
+    openapiFields = new HashSet<String>(Arrays.asList("entity", "name", "title", "type", "description", "presets", "suggestions"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("entity");
-    openapiRequiredFields.add("name");
-    openapiRequiredFields.add("title");
-    openapiRequiredFields.add("type");
-    openapiRequiredFields.add("description");
-    openapiRequiredFields.add("presets");
-    openapiRequiredFields.add("suggestions");
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("entity", "name", "title", "type", "description", "presets", "suggestions"));
   }
 
   /**
@@ -442,7 +430,7 @@ public class LibraryAttribute {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!LibraryAttribute.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in LibraryAttribute is not found in the empty JSON string", LibraryAttribute.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field(s) %s in LibraryAttribute is not found in the empty JSON string", LibraryAttribute.openapiRequiredFields.toString()));
         }
       }
 
@@ -450,47 +438,47 @@ public class LibraryAttribute {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!LibraryAttribute.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `LibraryAttribute` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(Locale.ROOT, "The field `%s` in the JSON string is not defined in the `LibraryAttribute` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : LibraryAttribute.openapiRequiredFields) {
         if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if (!jsonObj.get("entity").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `entity` to be a primitive type in the JSON string but got `%s`", jsonObj.get("entity").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `entity` to be a primitive type in the JSON string but got `%s`", jsonObj.get("entity").toString()));
       }
       // validate the required field `entity`
       EntityEnum.validateJsonElement(jsonObj.get("entity"));
       if (!jsonObj.get("name").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
       }
       if (!jsonObj.get("title").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `title` to be a primitive type in the JSON string but got `%s`", jsonObj.get("title").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `title` to be a primitive type in the JSON string but got `%s`", jsonObj.get("title").toString()));
       }
       if (!jsonObj.get("type").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("type").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("type").toString()));
       }
       // validate the required field `type`
       TypeEnum.validateJsonElement(jsonObj.get("type"));
       if (!jsonObj.get("description").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `description` to be a primitive type in the JSON string but got `%s`", jsonObj.get("description").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `description` to be a primitive type in the JSON string but got `%s`", jsonObj.get("description").toString()));
       }
       // ensure the required json array is present
       if (jsonObj.get("presets") == null) {
         throw new IllegalArgumentException("Expected the field `linkedContent` to be an array in the JSON string but got `null`");
       } else if (!jsonObj.get("presets").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `presets` to be an array in the JSON string but got `%s`", jsonObj.get("presets").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `presets` to be an array in the JSON string but got `%s`", jsonObj.get("presets").toString()));
       }
       // ensure the required json array is present
       if (jsonObj.get("suggestions") == null) {
         throw new IllegalArgumentException("Expected the field `linkedContent` to be an array in the JSON string but got `null`");
       } else if (!jsonObj.get("suggestions").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `suggestions` to be an array in the JSON string but got `%s`", jsonObj.get("suggestions").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `suggestions` to be an array in the JSON string but got `%s`", jsonObj.get("suggestions").toString()));
       }
   }
 

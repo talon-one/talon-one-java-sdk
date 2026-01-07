@@ -14,6 +14,7 @@
 package one.talon.model;
 
 import java.util.Objects;
+import java.util.Locale;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -50,13 +51,14 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.Locale;
 
 import one.talon.JSON;
 
 /**
  * CartItem
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.13.0-SNAPSHOT")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.17.0")
 public class CartItem {
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
@@ -666,33 +668,10 @@ public class CartItem {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("name");
-    openapiFields.add("sku");
-    openapiFields.add("quantity");
-    openapiFields.add("returnedQuantity");
-    openapiFields.add("remainingQuantity");
-    openapiFields.add("price");
-    openapiFields.add("category");
-    openapiFields.add("product");
-    openapiFields.add("weight");
-    openapiFields.add("height");
-    openapiFields.add("width");
-    openapiFields.add("length");
-    openapiFields.add("position");
-    openapiFields.add("attributes");
-    openapiFields.add("additionalCosts");
-    openapiFields.add("catalogItemID");
-    openapiFields.add("selectedPriceType");
-    openapiFields.add("adjustmentReferenceId");
-    openapiFields.add("adjustmentEffectiveFrom");
-    openapiFields.add("adjustmentEffectiveUntil");
-    openapiFields.add("prices");
+    openapiFields = new HashSet<String>(Arrays.asList("name", "sku", "quantity", "returnedQuantity", "remainingQuantity", "price", "category", "product", "weight", "height", "width", "length", "position", "attributes", "additionalCosts", "catalogItemID", "selectedPriceType", "adjustmentReferenceId", "adjustmentEffectiveFrom", "adjustmentEffectiveUntil", "prices"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("sku");
-    openapiRequiredFields.add("quantity");
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("sku", "quantity"));
   }
 
   /**
@@ -704,7 +683,7 @@ public class CartItem {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!CartItem.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in CartItem is not found in the empty JSON string", CartItem.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field(s) %s in CartItem is not found in the empty JSON string", CartItem.openapiRequiredFields.toString()));
         }
       }
 
@@ -712,35 +691,35 @@ public class CartItem {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!CartItem.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `CartItem` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(Locale.ROOT, "The field `%s` in the JSON string is not defined in the `CartItem` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : CartItem.openapiRequiredFields) {
         if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("name") != null && !jsonObj.get("name").isJsonNull()) && !jsonObj.get("name").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
       }
       if (!jsonObj.get("sku").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `sku` to be a primitive type in the JSON string but got `%s`", jsonObj.get("sku").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `sku` to be a primitive type in the JSON string but got `%s`", jsonObj.get("sku").toString()));
       }
       if ((jsonObj.get("category") != null && !jsonObj.get("category").isJsonNull()) && !jsonObj.get("category").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `category` to be a primitive type in the JSON string but got `%s`", jsonObj.get("category").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `category` to be a primitive type in the JSON string but got `%s`", jsonObj.get("category").toString()));
       }
       // validate the optional field `product`
       if (jsonObj.get("product") != null && !jsonObj.get("product").isJsonNull()) {
         Product.validateJsonElement(jsonObj.get("product"));
       }
       if ((jsonObj.get("selectedPriceType") != null && !jsonObj.get("selectedPriceType").isJsonNull()) && !jsonObj.get("selectedPriceType").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `selectedPriceType` to be a primitive type in the JSON string but got `%s`", jsonObj.get("selectedPriceType").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `selectedPriceType` to be a primitive type in the JSON string but got `%s`", jsonObj.get("selectedPriceType").toString()));
       }
       if ((jsonObj.get("adjustmentReferenceId") != null && !jsonObj.get("adjustmentReferenceId").isJsonNull()) && !jsonObj.get("adjustmentReferenceId").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `adjustmentReferenceId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("adjustmentReferenceId").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `adjustmentReferenceId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("adjustmentReferenceId").toString()));
       }
   }
 

@@ -14,6 +14,7 @@
 package one.talon.model;
 
 import java.util.Objects;
+import java.util.Locale;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -42,13 +43,14 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.Locale;
 
 import one.talon.JSON;
 
 /**
  * CardExpiringPointsNotificationTrigger
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.13.0-SNAPSHOT")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.17.0")
 public class CardExpiringPointsNotificationTrigger {
   public static final String SERIALIZED_NAME_AMOUNT = "amount";
   @SerializedName(SERIALIZED_NAME_AMOUNT)
@@ -200,14 +202,10 @@ public class CardExpiringPointsNotificationTrigger {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("amount");
-    openapiFields.add("period");
+    openapiFields = new HashSet<String>(Arrays.asList("amount", "period"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("amount");
-    openapiRequiredFields.add("period");
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("amount", "period"));
   }
 
   /**
@@ -219,7 +217,7 @@ public class CardExpiringPointsNotificationTrigger {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!CardExpiringPointsNotificationTrigger.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in CardExpiringPointsNotificationTrigger is not found in the empty JSON string", CardExpiringPointsNotificationTrigger.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field(s) %s in CardExpiringPointsNotificationTrigger is not found in the empty JSON string", CardExpiringPointsNotificationTrigger.openapiRequiredFields.toString()));
         }
       }
 
@@ -227,19 +225,19 @@ public class CardExpiringPointsNotificationTrigger {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!CardExpiringPointsNotificationTrigger.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `CardExpiringPointsNotificationTrigger` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(Locale.ROOT, "The field `%s` in the JSON string is not defined in the `CardExpiringPointsNotificationTrigger` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : CardExpiringPointsNotificationTrigger.openapiRequiredFields) {
         if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if (!jsonObj.get("period").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `period` to be a primitive type in the JSON string but got `%s`", jsonObj.get("period").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `period` to be a primitive type in the JSON string but got `%s`", jsonObj.get("period").toString()));
       }
       // validate the required field `period`
       PeriodEnum.validateJsonElement(jsonObj.get("period"));

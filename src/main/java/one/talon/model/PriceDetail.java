@@ -14,6 +14,7 @@
 package one.talon.model;
 
 import java.util.Objects;
+import java.util.Locale;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -44,13 +45,14 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.Locale;
 
 import one.talon.JSON;
 
 /**
  * PriceDetail
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.13.0-SNAPSHOT")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.17.0")
 public class PriceDetail {
   public static final String SERIALIZED_NAME_PRICE = "price";
   @SerializedName(SERIALIZED_NAME_PRICE)
@@ -227,15 +229,10 @@ public class PriceDetail {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("price");
-    openapiFields.add("adjustmentContextId");
-    openapiFields.add("adjustmentReferenceId");
-    openapiFields.add("adjustmentEffectiveFrom");
-    openapiFields.add("adjustmentEffectiveUntil");
+    openapiFields = new HashSet<String>(Arrays.asList("price", "adjustmentContextId", "adjustmentReferenceId", "adjustmentEffectiveFrom", "adjustmentEffectiveUntil"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
   /**
@@ -247,7 +244,7 @@ public class PriceDetail {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!PriceDetail.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in PriceDetail is not found in the empty JSON string", PriceDetail.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field(s) %s in PriceDetail is not found in the empty JSON string", PriceDetail.openapiRequiredFields.toString()));
         }
       }
 
@@ -255,15 +252,15 @@ public class PriceDetail {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!PriceDetail.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `PriceDetail` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(Locale.ROOT, "The field `%s` in the JSON string is not defined in the `PriceDetail` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("adjustmentContextId") != null && !jsonObj.get("adjustmentContextId").isJsonNull()) && !jsonObj.get("adjustmentContextId").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `adjustmentContextId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("adjustmentContextId").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `adjustmentContextId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("adjustmentContextId").toString()));
       }
       if ((jsonObj.get("adjustmentReferenceId") != null && !jsonObj.get("adjustmentReferenceId").isJsonNull()) && !jsonObj.get("adjustmentReferenceId").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `adjustmentReferenceId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("adjustmentReferenceId").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `adjustmentReferenceId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("adjustmentReferenceId").toString()));
       }
   }
 

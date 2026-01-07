@@ -14,6 +14,7 @@
 package one.talon.model;
 
 import java.util.Objects;
+import java.util.Locale;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -42,13 +43,14 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.Locale;
 
 import one.talon.JSON;
 
 /**
  * LoyaltyProgramEntity
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.13.0-SNAPSHOT")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.17.0")
 public class LoyaltyProgramEntity {
   public static final String SERIALIZED_NAME_PROGRAM_I_D = "programID";
   @SerializedName(SERIALIZED_NAME_PROGRAM_I_D)
@@ -173,14 +175,10 @@ public class LoyaltyProgramEntity {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("programID");
-    openapiFields.add("programName");
-    openapiFields.add("programTitle");
+    openapiFields = new HashSet<String>(Arrays.asList("programID", "programName", "programTitle"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("programID");
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("programID"));
   }
 
   /**
@@ -192,7 +190,7 @@ public class LoyaltyProgramEntity {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!LoyaltyProgramEntity.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in LoyaltyProgramEntity is not found in the empty JSON string", LoyaltyProgramEntity.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field(s) %s in LoyaltyProgramEntity is not found in the empty JSON string", LoyaltyProgramEntity.openapiRequiredFields.toString()));
         }
       }
 
@@ -200,22 +198,22 @@ public class LoyaltyProgramEntity {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!LoyaltyProgramEntity.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `LoyaltyProgramEntity` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(Locale.ROOT, "The field `%s` in the JSON string is not defined in the `LoyaltyProgramEntity` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : LoyaltyProgramEntity.openapiRequiredFields) {
         if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("programName") != null && !jsonObj.get("programName").isJsonNull()) && !jsonObj.get("programName").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `programName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("programName").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `programName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("programName").toString()));
       }
       if ((jsonObj.get("programTitle") != null && !jsonObj.get("programTitle").isJsonNull()) && !jsonObj.get("programTitle").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `programTitle` to be a primitive type in the JSON string but got `%s`", jsonObj.get("programTitle").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `programTitle` to be a primitive type in the JSON string but got `%s`", jsonObj.get("programTitle").toString()));
       }
   }
 

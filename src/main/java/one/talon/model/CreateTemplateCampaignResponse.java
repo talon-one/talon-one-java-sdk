@@ -14,6 +14,7 @@
 package one.talon.model;
 
 import java.util.Objects;
+import java.util.Locale;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -47,13 +48,14 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.Locale;
 
 import one.talon.JSON;
 
 /**
  * CreateTemplateCampaignResponse
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.13.0-SNAPSHOT")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.17.0")
 public class CreateTemplateCampaignResponse {
   public static final String SERIALIZED_NAME_CAMPAIGN = "campaign";
   @SerializedName(SERIALIZED_NAME_CAMPAIGN)
@@ -186,15 +188,10 @@ public class CreateTemplateCampaignResponse {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("campaign");
-    openapiFields.add("ruleset");
-    openapiFields.add("collections");
+    openapiFields = new HashSet<String>(Arrays.asList("campaign", "ruleset", "collections"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("campaign");
-    openapiRequiredFields.add("ruleset");
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("campaign", "ruleset"));
   }
 
   /**
@@ -206,7 +203,7 @@ public class CreateTemplateCampaignResponse {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!CreateTemplateCampaignResponse.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in CreateTemplateCampaignResponse is not found in the empty JSON string", CreateTemplateCampaignResponse.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field(s) %s in CreateTemplateCampaignResponse is not found in the empty JSON string", CreateTemplateCampaignResponse.openapiRequiredFields.toString()));
         }
       }
 
@@ -214,14 +211,14 @@ public class CreateTemplateCampaignResponse {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!CreateTemplateCampaignResponse.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `CreateTemplateCampaignResponse` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(Locale.ROOT, "The field `%s` in the JSON string is not defined in the `CreateTemplateCampaignResponse` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : CreateTemplateCampaignResponse.openapiRequiredFields) {
         if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
@@ -234,7 +231,7 @@ public class CreateTemplateCampaignResponse {
         if (jsonArraycollections != null) {
           // ensure the json data is an array
           if (!jsonObj.get("collections").isJsonArray()) {
-            throw new IllegalArgumentException(String.format("Expected the field `collections` to be an array in the JSON string but got `%s`", jsonObj.get("collections").toString()));
+            throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `collections` to be an array in the JSON string but got `%s`", jsonObj.get("collections").toString()));
           }
 
           // validate the optional field `collections` (array)

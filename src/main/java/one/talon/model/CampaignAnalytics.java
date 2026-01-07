@@ -14,6 +14,7 @@
 package one.talon.model;
 
 import java.util.Objects;
+import java.util.Locale;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -44,13 +45,14 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.Locale;
 
 import one.talon.JSON;
 
 /**
  * CampaignAnalytics
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.13.0-SNAPSHOT")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.17.0")
 public class CampaignAnalytics {
   public static final String SERIALIZED_NAME_DATE = "date";
   @SerializedName(SERIALIZED_NAME_DATE)
@@ -747,60 +749,10 @@ public class CampaignAnalytics {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("date");
-    openapiFields.add("campaignRevenue");
-    openapiFields.add("totalCampaignRevenue");
-    openapiFields.add("campaignRefund");
-    openapiFields.add("totalCampaignRefund");
-    openapiFields.add("campaignDiscountCosts");
-    openapiFields.add("totalCampaignDiscountCosts");
-    openapiFields.add("campaignRefundedDiscounts");
-    openapiFields.add("totalCampaignRefundedDiscounts");
-    openapiFields.add("campaignFreeItems");
-    openapiFields.add("totalCampaignFreeItems");
-    openapiFields.add("couponRedemptions");
-    openapiFields.add("totalCouponRedemptions");
-    openapiFields.add("couponRolledbackRedemptions");
-    openapiFields.add("totalCouponRolledbackRedemptions");
-    openapiFields.add("referralRedemptions");
-    openapiFields.add("totalReferralRedemptions");
-    openapiFields.add("couponsCreated");
-    openapiFields.add("totalCouponsCreated");
-    openapiFields.add("referralsCreated");
-    openapiFields.add("totalReferralsCreated");
-    openapiFields.add("addedLoyaltyPoints");
-    openapiFields.add("totalAddedLoyaltyPoints");
-    openapiFields.add("deductedLoyaltyPoints");
-    openapiFields.add("totalDeductedLoyaltyPoints");
+    openapiFields = new HashSet<String>(Arrays.asList("date", "campaignRevenue", "totalCampaignRevenue", "campaignRefund", "totalCampaignRefund", "campaignDiscountCosts", "totalCampaignDiscountCosts", "campaignRefundedDiscounts", "totalCampaignRefundedDiscounts", "campaignFreeItems", "totalCampaignFreeItems", "couponRedemptions", "totalCouponRedemptions", "couponRolledbackRedemptions", "totalCouponRolledbackRedemptions", "referralRedemptions", "totalReferralRedemptions", "couponsCreated", "totalCouponsCreated", "referralsCreated", "totalReferralsCreated", "addedLoyaltyPoints", "totalAddedLoyaltyPoints", "deductedLoyaltyPoints", "totalDeductedLoyaltyPoints"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("date");
-    openapiRequiredFields.add("campaignRevenue");
-    openapiRequiredFields.add("totalCampaignRevenue");
-    openapiRequiredFields.add("campaignRefund");
-    openapiRequiredFields.add("totalCampaignRefund");
-    openapiRequiredFields.add("campaignDiscountCosts");
-    openapiRequiredFields.add("totalCampaignDiscountCosts");
-    openapiRequiredFields.add("campaignRefundedDiscounts");
-    openapiRequiredFields.add("totalCampaignRefundedDiscounts");
-    openapiRequiredFields.add("campaignFreeItems");
-    openapiRequiredFields.add("totalCampaignFreeItems");
-    openapiRequiredFields.add("couponRedemptions");
-    openapiRequiredFields.add("totalCouponRedemptions");
-    openapiRequiredFields.add("couponRolledbackRedemptions");
-    openapiRequiredFields.add("totalCouponRolledbackRedemptions");
-    openapiRequiredFields.add("referralRedemptions");
-    openapiRequiredFields.add("totalReferralRedemptions");
-    openapiRequiredFields.add("couponsCreated");
-    openapiRequiredFields.add("totalCouponsCreated");
-    openapiRequiredFields.add("referralsCreated");
-    openapiRequiredFields.add("totalReferralsCreated");
-    openapiRequiredFields.add("addedLoyaltyPoints");
-    openapiRequiredFields.add("totalAddedLoyaltyPoints");
-    openapiRequiredFields.add("deductedLoyaltyPoints");
-    openapiRequiredFields.add("totalDeductedLoyaltyPoints");
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("date", "campaignRevenue", "totalCampaignRevenue", "campaignRefund", "totalCampaignRefund", "campaignDiscountCosts", "totalCampaignDiscountCosts", "campaignRefundedDiscounts", "totalCampaignRefundedDiscounts", "campaignFreeItems", "totalCampaignFreeItems", "couponRedemptions", "totalCouponRedemptions", "couponRolledbackRedemptions", "totalCouponRolledbackRedemptions", "referralRedemptions", "totalReferralRedemptions", "couponsCreated", "totalCouponsCreated", "referralsCreated", "totalReferralsCreated", "addedLoyaltyPoints", "totalAddedLoyaltyPoints", "deductedLoyaltyPoints", "totalDeductedLoyaltyPoints"));
   }
 
   /**
@@ -812,7 +764,7 @@ public class CampaignAnalytics {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!CampaignAnalytics.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in CampaignAnalytics is not found in the empty JSON string", CampaignAnalytics.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field(s) %s in CampaignAnalytics is not found in the empty JSON string", CampaignAnalytics.openapiRequiredFields.toString()));
         }
       }
 
@@ -820,14 +772,14 @@ public class CampaignAnalytics {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!CampaignAnalytics.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `CampaignAnalytics` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(Locale.ROOT, "The field `%s` in the JSON string is not defined in the `CampaignAnalytics` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : CampaignAnalytics.openapiRequiredFields) {
         if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();

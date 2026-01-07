@@ -14,6 +14,7 @@
 package one.talon.model;
 
 import java.util.Objects;
+import java.util.Locale;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -43,13 +44,14 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.Locale;
 
 import one.talon.JSON;
 
 /**
  * The properties specific to the \&quot;deductLoyaltyPoints\&quot; effect. This gets triggered whenever a validated rule contained a condition to only trigger when the given number of loyalty points could be deduced. These points are automatically stored and managed inside Talon.One.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.13.0-SNAPSHOT")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.17.0")
 public class DeductLoyaltyPointsEffectProps {
   public static final String SERIALIZED_NAME_RULE_TITLE = "ruleTitle";
   @SerializedName(SERIALIZED_NAME_RULE_TITLE)
@@ -278,23 +280,10 @@ public class DeductLoyaltyPointsEffectProps {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("ruleTitle");
-    openapiFields.add("programId");
-    openapiFields.add("subLedgerId");
-    openapiFields.add("value");
-    openapiFields.add("transactionUUID");
-    openapiFields.add("name");
-    openapiFields.add("cardIdentifier");
+    openapiFields = new HashSet<String>(Arrays.asList("ruleTitle", "programId", "subLedgerId", "value", "transactionUUID", "name", "cardIdentifier"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("ruleTitle");
-    openapiRequiredFields.add("programId");
-    openapiRequiredFields.add("subLedgerId");
-    openapiRequiredFields.add("value");
-    openapiRequiredFields.add("transactionUUID");
-    openapiRequiredFields.add("name");
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("ruleTitle", "programId", "subLedgerId", "value", "transactionUUID", "name"));
   }
 
   /**
@@ -306,7 +295,7 @@ public class DeductLoyaltyPointsEffectProps {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!DeductLoyaltyPointsEffectProps.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in DeductLoyaltyPointsEffectProps is not found in the empty JSON string", DeductLoyaltyPointsEffectProps.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field(s) %s in DeductLoyaltyPointsEffectProps is not found in the empty JSON string", DeductLoyaltyPointsEffectProps.openapiRequiredFields.toString()));
         }
       }
 
@@ -314,31 +303,31 @@ public class DeductLoyaltyPointsEffectProps {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!DeductLoyaltyPointsEffectProps.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `DeductLoyaltyPointsEffectProps` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(Locale.ROOT, "The field `%s` in the JSON string is not defined in the `DeductLoyaltyPointsEffectProps` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : DeductLoyaltyPointsEffectProps.openapiRequiredFields) {
         if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if (!jsonObj.get("ruleTitle").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `ruleTitle` to be a primitive type in the JSON string but got `%s`", jsonObj.get("ruleTitle").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `ruleTitle` to be a primitive type in the JSON string but got `%s`", jsonObj.get("ruleTitle").toString()));
       }
       if (!jsonObj.get("subLedgerId").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `subLedgerId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("subLedgerId").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `subLedgerId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("subLedgerId").toString()));
       }
       if (!jsonObj.get("transactionUUID").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `transactionUUID` to be a primitive type in the JSON string but got `%s`", jsonObj.get("transactionUUID").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `transactionUUID` to be a primitive type in the JSON string but got `%s`", jsonObj.get("transactionUUID").toString()));
       }
       if (!jsonObj.get("name").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
       }
       if ((jsonObj.get("cardIdentifier") != null && !jsonObj.get("cardIdentifier").isJsonNull()) && !jsonObj.get("cardIdentifier").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `cardIdentifier` to be a primitive type in the JSON string but got `%s`", jsonObj.get("cardIdentifier").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `cardIdentifier` to be a primitive type in the JSON string but got `%s`", jsonObj.get("cardIdentifier").toString()));
       }
   }
 

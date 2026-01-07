@@ -14,6 +14,7 @@
 package one.talon.model;
 
 import java.util.Objects;
+import java.util.Locale;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -47,13 +48,14 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.Locale;
 
 import one.talon.JSON;
 
 /**
  * NewMessageTest
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.13.0-SNAPSHOT")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.17.0")
 public class NewMessageTest {
   public static final String SERIALIZED_NAME_HEADERS = "headers";
   @SerializedName(SERIALIZED_NAME_HEADERS)
@@ -364,19 +366,10 @@ public class NewMessageTest {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("headers");
-    openapiFields.add("verb");
-    openapiFields.add("url");
-    openapiFields.add("payload");
-    openapiFields.add("params");
-    openapiFields.add("applicationIds");
-    openapiFields.add("authenticationId");
+    openapiFields = new HashSet<String>(Arrays.asList("headers", "verb", "url", "payload", "params", "applicationIds", "authenticationId"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("verb");
-    openapiRequiredFields.add("url");
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("verb", "url"));
   }
 
   /**
@@ -388,7 +381,7 @@ public class NewMessageTest {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!NewMessageTest.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in NewMessageTest is not found in the empty JSON string", NewMessageTest.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field(s) %s in NewMessageTest is not found in the empty JSON string", NewMessageTest.openapiRequiredFields.toString()));
         }
       }
 
@@ -396,34 +389,34 @@ public class NewMessageTest {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!NewMessageTest.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `NewMessageTest` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(Locale.ROOT, "The field `%s` in the JSON string is not defined in the `NewMessageTest` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : NewMessageTest.openapiRequiredFields) {
         if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if (!jsonObj.get("verb").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `verb` to be a primitive type in the JSON string but got `%s`", jsonObj.get("verb").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `verb` to be a primitive type in the JSON string but got `%s`", jsonObj.get("verb").toString()));
       }
       // validate the required field `verb`
       VerbEnum.validateJsonElement(jsonObj.get("verb"));
       if (!jsonObj.get("url").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `url` to be a primitive type in the JSON string but got `%s`", jsonObj.get("url").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `url` to be a primitive type in the JSON string but got `%s`", jsonObj.get("url").toString()));
       }
       if ((jsonObj.get("payload") != null && !jsonObj.get("payload").isJsonNull()) && !jsonObj.get("payload").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `payload` to be a primitive type in the JSON string but got `%s`", jsonObj.get("payload").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `payload` to be a primitive type in the JSON string but got `%s`", jsonObj.get("payload").toString()));
       }
       if (jsonObj.get("params") != null && !jsonObj.get("params").isJsonNull()) {
         JsonArray jsonArrayparams = jsonObj.getAsJsonArray("params");
         if (jsonArrayparams != null) {
           // ensure the json data is an array
           if (!jsonObj.get("params").isJsonArray()) {
-            throw new IllegalArgumentException(String.format("Expected the field `params` to be an array in the JSON string but got `%s`", jsonObj.get("params").toString()));
+            throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `params` to be an array in the JSON string but got `%s`", jsonObj.get("params").toString()));
           }
 
           // validate the optional field `params` (array)
@@ -434,7 +427,7 @@ public class NewMessageTest {
       }
       // ensure the optional json data is an array if present
       if (jsonObj.get("applicationIds") != null && !jsonObj.get("applicationIds").isJsonNull() && !jsonObj.get("applicationIds").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `applicationIds` to be an array in the JSON string but got `%s`", jsonObj.get("applicationIds").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `applicationIds` to be an array in the JSON string but got `%s`", jsonObj.get("applicationIds").toString()));
       }
   }
 

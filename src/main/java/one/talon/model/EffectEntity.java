@@ -14,6 +14,7 @@
 package one.talon.model;
 
 import java.util.Objects;
+import java.util.Locale;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -44,13 +45,14 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.Locale;
 
 import one.talon.JSON;
 
 /**
  * Definition of all properties that are present on all effects, independent of their type.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.13.0-SNAPSHOT")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.17.0")
 public class EffectEntity {
   public static final String SERIALIZED_NAME_CAMPAIGN_ID = "campaignId";
   @SerializedName(SERIALIZED_NAME_CAMPAIGN_ID)
@@ -487,30 +489,10 @@ public class EffectEntity {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("campaignId");
-    openapiFields.add("rulesetId");
-    openapiFields.add("ruleIndex");
-    openapiFields.add("ruleName");
-    openapiFields.add("effectType");
-    openapiFields.add("triggeredByCoupon");
-    openapiFields.add("triggeredForCatalogItem");
-    openapiFields.add("conditionIndex");
-    openapiFields.add("evaluationGroupID");
-    openapiFields.add("evaluationGroupMode");
-    openapiFields.add("campaignRevisionId");
-    openapiFields.add("campaignRevisionVersionId");
-    openapiFields.add("selectedPriceType");
-    openapiFields.add("selectedPrice");
-    openapiFields.add("adjustmentReferenceId");
+    openapiFields = new HashSet<String>(Arrays.asList("campaignId", "rulesetId", "ruleIndex", "ruleName", "effectType", "triggeredByCoupon", "triggeredForCatalogItem", "conditionIndex", "evaluationGroupID", "evaluationGroupMode", "campaignRevisionId", "campaignRevisionVersionId", "selectedPriceType", "selectedPrice", "adjustmentReferenceId"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("campaignId");
-    openapiRequiredFields.add("rulesetId");
-    openapiRequiredFields.add("ruleIndex");
-    openapiRequiredFields.add("ruleName");
-    openapiRequiredFields.add("effectType");
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("campaignId", "rulesetId", "ruleIndex", "ruleName", "effectType"));
   }
 
   /**
@@ -522,7 +504,7 @@ public class EffectEntity {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!EffectEntity.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in EffectEntity is not found in the empty JSON string", EffectEntity.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field(s) %s in EffectEntity is not found in the empty JSON string", EffectEntity.openapiRequiredFields.toString()));
         }
       }
 
@@ -530,31 +512,31 @@ public class EffectEntity {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!EffectEntity.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `EffectEntity` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(Locale.ROOT, "The field `%s` in the JSON string is not defined in the `EffectEntity` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : EffectEntity.openapiRequiredFields) {
         if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if (!jsonObj.get("ruleName").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `ruleName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("ruleName").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `ruleName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("ruleName").toString()));
       }
       if (!jsonObj.get("effectType").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `effectType` to be a primitive type in the JSON string but got `%s`", jsonObj.get("effectType").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `effectType` to be a primitive type in the JSON string but got `%s`", jsonObj.get("effectType").toString()));
       }
       if ((jsonObj.get("evaluationGroupMode") != null && !jsonObj.get("evaluationGroupMode").isJsonNull()) && !jsonObj.get("evaluationGroupMode").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `evaluationGroupMode` to be a primitive type in the JSON string but got `%s`", jsonObj.get("evaluationGroupMode").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `evaluationGroupMode` to be a primitive type in the JSON string but got `%s`", jsonObj.get("evaluationGroupMode").toString()));
       }
       if ((jsonObj.get("selectedPriceType") != null && !jsonObj.get("selectedPriceType").isJsonNull()) && !jsonObj.get("selectedPriceType").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `selectedPriceType` to be a primitive type in the JSON string but got `%s`", jsonObj.get("selectedPriceType").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `selectedPriceType` to be a primitive type in the JSON string but got `%s`", jsonObj.get("selectedPriceType").toString()));
       }
       if ((jsonObj.get("adjustmentReferenceId") != null && !jsonObj.get("adjustmentReferenceId").isJsonNull()) && !jsonObj.get("adjustmentReferenceId").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `adjustmentReferenceId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("adjustmentReferenceId").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `adjustmentReferenceId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("adjustmentReferenceId").toString()));
       }
   }
 

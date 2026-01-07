@@ -14,6 +14,7 @@
 package one.talon.model;
 
 import java.util.Objects;
+import java.util.Locale;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -50,13 +51,14 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.Locale;
 
 import one.talon.JSON;
 
 /**
  * The information of affected items.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.13.0-SNAPSHOT")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.17.0")
 public class StrikethroughChangedItem {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -328,24 +330,10 @@ public class StrikethroughChangedItem {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("id");
-    openapiFields.add("catalogId");
-    openapiFields.add("sku");
-    openapiFields.add("version");
-    openapiFields.add("price");
-    openapiFields.add("prices");
-    openapiFields.add("evaluatedAt");
-    openapiFields.add("effects");
+    openapiFields = new HashSet<String>(Arrays.asList("id", "catalogId", "sku", "version", "price", "prices", "evaluatedAt", "effects"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("id");
-    openapiRequiredFields.add("catalogId");
-    openapiRequiredFields.add("sku");
-    openapiRequiredFields.add("version");
-    openapiRequiredFields.add("price");
-    openapiRequiredFields.add("evaluatedAt");
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("id", "catalogId", "sku", "version", "price", "evaluatedAt"));
   }
 
   /**
@@ -357,7 +345,7 @@ public class StrikethroughChangedItem {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!StrikethroughChangedItem.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in StrikethroughChangedItem is not found in the empty JSON string", StrikethroughChangedItem.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field(s) %s in StrikethroughChangedItem is not found in the empty JSON string", StrikethroughChangedItem.openapiRequiredFields.toString()));
         }
       }
 
@@ -365,26 +353,26 @@ public class StrikethroughChangedItem {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!StrikethroughChangedItem.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `StrikethroughChangedItem` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(Locale.ROOT, "The field `%s` in the JSON string is not defined in the `StrikethroughChangedItem` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : StrikethroughChangedItem.openapiRequiredFields) {
         if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if (!jsonObj.get("sku").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `sku` to be a primitive type in the JSON string but got `%s`", jsonObj.get("sku").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `sku` to be a primitive type in the JSON string but got `%s`", jsonObj.get("sku").toString()));
       }
       if (jsonObj.get("effects") != null && !jsonObj.get("effects").isJsonNull()) {
         JsonArray jsonArrayeffects = jsonObj.getAsJsonArray("effects");
         if (jsonArrayeffects != null) {
           // ensure the json data is an array
           if (!jsonObj.get("effects").isJsonArray()) {
-            throw new IllegalArgumentException(String.format("Expected the field `effects` to be an array in the JSON string but got `%s`", jsonObj.get("effects").toString()));
+            throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `effects` to be an array in the JSON string but got `%s`", jsonObj.get("effects").toString()));
           }
 
           // validate the optional field `effects` (array)

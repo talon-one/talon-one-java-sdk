@@ -14,6 +14,7 @@
 package one.talon.model;
 
 import java.util.Objects;
+import java.util.Locale;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -45,13 +46,14 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.Locale;
 
 import one.talon.JSON;
 
 /**
  * StrikethroughDebugResponse
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.13.0-SNAPSHOT")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.17.0")
 public class StrikethroughDebugResponse {
   public static final String SERIALIZED_NAME_CAMPAIGNS_I_DS = "campaignsIDs";
   @SerializedName(SERIALIZED_NAME_CAMPAIGNS_I_DS)
@@ -166,12 +168,10 @@ public class StrikethroughDebugResponse {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("campaignsIDs");
-    openapiFields.add("effects");
+    openapiFields = new HashSet<String>(Arrays.asList("campaignsIDs", "effects"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
   /**
@@ -183,7 +183,7 @@ public class StrikethroughDebugResponse {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!StrikethroughDebugResponse.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in StrikethroughDebugResponse is not found in the empty JSON string", StrikethroughDebugResponse.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field(s) %s in StrikethroughDebugResponse is not found in the empty JSON string", StrikethroughDebugResponse.openapiRequiredFields.toString()));
         }
       }
 
@@ -191,20 +191,20 @@ public class StrikethroughDebugResponse {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!StrikethroughDebugResponse.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `StrikethroughDebugResponse` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(Locale.ROOT, "The field `%s` in the JSON string is not defined in the `StrikethroughDebugResponse` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       // ensure the optional json data is an array if present
       if (jsonObj.get("campaignsIDs") != null && !jsonObj.get("campaignsIDs").isJsonNull() && !jsonObj.get("campaignsIDs").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `campaignsIDs` to be an array in the JSON string but got `%s`", jsonObj.get("campaignsIDs").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `campaignsIDs` to be an array in the JSON string but got `%s`", jsonObj.get("campaignsIDs").toString()));
       }
       if (jsonObj.get("effects") != null && !jsonObj.get("effects").isJsonNull()) {
         JsonArray jsonArrayeffects = jsonObj.getAsJsonArray("effects");
         if (jsonArrayeffects != null) {
           // ensure the json data is an array
           if (!jsonObj.get("effects").isJsonArray()) {
-            throw new IllegalArgumentException(String.format("Expected the field `effects` to be an array in the JSON string but got `%s`", jsonObj.get("effects").toString()));
+            throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `effects` to be an array in the JSON string but got `%s`", jsonObj.get("effects").toString()));
           }
 
           // validate the optional field `effects` (array)

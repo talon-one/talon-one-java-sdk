@@ -14,6 +14,7 @@
 package one.talon.model;
 
 import java.util.Objects;
+import java.util.Locale;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -42,13 +43,14 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.Locale;
 
 import one.talon.JSON;
 
 /**
  * NewMultipleAudiencesItem
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.13.0-SNAPSHOT")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.17.0")
 public class NewMultipleAudiencesItem {
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
@@ -147,13 +149,10 @@ public class NewMultipleAudiencesItem {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("name");
-    openapiFields.add("integrationId");
+    openapiFields = new HashSet<String>(Arrays.asList("name", "integrationId"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("name");
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("name"));
   }
 
   /**
@@ -165,7 +164,7 @@ public class NewMultipleAudiencesItem {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!NewMultipleAudiencesItem.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in NewMultipleAudiencesItem is not found in the empty JSON string", NewMultipleAudiencesItem.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field(s) %s in NewMultipleAudiencesItem is not found in the empty JSON string", NewMultipleAudiencesItem.openapiRequiredFields.toString()));
         }
       }
 
@@ -173,22 +172,22 @@ public class NewMultipleAudiencesItem {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!NewMultipleAudiencesItem.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `NewMultipleAudiencesItem` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(Locale.ROOT, "The field `%s` in the JSON string is not defined in the `NewMultipleAudiencesItem` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : NewMultipleAudiencesItem.openapiRequiredFields) {
         if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if (!jsonObj.get("name").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
       }
       if ((jsonObj.get("integrationId") != null && !jsonObj.get("integrationId").isJsonNull()) && !jsonObj.get("integrationId").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `integrationId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("integrationId").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `integrationId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("integrationId").toString()));
       }
   }
 

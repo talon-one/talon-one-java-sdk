@@ -174,14 +174,6 @@ public class CustomerSessionV2Test {
     }
 
     /**
-     * Test the property 'updateCount'
-     */
-    @Test
-    public void updateCountTest() {
-        // TODO: test updateCount
-    }
-
-    /**
      * Test the property 'total'
      */
     @Test

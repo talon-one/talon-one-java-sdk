@@ -14,6 +14,7 @@
 package one.talon.model;
 
 import java.util.Objects;
+import java.util.Locale;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -42,13 +43,14 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.Locale;
 
 import one.talon.JSON;
 
 /**
  * IntegrationCustomerProfileAudienceRequestItem
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.13.0-SNAPSHOT")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.17.0")
 public class IntegrationCustomerProfileAudienceRequestItem {
   /**
    * Defines the action to perform: - &#x60;add&#x60;: Adds the customer profile to the audience.    **Note**: If the customer profile does not exist, it will be created. The profile will not be visible in any Application   until a session or profile update is received for that profile. - &#x60;delete&#x60;: Removes the customer profile from the audience. 
@@ -225,16 +227,10 @@ public class IntegrationCustomerProfileAudienceRequestItem {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("action");
-    openapiFields.add("profileIntegrationId");
-    openapiFields.add("integrationId");
+    openapiFields = new HashSet<String>(Arrays.asList("action", "profileIntegrationId", "integrationId"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("action");
-    openapiRequiredFields.add("profileIntegrationId");
-    openapiRequiredFields.add("integrationId");
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("action", "profileIntegrationId", "integrationId"));
   }
 
   /**
@@ -246,7 +242,7 @@ public class IntegrationCustomerProfileAudienceRequestItem {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!IntegrationCustomerProfileAudienceRequestItem.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in IntegrationCustomerProfileAudienceRequestItem is not found in the empty JSON string", IntegrationCustomerProfileAudienceRequestItem.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field(s) %s in IntegrationCustomerProfileAudienceRequestItem is not found in the empty JSON string", IntegrationCustomerProfileAudienceRequestItem.openapiRequiredFields.toString()));
         }
       }
 
@@ -254,27 +250,27 @@ public class IntegrationCustomerProfileAudienceRequestItem {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!IntegrationCustomerProfileAudienceRequestItem.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `IntegrationCustomerProfileAudienceRequestItem` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(Locale.ROOT, "The field `%s` in the JSON string is not defined in the `IntegrationCustomerProfileAudienceRequestItem` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : IntegrationCustomerProfileAudienceRequestItem.openapiRequiredFields) {
         if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if (!jsonObj.get("action").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `action` to be a primitive type in the JSON string but got `%s`", jsonObj.get("action").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `action` to be a primitive type in the JSON string but got `%s`", jsonObj.get("action").toString()));
       }
       // validate the required field `action`
       ActionEnum.validateJsonElement(jsonObj.get("action"));
       if (!jsonObj.get("profileIntegrationId").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `profileIntegrationId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("profileIntegrationId").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `profileIntegrationId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("profileIntegrationId").toString()));
       }
       if (!jsonObj.get("integrationId").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `integrationId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("integrationId").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `integrationId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("integrationId").toString()));
       }
   }
 

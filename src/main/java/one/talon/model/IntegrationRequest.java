@@ -14,6 +14,7 @@
 package one.talon.model;
 
 import java.util.Objects;
+import java.util.Locale;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -45,13 +46,14 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.Locale;
 
 import one.talon.JSON;
 
 /**
  * The body of a V2 integration API request (customer session update). Next to the customer session details, this contains an optional listing of extra properties that should be returned in the response.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.13.0-SNAPSHOT")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.17.0")
 public class IntegrationRequest {
   public static final String SERIALIZED_NAME_CUSTOMER_SESSION = "customerSession";
   @SerializedName(SERIALIZED_NAME_CUSTOMER_SESSION)
@@ -226,13 +228,10 @@ public class IntegrationRequest {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("customerSession");
-    openapiFields.add("responseContent");
+    openapiFields = new HashSet<String>(Arrays.asList("customerSession", "responseContent"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("customerSession");
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("customerSession"));
   }
 
   /**
@@ -244,7 +243,7 @@ public class IntegrationRequest {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!IntegrationRequest.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in IntegrationRequest is not found in the empty JSON string", IntegrationRequest.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field(s) %s in IntegrationRequest is not found in the empty JSON string", IntegrationRequest.openapiRequiredFields.toString()));
         }
       }
 
@@ -252,14 +251,14 @@ public class IntegrationRequest {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!IntegrationRequest.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `IntegrationRequest` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(Locale.ROOT, "The field `%s` in the JSON string is not defined in the `IntegrationRequest` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : IntegrationRequest.openapiRequiredFields) {
         if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
@@ -267,7 +266,7 @@ public class IntegrationRequest {
       NewCustomerSessionV2.validateJsonElement(jsonObj.get("customerSession"));
       // ensure the optional json data is an array if present
       if (jsonObj.get("responseContent") != null && !jsonObj.get("responseContent").isJsonNull() && !jsonObj.get("responseContent").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `responseContent` to be an array in the JSON string but got `%s`", jsonObj.get("responseContent").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `responseContent` to be an array in the JSON string but got `%s`", jsonObj.get("responseContent").toString()));
       }
   }
 

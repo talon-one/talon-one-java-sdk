@@ -127,7 +127,7 @@ public class IntegrationApi {
         <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call bestPriorPriceCall(BestPriorPriceRequest bestPriorPriceRequest, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call bestPriorPriceCall(@javax.annotation.Nonnull BestPriorPriceRequest bestPriorPriceRequest, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -173,7 +173,7 @@ public class IntegrationApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call bestPriorPriceValidateBeforeCall(BestPriorPriceRequest bestPriorPriceRequest, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call bestPriorPriceValidateBeforeCall(@javax.annotation.Nonnull BestPriorPriceRequest bestPriorPriceRequest, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'bestPriorPriceRequest' is set
         if (bestPriorPriceRequest == null) {
             throw new ApiException("Missing the required parameter 'bestPriorPriceRequest' when calling bestPriorPrice(Async)");
@@ -196,7 +196,7 @@ public class IntegrationApi {
         <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
      </table>
      */
-    public List<BestPriorPrice> bestPriorPrice(BestPriorPriceRequest bestPriorPriceRequest) throws ApiException {
+    public List<BestPriorPrice> bestPriorPrice(@javax.annotation.Nonnull BestPriorPriceRequest bestPriorPriceRequest) throws ApiException {
         ApiResponse<List<BestPriorPrice>> localVarResp = bestPriorPriceWithHttpInfo(bestPriorPriceRequest);
         return localVarResp.getData();
     }
@@ -214,7 +214,7 @@ public class IntegrationApi {
         <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<List<BestPriorPrice>> bestPriorPriceWithHttpInfo(BestPriorPriceRequest bestPriorPriceRequest) throws ApiException {
+    public ApiResponse<List<BestPriorPrice>> bestPriorPriceWithHttpInfo(@javax.annotation.Nonnull BestPriorPriceRequest bestPriorPriceRequest) throws ApiException {
         okhttp3.Call localVarCall = bestPriorPriceValidateBeforeCall(bestPriorPriceRequest, null);
         Type localVarReturnType = new TypeToken<List<BestPriorPrice>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -234,7 +234,7 @@ public class IntegrationApi {
         <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call bestPriorPriceAsync(BestPriorPriceRequest bestPriorPriceRequest, final ApiCallback<List<BestPriorPrice>> _callback) throws ApiException {
+    public okhttp3.Call bestPriorPriceAsync(@javax.annotation.Nonnull BestPriorPriceRequest bestPriorPriceRequest, final ApiCallback<List<BestPriorPrice>> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = bestPriorPriceValidateBeforeCall(bestPriorPriceRequest, _callback);
         Type localVarReturnType = new TypeToken<List<BestPriorPrice>>(){}.getType();
@@ -257,7 +257,7 @@ public class IntegrationApi {
         <tr><td> 409 </td><td> Conflict. An Audience with this ID already exists for this integration. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createAudienceV2Call(NewAudience newAudience, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call createAudienceV2Call(@javax.annotation.Nonnull NewAudience newAudience, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -303,7 +303,7 @@ public class IntegrationApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call createAudienceV2ValidateBeforeCall(NewAudience newAudience, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call createAudienceV2ValidateBeforeCall(@javax.annotation.Nonnull NewAudience newAudience, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'newAudience' is set
         if (newAudience == null) {
             throw new ApiException("Missing the required parameter 'newAudience' when calling createAudienceV2(Async)");
@@ -329,7 +329,7 @@ public class IntegrationApi {
         <tr><td> 409 </td><td> Conflict. An Audience with this ID already exists for this integration. </td><td>  -  </td></tr>
      </table>
      */
-    public Audience createAudienceV2(NewAudience newAudience) throws ApiException {
+    public Audience createAudienceV2(@javax.annotation.Nonnull NewAudience newAudience) throws ApiException {
         ApiResponse<Audience> localVarResp = createAudienceV2WithHttpInfo(newAudience);
         return localVarResp.getData();
     }
@@ -350,7 +350,7 @@ public class IntegrationApi {
         <tr><td> 409 </td><td> Conflict. An Audience with this ID already exists for this integration. </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Audience> createAudienceV2WithHttpInfo(NewAudience newAudience) throws ApiException {
+    public ApiResponse<Audience> createAudienceV2WithHttpInfo(@javax.annotation.Nonnull NewAudience newAudience) throws ApiException {
         okhttp3.Call localVarCall = createAudienceV2ValidateBeforeCall(newAudience, null);
         Type localVarReturnType = new TypeToken<Audience>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -373,7 +373,7 @@ public class IntegrationApi {
         <tr><td> 409 </td><td> Conflict. An Audience with this ID already exists for this integration. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createAudienceV2Async(NewAudience newAudience, final ApiCallback<Audience> _callback) throws ApiException {
+    public okhttp3.Call createAudienceV2Async(@javax.annotation.Nonnull NewAudience newAudience, final ApiCallback<Audience> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = createAudienceV2ValidateBeforeCall(newAudience, _callback);
         Type localVarReturnType = new TypeToken<Audience>(){}.getType();
@@ -397,7 +397,7 @@ public class IntegrationApi {
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createCouponReservationCall(String couponValue, CouponReservations couponReservations, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call createCouponReservationCall(@javax.annotation.Nonnull String couponValue, @javax.annotation.Nonnull CouponReservations couponReservations, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -444,7 +444,7 @@ public class IntegrationApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call createCouponReservationValidateBeforeCall(String couponValue, CouponReservations couponReservations, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call createCouponReservationValidateBeforeCall(@javax.annotation.Nonnull String couponValue, @javax.annotation.Nonnull CouponReservations couponReservations, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'couponValue' is set
         if (couponValue == null) {
             throw new ApiException("Missing the required parameter 'couponValue' when calling createCouponReservation(Async)");
@@ -476,7 +476,7 @@ public class IntegrationApi {
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
      */
-    public Coupon createCouponReservation(String couponValue, CouponReservations couponReservations) throws ApiException {
+    public Coupon createCouponReservation(@javax.annotation.Nonnull String couponValue, @javax.annotation.Nonnull CouponReservations couponReservations) throws ApiException {
         ApiResponse<Coupon> localVarResp = createCouponReservationWithHttpInfo(couponValue, couponReservations);
         return localVarResp.getData();
     }
@@ -498,7 +498,7 @@ public class IntegrationApi {
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Coupon> createCouponReservationWithHttpInfo(String couponValue, CouponReservations couponReservations) throws ApiException {
+    public ApiResponse<Coupon> createCouponReservationWithHttpInfo(@javax.annotation.Nonnull String couponValue, @javax.annotation.Nonnull CouponReservations couponReservations) throws ApiException {
         okhttp3.Call localVarCall = createCouponReservationValidateBeforeCall(couponValue, couponReservations, null);
         Type localVarReturnType = new TypeToken<Coupon>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -522,7 +522,7 @@ public class IntegrationApi {
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createCouponReservationAsync(String couponValue, CouponReservations couponReservations, final ApiCallback<Coupon> _callback) throws ApiException {
+    public okhttp3.Call createCouponReservationAsync(@javax.annotation.Nonnull String couponValue, @javax.annotation.Nonnull CouponReservations couponReservations, final ApiCallback<Coupon> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = createCouponReservationValidateBeforeCall(couponValue, couponReservations, _callback);
         Type localVarReturnType = new TypeToken<Coupon>(){}.getType();
@@ -544,7 +544,7 @@ public class IntegrationApi {
         <tr><td> 401 </td><td> Unauthorized - Invalid API key </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createReferralCall(NewReferral newReferral, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call createReferralCall(@javax.annotation.Nonnull NewReferral newReferral, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -590,7 +590,7 @@ public class IntegrationApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call createReferralValidateBeforeCall(NewReferral newReferral, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call createReferralValidateBeforeCall(@javax.annotation.Nonnull NewReferral newReferral, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'newReferral' is set
         if (newReferral == null) {
             throw new ApiException("Missing the required parameter 'newReferral' when calling createReferral(Async)");
@@ -615,7 +615,7 @@ public class IntegrationApi {
         <tr><td> 401 </td><td> Unauthorized - Invalid API key </td><td>  -  </td></tr>
      </table>
      */
-    public Referral createReferral(NewReferral newReferral) throws ApiException {
+    public Referral createReferral(@javax.annotation.Nonnull NewReferral newReferral) throws ApiException {
         ApiResponse<Referral> localVarResp = createReferralWithHttpInfo(newReferral);
         return localVarResp.getData();
     }
@@ -635,7 +635,7 @@ public class IntegrationApi {
         <tr><td> 401 </td><td> Unauthorized - Invalid API key </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Referral> createReferralWithHttpInfo(NewReferral newReferral) throws ApiException {
+    public ApiResponse<Referral> createReferralWithHttpInfo(@javax.annotation.Nonnull NewReferral newReferral) throws ApiException {
         okhttp3.Call localVarCall = createReferralValidateBeforeCall(newReferral, null);
         Type localVarReturnType = new TypeToken<Referral>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -657,7 +657,7 @@ public class IntegrationApi {
         <tr><td> 401 </td><td> Unauthorized - Invalid API key </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createReferralAsync(NewReferral newReferral, final ApiCallback<Referral> _callback) throws ApiException {
+    public okhttp3.Call createReferralAsync(@javax.annotation.Nonnull NewReferral newReferral, final ApiCallback<Referral> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = createReferralValidateBeforeCall(newReferral, _callback);
         Type localVarReturnType = new TypeToken<Referral>(){}.getType();
@@ -681,7 +681,7 @@ public class IntegrationApi {
         <tr><td> 401 </td><td> Unauthorized - Invalid API key </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createReferralsForMultipleAdvocatesCall(NewReferralsForMultipleAdvocates newReferralsForMultipleAdvocates, String silent, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call createReferralsForMultipleAdvocatesCall(@javax.annotation.Nonnull NewReferralsForMultipleAdvocates newReferralsForMultipleAdvocates, @javax.annotation.Nullable String silent, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -731,7 +731,7 @@ public class IntegrationApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call createReferralsForMultipleAdvocatesValidateBeforeCall(NewReferralsForMultipleAdvocates newReferralsForMultipleAdvocates, String silent, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call createReferralsForMultipleAdvocatesValidateBeforeCall(@javax.annotation.Nonnull NewReferralsForMultipleAdvocates newReferralsForMultipleAdvocates, @javax.annotation.Nullable String silent, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'newReferralsForMultipleAdvocates' is set
         if (newReferralsForMultipleAdvocates == null) {
             throw new ApiException("Missing the required parameter 'newReferralsForMultipleAdvocates' when calling createReferralsForMultipleAdvocates(Async)");
@@ -758,7 +758,7 @@ public class IntegrationApi {
         <tr><td> 401 </td><td> Unauthorized - Invalid API key </td><td>  -  </td></tr>
      </table>
      */
-    public CreateReferralsForMultipleAdvocates201Response createReferralsForMultipleAdvocates(NewReferralsForMultipleAdvocates newReferralsForMultipleAdvocates, String silent) throws ApiException {
+    public CreateReferralsForMultipleAdvocates201Response createReferralsForMultipleAdvocates(@javax.annotation.Nonnull NewReferralsForMultipleAdvocates newReferralsForMultipleAdvocates, @javax.annotation.Nullable String silent) throws ApiException {
         ApiResponse<CreateReferralsForMultipleAdvocates201Response> localVarResp = createReferralsForMultipleAdvocatesWithHttpInfo(newReferralsForMultipleAdvocates, silent);
         return localVarResp.getData();
     }
@@ -780,7 +780,7 @@ public class IntegrationApi {
         <tr><td> 401 </td><td> Unauthorized - Invalid API key </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<CreateReferralsForMultipleAdvocates201Response> createReferralsForMultipleAdvocatesWithHttpInfo(NewReferralsForMultipleAdvocates newReferralsForMultipleAdvocates, String silent) throws ApiException {
+    public ApiResponse<CreateReferralsForMultipleAdvocates201Response> createReferralsForMultipleAdvocatesWithHttpInfo(@javax.annotation.Nonnull NewReferralsForMultipleAdvocates newReferralsForMultipleAdvocates, @javax.annotation.Nullable String silent) throws ApiException {
         okhttp3.Call localVarCall = createReferralsForMultipleAdvocatesValidateBeforeCall(newReferralsForMultipleAdvocates, silent, null);
         Type localVarReturnType = new TypeToken<CreateReferralsForMultipleAdvocates201Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -804,7 +804,7 @@ public class IntegrationApi {
         <tr><td> 401 </td><td> Unauthorized - Invalid API key </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createReferralsForMultipleAdvocatesAsync(NewReferralsForMultipleAdvocates newReferralsForMultipleAdvocates, String silent, final ApiCallback<CreateReferralsForMultipleAdvocates201Response> _callback) throws ApiException {
+    public okhttp3.Call createReferralsForMultipleAdvocatesAsync(@javax.annotation.Nonnull NewReferralsForMultipleAdvocates newReferralsForMultipleAdvocates, @javax.annotation.Nullable String silent, final ApiCallback<CreateReferralsForMultipleAdvocates201Response> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = createReferralsForMultipleAdvocatesValidateBeforeCall(newReferralsForMultipleAdvocates, silent, _callback);
         Type localVarReturnType = new TypeToken<CreateReferralsForMultipleAdvocates201Response>(){}.getType();
@@ -826,7 +826,7 @@ public class IntegrationApi {
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call deleteAudienceMembershipsV2Call(Long audienceId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call deleteAudienceMembershipsV2Call(@javax.annotation.Nonnull Long audienceId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -872,7 +872,7 @@ public class IntegrationApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call deleteAudienceMembershipsV2ValidateBeforeCall(Long audienceId, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call deleteAudienceMembershipsV2ValidateBeforeCall(@javax.annotation.Nonnull Long audienceId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'audienceId' is set
         if (audienceId == null) {
             throw new ApiException("Missing the required parameter 'audienceId' when calling deleteAudienceMembershipsV2(Async)");
@@ -896,7 +896,7 @@ public class IntegrationApi {
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
      */
-    public void deleteAudienceMembershipsV2(Long audienceId) throws ApiException {
+    public void deleteAudienceMembershipsV2(@javax.annotation.Nonnull Long audienceId) throws ApiException {
         deleteAudienceMembershipsV2WithHttpInfo(audienceId);
     }
 
@@ -915,7 +915,7 @@ public class IntegrationApi {
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Void> deleteAudienceMembershipsV2WithHttpInfo(Long audienceId) throws ApiException {
+    public ApiResponse<Void> deleteAudienceMembershipsV2WithHttpInfo(@javax.annotation.Nonnull Long audienceId) throws ApiException {
         okhttp3.Call localVarCall = deleteAudienceMembershipsV2ValidateBeforeCall(audienceId, null);
         return localVarApiClient.execute(localVarCall);
     }
@@ -936,7 +936,7 @@ public class IntegrationApi {
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call deleteAudienceMembershipsV2Async(Long audienceId, final ApiCallback<Void> _callback) throws ApiException {
+    public okhttp3.Call deleteAudienceMembershipsV2Async(@javax.annotation.Nonnull Long audienceId, final ApiCallback<Void> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = deleteAudienceMembershipsV2ValidateBeforeCall(audienceId, _callback);
         localVarApiClient.executeAsync(localVarCall, _callback);
@@ -958,7 +958,7 @@ public class IntegrationApi {
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call deleteAudienceV2Call(Long audienceId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call deleteAudienceV2Call(@javax.annotation.Nonnull Long audienceId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1004,7 +1004,7 @@ public class IntegrationApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call deleteAudienceV2ValidateBeforeCall(Long audienceId, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call deleteAudienceV2ValidateBeforeCall(@javax.annotation.Nonnull Long audienceId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'audienceId' is set
         if (audienceId == null) {
             throw new ApiException("Missing the required parameter 'audienceId' when calling deleteAudienceV2(Async)");
@@ -1029,7 +1029,7 @@ public class IntegrationApi {
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
      */
-    public void deleteAudienceV2(Long audienceId) throws ApiException {
+    public void deleteAudienceV2(@javax.annotation.Nonnull Long audienceId) throws ApiException {
         deleteAudienceV2WithHttpInfo(audienceId);
     }
 
@@ -1049,7 +1049,7 @@ public class IntegrationApi {
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Void> deleteAudienceV2WithHttpInfo(Long audienceId) throws ApiException {
+    public ApiResponse<Void> deleteAudienceV2WithHttpInfo(@javax.annotation.Nonnull Long audienceId) throws ApiException {
         okhttp3.Call localVarCall = deleteAudienceV2ValidateBeforeCall(audienceId, null);
         return localVarApiClient.execute(localVarCall);
     }
@@ -1071,7 +1071,7 @@ public class IntegrationApi {
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call deleteAudienceV2Async(Long audienceId, final ApiCallback<Void> _callback) throws ApiException {
+    public okhttp3.Call deleteAudienceV2Async(@javax.annotation.Nonnull Long audienceId, final ApiCallback<Void> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = deleteAudienceV2ValidateBeforeCall(audienceId, _callback);
         localVarApiClient.executeAsync(localVarCall, _callback);
@@ -1094,7 +1094,7 @@ public class IntegrationApi {
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call deleteCouponReservationCall(String couponValue, CouponReservations couponReservations, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call deleteCouponReservationCall(@javax.annotation.Nonnull String couponValue, @javax.annotation.Nonnull CouponReservations couponReservations, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1141,7 +1141,7 @@ public class IntegrationApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call deleteCouponReservationValidateBeforeCall(String couponValue, CouponReservations couponReservations, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call deleteCouponReservationValidateBeforeCall(@javax.annotation.Nonnull String couponValue, @javax.annotation.Nonnull CouponReservations couponReservations, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'couponValue' is set
         if (couponValue == null) {
             throw new ApiException("Missing the required parameter 'couponValue' when calling deleteCouponReservation(Async)");
@@ -1172,7 +1172,7 @@ public class IntegrationApi {
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
      */
-    public void deleteCouponReservation(String couponValue, CouponReservations couponReservations) throws ApiException {
+    public void deleteCouponReservation(@javax.annotation.Nonnull String couponValue, @javax.annotation.Nonnull CouponReservations couponReservations) throws ApiException {
         deleteCouponReservationWithHttpInfo(couponValue, couponReservations);
     }
 
@@ -1193,7 +1193,7 @@ public class IntegrationApi {
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Void> deleteCouponReservationWithHttpInfo(String couponValue, CouponReservations couponReservations) throws ApiException {
+    public ApiResponse<Void> deleteCouponReservationWithHttpInfo(@javax.annotation.Nonnull String couponValue, @javax.annotation.Nonnull CouponReservations couponReservations) throws ApiException {
         okhttp3.Call localVarCall = deleteCouponReservationValidateBeforeCall(couponValue, couponReservations, null);
         return localVarApiClient.execute(localVarCall);
     }
@@ -1216,7 +1216,7 @@ public class IntegrationApi {
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call deleteCouponReservationAsync(String couponValue, CouponReservations couponReservations, final ApiCallback<Void> _callback) throws ApiException {
+    public okhttp3.Call deleteCouponReservationAsync(@javax.annotation.Nonnull String couponValue, @javax.annotation.Nonnull CouponReservations couponReservations, final ApiCallback<Void> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = deleteCouponReservationValidateBeforeCall(couponValue, couponReservations, _callback);
         localVarApiClient.executeAsync(localVarCall, _callback);
@@ -1237,7 +1237,7 @@ public class IntegrationApi {
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call deleteCustomerDataCall(String integrationId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call deleteCustomerDataCall(@javax.annotation.Nonnull String integrationId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1283,7 +1283,7 @@ public class IntegrationApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call deleteCustomerDataValidateBeforeCall(String integrationId, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call deleteCustomerDataValidateBeforeCall(@javax.annotation.Nonnull String integrationId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'integrationId' is set
         if (integrationId == null) {
             throw new ApiException("Missing the required parameter 'integrationId' when calling deleteCustomerData(Async)");
@@ -1307,7 +1307,7 @@ public class IntegrationApi {
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
      */
-    public void deleteCustomerData(String integrationId) throws ApiException {
+    public void deleteCustomerData(@javax.annotation.Nonnull String integrationId) throws ApiException {
         deleteCustomerDataWithHttpInfo(integrationId);
     }
 
@@ -1326,7 +1326,7 @@ public class IntegrationApi {
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Void> deleteCustomerDataWithHttpInfo(String integrationId) throws ApiException {
+    public ApiResponse<Void> deleteCustomerDataWithHttpInfo(@javax.annotation.Nonnull String integrationId) throws ApiException {
         okhttp3.Call localVarCall = deleteCustomerDataValidateBeforeCall(integrationId, null);
         return localVarApiClient.execute(localVarCall);
     }
@@ -1347,7 +1347,7 @@ public class IntegrationApi {
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call deleteCustomerDataAsync(String integrationId, final ApiCallback<Void> _callback) throws ApiException {
+    public okhttp3.Call deleteCustomerDataAsync(@javax.annotation.Nonnull String integrationId, final ApiCallback<Void> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = deleteCustomerDataValidateBeforeCall(integrationId, _callback);
         localVarApiClient.executeAsync(localVarCall, _callback);
@@ -1369,7 +1369,7 @@ public class IntegrationApi {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call generateLoyaltyCardCall(Long loyaltyProgramId, GenerateLoyaltyCard generateLoyaltyCard, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call generateLoyaltyCardCall(@javax.annotation.Nonnull Long loyaltyProgramId, @javax.annotation.Nonnull GenerateLoyaltyCard generateLoyaltyCard, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1416,7 +1416,7 @@ public class IntegrationApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call generateLoyaltyCardValidateBeforeCall(Long loyaltyProgramId, GenerateLoyaltyCard generateLoyaltyCard, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call generateLoyaltyCardValidateBeforeCall(@javax.annotation.Nonnull Long loyaltyProgramId, @javax.annotation.Nonnull GenerateLoyaltyCard generateLoyaltyCard, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'loyaltyProgramId' is set
         if (loyaltyProgramId == null) {
             throw new ApiException("Missing the required parameter 'loyaltyProgramId' when calling generateLoyaltyCard(Async)");
@@ -1447,7 +1447,7 @@ public class IntegrationApi {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public LoyaltyCard generateLoyaltyCard(Long loyaltyProgramId, GenerateLoyaltyCard generateLoyaltyCard) throws ApiException {
+    public LoyaltyCard generateLoyaltyCard(@javax.annotation.Nonnull Long loyaltyProgramId, @javax.annotation.Nonnull GenerateLoyaltyCard generateLoyaltyCard) throws ApiException {
         ApiResponse<LoyaltyCard> localVarResp = generateLoyaltyCardWithHttpInfo(loyaltyProgramId, generateLoyaltyCard);
         return localVarResp.getData();
     }
@@ -1468,7 +1468,7 @@ public class IntegrationApi {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<LoyaltyCard> generateLoyaltyCardWithHttpInfo(Long loyaltyProgramId, GenerateLoyaltyCard generateLoyaltyCard) throws ApiException {
+    public ApiResponse<LoyaltyCard> generateLoyaltyCardWithHttpInfo(@javax.annotation.Nonnull Long loyaltyProgramId, @javax.annotation.Nonnull GenerateLoyaltyCard generateLoyaltyCard) throws ApiException {
         okhttp3.Call localVarCall = generateLoyaltyCardValidateBeforeCall(loyaltyProgramId, generateLoyaltyCard, null);
         Type localVarReturnType = new TypeToken<LoyaltyCard>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -1491,7 +1491,7 @@ public class IntegrationApi {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call generateLoyaltyCardAsync(Long loyaltyProgramId, GenerateLoyaltyCard generateLoyaltyCard, final ApiCallback<LoyaltyCard> _callback) throws ApiException {
+    public okhttp3.Call generateLoyaltyCardAsync(@javax.annotation.Nonnull Long loyaltyProgramId, @javax.annotation.Nonnull GenerateLoyaltyCard generateLoyaltyCard, final ApiCallback<LoyaltyCard> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = generateLoyaltyCardValidateBeforeCall(loyaltyProgramId, generateLoyaltyCard, _callback);
         Type localVarReturnType = new TypeToken<LoyaltyCard>(){}.getType();
@@ -1520,7 +1520,7 @@ public class IntegrationApi {
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getCustomerAchievementHistoryCall(String integrationId, Long achievementId, List<String> progressStatus, OffsetDateTime startDate, OffsetDateTime endDate, Long pageSize, Long skip, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getCustomerAchievementHistoryCall(@javax.annotation.Nonnull String integrationId, @javax.annotation.Nonnull Long achievementId, @javax.annotation.Nullable List<String> progressStatus, @javax.annotation.Nullable OffsetDateTime startDate, @javax.annotation.Nullable OffsetDateTime endDate, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1587,7 +1587,7 @@ public class IntegrationApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getCustomerAchievementHistoryValidateBeforeCall(String integrationId, Long achievementId, List<String> progressStatus, OffsetDateTime startDate, OffsetDateTime endDate, Long pageSize, Long skip, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getCustomerAchievementHistoryValidateBeforeCall(@javax.annotation.Nonnull String integrationId, @javax.annotation.Nonnull Long achievementId, @javax.annotation.Nullable List<String> progressStatus, @javax.annotation.Nullable OffsetDateTime startDate, @javax.annotation.Nullable OffsetDateTime endDate, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'integrationId' is set
         if (integrationId == null) {
             throw new ApiException("Missing the required parameter 'integrationId' when calling getCustomerAchievementHistory(Async)");
@@ -1624,7 +1624,7 @@ public class IntegrationApi {
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
      */
-    public GetCustomerAchievementHistory200Response getCustomerAchievementHistory(String integrationId, Long achievementId, List<String> progressStatus, OffsetDateTime startDate, OffsetDateTime endDate, Long pageSize, Long skip) throws ApiException {
+    public GetCustomerAchievementHistory200Response getCustomerAchievementHistory(@javax.annotation.Nonnull String integrationId, @javax.annotation.Nonnull Long achievementId, @javax.annotation.Nullable List<String> progressStatus, @javax.annotation.Nullable OffsetDateTime startDate, @javax.annotation.Nullable OffsetDateTime endDate, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip) throws ApiException {
         ApiResponse<GetCustomerAchievementHistory200Response> localVarResp = getCustomerAchievementHistoryWithHttpInfo(integrationId, achievementId, progressStatus, startDate, endDate, pageSize, skip);
         return localVarResp.getData();
     }
@@ -1651,7 +1651,7 @@ public class IntegrationApi {
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<GetCustomerAchievementHistory200Response> getCustomerAchievementHistoryWithHttpInfo(String integrationId, Long achievementId, List<String> progressStatus, OffsetDateTime startDate, OffsetDateTime endDate, Long pageSize, Long skip) throws ApiException {
+    public ApiResponse<GetCustomerAchievementHistory200Response> getCustomerAchievementHistoryWithHttpInfo(@javax.annotation.Nonnull String integrationId, @javax.annotation.Nonnull Long achievementId, @javax.annotation.Nullable List<String> progressStatus, @javax.annotation.Nullable OffsetDateTime startDate, @javax.annotation.Nullable OffsetDateTime endDate, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip) throws ApiException {
         okhttp3.Call localVarCall = getCustomerAchievementHistoryValidateBeforeCall(integrationId, achievementId, progressStatus, startDate, endDate, pageSize, skip, null);
         Type localVarReturnType = new TypeToken<GetCustomerAchievementHistory200Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -1680,7 +1680,7 @@ public class IntegrationApi {
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getCustomerAchievementHistoryAsync(String integrationId, Long achievementId, List<String> progressStatus, OffsetDateTime startDate, OffsetDateTime endDate, Long pageSize, Long skip, final ApiCallback<GetCustomerAchievementHistory200Response> _callback) throws ApiException {
+    public okhttp3.Call getCustomerAchievementHistoryAsync(@javax.annotation.Nonnull String integrationId, @javax.annotation.Nonnull Long achievementId, @javax.annotation.Nullable List<String> progressStatus, @javax.annotation.Nullable OffsetDateTime startDate, @javax.annotation.Nullable OffsetDateTime endDate, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, final ApiCallback<GetCustomerAchievementHistory200Response> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getCustomerAchievementHistoryValidateBeforeCall(integrationId, achievementId, progressStatus, startDate, endDate, pageSize, skip, _callback);
         Type localVarReturnType = new TypeToken<GetCustomerAchievementHistory200Response>(){}.getType();
@@ -1709,7 +1709,7 @@ public class IntegrationApi {
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getCustomerAchievementsCall(String integrationId, List<String> campaignIds, List<String> achievementIds, List<String> achievementStatus, List<String> currentProgressStatus, Long pageSize, Long skip, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getCustomerAchievementsCall(@javax.annotation.Nonnull String integrationId, @javax.annotation.Nullable List<String> campaignIds, @javax.annotation.Nullable List<String> achievementIds, @javax.annotation.Nullable List<String> achievementStatus, @javax.annotation.Nullable List<String> currentProgressStatus, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1779,7 +1779,7 @@ public class IntegrationApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getCustomerAchievementsValidateBeforeCall(String integrationId, List<String> campaignIds, List<String> achievementIds, List<String> achievementStatus, List<String> currentProgressStatus, Long pageSize, Long skip, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getCustomerAchievementsValidateBeforeCall(@javax.annotation.Nonnull String integrationId, @javax.annotation.Nullable List<String> campaignIds, @javax.annotation.Nullable List<String> achievementIds, @javax.annotation.Nullable List<String> achievementStatus, @javax.annotation.Nullable List<String> currentProgressStatus, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'integrationId' is set
         if (integrationId == null) {
             throw new ApiException("Missing the required parameter 'integrationId' when calling getCustomerAchievements(Async)");
@@ -1811,7 +1811,7 @@ public class IntegrationApi {
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
      */
-    public GetCustomerAchievements200Response getCustomerAchievements(String integrationId, List<String> campaignIds, List<String> achievementIds, List<String> achievementStatus, List<String> currentProgressStatus, Long pageSize, Long skip) throws ApiException {
+    public GetCustomerAchievements200Response getCustomerAchievements(@javax.annotation.Nonnull String integrationId, @javax.annotation.Nullable List<String> campaignIds, @javax.annotation.Nullable List<String> achievementIds, @javax.annotation.Nullable List<String> achievementStatus, @javax.annotation.Nullable List<String> currentProgressStatus, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip) throws ApiException {
         ApiResponse<GetCustomerAchievements200Response> localVarResp = getCustomerAchievementsWithHttpInfo(integrationId, campaignIds, achievementIds, achievementStatus, currentProgressStatus, pageSize, skip);
         return localVarResp.getData();
     }
@@ -1838,7 +1838,7 @@ public class IntegrationApi {
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<GetCustomerAchievements200Response> getCustomerAchievementsWithHttpInfo(String integrationId, List<String> campaignIds, List<String> achievementIds, List<String> achievementStatus, List<String> currentProgressStatus, Long pageSize, Long skip) throws ApiException {
+    public ApiResponse<GetCustomerAchievements200Response> getCustomerAchievementsWithHttpInfo(@javax.annotation.Nonnull String integrationId, @javax.annotation.Nullable List<String> campaignIds, @javax.annotation.Nullable List<String> achievementIds, @javax.annotation.Nullable List<String> achievementStatus, @javax.annotation.Nullable List<String> currentProgressStatus, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip) throws ApiException {
         okhttp3.Call localVarCall = getCustomerAchievementsValidateBeforeCall(integrationId, campaignIds, achievementIds, achievementStatus, currentProgressStatus, pageSize, skip, null);
         Type localVarReturnType = new TypeToken<GetCustomerAchievements200Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -1867,7 +1867,7 @@ public class IntegrationApi {
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getCustomerAchievementsAsync(String integrationId, List<String> campaignIds, List<String> achievementIds, List<String> achievementStatus, List<String> currentProgressStatus, Long pageSize, Long skip, final ApiCallback<GetCustomerAchievements200Response> _callback) throws ApiException {
+    public okhttp3.Call getCustomerAchievementsAsync(@javax.annotation.Nonnull String integrationId, @javax.annotation.Nullable List<String> campaignIds, @javax.annotation.Nullable List<String> achievementIds, @javax.annotation.Nullable List<String> achievementStatus, @javax.annotation.Nullable List<String> currentProgressStatus, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, final ApiCallback<GetCustomerAchievements200Response> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getCustomerAchievementsValidateBeforeCall(integrationId, campaignIds, achievementIds, achievementStatus, currentProgressStatus, pageSize, skip, _callback);
         Type localVarReturnType = new TypeToken<GetCustomerAchievements200Response>(){}.getType();
@@ -1895,7 +1895,7 @@ public class IntegrationApi {
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getCustomerInventoryCall(String integrationId, Boolean profile, Boolean referrals, Boolean coupons, Boolean loyalty, Boolean giveaways, Boolean achievements, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getCustomerInventoryCall(@javax.annotation.Nonnull String integrationId, @javax.annotation.Nullable Boolean profile, @javax.annotation.Nullable Boolean referrals, @javax.annotation.Nullable Boolean coupons, @javax.annotation.Nullable Boolean loyalty, @javax.annotation.Nullable Boolean giveaways, @javax.annotation.Nullable Boolean achievements, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1965,7 +1965,7 @@ public class IntegrationApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getCustomerInventoryValidateBeforeCall(String integrationId, Boolean profile, Boolean referrals, Boolean coupons, Boolean loyalty, Boolean giveaways, Boolean achievements, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getCustomerInventoryValidateBeforeCall(@javax.annotation.Nonnull String integrationId, @javax.annotation.Nullable Boolean profile, @javax.annotation.Nullable Boolean referrals, @javax.annotation.Nullable Boolean coupons, @javax.annotation.Nullable Boolean loyalty, @javax.annotation.Nullable Boolean giveaways, @javax.annotation.Nullable Boolean achievements, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'integrationId' is set
         if (integrationId == null) {
             throw new ApiException("Missing the required parameter 'integrationId' when calling getCustomerInventory(Async)");
@@ -1996,7 +1996,7 @@ public class IntegrationApi {
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
      */
-    public CustomerInventory getCustomerInventory(String integrationId, Boolean profile, Boolean referrals, Boolean coupons, Boolean loyalty, Boolean giveaways, Boolean achievements) throws ApiException {
+    public CustomerInventory getCustomerInventory(@javax.annotation.Nonnull String integrationId, @javax.annotation.Nullable Boolean profile, @javax.annotation.Nullable Boolean referrals, @javax.annotation.Nullable Boolean coupons, @javax.annotation.Nullable Boolean loyalty, @javax.annotation.Nullable Boolean giveaways, @javax.annotation.Nullable Boolean achievements) throws ApiException {
         ApiResponse<CustomerInventory> localVarResp = getCustomerInventoryWithHttpInfo(integrationId, profile, referrals, coupons, loyalty, giveaways, achievements);
         return localVarResp.getData();
     }
@@ -2022,7 +2022,7 @@ public class IntegrationApi {
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<CustomerInventory> getCustomerInventoryWithHttpInfo(String integrationId, Boolean profile, Boolean referrals, Boolean coupons, Boolean loyalty, Boolean giveaways, Boolean achievements) throws ApiException {
+    public ApiResponse<CustomerInventory> getCustomerInventoryWithHttpInfo(@javax.annotation.Nonnull String integrationId, @javax.annotation.Nullable Boolean profile, @javax.annotation.Nullable Boolean referrals, @javax.annotation.Nullable Boolean coupons, @javax.annotation.Nullable Boolean loyalty, @javax.annotation.Nullable Boolean giveaways, @javax.annotation.Nullable Boolean achievements) throws ApiException {
         okhttp3.Call localVarCall = getCustomerInventoryValidateBeforeCall(integrationId, profile, referrals, coupons, loyalty, giveaways, achievements, null);
         Type localVarReturnType = new TypeToken<CustomerInventory>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -2050,7 +2050,7 @@ public class IntegrationApi {
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getCustomerInventoryAsync(String integrationId, Boolean profile, Boolean referrals, Boolean coupons, Boolean loyalty, Boolean giveaways, Boolean achievements, final ApiCallback<CustomerInventory> _callback) throws ApiException {
+    public okhttp3.Call getCustomerInventoryAsync(@javax.annotation.Nonnull String integrationId, @javax.annotation.Nullable Boolean profile, @javax.annotation.Nullable Boolean referrals, @javax.annotation.Nullable Boolean coupons, @javax.annotation.Nullable Boolean loyalty, @javax.annotation.Nullable Boolean giveaways, @javax.annotation.Nullable Boolean achievements, final ApiCallback<CustomerInventory> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getCustomerInventoryValidateBeforeCall(integrationId, profile, referrals, coupons, loyalty, giveaways, achievements, _callback);
         Type localVarReturnType = new TypeToken<CustomerInventory>(){}.getType();
@@ -2072,7 +2072,7 @@ public class IntegrationApi {
         <tr><td> 401 </td><td> Unauthorized - Invalid API key </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getCustomerSessionCall(String customerSessionId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getCustomerSessionCall(@javax.annotation.Nonnull String customerSessionId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -2118,7 +2118,7 @@ public class IntegrationApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getCustomerSessionValidateBeforeCall(String customerSessionId, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getCustomerSessionValidateBeforeCall(@javax.annotation.Nonnull String customerSessionId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'customerSessionId' is set
         if (customerSessionId == null) {
             throw new ApiException("Missing the required parameter 'customerSessionId' when calling getCustomerSession(Async)");
@@ -2143,7 +2143,7 @@ public class IntegrationApi {
         <tr><td> 401 </td><td> Unauthorized - Invalid API key </td><td>  -  </td></tr>
      </table>
      */
-    public IntegrationCustomerSessionResponse getCustomerSession(String customerSessionId) throws ApiException {
+    public IntegrationCustomerSessionResponse getCustomerSession(@javax.annotation.Nonnull String customerSessionId) throws ApiException {
         ApiResponse<IntegrationCustomerSessionResponse> localVarResp = getCustomerSessionWithHttpInfo(customerSessionId);
         return localVarResp.getData();
     }
@@ -2163,7 +2163,7 @@ public class IntegrationApi {
         <tr><td> 401 </td><td> Unauthorized - Invalid API key </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<IntegrationCustomerSessionResponse> getCustomerSessionWithHttpInfo(String customerSessionId) throws ApiException {
+    public ApiResponse<IntegrationCustomerSessionResponse> getCustomerSessionWithHttpInfo(@javax.annotation.Nonnull String customerSessionId) throws ApiException {
         okhttp3.Call localVarCall = getCustomerSessionValidateBeforeCall(customerSessionId, null);
         Type localVarReturnType = new TypeToken<IntegrationCustomerSessionResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -2185,7 +2185,7 @@ public class IntegrationApi {
         <tr><td> 401 </td><td> Unauthorized - Invalid API key </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getCustomerSessionAsync(String customerSessionId, final ApiCallback<IntegrationCustomerSessionResponse> _callback) throws ApiException {
+    public okhttp3.Call getCustomerSessionAsync(@javax.annotation.Nonnull String customerSessionId, final ApiCallback<IntegrationCustomerSessionResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getCustomerSessionValidateBeforeCall(customerSessionId, _callback);
         Type localVarReturnType = new TypeToken<IntegrationCustomerSessionResponse>(){}.getType();
@@ -2213,7 +2213,7 @@ public class IntegrationApi {
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getLoyaltyBalancesCall(Long loyaltyProgramId, String integrationId, OffsetDateTime endDate, String subledgerId, Boolean includeTiers, Boolean includeProjectedTier, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getLoyaltyBalancesCall(@javax.annotation.Nonnull Long loyaltyProgramId, @javax.annotation.Nonnull String integrationId, @javax.annotation.Nullable OffsetDateTime endDate, @javax.annotation.Nullable String subledgerId, @javax.annotation.Nullable Boolean includeTiers, @javax.annotation.Nullable Boolean includeProjectedTier, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -2276,7 +2276,7 @@ public class IntegrationApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getLoyaltyBalancesValidateBeforeCall(Long loyaltyProgramId, String integrationId, OffsetDateTime endDate, String subledgerId, Boolean includeTiers, Boolean includeProjectedTier, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getLoyaltyBalancesValidateBeforeCall(@javax.annotation.Nonnull Long loyaltyProgramId, @javax.annotation.Nonnull String integrationId, @javax.annotation.Nullable OffsetDateTime endDate, @javax.annotation.Nullable String subledgerId, @javax.annotation.Nullable Boolean includeTiers, @javax.annotation.Nullable Boolean includeProjectedTier, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'loyaltyProgramId' is set
         if (loyaltyProgramId == null) {
             throw new ApiException("Missing the required parameter 'loyaltyProgramId' when calling getLoyaltyBalances(Async)");
@@ -2312,7 +2312,7 @@ public class IntegrationApi {
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
      */
-    public LoyaltyBalancesWithTiers getLoyaltyBalances(Long loyaltyProgramId, String integrationId, OffsetDateTime endDate, String subledgerId, Boolean includeTiers, Boolean includeProjectedTier) throws ApiException {
+    public LoyaltyBalancesWithTiers getLoyaltyBalances(@javax.annotation.Nonnull Long loyaltyProgramId, @javax.annotation.Nonnull String integrationId, @javax.annotation.Nullable OffsetDateTime endDate, @javax.annotation.Nullable String subledgerId, @javax.annotation.Nullable Boolean includeTiers, @javax.annotation.Nullable Boolean includeProjectedTier) throws ApiException {
         ApiResponse<LoyaltyBalancesWithTiers> localVarResp = getLoyaltyBalancesWithHttpInfo(loyaltyProgramId, integrationId, endDate, subledgerId, includeTiers, includeProjectedTier);
         return localVarResp.getData();
     }
@@ -2338,7 +2338,7 @@ public class IntegrationApi {
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<LoyaltyBalancesWithTiers> getLoyaltyBalancesWithHttpInfo(Long loyaltyProgramId, String integrationId, OffsetDateTime endDate, String subledgerId, Boolean includeTiers, Boolean includeProjectedTier) throws ApiException {
+    public ApiResponse<LoyaltyBalancesWithTiers> getLoyaltyBalancesWithHttpInfo(@javax.annotation.Nonnull Long loyaltyProgramId, @javax.annotation.Nonnull String integrationId, @javax.annotation.Nullable OffsetDateTime endDate, @javax.annotation.Nullable String subledgerId, @javax.annotation.Nullable Boolean includeTiers, @javax.annotation.Nullable Boolean includeProjectedTier) throws ApiException {
         okhttp3.Call localVarCall = getLoyaltyBalancesValidateBeforeCall(loyaltyProgramId, integrationId, endDate, subledgerId, includeTiers, includeProjectedTier, null);
         Type localVarReturnType = new TypeToken<LoyaltyBalancesWithTiers>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -2366,7 +2366,7 @@ public class IntegrationApi {
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getLoyaltyBalancesAsync(Long loyaltyProgramId, String integrationId, OffsetDateTime endDate, String subledgerId, Boolean includeTiers, Boolean includeProjectedTier, final ApiCallback<LoyaltyBalancesWithTiers> _callback) throws ApiException {
+    public okhttp3.Call getLoyaltyBalancesAsync(@javax.annotation.Nonnull Long loyaltyProgramId, @javax.annotation.Nonnull String integrationId, @javax.annotation.Nullable OffsetDateTime endDate, @javax.annotation.Nullable String subledgerId, @javax.annotation.Nullable Boolean includeTiers, @javax.annotation.Nullable Boolean includeProjectedTier, final ApiCallback<LoyaltyBalancesWithTiers> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getLoyaltyBalancesValidateBeforeCall(loyaltyProgramId, integrationId, endDate, subledgerId, includeTiers, includeProjectedTier, _callback);
         Type localVarReturnType = new TypeToken<LoyaltyBalancesWithTiers>(){}.getType();
@@ -2392,7 +2392,7 @@ public class IntegrationApi {
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getLoyaltyCardBalancesCall(Long loyaltyProgramId, String loyaltyCardId, OffsetDateTime endDate, List<String> subledgerId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getLoyaltyCardBalancesCall(@javax.annotation.Nonnull Long loyaltyProgramId, @javax.annotation.Nonnull String loyaltyCardId, @javax.annotation.Nullable OffsetDateTime endDate, @javax.annotation.Nullable List<String> subledgerId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -2447,7 +2447,7 @@ public class IntegrationApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getLoyaltyCardBalancesValidateBeforeCall(Long loyaltyProgramId, String loyaltyCardId, OffsetDateTime endDate, List<String> subledgerId, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getLoyaltyCardBalancesValidateBeforeCall(@javax.annotation.Nonnull Long loyaltyProgramId, @javax.annotation.Nonnull String loyaltyCardId, @javax.annotation.Nullable OffsetDateTime endDate, @javax.annotation.Nullable List<String> subledgerId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'loyaltyProgramId' is set
         if (loyaltyProgramId == null) {
             throw new ApiException("Missing the required parameter 'loyaltyProgramId' when calling getLoyaltyCardBalances(Async)");
@@ -2481,7 +2481,7 @@ public class IntegrationApi {
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
      */
-    public LoyaltyCardBalances getLoyaltyCardBalances(Long loyaltyProgramId, String loyaltyCardId, OffsetDateTime endDate, List<String> subledgerId) throws ApiException {
+    public LoyaltyCardBalances getLoyaltyCardBalances(@javax.annotation.Nonnull Long loyaltyProgramId, @javax.annotation.Nonnull String loyaltyCardId, @javax.annotation.Nullable OffsetDateTime endDate, @javax.annotation.Nullable List<String> subledgerId) throws ApiException {
         ApiResponse<LoyaltyCardBalances> localVarResp = getLoyaltyCardBalancesWithHttpInfo(loyaltyProgramId, loyaltyCardId, endDate, subledgerId);
         return localVarResp.getData();
     }
@@ -2505,7 +2505,7 @@ public class IntegrationApi {
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<LoyaltyCardBalances> getLoyaltyCardBalancesWithHttpInfo(Long loyaltyProgramId, String loyaltyCardId, OffsetDateTime endDate, List<String> subledgerId) throws ApiException {
+    public ApiResponse<LoyaltyCardBalances> getLoyaltyCardBalancesWithHttpInfo(@javax.annotation.Nonnull Long loyaltyProgramId, @javax.annotation.Nonnull String loyaltyCardId, @javax.annotation.Nullable OffsetDateTime endDate, @javax.annotation.Nullable List<String> subledgerId) throws ApiException {
         okhttp3.Call localVarCall = getLoyaltyCardBalancesValidateBeforeCall(loyaltyProgramId, loyaltyCardId, endDate, subledgerId, null);
         Type localVarReturnType = new TypeToken<LoyaltyCardBalances>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -2531,7 +2531,7 @@ public class IntegrationApi {
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getLoyaltyCardBalancesAsync(Long loyaltyProgramId, String loyaltyCardId, OffsetDateTime endDate, List<String> subledgerId, final ApiCallback<LoyaltyCardBalances> _callback) throws ApiException {
+    public okhttp3.Call getLoyaltyCardBalancesAsync(@javax.annotation.Nonnull Long loyaltyProgramId, @javax.annotation.Nonnull String loyaltyCardId, @javax.annotation.Nullable OffsetDateTime endDate, @javax.annotation.Nullable List<String> subledgerId, final ApiCallback<LoyaltyCardBalances> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getLoyaltyCardBalancesValidateBeforeCall(loyaltyProgramId, loyaltyCardId, endDate, subledgerId, _callback);
         Type localVarReturnType = new TypeToken<LoyaltyCardBalances>(){}.getType();
@@ -2562,7 +2562,7 @@ public class IntegrationApi {
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getLoyaltyCardPointsCall(Long loyaltyProgramId, String loyaltyCardId, String status, List<String> subledgerId, List<String> customerSessionIDs, List<String> transactionUUIDs, Long pageSize, Long skip, String sort, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getLoyaltyCardPointsCall(@javax.annotation.Nonnull Long loyaltyProgramId, @javax.annotation.Nonnull String loyaltyCardId, @javax.annotation.Nullable String status, @javax.annotation.Nullable List<String> subledgerId, @javax.annotation.Nullable List<String> customerSessionIDs, @javax.annotation.Nullable List<String> transactionUUIDs, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable String sort, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -2637,7 +2637,7 @@ public class IntegrationApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getLoyaltyCardPointsValidateBeforeCall(Long loyaltyProgramId, String loyaltyCardId, String status, List<String> subledgerId, List<String> customerSessionIDs, List<String> transactionUUIDs, Long pageSize, Long skip, String sort, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getLoyaltyCardPointsValidateBeforeCall(@javax.annotation.Nonnull Long loyaltyProgramId, @javax.annotation.Nonnull String loyaltyCardId, @javax.annotation.Nullable String status, @javax.annotation.Nullable List<String> subledgerId, @javax.annotation.Nullable List<String> customerSessionIDs, @javax.annotation.Nullable List<String> transactionUUIDs, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable String sort, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'loyaltyProgramId' is set
         if (loyaltyProgramId == null) {
             throw new ApiException("Missing the required parameter 'loyaltyProgramId' when calling getLoyaltyCardPoints(Async)");
@@ -2676,7 +2676,7 @@ public class IntegrationApi {
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
      */
-    public GetLoyaltyCardPoints200Response getLoyaltyCardPoints(Long loyaltyProgramId, String loyaltyCardId, String status, List<String> subledgerId, List<String> customerSessionIDs, List<String> transactionUUIDs, Long pageSize, Long skip, String sort) throws ApiException {
+    public GetLoyaltyCardPoints200Response getLoyaltyCardPoints(@javax.annotation.Nonnull Long loyaltyProgramId, @javax.annotation.Nonnull String loyaltyCardId, @javax.annotation.Nullable String status, @javax.annotation.Nullable List<String> subledgerId, @javax.annotation.Nullable List<String> customerSessionIDs, @javax.annotation.Nullable List<String> transactionUUIDs, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable String sort) throws ApiException {
         ApiResponse<GetLoyaltyCardPoints200Response> localVarResp = getLoyaltyCardPointsWithHttpInfo(loyaltyProgramId, loyaltyCardId, status, subledgerId, customerSessionIDs, transactionUUIDs, pageSize, skip, sort);
         return localVarResp.getData();
     }
@@ -2705,7 +2705,7 @@ public class IntegrationApi {
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<GetLoyaltyCardPoints200Response> getLoyaltyCardPointsWithHttpInfo(Long loyaltyProgramId, String loyaltyCardId, String status, List<String> subledgerId, List<String> customerSessionIDs, List<String> transactionUUIDs, Long pageSize, Long skip, String sort) throws ApiException {
+    public ApiResponse<GetLoyaltyCardPoints200Response> getLoyaltyCardPointsWithHttpInfo(@javax.annotation.Nonnull Long loyaltyProgramId, @javax.annotation.Nonnull String loyaltyCardId, @javax.annotation.Nullable String status, @javax.annotation.Nullable List<String> subledgerId, @javax.annotation.Nullable List<String> customerSessionIDs, @javax.annotation.Nullable List<String> transactionUUIDs, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable String sort) throws ApiException {
         okhttp3.Call localVarCall = getLoyaltyCardPointsValidateBeforeCall(loyaltyProgramId, loyaltyCardId, status, subledgerId, customerSessionIDs, transactionUUIDs, pageSize, skip, sort, null);
         Type localVarReturnType = new TypeToken<GetLoyaltyCardPoints200Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -2736,7 +2736,7 @@ public class IntegrationApi {
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getLoyaltyCardPointsAsync(Long loyaltyProgramId, String loyaltyCardId, String status, List<String> subledgerId, List<String> customerSessionIDs, List<String> transactionUUIDs, Long pageSize, Long skip, String sort, final ApiCallback<GetLoyaltyCardPoints200Response> _callback) throws ApiException {
+    public okhttp3.Call getLoyaltyCardPointsAsync(@javax.annotation.Nonnull Long loyaltyProgramId, @javax.annotation.Nonnull String loyaltyCardId, @javax.annotation.Nullable String status, @javax.annotation.Nullable List<String> subledgerId, @javax.annotation.Nullable List<String> customerSessionIDs, @javax.annotation.Nullable List<String> transactionUUIDs, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable String sort, final ApiCallback<GetLoyaltyCardPoints200Response> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getLoyaltyCardPointsValidateBeforeCall(loyaltyProgramId, loyaltyCardId, status, subledgerId, customerSessionIDs, transactionUUIDs, pageSize, skip, sort, _callback);
         Type localVarReturnType = new TypeToken<GetLoyaltyCardPoints200Response>(){}.getType();
@@ -2769,7 +2769,7 @@ public class IntegrationApi {
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getLoyaltyCardTransactionsCall(Long loyaltyProgramId, String loyaltyCardId, List<String> subledgerId, String loyaltyTransactionType, OffsetDateTime startDate, OffsetDateTime endDate, List<String> customerSessionIDs, List<String> transactionUUIDs, Long pageSize, Long skip, Boolean awaitsActivation, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getLoyaltyCardTransactionsCall(@javax.annotation.Nonnull Long loyaltyProgramId, @javax.annotation.Nonnull String loyaltyCardId, @javax.annotation.Nullable List<String> subledgerId, @javax.annotation.Nullable String loyaltyTransactionType, @javax.annotation.Nullable OffsetDateTime startDate, @javax.annotation.Nullable OffsetDateTime endDate, @javax.annotation.Nullable List<String> customerSessionIDs, @javax.annotation.Nullable List<String> transactionUUIDs, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable Boolean awaitsActivation, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -2852,7 +2852,7 @@ public class IntegrationApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getLoyaltyCardTransactionsValidateBeforeCall(Long loyaltyProgramId, String loyaltyCardId, List<String> subledgerId, String loyaltyTransactionType, OffsetDateTime startDate, OffsetDateTime endDate, List<String> customerSessionIDs, List<String> transactionUUIDs, Long pageSize, Long skip, Boolean awaitsActivation, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getLoyaltyCardTransactionsValidateBeforeCall(@javax.annotation.Nonnull Long loyaltyProgramId, @javax.annotation.Nonnull String loyaltyCardId, @javax.annotation.Nullable List<String> subledgerId, @javax.annotation.Nullable String loyaltyTransactionType, @javax.annotation.Nullable OffsetDateTime startDate, @javax.annotation.Nullable OffsetDateTime endDate, @javax.annotation.Nullable List<String> customerSessionIDs, @javax.annotation.Nullable List<String> transactionUUIDs, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable Boolean awaitsActivation, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'loyaltyProgramId' is set
         if (loyaltyProgramId == null) {
             throw new ApiException("Missing the required parameter 'loyaltyProgramId' when calling getLoyaltyCardTransactions(Async)");
@@ -2893,7 +2893,7 @@ public class IntegrationApi {
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
      */
-    public GetLoyaltyCardTransactions200Response getLoyaltyCardTransactions(Long loyaltyProgramId, String loyaltyCardId, List<String> subledgerId, String loyaltyTransactionType, OffsetDateTime startDate, OffsetDateTime endDate, List<String> customerSessionIDs, List<String> transactionUUIDs, Long pageSize, Long skip, Boolean awaitsActivation) throws ApiException {
+    public GetLoyaltyCardTransactions200Response getLoyaltyCardTransactions(@javax.annotation.Nonnull Long loyaltyProgramId, @javax.annotation.Nonnull String loyaltyCardId, @javax.annotation.Nullable List<String> subledgerId, @javax.annotation.Nullable String loyaltyTransactionType, @javax.annotation.Nullable OffsetDateTime startDate, @javax.annotation.Nullable OffsetDateTime endDate, @javax.annotation.Nullable List<String> customerSessionIDs, @javax.annotation.Nullable List<String> transactionUUIDs, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable Boolean awaitsActivation) throws ApiException {
         ApiResponse<GetLoyaltyCardTransactions200Response> localVarResp = getLoyaltyCardTransactionsWithHttpInfo(loyaltyProgramId, loyaltyCardId, subledgerId, loyaltyTransactionType, startDate, endDate, customerSessionIDs, transactionUUIDs, pageSize, skip, awaitsActivation);
         return localVarResp.getData();
     }
@@ -2924,7 +2924,7 @@ public class IntegrationApi {
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<GetLoyaltyCardTransactions200Response> getLoyaltyCardTransactionsWithHttpInfo(Long loyaltyProgramId, String loyaltyCardId, List<String> subledgerId, String loyaltyTransactionType, OffsetDateTime startDate, OffsetDateTime endDate, List<String> customerSessionIDs, List<String> transactionUUIDs, Long pageSize, Long skip, Boolean awaitsActivation) throws ApiException {
+    public ApiResponse<GetLoyaltyCardTransactions200Response> getLoyaltyCardTransactionsWithHttpInfo(@javax.annotation.Nonnull Long loyaltyProgramId, @javax.annotation.Nonnull String loyaltyCardId, @javax.annotation.Nullable List<String> subledgerId, @javax.annotation.Nullable String loyaltyTransactionType, @javax.annotation.Nullable OffsetDateTime startDate, @javax.annotation.Nullable OffsetDateTime endDate, @javax.annotation.Nullable List<String> customerSessionIDs, @javax.annotation.Nullable List<String> transactionUUIDs, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable Boolean awaitsActivation) throws ApiException {
         okhttp3.Call localVarCall = getLoyaltyCardTransactionsValidateBeforeCall(loyaltyProgramId, loyaltyCardId, subledgerId, loyaltyTransactionType, startDate, endDate, customerSessionIDs, transactionUUIDs, pageSize, skip, awaitsActivation, null);
         Type localVarReturnType = new TypeToken<GetLoyaltyCardTransactions200Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -2957,7 +2957,7 @@ public class IntegrationApi {
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getLoyaltyCardTransactionsAsync(Long loyaltyProgramId, String loyaltyCardId, List<String> subledgerId, String loyaltyTransactionType, OffsetDateTime startDate, OffsetDateTime endDate, List<String> customerSessionIDs, List<String> transactionUUIDs, Long pageSize, Long skip, Boolean awaitsActivation, final ApiCallback<GetLoyaltyCardTransactions200Response> _callback) throws ApiException {
+    public okhttp3.Call getLoyaltyCardTransactionsAsync(@javax.annotation.Nonnull Long loyaltyProgramId, @javax.annotation.Nonnull String loyaltyCardId, @javax.annotation.Nullable List<String> subledgerId, @javax.annotation.Nullable String loyaltyTransactionType, @javax.annotation.Nullable OffsetDateTime startDate, @javax.annotation.Nullable OffsetDateTime endDate, @javax.annotation.Nullable List<String> customerSessionIDs, @javax.annotation.Nullable List<String> transactionUUIDs, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable Boolean awaitsActivation, final ApiCallback<GetLoyaltyCardTransactions200Response> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getLoyaltyCardTransactionsValidateBeforeCall(loyaltyProgramId, loyaltyCardId, subledgerId, loyaltyTransactionType, startDate, endDate, customerSessionIDs, transactionUUIDs, pageSize, skip, awaitsActivation, _callback);
         Type localVarReturnType = new TypeToken<GetLoyaltyCardTransactions200Response>(){}.getType();
@@ -2988,7 +2988,7 @@ public class IntegrationApi {
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getLoyaltyProgramProfilePointsCall(Long loyaltyProgramId, String integrationId, String status, String subledgerId, List<String> customerSessionIDs, List<String> transactionUUIDs, Long pageSize, Long skip, String sort, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getLoyaltyProgramProfilePointsCall(@javax.annotation.Nonnull Long loyaltyProgramId, @javax.annotation.Nonnull String integrationId, @javax.annotation.Nullable String status, @javax.annotation.Nullable String subledgerId, @javax.annotation.Nullable List<String> customerSessionIDs, @javax.annotation.Nullable List<String> transactionUUIDs, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable String sort, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -3063,7 +3063,7 @@ public class IntegrationApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getLoyaltyProgramProfilePointsValidateBeforeCall(Long loyaltyProgramId, String integrationId, String status, String subledgerId, List<String> customerSessionIDs, List<String> transactionUUIDs, Long pageSize, Long skip, String sort, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getLoyaltyProgramProfilePointsValidateBeforeCall(@javax.annotation.Nonnull Long loyaltyProgramId, @javax.annotation.Nonnull String integrationId, @javax.annotation.Nullable String status, @javax.annotation.Nullable String subledgerId, @javax.annotation.Nullable List<String> customerSessionIDs, @javax.annotation.Nullable List<String> transactionUUIDs, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable String sort, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'loyaltyProgramId' is set
         if (loyaltyProgramId == null) {
             throw new ApiException("Missing the required parameter 'loyaltyProgramId' when calling getLoyaltyProgramProfilePoints(Async)");
@@ -3102,7 +3102,7 @@ public class IntegrationApi {
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
      */
-    public GetLoyaltyProgramProfilePoints200Response getLoyaltyProgramProfilePoints(Long loyaltyProgramId, String integrationId, String status, String subledgerId, List<String> customerSessionIDs, List<String> transactionUUIDs, Long pageSize, Long skip, String sort) throws ApiException {
+    public GetLoyaltyProgramProfilePoints200Response getLoyaltyProgramProfilePoints(@javax.annotation.Nonnull Long loyaltyProgramId, @javax.annotation.Nonnull String integrationId, @javax.annotation.Nullable String status, @javax.annotation.Nullable String subledgerId, @javax.annotation.Nullable List<String> customerSessionIDs, @javax.annotation.Nullable List<String> transactionUUIDs, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable String sort) throws ApiException {
         ApiResponse<GetLoyaltyProgramProfilePoints200Response> localVarResp = getLoyaltyProgramProfilePointsWithHttpInfo(loyaltyProgramId, integrationId, status, subledgerId, customerSessionIDs, transactionUUIDs, pageSize, skip, sort);
         return localVarResp.getData();
     }
@@ -3131,7 +3131,7 @@ public class IntegrationApi {
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<GetLoyaltyProgramProfilePoints200Response> getLoyaltyProgramProfilePointsWithHttpInfo(Long loyaltyProgramId, String integrationId, String status, String subledgerId, List<String> customerSessionIDs, List<String> transactionUUIDs, Long pageSize, Long skip, String sort) throws ApiException {
+    public ApiResponse<GetLoyaltyProgramProfilePoints200Response> getLoyaltyProgramProfilePointsWithHttpInfo(@javax.annotation.Nonnull Long loyaltyProgramId, @javax.annotation.Nonnull String integrationId, @javax.annotation.Nullable String status, @javax.annotation.Nullable String subledgerId, @javax.annotation.Nullable List<String> customerSessionIDs, @javax.annotation.Nullable List<String> transactionUUIDs, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable String sort) throws ApiException {
         okhttp3.Call localVarCall = getLoyaltyProgramProfilePointsValidateBeforeCall(loyaltyProgramId, integrationId, status, subledgerId, customerSessionIDs, transactionUUIDs, pageSize, skip, sort, null);
         Type localVarReturnType = new TypeToken<GetLoyaltyProgramProfilePoints200Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -3162,7 +3162,7 @@ public class IntegrationApi {
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getLoyaltyProgramProfilePointsAsync(Long loyaltyProgramId, String integrationId, String status, String subledgerId, List<String> customerSessionIDs, List<String> transactionUUIDs, Long pageSize, Long skip, String sort, final ApiCallback<GetLoyaltyProgramProfilePoints200Response> _callback) throws ApiException {
+    public okhttp3.Call getLoyaltyProgramProfilePointsAsync(@javax.annotation.Nonnull Long loyaltyProgramId, @javax.annotation.Nonnull String integrationId, @javax.annotation.Nullable String status, @javax.annotation.Nullable String subledgerId, @javax.annotation.Nullable List<String> customerSessionIDs, @javax.annotation.Nullable List<String> transactionUUIDs, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable String sort, final ApiCallback<GetLoyaltyProgramProfilePoints200Response> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getLoyaltyProgramProfilePointsValidateBeforeCall(loyaltyProgramId, integrationId, status, subledgerId, customerSessionIDs, transactionUUIDs, pageSize, skip, sort, _callback);
         Type localVarReturnType = new TypeToken<GetLoyaltyProgramProfilePoints200Response>(){}.getType();
@@ -3195,7 +3195,7 @@ public class IntegrationApi {
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getLoyaltyProgramProfileTransactionsCall(Long loyaltyProgramId, String integrationId, List<String> customerSessionIDs, List<String> transactionUUIDs, String subledgerId, String loyaltyTransactionType, OffsetDateTime startDate, OffsetDateTime endDate, Long pageSize, Long skip, Boolean awaitsActivation, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getLoyaltyProgramProfileTransactionsCall(@javax.annotation.Nonnull Long loyaltyProgramId, @javax.annotation.Nonnull String integrationId, @javax.annotation.Nullable List<String> customerSessionIDs, @javax.annotation.Nullable List<String> transactionUUIDs, @javax.annotation.Nullable String subledgerId, @javax.annotation.Nullable String loyaltyTransactionType, @javax.annotation.Nullable OffsetDateTime startDate, @javax.annotation.Nullable OffsetDateTime endDate, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable Boolean awaitsActivation, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -3278,7 +3278,7 @@ public class IntegrationApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getLoyaltyProgramProfileTransactionsValidateBeforeCall(Long loyaltyProgramId, String integrationId, List<String> customerSessionIDs, List<String> transactionUUIDs, String subledgerId, String loyaltyTransactionType, OffsetDateTime startDate, OffsetDateTime endDate, Long pageSize, Long skip, Boolean awaitsActivation, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getLoyaltyProgramProfileTransactionsValidateBeforeCall(@javax.annotation.Nonnull Long loyaltyProgramId, @javax.annotation.Nonnull String integrationId, @javax.annotation.Nullable List<String> customerSessionIDs, @javax.annotation.Nullable List<String> transactionUUIDs, @javax.annotation.Nullable String subledgerId, @javax.annotation.Nullable String loyaltyTransactionType, @javax.annotation.Nullable OffsetDateTime startDate, @javax.annotation.Nullable OffsetDateTime endDate, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable Boolean awaitsActivation, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'loyaltyProgramId' is set
         if (loyaltyProgramId == null) {
             throw new ApiException("Missing the required parameter 'loyaltyProgramId' when calling getLoyaltyProgramProfileTransactions(Async)");
@@ -3319,7 +3319,7 @@ public class IntegrationApi {
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
      */
-    public GetLoyaltyProgramProfileTransactions200Response getLoyaltyProgramProfileTransactions(Long loyaltyProgramId, String integrationId, List<String> customerSessionIDs, List<String> transactionUUIDs, String subledgerId, String loyaltyTransactionType, OffsetDateTime startDate, OffsetDateTime endDate, Long pageSize, Long skip, Boolean awaitsActivation) throws ApiException {
+    public GetLoyaltyProgramProfileTransactions200Response getLoyaltyProgramProfileTransactions(@javax.annotation.Nonnull Long loyaltyProgramId, @javax.annotation.Nonnull String integrationId, @javax.annotation.Nullable List<String> customerSessionIDs, @javax.annotation.Nullable List<String> transactionUUIDs, @javax.annotation.Nullable String subledgerId, @javax.annotation.Nullable String loyaltyTransactionType, @javax.annotation.Nullable OffsetDateTime startDate, @javax.annotation.Nullable OffsetDateTime endDate, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable Boolean awaitsActivation) throws ApiException {
         ApiResponse<GetLoyaltyProgramProfileTransactions200Response> localVarResp = getLoyaltyProgramProfileTransactionsWithHttpInfo(loyaltyProgramId, integrationId, customerSessionIDs, transactionUUIDs, subledgerId, loyaltyTransactionType, startDate, endDate, pageSize, skip, awaitsActivation);
         return localVarResp.getData();
     }
@@ -3350,7 +3350,7 @@ public class IntegrationApi {
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<GetLoyaltyProgramProfileTransactions200Response> getLoyaltyProgramProfileTransactionsWithHttpInfo(Long loyaltyProgramId, String integrationId, List<String> customerSessionIDs, List<String> transactionUUIDs, String subledgerId, String loyaltyTransactionType, OffsetDateTime startDate, OffsetDateTime endDate, Long pageSize, Long skip, Boolean awaitsActivation) throws ApiException {
+    public ApiResponse<GetLoyaltyProgramProfileTransactions200Response> getLoyaltyProgramProfileTransactionsWithHttpInfo(@javax.annotation.Nonnull Long loyaltyProgramId, @javax.annotation.Nonnull String integrationId, @javax.annotation.Nullable List<String> customerSessionIDs, @javax.annotation.Nullable List<String> transactionUUIDs, @javax.annotation.Nullable String subledgerId, @javax.annotation.Nullable String loyaltyTransactionType, @javax.annotation.Nullable OffsetDateTime startDate, @javax.annotation.Nullable OffsetDateTime endDate, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable Boolean awaitsActivation) throws ApiException {
         okhttp3.Call localVarCall = getLoyaltyProgramProfileTransactionsValidateBeforeCall(loyaltyProgramId, integrationId, customerSessionIDs, transactionUUIDs, subledgerId, loyaltyTransactionType, startDate, endDate, pageSize, skip, awaitsActivation, null);
         Type localVarReturnType = new TypeToken<GetLoyaltyProgramProfileTransactions200Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -3383,7 +3383,7 @@ public class IntegrationApi {
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getLoyaltyProgramProfileTransactionsAsync(Long loyaltyProgramId, String integrationId, List<String> customerSessionIDs, List<String> transactionUUIDs, String subledgerId, String loyaltyTransactionType, OffsetDateTime startDate, OffsetDateTime endDate, Long pageSize, Long skip, Boolean awaitsActivation, final ApiCallback<GetLoyaltyProgramProfileTransactions200Response> _callback) throws ApiException {
+    public okhttp3.Call getLoyaltyProgramProfileTransactionsAsync(@javax.annotation.Nonnull Long loyaltyProgramId, @javax.annotation.Nonnull String integrationId, @javax.annotation.Nullable List<String> customerSessionIDs, @javax.annotation.Nullable List<String> transactionUUIDs, @javax.annotation.Nullable String subledgerId, @javax.annotation.Nullable String loyaltyTransactionType, @javax.annotation.Nullable OffsetDateTime startDate, @javax.annotation.Nullable OffsetDateTime endDate, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable Boolean awaitsActivation, final ApiCallback<GetLoyaltyProgramProfileTransactions200Response> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getLoyaltyProgramProfileTransactionsValidateBeforeCall(loyaltyProgramId, integrationId, customerSessionIDs, transactionUUIDs, subledgerId, loyaltyTransactionType, startDate, endDate, pageSize, skip, awaitsActivation, _callback);
         Type localVarReturnType = new TypeToken<GetLoyaltyProgramProfileTransactions200Response>(){}.getType();
@@ -3406,7 +3406,7 @@ public class IntegrationApi {
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getReservedCustomersCall(String couponValue, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getReservedCustomersCall(@javax.annotation.Nonnull String couponValue, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -3452,7 +3452,7 @@ public class IntegrationApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getReservedCustomersValidateBeforeCall(String couponValue, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getReservedCustomersValidateBeforeCall(@javax.annotation.Nonnull String couponValue, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'couponValue' is set
         if (couponValue == null) {
             throw new ApiException("Missing the required parameter 'couponValue' when calling getReservedCustomers(Async)");
@@ -3478,7 +3478,7 @@ public class IntegrationApi {
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
      */
-    public GetReservedCustomers200Response getReservedCustomers(String couponValue) throws ApiException {
+    public GetReservedCustomers200Response getReservedCustomers(@javax.annotation.Nonnull String couponValue) throws ApiException {
         ApiResponse<GetReservedCustomers200Response> localVarResp = getReservedCustomersWithHttpInfo(couponValue);
         return localVarResp.getData();
     }
@@ -3499,7 +3499,7 @@ public class IntegrationApi {
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<GetReservedCustomers200Response> getReservedCustomersWithHttpInfo(String couponValue) throws ApiException {
+    public ApiResponse<GetReservedCustomers200Response> getReservedCustomersWithHttpInfo(@javax.annotation.Nonnull String couponValue) throws ApiException {
         okhttp3.Call localVarCall = getReservedCustomersValidateBeforeCall(couponValue, null);
         Type localVarReturnType = new TypeToken<GetReservedCustomers200Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -3522,7 +3522,7 @@ public class IntegrationApi {
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getReservedCustomersAsync(String couponValue, final ApiCallback<GetReservedCustomers200Response> _callback) throws ApiException {
+    public okhttp3.Call getReservedCustomersAsync(@javax.annotation.Nonnull String couponValue, final ApiCallback<GetReservedCustomers200Response> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getReservedCustomersValidateBeforeCall(couponValue, _callback);
         Type localVarReturnType = new TypeToken<GetReservedCustomers200Response>(){}.getType();
@@ -3547,7 +3547,7 @@ public class IntegrationApi {
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call linkLoyaltyCardToProfileCall(Long loyaltyProgramId, String loyaltyCardId, LoyaltyCardRegistration loyaltyCardRegistration, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call linkLoyaltyCardToProfileCall(@javax.annotation.Nonnull Long loyaltyProgramId, @javax.annotation.Nonnull String loyaltyCardId, @javax.annotation.Nonnull LoyaltyCardRegistration loyaltyCardRegistration, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -3595,7 +3595,7 @@ public class IntegrationApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call linkLoyaltyCardToProfileValidateBeforeCall(Long loyaltyProgramId, String loyaltyCardId, LoyaltyCardRegistration loyaltyCardRegistration, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call linkLoyaltyCardToProfileValidateBeforeCall(@javax.annotation.Nonnull Long loyaltyProgramId, @javax.annotation.Nonnull String loyaltyCardId, @javax.annotation.Nonnull LoyaltyCardRegistration loyaltyCardRegistration, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'loyaltyProgramId' is set
         if (loyaltyProgramId == null) {
             throw new ApiException("Missing the required parameter 'loyaltyProgramId' when calling linkLoyaltyCardToProfile(Async)");
@@ -3633,7 +3633,7 @@ public class IntegrationApi {
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
      */
-    public LoyaltyCard linkLoyaltyCardToProfile(Long loyaltyProgramId, String loyaltyCardId, LoyaltyCardRegistration loyaltyCardRegistration) throws ApiException {
+    public LoyaltyCard linkLoyaltyCardToProfile(@javax.annotation.Nonnull Long loyaltyProgramId, @javax.annotation.Nonnull String loyaltyCardId, @javax.annotation.Nonnull LoyaltyCardRegistration loyaltyCardRegistration) throws ApiException {
         ApiResponse<LoyaltyCard> localVarResp = linkLoyaltyCardToProfileWithHttpInfo(loyaltyProgramId, loyaltyCardId, loyaltyCardRegistration);
         return localVarResp.getData();
     }
@@ -3656,7 +3656,7 @@ public class IntegrationApi {
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<LoyaltyCard> linkLoyaltyCardToProfileWithHttpInfo(Long loyaltyProgramId, String loyaltyCardId, LoyaltyCardRegistration loyaltyCardRegistration) throws ApiException {
+    public ApiResponse<LoyaltyCard> linkLoyaltyCardToProfileWithHttpInfo(@javax.annotation.Nonnull Long loyaltyProgramId, @javax.annotation.Nonnull String loyaltyCardId, @javax.annotation.Nonnull LoyaltyCardRegistration loyaltyCardRegistration) throws ApiException {
         okhttp3.Call localVarCall = linkLoyaltyCardToProfileValidateBeforeCall(loyaltyProgramId, loyaltyCardId, loyaltyCardRegistration, null);
         Type localVarReturnType = new TypeToken<LoyaltyCard>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -3681,7 +3681,7 @@ public class IntegrationApi {
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call linkLoyaltyCardToProfileAsync(Long loyaltyProgramId, String loyaltyCardId, LoyaltyCardRegistration loyaltyCardRegistration, final ApiCallback<LoyaltyCard> _callback) throws ApiException {
+    public okhttp3.Call linkLoyaltyCardToProfileAsync(@javax.annotation.Nonnull Long loyaltyProgramId, @javax.annotation.Nonnull String loyaltyCardId, @javax.annotation.Nonnull LoyaltyCardRegistration loyaltyCardRegistration, final ApiCallback<LoyaltyCard> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = linkLoyaltyCardToProfileValidateBeforeCall(loyaltyProgramId, loyaltyCardId, loyaltyCardRegistration, _callback);
         Type localVarReturnType = new TypeToken<LoyaltyCard>(){}.getType();
@@ -3703,7 +3703,7 @@ public class IntegrationApi {
         <tr><td> 401 </td><td> Unauthorized - Invalid API key </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call reopenCustomerSessionCall(String customerSessionId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call reopenCustomerSessionCall(@javax.annotation.Nonnull String customerSessionId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -3749,7 +3749,7 @@ public class IntegrationApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call reopenCustomerSessionValidateBeforeCall(String customerSessionId, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call reopenCustomerSessionValidateBeforeCall(@javax.annotation.Nonnull String customerSessionId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'customerSessionId' is set
         if (customerSessionId == null) {
             throw new ApiException("Missing the required parameter 'customerSessionId' when calling reopenCustomerSession(Async)");
@@ -3774,7 +3774,7 @@ public class IntegrationApi {
         <tr><td> 401 </td><td> Unauthorized - Invalid API key </td><td>  -  </td></tr>
      </table>
      */
-    public ReopenSessionResponse reopenCustomerSession(String customerSessionId) throws ApiException {
+    public ReopenSessionResponse reopenCustomerSession(@javax.annotation.Nonnull String customerSessionId) throws ApiException {
         ApiResponse<ReopenSessionResponse> localVarResp = reopenCustomerSessionWithHttpInfo(customerSessionId);
         return localVarResp.getData();
     }
@@ -3794,7 +3794,7 @@ public class IntegrationApi {
         <tr><td> 401 </td><td> Unauthorized - Invalid API key </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<ReopenSessionResponse> reopenCustomerSessionWithHttpInfo(String customerSessionId) throws ApiException {
+    public ApiResponse<ReopenSessionResponse> reopenCustomerSessionWithHttpInfo(@javax.annotation.Nonnull String customerSessionId) throws ApiException {
         okhttp3.Call localVarCall = reopenCustomerSessionValidateBeforeCall(customerSessionId, null);
         Type localVarReturnType = new TypeToken<ReopenSessionResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -3816,7 +3816,7 @@ public class IntegrationApi {
         <tr><td> 401 </td><td> Unauthorized - Invalid API key </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call reopenCustomerSessionAsync(String customerSessionId, final ApiCallback<ReopenSessionResponse> _callback) throws ApiException {
+    public okhttp3.Call reopenCustomerSessionAsync(@javax.annotation.Nonnull String customerSessionId, final ApiCallback<ReopenSessionResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = reopenCustomerSessionValidateBeforeCall(customerSessionId, _callback);
         Type localVarReturnType = new TypeToken<ReopenSessionResponse>(){}.getType();
@@ -3840,7 +3840,7 @@ public class IntegrationApi {
         <tr><td> 401 </td><td> Unauthorized - Invalid API key </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call returnCartItemsCall(String customerSessionId, ReturnIntegrationRequest returnIntegrationRequest, Boolean dry, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call returnCartItemsCall(@javax.annotation.Nonnull String customerSessionId, @javax.annotation.Nonnull ReturnIntegrationRequest returnIntegrationRequest, @javax.annotation.Nullable Boolean dry, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -3891,7 +3891,7 @@ public class IntegrationApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call returnCartItemsValidateBeforeCall(String customerSessionId, ReturnIntegrationRequest returnIntegrationRequest, Boolean dry, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call returnCartItemsValidateBeforeCall(@javax.annotation.Nonnull String customerSessionId, @javax.annotation.Nonnull ReturnIntegrationRequest returnIntegrationRequest, @javax.annotation.Nullable Boolean dry, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'customerSessionId' is set
         if (customerSessionId == null) {
             throw new ApiException("Missing the required parameter 'customerSessionId' when calling returnCartItems(Async)");
@@ -3923,7 +3923,7 @@ public class IntegrationApi {
         <tr><td> 401 </td><td> Unauthorized - Invalid API key </td><td>  -  </td></tr>
      </table>
      */
-    public IntegrationStateV2 returnCartItems(String customerSessionId, ReturnIntegrationRequest returnIntegrationRequest, Boolean dry) throws ApiException {
+    public IntegrationStateV2 returnCartItems(@javax.annotation.Nonnull String customerSessionId, @javax.annotation.Nonnull ReturnIntegrationRequest returnIntegrationRequest, @javax.annotation.Nullable Boolean dry) throws ApiException {
         ApiResponse<IntegrationStateV2> localVarResp = returnCartItemsWithHttpInfo(customerSessionId, returnIntegrationRequest, dry);
         return localVarResp.getData();
     }
@@ -3945,7 +3945,7 @@ public class IntegrationApi {
         <tr><td> 401 </td><td> Unauthorized - Invalid API key </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<IntegrationStateV2> returnCartItemsWithHttpInfo(String customerSessionId, ReturnIntegrationRequest returnIntegrationRequest, Boolean dry) throws ApiException {
+    public ApiResponse<IntegrationStateV2> returnCartItemsWithHttpInfo(@javax.annotation.Nonnull String customerSessionId, @javax.annotation.Nonnull ReturnIntegrationRequest returnIntegrationRequest, @javax.annotation.Nullable Boolean dry) throws ApiException {
         okhttp3.Call localVarCall = returnCartItemsValidateBeforeCall(customerSessionId, returnIntegrationRequest, dry, null);
         Type localVarReturnType = new TypeToken<IntegrationStateV2>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -3969,7 +3969,7 @@ public class IntegrationApi {
         <tr><td> 401 </td><td> Unauthorized - Invalid API key </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call returnCartItemsAsync(String customerSessionId, ReturnIntegrationRequest returnIntegrationRequest, Boolean dry, final ApiCallback<IntegrationStateV2> _callback) throws ApiException {
+    public okhttp3.Call returnCartItemsAsync(@javax.annotation.Nonnull String customerSessionId, @javax.annotation.Nonnull ReturnIntegrationRequest returnIntegrationRequest, @javax.annotation.Nullable Boolean dry, final ApiCallback<IntegrationStateV2> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = returnCartItemsValidateBeforeCall(customerSessionId, returnIntegrationRequest, dry, _callback);
         Type localVarReturnType = new TypeToken<IntegrationStateV2>(){}.getType();
@@ -3993,7 +3993,7 @@ public class IntegrationApi {
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call syncCatalogCall(Long catalogId, CatalogSyncRequest catalogSyncRequest, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call syncCatalogCall(@javax.annotation.Nonnull Long catalogId, @javax.annotation.Nonnull CatalogSyncRequest catalogSyncRequest, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -4040,7 +4040,7 @@ public class IntegrationApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call syncCatalogValidateBeforeCall(Long catalogId, CatalogSyncRequest catalogSyncRequest, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call syncCatalogValidateBeforeCall(@javax.annotation.Nonnull Long catalogId, @javax.annotation.Nonnull CatalogSyncRequest catalogSyncRequest, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'catalogId' is set
         if (catalogId == null) {
             throw new ApiException("Missing the required parameter 'catalogId' when calling syncCatalog(Async)");
@@ -4072,7 +4072,7 @@ public class IntegrationApi {
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
      */
-    public Catalog syncCatalog(Long catalogId, CatalogSyncRequest catalogSyncRequest) throws ApiException {
+    public Catalog syncCatalog(@javax.annotation.Nonnull Long catalogId, @javax.annotation.Nonnull CatalogSyncRequest catalogSyncRequest) throws ApiException {
         ApiResponse<Catalog> localVarResp = syncCatalogWithHttpInfo(catalogId, catalogSyncRequest);
         return localVarResp.getData();
     }
@@ -4094,7 +4094,7 @@ public class IntegrationApi {
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Catalog> syncCatalogWithHttpInfo(Long catalogId, CatalogSyncRequest catalogSyncRequest) throws ApiException {
+    public ApiResponse<Catalog> syncCatalogWithHttpInfo(@javax.annotation.Nonnull Long catalogId, @javax.annotation.Nonnull CatalogSyncRequest catalogSyncRequest) throws ApiException {
         okhttp3.Call localVarCall = syncCatalogValidateBeforeCall(catalogId, catalogSyncRequest, null);
         Type localVarReturnType = new TypeToken<Catalog>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -4118,7 +4118,7 @@ public class IntegrationApi {
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call syncCatalogAsync(Long catalogId, CatalogSyncRequest catalogSyncRequest, final ApiCallback<Catalog> _callback) throws ApiException {
+    public okhttp3.Call syncCatalogAsync(@javax.annotation.Nonnull Long catalogId, @javax.annotation.Nonnull CatalogSyncRequest catalogSyncRequest, final ApiCallback<Catalog> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = syncCatalogValidateBeforeCall(catalogId, catalogSyncRequest, _callback);
         Type localVarReturnType = new TypeToken<Catalog>(){}.getType();
@@ -4144,7 +4144,7 @@ public class IntegrationApi {
         <tr><td> 409 </td><td> Too many requests or limit reached - Avoid parallel requests. See the [docs](https://docs.talon.one/docs/dev/tutorials/integrating-talon-one#managing-parallel-requests). </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call trackEventV2Call(IntegrationEventV2Request integrationEventV2Request, String silent, Boolean dry, Boolean forceCompleteEvaluation, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call trackEventV2Call(@javax.annotation.Nonnull IntegrationEventV2Request integrationEventV2Request, @javax.annotation.Nullable String silent, @javax.annotation.Nullable Boolean dry, @javax.annotation.Nullable Boolean forceCompleteEvaluation, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -4202,7 +4202,7 @@ public class IntegrationApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call trackEventV2ValidateBeforeCall(IntegrationEventV2Request integrationEventV2Request, String silent, Boolean dry, Boolean forceCompleteEvaluation, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call trackEventV2ValidateBeforeCall(@javax.annotation.Nonnull IntegrationEventV2Request integrationEventV2Request, @javax.annotation.Nullable String silent, @javax.annotation.Nullable Boolean dry, @javax.annotation.Nullable Boolean forceCompleteEvaluation, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'integrationEventV2Request' is set
         if (integrationEventV2Request == null) {
             throw new ApiException("Missing the required parameter 'integrationEventV2Request' when calling trackEventV2(Async)");
@@ -4231,7 +4231,7 @@ public class IntegrationApi {
         <tr><td> 409 </td><td> Too many requests or limit reached - Avoid parallel requests. See the [docs](https://docs.talon.one/docs/dev/tutorials/integrating-talon-one#managing-parallel-requests). </td><td>  -  </td></tr>
      </table>
      */
-    public TrackEventV2Response trackEventV2(IntegrationEventV2Request integrationEventV2Request, String silent, Boolean dry, Boolean forceCompleteEvaluation) throws ApiException {
+    public TrackEventV2Response trackEventV2(@javax.annotation.Nonnull IntegrationEventV2Request integrationEventV2Request, @javax.annotation.Nullable String silent, @javax.annotation.Nullable Boolean dry, @javax.annotation.Nullable Boolean forceCompleteEvaluation) throws ApiException {
         ApiResponse<TrackEventV2Response> localVarResp = trackEventV2WithHttpInfo(integrationEventV2Request, silent, dry, forceCompleteEvaluation);
         return localVarResp.getData();
     }
@@ -4255,7 +4255,7 @@ public class IntegrationApi {
         <tr><td> 409 </td><td> Too many requests or limit reached - Avoid parallel requests. See the [docs](https://docs.talon.one/docs/dev/tutorials/integrating-talon-one#managing-parallel-requests). </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<TrackEventV2Response> trackEventV2WithHttpInfo(IntegrationEventV2Request integrationEventV2Request, String silent, Boolean dry, Boolean forceCompleteEvaluation) throws ApiException {
+    public ApiResponse<TrackEventV2Response> trackEventV2WithHttpInfo(@javax.annotation.Nonnull IntegrationEventV2Request integrationEventV2Request, @javax.annotation.Nullable String silent, @javax.annotation.Nullable Boolean dry, @javax.annotation.Nullable Boolean forceCompleteEvaluation) throws ApiException {
         okhttp3.Call localVarCall = trackEventV2ValidateBeforeCall(integrationEventV2Request, silent, dry, forceCompleteEvaluation, null);
         Type localVarReturnType = new TypeToken<TrackEventV2Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -4281,7 +4281,7 @@ public class IntegrationApi {
         <tr><td> 409 </td><td> Too many requests or limit reached - Avoid parallel requests. See the [docs](https://docs.talon.one/docs/dev/tutorials/integrating-talon-one#managing-parallel-requests). </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call trackEventV2Async(IntegrationEventV2Request integrationEventV2Request, String silent, Boolean dry, Boolean forceCompleteEvaluation, final ApiCallback<TrackEventV2Response> _callback) throws ApiException {
+    public okhttp3.Call trackEventV2Async(@javax.annotation.Nonnull IntegrationEventV2Request integrationEventV2Request, @javax.annotation.Nullable String silent, @javax.annotation.Nullable Boolean dry, @javax.annotation.Nullable Boolean forceCompleteEvaluation, final ApiCallback<TrackEventV2Response> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = trackEventV2ValidateBeforeCall(integrationEventV2Request, silent, dry, forceCompleteEvaluation, _callback);
         Type localVarReturnType = new TypeToken<TrackEventV2Response>(){}.getType();
@@ -4304,7 +4304,7 @@ public class IntegrationApi {
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateAudienceCustomersAttributesCall(Long audienceId, Object body, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call updateAudienceCustomersAttributesCall(@javax.annotation.Nonnull Long audienceId, @javax.annotation.Nonnull Object body, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -4351,7 +4351,7 @@ public class IntegrationApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call updateAudienceCustomersAttributesValidateBeforeCall(Long audienceId, Object body, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call updateAudienceCustomersAttributesValidateBeforeCall(@javax.annotation.Nonnull Long audienceId, @javax.annotation.Nonnull Object body, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'audienceId' is set
         if (audienceId == null) {
             throw new ApiException("Missing the required parameter 'audienceId' when calling updateAudienceCustomersAttributes(Async)");
@@ -4381,7 +4381,7 @@ public class IntegrationApi {
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
      */
-    public void updateAudienceCustomersAttributes(Long audienceId, Object body) throws ApiException {
+    public void updateAudienceCustomersAttributes(@javax.annotation.Nonnull Long audienceId, @javax.annotation.Nonnull Object body) throws ApiException {
         updateAudienceCustomersAttributesWithHttpInfo(audienceId, body);
     }
 
@@ -4401,7 +4401,7 @@ public class IntegrationApi {
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Void> updateAudienceCustomersAttributesWithHttpInfo(Long audienceId, Object body) throws ApiException {
+    public ApiResponse<Void> updateAudienceCustomersAttributesWithHttpInfo(@javax.annotation.Nonnull Long audienceId, @javax.annotation.Nonnull Object body) throws ApiException {
         okhttp3.Call localVarCall = updateAudienceCustomersAttributesValidateBeforeCall(audienceId, body, null);
         return localVarApiClient.execute(localVarCall);
     }
@@ -4423,7 +4423,7 @@ public class IntegrationApi {
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateAudienceCustomersAttributesAsync(Long audienceId, Object body, final ApiCallback<Void> _callback) throws ApiException {
+    public okhttp3.Call updateAudienceCustomersAttributesAsync(@javax.annotation.Nonnull Long audienceId, @javax.annotation.Nonnull Object body, final ApiCallback<Void> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = updateAudienceCustomersAttributesValidateBeforeCall(audienceId, body, _callback);
         localVarApiClient.executeAsync(localVarCall, _callback);
@@ -4445,7 +4445,7 @@ public class IntegrationApi {
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateAudienceV2Call(Long audienceId, UpdateAudience updateAudience, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call updateAudienceV2Call(@javax.annotation.Nonnull Long audienceId, @javax.annotation.Nonnull UpdateAudience updateAudience, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -4492,7 +4492,7 @@ public class IntegrationApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call updateAudienceV2ValidateBeforeCall(Long audienceId, UpdateAudience updateAudience, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call updateAudienceV2ValidateBeforeCall(@javax.annotation.Nonnull Long audienceId, @javax.annotation.Nonnull UpdateAudience updateAudience, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'audienceId' is set
         if (audienceId == null) {
             throw new ApiException("Missing the required parameter 'audienceId' when calling updateAudienceV2(Async)");
@@ -4523,7 +4523,7 @@ public class IntegrationApi {
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
      */
-    public Audience updateAudienceV2(Long audienceId, UpdateAudience updateAudience) throws ApiException {
+    public Audience updateAudienceV2(@javax.annotation.Nonnull Long audienceId, @javax.annotation.Nonnull UpdateAudience updateAudience) throws ApiException {
         ApiResponse<Audience> localVarResp = updateAudienceV2WithHttpInfo(audienceId, updateAudience);
         return localVarResp.getData();
     }
@@ -4544,7 +4544,7 @@ public class IntegrationApi {
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Audience> updateAudienceV2WithHttpInfo(Long audienceId, UpdateAudience updateAudience) throws ApiException {
+    public ApiResponse<Audience> updateAudienceV2WithHttpInfo(@javax.annotation.Nonnull Long audienceId, @javax.annotation.Nonnull UpdateAudience updateAudience) throws ApiException {
         okhttp3.Call localVarCall = updateAudienceV2ValidateBeforeCall(audienceId, updateAudience, null);
         Type localVarReturnType = new TypeToken<Audience>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -4567,7 +4567,7 @@ public class IntegrationApi {
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateAudienceV2Async(Long audienceId, UpdateAudience updateAudience, final ApiCallback<Audience> _callback) throws ApiException {
+    public okhttp3.Call updateAudienceV2Async(@javax.annotation.Nonnull Long audienceId, @javax.annotation.Nonnull UpdateAudience updateAudience, final ApiCallback<Audience> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = updateAudienceV2ValidateBeforeCall(audienceId, updateAudience, _callback);
         Type localVarReturnType = new TypeToken<Audience>(){}.getType();
@@ -4590,7 +4590,7 @@ public class IntegrationApi {
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateCustomerProfileAudiencesCall(CustomerProfileAudienceRequest customerProfileAudienceRequest, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call updateCustomerProfileAudiencesCall(@javax.annotation.Nonnull CustomerProfileAudienceRequest customerProfileAudienceRequest, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -4636,7 +4636,7 @@ public class IntegrationApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call updateCustomerProfileAudiencesValidateBeforeCall(CustomerProfileAudienceRequest customerProfileAudienceRequest, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call updateCustomerProfileAudiencesValidateBeforeCall(@javax.annotation.Nonnull CustomerProfileAudienceRequest customerProfileAudienceRequest, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'customerProfileAudienceRequest' is set
         if (customerProfileAudienceRequest == null) {
             throw new ApiException("Missing the required parameter 'customerProfileAudienceRequest' when calling updateCustomerProfileAudiences(Async)");
@@ -4661,7 +4661,7 @@ public class IntegrationApi {
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
      */
-    public void updateCustomerProfileAudiences(CustomerProfileAudienceRequest customerProfileAudienceRequest) throws ApiException {
+    public void updateCustomerProfileAudiences(@javax.annotation.Nonnull CustomerProfileAudienceRequest customerProfileAudienceRequest) throws ApiException {
         updateCustomerProfileAudiencesWithHttpInfo(customerProfileAudienceRequest);
     }
 
@@ -4681,7 +4681,7 @@ public class IntegrationApi {
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Void> updateCustomerProfileAudiencesWithHttpInfo(CustomerProfileAudienceRequest customerProfileAudienceRequest) throws ApiException {
+    public ApiResponse<Void> updateCustomerProfileAudiencesWithHttpInfo(@javax.annotation.Nonnull CustomerProfileAudienceRequest customerProfileAudienceRequest) throws ApiException {
         okhttp3.Call localVarCall = updateCustomerProfileAudiencesValidateBeforeCall(customerProfileAudienceRequest, null);
         return localVarApiClient.execute(localVarCall);
     }
@@ -4703,7 +4703,7 @@ public class IntegrationApi {
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateCustomerProfileAudiencesAsync(CustomerProfileAudienceRequest customerProfileAudienceRequest, final ApiCallback<Void> _callback) throws ApiException {
+    public okhttp3.Call updateCustomerProfileAudiencesAsync(@javax.annotation.Nonnull CustomerProfileAudienceRequest customerProfileAudienceRequest, final ApiCallback<Void> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = updateCustomerProfileAudiencesValidateBeforeCall(customerProfileAudienceRequest, _callback);
         localVarApiClient.executeAsync(localVarCall, _callback);
@@ -4728,7 +4728,7 @@ public class IntegrationApi {
         <tr><td> 409 </td><td> Too many requests or limit reached - Avoid parallel requests. See the [docs](https://docs.talon.one/docs/dev/tutorials/integrating-talon-one#managing-parallel-requests). </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateCustomerProfileV2Call(String integrationId, CustomerProfileIntegrationRequestV2 customerProfileIntegrationRequestV2, Boolean runRuleEngine, Boolean dry, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call updateCustomerProfileV2Call(@javax.annotation.Nonnull String integrationId, @javax.annotation.Nonnull CustomerProfileIntegrationRequestV2 customerProfileIntegrationRequestV2, @javax.annotation.Nullable Boolean runRuleEngine, @javax.annotation.Nullable Boolean dry, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -4783,7 +4783,7 @@ public class IntegrationApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call updateCustomerProfileV2ValidateBeforeCall(String integrationId, CustomerProfileIntegrationRequestV2 customerProfileIntegrationRequestV2, Boolean runRuleEngine, Boolean dry, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call updateCustomerProfileV2ValidateBeforeCall(@javax.annotation.Nonnull String integrationId, @javax.annotation.Nonnull CustomerProfileIntegrationRequestV2 customerProfileIntegrationRequestV2, @javax.annotation.Nullable Boolean runRuleEngine, @javax.annotation.Nullable Boolean dry, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'integrationId' is set
         if (integrationId == null) {
             throw new ApiException("Missing the required parameter 'integrationId' when calling updateCustomerProfileV2(Async)");
@@ -4817,7 +4817,7 @@ public class IntegrationApi {
         <tr><td> 409 </td><td> Too many requests or limit reached - Avoid parallel requests. See the [docs](https://docs.talon.one/docs/dev/tutorials/integrating-talon-one#managing-parallel-requests). </td><td>  -  </td></tr>
      </table>
      */
-    public CustomerProfileIntegrationResponseV2 updateCustomerProfileV2(String integrationId, CustomerProfileIntegrationRequestV2 customerProfileIntegrationRequestV2, Boolean runRuleEngine, Boolean dry) throws ApiException {
+    public CustomerProfileIntegrationResponseV2 updateCustomerProfileV2(@javax.annotation.Nonnull String integrationId, @javax.annotation.Nonnull CustomerProfileIntegrationRequestV2 customerProfileIntegrationRequestV2, @javax.annotation.Nullable Boolean runRuleEngine, @javax.annotation.Nullable Boolean dry) throws ApiException {
         ApiResponse<CustomerProfileIntegrationResponseV2> localVarResp = updateCustomerProfileV2WithHttpInfo(integrationId, customerProfileIntegrationRequestV2, runRuleEngine, dry);
         return localVarResp.getData();
     }
@@ -4841,7 +4841,7 @@ public class IntegrationApi {
         <tr><td> 409 </td><td> Too many requests or limit reached - Avoid parallel requests. See the [docs](https://docs.talon.one/docs/dev/tutorials/integrating-talon-one#managing-parallel-requests). </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<CustomerProfileIntegrationResponseV2> updateCustomerProfileV2WithHttpInfo(String integrationId, CustomerProfileIntegrationRequestV2 customerProfileIntegrationRequestV2, Boolean runRuleEngine, Boolean dry) throws ApiException {
+    public ApiResponse<CustomerProfileIntegrationResponseV2> updateCustomerProfileV2WithHttpInfo(@javax.annotation.Nonnull String integrationId, @javax.annotation.Nonnull CustomerProfileIntegrationRequestV2 customerProfileIntegrationRequestV2, @javax.annotation.Nullable Boolean runRuleEngine, @javax.annotation.Nullable Boolean dry) throws ApiException {
         okhttp3.Call localVarCall = updateCustomerProfileV2ValidateBeforeCall(integrationId, customerProfileIntegrationRequestV2, runRuleEngine, dry, null);
         Type localVarReturnType = new TypeToken<CustomerProfileIntegrationResponseV2>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -4867,7 +4867,7 @@ public class IntegrationApi {
         <tr><td> 409 </td><td> Too many requests or limit reached - Avoid parallel requests. See the [docs](https://docs.talon.one/docs/dev/tutorials/integrating-talon-one#managing-parallel-requests). </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateCustomerProfileV2Async(String integrationId, CustomerProfileIntegrationRequestV2 customerProfileIntegrationRequestV2, Boolean runRuleEngine, Boolean dry, final ApiCallback<CustomerProfileIntegrationResponseV2> _callback) throws ApiException {
+    public okhttp3.Call updateCustomerProfileV2Async(@javax.annotation.Nonnull String integrationId, @javax.annotation.Nonnull CustomerProfileIntegrationRequestV2 customerProfileIntegrationRequestV2, @javax.annotation.Nullable Boolean runRuleEngine, @javax.annotation.Nullable Boolean dry, final ApiCallback<CustomerProfileIntegrationResponseV2> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = updateCustomerProfileV2ValidateBeforeCall(integrationId, customerProfileIntegrationRequestV2, runRuleEngine, dry, _callback);
         Type localVarReturnType = new TypeToken<CustomerProfileIntegrationResponseV2>(){}.getType();
@@ -4890,7 +4890,7 @@ public class IntegrationApi {
         <tr><td> 401 </td><td> Unauthorized - Invalid API key </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateCustomerProfilesV2Call(MultipleCustomerProfileIntegrationRequest multipleCustomerProfileIntegrationRequest, String silent, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call updateCustomerProfilesV2Call(@javax.annotation.Nonnull MultipleCustomerProfileIntegrationRequest multipleCustomerProfileIntegrationRequest, @javax.annotation.Nullable String silent, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -4940,7 +4940,7 @@ public class IntegrationApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call updateCustomerProfilesV2ValidateBeforeCall(MultipleCustomerProfileIntegrationRequest multipleCustomerProfileIntegrationRequest, String silent, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call updateCustomerProfilesV2ValidateBeforeCall(@javax.annotation.Nonnull MultipleCustomerProfileIntegrationRequest multipleCustomerProfileIntegrationRequest, @javax.annotation.Nullable String silent, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'multipleCustomerProfileIntegrationRequest' is set
         if (multipleCustomerProfileIntegrationRequest == null) {
             throw new ApiException("Missing the required parameter 'multipleCustomerProfileIntegrationRequest' when calling updateCustomerProfilesV2(Async)");
@@ -4966,7 +4966,7 @@ public class IntegrationApi {
         <tr><td> 401 </td><td> Unauthorized - Invalid API key </td><td>  -  </td></tr>
      </table>
      */
-    public MultipleCustomerProfileIntegrationResponseV2 updateCustomerProfilesV2(MultipleCustomerProfileIntegrationRequest multipleCustomerProfileIntegrationRequest, String silent) throws ApiException {
+    public MultipleCustomerProfileIntegrationResponseV2 updateCustomerProfilesV2(@javax.annotation.Nonnull MultipleCustomerProfileIntegrationRequest multipleCustomerProfileIntegrationRequest, @javax.annotation.Nullable String silent) throws ApiException {
         ApiResponse<MultipleCustomerProfileIntegrationResponseV2> localVarResp = updateCustomerProfilesV2WithHttpInfo(multipleCustomerProfileIntegrationRequest, silent);
         return localVarResp.getData();
     }
@@ -4987,7 +4987,7 @@ public class IntegrationApi {
         <tr><td> 401 </td><td> Unauthorized - Invalid API key </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<MultipleCustomerProfileIntegrationResponseV2> updateCustomerProfilesV2WithHttpInfo(MultipleCustomerProfileIntegrationRequest multipleCustomerProfileIntegrationRequest, String silent) throws ApiException {
+    public ApiResponse<MultipleCustomerProfileIntegrationResponseV2> updateCustomerProfilesV2WithHttpInfo(@javax.annotation.Nonnull MultipleCustomerProfileIntegrationRequest multipleCustomerProfileIntegrationRequest, @javax.annotation.Nullable String silent) throws ApiException {
         okhttp3.Call localVarCall = updateCustomerProfilesV2ValidateBeforeCall(multipleCustomerProfileIntegrationRequest, silent, null);
         Type localVarReturnType = new TypeToken<MultipleCustomerProfileIntegrationResponseV2>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -5010,7 +5010,7 @@ public class IntegrationApi {
         <tr><td> 401 </td><td> Unauthorized - Invalid API key </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateCustomerProfilesV2Async(MultipleCustomerProfileIntegrationRequest multipleCustomerProfileIntegrationRequest, String silent, final ApiCallback<MultipleCustomerProfileIntegrationResponseV2> _callback) throws ApiException {
+    public okhttp3.Call updateCustomerProfilesV2Async(@javax.annotation.Nonnull MultipleCustomerProfileIntegrationRequest multipleCustomerProfileIntegrationRequest, @javax.annotation.Nullable String silent, final ApiCallback<MultipleCustomerProfileIntegrationResponseV2> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = updateCustomerProfilesV2ValidateBeforeCall(multipleCustomerProfileIntegrationRequest, silent, _callback);
         Type localVarReturnType = new TypeToken<MultipleCustomerProfileIntegrationResponseV2>(){}.getType();
@@ -5036,7 +5036,7 @@ public class IntegrationApi {
         <tr><td> 409 </td><td> Too many requests or limit reached - Avoid parallel requests. See the [docs](https://docs.talon.one/docs/dev/tutorials/integrating-talon-one#managing-parallel-requests). </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateCustomerSessionV2Call(String customerSessionId, IntegrationRequest integrationRequest, Boolean dry, OffsetDateTime now, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call updateCustomerSessionV2Call(@javax.annotation.Nonnull String customerSessionId, @javax.annotation.Nonnull IntegrationRequest integrationRequest, @javax.annotation.Nullable Boolean dry, @javax.annotation.Nullable OffsetDateTime now, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -5091,7 +5091,7 @@ public class IntegrationApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call updateCustomerSessionV2ValidateBeforeCall(String customerSessionId, IntegrationRequest integrationRequest, Boolean dry, OffsetDateTime now, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call updateCustomerSessionV2ValidateBeforeCall(@javax.annotation.Nonnull String customerSessionId, @javax.annotation.Nonnull IntegrationRequest integrationRequest, @javax.annotation.Nullable Boolean dry, @javax.annotation.Nullable OffsetDateTime now, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'customerSessionId' is set
         if (customerSessionId == null) {
             throw new ApiException("Missing the required parameter 'customerSessionId' when calling updateCustomerSessionV2(Async)");
@@ -5125,7 +5125,7 @@ public class IntegrationApi {
         <tr><td> 409 </td><td> Too many requests or limit reached - Avoid parallel requests. See the [docs](https://docs.talon.one/docs/dev/tutorials/integrating-talon-one#managing-parallel-requests). </td><td>  -  </td></tr>
      </table>
      */
-    public IntegrationStateV2 updateCustomerSessionV2(String customerSessionId, IntegrationRequest integrationRequest, Boolean dry, OffsetDateTime now) throws ApiException {
+    public IntegrationStateV2 updateCustomerSessionV2(@javax.annotation.Nonnull String customerSessionId, @javax.annotation.Nonnull IntegrationRequest integrationRequest, @javax.annotation.Nullable Boolean dry, @javax.annotation.Nullable OffsetDateTime now) throws ApiException {
         ApiResponse<IntegrationStateV2> localVarResp = updateCustomerSessionV2WithHttpInfo(customerSessionId, integrationRequest, dry, now);
         return localVarResp.getData();
     }
@@ -5149,7 +5149,7 @@ public class IntegrationApi {
         <tr><td> 409 </td><td> Too many requests or limit reached - Avoid parallel requests. See the [docs](https://docs.talon.one/docs/dev/tutorials/integrating-talon-one#managing-parallel-requests). </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<IntegrationStateV2> updateCustomerSessionV2WithHttpInfo(String customerSessionId, IntegrationRequest integrationRequest, Boolean dry, OffsetDateTime now) throws ApiException {
+    public ApiResponse<IntegrationStateV2> updateCustomerSessionV2WithHttpInfo(@javax.annotation.Nonnull String customerSessionId, @javax.annotation.Nonnull IntegrationRequest integrationRequest, @javax.annotation.Nullable Boolean dry, @javax.annotation.Nullable OffsetDateTime now) throws ApiException {
         okhttp3.Call localVarCall = updateCustomerSessionV2ValidateBeforeCall(customerSessionId, integrationRequest, dry, now, null);
         Type localVarReturnType = new TypeToken<IntegrationStateV2>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -5175,7 +5175,7 @@ public class IntegrationApi {
         <tr><td> 409 </td><td> Too many requests or limit reached - Avoid parallel requests. See the [docs](https://docs.talon.one/docs/dev/tutorials/integrating-talon-one#managing-parallel-requests). </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateCustomerSessionV2Async(String customerSessionId, IntegrationRequest integrationRequest, Boolean dry, OffsetDateTime now, final ApiCallback<IntegrationStateV2> _callback) throws ApiException {
+    public okhttp3.Call updateCustomerSessionV2Async(@javax.annotation.Nonnull String customerSessionId, @javax.annotation.Nonnull IntegrationRequest integrationRequest, @javax.annotation.Nullable Boolean dry, @javax.annotation.Nullable OffsetDateTime now, final ApiCallback<IntegrationStateV2> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = updateCustomerSessionV2ValidateBeforeCall(customerSessionId, integrationRequest, dry, now, _callback);
         Type localVarReturnType = new TypeToken<IntegrationStateV2>(){}.getType();

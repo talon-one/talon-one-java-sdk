@@ -14,6 +14,7 @@
 package one.talon.model;
 
 import java.util.Objects;
+import java.util.Locale;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -42,13 +43,14 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.Locale;
 
 import one.talon.JSON;
 
 /**
  * IntegrationStoreEntity
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.13.0-SNAPSHOT")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.17.0")
 public class IntegrationStoreEntity {
   public static final String SERIALIZED_NAME_STORE_INTEGRATION_ID = "storeIntegrationId";
   @SerializedName(SERIALIZED_NAME_STORE_INTEGRATION_ID)
@@ -121,11 +123,10 @@ public class IntegrationStoreEntity {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("storeIntegrationId");
+    openapiFields = new HashSet<String>(Arrays.asList("storeIntegrationId"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
   /**
@@ -137,7 +138,7 @@ public class IntegrationStoreEntity {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!IntegrationStoreEntity.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in IntegrationStoreEntity is not found in the empty JSON string", IntegrationStoreEntity.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field(s) %s in IntegrationStoreEntity is not found in the empty JSON string", IntegrationStoreEntity.openapiRequiredFields.toString()));
         }
       }
 
@@ -145,12 +146,12 @@ public class IntegrationStoreEntity {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!IntegrationStoreEntity.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `IntegrationStoreEntity` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(Locale.ROOT, "The field `%s` in the JSON string is not defined in the `IntegrationStoreEntity` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("storeIntegrationId") != null && !jsonObj.get("storeIntegrationId").isJsonNull()) && !jsonObj.get("storeIntegrationId").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `storeIntegrationId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("storeIntegrationId").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `storeIntegrationId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("storeIntegrationId").toString()));
       }
   }
 

@@ -14,6 +14,7 @@
 package one.talon.model;
 
 import java.util.Objects;
+import java.util.Locale;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -42,13 +43,14 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.Locale;
 
 import one.talon.JSON;
 
 /**
  * Patch operation that is used to update the information.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.13.0-SNAPSHOT")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.17.0")
 public class ScimPatchOperation {
   /**
    * The method that should be used in the operation.
@@ -227,14 +229,10 @@ public class ScimPatchOperation {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("op");
-    openapiFields.add("path");
-    openapiFields.add("value");
+    openapiFields = new HashSet<String>(Arrays.asList("op", "path", "value"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("op");
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("op"));
   }
 
   /**
@@ -246,7 +244,7 @@ public class ScimPatchOperation {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!ScimPatchOperation.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in ScimPatchOperation is not found in the empty JSON string", ScimPatchOperation.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field(s) %s in ScimPatchOperation is not found in the empty JSON string", ScimPatchOperation.openapiRequiredFields.toString()));
         }
       }
 
@@ -254,27 +252,27 @@ public class ScimPatchOperation {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!ScimPatchOperation.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `ScimPatchOperation` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(Locale.ROOT, "The field `%s` in the JSON string is not defined in the `ScimPatchOperation` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : ScimPatchOperation.openapiRequiredFields) {
         if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if (!jsonObj.get("op").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `op` to be a primitive type in the JSON string but got `%s`", jsonObj.get("op").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `op` to be a primitive type in the JSON string but got `%s`", jsonObj.get("op").toString()));
       }
       // validate the required field `op`
       OpEnum.validateJsonElement(jsonObj.get("op"));
       if ((jsonObj.get("path") != null && !jsonObj.get("path").isJsonNull()) && !jsonObj.get("path").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `path` to be a primitive type in the JSON string but got `%s`", jsonObj.get("path").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `path` to be a primitive type in the JSON string but got `%s`", jsonObj.get("path").toString()));
       }
       if ((jsonObj.get("value") != null && !jsonObj.get("value").isJsonNull()) && !jsonObj.get("value").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `value` to be a primitive type in the JSON string but got `%s`", jsonObj.get("value").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `value` to be a primitive type in the JSON string but got `%s`", jsonObj.get("value").toString()));
       }
   }
 

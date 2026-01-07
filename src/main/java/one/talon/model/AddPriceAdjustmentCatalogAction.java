@@ -14,6 +14,7 @@
 package one.talon.model;
 
 import java.util.Objects;
+import java.util.Locale;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -45,13 +46,14 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.Locale;
 
 import one.talon.JSON;
 
 /**
  * The specific properties of the \&quot;ADD_PRICE_ADJUSTMENT\&quot; catalog sync action. 
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.13.0-SNAPSHOT")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.17.0")
 public class AddPriceAdjustmentCatalogAction {
   public static final String SERIALIZED_NAME_SKU = "sku";
   @SerializedName(SERIALIZED_NAME_SKU)
@@ -158,14 +160,10 @@ public class AddPriceAdjustmentCatalogAction {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("sku");
-    openapiFields.add("adjustments");
+    openapiFields = new HashSet<String>(Arrays.asList("sku", "adjustments"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("sku");
-    openapiRequiredFields.add("adjustments");
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("sku", "adjustments"));
   }
 
   /**
@@ -177,7 +175,7 @@ public class AddPriceAdjustmentCatalogAction {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!AddPriceAdjustmentCatalogAction.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in AddPriceAdjustmentCatalogAction is not found in the empty JSON string", AddPriceAdjustmentCatalogAction.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field(s) %s in AddPriceAdjustmentCatalogAction is not found in the empty JSON string", AddPriceAdjustmentCatalogAction.openapiRequiredFields.toString()));
         }
       }
 
@@ -185,23 +183,23 @@ public class AddPriceAdjustmentCatalogAction {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!AddPriceAdjustmentCatalogAction.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `AddPriceAdjustmentCatalogAction` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(Locale.ROOT, "The field `%s` in the JSON string is not defined in the `AddPriceAdjustmentCatalogAction` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : AddPriceAdjustmentCatalogAction.openapiRequiredFields) {
         if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if (!jsonObj.get("sku").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `sku` to be a primitive type in the JSON string but got `%s`", jsonObj.get("sku").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `sku` to be a primitive type in the JSON string but got `%s`", jsonObj.get("sku").toString()));
       }
       // ensure the json data is an array
       if (!jsonObj.get("adjustments").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `adjustments` to be an array in the JSON string but got `%s`", jsonObj.get("adjustments").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `adjustments` to be an array in the JSON string but got `%s`", jsonObj.get("adjustments").toString()));
       }
 
       JsonArray jsonArrayadjustments = jsonObj.getAsJsonArray("adjustments");

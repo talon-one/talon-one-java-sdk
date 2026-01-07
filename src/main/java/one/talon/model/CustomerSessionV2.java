@@ -14,6 +14,7 @@
 package one.talon.model;
 
 import java.util.Objects;
+import java.util.Locale;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -50,13 +51,14 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.Locale;
 
 import one.talon.JSON;
 
 /**
  * CustomerSessionV2
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.13.0-SNAPSHOT")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.17.0")
 public class CustomerSessionV2 {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -193,11 +195,6 @@ public class CustomerSessionV2 {
   @SerializedName(SERIALIZED_NAME_FIRST_SESSION)
   @javax.annotation.Nonnull
   private Boolean firstSession;
-
-  public static final String SERIALIZED_NAME_UPDATE_COUNT = "updateCount";
-  @SerializedName(SERIALIZED_NAME_UPDATE_COUNT)
-  @javax.annotation.Nonnull
-  private Long updateCount;
 
   public static final String SERIALIZED_NAME_TOTAL = "total";
   @SerializedName(SERIALIZED_NAME_TOTAL)
@@ -574,25 +571,6 @@ public class CustomerSessionV2 {
   }
 
 
-  public CustomerSessionV2 updateCount(@javax.annotation.Nonnull Long updateCount) {
-    this.updateCount = updateCount;
-    return this;
-  }
-
-  /**
-   * The number of times the session was updated. When the session is created, this value is initialized to &#x60;1&#x60;.
-   * @return updateCount
-   */
-  @javax.annotation.Nonnull
-  public Long getUpdateCount() {
-    return updateCount;
-  }
-
-  public void setUpdateCount(@javax.annotation.Nonnull Long updateCount) {
-    this.updateCount = updateCount;
-  }
-
-
   public CustomerSessionV2 total(@javax.annotation.Nonnull BigDecimal total) {
     this.total = total;
     return this;
@@ -695,7 +673,6 @@ public class CustomerSessionV2 {
         Objects.equals(this.identifiers, customerSessionV2.identifiers) &&
         Objects.equals(this.attributes, customerSessionV2.attributes) &&
         Objects.equals(this.firstSession, customerSessionV2.firstSession) &&
-        Objects.equals(this.updateCount, customerSessionV2.updateCount) &&
         Objects.equals(this.total, customerSessionV2.total) &&
         Objects.equals(this.cartItemTotal, customerSessionV2.cartItemTotal) &&
         Objects.equals(this.additionalCostTotal, customerSessionV2.additionalCostTotal) &&
@@ -704,7 +681,7 @@ public class CustomerSessionV2 {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, created, integrationId, applicationId, profileId, storeIntegrationId, evaluableCampaignIds, couponCodes, referralCode, loyaltyCards, state, cartItems, additionalCosts, identifiers, attributes, firstSession, updateCount, total, cartItemTotal, additionalCostTotal, updated);
+    return Objects.hash(id, created, integrationId, applicationId, profileId, storeIntegrationId, evaluableCampaignIds, couponCodes, referralCode, loyaltyCards, state, cartItems, additionalCosts, identifiers, attributes, firstSession, total, cartItemTotal, additionalCostTotal, updated);
   }
 
   @Override
@@ -727,7 +704,6 @@ public class CustomerSessionV2 {
     sb.append("    identifiers: ").append(toIndentedString(identifiers)).append("\n");
     sb.append("    attributes: ").append(toIndentedString(attributes)).append("\n");
     sb.append("    firstSession: ").append(toIndentedString(firstSession)).append("\n");
-    sb.append("    updateCount: ").append(toIndentedString(updateCount)).append("\n");
     sb.append("    total: ").append(toIndentedString(total)).append("\n");
     sb.append("    cartItemTotal: ").append(toIndentedString(cartItemTotal)).append("\n");
     sb.append("    additionalCostTotal: ").append(toIndentedString(additionalCostTotal)).append("\n");
@@ -753,41 +729,10 @@ public class CustomerSessionV2 {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("id");
-    openapiFields.add("created");
-    openapiFields.add("integrationId");
-    openapiFields.add("applicationId");
-    openapiFields.add("profileId");
-    openapiFields.add("storeIntegrationId");
-    openapiFields.add("evaluableCampaignIds");
-    openapiFields.add("couponCodes");
-    openapiFields.add("referralCode");
-    openapiFields.add("loyaltyCards");
-    openapiFields.add("state");
-    openapiFields.add("cartItems");
-    openapiFields.add("additionalCosts");
-    openapiFields.add("identifiers");
-    openapiFields.add("attributes");
-    openapiFields.add("firstSession");
-    openapiFields.add("updateCount");
-    openapiFields.add("total");
-    openapiFields.add("cartItemTotal");
-    openapiFields.add("additionalCostTotal");
-    openapiFields.add("updated");
+    openapiFields = new HashSet<String>(Arrays.asList("id", "created", "integrationId", "applicationId", "profileId", "storeIntegrationId", "evaluableCampaignIds", "couponCodes", "referralCode", "loyaltyCards", "state", "cartItems", "additionalCosts", "identifiers", "attributes", "firstSession", "total", "cartItemTotal", "additionalCostTotal", "updated"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("id");
-    openapiRequiredFields.add("created");
-    openapiRequiredFields.add("integrationId");
-    openapiRequiredFields.add("applicationId");
-    openapiRequiredFields.add("firstSession");
-    openapiRequiredFields.add("updateCount");
-    openapiRequiredFields.add("total");
-    openapiRequiredFields.add("cartItemTotal");
-    openapiRequiredFields.add("additionalCostTotal");
-    openapiRequiredFields.add("updated");
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("id", "created", "integrationId", "applicationId", "firstSession", "total", "cartItemTotal", "additionalCostTotal", "updated"));
   }
 
   /**
@@ -799,7 +744,7 @@ public class CustomerSessionV2 {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!CustomerSessionV2.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in CustomerSessionV2 is not found in the empty JSON string", CustomerSessionV2.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field(s) %s in CustomerSessionV2 is not found in the empty JSON string", CustomerSessionV2.openapiRequiredFields.toString()));
         }
       }
 
@@ -807,43 +752,43 @@ public class CustomerSessionV2 {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!CustomerSessionV2.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `CustomerSessionV2` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(Locale.ROOT, "The field `%s` in the JSON string is not defined in the `CustomerSessionV2` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : CustomerSessionV2.openapiRequiredFields) {
         if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if (!jsonObj.get("integrationId").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `integrationId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("integrationId").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `integrationId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("integrationId").toString()));
       }
       if ((jsonObj.get("profileId") != null && !jsonObj.get("profileId").isJsonNull()) && !jsonObj.get("profileId").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `profileId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("profileId").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `profileId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("profileId").toString()));
       }
       if ((jsonObj.get("storeIntegrationId") != null && !jsonObj.get("storeIntegrationId").isJsonNull()) && !jsonObj.get("storeIntegrationId").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `storeIntegrationId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("storeIntegrationId").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `storeIntegrationId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("storeIntegrationId").toString()));
       }
       // ensure the optional json data is an array if present
       if (jsonObj.get("evaluableCampaignIds") != null && !jsonObj.get("evaluableCampaignIds").isJsonNull() && !jsonObj.get("evaluableCampaignIds").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `evaluableCampaignIds` to be an array in the JSON string but got `%s`", jsonObj.get("evaluableCampaignIds").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `evaluableCampaignIds` to be an array in the JSON string but got `%s`", jsonObj.get("evaluableCampaignIds").toString()));
       }
       // ensure the optional json data is an array if present
       if (jsonObj.get("couponCodes") != null && !jsonObj.get("couponCodes").isJsonNull() && !jsonObj.get("couponCodes").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `couponCodes` to be an array in the JSON string but got `%s`", jsonObj.get("couponCodes").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `couponCodes` to be an array in the JSON string but got `%s`", jsonObj.get("couponCodes").toString()));
       }
       if ((jsonObj.get("referralCode") != null && !jsonObj.get("referralCode").isJsonNull()) && !jsonObj.get("referralCode").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `referralCode` to be a primitive type in the JSON string but got `%s`", jsonObj.get("referralCode").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `referralCode` to be a primitive type in the JSON string but got `%s`", jsonObj.get("referralCode").toString()));
       }
       // ensure the optional json data is an array if present
       if (jsonObj.get("loyaltyCards") != null && !jsonObj.get("loyaltyCards").isJsonNull() && !jsonObj.get("loyaltyCards").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `loyaltyCards` to be an array in the JSON string but got `%s`", jsonObj.get("loyaltyCards").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `loyaltyCards` to be an array in the JSON string but got `%s`", jsonObj.get("loyaltyCards").toString()));
       }
       if ((jsonObj.get("state") != null && !jsonObj.get("state").isJsonNull()) && !jsonObj.get("state").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `state` to be a primitive type in the JSON string but got `%s`", jsonObj.get("state").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `state` to be a primitive type in the JSON string but got `%s`", jsonObj.get("state").toString()));
       }
       // validate the optional field `state`
       if (jsonObj.get("state") != null && !jsonObj.get("state").isJsonNull()) {
@@ -854,7 +799,7 @@ public class CustomerSessionV2 {
         if (jsonArraycartItems != null) {
           // ensure the json data is an array
           if (!jsonObj.get("cartItems").isJsonArray()) {
-            throw new IllegalArgumentException(String.format("Expected the field `cartItems` to be an array in the JSON string but got `%s`", jsonObj.get("cartItems").toString()));
+            throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `cartItems` to be an array in the JSON string but got `%s`", jsonObj.get("cartItems").toString()));
           }
 
           // validate the optional field `cartItems` (array)
@@ -865,7 +810,7 @@ public class CustomerSessionV2 {
       }
       // ensure the optional json data is an array if present
       if (jsonObj.get("identifiers") != null && !jsonObj.get("identifiers").isJsonNull() && !jsonObj.get("identifiers").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `identifiers` to be an array in the JSON string but got `%s`", jsonObj.get("identifiers").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `identifiers` to be an array in the JSON string but got `%s`", jsonObj.get("identifiers").toString()));
       }
   }
 

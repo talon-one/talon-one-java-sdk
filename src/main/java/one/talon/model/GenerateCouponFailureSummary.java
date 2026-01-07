@@ -14,6 +14,7 @@
 package one.talon.model;
 
 import java.util.Objects;
+import java.util.Locale;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -42,13 +43,14 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.Locale;
 
 import one.talon.JSON;
 
 /**
  * GenerateCouponFailureSummary
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.13.0-SNAPSHOT")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.17.0")
 public class GenerateCouponFailureSummary {
   public static final String SERIALIZED_NAME_EVENT_I_D = "eventID";
   @SerializedName(SERIALIZED_NAME_EVENT_I_D)
@@ -147,13 +149,10 @@ public class GenerateCouponFailureSummary {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("eventID");
-    openapiFields.add("language");
+    openapiFields = new HashSet<String>(Arrays.asList("eventID", "language"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("eventID");
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("eventID"));
   }
 
   /**
@@ -165,7 +164,7 @@ public class GenerateCouponFailureSummary {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!GenerateCouponFailureSummary.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in GenerateCouponFailureSummary is not found in the empty JSON string", GenerateCouponFailureSummary.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field(s) %s in GenerateCouponFailureSummary is not found in the empty JSON string", GenerateCouponFailureSummary.openapiRequiredFields.toString()));
         }
       }
 
@@ -173,19 +172,19 @@ public class GenerateCouponFailureSummary {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!GenerateCouponFailureSummary.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `GenerateCouponFailureSummary` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(Locale.ROOT, "The field `%s` in the JSON string is not defined in the `GenerateCouponFailureSummary` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : GenerateCouponFailureSummary.openapiRequiredFields) {
         if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("language") != null && !jsonObj.get("language").isJsonNull()) && !jsonObj.get("language").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `language` to be a primitive type in the JSON string but got `%s`", jsonObj.get("language").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `language` to be a primitive type in the JSON string but got `%s`", jsonObj.get("language").toString()));
       }
   }
 

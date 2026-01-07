@@ -14,6 +14,7 @@
 package one.talon.model;
 
 import java.util.Objects;
+import java.util.Locale;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -47,13 +48,14 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.Locale;
 
 import one.talon.JSON;
 
 /**
  * NewCampaign
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.13.0-SNAPSHOT")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.17.0")
 public class NewCampaign {
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
@@ -722,31 +724,10 @@ public class NewCampaign {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("name");
-    openapiFields.add("description");
-    openapiFields.add("startTime");
-    openapiFields.add("endTime");
-    openapiFields.add("attributes");
-    openapiFields.add("state");
-    openapiFields.add("activeRulesetId");
-    openapiFields.add("tags");
-    openapiFields.add("features");
-    openapiFields.add("couponSettings");
-    openapiFields.add("referralSettings");
-    openapiFields.add("limits");
-    openapiFields.add("campaignGroups");
-    openapiFields.add("type");
-    openapiFields.add("linkedStoreIds");
-    openapiFields.add("evaluationGroupId");
+    openapiFields = new HashSet<String>(Arrays.asList("name", "description", "startTime", "endTime", "attributes", "state", "activeRulesetId", "tags", "features", "couponSettings", "referralSettings", "limits", "campaignGroups", "type", "linkedStoreIds", "evaluationGroupId"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("name");
-    openapiRequiredFields.add("state");
-    openapiRequiredFields.add("tags");
-    openapiRequiredFields.add("features");
-    openapiRequiredFields.add("limits");
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("name", "state", "tags", "features", "limits"));
   }
 
   /**
@@ -758,7 +739,7 @@ public class NewCampaign {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!NewCampaign.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in NewCampaign is not found in the empty JSON string", NewCampaign.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field(s) %s in NewCampaign is not found in the empty JSON string", NewCampaign.openapiRequiredFields.toString()));
         }
       }
 
@@ -766,25 +747,25 @@ public class NewCampaign {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!NewCampaign.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `NewCampaign` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(Locale.ROOT, "The field `%s` in the JSON string is not defined in the `NewCampaign` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : NewCampaign.openapiRequiredFields) {
         if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if (!jsonObj.get("name").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
       }
       if ((jsonObj.get("description") != null && !jsonObj.get("description").isJsonNull()) && !jsonObj.get("description").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `description` to be a primitive type in the JSON string but got `%s`", jsonObj.get("description").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `description` to be a primitive type in the JSON string but got `%s`", jsonObj.get("description").toString()));
       }
       if (!jsonObj.get("state").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `state` to be a primitive type in the JSON string but got `%s`", jsonObj.get("state").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `state` to be a primitive type in the JSON string but got `%s`", jsonObj.get("state").toString()));
       }
       // validate the required field `state`
       StateEnum.validateJsonElement(jsonObj.get("state"));
@@ -792,13 +773,13 @@ public class NewCampaign {
       if (jsonObj.get("tags") == null) {
         throw new IllegalArgumentException("Expected the field `linkedContent` to be an array in the JSON string but got `null`");
       } else if (!jsonObj.get("tags").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `tags` to be an array in the JSON string but got `%s`", jsonObj.get("tags").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `tags` to be an array in the JSON string but got `%s`", jsonObj.get("tags").toString()));
       }
       // ensure the required json array is present
       if (jsonObj.get("features") == null) {
         throw new IllegalArgumentException("Expected the field `linkedContent` to be an array in the JSON string but got `null`");
       } else if (!jsonObj.get("features").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `features` to be an array in the JSON string but got `%s`", jsonObj.get("features").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `features` to be an array in the JSON string but got `%s`", jsonObj.get("features").toString()));
       }
       // validate the optional field `couponSettings`
       if (jsonObj.get("couponSettings") != null && !jsonObj.get("couponSettings").isJsonNull()) {
@@ -810,7 +791,7 @@ public class NewCampaign {
       }
       // ensure the json data is an array
       if (!jsonObj.get("limits").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `limits` to be an array in the JSON string but got `%s`", jsonObj.get("limits").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `limits` to be an array in the JSON string but got `%s`", jsonObj.get("limits").toString()));
       }
 
       JsonArray jsonArraylimits = jsonObj.getAsJsonArray("limits");
@@ -820,10 +801,10 @@ public class NewCampaign {
       };
       // ensure the optional json data is an array if present
       if (jsonObj.get("campaignGroups") != null && !jsonObj.get("campaignGroups").isJsonNull() && !jsonObj.get("campaignGroups").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `campaignGroups` to be an array in the JSON string but got `%s`", jsonObj.get("campaignGroups").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `campaignGroups` to be an array in the JSON string but got `%s`", jsonObj.get("campaignGroups").toString()));
       }
       if ((jsonObj.get("type") != null && !jsonObj.get("type").isJsonNull()) && !jsonObj.get("type").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("type").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("type").toString()));
       }
       // validate the optional field `type`
       if (jsonObj.get("type") != null && !jsonObj.get("type").isJsonNull()) {
@@ -831,7 +812,7 @@ public class NewCampaign {
       }
       // ensure the optional json data is an array if present
       if (jsonObj.get("linkedStoreIds") != null && !jsonObj.get("linkedStoreIds").isJsonNull() && !jsonObj.get("linkedStoreIds").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `linkedStoreIds` to be an array in the JSON string but got `%s`", jsonObj.get("linkedStoreIds").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `linkedStoreIds` to be an array in the JSON string but got `%s`", jsonObj.get("linkedStoreIds").toString()));
       }
   }
 

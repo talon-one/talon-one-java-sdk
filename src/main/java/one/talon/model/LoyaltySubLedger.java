@@ -14,6 +14,7 @@
 package one.talon.model;
 
 import java.util.Objects;
+import java.util.Locale;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -47,13 +48,14 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.Locale;
 
 import one.talon.JSON;
 
 /**
  * Ledger of Balance in Loyalty Program for a Customer.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.13.0-SNAPSHOT")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.17.0")
 public class LoyaltySubLedger {
   public static final String SERIALIZED_NAME_TOTAL = "total";
   @SerializedName(SERIALIZED_NAME_TOTAL)
@@ -452,28 +454,10 @@ public class LoyaltySubLedger {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("total");
-    openapiFields.add("totalActivePoints");
-    openapiFields.add("totalPendingPoints");
-    openapiFields.add("totalSpentPoints");
-    openapiFields.add("totalExpiredPoints");
-    openapiFields.add("totalNegativePoints");
-    openapiFields.add("transactions");
-    openapiFields.add("expiringPoints");
-    openapiFields.add("activePoints");
-    openapiFields.add("pendingPoints");
-    openapiFields.add("expiredPoints");
-    openapiFields.add("currentTier");
+    openapiFields = new HashSet<String>(Arrays.asList("total", "totalActivePoints", "totalPendingPoints", "totalSpentPoints", "totalExpiredPoints", "totalNegativePoints", "transactions", "expiringPoints", "activePoints", "pendingPoints", "expiredPoints", "currentTier"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("total");
-    openapiRequiredFields.add("totalActivePoints");
-    openapiRequiredFields.add("totalPendingPoints");
-    openapiRequiredFields.add("totalSpentPoints");
-    openapiRequiredFields.add("totalExpiredPoints");
-    openapiRequiredFields.add("totalNegativePoints");
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("total", "totalActivePoints", "totalPendingPoints", "totalSpentPoints", "totalExpiredPoints", "totalNegativePoints"));
   }
 
   /**
@@ -485,7 +469,7 @@ public class LoyaltySubLedger {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!LoyaltySubLedger.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in LoyaltySubLedger is not found in the empty JSON string", LoyaltySubLedger.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field(s) %s in LoyaltySubLedger is not found in the empty JSON string", LoyaltySubLedger.openapiRequiredFields.toString()));
         }
       }
 
@@ -493,14 +477,14 @@ public class LoyaltySubLedger {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!LoyaltySubLedger.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `LoyaltySubLedger` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(Locale.ROOT, "The field `%s` in the JSON string is not defined in the `LoyaltySubLedger` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : LoyaltySubLedger.openapiRequiredFields) {
         if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
@@ -509,7 +493,7 @@ public class LoyaltySubLedger {
         if (jsonArraytransactions != null) {
           // ensure the json data is an array
           if (!jsonObj.get("transactions").isJsonArray()) {
-            throw new IllegalArgumentException(String.format("Expected the field `transactions` to be an array in the JSON string but got `%s`", jsonObj.get("transactions").toString()));
+            throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `transactions` to be an array in the JSON string but got `%s`", jsonObj.get("transactions").toString()));
           }
 
           // validate the optional field `transactions` (array)
@@ -523,7 +507,7 @@ public class LoyaltySubLedger {
         if (jsonArrayexpiringPoints != null) {
           // ensure the json data is an array
           if (!jsonObj.get("expiringPoints").isJsonArray()) {
-            throw new IllegalArgumentException(String.format("Expected the field `expiringPoints` to be an array in the JSON string but got `%s`", jsonObj.get("expiringPoints").toString()));
+            throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `expiringPoints` to be an array in the JSON string but got `%s`", jsonObj.get("expiringPoints").toString()));
           }
 
           // validate the optional field `expiringPoints` (array)
@@ -537,7 +521,7 @@ public class LoyaltySubLedger {
         if (jsonArrayactivePoints != null) {
           // ensure the json data is an array
           if (!jsonObj.get("activePoints").isJsonArray()) {
-            throw new IllegalArgumentException(String.format("Expected the field `activePoints` to be an array in the JSON string but got `%s`", jsonObj.get("activePoints").toString()));
+            throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `activePoints` to be an array in the JSON string but got `%s`", jsonObj.get("activePoints").toString()));
           }
 
           // validate the optional field `activePoints` (array)
@@ -551,7 +535,7 @@ public class LoyaltySubLedger {
         if (jsonArraypendingPoints != null) {
           // ensure the json data is an array
           if (!jsonObj.get("pendingPoints").isJsonArray()) {
-            throw new IllegalArgumentException(String.format("Expected the field `pendingPoints` to be an array in the JSON string but got `%s`", jsonObj.get("pendingPoints").toString()));
+            throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `pendingPoints` to be an array in the JSON string but got `%s`", jsonObj.get("pendingPoints").toString()));
           }
 
           // validate the optional field `pendingPoints` (array)
@@ -565,7 +549,7 @@ public class LoyaltySubLedger {
         if (jsonArrayexpiredPoints != null) {
           // ensure the json data is an array
           if (!jsonObj.get("expiredPoints").isJsonArray()) {
-            throw new IllegalArgumentException(String.format("Expected the field `expiredPoints` to be an array in the JSON string but got `%s`", jsonObj.get("expiredPoints").toString()));
+            throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `expiredPoints` to be an array in the JSON string but got `%s`", jsonObj.get("expiredPoints").toString()));
           }
 
           // validate the optional field `expiredPoints` (array)

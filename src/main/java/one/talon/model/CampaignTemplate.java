@@ -14,6 +14,7 @@
 package one.talon.model;
 
 import java.util.Objects;
+import java.util.Locale;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -50,13 +51,14 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.Locale;
 
 import one.talon.JSON;
 
 /**
  * CampaignTemplate
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.13.0-SNAPSHOT")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.17.0")
 public class CampaignTemplate {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -1027,47 +1029,10 @@ public class CampaignTemplate {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("id");
-    openapiFields.add("created");
-    openapiFields.add("accountId");
-    openapiFields.add("userId");
-    openapiFields.add("name");
-    openapiFields.add("description");
-    openapiFields.add("instructions");
-    openapiFields.add("campaignAttributes");
-    openapiFields.add("couponAttributes");
-    openapiFields.add("state");
-    openapiFields.add("activeRulesetId");
-    openapiFields.add("tags");
-    openapiFields.add("features");
-    openapiFields.add("couponSettings");
-    openapiFields.add("couponReservationSettings");
-    openapiFields.add("referralSettings");
-    openapiFields.add("limits");
-    openapiFields.add("templateParams");
-    openapiFields.add("applicationsIds");
-    openapiFields.add("campaignCollections");
-    openapiFields.add("defaultCampaignGroupId");
-    openapiFields.add("campaignType");
-    openapiFields.add("campaignsCount");
-    openapiFields.add("updated");
-    openapiFields.add("updatedBy");
-    openapiFields.add("validApplicationIds");
-    openapiFields.add("isUserFavorite");
+    openapiFields = new HashSet<String>(Arrays.asList("id", "created", "accountId", "userId", "name", "description", "instructions", "campaignAttributes", "couponAttributes", "state", "activeRulesetId", "tags", "features", "couponSettings", "couponReservationSettings", "referralSettings", "limits", "templateParams", "applicationsIds", "campaignCollections", "defaultCampaignGroupId", "campaignType", "campaignsCount", "updated", "updatedBy", "validApplicationIds", "isUserFavorite"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("id");
-    openapiRequiredFields.add("created");
-    openapiRequiredFields.add("accountId");
-    openapiRequiredFields.add("userId");
-    openapiRequiredFields.add("name");
-    openapiRequiredFields.add("description");
-    openapiRequiredFields.add("instructions");
-    openapiRequiredFields.add("state");
-    openapiRequiredFields.add("applicationsIds");
-    openapiRequiredFields.add("validApplicationIds");
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("id", "created", "accountId", "userId", "name", "description", "instructions", "state", "applicationsIds", "validApplicationIds"));
   }
 
   /**
@@ -1079,7 +1044,7 @@ public class CampaignTemplate {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!CampaignTemplate.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in CampaignTemplate is not found in the empty JSON string", CampaignTemplate.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field(s) %s in CampaignTemplate is not found in the empty JSON string", CampaignTemplate.openapiRequiredFields.toString()));
         }
       }
 
@@ -1087,38 +1052,38 @@ public class CampaignTemplate {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!CampaignTemplate.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `CampaignTemplate` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(Locale.ROOT, "The field `%s` in the JSON string is not defined in the `CampaignTemplate` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : CampaignTemplate.openapiRequiredFields) {
         if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if (!jsonObj.get("name").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
       }
       if (!jsonObj.get("description").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `description` to be a primitive type in the JSON string but got `%s`", jsonObj.get("description").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `description` to be a primitive type in the JSON string but got `%s`", jsonObj.get("description").toString()));
       }
       if (!jsonObj.get("instructions").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `instructions` to be a primitive type in the JSON string but got `%s`", jsonObj.get("instructions").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `instructions` to be a primitive type in the JSON string but got `%s`", jsonObj.get("instructions").toString()));
       }
       if (!jsonObj.get("state").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `state` to be a primitive type in the JSON string but got `%s`", jsonObj.get("state").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `state` to be a primitive type in the JSON string but got `%s`", jsonObj.get("state").toString()));
       }
       // validate the required field `state`
       StateEnum.validateJsonElement(jsonObj.get("state"));
       // ensure the optional json data is an array if present
       if (jsonObj.get("tags") != null && !jsonObj.get("tags").isJsonNull() && !jsonObj.get("tags").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `tags` to be an array in the JSON string but got `%s`", jsonObj.get("tags").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `tags` to be an array in the JSON string but got `%s`", jsonObj.get("tags").toString()));
       }
       // ensure the optional json data is an array if present
       if (jsonObj.get("features") != null && !jsonObj.get("features").isJsonNull() && !jsonObj.get("features").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `features` to be an array in the JSON string but got `%s`", jsonObj.get("features").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `features` to be an array in the JSON string but got `%s`", jsonObj.get("features").toString()));
       }
       // validate the optional field `couponSettings`
       if (jsonObj.get("couponSettings") != null && !jsonObj.get("couponSettings").isJsonNull()) {
@@ -1137,7 +1102,7 @@ public class CampaignTemplate {
         if (jsonArraylimits != null) {
           // ensure the json data is an array
           if (!jsonObj.get("limits").isJsonArray()) {
-            throw new IllegalArgumentException(String.format("Expected the field `limits` to be an array in the JSON string but got `%s`", jsonObj.get("limits").toString()));
+            throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `limits` to be an array in the JSON string but got `%s`", jsonObj.get("limits").toString()));
           }
 
           // validate the optional field `limits` (array)
@@ -1151,7 +1116,7 @@ public class CampaignTemplate {
         if (jsonArraytemplateParams != null) {
           // ensure the json data is an array
           if (!jsonObj.get("templateParams").isJsonArray()) {
-            throw new IllegalArgumentException(String.format("Expected the field `templateParams` to be an array in the JSON string but got `%s`", jsonObj.get("templateParams").toString()));
+            throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `templateParams` to be an array in the JSON string but got `%s`", jsonObj.get("templateParams").toString()));
           }
 
           // validate the optional field `templateParams` (array)
@@ -1164,14 +1129,14 @@ public class CampaignTemplate {
       if (jsonObj.get("applicationsIds") == null) {
         throw new IllegalArgumentException("Expected the field `linkedContent` to be an array in the JSON string but got `null`");
       } else if (!jsonObj.get("applicationsIds").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `applicationsIds` to be an array in the JSON string but got `%s`", jsonObj.get("applicationsIds").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `applicationsIds` to be an array in the JSON string but got `%s`", jsonObj.get("applicationsIds").toString()));
       }
       if (jsonObj.get("campaignCollections") != null && !jsonObj.get("campaignCollections").isJsonNull()) {
         JsonArray jsonArraycampaignCollections = jsonObj.getAsJsonArray("campaignCollections");
         if (jsonArraycampaignCollections != null) {
           // ensure the json data is an array
           if (!jsonObj.get("campaignCollections").isJsonArray()) {
-            throw new IllegalArgumentException(String.format("Expected the field `campaignCollections` to be an array in the JSON string but got `%s`", jsonObj.get("campaignCollections").toString()));
+            throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `campaignCollections` to be an array in the JSON string but got `%s`", jsonObj.get("campaignCollections").toString()));
           }
 
           // validate the optional field `campaignCollections` (array)
@@ -1181,20 +1146,20 @@ public class CampaignTemplate {
         }
       }
       if ((jsonObj.get("campaignType") != null && !jsonObj.get("campaignType").isJsonNull()) && !jsonObj.get("campaignType").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `campaignType` to be a primitive type in the JSON string but got `%s`", jsonObj.get("campaignType").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `campaignType` to be a primitive type in the JSON string but got `%s`", jsonObj.get("campaignType").toString()));
       }
       // validate the optional field `campaignType`
       if (jsonObj.get("campaignType") != null && !jsonObj.get("campaignType").isJsonNull()) {
         CampaignTypeEnum.validateJsonElement(jsonObj.get("campaignType"));
       }
       if ((jsonObj.get("updatedBy") != null && !jsonObj.get("updatedBy").isJsonNull()) && !jsonObj.get("updatedBy").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `updatedBy` to be a primitive type in the JSON string but got `%s`", jsonObj.get("updatedBy").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `updatedBy` to be a primitive type in the JSON string but got `%s`", jsonObj.get("updatedBy").toString()));
       }
       // ensure the required json array is present
       if (jsonObj.get("validApplicationIds") == null) {
         throw new IllegalArgumentException("Expected the field `linkedContent` to be an array in the JSON string but got `null`");
       } else if (!jsonObj.get("validApplicationIds").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `validApplicationIds` to be an array in the JSON string but got `%s`", jsonObj.get("validApplicationIds").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `validApplicationIds` to be an array in the JSON string but got `%s`", jsonObj.get("validApplicationIds").toString()));
       }
   }
 

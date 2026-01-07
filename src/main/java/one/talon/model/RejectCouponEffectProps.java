@@ -14,6 +14,7 @@
 package one.talon.model;
 
 import java.util.Objects;
+import java.util.Locale;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -42,13 +43,14 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.Locale;
 
 import one.talon.JSON;
 
 /**
  * The properties specific to the \&quot;rejectCoupon\&quot; effect. This gets triggered whenever the coupon was rejected. See rejectionReason for more info on why.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.13.0-SNAPSHOT")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.17.0")
 public class RejectCouponEffectProps {
   public static final String SERIALIZED_NAME_VALUE = "value";
   @SerializedName(SERIALIZED_NAME_VALUE)
@@ -251,18 +253,10 @@ public class RejectCouponEffectProps {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("value");
-    openapiFields.add("rejectionReason");
-    openapiFields.add("conditionIndex");
-    openapiFields.add("effectIndex");
-    openapiFields.add("details");
-    openapiFields.add("campaignExclusionReason");
+    openapiFields = new HashSet<String>(Arrays.asList("value", "rejectionReason", "conditionIndex", "effectIndex", "details", "campaignExclusionReason"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("value");
-    openapiRequiredFields.add("rejectionReason");
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("value", "rejectionReason"));
   }
 
   /**
@@ -274,7 +268,7 @@ public class RejectCouponEffectProps {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!RejectCouponEffectProps.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in RejectCouponEffectProps is not found in the empty JSON string", RejectCouponEffectProps.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field(s) %s in RejectCouponEffectProps is not found in the empty JSON string", RejectCouponEffectProps.openapiRequiredFields.toString()));
         }
       }
 
@@ -282,28 +276,28 @@ public class RejectCouponEffectProps {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!RejectCouponEffectProps.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `RejectCouponEffectProps` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(Locale.ROOT, "The field `%s` in the JSON string is not defined in the `RejectCouponEffectProps` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : RejectCouponEffectProps.openapiRequiredFields) {
         if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if (!jsonObj.get("value").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `value` to be a primitive type in the JSON string but got `%s`", jsonObj.get("value").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `value` to be a primitive type in the JSON string but got `%s`", jsonObj.get("value").toString()));
       }
       if (!jsonObj.get("rejectionReason").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `rejectionReason` to be a primitive type in the JSON string but got `%s`", jsonObj.get("rejectionReason").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `rejectionReason` to be a primitive type in the JSON string but got `%s`", jsonObj.get("rejectionReason").toString()));
       }
       if ((jsonObj.get("details") != null && !jsonObj.get("details").isJsonNull()) && !jsonObj.get("details").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `details` to be a primitive type in the JSON string but got `%s`", jsonObj.get("details").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `details` to be a primitive type in the JSON string but got `%s`", jsonObj.get("details").toString()));
       }
       if ((jsonObj.get("campaignExclusionReason") != null && !jsonObj.get("campaignExclusionReason").isJsonNull()) && !jsonObj.get("campaignExclusionReason").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `campaignExclusionReason` to be a primitive type in the JSON string but got `%s`", jsonObj.get("campaignExclusionReason").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `campaignExclusionReason` to be a primitive type in the JSON string but got `%s`", jsonObj.get("campaignExclusionReason").toString()));
       }
   }
 

@@ -14,6 +14,7 @@
 package one.talon.model;
 
 import java.util.Objects;
+import java.util.Locale;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -43,13 +44,14 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.Locale;
 
 import one.talon.JSON;
 
 /**
  * The properties specific to the \&quot;increaseAchievementProgress\&quot; effect. This gets triggered whenever a validated rule contained an \&quot;increase customer progress\&quot; effect.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.13.0-SNAPSHOT")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.17.0")
 public class IncreaseAchievementProgressEffectProps {
   public static final String SERIALIZED_NAME_ACHIEVEMENT_ID = "achievementId";
   @SerializedName(SERIALIZED_NAME_ACHIEVEMENT_ID)
@@ -278,23 +280,10 @@ public class IncreaseAchievementProgressEffectProps {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("achievementId");
-    openapiFields.add("achievementName");
-    openapiFields.add("progressTrackerId");
-    openapiFields.add("delta");
-    openapiFields.add("value");
-    openapiFields.add("target");
-    openapiFields.add("isJustCompleted");
+    openapiFields = new HashSet<String>(Arrays.asList("achievementId", "achievementName", "progressTrackerId", "delta", "value", "target", "isJustCompleted"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("achievementId");
-    openapiRequiredFields.add("achievementName");
-    openapiRequiredFields.add("delta");
-    openapiRequiredFields.add("value");
-    openapiRequiredFields.add("target");
-    openapiRequiredFields.add("isJustCompleted");
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("achievementId", "achievementName", "delta", "value", "target", "isJustCompleted"));
   }
 
   /**
@@ -306,7 +295,7 @@ public class IncreaseAchievementProgressEffectProps {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!IncreaseAchievementProgressEffectProps.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in IncreaseAchievementProgressEffectProps is not found in the empty JSON string", IncreaseAchievementProgressEffectProps.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field(s) %s in IncreaseAchievementProgressEffectProps is not found in the empty JSON string", IncreaseAchievementProgressEffectProps.openapiRequiredFields.toString()));
         }
       }
 
@@ -314,19 +303,19 @@ public class IncreaseAchievementProgressEffectProps {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!IncreaseAchievementProgressEffectProps.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `IncreaseAchievementProgressEffectProps` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(Locale.ROOT, "The field `%s` in the JSON string is not defined in the `IncreaseAchievementProgressEffectProps` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : IncreaseAchievementProgressEffectProps.openapiRequiredFields) {
         if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if (!jsonObj.get("achievementName").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `achievementName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("achievementName").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `achievementName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("achievementName").toString()));
       }
   }
 

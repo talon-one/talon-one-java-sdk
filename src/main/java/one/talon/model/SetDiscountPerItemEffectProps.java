@@ -14,6 +14,7 @@
 package one.talon.model;
 
 import java.util.Objects;
+import java.util.Locale;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -43,13 +44,14 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.Locale;
 
 import one.talon.JSON;
 
 /**
  * The properties specific to the &#x60;setDiscountPerItem&#x60; effect, triggered whenever a validated rule contained a \&quot;set per item discount\&quot; effect. This is a discount that will be applied either on a specific item, on a specific item + additional cost or on all additional costs per item. This depends on the chosen scope. 
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.13.0-SNAPSHOT")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.17.0")
 public class SetDiscountPerItemEffectProps {
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
@@ -408,25 +410,10 @@ public class SetDiscountPerItemEffectProps {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("name");
-    openapiFields.add("value");
-    openapiFields.add("position");
-    openapiFields.add("subPosition");
-    openapiFields.add("desiredValue");
-    openapiFields.add("scope");
-    openapiFields.add("totalDiscount");
-    openapiFields.add("desiredTotalDiscount");
-    openapiFields.add("bundleIndex");
-    openapiFields.add("bundleName");
-    openapiFields.add("targetedItemPosition");
-    openapiFields.add("targetedItemSubPosition");
+    openapiFields = new HashSet<String>(Arrays.asList("name", "value", "position", "subPosition", "desiredValue", "scope", "totalDiscount", "desiredTotalDiscount", "bundleIndex", "bundleName", "targetedItemPosition", "targetedItemSubPosition"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("name");
-    openapiRequiredFields.add("value");
-    openapiRequiredFields.add("position");
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("name", "value", "position"));
   }
 
   /**
@@ -438,7 +425,7 @@ public class SetDiscountPerItemEffectProps {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!SetDiscountPerItemEffectProps.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in SetDiscountPerItemEffectProps is not found in the empty JSON string", SetDiscountPerItemEffectProps.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field(s) %s in SetDiscountPerItemEffectProps is not found in the empty JSON string", SetDiscountPerItemEffectProps.openapiRequiredFields.toString()));
         }
       }
 
@@ -446,25 +433,25 @@ public class SetDiscountPerItemEffectProps {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!SetDiscountPerItemEffectProps.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `SetDiscountPerItemEffectProps` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(Locale.ROOT, "The field `%s` in the JSON string is not defined in the `SetDiscountPerItemEffectProps` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : SetDiscountPerItemEffectProps.openapiRequiredFields) {
         if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if (!jsonObj.get("name").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
       }
       if ((jsonObj.get("scope") != null && !jsonObj.get("scope").isJsonNull()) && !jsonObj.get("scope").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `scope` to be a primitive type in the JSON string but got `%s`", jsonObj.get("scope").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `scope` to be a primitive type in the JSON string but got `%s`", jsonObj.get("scope").toString()));
       }
       if ((jsonObj.get("bundleName") != null && !jsonObj.get("bundleName").isJsonNull()) && !jsonObj.get("bundleName").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `bundleName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("bundleName").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `bundleName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("bundleName").toString()));
       }
   }
 

@@ -14,6 +14,7 @@
 package one.talon.model;
 
 import java.util.Objects;
+import java.util.Locale;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -43,13 +44,14 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.Locale;
 
 import one.talon.JSON;
 
 /**
  * ApplicationReferee
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.13.0-SNAPSHOT")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.17.0")
 public class ApplicationReferee {
   public static final String SERIALIZED_NAME_APPLICATION_ID = "applicationId";
   @SerializedName(SERIALIZED_NAME_APPLICATION_ID)
@@ -252,22 +254,10 @@ public class ApplicationReferee {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("applicationId");
-    openapiFields.add("sessionId");
-    openapiFields.add("advocateIntegrationId");
-    openapiFields.add("friendIntegrationId");
-    openapiFields.add("code");
-    openapiFields.add("created");
+    openapiFields = new HashSet<String>(Arrays.asList("applicationId", "sessionId", "advocateIntegrationId", "friendIntegrationId", "code", "created"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("applicationId");
-    openapiRequiredFields.add("sessionId");
-    openapiRequiredFields.add("advocateIntegrationId");
-    openapiRequiredFields.add("friendIntegrationId");
-    openapiRequiredFields.add("code");
-    openapiRequiredFields.add("created");
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("applicationId", "sessionId", "advocateIntegrationId", "friendIntegrationId", "code", "created"));
   }
 
   /**
@@ -279,7 +269,7 @@ public class ApplicationReferee {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!ApplicationReferee.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in ApplicationReferee is not found in the empty JSON string", ApplicationReferee.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field(s) %s in ApplicationReferee is not found in the empty JSON string", ApplicationReferee.openapiRequiredFields.toString()));
         }
       }
 
@@ -287,28 +277,28 @@ public class ApplicationReferee {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!ApplicationReferee.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `ApplicationReferee` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(Locale.ROOT, "The field `%s` in the JSON string is not defined in the `ApplicationReferee` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : ApplicationReferee.openapiRequiredFields) {
         if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if (!jsonObj.get("sessionId").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `sessionId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("sessionId").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `sessionId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("sessionId").toString()));
       }
       if (!jsonObj.get("advocateIntegrationId").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `advocateIntegrationId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("advocateIntegrationId").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `advocateIntegrationId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("advocateIntegrationId").toString()));
       }
       if (!jsonObj.get("friendIntegrationId").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `friendIntegrationId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("friendIntegrationId").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `friendIntegrationId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("friendIntegrationId").toString()));
       }
       if (!jsonObj.get("code").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `code` to be a primitive type in the JSON string but got `%s`", jsonObj.get("code").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `code` to be a primitive type in the JSON string but got `%s`", jsonObj.get("code").toString()));
       }
   }
 

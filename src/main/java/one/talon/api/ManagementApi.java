@@ -212,7 +212,7 @@ public class ManagementApi {
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call activateUserByEmailCall(ActivateUserRequest activateUserRequest, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call activateUserByEmailCall(@javax.annotation.Nonnull ActivateUserRequest activateUserRequest, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -257,7 +257,7 @@ public class ManagementApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call activateUserByEmailValidateBeforeCall(ActivateUserRequest activateUserRequest, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call activateUserByEmailValidateBeforeCall(@javax.annotation.Nonnull ActivateUserRequest activateUserRequest, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'activateUserRequest' is set
         if (activateUserRequest == null) {
             throw new ApiException("Missing the required parameter 'activateUserRequest' when calling activateUserByEmail(Async)");
@@ -279,7 +279,7 @@ public class ManagementApi {
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
      </table>
      */
-    public void activateUserByEmail(ActivateUserRequest activateUserRequest) throws ApiException {
+    public void activateUserByEmail(@javax.annotation.Nonnull ActivateUserRequest activateUserRequest) throws ApiException {
         activateUserByEmailWithHttpInfo(activateUserRequest);
     }
 
@@ -296,7 +296,7 @@ public class ManagementApi {
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Void> activateUserByEmailWithHttpInfo(ActivateUserRequest activateUserRequest) throws ApiException {
+    public ApiResponse<Void> activateUserByEmailWithHttpInfo(@javax.annotation.Nonnull ActivateUserRequest activateUserRequest) throws ApiException {
         okhttp3.Call localVarCall = activateUserByEmailValidateBeforeCall(activateUserRequest, null);
         return localVarApiClient.execute(localVarCall);
     }
@@ -315,7 +315,7 @@ public class ManagementApi {
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call activateUserByEmailAsync(ActivateUserRequest activateUserRequest, final ApiCallback<Void> _callback) throws ApiException {
+    public okhttp3.Call activateUserByEmailAsync(@javax.annotation.Nonnull ActivateUserRequest activateUserRequest, final ApiCallback<Void> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = activateUserByEmailValidateBeforeCall(activateUserRequest, _callback);
         localVarApiClient.executeAsync(localVarCall, _callback);
@@ -339,7 +339,7 @@ public class ManagementApi {
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call addLoyaltyCardPointsCall(Long loyaltyProgramId, String loyaltyCardId, AddLoyaltyPoints addLoyaltyPoints, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call addLoyaltyCardPointsCall(@javax.annotation.Nonnull Long loyaltyProgramId, @javax.annotation.Nonnull String loyaltyCardId, @javax.annotation.Nonnull AddLoyaltyPoints addLoyaltyPoints, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -387,7 +387,7 @@ public class ManagementApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call addLoyaltyCardPointsValidateBeforeCall(Long loyaltyProgramId, String loyaltyCardId, AddLoyaltyPoints addLoyaltyPoints, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call addLoyaltyCardPointsValidateBeforeCall(@javax.annotation.Nonnull Long loyaltyProgramId, @javax.annotation.Nonnull String loyaltyCardId, @javax.annotation.Nonnull AddLoyaltyPoints addLoyaltyPoints, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'loyaltyProgramId' is set
         if (loyaltyProgramId == null) {
             throw new ApiException("Missing the required parameter 'loyaltyProgramId' when calling addLoyaltyCardPoints(Async)");
@@ -424,7 +424,7 @@ public class ManagementApi {
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
      */
-    public void addLoyaltyCardPoints(Long loyaltyProgramId, String loyaltyCardId, AddLoyaltyPoints addLoyaltyPoints) throws ApiException {
+    public void addLoyaltyCardPoints(@javax.annotation.Nonnull Long loyaltyProgramId, @javax.annotation.Nonnull String loyaltyCardId, @javax.annotation.Nonnull AddLoyaltyPoints addLoyaltyPoints) throws ApiException {
         addLoyaltyCardPointsWithHttpInfo(loyaltyProgramId, loyaltyCardId, addLoyaltyPoints);
     }
 
@@ -446,7 +446,7 @@ public class ManagementApi {
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Void> addLoyaltyCardPointsWithHttpInfo(Long loyaltyProgramId, String loyaltyCardId, AddLoyaltyPoints addLoyaltyPoints) throws ApiException {
+    public ApiResponse<Void> addLoyaltyCardPointsWithHttpInfo(@javax.annotation.Nonnull Long loyaltyProgramId, @javax.annotation.Nonnull String loyaltyCardId, @javax.annotation.Nonnull AddLoyaltyPoints addLoyaltyPoints) throws ApiException {
         okhttp3.Call localVarCall = addLoyaltyCardPointsValidateBeforeCall(loyaltyProgramId, loyaltyCardId, addLoyaltyPoints, null);
         return localVarApiClient.execute(localVarCall);
     }
@@ -470,7 +470,7 @@ public class ManagementApi {
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call addLoyaltyCardPointsAsync(Long loyaltyProgramId, String loyaltyCardId, AddLoyaltyPoints addLoyaltyPoints, final ApiCallback<Void> _callback) throws ApiException {
+    public okhttp3.Call addLoyaltyCardPointsAsync(@javax.annotation.Nonnull Long loyaltyProgramId, @javax.annotation.Nonnull String loyaltyCardId, @javax.annotation.Nonnull AddLoyaltyPoints addLoyaltyPoints, final ApiCallback<Void> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = addLoyaltyCardPointsValidateBeforeCall(loyaltyProgramId, loyaltyCardId, addLoyaltyPoints, _callback);
         localVarApiClient.executeAsync(localVarCall, _callback);
@@ -494,7 +494,7 @@ public class ManagementApi {
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call addLoyaltyPointsCall(String loyaltyProgramId, String integrationId, AddLoyaltyPoints addLoyaltyPoints, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call addLoyaltyPointsCall(@javax.annotation.Nonnull String loyaltyProgramId, @javax.annotation.Nonnull String integrationId, @javax.annotation.Nonnull AddLoyaltyPoints addLoyaltyPoints, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -542,7 +542,7 @@ public class ManagementApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call addLoyaltyPointsValidateBeforeCall(String loyaltyProgramId, String integrationId, AddLoyaltyPoints addLoyaltyPoints, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call addLoyaltyPointsValidateBeforeCall(@javax.annotation.Nonnull String loyaltyProgramId, @javax.annotation.Nonnull String integrationId, @javax.annotation.Nonnull AddLoyaltyPoints addLoyaltyPoints, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'loyaltyProgramId' is set
         if (loyaltyProgramId == null) {
             throw new ApiException("Missing the required parameter 'loyaltyProgramId' when calling addLoyaltyPoints(Async)");
@@ -579,7 +579,7 @@ public class ManagementApi {
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
      */
-    public void addLoyaltyPoints(String loyaltyProgramId, String integrationId, AddLoyaltyPoints addLoyaltyPoints) throws ApiException {
+    public void addLoyaltyPoints(@javax.annotation.Nonnull String loyaltyProgramId, @javax.annotation.Nonnull String integrationId, @javax.annotation.Nonnull AddLoyaltyPoints addLoyaltyPoints) throws ApiException {
         addLoyaltyPointsWithHttpInfo(loyaltyProgramId, integrationId, addLoyaltyPoints);
     }
 
@@ -601,7 +601,7 @@ public class ManagementApi {
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Void> addLoyaltyPointsWithHttpInfo(String loyaltyProgramId, String integrationId, AddLoyaltyPoints addLoyaltyPoints) throws ApiException {
+    public ApiResponse<Void> addLoyaltyPointsWithHttpInfo(@javax.annotation.Nonnull String loyaltyProgramId, @javax.annotation.Nonnull String integrationId, @javax.annotation.Nonnull AddLoyaltyPoints addLoyaltyPoints) throws ApiException {
         okhttp3.Call localVarCall = addLoyaltyPointsValidateBeforeCall(loyaltyProgramId, integrationId, addLoyaltyPoints, null);
         return localVarApiClient.execute(localVarCall);
     }
@@ -625,7 +625,7 @@ public class ManagementApi {
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call addLoyaltyPointsAsync(String loyaltyProgramId, String integrationId, AddLoyaltyPoints addLoyaltyPoints, final ApiCallback<Void> _callback) throws ApiException {
+    public okhttp3.Call addLoyaltyPointsAsync(@javax.annotation.Nonnull String loyaltyProgramId, @javax.annotation.Nonnull String integrationId, @javax.annotation.Nonnull AddLoyaltyPoints addLoyaltyPoints, final ApiCallback<Void> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = addLoyaltyPointsValidateBeforeCall(loyaltyProgramId, integrationId, addLoyaltyPoints, _callback);
         localVarApiClient.executeAsync(localVarCall, _callback);
@@ -646,7 +646,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call copyCampaignToApplicationsCall(Long applicationId, Long campaignId, CampaignCopy campaignCopy, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call copyCampaignToApplicationsCall(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, @javax.annotation.Nonnull CampaignCopy campaignCopy, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -694,7 +694,7 @@ public class ManagementApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call copyCampaignToApplicationsValidateBeforeCall(Long applicationId, Long campaignId, CampaignCopy campaignCopy, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call copyCampaignToApplicationsValidateBeforeCall(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, @javax.annotation.Nonnull CampaignCopy campaignCopy, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'applicationId' is set
         if (applicationId == null) {
             throw new ApiException("Missing the required parameter 'applicationId' when calling copyCampaignToApplications(Async)");
@@ -729,7 +729,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public GetCampaigns200Response copyCampaignToApplications(Long applicationId, Long campaignId, CampaignCopy campaignCopy) throws ApiException {
+    public GetCampaigns200Response copyCampaignToApplications(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, @javax.annotation.Nonnull CampaignCopy campaignCopy) throws ApiException {
         ApiResponse<GetCampaigns200Response> localVarResp = copyCampaignToApplicationsWithHttpInfo(applicationId, campaignId, campaignCopy);
         return localVarResp.getData();
     }
@@ -749,7 +749,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<GetCampaigns200Response> copyCampaignToApplicationsWithHttpInfo(Long applicationId, Long campaignId, CampaignCopy campaignCopy) throws ApiException {
+    public ApiResponse<GetCampaigns200Response> copyCampaignToApplicationsWithHttpInfo(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, @javax.annotation.Nonnull CampaignCopy campaignCopy) throws ApiException {
         okhttp3.Call localVarCall = copyCampaignToApplicationsValidateBeforeCall(applicationId, campaignId, campaignCopy, null);
         Type localVarReturnType = new TypeToken<GetCampaigns200Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -771,7 +771,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call copyCampaignToApplicationsAsync(Long applicationId, Long campaignId, CampaignCopy campaignCopy, final ApiCallback<GetCampaigns200Response> _callback) throws ApiException {
+    public okhttp3.Call copyCampaignToApplicationsAsync(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, @javax.annotation.Nonnull CampaignCopy campaignCopy, final ApiCallback<GetCampaigns200Response> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = copyCampaignToApplicationsValidateBeforeCall(applicationId, campaignId, campaignCopy, _callback);
         Type localVarReturnType = new TypeToken<GetCampaigns200Response>(){}.getType();
@@ -794,7 +794,7 @@ public class ManagementApi {
         <tr><td> 409 </td><td> Conflict. A collection with this name already exists. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createAccountCollectionCall(NewCollection newCollection, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call createAccountCollectionCall(@javax.annotation.Nonnull NewCollection newCollection, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -840,7 +840,7 @@ public class ManagementApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call createAccountCollectionValidateBeforeCall(NewCollection newCollection, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call createAccountCollectionValidateBeforeCall(@javax.annotation.Nonnull NewCollection newCollection, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'newCollection' is set
         if (newCollection == null) {
             throw new ApiException("Missing the required parameter 'newCollection' when calling createAccountCollection(Async)");
@@ -866,7 +866,7 @@ public class ManagementApi {
         <tr><td> 409 </td><td> Conflict. A collection with this name already exists. </td><td>  -  </td></tr>
      </table>
      */
-    public Collection createAccountCollection(NewCollection newCollection) throws ApiException {
+    public Collection createAccountCollection(@javax.annotation.Nonnull NewCollection newCollection) throws ApiException {
         ApiResponse<Collection> localVarResp = createAccountCollectionWithHttpInfo(newCollection);
         return localVarResp.getData();
     }
@@ -887,7 +887,7 @@ public class ManagementApi {
         <tr><td> 409 </td><td> Conflict. A collection with this name already exists. </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Collection> createAccountCollectionWithHttpInfo(NewCollection newCollection) throws ApiException {
+    public ApiResponse<Collection> createAccountCollectionWithHttpInfo(@javax.annotation.Nonnull NewCollection newCollection) throws ApiException {
         okhttp3.Call localVarCall = createAccountCollectionValidateBeforeCall(newCollection, null);
         Type localVarReturnType = new TypeToken<Collection>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -910,7 +910,7 @@ public class ManagementApi {
         <tr><td> 409 </td><td> Conflict. A collection with this name already exists. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createAccountCollectionAsync(NewCollection newCollection, final ApiCallback<Collection> _callback) throws ApiException {
+    public okhttp3.Call createAccountCollectionAsync(@javax.annotation.Nonnull NewCollection newCollection, final ApiCallback<Collection> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = createAccountCollectionValidateBeforeCall(newCollection, _callback);
         Type localVarReturnType = new TypeToken<Collection>(){}.getType();
@@ -935,7 +935,7 @@ public class ManagementApi {
         <tr><td> 409 </td><td> Conflict. An achievement with this name or title already exists. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createAchievementCall(Long applicationId, Long campaignId, CreateAchievement createAchievement, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call createAchievementCall(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, @javax.annotation.Nonnull CreateAchievement createAchievement, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -983,7 +983,7 @@ public class ManagementApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call createAchievementValidateBeforeCall(Long applicationId, Long campaignId, CreateAchievement createAchievement, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call createAchievementValidateBeforeCall(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, @javax.annotation.Nonnull CreateAchievement createAchievement, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'applicationId' is set
         if (applicationId == null) {
             throw new ApiException("Missing the required parameter 'applicationId' when calling createAchievement(Async)");
@@ -1021,7 +1021,7 @@ public class ManagementApi {
         <tr><td> 409 </td><td> Conflict. An achievement with this name or title already exists. </td><td>  -  </td></tr>
      </table>
      */
-    public Achievement createAchievement(Long applicationId, Long campaignId, CreateAchievement createAchievement) throws ApiException {
+    public Achievement createAchievement(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, @javax.annotation.Nonnull CreateAchievement createAchievement) throws ApiException {
         ApiResponse<Achievement> localVarResp = createAchievementWithHttpInfo(applicationId, campaignId, createAchievement);
         return localVarResp.getData();
     }
@@ -1044,7 +1044,7 @@ public class ManagementApi {
         <tr><td> 409 </td><td> Conflict. An achievement with this name or title already exists. </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Achievement> createAchievementWithHttpInfo(Long applicationId, Long campaignId, CreateAchievement createAchievement) throws ApiException {
+    public ApiResponse<Achievement> createAchievementWithHttpInfo(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, @javax.annotation.Nonnull CreateAchievement createAchievement) throws ApiException {
         okhttp3.Call localVarCall = createAchievementValidateBeforeCall(applicationId, campaignId, createAchievement, null);
         Type localVarReturnType = new TypeToken<Achievement>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -1069,7 +1069,7 @@ public class ManagementApi {
         <tr><td> 409 </td><td> Conflict. An achievement with this name or title already exists. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createAchievementAsync(Long applicationId, Long campaignId, CreateAchievement createAchievement, final ApiCallback<Achievement> _callback) throws ApiException {
+    public okhttp3.Call createAchievementAsync(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, @javax.annotation.Nonnull CreateAchievement createAchievement, final ApiCallback<Achievement> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = createAchievementValidateBeforeCall(applicationId, campaignId, createAchievement, _callback);
         Type localVarReturnType = new TypeToken<Achievement>(){}.getType();
@@ -1089,7 +1089,7 @@ public class ManagementApi {
         <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createAdditionalCostCall(NewAdditionalCost newAdditionalCost, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call createAdditionalCostCall(@javax.annotation.Nonnull NewAdditionalCost newAdditionalCost, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1135,7 +1135,7 @@ public class ManagementApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call createAdditionalCostValidateBeforeCall(NewAdditionalCost newAdditionalCost, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call createAdditionalCostValidateBeforeCall(@javax.annotation.Nonnull NewAdditionalCost newAdditionalCost, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'newAdditionalCost' is set
         if (newAdditionalCost == null) {
             throw new ApiException("Missing the required parameter 'newAdditionalCost' when calling createAdditionalCost(Async)");
@@ -1158,7 +1158,7 @@ public class ManagementApi {
         <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
      </table>
      */
-    public AccountAdditionalCost createAdditionalCost(NewAdditionalCost newAdditionalCost) throws ApiException {
+    public AccountAdditionalCost createAdditionalCost(@javax.annotation.Nonnull NewAdditionalCost newAdditionalCost) throws ApiException {
         ApiResponse<AccountAdditionalCost> localVarResp = createAdditionalCostWithHttpInfo(newAdditionalCost);
         return localVarResp.getData();
     }
@@ -1176,7 +1176,7 @@ public class ManagementApi {
         <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<AccountAdditionalCost> createAdditionalCostWithHttpInfo(NewAdditionalCost newAdditionalCost) throws ApiException {
+    public ApiResponse<AccountAdditionalCost> createAdditionalCostWithHttpInfo(@javax.annotation.Nonnull NewAdditionalCost newAdditionalCost) throws ApiException {
         okhttp3.Call localVarCall = createAdditionalCostValidateBeforeCall(newAdditionalCost, null);
         Type localVarReturnType = new TypeToken<AccountAdditionalCost>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -1196,7 +1196,7 @@ public class ManagementApi {
         <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createAdditionalCostAsync(NewAdditionalCost newAdditionalCost, final ApiCallback<AccountAdditionalCost> _callback) throws ApiException {
+    public okhttp3.Call createAdditionalCostAsync(@javax.annotation.Nonnull NewAdditionalCost newAdditionalCost, final ApiCallback<AccountAdditionalCost> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = createAdditionalCostValidateBeforeCall(newAdditionalCost, _callback);
         Type localVarReturnType = new TypeToken<AccountAdditionalCost>(){}.getType();
@@ -1216,7 +1216,7 @@ public class ManagementApi {
         <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createAttributeCall(NewAttribute newAttribute, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call createAttributeCall(@javax.annotation.Nonnull NewAttribute newAttribute, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1262,7 +1262,7 @@ public class ManagementApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call createAttributeValidateBeforeCall(NewAttribute newAttribute, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call createAttributeValidateBeforeCall(@javax.annotation.Nonnull NewAttribute newAttribute, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'newAttribute' is set
         if (newAttribute == null) {
             throw new ApiException("Missing the required parameter 'newAttribute' when calling createAttribute(Async)");
@@ -1285,7 +1285,7 @@ public class ManagementApi {
         <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
      </table>
      */
-    public Attribute createAttribute(NewAttribute newAttribute) throws ApiException {
+    public Attribute createAttribute(@javax.annotation.Nonnull NewAttribute newAttribute) throws ApiException {
         ApiResponse<Attribute> localVarResp = createAttributeWithHttpInfo(newAttribute);
         return localVarResp.getData();
     }
@@ -1303,7 +1303,7 @@ public class ManagementApi {
         <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Attribute> createAttributeWithHttpInfo(NewAttribute newAttribute) throws ApiException {
+    public ApiResponse<Attribute> createAttributeWithHttpInfo(@javax.annotation.Nonnull NewAttribute newAttribute) throws ApiException {
         okhttp3.Call localVarCall = createAttributeValidateBeforeCall(newAttribute, null);
         Type localVarReturnType = new TypeToken<Attribute>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -1323,7 +1323,7 @@ public class ManagementApi {
         <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createAttributeAsync(NewAttribute newAttribute, final ApiCallback<Attribute> _callback) throws ApiException {
+    public okhttp3.Call createAttributeAsync(@javax.annotation.Nonnull NewAttribute newAttribute, final ApiCallback<Attribute> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = createAttributeValidateBeforeCall(newAttribute, _callback);
         Type localVarReturnType = new TypeToken<Attribute>(){}.getType();
@@ -1347,7 +1347,7 @@ public class ManagementApi {
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createBatchLoyaltyCardsCall(Long loyaltyProgramId, LoyaltyCardBatch loyaltyCardBatch, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call createBatchLoyaltyCardsCall(@javax.annotation.Nonnull Long loyaltyProgramId, @javax.annotation.Nonnull LoyaltyCardBatch loyaltyCardBatch, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1394,7 +1394,7 @@ public class ManagementApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call createBatchLoyaltyCardsValidateBeforeCall(Long loyaltyProgramId, LoyaltyCardBatch loyaltyCardBatch, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call createBatchLoyaltyCardsValidateBeforeCall(@javax.annotation.Nonnull Long loyaltyProgramId, @javax.annotation.Nonnull LoyaltyCardBatch loyaltyCardBatch, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'loyaltyProgramId' is set
         if (loyaltyProgramId == null) {
             throw new ApiException("Missing the required parameter 'loyaltyProgramId' when calling createBatchLoyaltyCards(Async)");
@@ -1426,7 +1426,7 @@ public class ManagementApi {
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
      */
-    public LoyaltyCardBatchResponse createBatchLoyaltyCards(Long loyaltyProgramId, LoyaltyCardBatch loyaltyCardBatch) throws ApiException {
+    public LoyaltyCardBatchResponse createBatchLoyaltyCards(@javax.annotation.Nonnull Long loyaltyProgramId, @javax.annotation.Nonnull LoyaltyCardBatch loyaltyCardBatch) throws ApiException {
         ApiResponse<LoyaltyCardBatchResponse> localVarResp = createBatchLoyaltyCardsWithHttpInfo(loyaltyProgramId, loyaltyCardBatch);
         return localVarResp.getData();
     }
@@ -1448,7 +1448,7 @@ public class ManagementApi {
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<LoyaltyCardBatchResponse> createBatchLoyaltyCardsWithHttpInfo(Long loyaltyProgramId, LoyaltyCardBatch loyaltyCardBatch) throws ApiException {
+    public ApiResponse<LoyaltyCardBatchResponse> createBatchLoyaltyCardsWithHttpInfo(@javax.annotation.Nonnull Long loyaltyProgramId, @javax.annotation.Nonnull LoyaltyCardBatch loyaltyCardBatch) throws ApiException {
         okhttp3.Call localVarCall = createBatchLoyaltyCardsValidateBeforeCall(loyaltyProgramId, loyaltyCardBatch, null);
         Type localVarReturnType = new TypeToken<LoyaltyCardBatchResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -1472,7 +1472,7 @@ public class ManagementApi {
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createBatchLoyaltyCardsAsync(Long loyaltyProgramId, LoyaltyCardBatch loyaltyCardBatch, final ApiCallback<LoyaltyCardBatchResponse> _callback) throws ApiException {
+    public okhttp3.Call createBatchLoyaltyCardsAsync(@javax.annotation.Nonnull Long loyaltyProgramId, @javax.annotation.Nonnull LoyaltyCardBatch loyaltyCardBatch, final ApiCallback<LoyaltyCardBatchResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = createBatchLoyaltyCardsValidateBeforeCall(loyaltyProgramId, loyaltyCardBatch, _callback);
         Type localVarReturnType = new TypeToken<LoyaltyCardBatchResponse>(){}.getType();
@@ -1493,7 +1493,7 @@ public class ManagementApi {
         <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createCampaignFromTemplateCall(Long applicationId, CreateTemplateCampaign createTemplateCampaign, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call createCampaignFromTemplateCall(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull CreateTemplateCampaign createTemplateCampaign, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1540,7 +1540,7 @@ public class ManagementApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call createCampaignFromTemplateValidateBeforeCall(Long applicationId, CreateTemplateCampaign createTemplateCampaign, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call createCampaignFromTemplateValidateBeforeCall(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull CreateTemplateCampaign createTemplateCampaign, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'applicationId' is set
         if (applicationId == null) {
             throw new ApiException("Missing the required parameter 'applicationId' when calling createCampaignFromTemplate(Async)");
@@ -1569,7 +1569,7 @@ public class ManagementApi {
         <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
      </table>
      */
-    public CreateTemplateCampaignResponse createCampaignFromTemplate(Long applicationId, CreateTemplateCampaign createTemplateCampaign) throws ApiException {
+    public CreateTemplateCampaignResponse createCampaignFromTemplate(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull CreateTemplateCampaign createTemplateCampaign) throws ApiException {
         ApiResponse<CreateTemplateCampaignResponse> localVarResp = createCampaignFromTemplateWithHttpInfo(applicationId, createTemplateCampaign);
         return localVarResp.getData();
     }
@@ -1588,7 +1588,7 @@ public class ManagementApi {
         <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<CreateTemplateCampaignResponse> createCampaignFromTemplateWithHttpInfo(Long applicationId, CreateTemplateCampaign createTemplateCampaign) throws ApiException {
+    public ApiResponse<CreateTemplateCampaignResponse> createCampaignFromTemplateWithHttpInfo(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull CreateTemplateCampaign createTemplateCampaign) throws ApiException {
         okhttp3.Call localVarCall = createCampaignFromTemplateValidateBeforeCall(applicationId, createTemplateCampaign, null);
         Type localVarReturnType = new TypeToken<CreateTemplateCampaignResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -1609,7 +1609,7 @@ public class ManagementApi {
         <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createCampaignFromTemplateAsync(Long applicationId, CreateTemplateCampaign createTemplateCampaign, final ApiCallback<CreateTemplateCampaignResponse> _callback) throws ApiException {
+    public okhttp3.Call createCampaignFromTemplateAsync(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull CreateTemplateCampaign createTemplateCampaign, final ApiCallback<CreateTemplateCampaignResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = createCampaignFromTemplateValidateBeforeCall(applicationId, createTemplateCampaign, _callback);
         Type localVarReturnType = new TypeToken<CreateTemplateCampaignResponse>(){}.getType();
@@ -1633,7 +1633,7 @@ public class ManagementApi {
         <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createCampaignStoreBudgetCall(Long applicationId, Long campaignId, NewCampaignStoreBudget newCampaignStoreBudget, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call createCampaignStoreBudgetCall(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, @javax.annotation.Nonnull NewCampaignStoreBudget newCampaignStoreBudget, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1681,7 +1681,7 @@ public class ManagementApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call createCampaignStoreBudgetValidateBeforeCall(Long applicationId, Long campaignId, NewCampaignStoreBudget newCampaignStoreBudget, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call createCampaignStoreBudgetValidateBeforeCall(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, @javax.annotation.Nonnull NewCampaignStoreBudget newCampaignStoreBudget, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'applicationId' is set
         if (applicationId == null) {
             throw new ApiException("Missing the required parameter 'applicationId' when calling createCampaignStoreBudget(Async)");
@@ -1717,7 +1717,7 @@ public class ManagementApi {
         <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
      </table>
      */
-    public void createCampaignStoreBudget(Long applicationId, Long campaignId, NewCampaignStoreBudget newCampaignStoreBudget) throws ApiException {
+    public void createCampaignStoreBudget(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, @javax.annotation.Nonnull NewCampaignStoreBudget newCampaignStoreBudget) throws ApiException {
         createCampaignStoreBudgetWithHttpInfo(applicationId, campaignId, newCampaignStoreBudget);
     }
 
@@ -1738,7 +1738,7 @@ public class ManagementApi {
         <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Void> createCampaignStoreBudgetWithHttpInfo(Long applicationId, Long campaignId, NewCampaignStoreBudget newCampaignStoreBudget) throws ApiException {
+    public ApiResponse<Void> createCampaignStoreBudgetWithHttpInfo(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, @javax.annotation.Nonnull NewCampaignStoreBudget newCampaignStoreBudget) throws ApiException {
         okhttp3.Call localVarCall = createCampaignStoreBudgetValidateBeforeCall(applicationId, campaignId, newCampaignStoreBudget, null);
         return localVarApiClient.execute(localVarCall);
     }
@@ -1761,7 +1761,7 @@ public class ManagementApi {
         <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createCampaignStoreBudgetAsync(Long applicationId, Long campaignId, NewCampaignStoreBudget newCampaignStoreBudget, final ApiCallback<Void> _callback) throws ApiException {
+    public okhttp3.Call createCampaignStoreBudgetAsync(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, @javax.annotation.Nonnull NewCampaignStoreBudget newCampaignStoreBudget, final ApiCallback<Void> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = createCampaignStoreBudgetValidateBeforeCall(applicationId, campaignId, newCampaignStoreBudget, _callback);
         localVarApiClient.executeAsync(localVarCall, _callback);
@@ -1782,7 +1782,7 @@ public class ManagementApi {
         <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createCollectionCall(Long applicationId, Long campaignId, NewCampaignCollection newCampaignCollection, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call createCollectionCall(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, @javax.annotation.Nonnull NewCampaignCollection newCampaignCollection, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1830,7 +1830,7 @@ public class ManagementApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call createCollectionValidateBeforeCall(Long applicationId, Long campaignId, NewCampaignCollection newCampaignCollection, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call createCollectionValidateBeforeCall(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, @javax.annotation.Nonnull NewCampaignCollection newCampaignCollection, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'applicationId' is set
         if (applicationId == null) {
             throw new ApiException("Missing the required parameter 'applicationId' when calling createCollection(Async)");
@@ -1865,7 +1865,7 @@ public class ManagementApi {
         <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
      </table>
      */
-    public Collection createCollection(Long applicationId, Long campaignId, NewCampaignCollection newCampaignCollection) throws ApiException {
+    public Collection createCollection(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, @javax.annotation.Nonnull NewCampaignCollection newCampaignCollection) throws ApiException {
         ApiResponse<Collection> localVarResp = createCollectionWithHttpInfo(applicationId, campaignId, newCampaignCollection);
         return localVarResp.getData();
     }
@@ -1885,7 +1885,7 @@ public class ManagementApi {
         <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Collection> createCollectionWithHttpInfo(Long applicationId, Long campaignId, NewCampaignCollection newCampaignCollection) throws ApiException {
+    public ApiResponse<Collection> createCollectionWithHttpInfo(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, @javax.annotation.Nonnull NewCampaignCollection newCampaignCollection) throws ApiException {
         okhttp3.Call localVarCall = createCollectionValidateBeforeCall(applicationId, campaignId, newCampaignCollection, null);
         Type localVarReturnType = new TypeToken<Collection>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -1907,7 +1907,7 @@ public class ManagementApi {
         <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createCollectionAsync(Long applicationId, Long campaignId, NewCampaignCollection newCampaignCollection, final ApiCallback<Collection> _callback) throws ApiException {
+    public okhttp3.Call createCollectionAsync(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, @javax.annotation.Nonnull NewCampaignCollection newCampaignCollection, final ApiCallback<Collection> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = createCollectionValidateBeforeCall(applicationId, campaignId, newCampaignCollection, _callback);
         Type localVarReturnType = new TypeToken<Collection>(){}.getType();
@@ -1931,7 +1931,7 @@ public class ManagementApi {
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createCouponsCall(Long applicationId, Long campaignId, NewCoupons newCoupons, String silent, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call createCouponsCall(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, @javax.annotation.Nonnull NewCoupons newCoupons, @javax.annotation.Nullable String silent, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1983,7 +1983,7 @@ public class ManagementApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call createCouponsValidateBeforeCall(Long applicationId, Long campaignId, NewCoupons newCoupons, String silent, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call createCouponsValidateBeforeCall(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, @javax.annotation.Nonnull NewCoupons newCoupons, @javax.annotation.Nullable String silent, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'applicationId' is set
         if (applicationId == null) {
             throw new ApiException("Missing the required parameter 'applicationId' when calling createCoupons(Async)");
@@ -2020,7 +2020,7 @@ public class ManagementApi {
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
      </table>
      */
-    public CreateCoupons200Response createCoupons(Long applicationId, Long campaignId, NewCoupons newCoupons, String silent) throws ApiException {
+    public CreateCoupons200Response createCoupons(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, @javax.annotation.Nonnull NewCoupons newCoupons, @javax.annotation.Nullable String silent) throws ApiException {
         ApiResponse<CreateCoupons200Response> localVarResp = createCouponsWithHttpInfo(applicationId, campaignId, newCoupons, silent);
         return localVarResp.getData();
     }
@@ -2042,7 +2042,7 @@ public class ManagementApi {
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<CreateCoupons200Response> createCouponsWithHttpInfo(Long applicationId, Long campaignId, NewCoupons newCoupons, String silent) throws ApiException {
+    public ApiResponse<CreateCoupons200Response> createCouponsWithHttpInfo(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, @javax.annotation.Nonnull NewCoupons newCoupons, @javax.annotation.Nullable String silent) throws ApiException {
         okhttp3.Call localVarCall = createCouponsValidateBeforeCall(applicationId, campaignId, newCoupons, silent, null);
         Type localVarReturnType = new TypeToken<CreateCoupons200Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -2066,7 +2066,7 @@ public class ManagementApi {
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createCouponsAsync(Long applicationId, Long campaignId, NewCoupons newCoupons, String silent, final ApiCallback<CreateCoupons200Response> _callback) throws ApiException {
+    public okhttp3.Call createCouponsAsync(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, @javax.annotation.Nonnull NewCoupons newCoupons, @javax.annotation.Nullable String silent, final ApiCallback<CreateCoupons200Response> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = createCouponsValidateBeforeCall(applicationId, campaignId, newCoupons, silent, _callback);
         Type localVarReturnType = new TypeToken<CreateCoupons200Response>(){}.getType();
@@ -2088,7 +2088,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createCouponsAsyncCall(Long applicationId, Long campaignId, NewCouponCreationJob newCouponCreationJob, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call createCouponsAsyncCall(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, @javax.annotation.Nonnull NewCouponCreationJob newCouponCreationJob, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -2136,7 +2136,7 @@ public class ManagementApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call createCouponsAsyncValidateBeforeCall(Long applicationId, Long campaignId, NewCouponCreationJob newCouponCreationJob, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call createCouponsAsyncValidateBeforeCall(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, @javax.annotation.Nonnull NewCouponCreationJob newCouponCreationJob, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'applicationId' is set
         if (applicationId == null) {
             throw new ApiException("Missing the required parameter 'applicationId' when calling createCouponsAsync(Async)");
@@ -2171,7 +2171,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public AsyncCouponCreationResponse createCouponsAsync(Long applicationId, Long campaignId, NewCouponCreationJob newCouponCreationJob) throws ApiException {
+    public AsyncCouponCreationResponse createCouponsAsync(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, @javax.annotation.Nonnull NewCouponCreationJob newCouponCreationJob) throws ApiException {
         ApiResponse<AsyncCouponCreationResponse> localVarResp = createCouponsAsyncWithHttpInfo(applicationId, campaignId, newCouponCreationJob);
         return localVarResp.getData();
     }
@@ -2191,7 +2191,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<AsyncCouponCreationResponse> createCouponsAsyncWithHttpInfo(Long applicationId, Long campaignId, NewCouponCreationJob newCouponCreationJob) throws ApiException {
+    public ApiResponse<AsyncCouponCreationResponse> createCouponsAsyncWithHttpInfo(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, @javax.annotation.Nonnull NewCouponCreationJob newCouponCreationJob) throws ApiException {
         okhttp3.Call localVarCall = createCouponsAsyncValidateBeforeCall(applicationId, campaignId, newCouponCreationJob, null);
         Type localVarReturnType = new TypeToken<AsyncCouponCreationResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -2213,7 +2213,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createCouponsAsyncAsync(Long applicationId, Long campaignId, NewCouponCreationJob newCouponCreationJob, final ApiCallback<AsyncCouponCreationResponse> _callback) throws ApiException {
+    public okhttp3.Call createCouponsAsyncAsync(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, @javax.annotation.Nonnull NewCouponCreationJob newCouponCreationJob, final ApiCallback<AsyncCouponCreationResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = createCouponsAsyncValidateBeforeCall(applicationId, campaignId, newCouponCreationJob, _callback);
         Type localVarReturnType = new TypeToken<AsyncCouponCreationResponse>(){}.getType();
@@ -2235,7 +2235,7 @@ public class ManagementApi {
         <tr><td> 202 </td><td> The deletion request has been accepted and will be processed asynchronously </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createCouponsDeletionJobCall(Long applicationId, Long campaignId, NewCouponDeletionJob newCouponDeletionJob, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call createCouponsDeletionJobCall(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, @javax.annotation.Nonnull NewCouponDeletionJob newCouponDeletionJob, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -2283,7 +2283,7 @@ public class ManagementApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call createCouponsDeletionJobValidateBeforeCall(Long applicationId, Long campaignId, NewCouponDeletionJob newCouponDeletionJob, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call createCouponsDeletionJobValidateBeforeCall(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, @javax.annotation.Nonnull NewCouponDeletionJob newCouponDeletionJob, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'applicationId' is set
         if (applicationId == null) {
             throw new ApiException("Missing the required parameter 'applicationId' when calling createCouponsDeletionJob(Async)");
@@ -2318,7 +2318,7 @@ public class ManagementApi {
         <tr><td> 202 </td><td> The deletion request has been accepted and will be processed asynchronously </td><td>  -  </td></tr>
      </table>
      */
-    public AsyncCouponDeletionJobResponse createCouponsDeletionJob(Long applicationId, Long campaignId, NewCouponDeletionJob newCouponDeletionJob) throws ApiException {
+    public AsyncCouponDeletionJobResponse createCouponsDeletionJob(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, @javax.annotation.Nonnull NewCouponDeletionJob newCouponDeletionJob) throws ApiException {
         ApiResponse<AsyncCouponDeletionJobResponse> localVarResp = createCouponsDeletionJobWithHttpInfo(applicationId, campaignId, newCouponDeletionJob);
         return localVarResp.getData();
     }
@@ -2338,7 +2338,7 @@ public class ManagementApi {
         <tr><td> 202 </td><td> The deletion request has been accepted and will be processed asynchronously </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<AsyncCouponDeletionJobResponse> createCouponsDeletionJobWithHttpInfo(Long applicationId, Long campaignId, NewCouponDeletionJob newCouponDeletionJob) throws ApiException {
+    public ApiResponse<AsyncCouponDeletionJobResponse> createCouponsDeletionJobWithHttpInfo(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, @javax.annotation.Nonnull NewCouponDeletionJob newCouponDeletionJob) throws ApiException {
         okhttp3.Call localVarCall = createCouponsDeletionJobValidateBeforeCall(applicationId, campaignId, newCouponDeletionJob, null);
         Type localVarReturnType = new TypeToken<AsyncCouponDeletionJobResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -2360,7 +2360,7 @@ public class ManagementApi {
         <tr><td> 202 </td><td> The deletion request has been accepted and will be processed asynchronously </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createCouponsDeletionJobAsync(Long applicationId, Long campaignId, NewCouponDeletionJob newCouponDeletionJob, final ApiCallback<AsyncCouponDeletionJobResponse> _callback) throws ApiException {
+    public okhttp3.Call createCouponsDeletionJobAsync(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, @javax.annotation.Nonnull NewCouponDeletionJob newCouponDeletionJob, final ApiCallback<AsyncCouponDeletionJobResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = createCouponsDeletionJobValidateBeforeCall(applicationId, campaignId, newCouponDeletionJob, _callback);
         Type localVarReturnType = new TypeToken<AsyncCouponDeletionJobResponse>(){}.getType();
@@ -2384,7 +2384,7 @@ public class ManagementApi {
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createCouponsForMultipleRecipientsCall(Long applicationId, Long campaignId, NewCouponsForMultipleRecipients newCouponsForMultipleRecipients, String silent, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call createCouponsForMultipleRecipientsCall(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, @javax.annotation.Nonnull NewCouponsForMultipleRecipients newCouponsForMultipleRecipients, @javax.annotation.Nullable String silent, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -2436,7 +2436,7 @@ public class ManagementApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call createCouponsForMultipleRecipientsValidateBeforeCall(Long applicationId, Long campaignId, NewCouponsForMultipleRecipients newCouponsForMultipleRecipients, String silent, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call createCouponsForMultipleRecipientsValidateBeforeCall(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, @javax.annotation.Nonnull NewCouponsForMultipleRecipients newCouponsForMultipleRecipients, @javax.annotation.Nullable String silent, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'applicationId' is set
         if (applicationId == null) {
             throw new ApiException("Missing the required parameter 'applicationId' when calling createCouponsForMultipleRecipients(Async)");
@@ -2473,7 +2473,7 @@ public class ManagementApi {
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
      </table>
      */
-    public CreateCoupons200Response createCouponsForMultipleRecipients(Long applicationId, Long campaignId, NewCouponsForMultipleRecipients newCouponsForMultipleRecipients, String silent) throws ApiException {
+    public CreateCoupons200Response createCouponsForMultipleRecipients(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, @javax.annotation.Nonnull NewCouponsForMultipleRecipients newCouponsForMultipleRecipients, @javax.annotation.Nullable String silent) throws ApiException {
         ApiResponse<CreateCoupons200Response> localVarResp = createCouponsForMultipleRecipientsWithHttpInfo(applicationId, campaignId, newCouponsForMultipleRecipients, silent);
         return localVarResp.getData();
     }
@@ -2495,7 +2495,7 @@ public class ManagementApi {
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<CreateCoupons200Response> createCouponsForMultipleRecipientsWithHttpInfo(Long applicationId, Long campaignId, NewCouponsForMultipleRecipients newCouponsForMultipleRecipients, String silent) throws ApiException {
+    public ApiResponse<CreateCoupons200Response> createCouponsForMultipleRecipientsWithHttpInfo(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, @javax.annotation.Nonnull NewCouponsForMultipleRecipients newCouponsForMultipleRecipients, @javax.annotation.Nullable String silent) throws ApiException {
         okhttp3.Call localVarCall = createCouponsForMultipleRecipientsValidateBeforeCall(applicationId, campaignId, newCouponsForMultipleRecipients, silent, null);
         Type localVarReturnType = new TypeToken<CreateCoupons200Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -2519,7 +2519,7 @@ public class ManagementApi {
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createCouponsForMultipleRecipientsAsync(Long applicationId, Long campaignId, NewCouponsForMultipleRecipients newCouponsForMultipleRecipients, String silent, final ApiCallback<CreateCoupons200Response> _callback) throws ApiException {
+    public okhttp3.Call createCouponsForMultipleRecipientsAsync(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, @javax.annotation.Nonnull NewCouponsForMultipleRecipients newCouponsForMultipleRecipients, @javax.annotation.Nullable String silent, final ApiCallback<CreateCoupons200Response> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = createCouponsForMultipleRecipientsValidateBeforeCall(applicationId, campaignId, newCouponsForMultipleRecipients, silent, _callback);
         Type localVarReturnType = new TypeToken<CreateCoupons200Response>(){}.getType();
@@ -2539,7 +2539,7 @@ public class ManagementApi {
         <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createInviteEmailCall(NewInviteEmail newInviteEmail, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call createInviteEmailCall(@javax.annotation.Nonnull NewInviteEmail newInviteEmail, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -2585,7 +2585,7 @@ public class ManagementApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call createInviteEmailValidateBeforeCall(NewInviteEmail newInviteEmail, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call createInviteEmailValidateBeforeCall(@javax.annotation.Nonnull NewInviteEmail newInviteEmail, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'newInviteEmail' is set
         if (newInviteEmail == null) {
             throw new ApiException("Missing the required parameter 'newInviteEmail' when calling createInviteEmail(Async)");
@@ -2608,7 +2608,7 @@ public class ManagementApi {
         <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
      </table>
      */
-    public NewInviteEmail createInviteEmail(NewInviteEmail newInviteEmail) throws ApiException {
+    public NewInviteEmail createInviteEmail(@javax.annotation.Nonnull NewInviteEmail newInviteEmail) throws ApiException {
         ApiResponse<NewInviteEmail> localVarResp = createInviteEmailWithHttpInfo(newInviteEmail);
         return localVarResp.getData();
     }
@@ -2626,7 +2626,7 @@ public class ManagementApi {
         <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<NewInviteEmail> createInviteEmailWithHttpInfo(NewInviteEmail newInviteEmail) throws ApiException {
+    public ApiResponse<NewInviteEmail> createInviteEmailWithHttpInfo(@javax.annotation.Nonnull NewInviteEmail newInviteEmail) throws ApiException {
         okhttp3.Call localVarCall = createInviteEmailValidateBeforeCall(newInviteEmail, null);
         Type localVarReturnType = new TypeToken<NewInviteEmail>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -2646,7 +2646,7 @@ public class ManagementApi {
         <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createInviteEmailAsync(NewInviteEmail newInviteEmail, final ApiCallback<NewInviteEmail> _callback) throws ApiException {
+    public okhttp3.Call createInviteEmailAsync(@javax.annotation.Nonnull NewInviteEmail newInviteEmail, final ApiCallback<NewInviteEmail> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = createInviteEmailValidateBeforeCall(newInviteEmail, _callback);
         Type localVarReturnType = new TypeToken<NewInviteEmail>(){}.getType();
@@ -2666,7 +2666,7 @@ public class ManagementApi {
         <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createInviteV2Call(NewInvitation newInvitation, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call createInviteV2Call(@javax.annotation.Nonnull NewInvitation newInvitation, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -2712,7 +2712,7 @@ public class ManagementApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call createInviteV2ValidateBeforeCall(NewInvitation newInvitation, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call createInviteV2ValidateBeforeCall(@javax.annotation.Nonnull NewInvitation newInvitation, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'newInvitation' is set
         if (newInvitation == null) {
             throw new ApiException("Missing the required parameter 'newInvitation' when calling createInviteV2(Async)");
@@ -2735,7 +2735,7 @@ public class ManagementApi {
         <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
      </table>
      */
-    public User createInviteV2(NewInvitation newInvitation) throws ApiException {
+    public User createInviteV2(@javax.annotation.Nonnull NewInvitation newInvitation) throws ApiException {
         ApiResponse<User> localVarResp = createInviteV2WithHttpInfo(newInvitation);
         return localVarResp.getData();
     }
@@ -2753,7 +2753,7 @@ public class ManagementApi {
         <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<User> createInviteV2WithHttpInfo(NewInvitation newInvitation) throws ApiException {
+    public ApiResponse<User> createInviteV2WithHttpInfo(@javax.annotation.Nonnull NewInvitation newInvitation) throws ApiException {
         okhttp3.Call localVarCall = createInviteV2ValidateBeforeCall(newInvitation, null);
         Type localVarReturnType = new TypeToken<User>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -2773,7 +2773,7 @@ public class ManagementApi {
         <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createInviteV2Async(NewInvitation newInvitation, final ApiCallback<User> _callback) throws ApiException {
+    public okhttp3.Call createInviteV2Async(@javax.annotation.Nonnull NewInvitation newInvitation, final ApiCallback<User> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = createInviteV2ValidateBeforeCall(newInvitation, _callback);
         Type localVarReturnType = new TypeToken<User>(){}.getType();
@@ -2793,7 +2793,7 @@ public class ManagementApi {
         <tr><td> 204 </td><td> Created </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createPasswordRecoveryEmailCall(NewPasswordEmail newPasswordEmail, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call createPasswordRecoveryEmailCall(@javax.annotation.Nonnull NewPasswordEmail newPasswordEmail, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -2839,7 +2839,7 @@ public class ManagementApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call createPasswordRecoveryEmailValidateBeforeCall(NewPasswordEmail newPasswordEmail, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call createPasswordRecoveryEmailValidateBeforeCall(@javax.annotation.Nonnull NewPasswordEmail newPasswordEmail, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'newPasswordEmail' is set
         if (newPasswordEmail == null) {
             throw new ApiException("Missing the required parameter 'newPasswordEmail' when calling createPasswordRecoveryEmail(Async)");
@@ -2862,7 +2862,7 @@ public class ManagementApi {
         <tr><td> 204 </td><td> Created </td><td>  -  </td></tr>
      </table>
      */
-    public NewPasswordEmail createPasswordRecoveryEmail(NewPasswordEmail newPasswordEmail) throws ApiException {
+    public NewPasswordEmail createPasswordRecoveryEmail(@javax.annotation.Nonnull NewPasswordEmail newPasswordEmail) throws ApiException {
         ApiResponse<NewPasswordEmail> localVarResp = createPasswordRecoveryEmailWithHttpInfo(newPasswordEmail);
         return localVarResp.getData();
     }
@@ -2880,7 +2880,7 @@ public class ManagementApi {
         <tr><td> 204 </td><td> Created </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<NewPasswordEmail> createPasswordRecoveryEmailWithHttpInfo(NewPasswordEmail newPasswordEmail) throws ApiException {
+    public ApiResponse<NewPasswordEmail> createPasswordRecoveryEmailWithHttpInfo(@javax.annotation.Nonnull NewPasswordEmail newPasswordEmail) throws ApiException {
         okhttp3.Call localVarCall = createPasswordRecoveryEmailValidateBeforeCall(newPasswordEmail, null);
         Type localVarReturnType = new TypeToken<NewPasswordEmail>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -2900,7 +2900,7 @@ public class ManagementApi {
         <tr><td> 204 </td><td> Created </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createPasswordRecoveryEmailAsync(NewPasswordEmail newPasswordEmail, final ApiCallback<NewPasswordEmail> _callback) throws ApiException {
+    public okhttp3.Call createPasswordRecoveryEmailAsync(@javax.annotation.Nonnull NewPasswordEmail newPasswordEmail, final ApiCallback<NewPasswordEmail> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = createPasswordRecoveryEmailValidateBeforeCall(newPasswordEmail, _callback);
         Type localVarReturnType = new TypeToken<NewPasswordEmail>(){}.getType();
@@ -2920,7 +2920,7 @@ public class ManagementApi {
         <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createSessionCall(LoginParams loginParams, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call createSessionCall(@javax.annotation.Nonnull LoginParams loginParams, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -2966,7 +2966,7 @@ public class ManagementApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call createSessionValidateBeforeCall(LoginParams loginParams, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call createSessionValidateBeforeCall(@javax.annotation.Nonnull LoginParams loginParams, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'loginParams' is set
         if (loginParams == null) {
             throw new ApiException("Missing the required parameter 'loginParams' when calling createSession(Async)");
@@ -2989,7 +2989,7 @@ public class ManagementApi {
         <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
      </table>
      */
-    public Session createSession(LoginParams loginParams) throws ApiException {
+    public Session createSession(@javax.annotation.Nonnull LoginParams loginParams) throws ApiException {
         ApiResponse<Session> localVarResp = createSessionWithHttpInfo(loginParams);
         return localVarResp.getData();
     }
@@ -3007,7 +3007,7 @@ public class ManagementApi {
         <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Session> createSessionWithHttpInfo(LoginParams loginParams) throws ApiException {
+    public ApiResponse<Session> createSessionWithHttpInfo(@javax.annotation.Nonnull LoginParams loginParams) throws ApiException {
         okhttp3.Call localVarCall = createSessionValidateBeforeCall(loginParams, null);
         Type localVarReturnType = new TypeToken<Session>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -3027,7 +3027,7 @@ public class ManagementApi {
         <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createSessionAsync(LoginParams loginParams, final ApiCallback<Session> _callback) throws ApiException {
+    public okhttp3.Call createSessionAsync(@javax.annotation.Nonnull LoginParams loginParams, final ApiCallback<Session> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = createSessionValidateBeforeCall(loginParams, _callback);
         Type localVarReturnType = new TypeToken<Session>(){}.getType();
@@ -3050,7 +3050,7 @@ public class ManagementApi {
         <tr><td> 409 </td><td> Conflict. A store with this integration ID already exists for this application. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createStoreCall(Long applicationId, NewStore newStore, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call createStoreCall(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull NewStore newStore, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -3097,7 +3097,7 @@ public class ManagementApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call createStoreValidateBeforeCall(Long applicationId, NewStore newStore, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call createStoreValidateBeforeCall(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull NewStore newStore, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'applicationId' is set
         if (applicationId == null) {
             throw new ApiException("Missing the required parameter 'applicationId' when calling createStore(Async)");
@@ -3128,7 +3128,7 @@ public class ManagementApi {
         <tr><td> 409 </td><td> Conflict. A store with this integration ID already exists for this application. </td><td>  -  </td></tr>
      </table>
      */
-    public Store createStore(Long applicationId, NewStore newStore) throws ApiException {
+    public Store createStore(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull NewStore newStore) throws ApiException {
         ApiResponse<Store> localVarResp = createStoreWithHttpInfo(applicationId, newStore);
         return localVarResp.getData();
     }
@@ -3149,7 +3149,7 @@ public class ManagementApi {
         <tr><td> 409 </td><td> Conflict. A store with this integration ID already exists for this application. </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Store> createStoreWithHttpInfo(Long applicationId, NewStore newStore) throws ApiException {
+    public ApiResponse<Store> createStoreWithHttpInfo(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull NewStore newStore) throws ApiException {
         okhttp3.Call localVarCall = createStoreValidateBeforeCall(applicationId, newStore, null);
         Type localVarReturnType = new TypeToken<Store>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -3172,7 +3172,7 @@ public class ManagementApi {
         <tr><td> 409 </td><td> Conflict. A store with this integration ID already exists for this application. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createStoreAsync(Long applicationId, NewStore newStore, final ApiCallback<Store> _callback) throws ApiException {
+    public okhttp3.Call createStoreAsync(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull NewStore newStore, final ApiCallback<Store> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = createStoreValidateBeforeCall(applicationId, newStore, _callback);
         Type localVarReturnType = new TypeToken<Store>(){}.getType();
@@ -3192,7 +3192,7 @@ public class ManagementApi {
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call deactivateUserByEmailCall(DeactivateUserRequest deactivateUserRequest, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call deactivateUserByEmailCall(@javax.annotation.Nonnull DeactivateUserRequest deactivateUserRequest, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -3237,7 +3237,7 @@ public class ManagementApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call deactivateUserByEmailValidateBeforeCall(DeactivateUserRequest deactivateUserRequest, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call deactivateUserByEmailValidateBeforeCall(@javax.annotation.Nonnull DeactivateUserRequest deactivateUserRequest, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'deactivateUserRequest' is set
         if (deactivateUserRequest == null) {
             throw new ApiException("Missing the required parameter 'deactivateUserRequest' when calling deactivateUserByEmail(Async)");
@@ -3259,7 +3259,7 @@ public class ManagementApi {
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
      </table>
      */
-    public void deactivateUserByEmail(DeactivateUserRequest deactivateUserRequest) throws ApiException {
+    public void deactivateUserByEmail(@javax.annotation.Nonnull DeactivateUserRequest deactivateUserRequest) throws ApiException {
         deactivateUserByEmailWithHttpInfo(deactivateUserRequest);
     }
 
@@ -3276,7 +3276,7 @@ public class ManagementApi {
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Void> deactivateUserByEmailWithHttpInfo(DeactivateUserRequest deactivateUserRequest) throws ApiException {
+    public ApiResponse<Void> deactivateUserByEmailWithHttpInfo(@javax.annotation.Nonnull DeactivateUserRequest deactivateUserRequest) throws ApiException {
         okhttp3.Call localVarCall = deactivateUserByEmailValidateBeforeCall(deactivateUserRequest, null);
         return localVarApiClient.execute(localVarCall);
     }
@@ -3295,7 +3295,7 @@ public class ManagementApi {
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call deactivateUserByEmailAsync(DeactivateUserRequest deactivateUserRequest, final ApiCallback<Void> _callback) throws ApiException {
+    public okhttp3.Call deactivateUserByEmailAsync(@javax.annotation.Nonnull DeactivateUserRequest deactivateUserRequest, final ApiCallback<Void> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = deactivateUserByEmailValidateBeforeCall(deactivateUserRequest, _callback);
         localVarApiClient.executeAsync(localVarCall, _callback);
@@ -3319,7 +3319,7 @@ public class ManagementApi {
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call deductLoyaltyCardPointsCall(Long loyaltyProgramId, String loyaltyCardId, DeductLoyaltyPoints deductLoyaltyPoints, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call deductLoyaltyCardPointsCall(@javax.annotation.Nonnull Long loyaltyProgramId, @javax.annotation.Nonnull String loyaltyCardId, @javax.annotation.Nonnull DeductLoyaltyPoints deductLoyaltyPoints, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -3367,7 +3367,7 @@ public class ManagementApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call deductLoyaltyCardPointsValidateBeforeCall(Long loyaltyProgramId, String loyaltyCardId, DeductLoyaltyPoints deductLoyaltyPoints, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call deductLoyaltyCardPointsValidateBeforeCall(@javax.annotation.Nonnull Long loyaltyProgramId, @javax.annotation.Nonnull String loyaltyCardId, @javax.annotation.Nonnull DeductLoyaltyPoints deductLoyaltyPoints, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'loyaltyProgramId' is set
         if (loyaltyProgramId == null) {
             throw new ApiException("Missing the required parameter 'loyaltyProgramId' when calling deductLoyaltyCardPoints(Async)");
@@ -3404,7 +3404,7 @@ public class ManagementApi {
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
      */
-    public void deductLoyaltyCardPoints(Long loyaltyProgramId, String loyaltyCardId, DeductLoyaltyPoints deductLoyaltyPoints) throws ApiException {
+    public void deductLoyaltyCardPoints(@javax.annotation.Nonnull Long loyaltyProgramId, @javax.annotation.Nonnull String loyaltyCardId, @javax.annotation.Nonnull DeductLoyaltyPoints deductLoyaltyPoints) throws ApiException {
         deductLoyaltyCardPointsWithHttpInfo(loyaltyProgramId, loyaltyCardId, deductLoyaltyPoints);
     }
 
@@ -3426,7 +3426,7 @@ public class ManagementApi {
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Void> deductLoyaltyCardPointsWithHttpInfo(Long loyaltyProgramId, String loyaltyCardId, DeductLoyaltyPoints deductLoyaltyPoints) throws ApiException {
+    public ApiResponse<Void> deductLoyaltyCardPointsWithHttpInfo(@javax.annotation.Nonnull Long loyaltyProgramId, @javax.annotation.Nonnull String loyaltyCardId, @javax.annotation.Nonnull DeductLoyaltyPoints deductLoyaltyPoints) throws ApiException {
         okhttp3.Call localVarCall = deductLoyaltyCardPointsValidateBeforeCall(loyaltyProgramId, loyaltyCardId, deductLoyaltyPoints, null);
         return localVarApiClient.execute(localVarCall);
     }
@@ -3450,7 +3450,7 @@ public class ManagementApi {
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call deductLoyaltyCardPointsAsync(Long loyaltyProgramId, String loyaltyCardId, DeductLoyaltyPoints deductLoyaltyPoints, final ApiCallback<Void> _callback) throws ApiException {
+    public okhttp3.Call deductLoyaltyCardPointsAsync(@javax.annotation.Nonnull Long loyaltyProgramId, @javax.annotation.Nonnull String loyaltyCardId, @javax.annotation.Nonnull DeductLoyaltyPoints deductLoyaltyPoints, final ApiCallback<Void> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = deductLoyaltyCardPointsValidateBeforeCall(loyaltyProgramId, loyaltyCardId, deductLoyaltyPoints, _callback);
         localVarApiClient.executeAsync(localVarCall, _callback);
@@ -3470,7 +3470,7 @@ public class ManagementApi {
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call deleteAccountCollectionCall(Long collectionId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call deleteAccountCollectionCall(@javax.annotation.Nonnull Long collectionId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -3516,7 +3516,7 @@ public class ManagementApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call deleteAccountCollectionValidateBeforeCall(Long collectionId, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call deleteAccountCollectionValidateBeforeCall(@javax.annotation.Nonnull Long collectionId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'collectionId' is set
         if (collectionId == null) {
             throw new ApiException("Missing the required parameter 'collectionId' when calling deleteAccountCollection(Async)");
@@ -3539,7 +3539,7 @@ public class ManagementApi {
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
      */
-    public void deleteAccountCollection(Long collectionId) throws ApiException {
+    public void deleteAccountCollection(@javax.annotation.Nonnull Long collectionId) throws ApiException {
         deleteAccountCollectionWithHttpInfo(collectionId);
     }
 
@@ -3557,7 +3557,7 @@ public class ManagementApi {
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Void> deleteAccountCollectionWithHttpInfo(Long collectionId) throws ApiException {
+    public ApiResponse<Void> deleteAccountCollectionWithHttpInfo(@javax.annotation.Nonnull Long collectionId) throws ApiException {
         okhttp3.Call localVarCall = deleteAccountCollectionValidateBeforeCall(collectionId, null);
         return localVarApiClient.execute(localVarCall);
     }
@@ -3577,7 +3577,7 @@ public class ManagementApi {
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call deleteAccountCollectionAsync(Long collectionId, final ApiCallback<Void> _callback) throws ApiException {
+    public okhttp3.Call deleteAccountCollectionAsync(@javax.annotation.Nonnull Long collectionId, final ApiCallback<Void> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = deleteAccountCollectionValidateBeforeCall(collectionId, _callback);
         localVarApiClient.executeAsync(localVarCall, _callback);
@@ -3600,7 +3600,7 @@ public class ManagementApi {
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call deleteAchievementCall(Long applicationId, Long campaignId, Long achievementId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call deleteAchievementCall(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, @javax.annotation.Nonnull Long achievementId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -3648,7 +3648,7 @@ public class ManagementApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call deleteAchievementValidateBeforeCall(Long applicationId, Long campaignId, Long achievementId, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call deleteAchievementValidateBeforeCall(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, @javax.annotation.Nonnull Long achievementId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'applicationId' is set
         if (applicationId == null) {
             throw new ApiException("Missing the required parameter 'applicationId' when calling deleteAchievement(Async)");
@@ -3684,7 +3684,7 @@ public class ManagementApi {
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
      */
-    public void deleteAchievement(Long applicationId, Long campaignId, Long achievementId) throws ApiException {
+    public void deleteAchievement(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, @javax.annotation.Nonnull Long achievementId) throws ApiException {
         deleteAchievementWithHttpInfo(applicationId, campaignId, achievementId);
     }
 
@@ -3705,7 +3705,7 @@ public class ManagementApi {
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Void> deleteAchievementWithHttpInfo(Long applicationId, Long campaignId, Long achievementId) throws ApiException {
+    public ApiResponse<Void> deleteAchievementWithHttpInfo(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, @javax.annotation.Nonnull Long achievementId) throws ApiException {
         okhttp3.Call localVarCall = deleteAchievementValidateBeforeCall(applicationId, campaignId, achievementId, null);
         return localVarApiClient.execute(localVarCall);
     }
@@ -3728,7 +3728,7 @@ public class ManagementApi {
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call deleteAchievementAsync(Long applicationId, Long campaignId, Long achievementId, final ApiCallback<Void> _callback) throws ApiException {
+    public okhttp3.Call deleteAchievementAsync(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, @javax.annotation.Nonnull Long achievementId, final ApiCallback<Void> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = deleteAchievementValidateBeforeCall(applicationId, campaignId, achievementId, _callback);
         localVarApiClient.executeAsync(localVarCall, _callback);
@@ -3748,7 +3748,7 @@ public class ManagementApi {
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call deleteCampaignCall(Long applicationId, Long campaignId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call deleteCampaignCall(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -3794,7 +3794,7 @@ public class ManagementApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call deleteCampaignValidateBeforeCall(Long applicationId, Long campaignId, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call deleteCampaignValidateBeforeCall(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'applicationId' is set
         if (applicationId == null) {
             throw new ApiException("Missing the required parameter 'applicationId' when calling deleteCampaign(Async)");
@@ -3822,7 +3822,7 @@ public class ManagementApi {
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
      </table>
      */
-    public void deleteCampaign(Long applicationId, Long campaignId) throws ApiException {
+    public void deleteCampaign(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId) throws ApiException {
         deleteCampaignWithHttpInfo(applicationId, campaignId);
     }
 
@@ -3840,7 +3840,7 @@ public class ManagementApi {
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Void> deleteCampaignWithHttpInfo(Long applicationId, Long campaignId) throws ApiException {
+    public ApiResponse<Void> deleteCampaignWithHttpInfo(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId) throws ApiException {
         okhttp3.Call localVarCall = deleteCampaignValidateBeforeCall(applicationId, campaignId, null);
         return localVarApiClient.execute(localVarCall);
     }
@@ -3860,7 +3860,7 @@ public class ManagementApi {
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call deleteCampaignAsync(Long applicationId, Long campaignId, final ApiCallback<Void> _callback) throws ApiException {
+    public okhttp3.Call deleteCampaignAsync(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, final ApiCallback<Void> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = deleteCampaignValidateBeforeCall(applicationId, campaignId, _callback);
         localVarApiClient.executeAsync(localVarCall, _callback);
@@ -3883,7 +3883,7 @@ public class ManagementApi {
         <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call deleteCampaignStoreBudgetsCall(Long applicationId, Long campaignId, String action, String period, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call deleteCampaignStoreBudgetsCall(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, @javax.annotation.Nullable String action, @javax.annotation.Nullable String period, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -3938,7 +3938,7 @@ public class ManagementApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call deleteCampaignStoreBudgetsValidateBeforeCall(Long applicationId, Long campaignId, String action, String period, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call deleteCampaignStoreBudgetsValidateBeforeCall(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, @javax.annotation.Nullable String action, @javax.annotation.Nullable String period, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'applicationId' is set
         if (applicationId == null) {
             throw new ApiException("Missing the required parameter 'applicationId' when calling deleteCampaignStoreBudgets(Async)");
@@ -3969,7 +3969,7 @@ public class ManagementApi {
         <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
      </table>
      */
-    public void deleteCampaignStoreBudgets(Long applicationId, Long campaignId, String action, String period) throws ApiException {
+    public void deleteCampaignStoreBudgets(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, @javax.annotation.Nullable String action, @javax.annotation.Nullable String period) throws ApiException {
         deleteCampaignStoreBudgetsWithHttpInfo(applicationId, campaignId, action, period);
     }
 
@@ -3990,7 +3990,7 @@ public class ManagementApi {
         <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Void> deleteCampaignStoreBudgetsWithHttpInfo(Long applicationId, Long campaignId, String action, String period) throws ApiException {
+    public ApiResponse<Void> deleteCampaignStoreBudgetsWithHttpInfo(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, @javax.annotation.Nullable String action, @javax.annotation.Nullable String period) throws ApiException {
         okhttp3.Call localVarCall = deleteCampaignStoreBudgetsValidateBeforeCall(applicationId, campaignId, action, period, null);
         return localVarApiClient.execute(localVarCall);
     }
@@ -4013,7 +4013,7 @@ public class ManagementApi {
         <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call deleteCampaignStoreBudgetsAsync(Long applicationId, Long campaignId, String action, String period, final ApiCallback<Void> _callback) throws ApiException {
+    public okhttp3.Call deleteCampaignStoreBudgetsAsync(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, @javax.annotation.Nullable String action, @javax.annotation.Nullable String period, final ApiCallback<Void> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = deleteCampaignStoreBudgetsValidateBeforeCall(applicationId, campaignId, action, period, _callback);
         localVarApiClient.executeAsync(localVarCall, _callback);
@@ -4035,7 +4035,7 @@ public class ManagementApi {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call deleteCollectionCall(Long applicationId, Long campaignId, Long collectionId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call deleteCollectionCall(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, @javax.annotation.Nonnull Long collectionId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -4083,7 +4083,7 @@ public class ManagementApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call deleteCollectionValidateBeforeCall(Long applicationId, Long campaignId, Long collectionId, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call deleteCollectionValidateBeforeCall(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, @javax.annotation.Nonnull Long collectionId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'applicationId' is set
         if (applicationId == null) {
             throw new ApiException("Missing the required parameter 'applicationId' when calling deleteCollection(Async)");
@@ -4118,7 +4118,7 @@ public class ManagementApi {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public void deleteCollection(Long applicationId, Long campaignId, Long collectionId) throws ApiException {
+    public void deleteCollection(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, @javax.annotation.Nonnull Long collectionId) throws ApiException {
         deleteCollectionWithHttpInfo(applicationId, campaignId, collectionId);
     }
 
@@ -4138,7 +4138,7 @@ public class ManagementApi {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Void> deleteCollectionWithHttpInfo(Long applicationId, Long campaignId, Long collectionId) throws ApiException {
+    public ApiResponse<Void> deleteCollectionWithHttpInfo(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, @javax.annotation.Nonnull Long collectionId) throws ApiException {
         okhttp3.Call localVarCall = deleteCollectionValidateBeforeCall(applicationId, campaignId, collectionId, null);
         return localVarApiClient.execute(localVarCall);
     }
@@ -4160,7 +4160,7 @@ public class ManagementApi {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call deleteCollectionAsync(Long applicationId, Long campaignId, Long collectionId, final ApiCallback<Void> _callback) throws ApiException {
+    public okhttp3.Call deleteCollectionAsync(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, @javax.annotation.Nonnull Long collectionId, final ApiCallback<Void> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = deleteCollectionValidateBeforeCall(applicationId, campaignId, collectionId, _callback);
         localVarApiClient.executeAsync(localVarCall, _callback);
@@ -4181,7 +4181,7 @@ public class ManagementApi {
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call deleteCouponCall(Long applicationId, Long campaignId, String couponId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call deleteCouponCall(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, @javax.annotation.Nonnull String couponId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -4228,7 +4228,7 @@ public class ManagementApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call deleteCouponValidateBeforeCall(Long applicationId, Long campaignId, String couponId, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call deleteCouponValidateBeforeCall(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, @javax.annotation.Nonnull String couponId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'applicationId' is set
         if (applicationId == null) {
             throw new ApiException("Missing the required parameter 'applicationId' when calling deleteCoupon(Async)");
@@ -4262,7 +4262,7 @@ public class ManagementApi {
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
      </table>
      */
-    public void deleteCoupon(Long applicationId, Long campaignId, String couponId) throws ApiException {
+    public void deleteCoupon(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, @javax.annotation.Nonnull String couponId) throws ApiException {
         deleteCouponWithHttpInfo(applicationId, campaignId, couponId);
     }
 
@@ -4281,7 +4281,7 @@ public class ManagementApi {
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Void> deleteCouponWithHttpInfo(Long applicationId, Long campaignId, String couponId) throws ApiException {
+    public ApiResponse<Void> deleteCouponWithHttpInfo(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, @javax.annotation.Nonnull String couponId) throws ApiException {
         okhttp3.Call localVarCall = deleteCouponValidateBeforeCall(applicationId, campaignId, couponId, null);
         return localVarApiClient.execute(localVarCall);
     }
@@ -4302,7 +4302,7 @@ public class ManagementApi {
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call deleteCouponAsync(Long applicationId, Long campaignId, String couponId, final ApiCallback<Void> _callback) throws ApiException {
+    public okhttp3.Call deleteCouponAsync(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, @javax.annotation.Nonnull String couponId, final ApiCallback<Void> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = deleteCouponValidateBeforeCall(applicationId, campaignId, couponId, _callback);
         localVarApiClient.executeAsync(localVarCall, _callback);
@@ -4335,7 +4335,7 @@ public class ManagementApi {
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call deleteCouponsCall(Long applicationId, Long campaignId, String value, OffsetDateTime createdBefore, OffsetDateTime createdAfter, OffsetDateTime startsAfter, OffsetDateTime startsBefore, OffsetDateTime expiresAfter, OffsetDateTime expiresBefore, String valid, String batchId, String usable, Long referralId, String recipientIntegrationId, Boolean exactMatch, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call deleteCouponsCall(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, @javax.annotation.Nullable String value, @javax.annotation.Nullable OffsetDateTime createdBefore, @javax.annotation.Nullable OffsetDateTime createdAfter, @javax.annotation.Nullable OffsetDateTime startsAfter, @javax.annotation.Nullable OffsetDateTime startsBefore, @javax.annotation.Nullable OffsetDateTime expiresAfter, @javax.annotation.Nullable OffsetDateTime expiresBefore, @javax.annotation.Nullable String valid, @javax.annotation.Nullable String batchId, @javax.annotation.Nullable String usable, @javax.annotation.Nullable Long referralId, @javax.annotation.Nullable String recipientIntegrationId, @javax.annotation.Nullable Boolean exactMatch, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -4433,7 +4433,7 @@ public class ManagementApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call deleteCouponsValidateBeforeCall(Long applicationId, Long campaignId, String value, OffsetDateTime createdBefore, OffsetDateTime createdAfter, OffsetDateTime startsAfter, OffsetDateTime startsBefore, OffsetDateTime expiresAfter, OffsetDateTime expiresBefore, String valid, String batchId, String usable, Long referralId, String recipientIntegrationId, Boolean exactMatch, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call deleteCouponsValidateBeforeCall(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, @javax.annotation.Nullable String value, @javax.annotation.Nullable OffsetDateTime createdBefore, @javax.annotation.Nullable OffsetDateTime createdAfter, @javax.annotation.Nullable OffsetDateTime startsAfter, @javax.annotation.Nullable OffsetDateTime startsBefore, @javax.annotation.Nullable OffsetDateTime expiresAfter, @javax.annotation.Nullable OffsetDateTime expiresBefore, @javax.annotation.Nullable String valid, @javax.annotation.Nullable String batchId, @javax.annotation.Nullable String usable, @javax.annotation.Nullable Long referralId, @javax.annotation.Nullable String recipientIntegrationId, @javax.annotation.Nullable Boolean exactMatch, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'applicationId' is set
         if (applicationId == null) {
             throw new ApiException("Missing the required parameter 'applicationId' when calling deleteCoupons(Async)");
@@ -4474,7 +4474,7 @@ public class ManagementApi {
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
      </table>
      */
-    public void deleteCoupons(Long applicationId, Long campaignId, String value, OffsetDateTime createdBefore, OffsetDateTime createdAfter, OffsetDateTime startsAfter, OffsetDateTime startsBefore, OffsetDateTime expiresAfter, OffsetDateTime expiresBefore, String valid, String batchId, String usable, Long referralId, String recipientIntegrationId, Boolean exactMatch) throws ApiException {
+    public void deleteCoupons(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, @javax.annotation.Nullable String value, @javax.annotation.Nullable OffsetDateTime createdBefore, @javax.annotation.Nullable OffsetDateTime createdAfter, @javax.annotation.Nullable OffsetDateTime startsAfter, @javax.annotation.Nullable OffsetDateTime startsBefore, @javax.annotation.Nullable OffsetDateTime expiresAfter, @javax.annotation.Nullable OffsetDateTime expiresBefore, @javax.annotation.Nullable String valid, @javax.annotation.Nullable String batchId, @javax.annotation.Nullable String usable, @javax.annotation.Nullable Long referralId, @javax.annotation.Nullable String recipientIntegrationId, @javax.annotation.Nullable Boolean exactMatch) throws ApiException {
         deleteCouponsWithHttpInfo(applicationId, campaignId, value, createdBefore, createdAfter, startsAfter, startsBefore, expiresAfter, expiresBefore, valid, batchId, usable, referralId, recipientIntegrationId, exactMatch);
     }
 
@@ -4505,7 +4505,7 @@ public class ManagementApi {
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Void> deleteCouponsWithHttpInfo(Long applicationId, Long campaignId, String value, OffsetDateTime createdBefore, OffsetDateTime createdAfter, OffsetDateTime startsAfter, OffsetDateTime startsBefore, OffsetDateTime expiresAfter, OffsetDateTime expiresBefore, String valid, String batchId, String usable, Long referralId, String recipientIntegrationId, Boolean exactMatch) throws ApiException {
+    public ApiResponse<Void> deleteCouponsWithHttpInfo(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, @javax.annotation.Nullable String value, @javax.annotation.Nullable OffsetDateTime createdBefore, @javax.annotation.Nullable OffsetDateTime createdAfter, @javax.annotation.Nullable OffsetDateTime startsAfter, @javax.annotation.Nullable OffsetDateTime startsBefore, @javax.annotation.Nullable OffsetDateTime expiresAfter, @javax.annotation.Nullable OffsetDateTime expiresBefore, @javax.annotation.Nullable String valid, @javax.annotation.Nullable String batchId, @javax.annotation.Nullable String usable, @javax.annotation.Nullable Long referralId, @javax.annotation.Nullable String recipientIntegrationId, @javax.annotation.Nullable Boolean exactMatch) throws ApiException {
         okhttp3.Call localVarCall = deleteCouponsValidateBeforeCall(applicationId, campaignId, value, createdBefore, createdAfter, startsAfter, startsBefore, expiresAfter, expiresBefore, valid, batchId, usable, referralId, recipientIntegrationId, exactMatch, null);
         return localVarApiClient.execute(localVarCall);
     }
@@ -4538,7 +4538,7 @@ public class ManagementApi {
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call deleteCouponsAsync(Long applicationId, Long campaignId, String value, OffsetDateTime createdBefore, OffsetDateTime createdAfter, OffsetDateTime startsAfter, OffsetDateTime startsBefore, OffsetDateTime expiresAfter, OffsetDateTime expiresBefore, String valid, String batchId, String usable, Long referralId, String recipientIntegrationId, Boolean exactMatch, final ApiCallback<Void> _callback) throws ApiException {
+    public okhttp3.Call deleteCouponsAsync(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, @javax.annotation.Nullable String value, @javax.annotation.Nullable OffsetDateTime createdBefore, @javax.annotation.Nullable OffsetDateTime createdAfter, @javax.annotation.Nullable OffsetDateTime startsAfter, @javax.annotation.Nullable OffsetDateTime startsBefore, @javax.annotation.Nullable OffsetDateTime expiresAfter, @javax.annotation.Nullable OffsetDateTime expiresBefore, @javax.annotation.Nullable String valid, @javax.annotation.Nullable String batchId, @javax.annotation.Nullable String usable, @javax.annotation.Nullable Long referralId, @javax.annotation.Nullable String recipientIntegrationId, @javax.annotation.Nullable Boolean exactMatch, final ApiCallback<Void> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = deleteCouponsValidateBeforeCall(applicationId, campaignId, value, createdBefore, createdAfter, startsAfter, startsBefore, expiresAfter, expiresBefore, valid, batchId, usable, referralId, recipientIntegrationId, exactMatch, _callback);
         localVarApiClient.executeAsync(localVarCall, _callback);
@@ -4560,7 +4560,7 @@ public class ManagementApi {
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call deleteLoyaltyCardCall(Long loyaltyProgramId, String loyaltyCardId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call deleteLoyaltyCardCall(@javax.annotation.Nonnull Long loyaltyProgramId, @javax.annotation.Nonnull String loyaltyCardId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -4607,7 +4607,7 @@ public class ManagementApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call deleteLoyaltyCardValidateBeforeCall(Long loyaltyProgramId, String loyaltyCardId, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call deleteLoyaltyCardValidateBeforeCall(@javax.annotation.Nonnull Long loyaltyProgramId, @javax.annotation.Nonnull String loyaltyCardId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'loyaltyProgramId' is set
         if (loyaltyProgramId == null) {
             throw new ApiException("Missing the required parameter 'loyaltyProgramId' when calling deleteLoyaltyCard(Async)");
@@ -4637,7 +4637,7 @@ public class ManagementApi {
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
      */
-    public void deleteLoyaltyCard(Long loyaltyProgramId, String loyaltyCardId) throws ApiException {
+    public void deleteLoyaltyCard(@javax.annotation.Nonnull Long loyaltyProgramId, @javax.annotation.Nonnull String loyaltyCardId) throws ApiException {
         deleteLoyaltyCardWithHttpInfo(loyaltyProgramId, loyaltyCardId);
     }
 
@@ -4657,7 +4657,7 @@ public class ManagementApi {
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Void> deleteLoyaltyCardWithHttpInfo(Long loyaltyProgramId, String loyaltyCardId) throws ApiException {
+    public ApiResponse<Void> deleteLoyaltyCardWithHttpInfo(@javax.annotation.Nonnull Long loyaltyProgramId, @javax.annotation.Nonnull String loyaltyCardId) throws ApiException {
         okhttp3.Call localVarCall = deleteLoyaltyCardValidateBeforeCall(loyaltyProgramId, loyaltyCardId, null);
         return localVarApiClient.execute(localVarCall);
     }
@@ -4679,7 +4679,7 @@ public class ManagementApi {
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call deleteLoyaltyCardAsync(Long loyaltyProgramId, String loyaltyCardId, final ApiCallback<Void> _callback) throws ApiException {
+    public okhttp3.Call deleteLoyaltyCardAsync(@javax.annotation.Nonnull Long loyaltyProgramId, @javax.annotation.Nonnull String loyaltyCardId, final ApiCallback<Void> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = deleteLoyaltyCardValidateBeforeCall(loyaltyProgramId, loyaltyCardId, _callback);
         localVarApiClient.executeAsync(localVarCall, _callback);
@@ -4700,7 +4700,7 @@ public class ManagementApi {
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call deleteReferralCall(Long applicationId, Long campaignId, String referralId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call deleteReferralCall(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, @javax.annotation.Nonnull String referralId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -4747,7 +4747,7 @@ public class ManagementApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call deleteReferralValidateBeforeCall(Long applicationId, Long campaignId, String referralId, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call deleteReferralValidateBeforeCall(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, @javax.annotation.Nonnull String referralId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'applicationId' is set
         if (applicationId == null) {
             throw new ApiException("Missing the required parameter 'applicationId' when calling deleteReferral(Async)");
@@ -4781,7 +4781,7 @@ public class ManagementApi {
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
      </table>
      */
-    public void deleteReferral(Long applicationId, Long campaignId, String referralId) throws ApiException {
+    public void deleteReferral(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, @javax.annotation.Nonnull String referralId) throws ApiException {
         deleteReferralWithHttpInfo(applicationId, campaignId, referralId);
     }
 
@@ -4800,7 +4800,7 @@ public class ManagementApi {
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Void> deleteReferralWithHttpInfo(Long applicationId, Long campaignId, String referralId) throws ApiException {
+    public ApiResponse<Void> deleteReferralWithHttpInfo(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, @javax.annotation.Nonnull String referralId) throws ApiException {
         okhttp3.Call localVarCall = deleteReferralValidateBeforeCall(applicationId, campaignId, referralId, null);
         return localVarApiClient.execute(localVarCall);
     }
@@ -4821,7 +4821,7 @@ public class ManagementApi {
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call deleteReferralAsync(Long applicationId, Long campaignId, String referralId, final ApiCallback<Void> _callback) throws ApiException {
+    public okhttp3.Call deleteReferralAsync(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, @javax.annotation.Nonnull String referralId, final ApiCallback<Void> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = deleteReferralValidateBeforeCall(applicationId, campaignId, referralId, _callback);
         localVarApiClient.executeAsync(localVarCall, _callback);
@@ -4842,7 +4842,7 @@ public class ManagementApi {
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call deleteStoreCall(Long applicationId, String storeId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call deleteStoreCall(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull String storeId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -4889,7 +4889,7 @@ public class ManagementApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call deleteStoreValidateBeforeCall(Long applicationId, String storeId, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call deleteStoreValidateBeforeCall(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull String storeId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'applicationId' is set
         if (applicationId == null) {
             throw new ApiException("Missing the required parameter 'applicationId' when calling deleteStore(Async)");
@@ -4918,7 +4918,7 @@ public class ManagementApi {
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
      */
-    public void deleteStore(Long applicationId, String storeId) throws ApiException {
+    public void deleteStore(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull String storeId) throws ApiException {
         deleteStoreWithHttpInfo(applicationId, storeId);
     }
 
@@ -4937,7 +4937,7 @@ public class ManagementApi {
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Void> deleteStoreWithHttpInfo(Long applicationId, String storeId) throws ApiException {
+    public ApiResponse<Void> deleteStoreWithHttpInfo(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull String storeId) throws ApiException {
         okhttp3.Call localVarCall = deleteStoreValidateBeforeCall(applicationId, storeId, null);
         return localVarApiClient.execute(localVarCall);
     }
@@ -4958,7 +4958,7 @@ public class ManagementApi {
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call deleteStoreAsync(Long applicationId, String storeId, final ApiCallback<Void> _callback) throws ApiException {
+    public okhttp3.Call deleteStoreAsync(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull String storeId, final ApiCallback<Void> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = deleteStoreValidateBeforeCall(applicationId, storeId, _callback);
         localVarApiClient.executeAsync(localVarCall, _callback);
@@ -4977,7 +4977,7 @@ public class ManagementApi {
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call deleteUserCall(Long userId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call deleteUserCall(@javax.annotation.Nonnull Long userId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -5022,7 +5022,7 @@ public class ManagementApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call deleteUserValidateBeforeCall(Long userId, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call deleteUserValidateBeforeCall(@javax.annotation.Nonnull Long userId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'userId' is set
         if (userId == null) {
             throw new ApiException("Missing the required parameter 'userId' when calling deleteUser(Async)");
@@ -5044,7 +5044,7 @@ public class ManagementApi {
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
      </table>
      */
-    public void deleteUser(Long userId) throws ApiException {
+    public void deleteUser(@javax.annotation.Nonnull Long userId) throws ApiException {
         deleteUserWithHttpInfo(userId);
     }
 
@@ -5061,7 +5061,7 @@ public class ManagementApi {
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Void> deleteUserWithHttpInfo(Long userId) throws ApiException {
+    public ApiResponse<Void> deleteUserWithHttpInfo(@javax.annotation.Nonnull Long userId) throws ApiException {
         okhttp3.Call localVarCall = deleteUserValidateBeforeCall(userId, null);
         return localVarApiClient.execute(localVarCall);
     }
@@ -5080,7 +5080,7 @@ public class ManagementApi {
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call deleteUserAsync(Long userId, final ApiCallback<Void> _callback) throws ApiException {
+    public okhttp3.Call deleteUserAsync(@javax.annotation.Nonnull Long userId, final ApiCallback<Void> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = deleteUserValidateBeforeCall(userId, _callback);
         localVarApiClient.executeAsync(localVarCall, _callback);
@@ -5099,7 +5099,7 @@ public class ManagementApi {
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call deleteUserByEmailCall(DeleteUserRequest deleteUserRequest, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call deleteUserByEmailCall(@javax.annotation.Nonnull DeleteUserRequest deleteUserRequest, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -5144,7 +5144,7 @@ public class ManagementApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call deleteUserByEmailValidateBeforeCall(DeleteUserRequest deleteUserRequest, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call deleteUserByEmailValidateBeforeCall(@javax.annotation.Nonnull DeleteUserRequest deleteUserRequest, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'deleteUserRequest' is set
         if (deleteUserRequest == null) {
             throw new ApiException("Missing the required parameter 'deleteUserRequest' when calling deleteUserByEmail(Async)");
@@ -5166,7 +5166,7 @@ public class ManagementApi {
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
      </table>
      */
-    public void deleteUserByEmail(DeleteUserRequest deleteUserRequest) throws ApiException {
+    public void deleteUserByEmail(@javax.annotation.Nonnull DeleteUserRequest deleteUserRequest) throws ApiException {
         deleteUserByEmailWithHttpInfo(deleteUserRequest);
     }
 
@@ -5183,7 +5183,7 @@ public class ManagementApi {
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Void> deleteUserByEmailWithHttpInfo(DeleteUserRequest deleteUserRequest) throws ApiException {
+    public ApiResponse<Void> deleteUserByEmailWithHttpInfo(@javax.annotation.Nonnull DeleteUserRequest deleteUserRequest) throws ApiException {
         okhttp3.Call localVarCall = deleteUserByEmailValidateBeforeCall(deleteUserRequest, null);
         return localVarApiClient.execute(localVarCall);
     }
@@ -5202,7 +5202,7 @@ public class ManagementApi {
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call deleteUserByEmailAsync(DeleteUserRequest deleteUserRequest, final ApiCallback<Void> _callback) throws ApiException {
+    public okhttp3.Call deleteUserByEmailAsync(@javax.annotation.Nonnull DeleteUserRequest deleteUserRequest, final ApiCallback<Void> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = deleteUserByEmailValidateBeforeCall(deleteUserRequest, _callback);
         localVarApiClient.executeAsync(localVarCall, _callback);
@@ -5337,7 +5337,7 @@ public class ManagementApi {
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call disconnectCampaignStoresCall(Long applicationId, Long campaignId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call disconnectCampaignStoresCall(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -5384,7 +5384,7 @@ public class ManagementApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call disconnectCampaignStoresValidateBeforeCall(Long applicationId, Long campaignId, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call disconnectCampaignStoresValidateBeforeCall(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'applicationId' is set
         if (applicationId == null) {
             throw new ApiException("Missing the required parameter 'applicationId' when calling disconnectCampaignStores(Async)");
@@ -5415,7 +5415,7 @@ public class ManagementApi {
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
      */
-    public void disconnectCampaignStores(Long applicationId, Long campaignId) throws ApiException {
+    public void disconnectCampaignStores(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId) throws ApiException {
         disconnectCampaignStoresWithHttpInfo(applicationId, campaignId);
     }
 
@@ -5436,7 +5436,7 @@ public class ManagementApi {
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Void> disconnectCampaignStoresWithHttpInfo(Long applicationId, Long campaignId) throws ApiException {
+    public ApiResponse<Void> disconnectCampaignStoresWithHttpInfo(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId) throws ApiException {
         okhttp3.Call localVarCall = disconnectCampaignStoresValidateBeforeCall(applicationId, campaignId, null);
         return localVarApiClient.execute(localVarCall);
     }
@@ -5459,7 +5459,7 @@ public class ManagementApi {
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call disconnectCampaignStoresAsync(Long applicationId, Long campaignId, final ApiCallback<Void> _callback) throws ApiException {
+    public okhttp3.Call disconnectCampaignStoresAsync(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, final ApiCallback<Void> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = disconnectCampaignStoresValidateBeforeCall(applicationId, campaignId, _callback);
         localVarApiClient.executeAsync(localVarCall, _callback);
@@ -5480,7 +5480,7 @@ public class ManagementApi {
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call exportAccountCollectionItemsCall(Long collectionId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call exportAccountCollectionItemsCall(@javax.annotation.Nonnull Long collectionId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -5526,7 +5526,7 @@ public class ManagementApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call exportAccountCollectionItemsValidateBeforeCall(Long collectionId, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call exportAccountCollectionItemsValidateBeforeCall(@javax.annotation.Nonnull Long collectionId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'collectionId' is set
         if (collectionId == null) {
             throw new ApiException("Missing the required parameter 'collectionId' when calling exportAccountCollectionItems(Async)");
@@ -5551,7 +5551,7 @@ public class ManagementApi {
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
      */
-    public String exportAccountCollectionItems(Long collectionId) throws ApiException {
+    public String exportAccountCollectionItems(@javax.annotation.Nonnull Long collectionId) throws ApiException {
         ApiResponse<String> localVarResp = exportAccountCollectionItemsWithHttpInfo(collectionId);
         return localVarResp.getData();
     }
@@ -5571,7 +5571,7 @@ public class ManagementApi {
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<String> exportAccountCollectionItemsWithHttpInfo(Long collectionId) throws ApiException {
+    public ApiResponse<String> exportAccountCollectionItemsWithHttpInfo(@javax.annotation.Nonnull Long collectionId) throws ApiException {
         okhttp3.Call localVarCall = exportAccountCollectionItemsValidateBeforeCall(collectionId, null);
         Type localVarReturnType = new TypeToken<String>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -5593,7 +5593,7 @@ public class ManagementApi {
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call exportAccountCollectionItemsAsync(Long collectionId, final ApiCallback<String> _callback) throws ApiException {
+    public okhttp3.Call exportAccountCollectionItemsAsync(@javax.annotation.Nonnull Long collectionId, final ApiCallback<String> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = exportAccountCollectionItemsValidateBeforeCall(collectionId, _callback);
         Type localVarReturnType = new TypeToken<String>(){}.getType();
@@ -5618,7 +5618,7 @@ public class ManagementApi {
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call exportAchievementsCall(Long applicationId, Long campaignId, Long achievementId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call exportAchievementsCall(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, @javax.annotation.Nonnull Long achievementId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -5666,7 +5666,7 @@ public class ManagementApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call exportAchievementsValidateBeforeCall(Long applicationId, Long campaignId, Long achievementId, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call exportAchievementsValidateBeforeCall(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, @javax.annotation.Nonnull Long achievementId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'applicationId' is set
         if (applicationId == null) {
             throw new ApiException("Missing the required parameter 'applicationId' when calling exportAchievements(Async)");
@@ -5704,7 +5704,7 @@ public class ManagementApi {
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
      */
-    public String exportAchievements(Long applicationId, Long campaignId, Long achievementId) throws ApiException {
+    public String exportAchievements(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, @javax.annotation.Nonnull Long achievementId) throws ApiException {
         ApiResponse<String> localVarResp = exportAchievementsWithHttpInfo(applicationId, campaignId, achievementId);
         return localVarResp.getData();
     }
@@ -5727,7 +5727,7 @@ public class ManagementApi {
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<String> exportAchievementsWithHttpInfo(Long applicationId, Long campaignId, Long achievementId) throws ApiException {
+    public ApiResponse<String> exportAchievementsWithHttpInfo(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, @javax.annotation.Nonnull Long achievementId) throws ApiException {
         okhttp3.Call localVarCall = exportAchievementsValidateBeforeCall(applicationId, campaignId, achievementId, null);
         Type localVarReturnType = new TypeToken<String>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -5752,7 +5752,7 @@ public class ManagementApi {
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call exportAchievementsAsync(Long applicationId, Long campaignId, Long achievementId, final ApiCallback<String> _callback) throws ApiException {
+    public okhttp3.Call exportAchievementsAsync(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, @javax.annotation.Nonnull Long achievementId, final ApiCallback<String> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = exportAchievementsValidateBeforeCall(applicationId, campaignId, achievementId, _callback);
         Type localVarReturnType = new TypeToken<String>(){}.getType();
@@ -5775,7 +5775,7 @@ public class ManagementApi {
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call exportAudiencesMembershipsCall(Long audienceId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call exportAudiencesMembershipsCall(@javax.annotation.Nonnull Long audienceId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -5821,7 +5821,7 @@ public class ManagementApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call exportAudiencesMembershipsValidateBeforeCall(Long audienceId, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call exportAudiencesMembershipsValidateBeforeCall(@javax.annotation.Nonnull Long audienceId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'audienceId' is set
         if (audienceId == null) {
             throw new ApiException("Missing the required parameter 'audienceId' when calling exportAudiencesMemberships(Async)");
@@ -5847,7 +5847,7 @@ public class ManagementApi {
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
      */
-    public String exportAudiencesMemberships(Long audienceId) throws ApiException {
+    public String exportAudiencesMemberships(@javax.annotation.Nonnull Long audienceId) throws ApiException {
         ApiResponse<String> localVarResp = exportAudiencesMembershipsWithHttpInfo(audienceId);
         return localVarResp.getData();
     }
@@ -5868,7 +5868,7 @@ public class ManagementApi {
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<String> exportAudiencesMembershipsWithHttpInfo(Long audienceId) throws ApiException {
+    public ApiResponse<String> exportAudiencesMembershipsWithHttpInfo(@javax.annotation.Nonnull Long audienceId) throws ApiException {
         okhttp3.Call localVarCall = exportAudiencesMembershipsValidateBeforeCall(audienceId, null);
         Type localVarReturnType = new TypeToken<String>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -5891,7 +5891,7 @@ public class ManagementApi {
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call exportAudiencesMembershipsAsync(Long audienceId, final ApiCallback<String> _callback) throws ApiException {
+    public okhttp3.Call exportAudiencesMembershipsAsync(@javax.annotation.Nonnull Long audienceId, final ApiCallback<String> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = exportAudiencesMembershipsValidateBeforeCall(audienceId, _callback);
         Type localVarReturnType = new TypeToken<String>(){}.getType();
@@ -5917,7 +5917,7 @@ public class ManagementApi {
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call exportCampaignStoreBudgetsCall(Long applicationId, Long campaignId, String action, String period, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call exportCampaignStoreBudgetsCall(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, @javax.annotation.Nullable String action, @javax.annotation.Nullable String period, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -5972,7 +5972,7 @@ public class ManagementApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call exportCampaignStoreBudgetsValidateBeforeCall(Long applicationId, Long campaignId, String action, String period, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call exportCampaignStoreBudgetsValidateBeforeCall(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, @javax.annotation.Nullable String action, @javax.annotation.Nullable String period, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'applicationId' is set
         if (applicationId == null) {
             throw new ApiException("Missing the required parameter 'applicationId' when calling exportCampaignStoreBudgets(Async)");
@@ -6006,7 +6006,7 @@ public class ManagementApi {
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
      */
-    public String exportCampaignStoreBudgets(Long applicationId, Long campaignId, String action, String period) throws ApiException {
+    public String exportCampaignStoreBudgets(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, @javax.annotation.Nullable String action, @javax.annotation.Nullable String period) throws ApiException {
         ApiResponse<String> localVarResp = exportCampaignStoreBudgetsWithHttpInfo(applicationId, campaignId, action, period);
         return localVarResp.getData();
     }
@@ -6030,7 +6030,7 @@ public class ManagementApi {
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<String> exportCampaignStoreBudgetsWithHttpInfo(Long applicationId, Long campaignId, String action, String period) throws ApiException {
+    public ApiResponse<String> exportCampaignStoreBudgetsWithHttpInfo(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, @javax.annotation.Nullable String action, @javax.annotation.Nullable String period) throws ApiException {
         okhttp3.Call localVarCall = exportCampaignStoreBudgetsValidateBeforeCall(applicationId, campaignId, action, period, null);
         Type localVarReturnType = new TypeToken<String>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -6056,7 +6056,7 @@ public class ManagementApi {
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call exportCampaignStoreBudgetsAsync(Long applicationId, Long campaignId, String action, String period, final ApiCallback<String> _callback) throws ApiException {
+    public okhttp3.Call exportCampaignStoreBudgetsAsync(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, @javax.annotation.Nullable String action, @javax.annotation.Nullable String period, final ApiCallback<String> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = exportCampaignStoreBudgetsValidateBeforeCall(applicationId, campaignId, action, period, _callback);
         Type localVarReturnType = new TypeToken<String>(){}.getType();
@@ -6080,7 +6080,7 @@ public class ManagementApi {
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call exportCampaignStoresCall(Long applicationId, Long campaignId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call exportCampaignStoresCall(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -6127,7 +6127,7 @@ public class ManagementApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call exportCampaignStoresValidateBeforeCall(Long applicationId, Long campaignId, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call exportCampaignStoresValidateBeforeCall(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'applicationId' is set
         if (applicationId == null) {
             throw new ApiException("Missing the required parameter 'applicationId' when calling exportCampaignStores(Async)");
@@ -6159,7 +6159,7 @@ public class ManagementApi {
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
      */
-    public String exportCampaignStores(Long applicationId, Long campaignId) throws ApiException {
+    public String exportCampaignStores(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId) throws ApiException {
         ApiResponse<String> localVarResp = exportCampaignStoresWithHttpInfo(applicationId, campaignId);
         return localVarResp.getData();
     }
@@ -6181,7 +6181,7 @@ public class ManagementApi {
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<String> exportCampaignStoresWithHttpInfo(Long applicationId, Long campaignId) throws ApiException {
+    public ApiResponse<String> exportCampaignStoresWithHttpInfo(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId) throws ApiException {
         okhttp3.Call localVarCall = exportCampaignStoresValidateBeforeCall(applicationId, campaignId, null);
         Type localVarReturnType = new TypeToken<String>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -6205,7 +6205,7 @@ public class ManagementApi {
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call exportCampaignStoresAsync(Long applicationId, Long campaignId, final ApiCallback<String> _callback) throws ApiException {
+    public okhttp3.Call exportCampaignStoresAsync(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, final ApiCallback<String> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = exportCampaignStoresValidateBeforeCall(applicationId, campaignId, _callback);
         Type localVarReturnType = new TypeToken<String>(){}.getType();
@@ -6229,7 +6229,7 @@ public class ManagementApi {
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call exportCollectionItemsCall(Long applicationId, Long campaignId, Long collectionId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call exportCollectionItemsCall(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, @javax.annotation.Nonnull Long collectionId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -6277,7 +6277,7 @@ public class ManagementApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call exportCollectionItemsValidateBeforeCall(Long applicationId, Long campaignId, Long collectionId, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call exportCollectionItemsValidateBeforeCall(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, @javax.annotation.Nonnull Long collectionId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'applicationId' is set
         if (applicationId == null) {
             throw new ApiException("Missing the required parameter 'applicationId' when calling exportCollectionItems(Async)");
@@ -6314,7 +6314,7 @@ public class ManagementApi {
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
      */
-    public String exportCollectionItems(Long applicationId, Long campaignId, Long collectionId) throws ApiException {
+    public String exportCollectionItems(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, @javax.annotation.Nonnull Long collectionId) throws ApiException {
         ApiResponse<String> localVarResp = exportCollectionItemsWithHttpInfo(applicationId, campaignId, collectionId);
         return localVarResp.getData();
     }
@@ -6336,7 +6336,7 @@ public class ManagementApi {
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<String> exportCollectionItemsWithHttpInfo(Long applicationId, Long campaignId, Long collectionId) throws ApiException {
+    public ApiResponse<String> exportCollectionItemsWithHttpInfo(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, @javax.annotation.Nonnull Long collectionId) throws ApiException {
         okhttp3.Call localVarCall = exportCollectionItemsValidateBeforeCall(applicationId, campaignId, collectionId, null);
         Type localVarReturnType = new TypeToken<String>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -6360,7 +6360,7 @@ public class ManagementApi {
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call exportCollectionItemsAsync(Long applicationId, Long campaignId, Long collectionId, final ApiCallback<String> _callback) throws ApiException {
+    public okhttp3.Call exportCollectionItemsAsync(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, @javax.annotation.Nonnull Long collectionId, final ApiCallback<String> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = exportCollectionItemsValidateBeforeCall(applicationId, campaignId, collectionId, _callback);
         Type localVarReturnType = new TypeToken<String>(){}.getType();
@@ -6394,7 +6394,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call exportCouponsCall(Long applicationId, BigDecimal campaignId, String sort, String value, OffsetDateTime createdBefore, OffsetDateTime createdAfter, String valid, String usable, Long referralId, String recipientIntegrationId, String batchId, Boolean exactMatch, String dateFormat, String campaignState, Boolean valuesOnly, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call exportCouponsCall(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nullable BigDecimal campaignId, @javax.annotation.Nullable String sort, @javax.annotation.Nullable String value, @javax.annotation.Nullable OffsetDateTime createdBefore, @javax.annotation.Nullable OffsetDateTime createdAfter, @javax.annotation.Nullable String valid, @javax.annotation.Nullable String usable, @javax.annotation.Nullable Long referralId, @javax.annotation.Nullable String recipientIntegrationId, @javax.annotation.Nullable String batchId, @javax.annotation.Nullable Boolean exactMatch, @javax.annotation.Nullable String dateFormat, @javax.annotation.Nullable String campaignState, @javax.annotation.Nullable Boolean valuesOnly, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -6496,7 +6496,7 @@ public class ManagementApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call exportCouponsValidateBeforeCall(Long applicationId, BigDecimal campaignId, String sort, String value, OffsetDateTime createdBefore, OffsetDateTime createdAfter, String valid, String usable, Long referralId, String recipientIntegrationId, String batchId, Boolean exactMatch, String dateFormat, String campaignState, Boolean valuesOnly, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call exportCouponsValidateBeforeCall(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nullable BigDecimal campaignId, @javax.annotation.Nullable String sort, @javax.annotation.Nullable String value, @javax.annotation.Nullable OffsetDateTime createdBefore, @javax.annotation.Nullable OffsetDateTime createdAfter, @javax.annotation.Nullable String valid, @javax.annotation.Nullable String usable, @javax.annotation.Nullable Long referralId, @javax.annotation.Nullable String recipientIntegrationId, @javax.annotation.Nullable String batchId, @javax.annotation.Nullable Boolean exactMatch, @javax.annotation.Nullable String dateFormat, @javax.annotation.Nullable String campaignState, @javax.annotation.Nullable Boolean valuesOnly, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'applicationId' is set
         if (applicationId == null) {
             throw new ApiException("Missing the required parameter 'applicationId' when calling exportCoupons(Async)");
@@ -6533,7 +6533,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public String exportCoupons(Long applicationId, BigDecimal campaignId, String sort, String value, OffsetDateTime createdBefore, OffsetDateTime createdAfter, String valid, String usable, Long referralId, String recipientIntegrationId, String batchId, Boolean exactMatch, String dateFormat, String campaignState, Boolean valuesOnly) throws ApiException {
+    public String exportCoupons(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nullable BigDecimal campaignId, @javax.annotation.Nullable String sort, @javax.annotation.Nullable String value, @javax.annotation.Nullable OffsetDateTime createdBefore, @javax.annotation.Nullable OffsetDateTime createdAfter, @javax.annotation.Nullable String valid, @javax.annotation.Nullable String usable, @javax.annotation.Nullable Long referralId, @javax.annotation.Nullable String recipientIntegrationId, @javax.annotation.Nullable String batchId, @javax.annotation.Nullable Boolean exactMatch, @javax.annotation.Nullable String dateFormat, @javax.annotation.Nullable String campaignState, @javax.annotation.Nullable Boolean valuesOnly) throws ApiException {
         ApiResponse<String> localVarResp = exportCouponsWithHttpInfo(applicationId, campaignId, sort, value, createdBefore, createdAfter, valid, usable, referralId, recipientIntegrationId, batchId, exactMatch, dateFormat, campaignState, valuesOnly);
         return localVarResp.getData();
     }
@@ -6565,7 +6565,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<String> exportCouponsWithHttpInfo(Long applicationId, BigDecimal campaignId, String sort, String value, OffsetDateTime createdBefore, OffsetDateTime createdAfter, String valid, String usable, Long referralId, String recipientIntegrationId, String batchId, Boolean exactMatch, String dateFormat, String campaignState, Boolean valuesOnly) throws ApiException {
+    public ApiResponse<String> exportCouponsWithHttpInfo(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nullable BigDecimal campaignId, @javax.annotation.Nullable String sort, @javax.annotation.Nullable String value, @javax.annotation.Nullable OffsetDateTime createdBefore, @javax.annotation.Nullable OffsetDateTime createdAfter, @javax.annotation.Nullable String valid, @javax.annotation.Nullable String usable, @javax.annotation.Nullable Long referralId, @javax.annotation.Nullable String recipientIntegrationId, @javax.annotation.Nullable String batchId, @javax.annotation.Nullable Boolean exactMatch, @javax.annotation.Nullable String dateFormat, @javax.annotation.Nullable String campaignState, @javax.annotation.Nullable Boolean valuesOnly) throws ApiException {
         okhttp3.Call localVarCall = exportCouponsValidateBeforeCall(applicationId, campaignId, sort, value, createdBefore, createdAfter, valid, usable, referralId, recipientIntegrationId, batchId, exactMatch, dateFormat, campaignState, valuesOnly, null);
         Type localVarReturnType = new TypeToken<String>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -6599,7 +6599,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call exportCouponsAsync(Long applicationId, BigDecimal campaignId, String sort, String value, OffsetDateTime createdBefore, OffsetDateTime createdAfter, String valid, String usable, Long referralId, String recipientIntegrationId, String batchId, Boolean exactMatch, String dateFormat, String campaignState, Boolean valuesOnly, final ApiCallback<String> _callback) throws ApiException {
+    public okhttp3.Call exportCouponsAsync(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nullable BigDecimal campaignId, @javax.annotation.Nullable String sort, @javax.annotation.Nullable String value, @javax.annotation.Nullable OffsetDateTime createdBefore, @javax.annotation.Nullable OffsetDateTime createdAfter, @javax.annotation.Nullable String valid, @javax.annotation.Nullable String usable, @javax.annotation.Nullable Long referralId, @javax.annotation.Nullable String recipientIntegrationId, @javax.annotation.Nullable String batchId, @javax.annotation.Nullable Boolean exactMatch, @javax.annotation.Nullable String dateFormat, @javax.annotation.Nullable String campaignState, @javax.annotation.Nullable Boolean valuesOnly, final ApiCallback<String> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = exportCouponsValidateBeforeCall(applicationId, campaignId, sort, value, createdBefore, createdAfter, valid, usable, referralId, recipientIntegrationId, batchId, exactMatch, dateFormat, campaignState, valuesOnly, _callback);
         Type localVarReturnType = new TypeToken<String>(){}.getType();
@@ -6624,7 +6624,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call exportCustomerSessionsCall(Long applicationId, OffsetDateTime createdBefore, OffsetDateTime createdAfter, String profileIntegrationId, String dateFormat, String customerSessionState, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call exportCustomerSessionsCall(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nullable OffsetDateTime createdBefore, @javax.annotation.Nullable OffsetDateTime createdAfter, @javax.annotation.Nullable String profileIntegrationId, @javax.annotation.Nullable String dateFormat, @javax.annotation.Nullable String customerSessionState, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -6690,7 +6690,7 @@ public class ManagementApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call exportCustomerSessionsValidateBeforeCall(Long applicationId, OffsetDateTime createdBefore, OffsetDateTime createdAfter, String profileIntegrationId, String dateFormat, String customerSessionState, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call exportCustomerSessionsValidateBeforeCall(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nullable OffsetDateTime createdBefore, @javax.annotation.Nullable OffsetDateTime createdAfter, @javax.annotation.Nullable String profileIntegrationId, @javax.annotation.Nullable String dateFormat, @javax.annotation.Nullable String customerSessionState, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'applicationId' is set
         if (applicationId == null) {
             throw new ApiException("Missing the required parameter 'applicationId' when calling exportCustomerSessions(Async)");
@@ -6718,7 +6718,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public String exportCustomerSessions(Long applicationId, OffsetDateTime createdBefore, OffsetDateTime createdAfter, String profileIntegrationId, String dateFormat, String customerSessionState) throws ApiException {
+    public String exportCustomerSessions(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nullable OffsetDateTime createdBefore, @javax.annotation.Nullable OffsetDateTime createdAfter, @javax.annotation.Nullable String profileIntegrationId, @javax.annotation.Nullable String dateFormat, @javax.annotation.Nullable String customerSessionState) throws ApiException {
         ApiResponse<String> localVarResp = exportCustomerSessionsWithHttpInfo(applicationId, createdBefore, createdAfter, profileIntegrationId, dateFormat, customerSessionState);
         return localVarResp.getData();
     }
@@ -6741,7 +6741,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<String> exportCustomerSessionsWithHttpInfo(Long applicationId, OffsetDateTime createdBefore, OffsetDateTime createdAfter, String profileIntegrationId, String dateFormat, String customerSessionState) throws ApiException {
+    public ApiResponse<String> exportCustomerSessionsWithHttpInfo(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nullable OffsetDateTime createdBefore, @javax.annotation.Nullable OffsetDateTime createdAfter, @javax.annotation.Nullable String profileIntegrationId, @javax.annotation.Nullable String dateFormat, @javax.annotation.Nullable String customerSessionState) throws ApiException {
         okhttp3.Call localVarCall = exportCustomerSessionsValidateBeforeCall(applicationId, createdBefore, createdAfter, profileIntegrationId, dateFormat, customerSessionState, null);
         Type localVarReturnType = new TypeToken<String>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -6766,7 +6766,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call exportCustomerSessionsAsync(Long applicationId, OffsetDateTime createdBefore, OffsetDateTime createdAfter, String profileIntegrationId, String dateFormat, String customerSessionState, final ApiCallback<String> _callback) throws ApiException {
+    public okhttp3.Call exportCustomerSessionsAsync(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nullable OffsetDateTime createdBefore, @javax.annotation.Nullable OffsetDateTime createdAfter, @javax.annotation.Nullable String profileIntegrationId, @javax.annotation.Nullable String dateFormat, @javax.annotation.Nullable String customerSessionState, final ApiCallback<String> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = exportCustomerSessionsValidateBeforeCall(applicationId, createdBefore, createdAfter, profileIntegrationId, dateFormat, customerSessionState, _callback);
         Type localVarReturnType = new TypeToken<String>(){}.getType();
@@ -6788,7 +6788,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call exportCustomersTiersCall(String loyaltyProgramId, List<String> subledgerIds, List<String> tierNames, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call exportCustomersTiersCall(@javax.annotation.Nonnull String loyaltyProgramId, @javax.annotation.Nullable List<String> subledgerIds, @javax.annotation.Nullable List<String> tierNames, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -6842,7 +6842,7 @@ public class ManagementApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call exportCustomersTiersValidateBeforeCall(String loyaltyProgramId, List<String> subledgerIds, List<String> tierNames, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call exportCustomersTiersValidateBeforeCall(@javax.annotation.Nonnull String loyaltyProgramId, @javax.annotation.Nullable List<String> subledgerIds, @javax.annotation.Nullable List<String> tierNames, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'loyaltyProgramId' is set
         if (loyaltyProgramId == null) {
             throw new ApiException("Missing the required parameter 'loyaltyProgramId' when calling exportCustomersTiers(Async)");
@@ -6867,7 +6867,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public String exportCustomersTiers(String loyaltyProgramId, List<String> subledgerIds, List<String> tierNames) throws ApiException {
+    public String exportCustomersTiers(@javax.annotation.Nonnull String loyaltyProgramId, @javax.annotation.Nullable List<String> subledgerIds, @javax.annotation.Nullable List<String> tierNames) throws ApiException {
         ApiResponse<String> localVarResp = exportCustomersTiersWithHttpInfo(loyaltyProgramId, subledgerIds, tierNames);
         return localVarResp.getData();
     }
@@ -6887,7 +6887,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<String> exportCustomersTiersWithHttpInfo(String loyaltyProgramId, List<String> subledgerIds, List<String> tierNames) throws ApiException {
+    public ApiResponse<String> exportCustomersTiersWithHttpInfo(@javax.annotation.Nonnull String loyaltyProgramId, @javax.annotation.Nullable List<String> subledgerIds, @javax.annotation.Nullable List<String> tierNames) throws ApiException {
         okhttp3.Call localVarCall = exportCustomersTiersValidateBeforeCall(loyaltyProgramId, subledgerIds, tierNames, null);
         Type localVarReturnType = new TypeToken<String>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -6909,7 +6909,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call exportCustomersTiersAsync(String loyaltyProgramId, List<String> subledgerIds, List<String> tierNames, final ApiCallback<String> _callback) throws ApiException {
+    public okhttp3.Call exportCustomersTiersAsync(@javax.annotation.Nonnull String loyaltyProgramId, @javax.annotation.Nullable List<String> subledgerIds, @javax.annotation.Nullable List<String> tierNames, final ApiCallback<String> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = exportCustomersTiersValidateBeforeCall(loyaltyProgramId, subledgerIds, tierNames, _callback);
         Type localVarReturnType = new TypeToken<String>(){}.getType();
@@ -6933,7 +6933,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call exportEffectsCall(Long applicationId, BigDecimal campaignId, OffsetDateTime createdBefore, OffsetDateTime createdAfter, String dateFormat, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call exportEffectsCall(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nullable BigDecimal campaignId, @javax.annotation.Nullable OffsetDateTime createdBefore, @javax.annotation.Nullable OffsetDateTime createdAfter, @javax.annotation.Nullable String dateFormat, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -6995,7 +6995,7 @@ public class ManagementApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call exportEffectsValidateBeforeCall(Long applicationId, BigDecimal campaignId, OffsetDateTime createdBefore, OffsetDateTime createdAfter, String dateFormat, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call exportEffectsValidateBeforeCall(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nullable BigDecimal campaignId, @javax.annotation.Nullable OffsetDateTime createdBefore, @javax.annotation.Nullable OffsetDateTime createdAfter, @javax.annotation.Nullable String dateFormat, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'applicationId' is set
         if (applicationId == null) {
             throw new ApiException("Missing the required parameter 'applicationId' when calling exportEffects(Async)");
@@ -7022,7 +7022,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public String exportEffects(Long applicationId, BigDecimal campaignId, OffsetDateTime createdBefore, OffsetDateTime createdAfter, String dateFormat) throws ApiException {
+    public String exportEffects(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nullable BigDecimal campaignId, @javax.annotation.Nullable OffsetDateTime createdBefore, @javax.annotation.Nullable OffsetDateTime createdAfter, @javax.annotation.Nullable String dateFormat) throws ApiException {
         ApiResponse<String> localVarResp = exportEffectsWithHttpInfo(applicationId, campaignId, createdBefore, createdAfter, dateFormat);
         return localVarResp.getData();
     }
@@ -7044,7 +7044,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<String> exportEffectsWithHttpInfo(Long applicationId, BigDecimal campaignId, OffsetDateTime createdBefore, OffsetDateTime createdAfter, String dateFormat) throws ApiException {
+    public ApiResponse<String> exportEffectsWithHttpInfo(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nullable BigDecimal campaignId, @javax.annotation.Nullable OffsetDateTime createdBefore, @javax.annotation.Nullable OffsetDateTime createdAfter, @javax.annotation.Nullable String dateFormat) throws ApiException {
         okhttp3.Call localVarCall = exportEffectsValidateBeforeCall(applicationId, campaignId, createdBefore, createdAfter, dateFormat, null);
         Type localVarReturnType = new TypeToken<String>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -7068,7 +7068,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call exportEffectsAsync(Long applicationId, BigDecimal campaignId, OffsetDateTime createdBefore, OffsetDateTime createdAfter, String dateFormat, final ApiCallback<String> _callback) throws ApiException {
+    public okhttp3.Call exportEffectsAsync(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nullable BigDecimal campaignId, @javax.annotation.Nullable OffsetDateTime createdBefore, @javax.annotation.Nullable OffsetDateTime createdAfter, @javax.annotation.Nullable String dateFormat, final ApiCallback<String> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = exportEffectsValidateBeforeCall(applicationId, campaignId, createdBefore, createdAfter, dateFormat, _callback);
         Type localVarReturnType = new TypeToken<String>(){}.getType();
@@ -7093,7 +7093,7 @@ public class ManagementApi {
      * @deprecated
      */
     @Deprecated
-    public okhttp3.Call exportLoyaltyBalanceCall(String loyaltyProgramId, OffsetDateTime endDate, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call exportLoyaltyBalanceCall(@javax.annotation.Nonnull String loyaltyProgramId, @javax.annotation.Nullable OffsetDateTime endDate, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -7144,7 +7144,7 @@ public class ManagementApi {
 
     @Deprecated
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call exportLoyaltyBalanceValidateBeforeCall(String loyaltyProgramId, OffsetDateTime endDate, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call exportLoyaltyBalanceValidateBeforeCall(@javax.annotation.Nonnull String loyaltyProgramId, @javax.annotation.Nullable OffsetDateTime endDate, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'loyaltyProgramId' is set
         if (loyaltyProgramId == null) {
             throw new ApiException("Missing the required parameter 'loyaltyProgramId' when calling exportLoyaltyBalance(Async)");
@@ -7172,7 +7172,7 @@ public class ManagementApi {
      * @deprecated
      */
     @Deprecated
-    public String exportLoyaltyBalance(String loyaltyProgramId, OffsetDateTime endDate) throws ApiException {
+    public String exportLoyaltyBalance(@javax.annotation.Nonnull String loyaltyProgramId, @javax.annotation.Nullable OffsetDateTime endDate) throws ApiException {
         ApiResponse<String> localVarResp = exportLoyaltyBalanceWithHttpInfo(loyaltyProgramId, endDate);
         return localVarResp.getData();
     }
@@ -7195,7 +7195,7 @@ public class ManagementApi {
      * @deprecated
      */
     @Deprecated
-    public ApiResponse<String> exportLoyaltyBalanceWithHttpInfo(String loyaltyProgramId, OffsetDateTime endDate) throws ApiException {
+    public ApiResponse<String> exportLoyaltyBalanceWithHttpInfo(@javax.annotation.Nonnull String loyaltyProgramId, @javax.annotation.Nullable OffsetDateTime endDate) throws ApiException {
         okhttp3.Call localVarCall = exportLoyaltyBalanceValidateBeforeCall(loyaltyProgramId, endDate, null);
         Type localVarReturnType = new TypeToken<String>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -7220,7 +7220,7 @@ public class ManagementApi {
      * @deprecated
      */
     @Deprecated
-    public okhttp3.Call exportLoyaltyBalanceAsync(String loyaltyProgramId, OffsetDateTime endDate, final ApiCallback<String> _callback) throws ApiException {
+    public okhttp3.Call exportLoyaltyBalanceAsync(@javax.annotation.Nonnull String loyaltyProgramId, @javax.annotation.Nullable OffsetDateTime endDate, final ApiCallback<String> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = exportLoyaltyBalanceValidateBeforeCall(loyaltyProgramId, endDate, _callback);
         Type localVarReturnType = new TypeToken<String>(){}.getType();
@@ -7243,7 +7243,7 @@ public class ManagementApi {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call exportLoyaltyBalancesCall(String loyaltyProgramId, OffsetDateTime endDate, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call exportLoyaltyBalancesCall(@javax.annotation.Nonnull String loyaltyProgramId, @javax.annotation.Nullable OffsetDateTime endDate, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -7293,7 +7293,7 @@ public class ManagementApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call exportLoyaltyBalancesValidateBeforeCall(String loyaltyProgramId, OffsetDateTime endDate, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call exportLoyaltyBalancesValidateBeforeCall(@javax.annotation.Nonnull String loyaltyProgramId, @javax.annotation.Nullable OffsetDateTime endDate, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'loyaltyProgramId' is set
         if (loyaltyProgramId == null) {
             throw new ApiException("Missing the required parameter 'loyaltyProgramId' when calling exportLoyaltyBalances(Async)");
@@ -7319,7 +7319,7 @@ public class ManagementApi {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public String exportLoyaltyBalances(String loyaltyProgramId, OffsetDateTime endDate) throws ApiException {
+    public String exportLoyaltyBalances(@javax.annotation.Nonnull String loyaltyProgramId, @javax.annotation.Nullable OffsetDateTime endDate) throws ApiException {
         ApiResponse<String> localVarResp = exportLoyaltyBalancesWithHttpInfo(loyaltyProgramId, endDate);
         return localVarResp.getData();
     }
@@ -7340,7 +7340,7 @@ public class ManagementApi {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<String> exportLoyaltyBalancesWithHttpInfo(String loyaltyProgramId, OffsetDateTime endDate) throws ApiException {
+    public ApiResponse<String> exportLoyaltyBalancesWithHttpInfo(@javax.annotation.Nonnull String loyaltyProgramId, @javax.annotation.Nullable OffsetDateTime endDate) throws ApiException {
         okhttp3.Call localVarCall = exportLoyaltyBalancesValidateBeforeCall(loyaltyProgramId, endDate, null);
         Type localVarReturnType = new TypeToken<String>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -7363,7 +7363,7 @@ public class ManagementApi {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call exportLoyaltyBalancesAsync(String loyaltyProgramId, OffsetDateTime endDate, final ApiCallback<String> _callback) throws ApiException {
+    public okhttp3.Call exportLoyaltyBalancesAsync(@javax.annotation.Nonnull String loyaltyProgramId, @javax.annotation.Nullable OffsetDateTime endDate, final ApiCallback<String> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = exportLoyaltyBalancesValidateBeforeCall(loyaltyProgramId, endDate, _callback);
         Type localVarReturnType = new TypeToken<String>(){}.getType();
@@ -7386,7 +7386,7 @@ public class ManagementApi {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call exportLoyaltyCardBalancesCall(Long loyaltyProgramId, OffsetDateTime endDate, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call exportLoyaltyCardBalancesCall(@javax.annotation.Nonnull Long loyaltyProgramId, @javax.annotation.Nullable OffsetDateTime endDate, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -7436,7 +7436,7 @@ public class ManagementApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call exportLoyaltyCardBalancesValidateBeforeCall(Long loyaltyProgramId, OffsetDateTime endDate, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call exportLoyaltyCardBalancesValidateBeforeCall(@javax.annotation.Nonnull Long loyaltyProgramId, @javax.annotation.Nullable OffsetDateTime endDate, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'loyaltyProgramId' is set
         if (loyaltyProgramId == null) {
             throw new ApiException("Missing the required parameter 'loyaltyProgramId' when calling exportLoyaltyCardBalances(Async)");
@@ -7462,7 +7462,7 @@ public class ManagementApi {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public String exportLoyaltyCardBalances(Long loyaltyProgramId, OffsetDateTime endDate) throws ApiException {
+    public String exportLoyaltyCardBalances(@javax.annotation.Nonnull Long loyaltyProgramId, @javax.annotation.Nullable OffsetDateTime endDate) throws ApiException {
         ApiResponse<String> localVarResp = exportLoyaltyCardBalancesWithHttpInfo(loyaltyProgramId, endDate);
         return localVarResp.getData();
     }
@@ -7483,7 +7483,7 @@ public class ManagementApi {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<String> exportLoyaltyCardBalancesWithHttpInfo(Long loyaltyProgramId, OffsetDateTime endDate) throws ApiException {
+    public ApiResponse<String> exportLoyaltyCardBalancesWithHttpInfo(@javax.annotation.Nonnull Long loyaltyProgramId, @javax.annotation.Nullable OffsetDateTime endDate) throws ApiException {
         okhttp3.Call localVarCall = exportLoyaltyCardBalancesValidateBeforeCall(loyaltyProgramId, endDate, null);
         Type localVarReturnType = new TypeToken<String>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -7506,7 +7506,7 @@ public class ManagementApi {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call exportLoyaltyCardBalancesAsync(Long loyaltyProgramId, OffsetDateTime endDate, final ApiCallback<String> _callback) throws ApiException {
+    public okhttp3.Call exportLoyaltyCardBalancesAsync(@javax.annotation.Nonnull Long loyaltyProgramId, @javax.annotation.Nullable OffsetDateTime endDate, final ApiCallback<String> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = exportLoyaltyCardBalancesValidateBeforeCall(loyaltyProgramId, endDate, _callback);
         Type localVarReturnType = new TypeToken<String>(){}.getType();
@@ -7532,7 +7532,7 @@ public class ManagementApi {
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call exportLoyaltyCardLedgerCall(Long loyaltyProgramId, String loyaltyCardId, OffsetDateTime rangeStart, OffsetDateTime rangeEnd, String dateFormat, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call exportLoyaltyCardLedgerCall(@javax.annotation.Nonnull Long loyaltyProgramId, @javax.annotation.Nonnull String loyaltyCardId, @javax.annotation.Nonnull OffsetDateTime rangeStart, @javax.annotation.Nonnull OffsetDateTime rangeEnd, @javax.annotation.Nullable String dateFormat, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -7591,7 +7591,7 @@ public class ManagementApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call exportLoyaltyCardLedgerValidateBeforeCall(Long loyaltyProgramId, String loyaltyCardId, OffsetDateTime rangeStart, OffsetDateTime rangeEnd, String dateFormat, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call exportLoyaltyCardLedgerValidateBeforeCall(@javax.annotation.Nonnull Long loyaltyProgramId, @javax.annotation.Nonnull String loyaltyCardId, @javax.annotation.Nonnull OffsetDateTime rangeStart, @javax.annotation.Nonnull OffsetDateTime rangeEnd, @javax.annotation.Nullable String dateFormat, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'loyaltyProgramId' is set
         if (loyaltyProgramId == null) {
             throw new ApiException("Missing the required parameter 'loyaltyProgramId' when calling exportLoyaltyCardLedger(Async)");
@@ -7635,7 +7635,7 @@ public class ManagementApi {
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
      */
-    public String exportLoyaltyCardLedger(Long loyaltyProgramId, String loyaltyCardId, OffsetDateTime rangeStart, OffsetDateTime rangeEnd, String dateFormat) throws ApiException {
+    public String exportLoyaltyCardLedger(@javax.annotation.Nonnull Long loyaltyProgramId, @javax.annotation.Nonnull String loyaltyCardId, @javax.annotation.Nonnull OffsetDateTime rangeStart, @javax.annotation.Nonnull OffsetDateTime rangeEnd, @javax.annotation.Nullable String dateFormat) throws ApiException {
         ApiResponse<String> localVarResp = exportLoyaltyCardLedgerWithHttpInfo(loyaltyProgramId, loyaltyCardId, rangeStart, rangeEnd, dateFormat);
         return localVarResp.getData();
     }
@@ -7659,7 +7659,7 @@ public class ManagementApi {
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<String> exportLoyaltyCardLedgerWithHttpInfo(Long loyaltyProgramId, String loyaltyCardId, OffsetDateTime rangeStart, OffsetDateTime rangeEnd, String dateFormat) throws ApiException {
+    public ApiResponse<String> exportLoyaltyCardLedgerWithHttpInfo(@javax.annotation.Nonnull Long loyaltyProgramId, @javax.annotation.Nonnull String loyaltyCardId, @javax.annotation.Nonnull OffsetDateTime rangeStart, @javax.annotation.Nonnull OffsetDateTime rangeEnd, @javax.annotation.Nullable String dateFormat) throws ApiException {
         okhttp3.Call localVarCall = exportLoyaltyCardLedgerValidateBeforeCall(loyaltyProgramId, loyaltyCardId, rangeStart, rangeEnd, dateFormat, null);
         Type localVarReturnType = new TypeToken<String>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -7685,7 +7685,7 @@ public class ManagementApi {
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call exportLoyaltyCardLedgerAsync(Long loyaltyProgramId, String loyaltyCardId, OffsetDateTime rangeStart, OffsetDateTime rangeEnd, String dateFormat, final ApiCallback<String> _callback) throws ApiException {
+    public okhttp3.Call exportLoyaltyCardLedgerAsync(@javax.annotation.Nonnull Long loyaltyProgramId, @javax.annotation.Nonnull String loyaltyCardId, @javax.annotation.Nonnull OffsetDateTime rangeStart, @javax.annotation.Nonnull OffsetDateTime rangeEnd, @javax.annotation.Nullable String dateFormat, final ApiCallback<String> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = exportLoyaltyCardLedgerValidateBeforeCall(loyaltyProgramId, loyaltyCardId, rangeStart, rangeEnd, dateFormat, _callback);
         Type localVarReturnType = new TypeToken<String>(){}.getType();
@@ -7711,7 +7711,7 @@ public class ManagementApi {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call exportLoyaltyCardsCall(Long loyaltyProgramId, String batchId, OffsetDateTime createdBefore, OffsetDateTime createdAfter, String dateFormat, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call exportLoyaltyCardsCall(@javax.annotation.Nonnull Long loyaltyProgramId, @javax.annotation.Nullable String batchId, @javax.annotation.Nullable OffsetDateTime createdBefore, @javax.annotation.Nullable OffsetDateTime createdAfter, @javax.annotation.Nullable String dateFormat, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -7773,7 +7773,7 @@ public class ManagementApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call exportLoyaltyCardsValidateBeforeCall(Long loyaltyProgramId, String batchId, OffsetDateTime createdBefore, OffsetDateTime createdAfter, String dateFormat, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call exportLoyaltyCardsValidateBeforeCall(@javax.annotation.Nonnull Long loyaltyProgramId, @javax.annotation.Nullable String batchId, @javax.annotation.Nullable OffsetDateTime createdBefore, @javax.annotation.Nullable OffsetDateTime createdAfter, @javax.annotation.Nullable String dateFormat, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'loyaltyProgramId' is set
         if (loyaltyProgramId == null) {
             throw new ApiException("Missing the required parameter 'loyaltyProgramId' when calling exportLoyaltyCards(Async)");
@@ -7802,7 +7802,7 @@ public class ManagementApi {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public String exportLoyaltyCards(Long loyaltyProgramId, String batchId, OffsetDateTime createdBefore, OffsetDateTime createdAfter, String dateFormat) throws ApiException {
+    public String exportLoyaltyCards(@javax.annotation.Nonnull Long loyaltyProgramId, @javax.annotation.Nullable String batchId, @javax.annotation.Nullable OffsetDateTime createdBefore, @javax.annotation.Nullable OffsetDateTime createdAfter, @javax.annotation.Nullable String dateFormat) throws ApiException {
         ApiResponse<String> localVarResp = exportLoyaltyCardsWithHttpInfo(loyaltyProgramId, batchId, createdBefore, createdAfter, dateFormat);
         return localVarResp.getData();
     }
@@ -7826,7 +7826,7 @@ public class ManagementApi {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<String> exportLoyaltyCardsWithHttpInfo(Long loyaltyProgramId, String batchId, OffsetDateTime createdBefore, OffsetDateTime createdAfter, String dateFormat) throws ApiException {
+    public ApiResponse<String> exportLoyaltyCardsWithHttpInfo(@javax.annotation.Nonnull Long loyaltyProgramId, @javax.annotation.Nullable String batchId, @javax.annotation.Nullable OffsetDateTime createdBefore, @javax.annotation.Nullable OffsetDateTime createdAfter, @javax.annotation.Nullable String dateFormat) throws ApiException {
         okhttp3.Call localVarCall = exportLoyaltyCardsValidateBeforeCall(loyaltyProgramId, batchId, createdBefore, createdAfter, dateFormat, null);
         Type localVarReturnType = new TypeToken<String>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -7852,7 +7852,7 @@ public class ManagementApi {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call exportLoyaltyCardsAsync(Long loyaltyProgramId, String batchId, OffsetDateTime createdBefore, OffsetDateTime createdAfter, String dateFormat, final ApiCallback<String> _callback) throws ApiException {
+    public okhttp3.Call exportLoyaltyCardsAsync(@javax.annotation.Nonnull Long loyaltyProgramId, @javax.annotation.Nullable String batchId, @javax.annotation.Nullable OffsetDateTime createdBefore, @javax.annotation.Nullable OffsetDateTime createdAfter, @javax.annotation.Nullable String dateFormat, final ApiCallback<String> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = exportLoyaltyCardsValidateBeforeCall(loyaltyProgramId, batchId, createdBefore, createdAfter, dateFormat, _callback);
         Type localVarReturnType = new TypeToken<String>(){}.getType();
@@ -7876,7 +7876,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call exportLoyaltyLedgerCall(OffsetDateTime rangeStart, OffsetDateTime rangeEnd, String loyaltyProgramId, String integrationId, String dateFormat, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call exportLoyaltyLedgerCall(@javax.annotation.Nonnull OffsetDateTime rangeStart, @javax.annotation.Nonnull OffsetDateTime rangeEnd, @javax.annotation.Nonnull String loyaltyProgramId, @javax.annotation.Nonnull String integrationId, @javax.annotation.Nullable String dateFormat, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -7935,7 +7935,7 @@ public class ManagementApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call exportLoyaltyLedgerValidateBeforeCall(OffsetDateTime rangeStart, OffsetDateTime rangeEnd, String loyaltyProgramId, String integrationId, String dateFormat, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call exportLoyaltyLedgerValidateBeforeCall(@javax.annotation.Nonnull OffsetDateTime rangeStart, @javax.annotation.Nonnull OffsetDateTime rangeEnd, @javax.annotation.Nonnull String loyaltyProgramId, @javax.annotation.Nonnull String integrationId, @javax.annotation.Nullable String dateFormat, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'rangeStart' is set
         if (rangeStart == null) {
             throw new ApiException("Missing the required parameter 'rangeStart' when calling exportLoyaltyLedger(Async)");
@@ -7977,7 +7977,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public String exportLoyaltyLedger(OffsetDateTime rangeStart, OffsetDateTime rangeEnd, String loyaltyProgramId, String integrationId, String dateFormat) throws ApiException {
+    public String exportLoyaltyLedger(@javax.annotation.Nonnull OffsetDateTime rangeStart, @javax.annotation.Nonnull OffsetDateTime rangeEnd, @javax.annotation.Nonnull String loyaltyProgramId, @javax.annotation.Nonnull String integrationId, @javax.annotation.Nullable String dateFormat) throws ApiException {
         ApiResponse<String> localVarResp = exportLoyaltyLedgerWithHttpInfo(rangeStart, rangeEnd, loyaltyProgramId, integrationId, dateFormat);
         return localVarResp.getData();
     }
@@ -7999,7 +7999,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<String> exportLoyaltyLedgerWithHttpInfo(OffsetDateTime rangeStart, OffsetDateTime rangeEnd, String loyaltyProgramId, String integrationId, String dateFormat) throws ApiException {
+    public ApiResponse<String> exportLoyaltyLedgerWithHttpInfo(@javax.annotation.Nonnull OffsetDateTime rangeStart, @javax.annotation.Nonnull OffsetDateTime rangeEnd, @javax.annotation.Nonnull String loyaltyProgramId, @javax.annotation.Nonnull String integrationId, @javax.annotation.Nullable String dateFormat) throws ApiException {
         okhttp3.Call localVarCall = exportLoyaltyLedgerValidateBeforeCall(rangeStart, rangeEnd, loyaltyProgramId, integrationId, dateFormat, null);
         Type localVarReturnType = new TypeToken<String>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -8023,7 +8023,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call exportLoyaltyLedgerAsync(OffsetDateTime rangeStart, OffsetDateTime rangeEnd, String loyaltyProgramId, String integrationId, String dateFormat, final ApiCallback<String> _callback) throws ApiException {
+    public okhttp3.Call exportLoyaltyLedgerAsync(@javax.annotation.Nonnull OffsetDateTime rangeStart, @javax.annotation.Nonnull OffsetDateTime rangeEnd, @javax.annotation.Nonnull String loyaltyProgramId, @javax.annotation.Nonnull String integrationId, @javax.annotation.Nullable String dateFormat, final ApiCallback<String> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = exportLoyaltyLedgerValidateBeforeCall(rangeStart, rangeEnd, loyaltyProgramId, integrationId, dateFormat, _callback);
         Type localVarReturnType = new TypeToken<String>(){}.getType();
@@ -8046,7 +8046,7 @@ public class ManagementApi {
         <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call exportPoolGiveawaysCall(Long poolId, OffsetDateTime createdBefore, OffsetDateTime createdAfter, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call exportPoolGiveawaysCall(@javax.annotation.Nonnull Long poolId, @javax.annotation.Nullable OffsetDateTime createdBefore, @javax.annotation.Nullable OffsetDateTime createdAfter, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -8100,7 +8100,7 @@ public class ManagementApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call exportPoolGiveawaysValidateBeforeCall(Long poolId, OffsetDateTime createdBefore, OffsetDateTime createdAfter, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call exportPoolGiveawaysValidateBeforeCall(@javax.annotation.Nonnull Long poolId, @javax.annotation.Nullable OffsetDateTime createdBefore, @javax.annotation.Nullable OffsetDateTime createdAfter, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'poolId' is set
         if (poolId == null) {
             throw new ApiException("Missing the required parameter 'poolId' when calling exportPoolGiveaways(Async)");
@@ -8126,7 +8126,7 @@ public class ManagementApi {
         <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
      </table>
      */
-    public String exportPoolGiveaways(Long poolId, OffsetDateTime createdBefore, OffsetDateTime createdAfter) throws ApiException {
+    public String exportPoolGiveaways(@javax.annotation.Nonnull Long poolId, @javax.annotation.Nullable OffsetDateTime createdBefore, @javax.annotation.Nullable OffsetDateTime createdAfter) throws ApiException {
         ApiResponse<String> localVarResp = exportPoolGiveawaysWithHttpInfo(poolId, createdBefore, createdAfter);
         return localVarResp.getData();
     }
@@ -8147,7 +8147,7 @@ public class ManagementApi {
         <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<String> exportPoolGiveawaysWithHttpInfo(Long poolId, OffsetDateTime createdBefore, OffsetDateTime createdAfter) throws ApiException {
+    public ApiResponse<String> exportPoolGiveawaysWithHttpInfo(@javax.annotation.Nonnull Long poolId, @javax.annotation.Nullable OffsetDateTime createdBefore, @javax.annotation.Nullable OffsetDateTime createdAfter) throws ApiException {
         okhttp3.Call localVarCall = exportPoolGiveawaysValidateBeforeCall(poolId, createdBefore, createdAfter, null);
         Type localVarReturnType = new TypeToken<String>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -8170,7 +8170,7 @@ public class ManagementApi {
         <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call exportPoolGiveawaysAsync(Long poolId, OffsetDateTime createdBefore, OffsetDateTime createdAfter, final ApiCallback<String> _callback) throws ApiException {
+    public okhttp3.Call exportPoolGiveawaysAsync(@javax.annotation.Nonnull Long poolId, @javax.annotation.Nullable OffsetDateTime createdBefore, @javax.annotation.Nullable OffsetDateTime createdAfter, final ApiCallback<String> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = exportPoolGiveawaysValidateBeforeCall(poolId, createdBefore, createdAfter, _callback);
         Type localVarReturnType = new TypeToken<String>(){}.getType();
@@ -8197,7 +8197,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call exportReferralsCall(Long applicationId, BigDecimal campaignId, OffsetDateTime createdBefore, OffsetDateTime createdAfter, String valid, String usable, String batchId, String dateFormat, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call exportReferralsCall(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nullable BigDecimal campaignId, @javax.annotation.Nullable OffsetDateTime createdBefore, @javax.annotation.Nullable OffsetDateTime createdAfter, @javax.annotation.Nullable String valid, @javax.annotation.Nullable String usable, @javax.annotation.Nullable String batchId, @javax.annotation.Nullable String dateFormat, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -8271,7 +8271,7 @@ public class ManagementApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call exportReferralsValidateBeforeCall(Long applicationId, BigDecimal campaignId, OffsetDateTime createdBefore, OffsetDateTime createdAfter, String valid, String usable, String batchId, String dateFormat, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call exportReferralsValidateBeforeCall(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nullable BigDecimal campaignId, @javax.annotation.Nullable OffsetDateTime createdBefore, @javax.annotation.Nullable OffsetDateTime createdAfter, @javax.annotation.Nullable String valid, @javax.annotation.Nullable String usable, @javax.annotation.Nullable String batchId, @javax.annotation.Nullable String dateFormat, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'applicationId' is set
         if (applicationId == null) {
             throw new ApiException("Missing the required parameter 'applicationId' when calling exportReferrals(Async)");
@@ -8301,7 +8301,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public String exportReferrals(Long applicationId, BigDecimal campaignId, OffsetDateTime createdBefore, OffsetDateTime createdAfter, String valid, String usable, String batchId, String dateFormat) throws ApiException {
+    public String exportReferrals(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nullable BigDecimal campaignId, @javax.annotation.Nullable OffsetDateTime createdBefore, @javax.annotation.Nullable OffsetDateTime createdAfter, @javax.annotation.Nullable String valid, @javax.annotation.Nullable String usable, @javax.annotation.Nullable String batchId, @javax.annotation.Nullable String dateFormat) throws ApiException {
         ApiResponse<String> localVarResp = exportReferralsWithHttpInfo(applicationId, campaignId, createdBefore, createdAfter, valid, usable, batchId, dateFormat);
         return localVarResp.getData();
     }
@@ -8326,7 +8326,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<String> exportReferralsWithHttpInfo(Long applicationId, BigDecimal campaignId, OffsetDateTime createdBefore, OffsetDateTime createdAfter, String valid, String usable, String batchId, String dateFormat) throws ApiException {
+    public ApiResponse<String> exportReferralsWithHttpInfo(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nullable BigDecimal campaignId, @javax.annotation.Nullable OffsetDateTime createdBefore, @javax.annotation.Nullable OffsetDateTime createdAfter, @javax.annotation.Nullable String valid, @javax.annotation.Nullable String usable, @javax.annotation.Nullable String batchId, @javax.annotation.Nullable String dateFormat) throws ApiException {
         okhttp3.Call localVarCall = exportReferralsValidateBeforeCall(applicationId, campaignId, createdBefore, createdAfter, valid, usable, batchId, dateFormat, null);
         Type localVarReturnType = new TypeToken<String>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -8353,7 +8353,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call exportReferralsAsync(Long applicationId, BigDecimal campaignId, OffsetDateTime createdBefore, OffsetDateTime createdAfter, String valid, String usable, String batchId, String dateFormat, final ApiCallback<String> _callback) throws ApiException {
+    public okhttp3.Call exportReferralsAsync(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nullable BigDecimal campaignId, @javax.annotation.Nullable OffsetDateTime createdBefore, @javax.annotation.Nullable OffsetDateTime createdAfter, @javax.annotation.Nullable String valid, @javax.annotation.Nullable String usable, @javax.annotation.Nullable String batchId, @javax.annotation.Nullable String dateFormat, final ApiCallback<String> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = exportReferralsValidateBeforeCall(applicationId, campaignId, createdBefore, createdAfter, valid, usable, batchId, dateFormat, _callback);
         Type localVarReturnType = new TypeToken<String>(){}.getType();
@@ -8381,7 +8381,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getAccessLogsWithoutTotalCountCall(Long applicationId, OffsetDateTime rangeStart, OffsetDateTime rangeEnd, String path, String method, String status, Long pageSize, Long skip, String sort, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getAccessLogsWithoutTotalCountCall(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull OffsetDateTime rangeStart, @javax.annotation.Nonnull OffsetDateTime rangeEnd, @javax.annotation.Nullable String path, @javax.annotation.Nullable String method, @javax.annotation.Nullable String status, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable String sort, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -8459,7 +8459,7 @@ public class ManagementApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getAccessLogsWithoutTotalCountValidateBeforeCall(Long applicationId, OffsetDateTime rangeStart, OffsetDateTime rangeEnd, String path, String method, String status, Long pageSize, Long skip, String sort, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getAccessLogsWithoutTotalCountValidateBeforeCall(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull OffsetDateTime rangeStart, @javax.annotation.Nonnull OffsetDateTime rangeEnd, @javax.annotation.Nullable String path, @javax.annotation.Nullable String method, @javax.annotation.Nullable String status, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable String sort, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'applicationId' is set
         if (applicationId == null) {
             throw new ApiException("Missing the required parameter 'applicationId' when calling getAccessLogsWithoutTotalCount(Async)");
@@ -8500,7 +8500,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public GetAccessLogsWithoutTotalCount200Response getAccessLogsWithoutTotalCount(Long applicationId, OffsetDateTime rangeStart, OffsetDateTime rangeEnd, String path, String method, String status, Long pageSize, Long skip, String sort) throws ApiException {
+    public GetAccessLogsWithoutTotalCount200Response getAccessLogsWithoutTotalCount(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull OffsetDateTime rangeStart, @javax.annotation.Nonnull OffsetDateTime rangeEnd, @javax.annotation.Nullable String path, @javax.annotation.Nullable String method, @javax.annotation.Nullable String status, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable String sort) throws ApiException {
         ApiResponse<GetAccessLogsWithoutTotalCount200Response> localVarResp = getAccessLogsWithoutTotalCountWithHttpInfo(applicationId, rangeStart, rangeEnd, path, method, status, pageSize, skip, sort);
         return localVarResp.getData();
     }
@@ -8526,7 +8526,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<GetAccessLogsWithoutTotalCount200Response> getAccessLogsWithoutTotalCountWithHttpInfo(Long applicationId, OffsetDateTime rangeStart, OffsetDateTime rangeEnd, String path, String method, String status, Long pageSize, Long skip, String sort) throws ApiException {
+    public ApiResponse<GetAccessLogsWithoutTotalCount200Response> getAccessLogsWithoutTotalCountWithHttpInfo(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull OffsetDateTime rangeStart, @javax.annotation.Nonnull OffsetDateTime rangeEnd, @javax.annotation.Nullable String path, @javax.annotation.Nullable String method, @javax.annotation.Nullable String status, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable String sort) throws ApiException {
         okhttp3.Call localVarCall = getAccessLogsWithoutTotalCountValidateBeforeCall(applicationId, rangeStart, rangeEnd, path, method, status, pageSize, skip, sort, null);
         Type localVarReturnType = new TypeToken<GetAccessLogsWithoutTotalCount200Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -8554,7 +8554,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getAccessLogsWithoutTotalCountAsync(Long applicationId, OffsetDateTime rangeStart, OffsetDateTime rangeEnd, String path, String method, String status, Long pageSize, Long skip, String sort, final ApiCallback<GetAccessLogsWithoutTotalCount200Response> _callback) throws ApiException {
+    public okhttp3.Call getAccessLogsWithoutTotalCountAsync(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull OffsetDateTime rangeStart, @javax.annotation.Nonnull OffsetDateTime rangeEnd, @javax.annotation.Nullable String path, @javax.annotation.Nullable String method, @javax.annotation.Nullable String status, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable String sort, final ApiCallback<GetAccessLogsWithoutTotalCount200Response> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getAccessLogsWithoutTotalCountValidateBeforeCall(applicationId, rangeStart, rangeEnd, path, method, status, pageSize, skip, sort, _callback);
         Type localVarReturnType = new TypeToken<GetAccessLogsWithoutTotalCount200Response>(){}.getType();
@@ -8574,7 +8574,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getAccountCall(Long accountId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getAccountCall(@javax.annotation.Nonnull Long accountId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -8620,7 +8620,7 @@ public class ManagementApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getAccountValidateBeforeCall(Long accountId, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getAccountValidateBeforeCall(@javax.annotation.Nonnull Long accountId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'accountId' is set
         if (accountId == null) {
             throw new ApiException("Missing the required parameter 'accountId' when calling getAccount(Async)");
@@ -8643,7 +8643,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public Account getAccount(Long accountId) throws ApiException {
+    public Account getAccount(@javax.annotation.Nonnull Long accountId) throws ApiException {
         ApiResponse<Account> localVarResp = getAccountWithHttpInfo(accountId);
         return localVarResp.getData();
     }
@@ -8661,7 +8661,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Account> getAccountWithHttpInfo(Long accountId) throws ApiException {
+    public ApiResponse<Account> getAccountWithHttpInfo(@javax.annotation.Nonnull Long accountId) throws ApiException {
         okhttp3.Call localVarCall = getAccountValidateBeforeCall(accountId, null);
         Type localVarReturnType = new TypeToken<Account>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -8681,7 +8681,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getAccountAsync(Long accountId, final ApiCallback<Account> _callback) throws ApiException {
+    public okhttp3.Call getAccountAsync(@javax.annotation.Nonnull Long accountId, final ApiCallback<Account> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getAccountValidateBeforeCall(accountId, _callback);
         Type localVarReturnType = new TypeToken<Account>(){}.getType();
@@ -8701,7 +8701,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getAccountAnalyticsCall(Long accountId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getAccountAnalyticsCall(@javax.annotation.Nonnull Long accountId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -8747,7 +8747,7 @@ public class ManagementApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getAccountAnalyticsValidateBeforeCall(Long accountId, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getAccountAnalyticsValidateBeforeCall(@javax.annotation.Nonnull Long accountId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'accountId' is set
         if (accountId == null) {
             throw new ApiException("Missing the required parameter 'accountId' when calling getAccountAnalytics(Async)");
@@ -8770,7 +8770,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public AccountAnalytics getAccountAnalytics(Long accountId) throws ApiException {
+    public AccountAnalytics getAccountAnalytics(@javax.annotation.Nonnull Long accountId) throws ApiException {
         ApiResponse<AccountAnalytics> localVarResp = getAccountAnalyticsWithHttpInfo(accountId);
         return localVarResp.getData();
     }
@@ -8788,7 +8788,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<AccountAnalytics> getAccountAnalyticsWithHttpInfo(Long accountId) throws ApiException {
+    public ApiResponse<AccountAnalytics> getAccountAnalyticsWithHttpInfo(@javax.annotation.Nonnull Long accountId) throws ApiException {
         okhttp3.Call localVarCall = getAccountAnalyticsValidateBeforeCall(accountId, null);
         Type localVarReturnType = new TypeToken<AccountAnalytics>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -8808,7 +8808,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getAccountAnalyticsAsync(Long accountId, final ApiCallback<AccountAnalytics> _callback) throws ApiException {
+    public okhttp3.Call getAccountAnalyticsAsync(@javax.annotation.Nonnull Long accountId, final ApiCallback<AccountAnalytics> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getAccountAnalyticsValidateBeforeCall(accountId, _callback);
         Type localVarReturnType = new TypeToken<AccountAnalytics>(){}.getType();
@@ -8829,7 +8829,7 @@ public class ManagementApi {
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getAccountCollectionCall(Long collectionId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getAccountCollectionCall(@javax.annotation.Nonnull Long collectionId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -8875,7 +8875,7 @@ public class ManagementApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getAccountCollectionValidateBeforeCall(Long collectionId, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getAccountCollectionValidateBeforeCall(@javax.annotation.Nonnull Long collectionId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'collectionId' is set
         if (collectionId == null) {
             throw new ApiException("Missing the required parameter 'collectionId' when calling getAccountCollection(Async)");
@@ -8899,7 +8899,7 @@ public class ManagementApi {
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
      */
-    public Collection getAccountCollection(Long collectionId) throws ApiException {
+    public Collection getAccountCollection(@javax.annotation.Nonnull Long collectionId) throws ApiException {
         ApiResponse<Collection> localVarResp = getAccountCollectionWithHttpInfo(collectionId);
         return localVarResp.getData();
     }
@@ -8918,7 +8918,7 @@ public class ManagementApi {
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Collection> getAccountCollectionWithHttpInfo(Long collectionId) throws ApiException {
+    public ApiResponse<Collection> getAccountCollectionWithHttpInfo(@javax.annotation.Nonnull Long collectionId) throws ApiException {
         okhttp3.Call localVarCall = getAccountCollectionValidateBeforeCall(collectionId, null);
         Type localVarReturnType = new TypeToken<Collection>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -8939,7 +8939,7 @@ public class ManagementApi {
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getAccountCollectionAsync(Long collectionId, final ApiCallback<Collection> _callback) throws ApiException {
+    public okhttp3.Call getAccountCollectionAsync(@javax.annotation.Nonnull Long collectionId, final ApiCallback<Collection> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getAccountCollectionValidateBeforeCall(collectionId, _callback);
         Type localVarReturnType = new TypeToken<Collection>(){}.getType();
@@ -8963,7 +8963,7 @@ public class ManagementApi {
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getAchievementCall(Long applicationId, Long campaignId, Long achievementId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getAchievementCall(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, @javax.annotation.Nonnull Long achievementId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -9011,7 +9011,7 @@ public class ManagementApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getAchievementValidateBeforeCall(Long applicationId, Long campaignId, Long achievementId, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getAchievementValidateBeforeCall(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, @javax.annotation.Nonnull Long achievementId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'applicationId' is set
         if (applicationId == null) {
             throw new ApiException("Missing the required parameter 'applicationId' when calling getAchievement(Async)");
@@ -9048,7 +9048,7 @@ public class ManagementApi {
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
      */
-    public Achievement getAchievement(Long applicationId, Long campaignId, Long achievementId) throws ApiException {
+    public Achievement getAchievement(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, @javax.annotation.Nonnull Long achievementId) throws ApiException {
         ApiResponse<Achievement> localVarResp = getAchievementWithHttpInfo(applicationId, campaignId, achievementId);
         return localVarResp.getData();
     }
@@ -9070,7 +9070,7 @@ public class ManagementApi {
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Achievement> getAchievementWithHttpInfo(Long applicationId, Long campaignId, Long achievementId) throws ApiException {
+    public ApiResponse<Achievement> getAchievementWithHttpInfo(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, @javax.annotation.Nonnull Long achievementId) throws ApiException {
         okhttp3.Call localVarCall = getAchievementValidateBeforeCall(applicationId, campaignId, achievementId, null);
         Type localVarReturnType = new TypeToken<Achievement>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -9094,7 +9094,7 @@ public class ManagementApi {
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getAchievementAsync(Long applicationId, Long campaignId, Long achievementId, final ApiCallback<Achievement> _callback) throws ApiException {
+    public okhttp3.Call getAchievementAsync(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, @javax.annotation.Nonnull Long achievementId, final ApiCallback<Achievement> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getAchievementValidateBeforeCall(applicationId, campaignId, achievementId, _callback);
         Type localVarReturnType = new TypeToken<Achievement>(){}.getType();
@@ -9114,7 +9114,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getAdditionalCostCall(Long additionalCostId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getAdditionalCostCall(@javax.annotation.Nonnull Long additionalCostId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -9160,7 +9160,7 @@ public class ManagementApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getAdditionalCostValidateBeforeCall(Long additionalCostId, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getAdditionalCostValidateBeforeCall(@javax.annotation.Nonnull Long additionalCostId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'additionalCostId' is set
         if (additionalCostId == null) {
             throw new ApiException("Missing the required parameter 'additionalCostId' when calling getAdditionalCost(Async)");
@@ -9183,7 +9183,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public AccountAdditionalCost getAdditionalCost(Long additionalCostId) throws ApiException {
+    public AccountAdditionalCost getAdditionalCost(@javax.annotation.Nonnull Long additionalCostId) throws ApiException {
         ApiResponse<AccountAdditionalCost> localVarResp = getAdditionalCostWithHttpInfo(additionalCostId);
         return localVarResp.getData();
     }
@@ -9201,7 +9201,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<AccountAdditionalCost> getAdditionalCostWithHttpInfo(Long additionalCostId) throws ApiException {
+    public ApiResponse<AccountAdditionalCost> getAdditionalCostWithHttpInfo(@javax.annotation.Nonnull Long additionalCostId) throws ApiException {
         okhttp3.Call localVarCall = getAdditionalCostValidateBeforeCall(additionalCostId, null);
         Type localVarReturnType = new TypeToken<AccountAdditionalCost>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -9221,7 +9221,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getAdditionalCostAsync(Long additionalCostId, final ApiCallback<AccountAdditionalCost> _callback) throws ApiException {
+    public okhttp3.Call getAdditionalCostAsync(@javax.annotation.Nonnull Long additionalCostId, final ApiCallback<AccountAdditionalCost> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getAdditionalCostValidateBeforeCall(additionalCostId, _callback);
         Type localVarReturnType = new TypeToken<AccountAdditionalCost>(){}.getType();
@@ -9243,7 +9243,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getAdditionalCostsCall(Long pageSize, Long skip, String sort, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getAdditionalCostsCall(@javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable String sort, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -9300,7 +9300,7 @@ public class ManagementApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getAdditionalCostsValidateBeforeCall(Long pageSize, Long skip, String sort, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getAdditionalCostsValidateBeforeCall(@javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable String sort, final ApiCallback _callback) throws ApiException {
         return getAdditionalCostsCall(pageSize, skip, sort, _callback);
 
     }
@@ -9320,7 +9320,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public GetAdditionalCosts200Response getAdditionalCosts(Long pageSize, Long skip, String sort) throws ApiException {
+    public GetAdditionalCosts200Response getAdditionalCosts(@javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable String sort) throws ApiException {
         ApiResponse<GetAdditionalCosts200Response> localVarResp = getAdditionalCostsWithHttpInfo(pageSize, skip, sort);
         return localVarResp.getData();
     }
@@ -9340,7 +9340,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<GetAdditionalCosts200Response> getAdditionalCostsWithHttpInfo(Long pageSize, Long skip, String sort) throws ApiException {
+    public ApiResponse<GetAdditionalCosts200Response> getAdditionalCostsWithHttpInfo(@javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable String sort) throws ApiException {
         okhttp3.Call localVarCall = getAdditionalCostsValidateBeforeCall(pageSize, skip, sort, null);
         Type localVarReturnType = new TypeToken<GetAdditionalCosts200Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -9362,7 +9362,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getAdditionalCostsAsync(Long pageSize, Long skip, String sort, final ApiCallback<GetAdditionalCosts200Response> _callback) throws ApiException {
+    public okhttp3.Call getAdditionalCostsAsync(@javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable String sort, final ApiCallback<GetAdditionalCosts200Response> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getAdditionalCostsValidateBeforeCall(pageSize, skip, sort, _callback);
         Type localVarReturnType = new TypeToken<GetAdditionalCosts200Response>(){}.getType();
@@ -9382,7 +9382,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getApplicationCall(Long applicationId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getApplicationCall(@javax.annotation.Nonnull Long applicationId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -9428,7 +9428,7 @@ public class ManagementApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getApplicationValidateBeforeCall(Long applicationId, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getApplicationValidateBeforeCall(@javax.annotation.Nonnull Long applicationId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'applicationId' is set
         if (applicationId == null) {
             throw new ApiException("Missing the required parameter 'applicationId' when calling getApplication(Async)");
@@ -9451,7 +9451,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public Application getApplication(Long applicationId) throws ApiException {
+    public Application getApplication(@javax.annotation.Nonnull Long applicationId) throws ApiException {
         ApiResponse<Application> localVarResp = getApplicationWithHttpInfo(applicationId);
         return localVarResp.getData();
     }
@@ -9469,7 +9469,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Application> getApplicationWithHttpInfo(Long applicationId) throws ApiException {
+    public ApiResponse<Application> getApplicationWithHttpInfo(@javax.annotation.Nonnull Long applicationId) throws ApiException {
         okhttp3.Call localVarCall = getApplicationValidateBeforeCall(applicationId, null);
         Type localVarReturnType = new TypeToken<Application>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -9489,7 +9489,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getApplicationAsync(Long applicationId, final ApiCallback<Application> _callback) throws ApiException {
+    public okhttp3.Call getApplicationAsync(@javax.annotation.Nonnull Long applicationId, final ApiCallback<Application> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getApplicationValidateBeforeCall(applicationId, _callback);
         Type localVarReturnType = new TypeToken<Application>(){}.getType();
@@ -9509,7 +9509,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getApplicationApiHealthCall(Long applicationId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getApplicationApiHealthCall(@javax.annotation.Nonnull Long applicationId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -9555,7 +9555,7 @@ public class ManagementApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getApplicationApiHealthValidateBeforeCall(Long applicationId, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getApplicationApiHealthValidateBeforeCall(@javax.annotation.Nonnull Long applicationId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'applicationId' is set
         if (applicationId == null) {
             throw new ApiException("Missing the required parameter 'applicationId' when calling getApplicationApiHealth(Async)");
@@ -9578,7 +9578,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApplicationApiHealth getApplicationApiHealth(Long applicationId) throws ApiException {
+    public ApplicationApiHealth getApplicationApiHealth(@javax.annotation.Nonnull Long applicationId) throws ApiException {
         ApiResponse<ApplicationApiHealth> localVarResp = getApplicationApiHealthWithHttpInfo(applicationId);
         return localVarResp.getData();
     }
@@ -9596,7 +9596,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<ApplicationApiHealth> getApplicationApiHealthWithHttpInfo(Long applicationId) throws ApiException {
+    public ApiResponse<ApplicationApiHealth> getApplicationApiHealthWithHttpInfo(@javax.annotation.Nonnull Long applicationId) throws ApiException {
         okhttp3.Call localVarCall = getApplicationApiHealthValidateBeforeCall(applicationId, null);
         Type localVarReturnType = new TypeToken<ApplicationApiHealth>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -9616,7 +9616,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getApplicationApiHealthAsync(Long applicationId, final ApiCallback<ApplicationApiHealth> _callback) throws ApiException {
+    public okhttp3.Call getApplicationApiHealthAsync(@javax.annotation.Nonnull Long applicationId, final ApiCallback<ApplicationApiHealth> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getApplicationApiHealthValidateBeforeCall(applicationId, _callback);
         Type localVarReturnType = new TypeToken<ApplicationApiHealth>(){}.getType();
@@ -9637,7 +9637,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getApplicationCustomerCall(Long applicationId, Long customerId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getApplicationCustomerCall(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long customerId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -9684,7 +9684,7 @@ public class ManagementApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getApplicationCustomerValidateBeforeCall(Long applicationId, Long customerId, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getApplicationCustomerValidateBeforeCall(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long customerId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'applicationId' is set
         if (applicationId == null) {
             throw new ApiException("Missing the required parameter 'applicationId' when calling getApplicationCustomer(Async)");
@@ -9713,7 +9713,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApplicationCustomer getApplicationCustomer(Long applicationId, Long customerId) throws ApiException {
+    public ApplicationCustomer getApplicationCustomer(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long customerId) throws ApiException {
         ApiResponse<ApplicationCustomer> localVarResp = getApplicationCustomerWithHttpInfo(applicationId, customerId);
         return localVarResp.getData();
     }
@@ -9732,7 +9732,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<ApplicationCustomer> getApplicationCustomerWithHttpInfo(Long applicationId, Long customerId) throws ApiException {
+    public ApiResponse<ApplicationCustomer> getApplicationCustomerWithHttpInfo(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long customerId) throws ApiException {
         okhttp3.Call localVarCall = getApplicationCustomerValidateBeforeCall(applicationId, customerId, null);
         Type localVarReturnType = new TypeToken<ApplicationCustomer>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -9753,7 +9753,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getApplicationCustomerAsync(Long applicationId, Long customerId, final ApiCallback<ApplicationCustomer> _callback) throws ApiException {
+    public okhttp3.Call getApplicationCustomerAsync(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long customerId, final ApiCallback<ApplicationCustomer> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getApplicationCustomerValidateBeforeCall(applicationId, customerId, _callback);
         Type localVarReturnType = new TypeToken<ApplicationCustomer>(){}.getType();
@@ -9778,7 +9778,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getApplicationCustomerFriendsCall(Long applicationId, String integrationId, Long pageSize, Long skip, String sort, Boolean withTotalResultSize, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getApplicationCustomerFriendsCall(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull String integrationId, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable String sort, @javax.annotation.Nullable Boolean withTotalResultSize, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -9841,7 +9841,7 @@ public class ManagementApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getApplicationCustomerFriendsValidateBeforeCall(Long applicationId, String integrationId, Long pageSize, Long skip, String sort, Boolean withTotalResultSize, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getApplicationCustomerFriendsValidateBeforeCall(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull String integrationId, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable String sort, @javax.annotation.Nullable Boolean withTotalResultSize, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'applicationId' is set
         if (applicationId == null) {
             throw new ApiException("Missing the required parameter 'applicationId' when calling getApplicationCustomerFriends(Async)");
@@ -9874,7 +9874,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public GetApplicationCustomerFriends200Response getApplicationCustomerFriends(Long applicationId, String integrationId, Long pageSize, Long skip, String sort, Boolean withTotalResultSize) throws ApiException {
+    public GetApplicationCustomerFriends200Response getApplicationCustomerFriends(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull String integrationId, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable String sort, @javax.annotation.Nullable Boolean withTotalResultSize) throws ApiException {
         ApiResponse<GetApplicationCustomerFriends200Response> localVarResp = getApplicationCustomerFriendsWithHttpInfo(applicationId, integrationId, pageSize, skip, sort, withTotalResultSize);
         return localVarResp.getData();
     }
@@ -9897,7 +9897,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<GetApplicationCustomerFriends200Response> getApplicationCustomerFriendsWithHttpInfo(Long applicationId, String integrationId, Long pageSize, Long skip, String sort, Boolean withTotalResultSize) throws ApiException {
+    public ApiResponse<GetApplicationCustomerFriends200Response> getApplicationCustomerFriendsWithHttpInfo(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull String integrationId, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable String sort, @javax.annotation.Nullable Boolean withTotalResultSize) throws ApiException {
         okhttp3.Call localVarCall = getApplicationCustomerFriendsValidateBeforeCall(applicationId, integrationId, pageSize, skip, sort, withTotalResultSize, null);
         Type localVarReturnType = new TypeToken<GetApplicationCustomerFriends200Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -9922,7 +9922,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getApplicationCustomerFriendsAsync(Long applicationId, String integrationId, Long pageSize, Long skip, String sort, Boolean withTotalResultSize, final ApiCallback<GetApplicationCustomerFriends200Response> _callback) throws ApiException {
+    public okhttp3.Call getApplicationCustomerFriendsAsync(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull String integrationId, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable String sort, @javax.annotation.Nullable Boolean withTotalResultSize, final ApiCallback<GetApplicationCustomerFriends200Response> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getApplicationCustomerFriendsValidateBeforeCall(applicationId, integrationId, pageSize, skip, sort, withTotalResultSize, _callback);
         Type localVarReturnType = new TypeToken<GetApplicationCustomerFriends200Response>(){}.getType();
@@ -9946,7 +9946,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getApplicationCustomersCall(Long applicationId, String integrationId, Long pageSize, Long skip, Boolean withTotalResultSize, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getApplicationCustomersCall(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nullable String integrationId, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable Boolean withTotalResultSize, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -10008,7 +10008,7 @@ public class ManagementApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getApplicationCustomersValidateBeforeCall(Long applicationId, String integrationId, Long pageSize, Long skip, Boolean withTotalResultSize, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getApplicationCustomersValidateBeforeCall(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nullable String integrationId, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable Boolean withTotalResultSize, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'applicationId' is set
         if (applicationId == null) {
             throw new ApiException("Missing the required parameter 'applicationId' when calling getApplicationCustomers(Async)");
@@ -10035,7 +10035,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public GetApplicationCustomers200Response getApplicationCustomers(Long applicationId, String integrationId, Long pageSize, Long skip, Boolean withTotalResultSize) throws ApiException {
+    public GetApplicationCustomers200Response getApplicationCustomers(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nullable String integrationId, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable Boolean withTotalResultSize) throws ApiException {
         ApiResponse<GetApplicationCustomers200Response> localVarResp = getApplicationCustomersWithHttpInfo(applicationId, integrationId, pageSize, skip, withTotalResultSize);
         return localVarResp.getData();
     }
@@ -10057,7 +10057,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<GetApplicationCustomers200Response> getApplicationCustomersWithHttpInfo(Long applicationId, String integrationId, Long pageSize, Long skip, Boolean withTotalResultSize) throws ApiException {
+    public ApiResponse<GetApplicationCustomers200Response> getApplicationCustomersWithHttpInfo(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nullable String integrationId, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable Boolean withTotalResultSize) throws ApiException {
         okhttp3.Call localVarCall = getApplicationCustomersValidateBeforeCall(applicationId, integrationId, pageSize, skip, withTotalResultSize, null);
         Type localVarReturnType = new TypeToken<GetApplicationCustomers200Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -10081,7 +10081,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getApplicationCustomersAsync(Long applicationId, String integrationId, Long pageSize, Long skip, Boolean withTotalResultSize, final ApiCallback<GetApplicationCustomers200Response> _callback) throws ApiException {
+    public okhttp3.Call getApplicationCustomersAsync(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nullable String integrationId, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable Boolean withTotalResultSize, final ApiCallback<GetApplicationCustomers200Response> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getApplicationCustomersValidateBeforeCall(applicationId, integrationId, pageSize, skip, withTotalResultSize, _callback);
         Type localVarReturnType = new TypeToken<GetApplicationCustomers200Response>(){}.getType();
@@ -10105,7 +10105,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getApplicationCustomersByAttributesCall(Long applicationId, CustomerProfileSearchQuery customerProfileSearchQuery, Long pageSize, Long skip, Boolean withTotalResultSize, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getApplicationCustomersByAttributesCall(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull CustomerProfileSearchQuery customerProfileSearchQuery, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable Boolean withTotalResultSize, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -10164,7 +10164,7 @@ public class ManagementApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getApplicationCustomersByAttributesValidateBeforeCall(Long applicationId, CustomerProfileSearchQuery customerProfileSearchQuery, Long pageSize, Long skip, Boolean withTotalResultSize, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getApplicationCustomersByAttributesValidateBeforeCall(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull CustomerProfileSearchQuery customerProfileSearchQuery, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable Boolean withTotalResultSize, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'applicationId' is set
         if (applicationId == null) {
             throw new ApiException("Missing the required parameter 'applicationId' when calling getApplicationCustomersByAttributes(Async)");
@@ -10196,7 +10196,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public GetApplicationCustomersByAttributes200Response getApplicationCustomersByAttributes(Long applicationId, CustomerProfileSearchQuery customerProfileSearchQuery, Long pageSize, Long skip, Boolean withTotalResultSize) throws ApiException {
+    public GetApplicationCustomersByAttributes200Response getApplicationCustomersByAttributes(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull CustomerProfileSearchQuery customerProfileSearchQuery, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable Boolean withTotalResultSize) throws ApiException {
         ApiResponse<GetApplicationCustomersByAttributes200Response> localVarResp = getApplicationCustomersByAttributesWithHttpInfo(applicationId, customerProfileSearchQuery, pageSize, skip, withTotalResultSize);
         return localVarResp.getData();
     }
@@ -10218,7 +10218,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<GetApplicationCustomersByAttributes200Response> getApplicationCustomersByAttributesWithHttpInfo(Long applicationId, CustomerProfileSearchQuery customerProfileSearchQuery, Long pageSize, Long skip, Boolean withTotalResultSize) throws ApiException {
+    public ApiResponse<GetApplicationCustomersByAttributes200Response> getApplicationCustomersByAttributesWithHttpInfo(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull CustomerProfileSearchQuery customerProfileSearchQuery, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable Boolean withTotalResultSize) throws ApiException {
         okhttp3.Call localVarCall = getApplicationCustomersByAttributesValidateBeforeCall(applicationId, customerProfileSearchQuery, pageSize, skip, withTotalResultSize, null);
         Type localVarReturnType = new TypeToken<GetApplicationCustomersByAttributes200Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -10242,7 +10242,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getApplicationCustomersByAttributesAsync(Long applicationId, CustomerProfileSearchQuery customerProfileSearchQuery, Long pageSize, Long skip, Boolean withTotalResultSize, final ApiCallback<GetApplicationCustomersByAttributes200Response> _callback) throws ApiException {
+    public okhttp3.Call getApplicationCustomersByAttributesAsync(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull CustomerProfileSearchQuery customerProfileSearchQuery, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable Boolean withTotalResultSize, final ApiCallback<GetApplicationCustomersByAttributes200Response> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getApplicationCustomersByAttributesValidateBeforeCall(applicationId, customerProfileSearchQuery, pageSize, skip, withTotalResultSize, _callback);
         Type localVarReturnType = new TypeToken<GetApplicationCustomersByAttributes200Response>(){}.getType();
@@ -10265,7 +10265,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getApplicationEventTypesCall(Long applicationId, Long pageSize, Long skip, String sort, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getApplicationEventTypesCall(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable String sort, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -10323,7 +10323,7 @@ public class ManagementApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getApplicationEventTypesValidateBeforeCall(Long applicationId, Long pageSize, Long skip, String sort, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getApplicationEventTypesValidateBeforeCall(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable String sort, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'applicationId' is set
         if (applicationId == null) {
             throw new ApiException("Missing the required parameter 'applicationId' when calling getApplicationEventTypes(Async)");
@@ -10349,7 +10349,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public GetApplicationEventTypes200Response getApplicationEventTypes(Long applicationId, Long pageSize, Long skip, String sort) throws ApiException {
+    public GetApplicationEventTypes200Response getApplicationEventTypes(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable String sort) throws ApiException {
         ApiResponse<GetApplicationEventTypes200Response> localVarResp = getApplicationEventTypesWithHttpInfo(applicationId, pageSize, skip, sort);
         return localVarResp.getData();
     }
@@ -10370,7 +10370,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<GetApplicationEventTypes200Response> getApplicationEventTypesWithHttpInfo(Long applicationId, Long pageSize, Long skip, String sort) throws ApiException {
+    public ApiResponse<GetApplicationEventTypes200Response> getApplicationEventTypesWithHttpInfo(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable String sort) throws ApiException {
         okhttp3.Call localVarCall = getApplicationEventTypesValidateBeforeCall(applicationId, pageSize, skip, sort, null);
         Type localVarReturnType = new TypeToken<GetApplicationEventTypes200Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -10393,7 +10393,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getApplicationEventTypesAsync(Long applicationId, Long pageSize, Long skip, String sort, final ApiCallback<GetApplicationEventTypes200Response> _callback) throws ApiException {
+    public okhttp3.Call getApplicationEventTypesAsync(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable String sort, final ApiCallback<GetApplicationEventTypes200Response> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getApplicationEventTypesValidateBeforeCall(applicationId, pageSize, skip, sort, _callback);
         Type localVarReturnType = new TypeToken<GetApplicationEventTypes200Response>(){}.getType();
@@ -10428,7 +10428,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getApplicationEventsWithoutTotalCountCall(Long applicationId, Long pageSize, Long skip, String sort, String type, OffsetDateTime createdBefore, OffsetDateTime createdAfter, String session, String profile, String customerName, String customerEmail, String couponCode, String referralCode, String ruleQuery, String campaignQuery, String effectType, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getApplicationEventsWithoutTotalCountCall(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable String sort, @javax.annotation.Nullable String type, @javax.annotation.Nullable OffsetDateTime createdBefore, @javax.annotation.Nullable OffsetDateTime createdAfter, @javax.annotation.Nullable String session, @javax.annotation.Nullable String profile, @javax.annotation.Nullable String customerName, @javax.annotation.Nullable String customerEmail, @javax.annotation.Nullable String couponCode, @javax.annotation.Nullable String referralCode, @javax.annotation.Nullable String ruleQuery, @javax.annotation.Nullable String campaignQuery, @javax.annotation.Nullable String effectType, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -10534,7 +10534,7 @@ public class ManagementApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getApplicationEventsWithoutTotalCountValidateBeforeCall(Long applicationId, Long pageSize, Long skip, String sort, String type, OffsetDateTime createdBefore, OffsetDateTime createdAfter, String session, String profile, String customerName, String customerEmail, String couponCode, String referralCode, String ruleQuery, String campaignQuery, String effectType, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getApplicationEventsWithoutTotalCountValidateBeforeCall(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable String sort, @javax.annotation.Nullable String type, @javax.annotation.Nullable OffsetDateTime createdBefore, @javax.annotation.Nullable OffsetDateTime createdAfter, @javax.annotation.Nullable String session, @javax.annotation.Nullable String profile, @javax.annotation.Nullable String customerName, @javax.annotation.Nullable String customerEmail, @javax.annotation.Nullable String couponCode, @javax.annotation.Nullable String referralCode, @javax.annotation.Nullable String ruleQuery, @javax.annotation.Nullable String campaignQuery, @javax.annotation.Nullable String effectType, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'applicationId' is set
         if (applicationId == null) {
             throw new ApiException("Missing the required parameter 'applicationId' when calling getApplicationEventsWithoutTotalCount(Async)");
@@ -10572,7 +10572,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public GetApplicationEventsWithoutTotalCount200Response getApplicationEventsWithoutTotalCount(Long applicationId, Long pageSize, Long skip, String sort, String type, OffsetDateTime createdBefore, OffsetDateTime createdAfter, String session, String profile, String customerName, String customerEmail, String couponCode, String referralCode, String ruleQuery, String campaignQuery, String effectType) throws ApiException {
+    public GetApplicationEventsWithoutTotalCount200Response getApplicationEventsWithoutTotalCount(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable String sort, @javax.annotation.Nullable String type, @javax.annotation.Nullable OffsetDateTime createdBefore, @javax.annotation.Nullable OffsetDateTime createdAfter, @javax.annotation.Nullable String session, @javax.annotation.Nullable String profile, @javax.annotation.Nullable String customerName, @javax.annotation.Nullable String customerEmail, @javax.annotation.Nullable String couponCode, @javax.annotation.Nullable String referralCode, @javax.annotation.Nullable String ruleQuery, @javax.annotation.Nullable String campaignQuery, @javax.annotation.Nullable String effectType) throws ApiException {
         ApiResponse<GetApplicationEventsWithoutTotalCount200Response> localVarResp = getApplicationEventsWithoutTotalCountWithHttpInfo(applicationId, pageSize, skip, sort, type, createdBefore, createdAfter, session, profile, customerName, customerEmail, couponCode, referralCode, ruleQuery, campaignQuery, effectType);
         return localVarResp.getData();
     }
@@ -10605,7 +10605,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<GetApplicationEventsWithoutTotalCount200Response> getApplicationEventsWithoutTotalCountWithHttpInfo(Long applicationId, Long pageSize, Long skip, String sort, String type, OffsetDateTime createdBefore, OffsetDateTime createdAfter, String session, String profile, String customerName, String customerEmail, String couponCode, String referralCode, String ruleQuery, String campaignQuery, String effectType) throws ApiException {
+    public ApiResponse<GetApplicationEventsWithoutTotalCount200Response> getApplicationEventsWithoutTotalCountWithHttpInfo(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable String sort, @javax.annotation.Nullable String type, @javax.annotation.Nullable OffsetDateTime createdBefore, @javax.annotation.Nullable OffsetDateTime createdAfter, @javax.annotation.Nullable String session, @javax.annotation.Nullable String profile, @javax.annotation.Nullable String customerName, @javax.annotation.Nullable String customerEmail, @javax.annotation.Nullable String couponCode, @javax.annotation.Nullable String referralCode, @javax.annotation.Nullable String ruleQuery, @javax.annotation.Nullable String campaignQuery, @javax.annotation.Nullable String effectType) throws ApiException {
         okhttp3.Call localVarCall = getApplicationEventsWithoutTotalCountValidateBeforeCall(applicationId, pageSize, skip, sort, type, createdBefore, createdAfter, session, profile, customerName, customerEmail, couponCode, referralCode, ruleQuery, campaignQuery, effectType, null);
         Type localVarReturnType = new TypeToken<GetApplicationEventsWithoutTotalCount200Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -10640,7 +10640,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getApplicationEventsWithoutTotalCountAsync(Long applicationId, Long pageSize, Long skip, String sort, String type, OffsetDateTime createdBefore, OffsetDateTime createdAfter, String session, String profile, String customerName, String customerEmail, String couponCode, String referralCode, String ruleQuery, String campaignQuery, String effectType, final ApiCallback<GetApplicationEventsWithoutTotalCount200Response> _callback) throws ApiException {
+    public okhttp3.Call getApplicationEventsWithoutTotalCountAsync(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable String sort, @javax.annotation.Nullable String type, @javax.annotation.Nullable OffsetDateTime createdBefore, @javax.annotation.Nullable OffsetDateTime createdAfter, @javax.annotation.Nullable String session, @javax.annotation.Nullable String profile, @javax.annotation.Nullable String customerName, @javax.annotation.Nullable String customerEmail, @javax.annotation.Nullable String couponCode, @javax.annotation.Nullable String referralCode, @javax.annotation.Nullable String ruleQuery, @javax.annotation.Nullable String campaignQuery, @javax.annotation.Nullable String effectType, final ApiCallback<GetApplicationEventsWithoutTotalCount200Response> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getApplicationEventsWithoutTotalCountValidateBeforeCall(applicationId, pageSize, skip, sort, type, createdBefore, createdAfter, session, profile, customerName, customerEmail, couponCode, referralCode, ruleQuery, campaignQuery, effectType, _callback);
         Type localVarReturnType = new TypeToken<GetApplicationEventsWithoutTotalCount200Response>(){}.getType();
@@ -10661,7 +10661,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getApplicationSessionCall(Long applicationId, Long sessionId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getApplicationSessionCall(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long sessionId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -10708,7 +10708,7 @@ public class ManagementApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getApplicationSessionValidateBeforeCall(Long applicationId, Long sessionId, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getApplicationSessionValidateBeforeCall(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long sessionId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'applicationId' is set
         if (applicationId == null) {
             throw new ApiException("Missing the required parameter 'applicationId' when calling getApplicationSession(Async)");
@@ -10737,7 +10737,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApplicationSession getApplicationSession(Long applicationId, Long sessionId) throws ApiException {
+    public ApplicationSession getApplicationSession(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long sessionId) throws ApiException {
         ApiResponse<ApplicationSession> localVarResp = getApplicationSessionWithHttpInfo(applicationId, sessionId);
         return localVarResp.getData();
     }
@@ -10756,7 +10756,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<ApplicationSession> getApplicationSessionWithHttpInfo(Long applicationId, Long sessionId) throws ApiException {
+    public ApiResponse<ApplicationSession> getApplicationSessionWithHttpInfo(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long sessionId) throws ApiException {
         okhttp3.Call localVarCall = getApplicationSessionValidateBeforeCall(applicationId, sessionId, null);
         Type localVarReturnType = new TypeToken<ApplicationSession>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -10777,7 +10777,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getApplicationSessionAsync(Long applicationId, Long sessionId, final ApiCallback<ApplicationSession> _callback) throws ApiException {
+    public okhttp3.Call getApplicationSessionAsync(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long sessionId, final ApiCallback<ApplicationSession> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getApplicationSessionValidateBeforeCall(applicationId, sessionId, _callback);
         Type localVarReturnType = new TypeToken<ApplicationSession>(){}.getType();
@@ -10808,7 +10808,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getApplicationSessionsCall(Long applicationId, Long pageSize, Long skip, String sort, String profile, String state, OffsetDateTime createdBefore, OffsetDateTime createdAfter, String coupon, String referral, String integrationId, String storeIntegrationId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getApplicationSessionsCall(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable String sort, @javax.annotation.Nullable String profile, @javax.annotation.Nullable String state, @javax.annotation.Nullable OffsetDateTime createdBefore, @javax.annotation.Nullable OffsetDateTime createdAfter, @javax.annotation.Nullable String coupon, @javax.annotation.Nullable String referral, @javax.annotation.Nullable String integrationId, @javax.annotation.Nullable String storeIntegrationId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -10898,7 +10898,7 @@ public class ManagementApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getApplicationSessionsValidateBeforeCall(Long applicationId, Long pageSize, Long skip, String sort, String profile, String state, OffsetDateTime createdBefore, OffsetDateTime createdAfter, String coupon, String referral, String integrationId, String storeIntegrationId, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getApplicationSessionsValidateBeforeCall(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable String sort, @javax.annotation.Nullable String profile, @javax.annotation.Nullable String state, @javax.annotation.Nullable OffsetDateTime createdBefore, @javax.annotation.Nullable OffsetDateTime createdAfter, @javax.annotation.Nullable String coupon, @javax.annotation.Nullable String referral, @javax.annotation.Nullable String integrationId, @javax.annotation.Nullable String storeIntegrationId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'applicationId' is set
         if (applicationId == null) {
             throw new ApiException("Missing the required parameter 'applicationId' when calling getApplicationSessions(Async)");
@@ -10932,7 +10932,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public GetApplicationSessions200Response getApplicationSessions(Long applicationId, Long pageSize, Long skip, String sort, String profile, String state, OffsetDateTime createdBefore, OffsetDateTime createdAfter, String coupon, String referral, String integrationId, String storeIntegrationId) throws ApiException {
+    public GetApplicationSessions200Response getApplicationSessions(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable String sort, @javax.annotation.Nullable String profile, @javax.annotation.Nullable String state, @javax.annotation.Nullable OffsetDateTime createdBefore, @javax.annotation.Nullable OffsetDateTime createdAfter, @javax.annotation.Nullable String coupon, @javax.annotation.Nullable String referral, @javax.annotation.Nullable String integrationId, @javax.annotation.Nullable String storeIntegrationId) throws ApiException {
         ApiResponse<GetApplicationSessions200Response> localVarResp = getApplicationSessionsWithHttpInfo(applicationId, pageSize, skip, sort, profile, state, createdBefore, createdAfter, coupon, referral, integrationId, storeIntegrationId);
         return localVarResp.getData();
     }
@@ -10961,7 +10961,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<GetApplicationSessions200Response> getApplicationSessionsWithHttpInfo(Long applicationId, Long pageSize, Long skip, String sort, String profile, String state, OffsetDateTime createdBefore, OffsetDateTime createdAfter, String coupon, String referral, String integrationId, String storeIntegrationId) throws ApiException {
+    public ApiResponse<GetApplicationSessions200Response> getApplicationSessionsWithHttpInfo(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable String sort, @javax.annotation.Nullable String profile, @javax.annotation.Nullable String state, @javax.annotation.Nullable OffsetDateTime createdBefore, @javax.annotation.Nullable OffsetDateTime createdAfter, @javax.annotation.Nullable String coupon, @javax.annotation.Nullable String referral, @javax.annotation.Nullable String integrationId, @javax.annotation.Nullable String storeIntegrationId) throws ApiException {
         okhttp3.Call localVarCall = getApplicationSessionsValidateBeforeCall(applicationId, pageSize, skip, sort, profile, state, createdBefore, createdAfter, coupon, referral, integrationId, storeIntegrationId, null);
         Type localVarReturnType = new TypeToken<GetApplicationSessions200Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -10992,7 +10992,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getApplicationSessionsAsync(Long applicationId, Long pageSize, Long skip, String sort, String profile, String state, OffsetDateTime createdBefore, OffsetDateTime createdAfter, String coupon, String referral, String integrationId, String storeIntegrationId, final ApiCallback<GetApplicationSessions200Response> _callback) throws ApiException {
+    public okhttp3.Call getApplicationSessionsAsync(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable String sort, @javax.annotation.Nullable String profile, @javax.annotation.Nullable String state, @javax.annotation.Nullable OffsetDateTime createdBefore, @javax.annotation.Nullable OffsetDateTime createdAfter, @javax.annotation.Nullable String coupon, @javax.annotation.Nullable String referral, @javax.annotation.Nullable String integrationId, @javax.annotation.Nullable String storeIntegrationId, final ApiCallback<GetApplicationSessions200Response> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getApplicationSessionsValidateBeforeCall(applicationId, pageSize, skip, sort, profile, state, createdBefore, createdAfter, coupon, referral, integrationId, storeIntegrationId, _callback);
         Type localVarReturnType = new TypeToken<GetApplicationSessions200Response>(){}.getType();
@@ -11014,7 +11014,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getApplicationsCall(Long pageSize, Long skip, String sort, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getApplicationsCall(@javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable String sort, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -11071,7 +11071,7 @@ public class ManagementApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getApplicationsValidateBeforeCall(Long pageSize, Long skip, String sort, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getApplicationsValidateBeforeCall(@javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable String sort, final ApiCallback _callback) throws ApiException {
         return getApplicationsCall(pageSize, skip, sort, _callback);
 
     }
@@ -11091,7 +11091,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public GetApplications200Response getApplications(Long pageSize, Long skip, String sort) throws ApiException {
+    public GetApplications200Response getApplications(@javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable String sort) throws ApiException {
         ApiResponse<GetApplications200Response> localVarResp = getApplicationsWithHttpInfo(pageSize, skip, sort);
         return localVarResp.getData();
     }
@@ -11111,7 +11111,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<GetApplications200Response> getApplicationsWithHttpInfo(Long pageSize, Long skip, String sort) throws ApiException {
+    public ApiResponse<GetApplications200Response> getApplicationsWithHttpInfo(@javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable String sort) throws ApiException {
         okhttp3.Call localVarCall = getApplicationsValidateBeforeCall(pageSize, skip, sort, null);
         Type localVarReturnType = new TypeToken<GetApplications200Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -11133,7 +11133,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getApplicationsAsync(Long pageSize, Long skip, String sort, final ApiCallback<GetApplications200Response> _callback) throws ApiException {
+    public okhttp3.Call getApplicationsAsync(@javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable String sort, final ApiCallback<GetApplications200Response> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getApplicationsValidateBeforeCall(pageSize, skip, sort, _callback);
         Type localVarReturnType = new TypeToken<GetApplications200Response>(){}.getType();
@@ -11153,7 +11153,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getAttributeCall(Long attributeId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getAttributeCall(@javax.annotation.Nonnull Long attributeId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -11199,7 +11199,7 @@ public class ManagementApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getAttributeValidateBeforeCall(Long attributeId, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getAttributeValidateBeforeCall(@javax.annotation.Nonnull Long attributeId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'attributeId' is set
         if (attributeId == null) {
             throw new ApiException("Missing the required parameter 'attributeId' when calling getAttribute(Async)");
@@ -11222,7 +11222,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public Attribute getAttribute(Long attributeId) throws ApiException {
+    public Attribute getAttribute(@javax.annotation.Nonnull Long attributeId) throws ApiException {
         ApiResponse<Attribute> localVarResp = getAttributeWithHttpInfo(attributeId);
         return localVarResp.getData();
     }
@@ -11240,7 +11240,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Attribute> getAttributeWithHttpInfo(Long attributeId) throws ApiException {
+    public ApiResponse<Attribute> getAttributeWithHttpInfo(@javax.annotation.Nonnull Long attributeId) throws ApiException {
         okhttp3.Call localVarCall = getAttributeValidateBeforeCall(attributeId, null);
         Type localVarReturnType = new TypeToken<Attribute>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -11260,7 +11260,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getAttributeAsync(Long attributeId, final ApiCallback<Attribute> _callback) throws ApiException {
+    public okhttp3.Call getAttributeAsync(@javax.annotation.Nonnull Long attributeId, final ApiCallback<Attribute> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getAttributeValidateBeforeCall(attributeId, _callback);
         Type localVarReturnType = new TypeToken<Attribute>(){}.getType();
@@ -11287,7 +11287,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getAttributesCall(Long pageSize, Long skip, String sort, String entity, String applicationIds, String type, String kind, String search, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getAttributesCall(@javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable String sort, @javax.annotation.Nullable String entity, @javax.annotation.Nullable String applicationIds, @javax.annotation.Nullable String type, @javax.annotation.Nullable String kind, @javax.annotation.Nullable String search, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -11364,7 +11364,7 @@ public class ManagementApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getAttributesValidateBeforeCall(Long pageSize, Long skip, String sort, String entity, String applicationIds, String type, String kind, String search, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getAttributesValidateBeforeCall(@javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable String sort, @javax.annotation.Nullable String entity, @javax.annotation.Nullable String applicationIds, @javax.annotation.Nullable String type, @javax.annotation.Nullable String kind, @javax.annotation.Nullable String search, final ApiCallback _callback) throws ApiException {
         return getAttributesCall(pageSize, skip, sort, entity, applicationIds, type, kind, search, _callback);
 
     }
@@ -11389,7 +11389,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public GetAttributes200Response getAttributes(Long pageSize, Long skip, String sort, String entity, String applicationIds, String type, String kind, String search) throws ApiException {
+    public GetAttributes200Response getAttributes(@javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable String sort, @javax.annotation.Nullable String entity, @javax.annotation.Nullable String applicationIds, @javax.annotation.Nullable String type, @javax.annotation.Nullable String kind, @javax.annotation.Nullable String search) throws ApiException {
         ApiResponse<GetAttributes200Response> localVarResp = getAttributesWithHttpInfo(pageSize, skip, sort, entity, applicationIds, type, kind, search);
         return localVarResp.getData();
     }
@@ -11414,7 +11414,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<GetAttributes200Response> getAttributesWithHttpInfo(Long pageSize, Long skip, String sort, String entity, String applicationIds, String type, String kind, String search) throws ApiException {
+    public ApiResponse<GetAttributes200Response> getAttributesWithHttpInfo(@javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable String sort, @javax.annotation.Nullable String entity, @javax.annotation.Nullable String applicationIds, @javax.annotation.Nullable String type, @javax.annotation.Nullable String kind, @javax.annotation.Nullable String search) throws ApiException {
         okhttp3.Call localVarCall = getAttributesValidateBeforeCall(pageSize, skip, sort, entity, applicationIds, type, kind, search, null);
         Type localVarReturnType = new TypeToken<GetAttributes200Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -11441,7 +11441,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getAttributesAsync(Long pageSize, Long skip, String sort, String entity, String applicationIds, String type, String kind, String search, final ApiCallback<GetAttributes200Response> _callback) throws ApiException {
+    public okhttp3.Call getAttributesAsync(@javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable String sort, @javax.annotation.Nullable String entity, @javax.annotation.Nullable String applicationIds, @javax.annotation.Nullable String type, @javax.annotation.Nullable String kind, @javax.annotation.Nullable String search, final ApiCallback<GetAttributes200Response> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getAttributesValidateBeforeCall(pageSize, skip, sort, entity, applicationIds, type, kind, search, _callback);
         Type localVarReturnType = new TypeToken<GetAttributes200Response>(){}.getType();
@@ -11466,7 +11466,7 @@ public class ManagementApi {
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getAudienceMembershipsCall(Long audienceId, Long pageSize, Long skip, String sort, String profileQuery, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getAudienceMembershipsCall(@javax.annotation.Nonnull Long audienceId, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable String sort, @javax.annotation.Nullable String profileQuery, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -11528,7 +11528,7 @@ public class ManagementApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getAudienceMembershipsValidateBeforeCall(Long audienceId, Long pageSize, Long skip, String sort, String profileQuery, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getAudienceMembershipsValidateBeforeCall(@javax.annotation.Nonnull Long audienceId, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable String sort, @javax.annotation.Nullable String profileQuery, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'audienceId' is set
         if (audienceId == null) {
             throw new ApiException("Missing the required parameter 'audienceId' when calling getAudienceMemberships(Async)");
@@ -11556,7 +11556,7 @@ public class ManagementApi {
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
      */
-    public GetAudienceMemberships200Response getAudienceMemberships(Long audienceId, Long pageSize, Long skip, String sort, String profileQuery) throws ApiException {
+    public GetAudienceMemberships200Response getAudienceMemberships(@javax.annotation.Nonnull Long audienceId, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable String sort, @javax.annotation.Nullable String profileQuery) throws ApiException {
         ApiResponse<GetAudienceMemberships200Response> localVarResp = getAudienceMembershipsWithHttpInfo(audienceId, pageSize, skip, sort, profileQuery);
         return localVarResp.getData();
     }
@@ -11579,7 +11579,7 @@ public class ManagementApi {
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<GetAudienceMemberships200Response> getAudienceMembershipsWithHttpInfo(Long audienceId, Long pageSize, Long skip, String sort, String profileQuery) throws ApiException {
+    public ApiResponse<GetAudienceMemberships200Response> getAudienceMembershipsWithHttpInfo(@javax.annotation.Nonnull Long audienceId, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable String sort, @javax.annotation.Nullable String profileQuery) throws ApiException {
         okhttp3.Call localVarCall = getAudienceMembershipsValidateBeforeCall(audienceId, pageSize, skip, sort, profileQuery, null);
         Type localVarReturnType = new TypeToken<GetAudienceMemberships200Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -11604,7 +11604,7 @@ public class ManagementApi {
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getAudienceMembershipsAsync(Long audienceId, Long pageSize, Long skip, String sort, String profileQuery, final ApiCallback<GetAudienceMemberships200Response> _callback) throws ApiException {
+    public okhttp3.Call getAudienceMembershipsAsync(@javax.annotation.Nonnull Long audienceId, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable String sort, @javax.annotation.Nullable String profileQuery, final ApiCallback<GetAudienceMemberships200Response> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getAudienceMembershipsValidateBeforeCall(audienceId, pageSize, skip, sort, profileQuery, _callback);
         Type localVarReturnType = new TypeToken<GetAudienceMemberships200Response>(){}.getType();
@@ -11627,7 +11627,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getAudiencesCall(Long pageSize, Long skip, String sort, Boolean withTotalResultSize, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getAudiencesCall(@javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable String sort, @javax.annotation.Nullable Boolean withTotalResultSize, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -11688,7 +11688,7 @@ public class ManagementApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getAudiencesValidateBeforeCall(Long pageSize, Long skip, String sort, Boolean withTotalResultSize, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getAudiencesValidateBeforeCall(@javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable String sort, @javax.annotation.Nullable Boolean withTotalResultSize, final ApiCallback _callback) throws ApiException {
         return getAudiencesCall(pageSize, skip, sort, withTotalResultSize, _callback);
 
     }
@@ -11709,7 +11709,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public GetAudiences200Response getAudiences(Long pageSize, Long skip, String sort, Boolean withTotalResultSize) throws ApiException {
+    public GetAudiences200Response getAudiences(@javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable String sort, @javax.annotation.Nullable Boolean withTotalResultSize) throws ApiException {
         ApiResponse<GetAudiences200Response> localVarResp = getAudiencesWithHttpInfo(pageSize, skip, sort, withTotalResultSize);
         return localVarResp.getData();
     }
@@ -11730,7 +11730,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<GetAudiences200Response> getAudiencesWithHttpInfo(Long pageSize, Long skip, String sort, Boolean withTotalResultSize) throws ApiException {
+    public ApiResponse<GetAudiences200Response> getAudiencesWithHttpInfo(@javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable String sort, @javax.annotation.Nullable Boolean withTotalResultSize) throws ApiException {
         okhttp3.Call localVarCall = getAudiencesValidateBeforeCall(pageSize, skip, sort, withTotalResultSize, null);
         Type localVarReturnType = new TypeToken<GetAudiences200Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -11753,7 +11753,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getAudiencesAsync(Long pageSize, Long skip, String sort, Boolean withTotalResultSize, final ApiCallback<GetAudiences200Response> _callback) throws ApiException {
+    public okhttp3.Call getAudiencesAsync(@javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable String sort, @javax.annotation.Nullable Boolean withTotalResultSize, final ApiCallback<GetAudiences200Response> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getAudiencesValidateBeforeCall(pageSize, skip, sort, withTotalResultSize, _callback);
         Type localVarReturnType = new TypeToken<GetAudiences200Response>(){}.getType();
@@ -11774,7 +11774,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getAudiencesAnalyticsCall(String audienceIds, String sort, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getAudiencesAnalyticsCall(@javax.annotation.Nonnull String audienceIds, @javax.annotation.Nullable String sort, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -11827,7 +11827,7 @@ public class ManagementApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getAudiencesAnalyticsValidateBeforeCall(String audienceIds, String sort, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getAudiencesAnalyticsValidateBeforeCall(@javax.annotation.Nonnull String audienceIds, @javax.annotation.Nullable String sort, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'audienceIds' is set
         if (audienceIds == null) {
             throw new ApiException("Missing the required parameter 'audienceIds' when calling getAudiencesAnalytics(Async)");
@@ -11851,7 +11851,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public GetAudiencesAnalytics200Response getAudiencesAnalytics(String audienceIds, String sort) throws ApiException {
+    public GetAudiencesAnalytics200Response getAudiencesAnalytics(@javax.annotation.Nonnull String audienceIds, @javax.annotation.Nullable String sort) throws ApiException {
         ApiResponse<GetAudiencesAnalytics200Response> localVarResp = getAudiencesAnalyticsWithHttpInfo(audienceIds, sort);
         return localVarResp.getData();
     }
@@ -11870,7 +11870,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<GetAudiencesAnalytics200Response> getAudiencesAnalyticsWithHttpInfo(String audienceIds, String sort) throws ApiException {
+    public ApiResponse<GetAudiencesAnalytics200Response> getAudiencesAnalyticsWithHttpInfo(@javax.annotation.Nonnull String audienceIds, @javax.annotation.Nullable String sort) throws ApiException {
         okhttp3.Call localVarCall = getAudiencesAnalyticsValidateBeforeCall(audienceIds, sort, null);
         Type localVarReturnType = new TypeToken<GetAudiencesAnalytics200Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -11891,7 +11891,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getAudiencesAnalyticsAsync(String audienceIds, String sort, final ApiCallback<GetAudiencesAnalytics200Response> _callback) throws ApiException {
+    public okhttp3.Call getAudiencesAnalyticsAsync(@javax.annotation.Nonnull String audienceIds, @javax.annotation.Nullable String sort, final ApiCallback<GetAudiencesAnalytics200Response> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getAudiencesAnalyticsValidateBeforeCall(audienceIds, sort, _callback);
         Type localVarReturnType = new TypeToken<GetAudiencesAnalytics200Response>(){}.getType();
@@ -11912,7 +11912,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getCampaignCall(Long applicationId, Long campaignId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getCampaignCall(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -11959,7 +11959,7 @@ public class ManagementApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getCampaignValidateBeforeCall(Long applicationId, Long campaignId, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getCampaignValidateBeforeCall(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'applicationId' is set
         if (applicationId == null) {
             throw new ApiException("Missing the required parameter 'applicationId' when calling getCampaign(Async)");
@@ -11988,7 +11988,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public Campaign getCampaign(Long applicationId, Long campaignId) throws ApiException {
+    public Campaign getCampaign(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId) throws ApiException {
         ApiResponse<Campaign> localVarResp = getCampaignWithHttpInfo(applicationId, campaignId);
         return localVarResp.getData();
     }
@@ -12007,7 +12007,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Campaign> getCampaignWithHttpInfo(Long applicationId, Long campaignId) throws ApiException {
+    public ApiResponse<Campaign> getCampaignWithHttpInfo(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId) throws ApiException {
         okhttp3.Call localVarCall = getCampaignValidateBeforeCall(applicationId, campaignId, null);
         Type localVarReturnType = new TypeToken<Campaign>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -12028,7 +12028,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getCampaignAsync(Long applicationId, Long campaignId, final ApiCallback<Campaign> _callback) throws ApiException {
+    public okhttp3.Call getCampaignAsync(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, final ApiCallback<Campaign> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getCampaignValidateBeforeCall(applicationId, campaignId, _callback);
         Type localVarReturnType = new TypeToken<Campaign>(){}.getType();
@@ -12052,7 +12052,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getCampaignAnalyticsCall(Long applicationId, Long campaignId, OffsetDateTime rangeStart, OffsetDateTime rangeEnd, String granularity, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getCampaignAnalyticsCall(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, @javax.annotation.Nonnull OffsetDateTime rangeStart, @javax.annotation.Nonnull OffsetDateTime rangeEnd, @javax.annotation.Nullable String granularity, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -12111,7 +12111,7 @@ public class ManagementApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getCampaignAnalyticsValidateBeforeCall(Long applicationId, Long campaignId, OffsetDateTime rangeStart, OffsetDateTime rangeEnd, String granularity, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getCampaignAnalyticsValidateBeforeCall(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, @javax.annotation.Nonnull OffsetDateTime rangeStart, @javax.annotation.Nonnull OffsetDateTime rangeEnd, @javax.annotation.Nullable String granularity, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'applicationId' is set
         if (applicationId == null) {
             throw new ApiException("Missing the required parameter 'applicationId' when calling getCampaignAnalytics(Async)");
@@ -12153,7 +12153,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public GetCampaignAnalytics200Response getCampaignAnalytics(Long applicationId, Long campaignId, OffsetDateTime rangeStart, OffsetDateTime rangeEnd, String granularity) throws ApiException {
+    public GetCampaignAnalytics200Response getCampaignAnalytics(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, @javax.annotation.Nonnull OffsetDateTime rangeStart, @javax.annotation.Nonnull OffsetDateTime rangeEnd, @javax.annotation.Nullable String granularity) throws ApiException {
         ApiResponse<GetCampaignAnalytics200Response> localVarResp = getCampaignAnalyticsWithHttpInfo(applicationId, campaignId, rangeStart, rangeEnd, granularity);
         return localVarResp.getData();
     }
@@ -12175,7 +12175,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<GetCampaignAnalytics200Response> getCampaignAnalyticsWithHttpInfo(Long applicationId, Long campaignId, OffsetDateTime rangeStart, OffsetDateTime rangeEnd, String granularity) throws ApiException {
+    public ApiResponse<GetCampaignAnalytics200Response> getCampaignAnalyticsWithHttpInfo(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, @javax.annotation.Nonnull OffsetDateTime rangeStart, @javax.annotation.Nonnull OffsetDateTime rangeEnd, @javax.annotation.Nullable String granularity) throws ApiException {
         okhttp3.Call localVarCall = getCampaignAnalyticsValidateBeforeCall(applicationId, campaignId, rangeStart, rangeEnd, granularity, null);
         Type localVarReturnType = new TypeToken<GetCampaignAnalytics200Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -12199,7 +12199,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getCampaignAnalyticsAsync(Long applicationId, Long campaignId, OffsetDateTime rangeStart, OffsetDateTime rangeEnd, String granularity, final ApiCallback<GetCampaignAnalytics200Response> _callback) throws ApiException {
+    public okhttp3.Call getCampaignAnalyticsAsync(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, @javax.annotation.Nonnull OffsetDateTime rangeStart, @javax.annotation.Nonnull OffsetDateTime rangeEnd, @javax.annotation.Nullable String granularity, final ApiCallback<GetCampaignAnalytics200Response> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getCampaignAnalyticsValidateBeforeCall(applicationId, campaignId, rangeStart, rangeEnd, granularity, _callback);
         Type localVarReturnType = new TypeToken<GetCampaignAnalytics200Response>(){}.getType();
@@ -12224,7 +12224,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getCampaignByAttributesCall(Long applicationId, CampaignSearch campaignSearch, Long pageSize, Long skip, String sort, String campaignState, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getCampaignByAttributesCall(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull CampaignSearch campaignSearch, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable String sort, @javax.annotation.Nullable String campaignState, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -12287,7 +12287,7 @@ public class ManagementApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getCampaignByAttributesValidateBeforeCall(Long applicationId, CampaignSearch campaignSearch, Long pageSize, Long skip, String sort, String campaignState, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getCampaignByAttributesValidateBeforeCall(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull CampaignSearch campaignSearch, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable String sort, @javax.annotation.Nullable String campaignState, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'applicationId' is set
         if (applicationId == null) {
             throw new ApiException("Missing the required parameter 'applicationId' when calling getCampaignByAttributes(Async)");
@@ -12320,7 +12320,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public GetCampaigns200Response getCampaignByAttributes(Long applicationId, CampaignSearch campaignSearch, Long pageSize, Long skip, String sort, String campaignState) throws ApiException {
+    public GetCampaigns200Response getCampaignByAttributes(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull CampaignSearch campaignSearch, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable String sort, @javax.annotation.Nullable String campaignState) throws ApiException {
         ApiResponse<GetCampaigns200Response> localVarResp = getCampaignByAttributesWithHttpInfo(applicationId, campaignSearch, pageSize, skip, sort, campaignState);
         return localVarResp.getData();
     }
@@ -12343,7 +12343,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<GetCampaigns200Response> getCampaignByAttributesWithHttpInfo(Long applicationId, CampaignSearch campaignSearch, Long pageSize, Long skip, String sort, String campaignState) throws ApiException {
+    public ApiResponse<GetCampaigns200Response> getCampaignByAttributesWithHttpInfo(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull CampaignSearch campaignSearch, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable String sort, @javax.annotation.Nullable String campaignState) throws ApiException {
         okhttp3.Call localVarCall = getCampaignByAttributesValidateBeforeCall(applicationId, campaignSearch, pageSize, skip, sort, campaignState, null);
         Type localVarReturnType = new TypeToken<GetCampaigns200Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -12368,7 +12368,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getCampaignByAttributesAsync(Long applicationId, CampaignSearch campaignSearch, Long pageSize, Long skip, String sort, String campaignState, final ApiCallback<GetCampaigns200Response> _callback) throws ApiException {
+    public okhttp3.Call getCampaignByAttributesAsync(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull CampaignSearch campaignSearch, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable String sort, @javax.annotation.Nullable String campaignState, final ApiCallback<GetCampaigns200Response> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getCampaignByAttributesValidateBeforeCall(applicationId, campaignSearch, pageSize, skip, sort, campaignState, _callback);
         Type localVarReturnType = new TypeToken<GetCampaigns200Response>(){}.getType();
@@ -12388,7 +12388,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getCampaignGroupCall(Long campaignGroupId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getCampaignGroupCall(@javax.annotation.Nonnull Long campaignGroupId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -12434,7 +12434,7 @@ public class ManagementApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getCampaignGroupValidateBeforeCall(Long campaignGroupId, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getCampaignGroupValidateBeforeCall(@javax.annotation.Nonnull Long campaignGroupId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'campaignGroupId' is set
         if (campaignGroupId == null) {
             throw new ApiException("Missing the required parameter 'campaignGroupId' when calling getCampaignGroup(Async)");
@@ -12457,7 +12457,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public CampaignGroup getCampaignGroup(Long campaignGroupId) throws ApiException {
+    public CampaignGroup getCampaignGroup(@javax.annotation.Nonnull Long campaignGroupId) throws ApiException {
         ApiResponse<CampaignGroup> localVarResp = getCampaignGroupWithHttpInfo(campaignGroupId);
         return localVarResp.getData();
     }
@@ -12475,7 +12475,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<CampaignGroup> getCampaignGroupWithHttpInfo(Long campaignGroupId) throws ApiException {
+    public ApiResponse<CampaignGroup> getCampaignGroupWithHttpInfo(@javax.annotation.Nonnull Long campaignGroupId) throws ApiException {
         okhttp3.Call localVarCall = getCampaignGroupValidateBeforeCall(campaignGroupId, null);
         Type localVarReturnType = new TypeToken<CampaignGroup>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -12495,7 +12495,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getCampaignGroupAsync(Long campaignGroupId, final ApiCallback<CampaignGroup> _callback) throws ApiException {
+    public okhttp3.Call getCampaignGroupAsync(@javax.annotation.Nonnull Long campaignGroupId, final ApiCallback<CampaignGroup> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getCampaignGroupValidateBeforeCall(campaignGroupId, _callback);
         Type localVarReturnType = new TypeToken<CampaignGroup>(){}.getType();
@@ -12517,7 +12517,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getCampaignGroupsCall(Long pageSize, Long skip, String sort, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getCampaignGroupsCall(@javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable String sort, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -12574,7 +12574,7 @@ public class ManagementApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getCampaignGroupsValidateBeforeCall(Long pageSize, Long skip, String sort, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getCampaignGroupsValidateBeforeCall(@javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable String sort, final ApiCallback _callback) throws ApiException {
         return getCampaignGroupsCall(pageSize, skip, sort, _callback);
 
     }
@@ -12594,7 +12594,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public GetCampaignGroups200Response getCampaignGroups(Long pageSize, Long skip, String sort) throws ApiException {
+    public GetCampaignGroups200Response getCampaignGroups(@javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable String sort) throws ApiException {
         ApiResponse<GetCampaignGroups200Response> localVarResp = getCampaignGroupsWithHttpInfo(pageSize, skip, sort);
         return localVarResp.getData();
     }
@@ -12614,7 +12614,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<GetCampaignGroups200Response> getCampaignGroupsWithHttpInfo(Long pageSize, Long skip, String sort) throws ApiException {
+    public ApiResponse<GetCampaignGroups200Response> getCampaignGroupsWithHttpInfo(@javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable String sort) throws ApiException {
         okhttp3.Call localVarCall = getCampaignGroupsValidateBeforeCall(pageSize, skip, sort, null);
         Type localVarReturnType = new TypeToken<GetCampaignGroups200Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -12636,7 +12636,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getCampaignGroupsAsync(Long pageSize, Long skip, String sort, final ApiCallback<GetCampaignGroups200Response> _callback) throws ApiException {
+    public okhttp3.Call getCampaignGroupsAsync(@javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable String sort, final ApiCallback<GetCampaignGroups200Response> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getCampaignGroupsValidateBeforeCall(pageSize, skip, sort, _callback);
         Type localVarReturnType = new TypeToken<GetCampaignGroups200Response>(){}.getType();
@@ -12662,7 +12662,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getCampaignTemplatesCall(Long pageSize, Long skip, String sort, String state, String name, String tags, Long userId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getCampaignTemplatesCall(@javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable String sort, @javax.annotation.Nullable String state, @javax.annotation.Nullable String name, @javax.annotation.Nullable String tags, @javax.annotation.Nullable Long userId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -12735,7 +12735,7 @@ public class ManagementApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getCampaignTemplatesValidateBeforeCall(Long pageSize, Long skip, String sort, String state, String name, String tags, Long userId, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getCampaignTemplatesValidateBeforeCall(@javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable String sort, @javax.annotation.Nullable String state, @javax.annotation.Nullable String name, @javax.annotation.Nullable String tags, @javax.annotation.Nullable Long userId, final ApiCallback _callback) throws ApiException {
         return getCampaignTemplatesCall(pageSize, skip, sort, state, name, tags, userId, _callback);
 
     }
@@ -12759,7 +12759,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public GetCampaignTemplates200Response getCampaignTemplates(Long pageSize, Long skip, String sort, String state, String name, String tags, Long userId) throws ApiException {
+    public GetCampaignTemplates200Response getCampaignTemplates(@javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable String sort, @javax.annotation.Nullable String state, @javax.annotation.Nullable String name, @javax.annotation.Nullable String tags, @javax.annotation.Nullable Long userId) throws ApiException {
         ApiResponse<GetCampaignTemplates200Response> localVarResp = getCampaignTemplatesWithHttpInfo(pageSize, skip, sort, state, name, tags, userId);
         return localVarResp.getData();
     }
@@ -12783,7 +12783,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<GetCampaignTemplates200Response> getCampaignTemplatesWithHttpInfo(Long pageSize, Long skip, String sort, String state, String name, String tags, Long userId) throws ApiException {
+    public ApiResponse<GetCampaignTemplates200Response> getCampaignTemplatesWithHttpInfo(@javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable String sort, @javax.annotation.Nullable String state, @javax.annotation.Nullable String name, @javax.annotation.Nullable String tags, @javax.annotation.Nullable Long userId) throws ApiException {
         okhttp3.Call localVarCall = getCampaignTemplatesValidateBeforeCall(pageSize, skip, sort, state, name, tags, userId, null);
         Type localVarReturnType = new TypeToken<GetCampaignTemplates200Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -12809,7 +12809,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getCampaignTemplatesAsync(Long pageSize, Long skip, String sort, String state, String name, String tags, Long userId, final ApiCallback<GetCampaignTemplates200Response> _callback) throws ApiException {
+    public okhttp3.Call getCampaignTemplatesAsync(@javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable String sort, @javax.annotation.Nullable String state, @javax.annotation.Nullable String name, @javax.annotation.Nullable String tags, @javax.annotation.Nullable Long userId, final ApiCallback<GetCampaignTemplates200Response> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getCampaignTemplatesValidateBeforeCall(pageSize, skip, sort, state, name, tags, userId, _callback);
         Type localVarReturnType = new TypeToken<GetCampaignTemplates200Response>(){}.getType();
@@ -12841,7 +12841,7 @@ public class ManagementApi {
         <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getCampaignsCall(Long applicationId, Long pageSize, Long skip, String sort, String campaignState, String name, String tags, OffsetDateTime createdBefore, OffsetDateTime createdAfter, Long campaignGroupId, Long templateId, Long storeId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getCampaignsCall(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable String sort, @javax.annotation.Nullable String campaignState, @javax.annotation.Nullable String name, @javax.annotation.Nullable String tags, @javax.annotation.Nullable OffsetDateTime createdBefore, @javax.annotation.Nullable OffsetDateTime createdAfter, @javax.annotation.Nullable Long campaignGroupId, @javax.annotation.Nullable Long templateId, @javax.annotation.Nullable Long storeId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -12931,7 +12931,7 @@ public class ManagementApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getCampaignsValidateBeforeCall(Long applicationId, Long pageSize, Long skip, String sort, String campaignState, String name, String tags, OffsetDateTime createdBefore, OffsetDateTime createdAfter, Long campaignGroupId, Long templateId, Long storeId, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getCampaignsValidateBeforeCall(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable String sort, @javax.annotation.Nullable String campaignState, @javax.annotation.Nullable String name, @javax.annotation.Nullable String tags, @javax.annotation.Nullable OffsetDateTime createdBefore, @javax.annotation.Nullable OffsetDateTime createdAfter, @javax.annotation.Nullable Long campaignGroupId, @javax.annotation.Nullable Long templateId, @javax.annotation.Nullable Long storeId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'applicationId' is set
         if (applicationId == null) {
             throw new ApiException("Missing the required parameter 'applicationId' when calling getCampaigns(Async)");
@@ -12966,7 +12966,7 @@ public class ManagementApi {
         <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
      </table>
      */
-    public GetCampaigns200Response getCampaigns(Long applicationId, Long pageSize, Long skip, String sort, String campaignState, String name, String tags, OffsetDateTime createdBefore, OffsetDateTime createdAfter, Long campaignGroupId, Long templateId, Long storeId) throws ApiException {
+    public GetCampaigns200Response getCampaigns(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable String sort, @javax.annotation.Nullable String campaignState, @javax.annotation.Nullable String name, @javax.annotation.Nullable String tags, @javax.annotation.Nullable OffsetDateTime createdBefore, @javax.annotation.Nullable OffsetDateTime createdAfter, @javax.annotation.Nullable Long campaignGroupId, @javax.annotation.Nullable Long templateId, @javax.annotation.Nullable Long storeId) throws ApiException {
         ApiResponse<GetCampaigns200Response> localVarResp = getCampaignsWithHttpInfo(applicationId, pageSize, skip, sort, campaignState, name, tags, createdBefore, createdAfter, campaignGroupId, templateId, storeId);
         return localVarResp.getData();
     }
@@ -12996,7 +12996,7 @@ public class ManagementApi {
         <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<GetCampaigns200Response> getCampaignsWithHttpInfo(Long applicationId, Long pageSize, Long skip, String sort, String campaignState, String name, String tags, OffsetDateTime createdBefore, OffsetDateTime createdAfter, Long campaignGroupId, Long templateId, Long storeId) throws ApiException {
+    public ApiResponse<GetCampaigns200Response> getCampaignsWithHttpInfo(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable String sort, @javax.annotation.Nullable String campaignState, @javax.annotation.Nullable String name, @javax.annotation.Nullable String tags, @javax.annotation.Nullable OffsetDateTime createdBefore, @javax.annotation.Nullable OffsetDateTime createdAfter, @javax.annotation.Nullable Long campaignGroupId, @javax.annotation.Nullable Long templateId, @javax.annotation.Nullable Long storeId) throws ApiException {
         okhttp3.Call localVarCall = getCampaignsValidateBeforeCall(applicationId, pageSize, skip, sort, campaignState, name, tags, createdBefore, createdAfter, campaignGroupId, templateId, storeId, null);
         Type localVarReturnType = new TypeToken<GetCampaigns200Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -13028,7 +13028,7 @@ public class ManagementApi {
         <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getCampaignsAsync(Long applicationId, Long pageSize, Long skip, String sort, String campaignState, String name, String tags, OffsetDateTime createdBefore, OffsetDateTime createdAfter, Long campaignGroupId, Long templateId, Long storeId, final ApiCallback<GetCampaigns200Response> _callback) throws ApiException {
+    public okhttp3.Call getCampaignsAsync(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable String sort, @javax.annotation.Nullable String campaignState, @javax.annotation.Nullable String name, @javax.annotation.Nullable String tags, @javax.annotation.Nullable OffsetDateTime createdBefore, @javax.annotation.Nullable OffsetDateTime createdAfter, @javax.annotation.Nullable Long campaignGroupId, @javax.annotation.Nullable Long templateId, @javax.annotation.Nullable Long storeId, final ApiCallback<GetCampaigns200Response> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getCampaignsValidateBeforeCall(applicationId, pageSize, skip, sort, campaignState, name, tags, createdBefore, createdAfter, campaignGroupId, templateId, storeId, _callback);
         Type localVarReturnType = new TypeToken<GetCampaigns200Response>(){}.getType();
@@ -13058,7 +13058,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getChangesCall(Long pageSize, Long skip, String sort, BigDecimal applicationId, String entityPath, Long userId, OffsetDateTime createdBefore, OffsetDateTime createdAfter, Boolean withTotalResultSize, Long managementKeyId, Boolean includeOld, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getChangesCall(@javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable String sort, @javax.annotation.Nullable BigDecimal applicationId, @javax.annotation.Nullable String entityPath, @javax.annotation.Nullable Long userId, @javax.annotation.Nullable OffsetDateTime createdBefore, @javax.annotation.Nullable OffsetDateTime createdAfter, @javax.annotation.Nullable Boolean withTotalResultSize, @javax.annotation.Nullable Long managementKeyId, @javax.annotation.Nullable Boolean includeOld, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -13147,7 +13147,7 @@ public class ManagementApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getChangesValidateBeforeCall(Long pageSize, Long skip, String sort, BigDecimal applicationId, String entityPath, Long userId, OffsetDateTime createdBefore, OffsetDateTime createdAfter, Boolean withTotalResultSize, Long managementKeyId, Boolean includeOld, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getChangesValidateBeforeCall(@javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable String sort, @javax.annotation.Nullable BigDecimal applicationId, @javax.annotation.Nullable String entityPath, @javax.annotation.Nullable Long userId, @javax.annotation.Nullable OffsetDateTime createdBefore, @javax.annotation.Nullable OffsetDateTime createdAfter, @javax.annotation.Nullable Boolean withTotalResultSize, @javax.annotation.Nullable Long managementKeyId, @javax.annotation.Nullable Boolean includeOld, final ApiCallback _callback) throws ApiException {
         return getChangesCall(pageSize, skip, sort, applicationId, entityPath, userId, createdBefore, createdAfter, withTotalResultSize, managementKeyId, includeOld, _callback);
 
     }
@@ -13175,7 +13175,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public GetChanges200Response getChanges(Long pageSize, Long skip, String sort, BigDecimal applicationId, String entityPath, Long userId, OffsetDateTime createdBefore, OffsetDateTime createdAfter, Boolean withTotalResultSize, Long managementKeyId, Boolean includeOld) throws ApiException {
+    public GetChanges200Response getChanges(@javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable String sort, @javax.annotation.Nullable BigDecimal applicationId, @javax.annotation.Nullable String entityPath, @javax.annotation.Nullable Long userId, @javax.annotation.Nullable OffsetDateTime createdBefore, @javax.annotation.Nullable OffsetDateTime createdAfter, @javax.annotation.Nullable Boolean withTotalResultSize, @javax.annotation.Nullable Long managementKeyId, @javax.annotation.Nullable Boolean includeOld) throws ApiException {
         ApiResponse<GetChanges200Response> localVarResp = getChangesWithHttpInfo(pageSize, skip, sort, applicationId, entityPath, userId, createdBefore, createdAfter, withTotalResultSize, managementKeyId, includeOld);
         return localVarResp.getData();
     }
@@ -13203,7 +13203,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<GetChanges200Response> getChangesWithHttpInfo(Long pageSize, Long skip, String sort, BigDecimal applicationId, String entityPath, Long userId, OffsetDateTime createdBefore, OffsetDateTime createdAfter, Boolean withTotalResultSize, Long managementKeyId, Boolean includeOld) throws ApiException {
+    public ApiResponse<GetChanges200Response> getChangesWithHttpInfo(@javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable String sort, @javax.annotation.Nullable BigDecimal applicationId, @javax.annotation.Nullable String entityPath, @javax.annotation.Nullable Long userId, @javax.annotation.Nullable OffsetDateTime createdBefore, @javax.annotation.Nullable OffsetDateTime createdAfter, @javax.annotation.Nullable Boolean withTotalResultSize, @javax.annotation.Nullable Long managementKeyId, @javax.annotation.Nullable Boolean includeOld) throws ApiException {
         okhttp3.Call localVarCall = getChangesValidateBeforeCall(pageSize, skip, sort, applicationId, entityPath, userId, createdBefore, createdAfter, withTotalResultSize, managementKeyId, includeOld, null);
         Type localVarReturnType = new TypeToken<GetChanges200Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -13233,7 +13233,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getChangesAsync(Long pageSize, Long skip, String sort, BigDecimal applicationId, String entityPath, Long userId, OffsetDateTime createdBefore, OffsetDateTime createdAfter, Boolean withTotalResultSize, Long managementKeyId, Boolean includeOld, final ApiCallback<GetChanges200Response> _callback) throws ApiException {
+    public okhttp3.Call getChangesAsync(@javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable String sort, @javax.annotation.Nullable BigDecimal applicationId, @javax.annotation.Nullable String entityPath, @javax.annotation.Nullable Long userId, @javax.annotation.Nullable OffsetDateTime createdBefore, @javax.annotation.Nullable OffsetDateTime createdAfter, @javax.annotation.Nullable Boolean withTotalResultSize, @javax.annotation.Nullable Long managementKeyId, @javax.annotation.Nullable Boolean includeOld, final ApiCallback<GetChanges200Response> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getChangesValidateBeforeCall(pageSize, skip, sort, applicationId, entityPath, userId, createdBefore, createdAfter, withTotalResultSize, managementKeyId, includeOld, _callback);
         Type localVarReturnType = new TypeToken<GetChanges200Response>(){}.getType();
@@ -13256,7 +13256,7 @@ public class ManagementApi {
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getCollectionCall(Long applicationId, Long campaignId, Long collectionId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getCollectionCall(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, @javax.annotation.Nonnull Long collectionId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -13304,7 +13304,7 @@ public class ManagementApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getCollectionValidateBeforeCall(Long applicationId, Long campaignId, Long collectionId, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getCollectionValidateBeforeCall(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, @javax.annotation.Nonnull Long collectionId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'applicationId' is set
         if (applicationId == null) {
             throw new ApiException("Missing the required parameter 'applicationId' when calling getCollection(Async)");
@@ -13340,7 +13340,7 @@ public class ManagementApi {
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
      */
-    public Collection getCollection(Long applicationId, Long campaignId, Long collectionId) throws ApiException {
+    public Collection getCollection(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, @javax.annotation.Nonnull Long collectionId) throws ApiException {
         ApiResponse<Collection> localVarResp = getCollectionWithHttpInfo(applicationId, campaignId, collectionId);
         return localVarResp.getData();
     }
@@ -13361,7 +13361,7 @@ public class ManagementApi {
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Collection> getCollectionWithHttpInfo(Long applicationId, Long campaignId, Long collectionId) throws ApiException {
+    public ApiResponse<Collection> getCollectionWithHttpInfo(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, @javax.annotation.Nonnull Long collectionId) throws ApiException {
         okhttp3.Call localVarCall = getCollectionValidateBeforeCall(applicationId, campaignId, collectionId, null);
         Type localVarReturnType = new TypeToken<Collection>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -13384,7 +13384,7 @@ public class ManagementApi {
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getCollectionAsync(Long applicationId, Long campaignId, Long collectionId, final ApiCallback<Collection> _callback) throws ApiException {
+    public okhttp3.Call getCollectionAsync(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, @javax.annotation.Nonnull Long collectionId, final ApiCallback<Collection> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getCollectionValidateBeforeCall(applicationId, campaignId, collectionId, _callback);
         Type localVarReturnType = new TypeToken<Collection>(){}.getType();
@@ -13407,7 +13407,7 @@ public class ManagementApi {
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getCollectionItemsCall(Long collectionId, Long pageSize, Long skip, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getCollectionItemsCall(@javax.annotation.Nonnull Long collectionId, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -13461,7 +13461,7 @@ public class ManagementApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getCollectionItemsValidateBeforeCall(Long collectionId, Long pageSize, Long skip, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getCollectionItemsValidateBeforeCall(@javax.annotation.Nonnull Long collectionId, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'collectionId' is set
         if (collectionId == null) {
             throw new ApiException("Missing the required parameter 'collectionId' when calling getCollectionItems(Async)");
@@ -13487,7 +13487,7 @@ public class ManagementApi {
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
      */
-    public GetCollectionItems200Response getCollectionItems(Long collectionId, Long pageSize, Long skip) throws ApiException {
+    public GetCollectionItems200Response getCollectionItems(@javax.annotation.Nonnull Long collectionId, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip) throws ApiException {
         ApiResponse<GetCollectionItems200Response> localVarResp = getCollectionItemsWithHttpInfo(collectionId, pageSize, skip);
         return localVarResp.getData();
     }
@@ -13508,7 +13508,7 @@ public class ManagementApi {
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<GetCollectionItems200Response> getCollectionItemsWithHttpInfo(Long collectionId, Long pageSize, Long skip) throws ApiException {
+    public ApiResponse<GetCollectionItems200Response> getCollectionItemsWithHttpInfo(@javax.annotation.Nonnull Long collectionId, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip) throws ApiException {
         okhttp3.Call localVarCall = getCollectionItemsValidateBeforeCall(collectionId, pageSize, skip, null);
         Type localVarReturnType = new TypeToken<GetCollectionItems200Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -13531,7 +13531,7 @@ public class ManagementApi {
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getCollectionItemsAsync(Long collectionId, Long pageSize, Long skip, final ApiCallback<GetCollectionItems200Response> _callback) throws ApiException {
+    public okhttp3.Call getCollectionItemsAsync(@javax.annotation.Nonnull Long collectionId, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, final ApiCallback<GetCollectionItems200Response> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getCollectionItemsValidateBeforeCall(collectionId, pageSize, skip, _callback);
         Type localVarReturnType = new TypeToken<GetCollectionItems200Response>(){}.getType();
@@ -13570,7 +13570,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getCouponsWithoutTotalCountCall(Long applicationId, Long campaignId, Long pageSize, Long skip, String sort, String value, OffsetDateTime createdBefore, OffsetDateTime createdAfter, String valid, String usable, String redeemed, Long referralId, String recipientIntegrationId, String batchId, Boolean exactMatch, OffsetDateTime expiresBefore, OffsetDateTime expiresAfter, OffsetDateTime startsBefore, OffsetDateTime startsAfter, Boolean valuesOnly, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getCouponsWithoutTotalCountCall(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable String sort, @javax.annotation.Nullable String value, @javax.annotation.Nullable OffsetDateTime createdBefore, @javax.annotation.Nullable OffsetDateTime createdAfter, @javax.annotation.Nullable String valid, @javax.annotation.Nullable String usable, @javax.annotation.Nullable String redeemed, @javax.annotation.Nullable Long referralId, @javax.annotation.Nullable String recipientIntegrationId, @javax.annotation.Nullable String batchId, @javax.annotation.Nullable Boolean exactMatch, @javax.annotation.Nullable OffsetDateTime expiresBefore, @javax.annotation.Nullable OffsetDateTime expiresAfter, @javax.annotation.Nullable OffsetDateTime startsBefore, @javax.annotation.Nullable OffsetDateTime startsAfter, @javax.annotation.Nullable Boolean valuesOnly, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -13689,7 +13689,7 @@ public class ManagementApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getCouponsWithoutTotalCountValidateBeforeCall(Long applicationId, Long campaignId, Long pageSize, Long skip, String sort, String value, OffsetDateTime createdBefore, OffsetDateTime createdAfter, String valid, String usable, String redeemed, Long referralId, String recipientIntegrationId, String batchId, Boolean exactMatch, OffsetDateTime expiresBefore, OffsetDateTime expiresAfter, OffsetDateTime startsBefore, OffsetDateTime startsAfter, Boolean valuesOnly, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getCouponsWithoutTotalCountValidateBeforeCall(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable String sort, @javax.annotation.Nullable String value, @javax.annotation.Nullable OffsetDateTime createdBefore, @javax.annotation.Nullable OffsetDateTime createdAfter, @javax.annotation.Nullable String valid, @javax.annotation.Nullable String usable, @javax.annotation.Nullable String redeemed, @javax.annotation.Nullable Long referralId, @javax.annotation.Nullable String recipientIntegrationId, @javax.annotation.Nullable String batchId, @javax.annotation.Nullable Boolean exactMatch, @javax.annotation.Nullable OffsetDateTime expiresBefore, @javax.annotation.Nullable OffsetDateTime expiresAfter, @javax.annotation.Nullable OffsetDateTime startsBefore, @javax.annotation.Nullable OffsetDateTime startsAfter, @javax.annotation.Nullable Boolean valuesOnly, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'applicationId' is set
         if (applicationId == null) {
             throw new ApiException("Missing the required parameter 'applicationId' when calling getCouponsWithoutTotalCount(Async)");
@@ -13736,7 +13736,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public GetCouponsWithoutTotalCount200Response getCouponsWithoutTotalCount(Long applicationId, Long campaignId, Long pageSize, Long skip, String sort, String value, OffsetDateTime createdBefore, OffsetDateTime createdAfter, String valid, String usable, String redeemed, Long referralId, String recipientIntegrationId, String batchId, Boolean exactMatch, OffsetDateTime expiresBefore, OffsetDateTime expiresAfter, OffsetDateTime startsBefore, OffsetDateTime startsAfter, Boolean valuesOnly) throws ApiException {
+    public GetCouponsWithoutTotalCount200Response getCouponsWithoutTotalCount(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable String sort, @javax.annotation.Nullable String value, @javax.annotation.Nullable OffsetDateTime createdBefore, @javax.annotation.Nullable OffsetDateTime createdAfter, @javax.annotation.Nullable String valid, @javax.annotation.Nullable String usable, @javax.annotation.Nullable String redeemed, @javax.annotation.Nullable Long referralId, @javax.annotation.Nullable String recipientIntegrationId, @javax.annotation.Nullable String batchId, @javax.annotation.Nullable Boolean exactMatch, @javax.annotation.Nullable OffsetDateTime expiresBefore, @javax.annotation.Nullable OffsetDateTime expiresAfter, @javax.annotation.Nullable OffsetDateTime startsBefore, @javax.annotation.Nullable OffsetDateTime startsAfter, @javax.annotation.Nullable Boolean valuesOnly) throws ApiException {
         ApiResponse<GetCouponsWithoutTotalCount200Response> localVarResp = getCouponsWithoutTotalCountWithHttpInfo(applicationId, campaignId, pageSize, skip, sort, value, createdBefore, createdAfter, valid, usable, redeemed, referralId, recipientIntegrationId, batchId, exactMatch, expiresBefore, expiresAfter, startsBefore, startsAfter, valuesOnly);
         return localVarResp.getData();
     }
@@ -13773,7 +13773,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<GetCouponsWithoutTotalCount200Response> getCouponsWithoutTotalCountWithHttpInfo(Long applicationId, Long campaignId, Long pageSize, Long skip, String sort, String value, OffsetDateTime createdBefore, OffsetDateTime createdAfter, String valid, String usable, String redeemed, Long referralId, String recipientIntegrationId, String batchId, Boolean exactMatch, OffsetDateTime expiresBefore, OffsetDateTime expiresAfter, OffsetDateTime startsBefore, OffsetDateTime startsAfter, Boolean valuesOnly) throws ApiException {
+    public ApiResponse<GetCouponsWithoutTotalCount200Response> getCouponsWithoutTotalCountWithHttpInfo(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable String sort, @javax.annotation.Nullable String value, @javax.annotation.Nullable OffsetDateTime createdBefore, @javax.annotation.Nullable OffsetDateTime createdAfter, @javax.annotation.Nullable String valid, @javax.annotation.Nullable String usable, @javax.annotation.Nullable String redeemed, @javax.annotation.Nullable Long referralId, @javax.annotation.Nullable String recipientIntegrationId, @javax.annotation.Nullable String batchId, @javax.annotation.Nullable Boolean exactMatch, @javax.annotation.Nullable OffsetDateTime expiresBefore, @javax.annotation.Nullable OffsetDateTime expiresAfter, @javax.annotation.Nullable OffsetDateTime startsBefore, @javax.annotation.Nullable OffsetDateTime startsAfter, @javax.annotation.Nullable Boolean valuesOnly) throws ApiException {
         okhttp3.Call localVarCall = getCouponsWithoutTotalCountValidateBeforeCall(applicationId, campaignId, pageSize, skip, sort, value, createdBefore, createdAfter, valid, usable, redeemed, referralId, recipientIntegrationId, batchId, exactMatch, expiresBefore, expiresAfter, startsBefore, startsAfter, valuesOnly, null);
         Type localVarReturnType = new TypeToken<GetCouponsWithoutTotalCount200Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -13812,7 +13812,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getCouponsWithoutTotalCountAsync(Long applicationId, Long campaignId, Long pageSize, Long skip, String sort, String value, OffsetDateTime createdBefore, OffsetDateTime createdAfter, String valid, String usable, String redeemed, Long referralId, String recipientIntegrationId, String batchId, Boolean exactMatch, OffsetDateTime expiresBefore, OffsetDateTime expiresAfter, OffsetDateTime startsBefore, OffsetDateTime startsAfter, Boolean valuesOnly, final ApiCallback<GetCouponsWithoutTotalCount200Response> _callback) throws ApiException {
+    public okhttp3.Call getCouponsWithoutTotalCountAsync(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable String sort, @javax.annotation.Nullable String value, @javax.annotation.Nullable OffsetDateTime createdBefore, @javax.annotation.Nullable OffsetDateTime createdAfter, @javax.annotation.Nullable String valid, @javax.annotation.Nullable String usable, @javax.annotation.Nullable String redeemed, @javax.annotation.Nullable Long referralId, @javax.annotation.Nullable String recipientIntegrationId, @javax.annotation.Nullable String batchId, @javax.annotation.Nullable Boolean exactMatch, @javax.annotation.Nullable OffsetDateTime expiresBefore, @javax.annotation.Nullable OffsetDateTime expiresAfter, @javax.annotation.Nullable OffsetDateTime startsBefore, @javax.annotation.Nullable OffsetDateTime startsAfter, @javax.annotation.Nullable Boolean valuesOnly, final ApiCallback<GetCouponsWithoutTotalCount200Response> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getCouponsWithoutTotalCountValidateBeforeCall(applicationId, campaignId, pageSize, skip, sort, value, createdBefore, createdAfter, valid, usable, redeemed, referralId, recipientIntegrationId, batchId, exactMatch, expiresBefore, expiresAfter, startsBefore, startsAfter, valuesOnly, _callback);
         Type localVarReturnType = new TypeToken<GetCouponsWithoutTotalCount200Response>(){}.getType();
@@ -13837,7 +13837,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getCustomerActivityReportCall(OffsetDateTime rangeStart, OffsetDateTime rangeEnd, Long applicationId, Long customerId, Long pageSize, Long skip, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getCustomerActivityReportCall(@javax.annotation.Nonnull OffsetDateTime rangeStart, @javax.annotation.Nonnull OffsetDateTime rangeEnd, @javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long customerId, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -13900,7 +13900,7 @@ public class ManagementApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getCustomerActivityReportValidateBeforeCall(OffsetDateTime rangeStart, OffsetDateTime rangeEnd, Long applicationId, Long customerId, Long pageSize, Long skip, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getCustomerActivityReportValidateBeforeCall(@javax.annotation.Nonnull OffsetDateTime rangeStart, @javax.annotation.Nonnull OffsetDateTime rangeEnd, @javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long customerId, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'rangeStart' is set
         if (rangeStart == null) {
             throw new ApiException("Missing the required parameter 'rangeStart' when calling getCustomerActivityReport(Async)");
@@ -13943,7 +13943,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public CustomerActivityReport getCustomerActivityReport(OffsetDateTime rangeStart, OffsetDateTime rangeEnd, Long applicationId, Long customerId, Long pageSize, Long skip) throws ApiException {
+    public CustomerActivityReport getCustomerActivityReport(@javax.annotation.Nonnull OffsetDateTime rangeStart, @javax.annotation.Nonnull OffsetDateTime rangeEnd, @javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long customerId, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip) throws ApiException {
         ApiResponse<CustomerActivityReport> localVarResp = getCustomerActivityReportWithHttpInfo(rangeStart, rangeEnd, applicationId, customerId, pageSize, skip);
         return localVarResp.getData();
     }
@@ -13966,7 +13966,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<CustomerActivityReport> getCustomerActivityReportWithHttpInfo(OffsetDateTime rangeStart, OffsetDateTime rangeEnd, Long applicationId, Long customerId, Long pageSize, Long skip) throws ApiException {
+    public ApiResponse<CustomerActivityReport> getCustomerActivityReportWithHttpInfo(@javax.annotation.Nonnull OffsetDateTime rangeStart, @javax.annotation.Nonnull OffsetDateTime rangeEnd, @javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long customerId, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip) throws ApiException {
         okhttp3.Call localVarCall = getCustomerActivityReportValidateBeforeCall(rangeStart, rangeEnd, applicationId, customerId, pageSize, skip, null);
         Type localVarReturnType = new TypeToken<CustomerActivityReport>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -13991,7 +13991,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getCustomerActivityReportAsync(OffsetDateTime rangeStart, OffsetDateTime rangeEnd, Long applicationId, Long customerId, Long pageSize, Long skip, final ApiCallback<CustomerActivityReport> _callback) throws ApiException {
+    public okhttp3.Call getCustomerActivityReportAsync(@javax.annotation.Nonnull OffsetDateTime rangeStart, @javax.annotation.Nonnull OffsetDateTime rangeEnd, @javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long customerId, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, final ApiCallback<CustomerActivityReport> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getCustomerActivityReportValidateBeforeCall(rangeStart, rangeEnd, applicationId, customerId, pageSize, skip, _callback);
         Type localVarReturnType = new TypeToken<CustomerActivityReport>(){}.getType();
@@ -14020,7 +14020,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getCustomerActivityReportsWithoutTotalCountCall(OffsetDateTime rangeStart, OffsetDateTime rangeEnd, Long applicationId, Long pageSize, Long skip, String sort, String name, String integrationId, String campaignName, String advocateName, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getCustomerActivityReportsWithoutTotalCountCall(@javax.annotation.Nonnull OffsetDateTime rangeStart, @javax.annotation.Nonnull OffsetDateTime rangeEnd, @javax.annotation.Nonnull Long applicationId, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable String sort, @javax.annotation.Nullable String name, @javax.annotation.Nullable String integrationId, @javax.annotation.Nullable String campaignName, @javax.annotation.Nullable String advocateName, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -14102,7 +14102,7 @@ public class ManagementApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getCustomerActivityReportsWithoutTotalCountValidateBeforeCall(OffsetDateTime rangeStart, OffsetDateTime rangeEnd, Long applicationId, Long pageSize, Long skip, String sort, String name, String integrationId, String campaignName, String advocateName, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getCustomerActivityReportsWithoutTotalCountValidateBeforeCall(@javax.annotation.Nonnull OffsetDateTime rangeStart, @javax.annotation.Nonnull OffsetDateTime rangeEnd, @javax.annotation.Nonnull Long applicationId, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable String sort, @javax.annotation.Nullable String name, @javax.annotation.Nullable String integrationId, @javax.annotation.Nullable String campaignName, @javax.annotation.Nullable String advocateName, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'rangeStart' is set
         if (rangeStart == null) {
             throw new ApiException("Missing the required parameter 'rangeStart' when calling getCustomerActivityReportsWithoutTotalCount(Async)");
@@ -14144,7 +14144,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public GetCustomerActivityReportsWithoutTotalCount200Response getCustomerActivityReportsWithoutTotalCount(OffsetDateTime rangeStart, OffsetDateTime rangeEnd, Long applicationId, Long pageSize, Long skip, String sort, String name, String integrationId, String campaignName, String advocateName) throws ApiException {
+    public GetCustomerActivityReportsWithoutTotalCount200Response getCustomerActivityReportsWithoutTotalCount(@javax.annotation.Nonnull OffsetDateTime rangeStart, @javax.annotation.Nonnull OffsetDateTime rangeEnd, @javax.annotation.Nonnull Long applicationId, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable String sort, @javax.annotation.Nullable String name, @javax.annotation.Nullable String integrationId, @javax.annotation.Nullable String campaignName, @javax.annotation.Nullable String advocateName) throws ApiException {
         ApiResponse<GetCustomerActivityReportsWithoutTotalCount200Response> localVarResp = getCustomerActivityReportsWithoutTotalCountWithHttpInfo(rangeStart, rangeEnd, applicationId, pageSize, skip, sort, name, integrationId, campaignName, advocateName);
         return localVarResp.getData();
     }
@@ -14171,7 +14171,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<GetCustomerActivityReportsWithoutTotalCount200Response> getCustomerActivityReportsWithoutTotalCountWithHttpInfo(OffsetDateTime rangeStart, OffsetDateTime rangeEnd, Long applicationId, Long pageSize, Long skip, String sort, String name, String integrationId, String campaignName, String advocateName) throws ApiException {
+    public ApiResponse<GetCustomerActivityReportsWithoutTotalCount200Response> getCustomerActivityReportsWithoutTotalCountWithHttpInfo(@javax.annotation.Nonnull OffsetDateTime rangeStart, @javax.annotation.Nonnull OffsetDateTime rangeEnd, @javax.annotation.Nonnull Long applicationId, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable String sort, @javax.annotation.Nullable String name, @javax.annotation.Nullable String integrationId, @javax.annotation.Nullable String campaignName, @javax.annotation.Nullable String advocateName) throws ApiException {
         okhttp3.Call localVarCall = getCustomerActivityReportsWithoutTotalCountValidateBeforeCall(rangeStart, rangeEnd, applicationId, pageSize, skip, sort, name, integrationId, campaignName, advocateName, null);
         Type localVarReturnType = new TypeToken<GetCustomerActivityReportsWithoutTotalCount200Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -14200,7 +14200,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getCustomerActivityReportsWithoutTotalCountAsync(OffsetDateTime rangeStart, OffsetDateTime rangeEnd, Long applicationId, Long pageSize, Long skip, String sort, String name, String integrationId, String campaignName, String advocateName, final ApiCallback<GetCustomerActivityReportsWithoutTotalCount200Response> _callback) throws ApiException {
+    public okhttp3.Call getCustomerActivityReportsWithoutTotalCountAsync(@javax.annotation.Nonnull OffsetDateTime rangeStart, @javax.annotation.Nonnull OffsetDateTime rangeEnd, @javax.annotation.Nonnull Long applicationId, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable String sort, @javax.annotation.Nullable String name, @javax.annotation.Nullable String integrationId, @javax.annotation.Nullable String campaignName, @javax.annotation.Nullable String advocateName, final ApiCallback<GetCustomerActivityReportsWithoutTotalCount200Response> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getCustomerActivityReportsWithoutTotalCountValidateBeforeCall(rangeStart, rangeEnd, applicationId, pageSize, skip, sort, name, integrationId, campaignName, advocateName, _callback);
         Type localVarReturnType = new TypeToken<GetCustomerActivityReportsWithoutTotalCount200Response>(){}.getType();
@@ -14224,7 +14224,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getCustomerAnalyticsCall(Long applicationId, Long customerId, Long pageSize, Long skip, String sort, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getCustomerAnalyticsCall(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long customerId, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable String sort, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -14283,7 +14283,7 @@ public class ManagementApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getCustomerAnalyticsValidateBeforeCall(Long applicationId, Long customerId, Long pageSize, Long skip, String sort, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getCustomerAnalyticsValidateBeforeCall(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long customerId, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable String sort, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'applicationId' is set
         if (applicationId == null) {
             throw new ApiException("Missing the required parameter 'applicationId' when calling getCustomerAnalytics(Async)");
@@ -14315,7 +14315,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public CustomerAnalytics getCustomerAnalytics(Long applicationId, Long customerId, Long pageSize, Long skip, String sort) throws ApiException {
+    public CustomerAnalytics getCustomerAnalytics(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long customerId, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable String sort) throws ApiException {
         ApiResponse<CustomerAnalytics> localVarResp = getCustomerAnalyticsWithHttpInfo(applicationId, customerId, pageSize, skip, sort);
         return localVarResp.getData();
     }
@@ -14337,7 +14337,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<CustomerAnalytics> getCustomerAnalyticsWithHttpInfo(Long applicationId, Long customerId, Long pageSize, Long skip, String sort) throws ApiException {
+    public ApiResponse<CustomerAnalytics> getCustomerAnalyticsWithHttpInfo(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long customerId, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable String sort) throws ApiException {
         okhttp3.Call localVarCall = getCustomerAnalyticsValidateBeforeCall(applicationId, customerId, pageSize, skip, sort, null);
         Type localVarReturnType = new TypeToken<CustomerAnalytics>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -14361,7 +14361,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getCustomerAnalyticsAsync(Long applicationId, Long customerId, Long pageSize, Long skip, String sort, final ApiCallback<CustomerAnalytics> _callback) throws ApiException {
+    public okhttp3.Call getCustomerAnalyticsAsync(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long customerId, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable String sort, final ApiCallback<CustomerAnalytics> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getCustomerAnalyticsValidateBeforeCall(applicationId, customerId, pageSize, skip, sort, _callback);
         Type localVarReturnType = new TypeToken<CustomerAnalytics>(){}.getType();
@@ -14381,7 +14381,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getCustomerProfileCall(Long customerId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getCustomerProfileCall(@javax.annotation.Nonnull Long customerId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -14427,7 +14427,7 @@ public class ManagementApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getCustomerProfileValidateBeforeCall(Long customerId, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getCustomerProfileValidateBeforeCall(@javax.annotation.Nonnull Long customerId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'customerId' is set
         if (customerId == null) {
             throw new ApiException("Missing the required parameter 'customerId' when calling getCustomerProfile(Async)");
@@ -14450,7 +14450,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public CustomerProfile getCustomerProfile(Long customerId) throws ApiException {
+    public CustomerProfile getCustomerProfile(@javax.annotation.Nonnull Long customerId) throws ApiException {
         ApiResponse<CustomerProfile> localVarResp = getCustomerProfileWithHttpInfo(customerId);
         return localVarResp.getData();
     }
@@ -14468,7 +14468,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<CustomerProfile> getCustomerProfileWithHttpInfo(Long customerId) throws ApiException {
+    public ApiResponse<CustomerProfile> getCustomerProfileWithHttpInfo(@javax.annotation.Nonnull Long customerId) throws ApiException {
         okhttp3.Call localVarCall = getCustomerProfileValidateBeforeCall(customerId, null);
         Type localVarReturnType = new TypeToken<CustomerProfile>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -14488,7 +14488,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getCustomerProfileAsync(Long customerId, final ApiCallback<CustomerProfile> _callback) throws ApiException {
+    public okhttp3.Call getCustomerProfileAsync(@javax.annotation.Nonnull Long customerId, final ApiCallback<CustomerProfile> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getCustomerProfileValidateBeforeCall(customerId, _callback);
         Type localVarReturnType = new TypeToken<CustomerProfile>(){}.getType();
@@ -14515,7 +14515,7 @@ public class ManagementApi {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getCustomerProfileAchievementProgressCall(Long applicationId, String integrationId, Long pageSize, Long skip, Long achievementId, String title, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getCustomerProfileAchievementProgressCall(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull String integrationId, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable Long achievementId, @javax.annotation.Nullable String title, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -14578,7 +14578,7 @@ public class ManagementApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getCustomerProfileAchievementProgressValidateBeforeCall(Long applicationId, String integrationId, Long pageSize, Long skip, Long achievementId, String title, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getCustomerProfileAchievementProgressValidateBeforeCall(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull String integrationId, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable Long achievementId, @javax.annotation.Nullable String title, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'applicationId' is set
         if (applicationId == null) {
             throw new ApiException("Missing the required parameter 'applicationId' when calling getCustomerProfileAchievementProgress(Async)");
@@ -14613,7 +14613,7 @@ public class ManagementApi {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public GetCustomerProfileAchievementProgress200Response getCustomerProfileAchievementProgress(Long applicationId, String integrationId, Long pageSize, Long skip, Long achievementId, String title) throws ApiException {
+    public GetCustomerProfileAchievementProgress200Response getCustomerProfileAchievementProgress(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull String integrationId, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable Long achievementId, @javax.annotation.Nullable String title) throws ApiException {
         ApiResponse<GetCustomerProfileAchievementProgress200Response> localVarResp = getCustomerProfileAchievementProgressWithHttpInfo(applicationId, integrationId, pageSize, skip, achievementId, title);
         return localVarResp.getData();
     }
@@ -14638,7 +14638,7 @@ public class ManagementApi {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<GetCustomerProfileAchievementProgress200Response> getCustomerProfileAchievementProgressWithHttpInfo(Long applicationId, String integrationId, Long pageSize, Long skip, Long achievementId, String title) throws ApiException {
+    public ApiResponse<GetCustomerProfileAchievementProgress200Response> getCustomerProfileAchievementProgressWithHttpInfo(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull String integrationId, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable Long achievementId, @javax.annotation.Nullable String title) throws ApiException {
         okhttp3.Call localVarCall = getCustomerProfileAchievementProgressValidateBeforeCall(applicationId, integrationId, pageSize, skip, achievementId, title, null);
         Type localVarReturnType = new TypeToken<GetCustomerProfileAchievementProgress200Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -14665,7 +14665,7 @@ public class ManagementApi {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getCustomerProfileAchievementProgressAsync(Long applicationId, String integrationId, Long pageSize, Long skip, Long achievementId, String title, final ApiCallback<GetCustomerProfileAchievementProgress200Response> _callback) throws ApiException {
+    public okhttp3.Call getCustomerProfileAchievementProgressAsync(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull String integrationId, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable Long achievementId, @javax.annotation.Nullable String title, final ApiCallback<GetCustomerProfileAchievementProgress200Response> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getCustomerProfileAchievementProgressValidateBeforeCall(applicationId, integrationId, pageSize, skip, achievementId, title, _callback);
         Type localVarReturnType = new TypeToken<GetCustomerProfileAchievementProgress200Response>(){}.getType();
@@ -14687,7 +14687,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getCustomerProfilesCall(Long pageSize, Long skip, Boolean sandbox, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getCustomerProfilesCall(@javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable Boolean sandbox, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -14744,7 +14744,7 @@ public class ManagementApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getCustomerProfilesValidateBeforeCall(Long pageSize, Long skip, Boolean sandbox, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getCustomerProfilesValidateBeforeCall(@javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable Boolean sandbox, final ApiCallback _callback) throws ApiException {
         return getCustomerProfilesCall(pageSize, skip, sandbox, _callback);
 
     }
@@ -14764,7 +14764,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public GetCustomerProfiles200Response getCustomerProfiles(Long pageSize, Long skip, Boolean sandbox) throws ApiException {
+    public GetCustomerProfiles200Response getCustomerProfiles(@javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable Boolean sandbox) throws ApiException {
         ApiResponse<GetCustomerProfiles200Response> localVarResp = getCustomerProfilesWithHttpInfo(pageSize, skip, sandbox);
         return localVarResp.getData();
     }
@@ -14784,7 +14784,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<GetCustomerProfiles200Response> getCustomerProfilesWithHttpInfo(Long pageSize, Long skip, Boolean sandbox) throws ApiException {
+    public ApiResponse<GetCustomerProfiles200Response> getCustomerProfilesWithHttpInfo(@javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable Boolean sandbox) throws ApiException {
         okhttp3.Call localVarCall = getCustomerProfilesValidateBeforeCall(pageSize, skip, sandbox, null);
         Type localVarReturnType = new TypeToken<GetCustomerProfiles200Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -14806,7 +14806,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getCustomerProfilesAsync(Long pageSize, Long skip, Boolean sandbox, final ApiCallback<GetCustomerProfiles200Response> _callback) throws ApiException {
+    public okhttp3.Call getCustomerProfilesAsync(@javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable Boolean sandbox, final ApiCallback<GetCustomerProfiles200Response> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getCustomerProfilesValidateBeforeCall(pageSize, skip, sandbox, _callback);
         Type localVarReturnType = new TypeToken<GetCustomerProfiles200Response>(){}.getType();
@@ -14829,7 +14829,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getCustomersByAttributesCall(CustomerProfileSearchQuery customerProfileSearchQuery, Long pageSize, Long skip, Boolean sandbox, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getCustomersByAttributesCall(@javax.annotation.Nonnull CustomerProfileSearchQuery customerProfileSearchQuery, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable Boolean sandbox, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -14887,7 +14887,7 @@ public class ManagementApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getCustomersByAttributesValidateBeforeCall(CustomerProfileSearchQuery customerProfileSearchQuery, Long pageSize, Long skip, Boolean sandbox, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getCustomersByAttributesValidateBeforeCall(@javax.annotation.Nonnull CustomerProfileSearchQuery customerProfileSearchQuery, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable Boolean sandbox, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'customerProfileSearchQuery' is set
         if (customerProfileSearchQuery == null) {
             throw new ApiException("Missing the required parameter 'customerProfileSearchQuery' when calling getCustomersByAttributes(Async)");
@@ -14913,7 +14913,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public GetCustomersByAttributes200Response getCustomersByAttributes(CustomerProfileSearchQuery customerProfileSearchQuery, Long pageSize, Long skip, Boolean sandbox) throws ApiException {
+    public GetCustomersByAttributes200Response getCustomersByAttributes(@javax.annotation.Nonnull CustomerProfileSearchQuery customerProfileSearchQuery, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable Boolean sandbox) throws ApiException {
         ApiResponse<GetCustomersByAttributes200Response> localVarResp = getCustomersByAttributesWithHttpInfo(customerProfileSearchQuery, pageSize, skip, sandbox);
         return localVarResp.getData();
     }
@@ -14934,7 +14934,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<GetCustomersByAttributes200Response> getCustomersByAttributesWithHttpInfo(CustomerProfileSearchQuery customerProfileSearchQuery, Long pageSize, Long skip, Boolean sandbox) throws ApiException {
+    public ApiResponse<GetCustomersByAttributes200Response> getCustomersByAttributesWithHttpInfo(@javax.annotation.Nonnull CustomerProfileSearchQuery customerProfileSearchQuery, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable Boolean sandbox) throws ApiException {
         okhttp3.Call localVarCall = getCustomersByAttributesValidateBeforeCall(customerProfileSearchQuery, pageSize, skip, sandbox, null);
         Type localVarReturnType = new TypeToken<GetCustomersByAttributes200Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -14957,7 +14957,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getCustomersByAttributesAsync(CustomerProfileSearchQuery customerProfileSearchQuery, Long pageSize, Long skip, Boolean sandbox, final ApiCallback<GetCustomersByAttributes200Response> _callback) throws ApiException {
+    public okhttp3.Call getCustomersByAttributesAsync(@javax.annotation.Nonnull CustomerProfileSearchQuery customerProfileSearchQuery, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable Boolean sandbox, final ApiCallback<GetCustomersByAttributes200Response> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getCustomersByAttributesValidateBeforeCall(customerProfileSearchQuery, pageSize, skip, sandbox, _callback);
         Type localVarReturnType = new TypeToken<GetCustomersByAttributes200Response>(){}.getType();
@@ -14980,7 +14980,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getDashboardStatisticsCall(Long loyaltyProgramId, OffsetDateTime rangeStart, OffsetDateTime rangeEnd, String subledgerId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getDashboardStatisticsCall(@javax.annotation.Nonnull Long loyaltyProgramId, @javax.annotation.Nonnull OffsetDateTime rangeStart, @javax.annotation.Nonnull OffsetDateTime rangeEnd, @javax.annotation.Nullable String subledgerId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -15038,7 +15038,7 @@ public class ManagementApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getDashboardStatisticsValidateBeforeCall(Long loyaltyProgramId, OffsetDateTime rangeStart, OffsetDateTime rangeEnd, String subledgerId, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getDashboardStatisticsValidateBeforeCall(@javax.annotation.Nonnull Long loyaltyProgramId, @javax.annotation.Nonnull OffsetDateTime rangeStart, @javax.annotation.Nonnull OffsetDateTime rangeEnd, @javax.annotation.Nullable String subledgerId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'loyaltyProgramId' is set
         if (loyaltyProgramId == null) {
             throw new ApiException("Missing the required parameter 'loyaltyProgramId' when calling getDashboardStatistics(Async)");
@@ -15074,7 +15074,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public GetDashboardStatistics200Response getDashboardStatistics(Long loyaltyProgramId, OffsetDateTime rangeStart, OffsetDateTime rangeEnd, String subledgerId) throws ApiException {
+    public GetDashboardStatistics200Response getDashboardStatistics(@javax.annotation.Nonnull Long loyaltyProgramId, @javax.annotation.Nonnull OffsetDateTime rangeStart, @javax.annotation.Nonnull OffsetDateTime rangeEnd, @javax.annotation.Nullable String subledgerId) throws ApiException {
         ApiResponse<GetDashboardStatistics200Response> localVarResp = getDashboardStatisticsWithHttpInfo(loyaltyProgramId, rangeStart, rangeEnd, subledgerId);
         return localVarResp.getData();
     }
@@ -15095,7 +15095,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<GetDashboardStatistics200Response> getDashboardStatisticsWithHttpInfo(Long loyaltyProgramId, OffsetDateTime rangeStart, OffsetDateTime rangeEnd, String subledgerId) throws ApiException {
+    public ApiResponse<GetDashboardStatistics200Response> getDashboardStatisticsWithHttpInfo(@javax.annotation.Nonnull Long loyaltyProgramId, @javax.annotation.Nonnull OffsetDateTime rangeStart, @javax.annotation.Nonnull OffsetDateTime rangeEnd, @javax.annotation.Nullable String subledgerId) throws ApiException {
         okhttp3.Call localVarCall = getDashboardStatisticsValidateBeforeCall(loyaltyProgramId, rangeStart, rangeEnd, subledgerId, null);
         Type localVarReturnType = new TypeToken<GetDashboardStatistics200Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -15118,7 +15118,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getDashboardStatisticsAsync(Long loyaltyProgramId, OffsetDateTime rangeStart, OffsetDateTime rangeEnd, String subledgerId, final ApiCallback<GetDashboardStatistics200Response> _callback) throws ApiException {
+    public okhttp3.Call getDashboardStatisticsAsync(@javax.annotation.Nonnull Long loyaltyProgramId, @javax.annotation.Nonnull OffsetDateTime rangeStart, @javax.annotation.Nonnull OffsetDateTime rangeEnd, @javax.annotation.Nullable String subledgerId, final ApiCallback<GetDashboardStatistics200Response> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getDashboardStatisticsValidateBeforeCall(loyaltyProgramId, rangeStart, rangeEnd, subledgerId, _callback);
         Type localVarReturnType = new TypeToken<GetDashboardStatistics200Response>(){}.getType();
@@ -15142,7 +15142,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getEventTypesCall(String name, Boolean includeOldVersions, Long pageSize, Long skip, String sort, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getEventTypesCall(@javax.annotation.Nullable String name, @javax.annotation.Nullable Boolean includeOldVersions, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable String sort, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -15207,7 +15207,7 @@ public class ManagementApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getEventTypesValidateBeforeCall(String name, Boolean includeOldVersions, Long pageSize, Long skip, String sort, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getEventTypesValidateBeforeCall(@javax.annotation.Nullable String name, @javax.annotation.Nullable Boolean includeOldVersions, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable String sort, final ApiCallback _callback) throws ApiException {
         return getEventTypesCall(name, includeOldVersions, pageSize, skip, sort, _callback);
 
     }
@@ -15229,7 +15229,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public GetEventTypes200Response getEventTypes(String name, Boolean includeOldVersions, Long pageSize, Long skip, String sort) throws ApiException {
+    public GetEventTypes200Response getEventTypes(@javax.annotation.Nullable String name, @javax.annotation.Nullable Boolean includeOldVersions, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable String sort) throws ApiException {
         ApiResponse<GetEventTypes200Response> localVarResp = getEventTypesWithHttpInfo(name, includeOldVersions, pageSize, skip, sort);
         return localVarResp.getData();
     }
@@ -15251,7 +15251,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<GetEventTypes200Response> getEventTypesWithHttpInfo(String name, Boolean includeOldVersions, Long pageSize, Long skip, String sort) throws ApiException {
+    public ApiResponse<GetEventTypes200Response> getEventTypesWithHttpInfo(@javax.annotation.Nullable String name, @javax.annotation.Nullable Boolean includeOldVersions, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable String sort) throws ApiException {
         okhttp3.Call localVarCall = getEventTypesValidateBeforeCall(name, includeOldVersions, pageSize, skip, sort, null);
         Type localVarReturnType = new TypeToken<GetEventTypes200Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -15275,7 +15275,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getEventTypesAsync(String name, Boolean includeOldVersions, Long pageSize, Long skip, String sort, final ApiCallback<GetEventTypes200Response> _callback) throws ApiException {
+    public okhttp3.Call getEventTypesAsync(@javax.annotation.Nullable String name, @javax.annotation.Nullable Boolean includeOldVersions, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable String sort, final ApiCallback<GetEventTypes200Response> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getEventTypesValidateBeforeCall(name, includeOldVersions, pageSize, skip, sort, _callback);
         Type localVarReturnType = new TypeToken<GetEventTypes200Response>(){}.getType();
@@ -15299,7 +15299,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getExportsCall(Long pageSize, Long skip, BigDecimal applicationId, Long campaignId, String entity, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getExportsCall(@javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable BigDecimal applicationId, @javax.annotation.Nullable Long campaignId, @javax.annotation.Nullable String entity, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -15364,7 +15364,7 @@ public class ManagementApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getExportsValidateBeforeCall(Long pageSize, Long skip, BigDecimal applicationId, Long campaignId, String entity, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getExportsValidateBeforeCall(@javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable BigDecimal applicationId, @javax.annotation.Nullable Long campaignId, @javax.annotation.Nullable String entity, final ApiCallback _callback) throws ApiException {
         return getExportsCall(pageSize, skip, applicationId, campaignId, entity, _callback);
 
     }
@@ -15386,7 +15386,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public GetExports200Response getExports(Long pageSize, Long skip, BigDecimal applicationId, Long campaignId, String entity) throws ApiException {
+    public GetExports200Response getExports(@javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable BigDecimal applicationId, @javax.annotation.Nullable Long campaignId, @javax.annotation.Nullable String entity) throws ApiException {
         ApiResponse<GetExports200Response> localVarResp = getExportsWithHttpInfo(pageSize, skip, applicationId, campaignId, entity);
         return localVarResp.getData();
     }
@@ -15408,7 +15408,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<GetExports200Response> getExportsWithHttpInfo(Long pageSize, Long skip, BigDecimal applicationId, Long campaignId, String entity) throws ApiException {
+    public ApiResponse<GetExports200Response> getExportsWithHttpInfo(@javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable BigDecimal applicationId, @javax.annotation.Nullable Long campaignId, @javax.annotation.Nullable String entity) throws ApiException {
         okhttp3.Call localVarCall = getExportsValidateBeforeCall(pageSize, skip, applicationId, campaignId, entity, null);
         Type localVarReturnType = new TypeToken<GetExports200Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -15432,7 +15432,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getExportsAsync(Long pageSize, Long skip, BigDecimal applicationId, Long campaignId, String entity, final ApiCallback<GetExports200Response> _callback) throws ApiException {
+    public okhttp3.Call getExportsAsync(@javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable BigDecimal applicationId, @javax.annotation.Nullable Long campaignId, @javax.annotation.Nullable String entity, final ApiCallback<GetExports200Response> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getExportsValidateBeforeCall(pageSize, skip, applicationId, campaignId, entity, _callback);
         Type localVarReturnType = new TypeToken<GetExports200Response>(){}.getType();
@@ -15456,7 +15456,7 @@ public class ManagementApi {
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getLoyaltyCardCall(Long loyaltyProgramId, String loyaltyCardId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getLoyaltyCardCall(@javax.annotation.Nonnull Long loyaltyProgramId, @javax.annotation.Nonnull String loyaltyCardId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -15503,7 +15503,7 @@ public class ManagementApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getLoyaltyCardValidateBeforeCall(Long loyaltyProgramId, String loyaltyCardId, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getLoyaltyCardValidateBeforeCall(@javax.annotation.Nonnull Long loyaltyProgramId, @javax.annotation.Nonnull String loyaltyCardId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'loyaltyProgramId' is set
         if (loyaltyProgramId == null) {
             throw new ApiException("Missing the required parameter 'loyaltyProgramId' when calling getLoyaltyCard(Async)");
@@ -15535,7 +15535,7 @@ public class ManagementApi {
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
      */
-    public LoyaltyCard getLoyaltyCard(Long loyaltyProgramId, String loyaltyCardId) throws ApiException {
+    public LoyaltyCard getLoyaltyCard(@javax.annotation.Nonnull Long loyaltyProgramId, @javax.annotation.Nonnull String loyaltyCardId) throws ApiException {
         ApiResponse<LoyaltyCard> localVarResp = getLoyaltyCardWithHttpInfo(loyaltyProgramId, loyaltyCardId);
         return localVarResp.getData();
     }
@@ -15557,7 +15557,7 @@ public class ManagementApi {
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<LoyaltyCard> getLoyaltyCardWithHttpInfo(Long loyaltyProgramId, String loyaltyCardId) throws ApiException {
+    public ApiResponse<LoyaltyCard> getLoyaltyCardWithHttpInfo(@javax.annotation.Nonnull Long loyaltyProgramId, @javax.annotation.Nonnull String loyaltyCardId) throws ApiException {
         okhttp3.Call localVarCall = getLoyaltyCardValidateBeforeCall(loyaltyProgramId, loyaltyCardId, null);
         Type localVarReturnType = new TypeToken<LoyaltyCard>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -15581,7 +15581,7 @@ public class ManagementApi {
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getLoyaltyCardAsync(Long loyaltyProgramId, String loyaltyCardId, final ApiCallback<LoyaltyCard> _callback) throws ApiException {
+    public okhttp3.Call getLoyaltyCardAsync(@javax.annotation.Nonnull Long loyaltyProgramId, @javax.annotation.Nonnull String loyaltyCardId, final ApiCallback<LoyaltyCard> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getLoyaltyCardValidateBeforeCall(loyaltyProgramId, loyaltyCardId, _callback);
         Type localVarReturnType = new TypeToken<LoyaltyCard>(){}.getType();
@@ -15611,7 +15611,7 @@ public class ManagementApi {
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getLoyaltyCardTransactionLogsCall(Long loyaltyProgramId, String loyaltyCardId, OffsetDateTime startDate, OffsetDateTime endDate, Long pageSize, Long skip, String subledgerId, List<String> customerSessionIDs, List<String> transactionUUIDs, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getLoyaltyCardTransactionLogsCall(@javax.annotation.Nonnull Long loyaltyProgramId, @javax.annotation.Nonnull String loyaltyCardId, @javax.annotation.Nullable OffsetDateTime startDate, @javax.annotation.Nullable OffsetDateTime endDate, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable String subledgerId, @javax.annotation.Nullable List<String> customerSessionIDs, @javax.annotation.Nullable List<String> transactionUUIDs, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -15686,7 +15686,7 @@ public class ManagementApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getLoyaltyCardTransactionLogsValidateBeforeCall(Long loyaltyProgramId, String loyaltyCardId, OffsetDateTime startDate, OffsetDateTime endDate, Long pageSize, Long skip, String subledgerId, List<String> customerSessionIDs, List<String> transactionUUIDs, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getLoyaltyCardTransactionLogsValidateBeforeCall(@javax.annotation.Nonnull Long loyaltyProgramId, @javax.annotation.Nonnull String loyaltyCardId, @javax.annotation.Nullable OffsetDateTime startDate, @javax.annotation.Nullable OffsetDateTime endDate, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable String subledgerId, @javax.annotation.Nullable List<String> customerSessionIDs, @javax.annotation.Nullable List<String> transactionUUIDs, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'loyaltyProgramId' is set
         if (loyaltyProgramId == null) {
             throw new ApiException("Missing the required parameter 'loyaltyProgramId' when calling getLoyaltyCardTransactionLogs(Async)");
@@ -15724,7 +15724,7 @@ public class ManagementApi {
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
      */
-    public GetLoyaltyCardTransactionLogs200Response getLoyaltyCardTransactionLogs(Long loyaltyProgramId, String loyaltyCardId, OffsetDateTime startDate, OffsetDateTime endDate, Long pageSize, Long skip, String subledgerId, List<String> customerSessionIDs, List<String> transactionUUIDs) throws ApiException {
+    public GetLoyaltyCardTransactionLogs200Response getLoyaltyCardTransactionLogs(@javax.annotation.Nonnull Long loyaltyProgramId, @javax.annotation.Nonnull String loyaltyCardId, @javax.annotation.Nullable OffsetDateTime startDate, @javax.annotation.Nullable OffsetDateTime endDate, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable String subledgerId, @javax.annotation.Nullable List<String> customerSessionIDs, @javax.annotation.Nullable List<String> transactionUUIDs) throws ApiException {
         ApiResponse<GetLoyaltyCardTransactionLogs200Response> localVarResp = getLoyaltyCardTransactionLogsWithHttpInfo(loyaltyProgramId, loyaltyCardId, startDate, endDate, pageSize, skip, subledgerId, customerSessionIDs, transactionUUIDs);
         return localVarResp.getData();
     }
@@ -15752,7 +15752,7 @@ public class ManagementApi {
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<GetLoyaltyCardTransactionLogs200Response> getLoyaltyCardTransactionLogsWithHttpInfo(Long loyaltyProgramId, String loyaltyCardId, OffsetDateTime startDate, OffsetDateTime endDate, Long pageSize, Long skip, String subledgerId, List<String> customerSessionIDs, List<String> transactionUUIDs) throws ApiException {
+    public ApiResponse<GetLoyaltyCardTransactionLogs200Response> getLoyaltyCardTransactionLogsWithHttpInfo(@javax.annotation.Nonnull Long loyaltyProgramId, @javax.annotation.Nonnull String loyaltyCardId, @javax.annotation.Nullable OffsetDateTime startDate, @javax.annotation.Nullable OffsetDateTime endDate, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable String subledgerId, @javax.annotation.Nullable List<String> customerSessionIDs, @javax.annotation.Nullable List<String> transactionUUIDs) throws ApiException {
         okhttp3.Call localVarCall = getLoyaltyCardTransactionLogsValidateBeforeCall(loyaltyProgramId, loyaltyCardId, startDate, endDate, pageSize, skip, subledgerId, customerSessionIDs, transactionUUIDs, null);
         Type localVarReturnType = new TypeToken<GetLoyaltyCardTransactionLogs200Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -15782,7 +15782,7 @@ public class ManagementApi {
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getLoyaltyCardTransactionLogsAsync(Long loyaltyProgramId, String loyaltyCardId, OffsetDateTime startDate, OffsetDateTime endDate, Long pageSize, Long skip, String subledgerId, List<String> customerSessionIDs, List<String> transactionUUIDs, final ApiCallback<GetLoyaltyCardTransactionLogs200Response> _callback) throws ApiException {
+    public okhttp3.Call getLoyaltyCardTransactionLogsAsync(@javax.annotation.Nonnull Long loyaltyProgramId, @javax.annotation.Nonnull String loyaltyCardId, @javax.annotation.Nullable OffsetDateTime startDate, @javax.annotation.Nullable OffsetDateTime endDate, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable String subledgerId, @javax.annotation.Nullable List<String> customerSessionIDs, @javax.annotation.Nullable List<String> transactionUUIDs, final ApiCallback<GetLoyaltyCardTransactionLogs200Response> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getLoyaltyCardTransactionLogsValidateBeforeCall(loyaltyProgramId, loyaltyCardId, startDate, endDate, pageSize, skip, subledgerId, customerSessionIDs, transactionUUIDs, _callback);
         Type localVarReturnType = new TypeToken<GetLoyaltyCardTransactionLogs200Response>(){}.getType();
@@ -15810,7 +15810,7 @@ public class ManagementApi {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getLoyaltyCardsCall(Long loyaltyProgramId, Long pageSize, Long skip, String sort, String identifier, Long profileId, String batchId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getLoyaltyCardsCall(@javax.annotation.Nonnull Long loyaltyProgramId, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable String sort, @javax.annotation.Nullable String identifier, @javax.annotation.Nullable Long profileId, @javax.annotation.Nullable String batchId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -15880,7 +15880,7 @@ public class ManagementApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getLoyaltyCardsValidateBeforeCall(Long loyaltyProgramId, Long pageSize, Long skip, String sort, String identifier, Long profileId, String batchId, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getLoyaltyCardsValidateBeforeCall(@javax.annotation.Nonnull Long loyaltyProgramId, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable String sort, @javax.annotation.Nullable String identifier, @javax.annotation.Nullable Long profileId, @javax.annotation.Nullable String batchId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'loyaltyProgramId' is set
         if (loyaltyProgramId == null) {
             throw new ApiException("Missing the required parameter 'loyaltyProgramId' when calling getLoyaltyCards(Async)");
@@ -15911,7 +15911,7 @@ public class ManagementApi {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public GetLoyaltyCards200Response getLoyaltyCards(Long loyaltyProgramId, Long pageSize, Long skip, String sort, String identifier, Long profileId, String batchId) throws ApiException {
+    public GetLoyaltyCards200Response getLoyaltyCards(@javax.annotation.Nonnull Long loyaltyProgramId, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable String sort, @javax.annotation.Nullable String identifier, @javax.annotation.Nullable Long profileId, @javax.annotation.Nullable String batchId) throws ApiException {
         ApiResponse<GetLoyaltyCards200Response> localVarResp = getLoyaltyCardsWithHttpInfo(loyaltyProgramId, pageSize, skip, sort, identifier, profileId, batchId);
         return localVarResp.getData();
     }
@@ -15937,7 +15937,7 @@ public class ManagementApi {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<GetLoyaltyCards200Response> getLoyaltyCardsWithHttpInfo(Long loyaltyProgramId, Long pageSize, Long skip, String sort, String identifier, Long profileId, String batchId) throws ApiException {
+    public ApiResponse<GetLoyaltyCards200Response> getLoyaltyCardsWithHttpInfo(@javax.annotation.Nonnull Long loyaltyProgramId, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable String sort, @javax.annotation.Nullable String identifier, @javax.annotation.Nullable Long profileId, @javax.annotation.Nullable String batchId) throws ApiException {
         okhttp3.Call localVarCall = getLoyaltyCardsValidateBeforeCall(loyaltyProgramId, pageSize, skip, sort, identifier, profileId, batchId, null);
         Type localVarReturnType = new TypeToken<GetLoyaltyCards200Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -15965,7 +15965,7 @@ public class ManagementApi {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getLoyaltyCardsAsync(Long loyaltyProgramId, Long pageSize, Long skip, String sort, String identifier, Long profileId, String batchId, final ApiCallback<GetLoyaltyCards200Response> _callback) throws ApiException {
+    public okhttp3.Call getLoyaltyCardsAsync(@javax.annotation.Nonnull Long loyaltyProgramId, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable String sort, @javax.annotation.Nullable String identifier, @javax.annotation.Nullable Long profileId, @javax.annotation.Nullable String batchId, final ApiCallback<GetLoyaltyCards200Response> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getLoyaltyCardsValidateBeforeCall(loyaltyProgramId, pageSize, skip, sort, identifier, profileId, batchId, _callback);
         Type localVarReturnType = new TypeToken<GetLoyaltyCards200Response>(){}.getType();
@@ -15986,7 +15986,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getLoyaltyPointsCall(String loyaltyProgramId, String integrationId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getLoyaltyPointsCall(@javax.annotation.Nonnull String loyaltyProgramId, @javax.annotation.Nonnull String integrationId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -16033,7 +16033,7 @@ public class ManagementApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getLoyaltyPointsValidateBeforeCall(String loyaltyProgramId, String integrationId, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getLoyaltyPointsValidateBeforeCall(@javax.annotation.Nonnull String loyaltyProgramId, @javax.annotation.Nonnull String integrationId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'loyaltyProgramId' is set
         if (loyaltyProgramId == null) {
             throw new ApiException("Missing the required parameter 'loyaltyProgramId' when calling getLoyaltyPoints(Async)");
@@ -16062,7 +16062,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public LoyaltyLedger getLoyaltyPoints(String loyaltyProgramId, String integrationId) throws ApiException {
+    public LoyaltyLedger getLoyaltyPoints(@javax.annotation.Nonnull String loyaltyProgramId, @javax.annotation.Nonnull String integrationId) throws ApiException {
         ApiResponse<LoyaltyLedger> localVarResp = getLoyaltyPointsWithHttpInfo(loyaltyProgramId, integrationId);
         return localVarResp.getData();
     }
@@ -16081,7 +16081,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<LoyaltyLedger> getLoyaltyPointsWithHttpInfo(String loyaltyProgramId, String integrationId) throws ApiException {
+    public ApiResponse<LoyaltyLedger> getLoyaltyPointsWithHttpInfo(@javax.annotation.Nonnull String loyaltyProgramId, @javax.annotation.Nonnull String integrationId) throws ApiException {
         okhttp3.Call localVarCall = getLoyaltyPointsValidateBeforeCall(loyaltyProgramId, integrationId, null);
         Type localVarReturnType = new TypeToken<LoyaltyLedger>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -16102,7 +16102,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getLoyaltyPointsAsync(String loyaltyProgramId, String integrationId, final ApiCallback<LoyaltyLedger> _callback) throws ApiException {
+    public okhttp3.Call getLoyaltyPointsAsync(@javax.annotation.Nonnull String loyaltyProgramId, @javax.annotation.Nonnull String integrationId, final ApiCallback<LoyaltyLedger> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getLoyaltyPointsValidateBeforeCall(loyaltyProgramId, integrationId, _callback);
         Type localVarReturnType = new TypeToken<LoyaltyLedger>(){}.getType();
@@ -16122,7 +16122,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getLoyaltyProgramCall(Long loyaltyProgramId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getLoyaltyProgramCall(@javax.annotation.Nonnull Long loyaltyProgramId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -16168,7 +16168,7 @@ public class ManagementApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getLoyaltyProgramValidateBeforeCall(Long loyaltyProgramId, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getLoyaltyProgramValidateBeforeCall(@javax.annotation.Nonnull Long loyaltyProgramId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'loyaltyProgramId' is set
         if (loyaltyProgramId == null) {
             throw new ApiException("Missing the required parameter 'loyaltyProgramId' when calling getLoyaltyProgram(Async)");
@@ -16191,7 +16191,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public LoyaltyProgram getLoyaltyProgram(Long loyaltyProgramId) throws ApiException {
+    public LoyaltyProgram getLoyaltyProgram(@javax.annotation.Nonnull Long loyaltyProgramId) throws ApiException {
         ApiResponse<LoyaltyProgram> localVarResp = getLoyaltyProgramWithHttpInfo(loyaltyProgramId);
         return localVarResp.getData();
     }
@@ -16209,7 +16209,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<LoyaltyProgram> getLoyaltyProgramWithHttpInfo(Long loyaltyProgramId) throws ApiException {
+    public ApiResponse<LoyaltyProgram> getLoyaltyProgramWithHttpInfo(@javax.annotation.Nonnull Long loyaltyProgramId) throws ApiException {
         okhttp3.Call localVarCall = getLoyaltyProgramValidateBeforeCall(loyaltyProgramId, null);
         Type localVarReturnType = new TypeToken<LoyaltyProgram>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -16229,7 +16229,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getLoyaltyProgramAsync(Long loyaltyProgramId, final ApiCallback<LoyaltyProgram> _callback) throws ApiException {
+    public okhttp3.Call getLoyaltyProgramAsync(@javax.annotation.Nonnull Long loyaltyProgramId, final ApiCallback<LoyaltyProgram> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getLoyaltyProgramValidateBeforeCall(loyaltyProgramId, _callback);
         Type localVarReturnType = new TypeToken<LoyaltyProgram>(){}.getType();
@@ -16261,7 +16261,7 @@ public class ManagementApi {
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getLoyaltyProgramTransactionsCall(Long loyaltyProgramId, String loyaltyTransactionType, String subledgerId, List<String> customerSessionIDs, List<String> transactionUUIDs, OffsetDateTime startDate, OffsetDateTime endDate, Long pageSize, Long skip, Boolean awaitsActivation, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getLoyaltyProgramTransactionsCall(@javax.annotation.Nonnull Long loyaltyProgramId, @javax.annotation.Nullable String loyaltyTransactionType, @javax.annotation.Nullable String subledgerId, @javax.annotation.Nullable List<String> customerSessionIDs, @javax.annotation.Nullable List<String> transactionUUIDs, @javax.annotation.Nullable OffsetDateTime startDate, @javax.annotation.Nullable OffsetDateTime endDate, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable Boolean awaitsActivation, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -16343,7 +16343,7 @@ public class ManagementApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getLoyaltyProgramTransactionsValidateBeforeCall(Long loyaltyProgramId, String loyaltyTransactionType, String subledgerId, List<String> customerSessionIDs, List<String> transactionUUIDs, OffsetDateTime startDate, OffsetDateTime endDate, Long pageSize, Long skip, Boolean awaitsActivation, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getLoyaltyProgramTransactionsValidateBeforeCall(@javax.annotation.Nonnull Long loyaltyProgramId, @javax.annotation.Nullable String loyaltyTransactionType, @javax.annotation.Nullable String subledgerId, @javax.annotation.Nullable List<String> customerSessionIDs, @javax.annotation.Nullable List<String> transactionUUIDs, @javax.annotation.Nullable OffsetDateTime startDate, @javax.annotation.Nullable OffsetDateTime endDate, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable Boolean awaitsActivation, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'loyaltyProgramId' is set
         if (loyaltyProgramId == null) {
             throw new ApiException("Missing the required parameter 'loyaltyProgramId' when calling getLoyaltyProgramTransactions(Async)");
@@ -16378,7 +16378,7 @@ public class ManagementApi {
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
      */
-    public GetLoyaltyProgramTransactions200Response getLoyaltyProgramTransactions(Long loyaltyProgramId, String loyaltyTransactionType, String subledgerId, List<String> customerSessionIDs, List<String> transactionUUIDs, OffsetDateTime startDate, OffsetDateTime endDate, Long pageSize, Long skip, Boolean awaitsActivation) throws ApiException {
+    public GetLoyaltyProgramTransactions200Response getLoyaltyProgramTransactions(@javax.annotation.Nonnull Long loyaltyProgramId, @javax.annotation.Nullable String loyaltyTransactionType, @javax.annotation.Nullable String subledgerId, @javax.annotation.Nullable List<String> customerSessionIDs, @javax.annotation.Nullable List<String> transactionUUIDs, @javax.annotation.Nullable OffsetDateTime startDate, @javax.annotation.Nullable OffsetDateTime endDate, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable Boolean awaitsActivation) throws ApiException {
         ApiResponse<GetLoyaltyProgramTransactions200Response> localVarResp = getLoyaltyProgramTransactionsWithHttpInfo(loyaltyProgramId, loyaltyTransactionType, subledgerId, customerSessionIDs, transactionUUIDs, startDate, endDate, pageSize, skip, awaitsActivation);
         return localVarResp.getData();
     }
@@ -16408,7 +16408,7 @@ public class ManagementApi {
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<GetLoyaltyProgramTransactions200Response> getLoyaltyProgramTransactionsWithHttpInfo(Long loyaltyProgramId, String loyaltyTransactionType, String subledgerId, List<String> customerSessionIDs, List<String> transactionUUIDs, OffsetDateTime startDate, OffsetDateTime endDate, Long pageSize, Long skip, Boolean awaitsActivation) throws ApiException {
+    public ApiResponse<GetLoyaltyProgramTransactions200Response> getLoyaltyProgramTransactionsWithHttpInfo(@javax.annotation.Nonnull Long loyaltyProgramId, @javax.annotation.Nullable String loyaltyTransactionType, @javax.annotation.Nullable String subledgerId, @javax.annotation.Nullable List<String> customerSessionIDs, @javax.annotation.Nullable List<String> transactionUUIDs, @javax.annotation.Nullable OffsetDateTime startDate, @javax.annotation.Nullable OffsetDateTime endDate, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable Boolean awaitsActivation) throws ApiException {
         okhttp3.Call localVarCall = getLoyaltyProgramTransactionsValidateBeforeCall(loyaltyProgramId, loyaltyTransactionType, subledgerId, customerSessionIDs, transactionUUIDs, startDate, endDate, pageSize, skip, awaitsActivation, null);
         Type localVarReturnType = new TypeToken<GetLoyaltyProgramTransactions200Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -16440,7 +16440,7 @@ public class ManagementApi {
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getLoyaltyProgramTransactionsAsync(Long loyaltyProgramId, String loyaltyTransactionType, String subledgerId, List<String> customerSessionIDs, List<String> transactionUUIDs, OffsetDateTime startDate, OffsetDateTime endDate, Long pageSize, Long skip, Boolean awaitsActivation, final ApiCallback<GetLoyaltyProgramTransactions200Response> _callback) throws ApiException {
+    public okhttp3.Call getLoyaltyProgramTransactionsAsync(@javax.annotation.Nonnull Long loyaltyProgramId, @javax.annotation.Nullable String loyaltyTransactionType, @javax.annotation.Nullable String subledgerId, @javax.annotation.Nullable List<String> customerSessionIDs, @javax.annotation.Nullable List<String> transactionUUIDs, @javax.annotation.Nullable OffsetDateTime startDate, @javax.annotation.Nullable OffsetDateTime endDate, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable Boolean awaitsActivation, final ApiCallback<GetLoyaltyProgramTransactions200Response> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getLoyaltyProgramTransactionsValidateBeforeCall(loyaltyProgramId, loyaltyTransactionType, subledgerId, customerSessionIDs, transactionUUIDs, startDate, endDate, pageSize, skip, awaitsActivation, _callback);
         Type localVarReturnType = new TypeToken<GetLoyaltyProgramTransactions200Response>(){}.getType();
@@ -16579,7 +16579,7 @@ public class ManagementApi {
      * @deprecated
      */
     @Deprecated
-    public okhttp3.Call getLoyaltyStatisticsCall(Long loyaltyProgramId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getLoyaltyStatisticsCall(@javax.annotation.Nonnull Long loyaltyProgramId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -16626,7 +16626,7 @@ public class ManagementApi {
 
     @Deprecated
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getLoyaltyStatisticsValidateBeforeCall(Long loyaltyProgramId, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getLoyaltyStatisticsValidateBeforeCall(@javax.annotation.Nonnull Long loyaltyProgramId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'loyaltyProgramId' is set
         if (loyaltyProgramId == null) {
             throw new ApiException("Missing the required parameter 'loyaltyProgramId' when calling getLoyaltyStatistics(Async)");
@@ -16651,7 +16651,7 @@ public class ManagementApi {
      * @deprecated
      */
     @Deprecated
-    public LoyaltyDashboardData getLoyaltyStatistics(Long loyaltyProgramId) throws ApiException {
+    public LoyaltyDashboardData getLoyaltyStatistics(@javax.annotation.Nonnull Long loyaltyProgramId) throws ApiException {
         ApiResponse<LoyaltyDashboardData> localVarResp = getLoyaltyStatisticsWithHttpInfo(loyaltyProgramId);
         return localVarResp.getData();
     }
@@ -16671,7 +16671,7 @@ public class ManagementApi {
      * @deprecated
      */
     @Deprecated
-    public ApiResponse<LoyaltyDashboardData> getLoyaltyStatisticsWithHttpInfo(Long loyaltyProgramId) throws ApiException {
+    public ApiResponse<LoyaltyDashboardData> getLoyaltyStatisticsWithHttpInfo(@javax.annotation.Nonnull Long loyaltyProgramId) throws ApiException {
         okhttp3.Call localVarCall = getLoyaltyStatisticsValidateBeforeCall(loyaltyProgramId, null);
         Type localVarReturnType = new TypeToken<LoyaltyDashboardData>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -16693,7 +16693,7 @@ public class ManagementApi {
      * @deprecated
      */
     @Deprecated
-    public okhttp3.Call getLoyaltyStatisticsAsync(Long loyaltyProgramId, final ApiCallback<LoyaltyDashboardData> _callback) throws ApiException {
+    public okhttp3.Call getLoyaltyStatisticsAsync(@javax.annotation.Nonnull Long loyaltyProgramId, final ApiCallback<LoyaltyDashboardData> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getLoyaltyStatisticsValidateBeforeCall(loyaltyProgramId, _callback);
         Type localVarReturnType = new TypeToken<LoyaltyDashboardData>(){}.getType();
@@ -16726,7 +16726,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getMessageLogsCall(String entityType, String messageID, String changeType, String notificationIDs, OffsetDateTime createdBefore, OffsetDateTime createdAfter, byte[] cursor, String period, Boolean isSuccessful, BigDecimal applicationId, BigDecimal campaignId, Long loyaltyProgramId, Long responseCode, String webhookIDs, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getMessageLogsCall(@javax.annotation.Nonnull String entityType, @javax.annotation.Nullable String messageID, @javax.annotation.Nullable String changeType, @javax.annotation.Nullable String notificationIDs, @javax.annotation.Nullable OffsetDateTime createdBefore, @javax.annotation.Nullable OffsetDateTime createdAfter, @javax.annotation.Nullable byte[] cursor, @javax.annotation.Nullable String period, @javax.annotation.Nullable Boolean isSuccessful, @javax.annotation.Nullable BigDecimal applicationId, @javax.annotation.Nullable BigDecimal campaignId, @javax.annotation.Nullable Long loyaltyProgramId, @javax.annotation.Nullable Long responseCode, @javax.annotation.Nullable String webhookIDs, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -16827,7 +16827,7 @@ public class ManagementApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getMessageLogsValidateBeforeCall(String entityType, String messageID, String changeType, String notificationIDs, OffsetDateTime createdBefore, OffsetDateTime createdAfter, byte[] cursor, String period, Boolean isSuccessful, BigDecimal applicationId, BigDecimal campaignId, Long loyaltyProgramId, Long responseCode, String webhookIDs, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getMessageLogsValidateBeforeCall(@javax.annotation.Nonnull String entityType, @javax.annotation.Nullable String messageID, @javax.annotation.Nullable String changeType, @javax.annotation.Nullable String notificationIDs, @javax.annotation.Nullable OffsetDateTime createdBefore, @javax.annotation.Nullable OffsetDateTime createdAfter, @javax.annotation.Nullable byte[] cursor, @javax.annotation.Nullable String period, @javax.annotation.Nullable Boolean isSuccessful, @javax.annotation.Nullable BigDecimal applicationId, @javax.annotation.Nullable BigDecimal campaignId, @javax.annotation.Nullable Long loyaltyProgramId, @javax.annotation.Nullable Long responseCode, @javax.annotation.Nullable String webhookIDs, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'entityType' is set
         if (entityType == null) {
             throw new ApiException("Missing the required parameter 'entityType' when calling getMessageLogs(Async)");
@@ -16863,7 +16863,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public MessageLogEntries getMessageLogs(String entityType, String messageID, String changeType, String notificationIDs, OffsetDateTime createdBefore, OffsetDateTime createdAfter, byte[] cursor, String period, Boolean isSuccessful, BigDecimal applicationId, BigDecimal campaignId, Long loyaltyProgramId, Long responseCode, String webhookIDs) throws ApiException {
+    public MessageLogEntries getMessageLogs(@javax.annotation.Nonnull String entityType, @javax.annotation.Nullable String messageID, @javax.annotation.Nullable String changeType, @javax.annotation.Nullable String notificationIDs, @javax.annotation.Nullable OffsetDateTime createdBefore, @javax.annotation.Nullable OffsetDateTime createdAfter, @javax.annotation.Nullable byte[] cursor, @javax.annotation.Nullable String period, @javax.annotation.Nullable Boolean isSuccessful, @javax.annotation.Nullable BigDecimal applicationId, @javax.annotation.Nullable BigDecimal campaignId, @javax.annotation.Nullable Long loyaltyProgramId, @javax.annotation.Nullable Long responseCode, @javax.annotation.Nullable String webhookIDs) throws ApiException {
         ApiResponse<MessageLogEntries> localVarResp = getMessageLogsWithHttpInfo(entityType, messageID, changeType, notificationIDs, createdBefore, createdAfter, cursor, period, isSuccessful, applicationId, campaignId, loyaltyProgramId, responseCode, webhookIDs);
         return localVarResp.getData();
     }
@@ -16894,7 +16894,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<MessageLogEntries> getMessageLogsWithHttpInfo(String entityType, String messageID, String changeType, String notificationIDs, OffsetDateTime createdBefore, OffsetDateTime createdAfter, byte[] cursor, String period, Boolean isSuccessful, BigDecimal applicationId, BigDecimal campaignId, Long loyaltyProgramId, Long responseCode, String webhookIDs) throws ApiException {
+    public ApiResponse<MessageLogEntries> getMessageLogsWithHttpInfo(@javax.annotation.Nonnull String entityType, @javax.annotation.Nullable String messageID, @javax.annotation.Nullable String changeType, @javax.annotation.Nullable String notificationIDs, @javax.annotation.Nullable OffsetDateTime createdBefore, @javax.annotation.Nullable OffsetDateTime createdAfter, @javax.annotation.Nullable byte[] cursor, @javax.annotation.Nullable String period, @javax.annotation.Nullable Boolean isSuccessful, @javax.annotation.Nullable BigDecimal applicationId, @javax.annotation.Nullable BigDecimal campaignId, @javax.annotation.Nullable Long loyaltyProgramId, @javax.annotation.Nullable Long responseCode, @javax.annotation.Nullable String webhookIDs) throws ApiException {
         okhttp3.Call localVarCall = getMessageLogsValidateBeforeCall(entityType, messageID, changeType, notificationIDs, createdBefore, createdAfter, cursor, period, isSuccessful, applicationId, campaignId, loyaltyProgramId, responseCode, webhookIDs, null);
         Type localVarReturnType = new TypeToken<MessageLogEntries>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -16927,7 +16927,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getMessageLogsAsync(String entityType, String messageID, String changeType, String notificationIDs, OffsetDateTime createdBefore, OffsetDateTime createdAfter, byte[] cursor, String period, Boolean isSuccessful, BigDecimal applicationId, BigDecimal campaignId, Long loyaltyProgramId, Long responseCode, String webhookIDs, final ApiCallback<MessageLogEntries> _callback) throws ApiException {
+    public okhttp3.Call getMessageLogsAsync(@javax.annotation.Nonnull String entityType, @javax.annotation.Nullable String messageID, @javax.annotation.Nullable String changeType, @javax.annotation.Nullable String notificationIDs, @javax.annotation.Nullable OffsetDateTime createdBefore, @javax.annotation.Nullable OffsetDateTime createdAfter, @javax.annotation.Nullable byte[] cursor, @javax.annotation.Nullable String period, @javax.annotation.Nullable Boolean isSuccessful, @javax.annotation.Nullable BigDecimal applicationId, @javax.annotation.Nullable BigDecimal campaignId, @javax.annotation.Nullable Long loyaltyProgramId, @javax.annotation.Nullable Long responseCode, @javax.annotation.Nullable String webhookIDs, final ApiCallback<MessageLogEntries> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getMessageLogsValidateBeforeCall(entityType, messageID, changeType, notificationIDs, createdBefore, createdAfter, cursor, period, isSuccessful, applicationId, campaignId, loyaltyProgramId, responseCode, webhookIDs, _callback);
         Type localVarReturnType = new TypeToken<MessageLogEntries>(){}.getType();
@@ -16957,7 +16957,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getReferralsWithoutTotalCountCall(Long applicationId, Long campaignId, Long pageSize, Long skip, String sort, String code, OffsetDateTime createdBefore, OffsetDateTime createdAfter, String valid, String usable, String advocate, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getReferralsWithoutTotalCountCall(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable String sort, @javax.annotation.Nullable String code, @javax.annotation.Nullable OffsetDateTime createdBefore, @javax.annotation.Nullable OffsetDateTime createdAfter, @javax.annotation.Nullable String valid, @javax.annotation.Nullable String usable, @javax.annotation.Nullable String advocate, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -17040,7 +17040,7 @@ public class ManagementApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getReferralsWithoutTotalCountValidateBeforeCall(Long applicationId, Long campaignId, Long pageSize, Long skip, String sort, String code, OffsetDateTime createdBefore, OffsetDateTime createdAfter, String valid, String usable, String advocate, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getReferralsWithoutTotalCountValidateBeforeCall(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable String sort, @javax.annotation.Nullable String code, @javax.annotation.Nullable OffsetDateTime createdBefore, @javax.annotation.Nullable OffsetDateTime createdAfter, @javax.annotation.Nullable String valid, @javax.annotation.Nullable String usable, @javax.annotation.Nullable String advocate, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'applicationId' is set
         if (applicationId == null) {
             throw new ApiException("Missing the required parameter 'applicationId' when calling getReferralsWithoutTotalCount(Async)");
@@ -17078,7 +17078,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public GetReferralsWithoutTotalCount200Response getReferralsWithoutTotalCount(Long applicationId, Long campaignId, Long pageSize, Long skip, String sort, String code, OffsetDateTime createdBefore, OffsetDateTime createdAfter, String valid, String usable, String advocate) throws ApiException {
+    public GetReferralsWithoutTotalCount200Response getReferralsWithoutTotalCount(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable String sort, @javax.annotation.Nullable String code, @javax.annotation.Nullable OffsetDateTime createdBefore, @javax.annotation.Nullable OffsetDateTime createdAfter, @javax.annotation.Nullable String valid, @javax.annotation.Nullable String usable, @javax.annotation.Nullable String advocate) throws ApiException {
         ApiResponse<GetReferralsWithoutTotalCount200Response> localVarResp = getReferralsWithoutTotalCountWithHttpInfo(applicationId, campaignId, pageSize, skip, sort, code, createdBefore, createdAfter, valid, usable, advocate);
         return localVarResp.getData();
     }
@@ -17106,7 +17106,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<GetReferralsWithoutTotalCount200Response> getReferralsWithoutTotalCountWithHttpInfo(Long applicationId, Long campaignId, Long pageSize, Long skip, String sort, String code, OffsetDateTime createdBefore, OffsetDateTime createdAfter, String valid, String usable, String advocate) throws ApiException {
+    public ApiResponse<GetReferralsWithoutTotalCount200Response> getReferralsWithoutTotalCountWithHttpInfo(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable String sort, @javax.annotation.Nullable String code, @javax.annotation.Nullable OffsetDateTime createdBefore, @javax.annotation.Nullable OffsetDateTime createdAfter, @javax.annotation.Nullable String valid, @javax.annotation.Nullable String usable, @javax.annotation.Nullable String advocate) throws ApiException {
         okhttp3.Call localVarCall = getReferralsWithoutTotalCountValidateBeforeCall(applicationId, campaignId, pageSize, skip, sort, code, createdBefore, createdAfter, valid, usable, advocate, null);
         Type localVarReturnType = new TypeToken<GetReferralsWithoutTotalCount200Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -17136,7 +17136,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getReferralsWithoutTotalCountAsync(Long applicationId, Long campaignId, Long pageSize, Long skip, String sort, String code, OffsetDateTime createdBefore, OffsetDateTime createdAfter, String valid, String usable, String advocate, final ApiCallback<GetReferralsWithoutTotalCount200Response> _callback) throws ApiException {
+    public okhttp3.Call getReferralsWithoutTotalCountAsync(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable String sort, @javax.annotation.Nullable String code, @javax.annotation.Nullable OffsetDateTime createdBefore, @javax.annotation.Nullable OffsetDateTime createdAfter, @javax.annotation.Nullable String valid, @javax.annotation.Nullable String usable, @javax.annotation.Nullable String advocate, final ApiCallback<GetReferralsWithoutTotalCount200Response> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getReferralsWithoutTotalCountValidateBeforeCall(applicationId, campaignId, pageSize, skip, sort, code, createdBefore, createdAfter, valid, usable, advocate, _callback);
         Type localVarReturnType = new TypeToken<GetReferralsWithoutTotalCount200Response>(){}.getType();
@@ -17156,7 +17156,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getRoleV2Call(Long roleId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getRoleV2Call(@javax.annotation.Nonnull Long roleId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -17202,7 +17202,7 @@ public class ManagementApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getRoleV2ValidateBeforeCall(Long roleId, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getRoleV2ValidateBeforeCall(@javax.annotation.Nonnull Long roleId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'roleId' is set
         if (roleId == null) {
             throw new ApiException("Missing the required parameter 'roleId' when calling getRoleV2(Async)");
@@ -17225,7 +17225,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public RoleV2 getRoleV2(Long roleId) throws ApiException {
+    public RoleV2 getRoleV2(@javax.annotation.Nonnull Long roleId) throws ApiException {
         ApiResponse<RoleV2> localVarResp = getRoleV2WithHttpInfo(roleId);
         return localVarResp.getData();
     }
@@ -17243,7 +17243,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<RoleV2> getRoleV2WithHttpInfo(Long roleId) throws ApiException {
+    public ApiResponse<RoleV2> getRoleV2WithHttpInfo(@javax.annotation.Nonnull Long roleId) throws ApiException {
         okhttp3.Call localVarCall = getRoleV2ValidateBeforeCall(roleId, null);
         Type localVarReturnType = new TypeToken<RoleV2>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -17263,7 +17263,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getRoleV2Async(Long roleId, final ApiCallback<RoleV2> _callback) throws ApiException {
+    public okhttp3.Call getRoleV2Async(@javax.annotation.Nonnull Long roleId, final ApiCallback<RoleV2> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getRoleV2ValidateBeforeCall(roleId, _callback);
         Type localVarReturnType = new TypeToken<RoleV2>(){}.getType();
@@ -17285,7 +17285,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getRulesetCall(Long applicationId, Long campaignId, Long rulesetId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getRulesetCall(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, @javax.annotation.Nonnull Long rulesetId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -17333,7 +17333,7 @@ public class ManagementApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getRulesetValidateBeforeCall(Long applicationId, Long campaignId, Long rulesetId, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getRulesetValidateBeforeCall(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, @javax.annotation.Nonnull Long rulesetId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'applicationId' is set
         if (applicationId == null) {
             throw new ApiException("Missing the required parameter 'applicationId' when calling getRuleset(Async)");
@@ -17368,7 +17368,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public Ruleset getRuleset(Long applicationId, Long campaignId, Long rulesetId) throws ApiException {
+    public Ruleset getRuleset(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, @javax.annotation.Nonnull Long rulesetId) throws ApiException {
         ApiResponse<Ruleset> localVarResp = getRulesetWithHttpInfo(applicationId, campaignId, rulesetId);
         return localVarResp.getData();
     }
@@ -17388,7 +17388,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Ruleset> getRulesetWithHttpInfo(Long applicationId, Long campaignId, Long rulesetId) throws ApiException {
+    public ApiResponse<Ruleset> getRulesetWithHttpInfo(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, @javax.annotation.Nonnull Long rulesetId) throws ApiException {
         okhttp3.Call localVarCall = getRulesetValidateBeforeCall(applicationId, campaignId, rulesetId, null);
         Type localVarReturnType = new TypeToken<Ruleset>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -17410,7 +17410,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getRulesetAsync(Long applicationId, Long campaignId, Long rulesetId, final ApiCallback<Ruleset> _callback) throws ApiException {
+    public okhttp3.Call getRulesetAsync(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, @javax.annotation.Nonnull Long rulesetId, final ApiCallback<Ruleset> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getRulesetValidateBeforeCall(applicationId, campaignId, rulesetId, _callback);
         Type localVarReturnType = new TypeToken<Ruleset>(){}.getType();
@@ -17434,7 +17434,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getRulesetsCall(Long applicationId, Long campaignId, Long pageSize, Long skip, String sort, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getRulesetsCall(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable String sort, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -17493,7 +17493,7 @@ public class ManagementApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getRulesetsValidateBeforeCall(Long applicationId, Long campaignId, Long pageSize, Long skip, String sort, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getRulesetsValidateBeforeCall(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable String sort, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'applicationId' is set
         if (applicationId == null) {
             throw new ApiException("Missing the required parameter 'applicationId' when calling getRulesets(Async)");
@@ -17525,7 +17525,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public GetRulesets200Response getRulesets(Long applicationId, Long campaignId, Long pageSize, Long skip, String sort) throws ApiException {
+    public GetRulesets200Response getRulesets(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable String sort) throws ApiException {
         ApiResponse<GetRulesets200Response> localVarResp = getRulesetsWithHttpInfo(applicationId, campaignId, pageSize, skip, sort);
         return localVarResp.getData();
     }
@@ -17547,7 +17547,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<GetRulesets200Response> getRulesetsWithHttpInfo(Long applicationId, Long campaignId, Long pageSize, Long skip, String sort) throws ApiException {
+    public ApiResponse<GetRulesets200Response> getRulesetsWithHttpInfo(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable String sort) throws ApiException {
         okhttp3.Call localVarCall = getRulesetsValidateBeforeCall(applicationId, campaignId, pageSize, skip, sort, null);
         Type localVarReturnType = new TypeToken<GetRulesets200Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -17571,7 +17571,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getRulesetsAsync(Long applicationId, Long campaignId, Long pageSize, Long skip, String sort, final ApiCallback<GetRulesets200Response> _callback) throws ApiException {
+    public okhttp3.Call getRulesetsAsync(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable String sort, final ApiCallback<GetRulesets200Response> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getRulesetsValidateBeforeCall(applicationId, campaignId, pageSize, skip, sort, _callback);
         Type localVarReturnType = new TypeToken<GetRulesets200Response>(){}.getType();
@@ -17593,7 +17593,7 @@ public class ManagementApi {
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getStoreCall(Long applicationId, String storeId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getStoreCall(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull String storeId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -17640,7 +17640,7 @@ public class ManagementApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getStoreValidateBeforeCall(Long applicationId, String storeId, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getStoreValidateBeforeCall(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull String storeId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'applicationId' is set
         if (applicationId == null) {
             throw new ApiException("Missing the required parameter 'applicationId' when calling getStore(Async)");
@@ -17670,7 +17670,7 @@ public class ManagementApi {
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
      */
-    public Store getStore(Long applicationId, String storeId) throws ApiException {
+    public Store getStore(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull String storeId) throws ApiException {
         ApiResponse<Store> localVarResp = getStoreWithHttpInfo(applicationId, storeId);
         return localVarResp.getData();
     }
@@ -17690,7 +17690,7 @@ public class ManagementApi {
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Store> getStoreWithHttpInfo(Long applicationId, String storeId) throws ApiException {
+    public ApiResponse<Store> getStoreWithHttpInfo(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull String storeId) throws ApiException {
         okhttp3.Call localVarCall = getStoreValidateBeforeCall(applicationId, storeId, null);
         Type localVarReturnType = new TypeToken<Store>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -17712,7 +17712,7 @@ public class ManagementApi {
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getStoreAsync(Long applicationId, String storeId, final ApiCallback<Store> _callback) throws ApiException {
+    public okhttp3.Call getStoreAsync(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull String storeId, final ApiCallback<Store> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getStoreValidateBeforeCall(applicationId, storeId, _callback);
         Type localVarReturnType = new TypeToken<Store>(){}.getType();
@@ -17732,7 +17732,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getUserCall(Long userId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getUserCall(@javax.annotation.Nonnull Long userId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -17778,7 +17778,7 @@ public class ManagementApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getUserValidateBeforeCall(Long userId, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getUserValidateBeforeCall(@javax.annotation.Nonnull Long userId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'userId' is set
         if (userId == null) {
             throw new ApiException("Missing the required parameter 'userId' when calling getUser(Async)");
@@ -17801,7 +17801,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public User getUser(Long userId) throws ApiException {
+    public User getUser(@javax.annotation.Nonnull Long userId) throws ApiException {
         ApiResponse<User> localVarResp = getUserWithHttpInfo(userId);
         return localVarResp.getData();
     }
@@ -17819,7 +17819,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<User> getUserWithHttpInfo(Long userId) throws ApiException {
+    public ApiResponse<User> getUserWithHttpInfo(@javax.annotation.Nonnull Long userId) throws ApiException {
         okhttp3.Call localVarCall = getUserValidateBeforeCall(userId, null);
         Type localVarReturnType = new TypeToken<User>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -17839,7 +17839,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getUserAsync(Long userId, final ApiCallback<User> _callback) throws ApiException {
+    public okhttp3.Call getUserAsync(@javax.annotation.Nonnull Long userId, final ApiCallback<User> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getUserValidateBeforeCall(userId, _callback);
         Type localVarReturnType = new TypeToken<User>(){}.getType();
@@ -17861,7 +17861,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getUsersCall(Long pageSize, Long skip, String sort, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getUsersCall(@javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable String sort, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -17918,7 +17918,7 @@ public class ManagementApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getUsersValidateBeforeCall(Long pageSize, Long skip, String sort, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getUsersValidateBeforeCall(@javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable String sort, final ApiCallback _callback) throws ApiException {
         return getUsersCall(pageSize, skip, sort, _callback);
 
     }
@@ -17938,7 +17938,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public GetUsers200Response getUsers(Long pageSize, Long skip, String sort) throws ApiException {
+    public GetUsers200Response getUsers(@javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable String sort) throws ApiException {
         ApiResponse<GetUsers200Response> localVarResp = getUsersWithHttpInfo(pageSize, skip, sort);
         return localVarResp.getData();
     }
@@ -17958,7 +17958,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<GetUsers200Response> getUsersWithHttpInfo(Long pageSize, Long skip, String sort) throws ApiException {
+    public ApiResponse<GetUsers200Response> getUsersWithHttpInfo(@javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable String sort) throws ApiException {
         okhttp3.Call localVarCall = getUsersValidateBeforeCall(pageSize, skip, sort, null);
         Type localVarReturnType = new TypeToken<GetUsers200Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -17980,7 +17980,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getUsersAsync(Long pageSize, Long skip, String sort, final ApiCallback<GetUsers200Response> _callback) throws ApiException {
+    public okhttp3.Call getUsersAsync(@javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable String sort, final ApiCallback<GetUsers200Response> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getUsersValidateBeforeCall(pageSize, skip, sort, _callback);
         Type localVarReturnType = new TypeToken<GetUsers200Response>(){}.getType();
@@ -18000,7 +18000,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getWebhookCall(Long webhookId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getWebhookCall(@javax.annotation.Nonnull Long webhookId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -18046,7 +18046,7 @@ public class ManagementApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getWebhookValidateBeforeCall(Long webhookId, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getWebhookValidateBeforeCall(@javax.annotation.Nonnull Long webhookId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'webhookId' is set
         if (webhookId == null) {
             throw new ApiException("Missing the required parameter 'webhookId' when calling getWebhook(Async)");
@@ -18069,7 +18069,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public Webhook getWebhook(Long webhookId) throws ApiException {
+    public Webhook getWebhook(@javax.annotation.Nonnull Long webhookId) throws ApiException {
         ApiResponse<Webhook> localVarResp = getWebhookWithHttpInfo(webhookId);
         return localVarResp.getData();
     }
@@ -18087,7 +18087,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Webhook> getWebhookWithHttpInfo(Long webhookId) throws ApiException {
+    public ApiResponse<Webhook> getWebhookWithHttpInfo(@javax.annotation.Nonnull Long webhookId) throws ApiException {
         okhttp3.Call localVarCall = getWebhookValidateBeforeCall(webhookId, null);
         Type localVarReturnType = new TypeToken<Webhook>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -18107,7 +18107,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getWebhookAsync(Long webhookId, final ApiCallback<Webhook> _callback) throws ApiException {
+    public okhttp3.Call getWebhookAsync(@javax.annotation.Nonnull Long webhookId, final ApiCallback<Webhook> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getWebhookValidateBeforeCall(webhookId, _callback);
         Type localVarReturnType = new TypeToken<Webhook>(){}.getType();
@@ -18134,7 +18134,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getWebhooksCall(String applicationIds, String sort, Long pageSize, Long skip, String creationType, String visibility, Long outgoingIntegrationsTypeId, String title, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getWebhooksCall(@javax.annotation.Nullable String applicationIds, @javax.annotation.Nullable String sort, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable String creationType, @javax.annotation.Nullable String visibility, @javax.annotation.Nullable Long outgoingIntegrationsTypeId, @javax.annotation.Nullable String title, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -18211,7 +18211,7 @@ public class ManagementApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getWebhooksValidateBeforeCall(String applicationIds, String sort, Long pageSize, Long skip, String creationType, String visibility, Long outgoingIntegrationsTypeId, String title, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getWebhooksValidateBeforeCall(@javax.annotation.Nullable String applicationIds, @javax.annotation.Nullable String sort, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable String creationType, @javax.annotation.Nullable String visibility, @javax.annotation.Nullable Long outgoingIntegrationsTypeId, @javax.annotation.Nullable String title, final ApiCallback _callback) throws ApiException {
         return getWebhooksCall(applicationIds, sort, pageSize, skip, creationType, visibility, outgoingIntegrationsTypeId, title, _callback);
 
     }
@@ -18236,7 +18236,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public GetWebhooks200Response getWebhooks(String applicationIds, String sort, Long pageSize, Long skip, String creationType, String visibility, Long outgoingIntegrationsTypeId, String title) throws ApiException {
+    public GetWebhooks200Response getWebhooks(@javax.annotation.Nullable String applicationIds, @javax.annotation.Nullable String sort, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable String creationType, @javax.annotation.Nullable String visibility, @javax.annotation.Nullable Long outgoingIntegrationsTypeId, @javax.annotation.Nullable String title) throws ApiException {
         ApiResponse<GetWebhooks200Response> localVarResp = getWebhooksWithHttpInfo(applicationIds, sort, pageSize, skip, creationType, visibility, outgoingIntegrationsTypeId, title);
         return localVarResp.getData();
     }
@@ -18261,7 +18261,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<GetWebhooks200Response> getWebhooksWithHttpInfo(String applicationIds, String sort, Long pageSize, Long skip, String creationType, String visibility, Long outgoingIntegrationsTypeId, String title) throws ApiException {
+    public ApiResponse<GetWebhooks200Response> getWebhooksWithHttpInfo(@javax.annotation.Nullable String applicationIds, @javax.annotation.Nullable String sort, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable String creationType, @javax.annotation.Nullable String visibility, @javax.annotation.Nullable Long outgoingIntegrationsTypeId, @javax.annotation.Nullable String title) throws ApiException {
         okhttp3.Call localVarCall = getWebhooksValidateBeforeCall(applicationIds, sort, pageSize, skip, creationType, visibility, outgoingIntegrationsTypeId, title, null);
         Type localVarReturnType = new TypeToken<GetWebhooks200Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -18288,7 +18288,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getWebhooksAsync(String applicationIds, String sort, Long pageSize, Long skip, String creationType, String visibility, Long outgoingIntegrationsTypeId, String title, final ApiCallback<GetWebhooks200Response> _callback) throws ApiException {
+    public okhttp3.Call getWebhooksAsync(@javax.annotation.Nullable String applicationIds, @javax.annotation.Nullable String sort, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable String creationType, @javax.annotation.Nullable String visibility, @javax.annotation.Nullable Long outgoingIntegrationsTypeId, @javax.annotation.Nullable String title, final ApiCallback<GetWebhooks200Response> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getWebhooksValidateBeforeCall(applicationIds, sort, pageSize, skip, creationType, visibility, outgoingIntegrationsTypeId, title, _callback);
         Type localVarReturnType = new TypeToken<GetWebhooks200Response>(){}.getType();
@@ -18311,7 +18311,7 @@ public class ManagementApi {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call importAccountCollectionCall(Long collectionId, String upFile, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call importAccountCollectionCall(@javax.annotation.Nonnull Long collectionId, @javax.annotation.Nullable String upFile, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -18362,7 +18362,7 @@ public class ManagementApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call importAccountCollectionValidateBeforeCall(Long collectionId, String upFile, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call importAccountCollectionValidateBeforeCall(@javax.annotation.Nonnull Long collectionId, @javax.annotation.Nullable String upFile, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'collectionId' is set
         if (collectionId == null) {
             throw new ApiException("Missing the required parameter 'collectionId' when calling importAccountCollection(Async)");
@@ -18388,7 +18388,7 @@ public class ManagementApi {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public ModelImport importAccountCollection(Long collectionId, String upFile) throws ApiException {
+    public ModelImport importAccountCollection(@javax.annotation.Nonnull Long collectionId, @javax.annotation.Nullable String upFile) throws ApiException {
         ApiResponse<ModelImport> localVarResp = importAccountCollectionWithHttpInfo(collectionId, upFile);
         return localVarResp.getData();
     }
@@ -18409,7 +18409,7 @@ public class ManagementApi {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<ModelImport> importAccountCollectionWithHttpInfo(Long collectionId, String upFile) throws ApiException {
+    public ApiResponse<ModelImport> importAccountCollectionWithHttpInfo(@javax.annotation.Nonnull Long collectionId, @javax.annotation.Nullable String upFile) throws ApiException {
         okhttp3.Call localVarCall = importAccountCollectionValidateBeforeCall(collectionId, upFile, null);
         Type localVarReturnType = new TypeToken<ModelImport>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -18432,7 +18432,7 @@ public class ManagementApi {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call importAccountCollectionAsync(Long collectionId, String upFile, final ApiCallback<ModelImport> _callback) throws ApiException {
+    public okhttp3.Call importAccountCollectionAsync(@javax.annotation.Nonnull Long collectionId, @javax.annotation.Nullable String upFile, final ApiCallback<ModelImport> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = importAccountCollectionValidateBeforeCall(collectionId, upFile, _callback);
         Type localVarReturnType = new TypeToken<ModelImport>(){}.getType();
@@ -18456,7 +18456,7 @@ public class ManagementApi {
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call importAllowedListCall(Long attributeId, String upFile, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call importAllowedListCall(@javax.annotation.Nonnull Long attributeId, @javax.annotation.Nullable String upFile, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -18507,7 +18507,7 @@ public class ManagementApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call importAllowedListValidateBeforeCall(Long attributeId, String upFile, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call importAllowedListValidateBeforeCall(@javax.annotation.Nonnull Long attributeId, @javax.annotation.Nullable String upFile, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'attributeId' is set
         if (attributeId == null) {
             throw new ApiException("Missing the required parameter 'attributeId' when calling importAllowedList(Async)");
@@ -18534,7 +18534,7 @@ public class ManagementApi {
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
      */
-    public ModelImport importAllowedList(Long attributeId, String upFile) throws ApiException {
+    public ModelImport importAllowedList(@javax.annotation.Nonnull Long attributeId, @javax.annotation.Nullable String upFile) throws ApiException {
         ApiResponse<ModelImport> localVarResp = importAllowedListWithHttpInfo(attributeId, upFile);
         return localVarResp.getData();
     }
@@ -18556,7 +18556,7 @@ public class ManagementApi {
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<ModelImport> importAllowedListWithHttpInfo(Long attributeId, String upFile) throws ApiException {
+    public ApiResponse<ModelImport> importAllowedListWithHttpInfo(@javax.annotation.Nonnull Long attributeId, @javax.annotation.Nullable String upFile) throws ApiException {
         okhttp3.Call localVarCall = importAllowedListValidateBeforeCall(attributeId, upFile, null);
         Type localVarReturnType = new TypeToken<ModelImport>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -18580,7 +18580,7 @@ public class ManagementApi {
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call importAllowedListAsync(Long attributeId, String upFile, final ApiCallback<ModelImport> _callback) throws ApiException {
+    public okhttp3.Call importAllowedListAsync(@javax.annotation.Nonnull Long attributeId, @javax.annotation.Nullable String upFile, final ApiCallback<ModelImport> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = importAllowedListValidateBeforeCall(attributeId, upFile, _callback);
         Type localVarReturnType = new TypeToken<ModelImport>(){}.getType();
@@ -18604,7 +18604,7 @@ public class ManagementApi {
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call importAudiencesMembershipsCall(Long audienceId, String upFile, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call importAudiencesMembershipsCall(@javax.annotation.Nonnull Long audienceId, @javax.annotation.Nullable String upFile, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -18655,7 +18655,7 @@ public class ManagementApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call importAudiencesMembershipsValidateBeforeCall(Long audienceId, String upFile, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call importAudiencesMembershipsValidateBeforeCall(@javax.annotation.Nonnull Long audienceId, @javax.annotation.Nullable String upFile, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'audienceId' is set
         if (audienceId == null) {
             throw new ApiException("Missing the required parameter 'audienceId' when calling importAudiencesMemberships(Async)");
@@ -18682,7 +18682,7 @@ public class ManagementApi {
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
      */
-    public ModelImport importAudiencesMemberships(Long audienceId, String upFile) throws ApiException {
+    public ModelImport importAudiencesMemberships(@javax.annotation.Nonnull Long audienceId, @javax.annotation.Nullable String upFile) throws ApiException {
         ApiResponse<ModelImport> localVarResp = importAudiencesMembershipsWithHttpInfo(audienceId, upFile);
         return localVarResp.getData();
     }
@@ -18704,7 +18704,7 @@ public class ManagementApi {
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<ModelImport> importAudiencesMembershipsWithHttpInfo(Long audienceId, String upFile) throws ApiException {
+    public ApiResponse<ModelImport> importAudiencesMembershipsWithHttpInfo(@javax.annotation.Nonnull Long audienceId, @javax.annotation.Nullable String upFile) throws ApiException {
         okhttp3.Call localVarCall = importAudiencesMembershipsValidateBeforeCall(audienceId, upFile, null);
         Type localVarReturnType = new TypeToken<ModelImport>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -18728,7 +18728,7 @@ public class ManagementApi {
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call importAudiencesMembershipsAsync(Long audienceId, String upFile, final ApiCallback<ModelImport> _callback) throws ApiException {
+    public okhttp3.Call importAudiencesMembershipsAsync(@javax.annotation.Nonnull Long audienceId, @javax.annotation.Nullable String upFile, final ApiCallback<ModelImport> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = importAudiencesMembershipsValidateBeforeCall(audienceId, upFile, _callback);
         Type localVarReturnType = new TypeToken<ModelImport>(){}.getType();
@@ -18753,7 +18753,7 @@ public class ManagementApi {
         <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call importCampaignStoreBudgetCall(Long applicationId, Long campaignId, String action, String period, String upFile, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call importCampaignStoreBudgetCall(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, @javax.annotation.Nullable String action, @javax.annotation.Nullable String period, @javax.annotation.Nullable String upFile, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -18813,7 +18813,7 @@ public class ManagementApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call importCampaignStoreBudgetValidateBeforeCall(Long applicationId, Long campaignId, String action, String period, String upFile, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call importCampaignStoreBudgetValidateBeforeCall(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, @javax.annotation.Nullable String action, @javax.annotation.Nullable String period, @javax.annotation.Nullable String upFile, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'applicationId' is set
         if (applicationId == null) {
             throw new ApiException("Missing the required parameter 'applicationId' when calling importCampaignStoreBudget(Async)");
@@ -18846,7 +18846,7 @@ public class ManagementApi {
         <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
      </table>
      */
-    public ModelImport importCampaignStoreBudget(Long applicationId, Long campaignId, String action, String period, String upFile) throws ApiException {
+    public ModelImport importCampaignStoreBudget(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, @javax.annotation.Nullable String action, @javax.annotation.Nullable String period, @javax.annotation.Nullable String upFile) throws ApiException {
         ApiResponse<ModelImport> localVarResp = importCampaignStoreBudgetWithHttpInfo(applicationId, campaignId, action, period, upFile);
         return localVarResp.getData();
     }
@@ -18869,7 +18869,7 @@ public class ManagementApi {
         <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<ModelImport> importCampaignStoreBudgetWithHttpInfo(Long applicationId, Long campaignId, String action, String period, String upFile) throws ApiException {
+    public ApiResponse<ModelImport> importCampaignStoreBudgetWithHttpInfo(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, @javax.annotation.Nullable String action, @javax.annotation.Nullable String period, @javax.annotation.Nullable String upFile) throws ApiException {
         okhttp3.Call localVarCall = importCampaignStoreBudgetValidateBeforeCall(applicationId, campaignId, action, period, upFile, null);
         Type localVarReturnType = new TypeToken<ModelImport>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -18894,7 +18894,7 @@ public class ManagementApi {
         <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call importCampaignStoreBudgetAsync(Long applicationId, Long campaignId, String action, String period, String upFile, final ApiCallback<ModelImport> _callback) throws ApiException {
+    public okhttp3.Call importCampaignStoreBudgetAsync(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, @javax.annotation.Nullable String action, @javax.annotation.Nullable String period, @javax.annotation.Nullable String upFile, final ApiCallback<ModelImport> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = importCampaignStoreBudgetValidateBeforeCall(applicationId, campaignId, action, period, upFile, _callback);
         Type localVarReturnType = new TypeToken<ModelImport>(){}.getType();
@@ -18919,7 +18919,7 @@ public class ManagementApi {
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call importCampaignStoresCall(Long applicationId, Long campaignId, String upFile, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call importCampaignStoresCall(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, @javax.annotation.Nullable String upFile, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -18971,7 +18971,7 @@ public class ManagementApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call importCampaignStoresValidateBeforeCall(Long applicationId, Long campaignId, String upFile, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call importCampaignStoresValidateBeforeCall(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, @javax.annotation.Nullable String upFile, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'applicationId' is set
         if (applicationId == null) {
             throw new ApiException("Missing the required parameter 'applicationId' when calling importCampaignStores(Async)");
@@ -19004,7 +19004,7 @@ public class ManagementApi {
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
      */
-    public ModelImport importCampaignStores(Long applicationId, Long campaignId, String upFile) throws ApiException {
+    public ModelImport importCampaignStores(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, @javax.annotation.Nullable String upFile) throws ApiException {
         ApiResponse<ModelImport> localVarResp = importCampaignStoresWithHttpInfo(applicationId, campaignId, upFile);
         return localVarResp.getData();
     }
@@ -19027,7 +19027,7 @@ public class ManagementApi {
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<ModelImport> importCampaignStoresWithHttpInfo(Long applicationId, Long campaignId, String upFile) throws ApiException {
+    public ApiResponse<ModelImport> importCampaignStoresWithHttpInfo(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, @javax.annotation.Nullable String upFile) throws ApiException {
         okhttp3.Call localVarCall = importCampaignStoresValidateBeforeCall(applicationId, campaignId, upFile, null);
         Type localVarReturnType = new TypeToken<ModelImport>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -19052,7 +19052,7 @@ public class ManagementApi {
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call importCampaignStoresAsync(Long applicationId, Long campaignId, String upFile, final ApiCallback<ModelImport> _callback) throws ApiException {
+    public okhttp3.Call importCampaignStoresAsync(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, @javax.annotation.Nullable String upFile, final ApiCallback<ModelImport> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = importCampaignStoresValidateBeforeCall(applicationId, campaignId, upFile, _callback);
         Type localVarReturnType = new TypeToken<ModelImport>(){}.getType();
@@ -19076,7 +19076,7 @@ public class ManagementApi {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call importCollectionCall(Long applicationId, Long campaignId, Long collectionId, String upFile, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call importCollectionCall(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, @javax.annotation.Nonnull Long collectionId, @javax.annotation.Nullable String upFile, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -19129,7 +19129,7 @@ public class ManagementApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call importCollectionValidateBeforeCall(Long applicationId, Long campaignId, Long collectionId, String upFile, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call importCollectionValidateBeforeCall(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, @javax.annotation.Nonnull Long collectionId, @javax.annotation.Nullable String upFile, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'applicationId' is set
         if (applicationId == null) {
             throw new ApiException("Missing the required parameter 'applicationId' when calling importCollection(Async)");
@@ -19166,7 +19166,7 @@ public class ManagementApi {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public ModelImport importCollection(Long applicationId, Long campaignId, Long collectionId, String upFile) throws ApiException {
+    public ModelImport importCollection(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, @javax.annotation.Nonnull Long collectionId, @javax.annotation.Nullable String upFile) throws ApiException {
         ApiResponse<ModelImport> localVarResp = importCollectionWithHttpInfo(applicationId, campaignId, collectionId, upFile);
         return localVarResp.getData();
     }
@@ -19188,7 +19188,7 @@ public class ManagementApi {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<ModelImport> importCollectionWithHttpInfo(Long applicationId, Long campaignId, Long collectionId, String upFile) throws ApiException {
+    public ApiResponse<ModelImport> importCollectionWithHttpInfo(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, @javax.annotation.Nonnull Long collectionId, @javax.annotation.Nullable String upFile) throws ApiException {
         okhttp3.Call localVarCall = importCollectionValidateBeforeCall(applicationId, campaignId, collectionId, upFile, null);
         Type localVarReturnType = new TypeToken<ModelImport>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -19212,7 +19212,7 @@ public class ManagementApi {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call importCollectionAsync(Long applicationId, Long campaignId, Long collectionId, String upFile, final ApiCallback<ModelImport> _callback) throws ApiException {
+    public okhttp3.Call importCollectionAsync(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, @javax.annotation.Nonnull Long collectionId, @javax.annotation.Nullable String upFile, final ApiCallback<ModelImport> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = importCollectionValidateBeforeCall(applicationId, campaignId, collectionId, upFile, _callback);
         Type localVarReturnType = new TypeToken<ModelImport>(){}.getType();
@@ -19235,7 +19235,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call importCouponsCall(Long applicationId, Long campaignId, Boolean skipDuplicates, String upFile, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call importCouponsCall(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, @javax.annotation.Nullable Boolean skipDuplicates, @javax.annotation.Nullable String upFile, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -19291,7 +19291,7 @@ public class ManagementApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call importCouponsValidateBeforeCall(Long applicationId, Long campaignId, Boolean skipDuplicates, String upFile, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call importCouponsValidateBeforeCall(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, @javax.annotation.Nullable Boolean skipDuplicates, @javax.annotation.Nullable String upFile, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'applicationId' is set
         if (applicationId == null) {
             throw new ApiException("Missing the required parameter 'applicationId' when calling importCoupons(Async)");
@@ -19322,7 +19322,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ModelImport importCoupons(Long applicationId, Long campaignId, Boolean skipDuplicates, String upFile) throws ApiException {
+    public ModelImport importCoupons(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, @javax.annotation.Nullable Boolean skipDuplicates, @javax.annotation.Nullable String upFile) throws ApiException {
         ApiResponse<ModelImport> localVarResp = importCouponsWithHttpInfo(applicationId, campaignId, skipDuplicates, upFile);
         return localVarResp.getData();
     }
@@ -19343,7 +19343,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<ModelImport> importCouponsWithHttpInfo(Long applicationId, Long campaignId, Boolean skipDuplicates, String upFile) throws ApiException {
+    public ApiResponse<ModelImport> importCouponsWithHttpInfo(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, @javax.annotation.Nullable Boolean skipDuplicates, @javax.annotation.Nullable String upFile) throws ApiException {
         okhttp3.Call localVarCall = importCouponsValidateBeforeCall(applicationId, campaignId, skipDuplicates, upFile, null);
         Type localVarReturnType = new TypeToken<ModelImport>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -19366,7 +19366,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call importCouponsAsync(Long applicationId, Long campaignId, Boolean skipDuplicates, String upFile, final ApiCallback<ModelImport> _callback) throws ApiException {
+    public okhttp3.Call importCouponsAsync(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, @javax.annotation.Nullable Boolean skipDuplicates, @javax.annotation.Nullable String upFile, final ApiCallback<ModelImport> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = importCouponsValidateBeforeCall(applicationId, campaignId, skipDuplicates, upFile, _callback);
         Type localVarReturnType = new TypeToken<ModelImport>(){}.getType();
@@ -19389,7 +19389,7 @@ public class ManagementApi {
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call importLoyaltyCardsCall(Long loyaltyProgramId, String upFile, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call importLoyaltyCardsCall(@javax.annotation.Nonnull Long loyaltyProgramId, @javax.annotation.Nullable String upFile, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -19440,7 +19440,7 @@ public class ManagementApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call importLoyaltyCardsValidateBeforeCall(Long loyaltyProgramId, String upFile, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call importLoyaltyCardsValidateBeforeCall(@javax.annotation.Nonnull Long loyaltyProgramId, @javax.annotation.Nullable String upFile, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'loyaltyProgramId' is set
         if (loyaltyProgramId == null) {
             throw new ApiException("Missing the required parameter 'loyaltyProgramId' when calling importLoyaltyCards(Async)");
@@ -19466,7 +19466,7 @@ public class ManagementApi {
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
      */
-    public ModelImport importLoyaltyCards(Long loyaltyProgramId, String upFile) throws ApiException {
+    public ModelImport importLoyaltyCards(@javax.annotation.Nonnull Long loyaltyProgramId, @javax.annotation.Nullable String upFile) throws ApiException {
         ApiResponse<ModelImport> localVarResp = importLoyaltyCardsWithHttpInfo(loyaltyProgramId, upFile);
         return localVarResp.getData();
     }
@@ -19487,7 +19487,7 @@ public class ManagementApi {
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<ModelImport> importLoyaltyCardsWithHttpInfo(Long loyaltyProgramId, String upFile) throws ApiException {
+    public ApiResponse<ModelImport> importLoyaltyCardsWithHttpInfo(@javax.annotation.Nonnull Long loyaltyProgramId, @javax.annotation.Nullable String upFile) throws ApiException {
         okhttp3.Call localVarCall = importLoyaltyCardsValidateBeforeCall(loyaltyProgramId, upFile, null);
         Type localVarReturnType = new TypeToken<ModelImport>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -19510,7 +19510,7 @@ public class ManagementApi {
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call importLoyaltyCardsAsync(Long loyaltyProgramId, String upFile, final ApiCallback<ModelImport> _callback) throws ApiException {
+    public okhttp3.Call importLoyaltyCardsAsync(@javax.annotation.Nonnull Long loyaltyProgramId, @javax.annotation.Nullable String upFile, final ApiCallback<ModelImport> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = importLoyaltyCardsValidateBeforeCall(loyaltyProgramId, upFile, _callback);
         Type localVarReturnType = new TypeToken<ModelImport>(){}.getType();
@@ -19534,7 +19534,7 @@ public class ManagementApi {
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call importLoyaltyCustomersTiersCall(Long loyaltyProgramId, String upFile, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call importLoyaltyCustomersTiersCall(@javax.annotation.Nonnull Long loyaltyProgramId, @javax.annotation.Nullable String upFile, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -19585,7 +19585,7 @@ public class ManagementApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call importLoyaltyCustomersTiersValidateBeforeCall(Long loyaltyProgramId, String upFile, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call importLoyaltyCustomersTiersValidateBeforeCall(@javax.annotation.Nonnull Long loyaltyProgramId, @javax.annotation.Nullable String upFile, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'loyaltyProgramId' is set
         if (loyaltyProgramId == null) {
             throw new ApiException("Missing the required parameter 'loyaltyProgramId' when calling importLoyaltyCustomersTiers(Async)");
@@ -19612,7 +19612,7 @@ public class ManagementApi {
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
      */
-    public ModelImport importLoyaltyCustomersTiers(Long loyaltyProgramId, String upFile) throws ApiException {
+    public ModelImport importLoyaltyCustomersTiers(@javax.annotation.Nonnull Long loyaltyProgramId, @javax.annotation.Nullable String upFile) throws ApiException {
         ApiResponse<ModelImport> localVarResp = importLoyaltyCustomersTiersWithHttpInfo(loyaltyProgramId, upFile);
         return localVarResp.getData();
     }
@@ -19634,7 +19634,7 @@ public class ManagementApi {
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<ModelImport> importLoyaltyCustomersTiersWithHttpInfo(Long loyaltyProgramId, String upFile) throws ApiException {
+    public ApiResponse<ModelImport> importLoyaltyCustomersTiersWithHttpInfo(@javax.annotation.Nonnull Long loyaltyProgramId, @javax.annotation.Nullable String upFile) throws ApiException {
         okhttp3.Call localVarCall = importLoyaltyCustomersTiersValidateBeforeCall(loyaltyProgramId, upFile, null);
         Type localVarReturnType = new TypeToken<ModelImport>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -19658,7 +19658,7 @@ public class ManagementApi {
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call importLoyaltyCustomersTiersAsync(Long loyaltyProgramId, String upFile, final ApiCallback<ModelImport> _callback) throws ApiException {
+    public okhttp3.Call importLoyaltyCustomersTiersAsync(@javax.annotation.Nonnull Long loyaltyProgramId, @javax.annotation.Nullable String upFile, final ApiCallback<ModelImport> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = importLoyaltyCustomersTiersValidateBeforeCall(loyaltyProgramId, upFile, _callback);
         Type localVarReturnType = new TypeToken<ModelImport>(){}.getType();
@@ -19680,7 +19680,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call importLoyaltyPointsCall(Long loyaltyProgramId, Boolean notificationsEnabled, String upFile, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call importLoyaltyPointsCall(@javax.annotation.Nonnull Long loyaltyProgramId, @javax.annotation.Nullable Boolean notificationsEnabled, @javax.annotation.Nullable String upFile, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -19735,7 +19735,7 @@ public class ManagementApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call importLoyaltyPointsValidateBeforeCall(Long loyaltyProgramId, Boolean notificationsEnabled, String upFile, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call importLoyaltyPointsValidateBeforeCall(@javax.annotation.Nonnull Long loyaltyProgramId, @javax.annotation.Nullable Boolean notificationsEnabled, @javax.annotation.Nullable String upFile, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'loyaltyProgramId' is set
         if (loyaltyProgramId == null) {
             throw new ApiException("Missing the required parameter 'loyaltyProgramId' when calling importLoyaltyPoints(Async)");
@@ -19760,7 +19760,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ModelImport importLoyaltyPoints(Long loyaltyProgramId, Boolean notificationsEnabled, String upFile) throws ApiException {
+    public ModelImport importLoyaltyPoints(@javax.annotation.Nonnull Long loyaltyProgramId, @javax.annotation.Nullable Boolean notificationsEnabled, @javax.annotation.Nullable String upFile) throws ApiException {
         ApiResponse<ModelImport> localVarResp = importLoyaltyPointsWithHttpInfo(loyaltyProgramId, notificationsEnabled, upFile);
         return localVarResp.getData();
     }
@@ -19780,7 +19780,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<ModelImport> importLoyaltyPointsWithHttpInfo(Long loyaltyProgramId, Boolean notificationsEnabled, String upFile) throws ApiException {
+    public ApiResponse<ModelImport> importLoyaltyPointsWithHttpInfo(@javax.annotation.Nonnull Long loyaltyProgramId, @javax.annotation.Nullable Boolean notificationsEnabled, @javax.annotation.Nullable String upFile) throws ApiException {
         okhttp3.Call localVarCall = importLoyaltyPointsValidateBeforeCall(loyaltyProgramId, notificationsEnabled, upFile, null);
         Type localVarReturnType = new TypeToken<ModelImport>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -19802,7 +19802,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call importLoyaltyPointsAsync(Long loyaltyProgramId, Boolean notificationsEnabled, String upFile, final ApiCallback<ModelImport> _callback) throws ApiException {
+    public okhttp3.Call importLoyaltyPointsAsync(@javax.annotation.Nonnull Long loyaltyProgramId, @javax.annotation.Nullable Boolean notificationsEnabled, @javax.annotation.Nullable String upFile, final ApiCallback<ModelImport> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = importLoyaltyPointsValidateBeforeCall(loyaltyProgramId, notificationsEnabled, upFile, _callback);
         Type localVarReturnType = new TypeToken<ModelImport>(){}.getType();
@@ -19823,7 +19823,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call importPoolGiveawaysCall(Long poolId, String upFile, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call importPoolGiveawaysCall(@javax.annotation.Nonnull Long poolId, @javax.annotation.Nullable String upFile, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -19874,7 +19874,7 @@ public class ManagementApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call importPoolGiveawaysValidateBeforeCall(Long poolId, String upFile, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call importPoolGiveawaysValidateBeforeCall(@javax.annotation.Nonnull Long poolId, @javax.annotation.Nullable String upFile, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'poolId' is set
         if (poolId == null) {
             throw new ApiException("Missing the required parameter 'poolId' when calling importPoolGiveaways(Async)");
@@ -19898,7 +19898,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ModelImport importPoolGiveaways(Long poolId, String upFile) throws ApiException {
+    public ModelImport importPoolGiveaways(@javax.annotation.Nonnull Long poolId, @javax.annotation.Nullable String upFile) throws ApiException {
         ApiResponse<ModelImport> localVarResp = importPoolGiveawaysWithHttpInfo(poolId, upFile);
         return localVarResp.getData();
     }
@@ -19917,7 +19917,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<ModelImport> importPoolGiveawaysWithHttpInfo(Long poolId, String upFile) throws ApiException {
+    public ApiResponse<ModelImport> importPoolGiveawaysWithHttpInfo(@javax.annotation.Nonnull Long poolId, @javax.annotation.Nullable String upFile) throws ApiException {
         okhttp3.Call localVarCall = importPoolGiveawaysValidateBeforeCall(poolId, upFile, null);
         Type localVarReturnType = new TypeToken<ModelImport>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -19938,7 +19938,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call importPoolGiveawaysAsync(Long poolId, String upFile, final ApiCallback<ModelImport> _callback) throws ApiException {
+    public okhttp3.Call importPoolGiveawaysAsync(@javax.annotation.Nonnull Long poolId, @javax.annotation.Nullable String upFile, final ApiCallback<ModelImport> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = importPoolGiveawaysValidateBeforeCall(poolId, upFile, _callback);
         Type localVarReturnType = new TypeToken<ModelImport>(){}.getType();
@@ -19960,7 +19960,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call importReferralsCall(Long applicationId, Long campaignId, String upFile, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call importReferralsCall(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, @javax.annotation.Nullable String upFile, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -20012,7 +20012,7 @@ public class ManagementApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call importReferralsValidateBeforeCall(Long applicationId, Long campaignId, String upFile, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call importReferralsValidateBeforeCall(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, @javax.annotation.Nullable String upFile, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'applicationId' is set
         if (applicationId == null) {
             throw new ApiException("Missing the required parameter 'applicationId' when calling importReferrals(Async)");
@@ -20042,7 +20042,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ModelImport importReferrals(Long applicationId, Long campaignId, String upFile) throws ApiException {
+    public ModelImport importReferrals(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, @javax.annotation.Nullable String upFile) throws ApiException {
         ApiResponse<ModelImport> localVarResp = importReferralsWithHttpInfo(applicationId, campaignId, upFile);
         return localVarResp.getData();
     }
@@ -20062,7 +20062,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<ModelImport> importReferralsWithHttpInfo(Long applicationId, Long campaignId, String upFile) throws ApiException {
+    public ApiResponse<ModelImport> importReferralsWithHttpInfo(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, @javax.annotation.Nullable String upFile) throws ApiException {
         okhttp3.Call localVarCall = importReferralsValidateBeforeCall(applicationId, campaignId, upFile, null);
         Type localVarReturnType = new TypeToken<ModelImport>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -20084,7 +20084,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call importReferralsAsync(Long applicationId, Long campaignId, String upFile, final ApiCallback<ModelImport> _callback) throws ApiException {
+    public okhttp3.Call importReferralsAsync(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, @javax.annotation.Nullable String upFile, final ApiCallback<ModelImport> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = importReferralsValidateBeforeCall(applicationId, campaignId, upFile, _callback);
         Type localVarReturnType = new TypeToken<ModelImport>(){}.getType();
@@ -20104,7 +20104,7 @@ public class ManagementApi {
         <tr><td> 204 </td><td> Invitation email sent </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call inviteUserExternalCall(NewExternalInvitation newExternalInvitation, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call inviteUserExternalCall(@javax.annotation.Nonnull NewExternalInvitation newExternalInvitation, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -20149,7 +20149,7 @@ public class ManagementApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call inviteUserExternalValidateBeforeCall(NewExternalInvitation newExternalInvitation, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call inviteUserExternalValidateBeforeCall(@javax.annotation.Nonnull NewExternalInvitation newExternalInvitation, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'newExternalInvitation' is set
         if (newExternalInvitation == null) {
             throw new ApiException("Missing the required parameter 'newExternalInvitation' when calling inviteUserExternal(Async)");
@@ -20171,7 +20171,7 @@ public class ManagementApi {
         <tr><td> 204 </td><td> Invitation email sent </td><td>  -  </td></tr>
      </table>
      */
-    public void inviteUserExternal(NewExternalInvitation newExternalInvitation) throws ApiException {
+    public void inviteUserExternal(@javax.annotation.Nonnull NewExternalInvitation newExternalInvitation) throws ApiException {
         inviteUserExternalWithHttpInfo(newExternalInvitation);
     }
 
@@ -20188,7 +20188,7 @@ public class ManagementApi {
         <tr><td> 204 </td><td> Invitation email sent </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Void> inviteUserExternalWithHttpInfo(NewExternalInvitation newExternalInvitation) throws ApiException {
+    public ApiResponse<Void> inviteUserExternalWithHttpInfo(@javax.annotation.Nonnull NewExternalInvitation newExternalInvitation) throws ApiException {
         okhttp3.Call localVarCall = inviteUserExternalValidateBeforeCall(newExternalInvitation, null);
         return localVarApiClient.execute(localVarCall);
     }
@@ -20207,7 +20207,7 @@ public class ManagementApi {
         <tr><td> 204 </td><td> Invitation email sent </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call inviteUserExternalAsync(NewExternalInvitation newExternalInvitation, final ApiCallback<Void> _callback) throws ApiException {
+    public okhttp3.Call inviteUserExternalAsync(@javax.annotation.Nonnull NewExternalInvitation newExternalInvitation, final ApiCallback<Void> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = inviteUserExternalValidateBeforeCall(newExternalInvitation, _callback);
         localVarApiClient.executeAsync(localVarCall, _callback);
@@ -20233,7 +20233,7 @@ public class ManagementApi {
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call listAccountCollectionsCall(Long pageSize, Long skip, String sort, Boolean withTotalResultSize, String name, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call listAccountCollectionsCall(@javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable String sort, @javax.annotation.Nullable Boolean withTotalResultSize, @javax.annotation.Nullable String name, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -20298,7 +20298,7 @@ public class ManagementApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call listAccountCollectionsValidateBeforeCall(Long pageSize, Long skip, String sort, Boolean withTotalResultSize, String name, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call listAccountCollectionsValidateBeforeCall(@javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable String sort, @javax.annotation.Nullable Boolean withTotalResultSize, @javax.annotation.Nullable String name, final ApiCallback _callback) throws ApiException {
         return listAccountCollectionsCall(pageSize, skip, sort, withTotalResultSize, name, _callback);
 
     }
@@ -20323,7 +20323,7 @@ public class ManagementApi {
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
      */
-    public ListAccountCollections200Response listAccountCollections(Long pageSize, Long skip, String sort, Boolean withTotalResultSize, String name) throws ApiException {
+    public ListAccountCollections200Response listAccountCollections(@javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable String sort, @javax.annotation.Nullable Boolean withTotalResultSize, @javax.annotation.Nullable String name) throws ApiException {
         ApiResponse<ListAccountCollections200Response> localVarResp = listAccountCollectionsWithHttpInfo(pageSize, skip, sort, withTotalResultSize, name);
         return localVarResp.getData();
     }
@@ -20348,7 +20348,7 @@ public class ManagementApi {
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<ListAccountCollections200Response> listAccountCollectionsWithHttpInfo(Long pageSize, Long skip, String sort, Boolean withTotalResultSize, String name) throws ApiException {
+    public ApiResponse<ListAccountCollections200Response> listAccountCollectionsWithHttpInfo(@javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable String sort, @javax.annotation.Nullable Boolean withTotalResultSize, @javax.annotation.Nullable String name) throws ApiException {
         okhttp3.Call localVarCall = listAccountCollectionsValidateBeforeCall(pageSize, skip, sort, withTotalResultSize, name, null);
         Type localVarReturnType = new TypeToken<ListAccountCollections200Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -20375,7 +20375,7 @@ public class ManagementApi {
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call listAccountCollectionsAsync(Long pageSize, Long skip, String sort, Boolean withTotalResultSize, String name, final ApiCallback<ListAccountCollections200Response> _callback) throws ApiException {
+    public okhttp3.Call listAccountCollectionsAsync(@javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable String sort, @javax.annotation.Nullable Boolean withTotalResultSize, @javax.annotation.Nullable String name, final ApiCallback<ListAccountCollections200Response> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = listAccountCollectionsValidateBeforeCall(pageSize, skip, sort, withTotalResultSize, name, _callback);
         Type localVarReturnType = new TypeToken<ListAccountCollections200Response>(){}.getType();
@@ -20399,7 +20399,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call listAchievementsCall(Long applicationId, Long campaignId, Long pageSize, Long skip, String title, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call listAchievementsCall(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable String title, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -20458,7 +20458,7 @@ public class ManagementApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call listAchievementsValidateBeforeCall(Long applicationId, Long campaignId, Long pageSize, Long skip, String title, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call listAchievementsValidateBeforeCall(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable String title, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'applicationId' is set
         if (applicationId == null) {
             throw new ApiException("Missing the required parameter 'applicationId' when calling listAchievements(Async)");
@@ -20490,7 +20490,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ListAchievements200Response listAchievements(Long applicationId, Long campaignId, Long pageSize, Long skip, String title) throws ApiException {
+    public ListAchievements200Response listAchievements(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable String title) throws ApiException {
         ApiResponse<ListAchievements200Response> localVarResp = listAchievementsWithHttpInfo(applicationId, campaignId, pageSize, skip, title);
         return localVarResp.getData();
     }
@@ -20512,7 +20512,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<ListAchievements200Response> listAchievementsWithHttpInfo(Long applicationId, Long campaignId, Long pageSize, Long skip, String title) throws ApiException {
+    public ApiResponse<ListAchievements200Response> listAchievementsWithHttpInfo(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable String title) throws ApiException {
         okhttp3.Call localVarCall = listAchievementsValidateBeforeCall(applicationId, campaignId, pageSize, skip, title, null);
         Type localVarReturnType = new TypeToken<ListAchievements200Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -20536,7 +20536,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call listAchievementsAsync(Long applicationId, Long campaignId, Long pageSize, Long skip, String title, final ApiCallback<ListAchievements200Response> _callback) throws ApiException {
+    public okhttp3.Call listAchievementsAsync(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable String title, final ApiCallback<ListAchievements200Response> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = listAchievementsValidateBeforeCall(applicationId, campaignId, pageSize, skip, title, _callback);
         Type localVarReturnType = new TypeToken<ListAchievements200Response>(){}.getType();
@@ -20679,7 +20679,7 @@ public class ManagementApi {
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call listCampaignStoreBudgetLimitsCall(Long applicationId, Long campaignId, String action, String period, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call listCampaignStoreBudgetLimitsCall(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, @javax.annotation.Nullable String action, @javax.annotation.Nullable String period, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -20734,7 +20734,7 @@ public class ManagementApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call listCampaignStoreBudgetLimitsValidateBeforeCall(Long applicationId, Long campaignId, String action, String period, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call listCampaignStoreBudgetLimitsValidateBeforeCall(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, @javax.annotation.Nullable String action, @javax.annotation.Nullable String period, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'applicationId' is set
         if (applicationId == null) {
             throw new ApiException("Missing the required parameter 'applicationId' when calling listCampaignStoreBudgetLimits(Async)");
@@ -20768,7 +20768,7 @@ public class ManagementApi {
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
      */
-    public ListCampaignStoreBudgetLimits200Response listCampaignStoreBudgetLimits(Long applicationId, Long campaignId, String action, String period) throws ApiException {
+    public ListCampaignStoreBudgetLimits200Response listCampaignStoreBudgetLimits(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, @javax.annotation.Nullable String action, @javax.annotation.Nullable String period) throws ApiException {
         ApiResponse<ListCampaignStoreBudgetLimits200Response> localVarResp = listCampaignStoreBudgetLimitsWithHttpInfo(applicationId, campaignId, action, period);
         return localVarResp.getData();
     }
@@ -20792,7 +20792,7 @@ public class ManagementApi {
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<ListCampaignStoreBudgetLimits200Response> listCampaignStoreBudgetLimitsWithHttpInfo(Long applicationId, Long campaignId, String action, String period) throws ApiException {
+    public ApiResponse<ListCampaignStoreBudgetLimits200Response> listCampaignStoreBudgetLimitsWithHttpInfo(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, @javax.annotation.Nullable String action, @javax.annotation.Nullable String period) throws ApiException {
         okhttp3.Call localVarCall = listCampaignStoreBudgetLimitsValidateBeforeCall(applicationId, campaignId, action, period, null);
         Type localVarReturnType = new TypeToken<ListCampaignStoreBudgetLimits200Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -20818,7 +20818,7 @@ public class ManagementApi {
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call listCampaignStoreBudgetLimitsAsync(Long applicationId, Long campaignId, String action, String period, final ApiCallback<ListCampaignStoreBudgetLimits200Response> _callback) throws ApiException {
+    public okhttp3.Call listCampaignStoreBudgetLimitsAsync(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, @javax.annotation.Nullable String action, @javax.annotation.Nullable String period, final ApiCallback<ListCampaignStoreBudgetLimits200Response> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = listCampaignStoreBudgetLimitsValidateBeforeCall(applicationId, campaignId, action, period, _callback);
         Type localVarReturnType = new TypeToken<ListCampaignStoreBudgetLimits200Response>(){}.getType();
@@ -20843,7 +20843,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call listCatalogItemsCall(Long catalogId, Long pageSize, Long skip, Boolean withTotalResultSize, List<String> sku, List<String> productNames, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call listCatalogItemsCall(@javax.annotation.Nonnull Long catalogId, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable Boolean withTotalResultSize, @javax.annotation.Nullable List<String> sku, @javax.annotation.Nullable List<String> productNames, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -20909,7 +20909,7 @@ public class ManagementApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call listCatalogItemsValidateBeforeCall(Long catalogId, Long pageSize, Long skip, Boolean withTotalResultSize, List<String> sku, List<String> productNames, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call listCatalogItemsValidateBeforeCall(@javax.annotation.Nonnull Long catalogId, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable Boolean withTotalResultSize, @javax.annotation.Nullable List<String> sku, @javax.annotation.Nullable List<String> productNames, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'catalogId' is set
         if (catalogId == null) {
             throw new ApiException("Missing the required parameter 'catalogId' when calling listCatalogItems(Async)");
@@ -20937,7 +20937,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ListCatalogItems200Response listCatalogItems(Long catalogId, Long pageSize, Long skip, Boolean withTotalResultSize, List<String> sku, List<String> productNames) throws ApiException {
+    public ListCatalogItems200Response listCatalogItems(@javax.annotation.Nonnull Long catalogId, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable Boolean withTotalResultSize, @javax.annotation.Nullable List<String> sku, @javax.annotation.Nullable List<String> productNames) throws ApiException {
         ApiResponse<ListCatalogItems200Response> localVarResp = listCatalogItemsWithHttpInfo(catalogId, pageSize, skip, withTotalResultSize, sku, productNames);
         return localVarResp.getData();
     }
@@ -20960,7 +20960,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<ListCatalogItems200Response> listCatalogItemsWithHttpInfo(Long catalogId, Long pageSize, Long skip, Boolean withTotalResultSize, List<String> sku, List<String> productNames) throws ApiException {
+    public ApiResponse<ListCatalogItems200Response> listCatalogItemsWithHttpInfo(@javax.annotation.Nonnull Long catalogId, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable Boolean withTotalResultSize, @javax.annotation.Nullable List<String> sku, @javax.annotation.Nullable List<String> productNames) throws ApiException {
         okhttp3.Call localVarCall = listCatalogItemsValidateBeforeCall(catalogId, pageSize, skip, withTotalResultSize, sku, productNames, null);
         Type localVarReturnType = new TypeToken<ListCatalogItems200Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -20985,7 +20985,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call listCatalogItemsAsync(Long catalogId, Long pageSize, Long skip, Boolean withTotalResultSize, List<String> sku, List<String> productNames, final ApiCallback<ListCatalogItems200Response> _callback) throws ApiException {
+    public okhttp3.Call listCatalogItemsAsync(@javax.annotation.Nonnull Long catalogId, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable Boolean withTotalResultSize, @javax.annotation.Nullable List<String> sku, @javax.annotation.Nullable List<String> productNames, final ApiCallback<ListCatalogItems200Response> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = listCatalogItemsValidateBeforeCall(catalogId, pageSize, skip, withTotalResultSize, sku, productNames, _callback);
         Type localVarReturnType = new TypeToken<ListCatalogItems200Response>(){}.getType();
@@ -21012,7 +21012,7 @@ public class ManagementApi {
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call listCollectionsCall(Long applicationId, Long campaignId, Long pageSize, Long skip, String sort, Boolean withTotalResultSize, String name, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call listCollectionsCall(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable String sort, @javax.annotation.Nullable Boolean withTotalResultSize, @javax.annotation.Nullable String name, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -21079,7 +21079,7 @@ public class ManagementApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call listCollectionsValidateBeforeCall(Long applicationId, Long campaignId, Long pageSize, Long skip, String sort, Boolean withTotalResultSize, String name, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call listCollectionsValidateBeforeCall(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable String sort, @javax.annotation.Nullable Boolean withTotalResultSize, @javax.annotation.Nullable String name, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'applicationId' is set
         if (applicationId == null) {
             throw new ApiException("Missing the required parameter 'applicationId' when calling listCollections(Async)");
@@ -21114,7 +21114,7 @@ public class ManagementApi {
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
      */
-    public ListAccountCollections200Response listCollections(Long applicationId, Long campaignId, Long pageSize, Long skip, String sort, Boolean withTotalResultSize, String name) throws ApiException {
+    public ListAccountCollections200Response listCollections(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable String sort, @javax.annotation.Nullable Boolean withTotalResultSize, @javax.annotation.Nullable String name) throws ApiException {
         ApiResponse<ListAccountCollections200Response> localVarResp = listCollectionsWithHttpInfo(applicationId, campaignId, pageSize, skip, sort, withTotalResultSize, name);
         return localVarResp.getData();
     }
@@ -21139,7 +21139,7 @@ public class ManagementApi {
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<ListAccountCollections200Response> listCollectionsWithHttpInfo(Long applicationId, Long campaignId, Long pageSize, Long skip, String sort, Boolean withTotalResultSize, String name) throws ApiException {
+    public ApiResponse<ListAccountCollections200Response> listCollectionsWithHttpInfo(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable String sort, @javax.annotation.Nullable Boolean withTotalResultSize, @javax.annotation.Nullable String name) throws ApiException {
         okhttp3.Call localVarCall = listCollectionsValidateBeforeCall(applicationId, campaignId, pageSize, skip, sort, withTotalResultSize, name, null);
         Type localVarReturnType = new TypeToken<ListAccountCollections200Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -21166,7 +21166,7 @@ public class ManagementApi {
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call listCollectionsAsync(Long applicationId, Long campaignId, Long pageSize, Long skip, String sort, Boolean withTotalResultSize, String name, final ApiCallback<ListAccountCollections200Response> _callback) throws ApiException {
+    public okhttp3.Call listCollectionsAsync(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable String sort, @javax.annotation.Nullable Boolean withTotalResultSize, @javax.annotation.Nullable String name, final ApiCallback<ListAccountCollections200Response> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = listCollectionsValidateBeforeCall(applicationId, campaignId, pageSize, skip, sort, withTotalResultSize, name, _callback);
         Type localVarReturnType = new TypeToken<ListAccountCollections200Response>(){}.getType();
@@ -21192,7 +21192,7 @@ public class ManagementApi {
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call listCollectionsInApplicationCall(Long applicationId, Long pageSize, Long skip, String sort, Boolean withTotalResultSize, String name, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call listCollectionsInApplicationCall(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable String sort, @javax.annotation.Nullable Boolean withTotalResultSize, @javax.annotation.Nullable String name, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -21258,7 +21258,7 @@ public class ManagementApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call listCollectionsInApplicationValidateBeforeCall(Long applicationId, Long pageSize, Long skip, String sort, Boolean withTotalResultSize, String name, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call listCollectionsInApplicationValidateBeforeCall(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable String sort, @javax.annotation.Nullable Boolean withTotalResultSize, @javax.annotation.Nullable String name, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'applicationId' is set
         if (applicationId == null) {
             throw new ApiException("Missing the required parameter 'applicationId' when calling listCollectionsInApplication(Async)");
@@ -21287,7 +21287,7 @@ public class ManagementApi {
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
      */
-    public ListAccountCollections200Response listCollectionsInApplication(Long applicationId, Long pageSize, Long skip, String sort, Boolean withTotalResultSize, String name) throws ApiException {
+    public ListAccountCollections200Response listCollectionsInApplication(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable String sort, @javax.annotation.Nullable Boolean withTotalResultSize, @javax.annotation.Nullable String name) throws ApiException {
         ApiResponse<ListAccountCollections200Response> localVarResp = listCollectionsInApplicationWithHttpInfo(applicationId, pageSize, skip, sort, withTotalResultSize, name);
         return localVarResp.getData();
     }
@@ -21311,7 +21311,7 @@ public class ManagementApi {
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<ListAccountCollections200Response> listCollectionsInApplicationWithHttpInfo(Long applicationId, Long pageSize, Long skip, String sort, Boolean withTotalResultSize, String name) throws ApiException {
+    public ApiResponse<ListAccountCollections200Response> listCollectionsInApplicationWithHttpInfo(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable String sort, @javax.annotation.Nullable Boolean withTotalResultSize, @javax.annotation.Nullable String name) throws ApiException {
         okhttp3.Call localVarCall = listCollectionsInApplicationValidateBeforeCall(applicationId, pageSize, skip, sort, withTotalResultSize, name, null);
         Type localVarReturnType = new TypeToken<ListAccountCollections200Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -21337,7 +21337,7 @@ public class ManagementApi {
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call listCollectionsInApplicationAsync(Long applicationId, Long pageSize, Long skip, String sort, Boolean withTotalResultSize, String name, final ApiCallback<ListAccountCollections200Response> _callback) throws ApiException {
+    public okhttp3.Call listCollectionsInApplicationAsync(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable String sort, @javax.annotation.Nullable Boolean withTotalResultSize, @javax.annotation.Nullable String name, final ApiCallback<ListAccountCollections200Response> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = listCollectionsInApplicationValidateBeforeCall(applicationId, pageSize, skip, sort, withTotalResultSize, name, _callback);
         Type localVarReturnType = new TypeToken<ListAccountCollections200Response>(){}.getType();
@@ -21365,7 +21365,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call listStoresCall(Long applicationId, Long pageSize, Long skip, String sort, Boolean withTotalResultSize, BigDecimal campaignId, String name, String integrationId, String query, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call listStoresCall(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable String sort, @javax.annotation.Nullable Boolean withTotalResultSize, @javax.annotation.Nullable BigDecimal campaignId, @javax.annotation.Nullable String name, @javax.annotation.Nullable String integrationId, @javax.annotation.Nullable String query, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -21443,7 +21443,7 @@ public class ManagementApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call listStoresValidateBeforeCall(Long applicationId, Long pageSize, Long skip, String sort, Boolean withTotalResultSize, BigDecimal campaignId, String name, String integrationId, String query, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call listStoresValidateBeforeCall(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable String sort, @javax.annotation.Nullable Boolean withTotalResultSize, @javax.annotation.Nullable BigDecimal campaignId, @javax.annotation.Nullable String name, @javax.annotation.Nullable String integrationId, @javax.annotation.Nullable String query, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'applicationId' is set
         if (applicationId == null) {
             throw new ApiException("Missing the required parameter 'applicationId' when calling listStores(Async)");
@@ -21474,7 +21474,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ListStores200Response listStores(Long applicationId, Long pageSize, Long skip, String sort, Boolean withTotalResultSize, BigDecimal campaignId, String name, String integrationId, String query) throws ApiException {
+    public ListStores200Response listStores(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable String sort, @javax.annotation.Nullable Boolean withTotalResultSize, @javax.annotation.Nullable BigDecimal campaignId, @javax.annotation.Nullable String name, @javax.annotation.Nullable String integrationId, @javax.annotation.Nullable String query) throws ApiException {
         ApiResponse<ListStores200Response> localVarResp = listStoresWithHttpInfo(applicationId, pageSize, skip, sort, withTotalResultSize, campaignId, name, integrationId, query);
         return localVarResp.getData();
     }
@@ -21500,7 +21500,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<ListStores200Response> listStoresWithHttpInfo(Long applicationId, Long pageSize, Long skip, String sort, Boolean withTotalResultSize, BigDecimal campaignId, String name, String integrationId, String query) throws ApiException {
+    public ApiResponse<ListStores200Response> listStoresWithHttpInfo(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable String sort, @javax.annotation.Nullable Boolean withTotalResultSize, @javax.annotation.Nullable BigDecimal campaignId, @javax.annotation.Nullable String name, @javax.annotation.Nullable String integrationId, @javax.annotation.Nullable String query) throws ApiException {
         okhttp3.Call localVarCall = listStoresValidateBeforeCall(applicationId, pageSize, skip, sort, withTotalResultSize, campaignId, name, integrationId, query, null);
         Type localVarReturnType = new TypeToken<ListStores200Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -21528,7 +21528,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call listStoresAsync(Long applicationId, Long pageSize, Long skip, String sort, Boolean withTotalResultSize, BigDecimal campaignId, String name, String integrationId, String query, final ApiCallback<ListStores200Response> _callback) throws ApiException {
+    public okhttp3.Call listStoresAsync(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable String sort, @javax.annotation.Nullable Boolean withTotalResultSize, @javax.annotation.Nullable BigDecimal campaignId, @javax.annotation.Nullable String name, @javax.annotation.Nullable String integrationId, @javax.annotation.Nullable String query, final ApiCallback<ListStores200Response> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = listStoresValidateBeforeCall(applicationId, pageSize, skip, sort, withTotalResultSize, campaignId, name, integrationId, query, _callback);
         Type localVarReturnType = new TypeToken<ListStores200Response>(){}.getType();
@@ -21665,7 +21665,7 @@ public class ManagementApi {
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call removeLoyaltyPointsCall(String loyaltyProgramId, String integrationId, DeductLoyaltyPoints deductLoyaltyPoints, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call removeLoyaltyPointsCall(@javax.annotation.Nonnull String loyaltyProgramId, @javax.annotation.Nonnull String integrationId, @javax.annotation.Nonnull DeductLoyaltyPoints deductLoyaltyPoints, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -21713,7 +21713,7 @@ public class ManagementApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call removeLoyaltyPointsValidateBeforeCall(String loyaltyProgramId, String integrationId, DeductLoyaltyPoints deductLoyaltyPoints, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call removeLoyaltyPointsValidateBeforeCall(@javax.annotation.Nonnull String loyaltyProgramId, @javax.annotation.Nonnull String integrationId, @javax.annotation.Nonnull DeductLoyaltyPoints deductLoyaltyPoints, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'loyaltyProgramId' is set
         if (loyaltyProgramId == null) {
             throw new ApiException("Missing the required parameter 'loyaltyProgramId' when calling removeLoyaltyPoints(Async)");
@@ -21750,7 +21750,7 @@ public class ManagementApi {
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
      */
-    public void removeLoyaltyPoints(String loyaltyProgramId, String integrationId, DeductLoyaltyPoints deductLoyaltyPoints) throws ApiException {
+    public void removeLoyaltyPoints(@javax.annotation.Nonnull String loyaltyProgramId, @javax.annotation.Nonnull String integrationId, @javax.annotation.Nonnull DeductLoyaltyPoints deductLoyaltyPoints) throws ApiException {
         removeLoyaltyPointsWithHttpInfo(loyaltyProgramId, integrationId, deductLoyaltyPoints);
     }
 
@@ -21772,7 +21772,7 @@ public class ManagementApi {
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Void> removeLoyaltyPointsWithHttpInfo(String loyaltyProgramId, String integrationId, DeductLoyaltyPoints deductLoyaltyPoints) throws ApiException {
+    public ApiResponse<Void> removeLoyaltyPointsWithHttpInfo(@javax.annotation.Nonnull String loyaltyProgramId, @javax.annotation.Nonnull String integrationId, @javax.annotation.Nonnull DeductLoyaltyPoints deductLoyaltyPoints) throws ApiException {
         okhttp3.Call localVarCall = removeLoyaltyPointsValidateBeforeCall(loyaltyProgramId, integrationId, deductLoyaltyPoints, null);
         return localVarApiClient.execute(localVarCall);
     }
@@ -21796,7 +21796,7 @@ public class ManagementApi {
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call removeLoyaltyPointsAsync(String loyaltyProgramId, String integrationId, DeductLoyaltyPoints deductLoyaltyPoints, final ApiCallback<Void> _callback) throws ApiException {
+    public okhttp3.Call removeLoyaltyPointsAsync(@javax.annotation.Nonnull String loyaltyProgramId, @javax.annotation.Nonnull String integrationId, @javax.annotation.Nonnull DeductLoyaltyPoints deductLoyaltyPoints, final ApiCallback<Void> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = removeLoyaltyPointsValidateBeforeCall(loyaltyProgramId, integrationId, deductLoyaltyPoints, _callback);
         localVarApiClient.executeAsync(localVarCall, _callback);
@@ -21815,7 +21815,7 @@ public class ManagementApi {
         <tr><td> 204 </td><td> Created </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call resetPasswordCall(NewPassword newPassword, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call resetPasswordCall(@javax.annotation.Nonnull NewPassword newPassword, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -21861,7 +21861,7 @@ public class ManagementApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call resetPasswordValidateBeforeCall(NewPassword newPassword, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call resetPasswordValidateBeforeCall(@javax.annotation.Nonnull NewPassword newPassword, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'newPassword' is set
         if (newPassword == null) {
             throw new ApiException("Missing the required parameter 'newPassword' when calling resetPassword(Async)");
@@ -21884,7 +21884,7 @@ public class ManagementApi {
         <tr><td> 204 </td><td> Created </td><td>  -  </td></tr>
      </table>
      */
-    public NewPassword resetPassword(NewPassword newPassword) throws ApiException {
+    public NewPassword resetPassword(@javax.annotation.Nonnull NewPassword newPassword) throws ApiException {
         ApiResponse<NewPassword> localVarResp = resetPasswordWithHttpInfo(newPassword);
         return localVarResp.getData();
     }
@@ -21902,7 +21902,7 @@ public class ManagementApi {
         <tr><td> 204 </td><td> Created </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<NewPassword> resetPasswordWithHttpInfo(NewPassword newPassword) throws ApiException {
+    public ApiResponse<NewPassword> resetPasswordWithHttpInfo(@javax.annotation.Nonnull NewPassword newPassword) throws ApiException {
         okhttp3.Call localVarCall = resetPasswordValidateBeforeCall(newPassword, null);
         Type localVarReturnType = new TypeToken<NewPassword>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -21922,7 +21922,7 @@ public class ManagementApi {
         <tr><td> 204 </td><td> Created </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call resetPasswordAsync(NewPassword newPassword, final ApiCallback<NewPassword> _callback) throws ApiException {
+    public okhttp3.Call resetPasswordAsync(@javax.annotation.Nonnull NewPassword newPassword, final ApiCallback<NewPassword> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = resetPasswordValidateBeforeCall(newPassword, _callback);
         Type localVarReturnType = new TypeToken<NewPassword>(){}.getType();
@@ -21942,7 +21942,7 @@ public class ManagementApi {
         <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call scimCreateGroupCall(ScimBaseGroup scimBaseGroup, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call scimCreateGroupCall(@javax.annotation.Nonnull ScimBaseGroup scimBaseGroup, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -21988,7 +21988,7 @@ public class ManagementApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call scimCreateGroupValidateBeforeCall(ScimBaseGroup scimBaseGroup, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call scimCreateGroupValidateBeforeCall(@javax.annotation.Nonnull ScimBaseGroup scimBaseGroup, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'scimBaseGroup' is set
         if (scimBaseGroup == null) {
             throw new ApiException("Missing the required parameter 'scimBaseGroup' when calling scimCreateGroup(Async)");
@@ -22011,7 +22011,7 @@ public class ManagementApi {
         <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
      </table>
      */
-    public ScimGroup scimCreateGroup(ScimBaseGroup scimBaseGroup) throws ApiException {
+    public ScimGroup scimCreateGroup(@javax.annotation.Nonnull ScimBaseGroup scimBaseGroup) throws ApiException {
         ApiResponse<ScimGroup> localVarResp = scimCreateGroupWithHttpInfo(scimBaseGroup);
         return localVarResp.getData();
     }
@@ -22029,7 +22029,7 @@ public class ManagementApi {
         <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<ScimGroup> scimCreateGroupWithHttpInfo(ScimBaseGroup scimBaseGroup) throws ApiException {
+    public ApiResponse<ScimGroup> scimCreateGroupWithHttpInfo(@javax.annotation.Nonnull ScimBaseGroup scimBaseGroup) throws ApiException {
         okhttp3.Call localVarCall = scimCreateGroupValidateBeforeCall(scimBaseGroup, null);
         Type localVarReturnType = new TypeToken<ScimGroup>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -22049,7 +22049,7 @@ public class ManagementApi {
         <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call scimCreateGroupAsync(ScimBaseGroup scimBaseGroup, final ApiCallback<ScimGroup> _callback) throws ApiException {
+    public okhttp3.Call scimCreateGroupAsync(@javax.annotation.Nonnull ScimBaseGroup scimBaseGroup, final ApiCallback<ScimGroup> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = scimCreateGroupValidateBeforeCall(scimBaseGroup, _callback);
         Type localVarReturnType = new TypeToken<ScimGroup>(){}.getType();
@@ -22069,7 +22069,7 @@ public class ManagementApi {
         <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call scimCreateUserCall(ScimNewUser scimNewUser, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call scimCreateUserCall(@javax.annotation.Nonnull ScimNewUser scimNewUser, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -22115,7 +22115,7 @@ public class ManagementApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call scimCreateUserValidateBeforeCall(ScimNewUser scimNewUser, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call scimCreateUserValidateBeforeCall(@javax.annotation.Nonnull ScimNewUser scimNewUser, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'scimNewUser' is set
         if (scimNewUser == null) {
             throw new ApiException("Missing the required parameter 'scimNewUser' when calling scimCreateUser(Async)");
@@ -22138,7 +22138,7 @@ public class ManagementApi {
         <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
      </table>
      */
-    public ScimUser scimCreateUser(ScimNewUser scimNewUser) throws ApiException {
+    public ScimUser scimCreateUser(@javax.annotation.Nonnull ScimNewUser scimNewUser) throws ApiException {
         ApiResponse<ScimUser> localVarResp = scimCreateUserWithHttpInfo(scimNewUser);
         return localVarResp.getData();
     }
@@ -22156,7 +22156,7 @@ public class ManagementApi {
         <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<ScimUser> scimCreateUserWithHttpInfo(ScimNewUser scimNewUser) throws ApiException {
+    public ApiResponse<ScimUser> scimCreateUserWithHttpInfo(@javax.annotation.Nonnull ScimNewUser scimNewUser) throws ApiException {
         okhttp3.Call localVarCall = scimCreateUserValidateBeforeCall(scimNewUser, null);
         Type localVarReturnType = new TypeToken<ScimUser>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -22176,7 +22176,7 @@ public class ManagementApi {
         <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call scimCreateUserAsync(ScimNewUser scimNewUser, final ApiCallback<ScimUser> _callback) throws ApiException {
+    public okhttp3.Call scimCreateUserAsync(@javax.annotation.Nonnull ScimNewUser scimNewUser, final ApiCallback<ScimUser> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = scimCreateUserValidateBeforeCall(scimNewUser, _callback);
         Type localVarReturnType = new TypeToken<ScimUser>(){}.getType();
@@ -22196,7 +22196,7 @@ public class ManagementApi {
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call scimDeleteGroupCall(Long groupId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call scimDeleteGroupCall(@javax.annotation.Nonnull Long groupId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -22241,7 +22241,7 @@ public class ManagementApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call scimDeleteGroupValidateBeforeCall(Long groupId, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call scimDeleteGroupValidateBeforeCall(@javax.annotation.Nonnull Long groupId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'groupId' is set
         if (groupId == null) {
             throw new ApiException("Missing the required parameter 'groupId' when calling scimDeleteGroup(Async)");
@@ -22263,7 +22263,7 @@ public class ManagementApi {
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
      </table>
      */
-    public void scimDeleteGroup(Long groupId) throws ApiException {
+    public void scimDeleteGroup(@javax.annotation.Nonnull Long groupId) throws ApiException {
         scimDeleteGroupWithHttpInfo(groupId);
     }
 
@@ -22280,7 +22280,7 @@ public class ManagementApi {
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Void> scimDeleteGroupWithHttpInfo(Long groupId) throws ApiException {
+    public ApiResponse<Void> scimDeleteGroupWithHttpInfo(@javax.annotation.Nonnull Long groupId) throws ApiException {
         okhttp3.Call localVarCall = scimDeleteGroupValidateBeforeCall(groupId, null);
         return localVarApiClient.execute(localVarCall);
     }
@@ -22299,7 +22299,7 @@ public class ManagementApi {
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call scimDeleteGroupAsync(Long groupId, final ApiCallback<Void> _callback) throws ApiException {
+    public okhttp3.Call scimDeleteGroupAsync(@javax.annotation.Nonnull Long groupId, final ApiCallback<Void> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = scimDeleteGroupValidateBeforeCall(groupId, _callback);
         localVarApiClient.executeAsync(localVarCall, _callback);
@@ -22318,7 +22318,7 @@ public class ManagementApi {
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call scimDeleteUserCall(Long userId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call scimDeleteUserCall(@javax.annotation.Nonnull Long userId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -22363,7 +22363,7 @@ public class ManagementApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call scimDeleteUserValidateBeforeCall(Long userId, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call scimDeleteUserValidateBeforeCall(@javax.annotation.Nonnull Long userId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'userId' is set
         if (userId == null) {
             throw new ApiException("Missing the required parameter 'userId' when calling scimDeleteUser(Async)");
@@ -22385,7 +22385,7 @@ public class ManagementApi {
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
      </table>
      */
-    public void scimDeleteUser(Long userId) throws ApiException {
+    public void scimDeleteUser(@javax.annotation.Nonnull Long userId) throws ApiException {
         scimDeleteUserWithHttpInfo(userId);
     }
 
@@ -22402,7 +22402,7 @@ public class ManagementApi {
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Void> scimDeleteUserWithHttpInfo(Long userId) throws ApiException {
+    public ApiResponse<Void> scimDeleteUserWithHttpInfo(@javax.annotation.Nonnull Long userId) throws ApiException {
         okhttp3.Call localVarCall = scimDeleteUserValidateBeforeCall(userId, null);
         return localVarApiClient.execute(localVarCall);
     }
@@ -22421,7 +22421,7 @@ public class ManagementApi {
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call scimDeleteUserAsync(Long userId, final ApiCallback<Void> _callback) throws ApiException {
+    public okhttp3.Call scimDeleteUserAsync(@javax.annotation.Nonnull Long userId, final ApiCallback<Void> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = scimDeleteUserValidateBeforeCall(userId, _callback);
         localVarApiClient.executeAsync(localVarCall, _callback);
@@ -22440,7 +22440,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> Group details </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call scimGetGroupCall(Long groupId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call scimGetGroupCall(@javax.annotation.Nonnull Long groupId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -22486,7 +22486,7 @@ public class ManagementApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call scimGetGroupValidateBeforeCall(Long groupId, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call scimGetGroupValidateBeforeCall(@javax.annotation.Nonnull Long groupId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'groupId' is set
         if (groupId == null) {
             throw new ApiException("Missing the required parameter 'groupId' when calling scimGetGroup(Async)");
@@ -22509,7 +22509,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> Group details </td><td>  -  </td></tr>
      </table>
      */
-    public ScimGroup scimGetGroup(Long groupId) throws ApiException {
+    public ScimGroup scimGetGroup(@javax.annotation.Nonnull Long groupId) throws ApiException {
         ApiResponse<ScimGroup> localVarResp = scimGetGroupWithHttpInfo(groupId);
         return localVarResp.getData();
     }
@@ -22527,7 +22527,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> Group details </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<ScimGroup> scimGetGroupWithHttpInfo(Long groupId) throws ApiException {
+    public ApiResponse<ScimGroup> scimGetGroupWithHttpInfo(@javax.annotation.Nonnull Long groupId) throws ApiException {
         okhttp3.Call localVarCall = scimGetGroupValidateBeforeCall(groupId, null);
         Type localVarReturnType = new TypeToken<ScimGroup>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -22547,7 +22547,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> Group details </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call scimGetGroupAsync(Long groupId, final ApiCallback<ScimGroup> _callback) throws ApiException {
+    public okhttp3.Call scimGetGroupAsync(@javax.annotation.Nonnull Long groupId, final ApiCallback<ScimGroup> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = scimGetGroupValidateBeforeCall(groupId, _callback);
         Type localVarReturnType = new TypeToken<ScimGroup>(){}.getType();
@@ -23035,7 +23035,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> User details </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call scimGetUserCall(Long userId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call scimGetUserCall(@javax.annotation.Nonnull Long userId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -23081,7 +23081,7 @@ public class ManagementApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call scimGetUserValidateBeforeCall(Long userId, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call scimGetUserValidateBeforeCall(@javax.annotation.Nonnull Long userId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'userId' is set
         if (userId == null) {
             throw new ApiException("Missing the required parameter 'userId' when calling scimGetUser(Async)");
@@ -23104,7 +23104,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> User details </td><td>  -  </td></tr>
      </table>
      */
-    public ScimUser scimGetUser(Long userId) throws ApiException {
+    public ScimUser scimGetUser(@javax.annotation.Nonnull Long userId) throws ApiException {
         ApiResponse<ScimUser> localVarResp = scimGetUserWithHttpInfo(userId);
         return localVarResp.getData();
     }
@@ -23122,7 +23122,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> User details </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<ScimUser> scimGetUserWithHttpInfo(Long userId) throws ApiException {
+    public ApiResponse<ScimUser> scimGetUserWithHttpInfo(@javax.annotation.Nonnull Long userId) throws ApiException {
         okhttp3.Call localVarCall = scimGetUserValidateBeforeCall(userId, null);
         Type localVarReturnType = new TypeToken<ScimUser>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -23142,7 +23142,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> User details </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call scimGetUserAsync(Long userId, final ApiCallback<ScimUser> _callback) throws ApiException {
+    public okhttp3.Call scimGetUserAsync(@javax.annotation.Nonnull Long userId, final ApiCallback<ScimUser> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = scimGetUserValidateBeforeCall(userId, _callback);
         Type localVarReturnType = new TypeToken<ScimUser>(){}.getType();
@@ -23280,7 +23280,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> Group details </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call scimPatchGroupCall(Long groupId, ScimPatchRequest scimPatchRequest, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call scimPatchGroupCall(@javax.annotation.Nonnull Long groupId, @javax.annotation.Nonnull ScimPatchRequest scimPatchRequest, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -23327,7 +23327,7 @@ public class ManagementApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call scimPatchGroupValidateBeforeCall(Long groupId, ScimPatchRequest scimPatchRequest, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call scimPatchGroupValidateBeforeCall(@javax.annotation.Nonnull Long groupId, @javax.annotation.Nonnull ScimPatchRequest scimPatchRequest, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'groupId' is set
         if (groupId == null) {
             throw new ApiException("Missing the required parameter 'groupId' when calling scimPatchGroup(Async)");
@@ -23356,7 +23356,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> Group details </td><td>  -  </td></tr>
      </table>
      */
-    public ScimGroup scimPatchGroup(Long groupId, ScimPatchRequest scimPatchRequest) throws ApiException {
+    public ScimGroup scimPatchGroup(@javax.annotation.Nonnull Long groupId, @javax.annotation.Nonnull ScimPatchRequest scimPatchRequest) throws ApiException {
         ApiResponse<ScimGroup> localVarResp = scimPatchGroupWithHttpInfo(groupId, scimPatchRequest);
         return localVarResp.getData();
     }
@@ -23375,7 +23375,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> Group details </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<ScimGroup> scimPatchGroupWithHttpInfo(Long groupId, ScimPatchRequest scimPatchRequest) throws ApiException {
+    public ApiResponse<ScimGroup> scimPatchGroupWithHttpInfo(@javax.annotation.Nonnull Long groupId, @javax.annotation.Nonnull ScimPatchRequest scimPatchRequest) throws ApiException {
         okhttp3.Call localVarCall = scimPatchGroupValidateBeforeCall(groupId, scimPatchRequest, null);
         Type localVarReturnType = new TypeToken<ScimGroup>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -23396,7 +23396,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> Group details </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call scimPatchGroupAsync(Long groupId, ScimPatchRequest scimPatchRequest, final ApiCallback<ScimGroup> _callback) throws ApiException {
+    public okhttp3.Call scimPatchGroupAsync(@javax.annotation.Nonnull Long groupId, @javax.annotation.Nonnull ScimPatchRequest scimPatchRequest, final ApiCallback<ScimGroup> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = scimPatchGroupValidateBeforeCall(groupId, scimPatchRequest, _callback);
         Type localVarReturnType = new TypeToken<ScimGroup>(){}.getType();
@@ -23417,7 +23417,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> User details </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call scimPatchUserCall(Long userId, ScimPatchRequest scimPatchRequest, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call scimPatchUserCall(@javax.annotation.Nonnull Long userId, @javax.annotation.Nonnull ScimPatchRequest scimPatchRequest, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -23464,7 +23464,7 @@ public class ManagementApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call scimPatchUserValidateBeforeCall(Long userId, ScimPatchRequest scimPatchRequest, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call scimPatchUserValidateBeforeCall(@javax.annotation.Nonnull Long userId, @javax.annotation.Nonnull ScimPatchRequest scimPatchRequest, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'userId' is set
         if (userId == null) {
             throw new ApiException("Missing the required parameter 'userId' when calling scimPatchUser(Async)");
@@ -23493,7 +23493,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> User details </td><td>  -  </td></tr>
      </table>
      */
-    public ScimUser scimPatchUser(Long userId, ScimPatchRequest scimPatchRequest) throws ApiException {
+    public ScimUser scimPatchUser(@javax.annotation.Nonnull Long userId, @javax.annotation.Nonnull ScimPatchRequest scimPatchRequest) throws ApiException {
         ApiResponse<ScimUser> localVarResp = scimPatchUserWithHttpInfo(userId, scimPatchRequest);
         return localVarResp.getData();
     }
@@ -23512,7 +23512,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> User details </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<ScimUser> scimPatchUserWithHttpInfo(Long userId, ScimPatchRequest scimPatchRequest) throws ApiException {
+    public ApiResponse<ScimUser> scimPatchUserWithHttpInfo(@javax.annotation.Nonnull Long userId, @javax.annotation.Nonnull ScimPatchRequest scimPatchRequest) throws ApiException {
         okhttp3.Call localVarCall = scimPatchUserValidateBeforeCall(userId, scimPatchRequest, null);
         Type localVarReturnType = new TypeToken<ScimUser>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -23533,7 +23533,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> User details </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call scimPatchUserAsync(Long userId, ScimPatchRequest scimPatchRequest, final ApiCallback<ScimUser> _callback) throws ApiException {
+    public okhttp3.Call scimPatchUserAsync(@javax.annotation.Nonnull Long userId, @javax.annotation.Nonnull ScimPatchRequest scimPatchRequest, final ApiCallback<ScimUser> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = scimPatchUserValidateBeforeCall(userId, scimPatchRequest, _callback);
         Type localVarReturnType = new TypeToken<ScimUser>(){}.getType();
@@ -23554,7 +23554,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> Group details </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call scimReplaceGroupAttributesCall(Long groupId, ScimBaseGroup scimBaseGroup, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call scimReplaceGroupAttributesCall(@javax.annotation.Nonnull Long groupId, @javax.annotation.Nonnull ScimBaseGroup scimBaseGroup, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -23601,7 +23601,7 @@ public class ManagementApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call scimReplaceGroupAttributesValidateBeforeCall(Long groupId, ScimBaseGroup scimBaseGroup, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call scimReplaceGroupAttributesValidateBeforeCall(@javax.annotation.Nonnull Long groupId, @javax.annotation.Nonnull ScimBaseGroup scimBaseGroup, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'groupId' is set
         if (groupId == null) {
             throw new ApiException("Missing the required parameter 'groupId' when calling scimReplaceGroupAttributes(Async)");
@@ -23630,7 +23630,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> Group details </td><td>  -  </td></tr>
      </table>
      */
-    public ScimGroup scimReplaceGroupAttributes(Long groupId, ScimBaseGroup scimBaseGroup) throws ApiException {
+    public ScimGroup scimReplaceGroupAttributes(@javax.annotation.Nonnull Long groupId, @javax.annotation.Nonnull ScimBaseGroup scimBaseGroup) throws ApiException {
         ApiResponse<ScimGroup> localVarResp = scimReplaceGroupAttributesWithHttpInfo(groupId, scimBaseGroup);
         return localVarResp.getData();
     }
@@ -23649,7 +23649,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> Group details </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<ScimGroup> scimReplaceGroupAttributesWithHttpInfo(Long groupId, ScimBaseGroup scimBaseGroup) throws ApiException {
+    public ApiResponse<ScimGroup> scimReplaceGroupAttributesWithHttpInfo(@javax.annotation.Nonnull Long groupId, @javax.annotation.Nonnull ScimBaseGroup scimBaseGroup) throws ApiException {
         okhttp3.Call localVarCall = scimReplaceGroupAttributesValidateBeforeCall(groupId, scimBaseGroup, null);
         Type localVarReturnType = new TypeToken<ScimGroup>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -23670,7 +23670,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> Group details </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call scimReplaceGroupAttributesAsync(Long groupId, ScimBaseGroup scimBaseGroup, final ApiCallback<ScimGroup> _callback) throws ApiException {
+    public okhttp3.Call scimReplaceGroupAttributesAsync(@javax.annotation.Nonnull Long groupId, @javax.annotation.Nonnull ScimBaseGroup scimBaseGroup, final ApiCallback<ScimGroup> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = scimReplaceGroupAttributesValidateBeforeCall(groupId, scimBaseGroup, _callback);
         Type localVarReturnType = new TypeToken<ScimGroup>(){}.getType();
@@ -23691,7 +23691,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> User details </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call scimReplaceUserAttributesCall(Long userId, ScimNewUser scimNewUser, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call scimReplaceUserAttributesCall(@javax.annotation.Nonnull Long userId, @javax.annotation.Nonnull ScimNewUser scimNewUser, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -23738,7 +23738,7 @@ public class ManagementApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call scimReplaceUserAttributesValidateBeforeCall(Long userId, ScimNewUser scimNewUser, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call scimReplaceUserAttributesValidateBeforeCall(@javax.annotation.Nonnull Long userId, @javax.annotation.Nonnull ScimNewUser scimNewUser, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'userId' is set
         if (userId == null) {
             throw new ApiException("Missing the required parameter 'userId' when calling scimReplaceUserAttributes(Async)");
@@ -23767,7 +23767,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> User details </td><td>  -  </td></tr>
      </table>
      */
-    public ScimUser scimReplaceUserAttributes(Long userId, ScimNewUser scimNewUser) throws ApiException {
+    public ScimUser scimReplaceUserAttributes(@javax.annotation.Nonnull Long userId, @javax.annotation.Nonnull ScimNewUser scimNewUser) throws ApiException {
         ApiResponse<ScimUser> localVarResp = scimReplaceUserAttributesWithHttpInfo(userId, scimNewUser);
         return localVarResp.getData();
     }
@@ -23786,7 +23786,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> User details </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<ScimUser> scimReplaceUserAttributesWithHttpInfo(Long userId, ScimNewUser scimNewUser) throws ApiException {
+    public ApiResponse<ScimUser> scimReplaceUserAttributesWithHttpInfo(@javax.annotation.Nonnull Long userId, @javax.annotation.Nonnull ScimNewUser scimNewUser) throws ApiException {
         okhttp3.Call localVarCall = scimReplaceUserAttributesValidateBeforeCall(userId, scimNewUser, null);
         Type localVarReturnType = new TypeToken<ScimUser>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -23807,7 +23807,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> User details </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call scimReplaceUserAttributesAsync(Long userId, ScimNewUser scimNewUser, final ApiCallback<ScimUser> _callback) throws ApiException {
+    public okhttp3.Call scimReplaceUserAttributesAsync(@javax.annotation.Nonnull Long userId, @javax.annotation.Nonnull ScimNewUser scimNewUser, final ApiCallback<ScimUser> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = scimReplaceUserAttributesValidateBeforeCall(userId, scimNewUser, _callback);
         Type localVarReturnType = new TypeToken<ScimUser>(){}.getType();
@@ -23841,7 +23841,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call searchCouponsAdvancedApplicationWideWithoutTotalCountCall(Long applicationId, Object body, Long pageSize, Long skip, String sort, String value, OffsetDateTime createdBefore, OffsetDateTime createdAfter, String valid, String usable, Long referralId, String recipientIntegrationId, String batchId, Boolean exactMatch, String campaignState, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call searchCouponsAdvancedApplicationWideWithoutTotalCountCall(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Object body, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable String sort, @javax.annotation.Nullable String value, @javax.annotation.Nullable OffsetDateTime createdBefore, @javax.annotation.Nullable OffsetDateTime createdAfter, @javax.annotation.Nullable String valid, @javax.annotation.Nullable String usable, @javax.annotation.Nullable Long referralId, @javax.annotation.Nullable String recipientIntegrationId, @javax.annotation.Nullable String batchId, @javax.annotation.Nullable Boolean exactMatch, @javax.annotation.Nullable String campaignState, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -23940,7 +23940,7 @@ public class ManagementApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call searchCouponsAdvancedApplicationWideWithoutTotalCountValidateBeforeCall(Long applicationId, Object body, Long pageSize, Long skip, String sort, String value, OffsetDateTime createdBefore, OffsetDateTime createdAfter, String valid, String usable, Long referralId, String recipientIntegrationId, String batchId, Boolean exactMatch, String campaignState, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call searchCouponsAdvancedApplicationWideWithoutTotalCountValidateBeforeCall(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Object body, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable String sort, @javax.annotation.Nullable String value, @javax.annotation.Nullable OffsetDateTime createdBefore, @javax.annotation.Nullable OffsetDateTime createdAfter, @javax.annotation.Nullable String valid, @javax.annotation.Nullable String usable, @javax.annotation.Nullable Long referralId, @javax.annotation.Nullable String recipientIntegrationId, @javax.annotation.Nullable String batchId, @javax.annotation.Nullable Boolean exactMatch, @javax.annotation.Nullable String campaignState, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'applicationId' is set
         if (applicationId == null) {
             throw new ApiException("Missing the required parameter 'applicationId' when calling searchCouponsAdvancedApplicationWideWithoutTotalCount(Async)");
@@ -23982,7 +23982,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public GetCouponsWithoutTotalCount200Response searchCouponsAdvancedApplicationWideWithoutTotalCount(Long applicationId, Object body, Long pageSize, Long skip, String sort, String value, OffsetDateTime createdBefore, OffsetDateTime createdAfter, String valid, String usable, Long referralId, String recipientIntegrationId, String batchId, Boolean exactMatch, String campaignState) throws ApiException {
+    public GetCouponsWithoutTotalCount200Response searchCouponsAdvancedApplicationWideWithoutTotalCount(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Object body, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable String sort, @javax.annotation.Nullable String value, @javax.annotation.Nullable OffsetDateTime createdBefore, @javax.annotation.Nullable OffsetDateTime createdAfter, @javax.annotation.Nullable String valid, @javax.annotation.Nullable String usable, @javax.annotation.Nullable Long referralId, @javax.annotation.Nullable String recipientIntegrationId, @javax.annotation.Nullable String batchId, @javax.annotation.Nullable Boolean exactMatch, @javax.annotation.Nullable String campaignState) throws ApiException {
         ApiResponse<GetCouponsWithoutTotalCount200Response> localVarResp = searchCouponsAdvancedApplicationWideWithoutTotalCountWithHttpInfo(applicationId, body, pageSize, skip, sort, value, createdBefore, createdAfter, valid, usable, referralId, recipientIntegrationId, batchId, exactMatch, campaignState);
         return localVarResp.getData();
     }
@@ -24014,7 +24014,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<GetCouponsWithoutTotalCount200Response> searchCouponsAdvancedApplicationWideWithoutTotalCountWithHttpInfo(Long applicationId, Object body, Long pageSize, Long skip, String sort, String value, OffsetDateTime createdBefore, OffsetDateTime createdAfter, String valid, String usable, Long referralId, String recipientIntegrationId, String batchId, Boolean exactMatch, String campaignState) throws ApiException {
+    public ApiResponse<GetCouponsWithoutTotalCount200Response> searchCouponsAdvancedApplicationWideWithoutTotalCountWithHttpInfo(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Object body, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable String sort, @javax.annotation.Nullable String value, @javax.annotation.Nullable OffsetDateTime createdBefore, @javax.annotation.Nullable OffsetDateTime createdAfter, @javax.annotation.Nullable String valid, @javax.annotation.Nullable String usable, @javax.annotation.Nullable Long referralId, @javax.annotation.Nullable String recipientIntegrationId, @javax.annotation.Nullable String batchId, @javax.annotation.Nullable Boolean exactMatch, @javax.annotation.Nullable String campaignState) throws ApiException {
         okhttp3.Call localVarCall = searchCouponsAdvancedApplicationWideWithoutTotalCountValidateBeforeCall(applicationId, body, pageSize, skip, sort, value, createdBefore, createdAfter, valid, usable, referralId, recipientIntegrationId, batchId, exactMatch, campaignState, null);
         Type localVarReturnType = new TypeToken<GetCouponsWithoutTotalCount200Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -24048,7 +24048,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call searchCouponsAdvancedApplicationWideWithoutTotalCountAsync(Long applicationId, Object body, Long pageSize, Long skip, String sort, String value, OffsetDateTime createdBefore, OffsetDateTime createdAfter, String valid, String usable, Long referralId, String recipientIntegrationId, String batchId, Boolean exactMatch, String campaignState, final ApiCallback<GetCouponsWithoutTotalCount200Response> _callback) throws ApiException {
+    public okhttp3.Call searchCouponsAdvancedApplicationWideWithoutTotalCountAsync(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Object body, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable String sort, @javax.annotation.Nullable String value, @javax.annotation.Nullable OffsetDateTime createdBefore, @javax.annotation.Nullable OffsetDateTime createdAfter, @javax.annotation.Nullable String valid, @javax.annotation.Nullable String usable, @javax.annotation.Nullable Long referralId, @javax.annotation.Nullable String recipientIntegrationId, @javax.annotation.Nullable String batchId, @javax.annotation.Nullable Boolean exactMatch, @javax.annotation.Nullable String campaignState, final ApiCallback<GetCouponsWithoutTotalCount200Response> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = searchCouponsAdvancedApplicationWideWithoutTotalCountValidateBeforeCall(applicationId, body, pageSize, skip, sort, value, createdBefore, createdAfter, valid, usable, referralId, recipientIntegrationId, batchId, exactMatch, campaignState, _callback);
         Type localVarReturnType = new TypeToken<GetCouponsWithoutTotalCount200Response>(){}.getType();
@@ -24082,7 +24082,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call searchCouponsAdvancedWithoutTotalCountCall(Long applicationId, Long campaignId, Object body, Long pageSize, Long skip, String sort, String value, OffsetDateTime createdBefore, OffsetDateTime createdAfter, String valid, String usable, Long referralId, String recipientIntegrationId, Boolean exactMatch, String batchId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call searchCouponsAdvancedWithoutTotalCountCall(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, @javax.annotation.Nonnull Object body, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable String sort, @javax.annotation.Nullable String value, @javax.annotation.Nullable OffsetDateTime createdBefore, @javax.annotation.Nullable OffsetDateTime createdAfter, @javax.annotation.Nullable String valid, @javax.annotation.Nullable String usable, @javax.annotation.Nullable Long referralId, @javax.annotation.Nullable String recipientIntegrationId, @javax.annotation.Nullable Boolean exactMatch, @javax.annotation.Nullable String batchId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -24178,7 +24178,7 @@ public class ManagementApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call searchCouponsAdvancedWithoutTotalCountValidateBeforeCall(Long applicationId, Long campaignId, Object body, Long pageSize, Long skip, String sort, String value, OffsetDateTime createdBefore, OffsetDateTime createdAfter, String valid, String usable, Long referralId, String recipientIntegrationId, Boolean exactMatch, String batchId, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call searchCouponsAdvancedWithoutTotalCountValidateBeforeCall(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, @javax.annotation.Nonnull Object body, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable String sort, @javax.annotation.Nullable String value, @javax.annotation.Nullable OffsetDateTime createdBefore, @javax.annotation.Nullable OffsetDateTime createdAfter, @javax.annotation.Nullable String valid, @javax.annotation.Nullable String usable, @javax.annotation.Nullable Long referralId, @javax.annotation.Nullable String recipientIntegrationId, @javax.annotation.Nullable Boolean exactMatch, @javax.annotation.Nullable String batchId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'applicationId' is set
         if (applicationId == null) {
             throw new ApiException("Missing the required parameter 'applicationId' when calling searchCouponsAdvancedWithoutTotalCount(Async)");
@@ -24225,7 +24225,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public GetCouponsWithoutTotalCount200Response searchCouponsAdvancedWithoutTotalCount(Long applicationId, Long campaignId, Object body, Long pageSize, Long skip, String sort, String value, OffsetDateTime createdBefore, OffsetDateTime createdAfter, String valid, String usable, Long referralId, String recipientIntegrationId, Boolean exactMatch, String batchId) throws ApiException {
+    public GetCouponsWithoutTotalCount200Response searchCouponsAdvancedWithoutTotalCount(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, @javax.annotation.Nonnull Object body, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable String sort, @javax.annotation.Nullable String value, @javax.annotation.Nullable OffsetDateTime createdBefore, @javax.annotation.Nullable OffsetDateTime createdAfter, @javax.annotation.Nullable String valid, @javax.annotation.Nullable String usable, @javax.annotation.Nullable Long referralId, @javax.annotation.Nullable String recipientIntegrationId, @javax.annotation.Nullable Boolean exactMatch, @javax.annotation.Nullable String batchId) throws ApiException {
         ApiResponse<GetCouponsWithoutTotalCount200Response> localVarResp = searchCouponsAdvancedWithoutTotalCountWithHttpInfo(applicationId, campaignId, body, pageSize, skip, sort, value, createdBefore, createdAfter, valid, usable, referralId, recipientIntegrationId, exactMatch, batchId);
         return localVarResp.getData();
     }
@@ -24257,7 +24257,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<GetCouponsWithoutTotalCount200Response> searchCouponsAdvancedWithoutTotalCountWithHttpInfo(Long applicationId, Long campaignId, Object body, Long pageSize, Long skip, String sort, String value, OffsetDateTime createdBefore, OffsetDateTime createdAfter, String valid, String usable, Long referralId, String recipientIntegrationId, Boolean exactMatch, String batchId) throws ApiException {
+    public ApiResponse<GetCouponsWithoutTotalCount200Response> searchCouponsAdvancedWithoutTotalCountWithHttpInfo(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, @javax.annotation.Nonnull Object body, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable String sort, @javax.annotation.Nullable String value, @javax.annotation.Nullable OffsetDateTime createdBefore, @javax.annotation.Nullable OffsetDateTime createdAfter, @javax.annotation.Nullable String valid, @javax.annotation.Nullable String usable, @javax.annotation.Nullable Long referralId, @javax.annotation.Nullable String recipientIntegrationId, @javax.annotation.Nullable Boolean exactMatch, @javax.annotation.Nullable String batchId) throws ApiException {
         okhttp3.Call localVarCall = searchCouponsAdvancedWithoutTotalCountValidateBeforeCall(applicationId, campaignId, body, pageSize, skip, sort, value, createdBefore, createdAfter, valid, usable, referralId, recipientIntegrationId, exactMatch, batchId, null);
         Type localVarReturnType = new TypeToken<GetCouponsWithoutTotalCount200Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -24291,7 +24291,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call searchCouponsAdvancedWithoutTotalCountAsync(Long applicationId, Long campaignId, Object body, Long pageSize, Long skip, String sort, String value, OffsetDateTime createdBefore, OffsetDateTime createdAfter, String valid, String usable, Long referralId, String recipientIntegrationId, Boolean exactMatch, String batchId, final ApiCallback<GetCouponsWithoutTotalCount200Response> _callback) throws ApiException {
+    public okhttp3.Call searchCouponsAdvancedWithoutTotalCountAsync(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, @javax.annotation.Nonnull Object body, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable String sort, @javax.annotation.Nullable String value, @javax.annotation.Nullable OffsetDateTime createdBefore, @javax.annotation.Nullable OffsetDateTime createdAfter, @javax.annotation.Nullable String valid, @javax.annotation.Nullable String usable, @javax.annotation.Nullable Long referralId, @javax.annotation.Nullable String recipientIntegrationId, @javax.annotation.Nullable Boolean exactMatch, @javax.annotation.Nullable String batchId, final ApiCallback<GetCouponsWithoutTotalCount200Response> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = searchCouponsAdvancedWithoutTotalCountValidateBeforeCall(applicationId, campaignId, body, pageSize, skip, sort, value, createdBefore, createdAfter, valid, usable, referralId, recipientIntegrationId, exactMatch, batchId, _callback);
         Type localVarReturnType = new TypeToken<GetCouponsWithoutTotalCount200Response>(){}.getType();
@@ -24315,7 +24315,7 @@ public class ManagementApi {
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call summarizeCampaignStoreBudgetCall(Long applicationId, Long campaignId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call summarizeCampaignStoreBudgetCall(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -24362,7 +24362,7 @@ public class ManagementApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call summarizeCampaignStoreBudgetValidateBeforeCall(Long applicationId, Long campaignId, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call summarizeCampaignStoreBudgetValidateBeforeCall(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'applicationId' is set
         if (applicationId == null) {
             throw new ApiException("Missing the required parameter 'applicationId' when calling summarizeCampaignStoreBudget(Async)");
@@ -24394,7 +24394,7 @@ public class ManagementApi {
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
      */
-    public SummarizeCampaignStoreBudget200Response summarizeCampaignStoreBudget(Long applicationId, Long campaignId) throws ApiException {
+    public SummarizeCampaignStoreBudget200Response summarizeCampaignStoreBudget(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId) throws ApiException {
         ApiResponse<SummarizeCampaignStoreBudget200Response> localVarResp = summarizeCampaignStoreBudgetWithHttpInfo(applicationId, campaignId);
         return localVarResp.getData();
     }
@@ -24416,7 +24416,7 @@ public class ManagementApi {
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<SummarizeCampaignStoreBudget200Response> summarizeCampaignStoreBudgetWithHttpInfo(Long applicationId, Long campaignId) throws ApiException {
+    public ApiResponse<SummarizeCampaignStoreBudget200Response> summarizeCampaignStoreBudgetWithHttpInfo(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId) throws ApiException {
         okhttp3.Call localVarCall = summarizeCampaignStoreBudgetValidateBeforeCall(applicationId, campaignId, null);
         Type localVarReturnType = new TypeToken<SummarizeCampaignStoreBudget200Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -24440,7 +24440,7 @@ public class ManagementApi {
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call summarizeCampaignStoreBudgetAsync(Long applicationId, Long campaignId, final ApiCallback<SummarizeCampaignStoreBudget200Response> _callback) throws ApiException {
+    public okhttp3.Call summarizeCampaignStoreBudgetAsync(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, final ApiCallback<SummarizeCampaignStoreBudget200Response> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = summarizeCampaignStoreBudgetValidateBeforeCall(applicationId, campaignId, _callback);
         Type localVarReturnType = new TypeToken<SummarizeCampaignStoreBudget200Response>(){}.getType();
@@ -24465,7 +24465,7 @@ public class ManagementApi {
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call transferLoyaltyCardCall(Long loyaltyProgramId, String loyaltyCardId, TransferLoyaltyCard transferLoyaltyCard, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call transferLoyaltyCardCall(@javax.annotation.Nonnull Long loyaltyProgramId, @javax.annotation.Nonnull String loyaltyCardId, @javax.annotation.Nonnull TransferLoyaltyCard transferLoyaltyCard, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -24513,7 +24513,7 @@ public class ManagementApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call transferLoyaltyCardValidateBeforeCall(Long loyaltyProgramId, String loyaltyCardId, TransferLoyaltyCard transferLoyaltyCard, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call transferLoyaltyCardValidateBeforeCall(@javax.annotation.Nonnull Long loyaltyProgramId, @javax.annotation.Nonnull String loyaltyCardId, @javax.annotation.Nonnull TransferLoyaltyCard transferLoyaltyCard, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'loyaltyProgramId' is set
         if (loyaltyProgramId == null) {
             throw new ApiException("Missing the required parameter 'loyaltyProgramId' when calling transferLoyaltyCard(Async)");
@@ -24550,7 +24550,7 @@ public class ManagementApi {
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
      */
-    public void transferLoyaltyCard(Long loyaltyProgramId, String loyaltyCardId, TransferLoyaltyCard transferLoyaltyCard) throws ApiException {
+    public void transferLoyaltyCard(@javax.annotation.Nonnull Long loyaltyProgramId, @javax.annotation.Nonnull String loyaltyCardId, @javax.annotation.Nonnull TransferLoyaltyCard transferLoyaltyCard) throws ApiException {
         transferLoyaltyCardWithHttpInfo(loyaltyProgramId, loyaltyCardId, transferLoyaltyCard);
     }
 
@@ -24572,7 +24572,7 @@ public class ManagementApi {
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Void> transferLoyaltyCardWithHttpInfo(Long loyaltyProgramId, String loyaltyCardId, TransferLoyaltyCard transferLoyaltyCard) throws ApiException {
+    public ApiResponse<Void> transferLoyaltyCardWithHttpInfo(@javax.annotation.Nonnull Long loyaltyProgramId, @javax.annotation.Nonnull String loyaltyCardId, @javax.annotation.Nonnull TransferLoyaltyCard transferLoyaltyCard) throws ApiException {
         okhttp3.Call localVarCall = transferLoyaltyCardValidateBeforeCall(loyaltyProgramId, loyaltyCardId, transferLoyaltyCard, null);
         return localVarApiClient.execute(localVarCall);
     }
@@ -24596,7 +24596,7 @@ public class ManagementApi {
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call transferLoyaltyCardAsync(Long loyaltyProgramId, String loyaltyCardId, TransferLoyaltyCard transferLoyaltyCard, final ApiCallback<Void> _callback) throws ApiException {
+    public okhttp3.Call transferLoyaltyCardAsync(@javax.annotation.Nonnull Long loyaltyProgramId, @javax.annotation.Nonnull String loyaltyCardId, @javax.annotation.Nonnull TransferLoyaltyCard transferLoyaltyCard, final ApiCallback<Void> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = transferLoyaltyCardValidateBeforeCall(loyaltyProgramId, loyaltyCardId, transferLoyaltyCard, _callback);
         localVarApiClient.executeAsync(localVarCall, _callback);
@@ -24619,7 +24619,7 @@ public class ManagementApi {
         <tr><td> 409 </td><td> Conflict. A collection with this name already exists. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateAccountCollectionCall(Long collectionId, UpdateCollection updateCollection, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call updateAccountCollectionCall(@javax.annotation.Nonnull Long collectionId, @javax.annotation.Nonnull UpdateCollection updateCollection, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -24666,7 +24666,7 @@ public class ManagementApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call updateAccountCollectionValidateBeforeCall(Long collectionId, UpdateCollection updateCollection, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call updateAccountCollectionValidateBeforeCall(@javax.annotation.Nonnull Long collectionId, @javax.annotation.Nonnull UpdateCollection updateCollection, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'collectionId' is set
         if (collectionId == null) {
             throw new ApiException("Missing the required parameter 'collectionId' when calling updateAccountCollection(Async)");
@@ -24698,7 +24698,7 @@ public class ManagementApi {
         <tr><td> 409 </td><td> Conflict. A collection with this name already exists. </td><td>  -  </td></tr>
      </table>
      */
-    public Collection updateAccountCollection(Long collectionId, UpdateCollection updateCollection) throws ApiException {
+    public Collection updateAccountCollection(@javax.annotation.Nonnull Long collectionId, @javax.annotation.Nonnull UpdateCollection updateCollection) throws ApiException {
         ApiResponse<Collection> localVarResp = updateAccountCollectionWithHttpInfo(collectionId, updateCollection);
         return localVarResp.getData();
     }
@@ -24720,7 +24720,7 @@ public class ManagementApi {
         <tr><td> 409 </td><td> Conflict. A collection with this name already exists. </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Collection> updateAccountCollectionWithHttpInfo(Long collectionId, UpdateCollection updateCollection) throws ApiException {
+    public ApiResponse<Collection> updateAccountCollectionWithHttpInfo(@javax.annotation.Nonnull Long collectionId, @javax.annotation.Nonnull UpdateCollection updateCollection) throws ApiException {
         okhttp3.Call localVarCall = updateAccountCollectionValidateBeforeCall(collectionId, updateCollection, null);
         Type localVarReturnType = new TypeToken<Collection>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -24744,7 +24744,7 @@ public class ManagementApi {
         <tr><td> 409 </td><td> Conflict. A collection with this name already exists. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateAccountCollectionAsync(Long collectionId, UpdateCollection updateCollection, final ApiCallback<Collection> _callback) throws ApiException {
+    public okhttp3.Call updateAccountCollectionAsync(@javax.annotation.Nonnull Long collectionId, @javax.annotation.Nonnull UpdateCollection updateCollection, final ApiCallback<Collection> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = updateAccountCollectionValidateBeforeCall(collectionId, updateCollection, _callback);
         Type localVarReturnType = new TypeToken<Collection>(){}.getType();
@@ -24770,7 +24770,7 @@ public class ManagementApi {
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateAchievementCall(Long applicationId, Long campaignId, Long achievementId, UpdateAchievement updateAchievement, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call updateAchievementCall(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, @javax.annotation.Nonnull Long achievementId, @javax.annotation.Nonnull UpdateAchievement updateAchievement, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -24819,7 +24819,7 @@ public class ManagementApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call updateAchievementValidateBeforeCall(Long applicationId, Long campaignId, Long achievementId, UpdateAchievement updateAchievement, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call updateAchievementValidateBeforeCall(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, @javax.annotation.Nonnull Long achievementId, @javax.annotation.Nonnull UpdateAchievement updateAchievement, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'applicationId' is set
         if (applicationId == null) {
             throw new ApiException("Missing the required parameter 'applicationId' when calling updateAchievement(Async)");
@@ -24863,7 +24863,7 @@ public class ManagementApi {
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
      */
-    public Achievement updateAchievement(Long applicationId, Long campaignId, Long achievementId, UpdateAchievement updateAchievement) throws ApiException {
+    public Achievement updateAchievement(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, @javax.annotation.Nonnull Long achievementId, @javax.annotation.Nonnull UpdateAchievement updateAchievement) throws ApiException {
         ApiResponse<Achievement> localVarResp = updateAchievementWithHttpInfo(applicationId, campaignId, achievementId, updateAchievement);
         return localVarResp.getData();
     }
@@ -24887,7 +24887,7 @@ public class ManagementApi {
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Achievement> updateAchievementWithHttpInfo(Long applicationId, Long campaignId, Long achievementId, UpdateAchievement updateAchievement) throws ApiException {
+    public ApiResponse<Achievement> updateAchievementWithHttpInfo(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, @javax.annotation.Nonnull Long achievementId, @javax.annotation.Nonnull UpdateAchievement updateAchievement) throws ApiException {
         okhttp3.Call localVarCall = updateAchievementValidateBeforeCall(applicationId, campaignId, achievementId, updateAchievement, null);
         Type localVarReturnType = new TypeToken<Achievement>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -24913,7 +24913,7 @@ public class ManagementApi {
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateAchievementAsync(Long applicationId, Long campaignId, Long achievementId, UpdateAchievement updateAchievement, final ApiCallback<Achievement> _callback) throws ApiException {
+    public okhttp3.Call updateAchievementAsync(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, @javax.annotation.Nonnull Long achievementId, @javax.annotation.Nonnull UpdateAchievement updateAchievement, final ApiCallback<Achievement> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = updateAchievementValidateBeforeCall(applicationId, campaignId, achievementId, updateAchievement, _callback);
         Type localVarReturnType = new TypeToken<Achievement>(){}.getType();
@@ -24934,7 +24934,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateAdditionalCostCall(Long additionalCostId, NewAdditionalCost newAdditionalCost, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call updateAdditionalCostCall(@javax.annotation.Nonnull Long additionalCostId, @javax.annotation.Nonnull NewAdditionalCost newAdditionalCost, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -24981,7 +24981,7 @@ public class ManagementApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call updateAdditionalCostValidateBeforeCall(Long additionalCostId, NewAdditionalCost newAdditionalCost, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call updateAdditionalCostValidateBeforeCall(@javax.annotation.Nonnull Long additionalCostId, @javax.annotation.Nonnull NewAdditionalCost newAdditionalCost, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'additionalCostId' is set
         if (additionalCostId == null) {
             throw new ApiException("Missing the required parameter 'additionalCostId' when calling updateAdditionalCost(Async)");
@@ -25010,7 +25010,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public AccountAdditionalCost updateAdditionalCost(Long additionalCostId, NewAdditionalCost newAdditionalCost) throws ApiException {
+    public AccountAdditionalCost updateAdditionalCost(@javax.annotation.Nonnull Long additionalCostId, @javax.annotation.Nonnull NewAdditionalCost newAdditionalCost) throws ApiException {
         ApiResponse<AccountAdditionalCost> localVarResp = updateAdditionalCostWithHttpInfo(additionalCostId, newAdditionalCost);
         return localVarResp.getData();
     }
@@ -25029,7 +25029,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<AccountAdditionalCost> updateAdditionalCostWithHttpInfo(Long additionalCostId, NewAdditionalCost newAdditionalCost) throws ApiException {
+    public ApiResponse<AccountAdditionalCost> updateAdditionalCostWithHttpInfo(@javax.annotation.Nonnull Long additionalCostId, @javax.annotation.Nonnull NewAdditionalCost newAdditionalCost) throws ApiException {
         okhttp3.Call localVarCall = updateAdditionalCostValidateBeforeCall(additionalCostId, newAdditionalCost, null);
         Type localVarReturnType = new TypeToken<AccountAdditionalCost>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -25050,7 +25050,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateAdditionalCostAsync(Long additionalCostId, NewAdditionalCost newAdditionalCost, final ApiCallback<AccountAdditionalCost> _callback) throws ApiException {
+    public okhttp3.Call updateAdditionalCostAsync(@javax.annotation.Nonnull Long additionalCostId, @javax.annotation.Nonnull NewAdditionalCost newAdditionalCost, final ApiCallback<AccountAdditionalCost> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = updateAdditionalCostValidateBeforeCall(additionalCostId, newAdditionalCost, _callback);
         Type localVarReturnType = new TypeToken<AccountAdditionalCost>(){}.getType();
@@ -25071,7 +25071,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateAttributeCall(Long attributeId, NewAttribute newAttribute, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call updateAttributeCall(@javax.annotation.Nonnull Long attributeId, @javax.annotation.Nonnull NewAttribute newAttribute, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -25118,7 +25118,7 @@ public class ManagementApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call updateAttributeValidateBeforeCall(Long attributeId, NewAttribute newAttribute, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call updateAttributeValidateBeforeCall(@javax.annotation.Nonnull Long attributeId, @javax.annotation.Nonnull NewAttribute newAttribute, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'attributeId' is set
         if (attributeId == null) {
             throw new ApiException("Missing the required parameter 'attributeId' when calling updateAttribute(Async)");
@@ -25147,7 +25147,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public Attribute updateAttribute(Long attributeId, NewAttribute newAttribute) throws ApiException {
+    public Attribute updateAttribute(@javax.annotation.Nonnull Long attributeId, @javax.annotation.Nonnull NewAttribute newAttribute) throws ApiException {
         ApiResponse<Attribute> localVarResp = updateAttributeWithHttpInfo(attributeId, newAttribute);
         return localVarResp.getData();
     }
@@ -25166,7 +25166,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Attribute> updateAttributeWithHttpInfo(Long attributeId, NewAttribute newAttribute) throws ApiException {
+    public ApiResponse<Attribute> updateAttributeWithHttpInfo(@javax.annotation.Nonnull Long attributeId, @javax.annotation.Nonnull NewAttribute newAttribute) throws ApiException {
         okhttp3.Call localVarCall = updateAttributeValidateBeforeCall(attributeId, newAttribute, null);
         Type localVarReturnType = new TypeToken<Attribute>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -25187,7 +25187,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateAttributeAsync(Long attributeId, NewAttribute newAttribute, final ApiCallback<Attribute> _callback) throws ApiException {
+    public okhttp3.Call updateAttributeAsync(@javax.annotation.Nonnull Long attributeId, @javax.annotation.Nonnull NewAttribute newAttribute, final ApiCallback<Attribute> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = updateAttributeValidateBeforeCall(attributeId, newAttribute, _callback);
         Type localVarReturnType = new TypeToken<Attribute>(){}.getType();
@@ -25209,7 +25209,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateCampaignCall(Long applicationId, Long campaignId, UpdateCampaign updateCampaign, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call updateCampaignCall(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, @javax.annotation.Nonnull UpdateCampaign updateCampaign, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -25257,7 +25257,7 @@ public class ManagementApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call updateCampaignValidateBeforeCall(Long applicationId, Long campaignId, UpdateCampaign updateCampaign, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call updateCampaignValidateBeforeCall(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, @javax.annotation.Nonnull UpdateCampaign updateCampaign, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'applicationId' is set
         if (applicationId == null) {
             throw new ApiException("Missing the required parameter 'applicationId' when calling updateCampaign(Async)");
@@ -25292,7 +25292,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public Campaign updateCampaign(Long applicationId, Long campaignId, UpdateCampaign updateCampaign) throws ApiException {
+    public Campaign updateCampaign(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, @javax.annotation.Nonnull UpdateCampaign updateCampaign) throws ApiException {
         ApiResponse<Campaign> localVarResp = updateCampaignWithHttpInfo(applicationId, campaignId, updateCampaign);
         return localVarResp.getData();
     }
@@ -25312,7 +25312,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Campaign> updateCampaignWithHttpInfo(Long applicationId, Long campaignId, UpdateCampaign updateCampaign) throws ApiException {
+    public ApiResponse<Campaign> updateCampaignWithHttpInfo(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, @javax.annotation.Nonnull UpdateCampaign updateCampaign) throws ApiException {
         okhttp3.Call localVarCall = updateCampaignValidateBeforeCall(applicationId, campaignId, updateCampaign, null);
         Type localVarReturnType = new TypeToken<Campaign>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -25334,7 +25334,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateCampaignAsync(Long applicationId, Long campaignId, UpdateCampaign updateCampaign, final ApiCallback<Campaign> _callback) throws ApiException {
+    public okhttp3.Call updateCampaignAsync(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, @javax.annotation.Nonnull UpdateCampaign updateCampaign, final ApiCallback<Campaign> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = updateCampaignValidateBeforeCall(applicationId, campaignId, updateCampaign, _callback);
         Type localVarReturnType = new TypeToken<Campaign>(){}.getType();
@@ -25358,7 +25358,7 @@ public class ManagementApi {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateCollectionCall(Long applicationId, Long campaignId, Long collectionId, UpdateCampaignCollection updateCampaignCollection, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call updateCollectionCall(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, @javax.annotation.Nonnull Long collectionId, @javax.annotation.Nonnull UpdateCampaignCollection updateCampaignCollection, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -25407,7 +25407,7 @@ public class ManagementApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call updateCollectionValidateBeforeCall(Long applicationId, Long campaignId, Long collectionId, UpdateCampaignCollection updateCampaignCollection, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call updateCollectionValidateBeforeCall(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, @javax.annotation.Nonnull Long collectionId, @javax.annotation.Nonnull UpdateCampaignCollection updateCampaignCollection, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'applicationId' is set
         if (applicationId == null) {
             throw new ApiException("Missing the required parameter 'applicationId' when calling updateCollection(Async)");
@@ -25449,7 +25449,7 @@ public class ManagementApi {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public Collection updateCollection(Long applicationId, Long campaignId, Long collectionId, UpdateCampaignCollection updateCampaignCollection) throws ApiException {
+    public Collection updateCollection(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, @javax.annotation.Nonnull Long collectionId, @javax.annotation.Nonnull UpdateCampaignCollection updateCampaignCollection) throws ApiException {
         ApiResponse<Collection> localVarResp = updateCollectionWithHttpInfo(applicationId, campaignId, collectionId, updateCampaignCollection);
         return localVarResp.getData();
     }
@@ -25471,7 +25471,7 @@ public class ManagementApi {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Collection> updateCollectionWithHttpInfo(Long applicationId, Long campaignId, Long collectionId, UpdateCampaignCollection updateCampaignCollection) throws ApiException {
+    public ApiResponse<Collection> updateCollectionWithHttpInfo(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, @javax.annotation.Nonnull Long collectionId, @javax.annotation.Nonnull UpdateCampaignCollection updateCampaignCollection) throws ApiException {
         okhttp3.Call localVarCall = updateCollectionValidateBeforeCall(applicationId, campaignId, collectionId, updateCampaignCollection, null);
         Type localVarReturnType = new TypeToken<Collection>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -25495,7 +25495,7 @@ public class ManagementApi {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateCollectionAsync(Long applicationId, Long campaignId, Long collectionId, UpdateCampaignCollection updateCampaignCollection, final ApiCallback<Collection> _callback) throws ApiException {
+    public okhttp3.Call updateCollectionAsync(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, @javax.annotation.Nonnull Long collectionId, @javax.annotation.Nonnull UpdateCampaignCollection updateCampaignCollection, final ApiCallback<Collection> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = updateCollectionValidateBeforeCall(applicationId, campaignId, collectionId, updateCampaignCollection, _callback);
         Type localVarReturnType = new TypeToken<Collection>(){}.getType();
@@ -25518,7 +25518,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateCouponCall(Long applicationId, Long campaignId, String couponId, UpdateCoupon updateCoupon, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call updateCouponCall(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, @javax.annotation.Nonnull String couponId, @javax.annotation.Nonnull UpdateCoupon updateCoupon, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -25567,7 +25567,7 @@ public class ManagementApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call updateCouponValidateBeforeCall(Long applicationId, Long campaignId, String couponId, UpdateCoupon updateCoupon, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call updateCouponValidateBeforeCall(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, @javax.annotation.Nonnull String couponId, @javax.annotation.Nonnull UpdateCoupon updateCoupon, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'applicationId' is set
         if (applicationId == null) {
             throw new ApiException("Missing the required parameter 'applicationId' when calling updateCoupon(Async)");
@@ -25608,7 +25608,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public Coupon updateCoupon(Long applicationId, Long campaignId, String couponId, UpdateCoupon updateCoupon) throws ApiException {
+    public Coupon updateCoupon(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, @javax.annotation.Nonnull String couponId, @javax.annotation.Nonnull UpdateCoupon updateCoupon) throws ApiException {
         ApiResponse<Coupon> localVarResp = updateCouponWithHttpInfo(applicationId, campaignId, couponId, updateCoupon);
         return localVarResp.getData();
     }
@@ -25629,7 +25629,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Coupon> updateCouponWithHttpInfo(Long applicationId, Long campaignId, String couponId, UpdateCoupon updateCoupon) throws ApiException {
+    public ApiResponse<Coupon> updateCouponWithHttpInfo(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, @javax.annotation.Nonnull String couponId, @javax.annotation.Nonnull UpdateCoupon updateCoupon) throws ApiException {
         okhttp3.Call localVarCall = updateCouponValidateBeforeCall(applicationId, campaignId, couponId, updateCoupon, null);
         Type localVarReturnType = new TypeToken<Coupon>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -25652,7 +25652,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateCouponAsync(Long applicationId, Long campaignId, String couponId, UpdateCoupon updateCoupon, final ApiCallback<Coupon> _callback) throws ApiException {
+    public okhttp3.Call updateCouponAsync(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, @javax.annotation.Nonnull String couponId, @javax.annotation.Nonnull UpdateCoupon updateCoupon, final ApiCallback<Coupon> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = updateCouponValidateBeforeCall(applicationId, campaignId, couponId, updateCoupon, _callback);
         Type localVarReturnType = new TypeToken<Coupon>(){}.getType();
@@ -25674,7 +25674,7 @@ public class ManagementApi {
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateCouponBatchCall(Long applicationId, Long campaignId, UpdateCouponBatch updateCouponBatch, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call updateCouponBatchCall(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, @javax.annotation.Nonnull UpdateCouponBatch updateCouponBatch, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -25721,7 +25721,7 @@ public class ManagementApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call updateCouponBatchValidateBeforeCall(Long applicationId, Long campaignId, UpdateCouponBatch updateCouponBatch, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call updateCouponBatchValidateBeforeCall(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, @javax.annotation.Nonnull UpdateCouponBatch updateCouponBatch, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'applicationId' is set
         if (applicationId == null) {
             throw new ApiException("Missing the required parameter 'applicationId' when calling updateCouponBatch(Async)");
@@ -25755,7 +25755,7 @@ public class ManagementApi {
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
      </table>
      */
-    public void updateCouponBatch(Long applicationId, Long campaignId, UpdateCouponBatch updateCouponBatch) throws ApiException {
+    public void updateCouponBatch(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, @javax.annotation.Nonnull UpdateCouponBatch updateCouponBatch) throws ApiException {
         updateCouponBatchWithHttpInfo(applicationId, campaignId, updateCouponBatch);
     }
 
@@ -25774,7 +25774,7 @@ public class ManagementApi {
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Void> updateCouponBatchWithHttpInfo(Long applicationId, Long campaignId, UpdateCouponBatch updateCouponBatch) throws ApiException {
+    public ApiResponse<Void> updateCouponBatchWithHttpInfo(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, @javax.annotation.Nonnull UpdateCouponBatch updateCouponBatch) throws ApiException {
         okhttp3.Call localVarCall = updateCouponBatchValidateBeforeCall(applicationId, campaignId, updateCouponBatch, null);
         return localVarApiClient.execute(localVarCall);
     }
@@ -25795,7 +25795,7 @@ public class ManagementApi {
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateCouponBatchAsync(Long applicationId, Long campaignId, UpdateCouponBatch updateCouponBatch, final ApiCallback<Void> _callback) throws ApiException {
+    public okhttp3.Call updateCouponBatchAsync(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, @javax.annotation.Nonnull UpdateCouponBatch updateCouponBatch, final ApiCallback<Void> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = updateCouponBatchValidateBeforeCall(applicationId, campaignId, updateCouponBatch, _callback);
         localVarApiClient.executeAsync(localVarCall, _callback);
@@ -25819,7 +25819,7 @@ public class ManagementApi {
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateLoyaltyCardCall(Long loyaltyProgramId, String loyaltyCardId, UpdateLoyaltyCard updateLoyaltyCard, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call updateLoyaltyCardCall(@javax.annotation.Nonnull Long loyaltyProgramId, @javax.annotation.Nonnull String loyaltyCardId, @javax.annotation.Nonnull UpdateLoyaltyCard updateLoyaltyCard, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -25867,7 +25867,7 @@ public class ManagementApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call updateLoyaltyCardValidateBeforeCall(Long loyaltyProgramId, String loyaltyCardId, UpdateLoyaltyCard updateLoyaltyCard, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call updateLoyaltyCardValidateBeforeCall(@javax.annotation.Nonnull Long loyaltyProgramId, @javax.annotation.Nonnull String loyaltyCardId, @javax.annotation.Nonnull UpdateLoyaltyCard updateLoyaltyCard, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'loyaltyProgramId' is set
         if (loyaltyProgramId == null) {
             throw new ApiException("Missing the required parameter 'loyaltyProgramId' when calling updateLoyaltyCard(Async)");
@@ -25905,7 +25905,7 @@ public class ManagementApi {
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
      */
-    public LoyaltyCard updateLoyaltyCard(Long loyaltyProgramId, String loyaltyCardId, UpdateLoyaltyCard updateLoyaltyCard) throws ApiException {
+    public LoyaltyCard updateLoyaltyCard(@javax.annotation.Nonnull Long loyaltyProgramId, @javax.annotation.Nonnull String loyaltyCardId, @javax.annotation.Nonnull UpdateLoyaltyCard updateLoyaltyCard) throws ApiException {
         ApiResponse<LoyaltyCard> localVarResp = updateLoyaltyCardWithHttpInfo(loyaltyProgramId, loyaltyCardId, updateLoyaltyCard);
         return localVarResp.getData();
     }
@@ -25928,7 +25928,7 @@ public class ManagementApi {
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<LoyaltyCard> updateLoyaltyCardWithHttpInfo(Long loyaltyProgramId, String loyaltyCardId, UpdateLoyaltyCard updateLoyaltyCard) throws ApiException {
+    public ApiResponse<LoyaltyCard> updateLoyaltyCardWithHttpInfo(@javax.annotation.Nonnull Long loyaltyProgramId, @javax.annotation.Nonnull String loyaltyCardId, @javax.annotation.Nonnull UpdateLoyaltyCard updateLoyaltyCard) throws ApiException {
         okhttp3.Call localVarCall = updateLoyaltyCardValidateBeforeCall(loyaltyProgramId, loyaltyCardId, updateLoyaltyCard, null);
         Type localVarReturnType = new TypeToken<LoyaltyCard>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -25953,7 +25953,7 @@ public class ManagementApi {
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateLoyaltyCardAsync(Long loyaltyProgramId, String loyaltyCardId, UpdateLoyaltyCard updateLoyaltyCard, final ApiCallback<LoyaltyCard> _callback) throws ApiException {
+    public okhttp3.Call updateLoyaltyCardAsync(@javax.annotation.Nonnull Long loyaltyProgramId, @javax.annotation.Nonnull String loyaltyCardId, @javax.annotation.Nonnull UpdateLoyaltyCard updateLoyaltyCard, final ApiCallback<LoyaltyCard> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = updateLoyaltyCardValidateBeforeCall(loyaltyProgramId, loyaltyCardId, updateLoyaltyCard, _callback);
         Type localVarReturnType = new TypeToken<LoyaltyCard>(){}.getType();
@@ -25976,7 +25976,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateReferralCall(Long applicationId, Long campaignId, String referralId, UpdateReferral updateReferral, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call updateReferralCall(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, @javax.annotation.Nonnull String referralId, @javax.annotation.Nonnull UpdateReferral updateReferral, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -26025,7 +26025,7 @@ public class ManagementApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call updateReferralValidateBeforeCall(Long applicationId, Long campaignId, String referralId, UpdateReferral updateReferral, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call updateReferralValidateBeforeCall(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, @javax.annotation.Nonnull String referralId, @javax.annotation.Nonnull UpdateReferral updateReferral, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'applicationId' is set
         if (applicationId == null) {
             throw new ApiException("Missing the required parameter 'applicationId' when calling updateReferral(Async)");
@@ -26066,7 +26066,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public Referral updateReferral(Long applicationId, Long campaignId, String referralId, UpdateReferral updateReferral) throws ApiException {
+    public Referral updateReferral(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, @javax.annotation.Nonnull String referralId, @javax.annotation.Nonnull UpdateReferral updateReferral) throws ApiException {
         ApiResponse<Referral> localVarResp = updateReferralWithHttpInfo(applicationId, campaignId, referralId, updateReferral);
         return localVarResp.getData();
     }
@@ -26087,7 +26087,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Referral> updateReferralWithHttpInfo(Long applicationId, Long campaignId, String referralId, UpdateReferral updateReferral) throws ApiException {
+    public ApiResponse<Referral> updateReferralWithHttpInfo(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, @javax.annotation.Nonnull String referralId, @javax.annotation.Nonnull UpdateReferral updateReferral) throws ApiException {
         okhttp3.Call localVarCall = updateReferralValidateBeforeCall(applicationId, campaignId, referralId, updateReferral, null);
         Type localVarReturnType = new TypeToken<Referral>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -26110,7 +26110,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateReferralAsync(Long applicationId, Long campaignId, String referralId, UpdateReferral updateReferral, final ApiCallback<Referral> _callback) throws ApiException {
+    public okhttp3.Call updateReferralAsync(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, @javax.annotation.Nonnull String referralId, @javax.annotation.Nonnull UpdateReferral updateReferral, final ApiCallback<Referral> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = updateReferralValidateBeforeCall(applicationId, campaignId, referralId, updateReferral, _callback);
         Type localVarReturnType = new TypeToken<Referral>(){}.getType();
@@ -26131,7 +26131,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateRoleV2Call(Long roleId, RoleV2Base roleV2Base, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call updateRoleV2Call(@javax.annotation.Nonnull Long roleId, @javax.annotation.Nonnull RoleV2Base roleV2Base, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -26178,7 +26178,7 @@ public class ManagementApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call updateRoleV2ValidateBeforeCall(Long roleId, RoleV2Base roleV2Base, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call updateRoleV2ValidateBeforeCall(@javax.annotation.Nonnull Long roleId, @javax.annotation.Nonnull RoleV2Base roleV2Base, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'roleId' is set
         if (roleId == null) {
             throw new ApiException("Missing the required parameter 'roleId' when calling updateRoleV2(Async)");
@@ -26207,7 +26207,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public RoleV2 updateRoleV2(Long roleId, RoleV2Base roleV2Base) throws ApiException {
+    public RoleV2 updateRoleV2(@javax.annotation.Nonnull Long roleId, @javax.annotation.Nonnull RoleV2Base roleV2Base) throws ApiException {
         ApiResponse<RoleV2> localVarResp = updateRoleV2WithHttpInfo(roleId, roleV2Base);
         return localVarResp.getData();
     }
@@ -26226,7 +26226,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<RoleV2> updateRoleV2WithHttpInfo(Long roleId, RoleV2Base roleV2Base) throws ApiException {
+    public ApiResponse<RoleV2> updateRoleV2WithHttpInfo(@javax.annotation.Nonnull Long roleId, @javax.annotation.Nonnull RoleV2Base roleV2Base) throws ApiException {
         okhttp3.Call localVarCall = updateRoleV2ValidateBeforeCall(roleId, roleV2Base, null);
         Type localVarReturnType = new TypeToken<RoleV2>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -26247,7 +26247,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateRoleV2Async(Long roleId, RoleV2Base roleV2Base, final ApiCallback<RoleV2> _callback) throws ApiException {
+    public okhttp3.Call updateRoleV2Async(@javax.annotation.Nonnull Long roleId, @javax.annotation.Nonnull RoleV2Base roleV2Base, final ApiCallback<RoleV2> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = updateRoleV2ValidateBeforeCall(roleId, roleV2Base, _callback);
         Type localVarReturnType = new TypeToken<RoleV2>(){}.getType();
@@ -26271,7 +26271,7 @@ public class ManagementApi {
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateStoreCall(Long applicationId, String storeId, NewStore newStore, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call updateStoreCall(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull String storeId, @javax.annotation.Nonnull NewStore newStore, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -26319,7 +26319,7 @@ public class ManagementApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call updateStoreValidateBeforeCall(Long applicationId, String storeId, NewStore newStore, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call updateStoreValidateBeforeCall(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull String storeId, @javax.annotation.Nonnull NewStore newStore, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'applicationId' is set
         if (applicationId == null) {
             throw new ApiException("Missing the required parameter 'applicationId' when calling updateStore(Async)");
@@ -26356,7 +26356,7 @@ public class ManagementApi {
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
      */
-    public Store updateStore(Long applicationId, String storeId, NewStore newStore) throws ApiException {
+    public Store updateStore(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull String storeId, @javax.annotation.Nonnull NewStore newStore) throws ApiException {
         ApiResponse<Store> localVarResp = updateStoreWithHttpInfo(applicationId, storeId, newStore);
         return localVarResp.getData();
     }
@@ -26378,7 +26378,7 @@ public class ManagementApi {
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Store> updateStoreWithHttpInfo(Long applicationId, String storeId, NewStore newStore) throws ApiException {
+    public ApiResponse<Store> updateStoreWithHttpInfo(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull String storeId, @javax.annotation.Nonnull NewStore newStore) throws ApiException {
         okhttp3.Call localVarCall = updateStoreValidateBeforeCall(applicationId, storeId, newStore, null);
         Type localVarReturnType = new TypeToken<Store>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -26402,7 +26402,7 @@ public class ManagementApi {
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateStoreAsync(Long applicationId, String storeId, NewStore newStore, final ApiCallback<Store> _callback) throws ApiException {
+    public okhttp3.Call updateStoreAsync(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull String storeId, @javax.annotation.Nonnull NewStore newStore, final ApiCallback<Store> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = updateStoreValidateBeforeCall(applicationId, storeId, newStore, _callback);
         Type localVarReturnType = new TypeToken<Store>(){}.getType();
@@ -26423,7 +26423,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateUserCall(Long userId, UpdateUser updateUser, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call updateUserCall(@javax.annotation.Nonnull Long userId, @javax.annotation.Nonnull UpdateUser updateUser, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -26470,7 +26470,7 @@ public class ManagementApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call updateUserValidateBeforeCall(Long userId, UpdateUser updateUser, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call updateUserValidateBeforeCall(@javax.annotation.Nonnull Long userId, @javax.annotation.Nonnull UpdateUser updateUser, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'userId' is set
         if (userId == null) {
             throw new ApiException("Missing the required parameter 'userId' when calling updateUser(Async)");
@@ -26499,7 +26499,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public User updateUser(Long userId, UpdateUser updateUser) throws ApiException {
+    public User updateUser(@javax.annotation.Nonnull Long userId, @javax.annotation.Nonnull UpdateUser updateUser) throws ApiException {
         ApiResponse<User> localVarResp = updateUserWithHttpInfo(userId, updateUser);
         return localVarResp.getData();
     }
@@ -26518,7 +26518,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<User> updateUserWithHttpInfo(Long userId, UpdateUser updateUser) throws ApiException {
+    public ApiResponse<User> updateUserWithHttpInfo(@javax.annotation.Nonnull Long userId, @javax.annotation.Nonnull UpdateUser updateUser) throws ApiException {
         okhttp3.Call localVarCall = updateUserValidateBeforeCall(userId, updateUser, null);
         Type localVarReturnType = new TypeToken<User>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -26539,7 +26539,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateUserAsync(Long userId, UpdateUser updateUser, final ApiCallback<User> _callback) throws ApiException {
+    public okhttp3.Call updateUserAsync(@javax.annotation.Nonnull Long userId, @javax.annotation.Nonnull UpdateUser updateUser, final ApiCallback<User> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = updateUserValidateBeforeCall(userId, updateUser, _callback);
         Type localVarReturnType = new TypeToken<User>(){}.getType();

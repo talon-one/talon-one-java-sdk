@@ -14,6 +14,7 @@
 package one.talon.model;
 
 import java.util.Objects;
+import java.util.Locale;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -45,13 +46,14 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.Locale;
 
 import one.talon.JSON;
 
 /**
  * List of users that have been provisioned using the SCIM protocol with an identity provider, for example, Microsoft Entra ID.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.13.0-SNAPSHOT")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.17.0")
 public class ScimUsersListResponse {
   public static final String SERIALIZED_NAME_RESOURCES = "Resources";
   @SerializedName(SERIALIZED_NAME_RESOURCES)
@@ -192,14 +194,10 @@ public class ScimUsersListResponse {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("Resources");
-    openapiFields.add("schemas");
-    openapiFields.add("totalResults");
+    openapiFields = new HashSet<String>(Arrays.asList("Resources", "schemas", "totalResults"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("Resources");
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("Resources"));
   }
 
   /**
@@ -211,7 +209,7 @@ public class ScimUsersListResponse {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!ScimUsersListResponse.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in ScimUsersListResponse is not found in the empty JSON string", ScimUsersListResponse.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field(s) %s in ScimUsersListResponse is not found in the empty JSON string", ScimUsersListResponse.openapiRequiredFields.toString()));
         }
       }
 
@@ -219,20 +217,20 @@ public class ScimUsersListResponse {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!ScimUsersListResponse.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `ScimUsersListResponse` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(Locale.ROOT, "The field `%s` in the JSON string is not defined in the `ScimUsersListResponse` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : ScimUsersListResponse.openapiRequiredFields) {
         if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       // ensure the json data is an array
       if (!jsonObj.get("Resources").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `Resources` to be an array in the JSON string but got `%s`", jsonObj.get("Resources").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `Resources` to be an array in the JSON string but got `%s`", jsonObj.get("Resources").toString()));
       }
 
       JsonArray jsonArrayresources = jsonObj.getAsJsonArray("Resources");
@@ -242,7 +240,7 @@ public class ScimUsersListResponse {
       };
       // ensure the optional json data is an array if present
       if (jsonObj.get("schemas") != null && !jsonObj.get("schemas").isJsonNull() && !jsonObj.get("schemas").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `schemas` to be an array in the JSON string but got `%s`", jsonObj.get("schemas").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `schemas` to be an array in the JSON string but got `%s`", jsonObj.get("schemas").toString()));
       }
   }
 

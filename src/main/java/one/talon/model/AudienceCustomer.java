@@ -14,6 +14,7 @@
 package one.talon.model;
 
 import java.util.Objects;
+import java.util.Locale;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -48,13 +49,14 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.Locale;
 
 import one.talon.JSON;
 
 /**
  * AudienceCustomer
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.13.0-SNAPSHOT")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.17.0")
 public class AudienceCustomer {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -471,30 +473,10 @@ public class AudienceCustomer {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("id");
-    openapiFields.add("created");
-    openapiFields.add("integrationId");
-    openapiFields.add("attributes");
-    openapiFields.add("accountId");
-    openapiFields.add("closedSessions");
-    openapiFields.add("totalSales");
-    openapiFields.add("loyaltyMemberships");
-    openapiFields.add("audienceMemberships");
-    openapiFields.add("lastActivity");
-    openapiFields.add("sandbox");
-    openapiFields.add("connectedApplicationsIds");
-    openapiFields.add("connectedAudiences");
+    openapiFields = new HashSet<String>(Arrays.asList("id", "created", "integrationId", "attributes", "accountId", "closedSessions", "totalSales", "loyaltyMemberships", "audienceMemberships", "lastActivity", "sandbox", "connectedApplicationsIds", "connectedAudiences"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("id");
-    openapiRequiredFields.add("created");
-    openapiRequiredFields.add("integrationId");
-    openapiRequiredFields.add("accountId");
-    openapiRequiredFields.add("closedSessions");
-    openapiRequiredFields.add("totalSales");
-    openapiRequiredFields.add("lastActivity");
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("id", "created", "integrationId", "accountId", "closedSessions", "totalSales", "lastActivity"));
   }
 
   /**
@@ -506,7 +488,7 @@ public class AudienceCustomer {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!AudienceCustomer.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in AudienceCustomer is not found in the empty JSON string", AudienceCustomer.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field(s) %s in AudienceCustomer is not found in the empty JSON string", AudienceCustomer.openapiRequiredFields.toString()));
         }
       }
 
@@ -514,26 +496,26 @@ public class AudienceCustomer {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!AudienceCustomer.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `AudienceCustomer` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(Locale.ROOT, "The field `%s` in the JSON string is not defined in the `AudienceCustomer` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : AudienceCustomer.openapiRequiredFields) {
         if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if (!jsonObj.get("integrationId").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `integrationId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("integrationId").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `integrationId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("integrationId").toString()));
       }
       if (jsonObj.get("loyaltyMemberships") != null && !jsonObj.get("loyaltyMemberships").isJsonNull()) {
         JsonArray jsonArrayloyaltyMemberships = jsonObj.getAsJsonArray("loyaltyMemberships");
         if (jsonArrayloyaltyMemberships != null) {
           // ensure the json data is an array
           if (!jsonObj.get("loyaltyMemberships").isJsonArray()) {
-            throw new IllegalArgumentException(String.format("Expected the field `loyaltyMemberships` to be an array in the JSON string but got `%s`", jsonObj.get("loyaltyMemberships").toString()));
+            throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `loyaltyMemberships` to be an array in the JSON string but got `%s`", jsonObj.get("loyaltyMemberships").toString()));
           }
 
           // validate the optional field `loyaltyMemberships` (array)
@@ -547,7 +529,7 @@ public class AudienceCustomer {
         if (jsonArrayaudienceMemberships != null) {
           // ensure the json data is an array
           if (!jsonObj.get("audienceMemberships").isJsonArray()) {
-            throw new IllegalArgumentException(String.format("Expected the field `audienceMemberships` to be an array in the JSON string but got `%s`", jsonObj.get("audienceMemberships").toString()));
+            throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `audienceMemberships` to be an array in the JSON string but got `%s`", jsonObj.get("audienceMemberships").toString()));
           }
 
           // validate the optional field `audienceMemberships` (array)
@@ -558,11 +540,11 @@ public class AudienceCustomer {
       }
       // ensure the optional json data is an array if present
       if (jsonObj.get("connectedApplicationsIds") != null && !jsonObj.get("connectedApplicationsIds").isJsonNull() && !jsonObj.get("connectedApplicationsIds").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `connectedApplicationsIds` to be an array in the JSON string but got `%s`", jsonObj.get("connectedApplicationsIds").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `connectedApplicationsIds` to be an array in the JSON string but got `%s`", jsonObj.get("connectedApplicationsIds").toString()));
       }
       // ensure the optional json data is an array if present
       if (jsonObj.get("connectedAudiences") != null && !jsonObj.get("connectedAudiences").isJsonNull() && !jsonObj.get("connectedAudiences").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `connectedAudiences` to be an array in the JSON string but got `%s`", jsonObj.get("connectedAudiences").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `connectedAudiences` to be an array in the JSON string but got `%s`", jsonObj.get("connectedAudiences").toString()));
       }
   }
 

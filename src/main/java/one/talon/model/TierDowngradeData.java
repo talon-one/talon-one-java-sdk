@@ -14,6 +14,7 @@
 package one.talon.model;
 
 import java.util.Objects;
+import java.util.Locale;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -44,13 +45,14 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.Locale;
 
 import one.talon.JSON;
 
 /**
  * TierDowngradeData
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.13.0-SNAPSHOT")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.17.0")
 public class TierDowngradeData {
   public static final String SERIALIZED_NAME_CUSTOMER_PROFILE_I_D = "CustomerProfileID";
   @SerializedName(SERIALIZED_NAME_CUSTOMER_PROFILE_I_D)
@@ -306,24 +308,10 @@ public class TierDowngradeData {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("CustomerProfileID");
-    openapiFields.add("LoyaltyProgramID");
-    openapiFields.add("SubledgerID");
-    openapiFields.add("CurrentTier");
-    openapiFields.add("CurrentPoints");
-    openapiFields.add("OldTier");
-    openapiFields.add("TierExpirationDate");
-    openapiFields.add("TimestampOfTierChange");
+    openapiFields = new HashSet<String>(Arrays.asList("CustomerProfileID", "LoyaltyProgramID", "SubledgerID", "CurrentTier", "CurrentPoints", "OldTier", "TierExpirationDate", "TimestampOfTierChange"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("CustomerProfileID");
-    openapiRequiredFields.add("LoyaltyProgramID");
-    openapiRequiredFields.add("SubledgerID");
-    openapiRequiredFields.add("CurrentPoints");
-    openapiRequiredFields.add("OldTier");
-    openapiRequiredFields.add("TimestampOfTierChange");
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("CustomerProfileID", "LoyaltyProgramID", "SubledgerID", "CurrentPoints", "OldTier", "TimestampOfTierChange"));
   }
 
   /**
@@ -335,7 +323,7 @@ public class TierDowngradeData {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!TierDowngradeData.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in TierDowngradeData is not found in the empty JSON string", TierDowngradeData.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field(s) %s in TierDowngradeData is not found in the empty JSON string", TierDowngradeData.openapiRequiredFields.toString()));
         }
       }
 
@@ -343,28 +331,28 @@ public class TierDowngradeData {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!TierDowngradeData.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `TierDowngradeData` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(Locale.ROOT, "The field `%s` in the JSON string is not defined in the `TierDowngradeData` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : TierDowngradeData.openapiRequiredFields) {
         if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if (!jsonObj.get("CustomerProfileID").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `CustomerProfileID` to be a primitive type in the JSON string but got `%s`", jsonObj.get("CustomerProfileID").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `CustomerProfileID` to be a primitive type in the JSON string but got `%s`", jsonObj.get("CustomerProfileID").toString()));
       }
       if (!jsonObj.get("SubledgerID").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `SubledgerID` to be a primitive type in the JSON string but got `%s`", jsonObj.get("SubledgerID").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `SubledgerID` to be a primitive type in the JSON string but got `%s`", jsonObj.get("SubledgerID").toString()));
       }
       if ((jsonObj.get("CurrentTier") != null && !jsonObj.get("CurrentTier").isJsonNull()) && !jsonObj.get("CurrentTier").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `CurrentTier` to be a primitive type in the JSON string but got `%s`", jsonObj.get("CurrentTier").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `CurrentTier` to be a primitive type in the JSON string but got `%s`", jsonObj.get("CurrentTier").toString()));
       }
       if (!jsonObj.get("OldTier").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `OldTier` to be a primitive type in the JSON string but got `%s`", jsonObj.get("OldTier").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `OldTier` to be a primitive type in the JSON string but got `%s`", jsonObj.get("OldTier").toString()));
       }
   }
 

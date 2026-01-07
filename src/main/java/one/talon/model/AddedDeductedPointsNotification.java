@@ -14,6 +14,7 @@
 package one.talon.model;
 
 import java.util.Objects;
+import java.util.Locale;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -44,13 +45,14 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.Locale;
 
 import one.talon.JSON;
 
 /**
  * AddedDeductedPointsNotification
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.13.0-SNAPSHOT")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.17.0")
 public class AddedDeductedPointsNotification {
   public static final String SERIALIZED_NAME_PROFILE_INTEGRATION_I_D = "ProfileIntegrationID";
   @SerializedName(SERIALIZED_NAME_PROFILE_INTEGRATION_I_D)
@@ -595,34 +597,10 @@ public class AddedDeductedPointsNotification {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("ProfileIntegrationID");
-    openapiFields.add("LoyaltyProgramID");
-    openapiFields.add("SubledgerID");
-    openapiFields.add("Amount");
-    openapiFields.add("Reason");
-    openapiFields.add("TypeOfChange");
-    openapiFields.add("EmployeeName");
-    openapiFields.add("UserID");
-    openapiFields.add("Operation");
-    openapiFields.add("StartDate");
-    openapiFields.add("ExpiryDate");
-    openapiFields.add("SessionIntegrationID");
-    openapiFields.add("NotificationType");
+    openapiFields = new HashSet<String>(Arrays.asList("ProfileIntegrationID", "LoyaltyProgramID", "SubledgerID", "Amount", "Reason", "TypeOfChange", "EmployeeName", "UserID", "Operation", "StartDate", "ExpiryDate", "SessionIntegrationID", "NotificationType"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("ProfileIntegrationID");
-    openapiRequiredFields.add("LoyaltyProgramID");
-    openapiRequiredFields.add("SubledgerID");
-    openapiRequiredFields.add("Amount");
-    openapiRequiredFields.add("Reason");
-    openapiRequiredFields.add("TypeOfChange");
-    openapiRequiredFields.add("EmployeeName");
-    openapiRequiredFields.add("UserID");
-    openapiRequiredFields.add("Operation");
-    openapiRequiredFields.add("SessionIntegrationID");
-    openapiRequiredFields.add("NotificationType");
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("ProfileIntegrationID", "LoyaltyProgramID", "SubledgerID", "Amount", "Reason", "TypeOfChange", "EmployeeName", "UserID", "Operation", "SessionIntegrationID", "NotificationType"));
   }
 
   /**
@@ -634,7 +612,7 @@ public class AddedDeductedPointsNotification {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!AddedDeductedPointsNotification.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in AddedDeductedPointsNotification is not found in the empty JSON string", AddedDeductedPointsNotification.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field(s) %s in AddedDeductedPointsNotification is not found in the empty JSON string", AddedDeductedPointsNotification.openapiRequiredFields.toString()));
         }
       }
 
@@ -642,44 +620,44 @@ public class AddedDeductedPointsNotification {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!AddedDeductedPointsNotification.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `AddedDeductedPointsNotification` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(Locale.ROOT, "The field `%s` in the JSON string is not defined in the `AddedDeductedPointsNotification` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : AddedDeductedPointsNotification.openapiRequiredFields) {
         if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if (!jsonObj.get("ProfileIntegrationID").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `ProfileIntegrationID` to be a primitive type in the JSON string but got `%s`", jsonObj.get("ProfileIntegrationID").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `ProfileIntegrationID` to be a primitive type in the JSON string but got `%s`", jsonObj.get("ProfileIntegrationID").toString()));
       }
       if (!jsonObj.get("SubledgerID").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `SubledgerID` to be a primitive type in the JSON string but got `%s`", jsonObj.get("SubledgerID").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `SubledgerID` to be a primitive type in the JSON string but got `%s`", jsonObj.get("SubledgerID").toString()));
       }
       if (!jsonObj.get("Reason").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `Reason` to be a primitive type in the JSON string but got `%s`", jsonObj.get("Reason").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `Reason` to be a primitive type in the JSON string but got `%s`", jsonObj.get("Reason").toString()));
       }
       if (!jsonObj.get("TypeOfChange").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `TypeOfChange` to be a primitive type in the JSON string but got `%s`", jsonObj.get("TypeOfChange").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `TypeOfChange` to be a primitive type in the JSON string but got `%s`", jsonObj.get("TypeOfChange").toString()));
       }
       // validate the required field `TypeOfChange`
       TypeOfChangeEnum.validateJsonElement(jsonObj.get("TypeOfChange"));
       if (!jsonObj.get("EmployeeName").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `EmployeeName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("EmployeeName").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `EmployeeName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("EmployeeName").toString()));
       }
       if (!jsonObj.get("Operation").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `Operation` to be a primitive type in the JSON string but got `%s`", jsonObj.get("Operation").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `Operation` to be a primitive type in the JSON string but got `%s`", jsonObj.get("Operation").toString()));
       }
       // validate the required field `Operation`
       OperationEnum.validateJsonElement(jsonObj.get("Operation"));
       if (!jsonObj.get("SessionIntegrationID").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `SessionIntegrationID` to be a primitive type in the JSON string but got `%s`", jsonObj.get("SessionIntegrationID").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `SessionIntegrationID` to be a primitive type in the JSON string but got `%s`", jsonObj.get("SessionIntegrationID").toString()));
       }
       if (!jsonObj.get("NotificationType").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `NotificationType` to be a primitive type in the JSON string but got `%s`", jsonObj.get("NotificationType").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `NotificationType` to be a primitive type in the JSON string but got `%s`", jsonObj.get("NotificationType").toString()));
       }
       // validate the required field `NotificationType`
       NotificationTypeEnum.validateJsonElement(jsonObj.get("NotificationType"));

@@ -14,6 +14,7 @@
 package one.talon.model;
 
 import java.util.Objects;
+import java.util.Locale;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -44,13 +45,14 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.Locale;
 
 import one.talon.JSON;
 
 /**
  * Contains information about hidden conditions and effects in the Application.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.13.0-SNAPSHOT")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.17.0")
 public class HiddenConditionsEffects {
   public static final String SERIALIZED_NAME_BUILT_IN_EFFECTS = "builtInEffects";
   @SerializedName(SERIALIZED_NAME_BUILT_IN_EFFECTS)
@@ -233,14 +235,10 @@ public class HiddenConditionsEffects {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("builtInEffects");
-    openapiFields.add("conditions");
-    openapiFields.add("customEffects");
-    openapiFields.add("webhooks");
+    openapiFields = new HashSet<String>(Arrays.asList("builtInEffects", "conditions", "customEffects", "webhooks"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
   /**
@@ -252,7 +250,7 @@ public class HiddenConditionsEffects {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!HiddenConditionsEffects.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in HiddenConditionsEffects is not found in the empty JSON string", HiddenConditionsEffects.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field(s) %s in HiddenConditionsEffects is not found in the empty JSON string", HiddenConditionsEffects.openapiRequiredFields.toString()));
         }
       }
 
@@ -260,25 +258,25 @@ public class HiddenConditionsEffects {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!HiddenConditionsEffects.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `HiddenConditionsEffects` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(Locale.ROOT, "The field `%s` in the JSON string is not defined in the `HiddenConditionsEffects` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       // ensure the optional json data is an array if present
       if (jsonObj.get("builtInEffects") != null && !jsonObj.get("builtInEffects").isJsonNull() && !jsonObj.get("builtInEffects").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `builtInEffects` to be an array in the JSON string but got `%s`", jsonObj.get("builtInEffects").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `builtInEffects` to be an array in the JSON string but got `%s`", jsonObj.get("builtInEffects").toString()));
       }
       // ensure the optional json data is an array if present
       if (jsonObj.get("conditions") != null && !jsonObj.get("conditions").isJsonNull() && !jsonObj.get("conditions").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `conditions` to be an array in the JSON string but got `%s`", jsonObj.get("conditions").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `conditions` to be an array in the JSON string but got `%s`", jsonObj.get("conditions").toString()));
       }
       // ensure the optional json data is an array if present
       if (jsonObj.get("customEffects") != null && !jsonObj.get("customEffects").isJsonNull() && !jsonObj.get("customEffects").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `customEffects` to be an array in the JSON string but got `%s`", jsonObj.get("customEffects").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `customEffects` to be an array in the JSON string but got `%s`", jsonObj.get("customEffects").toString()));
       }
       // ensure the optional json data is an array if present
       if (jsonObj.get("webhooks") != null && !jsonObj.get("webhooks").isJsonNull() && !jsonObj.get("webhooks").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `webhooks` to be an array in the JSON string but got `%s`", jsonObj.get("webhooks").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `webhooks` to be an array in the JSON string but got `%s`", jsonObj.get("webhooks").toString()));
       }
   }
 

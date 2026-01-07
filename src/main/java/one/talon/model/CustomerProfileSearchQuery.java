@@ -14,6 +14,7 @@
 package one.talon.model;
 
 import java.util.Objects;
+import java.util.Locale;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -44,13 +45,14 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.Locale;
 
 import one.talon.JSON;
 
 /**
  * CustomerProfileSearchQuery
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.13.0-SNAPSHOT")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.17.0")
 public class CustomerProfileSearchQuery {
   public static final String SERIALIZED_NAME_ATTRIBUTES = "attributes";
   @SerializedName(SERIALIZED_NAME_ATTRIBUTES)
@@ -191,13 +193,10 @@ public class CustomerProfileSearchQuery {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("attributes");
-    openapiFields.add("integrationIDs");
-    openapiFields.add("profileIDs");
+    openapiFields = new HashSet<String>(Arrays.asList("attributes", "integrationIDs", "profileIDs"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
   /**
@@ -209,7 +208,7 @@ public class CustomerProfileSearchQuery {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!CustomerProfileSearchQuery.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in CustomerProfileSearchQuery is not found in the empty JSON string", CustomerProfileSearchQuery.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field(s) %s in CustomerProfileSearchQuery is not found in the empty JSON string", CustomerProfileSearchQuery.openapiRequiredFields.toString()));
         }
       }
 
@@ -217,17 +216,17 @@ public class CustomerProfileSearchQuery {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!CustomerProfileSearchQuery.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `CustomerProfileSearchQuery` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(Locale.ROOT, "The field `%s` in the JSON string is not defined in the `CustomerProfileSearchQuery` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       // ensure the optional json data is an array if present
       if (jsonObj.get("integrationIDs") != null && !jsonObj.get("integrationIDs").isJsonNull() && !jsonObj.get("integrationIDs").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `integrationIDs` to be an array in the JSON string but got `%s`", jsonObj.get("integrationIDs").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `integrationIDs` to be an array in the JSON string but got `%s`", jsonObj.get("integrationIDs").toString()));
       }
       // ensure the optional json data is an array if present
       if (jsonObj.get("profileIDs") != null && !jsonObj.get("profileIDs").isJsonNull() && !jsonObj.get("profileIDs").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `profileIDs` to be an array in the JSON string but got `%s`", jsonObj.get("profileIDs").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `profileIDs` to be an array in the JSON string but got `%s`", jsonObj.get("profileIDs").toString()));
       }
   }
 

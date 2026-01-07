@@ -14,6 +14,7 @@
 package one.talon.model;
 
 import java.util.Objects;
+import java.util.Locale;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -44,13 +45,14 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.Locale;
 
 import one.talon.JSON;
 
 /**
  * The parameters necessary to generate a loyalty card.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.13.0-SNAPSHOT")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.17.0")
 public class GenerateLoyaltyCard {
   /**
    * Status of the loyalty card.
@@ -235,13 +237,10 @@ public class GenerateLoyaltyCard {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("status");
-    openapiFields.add("customerProfileIds");
-    openapiFields.add("cardIdentifier");
+    openapiFields = new HashSet<String>(Arrays.asList("status", "customerProfileIds", "cardIdentifier"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
   /**
@@ -253,7 +252,7 @@ public class GenerateLoyaltyCard {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!GenerateLoyaltyCard.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in GenerateLoyaltyCard is not found in the empty JSON string", GenerateLoyaltyCard.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field(s) %s in GenerateLoyaltyCard is not found in the empty JSON string", GenerateLoyaltyCard.openapiRequiredFields.toString()));
         }
       }
 
@@ -261,12 +260,12 @@ public class GenerateLoyaltyCard {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!GenerateLoyaltyCard.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `GenerateLoyaltyCard` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(Locale.ROOT, "The field `%s` in the JSON string is not defined in the `GenerateLoyaltyCard` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("status") != null && !jsonObj.get("status").isJsonNull()) && !jsonObj.get("status").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `status` to be a primitive type in the JSON string but got `%s`", jsonObj.get("status").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `status` to be a primitive type in the JSON string but got `%s`", jsonObj.get("status").toString()));
       }
       // validate the optional field `status`
       if (jsonObj.get("status") != null && !jsonObj.get("status").isJsonNull()) {
@@ -274,10 +273,10 @@ public class GenerateLoyaltyCard {
       }
       // ensure the optional json data is an array if present
       if (jsonObj.get("customerProfileIds") != null && !jsonObj.get("customerProfileIds").isJsonNull() && !jsonObj.get("customerProfileIds").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `customerProfileIds` to be an array in the JSON string but got `%s`", jsonObj.get("customerProfileIds").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `customerProfileIds` to be an array in the JSON string but got `%s`", jsonObj.get("customerProfileIds").toString()));
       }
       if ((jsonObj.get("cardIdentifier") != null && !jsonObj.get("cardIdentifier").isJsonNull()) && !jsonObj.get("cardIdentifier").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `cardIdentifier` to be a primitive type in the JSON string but got `%s`", jsonObj.get("cardIdentifier").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `cardIdentifier` to be a primitive type in the JSON string but got `%s`", jsonObj.get("cardIdentifier").toString()));
       }
   }
 

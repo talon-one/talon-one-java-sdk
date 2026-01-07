@@ -14,6 +14,7 @@
 package one.talon.model;
 
 import java.util.Objects;
+import java.util.Locale;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -42,13 +43,14 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.Locale;
 
 import one.talon.JSON;
 
 /**
  * The source of the current error, exactly one of &#x60;pointer&#x60;, &#x60;parameter&#x60; or &#x60;line&#x60; will be defined. 
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.13.0-SNAPSHOT")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.17.0")
 public class ErrorSource {
   public static final String SERIALIZED_NAME_POINTER = "pointer";
   @SerializedName(SERIALIZED_NAME_POINTER)
@@ -199,14 +201,10 @@ public class ErrorSource {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("pointer");
-    openapiFields.add("parameter");
-    openapiFields.add("line");
-    openapiFields.add("resource");
+    openapiFields = new HashSet<String>(Arrays.asList("pointer", "parameter", "line", "resource"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
   /**
@@ -218,7 +216,7 @@ public class ErrorSource {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!ErrorSource.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in ErrorSource is not found in the empty JSON string", ErrorSource.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field(s) %s in ErrorSource is not found in the empty JSON string", ErrorSource.openapiRequiredFields.toString()));
         }
       }
 
@@ -226,21 +224,21 @@ public class ErrorSource {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!ErrorSource.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `ErrorSource` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(Locale.ROOT, "The field `%s` in the JSON string is not defined in the `ErrorSource` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("pointer") != null && !jsonObj.get("pointer").isJsonNull()) && !jsonObj.get("pointer").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `pointer` to be a primitive type in the JSON string but got `%s`", jsonObj.get("pointer").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `pointer` to be a primitive type in the JSON string but got `%s`", jsonObj.get("pointer").toString()));
       }
       if ((jsonObj.get("parameter") != null && !jsonObj.get("parameter").isJsonNull()) && !jsonObj.get("parameter").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `parameter` to be a primitive type in the JSON string but got `%s`", jsonObj.get("parameter").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `parameter` to be a primitive type in the JSON string but got `%s`", jsonObj.get("parameter").toString()));
       }
       if ((jsonObj.get("line") != null && !jsonObj.get("line").isJsonNull()) && !jsonObj.get("line").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `line` to be a primitive type in the JSON string but got `%s`", jsonObj.get("line").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `line` to be a primitive type in the JSON string but got `%s`", jsonObj.get("line").toString()));
       }
       if ((jsonObj.get("resource") != null && !jsonObj.get("resource").isJsonNull()) && !jsonObj.get("resource").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `resource` to be a primitive type in the JSON string but got `%s`", jsonObj.get("resource").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `resource` to be a primitive type in the JSON string but got `%s`", jsonObj.get("resource").toString()));
       }
   }
 

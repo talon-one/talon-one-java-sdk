@@ -14,6 +14,7 @@
 package one.talon.model;
 
 import java.util.Objects;
+import java.util.Locale;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -46,13 +47,14 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.Locale;
 
 import one.talon.JSON;
 
 /**
  * NewApplication
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.13.0-SNAPSHOT")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.17.0")
 public class NewApplication {
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
@@ -685,29 +687,10 @@ public class NewApplication {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("name");
-    openapiFields.add("description");
-    openapiFields.add("timezone");
-    openapiFields.add("currency");
-    openapiFields.add("caseSensitivity");
-    openapiFields.add("attributes");
-    openapiFields.add("limits");
-    openapiFields.add("defaultDiscountScope");
-    openapiFields.add("enableCascadingDiscounts");
-    openapiFields.add("enableFlattenedCartItems");
-    openapiFields.add("attributesSettings");
-    openapiFields.add("sandbox");
-    openapiFields.add("enablePartialDiscounts");
-    openapiFields.add("defaultDiscountAdditionalCostPerItemScope");
-    openapiFields.add("key");
-    openapiFields.add("enableCampaignStateManagement");
+    openapiFields = new HashSet<String>(Arrays.asList("name", "description", "timezone", "currency", "caseSensitivity", "attributes", "limits", "defaultDiscountScope", "enableCascadingDiscounts", "enableFlattenedCartItems", "attributesSettings", "sandbox", "enablePartialDiscounts", "defaultDiscountAdditionalCostPerItemScope", "key", "enableCampaignStateManagement"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("name");
-    openapiRequiredFields.add("timezone");
-    openapiRequiredFields.add("currency");
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("name", "timezone", "currency"));
   }
 
   /**
@@ -719,7 +702,7 @@ public class NewApplication {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!NewApplication.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in NewApplication is not found in the empty JSON string", NewApplication.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field(s) %s in NewApplication is not found in the empty JSON string", NewApplication.openapiRequiredFields.toString()));
         }
       }
 
@@ -727,31 +710,31 @@ public class NewApplication {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!NewApplication.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `NewApplication` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(Locale.ROOT, "The field `%s` in the JSON string is not defined in the `NewApplication` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : NewApplication.openapiRequiredFields) {
         if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if (!jsonObj.get("name").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
       }
       if ((jsonObj.get("description") != null && !jsonObj.get("description").isJsonNull()) && !jsonObj.get("description").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `description` to be a primitive type in the JSON string but got `%s`", jsonObj.get("description").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `description` to be a primitive type in the JSON string but got `%s`", jsonObj.get("description").toString()));
       }
       if (!jsonObj.get("timezone").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `timezone` to be a primitive type in the JSON string but got `%s`", jsonObj.get("timezone").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `timezone` to be a primitive type in the JSON string but got `%s`", jsonObj.get("timezone").toString()));
       }
       if (!jsonObj.get("currency").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `currency` to be a primitive type in the JSON string but got `%s`", jsonObj.get("currency").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `currency` to be a primitive type in the JSON string but got `%s`", jsonObj.get("currency").toString()));
       }
       if ((jsonObj.get("caseSensitivity") != null && !jsonObj.get("caseSensitivity").isJsonNull()) && !jsonObj.get("caseSensitivity").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `caseSensitivity` to be a primitive type in the JSON string but got `%s`", jsonObj.get("caseSensitivity").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `caseSensitivity` to be a primitive type in the JSON string but got `%s`", jsonObj.get("caseSensitivity").toString()));
       }
       // validate the optional field `caseSensitivity`
       if (jsonObj.get("caseSensitivity") != null && !jsonObj.get("caseSensitivity").isJsonNull()) {
@@ -762,7 +745,7 @@ public class NewApplication {
         if (jsonArraylimits != null) {
           // ensure the json data is an array
           if (!jsonObj.get("limits").isJsonArray()) {
-            throw new IllegalArgumentException(String.format("Expected the field `limits` to be an array in the JSON string but got `%s`", jsonObj.get("limits").toString()));
+            throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `limits` to be an array in the JSON string but got `%s`", jsonObj.get("limits").toString()));
           }
 
           // validate the optional field `limits` (array)
@@ -772,7 +755,7 @@ public class NewApplication {
         }
       }
       if ((jsonObj.get("defaultDiscountScope") != null && !jsonObj.get("defaultDiscountScope").isJsonNull()) && !jsonObj.get("defaultDiscountScope").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `defaultDiscountScope` to be a primitive type in the JSON string but got `%s`", jsonObj.get("defaultDiscountScope").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `defaultDiscountScope` to be a primitive type in the JSON string but got `%s`", jsonObj.get("defaultDiscountScope").toString()));
       }
       // validate the optional field `defaultDiscountScope`
       if (jsonObj.get("defaultDiscountScope") != null && !jsonObj.get("defaultDiscountScope").isJsonNull()) {
@@ -783,14 +766,14 @@ public class NewApplication {
         AttributesSettings.validateJsonElement(jsonObj.get("attributesSettings"));
       }
       if ((jsonObj.get("defaultDiscountAdditionalCostPerItemScope") != null && !jsonObj.get("defaultDiscountAdditionalCostPerItemScope").isJsonNull()) && !jsonObj.get("defaultDiscountAdditionalCostPerItemScope").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `defaultDiscountAdditionalCostPerItemScope` to be a primitive type in the JSON string but got `%s`", jsonObj.get("defaultDiscountAdditionalCostPerItemScope").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `defaultDiscountAdditionalCostPerItemScope` to be a primitive type in the JSON string but got `%s`", jsonObj.get("defaultDiscountAdditionalCostPerItemScope").toString()));
       }
       // validate the optional field `defaultDiscountAdditionalCostPerItemScope`
       if (jsonObj.get("defaultDiscountAdditionalCostPerItemScope") != null && !jsonObj.get("defaultDiscountAdditionalCostPerItemScope").isJsonNull()) {
         DefaultDiscountAdditionalCostPerItemScopeEnum.validateJsonElement(jsonObj.get("defaultDiscountAdditionalCostPerItemScope"));
       }
       if ((jsonObj.get("key") != null && !jsonObj.get("key").isJsonNull()) && !jsonObj.get("key").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `key` to be a primitive type in the JSON string but got `%s`", jsonObj.get("key").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `key` to be a primitive type in the JSON string but got `%s`", jsonObj.get("key").toString()));
       }
   }
 

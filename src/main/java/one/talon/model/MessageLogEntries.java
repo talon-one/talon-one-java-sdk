@@ -14,6 +14,7 @@
 package one.talon.model;
 
 import java.util.Objects;
+import java.util.Locale;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -45,13 +46,14 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.Locale;
 
 import one.talon.JSON;
 
 /**
  * MessageLogEntries
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.13.0-SNAPSHOT")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.17.0")
 public class MessageLogEntries {
   public static final String SERIALIZED_NAME_NEXT_CURSOR = "nextCursor";
   @SerializedName(SERIALIZED_NAME_NEXT_CURSOR)
@@ -158,13 +160,10 @@ public class MessageLogEntries {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("nextCursor");
-    openapiFields.add("data");
+    openapiFields = new HashSet<String>(Arrays.asList("nextCursor", "data"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("data");
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("data"));
   }
 
   /**
@@ -176,7 +175,7 @@ public class MessageLogEntries {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!MessageLogEntries.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in MessageLogEntries is not found in the empty JSON string", MessageLogEntries.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field(s) %s in MessageLogEntries is not found in the empty JSON string", MessageLogEntries.openapiRequiredFields.toString()));
         }
       }
 
@@ -184,20 +183,20 @@ public class MessageLogEntries {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!MessageLogEntries.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `MessageLogEntries` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(Locale.ROOT, "The field `%s` in the JSON string is not defined in the `MessageLogEntries` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : MessageLogEntries.openapiRequiredFields) {
         if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       // ensure the json data is an array
       if (!jsonObj.get("data").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `data` to be an array in the JSON string but got `%s`", jsonObj.get("data").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `data` to be an array in the JSON string but got `%s`", jsonObj.get("data").toString()));
       }
 
       JsonArray jsonArraydata = jsonObj.getAsJsonArray("data");

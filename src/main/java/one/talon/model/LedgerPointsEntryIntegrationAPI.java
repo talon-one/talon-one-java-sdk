@@ -14,6 +14,7 @@
 package one.talon.model;
 
 import java.util.Objects;
+import java.util.Locale;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -44,13 +45,14 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.Locale;
 
 import one.talon.JSON;
 
 /**
  * Loyalty profile points with start and expiry dates.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.13.0-SNAPSHOT")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.17.0")
 public class LedgerPointsEntryIntegrationAPI {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -357,29 +359,10 @@ public class LedgerPointsEntryIntegrationAPI {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("id");
-    openapiFields.add("transactionUUID");
-    openapiFields.add("created");
-    openapiFields.add("programId");
-    openapiFields.add("customerSessionId");
-    openapiFields.add("name");
-    openapiFields.add("startDate");
-    openapiFields.add("expiryDate");
-    openapiFields.add("subledgerId");
-    openapiFields.add("amount");
+    openapiFields = new HashSet<String>(Arrays.asList("id", "transactionUUID", "created", "programId", "customerSessionId", "name", "startDate", "expiryDate", "subledgerId", "amount"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("id");
-    openapiRequiredFields.add("transactionUUID");
-    openapiRequiredFields.add("created");
-    openapiRequiredFields.add("programId");
-    openapiRequiredFields.add("name");
-    openapiRequiredFields.add("startDate");
-    openapiRequiredFields.add("expiryDate");
-    openapiRequiredFields.add("subledgerId");
-    openapiRequiredFields.add("amount");
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("id", "transactionUUID", "created", "programId", "name", "startDate", "expiryDate", "subledgerId", "amount"));
   }
 
   /**
@@ -391,7 +374,7 @@ public class LedgerPointsEntryIntegrationAPI {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!LedgerPointsEntryIntegrationAPI.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in LedgerPointsEntryIntegrationAPI is not found in the empty JSON string", LedgerPointsEntryIntegrationAPI.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field(s) %s in LedgerPointsEntryIntegrationAPI is not found in the empty JSON string", LedgerPointsEntryIntegrationAPI.openapiRequiredFields.toString()));
         }
       }
 
@@ -399,34 +382,34 @@ public class LedgerPointsEntryIntegrationAPI {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!LedgerPointsEntryIntegrationAPI.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `LedgerPointsEntryIntegrationAPI` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(Locale.ROOT, "The field `%s` in the JSON string is not defined in the `LedgerPointsEntryIntegrationAPI` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : LedgerPointsEntryIntegrationAPI.openapiRequiredFields) {
         if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if (!jsonObj.get("transactionUUID").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `transactionUUID` to be a primitive type in the JSON string but got `%s`", jsonObj.get("transactionUUID").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `transactionUUID` to be a primitive type in the JSON string but got `%s`", jsonObj.get("transactionUUID").toString()));
       }
       if ((jsonObj.get("customerSessionId") != null && !jsonObj.get("customerSessionId").isJsonNull()) && !jsonObj.get("customerSessionId").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `customerSessionId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("customerSessionId").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `customerSessionId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("customerSessionId").toString()));
       }
       if (!jsonObj.get("name").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
       }
       if (!jsonObj.get("startDate").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `startDate` to be a primitive type in the JSON string but got `%s`", jsonObj.get("startDate").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `startDate` to be a primitive type in the JSON string but got `%s`", jsonObj.get("startDate").toString()));
       }
       if (!jsonObj.get("expiryDate").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `expiryDate` to be a primitive type in the JSON string but got `%s`", jsonObj.get("expiryDate").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `expiryDate` to be a primitive type in the JSON string but got `%s`", jsonObj.get("expiryDate").toString()));
       }
       if (!jsonObj.get("subledgerId").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `subledgerId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("subledgerId").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `subledgerId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("subledgerId").toString()));
       }
   }
 
