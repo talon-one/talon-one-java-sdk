@@ -196,6 +196,11 @@ public class CustomerSessionV2 {
   @javax.annotation.Nonnull
   private Boolean firstSession;
 
+  public static final String SERIALIZED_NAME_UPDATE_COUNT = "updateCount";
+  @SerializedName(SERIALIZED_NAME_UPDATE_COUNT)
+  @javax.annotation.Nonnull
+  private Long updateCount;
+
   public static final String SERIALIZED_NAME_TOTAL = "total";
   @SerializedName(SERIALIZED_NAME_TOTAL)
   @javax.annotation.Nonnull
@@ -571,6 +576,25 @@ public class CustomerSessionV2 {
   }
 
 
+  public CustomerSessionV2 updateCount(@javax.annotation.Nonnull Long updateCount) {
+    this.updateCount = updateCount;
+    return this;
+  }
+
+  /**
+   * The number of times the session was updated. When the session is created, this value is initialized to &#x60;1&#x60;.
+   * @return updateCount
+   */
+  @javax.annotation.Nonnull
+  public Long getUpdateCount() {
+    return updateCount;
+  }
+
+  public void setUpdateCount(@javax.annotation.Nonnull Long updateCount) {
+    this.updateCount = updateCount;
+  }
+
+
   public CustomerSessionV2 total(@javax.annotation.Nonnull BigDecimal total) {
     this.total = total;
     return this;
@@ -673,6 +697,7 @@ public class CustomerSessionV2 {
         Objects.equals(this.identifiers, customerSessionV2.identifiers) &&
         Objects.equals(this.attributes, customerSessionV2.attributes) &&
         Objects.equals(this.firstSession, customerSessionV2.firstSession) &&
+        Objects.equals(this.updateCount, customerSessionV2.updateCount) &&
         Objects.equals(this.total, customerSessionV2.total) &&
         Objects.equals(this.cartItemTotal, customerSessionV2.cartItemTotal) &&
         Objects.equals(this.additionalCostTotal, customerSessionV2.additionalCostTotal) &&
@@ -681,7 +706,7 @@ public class CustomerSessionV2 {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, created, integrationId, applicationId, profileId, storeIntegrationId, evaluableCampaignIds, couponCodes, referralCode, loyaltyCards, state, cartItems, additionalCosts, identifiers, attributes, firstSession, total, cartItemTotal, additionalCostTotal, updated);
+    return Objects.hash(id, created, integrationId, applicationId, profileId, storeIntegrationId, evaluableCampaignIds, couponCodes, referralCode, loyaltyCards, state, cartItems, additionalCosts, identifiers, attributes, firstSession, updateCount, total, cartItemTotal, additionalCostTotal, updated);
   }
 
   @Override
@@ -704,6 +729,7 @@ public class CustomerSessionV2 {
     sb.append("    identifiers: ").append(toIndentedString(identifiers)).append("\n");
     sb.append("    attributes: ").append(toIndentedString(attributes)).append("\n");
     sb.append("    firstSession: ").append(toIndentedString(firstSession)).append("\n");
+    sb.append("    updateCount: ").append(toIndentedString(updateCount)).append("\n");
     sb.append("    total: ").append(toIndentedString(total)).append("\n");
     sb.append("    cartItemTotal: ").append(toIndentedString(cartItemTotal)).append("\n");
     sb.append("    additionalCostTotal: ").append(toIndentedString(additionalCostTotal)).append("\n");
@@ -729,10 +755,10 @@ public class CustomerSessionV2 {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("id", "created", "integrationId", "applicationId", "profileId", "storeIntegrationId", "evaluableCampaignIds", "couponCodes", "referralCode", "loyaltyCards", "state", "cartItems", "additionalCosts", "identifiers", "attributes", "firstSession", "total", "cartItemTotal", "additionalCostTotal", "updated"));
+    openapiFields = new HashSet<String>(Arrays.asList("id", "created", "integrationId", "applicationId", "profileId", "storeIntegrationId", "evaluableCampaignIds", "couponCodes", "referralCode", "loyaltyCards", "state", "cartItems", "additionalCosts", "identifiers", "attributes", "firstSession", "updateCount", "total", "cartItemTotal", "additionalCostTotal", "updated"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("id", "created", "integrationId", "applicationId", "firstSession", "total", "cartItemTotal", "additionalCostTotal", "updated"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("id", "created", "integrationId", "applicationId", "firstSession", "updateCount", "total", "cartItemTotal", "additionalCostTotal", "updated"));
   }
 
   /**
