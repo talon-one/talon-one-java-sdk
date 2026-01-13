@@ -14,7 +14,6 @@
 package one.talon.model;
 
 import java.util.Objects;
-import java.util.Locale;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -45,39 +44,95 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-import java.util.Locale;
 
 import one.talon.JSON;
 
 /**
  * AddedDeductedPointsNotification
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.17.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.18.0")
 public class AddedDeductedPointsNotification {
-  public static final String SERIALIZED_NAME_PROFILE_INTEGRATION_I_D = "ProfileIntegrationID";
-  @SerializedName(SERIALIZED_NAME_PROFILE_INTEGRATION_I_D)
+  public static final String SERIALIZED_NAME_EMPLOYEE_NAME = "EmployeeName";
+  @SerializedName(SERIALIZED_NAME_EMPLOYEE_NAME)
   @javax.annotation.Nonnull
-  private String profileIntegrationID;
+  private String employeeName;
 
   public static final String SERIALIZED_NAME_LOYALTY_PROGRAM_I_D = "LoyaltyProgramID";
   @SerializedName(SERIALIZED_NAME_LOYALTY_PROGRAM_I_D)
   @javax.annotation.Nonnull
   private Long loyaltyProgramID;
 
+  /**
+   * The type of notification.
+   */
+  @JsonAdapter(NotificationTypeEnum.Adapter.class)
+  public enum NotificationTypeEnum {
+    LOYALTY_POINTS_DEDUCTED("LoyaltyPointsDeducted"),
+    
+    LOYALTY_POINTS_ADDED("LoyaltyPointsAdded");
+
+    private String value;
+
+    NotificationTypeEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static NotificationTypeEnum fromValue(String value) {
+      for (NotificationTypeEnum b : NotificationTypeEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    }
+
+    public static class Adapter extends TypeAdapter<NotificationTypeEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final NotificationTypeEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public NotificationTypeEnum read(final JsonReader jsonReader) throws IOException {
+        String value =  jsonReader.nextString();
+        return NotificationTypeEnum.fromValue(value);
+      }
+    }
+
+    public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      String value = jsonElement.getAsString();
+      NotificationTypeEnum.fromValue(value);
+    }
+  }
+
+  public static final String SERIALIZED_NAME_NOTIFICATION_TYPE = "NotificationType";
+  @SerializedName(SERIALIZED_NAME_NOTIFICATION_TYPE)
+  @javax.annotation.Nonnull
+  private NotificationTypeEnum notificationType;
+
+  public static final String SERIALIZED_NAME_PROFILE_INTEGRATION_I_D = "ProfileIntegrationID";
+  @SerializedName(SERIALIZED_NAME_PROFILE_INTEGRATION_I_D)
+  @javax.annotation.Nonnull
+  private String profileIntegrationID;
+
+  public static final String SERIALIZED_NAME_SESSION_INTEGRATION_I_D = "SessionIntegrationID";
+  @SerializedName(SERIALIZED_NAME_SESSION_INTEGRATION_I_D)
+  @javax.annotation.Nonnull
+  private String sessionIntegrationID;
+
   public static final String SERIALIZED_NAME_SUBLEDGER_I_D = "SubledgerID";
   @SerializedName(SERIALIZED_NAME_SUBLEDGER_I_D)
   @javax.annotation.Nonnull
   private String subledgerID;
-
-  public static final String SERIALIZED_NAME_AMOUNT = "Amount";
-  @SerializedName(SERIALIZED_NAME_AMOUNT)
-  @javax.annotation.Nonnull
-  private BigDecimal amount;
-
-  public static final String SERIALIZED_NAME_REASON = "Reason";
-  @SerializedName(SERIALIZED_NAME_REASON)
-  @javax.annotation.Nonnull
-  private String reason;
 
   /**
    * The notification source, that is, it indicates whether the points were added or deducted via one of the following routes:  - [The Campaign Manager](/docs/product/getting-started)  - [Management API](/management-api#tag/Loyalty)  - [Rule Engine](/docs/product/applications/evaluation-order-for-rules-and-filters) 
@@ -138,15 +193,20 @@ public class AddedDeductedPointsNotification {
   @javax.annotation.Nonnull
   private TypeOfChangeEnum typeOfChange;
 
-  public static final String SERIALIZED_NAME_EMPLOYEE_NAME = "EmployeeName";
-  @SerializedName(SERIALIZED_NAME_EMPLOYEE_NAME)
-  @javax.annotation.Nonnull
-  private String employeeName;
-
   public static final String SERIALIZED_NAME_USER_I_D = "UserID";
   @SerializedName(SERIALIZED_NAME_USER_I_D)
   @javax.annotation.Nonnull
   private Long userID;
+
+  public static final String SERIALIZED_NAME_AMOUNT = "Amount";
+  @SerializedName(SERIALIZED_NAME_AMOUNT)
+  @javax.annotation.Nonnull
+  private BigDecimal amount;
+
+  public static final String SERIALIZED_NAME_EXPIRY_DATE = "ExpiryDate";
+  @SerializedName(SERIALIZED_NAME_EXPIRY_DATE)
+  @javax.annotation.Nullable
+  private OffsetDateTime expiryDate;
 
   /**
    * The action (addition or deduction) made with loyalty points.
@@ -205,97 +265,35 @@ public class AddedDeductedPointsNotification {
   @javax.annotation.Nonnull
   private OperationEnum operation;
 
+  public static final String SERIALIZED_NAME_REASON = "Reason";
+  @SerializedName(SERIALIZED_NAME_REASON)
+  @javax.annotation.Nonnull
+  private String reason;
+
   public static final String SERIALIZED_NAME_START_DATE = "StartDate";
   @SerializedName(SERIALIZED_NAME_START_DATE)
   @javax.annotation.Nullable
   private OffsetDateTime startDate;
 
-  public static final String SERIALIZED_NAME_EXPIRY_DATE = "ExpiryDate";
-  @SerializedName(SERIALIZED_NAME_EXPIRY_DATE)
-  @javax.annotation.Nullable
-  private OffsetDateTime expiryDate;
-
-  public static final String SERIALIZED_NAME_SESSION_INTEGRATION_I_D = "SessionIntegrationID";
-  @SerializedName(SERIALIZED_NAME_SESSION_INTEGRATION_I_D)
-  @javax.annotation.Nonnull
-  private String sessionIntegrationID;
-
-  /**
-   * The type of notification.
-   */
-  @JsonAdapter(NotificationTypeEnum.Adapter.class)
-  public enum NotificationTypeEnum {
-    LOYALTY_POINTS_DEDUCTED("LoyaltyPointsDeducted"),
-    
-    LOYALTY_POINTS_ADDED("LoyaltyPointsAdded");
-
-    private String value;
-
-    NotificationTypeEnum(String value) {
-      this.value = value;
-    }
-
-    public String getValue() {
-      return value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-
-    public static NotificationTypeEnum fromValue(String value) {
-      for (NotificationTypeEnum b : NotificationTypeEnum.values()) {
-        if (b.value.equals(value)) {
-          return b;
-        }
-      }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
-    }
-
-    public static class Adapter extends TypeAdapter<NotificationTypeEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final NotificationTypeEnum enumeration) throws IOException {
-        jsonWriter.value(enumeration.getValue());
-      }
-
-      @Override
-      public NotificationTypeEnum read(final JsonReader jsonReader) throws IOException {
-        String value =  jsonReader.nextString();
-        return NotificationTypeEnum.fromValue(value);
-      }
-    }
-
-    public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-      String value = jsonElement.getAsString();
-      NotificationTypeEnum.fromValue(value);
-    }
-  }
-
-  public static final String SERIALIZED_NAME_NOTIFICATION_TYPE = "NotificationType";
-  @SerializedName(SERIALIZED_NAME_NOTIFICATION_TYPE)
-  @javax.annotation.Nonnull
-  private NotificationTypeEnum notificationType;
-
   public AddedDeductedPointsNotification() {
   }
 
-  public AddedDeductedPointsNotification profileIntegrationID(@javax.annotation.Nonnull String profileIntegrationID) {
-    this.profileIntegrationID = profileIntegrationID;
+  public AddedDeductedPointsNotification employeeName(@javax.annotation.Nonnull String employeeName) {
+    this.employeeName = employeeName;
     return this;
   }
 
   /**
-   * The integration ID of the customer profile to whom points were added or deducted.
-   * @return profileIntegrationID
+   * The name of the employee who added or deducted points.
+   * @return employeeName
    */
   @javax.annotation.Nonnull
-  public String getProfileIntegrationID() {
-    return profileIntegrationID;
+  public String getEmployeeName() {
+    return employeeName;
   }
 
-  public void setProfileIntegrationID(@javax.annotation.Nonnull String profileIntegrationID) {
-    this.profileIntegrationID = profileIntegrationID;
+  public void setEmployeeName(@javax.annotation.Nonnull String employeeName) {
+    this.employeeName = employeeName;
   }
 
 
@@ -319,175 +317,41 @@ public class AddedDeductedPointsNotification {
   }
 
 
-  public AddedDeductedPointsNotification subledgerID(@javax.annotation.Nonnull String subledgerID) {
-    this.subledgerID = subledgerID;
+  public AddedDeductedPointsNotification notificationType(@javax.annotation.Nonnull NotificationTypeEnum notificationType) {
+    this.notificationType = notificationType;
     return this;
   }
 
   /**
-   * The ID of the subledger within the loyalty program where these points were added.
-   * @return subledgerID
+   * The type of notification.
+   * @return notificationType
    */
   @javax.annotation.Nonnull
-  public String getSubledgerID() {
-    return subledgerID;
+  public NotificationTypeEnum getNotificationType() {
+    return notificationType;
   }
 
-  public void setSubledgerID(@javax.annotation.Nonnull String subledgerID) {
-    this.subledgerID = subledgerID;
+  public void setNotificationType(@javax.annotation.Nonnull NotificationTypeEnum notificationType) {
+    this.notificationType = notificationType;
   }
 
 
-  public AddedDeductedPointsNotification amount(@javax.annotation.Nonnull BigDecimal amount) {
-    this.amount = amount;
+  public AddedDeductedPointsNotification profileIntegrationID(@javax.annotation.Nonnull String profileIntegrationID) {
+    this.profileIntegrationID = profileIntegrationID;
     return this;
   }
 
   /**
-   * The amount of added or deducted loyalty points.
-   * @return amount
+   * The integration ID of the customer profile to whom points were added or deducted.
+   * @return profileIntegrationID
    */
   @javax.annotation.Nonnull
-  public BigDecimal getAmount() {
-    return amount;
+  public String getProfileIntegrationID() {
+    return profileIntegrationID;
   }
 
-  public void setAmount(@javax.annotation.Nonnull BigDecimal amount) {
-    this.amount = amount;
-  }
-
-
-  public AddedDeductedPointsNotification reason(@javax.annotation.Nonnull String reason) {
-    this.reason = reason;
-    return this;
-  }
-
-  /**
-   * The reason for the points addition or deduction.
-   * @return reason
-   */
-  @javax.annotation.Nonnull
-  public String getReason() {
-    return reason;
-  }
-
-  public void setReason(@javax.annotation.Nonnull String reason) {
-    this.reason = reason;
-  }
-
-
-  public AddedDeductedPointsNotification typeOfChange(@javax.annotation.Nonnull TypeOfChangeEnum typeOfChange) {
-    this.typeOfChange = typeOfChange;
-    return this;
-  }
-
-  /**
-   * The notification source, that is, it indicates whether the points were added or deducted via one of the following routes:  - [The Campaign Manager](/docs/product/getting-started)  - [Management API](/management-api#tag/Loyalty)  - [Rule Engine](/docs/product/applications/evaluation-order-for-rules-and-filters) 
-   * @return typeOfChange
-   */
-  @javax.annotation.Nonnull
-  public TypeOfChangeEnum getTypeOfChange() {
-    return typeOfChange;
-  }
-
-  public void setTypeOfChange(@javax.annotation.Nonnull TypeOfChangeEnum typeOfChange) {
-    this.typeOfChange = typeOfChange;
-  }
-
-
-  public AddedDeductedPointsNotification employeeName(@javax.annotation.Nonnull String employeeName) {
-    this.employeeName = employeeName;
-    return this;
-  }
-
-  /**
-   * The name of the employee who added or deducted points.
-   * @return employeeName
-   */
-  @javax.annotation.Nonnull
-  public String getEmployeeName() {
-    return employeeName;
-  }
-
-  public void setEmployeeName(@javax.annotation.Nonnull String employeeName) {
-    this.employeeName = employeeName;
-  }
-
-
-  public AddedDeductedPointsNotification userID(@javax.annotation.Nonnull Long userID) {
-    this.userID = userID;
-    return this;
-  }
-
-  /**
-   * The ID of the employee who added or deducted points.
-   * minimum: 1
-   * @return userID
-   */
-  @javax.annotation.Nonnull
-  public Long getUserID() {
-    return userID;
-  }
-
-  public void setUserID(@javax.annotation.Nonnull Long userID) {
-    this.userID = userID;
-  }
-
-
-  public AddedDeductedPointsNotification operation(@javax.annotation.Nonnull OperationEnum operation) {
-    this.operation = operation;
-    return this;
-  }
-
-  /**
-   * The action (addition or deduction) made with loyalty points.
-   * @return operation
-   */
-  @javax.annotation.Nonnull
-  public OperationEnum getOperation() {
-    return operation;
-  }
-
-  public void setOperation(@javax.annotation.Nonnull OperationEnum operation) {
-    this.operation = operation;
-  }
-
-
-  public AddedDeductedPointsNotification startDate(@javax.annotation.Nullable OffsetDateTime startDate) {
-    this.startDate = startDate;
-    return this;
-  }
-
-  /**
-   * The start date for loyalty points.
-   * @return startDate
-   */
-  @javax.annotation.Nullable
-  public OffsetDateTime getStartDate() {
-    return startDate;
-  }
-
-  public void setStartDate(@javax.annotation.Nullable OffsetDateTime startDate) {
-    this.startDate = startDate;
-  }
-
-
-  public AddedDeductedPointsNotification expiryDate(@javax.annotation.Nullable OffsetDateTime expiryDate) {
-    this.expiryDate = expiryDate;
-    return this;
-  }
-
-  /**
-   * The expiration date for loyalty points.
-   * @return expiryDate
-   */
-  @javax.annotation.Nullable
-  public OffsetDateTime getExpiryDate() {
-    return expiryDate;
-  }
-
-  public void setExpiryDate(@javax.annotation.Nullable OffsetDateTime expiryDate) {
-    this.expiryDate = expiryDate;
+  public void setProfileIntegrationID(@javax.annotation.Nonnull String profileIntegrationID) {
+    this.profileIntegrationID = profileIntegrationID;
   }
 
 
@@ -510,22 +374,155 @@ public class AddedDeductedPointsNotification {
   }
 
 
-  public AddedDeductedPointsNotification notificationType(@javax.annotation.Nonnull NotificationTypeEnum notificationType) {
-    this.notificationType = notificationType;
+  public AddedDeductedPointsNotification subledgerID(@javax.annotation.Nonnull String subledgerID) {
+    this.subledgerID = subledgerID;
     return this;
   }
 
   /**
-   * The type of notification.
-   * @return notificationType
+   * The ID of the subledger within the loyalty program where these points were added.
+   * @return subledgerID
    */
   @javax.annotation.Nonnull
-  public NotificationTypeEnum getNotificationType() {
-    return notificationType;
+  public String getSubledgerID() {
+    return subledgerID;
   }
 
-  public void setNotificationType(@javax.annotation.Nonnull NotificationTypeEnum notificationType) {
-    this.notificationType = notificationType;
+  public void setSubledgerID(@javax.annotation.Nonnull String subledgerID) {
+    this.subledgerID = subledgerID;
+  }
+
+
+  public AddedDeductedPointsNotification typeOfChange(@javax.annotation.Nonnull TypeOfChangeEnum typeOfChange) {
+    this.typeOfChange = typeOfChange;
+    return this;
+  }
+
+  /**
+   * The notification source, that is, it indicates whether the points were added or deducted via one of the following routes:  - [The Campaign Manager](/docs/product/getting-started)  - [Management API](/management-api#tag/Loyalty)  - [Rule Engine](/docs/product/applications/evaluation-order-for-rules-and-filters) 
+   * @return typeOfChange
+   */
+  @javax.annotation.Nonnull
+  public TypeOfChangeEnum getTypeOfChange() {
+    return typeOfChange;
+  }
+
+  public void setTypeOfChange(@javax.annotation.Nonnull TypeOfChangeEnum typeOfChange) {
+    this.typeOfChange = typeOfChange;
+  }
+
+
+  public AddedDeductedPointsNotification userID(@javax.annotation.Nonnull Long userID) {
+    this.userID = userID;
+    return this;
+  }
+
+  /**
+   * The ID of the employee who added or deducted points.
+   * @return userID
+   */
+  @javax.annotation.Nonnull
+  public Long getUserID() {
+    return userID;
+  }
+
+  public void setUserID(@javax.annotation.Nonnull Long userID) {
+    this.userID = userID;
+  }
+
+
+  public AddedDeductedPointsNotification amount(@javax.annotation.Nonnull BigDecimal amount) {
+    this.amount = amount;
+    return this;
+  }
+
+  /**
+   * The amount of added or deducted loyalty points.
+   * @return amount
+   */
+  @javax.annotation.Nonnull
+  public BigDecimal getAmount() {
+    return amount;
+  }
+
+  public void setAmount(@javax.annotation.Nonnull BigDecimal amount) {
+    this.amount = amount;
+  }
+
+
+  public AddedDeductedPointsNotification expiryDate(@javax.annotation.Nullable OffsetDateTime expiryDate) {
+    this.expiryDate = expiryDate;
+    return this;
+  }
+
+  /**
+   * The expiration date for loyalty points.
+   * @return expiryDate
+   */
+  @javax.annotation.Nullable
+  public OffsetDateTime getExpiryDate() {
+    return expiryDate;
+  }
+
+  public void setExpiryDate(@javax.annotation.Nullable OffsetDateTime expiryDate) {
+    this.expiryDate = expiryDate;
+  }
+
+
+  public AddedDeductedPointsNotification operation(@javax.annotation.Nonnull OperationEnum operation) {
+    this.operation = operation;
+    return this;
+  }
+
+  /**
+   * The action (addition or deduction) made with loyalty points.
+   * @return operation
+   */
+  @javax.annotation.Nonnull
+  public OperationEnum getOperation() {
+    return operation;
+  }
+
+  public void setOperation(@javax.annotation.Nonnull OperationEnum operation) {
+    this.operation = operation;
+  }
+
+
+  public AddedDeductedPointsNotification reason(@javax.annotation.Nonnull String reason) {
+    this.reason = reason;
+    return this;
+  }
+
+  /**
+   * The reason for the points addition or deduction.
+   * @return reason
+   */
+  @javax.annotation.Nonnull
+  public String getReason() {
+    return reason;
+  }
+
+  public void setReason(@javax.annotation.Nonnull String reason) {
+    this.reason = reason;
+  }
+
+
+  public AddedDeductedPointsNotification startDate(@javax.annotation.Nullable OffsetDateTime startDate) {
+    this.startDate = startDate;
+    return this;
+  }
+
+  /**
+   * The start date for loyalty points.
+   * @return startDate
+   */
+  @javax.annotation.Nullable
+  public OffsetDateTime getStartDate() {
+    return startDate;
+  }
+
+  public void setStartDate(@javax.annotation.Nullable OffsetDateTime startDate) {
+    this.startDate = startDate;
   }
 
 
@@ -539,43 +536,43 @@ public class AddedDeductedPointsNotification {
       return false;
     }
     AddedDeductedPointsNotification addedDeductedPointsNotification = (AddedDeductedPointsNotification) o;
-    return Objects.equals(this.profileIntegrationID, addedDeductedPointsNotification.profileIntegrationID) &&
+    return Objects.equals(this.employeeName, addedDeductedPointsNotification.employeeName) &&
         Objects.equals(this.loyaltyProgramID, addedDeductedPointsNotification.loyaltyProgramID) &&
-        Objects.equals(this.subledgerID, addedDeductedPointsNotification.subledgerID) &&
-        Objects.equals(this.amount, addedDeductedPointsNotification.amount) &&
-        Objects.equals(this.reason, addedDeductedPointsNotification.reason) &&
-        Objects.equals(this.typeOfChange, addedDeductedPointsNotification.typeOfChange) &&
-        Objects.equals(this.employeeName, addedDeductedPointsNotification.employeeName) &&
-        Objects.equals(this.userID, addedDeductedPointsNotification.userID) &&
-        Objects.equals(this.operation, addedDeductedPointsNotification.operation) &&
-        Objects.equals(this.startDate, addedDeductedPointsNotification.startDate) &&
-        Objects.equals(this.expiryDate, addedDeductedPointsNotification.expiryDate) &&
+        Objects.equals(this.notificationType, addedDeductedPointsNotification.notificationType) &&
+        Objects.equals(this.profileIntegrationID, addedDeductedPointsNotification.profileIntegrationID) &&
         Objects.equals(this.sessionIntegrationID, addedDeductedPointsNotification.sessionIntegrationID) &&
-        Objects.equals(this.notificationType, addedDeductedPointsNotification.notificationType);
+        Objects.equals(this.subledgerID, addedDeductedPointsNotification.subledgerID) &&
+        Objects.equals(this.typeOfChange, addedDeductedPointsNotification.typeOfChange) &&
+        Objects.equals(this.userID, addedDeductedPointsNotification.userID) &&
+        Objects.equals(this.amount, addedDeductedPointsNotification.amount) &&
+        Objects.equals(this.expiryDate, addedDeductedPointsNotification.expiryDate) &&
+        Objects.equals(this.operation, addedDeductedPointsNotification.operation) &&
+        Objects.equals(this.reason, addedDeductedPointsNotification.reason) &&
+        Objects.equals(this.startDate, addedDeductedPointsNotification.startDate);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(profileIntegrationID, loyaltyProgramID, subledgerID, amount, reason, typeOfChange, employeeName, userID, operation, startDate, expiryDate, sessionIntegrationID, notificationType);
+    return Objects.hash(employeeName, loyaltyProgramID, notificationType, profileIntegrationID, sessionIntegrationID, subledgerID, typeOfChange, userID, amount, expiryDate, operation, reason, startDate);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class AddedDeductedPointsNotification {\n");
-    sb.append("    profileIntegrationID: ").append(toIndentedString(profileIntegrationID)).append("\n");
-    sb.append("    loyaltyProgramID: ").append(toIndentedString(loyaltyProgramID)).append("\n");
-    sb.append("    subledgerID: ").append(toIndentedString(subledgerID)).append("\n");
-    sb.append("    amount: ").append(toIndentedString(amount)).append("\n");
-    sb.append("    reason: ").append(toIndentedString(reason)).append("\n");
-    sb.append("    typeOfChange: ").append(toIndentedString(typeOfChange)).append("\n");
     sb.append("    employeeName: ").append(toIndentedString(employeeName)).append("\n");
-    sb.append("    userID: ").append(toIndentedString(userID)).append("\n");
-    sb.append("    operation: ").append(toIndentedString(operation)).append("\n");
-    sb.append("    startDate: ").append(toIndentedString(startDate)).append("\n");
-    sb.append("    expiryDate: ").append(toIndentedString(expiryDate)).append("\n");
-    sb.append("    sessionIntegrationID: ").append(toIndentedString(sessionIntegrationID)).append("\n");
+    sb.append("    loyaltyProgramID: ").append(toIndentedString(loyaltyProgramID)).append("\n");
     sb.append("    notificationType: ").append(toIndentedString(notificationType)).append("\n");
+    sb.append("    profileIntegrationID: ").append(toIndentedString(profileIntegrationID)).append("\n");
+    sb.append("    sessionIntegrationID: ").append(toIndentedString(sessionIntegrationID)).append("\n");
+    sb.append("    subledgerID: ").append(toIndentedString(subledgerID)).append("\n");
+    sb.append("    typeOfChange: ").append(toIndentedString(typeOfChange)).append("\n");
+    sb.append("    userID: ").append(toIndentedString(userID)).append("\n");
+    sb.append("    amount: ").append(toIndentedString(amount)).append("\n");
+    sb.append("    expiryDate: ").append(toIndentedString(expiryDate)).append("\n");
+    sb.append("    operation: ").append(toIndentedString(operation)).append("\n");
+    sb.append("    reason: ").append(toIndentedString(reason)).append("\n");
+    sb.append("    startDate: ").append(toIndentedString(startDate)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -597,10 +594,10 @@ public class AddedDeductedPointsNotification {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("ProfileIntegrationID", "LoyaltyProgramID", "SubledgerID", "Amount", "Reason", "TypeOfChange", "EmployeeName", "UserID", "Operation", "StartDate", "ExpiryDate", "SessionIntegrationID", "NotificationType"));
+    openapiFields = new HashSet<String>(Arrays.asList("EmployeeName", "LoyaltyProgramID", "NotificationType", "ProfileIntegrationID", "SessionIntegrationID", "SubledgerID", "TypeOfChange", "UserID", "Amount", "ExpiryDate", "Operation", "Reason", "StartDate"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("ProfileIntegrationID", "LoyaltyProgramID", "SubledgerID", "Amount", "Reason", "TypeOfChange", "EmployeeName", "UserID", "Operation", "SessionIntegrationID", "NotificationType"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("EmployeeName", "LoyaltyProgramID", "NotificationType", "ProfileIntegrationID", "SessionIntegrationID", "SubledgerID", "TypeOfChange", "UserID", "Amount", "Operation", "Reason"));
   }
 
   /**
@@ -612,7 +609,7 @@ public class AddedDeductedPointsNotification {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!AddedDeductedPointsNotification.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field(s) %s in AddedDeductedPointsNotification is not found in the empty JSON string", AddedDeductedPointsNotification.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in AddedDeductedPointsNotification is not found in the empty JSON string", AddedDeductedPointsNotification.openapiRequiredFields.toString()));
         }
       }
 
@@ -620,47 +617,47 @@ public class AddedDeductedPointsNotification {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!AddedDeductedPointsNotification.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format(Locale.ROOT, "The field `%s` in the JSON string is not defined in the `AddedDeductedPointsNotification` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `AddedDeductedPointsNotification` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : AddedDeductedPointsNotification.openapiRequiredFields) {
         if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if (!jsonObj.get("ProfileIntegrationID").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `ProfileIntegrationID` to be a primitive type in the JSON string but got `%s`", jsonObj.get("ProfileIntegrationID").toString()));
-      }
-      if (!jsonObj.get("SubledgerID").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `SubledgerID` to be a primitive type in the JSON string but got `%s`", jsonObj.get("SubledgerID").toString()));
-      }
-      if (!jsonObj.get("Reason").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `Reason` to be a primitive type in the JSON string but got `%s`", jsonObj.get("Reason").toString()));
-      }
-      if (!jsonObj.get("TypeOfChange").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `TypeOfChange` to be a primitive type in the JSON string but got `%s`", jsonObj.get("TypeOfChange").toString()));
-      }
-      // validate the required field `TypeOfChange`
-      TypeOfChangeEnum.validateJsonElement(jsonObj.get("TypeOfChange"));
       if (!jsonObj.get("EmployeeName").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `EmployeeName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("EmployeeName").toString()));
-      }
-      if (!jsonObj.get("Operation").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `Operation` to be a primitive type in the JSON string but got `%s`", jsonObj.get("Operation").toString()));
-      }
-      // validate the required field `Operation`
-      OperationEnum.validateJsonElement(jsonObj.get("Operation"));
-      if (!jsonObj.get("SessionIntegrationID").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `SessionIntegrationID` to be a primitive type in the JSON string but got `%s`", jsonObj.get("SessionIntegrationID").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `EmployeeName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("EmployeeName").toString()));
       }
       if (!jsonObj.get("NotificationType").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `NotificationType` to be a primitive type in the JSON string but got `%s`", jsonObj.get("NotificationType").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `NotificationType` to be a primitive type in the JSON string but got `%s`", jsonObj.get("NotificationType").toString()));
       }
       // validate the required field `NotificationType`
       NotificationTypeEnum.validateJsonElement(jsonObj.get("NotificationType"));
+      if (!jsonObj.get("ProfileIntegrationID").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `ProfileIntegrationID` to be a primitive type in the JSON string but got `%s`", jsonObj.get("ProfileIntegrationID").toString()));
+      }
+      if (!jsonObj.get("SessionIntegrationID").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `SessionIntegrationID` to be a primitive type in the JSON string but got `%s`", jsonObj.get("SessionIntegrationID").toString()));
+      }
+      if (!jsonObj.get("SubledgerID").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `SubledgerID` to be a primitive type in the JSON string but got `%s`", jsonObj.get("SubledgerID").toString()));
+      }
+      if (!jsonObj.get("TypeOfChange").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `TypeOfChange` to be a primitive type in the JSON string but got `%s`", jsonObj.get("TypeOfChange").toString()));
+      }
+      // validate the required field `TypeOfChange`
+      TypeOfChangeEnum.validateJsonElement(jsonObj.get("TypeOfChange"));
+      if (!jsonObj.get("Operation").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `Operation` to be a primitive type in the JSON string but got `%s`", jsonObj.get("Operation").toString()));
+      }
+      // validate the required field `Operation`
+      OperationEnum.validateJsonElement(jsonObj.get("Operation"));
+      if (!jsonObj.get("Reason").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `Reason` to be a primitive type in the JSON string but got `%s`", jsonObj.get("Reason").toString()));
+      }
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {

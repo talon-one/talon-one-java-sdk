@@ -14,7 +14,6 @@
 package one.talon.model;
 
 import java.util.Objects;
-import java.util.Locale;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -48,14 +47,13 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-import java.util.Locale;
 
 import one.talon.JSON;
 
 /**
  * Ruleset
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.17.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.18.0")
 public class Ruleset {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -427,7 +425,7 @@ public class Ruleset {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!Ruleset.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field(s) %s in Ruleset is not found in the empty JSON string", Ruleset.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in Ruleset is not found in the empty JSON string", Ruleset.openapiRequiredFields.toString()));
         }
       }
 
@@ -435,20 +433,20 @@ public class Ruleset {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!Ruleset.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format(Locale.ROOT, "The field `%s` in the JSON string is not defined in the `Ruleset` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `Ruleset` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : Ruleset.openapiRequiredFields) {
         if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       // ensure the json data is an array
       if (!jsonObj.get("rules").isJsonArray()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `rules` to be an array in the JSON string but got `%s`", jsonObj.get("rules").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `rules` to be an array in the JSON string but got `%s`", jsonObj.get("rules").toString()));
       }
 
       JsonArray jsonArrayrules = jsonObj.getAsJsonArray("rules");
@@ -461,7 +459,7 @@ public class Ruleset {
         if (jsonArraystrikethroughRules != null) {
           // ensure the json data is an array
           if (!jsonObj.get("strikethroughRules").isJsonArray()) {
-            throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `strikethroughRules` to be an array in the JSON string but got `%s`", jsonObj.get("strikethroughRules").toString()));
+            throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `strikethroughRules` to be an array in the JSON string but got `%s`", jsonObj.get("strikethroughRules").toString()));
           }
 
           // validate the optional field `strikethroughRules` (array)
@@ -472,7 +470,7 @@ public class Ruleset {
       }
       // ensure the json data is an array
       if (!jsonObj.get("bindings").isJsonArray()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `bindings` to be an array in the JSON string but got `%s`", jsonObj.get("bindings").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `bindings` to be an array in the JSON string but got `%s`", jsonObj.get("bindings").toString()));
       }
 
       JsonArray jsonArraybindings = jsonObj.getAsJsonArray("bindings");
@@ -481,7 +479,7 @@ public class Ruleset {
         Binding.validateJsonElement(jsonArraybindings.get(i));
       };
       if ((jsonObj.get("rbVersion") != null && !jsonObj.get("rbVersion").isJsonNull()) && !jsonObj.get("rbVersion").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `rbVersion` to be a primitive type in the JSON string but got `%s`", jsonObj.get("rbVersion").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `rbVersion` to be a primitive type in the JSON string but got `%s`", jsonObj.get("rbVersion").toString()));
       }
   }
 

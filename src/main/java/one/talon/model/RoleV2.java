@@ -14,7 +14,6 @@
 package one.talon.model;
 
 import java.util.Objects;
-import java.util.Locale;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -47,14 +46,13 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-import java.util.Locale;
 
 import one.talon.JSON;
 
 /**
  * RoleV2
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.17.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.18.0")
 public class RoleV2 {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -95,6 +93,11 @@ public class RoleV2 {
   @SerializedName(SERIALIZED_NAME_MEMBERS)
   @javax.annotation.Nullable
   private List<Long> members = new ArrayList<>();
+
+  public static final String SERIALIZED_NAME_IS_READONLY = "isReadonly";
+  @SerializedName(SERIALIZED_NAME_IS_READONLY)
+  @javax.annotation.Nullable
+  private Boolean isReadonly = false;
 
   public RoleV2() {
   }
@@ -259,6 +262,25 @@ public class RoleV2 {
   }
 
 
+  public RoleV2 isReadonly(@javax.annotation.Nullable Boolean isReadonly) {
+    this.isReadonly = isReadonly;
+    return this;
+  }
+
+  /**
+   * Identifies if the role is read-only. For read-only roles, you can only assign or unassign users. You cannot edit any other properties, such as the name, description, or permissions. The &#39;isReadonly&#39; property cannot be set for new or existing roles. It is reserved for predefined roles, such as the Talon.One support role.
+   * @return isReadonly
+   */
+  @javax.annotation.Nullable
+  public Boolean getIsReadonly() {
+    return isReadonly;
+  }
+
+  public void setIsReadonly(@javax.annotation.Nullable Boolean isReadonly) {
+    this.isReadonly = isReadonly;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -276,12 +298,13 @@ public class RoleV2 {
         Objects.equals(this.name, roleV2.name) &&
         Objects.equals(this.description, roleV2.description) &&
         Objects.equals(this.permissions, roleV2.permissions) &&
-        Objects.equals(this.members, roleV2.members);
+        Objects.equals(this.members, roleV2.members) &&
+        Objects.equals(this.isReadonly, roleV2.isReadonly);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, created, modified, accountId, name, description, permissions, members);
+    return Objects.hash(id, created, modified, accountId, name, description, permissions, members, isReadonly);
   }
 
   @Override
@@ -296,6 +319,7 @@ public class RoleV2 {
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    permissions: ").append(toIndentedString(permissions)).append("\n");
     sb.append("    members: ").append(toIndentedString(members)).append("\n");
+    sb.append("    isReadonly: ").append(toIndentedString(isReadonly)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -317,7 +341,7 @@ public class RoleV2 {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("id", "created", "modified", "accountId", "name", "description", "permissions", "members"));
+    openapiFields = new HashSet<String>(Arrays.asList("id", "created", "modified", "accountId", "name", "description", "permissions", "members", "isReadonly"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("id", "created", "modified", "accountId"));
@@ -332,7 +356,7 @@ public class RoleV2 {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!RoleV2.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field(s) %s in RoleV2 is not found in the empty JSON string", RoleV2.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in RoleV2 is not found in the empty JSON string", RoleV2.openapiRequiredFields.toString()));
         }
       }
 
@@ -340,22 +364,22 @@ public class RoleV2 {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!RoleV2.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format(Locale.ROOT, "The field `%s` in the JSON string is not defined in the `RoleV2` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `RoleV2` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : RoleV2.openapiRequiredFields) {
         if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("name") != null && !jsonObj.get("name").isJsonNull()) && !jsonObj.get("name").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
       }
       if ((jsonObj.get("description") != null && !jsonObj.get("description").isJsonNull()) && !jsonObj.get("description").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `description` to be a primitive type in the JSON string but got `%s`", jsonObj.get("description").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `description` to be a primitive type in the JSON string but got `%s`", jsonObj.get("description").toString()));
       }
       // validate the optional field `permissions`
       if (jsonObj.get("permissions") != null && !jsonObj.get("permissions").isJsonNull()) {
@@ -363,7 +387,7 @@ public class RoleV2 {
       }
       // ensure the optional json data is an array if present
       if (jsonObj.get("members") != null && !jsonObj.get("members").isJsonNull() && !jsonObj.get("members").isJsonArray()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `members` to be an array in the JSON string but got `%s`", jsonObj.get("members").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `members` to be an array in the JSON string but got `%s`", jsonObj.get("members").toString()));
       }
   }
 

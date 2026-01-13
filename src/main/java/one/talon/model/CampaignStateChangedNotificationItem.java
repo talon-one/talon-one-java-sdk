@@ -14,7 +14,6 @@
 package one.talon.model;
 
 import java.util.Objects;
-import java.util.Locale;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -22,8 +21,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.util.Arrays;
-import one.talon.model.Campaign;
-import one.talon.model.Ruleset;
+import org.openapitools.jackson.nullable.JsonNullable;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -45,14 +43,13 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-import java.util.Locale;
 
 import one.talon.JSON;
 
 /**
  * CampaignStateChangedNotificationItem
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.17.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.18.0")
 public class CampaignStateChangedNotificationItem {
   public static final String SERIALIZED_NAME_EVENT = "Event";
   @SerializedName(SERIALIZED_NAME_EVENT)
@@ -61,8 +58,8 @@ public class CampaignStateChangedNotificationItem {
 
   public static final String SERIALIZED_NAME_CAMPAIGN = "campaign";
   @SerializedName(SERIALIZED_NAME_CAMPAIGN)
-  @javax.annotation.Nonnull
-  private Campaign campaign;
+  @javax.annotation.Nullable
+  private Object campaign = null;
 
   public static final String SERIALIZED_NAME_OLD_STATE = "oldState";
   @SerializedName(SERIALIZED_NAME_OLD_STATE)
@@ -77,7 +74,7 @@ public class CampaignStateChangedNotificationItem {
   public static final String SERIALIZED_NAME_RULESET = "ruleset";
   @SerializedName(SERIALIZED_NAME_RULESET)
   @javax.annotation.Nullable
-  private Ruleset ruleset;
+  private Object ruleset = null;
 
   public CampaignStateChangedNotificationItem() {
   }
@@ -101,7 +98,7 @@ public class CampaignStateChangedNotificationItem {
   }
 
 
-  public CampaignStateChangedNotificationItem campaign(@javax.annotation.Nonnull Campaign campaign) {
+  public CampaignStateChangedNotificationItem campaign(@javax.annotation.Nullable Object campaign) {
     this.campaign = campaign;
     return this;
   }
@@ -110,12 +107,12 @@ public class CampaignStateChangedNotificationItem {
    * The campaign whose state changed.
    * @return campaign
    */
-  @javax.annotation.Nonnull
-  public Campaign getCampaign() {
+  @javax.annotation.Nullable
+  public Object getCampaign() {
     return campaign;
   }
 
-  public void setCampaign(@javax.annotation.Nonnull Campaign campaign) {
+  public void setCampaign(@javax.annotation.Nullable Object campaign) {
     this.campaign = campaign;
   }
 
@@ -158,7 +155,7 @@ public class CampaignStateChangedNotificationItem {
   }
 
 
-  public CampaignStateChangedNotificationItem ruleset(@javax.annotation.Nullable Ruleset ruleset) {
+  public CampaignStateChangedNotificationItem ruleset(@javax.annotation.Nullable Object ruleset) {
     this.ruleset = ruleset;
     return this;
   }
@@ -168,11 +165,11 @@ public class CampaignStateChangedNotificationItem {
    * @return ruleset
    */
   @javax.annotation.Nullable
-  public Ruleset getRuleset() {
+  public Object getRuleset() {
     return ruleset;
   }
 
-  public void setRuleset(@javax.annotation.Nullable Ruleset ruleset) {
+  public void setRuleset(@javax.annotation.Nullable Object ruleset) {
     this.ruleset = ruleset;
   }
 
@@ -194,9 +191,20 @@ public class CampaignStateChangedNotificationItem {
         Objects.equals(this.ruleset, campaignStateChangedNotificationItem.ruleset);
   }
 
+  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
+    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
+  }
+
   @Override
   public int hashCode() {
     return Objects.hash(event, campaign, oldState, newState, ruleset);
+  }
+
+  private static <T> int hashCodeNullable(JsonNullable<T> a) {
+    if (a == null) {
+      return 1;
+    }
+    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
   }
 
   @Override
@@ -244,7 +252,7 @@ public class CampaignStateChangedNotificationItem {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!CampaignStateChangedNotificationItem.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field(s) %s in CampaignStateChangedNotificationItem is not found in the empty JSON string", CampaignStateChangedNotificationItem.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in CampaignStateChangedNotificationItem is not found in the empty JSON string", CampaignStateChangedNotificationItem.openapiRequiredFields.toString()));
         }
       }
 
@@ -252,31 +260,25 @@ public class CampaignStateChangedNotificationItem {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!CampaignStateChangedNotificationItem.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format(Locale.ROOT, "The field `%s` in the JSON string is not defined in the `CampaignStateChangedNotificationItem` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `CampaignStateChangedNotificationItem` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : CampaignStateChangedNotificationItem.openapiRequiredFields) {
         if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if (!jsonObj.get("Event").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `Event` to be a primitive type in the JSON string but got `%s`", jsonObj.get("Event").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `Event` to be a primitive type in the JSON string but got `%s`", jsonObj.get("Event").toString()));
       }
-      // validate the required field `campaign`
-      Campaign.validateJsonElement(jsonObj.get("campaign"));
       if (!jsonObj.get("oldState").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `oldState` to be a primitive type in the JSON string but got `%s`", jsonObj.get("oldState").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `oldState` to be a primitive type in the JSON string but got `%s`", jsonObj.get("oldState").toString()));
       }
       if (!jsonObj.get("newState").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `newState` to be a primitive type in the JSON string but got `%s`", jsonObj.get("newState").toString()));
-      }
-      // validate the optional field `ruleset`
-      if (jsonObj.get("ruleset") != null && !jsonObj.get("ruleset").isJsonNull()) {
-        Ruleset.validateJsonElement(jsonObj.get("ruleset"));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `newState` to be a primitive type in the JSON string but got `%s`", jsonObj.get("newState").toString()));
       }
   }
 

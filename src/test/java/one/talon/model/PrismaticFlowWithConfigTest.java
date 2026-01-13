@@ -20,37 +20,54 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.util.Arrays;
+import one.talon.model.PrismaticFlowConfig;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 /**
- * Model tests for JWT
+ * Model tests for PrismaticFlowWithConfig
  */
-public class JWTTest {
-    private final JWT model = new JWT();
+public class PrismaticFlowWithConfigTest {
+    private final PrismaticFlowWithConfig model = new PrismaticFlowWithConfig();
 
     /**
-     * Model tests for JWT
+     * Model tests for PrismaticFlowWithConfig
      */
     @Test
-    public void testJWT() {
-        // TODO: test JWT
+    public void testPrismaticFlowWithConfig() {
+        // TODO: test PrismaticFlowWithConfig
     }
 
     /**
-     * Test the property 'accessToken'
+     * Test the property 'applicationID'
      */
     @Test
-    public void accessTokenTest() {
-        // TODO: test accessToken
+    public void applicationIDTest() {
+        // TODO: test applicationID
     }
 
     /**
-     * Test the property 'expiresIn'
+     * Test the property 'eventType'
      */
     @Test
-    public void expiresInTest() {
-        // TODO: test expiresIn
+    public void eventTypeTest() {
+        // TODO: test eventType
+    }
+
+    /**
+     * Test the property 'prismaticFlowUrl'
+     */
+    @Test
+    public void prismaticFlowUrlTest() {
+        // TODO: test prismaticFlowUrl
+    }
+
+    /**
+     * Test the property 'config'
+     */
+    @Test
+    public void configTest() {
+        // TODO: test config
     }
 
 }

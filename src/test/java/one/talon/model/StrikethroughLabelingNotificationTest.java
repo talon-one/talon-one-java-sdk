@@ -106,4 +106,12 @@ public class StrikethroughLabelingNotificationTest {
         // TODO: test notificationType
     }
 
+    /**
+     * Test the property 'sentAt'
+     */
+    @Test
+    public void sentAtTest() {
+        // TODO: test sentAt
+    }
+
 }

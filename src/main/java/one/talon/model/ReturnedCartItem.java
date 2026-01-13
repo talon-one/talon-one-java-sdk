@@ -14,7 +14,6 @@
 package one.talon.model;
 
 import java.util.Objects;
-import java.util.Locale;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -43,18 +42,17 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-import java.util.Locale;
 
 import one.talon.JSON;
 
 /**
  * ReturnedCartItem
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.17.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.18.0")
 public class ReturnedCartItem {
   public static final String SERIALIZED_NAME_POSITION = "position";
   @SerializedName(SERIALIZED_NAME_POSITION)
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   private Long position;
 
   public static final String SERIALIZED_NAME_QUANTITY = "quantity";
@@ -62,10 +60,15 @@ public class ReturnedCartItem {
   @javax.annotation.Nullable
   private Long quantity;
 
+  public static final String SERIALIZED_NAME_SKU = "sku";
+  @SerializedName(SERIALIZED_NAME_SKU)
+  @javax.annotation.Nullable
+  private String sku;
+
   public ReturnedCartItem() {
   }
 
-  public ReturnedCartItem position(@javax.annotation.Nonnull Long position) {
+  public ReturnedCartItem position(@javax.annotation.Nullable Long position) {
     this.position = position;
     return this;
   }
@@ -74,12 +77,12 @@ public class ReturnedCartItem {
    * The index of the cart item in the provided customer session&#39;s &#x60;cartItems&#x60; property.
    * @return position
    */
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   public Long getPosition() {
     return position;
   }
 
-  public void setPosition(@javax.annotation.Nonnull Long position) {
+  public void setPosition(@javax.annotation.Nullable Long position) {
     this.position = position;
   }
 
@@ -103,6 +106,25 @@ public class ReturnedCartItem {
   }
 
 
+  public ReturnedCartItem sku(@javax.annotation.Nullable String sku) {
+    this.sku = sku;
+    return this;
+  }
+
+  /**
+   * The SKU of the cart item in the provided customer session&#39;s &#x60;cartItems&#x60; property.
+   * @return sku
+   */
+  @javax.annotation.Nullable
+  public String getSku() {
+    return sku;
+  }
+
+  public void setSku(@javax.annotation.Nullable String sku) {
+    this.sku = sku;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -114,12 +136,13 @@ public class ReturnedCartItem {
     }
     ReturnedCartItem returnedCartItem = (ReturnedCartItem) o;
     return Objects.equals(this.position, returnedCartItem.position) &&
-        Objects.equals(this.quantity, returnedCartItem.quantity);
+        Objects.equals(this.quantity, returnedCartItem.quantity) &&
+        Objects.equals(this.sku, returnedCartItem.sku);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(position, quantity);
+    return Objects.hash(position, quantity, sku);
   }
 
   @Override
@@ -128,6 +151,7 @@ public class ReturnedCartItem {
     sb.append("class ReturnedCartItem {\n");
     sb.append("    position: ").append(toIndentedString(position)).append("\n");
     sb.append("    quantity: ").append(toIndentedString(quantity)).append("\n");
+    sb.append("    sku: ").append(toIndentedString(sku)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -149,10 +173,10 @@ public class ReturnedCartItem {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("position", "quantity"));
+    openapiFields = new HashSet<String>(Arrays.asList("position", "quantity", "sku"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("position"));
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
   /**
@@ -164,7 +188,7 @@ public class ReturnedCartItem {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!ReturnedCartItem.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field(s) %s in ReturnedCartItem is not found in the empty JSON string", ReturnedCartItem.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in ReturnedCartItem is not found in the empty JSON string", ReturnedCartItem.openapiRequiredFields.toString()));
         }
       }
 
@@ -172,17 +196,13 @@ public class ReturnedCartItem {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!ReturnedCartItem.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format(Locale.ROOT, "The field `%s` in the JSON string is not defined in the `ReturnedCartItem` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
-        }
-      }
-
-      // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : ReturnedCartItem.openapiRequiredFields) {
-        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `ReturnedCartItem` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
+      if ((jsonObj.get("sku") != null && !jsonObj.get("sku").isJsonNull()) && !jsonObj.get("sku").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `sku` to be a primitive type in the JSON string but got `%s`", jsonObj.get("sku").toString()));
+      }
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {

@@ -14,7 +14,6 @@
 package one.talon.model;
 
 import java.util.Objects;
-import java.util.Locale;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -51,14 +50,13 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-import java.util.Locale;
 
 import one.talon.JSON;
 
 /**
  * CustomerSessionV2
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.17.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.18.0")
 public class CustomerSessionV2 {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -770,7 +768,7 @@ public class CustomerSessionV2 {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!CustomerSessionV2.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field(s) %s in CustomerSessionV2 is not found in the empty JSON string", CustomerSessionV2.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in CustomerSessionV2 is not found in the empty JSON string", CustomerSessionV2.openapiRequiredFields.toString()));
         }
       }
 
@@ -778,43 +776,43 @@ public class CustomerSessionV2 {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!CustomerSessionV2.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format(Locale.ROOT, "The field `%s` in the JSON string is not defined in the `CustomerSessionV2` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `CustomerSessionV2` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : CustomerSessionV2.openapiRequiredFields) {
         if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if (!jsonObj.get("integrationId").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `integrationId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("integrationId").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `integrationId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("integrationId").toString()));
       }
       if ((jsonObj.get("profileId") != null && !jsonObj.get("profileId").isJsonNull()) && !jsonObj.get("profileId").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `profileId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("profileId").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `profileId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("profileId").toString()));
       }
       if ((jsonObj.get("storeIntegrationId") != null && !jsonObj.get("storeIntegrationId").isJsonNull()) && !jsonObj.get("storeIntegrationId").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `storeIntegrationId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("storeIntegrationId").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `storeIntegrationId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("storeIntegrationId").toString()));
       }
       // ensure the optional json data is an array if present
       if (jsonObj.get("evaluableCampaignIds") != null && !jsonObj.get("evaluableCampaignIds").isJsonNull() && !jsonObj.get("evaluableCampaignIds").isJsonArray()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `evaluableCampaignIds` to be an array in the JSON string but got `%s`", jsonObj.get("evaluableCampaignIds").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `evaluableCampaignIds` to be an array in the JSON string but got `%s`", jsonObj.get("evaluableCampaignIds").toString()));
       }
       // ensure the optional json data is an array if present
       if (jsonObj.get("couponCodes") != null && !jsonObj.get("couponCodes").isJsonNull() && !jsonObj.get("couponCodes").isJsonArray()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `couponCodes` to be an array in the JSON string but got `%s`", jsonObj.get("couponCodes").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `couponCodes` to be an array in the JSON string but got `%s`", jsonObj.get("couponCodes").toString()));
       }
       if ((jsonObj.get("referralCode") != null && !jsonObj.get("referralCode").isJsonNull()) && !jsonObj.get("referralCode").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `referralCode` to be a primitive type in the JSON string but got `%s`", jsonObj.get("referralCode").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `referralCode` to be a primitive type in the JSON string but got `%s`", jsonObj.get("referralCode").toString()));
       }
       // ensure the optional json data is an array if present
       if (jsonObj.get("loyaltyCards") != null && !jsonObj.get("loyaltyCards").isJsonNull() && !jsonObj.get("loyaltyCards").isJsonArray()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `loyaltyCards` to be an array in the JSON string but got `%s`", jsonObj.get("loyaltyCards").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `loyaltyCards` to be an array in the JSON string but got `%s`", jsonObj.get("loyaltyCards").toString()));
       }
       if ((jsonObj.get("state") != null && !jsonObj.get("state").isJsonNull()) && !jsonObj.get("state").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `state` to be a primitive type in the JSON string but got `%s`", jsonObj.get("state").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `state` to be a primitive type in the JSON string but got `%s`", jsonObj.get("state").toString()));
       }
       // validate the optional field `state`
       if (jsonObj.get("state") != null && !jsonObj.get("state").isJsonNull()) {
@@ -825,7 +823,7 @@ public class CustomerSessionV2 {
         if (jsonArraycartItems != null) {
           // ensure the json data is an array
           if (!jsonObj.get("cartItems").isJsonArray()) {
-            throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `cartItems` to be an array in the JSON string but got `%s`", jsonObj.get("cartItems").toString()));
+            throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `cartItems` to be an array in the JSON string but got `%s`", jsonObj.get("cartItems").toString()));
           }
 
           // validate the optional field `cartItems` (array)
@@ -836,7 +834,7 @@ public class CustomerSessionV2 {
       }
       // ensure the optional json data is an array if present
       if (jsonObj.get("identifiers") != null && !jsonObj.get("identifiers").isJsonNull() && !jsonObj.get("identifiers").isJsonArray()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `identifiers` to be an array in the JSON string but got `%s`", jsonObj.get("identifiers").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `identifiers` to be an array in the JSON string but got `%s`", jsonObj.get("identifiers").toString()));
       }
   }
 

@@ -227,14 +227,6 @@ public class LoyaltyProgramTest {
     }
 
     /**
-     * Test the property 'canUpdateJoinPolicy'
-     */
-    @Test
-    public void canUpdateJoinPolicyTest() {
-        // TODO: test canUpdateJoinPolicy
-    }
-
-    /**
      * Test the property 'canUpdateTierExpirationPolicy'
      */
     @Test

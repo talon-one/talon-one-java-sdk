@@ -14,7 +14,6 @@
 package one.talon.model;
 
 import java.util.Objects;
-import java.util.Locale;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -47,14 +46,13 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-import java.util.Locale;
 
 import one.talon.JSON;
 
 /**
  * BaseLoyaltyProgram
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.17.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.18.0")
 public class BaseLoyaltyProgram {
   public static final String SERIALIZED_NAME_TITLE = "title";
   @SerializedName(SERIALIZED_NAME_TITLE)
@@ -731,7 +729,7 @@ public class BaseLoyaltyProgram {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!BaseLoyaltyProgram.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field(s) %s in BaseLoyaltyProgram is not found in the empty JSON string", BaseLoyaltyProgram.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in BaseLoyaltyProgram is not found in the empty JSON string", BaseLoyaltyProgram.openapiRequiredFields.toString()));
         }
       }
 
@@ -739,45 +737,45 @@ public class BaseLoyaltyProgram {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!BaseLoyaltyProgram.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format(Locale.ROOT, "The field `%s` in the JSON string is not defined in the `BaseLoyaltyProgram` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `BaseLoyaltyProgram` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("title") != null && !jsonObj.get("title").isJsonNull()) && !jsonObj.get("title").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `title` to be a primitive type in the JSON string but got `%s`", jsonObj.get("title").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `title` to be a primitive type in the JSON string but got `%s`", jsonObj.get("title").toString()));
       }
       if ((jsonObj.get("description") != null && !jsonObj.get("description").isJsonNull()) && !jsonObj.get("description").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `description` to be a primitive type in the JSON string but got `%s`", jsonObj.get("description").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `description` to be a primitive type in the JSON string but got `%s`", jsonObj.get("description").toString()));
       }
       // ensure the optional json data is an array if present
       if (jsonObj.get("subscribedApplications") != null && !jsonObj.get("subscribedApplications").isJsonNull() && !jsonObj.get("subscribedApplications").isJsonArray()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `subscribedApplications` to be an array in the JSON string but got `%s`", jsonObj.get("subscribedApplications").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `subscribedApplications` to be an array in the JSON string but got `%s`", jsonObj.get("subscribedApplications").toString()));
       }
       if ((jsonObj.get("defaultValidity") != null && !jsonObj.get("defaultValidity").isJsonNull()) && !jsonObj.get("defaultValidity").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `defaultValidity` to be a primitive type in the JSON string but got `%s`", jsonObj.get("defaultValidity").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `defaultValidity` to be a primitive type in the JSON string but got `%s`", jsonObj.get("defaultValidity").toString()));
       }
       if ((jsonObj.get("defaultPending") != null && !jsonObj.get("defaultPending").isJsonNull()) && !jsonObj.get("defaultPending").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `defaultPending` to be a primitive type in the JSON string but got `%s`", jsonObj.get("defaultPending").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `defaultPending` to be a primitive type in the JSON string but got `%s`", jsonObj.get("defaultPending").toString()));
       }
       if ((jsonObj.get("programJoinPolicy") != null && !jsonObj.get("programJoinPolicy").isJsonNull()) && !jsonObj.get("programJoinPolicy").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `programJoinPolicy` to be a primitive type in the JSON string but got `%s`", jsonObj.get("programJoinPolicy").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `programJoinPolicy` to be a primitive type in the JSON string but got `%s`", jsonObj.get("programJoinPolicy").toString()));
       }
       // validate the optional field `programJoinPolicy`
       if (jsonObj.get("programJoinPolicy") != null && !jsonObj.get("programJoinPolicy").isJsonNull()) {
         ProgramJoinPolicyEnum.validateJsonElement(jsonObj.get("programJoinPolicy"));
       }
       if ((jsonObj.get("tiersExpirationPolicy") != null && !jsonObj.get("tiersExpirationPolicy").isJsonNull()) && !jsonObj.get("tiersExpirationPolicy").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `tiersExpirationPolicy` to be a primitive type in the JSON string but got `%s`", jsonObj.get("tiersExpirationPolicy").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `tiersExpirationPolicy` to be a primitive type in the JSON string but got `%s`", jsonObj.get("tiersExpirationPolicy").toString()));
       }
       // validate the optional field `tiersExpirationPolicy`
       if (jsonObj.get("tiersExpirationPolicy") != null && !jsonObj.get("tiersExpirationPolicy").isJsonNull()) {
         TiersExpirationPolicyEnum.validateJsonElement(jsonObj.get("tiersExpirationPolicy"));
       }
       if ((jsonObj.get("tiersExpireIn") != null && !jsonObj.get("tiersExpireIn").isJsonNull()) && !jsonObj.get("tiersExpireIn").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `tiersExpireIn` to be a primitive type in the JSON string but got `%s`", jsonObj.get("tiersExpireIn").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `tiersExpireIn` to be a primitive type in the JSON string but got `%s`", jsonObj.get("tiersExpireIn").toString()));
       }
       if ((jsonObj.get("tiersDowngradePolicy") != null && !jsonObj.get("tiersDowngradePolicy").isJsonNull()) && !jsonObj.get("tiersDowngradePolicy").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `tiersDowngradePolicy` to be a primitive type in the JSON string but got `%s`", jsonObj.get("tiersDowngradePolicy").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `tiersDowngradePolicy` to be a primitive type in the JSON string but got `%s`", jsonObj.get("tiersDowngradePolicy").toString()));
       }
       // validate the optional field `tiersDowngradePolicy`
       if (jsonObj.get("tiersDowngradePolicy") != null && !jsonObj.get("tiersDowngradePolicy").isJsonNull()) {
@@ -788,7 +786,7 @@ public class BaseLoyaltyProgram {
         CodeGeneratorSettings.validateJsonElement(jsonObj.get("cardCodeSettings"));
       }
       if ((jsonObj.get("returnPolicy") != null && !jsonObj.get("returnPolicy").isJsonNull()) && !jsonObj.get("returnPolicy").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `returnPolicy` to be a primitive type in the JSON string but got `%s`", jsonObj.get("returnPolicy").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `returnPolicy` to be a primitive type in the JSON string but got `%s`", jsonObj.get("returnPolicy").toString()));
       }
       // validate the optional field `returnPolicy`
       if (jsonObj.get("returnPolicy") != null && !jsonObj.get("returnPolicy").isJsonNull()) {

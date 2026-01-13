@@ -105,4 +105,12 @@ public class RoleV2Test {
         // TODO: test members
     }
 
+    /**
+     * Test the property 'isReadonly'
+     */
+    @Test
+    public void isReadonlyTest() {
+        // TODO: test isReadonly
+    }
+
 }

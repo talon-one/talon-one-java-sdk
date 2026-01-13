@@ -13,7 +13,7 @@ The effect produced for the catalog item.
 |**ruleIndex** | **Long** | The position of the rule that triggered this effect within the ruleset. |  |
 |**ruleName** | **String** | The name of the rule that triggered this effect. |  |
 |**type** | **String** | The type of this effect. |  |
-|**props** | **Object** |  |  |
+|**props** | **Object** | Arbitrary properties associated with this effect type. |  |
 |**startTime** | **OffsetDateTime** | The start of the time frame where the effect is active in UTC. |  [optional] |
 |**endTime** | **OffsetDateTime** | The end of the time frame where the effect is active in UTC. |  [optional] |
 |**selectedPriceType** | **String** | The selected price type for this cart item (e.g. the price for members only). |  [optional] |

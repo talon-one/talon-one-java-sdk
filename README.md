@@ -39,7 +39,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>one.talon</groupId>
   <artifactId>talon-one-client</artifactId>
-  <version>25.26</version>
+  <version>26.01</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -49,7 +49,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "one.talon:talon-one-client:25.26"
+compile "one.talon:talon-one-client:26.01"
 ```
 
 ### Others
@@ -433,6 +433,8 @@ Class | Method | HTTP request | Description
 - [AchievementProgress](docs/AchievementProgress.md)
 - [AchievementProgressWithDefinition](docs/AchievementProgressWithDefinition.md)
 - [AchievementStatusEntry](docs/AchievementStatusEntry.md)
+- [ActivateLoyaltyPoints](docs/ActivateLoyaltyPoints.md)
+- [ActivateLoyaltyPointsResponse](docs/ActivateLoyaltyPointsResponse.md)
 - [ActivateUserRequest](docs/ActivateUserRequest.md)
 - [AddFreeItemEffectProps](docs/AddFreeItemEffectProps.md)
 - [AddItemCatalogAction](docs/AddItemCatalogAction.md)
@@ -440,6 +442,8 @@ Class | Method | HTTP request | Description
 - [AddLoyaltyPointsEffectProps](docs/AddLoyaltyPointsEffectProps.md)
 - [AddPriceAdjustmentCatalogAction](docs/AddPriceAdjustmentCatalogAction.md)
 - [AddToAudienceEffectProps](docs/AddToAudienceEffectProps.md)
+- [AddedDeductedPointsBalancesAction](docs/AddedDeductedPointsBalancesAction.md)
+- [AddedDeductedPointsBalancesNotification](docs/AddedDeductedPointsBalancesNotification.md)
 - [AddedDeductedPointsBalancesNotificationPolicy](docs/AddedDeductedPointsBalancesNotificationPolicy.md)
 - [AddedDeductedPointsNotification](docs/AddedDeductedPointsNotification.md)
 - [AddedDeductedPointsNotificationPolicy](docs/AddedDeductedPointsNotificationPolicy.md)
@@ -541,6 +545,7 @@ Class | Method | HTTP request | Description
 - [CampaignTemplateCouponReservationSettings](docs/CampaignTemplateCouponReservationSettings.md)
 - [CampaignTemplateParams](docs/CampaignTemplateParams.md)
 - [CampaignVersions](docs/CampaignVersions.md)
+- [CardAddedDeductedPointsBalancesNotification](docs/CardAddedDeductedPointsBalancesNotification.md)
 - [CardAddedDeductedPointsBalancesNotificationPolicy](docs/CardAddedDeductedPointsBalancesNotificationPolicy.md)
 - [CardAddedDeductedPointsNotification](docs/CardAddedDeductedPointsNotification.md)
 - [CardAddedDeductedPointsNotificationPolicy](docs/CardAddedDeductedPointsNotificationPolicy.md)
@@ -569,8 +574,10 @@ Class | Method | HTTP request | Description
 - [CouponDeletionFilters](docs/CouponDeletionFilters.md)
 - [CouponDeletionJob](docs/CouponDeletionJob.md)
 - [CouponEntity](docs/CouponEntity.md)
+- [CouponFailureSummary](docs/CouponFailureSummary.md)
 - [CouponLimitConfigs](docs/CouponLimitConfigs.md)
 - [CouponRejectionReason](docs/CouponRejectionReason.md)
+- [CouponRejections](docs/CouponRejections.md)
 - [CouponReservations](docs/CouponReservations.md)
 - [CouponSearch](docs/CouponSearch.md)
 - [CouponValue](docs/CouponValue.md)
@@ -639,6 +646,7 @@ Class | Method | HTTP request | Description
 - [FunctionDef](docs/FunctionDef.md)
 - [GenerateAuditLogSummary](docs/GenerateAuditLogSummary.md)
 - [GenerateCampaignDescription](docs/GenerateCampaignDescription.md)
+- [GenerateCampaignSummary](docs/GenerateCampaignSummary.md)
 - [GenerateCampaignTags](docs/GenerateCampaignTags.md)
 - [GenerateCouponFailureDetailedSummary](docs/GenerateCouponFailureDetailedSummary.md)
 - [GenerateCouponFailureSummary](docs/GenerateCouponFailureSummary.md)
@@ -714,7 +722,6 @@ Class | Method | HTTP request | Description
 - [InventoryCoupon](docs/InventoryCoupon.md)
 - [InventoryReferral](docs/InventoryReferral.md)
 - [ItemAttribute](docs/ItemAttribute.md)
-- [JWT](docs/JWT.md)
 - [LabelTargetAudience](docs/LabelTargetAudience.md)
 - [LabelTargetNone](docs/LabelTargetNone.md)
 - [LedgerEntry](docs/LedgerEntry.md)
@@ -868,6 +875,15 @@ Class | Method | HTTP request | Description
 - [PriceType](docs/PriceType.md)
 - [PriceTypeReferenceDetail](docs/PriceTypeReferenceDetail.md)
 - [PriceTypeReferences](docs/PriceTypeReferences.md)
+- [PrismaticConfig](docs/PrismaticConfig.md)
+- [PrismaticEventPayloadCouponBasedNotifications](docs/PrismaticEventPayloadCouponBasedNotifications.md)
+- [PrismaticEventPayloadCouponBasedNotificationsLimits](docs/PrismaticEventPayloadCouponBasedNotificationsLimits.md)
+- [PrismaticEventPayloadLoyaltyProfileBasedNotifications](docs/PrismaticEventPayloadLoyaltyProfileBasedNotifications.md)
+- [PrismaticEventPayloadLoyaltyProfileBasedNotificationsAction](docs/PrismaticEventPayloadLoyaltyProfileBasedNotificationsAction.md)
+- [PrismaticFlow](docs/PrismaticFlow.md)
+- [PrismaticFlowConfig](docs/PrismaticFlowConfig.md)
+- [PrismaticFlowWithConfig](docs/PrismaticFlowWithConfig.md)
+- [PrismaticPaginatedEventPayload](docs/PrismaticPaginatedEventPayload.md)
 - [Product](docs/Product.md)
 - [ProductSearchMatch](docs/ProductSearchMatch.md)
 - [ProductUnitAnalytics](docs/ProductUnitAnalytics.md)
@@ -901,6 +917,7 @@ Class | Method | HTTP request | Description
 - [RoleV2Base](docs/RoleV2Base.md)
 - [RoleV2PermissionSet](docs/RoleV2PermissionSet.md)
 - [RoleV2Permissions](docs/RoleV2Permissions.md)
+- [RoleV2Readonly](docs/RoleV2Readonly.md)
 - [RoleV2RolesGroup](docs/RoleV2RolesGroup.md)
 - [RollbackAddedLoyaltyPointsEffectProps](docs/RollbackAddedLoyaltyPointsEffectProps.md)
 - [RollbackCouponEffectProps](docs/RollbackCouponEffectProps.md)
@@ -939,6 +956,7 @@ Class | Method | HTTP request | Description
 - [ScimUsersListResponse](docs/ScimUsersListResponse.md)
 - [SecondaryDeployment](docs/SecondaryDeployment.md)
 - [Session](docs/Session.md)
+- [SessionCoupons](docs/SessionCoupons.md)
 - [SetDiscountEffectProps](docs/SetDiscountEffectProps.md)
 - [SetDiscountPerAdditionalCostEffectProps](docs/SetDiscountPerAdditionalCostEffectProps.md)
 - [SetDiscountPerAdditionalCostPerItemEffectProps](docs/SetDiscountPerAdditionalCostPerItemEffectProps.md)
@@ -956,6 +974,7 @@ Class | Method | HTTP request | Description
 - [StrikethroughEffect](docs/StrikethroughEffect.md)
 - [StrikethroughLabelingNotification](docs/StrikethroughLabelingNotification.md)
 - [StrikethroughSetDiscountPerItemEffectProps](docs/StrikethroughSetDiscountPerItemEffectProps.md)
+- [StrikethroughSetDiscountPerItemMemberEffectProps](docs/StrikethroughSetDiscountPerItemMemberEffectProps.md)
 - [StrikethroughTrigger](docs/StrikethroughTrigger.md)
 - [SummarizeCampaignStoreBudget200Response](docs/SummarizeCampaignStoreBudget200Response.md)
 - [SummaryCampaignStoreBudget](docs/SummaryCampaignStoreBudget.md)

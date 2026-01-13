@@ -14,7 +14,6 @@
 package one.talon.model;
 
 import java.util.Objects;
-import java.util.Locale;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -22,9 +21,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.util.Arrays;
-import one.talon.model.Campaign;
-import one.talon.model.CampaignEvaluationPosition;
-import one.talon.model.Ruleset;
+import org.openapitools.jackson.nullable.JsonNullable;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -46,14 +43,13 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-import java.util.Locale;
 
 import one.talon.JSON;
 
 /**
  * CampaignCreatedNotificationItem
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.17.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.18.0")
 public class CampaignCreatedNotificationItem {
   public static final String SERIALIZED_NAME_EVENT = "Event";
   @SerializedName(SERIALIZED_NAME_EVENT)
@@ -62,18 +58,18 @@ public class CampaignCreatedNotificationItem {
 
   public static final String SERIALIZED_NAME_CAMPAIGN = "campaign";
   @SerializedName(SERIALIZED_NAME_CAMPAIGN)
-  @javax.annotation.Nonnull
-  private Campaign campaign;
+  @javax.annotation.Nullable
+  private Object campaign = null;
 
   public static final String SERIALIZED_NAME_RULESET = "ruleset";
   @SerializedName(SERIALIZED_NAME_RULESET)
   @javax.annotation.Nullable
-  private Ruleset ruleset;
+  private Object ruleset = null;
 
   public static final String SERIALIZED_NAME_EVALUATION_POSITION = "evaluationPosition";
   @SerializedName(SERIALIZED_NAME_EVALUATION_POSITION)
-  @javax.annotation.Nonnull
-  private CampaignEvaluationPosition evaluationPosition;
+  @javax.annotation.Nullable
+  private Object evaluationPosition = null;
 
   public CampaignCreatedNotificationItem() {
   }
@@ -97,7 +93,7 @@ public class CampaignCreatedNotificationItem {
   }
 
 
-  public CampaignCreatedNotificationItem campaign(@javax.annotation.Nonnull Campaign campaign) {
+  public CampaignCreatedNotificationItem campaign(@javax.annotation.Nullable Object campaign) {
     this.campaign = campaign;
     return this;
   }
@@ -106,17 +102,17 @@ public class CampaignCreatedNotificationItem {
    * The campaign whose state changed.
    * @return campaign
    */
-  @javax.annotation.Nonnull
-  public Campaign getCampaign() {
+  @javax.annotation.Nullable
+  public Object getCampaign() {
     return campaign;
   }
 
-  public void setCampaign(@javax.annotation.Nonnull Campaign campaign) {
+  public void setCampaign(@javax.annotation.Nullable Object campaign) {
     this.campaign = campaign;
   }
 
 
-  public CampaignCreatedNotificationItem ruleset(@javax.annotation.Nullable Ruleset ruleset) {
+  public CampaignCreatedNotificationItem ruleset(@javax.annotation.Nullable Object ruleset) {
     this.ruleset = ruleset;
     return this;
   }
@@ -126,16 +122,16 @@ public class CampaignCreatedNotificationItem {
    * @return ruleset
    */
   @javax.annotation.Nullable
-  public Ruleset getRuleset() {
+  public Object getRuleset() {
     return ruleset;
   }
 
-  public void setRuleset(@javax.annotation.Nullable Ruleset ruleset) {
+  public void setRuleset(@javax.annotation.Nullable Object ruleset) {
     this.ruleset = ruleset;
   }
 
 
-  public CampaignCreatedNotificationItem evaluationPosition(@javax.annotation.Nonnull CampaignEvaluationPosition evaluationPosition) {
+  public CampaignCreatedNotificationItem evaluationPosition(@javax.annotation.Nullable Object evaluationPosition) {
     this.evaluationPosition = evaluationPosition;
     return this;
   }
@@ -144,12 +140,12 @@ public class CampaignCreatedNotificationItem {
    * The campaign position within the evaluation tree.
    * @return evaluationPosition
    */
-  @javax.annotation.Nonnull
-  public CampaignEvaluationPosition getEvaluationPosition() {
+  @javax.annotation.Nullable
+  public Object getEvaluationPosition() {
     return evaluationPosition;
   }
 
-  public void setEvaluationPosition(@javax.annotation.Nonnull CampaignEvaluationPosition evaluationPosition) {
+  public void setEvaluationPosition(@javax.annotation.Nullable Object evaluationPosition) {
     this.evaluationPosition = evaluationPosition;
   }
 
@@ -170,9 +166,20 @@ public class CampaignCreatedNotificationItem {
         Objects.equals(this.evaluationPosition, campaignCreatedNotificationItem.evaluationPosition);
   }
 
+  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
+    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
+  }
+
   @Override
   public int hashCode() {
     return Objects.hash(event, campaign, ruleset, evaluationPosition);
+  }
+
+  private static <T> int hashCodeNullable(JsonNullable<T> a) {
+    if (a == null) {
+      return 1;
+    }
+    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
   }
 
   @Override
@@ -219,7 +226,7 @@ public class CampaignCreatedNotificationItem {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!CampaignCreatedNotificationItem.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field(s) %s in CampaignCreatedNotificationItem is not found in the empty JSON string", CampaignCreatedNotificationItem.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in CampaignCreatedNotificationItem is not found in the empty JSON string", CampaignCreatedNotificationItem.openapiRequiredFields.toString()));
         }
       }
 
@@ -227,28 +234,20 @@ public class CampaignCreatedNotificationItem {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!CampaignCreatedNotificationItem.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format(Locale.ROOT, "The field `%s` in the JSON string is not defined in the `CampaignCreatedNotificationItem` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `CampaignCreatedNotificationItem` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : CampaignCreatedNotificationItem.openapiRequiredFields) {
         if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if (!jsonObj.get("Event").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `Event` to be a primitive type in the JSON string but got `%s`", jsonObj.get("Event").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `Event` to be a primitive type in the JSON string but got `%s`", jsonObj.get("Event").toString()));
       }
-      // validate the required field `campaign`
-      Campaign.validateJsonElement(jsonObj.get("campaign"));
-      // validate the optional field `ruleset`
-      if (jsonObj.get("ruleset") != null && !jsonObj.get("ruleset").isJsonNull()) {
-        Ruleset.validateJsonElement(jsonObj.get("ruleset"));
-      }
-      // validate the required field `evaluationPosition`
-      CampaignEvaluationPosition.validateJsonElement(jsonObj.get("evaluationPosition"));
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {

@@ -14,7 +14,6 @@
 package one.talon.model;
 
 import java.util.Objects;
-import java.util.Locale;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -43,29 +42,47 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-import java.util.Locale;
 
 import one.talon.JSON;
 
 /**
- * JSON web token used for accessing integrations in Prismatic
+ * Config used for accessing integrations in Prismatic
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.17.0")
-public class JWT {
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.18.0")
+public class PrismaticConfig {
+  public static final String SERIALIZED_NAME_PRISMATIC_URL = "prismaticUrl";
+  @SerializedName(SERIALIZED_NAME_PRISMATIC_URL)
+  @javax.annotation.Nonnull
+  private String prismaticUrl;
+
   public static final String SERIALIZED_NAME_ACCESS_TOKEN = "accessToken";
   @SerializedName(SERIALIZED_NAME_ACCESS_TOKEN)
   @javax.annotation.Nonnull
   private String accessToken;
 
-  public static final String SERIALIZED_NAME_EXPIRES_IN = "expiresIn";
-  @SerializedName(SERIALIZED_NAME_EXPIRES_IN)
-  @javax.annotation.Nonnull
-  private Long expiresIn;
-
-  public JWT() {
+  public PrismaticConfig() {
   }
 
-  public JWT accessToken(@javax.annotation.Nonnull String accessToken) {
+  public PrismaticConfig prismaticUrl(@javax.annotation.Nonnull String prismaticUrl) {
+    this.prismaticUrl = prismaticUrl;
+    return this;
+  }
+
+  /**
+   * The url used to integrate the Prismatic Marketplace.
+   * @return prismaticUrl
+   */
+  @javax.annotation.Nonnull
+  public String getPrismaticUrl() {
+    return prismaticUrl;
+  }
+
+  public void setPrismaticUrl(@javax.annotation.Nonnull String prismaticUrl) {
+    this.prismaticUrl = prismaticUrl;
+  }
+
+
+  public PrismaticConfig accessToken(@javax.annotation.Nonnull String accessToken) {
     this.accessToken = accessToken;
     return this;
   }
@@ -84,25 +101,6 @@ public class JWT {
   }
 
 
-  public JWT expiresIn(@javax.annotation.Nonnull Long expiresIn) {
-    this.expiresIn = expiresIn;
-    return this;
-  }
-
-  /**
-   * Time until the token expires (in seconds).
-   * @return expiresIn
-   */
-  @javax.annotation.Nonnull
-  public Long getExpiresIn() {
-    return expiresIn;
-  }
-
-  public void setExpiresIn(@javax.annotation.Nonnull Long expiresIn) {
-    this.expiresIn = expiresIn;
-  }
-
-
 
   @Override
   public boolean equals(Object o) {
@@ -112,22 +110,22 @@ public class JWT {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    JWT JWT = (JWT) o;
-    return Objects.equals(this.accessToken, JWT.accessToken) &&
-        Objects.equals(this.expiresIn, JWT.expiresIn);
+    PrismaticConfig prismaticConfig = (PrismaticConfig) o;
+    return Objects.equals(this.prismaticUrl, prismaticConfig.prismaticUrl) &&
+        Objects.equals(this.accessToken, prismaticConfig.accessToken);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessToken, expiresIn);
+    return Objects.hash(prismaticUrl, accessToken);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class JWT {\n");
+    sb.append("class PrismaticConfig {\n");
+    sb.append("    prismaticUrl: ").append(toIndentedString(prismaticUrl)).append("\n");
     sb.append("    accessToken: ").append(toIndentedString(accessToken)).append("\n");
-    sb.append("    expiresIn: ").append(toIndentedString(expiresIn)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -149,42 +147,45 @@ public class JWT {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("accessToken", "expiresIn"));
+    openapiFields = new HashSet<String>(Arrays.asList("prismaticUrl", "accessToken"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("accessToken", "expiresIn"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("prismaticUrl", "accessToken"));
   }
 
   /**
    * Validates the JSON Element and throws an exception if issues found
    *
    * @param jsonElement JSON Element
-   * @throws IOException if the JSON Element is invalid with respect to JWT
+   * @throws IOException if the JSON Element is invalid with respect to PrismaticConfig
    */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
-        if (!JWT.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field(s) %s in JWT is not found in the empty JSON string", JWT.openapiRequiredFields.toString()));
+        if (!PrismaticConfig.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in PrismaticConfig is not found in the empty JSON string", PrismaticConfig.openapiRequiredFields.toString()));
         }
       }
 
       Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
-        if (!JWT.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format(Locale.ROOT, "The field `%s` in the JSON string is not defined in the `JWT` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+        if (!PrismaticConfig.openapiFields.contains(entry.getKey())) {
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `PrismaticConfig` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : JWT.openapiRequiredFields) {
+      for (String requiredField : PrismaticConfig.openapiRequiredFields) {
         if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
+      if (!jsonObj.get("prismaticUrl").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `prismaticUrl` to be a primitive type in the JSON string but got `%s`", jsonObj.get("prismaticUrl").toString()));
+      }
       if (!jsonObj.get("accessToken").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `accessToken` to be a primitive type in the JSON string but got `%s`", jsonObj.get("accessToken").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `accessToken` to be a primitive type in the JSON string but got `%s`", jsonObj.get("accessToken").toString()));
       }
   }
 
@@ -192,22 +193,22 @@ public class JWT {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!JWT.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'JWT' and its subtypes
+       if (!PrismaticConfig.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'PrismaticConfig' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<JWT> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(JWT.class));
+       final TypeAdapter<PrismaticConfig> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(PrismaticConfig.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<JWT>() {
+       return (TypeAdapter<T>) new TypeAdapter<PrismaticConfig>() {
            @Override
-           public void write(JsonWriter out, JWT value) throws IOException {
+           public void write(JsonWriter out, PrismaticConfig value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              elementAdapter.write(out, obj);
            }
 
            @Override
-           public JWT read(JsonReader in) throws IOException {
+           public PrismaticConfig read(JsonReader in) throws IOException {
              JsonElement jsonElement = elementAdapter.read(in);
              validateJsonElement(jsonElement);
              return thisAdapter.fromJsonTree(jsonElement);
@@ -218,18 +219,18 @@ public class JWT {
   }
 
   /**
-   * Create an instance of JWT given an JSON string
+   * Create an instance of PrismaticConfig given an JSON string
    *
    * @param jsonString JSON string
-   * @return An instance of JWT
-   * @throws IOException if the JSON string is invalid with respect to JWT
+   * @return An instance of PrismaticConfig
+   * @throws IOException if the JSON string is invalid with respect to PrismaticConfig
    */
-  public static JWT fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, JWT.class);
+  public static PrismaticConfig fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, PrismaticConfig.class);
   }
 
   /**
-   * Convert an instance of JWT to an JSON string
+   * Convert an instance of PrismaticConfig to an JSON string
    *
    * @return JSON string
    */
