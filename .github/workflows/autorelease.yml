@@ -17,17 +17,17 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          fetch-depth: 0 # get full history so we can diff
+          fetch-depth: 0   # get full history so we can diff
 
-      - name: Extract version from commit message
+      - name: Extract version from PR title
         id: get_version
         run: |
-          msg='${{ github.event.head_commit.message }}'
-          if [[ "$msg" =~ update[[:space:]]+to[[:space:]]+([0-9]+\.[0-9]+\.[0-9]+) ]]; then
+          msg='${{ github.event.pull_request.title }}'
+          if [[ "$msg" =~ [Uu]pdate.*[Tt]o[[:space:]]+([0-9]+\.[0-9]+(\.[0-9]+)?) ]]; then
             ver="${BASH_REMATCH[1]}"
             echo "version=$ver" >> $GITHUB_OUTPUT
           else
-            echo "Commit message does not match pattern - skipping release."
+            echo "PR title does not match pattern - skipping release."
             echo "version=" >> $GITHUB_OUTPUT
           fi
 
@@ -101,14 +101,14 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          ver="${{ steps.get_version.outputs.version }}"
+          ver="v${{ steps.get_version.outputs.version }}"
           notes_file="${{ steps.relnotes.outputs.notes_file }}"
 
-          if gh release view "v$ver" &>/dev/null; then
-            gh release delete "v$ver" --yes
+          if gh release view "$ver" &>/dev/null; then
+            gh release delete "$ver" --yes
           fi
 
-          gh release create "v$ver" \
-            --title "v$ver" \
+          gh release create "$ver" \
+            --title "$ver" \
             --notes-file "$notes_file" \
             --target "$GITHUB_SHA"
