@@ -14,7 +14,6 @@
 package one.talon.model;
 
 import java.util.Objects;
-import java.util.Locale;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -50,14 +49,13 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-import java.util.Locale;
 
 import one.talon.JSON;
 
 /**
  * Service provider configuration details.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.17.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.18.0")
 public class ScimServiceProviderConfigResponse {
   public static final String SERIALIZED_NAME_BULK = "bulk";
   @SerializedName(SERIALIZED_NAME_BULK)
@@ -309,7 +307,7 @@ public class ScimServiceProviderConfigResponse {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!ScimServiceProviderConfigResponse.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field(s) %s in ScimServiceProviderConfigResponse is not found in the empty JSON string", ScimServiceProviderConfigResponse.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in ScimServiceProviderConfigResponse is not found in the empty JSON string", ScimServiceProviderConfigResponse.openapiRequiredFields.toString()));
         }
       }
 
@@ -317,7 +315,7 @@ public class ScimServiceProviderConfigResponse {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!ScimServiceProviderConfigResponse.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format(Locale.ROOT, "The field `%s` in the JSON string is not defined in the `ScimServiceProviderConfigResponse` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `ScimServiceProviderConfigResponse` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
@@ -330,7 +328,7 @@ public class ScimServiceProviderConfigResponse {
         ScimServiceProviderConfigResponseChangePassword.validateJsonElement(jsonObj.get("changePassword"));
       }
       if ((jsonObj.get("documentationUri") != null && !jsonObj.get("documentationUri").isJsonNull()) && !jsonObj.get("documentationUri").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `documentationUri` to be a primitive type in the JSON string but got `%s`", jsonObj.get("documentationUri").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `documentationUri` to be a primitive type in the JSON string but got `%s`", jsonObj.get("documentationUri").toString()));
       }
       // validate the optional field `filter`
       if (jsonObj.get("filter") != null && !jsonObj.get("filter").isJsonNull()) {
@@ -342,7 +340,7 @@ public class ScimServiceProviderConfigResponse {
       }
       // ensure the optional json data is an array if present
       if (jsonObj.get("schemas") != null && !jsonObj.get("schemas").isJsonNull() && !jsonObj.get("schemas").isJsonArray()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `schemas` to be an array in the JSON string but got `%s`", jsonObj.get("schemas").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `schemas` to be an array in the JSON string but got `%s`", jsonObj.get("schemas").toString()));
       }
       // validate the optional field `sort`
       if (jsonObj.get("sort") != null && !jsonObj.get("sort").isJsonNull()) {

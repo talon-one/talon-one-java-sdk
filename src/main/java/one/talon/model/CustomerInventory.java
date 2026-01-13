@@ -14,7 +14,6 @@
 package one.talon.model;
 
 import java.util.Objects;
-import java.util.Locale;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -51,14 +50,13 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-import java.util.Locale;
 
 import one.talon.JSON;
 
 /**
  * CustomerInventory
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.17.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.18.0")
 public class CustomerInventory {
   public static final String SERIALIZED_NAME_PROFILE = "profile";
   @SerializedName(SERIALIZED_NAME_PROFILE)
@@ -308,7 +306,7 @@ public class CustomerInventory {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!CustomerInventory.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field(s) %s in CustomerInventory is not found in the empty JSON string", CustomerInventory.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in CustomerInventory is not found in the empty JSON string", CustomerInventory.openapiRequiredFields.toString()));
         }
       }
 
@@ -316,7 +314,7 @@ public class CustomerInventory {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!CustomerInventory.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format(Locale.ROOT, "The field `%s` in the JSON string is not defined in the `CustomerInventory` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `CustomerInventory` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
@@ -333,7 +331,7 @@ public class CustomerInventory {
         if (jsonArrayreferrals != null) {
           // ensure the json data is an array
           if (!jsonObj.get("referrals").isJsonArray()) {
-            throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `referrals` to be an array in the JSON string but got `%s`", jsonObj.get("referrals").toString()));
+            throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `referrals` to be an array in the JSON string but got `%s`", jsonObj.get("referrals").toString()));
           }
 
           // validate the optional field `referrals` (array)
@@ -347,7 +345,7 @@ public class CustomerInventory {
         if (jsonArraycoupons != null) {
           // ensure the json data is an array
           if (!jsonObj.get("coupons").isJsonArray()) {
-            throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `coupons` to be an array in the JSON string but got `%s`", jsonObj.get("coupons").toString()));
+            throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `coupons` to be an array in the JSON string but got `%s`", jsonObj.get("coupons").toString()));
           }
 
           // validate the optional field `coupons` (array)
@@ -361,7 +359,7 @@ public class CustomerInventory {
         if (jsonArraygiveaways != null) {
           // ensure the json data is an array
           if (!jsonObj.get("giveaways").isJsonArray()) {
-            throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `giveaways` to be an array in the JSON string but got `%s`", jsonObj.get("giveaways").toString()));
+            throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `giveaways` to be an array in the JSON string but got `%s`", jsonObj.get("giveaways").toString()));
           }
 
           // validate the optional field `giveaways` (array)
@@ -375,7 +373,7 @@ public class CustomerInventory {
         if (jsonArrayachievements != null) {
           // ensure the json data is an array
           if (!jsonObj.get("achievements").isJsonArray()) {
-            throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `achievements` to be an array in the JSON string but got `%s`", jsonObj.get("achievements").toString()));
+            throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `achievements` to be an array in the JSON string but got `%s`", jsonObj.get("achievements").toString()));
           }
 
           // validate the optional field `achievements` (array)

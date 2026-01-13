@@ -14,7 +14,6 @@
 package one.talon.model;
 
 import java.util.Objects;
-import java.util.Locale;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -43,14 +42,13 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-import java.util.Locale;
 
 import one.talon.JSON;
 
 /**
  * Details about why a rule failed.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.17.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.18.0")
 public class RuleFailureReason {
   public static final String SERIALIZED_NAME_CAMPAIGN_I_D = "campaignID";
   @SerializedName(SERIALIZED_NAME_CAMPAIGN_I_D)
@@ -476,7 +474,7 @@ public class RuleFailureReason {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!RuleFailureReason.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field(s) %s in RuleFailureReason is not found in the empty JSON string", RuleFailureReason.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in RuleFailureReason is not found in the empty JSON string", RuleFailureReason.openapiRequiredFields.toString()));
         }
       }
 
@@ -484,34 +482,34 @@ public class RuleFailureReason {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!RuleFailureReason.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format(Locale.ROOT, "The field `%s` in the JSON string is not defined in the `RuleFailureReason` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `RuleFailureReason` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : RuleFailureReason.openapiRequiredFields) {
         if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if (!jsonObj.get("campaignName").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `campaignName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("campaignName").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `campaignName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("campaignName").toString()));
       }
       if ((jsonObj.get("couponValue") != null && !jsonObj.get("couponValue").isJsonNull()) && !jsonObj.get("couponValue").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `couponValue` to be a primitive type in the JSON string but got `%s`", jsonObj.get("couponValue").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `couponValue` to be a primitive type in the JSON string but got `%s`", jsonObj.get("couponValue").toString()));
       }
       if ((jsonObj.get("referralValue") != null && !jsonObj.get("referralValue").isJsonNull()) && !jsonObj.get("referralValue").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `referralValue` to be a primitive type in the JSON string but got `%s`", jsonObj.get("referralValue").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `referralValue` to be a primitive type in the JSON string but got `%s`", jsonObj.get("referralValue").toString()));
       }
       if (!jsonObj.get("ruleName").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `ruleName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("ruleName").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `ruleName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("ruleName").toString()));
       }
       if ((jsonObj.get("details") != null && !jsonObj.get("details").isJsonNull()) && !jsonObj.get("details").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `details` to be a primitive type in the JSON string but got `%s`", jsonObj.get("details").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `details` to be a primitive type in the JSON string but got `%s`", jsonObj.get("details").toString()));
       }
       if ((jsonObj.get("evaluationGroupMode") != null && !jsonObj.get("evaluationGroupMode").isJsonNull()) && !jsonObj.get("evaluationGroupMode").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `evaluationGroupMode` to be a primitive type in the JSON string but got `%s`", jsonObj.get("evaluationGroupMode").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `evaluationGroupMode` to be a primitive type in the JSON string but got `%s`", jsonObj.get("evaluationGroupMode").toString()));
       }
   }
 

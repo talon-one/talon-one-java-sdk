@@ -14,7 +14,6 @@
 package one.talon.model;
 
 import java.util.Objects;
-import java.util.Locale;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -45,14 +44,13 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-import java.util.Locale;
 
 import one.talon.JSON;
 
 /**
  * The properties specific to the \&quot;addLoyaltyPoints\&quot; effect. This gets triggered whenever a validated rule contained an \&quot;add loyalty\&quot; effect. These points are automatically stored and managed inside Talon.One. 
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.17.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.18.0")
 public class AddLoyaltyPointsEffectProps {
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
@@ -123,6 +121,16 @@ public class AddLoyaltyPointsEffectProps {
   @SerializedName(SERIALIZED_NAME_BUNDLE_NAME)
   @javax.annotation.Nullable
   private String bundleName;
+
+  public static final String SERIALIZED_NAME_AWAITS_ACTIVATION = "awaitsActivation";
+  @SerializedName(SERIALIZED_NAME_AWAITS_ACTIVATION)
+  @javax.annotation.Nullable
+  private Boolean awaitsActivation;
+
+  public static final String SERIALIZED_NAME_VALIDITY_DURATION = "validityDuration";
+  @SerializedName(SERIALIZED_NAME_VALIDITY_DURATION)
+  @javax.annotation.Nullable
+  private String validityDuration;
 
   public AddLoyaltyPointsEffectProps() {
   }
@@ -342,7 +350,7 @@ public class AddLoyaltyPointsEffectProps {
   }
 
   /**
-   * The alphanumeric identifier of the loyalty card. 
+   * The card on which these points were added.
    * @return cardIdentifier
    */
   @javax.annotation.Nullable
@@ -393,6 +401,44 @@ public class AddLoyaltyPointsEffectProps {
   }
 
 
+  public AddLoyaltyPointsEffectProps awaitsActivation(@javax.annotation.Nullable Boolean awaitsActivation) {
+    this.awaitsActivation = awaitsActivation;
+    return this;
+  }
+
+  /**
+   * If &#x60;true&#x60;, the loyalty points remain pending until a specific action is complete. The &#x60;startDate&#x60; parameter automatically sets to &#x60;on_action&#x60;. 
+   * @return awaitsActivation
+   */
+  @javax.annotation.Nullable
+  public Boolean getAwaitsActivation() {
+    return awaitsActivation;
+  }
+
+  public void setAwaitsActivation(@javax.annotation.Nullable Boolean awaitsActivation) {
+    this.awaitsActivation = awaitsActivation;
+  }
+
+
+  public AddLoyaltyPointsEffectProps validityDuration(@javax.annotation.Nullable String validityDuration) {
+    this.validityDuration = validityDuration;
+    return this;
+  }
+
+  /**
+   * The duration for which the points remain active, calculated relative to the  activation date.    **Note**: This value is returned only if &#x60;awaitsActivation&#x60; is &#x60;true&#x60;  and &#x60;expiryDate&#x60; is not set. 
+   * @return validityDuration
+   */
+  @javax.annotation.Nullable
+  public String getValidityDuration() {
+    return validityDuration;
+  }
+
+  public void setValidityDuration(@javax.annotation.Nullable String validityDuration) {
+    this.validityDuration = validityDuration;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -416,12 +462,14 @@ public class AddLoyaltyPointsEffectProps {
         Objects.equals(this.cartItemSubPosition, addLoyaltyPointsEffectProps.cartItemSubPosition) &&
         Objects.equals(this.cardIdentifier, addLoyaltyPointsEffectProps.cardIdentifier) &&
         Objects.equals(this.bundleIndex, addLoyaltyPointsEffectProps.bundleIndex) &&
-        Objects.equals(this.bundleName, addLoyaltyPointsEffectProps.bundleName);
+        Objects.equals(this.bundleName, addLoyaltyPointsEffectProps.bundleName) &&
+        Objects.equals(this.awaitsActivation, addLoyaltyPointsEffectProps.awaitsActivation) &&
+        Objects.equals(this.validityDuration, addLoyaltyPointsEffectProps.validityDuration);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, programId, subLedgerId, value, desiredValue, recipientIntegrationId, startDate, expiryDate, transactionUUID, cartItemPosition, cartItemSubPosition, cardIdentifier, bundleIndex, bundleName);
+    return Objects.hash(name, programId, subLedgerId, value, desiredValue, recipientIntegrationId, startDate, expiryDate, transactionUUID, cartItemPosition, cartItemSubPosition, cardIdentifier, bundleIndex, bundleName, awaitsActivation, validityDuration);
   }
 
   @Override
@@ -442,6 +490,8 @@ public class AddLoyaltyPointsEffectProps {
     sb.append("    cardIdentifier: ").append(toIndentedString(cardIdentifier)).append("\n");
     sb.append("    bundleIndex: ").append(toIndentedString(bundleIndex)).append("\n");
     sb.append("    bundleName: ").append(toIndentedString(bundleName)).append("\n");
+    sb.append("    awaitsActivation: ").append(toIndentedString(awaitsActivation)).append("\n");
+    sb.append("    validityDuration: ").append(toIndentedString(validityDuration)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -463,7 +513,7 @@ public class AddLoyaltyPointsEffectProps {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("name", "programId", "subLedgerId", "value", "desiredValue", "recipientIntegrationId", "startDate", "expiryDate", "transactionUUID", "cartItemPosition", "cartItemSubPosition", "cardIdentifier", "bundleIndex", "bundleName"));
+    openapiFields = new HashSet<String>(Arrays.asList("name", "programId", "subLedgerId", "value", "desiredValue", "recipientIntegrationId", "startDate", "expiryDate", "transactionUUID", "cartItemPosition", "cartItemSubPosition", "cardIdentifier", "bundleIndex", "bundleName", "awaitsActivation", "validityDuration"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("name", "programId", "subLedgerId", "value", "recipientIntegrationId", "transactionUUID"));
@@ -478,7 +528,7 @@ public class AddLoyaltyPointsEffectProps {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!AddLoyaltyPointsEffectProps.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field(s) %s in AddLoyaltyPointsEffectProps is not found in the empty JSON string", AddLoyaltyPointsEffectProps.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in AddLoyaltyPointsEffectProps is not found in the empty JSON string", AddLoyaltyPointsEffectProps.openapiRequiredFields.toString()));
         }
       }
 
@@ -486,34 +536,37 @@ public class AddLoyaltyPointsEffectProps {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!AddLoyaltyPointsEffectProps.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format(Locale.ROOT, "The field `%s` in the JSON string is not defined in the `AddLoyaltyPointsEffectProps` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `AddLoyaltyPointsEffectProps` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : AddLoyaltyPointsEffectProps.openapiRequiredFields) {
         if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if (!jsonObj.get("name").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
       }
       if (!jsonObj.get("subLedgerId").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `subLedgerId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("subLedgerId").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `subLedgerId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("subLedgerId").toString()));
       }
       if (!jsonObj.get("recipientIntegrationId").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `recipientIntegrationId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("recipientIntegrationId").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `recipientIntegrationId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("recipientIntegrationId").toString()));
       }
       if (!jsonObj.get("transactionUUID").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `transactionUUID` to be a primitive type in the JSON string but got `%s`", jsonObj.get("transactionUUID").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `transactionUUID` to be a primitive type in the JSON string but got `%s`", jsonObj.get("transactionUUID").toString()));
       }
       if ((jsonObj.get("cardIdentifier") != null && !jsonObj.get("cardIdentifier").isJsonNull()) && !jsonObj.get("cardIdentifier").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `cardIdentifier` to be a primitive type in the JSON string but got `%s`", jsonObj.get("cardIdentifier").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `cardIdentifier` to be a primitive type in the JSON string but got `%s`", jsonObj.get("cardIdentifier").toString()));
       }
       if ((jsonObj.get("bundleName") != null && !jsonObj.get("bundleName").isJsonNull()) && !jsonObj.get("bundleName").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `bundleName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("bundleName").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `bundleName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("bundleName").toString()));
+      }
+      if ((jsonObj.get("validityDuration") != null && !jsonObj.get("validityDuration").isJsonNull()) && !jsonObj.get("validityDuration").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `validityDuration` to be a primitive type in the JSON string but got `%s`", jsonObj.get("validityDuration").toString()));
       }
   }
 

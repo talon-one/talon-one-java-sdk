@@ -14,7 +14,6 @@
 package one.talon.model;
 
 import java.util.Objects;
-import java.util.Locale;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -47,14 +46,13 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-import java.util.Locale;
 
 import one.talon.JSON;
 
 /**
  * CreateTemplateCampaign
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.17.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.18.0")
 public class CreateTemplateCampaign {
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
@@ -416,7 +414,7 @@ public class CreateTemplateCampaign {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!CreateTemplateCampaign.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field(s) %s in CreateTemplateCampaign is not found in the empty JSON string", CreateTemplateCampaign.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in CreateTemplateCampaign is not found in the empty JSON string", CreateTemplateCampaign.openapiRequiredFields.toString()));
         }
       }
 
@@ -424,29 +422,29 @@ public class CreateTemplateCampaign {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!CreateTemplateCampaign.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format(Locale.ROOT, "The field `%s` in the JSON string is not defined in the `CreateTemplateCampaign` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `CreateTemplateCampaign` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : CreateTemplateCampaign.openapiRequiredFields) {
         if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if (!jsonObj.get("name").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
       }
       if ((jsonObj.get("description") != null && !jsonObj.get("description").isJsonNull()) && !jsonObj.get("description").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `description` to be a primitive type in the JSON string but got `%s`", jsonObj.get("description").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `description` to be a primitive type in the JSON string but got `%s`", jsonObj.get("description").toString()));
       }
       if (jsonObj.get("templateParamValues") != null && !jsonObj.get("templateParamValues").isJsonNull()) {
         JsonArray jsonArraytemplateParamValues = jsonObj.getAsJsonArray("templateParamValues");
         if (jsonArraytemplateParamValues != null) {
           // ensure the json data is an array
           if (!jsonObj.get("templateParamValues").isJsonArray()) {
-            throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `templateParamValues` to be an array in the JSON string but got `%s`", jsonObj.get("templateParamValues").toString()));
+            throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `templateParamValues` to be an array in the JSON string but got `%s`", jsonObj.get("templateParamValues").toString()));
           }
 
           // validate the optional field `templateParamValues` (array)
@@ -460,7 +458,7 @@ public class CreateTemplateCampaign {
         if (jsonArraylimitOverrides != null) {
           // ensure the json data is an array
           if (!jsonObj.get("limitOverrides").isJsonArray()) {
-            throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `limitOverrides` to be an array in the JSON string but got `%s`", jsonObj.get("limitOverrides").toString()));
+            throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `limitOverrides` to be an array in the JSON string but got `%s`", jsonObj.get("limitOverrides").toString()));
           }
 
           // validate the optional field `limitOverrides` (array)
@@ -471,15 +469,15 @@ public class CreateTemplateCampaign {
       }
       // ensure the optional json data is an array if present
       if (jsonObj.get("campaignGroups") != null && !jsonObj.get("campaignGroups").isJsonNull() && !jsonObj.get("campaignGroups").isJsonArray()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `campaignGroups` to be an array in the JSON string but got `%s`", jsonObj.get("campaignGroups").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `campaignGroups` to be an array in the JSON string but got `%s`", jsonObj.get("campaignGroups").toString()));
       }
       // ensure the optional json data is an array if present
       if (jsonObj.get("tags") != null && !jsonObj.get("tags").isJsonNull() && !jsonObj.get("tags").isJsonArray()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `tags` to be an array in the JSON string but got `%s`", jsonObj.get("tags").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `tags` to be an array in the JSON string but got `%s`", jsonObj.get("tags").toString()));
       }
       // ensure the optional json data is an array if present
       if (jsonObj.get("linkedStoreIds") != null && !jsonObj.get("linkedStoreIds").isJsonNull() && !jsonObj.get("linkedStoreIds").isJsonArray()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `linkedStoreIds` to be an array in the JSON string but got `%s`", jsonObj.get("linkedStoreIds").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `linkedStoreIds` to be an array in the JSON string but got `%s`", jsonObj.get("linkedStoreIds").toString()));
       }
   }
 

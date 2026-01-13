@@ -2755,7 +2755,6 @@ public class IntegrationApi {
      * @param transactionUUIDs Filter the results by a list of transaction UUIDs.  To include multiple IDs, repeat the parameter for each one, for example,  &#x60;?transactionUUIDs&#x3D;uuid1&amp;transactionUUIDs&#x3D;uuid2&#x60;.  The response contains only data associated with the specified transactions.  (optional)
      * @param pageSize The number of items in the response. (optional, default to 50)
      * @param skip The number of items to skip when paging through large result sets. (optional)
-     * @param awaitsActivation If &#x60;true&#x60;: Filters results to include only point transactions that have action-based activation and have not expired. If &#x60;false&#x60;: Returns an error.  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -2769,7 +2768,7 @@ public class IntegrationApi {
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getLoyaltyCardTransactionsCall(@javax.annotation.Nonnull Long loyaltyProgramId, @javax.annotation.Nonnull String loyaltyCardId, @javax.annotation.Nullable List<String> subledgerId, @javax.annotation.Nullable String loyaltyTransactionType, @javax.annotation.Nullable OffsetDateTime startDate, @javax.annotation.Nullable OffsetDateTime endDate, @javax.annotation.Nullable List<String> customerSessionIDs, @javax.annotation.Nullable List<String> transactionUUIDs, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable Boolean awaitsActivation, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getLoyaltyCardTransactionsCall(@javax.annotation.Nonnull Long loyaltyProgramId, @javax.annotation.Nonnull String loyaltyCardId, @javax.annotation.Nullable List<String> subledgerId, @javax.annotation.Nullable String loyaltyTransactionType, @javax.annotation.Nullable OffsetDateTime startDate, @javax.annotation.Nullable OffsetDateTime endDate, @javax.annotation.Nullable List<String> customerSessionIDs, @javax.annotation.Nullable List<String> transactionUUIDs, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -2828,10 +2827,6 @@ public class IntegrationApi {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("skip", skip));
         }
 
-        if (awaitsActivation != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("awaitsActivation", awaitsActivation));
-        }
-
         final String[] localVarAccepts = {
             "application/json"
         };
@@ -2852,7 +2847,7 @@ public class IntegrationApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getLoyaltyCardTransactionsValidateBeforeCall(@javax.annotation.Nonnull Long loyaltyProgramId, @javax.annotation.Nonnull String loyaltyCardId, @javax.annotation.Nullable List<String> subledgerId, @javax.annotation.Nullable String loyaltyTransactionType, @javax.annotation.Nullable OffsetDateTime startDate, @javax.annotation.Nullable OffsetDateTime endDate, @javax.annotation.Nullable List<String> customerSessionIDs, @javax.annotation.Nullable List<String> transactionUUIDs, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable Boolean awaitsActivation, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getLoyaltyCardTransactionsValidateBeforeCall(@javax.annotation.Nonnull Long loyaltyProgramId, @javax.annotation.Nonnull String loyaltyCardId, @javax.annotation.Nullable List<String> subledgerId, @javax.annotation.Nullable String loyaltyTransactionType, @javax.annotation.Nullable OffsetDateTime startDate, @javax.annotation.Nullable OffsetDateTime endDate, @javax.annotation.Nullable List<String> customerSessionIDs, @javax.annotation.Nullable List<String> transactionUUIDs, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'loyaltyProgramId' is set
         if (loyaltyProgramId == null) {
             throw new ApiException("Missing the required parameter 'loyaltyProgramId' when calling getLoyaltyCardTransactions(Async)");
@@ -2863,7 +2858,7 @@ public class IntegrationApi {
             throw new ApiException("Missing the required parameter 'loyaltyCardId' when calling getLoyaltyCardTransactions(Async)");
         }
 
-        return getLoyaltyCardTransactionsCall(loyaltyProgramId, loyaltyCardId, subledgerId, loyaltyTransactionType, startDate, endDate, customerSessionIDs, transactionUUIDs, pageSize, skip, awaitsActivation, _callback);
+        return getLoyaltyCardTransactionsCall(loyaltyProgramId, loyaltyCardId, subledgerId, loyaltyTransactionType, startDate, endDate, customerSessionIDs, transactionUUIDs, pageSize, skip, _callback);
 
     }
 
@@ -2880,7 +2875,6 @@ public class IntegrationApi {
      * @param transactionUUIDs Filter the results by a list of transaction UUIDs.  To include multiple IDs, repeat the parameter for each one, for example,  &#x60;?transactionUUIDs&#x3D;uuid1&amp;transactionUUIDs&#x3D;uuid2&#x60;.  The response contains only data associated with the specified transactions.  (optional)
      * @param pageSize The number of items in the response. (optional, default to 50)
      * @param skip The number of items to skip when paging through large result sets. (optional)
-     * @param awaitsActivation If &#x60;true&#x60;: Filters results to include only point transactions that have action-based activation and have not expired. If &#x60;false&#x60;: Returns an error.  (optional)
      * @return GetLoyaltyCardTransactions200Response
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2893,8 +2887,8 @@ public class IntegrationApi {
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
      */
-    public GetLoyaltyCardTransactions200Response getLoyaltyCardTransactions(@javax.annotation.Nonnull Long loyaltyProgramId, @javax.annotation.Nonnull String loyaltyCardId, @javax.annotation.Nullable List<String> subledgerId, @javax.annotation.Nullable String loyaltyTransactionType, @javax.annotation.Nullable OffsetDateTime startDate, @javax.annotation.Nullable OffsetDateTime endDate, @javax.annotation.Nullable List<String> customerSessionIDs, @javax.annotation.Nullable List<String> transactionUUIDs, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable Boolean awaitsActivation) throws ApiException {
-        ApiResponse<GetLoyaltyCardTransactions200Response> localVarResp = getLoyaltyCardTransactionsWithHttpInfo(loyaltyProgramId, loyaltyCardId, subledgerId, loyaltyTransactionType, startDate, endDate, customerSessionIDs, transactionUUIDs, pageSize, skip, awaitsActivation);
+    public GetLoyaltyCardTransactions200Response getLoyaltyCardTransactions(@javax.annotation.Nonnull Long loyaltyProgramId, @javax.annotation.Nonnull String loyaltyCardId, @javax.annotation.Nullable List<String> subledgerId, @javax.annotation.Nullable String loyaltyTransactionType, @javax.annotation.Nullable OffsetDateTime startDate, @javax.annotation.Nullable OffsetDateTime endDate, @javax.annotation.Nullable List<String> customerSessionIDs, @javax.annotation.Nullable List<String> transactionUUIDs, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip) throws ApiException {
+        ApiResponse<GetLoyaltyCardTransactions200Response> localVarResp = getLoyaltyCardTransactionsWithHttpInfo(loyaltyProgramId, loyaltyCardId, subledgerId, loyaltyTransactionType, startDate, endDate, customerSessionIDs, transactionUUIDs, pageSize, skip);
         return localVarResp.getData();
     }
 
@@ -2911,7 +2905,6 @@ public class IntegrationApi {
      * @param transactionUUIDs Filter the results by a list of transaction UUIDs.  To include multiple IDs, repeat the parameter for each one, for example,  &#x60;?transactionUUIDs&#x3D;uuid1&amp;transactionUUIDs&#x3D;uuid2&#x60;.  The response contains only data associated with the specified transactions.  (optional)
      * @param pageSize The number of items in the response. (optional, default to 50)
      * @param skip The number of items to skip when paging through large result sets. (optional)
-     * @param awaitsActivation If &#x60;true&#x60;: Filters results to include only point transactions that have action-based activation and have not expired. If &#x60;false&#x60;: Returns an error.  (optional)
      * @return ApiResponse&lt;GetLoyaltyCardTransactions200Response&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2924,8 +2917,8 @@ public class IntegrationApi {
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<GetLoyaltyCardTransactions200Response> getLoyaltyCardTransactionsWithHttpInfo(@javax.annotation.Nonnull Long loyaltyProgramId, @javax.annotation.Nonnull String loyaltyCardId, @javax.annotation.Nullable List<String> subledgerId, @javax.annotation.Nullable String loyaltyTransactionType, @javax.annotation.Nullable OffsetDateTime startDate, @javax.annotation.Nullable OffsetDateTime endDate, @javax.annotation.Nullable List<String> customerSessionIDs, @javax.annotation.Nullable List<String> transactionUUIDs, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable Boolean awaitsActivation) throws ApiException {
-        okhttp3.Call localVarCall = getLoyaltyCardTransactionsValidateBeforeCall(loyaltyProgramId, loyaltyCardId, subledgerId, loyaltyTransactionType, startDate, endDate, customerSessionIDs, transactionUUIDs, pageSize, skip, awaitsActivation, null);
+    public ApiResponse<GetLoyaltyCardTransactions200Response> getLoyaltyCardTransactionsWithHttpInfo(@javax.annotation.Nonnull Long loyaltyProgramId, @javax.annotation.Nonnull String loyaltyCardId, @javax.annotation.Nullable List<String> subledgerId, @javax.annotation.Nullable String loyaltyTransactionType, @javax.annotation.Nullable OffsetDateTime startDate, @javax.annotation.Nullable OffsetDateTime endDate, @javax.annotation.Nullable List<String> customerSessionIDs, @javax.annotation.Nullable List<String> transactionUUIDs, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip) throws ApiException {
+        okhttp3.Call localVarCall = getLoyaltyCardTransactionsValidateBeforeCall(loyaltyProgramId, loyaltyCardId, subledgerId, loyaltyTransactionType, startDate, endDate, customerSessionIDs, transactionUUIDs, pageSize, skip, null);
         Type localVarReturnType = new TypeToken<GetLoyaltyCardTransactions200Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -2943,7 +2936,6 @@ public class IntegrationApi {
      * @param transactionUUIDs Filter the results by a list of transaction UUIDs.  To include multiple IDs, repeat the parameter for each one, for example,  &#x60;?transactionUUIDs&#x3D;uuid1&amp;transactionUUIDs&#x3D;uuid2&#x60;.  The response contains only data associated with the specified transactions.  (optional)
      * @param pageSize The number of items in the response. (optional, default to 50)
      * @param skip The number of items to skip when paging through large result sets. (optional)
-     * @param awaitsActivation If &#x60;true&#x60;: Filters results to include only point transactions that have action-based activation and have not expired. If &#x60;false&#x60;: Returns an error.  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -2957,9 +2949,9 @@ public class IntegrationApi {
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getLoyaltyCardTransactionsAsync(@javax.annotation.Nonnull Long loyaltyProgramId, @javax.annotation.Nonnull String loyaltyCardId, @javax.annotation.Nullable List<String> subledgerId, @javax.annotation.Nullable String loyaltyTransactionType, @javax.annotation.Nullable OffsetDateTime startDate, @javax.annotation.Nullable OffsetDateTime endDate, @javax.annotation.Nullable List<String> customerSessionIDs, @javax.annotation.Nullable List<String> transactionUUIDs, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable Boolean awaitsActivation, final ApiCallback<GetLoyaltyCardTransactions200Response> _callback) throws ApiException {
+    public okhttp3.Call getLoyaltyCardTransactionsAsync(@javax.annotation.Nonnull Long loyaltyProgramId, @javax.annotation.Nonnull String loyaltyCardId, @javax.annotation.Nullable List<String> subledgerId, @javax.annotation.Nullable String loyaltyTransactionType, @javax.annotation.Nullable OffsetDateTime startDate, @javax.annotation.Nullable OffsetDateTime endDate, @javax.annotation.Nullable List<String> customerSessionIDs, @javax.annotation.Nullable List<String> transactionUUIDs, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, final ApiCallback<GetLoyaltyCardTransactions200Response> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getLoyaltyCardTransactionsValidateBeforeCall(loyaltyProgramId, loyaltyCardId, subledgerId, loyaltyTransactionType, startDate, endDate, customerSessionIDs, transactionUUIDs, pageSize, skip, awaitsActivation, _callback);
+        okhttp3.Call localVarCall = getLoyaltyCardTransactionsValidateBeforeCall(loyaltyProgramId, loyaltyCardId, subledgerId, loyaltyTransactionType, startDate, endDate, customerSessionIDs, transactionUUIDs, pageSize, skip, _callback);
         Type localVarReturnType = new TypeToken<GetLoyaltyCardTransactions200Response>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -3181,7 +3173,6 @@ public class IntegrationApi {
      * @param endDate Date and time by which results are returned. Results are filtered by transaction creation date.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered.  (optional)
      * @param pageSize The number of items in the response. (optional, default to 50)
      * @param skip The number of items to skip when paging through large result sets. (optional)
-     * @param awaitsActivation If &#x60;true&#x60;: Filters results to include only point transactions that have action-based activation and have not expired. If &#x60;false&#x60;: Returns an error.  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -3195,7 +3186,7 @@ public class IntegrationApi {
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getLoyaltyProgramProfileTransactionsCall(@javax.annotation.Nonnull Long loyaltyProgramId, @javax.annotation.Nonnull String integrationId, @javax.annotation.Nullable List<String> customerSessionIDs, @javax.annotation.Nullable List<String> transactionUUIDs, @javax.annotation.Nullable String subledgerId, @javax.annotation.Nullable String loyaltyTransactionType, @javax.annotation.Nullable OffsetDateTime startDate, @javax.annotation.Nullable OffsetDateTime endDate, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable Boolean awaitsActivation, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getLoyaltyProgramProfileTransactionsCall(@javax.annotation.Nonnull Long loyaltyProgramId, @javax.annotation.Nonnull String integrationId, @javax.annotation.Nullable List<String> customerSessionIDs, @javax.annotation.Nullable List<String> transactionUUIDs, @javax.annotation.Nullable String subledgerId, @javax.annotation.Nullable String loyaltyTransactionType, @javax.annotation.Nullable OffsetDateTime startDate, @javax.annotation.Nullable OffsetDateTime endDate, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -3254,10 +3245,6 @@ public class IntegrationApi {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("skip", skip));
         }
 
-        if (awaitsActivation != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("awaitsActivation", awaitsActivation));
-        }
-
         final String[] localVarAccepts = {
             "application/json"
         };
@@ -3278,7 +3265,7 @@ public class IntegrationApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getLoyaltyProgramProfileTransactionsValidateBeforeCall(@javax.annotation.Nonnull Long loyaltyProgramId, @javax.annotation.Nonnull String integrationId, @javax.annotation.Nullable List<String> customerSessionIDs, @javax.annotation.Nullable List<String> transactionUUIDs, @javax.annotation.Nullable String subledgerId, @javax.annotation.Nullable String loyaltyTransactionType, @javax.annotation.Nullable OffsetDateTime startDate, @javax.annotation.Nullable OffsetDateTime endDate, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable Boolean awaitsActivation, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getLoyaltyProgramProfileTransactionsValidateBeforeCall(@javax.annotation.Nonnull Long loyaltyProgramId, @javax.annotation.Nonnull String integrationId, @javax.annotation.Nullable List<String> customerSessionIDs, @javax.annotation.Nullable List<String> transactionUUIDs, @javax.annotation.Nullable String subledgerId, @javax.annotation.Nullable String loyaltyTransactionType, @javax.annotation.Nullable OffsetDateTime startDate, @javax.annotation.Nullable OffsetDateTime endDate, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'loyaltyProgramId' is set
         if (loyaltyProgramId == null) {
             throw new ApiException("Missing the required parameter 'loyaltyProgramId' when calling getLoyaltyProgramProfileTransactions(Async)");
@@ -3289,7 +3276,7 @@ public class IntegrationApi {
             throw new ApiException("Missing the required parameter 'integrationId' when calling getLoyaltyProgramProfileTransactions(Async)");
         }
 
-        return getLoyaltyProgramProfileTransactionsCall(loyaltyProgramId, integrationId, customerSessionIDs, transactionUUIDs, subledgerId, loyaltyTransactionType, startDate, endDate, pageSize, skip, awaitsActivation, _callback);
+        return getLoyaltyProgramProfileTransactionsCall(loyaltyProgramId, integrationId, customerSessionIDs, transactionUUIDs, subledgerId, loyaltyTransactionType, startDate, endDate, pageSize, skip, _callback);
 
     }
 
@@ -3306,7 +3293,6 @@ public class IntegrationApi {
      * @param endDate Date and time by which results are returned. Results are filtered by transaction creation date.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered.  (optional)
      * @param pageSize The number of items in the response. (optional, default to 50)
      * @param skip The number of items to skip when paging through large result sets. (optional)
-     * @param awaitsActivation If &#x60;true&#x60;: Filters results to include only point transactions that have action-based activation and have not expired. If &#x60;false&#x60;: Returns an error.  (optional)
      * @return GetLoyaltyProgramProfileTransactions200Response
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -3319,8 +3305,8 @@ public class IntegrationApi {
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
      */
-    public GetLoyaltyProgramProfileTransactions200Response getLoyaltyProgramProfileTransactions(@javax.annotation.Nonnull Long loyaltyProgramId, @javax.annotation.Nonnull String integrationId, @javax.annotation.Nullable List<String> customerSessionIDs, @javax.annotation.Nullable List<String> transactionUUIDs, @javax.annotation.Nullable String subledgerId, @javax.annotation.Nullable String loyaltyTransactionType, @javax.annotation.Nullable OffsetDateTime startDate, @javax.annotation.Nullable OffsetDateTime endDate, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable Boolean awaitsActivation) throws ApiException {
-        ApiResponse<GetLoyaltyProgramProfileTransactions200Response> localVarResp = getLoyaltyProgramProfileTransactionsWithHttpInfo(loyaltyProgramId, integrationId, customerSessionIDs, transactionUUIDs, subledgerId, loyaltyTransactionType, startDate, endDate, pageSize, skip, awaitsActivation);
+    public GetLoyaltyProgramProfileTransactions200Response getLoyaltyProgramProfileTransactions(@javax.annotation.Nonnull Long loyaltyProgramId, @javax.annotation.Nonnull String integrationId, @javax.annotation.Nullable List<String> customerSessionIDs, @javax.annotation.Nullable List<String> transactionUUIDs, @javax.annotation.Nullable String subledgerId, @javax.annotation.Nullable String loyaltyTransactionType, @javax.annotation.Nullable OffsetDateTime startDate, @javax.annotation.Nullable OffsetDateTime endDate, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip) throws ApiException {
+        ApiResponse<GetLoyaltyProgramProfileTransactions200Response> localVarResp = getLoyaltyProgramProfileTransactionsWithHttpInfo(loyaltyProgramId, integrationId, customerSessionIDs, transactionUUIDs, subledgerId, loyaltyTransactionType, startDate, endDate, pageSize, skip);
         return localVarResp.getData();
     }
 
@@ -3337,7 +3323,6 @@ public class IntegrationApi {
      * @param endDate Date and time by which results are returned. Results are filtered by transaction creation date.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered.  (optional)
      * @param pageSize The number of items in the response. (optional, default to 50)
      * @param skip The number of items to skip when paging through large result sets. (optional)
-     * @param awaitsActivation If &#x60;true&#x60;: Filters results to include only point transactions that have action-based activation and have not expired. If &#x60;false&#x60;: Returns an error.  (optional)
      * @return ApiResponse&lt;GetLoyaltyProgramProfileTransactions200Response&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -3350,8 +3335,8 @@ public class IntegrationApi {
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<GetLoyaltyProgramProfileTransactions200Response> getLoyaltyProgramProfileTransactionsWithHttpInfo(@javax.annotation.Nonnull Long loyaltyProgramId, @javax.annotation.Nonnull String integrationId, @javax.annotation.Nullable List<String> customerSessionIDs, @javax.annotation.Nullable List<String> transactionUUIDs, @javax.annotation.Nullable String subledgerId, @javax.annotation.Nullable String loyaltyTransactionType, @javax.annotation.Nullable OffsetDateTime startDate, @javax.annotation.Nullable OffsetDateTime endDate, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable Boolean awaitsActivation) throws ApiException {
-        okhttp3.Call localVarCall = getLoyaltyProgramProfileTransactionsValidateBeforeCall(loyaltyProgramId, integrationId, customerSessionIDs, transactionUUIDs, subledgerId, loyaltyTransactionType, startDate, endDate, pageSize, skip, awaitsActivation, null);
+    public ApiResponse<GetLoyaltyProgramProfileTransactions200Response> getLoyaltyProgramProfileTransactionsWithHttpInfo(@javax.annotation.Nonnull Long loyaltyProgramId, @javax.annotation.Nonnull String integrationId, @javax.annotation.Nullable List<String> customerSessionIDs, @javax.annotation.Nullable List<String> transactionUUIDs, @javax.annotation.Nullable String subledgerId, @javax.annotation.Nullable String loyaltyTransactionType, @javax.annotation.Nullable OffsetDateTime startDate, @javax.annotation.Nullable OffsetDateTime endDate, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip) throws ApiException {
+        okhttp3.Call localVarCall = getLoyaltyProgramProfileTransactionsValidateBeforeCall(loyaltyProgramId, integrationId, customerSessionIDs, transactionUUIDs, subledgerId, loyaltyTransactionType, startDate, endDate, pageSize, skip, null);
         Type localVarReturnType = new TypeToken<GetLoyaltyProgramProfileTransactions200Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -3369,7 +3354,6 @@ public class IntegrationApi {
      * @param endDate Date and time by which results are returned. Results are filtered by transaction creation date.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered.  (optional)
      * @param pageSize The number of items in the response. (optional, default to 50)
      * @param skip The number of items to skip when paging through large result sets. (optional)
-     * @param awaitsActivation If &#x60;true&#x60;: Filters results to include only point transactions that have action-based activation and have not expired. If &#x60;false&#x60;: Returns an error.  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -3383,9 +3367,9 @@ public class IntegrationApi {
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getLoyaltyProgramProfileTransactionsAsync(@javax.annotation.Nonnull Long loyaltyProgramId, @javax.annotation.Nonnull String integrationId, @javax.annotation.Nullable List<String> customerSessionIDs, @javax.annotation.Nullable List<String> transactionUUIDs, @javax.annotation.Nullable String subledgerId, @javax.annotation.Nullable String loyaltyTransactionType, @javax.annotation.Nullable OffsetDateTime startDate, @javax.annotation.Nullable OffsetDateTime endDate, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable Boolean awaitsActivation, final ApiCallback<GetLoyaltyProgramProfileTransactions200Response> _callback) throws ApiException {
+    public okhttp3.Call getLoyaltyProgramProfileTransactionsAsync(@javax.annotation.Nonnull Long loyaltyProgramId, @javax.annotation.Nonnull String integrationId, @javax.annotation.Nullable List<String> customerSessionIDs, @javax.annotation.Nullable List<String> transactionUUIDs, @javax.annotation.Nullable String subledgerId, @javax.annotation.Nullable String loyaltyTransactionType, @javax.annotation.Nullable OffsetDateTime startDate, @javax.annotation.Nullable OffsetDateTime endDate, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, final ApiCallback<GetLoyaltyProgramProfileTransactions200Response> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getLoyaltyProgramProfileTransactionsValidateBeforeCall(loyaltyProgramId, integrationId, customerSessionIDs, transactionUUIDs, subledgerId, loyaltyTransactionType, startDate, endDate, pageSize, skip, awaitsActivation, _callback);
+        okhttp3.Call localVarCall = getLoyaltyProgramProfileTransactionsValidateBeforeCall(loyaltyProgramId, integrationId, customerSessionIDs, transactionUUIDs, subledgerId, loyaltyTransactionType, startDate, endDate, pageSize, skip, _callback);
         Type localVarReturnType = new TypeToken<GetLoyaltyProgramProfileTransactions200Response>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

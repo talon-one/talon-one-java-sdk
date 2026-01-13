@@ -368,8 +368,7 @@ public class IntegrationApiTest {
         List<String> transactionUUIDs = null;
         Long pageSize = null;
         Long skip = null;
-        Boolean awaitsActivation = null;
-        GetLoyaltyCardTransactions200Response response = api.getLoyaltyCardTransactions(loyaltyProgramId, loyaltyCardId, subledgerId, loyaltyTransactionType, startDate, endDate, customerSessionIDs, transactionUUIDs, pageSize, skip, awaitsActivation);
+        GetLoyaltyCardTransactions200Response response = api.getLoyaltyCardTransactions(loyaltyProgramId, loyaltyCardId, subledgerId, loyaltyTransactionType, startDate, endDate, customerSessionIDs, transactionUUIDs, pageSize, skip);
         // TODO: test validations
     }
 
@@ -414,8 +413,7 @@ public class IntegrationApiTest {
         OffsetDateTime endDate = null;
         Long pageSize = null;
         Long skip = null;
-        Boolean awaitsActivation = null;
-        GetLoyaltyProgramProfileTransactions200Response response = api.getLoyaltyProgramProfileTransactions(loyaltyProgramId, integrationId, customerSessionIDs, transactionUUIDs, subledgerId, loyaltyTransactionType, startDate, endDate, pageSize, skip, awaitsActivation);
+        GetLoyaltyProgramProfileTransactions200Response response = api.getLoyaltyProgramProfileTransactions(loyaltyProgramId, integrationId, customerSessionIDs, transactionUUIDs, subledgerId, loyaltyTransactionType, startDate, endDate, pageSize, skip);
         // TODO: test validations
     }
 

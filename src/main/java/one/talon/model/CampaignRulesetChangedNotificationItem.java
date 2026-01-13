@@ -14,7 +14,6 @@
 package one.talon.model;
 
 import java.util.Objects;
-import java.util.Locale;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -22,7 +21,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.util.Arrays;
-import one.talon.model.Campaign;
 import one.talon.model.Ruleset;
 
 import com.google.gson.Gson;
@@ -45,14 +43,13 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-import java.util.Locale;
 
 import one.talon.JSON;
 
 /**
  * CampaignRulesetChangedNotificationItem
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.17.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.18.0")
 public class CampaignRulesetChangedNotificationItem {
   public static final String SERIALIZED_NAME_EVENT = "Event";
   @SerializedName(SERIALIZED_NAME_EVENT)
@@ -61,8 +58,8 @@ public class CampaignRulesetChangedNotificationItem {
 
   public static final String SERIALIZED_NAME_CAMPAIGN = "campaign";
   @SerializedName(SERIALIZED_NAME_CAMPAIGN)
-  @javax.annotation.Nonnull
-  private Campaign campaign;
+  @javax.annotation.Nullable
+  private Object campaign = null;
 
   public static final String SERIALIZED_NAME_OLD_RULESET = "oldRuleset";
   @SerializedName(SERIALIZED_NAME_OLD_RULESET)
@@ -96,7 +93,7 @@ public class CampaignRulesetChangedNotificationItem {
   }
 
 
-  public CampaignRulesetChangedNotificationItem campaign(@javax.annotation.Nonnull Campaign campaign) {
+  public CampaignRulesetChangedNotificationItem campaign(@javax.annotation.Nullable Object campaign) {
     this.campaign = campaign;
     return this;
   }
@@ -105,12 +102,12 @@ public class CampaignRulesetChangedNotificationItem {
    * The campaign whose state changed.
    * @return campaign
    */
-  @javax.annotation.Nonnull
-  public Campaign getCampaign() {
+  @javax.annotation.Nullable
+  public Object getCampaign() {
     return campaign;
   }
 
-  public void setCampaign(@javax.annotation.Nonnull Campaign campaign) {
+  public void setCampaign(@javax.annotation.Nullable Object campaign) {
     this.campaign = campaign;
   }
 
@@ -218,7 +215,7 @@ public class CampaignRulesetChangedNotificationItem {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!CampaignRulesetChangedNotificationItem.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field(s) %s in CampaignRulesetChangedNotificationItem is not found in the empty JSON string", CampaignRulesetChangedNotificationItem.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in CampaignRulesetChangedNotificationItem is not found in the empty JSON string", CampaignRulesetChangedNotificationItem.openapiRequiredFields.toString()));
         }
       }
 
@@ -226,22 +223,20 @@ public class CampaignRulesetChangedNotificationItem {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!CampaignRulesetChangedNotificationItem.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format(Locale.ROOT, "The field `%s` in the JSON string is not defined in the `CampaignRulesetChangedNotificationItem` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `CampaignRulesetChangedNotificationItem` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : CampaignRulesetChangedNotificationItem.openapiRequiredFields) {
         if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if (!jsonObj.get("Event").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `Event` to be a primitive type in the JSON string but got `%s`", jsonObj.get("Event").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `Event` to be a primitive type in the JSON string but got `%s`", jsonObj.get("Event").toString()));
       }
-      // validate the required field `campaign`
-      Campaign.validateJsonElement(jsonObj.get("campaign"));
       // validate the optional field `oldRuleset`
       if (jsonObj.get("oldRuleset") != null && !jsonObj.get("oldRuleset").isJsonNull()) {
         Ruleset.validateJsonElement(jsonObj.get("oldRuleset"));

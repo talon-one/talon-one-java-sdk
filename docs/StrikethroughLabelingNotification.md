@@ -13,9 +13,10 @@ The strikethrough labels notification for an application.
 |**applicationId** | **Long** | The ID of the Application to which the catalog items labels belongs. |  |
 |**currentBatch** | **Long** | The batch number of the notification. Notifications might be sent in different batches. |  |
 |**totalBatches** | **Long** | The total number of batches for the notification. |  |
-|**trigger** | [**StrikethroughTrigger**](StrikethroughTrigger.md) |  |  |
+|**trigger** | **StrikethroughTrigger** |  |  |
 |**changedItems** | [**List&lt;StrikethroughChangedItem&gt;**](StrikethroughChangedItem.md) |  |  |
-|**notificationType** | [**NotificationTypeEnum**](#NotificationTypeEnum) | The type of the notification |  |
+|**notificationType** | [**NotificationTypeEnum**](#NotificationTypeEnum) | The type of notification. |  |
+|**sentAt** | **OffsetDateTime** | Timestamp at which the notification was sent. |  |
 
 
 

@@ -1339,7 +1339,7 @@ public class Example {
 
 <a id="getLoyaltyCardTransactions"></a>
 # **getLoyaltyCardTransactions**
-> GetLoyaltyCardTransactions200Response getLoyaltyCardTransactions(loyaltyProgramId, loyaltyCardId, subledgerId, loyaltyTransactionType, startDate, endDate, customerSessionIDs, transactionUUIDs, pageSize, skip, awaitsActivation)
+> GetLoyaltyCardTransactions200Response getLoyaltyCardTransactions(loyaltyProgramId, loyaltyCardId, subledgerId, loyaltyTransactionType, startDate, endDate, customerSessionIDs, transactionUUIDs, pageSize, skip)
 
 List card&#39;s transactions
 
@@ -1377,9 +1377,8 @@ public class Example {
     List<String> transactionUUIDs = Arrays.asList(); // List<String> | Filter the results by a list of transaction UUIDs.  To include multiple IDs, repeat the parameter for each one, for example,  `?transactionUUIDs=uuid1&transactionUUIDs=uuid2`.  The response contains only data associated with the specified transactions. 
     Long pageSize = 50L; // Long | The number of items in the response.
     Long skip = 56L; // Long | The number of items to skip when paging through large result sets.
-    Boolean awaitsActivation = true; // Boolean | If `true`: Filters results to include only point transactions that have action-based activation and have not expired. If `false`: Returns an error. 
     try {
-      GetLoyaltyCardTransactions200Response result = apiInstance.getLoyaltyCardTransactions(loyaltyProgramId, loyaltyCardId, subledgerId, loyaltyTransactionType, startDate, endDate, customerSessionIDs, transactionUUIDs, pageSize, skip, awaitsActivation);
+      GetLoyaltyCardTransactions200Response result = apiInstance.getLoyaltyCardTransactions(loyaltyProgramId, loyaltyCardId, subledgerId, loyaltyTransactionType, startDate, endDate, customerSessionIDs, transactionUUIDs, pageSize, skip);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling IntegrationApi#getLoyaltyCardTransactions");
@@ -1406,7 +1405,6 @@ public class Example {
 | **transactionUUIDs** | [**List&lt;String&gt;**](String.md)| Filter the results by a list of transaction UUIDs.  To include multiple IDs, repeat the parameter for each one, for example,  &#x60;?transactionUUIDs&#x3D;uuid1&amp;transactionUUIDs&#x3D;uuid2&#x60;.  The response contains only data associated with the specified transactions.  | [optional] |
 | **pageSize** | **Long**| The number of items in the response. | [optional] [default to 50] |
 | **skip** | **Long**| The number of items to skip when paging through large result sets. | [optional] |
-| **awaitsActivation** | **Boolean**| If &#x60;true&#x60;: Filters results to include only point transactions that have action-based activation and have not expired. If &#x60;false&#x60;: Returns an error.  | [optional] |
 
 ### Return type
 
@@ -1519,7 +1517,7 @@ public class Example {
 
 <a id="getLoyaltyProgramProfileTransactions"></a>
 # **getLoyaltyProgramProfileTransactions**
-> GetLoyaltyProgramProfileTransactions200Response getLoyaltyProgramProfileTransactions(loyaltyProgramId, integrationId, customerSessionIDs, transactionUUIDs, subledgerId, loyaltyTransactionType, startDate, endDate, pageSize, skip, awaitsActivation)
+> GetLoyaltyProgramProfileTransactions200Response getLoyaltyProgramProfileTransactions(loyaltyProgramId, integrationId, customerSessionIDs, transactionUUIDs, subledgerId, loyaltyTransactionType, startDate, endDate, pageSize, skip)
 
 List customer&#39;s loyalty transactions
 
@@ -1557,9 +1555,8 @@ public class Example {
     OffsetDateTime endDate = OffsetDateTime.now(); // OffsetDateTime | Date and time by which results are returned. Results are filtered by transaction creation date.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, `T23:59:59` to specify the end of the day. The time zone setting considered is `UTC`. If you do not include a time component, a default time value of `T00:00:00` (midnight) in `UTC` is considered. 
     Long pageSize = 50L; // Long | The number of items in the response.
     Long skip = 56L; // Long | The number of items to skip when paging through large result sets.
-    Boolean awaitsActivation = true; // Boolean | If `true`: Filters results to include only point transactions that have action-based activation and have not expired. If `false`: Returns an error. 
     try {
-      GetLoyaltyProgramProfileTransactions200Response result = apiInstance.getLoyaltyProgramProfileTransactions(loyaltyProgramId, integrationId, customerSessionIDs, transactionUUIDs, subledgerId, loyaltyTransactionType, startDate, endDate, pageSize, skip, awaitsActivation);
+      GetLoyaltyProgramProfileTransactions200Response result = apiInstance.getLoyaltyProgramProfileTransactions(loyaltyProgramId, integrationId, customerSessionIDs, transactionUUIDs, subledgerId, loyaltyTransactionType, startDate, endDate, pageSize, skip);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling IntegrationApi#getLoyaltyProgramProfileTransactions");
@@ -1586,7 +1583,6 @@ public class Example {
 | **endDate** | **OffsetDateTime**| Date and time by which results are returned. Results are filtered by transaction creation date.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered.  | [optional] |
 | **pageSize** | **Long**| The number of items in the response. | [optional] [default to 50] |
 | **skip** | **Long**| The number of items to skip when paging through large result sets. | [optional] |
-| **awaitsActivation** | **Boolean**| If &#x60;true&#x60;: Filters results to include only point transactions that have action-based activation and have not expired. If &#x60;false&#x60;: Returns an error.  | [optional] |
 
 ### Return type
 

@@ -14,7 +14,6 @@
 package one.talon.model;
 
 import java.util.Objects;
-import java.util.Locale;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -44,14 +43,13 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-import java.util.Locale;
 
 import one.talon.JSON;
 
 /**
  * The properties specific to the \&quot;changeLoyaltyTierLevel\&quot; effect. This is triggered whenever the user&#39;s loyalty tier is upgraded due to a validated rule that contained an \&quot;addLoyaltyPoints\&quot; effect. 
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.17.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.18.0")
 public class ChangeLoyaltyTierLevelEffectProps {
   public static final String SERIALIZED_NAME_RULE_TITLE = "ruleTitle";
   @SerializedName(SERIALIZED_NAME_RULE_TITLE)
@@ -269,7 +267,7 @@ public class ChangeLoyaltyTierLevelEffectProps {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!ChangeLoyaltyTierLevelEffectProps.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field(s) %s in ChangeLoyaltyTierLevelEffectProps is not found in the empty JSON string", ChangeLoyaltyTierLevelEffectProps.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in ChangeLoyaltyTierLevelEffectProps is not found in the empty JSON string", ChangeLoyaltyTierLevelEffectProps.openapiRequiredFields.toString()));
         }
       }
 
@@ -277,28 +275,28 @@ public class ChangeLoyaltyTierLevelEffectProps {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!ChangeLoyaltyTierLevelEffectProps.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format(Locale.ROOT, "The field `%s` in the JSON string is not defined in the `ChangeLoyaltyTierLevelEffectProps` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `ChangeLoyaltyTierLevelEffectProps` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : ChangeLoyaltyTierLevelEffectProps.openapiRequiredFields) {
         if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if (!jsonObj.get("ruleTitle").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `ruleTitle` to be a primitive type in the JSON string but got `%s`", jsonObj.get("ruleTitle").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `ruleTitle` to be a primitive type in the JSON string but got `%s`", jsonObj.get("ruleTitle").toString()));
       }
       if (!jsonObj.get("subLedgerId").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `subLedgerId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("subLedgerId").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `subLedgerId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("subLedgerId").toString()));
       }
       if ((jsonObj.get("previousTierName") != null && !jsonObj.get("previousTierName").isJsonNull()) && !jsonObj.get("previousTierName").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `previousTierName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("previousTierName").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `previousTierName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("previousTierName").toString()));
       }
       if (!jsonObj.get("newTierName").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `newTierName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("newTierName").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `newTierName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("newTierName").toString()));
       }
   }
 

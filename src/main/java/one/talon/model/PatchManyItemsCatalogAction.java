@@ -14,7 +14,6 @@
 package one.talon.model;
 
 import java.util.Objects;
-import java.util.Locale;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -47,14 +46,13 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-import java.util.Locale;
 
 import one.talon.JSON;
 
 /**
  * The specific properties of the \&quot;PATCH_MANY\&quot; catalog sync action.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.17.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.18.0")
 public class PatchManyItemsCatalogAction {
   public static final String SERIALIZED_NAME_PRICE = "price";
   @SerializedName(SERIALIZED_NAME_PRICE)
@@ -202,7 +200,7 @@ public class PatchManyItemsCatalogAction {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!PatchManyItemsCatalogAction.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field(s) %s in PatchManyItemsCatalogAction is not found in the empty JSON string", PatchManyItemsCatalogAction.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in PatchManyItemsCatalogAction is not found in the empty JSON string", PatchManyItemsCatalogAction.openapiRequiredFields.toString()));
         }
       }
 
@@ -210,7 +208,7 @@ public class PatchManyItemsCatalogAction {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!PatchManyItemsCatalogAction.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format(Locale.ROOT, "The field `%s` in the JSON string is not defined in the `PatchManyItemsCatalogAction` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `PatchManyItemsCatalogAction` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
@@ -219,7 +217,7 @@ public class PatchManyItemsCatalogAction {
         if (jsonArrayfilters != null) {
           // ensure the json data is an array
           if (!jsonObj.get("filters").isJsonArray()) {
-            throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `filters` to be an array in the JSON string but got `%s`", jsonObj.get("filters").toString()));
+            throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `filters` to be an array in the JSON string but got `%s`", jsonObj.get("filters").toString()));
           }
 
           // validate the optional field `filters` (array)

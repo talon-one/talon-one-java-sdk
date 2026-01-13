@@ -15,7 +15,7 @@ The properties specific to the \"rollbackAddedLoyaltyPoints\" effect. This gets 
 |**transactionUUID** | **String** | The identifier of &#39;deduction&#39; entry added to the ledger as the &#x60;addLoyaltyPoints&#x60; effect is rolled back. |  |
 |**cartItemPosition** | **BigDecimal** | The index of the item in the cart items for which the loyalty points were rolled back. |  [optional] |
 |**cartItemSubPosition** | **BigDecimal** | For cart items with &#x60;quantity&#x60; &gt; 1, the sub-position indicates to which item the loyalty points were rolled back.  |  [optional] |
-|**cardIdentifier** | **String** | The alphanumeric identifier of the loyalty card.  |  [optional] |
+|**cardIdentifier** | **String** | The card on which these points were originally added. |  [optional] |
 
 
 

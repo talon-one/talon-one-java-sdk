@@ -14,7 +14,6 @@
 package one.talon.model;
 
 import java.util.Objects;
-import java.util.Locale;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -46,14 +45,13 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-import java.util.Locale;
 
 import one.talon.JSON;
 
 /**
  * CreateAchievement
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.17.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.18.0")
 public class CreateAchievement {
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
@@ -81,6 +79,7 @@ public class CreateAchievement {
   private String period;
 
   public static final String SERIALIZED_NAME_PERIOD_END_OVERRIDE = "periodEndOverride";
+  @Deprecated
   @SerializedName(SERIALIZED_NAME_PERIOD_END_OVERRIDE)
   @javax.annotation.Nullable
   private TimePoint periodEndOverride;
@@ -314,6 +313,7 @@ public class CreateAchievement {
   }
 
 
+  @Deprecated
   public CreateAchievement periodEndOverride(@javax.annotation.Nullable TimePoint periodEndOverride) {
     this.periodEndOverride = periodEndOverride;
     return this;
@@ -322,12 +322,15 @@ public class CreateAchievement {
   /**
    * Get periodEndOverride
    * @return periodEndOverride
+   * @deprecated
    */
+  @Deprecated
   @javax.annotation.Nullable
   public TimePoint getPeriodEndOverride() {
     return periodEndOverride;
   }
 
+  @Deprecated
   public void setPeriodEndOverride(@javax.annotation.Nullable TimePoint periodEndOverride) {
     this.periodEndOverride = periodEndOverride;
   }
@@ -507,7 +510,7 @@ public class CreateAchievement {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!CreateAchievement.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field(s) %s in CreateAchievement is not found in the empty JSON string", CreateAchievement.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in CreateAchievement is not found in the empty JSON string", CreateAchievement.openapiRequiredFields.toString()));
         }
       }
 
@@ -515,42 +518,42 @@ public class CreateAchievement {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!CreateAchievement.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format(Locale.ROOT, "The field `%s` in the JSON string is not defined in the `CreateAchievement` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `CreateAchievement` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : CreateAchievement.openapiRequiredFields) {
         if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if (!jsonObj.get("name").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
       }
       if (!jsonObj.get("title").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `title` to be a primitive type in the JSON string but got `%s`", jsonObj.get("title").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `title` to be a primitive type in the JSON string but got `%s`", jsonObj.get("title").toString()));
       }
       if (!jsonObj.get("description").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `description` to be a primitive type in the JSON string but got `%s`", jsonObj.get("description").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `description` to be a primitive type in the JSON string but got `%s`", jsonObj.get("description").toString()));
       }
       if ((jsonObj.get("period") != null && !jsonObj.get("period").isJsonNull()) && !jsonObj.get("period").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `period` to be a primitive type in the JSON string but got `%s`", jsonObj.get("period").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `period` to be a primitive type in the JSON string but got `%s`", jsonObj.get("period").toString()));
       }
       // validate the optional field `periodEndOverride`
       if (jsonObj.get("periodEndOverride") != null && !jsonObj.get("periodEndOverride").isJsonNull()) {
         TimePoint.validateJsonElement(jsonObj.get("periodEndOverride"));
       }
       if ((jsonObj.get("recurrencePolicy") != null && !jsonObj.get("recurrencePolicy").isJsonNull()) && !jsonObj.get("recurrencePolicy").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `recurrencePolicy` to be a primitive type in the JSON string but got `%s`", jsonObj.get("recurrencePolicy").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `recurrencePolicy` to be a primitive type in the JSON string but got `%s`", jsonObj.get("recurrencePolicy").toString()));
       }
       // validate the optional field `recurrencePolicy`
       if (jsonObj.get("recurrencePolicy") != null && !jsonObj.get("recurrencePolicy").isJsonNull()) {
         RecurrencePolicyEnum.validateJsonElement(jsonObj.get("recurrencePolicy"));
       }
       if ((jsonObj.get("activationPolicy") != null && !jsonObj.get("activationPolicy").isJsonNull()) && !jsonObj.get("activationPolicy").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `activationPolicy` to be a primitive type in the JSON string but got `%s`", jsonObj.get("activationPolicy").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `activationPolicy` to be a primitive type in the JSON string but got `%s`", jsonObj.get("activationPolicy").toString()));
       }
       // validate the optional field `activationPolicy`
       if (jsonObj.get("activationPolicy") != null && !jsonObj.get("activationPolicy").isJsonNull()) {

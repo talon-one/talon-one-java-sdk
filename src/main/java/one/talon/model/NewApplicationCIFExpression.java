@@ -14,7 +14,6 @@
 package one.talon.model;
 
 import java.util.Objects;
-import java.util.Locale;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -45,14 +44,13 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-import java.util.Locale;
 
 import one.talon.JSON;
 
 /**
  * NewApplicationCIFExpression
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.17.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.18.0")
 public class NewApplicationCIFExpression {
   public static final String SERIALIZED_NAME_CART_ITEM_FILTER_ID = "cartItemFilterId";
   @SerializedName(SERIALIZED_NAME_CART_ITEM_FILTER_ID)
@@ -200,7 +198,7 @@ public class NewApplicationCIFExpression {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!NewApplicationCIFExpression.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field(s) %s in NewApplicationCIFExpression is not found in the empty JSON string", NewApplicationCIFExpression.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in NewApplicationCIFExpression is not found in the empty JSON string", NewApplicationCIFExpression.openapiRequiredFields.toString()));
         }
       }
 
@@ -208,13 +206,13 @@ public class NewApplicationCIFExpression {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!NewApplicationCIFExpression.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format(Locale.ROOT, "The field `%s` in the JSON string is not defined in the `NewApplicationCIFExpression` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `NewApplicationCIFExpression` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       // ensure the optional json data is an array if present
       if (jsonObj.get("expression") != null && !jsonObj.get("expression").isJsonNull() && !jsonObj.get("expression").isJsonArray()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `expression` to be an array in the JSON string but got `%s`", jsonObj.get("expression").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `expression` to be an array in the JSON string but got `%s`", jsonObj.get("expression").toString()));
       }
   }
 

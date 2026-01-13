@@ -15,7 +15,7 @@ The properties specific to the \"rollbackDeductedLoyaltyPoints\" effect. This ef
 |**startDate** | **OffsetDateTime** | Date after which the reimbursed points will be valid. |  [optional] |
 |**expiryDate** | **OffsetDateTime** | Date after which the reimbursed points will expire. |  [optional] |
 |**transactionUUID** | **String** | The identifier of &#39;addition&#39; entries added to the ledger as the &#x60;deductLoyaltyPoints&#x60; effect is rolled back. |  |
-|**cardIdentifier** | **String** | The alphanumeric identifier of the loyalty card.  |  [optional] |
+|**cardIdentifier** | **String** | The card on which these points were added. |  [optional] |
 
 
 

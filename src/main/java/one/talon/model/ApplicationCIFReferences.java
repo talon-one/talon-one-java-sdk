@@ -14,7 +14,6 @@
 package one.talon.model;
 
 import java.util.Objects;
-import java.util.Locale;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -46,14 +45,13 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-import java.util.Locale;
 
 import one.talon.JSON;
 
 /**
  * ApplicationCIFReferences
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.17.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.18.0")
 public class ApplicationCIFReferences {
   public static final String SERIALIZED_NAME_APPLICATION_CART_ITEM_FILTER_ID = "applicationCartItemFilterId";
   @SerializedName(SERIALIZED_NAME_APPLICATION_CART_ITEM_FILTER_ID)
@@ -175,7 +173,7 @@ public class ApplicationCIFReferences {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!ApplicationCIFReferences.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field(s) %s in ApplicationCIFReferences is not found in the empty JSON string", ApplicationCIFReferences.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in ApplicationCIFReferences is not found in the empty JSON string", ApplicationCIFReferences.openapiRequiredFields.toString()));
         }
       }
 
@@ -183,7 +181,7 @@ public class ApplicationCIFReferences {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!ApplicationCIFReferences.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format(Locale.ROOT, "The field `%s` in the JSON string is not defined in the `ApplicationCIFReferences` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `ApplicationCIFReferences` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
@@ -192,7 +190,7 @@ public class ApplicationCIFReferences {
         if (jsonArraycampaigns != null) {
           // ensure the json data is an array
           if (!jsonObj.get("campaigns").isJsonArray()) {
-            throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `campaigns` to be an array in the JSON string but got `%s`", jsonObj.get("campaigns").toString()));
+            throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `campaigns` to be an array in the JSON string but got `%s`", jsonObj.get("campaigns").toString()));
           }
 
           // validate the optional field `campaigns` (array)
