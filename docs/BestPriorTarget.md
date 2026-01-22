@@ -1,6 +1,6 @@
 
 
-# BestPriorPriceRequestTarget
+# BestPriorTarget
 
 Specifies the target for which the best prior price calculation is taken into consideration.
 

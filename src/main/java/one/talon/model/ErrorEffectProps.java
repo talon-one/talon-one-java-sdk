@@ -48,7 +48,7 @@ import one.talon.JSON;
 /**
  * Whenever an error occurred during evaluation, we return an error effect. This should never happen for rules created in the rule builder.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.18.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.19.0")
 public class ErrorEffectProps {
   public static final String SERIALIZED_NAME_MESSAGE = "message";
   @SerializedName(SERIALIZED_NAME_MESSAGE)

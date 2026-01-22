@@ -49,7 +49,7 @@ import one.talon.JSON;
 /**
  * PrismaticEventPayloadLoyaltyProfileBasedNotificationsAction
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.18.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.19.0")
 public class PrismaticEventPayloadLoyaltyProfileBasedNotificationsAction {
   public static final String SERIALIZED_NAME_AMOUNT = "Amount";
   @SerializedName(SERIALIZED_NAME_AMOUNT)

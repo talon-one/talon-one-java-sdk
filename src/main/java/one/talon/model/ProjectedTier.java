@@ -49,7 +49,7 @@ import one.talon.JSON;
 /**
  * ProjectedTier
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.18.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.19.0")
 public class ProjectedTier {
   public static final String SERIALIZED_NAME_PROJECTED_ACTIVE_POINTS = "projectedActivePoints";
   @SerializedName(SERIALIZED_NAME_PROJECTED_ACTIVE_POINTS)

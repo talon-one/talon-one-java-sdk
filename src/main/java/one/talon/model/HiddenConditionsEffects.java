@@ -50,7 +50,7 @@ import one.talon.JSON;
 /**
  * Contains information about hidden conditions and effects in the Application.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.18.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.19.0")
 public class HiddenConditionsEffects {
   public static final String SERIALIZED_NAME_BUILT_IN_EFFECTS = "builtInEffects";
   @SerializedName(SERIALIZED_NAME_BUILT_IN_EFFECTS)

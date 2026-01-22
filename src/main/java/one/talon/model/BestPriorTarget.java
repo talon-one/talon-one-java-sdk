@@ -48,8 +48,8 @@ import one.talon.JSON;
 /**
  * Specifies the target for which the best prior price calculation is taken into consideration.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.18.0")
-public class BestPriorPriceRequestTarget {
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.19.0")
+public class BestPriorTarget {
   /**
    * The type of price target.
    */
@@ -112,10 +112,10 @@ public class BestPriorPriceRequestTarget {
   @javax.annotation.Nullable
   private Long audienceID;
 
-  public BestPriorPriceRequestTarget() {
+  public BestPriorTarget() {
   }
 
-  public BestPriorPriceRequestTarget targetType(@javax.annotation.Nonnull TargetTypeEnum targetType) {
+  public BestPriorTarget targetType(@javax.annotation.Nonnull TargetTypeEnum targetType) {
     this.targetType = targetType;
     return this;
   }
@@ -134,7 +134,7 @@ public class BestPriorPriceRequestTarget {
   }
 
 
-  public BestPriorPriceRequestTarget audienceID(@javax.annotation.Nullable Long audienceID) {
+  public BestPriorTarget audienceID(@javax.annotation.Nullable Long audienceID) {
     this.audienceID = audienceID;
     return this;
   }
@@ -162,9 +162,9 @@ public class BestPriorPriceRequestTarget {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    BestPriorPriceRequestTarget bestPriorPriceRequestTarget = (BestPriorPriceRequestTarget) o;
-    return Objects.equals(this.targetType, bestPriorPriceRequestTarget.targetType) &&
-        Objects.equals(this.audienceID, bestPriorPriceRequestTarget.audienceID);
+    BestPriorTarget bestPriorTarget = (BestPriorTarget) o;
+    return Objects.equals(this.targetType, bestPriorTarget.targetType) &&
+        Objects.equals(this.audienceID, bestPriorTarget.audienceID);
   }
 
   @Override
@@ -175,7 +175,7 @@ public class BestPriorPriceRequestTarget {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class BestPriorPriceRequestTarget {\n");
+    sb.append("class BestPriorTarget {\n");
     sb.append("    targetType: ").append(toIndentedString(targetType)).append("\n");
     sb.append("    audienceID: ").append(toIndentedString(audienceID)).append("\n");
     sb.append("}");
@@ -209,25 +209,25 @@ public class BestPriorPriceRequestTarget {
    * Validates the JSON Element and throws an exception if issues found
    *
    * @param jsonElement JSON Element
-   * @throws IOException if the JSON Element is invalid with respect to BestPriorPriceRequestTarget
+   * @throws IOException if the JSON Element is invalid with respect to BestPriorTarget
    */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
-        if (!BestPriorPriceRequestTarget.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in BestPriorPriceRequestTarget is not found in the empty JSON string", BestPriorPriceRequestTarget.openapiRequiredFields.toString()));
+        if (!BestPriorTarget.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in BestPriorTarget is not found in the empty JSON string", BestPriorTarget.openapiRequiredFields.toString()));
         }
       }
 
       Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
-        if (!BestPriorPriceRequestTarget.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `BestPriorPriceRequestTarget` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+        if (!BestPriorTarget.openapiFields.contains(entry.getKey())) {
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `BestPriorTarget` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : BestPriorPriceRequestTarget.openapiRequiredFields) {
+      for (String requiredField : BestPriorTarget.openapiRequiredFields) {
         if (jsonElement.getAsJsonObject().get(requiredField) == null) {
           throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
@@ -244,22 +244,22 @@ public class BestPriorPriceRequestTarget {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!BestPriorPriceRequestTarget.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'BestPriorPriceRequestTarget' and its subtypes
+       if (!BestPriorTarget.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'BestPriorTarget' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<BestPriorPriceRequestTarget> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(BestPriorPriceRequestTarget.class));
+       final TypeAdapter<BestPriorTarget> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(BestPriorTarget.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<BestPriorPriceRequestTarget>() {
+       return (TypeAdapter<T>) new TypeAdapter<BestPriorTarget>() {
            @Override
-           public void write(JsonWriter out, BestPriorPriceRequestTarget value) throws IOException {
+           public void write(JsonWriter out, BestPriorTarget value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              elementAdapter.write(out, obj);
            }
 
            @Override
-           public BestPriorPriceRequestTarget read(JsonReader in) throws IOException {
+           public BestPriorTarget read(JsonReader in) throws IOException {
              JsonElement jsonElement = elementAdapter.read(in);
              validateJsonElement(jsonElement);
              return thisAdapter.fromJsonTree(jsonElement);
@@ -270,18 +270,18 @@ public class BestPriorPriceRequestTarget {
   }
 
   /**
-   * Create an instance of BestPriorPriceRequestTarget given an JSON string
+   * Create an instance of BestPriorTarget given an JSON string
    *
    * @param jsonString JSON string
-   * @return An instance of BestPriorPriceRequestTarget
-   * @throws IOException if the JSON string is invalid with respect to BestPriorPriceRequestTarget
+   * @return An instance of BestPriorTarget
+   * @throws IOException if the JSON string is invalid with respect to BestPriorTarget
    */
-  public static BestPriorPriceRequestTarget fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, BestPriorPriceRequestTarget.class);
+  public static BestPriorTarget fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, BestPriorTarget.class);
   }
 
   /**
-   * Convert an instance of BestPriorPriceRequestTarget to an JSON string
+   * Convert an instance of BestPriorTarget to an JSON string
    *
    * @return JSON string
    */

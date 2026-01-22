@@ -52,8 +52,38 @@ import one.talon.JSON;
 /**
  * WebhookAuthentication
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.18.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.19.0")
 public class WebhookAuthentication {
+  public static final String SERIALIZED_NAME_ID = "id";
+  @SerializedName(SERIALIZED_NAME_ID)
+  @javax.annotation.Nonnull
+  private Long id;
+
+  public static final String SERIALIZED_NAME_CREATED = "created";
+  @SerializedName(SERIALIZED_NAME_CREATED)
+  @javax.annotation.Nonnull
+  private OffsetDateTime created;
+
+  public static final String SERIALIZED_NAME_MODIFIED = "modified";
+  @SerializedName(SERIALIZED_NAME_MODIFIED)
+  @javax.annotation.Nonnull
+  private OffsetDateTime modified;
+
+  public static final String SERIALIZED_NAME_CREATED_BY = "createdBy";
+  @SerializedName(SERIALIZED_NAME_CREATED_BY)
+  @javax.annotation.Nonnull
+  private String createdBy;
+
+  public static final String SERIALIZED_NAME_MODIFIED_BY = "modifiedBy";
+  @SerializedName(SERIALIZED_NAME_MODIFIED_BY)
+  @javax.annotation.Nonnull
+  private String modifiedBy;
+
+  public static final String SERIALIZED_NAME_WEBHOOKS = "webhooks";
+  @SerializedName(SERIALIZED_NAME_WEBHOOKS)
+  @javax.annotation.Nonnull
+  private List<WebhookAuthenticationWebhookRef> webhooks = new ArrayList<>();
+
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
   @javax.annotation.Nonnull
@@ -121,95 +151,8 @@ public class WebhookAuthentication {
   @javax.annotation.Nullable
   private Object data = null;
 
-  public static final String SERIALIZED_NAME_ID = "id";
-  @SerializedName(SERIALIZED_NAME_ID)
-  @javax.annotation.Nonnull
-  private Long id;
-
-  public static final String SERIALIZED_NAME_CREATED = "created";
-  @SerializedName(SERIALIZED_NAME_CREATED)
-  @javax.annotation.Nonnull
-  private OffsetDateTime created;
-
-  public static final String SERIALIZED_NAME_MODIFIED = "modified";
-  @SerializedName(SERIALIZED_NAME_MODIFIED)
-  @javax.annotation.Nonnull
-  private OffsetDateTime modified;
-
-  public static final String SERIALIZED_NAME_CREATED_BY = "createdBy";
-  @SerializedName(SERIALIZED_NAME_CREATED_BY)
-  @javax.annotation.Nonnull
-  private String createdBy;
-
-  public static final String SERIALIZED_NAME_MODIFIED_BY = "modifiedBy";
-  @SerializedName(SERIALIZED_NAME_MODIFIED_BY)
-  @javax.annotation.Nonnull
-  private String modifiedBy;
-
-  public static final String SERIALIZED_NAME_WEBHOOKS = "webhooks";
-  @SerializedName(SERIALIZED_NAME_WEBHOOKS)
-  @javax.annotation.Nonnull
-  private List<WebhookAuthenticationWebhookRef> webhooks = new ArrayList<>();
-
   public WebhookAuthentication() {
   }
-
-  public WebhookAuthentication name(@javax.annotation.Nonnull String name) {
-    this.name = name;
-    return this;
-  }
-
-  /**
-   * The name of the webhook authentication.
-   * @return name
-   */
-  @javax.annotation.Nonnull
-  public String getName() {
-    return name;
-  }
-
-  public void setName(@javax.annotation.Nonnull String name) {
-    this.name = name;
-  }
-
-
-  public WebhookAuthentication type(@javax.annotation.Nonnull TypeEnum type) {
-    this.type = type;
-    return this;
-  }
-
-  /**
-   * Get type
-   * @return type
-   */
-  @javax.annotation.Nonnull
-  public TypeEnum getType() {
-    return type;
-  }
-
-  public void setType(@javax.annotation.Nonnull TypeEnum type) {
-    this.type = type;
-  }
-
-
-  public WebhookAuthentication data(@javax.annotation.Nullable Object data) {
-    this.data = data;
-    return this;
-  }
-
-  /**
-   * Get data
-   * @return data
-   */
-  @javax.annotation.Nullable
-  public Object getData() {
-    return data;
-  }
-
-  public void setData(@javax.annotation.Nullable Object data) {
-    this.data = data;
-  }
-
 
   public WebhookAuthentication id(@javax.annotation.Nonnull Long id) {
     this.id = id;
@@ -333,6 +276,63 @@ public class WebhookAuthentication {
   }
 
 
+  public WebhookAuthentication name(@javax.annotation.Nonnull String name) {
+    this.name = name;
+    return this;
+  }
+
+  /**
+   * The name of the webhook authentication.
+   * @return name
+   */
+  @javax.annotation.Nonnull
+  public String getName() {
+    return name;
+  }
+
+  public void setName(@javax.annotation.Nonnull String name) {
+    this.name = name;
+  }
+
+
+  public WebhookAuthentication type(@javax.annotation.Nonnull TypeEnum type) {
+    this.type = type;
+    return this;
+  }
+
+  /**
+   * Get type
+   * @return type
+   */
+  @javax.annotation.Nonnull
+  public TypeEnum getType() {
+    return type;
+  }
+
+  public void setType(@javax.annotation.Nonnull TypeEnum type) {
+    this.type = type;
+  }
+
+
+  public WebhookAuthentication data(@javax.annotation.Nullable Object data) {
+    this.data = data;
+    return this;
+  }
+
+  /**
+   * Get data
+   * @return data
+   */
+  @javax.annotation.Nullable
+  public Object getData() {
+    return data;
+  }
+
+  public void setData(@javax.annotation.Nullable Object data) {
+    this.data = data;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -343,35 +343,35 @@ public class WebhookAuthentication {
       return false;
     }
     WebhookAuthentication webhookAuthentication = (WebhookAuthentication) o;
-    return Objects.equals(this.name, webhookAuthentication.name) &&
-        Objects.equals(this.type, webhookAuthentication.type) &&
-        Objects.equals(this.data, webhookAuthentication.data) &&
-        Objects.equals(this.id, webhookAuthentication.id) &&
+    return Objects.equals(this.id, webhookAuthentication.id) &&
         Objects.equals(this.created, webhookAuthentication.created) &&
         Objects.equals(this.modified, webhookAuthentication.modified) &&
         Objects.equals(this.createdBy, webhookAuthentication.createdBy) &&
         Objects.equals(this.modifiedBy, webhookAuthentication.modifiedBy) &&
-        Objects.equals(this.webhooks, webhookAuthentication.webhooks);
+        Objects.equals(this.webhooks, webhookAuthentication.webhooks) &&
+        Objects.equals(this.name, webhookAuthentication.name) &&
+        Objects.equals(this.type, webhookAuthentication.type) &&
+        Objects.equals(this.data, webhookAuthentication.data);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, type, data, id, created, modified, createdBy, modifiedBy, webhooks);
+    return Objects.hash(id, created, modified, createdBy, modifiedBy, webhooks, name, type, data);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class WebhookAuthentication {\n");
-    sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    type: ").append(toIndentedString(type)).append("\n");
-    sb.append("    data: ").append(toIndentedString(data)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    created: ").append(toIndentedString(created)).append("\n");
     sb.append("    modified: ").append(toIndentedString(modified)).append("\n");
     sb.append("    createdBy: ").append(toIndentedString(createdBy)).append("\n");
     sb.append("    modifiedBy: ").append(toIndentedString(modifiedBy)).append("\n");
     sb.append("    webhooks: ").append(toIndentedString(webhooks)).append("\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    type: ").append(toIndentedString(type)).append("\n");
+    sb.append("    data: ").append(toIndentedString(data)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -393,10 +393,10 @@ public class WebhookAuthentication {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("name", "type", "data", "id", "created", "modified", "createdBy", "modifiedBy", "webhooks"));
+    openapiFields = new HashSet<String>(Arrays.asList("id", "created", "modified", "createdBy", "modifiedBy", "webhooks", "name", "type", "data"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("name", "type", "data", "id", "created", "modified", "createdBy", "modifiedBy", "webhooks"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("id", "created", "modified", "createdBy", "modifiedBy", "webhooks", "name", "type", "data"));
   }
 
   /**
@@ -427,14 +427,6 @@ public class WebhookAuthentication {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if (!jsonObj.get("name").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
-      }
-      if (!jsonObj.get("type").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("type").toString()));
-      }
-      // validate the required field `type`
-      TypeEnum.validateJsonElement(jsonObj.get("type"));
       if (!jsonObj.get("createdBy").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `createdBy` to be a primitive type in the JSON string but got `%s`", jsonObj.get("createdBy").toString()));
       }
@@ -451,6 +443,14 @@ public class WebhookAuthentication {
       for (int i = 0; i < jsonArraywebhooks.size(); i++) {
         WebhookAuthenticationWebhookRef.validateJsonElement(jsonArraywebhooks.get(i));
       };
+      if (!jsonObj.get("name").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
+      }
+      if (!jsonObj.get("type").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("type").toString()));
+      }
+      // validate the required field `type`
+      TypeEnum.validateJsonElement(jsonObj.get("type"));
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {

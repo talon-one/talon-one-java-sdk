@@ -49,7 +49,7 @@ import one.talon.JSON;
 /**
  * Summary of the reasons for coupon redemption failure.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.18.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.19.0")
 public class CouponFailureSummary {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -86,15 +86,10 @@ public class CouponFailureSummary {
   @javax.annotation.Nonnull
   private String language;
 
-  public static final String SERIALIZED_NAME_SHORT_SUMMARY = "shortSummary";
-  @SerializedName(SERIALIZED_NAME_SHORT_SUMMARY)
+  public static final String SERIALIZED_NAME_SUMMARY = "summary";
+  @SerializedName(SERIALIZED_NAME_SUMMARY)
   @javax.annotation.Nonnull
-  private String shortSummary;
-
-  public static final String SERIALIZED_NAME_LONG_SUMMARY = "longSummary";
-  @SerializedName(SERIALIZED_NAME_LONG_SUMMARY)
-  @javax.annotation.Nonnull
-  private String longSummary;
+  private String summary;
 
   public static final String SERIALIZED_NAME_CREATED_AT = "createdAt";
   @SerializedName(SERIALIZED_NAME_CREATED_AT)
@@ -242,41 +237,22 @@ public class CouponFailureSummary {
   }
 
 
-  public CouponFailureSummary shortSummary(@javax.annotation.Nonnull String shortSummary) {
-    this.shortSummary = shortSummary;
+  public CouponFailureSummary summary(@javax.annotation.Nonnull String summary) {
+    this.summary = summary;
     return this;
   }
 
   /**
    * A summary of the reasons for coupon redemption failure.
-   * @return shortSummary
+   * @return summary
    */
   @javax.annotation.Nonnull
-  public String getShortSummary() {
-    return shortSummary;
+  public String getSummary() {
+    return summary;
   }
 
-  public void setShortSummary(@javax.annotation.Nonnull String shortSummary) {
-    this.shortSummary = shortSummary;
-  }
-
-
-  public CouponFailureSummary longSummary(@javax.annotation.Nonnull String longSummary) {
-    this.longSummary = longSummary;
-    return this;
-  }
-
-  /**
-   * A detailed summary of the reasons for coupon redemption failure based on events of the entire session.
-   * @return longSummary
-   */
-  @javax.annotation.Nonnull
-  public String getLongSummary() {
-    return longSummary;
-  }
-
-  public void setLongSummary(@javax.annotation.Nonnull String longSummary) {
-    this.longSummary = longSummary;
+  public void setSummary(@javax.annotation.Nonnull String summary) {
+    this.summary = summary;
   }
 
 
@@ -335,15 +311,14 @@ public class CouponFailureSummary {
         Objects.equals(this.status, couponFailureSummary.status) &&
         Objects.equals(this.couponCode, couponFailureSummary.couponCode) &&
         Objects.equals(this.language, couponFailureSummary.language) &&
-        Objects.equals(this.shortSummary, couponFailureSummary.shortSummary) &&
-        Objects.equals(this.longSummary, couponFailureSummary.longSummary) &&
+        Objects.equals(this.summary, couponFailureSummary.summary) &&
         Objects.equals(this.createdAt, couponFailureSummary.createdAt) &&
         Objects.equals(this.updatedAt, couponFailureSummary.updatedAt);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, eventID, sessionID, profileID, status, couponCode, language, shortSummary, longSummary, createdAt, updatedAt);
+    return Objects.hash(id, eventID, sessionID, profileID, status, couponCode, language, summary, createdAt, updatedAt);
   }
 
   @Override
@@ -357,8 +332,7 @@ public class CouponFailureSummary {
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    couponCode: ").append(toIndentedString(couponCode)).append("\n");
     sb.append("    language: ").append(toIndentedString(language)).append("\n");
-    sb.append("    shortSummary: ").append(toIndentedString(shortSummary)).append("\n");
-    sb.append("    longSummary: ").append(toIndentedString(longSummary)).append("\n");
+    sb.append("    summary: ").append(toIndentedString(summary)).append("\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
     sb.append("    updatedAt: ").append(toIndentedString(updatedAt)).append("\n");
     sb.append("}");
@@ -382,10 +356,10 @@ public class CouponFailureSummary {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("id", "eventID", "sessionID", "profileID", "status", "couponCode", "language", "shortSummary", "longSummary", "createdAt", "updatedAt"));
+    openapiFields = new HashSet<String>(Arrays.asList("id", "eventID", "sessionID", "profileID", "status", "couponCode", "language", "summary", "createdAt", "updatedAt"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("id", "eventID", "status", "couponCode", "language", "shortSummary", "longSummary", "createdAt", "updatedAt"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("id", "eventID", "status", "couponCode", "language", "summary", "createdAt", "updatedAt"));
   }
 
   /**
@@ -431,11 +405,8 @@ public class CouponFailureSummary {
       if (!jsonObj.get("language").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `language` to be a primitive type in the JSON string but got `%s`", jsonObj.get("language").toString()));
       }
-      if (!jsonObj.get("shortSummary").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `shortSummary` to be a primitive type in the JSON string but got `%s`", jsonObj.get("shortSummary").toString()));
-      }
-      if (!jsonObj.get("longSummary").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `longSummary` to be a primitive type in the JSON string but got `%s`", jsonObj.get("longSummary").toString()));
+      if (!jsonObj.get("summary").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `summary` to be a primitive type in the JSON string but got `%s`", jsonObj.get("summary").toString()));
       }
   }
 

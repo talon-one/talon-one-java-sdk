@@ -19,38 +19,57 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
+import one.talon.model.Binding;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 /**
- * Model tests for SessionCoupons
+ * Model tests for CatalogRule
  */
-public class SessionCouponsTest {
-    private final SessionCoupons model = new SessionCoupons();
+public class CatalogRuleTest {
+    private final CatalogRule model = new CatalogRule();
 
     /**
-     * Model tests for SessionCoupons
+     * Model tests for CatalogRule
      */
     @Test
-    public void testSessionCoupons() {
-        // TODO: test SessionCoupons
+    public void testCatalogRule() {
+        // TODO: test CatalogRule
     }
 
     /**
-     * Test the property 'sessionIntegrationId'
+     * Test the property 'title'
      */
     @Test
-    public void sessionIntegrationIdTest() {
-        // TODO: test sessionIntegrationId
+    public void titleTest() {
+        // TODO: test title
     }
 
     /**
-     * Test the property 'couponCode'
+     * Test the property 'bindings'
      */
     @Test
-    public void couponCodeTest() {
-        // TODO: test couponCode
+    public void bindingsTest() {
+        // TODO: test bindings
+    }
+
+    /**
+     * Test the property 'condition'
+     */
+    @Test
+    public void conditionTest() {
+        // TODO: test condition
+    }
+
+    /**
+     * Test the property 'effects'
+     */
+    @Test
+    public void effectsTest() {
+        // TODO: test effects
     }
 
 }

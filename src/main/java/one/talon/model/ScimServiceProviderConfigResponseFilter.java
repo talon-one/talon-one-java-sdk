@@ -48,7 +48,7 @@ import one.talon.JSON;
 /**
  * Configuration settings related to filtering SCIM resources based on specific criteria.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.18.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.19.0")
 public class ScimServiceProviderConfigResponseFilter {
   public static final String SERIALIZED_NAME_MAX_RESULTS = "maxResults";
   @SerializedName(SERIALIZED_NAME_MAX_RESULTS)

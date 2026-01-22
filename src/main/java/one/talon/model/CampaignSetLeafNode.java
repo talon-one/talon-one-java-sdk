@@ -48,7 +48,7 @@ import one.talon.JSON;
 /**
  * CampaignSetLeafNode
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.18.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.19.0")
 public class CampaignSetLeafNode {
   /**
    * Indicates the node type.

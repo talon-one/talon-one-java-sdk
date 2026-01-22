@@ -51,7 +51,7 @@ import one.talon.JSON;
 /**
  * ActivateLoyaltyPointsResponse
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.18.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.19.0")
 public class ActivateLoyaltyPointsResponse {
   public static final String SERIALIZED_NAME_LEDGER_ENTRIES = "ledgerEntries";
   @SerializedName(SERIALIZED_NAME_LEDGER_ENTRIES)

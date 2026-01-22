@@ -48,7 +48,7 @@ import one.talon.JSON;
 /**
  * PriceTypeReferenceDetail
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.18.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.19.0")
 public class PriceTypeReferenceDetail {
   /**
    * The entity type that references the price type. For example, a campaign or an Application cart item filter.

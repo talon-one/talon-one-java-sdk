@@ -22,46 +22,63 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import one.talon.model.SessionCoupons;
+import one.talon.model.CartItemFilterTemplate;
+import one.talon.model.CatalogRule;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 /**
- * Model tests for CouponRejections
+ * Model tests for NewCollectionsCatalog
  */
-public class CouponRejectionsTest {
-    private final CouponRejections model = new CouponRejections();
+public class NewCollectionsCatalogTest {
+    private final NewCollectionsCatalog model = new NewCollectionsCatalog();
 
     /**
-     * Model tests for CouponRejections
+     * Model tests for NewCollectionsCatalog
      */
     @Test
-    public void testCouponRejections() {
-        // TODO: test CouponRejections
+    public void testNewCollectionsCatalog() {
+        // TODO: test NewCollectionsCatalog
     }
 
     /**
-     * Test the property 'sessionDetails'
+     * Test the property 'title'
      */
     @Test
-    public void sessionDetailsTest() {
-        // TODO: test sessionDetails
+    public void titleTest() {
+        // TODO: test title
     }
 
     /**
-     * Test the property 'applicationId'
+     * Test the property 'description'
      */
     @Test
-    public void applicationIdTest() {
-        // TODO: test applicationId
+    public void descriptionTest() {
+        // TODO: test description
     }
 
     /**
-     * Test the property 'language'
+     * Test the property 'category'
      */
     @Test
-    public void languageTest() {
-        // TODO: test language
+    public void categoryTest() {
+        // TODO: test category
+    }
+
+    /**
+     * Test the property 'rules'
+     */
+    @Test
+    public void rulesTest() {
+        // TODO: test rules
+    }
+
+    /**
+     * Test the property 'cartItemFilters'
+     */
+    @Test
+    public void cartItemFiltersTest() {
+        // TODO: test cartItemFilters
     }
 
 }

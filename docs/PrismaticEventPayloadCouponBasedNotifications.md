@@ -25,6 +25,8 @@
 |**batchId** | **String** |  |  [optional] |
 |**attributes** | **Object** |  |  [optional] |
 |**limits** | [**List&lt;PrismaticEventPayloadCouponBasedNotificationsLimits&gt;**](PrismaticEventPayloadCouponBasedNotificationsLimits.md) |  |  [optional] |
+|**sourceOfEvent** | **String** |  |  |
+|**employeeName** | **String** |  |  |
 
 
 
