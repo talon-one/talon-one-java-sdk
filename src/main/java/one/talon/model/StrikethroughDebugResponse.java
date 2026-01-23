@@ -51,7 +51,7 @@ import one.talon.JSON;
 /**
  * StrikethroughDebugResponse
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.18.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.19.0")
 public class StrikethroughDebugResponse {
   public static final String SERIALIZED_NAME_CAMPAIGNS_I_DS = "campaignsIDs";
   @SerializedName(SERIALIZED_NAME_CAMPAIGNS_I_DS)

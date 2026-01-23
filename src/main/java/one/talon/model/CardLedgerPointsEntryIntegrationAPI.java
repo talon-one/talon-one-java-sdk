@@ -50,7 +50,7 @@ import one.talon.JSON;
 /**
  * Loyalty card points with start and expiry dates.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.18.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.19.0")
 public class CardLedgerPointsEntryIntegrationAPI {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -106,6 +106,11 @@ public class CardLedgerPointsEntryIntegrationAPI {
   @SerializedName(SERIALIZED_NAME_AMOUNT)
   @javax.annotation.Nonnull
   private BigDecimal amount;
+
+  public static final String SERIALIZED_NAME_VALIDITY_DURATION = "validityDuration";
+  @SerializedName(SERIALIZED_NAME_VALIDITY_DURATION)
+  @javax.annotation.Nullable
+  private String validityDuration;
 
   public CardLedgerPointsEntryIntegrationAPI() {
   }
@@ -319,6 +324,25 @@ public class CardLedgerPointsEntryIntegrationAPI {
   }
 
 
+  public CardLedgerPointsEntryIntegrationAPI validityDuration(@javax.annotation.Nullable String validityDuration) {
+    this.validityDuration = validityDuration;
+    return this;
+  }
+
+  /**
+   * The duration for which the points remain active, relative to the  activation date.  **Note**: This only applies to points for which &#x60;awaitsActivation&#x60; is &#x60;true&#x60; and &#x60;expiryDate&#x60; is not set. 
+   * @return validityDuration
+   */
+  @javax.annotation.Nullable
+  public String getValidityDuration() {
+    return validityDuration;
+  }
+
+  public void setValidityDuration(@javax.annotation.Nullable String validityDuration) {
+    this.validityDuration = validityDuration;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -339,12 +363,13 @@ public class CardLedgerPointsEntryIntegrationAPI {
         Objects.equals(this.startDate, cardLedgerPointsEntryIntegrationAPI.startDate) &&
         Objects.equals(this.expiryDate, cardLedgerPointsEntryIntegrationAPI.expiryDate) &&
         Objects.equals(this.subledgerId, cardLedgerPointsEntryIntegrationAPI.subledgerId) &&
-        Objects.equals(this.amount, cardLedgerPointsEntryIntegrationAPI.amount);
+        Objects.equals(this.amount, cardLedgerPointsEntryIntegrationAPI.amount) &&
+        Objects.equals(this.validityDuration, cardLedgerPointsEntryIntegrationAPI.validityDuration);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, transactionUUID, created, programId, customerProfileID, customerSessionId, name, startDate, expiryDate, subledgerId, amount);
+    return Objects.hash(id, transactionUUID, created, programId, customerProfileID, customerSessionId, name, startDate, expiryDate, subledgerId, amount, validityDuration);
   }
 
   @Override
@@ -362,6 +387,7 @@ public class CardLedgerPointsEntryIntegrationAPI {
     sb.append("    expiryDate: ").append(toIndentedString(expiryDate)).append("\n");
     sb.append("    subledgerId: ").append(toIndentedString(subledgerId)).append("\n");
     sb.append("    amount: ").append(toIndentedString(amount)).append("\n");
+    sb.append("    validityDuration: ").append(toIndentedString(validityDuration)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -383,7 +409,7 @@ public class CardLedgerPointsEntryIntegrationAPI {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("id", "transactionUUID", "created", "programId", "customerProfileID", "customerSessionId", "name", "startDate", "expiryDate", "subledgerId", "amount"));
+    openapiFields = new HashSet<String>(Arrays.asList("id", "transactionUUID", "created", "programId", "customerProfileID", "customerSessionId", "name", "startDate", "expiryDate", "subledgerId", "amount", "validityDuration"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("id", "transactionUUID", "created", "programId", "name", "startDate", "expiryDate", "subledgerId", "amount"));
@@ -437,6 +463,9 @@ public class CardLedgerPointsEntryIntegrationAPI {
       }
       if (!jsonObj.get("subledgerId").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `subledgerId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("subledgerId").toString()));
+      }
+      if ((jsonObj.get("validityDuration") != null && !jsonObj.get("validityDuration").isJsonNull()) && !jsonObj.get("validityDuration").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `validityDuration` to be a primitive type in the JSON string but got `%s`", jsonObj.get("validityDuration").toString()));
       }
   }
 

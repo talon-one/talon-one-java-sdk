@@ -50,7 +50,7 @@ import one.talon.JSON;
 /**
  * Log entry for a given loyalty card transaction.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.18.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.19.0")
 public class CardLedgerTransactionLogEntryIntegrationAPI {
   public static final String SERIALIZED_NAME_TRANSACTION_U_U_I_D = "transactionUUID";
   @SerializedName(SERIALIZED_NAME_TRANSACTION_U_U_I_D)
@@ -173,6 +173,11 @@ public class CardLedgerTransactionLogEntryIntegrationAPI {
   @SerializedName(SERIALIZED_NAME_RULE_NAME)
   @javax.annotation.Nullable
   private String ruleName;
+
+  public static final String SERIALIZED_NAME_VALIDITY_DURATION = "validityDuration";
+  @SerializedName(SERIALIZED_NAME_VALIDITY_DURATION)
+  @javax.annotation.Nullable
+  private String validityDuration;
 
   public CardLedgerTransactionLogEntryIntegrationAPI() {
   }
@@ -443,6 +448,25 @@ public class CardLedgerTransactionLogEntryIntegrationAPI {
   }
 
 
+  public CardLedgerTransactionLogEntryIntegrationAPI validityDuration(@javax.annotation.Nullable String validityDuration) {
+    this.validityDuration = validityDuration;
+    return this;
+  }
+
+  /**
+   * The duration for which the points remain active, relative to the  activation date.  **Note**: This only applies to points for which &#x60;awaitsActivation&#x60; is &#x60;true&#x60; and &#x60;expiryDate&#x60; is not set. 
+   * @return validityDuration
+   */
+  @javax.annotation.Nullable
+  public String getValidityDuration() {
+    return validityDuration;
+  }
+
+  public void setValidityDuration(@javax.annotation.Nullable String validityDuration) {
+    this.validityDuration = validityDuration;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -466,12 +490,13 @@ public class CardLedgerTransactionLogEntryIntegrationAPI {
         Objects.equals(this.amount, cardLedgerTransactionLogEntryIntegrationAPI.amount) &&
         Objects.equals(this.id, cardLedgerTransactionLogEntryIntegrationAPI.id) &&
         Objects.equals(this.rulesetId, cardLedgerTransactionLogEntryIntegrationAPI.rulesetId) &&
-        Objects.equals(this.ruleName, cardLedgerTransactionLogEntryIntegrationAPI.ruleName);
+        Objects.equals(this.ruleName, cardLedgerTransactionLogEntryIntegrationAPI.ruleName) &&
+        Objects.equals(this.validityDuration, cardLedgerTransactionLogEntryIntegrationAPI.validityDuration);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(transactionUUID, created, programId, cardIdentifier, customerSessionId, type, name, startDate, expiryDate, subledgerId, amount, id, rulesetId, ruleName);
+    return Objects.hash(transactionUUID, created, programId, cardIdentifier, customerSessionId, type, name, startDate, expiryDate, subledgerId, amount, id, rulesetId, ruleName, validityDuration);
   }
 
   @Override
@@ -492,6 +517,7 @@ public class CardLedgerTransactionLogEntryIntegrationAPI {
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    rulesetId: ").append(toIndentedString(rulesetId)).append("\n");
     sb.append("    ruleName: ").append(toIndentedString(ruleName)).append("\n");
+    sb.append("    validityDuration: ").append(toIndentedString(validityDuration)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -513,7 +539,7 @@ public class CardLedgerTransactionLogEntryIntegrationAPI {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("transactionUUID", "created", "programId", "cardIdentifier", "customerSessionId", "type", "name", "startDate", "expiryDate", "subledgerId", "amount", "id", "rulesetId", "ruleName"));
+    openapiFields = new HashSet<String>(Arrays.asList("transactionUUID", "created", "programId", "cardIdentifier", "customerSessionId", "type", "name", "startDate", "expiryDate", "subledgerId", "amount", "id", "rulesetId", "ruleName", "validityDuration"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("transactionUUID", "created", "programId", "cardIdentifier", "type", "name", "startDate", "expiryDate", "subledgerId", "amount", "id"));
@@ -575,6 +601,9 @@ public class CardLedgerTransactionLogEntryIntegrationAPI {
       }
       if ((jsonObj.get("ruleName") != null && !jsonObj.get("ruleName").isJsonNull()) && !jsonObj.get("ruleName").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `ruleName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("ruleName").toString()));
+      }
+      if ((jsonObj.get("validityDuration") != null && !jsonObj.get("validityDuration").isJsonNull()) && !jsonObj.get("validityDuration").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `validityDuration` to be a primitive type in the JSON string but got `%s`", jsonObj.get("validityDuration").toString()));
       }
   }
 

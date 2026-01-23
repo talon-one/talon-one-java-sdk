@@ -93,7 +93,7 @@ docs/BaseSamlConnection.md
 docs/BestPriorPrice.md
 docs/BestPriorPriceMetadata.md
 docs/BestPriorPriceRequest.md
-docs/BestPriorPriceRequestTarget.md
+docs/BestPriorTarget.md
 docs/Binding.md
 docs/BulkApplicationNotification.md
 docs/BulkOperationOnCampaigns.md
@@ -152,9 +152,11 @@ docs/CardLedgerPointsEntryIntegrationAPI.md
 docs/CardLedgerTransactionLogEntry.md
 docs/CardLedgerTransactionLogEntryIntegrationAPI.md
 docs/CartItem.md
+docs/CartItemFilterTemplate.md
 docs/Catalog.md
 docs/CatalogActionFilter.md
 docs/CatalogItem.md
+docs/CatalogRule.md
 docs/CatalogSyncRequest.md
 docs/CatalogsStrikethroughNotificationPolicy.md
 docs/Change.md
@@ -164,6 +166,7 @@ docs/CodeGeneratorSettings.md
 docs/Collection.md
 docs/CollectionItem.md
 docs/CollectionWithoutPayload.md
+docs/CollectionsCatalog.md
 docs/Coupon.md
 docs/CouponConstraints.md
 docs/CouponCreatedEffectProps.md
@@ -174,7 +177,6 @@ docs/CouponEntity.md
 docs/CouponFailureSummary.md
 docs/CouponLimitConfigs.md
 docs/CouponRejectionReason.md
-docs/CouponRejections.md
 docs/CouponReservations.md
 docs/CouponSearch.md
 docs/CouponValue.md
@@ -207,6 +209,7 @@ docs/DeactivateUserRequest.md
 docs/DeductLoyaltyPoints.md
 docs/DeductLoyaltyPointsEffectProps.md
 docs/DeleteCouponsData.md
+docs/DeleteLoyaltyTransactionsRequest.md
 docs/DeleteUserRequest.md
 docs/Effect.md
 docs/EffectEntity.md
@@ -247,6 +250,7 @@ docs/GenerateCampaignSummary.md
 docs/GenerateCampaignTags.md
 docs/GenerateCouponFailureDetailedSummary.md
 docs/GenerateCouponFailureSummary.md
+docs/GenerateCouponRejections200Response.md
 docs/GenerateItemFilterDescription.md
 docs/GenerateLoyaltyCard.md
 docs/GenerateRuleTitle.md
@@ -406,6 +410,7 @@ docs/NewCampaignStoreBudgetStoreLimit.md
 docs/NewCampaignTemplate.md
 docs/NewCatalog.md
 docs/NewCollection.md
+docs/NewCollectionsCatalog.md
 docs/NewCouponCreationJob.md
 docs/NewCouponDeletionJob.md
 docs/NewCoupons.md
@@ -555,7 +560,6 @@ docs/ScimUser.md
 docs/ScimUsersListResponse.md
 docs/SecondaryDeployment.md
 docs/Session.md
-docs/SessionCoupons.md
 docs/SetDiscountEffectProps.md
 docs/SetDiscountPerAdditionalCostEffectProps.md
 docs/SetDiscountPerAdditionalCostPerItemEffectProps.md
@@ -612,6 +616,7 @@ docs/UpdateCampaignGroup.md
 docs/UpdateCampaignTemplate.md
 docs/UpdateCatalog.md
 docs/UpdateCollection.md
+docs/UpdateCollectionsCatalog.md
 docs/UpdateCoupon.md
 docs/UpdateCouponBatch.md
 docs/UpdateCouponsData.md
@@ -633,7 +638,6 @@ docs/UserEntity.md
 docs/ValueMap.md
 docs/Webhook.md
 docs/WebhookAuthentication.md
-docs/WebhookAuthenticationBase.md
 docs/WebhookAuthenticationDataBasic.md
 docs/WebhookAuthenticationDataCustom.md
 docs/WebhookAuthenticationWebhookRef.md
@@ -752,7 +756,7 @@ src/main/java/one/talon/model/BaseSamlConnection.java
 src/main/java/one/talon/model/BestPriorPrice.java
 src/main/java/one/talon/model/BestPriorPriceMetadata.java
 src/main/java/one/talon/model/BestPriorPriceRequest.java
-src/main/java/one/talon/model/BestPriorPriceRequestTarget.java
+src/main/java/one/talon/model/BestPriorTarget.java
 src/main/java/one/talon/model/Binding.java
 src/main/java/one/talon/model/BulkApplicationNotification.java
 src/main/java/one/talon/model/BulkOperationOnCampaigns.java
@@ -811,9 +815,11 @@ src/main/java/one/talon/model/CardLedgerPointsEntryIntegrationAPI.java
 src/main/java/one/talon/model/CardLedgerTransactionLogEntry.java
 src/main/java/one/talon/model/CardLedgerTransactionLogEntryIntegrationAPI.java
 src/main/java/one/talon/model/CartItem.java
+src/main/java/one/talon/model/CartItemFilterTemplate.java
 src/main/java/one/talon/model/Catalog.java
 src/main/java/one/talon/model/CatalogActionFilter.java
 src/main/java/one/talon/model/CatalogItem.java
+src/main/java/one/talon/model/CatalogRule.java
 src/main/java/one/talon/model/CatalogSyncRequest.java
 src/main/java/one/talon/model/CatalogsStrikethroughNotificationPolicy.java
 src/main/java/one/talon/model/Change.java
@@ -823,6 +829,7 @@ src/main/java/one/talon/model/CodeGeneratorSettings.java
 src/main/java/one/talon/model/Collection.java
 src/main/java/one/talon/model/CollectionItem.java
 src/main/java/one/talon/model/CollectionWithoutPayload.java
+src/main/java/one/talon/model/CollectionsCatalog.java
 src/main/java/one/talon/model/Coupon.java
 src/main/java/one/talon/model/CouponConstraints.java
 src/main/java/one/talon/model/CouponCreatedEffectProps.java
@@ -833,7 +840,6 @@ src/main/java/one/talon/model/CouponEntity.java
 src/main/java/one/talon/model/CouponFailureSummary.java
 src/main/java/one/talon/model/CouponLimitConfigs.java
 src/main/java/one/talon/model/CouponRejectionReason.java
-src/main/java/one/talon/model/CouponRejections.java
 src/main/java/one/talon/model/CouponReservations.java
 src/main/java/one/talon/model/CouponSearch.java
 src/main/java/one/talon/model/CouponValue.java
@@ -866,6 +872,7 @@ src/main/java/one/talon/model/DeactivateUserRequest.java
 src/main/java/one/talon/model/DeductLoyaltyPoints.java
 src/main/java/one/talon/model/DeductLoyaltyPointsEffectProps.java
 src/main/java/one/talon/model/DeleteCouponsData.java
+src/main/java/one/talon/model/DeleteLoyaltyTransactionsRequest.java
 src/main/java/one/talon/model/DeleteUserRequest.java
 src/main/java/one/talon/model/Effect.java
 src/main/java/one/talon/model/EffectEntity.java
@@ -906,6 +913,7 @@ src/main/java/one/talon/model/GenerateCampaignSummary.java
 src/main/java/one/talon/model/GenerateCampaignTags.java
 src/main/java/one/talon/model/GenerateCouponFailureDetailedSummary.java
 src/main/java/one/talon/model/GenerateCouponFailureSummary.java
+src/main/java/one/talon/model/GenerateCouponRejections200Response.java
 src/main/java/one/talon/model/GenerateItemFilterDescription.java
 src/main/java/one/talon/model/GenerateLoyaltyCard.java
 src/main/java/one/talon/model/GenerateRuleTitle.java
@@ -1063,6 +1071,7 @@ src/main/java/one/talon/model/NewCampaignStoreBudgetStoreLimit.java
 src/main/java/one/talon/model/NewCampaignTemplate.java
 src/main/java/one/talon/model/NewCatalog.java
 src/main/java/one/talon/model/NewCollection.java
+src/main/java/one/talon/model/NewCollectionsCatalog.java
 src/main/java/one/talon/model/NewCouponCreationJob.java
 src/main/java/one/talon/model/NewCouponDeletionJob.java
 src/main/java/one/talon/model/NewCoupons.java
@@ -1212,7 +1221,6 @@ src/main/java/one/talon/model/ScimUser.java
 src/main/java/one/talon/model/ScimUsersListResponse.java
 src/main/java/one/talon/model/SecondaryDeployment.java
 src/main/java/one/talon/model/Session.java
-src/main/java/one/talon/model/SessionCoupons.java
 src/main/java/one/talon/model/SetDiscountEffectProps.java
 src/main/java/one/talon/model/SetDiscountPerAdditionalCostEffectProps.java
 src/main/java/one/talon/model/SetDiscountPerAdditionalCostPerItemEffectProps.java
@@ -1269,6 +1277,7 @@ src/main/java/one/talon/model/UpdateCampaignGroup.java
 src/main/java/one/talon/model/UpdateCampaignTemplate.java
 src/main/java/one/talon/model/UpdateCatalog.java
 src/main/java/one/talon/model/UpdateCollection.java
+src/main/java/one/talon/model/UpdateCollectionsCatalog.java
 src/main/java/one/talon/model/UpdateCoupon.java
 src/main/java/one/talon/model/UpdateCouponBatch.java
 src/main/java/one/talon/model/UpdateCouponsData.java
@@ -1290,7 +1299,6 @@ src/main/java/one/talon/model/UserEntity.java
 src/main/java/one/talon/model/ValueMap.java
 src/main/java/one/talon/model/Webhook.java
 src/main/java/one/talon/model/WebhookAuthentication.java
-src/main/java/one/talon/model/WebhookAuthenticationBase.java
 src/main/java/one/talon/model/WebhookAuthenticationDataBasic.java
 src/main/java/one/talon/model/WebhookAuthenticationDataCustom.java
 src/main/java/one/talon/model/WebhookAuthenticationWebhookRef.java
@@ -1380,9 +1388,9 @@ src/test/java/one/talon/model/BaseNotificationWebhookTest.java
 src/test/java/one/talon/model/BaseNotificationsTest.java
 src/test/java/one/talon/model/BaseSamlConnectionTest.java
 src/test/java/one/talon/model/BestPriorPriceMetadataTest.java
-src/test/java/one/talon/model/BestPriorPriceRequestTargetTest.java
 src/test/java/one/talon/model/BestPriorPriceRequestTest.java
 src/test/java/one/talon/model/BestPriorPriceTest.java
+src/test/java/one/talon/model/BestPriorTargetTest.java
 src/test/java/one/talon/model/BindingTest.java
 src/test/java/one/talon/model/BulkApplicationNotificationTest.java
 src/test/java/one/talon/model/BulkOperationOnCampaignsTest.java
@@ -1440,9 +1448,11 @@ src/test/java/one/talon/model/CardExpiringPointsNotificationTriggerTest.java
 src/test/java/one/talon/model/CardLedgerPointsEntryIntegrationAPITest.java
 src/test/java/one/talon/model/CardLedgerTransactionLogEntryIntegrationAPITest.java
 src/test/java/one/talon/model/CardLedgerTransactionLogEntryTest.java
+src/test/java/one/talon/model/CartItemFilterTemplateTest.java
 src/test/java/one/talon/model/CartItemTest.java
 src/test/java/one/talon/model/CatalogActionFilterTest.java
 src/test/java/one/talon/model/CatalogItemTest.java
+src/test/java/one/talon/model/CatalogRuleTest.java
 src/test/java/one/talon/model/CatalogSyncRequestTest.java
 src/test/java/one/talon/model/CatalogTest.java
 src/test/java/one/talon/model/CatalogsStrikethroughNotificationPolicyTest.java
@@ -1453,6 +1463,7 @@ src/test/java/one/talon/model/CodeGeneratorSettingsTest.java
 src/test/java/one/talon/model/CollectionItemTest.java
 src/test/java/one/talon/model/CollectionTest.java
 src/test/java/one/talon/model/CollectionWithoutPayloadTest.java
+src/test/java/one/talon/model/CollectionsCatalogTest.java
 src/test/java/one/talon/model/CouponConstraintsTest.java
 src/test/java/one/talon/model/CouponCreatedEffectPropsTest.java
 src/test/java/one/talon/model/CouponCreationJobTest.java
@@ -1462,7 +1473,6 @@ src/test/java/one/talon/model/CouponEntityTest.java
 src/test/java/one/talon/model/CouponFailureSummaryTest.java
 src/test/java/one/talon/model/CouponLimitConfigsTest.java
 src/test/java/one/talon/model/CouponRejectionReasonTest.java
-src/test/java/one/talon/model/CouponRejectionsTest.java
 src/test/java/one/talon/model/CouponReservationsTest.java
 src/test/java/one/talon/model/CouponSearchTest.java
 src/test/java/one/talon/model/CouponTest.java
@@ -1496,6 +1506,7 @@ src/test/java/one/talon/model/DeactivateUserRequestTest.java
 src/test/java/one/talon/model/DeductLoyaltyPointsEffectPropsTest.java
 src/test/java/one/talon/model/DeductLoyaltyPointsTest.java
 src/test/java/one/talon/model/DeleteCouponsDataTest.java
+src/test/java/one/talon/model/DeleteLoyaltyTransactionsRequestTest.java
 src/test/java/one/talon/model/DeleteUserRequestTest.java
 src/test/java/one/talon/model/EffectEntityTest.java
 src/test/java/one/talon/model/EffectTest.java
@@ -1536,6 +1547,7 @@ src/test/java/one/talon/model/GenerateCampaignSummaryTest.java
 src/test/java/one/talon/model/GenerateCampaignTagsTest.java
 src/test/java/one/talon/model/GenerateCouponFailureDetailedSummaryTest.java
 src/test/java/one/talon/model/GenerateCouponFailureSummaryTest.java
+src/test/java/one/talon/model/GenerateCouponRejections200ResponseTest.java
 src/test/java/one/talon/model/GenerateItemFilterDescriptionTest.java
 src/test/java/one/talon/model/GenerateLoyaltyCardTest.java
 src/test/java/one/talon/model/GenerateRuleTitleRuleTest.java
@@ -1693,6 +1705,7 @@ src/test/java/one/talon/model/NewCampaignTemplateTest.java
 src/test/java/one/talon/model/NewCampaignTest.java
 src/test/java/one/talon/model/NewCatalogTest.java
 src/test/java/one/talon/model/NewCollectionTest.java
+src/test/java/one/talon/model/NewCollectionsCatalogTest.java
 src/test/java/one/talon/model/NewCouponCreationJobTest.java
 src/test/java/one/talon/model/NewCouponDeletionJobTest.java
 src/test/java/one/talon/model/NewCouponsForMultipleRecipientsTest.java
@@ -1841,7 +1854,6 @@ src/test/java/one/talon/model/ScimServiceProviderConfigResponseTest.java
 src/test/java/one/talon/model/ScimUserTest.java
 src/test/java/one/talon/model/ScimUsersListResponseTest.java
 src/test/java/one/talon/model/SecondaryDeploymentTest.java
-src/test/java/one/talon/model/SessionCouponsTest.java
 src/test/java/one/talon/model/SessionTest.java
 src/test/java/one/talon/model/SetDiscountEffectPropsTest.java
 src/test/java/one/talon/model/SetDiscountPerAdditionalCostEffectPropsTest.java
@@ -1899,6 +1911,7 @@ src/test/java/one/talon/model/UpdateCampaignTemplateTest.java
 src/test/java/one/talon/model/UpdateCampaignTest.java
 src/test/java/one/talon/model/UpdateCatalogTest.java
 src/test/java/one/talon/model/UpdateCollectionTest.java
+src/test/java/one/talon/model/UpdateCollectionsCatalogTest.java
 src/test/java/one/talon/model/UpdateCouponBatchTest.java
 src/test/java/one/talon/model/UpdateCouponTest.java
 src/test/java/one/talon/model/UpdateCouponsDataTest.java
@@ -1918,7 +1931,6 @@ src/test/java/one/talon/model/UpdateUserTest.java
 src/test/java/one/talon/model/UserEntityTest.java
 src/test/java/one/talon/model/UserTest.java
 src/test/java/one/talon/model/ValueMapTest.java
-src/test/java/one/talon/model/WebhookAuthenticationBaseTest.java
 src/test/java/one/talon/model/WebhookAuthenticationDataBasicTest.java
 src/test/java/one/talon/model/WebhookAuthenticationDataCustomTest.java
 src/test/java/one/talon/model/WebhookAuthenticationTest.java

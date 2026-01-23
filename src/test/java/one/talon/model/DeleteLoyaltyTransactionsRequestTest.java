@@ -19,38 +19,41 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
+import org.openapitools.jackson.nullable.JsonNullable;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 /**
- * Model tests for BestPriorPriceRequestTarget
+ * Model tests for DeleteLoyaltyTransactionsRequest
  */
-public class BestPriorPriceRequestTargetTest {
-    private final BestPriorPriceRequestTarget model = new BestPriorPriceRequestTarget();
+public class DeleteLoyaltyTransactionsRequestTest {
+    private final DeleteLoyaltyTransactionsRequest model = new DeleteLoyaltyTransactionsRequest();
 
     /**
-     * Model tests for BestPriorPriceRequestTarget
+     * Model tests for DeleteLoyaltyTransactionsRequest
      */
     @Test
-    public void testBestPriorPriceRequestTarget() {
-        // TODO: test BestPriorPriceRequestTarget
+    public void testDeleteLoyaltyTransactionsRequest() {
+        // TODO: test DeleteLoyaltyTransactionsRequest
     }
 
     /**
-     * Test the property 'targetType'
+     * Test the property 'scope'
      */
     @Test
-    public void targetTypeTest() {
-        // TODO: test targetType
+    public void scopeTest() {
+        // TODO: test scope
     }
 
     /**
-     * Test the property 'audienceID'
+     * Test the property 'subledgerIds'
      */
     @Test
-    public void audienceIDTest() {
-        // TODO: test audienceID
+    public void subledgerIdsTest() {
+        // TODO: test subledgerIds
     }
 
 }

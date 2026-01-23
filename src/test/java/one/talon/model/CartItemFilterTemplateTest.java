@@ -19,22 +19,24 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 /**
- * Model tests for WebhookAuthenticationBase
+ * Model tests for CartItemFilterTemplate
  */
-public class WebhookAuthenticationBaseTest {
-    private final WebhookAuthenticationBase model = new WebhookAuthenticationBase();
+public class CartItemFilterTemplateTest {
+    private final CartItemFilterTemplate model = new CartItemFilterTemplate();
 
     /**
-     * Model tests for WebhookAuthenticationBase
+     * Model tests for CartItemFilterTemplate
      */
     @Test
-    public void testWebhookAuthenticationBase() {
-        // TODO: test WebhookAuthenticationBase
+    public void testCartItemFilterTemplate() {
+        // TODO: test CartItemFilterTemplate
     }
 
     /**
@@ -46,19 +48,11 @@ public class WebhookAuthenticationBaseTest {
     }
 
     /**
-     * Test the property 'type'
+     * Test the property 'expression'
      */
     @Test
-    public void typeTest() {
-        // TODO: test type
-    }
-
-    /**
-     * Test the property 'data'
-     */
-    @Test
-    public void dataTest() {
-        // TODO: test data
+    public void expressionTest() {
+        // TODO: test expression
     }
 
 }

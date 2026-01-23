@@ -23,6 +23,7 @@ A single row of the ledger, describing one addition or deduction.
 |**userID** | **Long** | This is the ID of the user who created this entry, if the addition or subtraction was done manually. |  [optional] |
 |**archived** | **Boolean** | Indicates if the entry belongs to the archived session. |  [optional] |
 |**flags** | [**LoyaltyLedgerEntryFlags**](LoyaltyLedgerEntryFlags.md) | A map of flags providing additional details about the entry. |  [optional] |
+|**validityDuration** | **String** | The duration for which the points remain active, relative to the  activation date.  **Note**: This only applies to points for which &#x60;awaitsActivation&#x60; is &#x60;true&#x60; and &#x60;expiryDate&#x60; is not set.  |  [optional] |
 
 
 

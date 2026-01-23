@@ -23,6 +23,7 @@
 | BOOLEAN | &quot;boolean&quot; |
 | PERCENT | &quot;percent&quot; |
 | _LIST_STRING_ | &quot;(list string)&quot; |
+| _LIST_NUMBER_ | &quot;(list number)&quot; |
 | TIME | &quot;time&quot; |
 
 

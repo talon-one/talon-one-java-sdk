@@ -22,6 +22,7 @@ Log entry for a given loyalty profile transaction.
 |**rulesetId** | **Long** | The ID of the ruleset containing the rule that triggered this effect. |  [optional] |
 |**ruleName** | **String** | The name of the rule that triggered this effect. |  [optional] |
 |**flags** | [**LoyaltyLedgerEntryFlags**](LoyaltyLedgerEntryFlags.md) | The flags of the transaction, when applicable. The &#x60;createsNegativeBalance&#x60;  flag indicates whether the transaction results in a negative balance. |  [optional] |
+|**validityDuration** | **String** | The duration for which the points remain active, relative to the  activation date.  **Note**: This only applies to points for which &#x60;awaitsActivation&#x60; is &#x60;true&#x60; and &#x60;expiryDate&#x60; is not set.  |  [optional] |
 
 
 

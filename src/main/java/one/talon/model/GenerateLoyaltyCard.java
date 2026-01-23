@@ -50,7 +50,7 @@ import one.talon.JSON;
 /**
  * The parameters necessary to generate a loyalty card.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.18.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.19.0")
 public class GenerateLoyaltyCard {
   /**
    * Status of the loyalty card.

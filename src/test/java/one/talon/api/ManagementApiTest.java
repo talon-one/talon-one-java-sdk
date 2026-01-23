@@ -47,6 +47,7 @@ import one.talon.model.DeductLoyaltyPoints;
 import one.talon.model.DeleteUserRequest;
 import one.talon.model.ErrorResponse;
 import one.talon.model.ErrorResponseWithStatus;
+import one.talon.model.GenerateCouponRejections200Response;
 import one.talon.model.GetAccessLogsWithoutTotalCount200Response;
 import one.talon.model.GetAdditionalCosts200Response;
 import one.talon.model.GetApplicationCustomerFriends200Response;
@@ -76,6 +77,7 @@ import one.talon.model.GetEventTypes200Response;
 import one.talon.model.GetExports200Response;
 import one.talon.model.GetLoyaltyCardTransactionLogs200Response;
 import one.talon.model.GetLoyaltyCards200Response;
+import one.talon.model.GetLoyaltyProgramProfileTransactions200Response;
 import one.talon.model.GetLoyaltyProgramTransactions200Response;
 import one.talon.model.GetLoyaltyPrograms200Response;
 import one.talon.model.GetReferralsWithoutTotalCount200Response;
@@ -89,6 +91,7 @@ import one.talon.model.ListCampaignStoreBudgetLimits200Response;
 import one.talon.model.ListCatalogItems200Response;
 import one.talon.model.ListStores200Response;
 import one.talon.model.LoginParams;
+import one.talon.model.LoyaltyBalancesWithTiers;
 import one.talon.model.LoyaltyCard;
 import one.talon.model.LoyaltyCardBatch;
 import one.talon.model.LoyaltyCardBatchResponse;
@@ -1041,6 +1044,23 @@ public class ManagementApiTest {
     }
 
     /**
+     * Summarize coupon redemption failures in session
+     *
+     * Create a summary of the reasons for coupon redemption failures in a given customer session. 
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void generateCouponRejectionsTest() throws ApiException {
+        String sessionIntegrationId = null;
+        BigDecimal applicationId = null;
+        String language = null;
+        String couponCode = null;
+        GenerateCouponRejections200Response response = api.generateCouponRejections(sessionIntegrationId, applicationId, language, couponCode);
+        // TODO: test validations
+    }
+
+    /**
      * Get access logs for Application
      *
      * Retrieve the list of API calls sent to the specified Application. 
@@ -1892,6 +1912,25 @@ public class ManagementApiTest {
     }
 
     /**
+     * Get customer&#39;s loyalty balances
+     *
+     * Retrieve loyalty ledger balances for the given Integration ID in the specified loyalty program. You can filter balances by date and subledger ID, and include tier-related information in the response.  **Note**: If no filtering options are applied, you retrieve all loyalty balances on the current date for the given integration ID.  Loyalty balances are calculated when Talon.One receives your request using the points stored in our database, so retrieving a large number of balances at once can impact performance.  For more information, see: - [Managing card-based loyalty program data](https://docs.talon.one/docs/product/loyalty-programs/card-based/managing-loyalty-cards) - [Managing profile-based loyalty program data](https://docs.talon.one/docs/product/loyalty-programs/profile-based/managing-pb-lp-data) 
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void getLoyaltyLedgerBalancesTest() throws ApiException {
+        Long loyaltyProgramId = null;
+        String integrationId = null;
+        OffsetDateTime endDate = null;
+        String subledgerId = null;
+        Boolean includeTiers = null;
+        Boolean includeProjectedTier = null;
+        LoyaltyBalancesWithTiers response = api.getLoyaltyLedgerBalances(loyaltyProgramId, integrationId, endDate, subledgerId, includeTiers, includeProjectedTier);
+        // TODO: test validations
+    }
+
+    /**
      * Get customer&#39;s full loyalty ledger
      *
      * Get the loyalty ledger for this profile integration ID.  To get the &#x60;integrationId&#x60; of the profile from a &#x60;sessionId&#x60;, use the [Update customer session](https://docs.talon.one/integration-api#operation/updateCustomerSessionV2) endpoint.  **Important:** To get loyalty transaction logs for a given Integration ID in a loyalty program, we recommend using the Integration API&#39;s [Get customer&#39;s loyalty logs](https://docs.talon.one/integration-api#tag/Loyalty/operation/getLoyaltyProgramProfileTransactions). 
@@ -1921,6 +1960,30 @@ public class ManagementApiTest {
     }
 
     /**
+     * List customer&#39;s loyalty transactions
+     *
+     * Retrieve paginated results of loyalty transaction logs for the given Integration ID in the specified loyalty program.  You can filter transactions by date or by ledger (subledger or main ledger). If no filters are applied, the last 50 loyalty transactions for the given integration ID are returned.  **Note:** To retrieve all loyalty program transaction logs in a given loyalty program, use the [List loyalty program transactions](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyProgramTransactions) endpoint. 
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void getLoyaltyProgramProfileLedgerTransactionsTest() throws ApiException {
+        Long loyaltyProgramId = null;
+        String integrationId = null;
+        List<String> customerSessionIDs = null;
+        List<String> transactionUUIDs = null;
+        String subledgerId = null;
+        String loyaltyTransactionType = null;
+        OffsetDateTime startDate = null;
+        OffsetDateTime endDate = null;
+        Long pageSize = null;
+        Long skip = null;
+        Boolean awaitsActivation = null;
+        GetLoyaltyProgramProfileTransactions200Response response = api.getLoyaltyProgramProfileLedgerTransactions(loyaltyProgramId, integrationId, customerSessionIDs, transactionUUIDs, subledgerId, loyaltyTransactionType, startDate, endDate, pageSize, skip, awaitsActivation);
+        // TODO: test validations
+    }
+
+    /**
      * List loyalty program transactions
      *
      * Retrieve loyalty program transaction logs in a given loyalty program with filtering options applied. Manual and imported transactions are also included. **Note:** If no filters are applied, the last 50 loyalty transactions for the given loyalty program are returned.  **Important:** To get loyalty transaction logs for a given Integration ID in a loyalty program, we recommend using the Integration API&#39;s [Get customer&#39;s loyalty logs](https://docs.talon.one/integration-api#tag/Loyalty/operation/getLoyaltyProgramProfileTransactions). 
@@ -1938,7 +2001,8 @@ public class ManagementApiTest {
         OffsetDateTime endDate = null;
         Long pageSize = null;
         Long skip = null;
-        GetLoyaltyProgramTransactions200Response response = api.getLoyaltyProgramTransactions(loyaltyProgramId, loyaltyTransactionType, subledgerId, customerSessionIDs, transactionUUIDs, startDate, endDate, pageSize, skip);
+        Boolean awaitsActivation = null;
+        GetLoyaltyProgramTransactions200Response response = api.getLoyaltyProgramTransactions(loyaltyProgramId, loyaltyTransactionType, subledgerId, customerSessionIDs, transactionUUIDs, startDate, endDate, pageSize, skip, awaitsActivation);
         // TODO: test validations
     }
 

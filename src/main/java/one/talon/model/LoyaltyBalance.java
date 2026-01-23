@@ -49,7 +49,7 @@ import one.talon.JSON;
 /**
  * Point balance of a ledger in the Loyalty Program.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.18.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.19.0")
 public class LoyaltyBalance {
   public static final String SERIALIZED_NAME_ACTIVE_POINTS = "activePoints";
   @SerializedName(SERIALIZED_NAME_ACTIVE_POINTS)

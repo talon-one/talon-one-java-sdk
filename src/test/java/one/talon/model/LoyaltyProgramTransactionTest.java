@@ -200,4 +200,12 @@ public class LoyaltyProgramTransactionTest {
         // TODO: test flags
     }
 
+    /**
+     * Test the property 'validityDuration'
+     */
+    @Test
+    public void validityDurationTest() {
+        // TODO: test validityDuration
+    }
+
 }

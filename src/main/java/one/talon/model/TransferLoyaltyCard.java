@@ -48,7 +48,7 @@ import one.talon.JSON;
 /**
  * TransferLoyaltyCard
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.18.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.19.0")
 public class TransferLoyaltyCard {
   public static final String SERIALIZED_NAME_NEW_CARD_IDENTIFIER = "newCardIdentifier";
   @SerializedName(SERIALIZED_NAME_NEW_CARD_IDENTIFIER)

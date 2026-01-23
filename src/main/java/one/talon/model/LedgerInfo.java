@@ -50,7 +50,7 @@ import one.talon.JSON;
 /**
  * LedgerInfo
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.18.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.19.0")
 public class LedgerInfo {
   public static final String SERIALIZED_NAME_CURRENT_BALANCE = "currentBalance";
   @SerializedName(SERIALIZED_NAME_CURRENT_BALANCE)

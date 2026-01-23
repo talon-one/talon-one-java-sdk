@@ -24,7 +24,7 @@ import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import one.talon.model.BestPriorPriceRequestTarget;
+import one.talon.model.BestPriorTarget;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -52,7 +52,7 @@ import one.talon.JSON;
 /**
  * BestPriorPriceRequest
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.18.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.19.0")
 public class BestPriorPriceRequest {
   public static final String SERIALIZED_NAME_SKUS = "skus";
   @SerializedName(SERIALIZED_NAME_SKUS)
@@ -67,7 +67,7 @@ public class BestPriorPriceRequest {
   public static final String SERIALIZED_NAME_TIMEFRAME = "timeframe";
   @SerializedName(SERIALIZED_NAME_TIMEFRAME)
   @javax.annotation.Nonnull
-  private Integer timeframe;
+  private String timeframe;
 
   public static final String SERIALIZED_NAME_STRICT_END_DATE = "strictEndDate";
   @SerializedName(SERIALIZED_NAME_STRICT_END_DATE)
@@ -77,7 +77,7 @@ public class BestPriorPriceRequest {
   public static final String SERIALIZED_NAME_TARGET = "target";
   @SerializedName(SERIALIZED_NAME_TARGET)
   @javax.annotation.Nullable
-  private BestPriorPriceRequestTarget target;
+  private BestPriorTarget target;
 
   public BestPriorPriceRequest() {
   }
@@ -128,7 +128,7 @@ public class BestPriorPriceRequest {
   }
 
 
-  public BestPriorPriceRequest timeframe(@javax.annotation.Nonnull Integer timeframe) {
+  public BestPriorPriceRequest timeframe(@javax.annotation.Nonnull String timeframe) {
     this.timeframe = timeframe;
     return this;
   }
@@ -138,11 +138,11 @@ public class BestPriorPriceRequest {
    * @return timeframe
    */
   @javax.annotation.Nonnull
-  public Integer getTimeframe() {
+  public String getTimeframe() {
     return timeframe;
   }
 
-  public void setTimeframe(@javax.annotation.Nonnull Integer timeframe) {
+  public void setTimeframe(@javax.annotation.Nonnull String timeframe) {
     this.timeframe = timeframe;
   }
 
@@ -166,7 +166,7 @@ public class BestPriorPriceRequest {
   }
 
 
-  public BestPriorPriceRequest target(@javax.annotation.Nullable BestPriorPriceRequestTarget target) {
+  public BestPriorPriceRequest target(@javax.annotation.Nullable BestPriorTarget target) {
     this.target = target;
     return this;
   }
@@ -176,11 +176,11 @@ public class BestPriorPriceRequest {
    * @return target
    */
   @javax.annotation.Nullable
-  public BestPriorPriceRequestTarget getTarget() {
+  public BestPriorTarget getTarget() {
     return target;
   }
 
-  public void setTarget(@javax.annotation.Nullable BestPriorPriceRequestTarget target) {
+  public void setTarget(@javax.annotation.Nullable BestPriorTarget target) {
     this.target = target;
   }
 
@@ -282,7 +282,7 @@ public class BestPriorPriceRequest {
       }
       // validate the optional field `target`
       if (jsonObj.get("target") != null && !jsonObj.get("target").isJsonNull()) {
-        BestPriorPriceRequestTarget.validateJsonElement(jsonObj.get("target"));
+        BestPriorTarget.validateJsonElement(jsonObj.get("target"));
       }
   }
 

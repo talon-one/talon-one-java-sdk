@@ -48,7 +48,7 @@ import one.talon.JSON;
 /**
  * RoleMembership
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.18.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.19.0")
 public class RoleMembership {
   public static final String SERIALIZED_NAME_ROLE_I_D = "RoleID";
   @SerializedName(SERIALIZED_NAME_ROLE_I_D)

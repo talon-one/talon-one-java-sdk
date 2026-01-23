@@ -50,7 +50,7 @@ import one.talon.JSON;
 /**
  * TierUpgradeData
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.18.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.19.0")
 public class TierUpgradeData {
   public static final String SERIALIZED_NAME_CUSTOMER_PROFILE_I_D = "CustomerProfileID";
   @SerializedName(SERIALIZED_NAME_CUSTOMER_PROFILE_I_D)

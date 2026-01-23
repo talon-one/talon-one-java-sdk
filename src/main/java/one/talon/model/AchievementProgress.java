@@ -50,7 +50,7 @@ import one.talon.JSON;
 /**
  * The current progress of the customer in the achievement.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.18.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.19.0")
 public class AchievementProgress {
   /**
    * The status of the achievement.

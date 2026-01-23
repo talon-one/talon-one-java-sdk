@@ -53,7 +53,7 @@ import one.talon.JSON;
 /**
  * The strikethrough labels notification for an application.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.18.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.19.0")
 public class StrikethroughLabelingNotification {
   /**
    * The version of the strikethrough pricing notification.

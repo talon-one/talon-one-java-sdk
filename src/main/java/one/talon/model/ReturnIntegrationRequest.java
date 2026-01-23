@@ -51,7 +51,7 @@ import one.talon.JSON;
 /**
  * The body of a return integration API request. Next to the cart items details, this contains an optional listing of extra properties that should be returned in the response.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.18.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.19.0")
 public class ReturnIntegrationRequest {
   public static final String SERIALIZED_NAME_RETURN = "return";
   @SerializedName(SERIALIZED_NAME_RETURN)

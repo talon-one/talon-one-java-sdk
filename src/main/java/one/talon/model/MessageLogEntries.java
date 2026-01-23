@@ -51,7 +51,7 @@ import one.talon.JSON;
 /**
  * MessageLogEntries
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.18.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.19.0")
 public class MessageLogEntries {
   public static final String SERIALIZED_NAME_NEXT_CURSOR = "nextCursor";
   @SerializedName(SERIALIZED_NAME_NEXT_CURSOR)

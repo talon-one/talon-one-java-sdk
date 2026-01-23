@@ -52,7 +52,7 @@ import one.talon.JSON;
 /**
  * PrismaticEventPayloadCouponBasedNotifications
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.18.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.19.0")
 public class PrismaticEventPayloadCouponBasedNotifications {
   public static final String SERIALIZED_NAME_ID = "Id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -143,6 +143,16 @@ public class PrismaticEventPayloadCouponBasedNotifications {
   @SerializedName(SERIALIZED_NAME_LIMITS)
   @javax.annotation.Nullable
   private List<PrismaticEventPayloadCouponBasedNotificationsLimits> limits = new ArrayList<>();
+
+  public static final String SERIALIZED_NAME_SOURCE_OF_EVENT = "SourceOfEvent";
+  @SerializedName(SERIALIZED_NAME_SOURCE_OF_EVENT)
+  @javax.annotation.Nonnull
+  private String sourceOfEvent;
+
+  public static final String SERIALIZED_NAME_EMPLOYEE_NAME = "EmployeeName";
+  @SerializedName(SERIALIZED_NAME_EMPLOYEE_NAME)
+  @javax.annotation.Nonnull
+  private String employeeName;
 
   public PrismaticEventPayloadCouponBasedNotifications() {
   }
@@ -497,6 +507,44 @@ public class PrismaticEventPayloadCouponBasedNotifications {
   }
 
 
+  public PrismaticEventPayloadCouponBasedNotifications sourceOfEvent(@javax.annotation.Nonnull String sourceOfEvent) {
+    this.sourceOfEvent = sourceOfEvent;
+    return this;
+  }
+
+  /**
+   * Get sourceOfEvent
+   * @return sourceOfEvent
+   */
+  @javax.annotation.Nonnull
+  public String getSourceOfEvent() {
+    return sourceOfEvent;
+  }
+
+  public void setSourceOfEvent(@javax.annotation.Nonnull String sourceOfEvent) {
+    this.sourceOfEvent = sourceOfEvent;
+  }
+
+
+  public PrismaticEventPayloadCouponBasedNotifications employeeName(@javax.annotation.Nonnull String employeeName) {
+    this.employeeName = employeeName;
+    return this;
+  }
+
+  /**
+   * Get employeeName
+   * @return employeeName
+   */
+  @javax.annotation.Nonnull
+  public String getEmployeeName() {
+    return employeeName;
+  }
+
+  public void setEmployeeName(@javax.annotation.Nonnull String employeeName) {
+    this.employeeName = employeeName;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -524,12 +572,14 @@ public class PrismaticEventPayloadCouponBasedNotifications {
         Objects.equals(this.importId, prismaticEventPayloadCouponBasedNotifications.importId) &&
         Objects.equals(this.batchId, prismaticEventPayloadCouponBasedNotifications.batchId) &&
         Objects.equals(this.attributes, prismaticEventPayloadCouponBasedNotifications.attributes) &&
-        Objects.equals(this.limits, prismaticEventPayloadCouponBasedNotifications.limits);
+        Objects.equals(this.limits, prismaticEventPayloadCouponBasedNotifications.limits) &&
+        Objects.equals(this.sourceOfEvent, prismaticEventPayloadCouponBasedNotifications.sourceOfEvent) &&
+        Objects.equals(this.employeeName, prismaticEventPayloadCouponBasedNotifications.employeeName);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, created, campaignId, value, usageLimit, discountLimit, reservationLimit, startDate, expiryDate, usageCounter, discountCounter, discountRemainder, referralId, recipientIntegrationId, importId, batchId, attributes, limits);
+    return Objects.hash(id, created, campaignId, value, usageLimit, discountLimit, reservationLimit, startDate, expiryDate, usageCounter, discountCounter, discountRemainder, referralId, recipientIntegrationId, importId, batchId, attributes, limits, sourceOfEvent, employeeName);
   }
 
   @Override
@@ -554,6 +604,8 @@ public class PrismaticEventPayloadCouponBasedNotifications {
     sb.append("    batchId: ").append(toIndentedString(batchId)).append("\n");
     sb.append("    attributes: ").append(toIndentedString(attributes)).append("\n");
     sb.append("    limits: ").append(toIndentedString(limits)).append("\n");
+    sb.append("    sourceOfEvent: ").append(toIndentedString(sourceOfEvent)).append("\n");
+    sb.append("    employeeName: ").append(toIndentedString(employeeName)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -575,10 +627,10 @@ public class PrismaticEventPayloadCouponBasedNotifications {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("Id", "Created", "CampaignId", "Value", "UsageLimit", "DiscountLimit", "ReservationLimit", "StartDate", "ExpiryDate", "UsageCounter", "DiscountCounter", "DiscountRemainder", "ReferralId", "RecipientIntegrationId", "ImportId", "BatchId", "Attributes", "Limits"));
+    openapiFields = new HashSet<String>(Arrays.asList("Id", "Created", "CampaignId", "Value", "UsageLimit", "DiscountLimit", "ReservationLimit", "StartDate", "ExpiryDate", "UsageCounter", "DiscountCounter", "DiscountRemainder", "ReferralId", "RecipientIntegrationId", "ImportId", "BatchId", "Attributes", "Limits", "SourceOfEvent", "EmployeeName"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("Id", "Created", "CampaignId", "Value", "UsageLimit", "UsageCounter"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("Id", "Created", "CampaignId", "Value", "UsageLimit", "UsageCounter", "SourceOfEvent", "EmployeeName"));
   }
 
   /**
@@ -631,6 +683,12 @@ public class PrismaticEventPayloadCouponBasedNotifications {
             PrismaticEventPayloadCouponBasedNotificationsLimits.validateJsonElement(jsonArraylimits.get(i));
           };
         }
+      }
+      if (!jsonObj.get("SourceOfEvent").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `SourceOfEvent` to be a primitive type in the JSON string but got `%s`", jsonObj.get("SourceOfEvent").toString()));
+      }
+      if (!jsonObj.get("EmployeeName").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `EmployeeName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("EmployeeName").toString()));
       }
   }
 

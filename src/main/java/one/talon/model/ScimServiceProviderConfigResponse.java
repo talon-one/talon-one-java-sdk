@@ -55,7 +55,7 @@ import one.talon.JSON;
 /**
  * Service provider configuration details.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.18.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.19.0")
 public class ScimServiceProviderConfigResponse {
   public static final String SERIALIZED_NAME_BULK = "bulk";
   @SerializedName(SERIALIZED_NAME_BULK)

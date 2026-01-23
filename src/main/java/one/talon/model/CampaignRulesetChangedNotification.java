@@ -51,7 +51,7 @@ import one.talon.JSON;
 /**
  * CampaignRulesetChangedNotification
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.18.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.19.0")
 public class CampaignRulesetChangedNotification {
   /**
    * The type of the notification

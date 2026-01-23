@@ -48,7 +48,7 @@ import one.talon.JSON;
 /**
  * CampaignTemplateParams
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.18.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.19.0")
 public class CampaignTemplateParams {
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
@@ -69,6 +69,8 @@ public class CampaignTemplateParams {
     PERCENT("percent"),
     
     _LIST_STRING_("(list string)"),
+    
+    _LIST_NUMBER_("(list number)"),
     
     TIME("time");
 

@@ -48,7 +48,7 @@ import one.talon.JSON;
 /**
  * Config used for accessing integrations in Prismatic
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.18.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.19.0")
 public class PrismaticConfig {
   public static final String SERIALIZED_NAME_PRISMATIC_URL = "prismaticUrl";
   @SerializedName(SERIALIZED_NAME_PRISMATIC_URL)

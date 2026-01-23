@@ -185,4 +185,20 @@ public class PrismaticEventPayloadCouponBasedNotificationsTest {
         // TODO: test limits
     }
 
+    /**
+     * Test the property 'sourceOfEvent'
+     */
+    @Test
+    public void sourceOfEventTest() {
+        // TODO: test sourceOfEvent
+    }
+
+    /**
+     * Test the property 'employeeName'
+     */
+    @Test
+    public void employeeNameTest() {
+        // TODO: test employeeName
+    }
+
 }

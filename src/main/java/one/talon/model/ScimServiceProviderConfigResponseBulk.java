@@ -48,7 +48,7 @@ import one.talon.JSON;
 /**
  * Configuration related to bulk operations, which allow multiple SCIM requests to be processed in a single HTTP request.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.18.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.19.0")
 public class ScimServiceProviderConfigResponseBulk {
   public static final String SERIALIZED_NAME_MAX_OPERATIONS = "maxOperations";
   @SerializedName(SERIALIZED_NAME_MAX_OPERATIONS)

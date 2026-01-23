@@ -49,7 +49,7 @@ import one.talon.JSON;
 /**
  * Contains the updated customer profiles entities. This is the response type returned by the V2 PUT customer_profiles endpoint 
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.18.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.19.0")
 public class CustomerProfileUpdateV2Response {
   public static final String SERIALIZED_NAME_CUSTOMER_PROFILE = "customerProfile";
   @SerializedName(SERIALIZED_NAME_CUSTOMER_PROFILE)
