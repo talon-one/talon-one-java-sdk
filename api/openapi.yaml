@@ -5251,13 +5251,15 @@ paths:
         schema:
           type: string
         style: simple
-      - description: |
-          Used to return expired, active, and pending loyalty balances before this timestamp. You can enter any past, present, or future timestamp value.
-
-          **Note:**
-
-          - It must be an RFC3339 timestamp string.
-          - You can include a time component in your string, for example, `T23:59:59` to specify the end of the day. The time zone setting considered is `UTC`. If you do not include a time component, a default time value of `T00:00:00` (midnight) in `UTC` is considered.
+      - description: "Used to return expired, active, and pending loyalty balances\
+          \ before this\ntimestamp. You can enter any past, present, or future timestamp\
+          \ value.\n\n**Note:**\n\n- It must be an RFC3339 timestamp string.\n- You\
+          \ can include a time component in your string, for example,\n`T23:59:59`\
+          \ to specify the end of the day. The time zone setting\nconsidered is `UTC`.\
+          \ If you do not include a time component, a default\ntime value of `T00:00:00`\
+          \ (midnight) in `UTC` is considered.\n- This parameter does not affect the\
+          \ `currentTier` field in the CSV file, \nwhich shows the customer's tier\
+          \ at the time of export.\n"
         explode: true
         in: query
         name: endDate
@@ -13320,6 +13322,24 @@ components:
       required:
       - quantity
       - sku
+    ExperimentVariantAllocation:
+      example:
+        experimentID: 1
+        variantID: 2
+      properties:
+        experimentID:
+          description: The ID of the experiment.
+          example: 1
+          format: int64
+          type: integer
+        variantID:
+          description: The ID of the variant to be allocated.
+          example: 2
+          format: int64
+          type: integer
+      required:
+      - experimentID
+      - variantID
     NewCustomerSessionV2:
       allOf:
       - $ref: "#/components/schemas/IntegrationProfileEntity"
@@ -13389,6 +13409,13 @@ components:
             items:
               $ref: "#/components/schemas/CartItem"
             title: Customer session's cart items
+            type: array
+          experimentVariantAllocations:
+            description: |
+              The experiment variant allocations to add to this session.
+            items:
+              $ref: "#/components/schemas/ExperimentVariantAllocation"
+            title: Experiment variant allocations
             type: array
           additionalCosts:
             additionalProperties:
@@ -13483,6 +13510,11 @@ components:
         identifiers:
         - d41306257915f83fe01e54092ae470f631161ea16fcf4415842eed41470386ea
         integrationId: URNGV8294NV
+        experimentVariantAllocations:
+        - experimentID: 1
+          variantID: 2
+        - experimentID: 1
+          variantID: 2
         total: 119.99
         loyaltyCards:
         - loyalty-card-1
@@ -13572,6 +13604,11 @@ components:
       description: "Definition of all properties that are present on all effects,\
         \ independent of their type."
       properties:
+        experimentId:
+          description: The ID of the experiment that campaign belongs to.
+          example: 12
+          format: int64
+          type: integer
         campaignId:
           description: The ID of the campaign that triggered this effect.
           example: 244
@@ -14647,6 +14684,7 @@ components:
         selectedPriceType: member
         campaignRevisionId: 1
         ruleName: Give 20% discount
+        experimentId: 12
         triggeredByCoupon: 4928
     IntegrationCustomerSessionResponse:
       example:
@@ -14666,6 +14704,7 @@ components:
           selectedPriceType: member
           campaignRevisionId: 1
           ruleName: Give 20% discount
+          experimentId: 12
           triggeredByCoupon: 4928
         - rulesetId: 73
           ruleIndex: 2
@@ -14682,6 +14721,7 @@ components:
           selectedPriceType: member
           campaignRevisionId: 1
           ruleName: Give 20% discount
+          experimentId: 12
           triggeredByCoupon: 4928
         customerSession:
           couponCodes:
@@ -14691,6 +14731,11 @@ components:
           identifiers:
           - d41306257915f83fe01e54092ae470f631161ea16fcf4415842eed41470386ea
           integrationId: URNGV8294NV
+          experimentVariantAllocations:
+          - experimentID: 1
+            variantID: 2
+          - experimentID: 1
+            variantID: 2
           total: 119.99
           loyaltyCards:
           - loyalty-card-1
@@ -16334,6 +16379,12 @@ components:
             type: string
           maxItems: 50
           type: array
+        reevaluateOnReturn:
+          description: Indicates whether this campaign should be reevaluated when
+            a customer returns an item.
+          example: true
+          title: Reevaluate on return
+          type: boolean
         features:
           description: The features enabled in this campaign.
           example:
@@ -16595,6 +16646,11 @@ components:
             format: int64
             type: integer
           type: array
+        experimentId:
+          description: The ID of the Experiment this Campaign is part of.
+          example: 1
+          format: int64
+          type: integer
       required:
       - frontendState
       - storesImported
@@ -16651,6 +16707,9 @@ components:
       - $ref: "#/components/schemas/BaseCampaign"
       - $ref: "#/components/schemas/AdditionalCampaignProperties"
       - $ref: "#/components/schemas/CampaignVersions"
+      - required:
+        - reevaluateOnReturn
+        type: object
       example:
         type: advanced
         templateId: 3
@@ -16700,6 +16759,7 @@ components:
           - "7"
           - "8"
           - "9"
+        experimentId: 1
         id: 4
         state: enabled
         reservecouponEffectCount: 9
@@ -16752,6 +16812,7 @@ components:
           limit: 1000
           action: createCoupon
         activeRulesetId: 6
+        reevaluateOnReturn: true
         userId: 388
         awardedGiveawaysCount: 9
         redeemedLoyaltyPointsEffectCount: 9
@@ -17298,6 +17359,7 @@ components:
           selectedPriceType: member
           campaignRevisionId: 1
           ruleName: Give 20% discount
+          experimentId: 12
           triggeredByCoupon: 4928
         - rulesetId: 73
           ruleIndex: 2
@@ -17314,6 +17376,7 @@ components:
           selectedPriceType: member
           campaignRevisionId: 1
           ruleName: Give 20% discount
+          experimentId: 12
           triggeredByCoupon: 4928
         referral:
           code: 27G47Y54VH9L
@@ -17381,6 +17444,7 @@ components:
             - "7"
             - "8"
             - "9"
+          experimentId: 1
           id: 4
           state: enabled
           reservecouponEffectCount: 9
@@ -17433,6 +17497,7 @@ components:
             limit: 1000
             action: createCoupon
           activeRulesetId: 6
+          reevaluateOnReturn: true
           userId: 388
           awardedGiveawaysCount: 9
           redeemedLoyaltyPointsEffectCount: 9
@@ -17533,6 +17598,7 @@ components:
             - "7"
             - "8"
             - "9"
+          experimentId: 1
           id: 4
           state: enabled
           reservecouponEffectCount: 9
@@ -17585,6 +17651,7 @@ components:
             limit: 1000
             action: createCoupon
           activeRulesetId: 6
+          reevaluateOnReturn: true
           userId: 388
           awardedGiveawaysCount: 9
           redeemedLoyaltyPointsEffectCount: 9
@@ -17712,6 +17779,11 @@ components:
           identifiers:
           - d41306257915f83fe01e54092ae470f631161ea16fcf4415842eed41470386ea
           integrationId: URNGV8294NV
+          experimentVariantAllocations:
+          - experimentID: 1
+            variantID: 2
+          - experimentID: 1
+            variantID: 2
           total: 119.99
           loyaltyCards:
           - loyalty-card-1
@@ -18030,6 +18102,7 @@ components:
           selectedPriceType: member
           campaignRevisionId: 1
           ruleName: Give 20% discount
+          experimentId: 12
           triggeredByCoupon: 4928
         - rulesetId: 73
           ruleIndex: 2
@@ -18046,6 +18119,7 @@ components:
           selectedPriceType: member
           campaignRevisionId: 1
           ruleName: Give 20% discount
+          experimentId: 12
           triggeredByCoupon: 4928
       properties:
         effects:
@@ -18138,6 +18212,7 @@ components:
           selectedPriceType: member
           campaignRevisionId: 1
           ruleName: Give 20% discount
+          experimentId: 12
           triggeredByCoupon: 4928
         - rulesetId: 73
           ruleIndex: 2
@@ -18154,6 +18229,7 @@ components:
           selectedPriceType: member
           campaignRevisionId: 1
           ruleName: Give 20% discount
+          experimentId: 12
           triggeredByCoupon: 4928
         triggeredCampaigns:
         - type: advanced
@@ -18204,6 +18280,7 @@ components:
             - "7"
             - "8"
             - "9"
+          experimentId: 1
           id: 4
           state: enabled
           reservecouponEffectCount: 9
@@ -18256,6 +18333,7 @@ components:
             limit: 1000
             action: createCoupon
           activeRulesetId: 6
+          reevaluateOnReturn: true
           userId: 388
           awardedGiveawaysCount: 9
           redeemedLoyaltyPointsEffectCount: 9
@@ -18356,6 +18434,7 @@ components:
             - "7"
             - "8"
             - "9"
+          experimentId: 1
           id: 4
           state: enabled
           reservecouponEffectCount: 9
@@ -18408,6 +18487,7 @@ components:
             limit: 1000
             action: createCoupon
           activeRulesetId: 6
+          reevaluateOnReturn: true
           userId: 388
           awardedGiveawaysCount: 9
           redeemedLoyaltyPointsEffectCount: 9
@@ -20419,6 +20499,7 @@ components:
           selectedPriceType: member
           campaignRevisionId: 1
           ruleName: Give 20% discount
+          experimentId: 12
           triggeredByCoupon: 4928
         - rulesetId: 73
           ruleIndex: 2
@@ -20435,6 +20516,7 @@ components:
           selectedPriceType: member
           campaignRevisionId: 1
           ruleName: Give 20% discount
+          experimentId: 12
           triggeredByCoupon: 4928
         triggeredCampaigns:
         - type: advanced
@@ -20485,6 +20567,7 @@ components:
             - "7"
             - "8"
             - "9"
+          experimentId: 1
           id: 4
           state: enabled
           reservecouponEffectCount: 9
@@ -20537,6 +20620,7 @@ components:
             limit: 1000
             action: createCoupon
           activeRulesetId: 6
+          reevaluateOnReturn: true
           userId: 388
           awardedGiveawaysCount: 9
           redeemedLoyaltyPointsEffectCount: 9
@@ -20637,6 +20721,7 @@ components:
             - "7"
             - "8"
             - "9"
+          experimentId: 1
           id: 4
           state: enabled
           reservecouponEffectCount: 9
@@ -20689,6 +20774,7 @@ components:
             limit: 1000
             action: createCoupon
           activeRulesetId: 6
+          reevaluateOnReturn: true
           userId: 388
           awardedGiveawaysCount: 9
           redeemedLoyaltyPointsEffectCount: 9
@@ -22584,12 +22670,12 @@ components:
           title: Campaign Description
           type: string
         activeRulesetId:
-          description: The ID of the ruleset this campaign template will use.
+          description: The ID of the ruleset this campaign will use.
           example: 5
           nullable: true
           type: integer
         tags:
-          description: A list of tags for the campaign template.
+          description: A list of tags for the campaign.
           items:
             maxLength: 50
             minLength: 1
@@ -22605,8 +22691,14 @@ components:
           items:
             $ref: "#/components/schemas/LimitConfig"
           type: array
+        reevaluateOnReturn:
+          description: Indicates whether this campaign should be reevaluated when
+            a customer returns an item.
+          example: true
+          title: Reevaluate on return
+          type: boolean
         features:
-          description: A list of features for the campaign template.
+          description: A list of features for the campaign.
           items:
             enum:
             - coupons
@@ -22885,6 +22977,7 @@ components:
       example:
         activeRulesetId: 2
         description: Campaign for all summer 2021 promotions
+        reevaluateOnReturn: true
         type: advanced
         campaignGroups:
         - 1
@@ -23050,6 +23143,12 @@ components:
             type: string
           maxItems: 50
           type: array
+        reevaluateOnReturn:
+          description: Indicates whether this campaign should be reevaluated when
+            a customer returns an item.
+          example: true
+          title: Reevaluate on return
+          type: boolean
         features:
           description: A list of features for the campaign.
           example:
@@ -23501,6 +23600,7 @@ components:
           - number
           - time
           - (list string)
+          - (list number)
           minLength: 1
           type: string
         description:
@@ -25113,6 +25213,12 @@ components:
             $ref: "#/components/schemas/CodeGeneratorSettings"
           attributes:
             $ref: "#/components/schemas/NewCouponCreationJob_allOf_attributes"
+          isReservationMandatory:
+            default: false
+            description: An indication of whether the code can be redeemed only if
+              it has been reserved first.
+            example: false
+            type: boolean
         required:
         - attributes
         - numberOfCoupons
@@ -25163,6 +25269,7 @@ components:
         attributes: null
         discountLimit: 30
         startDate: 2020-01-24T14:15:22Z
+        isReservationMandatory: false
     AsyncCouponCreationResponse:
       example:
         batchId: tqyrgahe
@@ -25670,6 +25777,11 @@ components:
             type: string
           maxItems: 50
           type: array
+        reevaluateOnReturn:
+          description: Indicates whether campaigns created from this template should
+            be reevaluated when a customer returns an item.
+          example: true
+          type: boolean
         features:
           description: A list of features for the campaign template.
           items:
@@ -25787,6 +25899,9 @@ components:
             type: boolean
         required:
         - validApplicationIds
+      - required:
+        - reevaluateOnReturn
+        type: object
       example:
         instructions: "Use this template for discount campaigns. Set the campaign\
           \ properties according to the campaign goals, and don't forget to set an\
@@ -25877,6 +25992,7 @@ components:
         updatedBy: Jane Doe
         created: 2020-06-10T09:05:27.993483Z
         isUserFavorite: false
+        reevaluateOnReturn: true
         userId: 388
         tags:
         - discount
@@ -25965,6 +26081,11 @@ components:
             type: string
           maxItems: 50
           type: array
+        reevaluateOnReturn:
+          description: Indicates whether campaigns created from this template should
+            be reevaluated when a customer returns an item.
+          example: true
+          type: boolean
         features:
           description: A list of features for the campaign template.
           items:
@@ -26021,6 +26142,241 @@ components:
       - instructions
       - name
       - state
+    ExperimentVariant:
+      allOf:
+      - $ref: "#/components/schemas/Entity"
+      - properties:
+          name:
+            example: Variant A
+            type: string
+          experimentId:
+            example: 10
+            format: int64
+            type: integer
+          ruleset:
+            $ref: "#/components/schemas/Ruleset"
+          weight:
+            example: 12
+            format: int64
+            type: integer
+          isPrimary:
+            example: true
+            type: boolean
+        required:
+        - isPrimary
+        - name
+    Experiment:
+      allOf:
+      - $ref: "#/components/schemas/Entity"
+      - $ref: "#/components/schemas/ApplicationEntity"
+      - properties:
+          isVariantAssignmentExternal:
+            description: |
+              The source of the assignment. - false - The assignment to the variant is handled internally by the Talon.Oneandled internally by the Talon.One. - true - The assignment to the variant handled externally.
+            type: boolean
+          campaign:
+            $ref: "#/components/schemas/Campaign"
+          activated:
+            description: |
+              The date and time the experiment was activated.
+            format: date-time
+            type: string
+          state:
+            default: disabled
+            description: |
+              A disabled experiment is not evaluated for rules or coupons.
+            enum:
+            - enabled
+            - disabled
+            example: enabled
+            type: string
+          variants:
+            items:
+              $ref: "#/components/schemas/ExperimentVariant"
+            type: array
+          deletedat:
+            description: |
+              The date and time the experiment was deleted.
+            format: date-time
+            type: string
+    NewExperiment:
+      properties:
+        isVariantAssignmentExternal:
+          description: |
+            The source of the assignment. - false - The assignment to the variant is handled internally by the Talon.Oneandled internally by the Talon.One. - true - The assignment to the variant handled externally.
+          type: boolean
+        activated:
+          description: |
+            The date and time the experiment was activated.
+          format: date-time
+          type: string
+        state:
+          default: disabled
+          description: |
+            A disabled experiment is not evaluated for rules or coupons.
+          enum:
+          - enabled
+          - disabled
+          example: enabled
+          type: string
+        campaign:
+          $ref: "#/components/schemas/NewCampaign"
+      required:
+      - campaign
+      - isVariantAssignmentExternal
+    UpdateExperiment:
+      allOf:
+      - properties:
+          isVariantAssignmentExternal:
+            description: "The source of the assignment. - false - The assignment to\
+              \ the variant is handled internally by the Talon.Oneandled internally\
+              \ by the Talon.One. - true - The assignment to the variant handled externally.\
+              \      \n"
+            type: boolean
+          campaign:
+            $ref: "#/components/schemas/UpdateCampaign"
+        required:
+        - campaign
+        - isVariantAssignmentExternal
+    UpdateExperimentVariant:
+      allOf:
+      - properties:
+          id:
+            example: 10
+            format: int64
+            type: integer
+          name:
+            example: Variant A
+            type: string
+          ruleset:
+            $ref: "#/components/schemas/NewRuleset"
+          weight:
+            example: 12
+            format: int64
+            type: integer
+        required:
+        - id
+        - name
+        - ruleset
+        - weight
+    UpdateExperimentVariantArray:
+      properties:
+        variants:
+          description: Array of experiment variants to update
+          items:
+            $ref: "#/components/schemas/UpdateExperimentVariant"
+          type: array
+      required:
+      - variants
+    NewExperimentVariant:
+      properties:
+        name:
+          description: The name of this variant.
+          minLength: 1
+          pattern: "^[A-Za-z](\\w|\\s)*$"
+          type: string
+        weight:
+          example: 13
+          format: int64
+          type: integer
+        ruleset:
+          $ref: "#/components/schemas/NewRuleset"
+        isPrimary:
+          example: true
+          type: boolean
+      required:
+      - isPrimary
+      - name
+      - ruleset
+    NewExperimentVariantArray:
+      properties:
+        variants:
+          description: Array of experiment variants to create
+          items:
+            $ref: "#/components/schemas/NewExperimentVariant"
+          type: array
+      required:
+      - variants
+    ExperimentVariantResult:
+      properties:
+        variantId:
+          description: The ID of the variant.
+          example: 1
+          format: int64
+          type: integer
+        variantName:
+          description: The name of the variant.
+          example: Variant A
+          type: string
+        variantWeight:
+          description: The weight of the variant.
+          example: 50
+          format: int64
+          type: integer
+        totalRevenue:
+          description: "The total, pre-discount value of all items purchased in a\
+            \ customer session."
+          example: 100
+          type: number
+        sessionsCount:
+          description: The number of all closed sessions.
+          example: 100
+          type: number
+        avgItemsPerSession:
+          description: The number of items from sessions divided by the number of
+            sessions.
+          example: 100
+          type: number
+        avgSessionValue:
+          description: "The average customer session value, calculated by dividing\
+            \ the revenue value by the number of sessions."
+          example: 100
+          type: number
+        avgDiscountedSessionValue:
+          description: "The average customer session value, calculated by dividing\
+            \ the revenue value by the number of sessions."
+          example: 100
+          type: number
+        totalDiscounts:
+          description: The total value of discounts given for cart items in sessions.
+          example: 10
+          type: number
+        couponsCount:
+          description: The number of times a coupon was successfully redeemed in sessions.
+          example: 12
+          type: number
+    ExperimentVariantResultConfidence:
+      properties:
+        avgSessionValue:
+          description: The calculated confidence value of the average customer session
+            value.
+          example: 100
+          type: number
+        avgDiscountedSessionValue:
+          description: The calculated confidence value of the average customer discounted
+            session value.
+          example: 100
+          type: number
+        avgItemsPerSession:
+          description: The calculated confidence value of the number of items from
+            sessions value.
+          example: 100
+          type: number
+      required:
+      - avgDiscountedSessionValue
+      - avgItemsPerSession
+      - avgSessionValue
+    ExperimentResults:
+      properties:
+        variants:
+          items:
+            $ref: "#/components/schemas/ExperimentVariantResult"
+          type: array
+        confidence:
+          $ref: "#/components/schemas/ExperimentVariantResultConfidence"
+      required:
+      - confidence
+      - properties
     CreateTemplateCampaign:
       example:
         campaignAttributesOverrides: "{}"
@@ -26523,6 +26879,7 @@ components:
             - "7"
             - "8"
             - "9"
+          experimentId: 1
           id: 4
           state: enabled
           reservecouponEffectCount: 9
@@ -26575,6 +26932,7 @@ components:
             limit: 1000
             action: createCoupon
           activeRulesetId: 6
+          reevaluateOnReturn: true
           userId: 388
           awardedGiveawaysCount: 9
           redeemedLoyaltyPointsEffectCount: 9
@@ -28784,6 +29142,7 @@ components:
           selectedPriceType: member
           campaignRevisionId: 1
           ruleName: Give 20% discount
+          experimentId: 12
           triggeredByCoupon: 4928
         - rulesetId: 73
           ruleIndex: 2
@@ -28800,6 +29159,7 @@ components:
           selectedPriceType: member
           campaignRevisionId: 1
           ruleName: Give 20% discount
+          experimentId: 12
           triggeredByCoupon: 4928
         storeIntegrationId: STORE-001
         created: 2020-06-10T09:05:27.993483Z
@@ -29354,7 +29714,7 @@ components:
     BestPriorPriceRequest:
       example:
         timeframeEndDate: 2020-11-10T23:00:00Z
-        timeframe: 30
+        timeframe: "30"
         skus:
         - comma
         - period
@@ -29382,7 +29742,7 @@ components:
         timeframe:
           description: The number of days prior to the timeframeEndDate. Only prices
             within this look back period are considered for the best prior price evaluation.
-          example: 30
+          example: "30"
           type: string
         strictEndDate:
           description: |
@@ -29398,30 +29758,71 @@ components:
       - strictEndDate
       - timeframe
       - timeframeEndDate
+    InfluencingCampaignDetails:
+      description: Details about a campaign that influenced the final price.
+      example:
+        campaignId: 0
+        discountValue: 6.027456183070403
+      properties:
+        campaignId:
+          description: Identifier of the campaign that influenced the final price.
+          format: int64
+          type: integer
+        discountValue:
+          description: Discount value applied by the campaign.
+          type: number
+      required:
+      - campaignId
+      - discountValue
+    AdjustmentDetails:
+      description: Details about an applied price adjustment.
+      properties:
+        referenceId:
+          description: The reference identifier used during an `ADD_PRICE_ADJUSTMENT`
+            action.
+          example: 68851723-e6fa-488f-ace9-112581e6c19b
+          type: string
+        selectedPriceType:
+          description: The selected price type for the SKU targeted by this effect.
+          example: member
+          type: string
+        value:
+          description: The value of the applied price adjustment.
+          type: number
+      required:
+      - referenceId
+      - selectedPriceType
+      - value
     BestPriorPriceMetadata:
       description: Auxiliary data for found price observation.
       example:
-        influencingCampaignIDs:
-        - 0
-        - 0
-        adjustmentReferenceID: adjustmentReferenceID
+        adjustmentDetails: "{}"
+        influencingCampaignDetails:
+        - campaignId: 0
+          discountValue: 6.027456183070403
+        - campaignId: 0
+          discountValue: 6.027456183070403
       properties:
-        influencingCampaignIDs:
+        influencingCampaignDetails:
+          description: Details about campaigns that influenced the final price.
           items:
-            format: int64
-            type: integer
+            $ref: "#/components/schemas/InfluencingCampaignDetails"
           type: array
-        adjustmentReferenceID:
-          description: "Identifier related to the `referenceId` used during a `ADD_PRICE_ADJUSTMENT`\
-            \ action  using the [Sync cart item catalog endpoint](https://docs.talon.one/integration-api#tag/Catalogs/operation/syncCatalog)."
-          type: string
+        adjustmentDetails:
+          allOf:
+          - $ref: "#/components/schemas/AdjustmentDetails"
+          description: Details about the applied price adjustment.
+      required:
+      - influencingCampaignDetails
     BestPriorPrice:
       example:
         metadata:
-          influencingCampaignIDs:
-          - 0
-          - 0
-          adjustmentReferenceID: adjustmentReferenceID
+          adjustmentDetails: "{}"
+          influencingCampaignDetails:
+          - campaignId: 0
+            discountValue: 6.027456183070403
+          - campaignId: 0
+            discountValue: 6.027456183070403
         observedAt: 2020-11-10T23:00:00Z
         price: 99.99
         contextId: Summer Sale 2007
@@ -33101,6 +33502,27 @@ components:
       properties:
         ApiKey:
           type: string
+        WorkerCount:
+          default: 10
+          description: Number of Prismatic workers to run in parallel for this flow
+            (maximum 500).
+          format: int64
+          maximum: 500
+          minimum: 1
+          type: integer
+        MaxEventsPerMessage:
+          default: 1000
+          description: Maximum number of events to send in a single message to Prismatic.
+          format: int64
+          minimum: 1
+          type: integer
+        MaxRetries:
+          default: 10
+          description: Maximum number of retries for a Prismatic event before it is
+            ignored.
+          format: int64
+          minimum: 0
+          type: integer
       required:
       - ApiKey
     PrismaticFlowWithConfig:
@@ -33596,6 +34018,7 @@ components:
           items:
             $ref: "#/components/schemas/StrikethroughEffect"
           type: array
+          x-omit-if-zero: true
       required:
       - catalogId
       - evaluatedAt
@@ -35699,6 +36122,7 @@ components:
             - "7"
             - "8"
             - "9"
+          experimentId: 1
           id: 4
           state: enabled
           reservecouponEffectCount: 9
@@ -35751,6 +36175,7 @@ components:
             limit: 1000
             action: createCoupon
           activeRulesetId: 6
+          reevaluateOnReturn: true
           userId: 388
           awardedGiveawaysCount: 9
           redeemedLoyaltyPointsEffectCount: 9
@@ -35851,6 +36276,7 @@ components:
             - "7"
             - "8"
             - "9"
+          experimentId: 1
           id: 4
           state: enabled
           reservecouponEffectCount: 9
@@ -35903,6 +36329,7 @@ components:
             limit: 1000
             action: createCoupon
           activeRulesetId: 6
+          reevaluateOnReturn: true
           userId: 388
           awardedGiveawaysCount: 9
           redeemedLoyaltyPointsEffectCount: 9
@@ -36664,6 +37091,7 @@ components:
           updatedBy: Jane Doe
           created: 2020-06-10T09:05:27.993483Z
           isUserFavorite: false
+          reevaluateOnReturn: true
           userId: 388
           tags:
           - discount
@@ -36802,6 +37230,7 @@ components:
           updatedBy: Jane Doe
           created: 2020-06-10T09:05:27.993483Z
           isUserFavorite: false
+          reevaluateOnReturn: true
           userId: 388
           tags:
           - discount
@@ -37900,6 +38329,7 @@ components:
             selectedPriceType: member
             campaignRevisionId: 1
             ruleName: Give 20% discount
+            experimentId: 12
             triggeredByCoupon: 4928
           - rulesetId: 73
             ruleIndex: 2
@@ -37916,6 +38346,7 @@ components:
             selectedPriceType: member
             campaignRevisionId: 1
             ruleName: Give 20% discount
+            experimentId: 12
             triggeredByCoupon: 4928
           storeIntegrationId: STORE-001
           created: 2020-06-10T09:05:27.993483Z
@@ -37971,6 +38402,7 @@ components:
             selectedPriceType: member
             campaignRevisionId: 1
             ruleName: Give 20% discount
+            experimentId: 12
             triggeredByCoupon: 4928
           - rulesetId: 73
             ruleIndex: 2
@@ -37987,6 +38419,7 @@ components:
             selectedPriceType: member
             campaignRevisionId: 1
             ruleName: Give 20% discount
+            experimentId: 12
             triggeredByCoupon: 4928
           storeIntegrationId: STORE-001
           created: 2020-06-10T09:05:27.993483Z

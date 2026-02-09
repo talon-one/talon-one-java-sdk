@@ -110,6 +110,11 @@ public class RevisionVersion {
   @javax.annotation.Nullable
   private List<LimitConfig> limits = new ArrayList<>();
 
+  public static final String SERIALIZED_NAME_REEVALUATE_ON_RETURN = "reevaluateOnReturn";
+  @SerializedName(SERIALIZED_NAME_REEVALUATE_ON_RETURN)
+  @javax.annotation.Nullable
+  private Boolean reevaluateOnReturn;
+
   /**
    * Gets or Sets features
    */
@@ -333,7 +338,7 @@ public class RevisionVersion {
   }
 
   /**
-   * The ID of the ruleset this campaign template will use.
+   * The ID of the ruleset this campaign will use.
    * @return activeRulesetId
    */
   @javax.annotation.Nullable
@@ -360,7 +365,7 @@ public class RevisionVersion {
   }
 
   /**
-   * A list of tags for the campaign template.
+   * A list of tags for the campaign.
    * @return tags
    */
   @javax.annotation.Nullable
@@ -438,6 +443,25 @@ public class RevisionVersion {
   }
 
 
+  public RevisionVersion reevaluateOnReturn(@javax.annotation.Nullable Boolean reevaluateOnReturn) {
+    this.reevaluateOnReturn = reevaluateOnReturn;
+    return this;
+  }
+
+  /**
+   * Indicates whether this campaign should be reevaluated when a customer returns an item.
+   * @return reevaluateOnReturn
+   */
+  @javax.annotation.Nullable
+  public Boolean getReevaluateOnReturn() {
+    return reevaluateOnReturn;
+  }
+
+  public void setReevaluateOnReturn(@javax.annotation.Nullable Boolean reevaluateOnReturn) {
+    this.reevaluateOnReturn = reevaluateOnReturn;
+  }
+
+
   public RevisionVersion features(@javax.annotation.Nullable List<FeaturesEnum> features) {
     this.features = features;
     return this;
@@ -452,7 +476,7 @@ public class RevisionVersion {
   }
 
   /**
-   * A list of features for the campaign template.
+   * A list of features for the campaign.
    * @return features
    */
   @javax.annotation.Nullable
@@ -619,6 +643,7 @@ public class RevisionVersion {
         Objects.equals(this.couponSettings, revisionVersion.couponSettings) &&
         Objects.equals(this.referralSettings, revisionVersion.referralSettings) &&
         Objects.equals(this.limits, revisionVersion.limits) &&
+        Objects.equals(this.reevaluateOnReturn, revisionVersion.reevaluateOnReturn) &&
         Objects.equals(this.features, revisionVersion.features) &&
         Objects.equals(this.accountId, revisionVersion.accountId) &&
         Objects.equals(this.applicationId, revisionVersion.applicationId) &&
@@ -631,7 +656,7 @@ public class RevisionVersion {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, name, startTime, endTime, attributes, description, activeRulesetId, tags, couponSettings, referralSettings, limits, features, accountId, applicationId, campaignId, created, createdBy, revisionId, version);
+    return Objects.hash(id, name, startTime, endTime, attributes, description, activeRulesetId, tags, couponSettings, referralSettings, limits, reevaluateOnReturn, features, accountId, applicationId, campaignId, created, createdBy, revisionId, version);
   }
 
   @Override
@@ -649,6 +674,7 @@ public class RevisionVersion {
     sb.append("    couponSettings: ").append(toIndentedString(couponSettings)).append("\n");
     sb.append("    referralSettings: ").append(toIndentedString(referralSettings)).append("\n");
     sb.append("    limits: ").append(toIndentedString(limits)).append("\n");
+    sb.append("    reevaluateOnReturn: ").append(toIndentedString(reevaluateOnReturn)).append("\n");
     sb.append("    features: ").append(toIndentedString(features)).append("\n");
     sb.append("    accountId: ").append(toIndentedString(accountId)).append("\n");
     sb.append("    applicationId: ").append(toIndentedString(applicationId)).append("\n");
@@ -678,7 +704,7 @@ public class RevisionVersion {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("id", "name", "startTime", "endTime", "attributes", "description", "activeRulesetId", "tags", "couponSettings", "referralSettings", "limits", "features", "accountId", "applicationId", "campaignId", "created", "createdBy", "revisionId", "version"));
+    openapiFields = new HashSet<String>(Arrays.asList("id", "name", "startTime", "endTime", "attributes", "description", "activeRulesetId", "tags", "couponSettings", "referralSettings", "limits", "reevaluateOnReturn", "features", "accountId", "applicationId", "campaignId", "created", "createdBy", "revisionId", "version"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("id", "accountId", "applicationId", "campaignId", "created", "createdBy", "revisionId", "version"));

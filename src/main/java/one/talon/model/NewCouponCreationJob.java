@@ -93,6 +93,11 @@ public class NewCouponCreationJob {
   @javax.annotation.Nonnull
   private Object attributes;
 
+  public static final String SERIALIZED_NAME_IS_RESERVATION_MANDATORY = "isReservationMandatory";
+  @SerializedName(SERIALIZED_NAME_IS_RESERVATION_MANDATORY)
+  @javax.annotation.Nullable
+  private Boolean isReservationMandatory = false;
+
   public NewCouponCreationJob() {
   }
 
@@ -256,6 +261,25 @@ public class NewCouponCreationJob {
   }
 
 
+  public NewCouponCreationJob isReservationMandatory(@javax.annotation.Nullable Boolean isReservationMandatory) {
+    this.isReservationMandatory = isReservationMandatory;
+    return this;
+  }
+
+  /**
+   * An indication of whether the code can be redeemed only if it has been reserved first.
+   * @return isReservationMandatory
+   */
+  @javax.annotation.Nullable
+  public Boolean getIsReservationMandatory() {
+    return isReservationMandatory;
+  }
+
+  public void setIsReservationMandatory(@javax.annotation.Nullable Boolean isReservationMandatory) {
+    this.isReservationMandatory = isReservationMandatory;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -273,12 +297,13 @@ public class NewCouponCreationJob {
         Objects.equals(this.expiryDate, newCouponCreationJob.expiryDate) &&
         Objects.equals(this.numberOfCoupons, newCouponCreationJob.numberOfCoupons) &&
         Objects.equals(this.couponSettings, newCouponCreationJob.couponSettings) &&
-        Objects.equals(this.attributes, newCouponCreationJob.attributes);
+        Objects.equals(this.attributes, newCouponCreationJob.attributes) &&
+        Objects.equals(this.isReservationMandatory, newCouponCreationJob.isReservationMandatory);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(usageLimit, discountLimit, reservationLimit, startDate, expiryDate, numberOfCoupons, couponSettings, attributes);
+    return Objects.hash(usageLimit, discountLimit, reservationLimit, startDate, expiryDate, numberOfCoupons, couponSettings, attributes, isReservationMandatory);
   }
 
   @Override
@@ -293,6 +318,7 @@ public class NewCouponCreationJob {
     sb.append("    numberOfCoupons: ").append(toIndentedString(numberOfCoupons)).append("\n");
     sb.append("    couponSettings: ").append(toIndentedString(couponSettings)).append("\n");
     sb.append("    attributes: ").append(toIndentedString(attributes)).append("\n");
+    sb.append("    isReservationMandatory: ").append(toIndentedString(isReservationMandatory)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -314,7 +340,7 @@ public class NewCouponCreationJob {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("usageLimit", "discountLimit", "reservationLimit", "startDate", "expiryDate", "numberOfCoupons", "couponSettings", "attributes"));
+    openapiFields = new HashSet<String>(Arrays.asList("usageLimit", "discountLimit", "reservationLimit", "startDate", "expiryDate", "numberOfCoupons", "couponSettings", "attributes", "isReservationMandatory"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("numberOfCoupons", "attributes"));

@@ -23,6 +23,8 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import one.talon.model.AdjustmentDetails;
+import one.talon.model.InfluencingCampaignDetails;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -52,62 +54,62 @@ import one.talon.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.19.0")
 public class BestPriorPriceMetadata {
-  public static final String SERIALIZED_NAME_INFLUENCING_CAMPAIGN_I_DS = "influencingCampaignIDs";
-  @SerializedName(SERIALIZED_NAME_INFLUENCING_CAMPAIGN_I_DS)
-  @javax.annotation.Nullable
-  private List<Long> influencingCampaignIDs = new ArrayList<>();
+  public static final String SERIALIZED_NAME_INFLUENCING_CAMPAIGN_DETAILS = "influencingCampaignDetails";
+  @SerializedName(SERIALIZED_NAME_INFLUENCING_CAMPAIGN_DETAILS)
+  @javax.annotation.Nonnull
+  private List<InfluencingCampaignDetails> influencingCampaignDetails = new ArrayList<>();
 
-  public static final String SERIALIZED_NAME_ADJUSTMENT_REFERENCE_I_D = "adjustmentReferenceID";
-  @SerializedName(SERIALIZED_NAME_ADJUSTMENT_REFERENCE_I_D)
+  public static final String SERIALIZED_NAME_ADJUSTMENT_DETAILS = "adjustmentDetails";
+  @SerializedName(SERIALIZED_NAME_ADJUSTMENT_DETAILS)
   @javax.annotation.Nullable
-  private String adjustmentReferenceID;
+  private AdjustmentDetails adjustmentDetails;
 
   public BestPriorPriceMetadata() {
   }
 
-  public BestPriorPriceMetadata influencingCampaignIDs(@javax.annotation.Nullable List<Long> influencingCampaignIDs) {
-    this.influencingCampaignIDs = influencingCampaignIDs;
+  public BestPriorPriceMetadata influencingCampaignDetails(@javax.annotation.Nonnull List<InfluencingCampaignDetails> influencingCampaignDetails) {
+    this.influencingCampaignDetails = influencingCampaignDetails;
     return this;
   }
 
-  public BestPriorPriceMetadata addInfluencingCampaignIDsItem(Long influencingCampaignIDsItem) {
-    if (this.influencingCampaignIDs == null) {
-      this.influencingCampaignIDs = new ArrayList<>();
+  public BestPriorPriceMetadata addInfluencingCampaignDetailsItem(InfluencingCampaignDetails influencingCampaignDetailsItem) {
+    if (this.influencingCampaignDetails == null) {
+      this.influencingCampaignDetails = new ArrayList<>();
     }
-    this.influencingCampaignIDs.add(influencingCampaignIDsItem);
+    this.influencingCampaignDetails.add(influencingCampaignDetailsItem);
     return this;
   }
 
   /**
-   * Get influencingCampaignIDs
-   * @return influencingCampaignIDs
+   * Details about campaigns that influenced the final price.
+   * @return influencingCampaignDetails
    */
-  @javax.annotation.Nullable
-  public List<Long> getInfluencingCampaignIDs() {
-    return influencingCampaignIDs;
+  @javax.annotation.Nonnull
+  public List<InfluencingCampaignDetails> getInfluencingCampaignDetails() {
+    return influencingCampaignDetails;
   }
 
-  public void setInfluencingCampaignIDs(@javax.annotation.Nullable List<Long> influencingCampaignIDs) {
-    this.influencingCampaignIDs = influencingCampaignIDs;
+  public void setInfluencingCampaignDetails(@javax.annotation.Nonnull List<InfluencingCampaignDetails> influencingCampaignDetails) {
+    this.influencingCampaignDetails = influencingCampaignDetails;
   }
 
 
-  public BestPriorPriceMetadata adjustmentReferenceID(@javax.annotation.Nullable String adjustmentReferenceID) {
-    this.adjustmentReferenceID = adjustmentReferenceID;
+  public BestPriorPriceMetadata adjustmentDetails(@javax.annotation.Nullable AdjustmentDetails adjustmentDetails) {
+    this.adjustmentDetails = adjustmentDetails;
     return this;
   }
 
   /**
-   * Identifier related to the &#x60;referenceId&#x60; used during a &#x60;ADD_PRICE_ADJUSTMENT&#x60; action  using the [Sync cart item catalog endpoint](https://docs.talon.one/integration-api#tag/Catalogs/operation/syncCatalog).
-   * @return adjustmentReferenceID
+   * Details about the applied price adjustment.
+   * @return adjustmentDetails
    */
   @javax.annotation.Nullable
-  public String getAdjustmentReferenceID() {
-    return adjustmentReferenceID;
+  public AdjustmentDetails getAdjustmentDetails() {
+    return adjustmentDetails;
   }
 
-  public void setAdjustmentReferenceID(@javax.annotation.Nullable String adjustmentReferenceID) {
-    this.adjustmentReferenceID = adjustmentReferenceID;
+  public void setAdjustmentDetails(@javax.annotation.Nullable AdjustmentDetails adjustmentDetails) {
+    this.adjustmentDetails = adjustmentDetails;
   }
 
 
@@ -121,21 +123,21 @@ public class BestPriorPriceMetadata {
       return false;
     }
     BestPriorPriceMetadata bestPriorPriceMetadata = (BestPriorPriceMetadata) o;
-    return Objects.equals(this.influencingCampaignIDs, bestPriorPriceMetadata.influencingCampaignIDs) &&
-        Objects.equals(this.adjustmentReferenceID, bestPriorPriceMetadata.adjustmentReferenceID);
+    return Objects.equals(this.influencingCampaignDetails, bestPriorPriceMetadata.influencingCampaignDetails) &&
+        Objects.equals(this.adjustmentDetails, bestPriorPriceMetadata.adjustmentDetails);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(influencingCampaignIDs, adjustmentReferenceID);
+    return Objects.hash(influencingCampaignDetails, adjustmentDetails);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class BestPriorPriceMetadata {\n");
-    sb.append("    influencingCampaignIDs: ").append(toIndentedString(influencingCampaignIDs)).append("\n");
-    sb.append("    adjustmentReferenceID: ").append(toIndentedString(adjustmentReferenceID)).append("\n");
+    sb.append("    influencingCampaignDetails: ").append(toIndentedString(influencingCampaignDetails)).append("\n");
+    sb.append("    adjustmentDetails: ").append(toIndentedString(adjustmentDetails)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -157,10 +159,10 @@ public class BestPriorPriceMetadata {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("influencingCampaignIDs", "adjustmentReferenceID"));
+    openapiFields = new HashSet<String>(Arrays.asList("influencingCampaignDetails", "adjustmentDetails"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(0);
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("influencingCampaignDetails"));
   }
 
   /**
@@ -183,13 +185,27 @@ public class BestPriorPriceMetadata {
           throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `BestPriorPriceMetadata` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
-        JsonObject jsonObj = jsonElement.getAsJsonObject();
-      // ensure the optional json data is an array if present
-      if (jsonObj.get("influencingCampaignIDs") != null && !jsonObj.get("influencingCampaignIDs").isJsonNull() && !jsonObj.get("influencingCampaignIDs").isJsonArray()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `influencingCampaignIDs` to be an array in the JSON string but got `%s`", jsonObj.get("influencingCampaignIDs").toString()));
+
+      // check to make sure all required properties/fields are present in the JSON string
+      for (String requiredField : BestPriorPriceMetadata.openapiRequiredFields) {
+        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
+        }
       }
-      if ((jsonObj.get("adjustmentReferenceID") != null && !jsonObj.get("adjustmentReferenceID").isJsonNull()) && !jsonObj.get("adjustmentReferenceID").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `adjustmentReferenceID` to be a primitive type in the JSON string but got `%s`", jsonObj.get("adjustmentReferenceID").toString()));
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
+      // ensure the json data is an array
+      if (!jsonObj.get("influencingCampaignDetails").isJsonArray()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `influencingCampaignDetails` to be an array in the JSON string but got `%s`", jsonObj.get("influencingCampaignDetails").toString()));
+      }
+
+      JsonArray jsonArrayinfluencingCampaignDetails = jsonObj.getAsJsonArray("influencingCampaignDetails");
+      // validate the required field `influencingCampaignDetails` (array)
+      for (int i = 0; i < jsonArrayinfluencingCampaignDetails.size(); i++) {
+        InfluencingCampaignDetails.validateJsonElement(jsonArrayinfluencingCampaignDetails.get(i));
+      };
+      // validate the optional field `adjustmentDetails`
+      if (jsonObj.get("adjustmentDetails") != null && !jsonObj.get("adjustmentDetails").isJsonNull()) {
+        AdjustmentDetails.validateJsonElement(jsonObj.get("adjustmentDetails"));
       }
   }
 

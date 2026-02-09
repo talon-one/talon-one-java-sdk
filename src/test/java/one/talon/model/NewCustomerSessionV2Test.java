@@ -26,6 +26,7 @@ import java.util.List;
 import java.util.Map;
 import one.talon.model.AdditionalCost;
 import one.talon.model.CartItem;
+import one.talon.model.ExperimentVariantAllocation;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
@@ -105,6 +106,14 @@ public class NewCustomerSessionV2Test {
     @Test
     public void cartItemsTest() {
         // TODO: test cartItems
+    }
+
+    /**
+     * Test the property 'experimentVariantAllocations'
+     */
+    @Test
+    public void experimentVariantAllocationsTest() {
+        // TODO: test experimentVariantAllocations
     }
 
     /**

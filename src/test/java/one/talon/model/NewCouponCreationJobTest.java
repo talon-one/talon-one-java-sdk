@@ -104,4 +104,12 @@ public class NewCouponCreationJobTest {
         // TODO: test attributes
     }
 
+    /**
+     * Test the property 'isReservationMandatory'
+     */
+    @Test
+    public void isReservationMandatoryTest() {
+        // TODO: test isReservationMandatory
+    }
+
 }

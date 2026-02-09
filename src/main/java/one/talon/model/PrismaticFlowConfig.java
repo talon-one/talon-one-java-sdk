@@ -55,6 +55,21 @@ public class PrismaticFlowConfig {
   @javax.annotation.Nonnull
   private String apiKey;
 
+  public static final String SERIALIZED_NAME_WORKER_COUNT = "WorkerCount";
+  @SerializedName(SERIALIZED_NAME_WORKER_COUNT)
+  @javax.annotation.Nullable
+  private Long workerCount = 10l;
+
+  public static final String SERIALIZED_NAME_MAX_EVENTS_PER_MESSAGE = "MaxEventsPerMessage";
+  @SerializedName(SERIALIZED_NAME_MAX_EVENTS_PER_MESSAGE)
+  @javax.annotation.Nullable
+  private Long maxEventsPerMessage = 1000l;
+
+  public static final String SERIALIZED_NAME_MAX_RETRIES = "MaxRetries";
+  @SerializedName(SERIALIZED_NAME_MAX_RETRIES)
+  @javax.annotation.Nullable
+  private Long maxRetries = 10l;
+
   public PrismaticFlowConfig() {
   }
 
@@ -77,6 +92,67 @@ public class PrismaticFlowConfig {
   }
 
 
+  public PrismaticFlowConfig workerCount(@javax.annotation.Nullable Long workerCount) {
+    this.workerCount = workerCount;
+    return this;
+  }
+
+  /**
+   * Number of Prismatic workers to run in parallel for this flow (maximum 500).
+   * minimum: 1
+   * maximum: 500
+   * @return workerCount
+   */
+  @javax.annotation.Nullable
+  public Long getWorkerCount() {
+    return workerCount;
+  }
+
+  public void setWorkerCount(@javax.annotation.Nullable Long workerCount) {
+    this.workerCount = workerCount;
+  }
+
+
+  public PrismaticFlowConfig maxEventsPerMessage(@javax.annotation.Nullable Long maxEventsPerMessage) {
+    this.maxEventsPerMessage = maxEventsPerMessage;
+    return this;
+  }
+
+  /**
+   * Maximum number of events to send in a single message to Prismatic.
+   * minimum: 1
+   * @return maxEventsPerMessage
+   */
+  @javax.annotation.Nullable
+  public Long getMaxEventsPerMessage() {
+    return maxEventsPerMessage;
+  }
+
+  public void setMaxEventsPerMessage(@javax.annotation.Nullable Long maxEventsPerMessage) {
+    this.maxEventsPerMessage = maxEventsPerMessage;
+  }
+
+
+  public PrismaticFlowConfig maxRetries(@javax.annotation.Nullable Long maxRetries) {
+    this.maxRetries = maxRetries;
+    return this;
+  }
+
+  /**
+   * Maximum number of retries for a Prismatic event before it is ignored.
+   * minimum: 0
+   * @return maxRetries
+   */
+  @javax.annotation.Nullable
+  public Long getMaxRetries() {
+    return maxRetries;
+  }
+
+  public void setMaxRetries(@javax.annotation.Nullable Long maxRetries) {
+    this.maxRetries = maxRetries;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -87,12 +163,15 @@ public class PrismaticFlowConfig {
       return false;
     }
     PrismaticFlowConfig prismaticFlowConfig = (PrismaticFlowConfig) o;
-    return Objects.equals(this.apiKey, prismaticFlowConfig.apiKey);
+    return Objects.equals(this.apiKey, prismaticFlowConfig.apiKey) &&
+        Objects.equals(this.workerCount, prismaticFlowConfig.workerCount) &&
+        Objects.equals(this.maxEventsPerMessage, prismaticFlowConfig.maxEventsPerMessage) &&
+        Objects.equals(this.maxRetries, prismaticFlowConfig.maxRetries);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(apiKey);
+    return Objects.hash(apiKey, workerCount, maxEventsPerMessage, maxRetries);
   }
 
   @Override
@@ -100,6 +179,9 @@ public class PrismaticFlowConfig {
     StringBuilder sb = new StringBuilder();
     sb.append("class PrismaticFlowConfig {\n");
     sb.append("    apiKey: ").append(toIndentedString(apiKey)).append("\n");
+    sb.append("    workerCount: ").append(toIndentedString(workerCount)).append("\n");
+    sb.append("    maxEventsPerMessage: ").append(toIndentedString(maxEventsPerMessage)).append("\n");
+    sb.append("    maxRetries: ").append(toIndentedString(maxRetries)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -121,7 +203,7 @@ public class PrismaticFlowConfig {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("ApiKey"));
+    openapiFields = new HashSet<String>(Arrays.asList("ApiKey", "WorkerCount", "MaxEventsPerMessage", "MaxRetries"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("ApiKey"));

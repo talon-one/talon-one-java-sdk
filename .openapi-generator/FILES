@@ -46,6 +46,7 @@ docs/AddedDeductedPointsNotification.md
 docs/AddedDeductedPointsNotificationPolicy.md
 docs/AdditionalCampaignProperties.md
 docs/AdditionalCost.md
+docs/AdjustmentDetails.md
 docs/AnalyticsDataPoint.md
 docs/AnalyticsDataPointWithTrend.md
 docs/AnalyticsDataPointWithTrendAndInfluencedRate.md
@@ -227,6 +228,12 @@ docs/Event.md
 docs/EventType.md
 docs/EventV2.md
 docs/EventV3.md
+docs/Experiment.md
+docs/ExperimentResults.md
+docs/ExperimentVariant.md
+docs/ExperimentVariantAllocation.md
+docs/ExperimentVariantResult.md
+docs/ExperimentVariantResultConfidence.md
 docs/ExpiringCardPointsData.md
 docs/ExpiringCardPointsNotification.md
 docs/ExpiringCouponsData.md
@@ -305,6 +312,7 @@ docs/HiddenConditionsEffects.md
 docs/IdentifiableEntity.md
 docs/ImportEntity.md
 docs/IncreaseAchievementProgressEffectProps.md
+docs/InfluencingCampaignDetails.md
 docs/IntegrationApi.md
 docs/IntegrationCoupon.md
 docs/IntegrationCustomerProfileAudienceRequest.md
@@ -421,6 +429,9 @@ docs/NewCustomerSession.md
 docs/NewCustomerSessionV2.md
 docs/NewEvent.md
 docs/NewEventType.md
+docs/NewExperiment.md
+docs/NewExperimentVariant.md
+docs/NewExperimentVariantArray.md
 docs/NewExternalInvitation.md
 docs/NewGiveawaysPool.md
 docs/NewInternalAudience.md
@@ -623,6 +634,9 @@ docs/UpdateCouponsData.md
 docs/UpdateCustomEffect.md
 docs/UpdateCustomerProfileV2409Response.md
 docs/UpdateCustomerSessionV2409Response.md
+docs/UpdateExperiment.md
+docs/UpdateExperimentVariant.md
+docs/UpdateExperimentVariantArray.md
 docs/UpdateLoyaltyCard.md
 docs/UpdateLoyaltyProgram.md
 docs/UpdateLoyaltyProgramTier.md
@@ -709,6 +723,7 @@ src/main/java/one/talon/model/AddedDeductedPointsNotification.java
 src/main/java/one/talon/model/AddedDeductedPointsNotificationPolicy.java
 src/main/java/one/talon/model/AdditionalCampaignProperties.java
 src/main/java/one/talon/model/AdditionalCost.java
+src/main/java/one/talon/model/AdjustmentDetails.java
 src/main/java/one/talon/model/AnalyticsDataPoint.java
 src/main/java/one/talon/model/AnalyticsDataPointWithTrend.java
 src/main/java/one/talon/model/AnalyticsDataPointWithTrendAndInfluencedRate.java
@@ -890,6 +905,12 @@ src/main/java/one/talon/model/Event.java
 src/main/java/one/talon/model/EventType.java
 src/main/java/one/talon/model/EventV2.java
 src/main/java/one/talon/model/EventV3.java
+src/main/java/one/talon/model/Experiment.java
+src/main/java/one/talon/model/ExperimentResults.java
+src/main/java/one/talon/model/ExperimentVariant.java
+src/main/java/one/talon/model/ExperimentVariantAllocation.java
+src/main/java/one/talon/model/ExperimentVariantResult.java
+src/main/java/one/talon/model/ExperimentVariantResultConfidence.java
 src/main/java/one/talon/model/ExpiringCardPointsData.java
 src/main/java/one/talon/model/ExpiringCardPointsNotification.java
 src/main/java/one/talon/model/ExpiringCouponsData.java
@@ -968,6 +989,7 @@ src/main/java/one/talon/model/HiddenConditionsEffects.java
 src/main/java/one/talon/model/IdentifiableEntity.java
 src/main/java/one/talon/model/ImportEntity.java
 src/main/java/one/talon/model/IncreaseAchievementProgressEffectProps.java
+src/main/java/one/talon/model/InfluencingCampaignDetails.java
 src/main/java/one/talon/model/IntegrationCoupon.java
 src/main/java/one/talon/model/IntegrationCustomerProfileAudienceRequest.java
 src/main/java/one/talon/model/IntegrationCustomerProfileAudienceRequestItem.java
@@ -1082,6 +1104,9 @@ src/main/java/one/talon/model/NewCustomerSession.java
 src/main/java/one/talon/model/NewCustomerSessionV2.java
 src/main/java/one/talon/model/NewEvent.java
 src/main/java/one/talon/model/NewEventType.java
+src/main/java/one/talon/model/NewExperiment.java
+src/main/java/one/talon/model/NewExperimentVariant.java
+src/main/java/one/talon/model/NewExperimentVariantArray.java
 src/main/java/one/talon/model/NewExternalInvitation.java
 src/main/java/one/talon/model/NewGiveawaysPool.java
 src/main/java/one/talon/model/NewInternalAudience.java
@@ -1284,6 +1309,9 @@ src/main/java/one/talon/model/UpdateCouponsData.java
 src/main/java/one/talon/model/UpdateCustomEffect.java
 src/main/java/one/talon/model/UpdateCustomerProfileV2409Response.java
 src/main/java/one/talon/model/UpdateCustomerSessionV2409Response.java
+src/main/java/one/talon/model/UpdateExperiment.java
+src/main/java/one/talon/model/UpdateExperimentVariant.java
+src/main/java/one/talon/model/UpdateExperimentVariantArray.java
 src/main/java/one/talon/model/UpdateLoyaltyCard.java
 src/main/java/one/talon/model/UpdateLoyaltyProgram.java
 src/main/java/one/talon/model/UpdateLoyaltyProgramTier.java
@@ -1343,6 +1371,7 @@ src/test/java/one/talon/model/AddedDeductedPointsNotificationPolicyTest.java
 src/test/java/one/talon/model/AddedDeductedPointsNotificationTest.java
 src/test/java/one/talon/model/AdditionalCampaignPropertiesTest.java
 src/test/java/one/talon/model/AdditionalCostTest.java
+src/test/java/one/talon/model/AdjustmentDetailsTest.java
 src/test/java/one/talon/model/AnalyticsDataPointTest.java
 src/test/java/one/talon/model/AnalyticsDataPointWithTrendAndInfluencedRateTest.java
 src/test/java/one/talon/model/AnalyticsDataPointWithTrendAndUpliftTest.java
@@ -1524,6 +1553,12 @@ src/test/java/one/talon/model/EventTest.java
 src/test/java/one/talon/model/EventTypeTest.java
 src/test/java/one/talon/model/EventV2Test.java
 src/test/java/one/talon/model/EventV3Test.java
+src/test/java/one/talon/model/ExperimentResultsTest.java
+src/test/java/one/talon/model/ExperimentTest.java
+src/test/java/one/talon/model/ExperimentVariantAllocationTest.java
+src/test/java/one/talon/model/ExperimentVariantResultConfidenceTest.java
+src/test/java/one/talon/model/ExperimentVariantResultTest.java
+src/test/java/one/talon/model/ExperimentVariantTest.java
 src/test/java/one/talon/model/ExpiringCardPointsDataTest.java
 src/test/java/one/talon/model/ExpiringCardPointsNotificationTest.java
 src/test/java/one/talon/model/ExpiringCouponsDataTest.java
@@ -1602,6 +1637,7 @@ src/test/java/one/talon/model/HiddenConditionsEffectsTest.java
 src/test/java/one/talon/model/IdentifiableEntityTest.java
 src/test/java/one/talon/model/ImportEntityTest.java
 src/test/java/one/talon/model/IncreaseAchievementProgressEffectPropsTest.java
+src/test/java/one/talon/model/InfluencingCampaignDetailsTest.java
 src/test/java/one/talon/model/IntegrationCouponTest.java
 src/test/java/one/talon/model/IntegrationCustomerProfileAudienceRequestItemTest.java
 src/test/java/one/talon/model/IntegrationCustomerProfileAudienceRequestTest.java
@@ -1716,6 +1752,9 @@ src/test/java/one/talon/model/NewCustomerSessionTest.java
 src/test/java/one/talon/model/NewCustomerSessionV2Test.java
 src/test/java/one/talon/model/NewEventTest.java
 src/test/java/one/talon/model/NewEventTypeTest.java
+src/test/java/one/talon/model/NewExperimentTest.java
+src/test/java/one/talon/model/NewExperimentVariantArrayTest.java
+src/test/java/one/talon/model/NewExperimentVariantTest.java
 src/test/java/one/talon/model/NewExternalInvitationTest.java
 src/test/java/one/talon/model/NewGiveawaysPoolTest.java
 src/test/java/one/talon/model/NewInternalAudienceTest.java
@@ -1918,6 +1957,9 @@ src/test/java/one/talon/model/UpdateCouponsDataTest.java
 src/test/java/one/talon/model/UpdateCustomEffectTest.java
 src/test/java/one/talon/model/UpdateCustomerProfileV2409ResponseTest.java
 src/test/java/one/talon/model/UpdateCustomerSessionV2409ResponseTest.java
+src/test/java/one/talon/model/UpdateExperimentTest.java
+src/test/java/one/talon/model/UpdateExperimentVariantArrayTest.java
+src/test/java/one/talon/model/UpdateExperimentVariantTest.java
 src/test/java/one/talon/model/UpdateLoyaltyCardTest.java
 src/test/java/one/talon/model/UpdateLoyaltyProgramTest.java
 src/test/java/one/talon/model/UpdateLoyaltyProgramTierTest.java

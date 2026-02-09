@@ -146,6 +146,11 @@ public class NewCampaignTemplate {
   @javax.annotation.Nullable
   private List<String> tags = new ArrayList<>();
 
+  public static final String SERIALIZED_NAME_REEVALUATE_ON_RETURN = "reevaluateOnReturn";
+  @SerializedName(SERIALIZED_NAME_REEVALUATE_ON_RETURN)
+  @javax.annotation.Nullable
+  private Boolean reevaluateOnReturn;
+
   /**
    * Gets or Sets features
    */
@@ -447,6 +452,25 @@ public class NewCampaignTemplate {
   }
 
 
+  public NewCampaignTemplate reevaluateOnReturn(@javax.annotation.Nullable Boolean reevaluateOnReturn) {
+    this.reevaluateOnReturn = reevaluateOnReturn;
+    return this;
+  }
+
+  /**
+   * Indicates whether campaigns created from this template should be reevaluated when a customer returns an item.
+   * @return reevaluateOnReturn
+   */
+  @javax.annotation.Nullable
+  public Boolean getReevaluateOnReturn() {
+    return reevaluateOnReturn;
+  }
+
+  public void setReevaluateOnReturn(@javax.annotation.Nullable Boolean reevaluateOnReturn) {
+    this.reevaluateOnReturn = reevaluateOnReturn;
+  }
+
+
   public NewCampaignTemplate features(@javax.annotation.Nullable List<FeaturesEnum> features) {
     this.features = features;
     return this;
@@ -667,6 +691,7 @@ public class NewCampaignTemplate {
         Objects.equals(this.couponAttributes, newCampaignTemplate.couponAttributes) &&
         Objects.equals(this.state, newCampaignTemplate.state) &&
         Objects.equals(this.tags, newCampaignTemplate.tags) &&
+        Objects.equals(this.reevaluateOnReturn, newCampaignTemplate.reevaluateOnReturn) &&
         Objects.equals(this.features, newCampaignTemplate.features) &&
         Objects.equals(this.couponSettings, newCampaignTemplate.couponSettings) &&
         Objects.equals(this.couponReservationSettings, newCampaignTemplate.couponReservationSettings) &&
@@ -680,7 +705,7 @@ public class NewCampaignTemplate {
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, description, instructions, campaignAttributes, couponAttributes, state, tags, features, couponSettings, couponReservationSettings, referralSettings, limits, templateParams, campaignCollections, defaultCampaignGroupId, campaignType);
+    return Objects.hash(name, description, instructions, campaignAttributes, couponAttributes, state, tags, reevaluateOnReturn, features, couponSettings, couponReservationSettings, referralSettings, limits, templateParams, campaignCollections, defaultCampaignGroupId, campaignType);
   }
 
   @Override
@@ -694,6 +719,7 @@ public class NewCampaignTemplate {
     sb.append("    couponAttributes: ").append(toIndentedString(couponAttributes)).append("\n");
     sb.append("    state: ").append(toIndentedString(state)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
+    sb.append("    reevaluateOnReturn: ").append(toIndentedString(reevaluateOnReturn)).append("\n");
     sb.append("    features: ").append(toIndentedString(features)).append("\n");
     sb.append("    couponSettings: ").append(toIndentedString(couponSettings)).append("\n");
     sb.append("    couponReservationSettings: ").append(toIndentedString(couponReservationSettings)).append("\n");
@@ -724,7 +750,7 @@ public class NewCampaignTemplate {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("name", "description", "instructions", "campaignAttributes", "couponAttributes", "state", "tags", "features", "couponSettings", "couponReservationSettings", "referralSettings", "limits", "templateParams", "campaignCollections", "defaultCampaignGroupId", "campaignType"));
+    openapiFields = new HashSet<String>(Arrays.asList("name", "description", "instructions", "campaignAttributes", "couponAttributes", "state", "tags", "reevaluateOnReturn", "features", "couponSettings", "couponReservationSettings", "referralSettings", "limits", "templateParams", "campaignCollections", "defaultCampaignGroupId", "campaignType"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("name", "description", "instructions", "state", "campaignType"));

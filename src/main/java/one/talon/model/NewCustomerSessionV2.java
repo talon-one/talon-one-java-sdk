@@ -27,6 +27,7 @@ import java.util.List;
 import java.util.Map;
 import one.talon.model.AdditionalCost;
 import one.talon.model.CartItem;
+import one.talon.model.ExperimentVariantAllocation;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -151,6 +152,11 @@ public class NewCustomerSessionV2 {
   @SerializedName(SERIALIZED_NAME_CART_ITEMS)
   @javax.annotation.Nullable
   private List<CartItem> cartItems = new ArrayList<>();
+
+  public static final String SERIALIZED_NAME_EXPERIMENT_VARIANT_ALLOCATIONS = "experimentVariantAllocations";
+  @SerializedName(SERIALIZED_NAME_EXPERIMENT_VARIANT_ALLOCATIONS)
+  @javax.annotation.Nullable
+  private List<ExperimentVariantAllocation> experimentVariantAllocations = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_ADDITIONAL_COSTS = "additionalCosts";
   @SerializedName(SERIALIZED_NAME_ADDITIONAL_COSTS)
@@ -354,6 +360,33 @@ public class NewCustomerSessionV2 {
   }
 
 
+  public NewCustomerSessionV2 experimentVariantAllocations(@javax.annotation.Nullable List<ExperimentVariantAllocation> experimentVariantAllocations) {
+    this.experimentVariantAllocations = experimentVariantAllocations;
+    return this;
+  }
+
+  public NewCustomerSessionV2 addExperimentVariantAllocationsItem(ExperimentVariantAllocation experimentVariantAllocationsItem) {
+    if (this.experimentVariantAllocations == null) {
+      this.experimentVariantAllocations = new ArrayList<>();
+    }
+    this.experimentVariantAllocations.add(experimentVariantAllocationsItem);
+    return this;
+  }
+
+  /**
+   * The experiment variant allocations to add to this session. 
+   * @return experimentVariantAllocations
+   */
+  @javax.annotation.Nullable
+  public List<ExperimentVariantAllocation> getExperimentVariantAllocations() {
+    return experimentVariantAllocations;
+  }
+
+  public void setExperimentVariantAllocations(@javax.annotation.Nullable List<ExperimentVariantAllocation> experimentVariantAllocations) {
+    this.experimentVariantAllocations = experimentVariantAllocations;
+  }
+
+
   public NewCustomerSessionV2 additionalCosts(@javax.annotation.Nullable Map<String, AdditionalCost> additionalCosts) {
     this.additionalCosts = additionalCosts;
     return this;
@@ -445,6 +478,7 @@ public class NewCustomerSessionV2 {
         Objects.equals(this.loyaltyCards, newCustomerSessionV2.loyaltyCards) &&
         Objects.equals(this.state, newCustomerSessionV2.state) &&
         Objects.equals(this.cartItems, newCustomerSessionV2.cartItems) &&
+        Objects.equals(this.experimentVariantAllocations, newCustomerSessionV2.experimentVariantAllocations) &&
         Objects.equals(this.additionalCosts, newCustomerSessionV2.additionalCosts) &&
         Objects.equals(this.identifiers, newCustomerSessionV2.identifiers) &&
         Objects.equals(this.attributes, newCustomerSessionV2.attributes);
@@ -452,7 +486,7 @@ public class NewCustomerSessionV2 {
 
   @Override
   public int hashCode() {
-    return Objects.hash(profileId, storeIntegrationId, evaluableCampaignIds, couponCodes, referralCode, loyaltyCards, state, cartItems, additionalCosts, identifiers, attributes);
+    return Objects.hash(profileId, storeIntegrationId, evaluableCampaignIds, couponCodes, referralCode, loyaltyCards, state, cartItems, experimentVariantAllocations, additionalCosts, identifiers, attributes);
   }
 
   @Override
@@ -467,6 +501,7 @@ public class NewCustomerSessionV2 {
     sb.append("    loyaltyCards: ").append(toIndentedString(loyaltyCards)).append("\n");
     sb.append("    state: ").append(toIndentedString(state)).append("\n");
     sb.append("    cartItems: ").append(toIndentedString(cartItems)).append("\n");
+    sb.append("    experimentVariantAllocations: ").append(toIndentedString(experimentVariantAllocations)).append("\n");
     sb.append("    additionalCosts: ").append(toIndentedString(additionalCosts)).append("\n");
     sb.append("    identifiers: ").append(toIndentedString(identifiers)).append("\n");
     sb.append("    attributes: ").append(toIndentedString(attributes)).append("\n");
@@ -491,7 +526,7 @@ public class NewCustomerSessionV2 {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("profileId", "storeIntegrationId", "evaluableCampaignIds", "couponCodes", "referralCode", "loyaltyCards", "state", "cartItems", "additionalCosts", "identifiers", "attributes"));
+    openapiFields = new HashSet<String>(Arrays.asList("profileId", "storeIntegrationId", "evaluableCampaignIds", "couponCodes", "referralCode", "loyaltyCards", "state", "cartItems", "experimentVariantAllocations", "additionalCosts", "identifiers", "attributes"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(0);
@@ -557,6 +592,20 @@ public class NewCustomerSessionV2 {
           // validate the optional field `cartItems` (array)
           for (int i = 0; i < jsonArraycartItems.size(); i++) {
             CartItem.validateJsonElement(jsonArraycartItems.get(i));
+          };
+        }
+      }
+      if (jsonObj.get("experimentVariantAllocations") != null && !jsonObj.get("experimentVariantAllocations").isJsonNull()) {
+        JsonArray jsonArrayexperimentVariantAllocations = jsonObj.getAsJsonArray("experimentVariantAllocations");
+        if (jsonArrayexperimentVariantAllocations != null) {
+          // ensure the json data is an array
+          if (!jsonObj.get("experimentVariantAllocations").isJsonArray()) {
+            throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `experimentVariantAllocations` to be an array in the JSON string but got `%s`", jsonObj.get("experimentVariantAllocations").toString()));
+          }
+
+          // validate the optional field `experimentVariantAllocations` (array)
+          for (int i = 0; i < jsonArrayexperimentVariantAllocations.size(); i++) {
+            ExperimentVariantAllocation.validateJsonElement(jsonArrayexperimentVariantAllocations.get(i));
           };
         }
       }

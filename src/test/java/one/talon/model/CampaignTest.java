@@ -141,6 +141,14 @@ public class CampaignTest {
     }
 
     /**
+     * Test the property 'reevaluateOnReturn'
+     */
+    @Test
+    public void reevaluateOnReturnTest() {
+        // TODO: test reevaluateOnReturn
+    }
+
+    /**
      * Test the property 'features'
      */
     @Test
@@ -386,6 +394,14 @@ public class CampaignTest {
     @Test
     public void valueMapsIdsTest() {
         // TODO: test valueMapsIds
+    }
+
+    /**
+     * Test the property 'experimentId'
+     */
+    @Test
+    public void experimentIdTest() {
+        // TODO: test experimentId
     }
 
     /**
