@@ -235,6 +235,11 @@ public class AdditionalCampaignProperties {
   @javax.annotation.Nullable
   private List<Long> valueMapsIds = new ArrayList<>();
 
+  public static final String SERIALIZED_NAME_EXPERIMENT_ID = "experimentId";
+  @SerializedName(SERIALIZED_NAME_EXPERIMENT_ID)
+  @javax.annotation.Nullable
+  private Long experimentId;
+
   public AdditionalCampaignProperties() {
   }
 
@@ -710,6 +715,25 @@ public class AdditionalCampaignProperties {
   }
 
 
+  public AdditionalCampaignProperties experimentId(@javax.annotation.Nullable Long experimentId) {
+    this.experimentId = experimentId;
+    return this;
+  }
+
+  /**
+   * The ID of the Experiment this Campaign is part of.
+   * @return experimentId
+   */
+  @javax.annotation.Nullable
+  public Long getExperimentId() {
+    return experimentId;
+  }
+
+  public void setExperimentId(@javax.annotation.Nullable Long experimentId) {
+    this.experimentId = experimentId;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -743,12 +767,13 @@ public class AdditionalCampaignProperties {
         Objects.equals(this.templateId, additionalCampaignProperties.templateId) &&
         Objects.equals(this.frontendState, additionalCampaignProperties.frontendState) &&
         Objects.equals(this.storesImported, additionalCampaignProperties.storesImported) &&
-        Objects.equals(this.valueMapsIds, additionalCampaignProperties.valueMapsIds);
+        Objects.equals(this.valueMapsIds, additionalCampaignProperties.valueMapsIds) &&
+        Objects.equals(this.experimentId, additionalCampaignProperties.experimentId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(budgets, couponRedemptionCount, referralRedemptionCount, discountCount, discountEffectCount, couponCreationCount, customEffectCount, referralCreationCount, addFreeItemEffectCount, awardedGiveawaysCount, createdLoyaltyPointsCount, createdLoyaltyPointsEffectCount, redeemedLoyaltyPointsCount, redeemedLoyaltyPointsEffectCount, callApiEffectCount, reservecouponEffectCount, lastActivity, updated, createdBy, updatedBy, templateId, frontendState, storesImported, valueMapsIds);
+    return Objects.hash(budgets, couponRedemptionCount, referralRedemptionCount, discountCount, discountEffectCount, couponCreationCount, customEffectCount, referralCreationCount, addFreeItemEffectCount, awardedGiveawaysCount, createdLoyaltyPointsCount, createdLoyaltyPointsEffectCount, redeemedLoyaltyPointsCount, redeemedLoyaltyPointsEffectCount, callApiEffectCount, reservecouponEffectCount, lastActivity, updated, createdBy, updatedBy, templateId, frontendState, storesImported, valueMapsIds, experimentId);
   }
 
   @Override
@@ -779,6 +804,7 @@ public class AdditionalCampaignProperties {
     sb.append("    frontendState: ").append(toIndentedString(frontendState)).append("\n");
     sb.append("    storesImported: ").append(toIndentedString(storesImported)).append("\n");
     sb.append("    valueMapsIds: ").append(toIndentedString(valueMapsIds)).append("\n");
+    sb.append("    experimentId: ").append(toIndentedString(experimentId)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -800,7 +826,7 @@ public class AdditionalCampaignProperties {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("budgets", "couponRedemptionCount", "referralRedemptionCount", "discountCount", "discountEffectCount", "couponCreationCount", "customEffectCount", "referralCreationCount", "addFreeItemEffectCount", "awardedGiveawaysCount", "createdLoyaltyPointsCount", "createdLoyaltyPointsEffectCount", "redeemedLoyaltyPointsCount", "redeemedLoyaltyPointsEffectCount", "callApiEffectCount", "reservecouponEffectCount", "lastActivity", "updated", "createdBy", "updatedBy", "templateId", "frontendState", "storesImported", "valueMapsIds"));
+    openapiFields = new HashSet<String>(Arrays.asList("budgets", "couponRedemptionCount", "referralRedemptionCount", "discountCount", "discountEffectCount", "couponCreationCount", "customEffectCount", "referralCreationCount", "addFreeItemEffectCount", "awardedGiveawaysCount", "createdLoyaltyPointsCount", "createdLoyaltyPointsEffectCount", "redeemedLoyaltyPointsCount", "redeemedLoyaltyPointsEffectCount", "callApiEffectCount", "reservecouponEffectCount", "lastActivity", "updated", "createdBy", "updatedBy", "templateId", "frontendState", "storesImported", "valueMapsIds", "experimentId"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("frontendState", "storesImported"));

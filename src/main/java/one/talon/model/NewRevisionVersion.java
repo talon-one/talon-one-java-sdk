@@ -106,6 +106,11 @@ public class NewRevisionVersion {
   @javax.annotation.Nullable
   private List<LimitConfig> limits = new ArrayList<>();
 
+  public static final String SERIALIZED_NAME_REEVALUATE_ON_RETURN = "reevaluateOnReturn";
+  @SerializedName(SERIALIZED_NAME_REEVALUATE_ON_RETURN)
+  @javax.annotation.Nullable
+  private Boolean reevaluateOnReturn;
+
   /**
    * Gets or Sets features
    */
@@ -275,7 +280,7 @@ public class NewRevisionVersion {
   }
 
   /**
-   * The ID of the ruleset this campaign template will use.
+   * The ID of the ruleset this campaign will use.
    * @return activeRulesetId
    */
   @javax.annotation.Nullable
@@ -302,7 +307,7 @@ public class NewRevisionVersion {
   }
 
   /**
-   * A list of tags for the campaign template.
+   * A list of tags for the campaign.
    * @return tags
    */
   @javax.annotation.Nullable
@@ -380,6 +385,25 @@ public class NewRevisionVersion {
   }
 
 
+  public NewRevisionVersion reevaluateOnReturn(@javax.annotation.Nullable Boolean reevaluateOnReturn) {
+    this.reevaluateOnReturn = reevaluateOnReturn;
+    return this;
+  }
+
+  /**
+   * Indicates whether this campaign should be reevaluated when a customer returns an item.
+   * @return reevaluateOnReturn
+   */
+  @javax.annotation.Nullable
+  public Boolean getReevaluateOnReturn() {
+    return reevaluateOnReturn;
+  }
+
+  public void setReevaluateOnReturn(@javax.annotation.Nullable Boolean reevaluateOnReturn) {
+    this.reevaluateOnReturn = reevaluateOnReturn;
+  }
+
+
   public NewRevisionVersion features(@javax.annotation.Nullable List<FeaturesEnum> features) {
     this.features = features;
     return this;
@@ -394,7 +418,7 @@ public class NewRevisionVersion {
   }
 
   /**
-   * A list of features for the campaign template.
+   * A list of features for the campaign.
    * @return features
    */
   @javax.annotation.Nullable
@@ -427,6 +451,7 @@ public class NewRevisionVersion {
         Objects.equals(this.couponSettings, newRevisionVersion.couponSettings) &&
         Objects.equals(this.referralSettings, newRevisionVersion.referralSettings) &&
         Objects.equals(this.limits, newRevisionVersion.limits) &&
+        Objects.equals(this.reevaluateOnReturn, newRevisionVersion.reevaluateOnReturn) &&
         Objects.equals(this.features, newRevisionVersion.features);
   }
 
@@ -436,7 +461,7 @@ public class NewRevisionVersion {
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, startTime, endTime, attributes, description, activeRulesetId, tags, couponSettings, referralSettings, limits, features);
+    return Objects.hash(name, startTime, endTime, attributes, description, activeRulesetId, tags, couponSettings, referralSettings, limits, reevaluateOnReturn, features);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -460,6 +485,7 @@ public class NewRevisionVersion {
     sb.append("    couponSettings: ").append(toIndentedString(couponSettings)).append("\n");
     sb.append("    referralSettings: ").append(toIndentedString(referralSettings)).append("\n");
     sb.append("    limits: ").append(toIndentedString(limits)).append("\n");
+    sb.append("    reevaluateOnReturn: ").append(toIndentedString(reevaluateOnReturn)).append("\n");
     sb.append("    features: ").append(toIndentedString(features)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -482,7 +508,7 @@ public class NewRevisionVersion {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("name", "startTime", "endTime", "attributes", "description", "activeRulesetId", "tags", "couponSettings", "referralSettings", "limits", "features"));
+    openapiFields = new HashSet<String>(Arrays.asList("name", "startTime", "endTime", "attributes", "description", "activeRulesetId", "tags", "couponSettings", "referralSettings", "limits", "reevaluateOnReturn", "features"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(0);

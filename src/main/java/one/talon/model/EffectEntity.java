@@ -52,6 +52,11 @@ import one.talon.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.19.0")
 public class EffectEntity {
+  public static final String SERIALIZED_NAME_EXPERIMENT_ID = "experimentId";
+  @SerializedName(SERIALIZED_NAME_EXPERIMENT_ID)
+  @javax.annotation.Nullable
+  private Long experimentId;
+
   public static final String SERIALIZED_NAME_CAMPAIGN_ID = "campaignId";
   @SerializedName(SERIALIZED_NAME_CAMPAIGN_ID)
   @javax.annotation.Nonnull
@@ -129,6 +134,25 @@ public class EffectEntity {
 
   public EffectEntity() {
   }
+
+  public EffectEntity experimentId(@javax.annotation.Nullable Long experimentId) {
+    this.experimentId = experimentId;
+    return this;
+  }
+
+  /**
+   * The ID of the experiment that campaign belongs to.
+   * @return experimentId
+   */
+  @javax.annotation.Nullable
+  public Long getExperimentId() {
+    return experimentId;
+  }
+
+  public void setExperimentId(@javax.annotation.Nullable Long experimentId) {
+    this.experimentId = experimentId;
+  }
+
 
   public EffectEntity campaignId(@javax.annotation.Nonnull Long campaignId) {
     this.campaignId = campaignId;
@@ -425,7 +449,8 @@ public class EffectEntity {
       return false;
     }
     EffectEntity effectEntity = (EffectEntity) o;
-    return Objects.equals(this.campaignId, effectEntity.campaignId) &&
+    return Objects.equals(this.experimentId, effectEntity.experimentId) &&
+        Objects.equals(this.campaignId, effectEntity.campaignId) &&
         Objects.equals(this.rulesetId, effectEntity.rulesetId) &&
         Objects.equals(this.ruleIndex, effectEntity.ruleIndex) &&
         Objects.equals(this.ruleName, effectEntity.ruleName) &&
@@ -444,13 +469,14 @@ public class EffectEntity {
 
   @Override
   public int hashCode() {
-    return Objects.hash(campaignId, rulesetId, ruleIndex, ruleName, effectType, triggeredByCoupon, triggeredForCatalogItem, conditionIndex, evaluationGroupID, evaluationGroupMode, campaignRevisionId, campaignRevisionVersionId, selectedPriceType, selectedPrice, adjustmentReferenceId);
+    return Objects.hash(experimentId, campaignId, rulesetId, ruleIndex, ruleName, effectType, triggeredByCoupon, triggeredForCatalogItem, conditionIndex, evaluationGroupID, evaluationGroupMode, campaignRevisionId, campaignRevisionVersionId, selectedPriceType, selectedPrice, adjustmentReferenceId);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class EffectEntity {\n");
+    sb.append("    experimentId: ").append(toIndentedString(experimentId)).append("\n");
     sb.append("    campaignId: ").append(toIndentedString(campaignId)).append("\n");
     sb.append("    rulesetId: ").append(toIndentedString(rulesetId)).append("\n");
     sb.append("    ruleIndex: ").append(toIndentedString(ruleIndex)).append("\n");
@@ -487,7 +513,7 @@ public class EffectEntity {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("campaignId", "rulesetId", "ruleIndex", "ruleName", "effectType", "triggeredByCoupon", "triggeredForCatalogItem", "conditionIndex", "evaluationGroupID", "evaluationGroupMode", "campaignRevisionId", "campaignRevisionVersionId", "selectedPriceType", "selectedPrice", "adjustmentReferenceId"));
+    openapiFields = new HashSet<String>(Arrays.asList("experimentId", "campaignId", "rulesetId", "ruleIndex", "ruleName", "effectType", "triggeredByCoupon", "triggeredForCatalogItem", "conditionIndex", "evaluationGroupID", "evaluationGroupMode", "campaignRevisionId", "campaignRevisionVersionId", "selectedPriceType", "selectedPrice", "adjustmentReferenceId"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("campaignId", "rulesetId", "ruleIndex", "ruleName", "effectType"));

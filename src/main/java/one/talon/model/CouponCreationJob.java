@@ -120,6 +120,11 @@ public class CouponCreationJob {
   @javax.annotation.Nonnull
   private Object attributes;
 
+  public static final String SERIALIZED_NAME_IS_RESERVATION_MANDATORY = "isReservationMandatory";
+  @SerializedName(SERIALIZED_NAME_IS_RESERVATION_MANDATORY)
+  @javax.annotation.Nullable
+  private Boolean isReservationMandatory = false;
+
   public static final String SERIALIZED_NAME_BATCH_ID = "batchId";
   @SerializedName(SERIALIZED_NAME_BATCH_ID)
   @javax.annotation.Nonnull
@@ -423,6 +428,25 @@ public class CouponCreationJob {
   }
 
 
+  public CouponCreationJob isReservationMandatory(@javax.annotation.Nullable Boolean isReservationMandatory) {
+    this.isReservationMandatory = isReservationMandatory;
+    return this;
+  }
+
+  /**
+   * An indication of whether the code can be redeemed only if it has been reserved first.
+   * @return isReservationMandatory
+   */
+  @javax.annotation.Nullable
+  public Boolean getIsReservationMandatory() {
+    return isReservationMandatory;
+  }
+
+  public void setIsReservationMandatory(@javax.annotation.Nullable Boolean isReservationMandatory) {
+    this.isReservationMandatory = isReservationMandatory;
+  }
+
+
   public CouponCreationJob batchId(@javax.annotation.Nonnull String batchId) {
     this.batchId = batchId;
     return this;
@@ -625,6 +649,7 @@ public class CouponCreationJob {
         Objects.equals(this.numberOfCoupons, couponCreationJob.numberOfCoupons) &&
         Objects.equals(this.couponSettings, couponCreationJob.couponSettings) &&
         Objects.equals(this.attributes, couponCreationJob.attributes) &&
+        Objects.equals(this.isReservationMandatory, couponCreationJob.isReservationMandatory) &&
         Objects.equals(this.batchId, couponCreationJob.batchId) &&
         Objects.equals(this.status, couponCreationJob.status) &&
         Objects.equals(this.createdAmount, couponCreationJob.createdAmount) &&
@@ -638,7 +663,7 @@ public class CouponCreationJob {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, created, campaignId, applicationId, accountId, usageLimit, discountLimit, reservationLimit, startDate, expiryDate, numberOfCoupons, couponSettings, attributes, batchId, status, createdAmount, failCount, errors, createdBy, communicated, chunkExecutionCount, chunkSize);
+    return Objects.hash(id, created, campaignId, applicationId, accountId, usageLimit, discountLimit, reservationLimit, startDate, expiryDate, numberOfCoupons, couponSettings, attributes, isReservationMandatory, batchId, status, createdAmount, failCount, errors, createdBy, communicated, chunkExecutionCount, chunkSize);
   }
 
   @Override
@@ -658,6 +683,7 @@ public class CouponCreationJob {
     sb.append("    numberOfCoupons: ").append(toIndentedString(numberOfCoupons)).append("\n");
     sb.append("    couponSettings: ").append(toIndentedString(couponSettings)).append("\n");
     sb.append("    attributes: ").append(toIndentedString(attributes)).append("\n");
+    sb.append("    isReservationMandatory: ").append(toIndentedString(isReservationMandatory)).append("\n");
     sb.append("    batchId: ").append(toIndentedString(batchId)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    createdAmount: ").append(toIndentedString(createdAmount)).append("\n");
@@ -688,7 +714,7 @@ public class CouponCreationJob {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("id", "created", "campaignId", "applicationId", "accountId", "usageLimit", "discountLimit", "reservationLimit", "startDate", "expiryDate", "numberOfCoupons", "couponSettings", "attributes", "batchId", "status", "createdAmount", "failCount", "errors", "createdBy", "communicated", "chunkExecutionCount", "chunkSize"));
+    openapiFields = new HashSet<String>(Arrays.asList("id", "created", "campaignId", "applicationId", "accountId", "usageLimit", "discountLimit", "reservationLimit", "startDate", "expiryDate", "numberOfCoupons", "couponSettings", "attributes", "isReservationMandatory", "batchId", "status", "createdAmount", "failCount", "errors", "createdBy", "communicated", "chunkExecutionCount", "chunkSize"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("id", "created", "campaignId", "applicationId", "accountId", "usageLimit", "numberOfCoupons", "attributes", "batchId", "status", "createdAmount", "failCount", "errors", "createdBy", "communicated", "chunkExecutionCount"));

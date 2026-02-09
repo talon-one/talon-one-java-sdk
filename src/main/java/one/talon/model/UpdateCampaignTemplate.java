@@ -151,6 +151,11 @@ public class UpdateCampaignTemplate {
   @javax.annotation.Nullable
   private List<String> tags = new ArrayList<>();
 
+  public static final String SERIALIZED_NAME_REEVALUATE_ON_RETURN = "reevaluateOnReturn";
+  @SerializedName(SERIALIZED_NAME_REEVALUATE_ON_RETURN)
+  @javax.annotation.Nullable
+  private Boolean reevaluateOnReturn;
+
   /**
    * Gets or Sets features
    */
@@ -476,6 +481,25 @@ public class UpdateCampaignTemplate {
   }
 
 
+  public UpdateCampaignTemplate reevaluateOnReturn(@javax.annotation.Nullable Boolean reevaluateOnReturn) {
+    this.reevaluateOnReturn = reevaluateOnReturn;
+    return this;
+  }
+
+  /**
+   * Indicates whether campaigns created from this template should be reevaluated when a customer returns an item.
+   * @return reevaluateOnReturn
+   */
+  @javax.annotation.Nullable
+  public Boolean getReevaluateOnReturn() {
+    return reevaluateOnReturn;
+  }
+
+  public void setReevaluateOnReturn(@javax.annotation.Nullable Boolean reevaluateOnReturn) {
+    this.reevaluateOnReturn = reevaluateOnReturn;
+  }
+
+
   public UpdateCampaignTemplate features(@javax.annotation.Nullable List<FeaturesEnum> features) {
     this.features = features;
     return this;
@@ -724,6 +748,7 @@ public class UpdateCampaignTemplate {
         Objects.equals(this.state, updateCampaignTemplate.state) &&
         Objects.equals(this.activeRulesetId, updateCampaignTemplate.activeRulesetId) &&
         Objects.equals(this.tags, updateCampaignTemplate.tags) &&
+        Objects.equals(this.reevaluateOnReturn, updateCampaignTemplate.reevaluateOnReturn) &&
         Objects.equals(this.features, updateCampaignTemplate.features) &&
         Objects.equals(this.couponSettings, updateCampaignTemplate.couponSettings) &&
         Objects.equals(this.couponReservationSettings, updateCampaignTemplate.couponReservationSettings) &&
@@ -738,7 +763,7 @@ public class UpdateCampaignTemplate {
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, description, instructions, campaignAttributes, couponAttributes, state, activeRulesetId, tags, features, couponSettings, couponReservationSettings, referralSettings, limits, templateParams, applicationsIds, campaignCollections, defaultCampaignGroupId, campaignType);
+    return Objects.hash(name, description, instructions, campaignAttributes, couponAttributes, state, activeRulesetId, tags, reevaluateOnReturn, features, couponSettings, couponReservationSettings, referralSettings, limits, templateParams, applicationsIds, campaignCollections, defaultCampaignGroupId, campaignType);
   }
 
   @Override
@@ -753,6 +778,7 @@ public class UpdateCampaignTemplate {
     sb.append("    state: ").append(toIndentedString(state)).append("\n");
     sb.append("    activeRulesetId: ").append(toIndentedString(activeRulesetId)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
+    sb.append("    reevaluateOnReturn: ").append(toIndentedString(reevaluateOnReturn)).append("\n");
     sb.append("    features: ").append(toIndentedString(features)).append("\n");
     sb.append("    couponSettings: ").append(toIndentedString(couponSettings)).append("\n");
     sb.append("    couponReservationSettings: ").append(toIndentedString(couponReservationSettings)).append("\n");
@@ -784,7 +810,7 @@ public class UpdateCampaignTemplate {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("name", "description", "instructions", "campaignAttributes", "couponAttributes", "state", "activeRulesetId", "tags", "features", "couponSettings", "couponReservationSettings", "referralSettings", "limits", "templateParams", "applicationsIds", "campaignCollections", "defaultCampaignGroupId", "campaignType"));
+    openapiFields = new HashSet<String>(Arrays.asList("name", "description", "instructions", "campaignAttributes", "couponAttributes", "state", "activeRulesetId", "tags", "reevaluateOnReturn", "features", "couponSettings", "couponReservationSettings", "referralSettings", "limits", "templateParams", "applicationsIds", "campaignCollections", "defaultCampaignGroupId", "campaignType"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("name", "description", "instructions", "state", "applicationsIds"));

@@ -22,6 +22,8 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import one.talon.model.AdjustmentDetails;
+import one.talon.model.InfluencingCampaignDetails;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
@@ -40,19 +42,19 @@ public class BestPriorPriceMetadataTest {
     }
 
     /**
-     * Test the property 'influencingCampaignIDs'
+     * Test the property 'influencingCampaignDetails'
      */
     @Test
-    public void influencingCampaignIDsTest() {
-        // TODO: test influencingCampaignIDs
+    public void influencingCampaignDetailsTest() {
+        // TODO: test influencingCampaignDetails
     }
 
     /**
-     * Test the property 'adjustmentReferenceID'
+     * Test the property 'adjustmentDetails'
      */
     @Test
-    public void adjustmentReferenceIDTest() {
-        // TODO: test adjustmentReferenceID
+    public void adjustmentDetailsTest() {
+        // TODO: test adjustmentDetails
     }
 
 }
