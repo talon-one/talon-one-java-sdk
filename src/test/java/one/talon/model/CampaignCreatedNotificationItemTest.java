@@ -19,8 +19,13 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Arrays;
-import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.List;
+import one.talon.model.Campaign;
+import one.talon.model.CampaignEvaluationPosition;
+import one.talon.model.PlaceholderDetails;
+import one.talon.model.Ruleset;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
@@ -60,6 +65,14 @@ public class CampaignCreatedNotificationItemTest {
     @Test
     public void rulesetTest() {
         // TODO: test ruleset
+    }
+
+    /**
+     * Test the property 'placeholders'
+     */
+    @Test
+    public void placeholdersTest() {
+        // TODO: test placeholders
     }
 
     /**

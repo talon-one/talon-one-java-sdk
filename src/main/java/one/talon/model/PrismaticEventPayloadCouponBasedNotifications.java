@@ -52,7 +52,7 @@ import one.talon.JSON;
 /**
  * PrismaticEventPayloadCouponBasedNotifications
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.20.0")
 public class PrismaticEventPayloadCouponBasedNotifications {
   public static final String SERIALIZED_NAME_ID = "Id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -143,6 +143,11 @@ public class PrismaticEventPayloadCouponBasedNotifications {
   @SerializedName(SERIALIZED_NAME_LIMITS)
   @javax.annotation.Nullable
   private List<PrismaticEventPayloadCouponBasedNotificationsLimits> limits = new ArrayList<>();
+
+  public static final String SERIALIZED_NAME_PUBLISHED_AT = "PublishedAt";
+  @SerializedName(SERIALIZED_NAME_PUBLISHED_AT)
+  @javax.annotation.Nonnull
+  private OffsetDateTime publishedAt;
 
   public static final String SERIALIZED_NAME_SOURCE_OF_EVENT = "SourceOfEvent";
   @SerializedName(SERIALIZED_NAME_SOURCE_OF_EVENT)
@@ -507,6 +512,25 @@ public class PrismaticEventPayloadCouponBasedNotifications {
   }
 
 
+  public PrismaticEventPayloadCouponBasedNotifications publishedAt(@javax.annotation.Nonnull OffsetDateTime publishedAt) {
+    this.publishedAt = publishedAt;
+    return this;
+  }
+
+  /**
+   * Timestamp when the event was published.
+   * @return publishedAt
+   */
+  @javax.annotation.Nonnull
+  public OffsetDateTime getPublishedAt() {
+    return publishedAt;
+  }
+
+  public void setPublishedAt(@javax.annotation.Nonnull OffsetDateTime publishedAt) {
+    this.publishedAt = publishedAt;
+  }
+
+
   public PrismaticEventPayloadCouponBasedNotifications sourceOfEvent(@javax.annotation.Nonnull String sourceOfEvent) {
     this.sourceOfEvent = sourceOfEvent;
     return this;
@@ -573,13 +597,14 @@ public class PrismaticEventPayloadCouponBasedNotifications {
         Objects.equals(this.batchId, prismaticEventPayloadCouponBasedNotifications.batchId) &&
         Objects.equals(this.attributes, prismaticEventPayloadCouponBasedNotifications.attributes) &&
         Objects.equals(this.limits, prismaticEventPayloadCouponBasedNotifications.limits) &&
+        Objects.equals(this.publishedAt, prismaticEventPayloadCouponBasedNotifications.publishedAt) &&
         Objects.equals(this.sourceOfEvent, prismaticEventPayloadCouponBasedNotifications.sourceOfEvent) &&
         Objects.equals(this.employeeName, prismaticEventPayloadCouponBasedNotifications.employeeName);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, created, campaignId, value, usageLimit, discountLimit, reservationLimit, startDate, expiryDate, usageCounter, discountCounter, discountRemainder, referralId, recipientIntegrationId, importId, batchId, attributes, limits, sourceOfEvent, employeeName);
+    return Objects.hash(id, created, campaignId, value, usageLimit, discountLimit, reservationLimit, startDate, expiryDate, usageCounter, discountCounter, discountRemainder, referralId, recipientIntegrationId, importId, batchId, attributes, limits, publishedAt, sourceOfEvent, employeeName);
   }
 
   @Override
@@ -604,6 +629,7 @@ public class PrismaticEventPayloadCouponBasedNotifications {
     sb.append("    batchId: ").append(toIndentedString(batchId)).append("\n");
     sb.append("    attributes: ").append(toIndentedString(attributes)).append("\n");
     sb.append("    limits: ").append(toIndentedString(limits)).append("\n");
+    sb.append("    publishedAt: ").append(toIndentedString(publishedAt)).append("\n");
     sb.append("    sourceOfEvent: ").append(toIndentedString(sourceOfEvent)).append("\n");
     sb.append("    employeeName: ").append(toIndentedString(employeeName)).append("\n");
     sb.append("}");
@@ -627,10 +653,10 @@ public class PrismaticEventPayloadCouponBasedNotifications {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("Id", "Created", "CampaignId", "Value", "UsageLimit", "DiscountLimit", "ReservationLimit", "StartDate", "ExpiryDate", "UsageCounter", "DiscountCounter", "DiscountRemainder", "ReferralId", "RecipientIntegrationId", "ImportId", "BatchId", "Attributes", "Limits", "SourceOfEvent", "EmployeeName"));
+    openapiFields = new HashSet<String>(Arrays.asList("Id", "Created", "CampaignId", "Value", "UsageLimit", "DiscountLimit", "ReservationLimit", "StartDate", "ExpiryDate", "UsageCounter", "DiscountCounter", "DiscountRemainder", "ReferralId", "RecipientIntegrationId", "ImportId", "BatchId", "Attributes", "Limits", "PublishedAt", "SourceOfEvent", "EmployeeName"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("Id", "Created", "CampaignId", "Value", "UsageLimit", "UsageCounter", "SourceOfEvent", "EmployeeName"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("Id", "Created", "CampaignId", "Value", "UsageLimit", "UsageCounter", "PublishedAt", "SourceOfEvent", "EmployeeName"));
   }
 
   /**

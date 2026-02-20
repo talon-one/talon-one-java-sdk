@@ -51,7 +51,7 @@ import one.talon.JSON;
 /**
  * The specific properties of the \&quot;ADD_PRICE_ADJUSTMENT\&quot; catalog sync action. 
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.20.0")
 public class AddPriceAdjustmentCatalogAction {
   public static final String SERIALIZED_NAME_SKU = "sku";
   @SerializedName(SERIALIZED_NAME_SKU)
@@ -195,16 +195,16 @@ public class AddPriceAdjustmentCatalogAction {
       if (!jsonObj.get("sku").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `sku` to be a primitive type in the JSON string but got `%s`", jsonObj.get("sku").toString()));
       }
-      // ensure the json data is an array
-      if (!jsonObj.get("adjustments").isJsonArray()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `adjustments` to be an array in the JSON string but got `%s`", jsonObj.get("adjustments").toString()));
+      if (jsonObj.get("adjustments") != null) {
+        if (!jsonObj.get("adjustments").isJsonArray()) {
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `adjustments` to be an array in the JSON string but got `%s`", jsonObj.get("adjustments").toString()));
+        }
+        JsonArray jsonArrayadjustments = jsonObj.getAsJsonArray("adjustments");
+        // validate the required field `adjustments` (array)
+        for (int i = 0; i < jsonArrayadjustments.size(); i++) {
+          NewPriceAdjustment.validateJsonElement(jsonArrayadjustments.get(i));
+        }
       }
-
-      JsonArray jsonArrayadjustments = jsonObj.getAsJsonArray("adjustments");
-      // validate the required field `adjustments` (array)
-      for (int i = 0; i < jsonArrayadjustments.size(); i++) {
-        NewPriceAdjustment.validateJsonElement(jsonArrayadjustments.get(i));
-      };
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {

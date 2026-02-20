@@ -51,7 +51,7 @@ import one.talon.JSON;
 /**
  * CardExpiringPointsNotificationPolicy
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.20.0")
 public class CardExpiringPointsNotificationPolicy {
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
@@ -247,16 +247,16 @@ public class CardExpiringPointsNotificationPolicy {
       if (!jsonObj.get("name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
       }
-      // ensure the json data is an array
-      if (!jsonObj.get("triggers").isJsonArray()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `triggers` to be an array in the JSON string but got `%s`", jsonObj.get("triggers").toString()));
+      if (jsonObj.get("triggers") != null) {
+        if (!jsonObj.get("triggers").isJsonArray()) {
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `triggers` to be an array in the JSON string but got `%s`", jsonObj.get("triggers").toString()));
+        }
+        JsonArray jsonArraytriggers = jsonObj.getAsJsonArray("triggers");
+        // validate the required field `triggers` (array)
+        for (int i = 0; i < jsonArraytriggers.size(); i++) {
+          CardExpiringPointsNotificationTrigger.validateJsonElement(jsonArraytriggers.get(i));
+        }
       }
-
-      JsonArray jsonArraytriggers = jsonObj.getAsJsonArray("triggers");
-      // validate the required field `triggers` (array)
-      for (int i = 0; i < jsonArraytriggers.size(); i++) {
-        CardExpiringPointsNotificationTrigger.validateJsonElement(jsonArraytriggers.get(i));
-      };
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {

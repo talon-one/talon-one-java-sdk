@@ -41,6 +41,7 @@ import one.talon.model.GetLoyaltyProgramProfileTransactions200Response;
 import one.talon.model.GetReservedCustomers200Response;
 import one.talon.model.IntegrationCustomerSessionResponse;
 import one.talon.model.IntegrationEventV2Request;
+import one.talon.model.IntegrationEventV2Response;
 import one.talon.model.IntegrationRequest;
 import one.talon.model.IntegrationStateV2;
 import one.talon.model.LoyaltyBalancesWithTiers;
@@ -56,7 +57,6 @@ import java.time.OffsetDateTime;
 import one.talon.model.Referral;
 import one.talon.model.ReopenSessionResponse;
 import one.talon.model.ReturnIntegrationRequest;
-import one.talon.model.TrackEventV2Response;
 import one.talon.model.UpdateAudience;
 import one.talon.model.UpdateCustomerProfileV2409Response;
 import one.talon.model.UpdateCustomerSessionV2409Response;
@@ -239,7 +239,7 @@ public class IntegrationApiTest {
     /**
      * Generate loyalty card
      *
-     * Generate a loyalty card in a specified [card-based loyalty program](https://docs.talon.one/docs/product/loyalty-programs/card-based/card-based-overview).  To link the card to one or more customer profiles, use the &#x60;customerProfileIds&#x60; parameter in the request body.  **Note:** - The number of customer profiles linked to the loyalty card cannot exceed the loyalty program&#39;s &#x60;usersPerCardLimit&#x60;. To find the program&#39;s limit, use the [Get loyalty program](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyProgram) endpoint. - If the loyalty program has a defined code format, it will be used for the loyalty card identifier. 
+     * Generate a loyalty card in a specified [card-based loyalty program](https://docs.talon.one/docs/product/loyalty-programs/card-based/card-based-overview).  To link the card to one or more customer profiles, use the &#x60;customerProfileIds&#x60; parameter in the request body.  **Note:**  - The number of customer profiles linked to the loyalty card cannot exceed the loyalty program&#39;s &#x60;usersPerCardLimit&#x60;. To find the program&#39;s limit, use the [Get loyalty program](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyProgram) endpoint.  - If the loyalty program has a defined code format, it will be used for the loyalty card identifier. 
      *
      * @throws ApiException if the Api call fails
      */
@@ -541,7 +541,7 @@ public class IntegrationApiTest {
         String silent = null;
         Boolean dry = null;
         Boolean forceCompleteEvaluation = null;
-        TrackEventV2Response response = api.trackEventV2(integrationEventV2Request, silent, dry, forceCompleteEvaluation);
+        IntegrationEventV2Response response = api.trackEventV2(integrationEventV2Request, silent, dry, forceCompleteEvaluation);
         // TODO: test validations
     }
 

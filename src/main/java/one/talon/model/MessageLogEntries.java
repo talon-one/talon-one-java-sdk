@@ -51,7 +51,7 @@ import one.talon.JSON;
 /**
  * MessageLogEntries
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.20.0")
 public class MessageLogEntries {
   public static final String SERIALIZED_NAME_NEXT_CURSOR = "nextCursor";
   @SerializedName(SERIALIZED_NAME_NEXT_CURSOR)
@@ -192,16 +192,16 @@ public class MessageLogEntries {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      // ensure the json data is an array
-      if (!jsonObj.get("data").isJsonArray()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `data` to be an array in the JSON string but got `%s`", jsonObj.get("data").toString()));
+      if (jsonObj.get("data") != null) {
+        if (!jsonObj.get("data").isJsonArray()) {
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `data` to be an array in the JSON string but got `%s`", jsonObj.get("data").toString()));
+        }
+        JsonArray jsonArraydata = jsonObj.getAsJsonArray("data");
+        // validate the required field `data` (array)
+        for (int i = 0; i < jsonArraydata.size(); i++) {
+          MessageLogEntry.validateJsonElement(jsonArraydata.get(i));
+        }
       }
-
-      JsonArray jsonArraydata = jsonObj.getAsJsonArray("data");
-      // validate the required field `data` (array)
-      for (int i = 0; i < jsonArraydata.size(); i++) {
-        MessageLogEntry.validateJsonElement(jsonArraydata.get(i));
-      };
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {

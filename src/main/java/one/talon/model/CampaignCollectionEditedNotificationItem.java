@@ -20,8 +20,13 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Arrays;
-import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.List;
+import one.talon.model.Campaign;
+import one.talon.model.CollectionWithoutPayload;
+import one.talon.model.PlaceholderDetails;
+import one.talon.model.Ruleset;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -49,7 +54,7 @@ import one.talon.JSON;
 /**
  * CampaignCollectionEditedNotificationItem
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.20.0")
 public class CampaignCollectionEditedNotificationItem {
   public static final String SERIALIZED_NAME_EVENT = "Event";
   @SerializedName(SERIALIZED_NAME_EVENT)
@@ -58,18 +63,23 @@ public class CampaignCollectionEditedNotificationItem {
 
   public static final String SERIALIZED_NAME_CAMPAIGN = "campaign";
   @SerializedName(SERIALIZED_NAME_CAMPAIGN)
-  @javax.annotation.Nullable
-  private Object campaign = null;
+  @javax.annotation.Nonnull
+  private Campaign campaign;
 
   public static final String SERIALIZED_NAME_RULESET = "ruleset";
   @SerializedName(SERIALIZED_NAME_RULESET)
   @javax.annotation.Nullable
-  private Object ruleset = null;
+  private Ruleset ruleset;
+
+  public static final String SERIALIZED_NAME_PLACEHOLDERS = "placeholders";
+  @SerializedName(SERIALIZED_NAME_PLACEHOLDERS)
+  @javax.annotation.Nullable
+  private List<PlaceholderDetails> placeholders = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_COLLECTION = "collection";
   @SerializedName(SERIALIZED_NAME_COLLECTION)
-  @javax.annotation.Nullable
-  private Object collection = null;
+  @javax.annotation.Nonnull
+  private CollectionWithoutPayload collection;
 
   public CampaignCollectionEditedNotificationItem() {
   }
@@ -93,7 +103,7 @@ public class CampaignCollectionEditedNotificationItem {
   }
 
 
-  public CampaignCollectionEditedNotificationItem campaign(@javax.annotation.Nullable Object campaign) {
+  public CampaignCollectionEditedNotificationItem campaign(@javax.annotation.Nonnull Campaign campaign) {
     this.campaign = campaign;
     return this;
   }
@@ -102,17 +112,17 @@ public class CampaignCollectionEditedNotificationItem {
    * The current campaign.
    * @return campaign
    */
-  @javax.annotation.Nullable
-  public Object getCampaign() {
+  @javax.annotation.Nonnull
+  public Campaign getCampaign() {
     return campaign;
   }
 
-  public void setCampaign(@javax.annotation.Nullable Object campaign) {
+  public void setCampaign(@javax.annotation.Nonnull Campaign campaign) {
     this.campaign = campaign;
   }
 
 
-  public CampaignCollectionEditedNotificationItem ruleset(@javax.annotation.Nullable Object ruleset) {
+  public CampaignCollectionEditedNotificationItem ruleset(@javax.annotation.Nullable Ruleset ruleset) {
     this.ruleset = ruleset;
     return this;
   }
@@ -122,16 +132,43 @@ public class CampaignCollectionEditedNotificationItem {
    * @return ruleset
    */
   @javax.annotation.Nullable
-  public Object getRuleset() {
+  public Ruleset getRuleset() {
     return ruleset;
   }
 
-  public void setRuleset(@javax.annotation.Nullable Object ruleset) {
+  public void setRuleset(@javax.annotation.Nullable Ruleset ruleset) {
     this.ruleset = ruleset;
   }
 
 
-  public CampaignCollectionEditedNotificationItem collection(@javax.annotation.Nullable Object collection) {
+  public CampaignCollectionEditedNotificationItem placeholders(@javax.annotation.Nullable List<PlaceholderDetails> placeholders) {
+    this.placeholders = placeholders;
+    return this;
+  }
+
+  public CampaignCollectionEditedNotificationItem addPlaceholdersItem(PlaceholderDetails placeholdersItem) {
+    if (this.placeholders == null) {
+      this.placeholders = new ArrayList<>();
+    }
+    this.placeholders.add(placeholdersItem);
+    return this;
+  }
+
+  /**
+   * The current details of the [placeholders](https://docs.talon.one/docs/product/campaigns/templates/create-templates#use-placeholders) in the campaign.
+   * @return placeholders
+   */
+  @javax.annotation.Nullable
+  public List<PlaceholderDetails> getPlaceholders() {
+    return placeholders;
+  }
+
+  public void setPlaceholders(@javax.annotation.Nullable List<PlaceholderDetails> placeholders) {
+    this.placeholders = placeholders;
+  }
+
+
+  public CampaignCollectionEditedNotificationItem collection(@javax.annotation.Nonnull CollectionWithoutPayload collection) {
     this.collection = collection;
     return this;
   }
@@ -140,12 +177,12 @@ public class CampaignCollectionEditedNotificationItem {
    * The collection that was edited.
    * @return collection
    */
-  @javax.annotation.Nullable
-  public Object getCollection() {
+  @javax.annotation.Nonnull
+  public CollectionWithoutPayload getCollection() {
     return collection;
   }
 
-  public void setCollection(@javax.annotation.Nullable Object collection) {
+  public void setCollection(@javax.annotation.Nonnull CollectionWithoutPayload collection) {
     this.collection = collection;
   }
 
@@ -163,23 +200,13 @@ public class CampaignCollectionEditedNotificationItem {
     return Objects.equals(this.event, campaignCollectionEditedNotificationItem.event) &&
         Objects.equals(this.campaign, campaignCollectionEditedNotificationItem.campaign) &&
         Objects.equals(this.ruleset, campaignCollectionEditedNotificationItem.ruleset) &&
+        Objects.equals(this.placeholders, campaignCollectionEditedNotificationItem.placeholders) &&
         Objects.equals(this.collection, campaignCollectionEditedNotificationItem.collection);
-  }
-
-  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
-    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(event, campaign, ruleset, collection);
-  }
-
-  private static <T> int hashCodeNullable(JsonNullable<T> a) {
-    if (a == null) {
-      return 1;
-    }
-    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
+    return Objects.hash(event, campaign, ruleset, placeholders, collection);
   }
 
   @Override
@@ -189,6 +216,7 @@ public class CampaignCollectionEditedNotificationItem {
     sb.append("    event: ").append(toIndentedString(event)).append("\n");
     sb.append("    campaign: ").append(toIndentedString(campaign)).append("\n");
     sb.append("    ruleset: ").append(toIndentedString(ruleset)).append("\n");
+    sb.append("    placeholders: ").append(toIndentedString(placeholders)).append("\n");
     sb.append("    collection: ").append(toIndentedString(collection)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -211,7 +239,7 @@ public class CampaignCollectionEditedNotificationItem {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("Event", "campaign", "ruleset", "collection"));
+    openapiFields = new HashSet<String>(Arrays.asList("Event", "campaign", "ruleset", "placeholders", "collection"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("Event", "campaign", "collection"));
@@ -248,6 +276,28 @@ public class CampaignCollectionEditedNotificationItem {
       if (!jsonObj.get("Event").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `Event` to be a primitive type in the JSON string but got `%s`", jsonObj.get("Event").toString()));
       }
+      // validate the required field `campaign`
+      Campaign.validateJsonElement(jsonObj.get("campaign"));
+      // validate the optional field `ruleset`
+      if (jsonObj.get("ruleset") != null && !jsonObj.get("ruleset").isJsonNull()) {
+        Ruleset.validateJsonElement(jsonObj.get("ruleset"));
+      }
+      if (jsonObj.get("placeholders") != null && !jsonObj.get("placeholders").isJsonNull()) {
+        JsonArray jsonArrayplaceholders = jsonObj.getAsJsonArray("placeholders");
+        if (jsonArrayplaceholders != null) {
+          // ensure the json data is an array
+          if (!jsonObj.get("placeholders").isJsonArray()) {
+            throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `placeholders` to be an array in the JSON string but got `%s`", jsonObj.get("placeholders").toString()));
+          }
+
+          // validate the optional field `placeholders` (array)
+          for (int i = 0; i < jsonArrayplaceholders.size(); i++) {
+            PlaceholderDetails.validateJsonElement(jsonArrayplaceholders.get(i));
+          };
+        }
+      }
+      // validate the required field `collection`
+      CollectionWithoutPayload.validateJsonElement(jsonObj.get("collection"));
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {

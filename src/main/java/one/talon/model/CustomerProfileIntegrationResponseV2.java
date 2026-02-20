@@ -59,7 +59,7 @@ import one.talon.JSON;
 /**
  * This is the response type returned by the updateCustomerProfileV2 endpoint. 
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.20.0")
 public class CustomerProfileIntegrationResponseV2 {
   public static final String SERIALIZED_NAME_CUSTOMER_PROFILE = "customerProfile";
   @SerializedName(SERIALIZED_NAME_CUSTOMER_PROFILE)
@@ -476,36 +476,36 @@ public class CustomerProfileIntegrationResponseV2 {
           };
         }
       }
-      // ensure the json data is an array
-      if (!jsonObj.get("effects").isJsonArray()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `effects` to be an array in the JSON string but got `%s`", jsonObj.get("effects").toString()));
+      if (jsonObj.get("effects") != null) {
+        if (!jsonObj.get("effects").isJsonArray()) {
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `effects` to be an array in the JSON string but got `%s`", jsonObj.get("effects").toString()));
+        }
+        JsonArray jsonArrayeffects = jsonObj.getAsJsonArray("effects");
+        // validate the required field `effects` (array)
+        for (int i = 0; i < jsonArrayeffects.size(); i++) {
+          Effect.validateJsonElement(jsonArrayeffects.get(i));
+        }
       }
-
-      JsonArray jsonArrayeffects = jsonObj.getAsJsonArray("effects");
-      // validate the required field `effects` (array)
-      for (int i = 0; i < jsonArrayeffects.size(); i++) {
-        Effect.validateJsonElement(jsonArrayeffects.get(i));
-      };
-      // ensure the json data is an array
-      if (!jsonObj.get("createdCoupons").isJsonArray()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `createdCoupons` to be an array in the JSON string but got `%s`", jsonObj.get("createdCoupons").toString()));
+      if (jsonObj.get("createdCoupons") != null) {
+        if (!jsonObj.get("createdCoupons").isJsonArray()) {
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `createdCoupons` to be an array in the JSON string but got `%s`", jsonObj.get("createdCoupons").toString()));
+        }
+        JsonArray jsonArraycreatedCoupons = jsonObj.getAsJsonArray("createdCoupons");
+        // validate the required field `createdCoupons` (array)
+        for (int i = 0; i < jsonArraycreatedCoupons.size(); i++) {
+          Coupon.validateJsonElement(jsonArraycreatedCoupons.get(i));
+        }
       }
-
-      JsonArray jsonArraycreatedCoupons = jsonObj.getAsJsonArray("createdCoupons");
-      // validate the required field `createdCoupons` (array)
-      for (int i = 0; i < jsonArraycreatedCoupons.size(); i++) {
-        Coupon.validateJsonElement(jsonArraycreatedCoupons.get(i));
-      };
-      // ensure the json data is an array
-      if (!jsonObj.get("createdReferrals").isJsonArray()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `createdReferrals` to be an array in the JSON string but got `%s`", jsonObj.get("createdReferrals").toString()));
+      if (jsonObj.get("createdReferrals") != null) {
+        if (!jsonObj.get("createdReferrals").isJsonArray()) {
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `createdReferrals` to be an array in the JSON string but got `%s`", jsonObj.get("createdReferrals").toString()));
+        }
+        JsonArray jsonArraycreatedReferrals = jsonObj.getAsJsonArray("createdReferrals");
+        // validate the required field `createdReferrals` (array)
+        for (int i = 0; i < jsonArraycreatedReferrals.size(); i++) {
+          Referral.validateJsonElement(jsonArraycreatedReferrals.get(i));
+        }
       }
-
-      JsonArray jsonArraycreatedReferrals = jsonObj.getAsJsonArray("createdReferrals");
-      // validate the required field `createdReferrals` (array)
-      for (int i = 0; i < jsonArraycreatedReferrals.size(); i++) {
-        Referral.validateJsonElement(jsonArraycreatedReferrals.get(i));
-      };
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {

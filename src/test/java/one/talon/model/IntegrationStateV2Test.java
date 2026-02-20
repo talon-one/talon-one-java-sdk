@@ -28,6 +28,7 @@ import one.talon.model.CustomerProfile;
 import one.talon.model.CustomerSessionV2;
 import one.talon.model.Effect;
 import one.talon.model.Event;
+import one.talon.model.EventV3;
 import one.talon.model.Giveaway;
 import one.talon.model.IntegrationCoupon;
 import one.talon.model.InventoryReferral;
@@ -53,14 +54,6 @@ public class IntegrationStateV2Test {
     }
 
     /**
-     * Test the property 'customerSession'
-     */
-    @Test
-    public void customerSessionTest() {
-        // TODO: test customerSession
-    }
-
-    /**
      * Test the property 'customerProfile'
      */
     @Test
@@ -69,35 +62,11 @@ public class IntegrationStateV2Test {
     }
 
     /**
-     * Test the property 'event'
-     */
-    @Test
-    public void eventTest() {
-        // TODO: test event
-    }
-
-    /**
      * Test the property 'loyalty'
      */
     @Test
     public void loyaltyTest() {
         // TODO: test loyalty
-    }
-
-    /**
-     * Test the property 'referral'
-     */
-    @Test
-    public void referralTest() {
-        // TODO: test referral
-    }
-
-    /**
-     * Test the property 'coupons'
-     */
-    @Test
-    public void couponsTest() {
-        // TODO: test coupons
     }
 
     /**
@@ -146,6 +115,46 @@ public class IntegrationStateV2Test {
     @Test
     public void awardedGiveawaysTest() {
         // TODO: test awardedGiveaways
+    }
+
+    /**
+     * Test the property 'referral'
+     */
+    @Test
+    public void referralTest() {
+        // TODO: test referral
+    }
+
+    /**
+     * Test the property 'coupons'
+     */
+    @Test
+    public void couponsTest() {
+        // TODO: test coupons
+    }
+
+    /**
+     * Test the property 'event'
+     */
+    @Test
+    public void eventTest() {
+        // TODO: test event
+    }
+
+    /**
+     * Test the property 'advancedEvent'
+     */
+    @Test
+    public void advancedEventTest() {
+        // TODO: test advancedEvent
+    }
+
+    /**
+     * Test the property 'customerSession'
+     */
+    @Test
+    public void customerSessionTest() {
+        // TODO: test customerSession
     }
 
     /**

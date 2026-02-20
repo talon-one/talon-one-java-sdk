@@ -52,7 +52,7 @@ import one.talon.JSON;
 /**
  * WebhookAuthentication
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.20.0")
 public class WebhookAuthentication {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -433,16 +433,16 @@ public class WebhookAuthentication {
       if (!jsonObj.get("modifiedBy").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `modifiedBy` to be a primitive type in the JSON string but got `%s`", jsonObj.get("modifiedBy").toString()));
       }
-      // ensure the json data is an array
-      if (!jsonObj.get("webhooks").isJsonArray()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `webhooks` to be an array in the JSON string but got `%s`", jsonObj.get("webhooks").toString()));
+      if (jsonObj.get("webhooks") != null) {
+        if (!jsonObj.get("webhooks").isJsonArray()) {
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `webhooks` to be an array in the JSON string but got `%s`", jsonObj.get("webhooks").toString()));
+        }
+        JsonArray jsonArraywebhooks = jsonObj.getAsJsonArray("webhooks");
+        // validate the required field `webhooks` (array)
+        for (int i = 0; i < jsonArraywebhooks.size(); i++) {
+          WebhookAuthenticationWebhookRef.validateJsonElement(jsonArraywebhooks.get(i));
+        }
       }
-
-      JsonArray jsonArraywebhooks = jsonObj.getAsJsonArray("webhooks");
-      // validate the required field `webhooks` (array)
-      for (int i = 0; i < jsonArraywebhooks.size(); i++) {
-        WebhookAuthenticationWebhookRef.validateJsonElement(jsonArraywebhooks.get(i));
-      };
       if (!jsonObj.get("name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
       }

@@ -52,7 +52,7 @@ import one.talon.JSON;
 /**
  * ModelReturn
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.20.0")
 public class ModelReturn {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -427,16 +427,16 @@ public class ModelReturn {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      // ensure the json data is an array
-      if (!jsonObj.get("returnedCartItems").isJsonArray()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `returnedCartItems` to be an array in the JSON string but got `%s`", jsonObj.get("returnedCartItems").toString()));
+      if (jsonObj.get("returnedCartItems") != null) {
+        if (!jsonObj.get("returnedCartItems").isJsonArray()) {
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `returnedCartItems` to be an array in the JSON string but got `%s`", jsonObj.get("returnedCartItems").toString()));
+        }
+        JsonArray jsonArrayreturnedCartItems = jsonObj.getAsJsonArray("returnedCartItems");
+        // validate the required field `returnedCartItems` (array)
+        for (int i = 0; i < jsonArrayreturnedCartItems.size(); i++) {
+          ReturnedCartItem.validateJsonElement(jsonArrayreturnedCartItems.get(i));
+        }
       }
-
-      JsonArray jsonArrayreturnedCartItems = jsonObj.getAsJsonArray("returnedCartItems");
-      // validate the required field `returnedCartItems` (array)
-      for (int i = 0; i < jsonArrayreturnedCartItems.size(); i++) {
-        ReturnedCartItem.validateJsonElement(jsonArrayreturnedCartItems.get(i));
-      };
       if (!jsonObj.get("sessionIntegrationId").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `sessionIntegrationId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("sessionIntegrationId").toString()));
       }

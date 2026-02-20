@@ -50,7 +50,7 @@ import one.talon.JSON;
 /**
  * IntegrationEventV3Request
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.20.0")
 public class IntegrationEventV3Request {
   public static final String SERIALIZED_NAME_PROFILE_ID = "profileId";
   @SerializedName(SERIALIZED_NAME_PROFILE_ID)
@@ -108,7 +108,7 @@ public class IntegrationEventV3Request {
     
     LOYALTY("loyalty"),
     
-    EVENT("event"),
+    ADVANCED_EVENT("advancedEvent"),
     
     AWARDED_GIVEAWAYS("awardedGiveaways"),
     

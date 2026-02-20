@@ -63,7 +63,7 @@ import one.talon.JSON;
 /**
  * Environment
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.20.0")
 public class Environment {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -656,36 +656,36 @@ public class Environment {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      // ensure the json data is an array
-      if (!jsonObj.get("slots").isJsonArray()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `slots` to be an array in the JSON string but got `%s`", jsonObj.get("slots").toString()));
+      if (jsonObj.get("slots") != null) {
+        if (!jsonObj.get("slots").isJsonArray()) {
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `slots` to be an array in the JSON string but got `%s`", jsonObj.get("slots").toString()));
+        }
+        JsonArray jsonArrayslots = jsonObj.getAsJsonArray("slots");
+        // validate the required field `slots` (array)
+        for (int i = 0; i < jsonArrayslots.size(); i++) {
+          SlotDef.validateJsonElement(jsonArrayslots.get(i));
+        }
       }
-
-      JsonArray jsonArrayslots = jsonObj.getAsJsonArray("slots");
-      // validate the required field `slots` (array)
-      for (int i = 0; i < jsonArrayslots.size(); i++) {
-        SlotDef.validateJsonElement(jsonArrayslots.get(i));
-      };
-      // ensure the json data is an array
-      if (!jsonObj.get("functions").isJsonArray()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `functions` to be an array in the JSON string but got `%s`", jsonObj.get("functions").toString()));
+      if (jsonObj.get("functions") != null) {
+        if (!jsonObj.get("functions").isJsonArray()) {
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `functions` to be an array in the JSON string but got `%s`", jsonObj.get("functions").toString()));
+        }
+        JsonArray jsonArrayfunctions = jsonObj.getAsJsonArray("functions");
+        // validate the required field `functions` (array)
+        for (int i = 0; i < jsonArrayfunctions.size(); i++) {
+          FunctionDef.validateJsonElement(jsonArrayfunctions.get(i));
+        }
       }
-
-      JsonArray jsonArrayfunctions = jsonObj.getAsJsonArray("functions");
-      // validate the required field `functions` (array)
-      for (int i = 0; i < jsonArrayfunctions.size(); i++) {
-        FunctionDef.validateJsonElement(jsonArrayfunctions.get(i));
-      };
-      // ensure the json data is an array
-      if (!jsonObj.get("templates").isJsonArray()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `templates` to be an array in the JSON string but got `%s`", jsonObj.get("templates").toString()));
+      if (jsonObj.get("templates") != null) {
+        if (!jsonObj.get("templates").isJsonArray()) {
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `templates` to be an array in the JSON string but got `%s`", jsonObj.get("templates").toString()));
+        }
+        JsonArray jsonArraytemplates = jsonObj.getAsJsonArray("templates");
+        // validate the required field `templates` (array)
+        for (int i = 0; i < jsonArraytemplates.size(); i++) {
+          TemplateDef.validateJsonElement(jsonArraytemplates.get(i));
+        }
       }
-
-      JsonArray jsonArraytemplates = jsonObj.getAsJsonArray("templates");
-      // validate the required field `templates` (array)
-      for (int i = 0; i < jsonArraytemplates.size(); i++) {
-        TemplateDef.validateJsonElement(jsonArraytemplates.get(i));
-      };
       if (!jsonObj.get("variables").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `variables` to be a primitive type in the JSON string but got `%s`", jsonObj.get("variables").toString()));
       }

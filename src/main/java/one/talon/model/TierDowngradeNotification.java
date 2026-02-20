@@ -51,7 +51,7 @@ import one.talon.JSON;
 /**
  * TierDowngradeNotification
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.20.0")
 public class TierDowngradeNotification {
   public static final String SERIALIZED_NAME_TOTAL_RESULT_SIZE = "TotalResultSize";
   @SerializedName(SERIALIZED_NAME_TOTAL_RESULT_SIZE)
@@ -268,16 +268,16 @@ public class TierDowngradeNotification {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      // ensure the json data is an array
-      if (!jsonObj.get("Data").isJsonArray()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `Data` to be an array in the JSON string but got `%s`", jsonObj.get("Data").toString()));
+      if (jsonObj.get("Data") != null) {
+        if (!jsonObj.get("Data").isJsonArray()) {
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `Data` to be an array in the JSON string but got `%s`", jsonObj.get("Data").toString()));
+        }
+        JsonArray jsonArraydata = jsonObj.getAsJsonArray("Data");
+        // validate the required field `Data` (array)
+        for (int i = 0; i < jsonArraydata.size(); i++) {
+          TierDowngradeData.validateJsonElement(jsonArraydata.get(i));
+        }
       }
-
-      JsonArray jsonArraydata = jsonObj.getAsJsonArray("Data");
-      // validate the required field `Data` (array)
-      for (int i = 0; i < jsonArraydata.size(); i++) {
-        TierDowngradeData.validateJsonElement(jsonArraydata.get(i));
-      };
       if (!jsonObj.get("NotificationType").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `NotificationType` to be a primitive type in the JSON string but got `%s`", jsonObj.get("NotificationType").toString()));
       }

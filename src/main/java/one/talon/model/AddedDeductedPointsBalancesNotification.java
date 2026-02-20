@@ -52,7 +52,7 @@ import one.talon.JSON;
 /**
  * AddedDeductedPointsBalancesNotification
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.20.0")
 public class AddedDeductedPointsBalancesNotification {
   public static final String SERIALIZED_NAME_EMPLOYEE_NAME = "EmployeeName";
   @SerializedName(SERIALIZED_NAME_EMPLOYEE_NAME)
@@ -528,16 +528,16 @@ public class AddedDeductedPointsBalancesNotification {
       }
       // validate the required field `TypeOfChange`
       TypeOfChangeEnum.validateJsonElement(jsonObj.get("TypeOfChange"));
-      // ensure the json data is an array
-      if (!jsonObj.get("Actions").isJsonArray()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `Actions` to be an array in the JSON string but got `%s`", jsonObj.get("Actions").toString()));
+      if (jsonObj.get("Actions") != null) {
+        if (!jsonObj.get("Actions").isJsonArray()) {
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `Actions` to be an array in the JSON string but got `%s`", jsonObj.get("Actions").toString()));
+        }
+        JsonArray jsonArrayactions = jsonObj.getAsJsonArray("Actions");
+        // validate the required field `Actions` (array)
+        for (int i = 0; i < jsonArrayactions.size(); i++) {
+          AddedDeductedPointsBalancesAction.validateJsonElement(jsonArrayactions.get(i));
+        }
       }
-
-      JsonArray jsonArrayactions = jsonObj.getAsJsonArray("Actions");
-      // validate the required field `Actions` (array)
-      for (int i = 0; i < jsonArrayactions.size(); i++) {
-        AddedDeductedPointsBalancesAction.validateJsonElement(jsonArrayactions.get(i));
-      };
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {

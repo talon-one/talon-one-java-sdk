@@ -8,6 +8,7 @@
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
 |**totalResultSize** | **Long** |  |  |
+|**batchedAt** | **OffsetDateTime** | Timestamp when the batch was created. |  [optional] |
 |**eventType** | [**EventTypeEnum**](#EventTypeEnum) |  |  |
 |**data** | **List&lt;Object&gt;** |  |  |
 

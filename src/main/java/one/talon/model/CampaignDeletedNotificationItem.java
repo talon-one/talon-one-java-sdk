@@ -22,6 +22,7 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.time.OffsetDateTime;
 import java.util.Arrays;
+import one.talon.model.Campaign;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -49,7 +50,7 @@ import one.talon.JSON;
 /**
  * CampaignDeletedNotificationItem
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.20.0")
 public class CampaignDeletedNotificationItem {
   public static final String SERIALIZED_NAME_EVENT = "Event";
   @SerializedName(SERIALIZED_NAME_EVENT)
@@ -58,8 +59,8 @@ public class CampaignDeletedNotificationItem {
 
   public static final String SERIALIZED_NAME_CAMPAIGN = "campaign";
   @SerializedName(SERIALIZED_NAME_CAMPAIGN)
-  @javax.annotation.Nullable
-  private Object campaign = null;
+  @javax.annotation.Nonnull
+  private Campaign campaign;
 
   public static final String SERIALIZED_NAME_DELETED_AT = "deletedAt";
   @SerializedName(SERIALIZED_NAME_DELETED_AT)
@@ -88,7 +89,7 @@ public class CampaignDeletedNotificationItem {
   }
 
 
-  public CampaignDeletedNotificationItem campaign(@javax.annotation.Nullable Object campaign) {
+  public CampaignDeletedNotificationItem campaign(@javax.annotation.Nonnull Campaign campaign) {
     this.campaign = campaign;
     return this;
   }
@@ -97,12 +98,12 @@ public class CampaignDeletedNotificationItem {
    * The campaign whose state changed.
    * @return campaign
    */
-  @javax.annotation.Nullable
-  public Object getCampaign() {
+  @javax.annotation.Nonnull
+  public Campaign getCampaign() {
     return campaign;
   }
 
-  public void setCampaign(@javax.annotation.Nullable Object campaign) {
+  public void setCampaign(@javax.annotation.Nonnull Campaign campaign) {
     this.campaign = campaign;
   }
 
@@ -211,6 +212,8 @@ public class CampaignDeletedNotificationItem {
       if (!jsonObj.get("Event").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `Event` to be a primitive type in the JSON string but got `%s`", jsonObj.get("Event").toString()));
       }
+      // validate the required field `campaign`
+      Campaign.validateJsonElement(jsonObj.get("campaign"));
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {

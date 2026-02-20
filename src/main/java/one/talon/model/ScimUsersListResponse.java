@@ -51,7 +51,7 @@ import one.talon.JSON;
 /**
  * List of users that have been provisioned using the SCIM protocol with an identity provider, for example, Microsoft Entra ID.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.20.0")
 public class ScimUsersListResponse {
   public static final String SERIALIZED_NAME_RESOURCES = "Resources";
   @SerializedName(SERIALIZED_NAME_RESOURCES)
@@ -226,16 +226,16 @@ public class ScimUsersListResponse {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      // ensure the json data is an array
-      if (!jsonObj.get("Resources").isJsonArray()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `Resources` to be an array in the JSON string but got `%s`", jsonObj.get("Resources").toString()));
+      if (jsonObj.get("Resources") != null) {
+        if (!jsonObj.get("Resources").isJsonArray()) {
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `Resources` to be an array in the JSON string but got `%s`", jsonObj.get("Resources").toString()));
+        }
+        JsonArray jsonArrayresources = jsonObj.getAsJsonArray("Resources");
+        // validate the required field `Resources` (array)
+        for (int i = 0; i < jsonArrayresources.size(); i++) {
+          ScimUser.validateJsonElement(jsonArrayresources.get(i));
+        }
       }
-
-      JsonArray jsonArrayresources = jsonObj.getAsJsonArray("Resources");
-      // validate the required field `Resources` (array)
-      for (int i = 0; i < jsonArrayresources.size(); i++) {
-        ScimUser.validateJsonElement(jsonArrayresources.get(i));
-      };
       // ensure the optional json data is an array if present
       if (jsonObj.get("schemas") != null && !jsonObj.get("schemas").isJsonNull() && !jsonObj.get("schemas").isJsonArray()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `schemas` to be an array in the JSON string but got `%s`", jsonObj.get("schemas").toString()));

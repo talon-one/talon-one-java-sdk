@@ -52,7 +52,7 @@ import one.talon.JSON;
 /**
  * NewManagementKey
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.20.0")
 public class NewManagementKey {
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
@@ -438,16 +438,16 @@ public class NewManagementKey {
       if (!jsonObj.get("name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
       }
-      // ensure the json data is an array
-      if (!jsonObj.get("endpoints").isJsonArray()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `endpoints` to be an array in the JSON string but got `%s`", jsonObj.get("endpoints").toString()));
+      if (jsonObj.get("endpoints") != null) {
+        if (!jsonObj.get("endpoints").isJsonArray()) {
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `endpoints` to be an array in the JSON string but got `%s`", jsonObj.get("endpoints").toString()));
+        }
+        JsonArray jsonArrayendpoints = jsonObj.getAsJsonArray("endpoints");
+        // validate the required field `endpoints` (array)
+        for (int i = 0; i < jsonArrayendpoints.size(); i++) {
+          Endpoint.validateJsonElement(jsonArrayendpoints.get(i));
+        }
       }
-
-      JsonArray jsonArrayendpoints = jsonObj.getAsJsonArray("endpoints");
-      // validate the required field `endpoints` (array)
-      for (int i = 0; i < jsonArrayendpoints.size(); i++) {
-        Endpoint.validateJsonElement(jsonArrayendpoints.get(i));
-      };
       // ensure the optional json data is an array if present
       if (jsonObj.get("allowedApplicationIds") != null && !jsonObj.get("allowedApplicationIds").isJsonNull() && !jsonObj.get("allowedApplicationIds").isJsonArray()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `allowedApplicationIds` to be an array in the JSON string but got `%s`", jsonObj.get("allowedApplicationIds").toString()));

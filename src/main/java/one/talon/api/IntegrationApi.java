@@ -54,6 +54,7 @@ import one.talon.model.GetLoyaltyProgramProfileTransactions200Response;
 import one.talon.model.GetReservedCustomers200Response;
 import one.talon.model.IntegrationCustomerSessionResponse;
 import one.talon.model.IntegrationEventV2Request;
+import one.talon.model.IntegrationEventV2Response;
 import one.talon.model.IntegrationRequest;
 import one.talon.model.IntegrationStateV2;
 import one.talon.model.LoyaltyBalancesWithTiers;
@@ -69,7 +70,6 @@ import java.time.OffsetDateTime;
 import one.talon.model.Referral;
 import one.talon.model.ReopenSessionResponse;
 import one.talon.model.ReturnIntegrationRequest;
-import one.talon.model.TrackEventV2Response;
 import one.talon.model.UpdateAudience;
 import one.talon.model.UpdateCustomerProfileV2409Response;
 import one.talon.model.UpdateCustomerSessionV2409Response;
@@ -1740,7 +1740,7 @@ public class IntegrationApi {
 
     /**
      * Generate loyalty card
-     * Generate a loyalty card in a specified [card-based loyalty program](https://docs.talon.one/docs/product/loyalty-programs/card-based/card-based-overview).  To link the card to one or more customer profiles, use the &#x60;customerProfileIds&#x60; parameter in the request body.  **Note:** - The number of customer profiles linked to the loyalty card cannot exceed the loyalty program&#39;s &#x60;usersPerCardLimit&#x60;. To find the program&#39;s limit, use the [Get loyalty program](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyProgram) endpoint. - If the loyalty program has a defined code format, it will be used for the loyalty card identifier. 
+     * Generate a loyalty card in a specified [card-based loyalty program](https://docs.talon.one/docs/product/loyalty-programs/card-based/card-based-overview).  To link the card to one or more customer profiles, use the &#x60;customerProfileIds&#x60; parameter in the request body.  **Note:**  - The number of customer profiles linked to the loyalty card cannot exceed the loyalty program&#39;s &#x60;usersPerCardLimit&#x60;. To find the program&#39;s limit, use the [Get loyalty program](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyProgram) endpoint.  - If the loyalty program has a defined code format, it will be used for the loyalty card identifier. 
      * @param loyaltyProgramId Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint.  (required)
      * @param generateLoyaltyCard body (required)
      * @return LoyaltyCard
@@ -1761,7 +1761,7 @@ public class IntegrationApi {
 
     /**
      * Generate loyalty card
-     * Generate a loyalty card in a specified [card-based loyalty program](https://docs.talon.one/docs/product/loyalty-programs/card-based/card-based-overview).  To link the card to one or more customer profiles, use the &#x60;customerProfileIds&#x60; parameter in the request body.  **Note:** - The number of customer profiles linked to the loyalty card cannot exceed the loyalty program&#39;s &#x60;usersPerCardLimit&#x60;. To find the program&#39;s limit, use the [Get loyalty program](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyProgram) endpoint. - If the loyalty program has a defined code format, it will be used for the loyalty card identifier. 
+     * Generate a loyalty card in a specified [card-based loyalty program](https://docs.talon.one/docs/product/loyalty-programs/card-based/card-based-overview).  To link the card to one or more customer profiles, use the &#x60;customerProfileIds&#x60; parameter in the request body.  **Note:**  - The number of customer profiles linked to the loyalty card cannot exceed the loyalty program&#39;s &#x60;usersPerCardLimit&#x60;. To find the program&#39;s limit, use the [Get loyalty program](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyProgram) endpoint.  - If the loyalty program has a defined code format, it will be used for the loyalty card identifier. 
      * @param loyaltyProgramId Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint.  (required)
      * @param generateLoyaltyCard body (required)
      * @return ApiResponse&lt;LoyaltyCard&gt;
@@ -1783,7 +1783,7 @@ public class IntegrationApi {
 
     /**
      * Generate loyalty card (asynchronously)
-     * Generate a loyalty card in a specified [card-based loyalty program](https://docs.talon.one/docs/product/loyalty-programs/card-based/card-based-overview).  To link the card to one or more customer profiles, use the &#x60;customerProfileIds&#x60; parameter in the request body.  **Note:** - The number of customer profiles linked to the loyalty card cannot exceed the loyalty program&#39;s &#x60;usersPerCardLimit&#x60;. To find the program&#39;s limit, use the [Get loyalty program](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyProgram) endpoint. - If the loyalty program has a defined code format, it will be used for the loyalty card identifier. 
+     * Generate a loyalty card in a specified [card-based loyalty program](https://docs.talon.one/docs/product/loyalty-programs/card-based/card-based-overview).  To link the card to one or more customer profiles, use the &#x60;customerProfileIds&#x60; parameter in the request body.  **Note:**  - The number of customer profiles linked to the loyalty card cannot exceed the loyalty program&#39;s &#x60;usersPerCardLimit&#x60;. To find the program&#39;s limit, use the [Get loyalty program](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyProgram) endpoint.  - If the loyalty program has a defined code format, it will be used for the loyalty card identifier. 
      * @param loyaltyProgramId Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint.  (required)
      * @param generateLoyaltyCard body (required)
      * @param _callback The callback to be executed when the API call finishes
@@ -4526,7 +4526,7 @@ public class IntegrationApi {
      * @param silent Possible values: &#x60;yes&#x60; or &#x60;no&#x60;. - &#x60;yes&#x60;: Increases the performance of the API call by returning a 204 response. - &#x60;no&#x60;: Returns a 200 response that contains the updated customer profiles.  (optional, default to yes)
      * @param dry Indicates whether to persist the changes. Changes are ignored when &#x60;dry&#x3D;true&#x60;.  (optional)
      * @param forceCompleteEvaluation Forces evaluation for all matching campaigns regardless of the [campaign evaluation mode](https://docs.talon.one/docs/product/applications/managing-campaign-evaluation#setting-campaign-evaluation-mode). Requires &#x60;dry&#x3D;true&#x60;.  (optional, default to false)
-     * @return TrackEventV2Response
+     * @return IntegrationEventV2Response
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table border="1">
@@ -4538,8 +4538,8 @@ public class IntegrationApi {
         <tr><td> 409 </td><td> Too many requests or limit reached - Avoid parallel requests. See the [docs](https://docs.talon.one/docs/dev/tutorials/integrating-talon-one#managing-parallel-requests). </td><td>  -  </td></tr>
      </table>
      */
-    public TrackEventV2Response trackEventV2(@javax.annotation.Nonnull IntegrationEventV2Request integrationEventV2Request, @javax.annotation.Nullable String silent, @javax.annotation.Nullable Boolean dry, @javax.annotation.Nullable Boolean forceCompleteEvaluation) throws ApiException {
-        ApiResponse<TrackEventV2Response> localVarResp = trackEventV2WithHttpInfo(integrationEventV2Request, silent, dry, forceCompleteEvaluation);
+    public IntegrationEventV2Response trackEventV2(@javax.annotation.Nonnull IntegrationEventV2Request integrationEventV2Request, @javax.annotation.Nullable String silent, @javax.annotation.Nullable Boolean dry, @javax.annotation.Nullable Boolean forceCompleteEvaluation) throws ApiException {
+        ApiResponse<IntegrationEventV2Response> localVarResp = trackEventV2WithHttpInfo(integrationEventV2Request, silent, dry, forceCompleteEvaluation);
         return localVarResp.getData();
     }
 
@@ -4550,7 +4550,7 @@ public class IntegrationApi {
      * @param silent Possible values: &#x60;yes&#x60; or &#x60;no&#x60;. - &#x60;yes&#x60;: Increases the performance of the API call by returning a 204 response. - &#x60;no&#x60;: Returns a 200 response that contains the updated customer profiles.  (optional, default to yes)
      * @param dry Indicates whether to persist the changes. Changes are ignored when &#x60;dry&#x3D;true&#x60;.  (optional)
      * @param forceCompleteEvaluation Forces evaluation for all matching campaigns regardless of the [campaign evaluation mode](https://docs.talon.one/docs/product/applications/managing-campaign-evaluation#setting-campaign-evaluation-mode). Requires &#x60;dry&#x3D;true&#x60;.  (optional, default to false)
-     * @return ApiResponse&lt;TrackEventV2Response&gt;
+     * @return ApiResponse&lt;IntegrationEventV2Response&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table border="1">
@@ -4562,9 +4562,9 @@ public class IntegrationApi {
         <tr><td> 409 </td><td> Too many requests or limit reached - Avoid parallel requests. See the [docs](https://docs.talon.one/docs/dev/tutorials/integrating-talon-one#managing-parallel-requests). </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<TrackEventV2Response> trackEventV2WithHttpInfo(@javax.annotation.Nonnull IntegrationEventV2Request integrationEventV2Request, @javax.annotation.Nullable String silent, @javax.annotation.Nullable Boolean dry, @javax.annotation.Nullable Boolean forceCompleteEvaluation) throws ApiException {
+    public ApiResponse<IntegrationEventV2Response> trackEventV2WithHttpInfo(@javax.annotation.Nonnull IntegrationEventV2Request integrationEventV2Request, @javax.annotation.Nullable String silent, @javax.annotation.Nullable Boolean dry, @javax.annotation.Nullable Boolean forceCompleteEvaluation) throws ApiException {
         okhttp3.Call localVarCall = trackEventV2ValidateBeforeCall(integrationEventV2Request, silent, dry, forceCompleteEvaluation, null);
-        Type localVarReturnType = new TypeToken<TrackEventV2Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<IntegrationEventV2Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -4588,10 +4588,10 @@ public class IntegrationApi {
         <tr><td> 409 </td><td> Too many requests or limit reached - Avoid parallel requests. See the [docs](https://docs.talon.one/docs/dev/tutorials/integrating-talon-one#managing-parallel-requests). </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call trackEventV2Async(@javax.annotation.Nonnull IntegrationEventV2Request integrationEventV2Request, @javax.annotation.Nullable String silent, @javax.annotation.Nullable Boolean dry, @javax.annotation.Nullable Boolean forceCompleteEvaluation, final ApiCallback<TrackEventV2Response> _callback) throws ApiException {
+    public okhttp3.Call trackEventV2Async(@javax.annotation.Nonnull IntegrationEventV2Request integrationEventV2Request, @javax.annotation.Nullable String silent, @javax.annotation.Nullable Boolean dry, @javax.annotation.Nullable Boolean forceCompleteEvaluation, final ApiCallback<IntegrationEventV2Response> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = trackEventV2ValidateBeforeCall(integrationEventV2Request, silent, dry, forceCompleteEvaluation, _callback);
-        Type localVarReturnType = new TypeToken<TrackEventV2Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<IntegrationEventV2Response>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }

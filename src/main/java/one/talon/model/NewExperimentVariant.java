@@ -49,7 +49,7 @@ import one.talon.JSON;
 /**
  * NewExperimentVariant
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.20.0")
 public class NewExperimentVariant {
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
@@ -58,7 +58,7 @@ public class NewExperimentVariant {
 
   public static final String SERIALIZED_NAME_WEIGHT = "weight";
   @SerializedName(SERIALIZED_NAME_WEIGHT)
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
   private Long weight;
 
   public static final String SERIALIZED_NAME_RULESET = "ruleset";
@@ -93,21 +93,23 @@ public class NewExperimentVariant {
   }
 
 
-  public NewExperimentVariant weight(@javax.annotation.Nullable Long weight) {
+  public NewExperimentVariant weight(@javax.annotation.Nonnull Long weight) {
     this.weight = weight;
     return this;
   }
 
   /**
-   * Get weight
+   * The percentage split of this variant. The sum of all variant percentages must be 100.
+   * minimum: 1
+   * maximum: 99
    * @return weight
    */
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
   public Long getWeight() {
     return weight;
   }
 
-  public void setWeight(@javax.annotation.Nullable Long weight) {
+  public void setWeight(@javax.annotation.Nonnull Long weight) {
     this.weight = weight;
   }
 
@@ -203,7 +205,7 @@ public class NewExperimentVariant {
     openapiFields = new HashSet<String>(Arrays.asList("name", "weight", "ruleset", "isPrimary"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("name", "ruleset", "isPrimary"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("name", "weight", "ruleset", "isPrimary"));
   }
 
   /**

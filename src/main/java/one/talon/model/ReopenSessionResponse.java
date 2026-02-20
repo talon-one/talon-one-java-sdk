@@ -51,7 +51,7 @@ import one.talon.JSON;
 /**
  * This is the response type returned by the Reopen customer sessions endpoint. It contains the rolled back effects. 
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.20.0")
 public class ReopenSessionResponse {
   public static final String SERIALIZED_NAME_EFFECTS = "effects";
   @SerializedName(SERIALIZED_NAME_EFFECTS)
@@ -166,16 +166,16 @@ public class ReopenSessionResponse {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      // ensure the json data is an array
-      if (!jsonObj.get("effects").isJsonArray()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `effects` to be an array in the JSON string but got `%s`", jsonObj.get("effects").toString()));
+      if (jsonObj.get("effects") != null) {
+        if (!jsonObj.get("effects").isJsonArray()) {
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `effects` to be an array in the JSON string but got `%s`", jsonObj.get("effects").toString()));
+        }
+        JsonArray jsonArrayeffects = jsonObj.getAsJsonArray("effects");
+        // validate the required field `effects` (array)
+        for (int i = 0; i < jsonArrayeffects.size(); i++) {
+          Effect.validateJsonElement(jsonArrayeffects.get(i));
+        }
       }
-
-      JsonArray jsonArrayeffects = jsonObj.getAsJsonArray("effects");
-      // validate the required field `effects` (array)
-      for (int i = 0; i < jsonArrayeffects.size(); i++) {
-        Effect.validateJsonElement(jsonArrayeffects.get(i));
-      };
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {

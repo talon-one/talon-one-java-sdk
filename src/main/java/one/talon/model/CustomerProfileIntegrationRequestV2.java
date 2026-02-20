@@ -23,7 +23,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import org.openapitools.jackson.nullable.JsonNullable;
+import one.talon.model.ProfileAudiencesChanges;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -51,7 +51,7 @@ import one.talon.JSON;
 /**
  * CustomerProfileIntegrationRequestV2
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.20.0")
 public class CustomerProfileIntegrationRequestV2 {
   public static final String SERIALIZED_NAME_ATTRIBUTES = "attributes";
   @SerializedName(SERIALIZED_NAME_ATTRIBUTES)
@@ -62,11 +62,6 @@ public class CustomerProfileIntegrationRequestV2 {
   @SerializedName(SERIALIZED_NAME_EVALUABLE_CAMPAIGN_IDS)
   @javax.annotation.Nullable
   private List<Long> evaluableCampaignIds = new ArrayList<>();
-
-  public static final String SERIALIZED_NAME_AUDIENCES_CHANGES = "audiencesChanges";
-  @SerializedName(SERIALIZED_NAME_AUDIENCES_CHANGES)
-  @javax.annotation.Nullable
-  private Object audiencesChanges = null;
 
   /**
    * Gets or Sets responseContent
@@ -133,6 +128,11 @@ public class CustomerProfileIntegrationRequestV2 {
   @javax.annotation.Nullable
   private List<ResponseContentEnum> responseContent = new ArrayList<>();
 
+  public static final String SERIALIZED_NAME_AUDIENCES_CHANGES = "audiencesChanges";
+  @SerializedName(SERIALIZED_NAME_AUDIENCES_CHANGES)
+  @javax.annotation.Nullable
+  private ProfileAudiencesChanges audiencesChanges;
+
   public CustomerProfileIntegrationRequestV2() {
   }
 
@@ -182,25 +182,6 @@ public class CustomerProfileIntegrationRequestV2 {
   }
 
 
-  public CustomerProfileIntegrationRequestV2 audiencesChanges(@javax.annotation.Nullable Object audiencesChanges) {
-    this.audiencesChanges = audiencesChanges;
-    return this;
-  }
-
-  /**
-   * Audiences memberships changes for this profile.
-   * @return audiencesChanges
-   */
-  @javax.annotation.Nullable
-  public Object getAudiencesChanges() {
-    return audiencesChanges;
-  }
-
-  public void setAudiencesChanges(@javax.annotation.Nullable Object audiencesChanges) {
-    this.audiencesChanges = audiencesChanges;
-  }
-
-
   public CustomerProfileIntegrationRequestV2 responseContent(@javax.annotation.Nullable List<ResponseContentEnum> responseContent) {
     this.responseContent = responseContent;
     return this;
@@ -215,7 +196,7 @@ public class CustomerProfileIntegrationRequestV2 {
   }
 
   /**
-   * Extends the response with the chosen data entities. Use this property to get as much data as you need in one _Update customer profile_ request instead of sending extra requests to other endpoints. 
+   * Extends the response with the chosen data entities. Use this property to get as much data back as needed from one request instead of sending extra requests to other endpoints. 
    * @return responseContent
    */
   @javax.annotation.Nullable
@@ -225,6 +206,25 @@ public class CustomerProfileIntegrationRequestV2 {
 
   public void setResponseContent(@javax.annotation.Nullable List<ResponseContentEnum> responseContent) {
     this.responseContent = responseContent;
+  }
+
+
+  public CustomerProfileIntegrationRequestV2 audiencesChanges(@javax.annotation.Nullable ProfileAudiencesChanges audiencesChanges) {
+    this.audiencesChanges = audiencesChanges;
+    return this;
+  }
+
+  /**
+   * Audiences memberships changes for this profile.
+   * @return audiencesChanges
+   */
+  @javax.annotation.Nullable
+  public ProfileAudiencesChanges getAudiencesChanges() {
+    return audiencesChanges;
+  }
+
+  public void setAudiencesChanges(@javax.annotation.Nullable ProfileAudiencesChanges audiencesChanges) {
+    this.audiencesChanges = audiencesChanges;
   }
 
 
@@ -240,24 +240,13 @@ public class CustomerProfileIntegrationRequestV2 {
     CustomerProfileIntegrationRequestV2 customerProfileIntegrationRequestV2 = (CustomerProfileIntegrationRequestV2) o;
     return Objects.equals(this.attributes, customerProfileIntegrationRequestV2.attributes) &&
         Objects.equals(this.evaluableCampaignIds, customerProfileIntegrationRequestV2.evaluableCampaignIds) &&
-        Objects.equals(this.audiencesChanges, customerProfileIntegrationRequestV2.audiencesChanges) &&
-        Objects.equals(this.responseContent, customerProfileIntegrationRequestV2.responseContent);
-  }
-
-  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
-    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
+        Objects.equals(this.responseContent, customerProfileIntegrationRequestV2.responseContent) &&
+        Objects.equals(this.audiencesChanges, customerProfileIntegrationRequestV2.audiencesChanges);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(attributes, evaluableCampaignIds, audiencesChanges, responseContent);
-  }
-
-  private static <T> int hashCodeNullable(JsonNullable<T> a) {
-    if (a == null) {
-      return 1;
-    }
-    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
+    return Objects.hash(attributes, evaluableCampaignIds, responseContent, audiencesChanges);
   }
 
   @Override
@@ -266,8 +255,8 @@ public class CustomerProfileIntegrationRequestV2 {
     sb.append("class CustomerProfileIntegrationRequestV2 {\n");
     sb.append("    attributes: ").append(toIndentedString(attributes)).append("\n");
     sb.append("    evaluableCampaignIds: ").append(toIndentedString(evaluableCampaignIds)).append("\n");
-    sb.append("    audiencesChanges: ").append(toIndentedString(audiencesChanges)).append("\n");
     sb.append("    responseContent: ").append(toIndentedString(responseContent)).append("\n");
+    sb.append("    audiencesChanges: ").append(toIndentedString(audiencesChanges)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -289,7 +278,7 @@ public class CustomerProfileIntegrationRequestV2 {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("attributes", "evaluableCampaignIds", "audiencesChanges", "responseContent"));
+    openapiFields = new HashSet<String>(Arrays.asList("attributes", "evaluableCampaignIds", "responseContent", "audiencesChanges"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(0);
@@ -323,6 +312,10 @@ public class CustomerProfileIntegrationRequestV2 {
       // ensure the optional json data is an array if present
       if (jsonObj.get("responseContent") != null && !jsonObj.get("responseContent").isJsonNull() && !jsonObj.get("responseContent").isJsonArray()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `responseContent` to be an array in the JSON string but got `%s`", jsonObj.get("responseContent").toString()));
+      }
+      // validate the optional field `audiencesChanges`
+      if (jsonObj.get("audiencesChanges") != null && !jsonObj.get("audiencesChanges").isJsonNull()) {
+        ProfileAudiencesChanges.validateJsonElement(jsonObj.get("audiencesChanges"));
       }
   }
 

@@ -51,7 +51,7 @@ import one.talon.JSON;
 /**
  * UpdateExperimentVariantArray
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.20.0")
 public class UpdateExperimentVariantArray {
   public static final String SERIALIZED_NAME_VARIANTS = "variants";
   @SerializedName(SERIALIZED_NAME_VARIANTS)
@@ -166,16 +166,16 @@ public class UpdateExperimentVariantArray {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      // ensure the json data is an array
-      if (!jsonObj.get("variants").isJsonArray()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `variants` to be an array in the JSON string but got `%s`", jsonObj.get("variants").toString()));
+      if (jsonObj.get("variants") != null) {
+        if (!jsonObj.get("variants").isJsonArray()) {
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `variants` to be an array in the JSON string but got `%s`", jsonObj.get("variants").toString()));
+        }
+        JsonArray jsonArrayvariants = jsonObj.getAsJsonArray("variants");
+        // validate the required field `variants` (array)
+        for (int i = 0; i < jsonArrayvariants.size(); i++) {
+          UpdateExperimentVariant.validateJsonElement(jsonArrayvariants.get(i));
+        }
       }
-
-      JsonArray jsonArrayvariants = jsonObj.getAsJsonArray("variants");
-      // validate the required field `variants` (array)
-      for (int i = 0; i < jsonArrayvariants.size(); i++) {
-        UpdateExperimentVariant.validateJsonElement(jsonArrayvariants.get(i));
-      };
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {

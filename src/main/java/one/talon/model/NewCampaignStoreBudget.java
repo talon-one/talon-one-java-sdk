@@ -51,7 +51,7 @@ import one.talon.JSON;
 /**
  * NewCampaignStoreBudget
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.20.0")
 public class NewCampaignStoreBudget {
   /**
    * Gets or Sets action
@@ -329,16 +329,16 @@ public class NewCampaignStoreBudget {
       }
       // validate the required field `action`
       ActionEnum.validateJsonElement(jsonObj.get("action"));
-      // ensure the json data is an array
-      if (!jsonObj.get("storeLimits").isJsonArray()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `storeLimits` to be an array in the JSON string but got `%s`", jsonObj.get("storeLimits").toString()));
+      if (jsonObj.get("storeLimits") != null) {
+        if (!jsonObj.get("storeLimits").isJsonArray()) {
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `storeLimits` to be an array in the JSON string but got `%s`", jsonObj.get("storeLimits").toString()));
+        }
+        JsonArray jsonArraystoreLimits = jsonObj.getAsJsonArray("storeLimits");
+        // validate the required field `storeLimits` (array)
+        for (int i = 0; i < jsonArraystoreLimits.size(); i++) {
+          NewCampaignStoreBudgetStoreLimit.validateJsonElement(jsonArraystoreLimits.get(i));
+        }
       }
-
-      JsonArray jsonArraystoreLimits = jsonObj.getAsJsonArray("storeLimits");
-      // validate the required field `storeLimits` (array)
-      for (int i = 0; i < jsonArraystoreLimits.size(); i++) {
-        NewCampaignStoreBudgetStoreLimit.validateJsonElement(jsonArraystoreLimits.get(i));
-      };
       if ((jsonObj.get("period") != null && !jsonObj.get("period").isJsonNull()) && !jsonObj.get("period").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `period` to be a primitive type in the JSON string but got `%s`", jsonObj.get("period").toString()));
       }

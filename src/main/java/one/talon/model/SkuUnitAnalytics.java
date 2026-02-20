@@ -52,7 +52,7 @@ import one.talon.JSON;
 /**
  * SkuUnitAnalytics
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.20.0")
 public class SkuUnitAnalytics {
   public static final String SERIALIZED_NAME_DATA = "data";
   @SerializedName(SERIALIZED_NAME_DATA)
@@ -193,16 +193,16 @@ public class SkuUnitAnalytics {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      // ensure the json data is an array
-      if (!jsonObj.get("data").isJsonArray()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `data` to be an array in the JSON string but got `%s`", jsonObj.get("data").toString()));
+      if (jsonObj.get("data") != null) {
+        if (!jsonObj.get("data").isJsonArray()) {
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `data` to be an array in the JSON string but got `%s`", jsonObj.get("data").toString()));
+        }
+        JsonArray jsonArraydata = jsonObj.getAsJsonArray("data");
+        // validate the required field `data` (array)
+        for (int i = 0; i < jsonArraydata.size(); i++) {
+          SkuUnitAnalyticsDataPoint.validateJsonElement(jsonArraydata.get(i));
+        }
       }
-
-      JsonArray jsonArraydata = jsonObj.getAsJsonArray("data");
-      // validate the required field `data` (array)
-      for (int i = 0; i < jsonArraydata.size(); i++) {
-        SkuUnitAnalyticsDataPoint.validateJsonElement(jsonArraydata.get(i));
-      };
       // validate the required field `totals`
       ProductUnitAnalyticsTotals.validateJsonElement(jsonObj.get("totals"));
   }

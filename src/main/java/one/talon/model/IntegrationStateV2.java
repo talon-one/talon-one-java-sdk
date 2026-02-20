@@ -29,6 +29,7 @@ import one.talon.model.CustomerProfile;
 import one.talon.model.CustomerSessionV2;
 import one.talon.model.Effect;
 import one.talon.model.Event;
+import one.talon.model.EventV3;
 import one.talon.model.Giveaway;
 import one.talon.model.IntegrationCoupon;
 import one.talon.model.InventoryReferral;
@@ -61,39 +62,19 @@ import java.util.Set;
 import one.talon.JSON;
 
 /**
- * Contains all entities that might interest Talon.One integrations. 
+ * IntegrationStateV2
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.20.0")
 public class IntegrationStateV2 {
-  public static final String SERIALIZED_NAME_CUSTOMER_SESSION = "customerSession";
-  @SerializedName(SERIALIZED_NAME_CUSTOMER_SESSION)
-  @javax.annotation.Nullable
-  private CustomerSessionV2 customerSession;
-
   public static final String SERIALIZED_NAME_CUSTOMER_PROFILE = "customerProfile";
   @SerializedName(SERIALIZED_NAME_CUSTOMER_PROFILE)
   @javax.annotation.Nullable
   private CustomerProfile customerProfile;
 
-  public static final String SERIALIZED_NAME_EVENT = "event";
-  @SerializedName(SERIALIZED_NAME_EVENT)
-  @javax.annotation.Nullable
-  private Event event;
-
   public static final String SERIALIZED_NAME_LOYALTY = "loyalty";
   @SerializedName(SERIALIZED_NAME_LOYALTY)
   @javax.annotation.Nullable
   private Loyalty loyalty;
-
-  public static final String SERIALIZED_NAME_REFERRAL = "referral";
-  @SerializedName(SERIALIZED_NAME_REFERRAL)
-  @javax.annotation.Nullable
-  private InventoryReferral referral;
-
-  public static final String SERIALIZED_NAME_COUPONS = "coupons";
-  @SerializedName(SERIALIZED_NAME_COUPONS)
-  @javax.annotation.Nullable
-  private List<IntegrationCoupon> coupons = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_TRIGGERED_CAMPAIGNS = "triggeredCampaigns";
   @SerializedName(SERIALIZED_NAME_TRIGGERED_CAMPAIGNS)
@@ -125,6 +106,31 @@ public class IntegrationStateV2 {
   @javax.annotation.Nullable
   private List<Giveaway> awardedGiveaways = new ArrayList<>();
 
+  public static final String SERIALIZED_NAME_REFERRAL = "referral";
+  @SerializedName(SERIALIZED_NAME_REFERRAL)
+  @javax.annotation.Nullable
+  private InventoryReferral referral;
+
+  public static final String SERIALIZED_NAME_COUPONS = "coupons";
+  @SerializedName(SERIALIZED_NAME_COUPONS)
+  @javax.annotation.Nullable
+  private List<IntegrationCoupon> coupons = new ArrayList<>();
+
+  public static final String SERIALIZED_NAME_EVENT = "event";
+  @SerializedName(SERIALIZED_NAME_EVENT)
+  @javax.annotation.Nullable
+  private Event event;
+
+  public static final String SERIALIZED_NAME_ADVANCED_EVENT = "advancedEvent";
+  @SerializedName(SERIALIZED_NAME_ADVANCED_EVENT)
+  @javax.annotation.Nullable
+  private EventV3 advancedEvent;
+
+  public static final String SERIALIZED_NAME_CUSTOMER_SESSION = "customerSession";
+  @SerializedName(SERIALIZED_NAME_CUSTOMER_SESSION)
+  @javax.annotation.Nullable
+  private CustomerSessionV2 customerSession;
+
   public static final String SERIALIZED_NAME_RETURN = "return";
   @SerializedName(SERIALIZED_NAME_RETURN)
   @javax.annotation.Nullable
@@ -138,32 +144,13 @@ public class IntegrationStateV2 {
   public IntegrationStateV2() {
   }
 
-  public IntegrationStateV2 customerSession(@javax.annotation.Nullable CustomerSessionV2 customerSession) {
-    this.customerSession = customerSession;
-    return this;
-  }
-
-  /**
-   * Get customerSession
-   * @return customerSession
-   */
-  @javax.annotation.Nullable
-  public CustomerSessionV2 getCustomerSession() {
-    return customerSession;
-  }
-
-  public void setCustomerSession(@javax.annotation.Nullable CustomerSessionV2 customerSession) {
-    this.customerSession = customerSession;
-  }
-
-
   public IntegrationStateV2 customerProfile(@javax.annotation.Nullable CustomerProfile customerProfile) {
     this.customerProfile = customerProfile;
     return this;
   }
 
   /**
-   * Get customerProfile
+   * The customer profile associated with the event.
    * @return customerProfile
    */
   @javax.annotation.Nullable
@@ -176,32 +163,13 @@ public class IntegrationStateV2 {
   }
 
 
-  public IntegrationStateV2 event(@javax.annotation.Nullable Event event) {
-    this.event = event;
-    return this;
-  }
-
-  /**
-   * Get event
-   * @return event
-   */
-  @javax.annotation.Nullable
-  public Event getEvent() {
-    return event;
-  }
-
-  public void setEvent(@javax.annotation.Nullable Event event) {
-    this.event = event;
-  }
-
-
   public IntegrationStateV2 loyalty(@javax.annotation.Nullable Loyalty loyalty) {
     this.loyalty = loyalty;
     return this;
   }
 
   /**
-   * Get loyalty
+   * The loyalty program status of the customer.
    * @return loyalty
    */
   @javax.annotation.Nullable
@@ -211,52 +179,6 @@ public class IntegrationStateV2 {
 
   public void setLoyalty(@javax.annotation.Nullable Loyalty loyalty) {
     this.loyalty = loyalty;
-  }
-
-
-  public IntegrationStateV2 referral(@javax.annotation.Nullable InventoryReferral referral) {
-    this.referral = referral;
-    return this;
-  }
-
-  /**
-   * Get referral
-   * @return referral
-   */
-  @javax.annotation.Nullable
-  public InventoryReferral getReferral() {
-    return referral;
-  }
-
-  public void setReferral(@javax.annotation.Nullable InventoryReferral referral) {
-    this.referral = referral;
-  }
-
-
-  public IntegrationStateV2 coupons(@javax.annotation.Nullable List<IntegrationCoupon> coupons) {
-    this.coupons = coupons;
-    return this;
-  }
-
-  public IntegrationStateV2 addCouponsItem(IntegrationCoupon couponsItem) {
-    if (this.coupons == null) {
-      this.coupons = new ArrayList<>();
-    }
-    this.coupons.add(couponsItem);
-    return this;
-  }
-
-  /**
-   * Get coupons
-   * @return coupons
-   */
-  @javax.annotation.Nullable
-  public List<IntegrationCoupon> getCoupons() {
-    return coupons;
-  }
-
-  public void setCoupons(@javax.annotation.Nullable List<IntegrationCoupon> coupons) {
-    this.coupons = coupons;
   }
 
 
@@ -274,7 +196,7 @@ public class IntegrationStateV2 {
   }
 
   /**
-   * Get triggeredCampaigns
+   * The campaigns that were triggered as a result of processing the event.
    * @return triggeredCampaigns
    */
   @javax.annotation.Nullable
@@ -328,7 +250,7 @@ public class IntegrationStateV2 {
   }
 
   /**
-   * Get ruleFailureReasons
+   * The reasons why certain rules were not triggered during the event processing. 
    * @return ruleFailureReasons
    */
   @javax.annotation.Nullable
@@ -355,7 +277,7 @@ public class IntegrationStateV2 {
   }
 
   /**
-   * Get createdCoupons
+   * The coupons that were created during the event processing.
    * @return createdCoupons
    */
   @javax.annotation.Nonnull
@@ -382,7 +304,7 @@ public class IntegrationStateV2 {
   }
 
   /**
-   * Get createdReferrals
+   * The referrals that were created during the event processing.
    * @return createdReferrals
    */
   @javax.annotation.Nonnull
@@ -409,7 +331,7 @@ public class IntegrationStateV2 {
   }
 
   /**
-   * Get awardedGiveaways
+   * The giveaways that were awarded during the event processing.
    * @return awardedGiveaways
    */
   @javax.annotation.Nullable
@@ -422,13 +344,116 @@ public class IntegrationStateV2 {
   }
 
 
+  public IntegrationStateV2 referral(@javax.annotation.Nullable InventoryReferral referral) {
+    this.referral = referral;
+    return this;
+  }
+
+  /**
+   * The referral that was processed.
+   * @return referral
+   */
+  @javax.annotation.Nullable
+  public InventoryReferral getReferral() {
+    return referral;
+  }
+
+  public void setReferral(@javax.annotation.Nullable InventoryReferral referral) {
+    this.referral = referral;
+  }
+
+
+  public IntegrationStateV2 coupons(@javax.annotation.Nullable List<IntegrationCoupon> coupons) {
+    this.coupons = coupons;
+    return this;
+  }
+
+  public IntegrationStateV2 addCouponsItem(IntegrationCoupon couponsItem) {
+    if (this.coupons == null) {
+      this.coupons = new ArrayList<>();
+    }
+    this.coupons.add(couponsItem);
+    return this;
+  }
+
+  /**
+   * The coupons that were processed.
+   * @return coupons
+   */
+  @javax.annotation.Nullable
+  public List<IntegrationCoupon> getCoupons() {
+    return coupons;
+  }
+
+  public void setCoupons(@javax.annotation.Nullable List<IntegrationCoupon> coupons) {
+    this.coupons = coupons;
+  }
+
+
+  public IntegrationStateV2 event(@javax.annotation.Nullable Event event) {
+    this.event = event;
+    return this;
+  }
+
+  /**
+   * The event that was processed.
+   * @return event
+   */
+  @javax.annotation.Nullable
+  public Event getEvent() {
+    return event;
+  }
+
+  public void setEvent(@javax.annotation.Nullable Event event) {
+    this.event = event;
+  }
+
+
+  public IntegrationStateV2 advancedEvent(@javax.annotation.Nullable EventV3 advancedEvent) {
+    this.advancedEvent = advancedEvent;
+    return this;
+  }
+
+  /**
+   * The advanced event that was processed.
+   * @return advancedEvent
+   */
+  @javax.annotation.Nullable
+  public EventV3 getAdvancedEvent() {
+    return advancedEvent;
+  }
+
+  public void setAdvancedEvent(@javax.annotation.Nullable EventV3 advancedEvent) {
+    this.advancedEvent = advancedEvent;
+  }
+
+
+  public IntegrationStateV2 customerSession(@javax.annotation.Nullable CustomerSessionV2 customerSession) {
+    this.customerSession = customerSession;
+    return this;
+  }
+
+  /**
+   * The session that was processed.
+   * @return customerSession
+   */
+  @javax.annotation.Nullable
+  public CustomerSessionV2 getCustomerSession() {
+    return customerSession;
+  }
+
+  public void setCustomerSession(@javax.annotation.Nullable CustomerSessionV2 customerSession) {
+    this.customerSession = customerSession;
+  }
+
+
   public IntegrationStateV2 _return(@javax.annotation.Nullable ModelReturn _return) {
     this._return = _return;
     return this;
   }
 
   /**
-   * Get _return
+   * The return that was processed.
    * @return _return
    */
   @javax.annotation.Nullable
@@ -455,7 +480,7 @@ public class IntegrationStateV2 {
   }
 
   /**
-   * Get previousReturns
+   * The previous returns associated with the event.
    * @return previousReturns
    */
   @javax.annotation.Nullable
@@ -478,43 +503,45 @@ public class IntegrationStateV2 {
       return false;
     }
     IntegrationStateV2 integrationStateV2 = (IntegrationStateV2) o;
-    return Objects.equals(this.customerSession, integrationStateV2.customerSession) &&
-        Objects.equals(this.customerProfile, integrationStateV2.customerProfile) &&
-        Objects.equals(this.event, integrationStateV2.event) &&
+    return Objects.equals(this.customerProfile, integrationStateV2.customerProfile) &&
         Objects.equals(this.loyalty, integrationStateV2.loyalty) &&
-        Objects.equals(this.referral, integrationStateV2.referral) &&
-        Objects.equals(this.coupons, integrationStateV2.coupons) &&
         Objects.equals(this.triggeredCampaigns, integrationStateV2.triggeredCampaigns) &&
         Objects.equals(this.effects, integrationStateV2.effects) &&
         Objects.equals(this.ruleFailureReasons, integrationStateV2.ruleFailureReasons) &&
         Objects.equals(this.createdCoupons, integrationStateV2.createdCoupons) &&
         Objects.equals(this.createdReferrals, integrationStateV2.createdReferrals) &&
         Objects.equals(this.awardedGiveaways, integrationStateV2.awardedGiveaways) &&
+        Objects.equals(this.referral, integrationStateV2.referral) &&
+        Objects.equals(this.coupons, integrationStateV2.coupons) &&
+        Objects.equals(this.event, integrationStateV2.event) &&
+        Objects.equals(this.advancedEvent, integrationStateV2.advancedEvent) &&
+        Objects.equals(this.customerSession, integrationStateV2.customerSession) &&
         Objects.equals(this._return, integrationStateV2._return) &&
         Objects.equals(this.previousReturns, integrationStateV2.previousReturns);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(customerSession, customerProfile, event, loyalty, referral, coupons, triggeredCampaigns, effects, ruleFailureReasons, createdCoupons, createdReferrals, awardedGiveaways, _return, previousReturns);
+    return Objects.hash(customerProfile, loyalty, triggeredCampaigns, effects, ruleFailureReasons, createdCoupons, createdReferrals, awardedGiveaways, referral, coupons, event, advancedEvent, customerSession, _return, previousReturns);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class IntegrationStateV2 {\n");
-    sb.append("    customerSession: ").append(toIndentedString(customerSession)).append("\n");
     sb.append("    customerProfile: ").append(toIndentedString(customerProfile)).append("\n");
-    sb.append("    event: ").append(toIndentedString(event)).append("\n");
     sb.append("    loyalty: ").append(toIndentedString(loyalty)).append("\n");
-    sb.append("    referral: ").append(toIndentedString(referral)).append("\n");
-    sb.append("    coupons: ").append(toIndentedString(coupons)).append("\n");
     sb.append("    triggeredCampaigns: ").append(toIndentedString(triggeredCampaigns)).append("\n");
     sb.append("    effects: ").append(toIndentedString(effects)).append("\n");
     sb.append("    ruleFailureReasons: ").append(toIndentedString(ruleFailureReasons)).append("\n");
     sb.append("    createdCoupons: ").append(toIndentedString(createdCoupons)).append("\n");
     sb.append("    createdReferrals: ").append(toIndentedString(createdReferrals)).append("\n");
     sb.append("    awardedGiveaways: ").append(toIndentedString(awardedGiveaways)).append("\n");
+    sb.append("    referral: ").append(toIndentedString(referral)).append("\n");
+    sb.append("    coupons: ").append(toIndentedString(coupons)).append("\n");
+    sb.append("    event: ").append(toIndentedString(event)).append("\n");
+    sb.append("    advancedEvent: ").append(toIndentedString(advancedEvent)).append("\n");
+    sb.append("    customerSession: ").append(toIndentedString(customerSession)).append("\n");
     sb.append("    _return: ").append(toIndentedString(_return)).append("\n");
     sb.append("    previousReturns: ").append(toIndentedString(previousReturns)).append("\n");
     sb.append("}");
@@ -538,7 +565,7 @@ public class IntegrationStateV2 {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("customerSession", "customerProfile", "event", "loyalty", "referral", "coupons", "triggeredCampaigns", "effects", "ruleFailureReasons", "createdCoupons", "createdReferrals", "awardedGiveaways", "return", "previousReturns"));
+    openapiFields = new HashSet<String>(Arrays.asList("customerProfile", "loyalty", "triggeredCampaigns", "effects", "ruleFailureReasons", "createdCoupons", "createdReferrals", "awardedGiveaways", "referral", "coupons", "event", "advancedEvent", "customerSession", "return", "previousReturns"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("effects", "createdCoupons", "createdReferrals"));
@@ -572,21 +599,85 @@ public class IntegrationStateV2 {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      // validate the optional field `customerSession`
-      if (jsonObj.get("customerSession") != null && !jsonObj.get("customerSession").isJsonNull()) {
-        CustomerSessionV2.validateJsonElement(jsonObj.get("customerSession"));
-      }
       // validate the optional field `customerProfile`
       if (jsonObj.get("customerProfile") != null && !jsonObj.get("customerProfile").isJsonNull()) {
         CustomerProfile.validateJsonElement(jsonObj.get("customerProfile"));
       }
-      // validate the optional field `event`
-      if (jsonObj.get("event") != null && !jsonObj.get("event").isJsonNull()) {
-        Event.validateJsonElement(jsonObj.get("event"));
-      }
       // validate the optional field `loyalty`
       if (jsonObj.get("loyalty") != null && !jsonObj.get("loyalty").isJsonNull()) {
         Loyalty.validateJsonElement(jsonObj.get("loyalty"));
+      }
+      if (jsonObj.get("triggeredCampaigns") != null && !jsonObj.get("triggeredCampaigns").isJsonNull()) {
+        JsonArray jsonArraytriggeredCampaigns = jsonObj.getAsJsonArray("triggeredCampaigns");
+        if (jsonArraytriggeredCampaigns != null) {
+          // ensure the json data is an array
+          if (!jsonObj.get("triggeredCampaigns").isJsonArray()) {
+            throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `triggeredCampaigns` to be an array in the JSON string but got `%s`", jsonObj.get("triggeredCampaigns").toString()));
+          }
+
+          // validate the optional field `triggeredCampaigns` (array)
+          for (int i = 0; i < jsonArraytriggeredCampaigns.size(); i++) {
+            Campaign.validateJsonElement(jsonArraytriggeredCampaigns.get(i));
+          };
+        }
+      }
+      if (jsonObj.get("effects") != null) {
+        if (!jsonObj.get("effects").isJsonArray()) {
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `effects` to be an array in the JSON string but got `%s`", jsonObj.get("effects").toString()));
+        }
+        JsonArray jsonArrayeffects = jsonObj.getAsJsonArray("effects");
+        // validate the required field `effects` (array)
+        for (int i = 0; i < jsonArrayeffects.size(); i++) {
+          Effect.validateJsonElement(jsonArrayeffects.get(i));
+        }
+      }
+      if (jsonObj.get("ruleFailureReasons") != null && !jsonObj.get("ruleFailureReasons").isJsonNull()) {
+        JsonArray jsonArrayruleFailureReasons = jsonObj.getAsJsonArray("ruleFailureReasons");
+        if (jsonArrayruleFailureReasons != null) {
+          // ensure the json data is an array
+          if (!jsonObj.get("ruleFailureReasons").isJsonArray()) {
+            throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `ruleFailureReasons` to be an array in the JSON string but got `%s`", jsonObj.get("ruleFailureReasons").toString()));
+          }
+
+          // validate the optional field `ruleFailureReasons` (array)
+          for (int i = 0; i < jsonArrayruleFailureReasons.size(); i++) {
+            RuleFailureReason.validateJsonElement(jsonArrayruleFailureReasons.get(i));
+          };
+        }
+      }
+      if (jsonObj.get("createdCoupons") != null) {
+        if (!jsonObj.get("createdCoupons").isJsonArray()) {
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `createdCoupons` to be an array in the JSON string but got `%s`", jsonObj.get("createdCoupons").toString()));
+        }
+        JsonArray jsonArraycreatedCoupons = jsonObj.getAsJsonArray("createdCoupons");
+        // validate the required field `createdCoupons` (array)
+        for (int i = 0; i < jsonArraycreatedCoupons.size(); i++) {
+          Coupon.validateJsonElement(jsonArraycreatedCoupons.get(i));
+        }
+      }
+      if (jsonObj.get("createdReferrals") != null) {
+        if (!jsonObj.get("createdReferrals").isJsonArray()) {
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `createdReferrals` to be an array in the JSON string but got `%s`", jsonObj.get("createdReferrals").toString()));
+        }
+        JsonArray jsonArraycreatedReferrals = jsonObj.getAsJsonArray("createdReferrals");
+        // validate the required field `createdReferrals` (array)
+        for (int i = 0; i < jsonArraycreatedReferrals.size(); i++) {
+          Referral.validateJsonElement(jsonArraycreatedReferrals.get(i));
+        }
+      }
+      if (jsonObj.get("awardedGiveaways") != null && !jsonObj.get("awardedGiveaways").isJsonNull()) {
+        JsonArray jsonArrayawardedGiveaways = jsonObj.getAsJsonArray("awardedGiveaways");
+        if (jsonArrayawardedGiveaways != null) {
+          // ensure the json data is an array
+          if (!jsonObj.get("awardedGiveaways").isJsonArray()) {
+            throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `awardedGiveaways` to be an array in the JSON string but got `%s`", jsonObj.get("awardedGiveaways").toString()));
+          }
+
+          // validate the optional field `awardedGiveaways` (array)
+          for (int i = 0; i < jsonArrayawardedGiveaways.size(); i++) {
+            Giveaway.validateJsonElement(jsonArrayawardedGiveaways.get(i));
+          };
+        }
       }
       // validate the optional field `referral`
       if (jsonObj.get("referral") != null && !jsonObj.get("referral").isJsonNull()) {
@@ -606,77 +697,17 @@ public class IntegrationStateV2 {
           };
         }
       }
-      if (jsonObj.get("triggeredCampaigns") != null && !jsonObj.get("triggeredCampaigns").isJsonNull()) {
-        JsonArray jsonArraytriggeredCampaigns = jsonObj.getAsJsonArray("triggeredCampaigns");
-        if (jsonArraytriggeredCampaigns != null) {
-          // ensure the json data is an array
-          if (!jsonObj.get("triggeredCampaigns").isJsonArray()) {
-            throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `triggeredCampaigns` to be an array in the JSON string but got `%s`", jsonObj.get("triggeredCampaigns").toString()));
-          }
-
-          // validate the optional field `triggeredCampaigns` (array)
-          for (int i = 0; i < jsonArraytriggeredCampaigns.size(); i++) {
-            Campaign.validateJsonElement(jsonArraytriggeredCampaigns.get(i));
-          };
-        }
+      // validate the optional field `event`
+      if (jsonObj.get("event") != null && !jsonObj.get("event").isJsonNull()) {
+        Event.validateJsonElement(jsonObj.get("event"));
       }
-      // ensure the json data is an array
-      if (!jsonObj.get("effects").isJsonArray()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `effects` to be an array in the JSON string but got `%s`", jsonObj.get("effects").toString()));
+      // validate the optional field `advancedEvent`
+      if (jsonObj.get("advancedEvent") != null && !jsonObj.get("advancedEvent").isJsonNull()) {
+        EventV3.validateJsonElement(jsonObj.get("advancedEvent"));
       }
-
-      JsonArray jsonArrayeffects = jsonObj.getAsJsonArray("effects");
-      // validate the required field `effects` (array)
-      for (int i = 0; i < jsonArrayeffects.size(); i++) {
-        Effect.validateJsonElement(jsonArrayeffects.get(i));
-      };
-      if (jsonObj.get("ruleFailureReasons") != null && !jsonObj.get("ruleFailureReasons").isJsonNull()) {
-        JsonArray jsonArrayruleFailureReasons = jsonObj.getAsJsonArray("ruleFailureReasons");
-        if (jsonArrayruleFailureReasons != null) {
-          // ensure the json data is an array
-          if (!jsonObj.get("ruleFailureReasons").isJsonArray()) {
-            throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `ruleFailureReasons` to be an array in the JSON string but got `%s`", jsonObj.get("ruleFailureReasons").toString()));
-          }
-
-          // validate the optional field `ruleFailureReasons` (array)
-          for (int i = 0; i < jsonArrayruleFailureReasons.size(); i++) {
-            RuleFailureReason.validateJsonElement(jsonArrayruleFailureReasons.get(i));
-          };
-        }
-      }
-      // ensure the json data is an array
-      if (!jsonObj.get("createdCoupons").isJsonArray()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `createdCoupons` to be an array in the JSON string but got `%s`", jsonObj.get("createdCoupons").toString()));
-      }
-
-      JsonArray jsonArraycreatedCoupons = jsonObj.getAsJsonArray("createdCoupons");
-      // validate the required field `createdCoupons` (array)
-      for (int i = 0; i < jsonArraycreatedCoupons.size(); i++) {
-        Coupon.validateJsonElement(jsonArraycreatedCoupons.get(i));
-      };
-      // ensure the json data is an array
-      if (!jsonObj.get("createdReferrals").isJsonArray()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `createdReferrals` to be an array in the JSON string but got `%s`", jsonObj.get("createdReferrals").toString()));
-      }
-
-      JsonArray jsonArraycreatedReferrals = jsonObj.getAsJsonArray("createdReferrals");
-      // validate the required field `createdReferrals` (array)
-      for (int i = 0; i < jsonArraycreatedReferrals.size(); i++) {
-        Referral.validateJsonElement(jsonArraycreatedReferrals.get(i));
-      };
-      if (jsonObj.get("awardedGiveaways") != null && !jsonObj.get("awardedGiveaways").isJsonNull()) {
-        JsonArray jsonArrayawardedGiveaways = jsonObj.getAsJsonArray("awardedGiveaways");
-        if (jsonArrayawardedGiveaways != null) {
-          // ensure the json data is an array
-          if (!jsonObj.get("awardedGiveaways").isJsonArray()) {
-            throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `awardedGiveaways` to be an array in the JSON string but got `%s`", jsonObj.get("awardedGiveaways").toString()));
-          }
-
-          // validate the optional field `awardedGiveaways` (array)
-          for (int i = 0; i < jsonArrayawardedGiveaways.size(); i++) {
-            Giveaway.validateJsonElement(jsonArrayawardedGiveaways.get(i));
-          };
-        }
+      // validate the optional field `customerSession`
+      if (jsonObj.get("customerSession") != null && !jsonObj.get("customerSession").isJsonNull()) {
+        CustomerSessionV2.validateJsonElement(jsonObj.get("customerSession"));
       }
       // validate the optional field `return`
       if (jsonObj.get("return") != null && !jsonObj.get("return").isJsonNull()) {

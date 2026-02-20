@@ -51,7 +51,7 @@ import one.talon.JSON;
 /**
  * SCIM Patch request
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.20.0")
 public class ScimPatchRequest {
   public static final String SERIALIZED_NAME_SCHEMAS = "schemas";
   @SerializedName(SERIALIZED_NAME_SCHEMAS)
@@ -204,16 +204,16 @@ public class ScimPatchRequest {
       if (jsonObj.get("schemas") != null && !jsonObj.get("schemas").isJsonNull() && !jsonObj.get("schemas").isJsonArray()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `schemas` to be an array in the JSON string but got `%s`", jsonObj.get("schemas").toString()));
       }
-      // ensure the json data is an array
-      if (!jsonObj.get("Operations").isJsonArray()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `Operations` to be an array in the JSON string but got `%s`", jsonObj.get("Operations").toString()));
+      if (jsonObj.get("Operations") != null) {
+        if (!jsonObj.get("Operations").isJsonArray()) {
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `Operations` to be an array in the JSON string but got `%s`", jsonObj.get("Operations").toString()));
+        }
+        JsonArray jsonArrayoperations = jsonObj.getAsJsonArray("Operations");
+        // validate the required field `Operations` (array)
+        for (int i = 0; i < jsonArrayoperations.size(); i++) {
+          ScimPatchOperation.validateJsonElement(jsonArrayoperations.get(i));
+        }
       }
-
-      JsonArray jsonArrayoperations = jsonObj.getAsJsonArray("Operations");
-      // validate the required field `Operations` (array)
-      for (int i = 0; i < jsonArrayoperations.size(); i++) {
-        ScimPatchOperation.validateJsonElement(jsonArrayoperations.get(i));
-      };
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {

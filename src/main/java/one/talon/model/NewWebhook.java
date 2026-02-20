@@ -51,7 +51,7 @@ import one.talon.JSON;
 /**
  * NewWebhook
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.20.0")
 public class NewWebhook {
   public static final String SERIALIZED_NAME_APPLICATION_IDS = "applicationIds";
   @SerializedName(SERIALIZED_NAME_APPLICATION_IDS)
@@ -529,16 +529,16 @@ public class NewWebhook {
       if ((jsonObj.get("payload") != null && !jsonObj.get("payload").isJsonNull()) && !jsonObj.get("payload").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `payload` to be a primitive type in the JSON string but got `%s`", jsonObj.get("payload").toString()));
       }
-      // ensure the json data is an array
-      if (!jsonObj.get("params").isJsonArray()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `params` to be an array in the JSON string but got `%s`", jsonObj.get("params").toString()));
+      if (jsonObj.get("params") != null) {
+        if (!jsonObj.get("params").isJsonArray()) {
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `params` to be an array in the JSON string but got `%s`", jsonObj.get("params").toString()));
+        }
+        JsonArray jsonArrayparams = jsonObj.getAsJsonArray("params");
+        // validate the required field `params` (array)
+        for (int i = 0; i < jsonArrayparams.size(); i++) {
+          TemplateArgDef.validateJsonElement(jsonArrayparams.get(i));
+        }
       }
-
-      JsonArray jsonArrayparams = jsonObj.getAsJsonArray("params");
-      // validate the required field `params` (array)
-      for (int i = 0; i < jsonArrayparams.size(); i++) {
-        TemplateArgDef.validateJsonElement(jsonArrayparams.get(i));
-      };
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {

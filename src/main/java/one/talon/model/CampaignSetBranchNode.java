@@ -51,7 +51,7 @@ import one.talon.JSON;
 /**
  * CampaignSetBranchNode
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.20.0")
 public class CampaignSetBranchNode {
   /**
    * Indicates the node type.
@@ -597,16 +597,16 @@ public class CampaignSetBranchNode {
       }
       // validate the required field `operator`
       OperatorEnum.validateJsonElement(jsonObj.get("operator"));
-      // ensure the json data is an array
-      if (!jsonObj.get("elements").isJsonArray()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `elements` to be an array in the JSON string but got `%s`", jsonObj.get("elements").toString()));
+      if (jsonObj.get("elements") != null) {
+        if (!jsonObj.get("elements").isJsonArray()) {
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `elements` to be an array in the JSON string but got `%s`", jsonObj.get("elements").toString()));
+        }
+        JsonArray jsonArrayelements = jsonObj.getAsJsonArray("elements");
+        // validate the required field `elements` (array)
+        for (int i = 0; i < jsonArrayelements.size(); i++) {
+          CampaignSetNode.validateJsonElement(jsonArrayelements.get(i));
+        }
       }
-
-      JsonArray jsonArrayelements = jsonObj.getAsJsonArray("elements");
-      // validate the required field `elements` (array)
-      for (int i = 0; i < jsonArrayelements.size(); i++) {
-        CampaignSetNode.validateJsonElement(jsonArrayelements.get(i));
-      };
       if ((jsonObj.get("description") != null && !jsonObj.get("description").isJsonNull()) && !jsonObj.get("description").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `description` to be a primitive type in the JSON string but got `%s`", jsonObj.get("description").toString()));
       }

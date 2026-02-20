@@ -52,7 +52,7 @@ import one.talon.JSON;
 /**
  * CampaignStoreBudget
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.20.0")
 public class CampaignStoreBudget {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -271,16 +271,16 @@ public class CampaignStoreBudget {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      // ensure the json data is an array
-      if (!jsonObj.get("limits").isJsonArray()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `limits` to be an array in the JSON string but got `%s`", jsonObj.get("limits").toString()));
+      if (jsonObj.get("limits") != null) {
+        if (!jsonObj.get("limits").isJsonArray()) {
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `limits` to be an array in the JSON string but got `%s`", jsonObj.get("limits").toString()));
+        }
+        JsonArray jsonArraylimits = jsonObj.getAsJsonArray("limits");
+        // validate the required field `limits` (array)
+        for (int i = 0; i < jsonArraylimits.size(); i++) {
+          CampaignStoreBudgetLimitConfig.validateJsonElement(jsonArraylimits.get(i));
+        }
       }
-
-      JsonArray jsonArraylimits = jsonObj.getAsJsonArray("limits");
-      // validate the required field `limits` (array)
-      for (int i = 0; i < jsonArraylimits.size(); i++) {
-        CampaignStoreBudgetLimitConfig.validateJsonElement(jsonArraylimits.get(i));
-      };
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
