@@ -20,7 +20,11 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
+import one.talon.model.Campaign;
+import one.talon.model.PlaceholderDetails;
 import one.talon.model.Ruleset;
 
 import com.google.gson.Gson;
@@ -49,7 +53,7 @@ import one.talon.JSON;
 /**
  * CampaignRulesetChangedNotificationItem
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.20.0")
 public class CampaignRulesetChangedNotificationItem {
   public static final String SERIALIZED_NAME_EVENT = "Event";
   @SerializedName(SERIALIZED_NAME_EVENT)
@@ -58,18 +62,28 @@ public class CampaignRulesetChangedNotificationItem {
 
   public static final String SERIALIZED_NAME_CAMPAIGN = "campaign";
   @SerializedName(SERIALIZED_NAME_CAMPAIGN)
-  @javax.annotation.Nullable
-  private Object campaign = null;
+  @javax.annotation.Nonnull
+  private Campaign campaign;
 
   public static final String SERIALIZED_NAME_OLD_RULESET = "oldRuleset";
   @SerializedName(SERIALIZED_NAME_OLD_RULESET)
   @javax.annotation.Nullable
   private Ruleset oldRuleset;
 
+  public static final String SERIALIZED_NAME_OLD_PLACEHOLDERS = "oldPlaceholders";
+  @SerializedName(SERIALIZED_NAME_OLD_PLACEHOLDERS)
+  @javax.annotation.Nullable
+  private List<PlaceholderDetails> oldPlaceholders = new ArrayList<>();
+
   public static final String SERIALIZED_NAME_RULESET = "ruleset";
   @SerializedName(SERIALIZED_NAME_RULESET)
   @javax.annotation.Nullable
   private Ruleset ruleset;
+
+  public static final String SERIALIZED_NAME_PLACEHOLDERS = "placeholders";
+  @SerializedName(SERIALIZED_NAME_PLACEHOLDERS)
+  @javax.annotation.Nullable
+  private List<PlaceholderDetails> placeholders = new ArrayList<>();
 
   public CampaignRulesetChangedNotificationItem() {
   }
@@ -93,7 +107,7 @@ public class CampaignRulesetChangedNotificationItem {
   }
 
 
-  public CampaignRulesetChangedNotificationItem campaign(@javax.annotation.Nullable Object campaign) {
+  public CampaignRulesetChangedNotificationItem campaign(@javax.annotation.Nonnull Campaign campaign) {
     this.campaign = campaign;
     return this;
   }
@@ -102,12 +116,12 @@ public class CampaignRulesetChangedNotificationItem {
    * The campaign whose state changed.
    * @return campaign
    */
-  @javax.annotation.Nullable
-  public Object getCampaign() {
+  @javax.annotation.Nonnull
+  public Campaign getCampaign() {
     return campaign;
   }
 
-  public void setCampaign(@javax.annotation.Nullable Object campaign) {
+  public void setCampaign(@javax.annotation.Nonnull Campaign campaign) {
     this.campaign = campaign;
   }
 
@@ -131,6 +145,33 @@ public class CampaignRulesetChangedNotificationItem {
   }
 
 
+  public CampaignRulesetChangedNotificationItem oldPlaceholders(@javax.annotation.Nullable List<PlaceholderDetails> oldPlaceholders) {
+    this.oldPlaceholders = oldPlaceholders;
+    return this;
+  }
+
+  public CampaignRulesetChangedNotificationItem addOldPlaceholdersItem(PlaceholderDetails oldPlaceholdersItem) {
+    if (this.oldPlaceholders == null) {
+      this.oldPlaceholders = new ArrayList<>();
+    }
+    this.oldPlaceholders.add(oldPlaceholdersItem);
+    return this;
+  }
+
+  /**
+   * The previous details of the placeholders before the ruleset was changed.
+   * @return oldPlaceholders
+   */
+  @javax.annotation.Nullable
+  public List<PlaceholderDetails> getOldPlaceholders() {
+    return oldPlaceholders;
+  }
+
+  public void setOldPlaceholders(@javax.annotation.Nullable List<PlaceholderDetails> oldPlaceholders) {
+    this.oldPlaceholders = oldPlaceholders;
+  }
+
+
   public CampaignRulesetChangedNotificationItem ruleset(@javax.annotation.Nullable Ruleset ruleset) {
     this.ruleset = ruleset;
     return this;
@@ -150,6 +191,33 @@ public class CampaignRulesetChangedNotificationItem {
   }
 
 
+  public CampaignRulesetChangedNotificationItem placeholders(@javax.annotation.Nullable List<PlaceholderDetails> placeholders) {
+    this.placeholders = placeholders;
+    return this;
+  }
+
+  public CampaignRulesetChangedNotificationItem addPlaceholdersItem(PlaceholderDetails placeholdersItem) {
+    if (this.placeholders == null) {
+      this.placeholders = new ArrayList<>();
+    }
+    this.placeholders.add(placeholdersItem);
+    return this;
+  }
+
+  /**
+   * The current details of the [placeholders](https://docs.talon.one/docs/product/campaigns/templates/create-templates#use-placeholders) in the campaign.
+   * @return placeholders
+   */
+  @javax.annotation.Nullable
+  public List<PlaceholderDetails> getPlaceholders() {
+    return placeholders;
+  }
+
+  public void setPlaceholders(@javax.annotation.Nullable List<PlaceholderDetails> placeholders) {
+    this.placeholders = placeholders;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -163,12 +231,14 @@ public class CampaignRulesetChangedNotificationItem {
     return Objects.equals(this.event, campaignRulesetChangedNotificationItem.event) &&
         Objects.equals(this.campaign, campaignRulesetChangedNotificationItem.campaign) &&
         Objects.equals(this.oldRuleset, campaignRulesetChangedNotificationItem.oldRuleset) &&
-        Objects.equals(this.ruleset, campaignRulesetChangedNotificationItem.ruleset);
+        Objects.equals(this.oldPlaceholders, campaignRulesetChangedNotificationItem.oldPlaceholders) &&
+        Objects.equals(this.ruleset, campaignRulesetChangedNotificationItem.ruleset) &&
+        Objects.equals(this.placeholders, campaignRulesetChangedNotificationItem.placeholders);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(event, campaign, oldRuleset, ruleset);
+    return Objects.hash(event, campaign, oldRuleset, oldPlaceholders, ruleset, placeholders);
   }
 
   @Override
@@ -178,7 +248,9 @@ public class CampaignRulesetChangedNotificationItem {
     sb.append("    event: ").append(toIndentedString(event)).append("\n");
     sb.append("    campaign: ").append(toIndentedString(campaign)).append("\n");
     sb.append("    oldRuleset: ").append(toIndentedString(oldRuleset)).append("\n");
+    sb.append("    oldPlaceholders: ").append(toIndentedString(oldPlaceholders)).append("\n");
     sb.append("    ruleset: ").append(toIndentedString(ruleset)).append("\n");
+    sb.append("    placeholders: ").append(toIndentedString(placeholders)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -200,7 +272,7 @@ public class CampaignRulesetChangedNotificationItem {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("Event", "campaign", "oldRuleset", "ruleset"));
+    openapiFields = new HashSet<String>(Arrays.asList("Event", "campaign", "oldRuleset", "oldPlaceholders", "ruleset", "placeholders"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("Event", "campaign"));
@@ -237,13 +309,43 @@ public class CampaignRulesetChangedNotificationItem {
       if (!jsonObj.get("Event").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `Event` to be a primitive type in the JSON string but got `%s`", jsonObj.get("Event").toString()));
       }
+      // validate the required field `campaign`
+      Campaign.validateJsonElement(jsonObj.get("campaign"));
       // validate the optional field `oldRuleset`
       if (jsonObj.get("oldRuleset") != null && !jsonObj.get("oldRuleset").isJsonNull()) {
         Ruleset.validateJsonElement(jsonObj.get("oldRuleset"));
       }
+      if (jsonObj.get("oldPlaceholders") != null && !jsonObj.get("oldPlaceholders").isJsonNull()) {
+        JsonArray jsonArrayoldPlaceholders = jsonObj.getAsJsonArray("oldPlaceholders");
+        if (jsonArrayoldPlaceholders != null) {
+          // ensure the json data is an array
+          if (!jsonObj.get("oldPlaceholders").isJsonArray()) {
+            throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `oldPlaceholders` to be an array in the JSON string but got `%s`", jsonObj.get("oldPlaceholders").toString()));
+          }
+
+          // validate the optional field `oldPlaceholders` (array)
+          for (int i = 0; i < jsonArrayoldPlaceholders.size(); i++) {
+            PlaceholderDetails.validateJsonElement(jsonArrayoldPlaceholders.get(i));
+          };
+        }
+      }
       // validate the optional field `ruleset`
       if (jsonObj.get("ruleset") != null && !jsonObj.get("ruleset").isJsonNull()) {
         Ruleset.validateJsonElement(jsonObj.get("ruleset"));
+      }
+      if (jsonObj.get("placeholders") != null && !jsonObj.get("placeholders").isJsonNull()) {
+        JsonArray jsonArrayplaceholders = jsonObj.getAsJsonArray("placeholders");
+        if (jsonArrayplaceholders != null) {
+          // ensure the json data is an array
+          if (!jsonObj.get("placeholders").isJsonArray()) {
+            throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `placeholders` to be an array in the JSON string but got `%s`", jsonObj.get("placeholders").toString()));
+          }
+
+          // validate the optional field `placeholders` (array)
+          for (int i = 0; i < jsonArrayplaceholders.size(); i++) {
+            PlaceholderDetails.validateJsonElement(jsonArrayplaceholders.get(i));
+          };
+        }
       }
   }
 

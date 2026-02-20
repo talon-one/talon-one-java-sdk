@@ -50,7 +50,7 @@ import one.talon.JSON;
 /**
  * IntegrationEventV2Request
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.20.0")
 public class IntegrationEventV2Request {
   public static final String SERIALIZED_NAME_PROFILE_ID = "profileId";
   @SerializedName(SERIALIZED_NAME_PROFILE_ID)
@@ -76,11 +76,6 @@ public class IntegrationEventV2Request {
   @SerializedName(SERIALIZED_NAME_ATTRIBUTES)
   @javax.annotation.Nullable
   private Object attributes;
-
-  public static final String SERIALIZED_NAME_LOYALTY_CARDS = "loyaltyCards";
-  @SerializedName(SERIALIZED_NAME_LOYALTY_CARDS)
-  @javax.annotation.Nullable
-  private List<String> loyaltyCards = new ArrayList<>();
 
   /**
    * Gets or Sets responseContent
@@ -146,6 +141,11 @@ public class IntegrationEventV2Request {
   @SerializedName(SERIALIZED_NAME_RESPONSE_CONTENT)
   @javax.annotation.Nullable
   private List<ResponseContentEnum> responseContent = new ArrayList<>();
+
+  public static final String SERIALIZED_NAME_LOYALTY_CARDS = "loyaltyCards";
+  @SerializedName(SERIALIZED_NAME_LOYALTY_CARDS)
+  @javax.annotation.Nullable
+  private List<String> loyaltyCards = new ArrayList<>();
 
   public IntegrationEventV2Request() {
   }
@@ -253,33 +253,6 @@ public class IntegrationEventV2Request {
   }
 
 
-  public IntegrationEventV2Request loyaltyCards(@javax.annotation.Nullable List<String> loyaltyCards) {
-    this.loyaltyCards = loyaltyCards;
-    return this;
-  }
-
-  public IntegrationEventV2Request addLoyaltyCardsItem(String loyaltyCardsItem) {
-    if (this.loyaltyCards == null) {
-      this.loyaltyCards = new ArrayList<>();
-    }
-    this.loyaltyCards.add(loyaltyCardsItem);
-    return this;
-  }
-
-  /**
-   * Identifier of the loyalty card used during this event.
-   * @return loyaltyCards
-   */
-  @javax.annotation.Nullable
-  public List<String> getLoyaltyCards() {
-    return loyaltyCards;
-  }
-
-  public void setLoyaltyCards(@javax.annotation.Nullable List<String> loyaltyCards) {
-    this.loyaltyCards = loyaltyCards;
-  }
-
-
   public IntegrationEventV2Request responseContent(@javax.annotation.Nullable List<ResponseContentEnum> responseContent) {
     this.responseContent = responseContent;
     return this;
@@ -294,7 +267,7 @@ public class IntegrationEventV2Request {
   }
 
   /**
-   * Optional list of requested information to be present on the response related to the tracking custom event. 
+   * Extends the response with the chosen data entities. Use this property to get as much data back as needed from one request instead of sending extra requests to other endpoints. 
    * @return responseContent
    */
   @javax.annotation.Nullable
@@ -304,6 +277,33 @@ public class IntegrationEventV2Request {
 
   public void setResponseContent(@javax.annotation.Nullable List<ResponseContentEnum> responseContent) {
     this.responseContent = responseContent;
+  }
+
+
+  public IntegrationEventV2Request loyaltyCards(@javax.annotation.Nullable List<String> loyaltyCards) {
+    this.loyaltyCards = loyaltyCards;
+    return this;
+  }
+
+  public IntegrationEventV2Request addLoyaltyCardsItem(String loyaltyCardsItem) {
+    if (this.loyaltyCards == null) {
+      this.loyaltyCards = new ArrayList<>();
+    }
+    this.loyaltyCards.add(loyaltyCardsItem);
+    return this;
+  }
+
+  /**
+   * Identifiers of the loyalty cards used during this event.
+   * @return loyaltyCards
+   */
+  @javax.annotation.Nullable
+  public List<String> getLoyaltyCards() {
+    return loyaltyCards;
+  }
+
+  public void setLoyaltyCards(@javax.annotation.Nullable List<String> loyaltyCards) {
+    this.loyaltyCards = loyaltyCards;
   }
 
 
@@ -322,13 +322,13 @@ public class IntegrationEventV2Request {
         Objects.equals(this.evaluableCampaignIds, integrationEventV2Request.evaluableCampaignIds) &&
         Objects.equals(this.type, integrationEventV2Request.type) &&
         Objects.equals(this.attributes, integrationEventV2Request.attributes) &&
-        Objects.equals(this.loyaltyCards, integrationEventV2Request.loyaltyCards) &&
-        Objects.equals(this.responseContent, integrationEventV2Request.responseContent);
+        Objects.equals(this.responseContent, integrationEventV2Request.responseContent) &&
+        Objects.equals(this.loyaltyCards, integrationEventV2Request.loyaltyCards);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(profileId, storeIntegrationId, evaluableCampaignIds, type, attributes, loyaltyCards, responseContent);
+    return Objects.hash(profileId, storeIntegrationId, evaluableCampaignIds, type, attributes, responseContent, loyaltyCards);
   }
 
   @Override
@@ -340,8 +340,8 @@ public class IntegrationEventV2Request {
     sb.append("    evaluableCampaignIds: ").append(toIndentedString(evaluableCampaignIds)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    attributes: ").append(toIndentedString(attributes)).append("\n");
-    sb.append("    loyaltyCards: ").append(toIndentedString(loyaltyCards)).append("\n");
     sb.append("    responseContent: ").append(toIndentedString(responseContent)).append("\n");
+    sb.append("    loyaltyCards: ").append(toIndentedString(loyaltyCards)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -363,7 +363,7 @@ public class IntegrationEventV2Request {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("profileId", "storeIntegrationId", "evaluableCampaignIds", "type", "attributes", "loyaltyCards", "responseContent"));
+    openapiFields = new HashSet<String>(Arrays.asList("profileId", "storeIntegrationId", "evaluableCampaignIds", "type", "attributes", "responseContent", "loyaltyCards"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("type"));
@@ -411,12 +411,12 @@ public class IntegrationEventV2Request {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("type").toString()));
       }
       // ensure the optional json data is an array if present
-      if (jsonObj.get("loyaltyCards") != null && !jsonObj.get("loyaltyCards").isJsonNull() && !jsonObj.get("loyaltyCards").isJsonArray()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `loyaltyCards` to be an array in the JSON string but got `%s`", jsonObj.get("loyaltyCards").toString()));
-      }
-      // ensure the optional json data is an array if present
       if (jsonObj.get("responseContent") != null && !jsonObj.get("responseContent").isJsonNull() && !jsonObj.get("responseContent").isJsonArray()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `responseContent` to be an array in the JSON string but got `%s`", jsonObj.get("responseContent").toString()));
+      }
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("loyaltyCards") != null && !jsonObj.get("loyaltyCards").isJsonNull() && !jsonObj.get("loyaltyCards").isJsonArray()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `loyaltyCards` to be an array in the JSON string but got `%s`", jsonObj.get("loyaltyCards").toString()));
       }
   }
 

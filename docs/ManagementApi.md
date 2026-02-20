@@ -175,7 +175,7 @@ All URIs are relative to *https://yourbaseurl.talon.one*
 | [**updateCollection**](ManagementApi.md#updateCollection) | **PUT** /v1/applications/{applicationId}/campaigns/{campaignId}/collections/{collectionId} | Update campaign-level collection&#39;s description |
 | [**updateCoupon**](ManagementApi.md#updateCoupon) | **PUT** /v1/applications/{applicationId}/campaigns/{campaignId}/coupons/{couponId} | Update coupon |
 | [**updateCouponBatch**](ManagementApi.md#updateCouponBatch) | **PUT** /v1/applications/{applicationId}/campaigns/{campaignId}/coupons | Update coupons |
-| [**updateLoyaltyCard**](ManagementApi.md#updateLoyaltyCard) | **PUT** /v1/loyalty_programs/{loyaltyProgramId}/cards/{loyaltyCardId} | Update loyalty card status |
+| [**updateLoyaltyCard**](ManagementApi.md#updateLoyaltyCard) | **PUT** /v1/loyalty_programs/{loyaltyProgramId}/cards/{loyaltyCardId} | Update loyalty card |
 | [**updateReferral**](ManagementApi.md#updateReferral) | **PUT** /v1/applications/{applicationId}/campaigns/{campaignId}/referrals/{referralId} | Update referral |
 | [**updateRoleV2**](ManagementApi.md#updateRoleV2) | **PUT** /v2/roles/{roleId} | Update role |
 | [**updateStore**](ManagementApi.md#updateStore) | **PUT** /v1/applications/{applicationId}/stores/{storeId} | Update store |
@@ -15068,11 +15068,11 @@ null (empty response body)
 
 <a id="updateLoyaltyCard"></a>
 # **updateLoyaltyCard**
-> LoyaltyCard updateLoyaltyCard(loyaltyProgramId, loyaltyCardId, updateLoyaltyCard)
+> LoyaltyCard updateLoyaltyCard(loyaltyProgramId, loyaltyCardId, updateLoyaltyCardRequest)
 
-Update loyalty card status
+Update loyalty card
 
-Update the status of the given loyalty card. A card can be _active_ or _inactive_.
+Update the details of a specific loyalty card. You can set the card&#39;s status to &#x60;active&#x60; or &#x60;inactive&#x60; through this endpoint. At least one of &#x60;status&#x60; or &#x60;attributes&#x60; must be provided. 
 
 ### Example
 ```java
@@ -15110,9 +15110,9 @@ public class Example {
     ManagementApi apiInstance = new ManagementApi(defaultClient);
     Long loyaltyProgramId = 56L; // Long | Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. 
     String loyaltyCardId = "loyaltyCardId_example"; // String | Identifier of the loyalty card. You can get the identifier with the [List loyalty cards](https://docs.talon.one/management-api#tag/Loyalty-cards/operation/getLoyaltyCards) endpoint. 
-    UpdateLoyaltyCard updateLoyaltyCard = new UpdateLoyaltyCard(); // UpdateLoyaltyCard | body
+    UpdateLoyaltyCardRequest updateLoyaltyCardRequest = new UpdateLoyaltyCardRequest(); // UpdateLoyaltyCardRequest | body
     try {
-      LoyaltyCard result = apiInstance.updateLoyaltyCard(loyaltyProgramId, loyaltyCardId, updateLoyaltyCard);
+      LoyaltyCard result = apiInstance.updateLoyaltyCard(loyaltyProgramId, loyaltyCardId, updateLoyaltyCardRequest);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ManagementApi#updateLoyaltyCard");
@@ -15131,7 +15131,7 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **loyaltyProgramId** | **Long**| Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint.  | |
 | **loyaltyCardId** | **String**| Identifier of the loyalty card. You can get the identifier with the [List loyalty cards](https://docs.talon.one/management-api#tag/Loyalty-cards/operation/getLoyaltyCards) endpoint.  | |
-| **updateLoyaltyCard** | [**UpdateLoyaltyCard**](UpdateLoyaltyCard.md)| body | |
+| **updateLoyaltyCardRequest** | [**UpdateLoyaltyCardRequest**](UpdateLoyaltyCardRequest.md)| body | |
 
 ### Return type
 

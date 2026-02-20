@@ -27,7 +27,7 @@
 | CUSTOMER_PROFILE | &quot;customerProfile&quot; |
 | TRIGGERED_CAMPAIGNS | &quot;triggeredCampaigns&quot; |
 | LOYALTY | &quot;loyalty&quot; |
-| EVENT | &quot;event&quot; |
+| ADVANCED_EVENT | &quot;advancedEvent&quot; |
 | AWARDED_GIVEAWAYS | &quot;awardedGiveaways&quot; |
 | RULE_FAILURE_REASONS | &quot;ruleFailureReasons&quot; |
 

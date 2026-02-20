@@ -51,7 +51,7 @@ import one.talon.JSON;
 /**
  * Single event definition in the event data emitted by Okta.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.20.0")
 public class OktaEvent {
   public static final String SERIALIZED_NAME_EVENT_TYPE = "eventType";
   @SerializedName(SERIALIZED_NAME_EVENT_TYPE)
@@ -195,16 +195,16 @@ public class OktaEvent {
       if (!jsonObj.get("eventType").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `eventType` to be a primitive type in the JSON string but got `%s`", jsonObj.get("eventType").toString()));
       }
-      // ensure the json data is an array
-      if (!jsonObj.get("target").isJsonArray()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `target` to be an array in the JSON string but got `%s`", jsonObj.get("target").toString()));
+      if (jsonObj.get("target") != null) {
+        if (!jsonObj.get("target").isJsonArray()) {
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `target` to be an array in the JSON string but got `%s`", jsonObj.get("target").toString()));
+        }
+        JsonArray jsonArraytarget = jsonObj.getAsJsonArray("target");
+        // validate the required field `target` (array)
+        for (int i = 0; i < jsonArraytarget.size(); i++) {
+          OktaEventTarget.validateJsonElement(jsonArraytarget.get(i));
+        }
       }
-
-      JsonArray jsonArraytarget = jsonObj.getAsJsonArray("target");
-      // validate the required field `target` (array)
-      for (int i = 0; i < jsonArraytarget.size(); i++) {
-        OktaEventTarget.validateJsonElement(jsonArraytarget.get(i));
-      };
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {

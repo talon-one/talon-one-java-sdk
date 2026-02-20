@@ -53,7 +53,7 @@ import one.talon.JSON;
 /**
  * The strikethrough labels notification for an application.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.20.0")
 public class StrikethroughLabelingNotification {
   /**
    * The version of the strikethrough pricing notification.
@@ -483,16 +483,18 @@ public class StrikethroughLabelingNotification {
       if (jsonObj.get("version") != null && !jsonObj.get("version").isJsonNull()) {
         VersionEnum.validateJsonElement(jsonObj.get("version"));
       }
-      // ensure the json data is an array
-      if (!jsonObj.get("changedItems").isJsonArray()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `changedItems` to be an array in the JSON string but got `%s`", jsonObj.get("changedItems").toString()));
+      // validate the required field `trigger`
+      StrikethroughTrigger.validateJsonElement(jsonObj.get("trigger"));
+      if (jsonObj.get("changedItems") != null) {
+        if (!jsonObj.get("changedItems").isJsonArray()) {
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `changedItems` to be an array in the JSON string but got `%s`", jsonObj.get("changedItems").toString()));
+        }
+        JsonArray jsonArraychangedItems = jsonObj.getAsJsonArray("changedItems");
+        // validate the required field `changedItems` (array)
+        for (int i = 0; i < jsonArraychangedItems.size(); i++) {
+          StrikethroughChangedItem.validateJsonElement(jsonArraychangedItems.get(i));
+        }
       }
-
-      JsonArray jsonArraychangedItems = jsonObj.getAsJsonArray("changedItems");
-      // validate the required field `changedItems` (array)
-      for (int i = 0; i < jsonArraychangedItems.size(); i++) {
-        StrikethroughChangedItem.validateJsonElement(jsonArraychangedItems.get(i));
-      };
       if (!jsonObj.get("NotificationType").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `NotificationType` to be a primitive type in the JSON string but got `%s`", jsonObj.get("NotificationType").toString()));
       }

@@ -21,6 +21,7 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.time.OffsetDateTime;
 import java.util.Arrays;
+import one.talon.model.Campaign;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 

@@ -49,7 +49,7 @@ import one.talon.JSON;
 /**
  * ListCampaignStoreBudgets
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.20.0")
 public class ListCampaignStoreBudgets {
   public static final String SERIALIZED_NAME_STORE = "store";
   @SerializedName(SERIALIZED_NAME_STORE)
@@ -234,6 +234,8 @@ public class ListCampaignStoreBudgets {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
+      // validate the required field `store`
+      ListCampaignStoreBudgetsStore.validateJsonElement(jsonObj.get("store"));
       if (!jsonObj.get("action").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `action` to be a primitive type in the JSON string but got `%s`", jsonObj.get("action").toString()));
       }

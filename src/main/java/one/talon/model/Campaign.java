@@ -55,7 +55,7 @@ import one.talon.JSON;
 /**
  * Campaign
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.20.0")
 public class Campaign {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -1853,16 +1853,16 @@ public class Campaign {
       if (jsonObj.get("referralSettings") != null && !jsonObj.get("referralSettings").isJsonNull()) {
         CodeGeneratorSettings.validateJsonElement(jsonObj.get("referralSettings"));
       }
-      // ensure the json data is an array
-      if (!jsonObj.get("limits").isJsonArray()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `limits` to be an array in the JSON string but got `%s`", jsonObj.get("limits").toString()));
+      if (jsonObj.get("limits") != null) {
+        if (!jsonObj.get("limits").isJsonArray()) {
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `limits` to be an array in the JSON string but got `%s`", jsonObj.get("limits").toString()));
+        }
+        JsonArray jsonArraylimits = jsonObj.getAsJsonArray("limits");
+        // validate the required field `limits` (array)
+        for (int i = 0; i < jsonArraylimits.size(); i++) {
+          LimitConfig.validateJsonElement(jsonArraylimits.get(i));
+        }
       }
-
-      JsonArray jsonArraylimits = jsonObj.getAsJsonArray("limits");
-      // validate the required field `limits` (array)
-      for (int i = 0; i < jsonArraylimits.size(); i++) {
-        LimitConfig.validateJsonElement(jsonArraylimits.get(i));
-      };
       // ensure the optional json data is an array if present
       if (jsonObj.get("campaignGroups") != null && !jsonObj.get("campaignGroups").isJsonNull() && !jsonObj.get("campaignGroups").isJsonArray()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `campaignGroups` to be an array in the JSON string but got `%s`", jsonObj.get("campaignGroups").toString()));

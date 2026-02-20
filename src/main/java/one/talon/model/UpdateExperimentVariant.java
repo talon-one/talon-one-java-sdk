@@ -49,7 +49,7 @@ import one.talon.JSON;
 /**
  * UpdateExperimentVariant
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.20.0")
 public class UpdateExperimentVariant {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -137,7 +137,9 @@ public class UpdateExperimentVariant {
   }
 
   /**
-   * Get weight
+   * The percentage split of this variant. The sum of all variant percentages must be 100.
+   * minimum: 1
+   * maximum: 99
    * @return weight
    */
   @javax.annotation.Nonnull

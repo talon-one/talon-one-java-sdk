@@ -54,7 +54,7 @@ import one.talon.JSON;
 /**
  * Application
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.20.0")
 public class Application {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -936,16 +936,16 @@ public class Application {
       if (jsonObj.get("defaultDiscountAdditionalCostPerItemScope") != null && !jsonObj.get("defaultDiscountAdditionalCostPerItemScope").isJsonNull()) {
         DefaultDiscountAdditionalCostPerItemScopeEnum.validateJsonElement(jsonObj.get("defaultDiscountAdditionalCostPerItemScope"));
       }
-      // ensure the json data is an array
-      if (!jsonObj.get("loyaltyPrograms").isJsonArray()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `loyaltyPrograms` to be an array in the JSON string but got `%s`", jsonObj.get("loyaltyPrograms").toString()));
+      if (jsonObj.get("loyaltyPrograms") != null) {
+        if (!jsonObj.get("loyaltyPrograms").isJsonArray()) {
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `loyaltyPrograms` to be an array in the JSON string but got `%s`", jsonObj.get("loyaltyPrograms").toString()));
+        }
+        JsonArray jsonArrayloyaltyPrograms = jsonObj.getAsJsonArray("loyaltyPrograms");
+        // validate the required field `loyaltyPrograms` (array)
+        for (int i = 0; i < jsonArrayloyaltyPrograms.size(); i++) {
+          LoyaltyProgram.validateJsonElement(jsonArrayloyaltyPrograms.get(i));
+        }
       }
-
-      JsonArray jsonArrayloyaltyPrograms = jsonObj.getAsJsonArray("loyaltyPrograms");
-      // validate the required field `loyaltyPrograms` (array)
-      for (int i = 0; i < jsonArrayloyaltyPrograms.size(); i++) {
-        LoyaltyProgram.validateJsonElement(jsonArrayloyaltyPrograms.get(i));
-      };
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {

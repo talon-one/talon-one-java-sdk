@@ -51,7 +51,7 @@ import one.talon.JSON;
 /**
  * A rule template stored in a catalog entry. Rules in catalog entries only contain title (no description, as description is at the catalog entry level).
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.20.0")
 public class CatalogRule {
   public static final String SERIALIZED_NAME_TITLE = "title";
   @SerializedName(SERIALIZED_NAME_TITLE)

@@ -39,6 +39,7 @@
 | COUPON | &quot;Coupon&quot; |
 | EVENT | &quot;Event&quot; |
 | GIVEAWAY | &quot;Giveaway&quot; |
+| LOYALTY_CARD | &quot;LoyaltyCard&quot; |
 | REFERRAL | &quot;Referral&quot; |
 | STORE | &quot;Store&quot; |
 

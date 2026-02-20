@@ -20,6 +20,7 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
+import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -50,12 +51,17 @@ import one.talon.JSON;
 /**
  * PrismaticPaginatedEventPayload
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.20.0")
 public class PrismaticPaginatedEventPayload {
   public static final String SERIALIZED_NAME_TOTAL_RESULT_SIZE = "TotalResultSize";
   @SerializedName(SERIALIZED_NAME_TOTAL_RESULT_SIZE)
   @javax.annotation.Nonnull
   private Long totalResultSize;
+
+  public static final String SERIALIZED_NAME_BATCHED_AT = "BatchedAt";
+  @SerializedName(SERIALIZED_NAME_BATCHED_AT)
+  @javax.annotation.Nullable
+  private OffsetDateTime batchedAt;
 
   /**
    * Gets or Sets eventType
@@ -149,6 +155,25 @@ public class PrismaticPaginatedEventPayload {
   }
 
 
+  public PrismaticPaginatedEventPayload batchedAt(@javax.annotation.Nullable OffsetDateTime batchedAt) {
+    this.batchedAt = batchedAt;
+    return this;
+  }
+
+  /**
+   * Timestamp when the batch was created.
+   * @return batchedAt
+   */
+  @javax.annotation.Nullable
+  public OffsetDateTime getBatchedAt() {
+    return batchedAt;
+  }
+
+  public void setBatchedAt(@javax.annotation.Nullable OffsetDateTime batchedAt) {
+    this.batchedAt = batchedAt;
+  }
+
+
   public PrismaticPaginatedEventPayload eventType(@javax.annotation.Nonnull EventTypeEnum eventType) {
     this.eventType = eventType;
     return this;
@@ -206,13 +231,14 @@ public class PrismaticPaginatedEventPayload {
     }
     PrismaticPaginatedEventPayload prismaticPaginatedEventPayload = (PrismaticPaginatedEventPayload) o;
     return Objects.equals(this.totalResultSize, prismaticPaginatedEventPayload.totalResultSize) &&
+        Objects.equals(this.batchedAt, prismaticPaginatedEventPayload.batchedAt) &&
         Objects.equals(this.eventType, prismaticPaginatedEventPayload.eventType) &&
         Objects.equals(this.data, prismaticPaginatedEventPayload.data);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(totalResultSize, eventType, data);
+    return Objects.hash(totalResultSize, batchedAt, eventType, data);
   }
 
   @Override
@@ -220,6 +246,7 @@ public class PrismaticPaginatedEventPayload {
     StringBuilder sb = new StringBuilder();
     sb.append("class PrismaticPaginatedEventPayload {\n");
     sb.append("    totalResultSize: ").append(toIndentedString(totalResultSize)).append("\n");
+    sb.append("    batchedAt: ").append(toIndentedString(batchedAt)).append("\n");
     sb.append("    eventType: ").append(toIndentedString(eventType)).append("\n");
     sb.append("    data: ").append(toIndentedString(data)).append("\n");
     sb.append("}");
@@ -243,7 +270,7 @@ public class PrismaticPaginatedEventPayload {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("TotalResultSize", "EventType", "Data"));
+    openapiFields = new HashSet<String>(Arrays.asList("TotalResultSize", "BatchedAt", "EventType", "Data"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("TotalResultSize", "EventType", "Data"));

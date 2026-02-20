@@ -140,7 +140,7 @@ import one.talon.model.UpdateCampaignCollection;
 import one.talon.model.UpdateCollection;
 import one.talon.model.UpdateCoupon;
 import one.talon.model.UpdateCouponBatch;
-import one.talon.model.UpdateLoyaltyCard;
+import one.talon.model.UpdateLoyaltyCardRequest;
 import one.talon.model.UpdateReferral;
 import one.talon.model.UpdateUser;
 import one.talon.model.User;
@@ -3030,9 +3030,9 @@ public class ManagementApiTest {
     }
 
     /**
-     * Update loyalty card status
+     * Update loyalty card
      *
-     * Update the status of the given loyalty card. A card can be _active_ or _inactive_.
+     * Update the details of a specific loyalty card. You can set the card&#39;s status to &#x60;active&#x60; or &#x60;inactive&#x60; through this endpoint. At least one of &#x60;status&#x60; or &#x60;attributes&#x60; must be provided. 
      *
      * @throws ApiException if the Api call fails
      */
@@ -3040,8 +3040,8 @@ public class ManagementApiTest {
     public void updateLoyaltyCardTest() throws ApiException {
         Long loyaltyProgramId = null;
         String loyaltyCardId = null;
-        UpdateLoyaltyCard updateLoyaltyCard = null;
-        LoyaltyCard response = api.updateLoyaltyCard(loyaltyProgramId, loyaltyCardId, updateLoyaltyCard);
+        UpdateLoyaltyCardRequest updateLoyaltyCardRequest = null;
+        LoyaltyCard response = api.updateLoyaltyCard(loyaltyProgramId, loyaltyCardId, updateLoyaltyCardRequest);
         // TODO: test validations
     }
 

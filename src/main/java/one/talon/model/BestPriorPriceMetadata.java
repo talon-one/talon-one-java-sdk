@@ -52,7 +52,7 @@ import one.talon.JSON;
 /**
  * Auxiliary data for found price observation.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.20.0")
 public class BestPriorPriceMetadata {
   public static final String SERIALIZED_NAME_INFLUENCING_CAMPAIGN_DETAILS = "influencingCampaignDetails";
   @SerializedName(SERIALIZED_NAME_INFLUENCING_CAMPAIGN_DETAILS)
@@ -193,16 +193,16 @@ public class BestPriorPriceMetadata {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      // ensure the json data is an array
-      if (!jsonObj.get("influencingCampaignDetails").isJsonArray()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `influencingCampaignDetails` to be an array in the JSON string but got `%s`", jsonObj.get("influencingCampaignDetails").toString()));
+      if (jsonObj.get("influencingCampaignDetails") != null) {
+        if (!jsonObj.get("influencingCampaignDetails").isJsonArray()) {
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `influencingCampaignDetails` to be an array in the JSON string but got `%s`", jsonObj.get("influencingCampaignDetails").toString()));
+        }
+        JsonArray jsonArrayinfluencingCampaignDetails = jsonObj.getAsJsonArray("influencingCampaignDetails");
+        // validate the required field `influencingCampaignDetails` (array)
+        for (int i = 0; i < jsonArrayinfluencingCampaignDetails.size(); i++) {
+          InfluencingCampaignDetails.validateJsonElement(jsonArrayinfluencingCampaignDetails.get(i));
+        }
       }
-
-      JsonArray jsonArrayinfluencingCampaignDetails = jsonObj.getAsJsonArray("influencingCampaignDetails");
-      // validate the required field `influencingCampaignDetails` (array)
-      for (int i = 0; i < jsonArrayinfluencingCampaignDetails.size(); i++) {
-        InfluencingCampaignDetails.validateJsonElement(jsonArrayinfluencingCampaignDetails.get(i));
-      };
       // validate the optional field `adjustmentDetails`
       if (jsonObj.get("adjustmentDetails") != null && !jsonObj.get("adjustmentDetails").isJsonNull()) {
         AdjustmentDetails.validateJsonElement(jsonObj.get("adjustmentDetails"));

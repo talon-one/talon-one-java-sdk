@@ -51,7 +51,7 @@ import one.talon.JSON;
 /**
  * MultipleNewAudiences
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.20.0")
 public class MultipleNewAudiences {
   public static final String SERIALIZED_NAME_AUDIENCES = "audiences";
   @SerializedName(SERIALIZED_NAME_AUDIENCES)
@@ -166,16 +166,16 @@ public class MultipleNewAudiences {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      // ensure the json data is an array
-      if (!jsonObj.get("audiences").isJsonArray()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `audiences` to be an array in the JSON string but got `%s`", jsonObj.get("audiences").toString()));
+      if (jsonObj.get("audiences") != null) {
+        if (!jsonObj.get("audiences").isJsonArray()) {
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `audiences` to be an array in the JSON string but got `%s`", jsonObj.get("audiences").toString()));
+        }
+        JsonArray jsonArrayaudiences = jsonObj.getAsJsonArray("audiences");
+        // validate the required field `audiences` (array)
+        for (int i = 0; i < jsonArrayaudiences.size(); i++) {
+          NewMultipleAudiencesItem.validateJsonElement(jsonArrayaudiences.get(i));
+        }
       }
-
-      JsonArray jsonArrayaudiences = jsonObj.getAsJsonArray("audiences");
-      // validate the required field `audiences` (array)
-      for (int i = 0; i < jsonArrayaudiences.size(); i++) {
-        NewMultipleAudiencesItem.validateJsonElement(jsonArrayaudiences.get(i));
-      };
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {

@@ -22,7 +22,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import org.openapitools.jackson.nullable.JsonNullable;
+import one.talon.model.ProfileAudiencesChanges;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
@@ -57,19 +57,19 @@ public class CustomerProfileIntegrationRequestV2Test {
     }
 
     /**
-     * Test the property 'audiencesChanges'
-     */
-    @Test
-    public void audiencesChangesTest() {
-        // TODO: test audiencesChanges
-    }
-
-    /**
      * Test the property 'responseContent'
      */
     @Test
     public void responseContentTest() {
         // TODO: test responseContent
+    }
+
+    /**
+     * Test the property 'audiencesChanges'
+     */
+    @Test
+    public void audiencesChangesTest() {
+        // TODO: test audiencesChanges
     }
 
 }

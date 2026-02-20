@@ -50,7 +50,7 @@ import one.talon.JSON;
 /**
  * Points to add.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.20.0")
 public class AddLoyaltyPoints {
   public static final String SERIALIZED_NAME_POINTS = "points";
   @SerializedName(SERIALIZED_NAME_POINTS)
@@ -102,6 +102,7 @@ public class AddLoyaltyPoints {
 
   /**
    * Amount of loyalty points.
+   * minimum: 0
    * maximum: 999999999999.99
    * @return points
    */

@@ -52,7 +52,7 @@ import one.talon.JSON;
 /**
  * RoleV2Permissions
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.20.0")
 public class RoleV2Permissions {
   public static final String SERIALIZED_NAME_PERMISSION_SETS = "permissionSets";
   @SerializedName(SERIALIZED_NAME_PERMISSION_SETS)
@@ -199,6 +199,10 @@ public class RoleV2Permissions {
             RoleV2PermissionSet.validateJsonElement(jsonArraypermissionSets.get(i));
           };
         }
+      }
+      // validate the optional field `roles`
+      if (jsonObj.get("roles") != null && !jsonObj.get("roles").isJsonNull()) {
+        RoleV2RolesGroup.validateJsonElement(jsonObj.get("roles"));
       }
   }
 

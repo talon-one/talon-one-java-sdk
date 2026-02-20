@@ -51,7 +51,7 @@ import one.talon.JSON;
 /**
  * Data part of the event emitted by Okta.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.20.0")
 public class OktaEventPayloadData {
   public static final String SERIALIZED_NAME_EVENTS = "events";
   @SerializedName(SERIALIZED_NAME_EVENTS)
@@ -166,16 +166,16 @@ public class OktaEventPayloadData {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      // ensure the json data is an array
-      if (!jsonObj.get("events").isJsonArray()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `events` to be an array in the JSON string but got `%s`", jsonObj.get("events").toString()));
+      if (jsonObj.get("events") != null) {
+        if (!jsonObj.get("events").isJsonArray()) {
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `events` to be an array in the JSON string but got `%s`", jsonObj.get("events").toString()));
+        }
+        JsonArray jsonArrayevents = jsonObj.getAsJsonArray("events");
+        // validate the required field `events` (array)
+        for (int i = 0; i < jsonArrayevents.size(); i++) {
+          OktaEvent.validateJsonElement(jsonArrayevents.get(i));
+        }
       }
-
-      JsonArray jsonArrayevents = jsonObj.getAsJsonArray("events");
-      // validate the required field `events` (array)
-      for (int i = 0; i < jsonArrayevents.size(); i++) {
-        OktaEvent.validateJsonElement(jsonArrayevents.get(i));
-      };
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {

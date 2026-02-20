@@ -51,7 +51,7 @@ import one.talon.JSON;
 /**
  * NewTemplateDef
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.20.0")
 public class NewTemplateDef {
   public static final String SERIALIZED_NAME_TITLE = "title";
   @SerializedName(SERIALIZED_NAME_TITLE)
@@ -348,16 +348,16 @@ public class NewTemplateDef {
       } else if (!jsonObj.get("expr").isJsonArray()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `expr` to be an array in the JSON string but got `%s`", jsonObj.get("expr").toString()));
       }
-      // ensure the json data is an array
-      if (!jsonObj.get("args").isJsonArray()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `args` to be an array in the JSON string but got `%s`", jsonObj.get("args").toString()));
+      if (jsonObj.get("args") != null) {
+        if (!jsonObj.get("args").isJsonArray()) {
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `args` to be an array in the JSON string but got `%s`", jsonObj.get("args").toString()));
+        }
+        JsonArray jsonArrayargs = jsonObj.getAsJsonArray("args");
+        // validate the required field `args` (array)
+        for (int i = 0; i < jsonArrayargs.size(); i++) {
+          TemplateArgDef.validateJsonElement(jsonArrayargs.get(i));
+        }
       }
-
-      JsonArray jsonArrayargs = jsonObj.getAsJsonArray("args");
-      // validate the required field `args` (array)
-      for (int i = 0; i < jsonArrayargs.size(); i++) {
-        TemplateArgDef.validateJsonElement(jsonArrayargs.get(i));
-      };
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {

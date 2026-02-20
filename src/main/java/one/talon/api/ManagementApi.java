@@ -153,7 +153,7 @@ import one.talon.model.UpdateCampaignCollection;
 import one.talon.model.UpdateCollection;
 import one.talon.model.UpdateCoupon;
 import one.talon.model.UpdateCouponBatch;
-import one.talon.model.UpdateLoyaltyCard;
+import one.talon.model.UpdateLoyaltyCardRequest;
 import one.talon.model.UpdateReferral;
 import one.talon.model.UpdateUser;
 import one.talon.model.User;
@@ -26405,7 +26405,7 @@ public class ManagementApi {
      * Build call for updateLoyaltyCard
      * @param loyaltyProgramId Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint.  (required)
      * @param loyaltyCardId Identifier of the loyalty card. You can get the identifier with the [List loyalty cards](https://docs.talon.one/management-api#tag/Loyalty-cards/operation/getLoyaltyCards) endpoint.  (required)
-     * @param updateLoyaltyCard body (required)
+     * @param updateLoyaltyCardRequest body (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -26419,7 +26419,7 @@ public class ManagementApi {
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateLoyaltyCardCall(@javax.annotation.Nonnull Long loyaltyProgramId, @javax.annotation.Nonnull String loyaltyCardId, @javax.annotation.Nonnull UpdateLoyaltyCard updateLoyaltyCard, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call updateLoyaltyCardCall(@javax.annotation.Nonnull Long loyaltyProgramId, @javax.annotation.Nonnull String loyaltyCardId, @javax.annotation.Nonnull UpdateLoyaltyCardRequest updateLoyaltyCardRequest, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -26433,7 +26433,7 @@ public class ManagementApi {
             basePath = null;
         }
 
-        Object localVarPostBody = updateLoyaltyCard;
+        Object localVarPostBody = updateLoyaltyCardRequest;
 
         // create path and map variables
         String localVarPath = "/v1/loyalty_programs/{loyaltyProgramId}/cards/{loyaltyCardId}"
@@ -26467,7 +26467,7 @@ public class ManagementApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call updateLoyaltyCardValidateBeforeCall(@javax.annotation.Nonnull Long loyaltyProgramId, @javax.annotation.Nonnull String loyaltyCardId, @javax.annotation.Nonnull UpdateLoyaltyCard updateLoyaltyCard, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call updateLoyaltyCardValidateBeforeCall(@javax.annotation.Nonnull Long loyaltyProgramId, @javax.annotation.Nonnull String loyaltyCardId, @javax.annotation.Nonnull UpdateLoyaltyCardRequest updateLoyaltyCardRequest, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'loyaltyProgramId' is set
         if (loyaltyProgramId == null) {
             throw new ApiException("Missing the required parameter 'loyaltyProgramId' when calling updateLoyaltyCard(Async)");
@@ -26478,21 +26478,21 @@ public class ManagementApi {
             throw new ApiException("Missing the required parameter 'loyaltyCardId' when calling updateLoyaltyCard(Async)");
         }
 
-        // verify the required parameter 'updateLoyaltyCard' is set
-        if (updateLoyaltyCard == null) {
-            throw new ApiException("Missing the required parameter 'updateLoyaltyCard' when calling updateLoyaltyCard(Async)");
+        // verify the required parameter 'updateLoyaltyCardRequest' is set
+        if (updateLoyaltyCardRequest == null) {
+            throw new ApiException("Missing the required parameter 'updateLoyaltyCardRequest' when calling updateLoyaltyCard(Async)");
         }
 
-        return updateLoyaltyCardCall(loyaltyProgramId, loyaltyCardId, updateLoyaltyCard, _callback);
+        return updateLoyaltyCardCall(loyaltyProgramId, loyaltyCardId, updateLoyaltyCardRequest, _callback);
 
     }
 
     /**
-     * Update loyalty card status
-     * Update the status of the given loyalty card. A card can be _active_ or _inactive_.
+     * Update loyalty card
+     * Update the details of a specific loyalty card. You can set the card&#39;s status to &#x60;active&#x60; or &#x60;inactive&#x60; through this endpoint. At least one of &#x60;status&#x60; or &#x60;attributes&#x60; must be provided. 
      * @param loyaltyProgramId Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint.  (required)
      * @param loyaltyCardId Identifier of the loyalty card. You can get the identifier with the [List loyalty cards](https://docs.talon.one/management-api#tag/Loyalty-cards/operation/getLoyaltyCards) endpoint.  (required)
-     * @param updateLoyaltyCard body (required)
+     * @param updateLoyaltyCardRequest body (required)
      * @return LoyaltyCard
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -26505,17 +26505,17 @@ public class ManagementApi {
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
      */
-    public LoyaltyCard updateLoyaltyCard(@javax.annotation.Nonnull Long loyaltyProgramId, @javax.annotation.Nonnull String loyaltyCardId, @javax.annotation.Nonnull UpdateLoyaltyCard updateLoyaltyCard) throws ApiException {
-        ApiResponse<LoyaltyCard> localVarResp = updateLoyaltyCardWithHttpInfo(loyaltyProgramId, loyaltyCardId, updateLoyaltyCard);
+    public LoyaltyCard updateLoyaltyCard(@javax.annotation.Nonnull Long loyaltyProgramId, @javax.annotation.Nonnull String loyaltyCardId, @javax.annotation.Nonnull UpdateLoyaltyCardRequest updateLoyaltyCardRequest) throws ApiException {
+        ApiResponse<LoyaltyCard> localVarResp = updateLoyaltyCardWithHttpInfo(loyaltyProgramId, loyaltyCardId, updateLoyaltyCardRequest);
         return localVarResp.getData();
     }
 
     /**
-     * Update loyalty card status
-     * Update the status of the given loyalty card. A card can be _active_ or _inactive_.
+     * Update loyalty card
+     * Update the details of a specific loyalty card. You can set the card&#39;s status to &#x60;active&#x60; or &#x60;inactive&#x60; through this endpoint. At least one of &#x60;status&#x60; or &#x60;attributes&#x60; must be provided. 
      * @param loyaltyProgramId Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint.  (required)
      * @param loyaltyCardId Identifier of the loyalty card. You can get the identifier with the [List loyalty cards](https://docs.talon.one/management-api#tag/Loyalty-cards/operation/getLoyaltyCards) endpoint.  (required)
-     * @param updateLoyaltyCard body (required)
+     * @param updateLoyaltyCardRequest body (required)
      * @return ApiResponse&lt;LoyaltyCard&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -26528,18 +26528,18 @@ public class ManagementApi {
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<LoyaltyCard> updateLoyaltyCardWithHttpInfo(@javax.annotation.Nonnull Long loyaltyProgramId, @javax.annotation.Nonnull String loyaltyCardId, @javax.annotation.Nonnull UpdateLoyaltyCard updateLoyaltyCard) throws ApiException {
-        okhttp3.Call localVarCall = updateLoyaltyCardValidateBeforeCall(loyaltyProgramId, loyaltyCardId, updateLoyaltyCard, null);
+    public ApiResponse<LoyaltyCard> updateLoyaltyCardWithHttpInfo(@javax.annotation.Nonnull Long loyaltyProgramId, @javax.annotation.Nonnull String loyaltyCardId, @javax.annotation.Nonnull UpdateLoyaltyCardRequest updateLoyaltyCardRequest) throws ApiException {
+        okhttp3.Call localVarCall = updateLoyaltyCardValidateBeforeCall(loyaltyProgramId, loyaltyCardId, updateLoyaltyCardRequest, null);
         Type localVarReturnType = new TypeToken<LoyaltyCard>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
-     * Update loyalty card status (asynchronously)
-     * Update the status of the given loyalty card. A card can be _active_ or _inactive_.
+     * Update loyalty card (asynchronously)
+     * Update the details of a specific loyalty card. You can set the card&#39;s status to &#x60;active&#x60; or &#x60;inactive&#x60; through this endpoint. At least one of &#x60;status&#x60; or &#x60;attributes&#x60; must be provided. 
      * @param loyaltyProgramId Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint.  (required)
      * @param loyaltyCardId Identifier of the loyalty card. You can get the identifier with the [List loyalty cards](https://docs.talon.one/management-api#tag/Loyalty-cards/operation/getLoyaltyCards) endpoint.  (required)
-     * @param updateLoyaltyCard body (required)
+     * @param updateLoyaltyCardRequest body (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -26553,9 +26553,9 @@ public class ManagementApi {
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateLoyaltyCardAsync(@javax.annotation.Nonnull Long loyaltyProgramId, @javax.annotation.Nonnull String loyaltyCardId, @javax.annotation.Nonnull UpdateLoyaltyCard updateLoyaltyCard, final ApiCallback<LoyaltyCard> _callback) throws ApiException {
+    public okhttp3.Call updateLoyaltyCardAsync(@javax.annotation.Nonnull Long loyaltyProgramId, @javax.annotation.Nonnull String loyaltyCardId, @javax.annotation.Nonnull UpdateLoyaltyCardRequest updateLoyaltyCardRequest, final ApiCallback<LoyaltyCard> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = updateLoyaltyCardValidateBeforeCall(loyaltyProgramId, loyaltyCardId, updateLoyaltyCard, _callback);
+        okhttp3.Call localVarCall = updateLoyaltyCardValidateBeforeCall(loyaltyProgramId, loyaltyCardId, updateLoyaltyCardRequest, _callback);
         Type localVarReturnType = new TypeToken<LoyaltyCard>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

@@ -852,7 +852,7 @@ null (empty response body)
 
 Generate loyalty card
 
-Generate a loyalty card in a specified [card-based loyalty program](https://docs.talon.one/docs/product/loyalty-programs/card-based/card-based-overview).  To link the card to one or more customer profiles, use the &#x60;customerProfileIds&#x60; parameter in the request body.  **Note:** - The number of customer profiles linked to the loyalty card cannot exceed the loyalty program&#39;s &#x60;usersPerCardLimit&#x60;. To find the program&#39;s limit, use the [Get loyalty program](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyProgram) endpoint. - If the loyalty program has a defined code format, it will be used for the loyalty card identifier. 
+Generate a loyalty card in a specified [card-based loyalty program](https://docs.talon.one/docs/product/loyalty-programs/card-based/card-based-overview).  To link the card to one or more customer profiles, use the &#x60;customerProfileIds&#x60; parameter in the request body.  **Note:**  - The number of customer profiles linked to the loyalty card cannot exceed the loyalty program&#39;s &#x60;usersPerCardLimit&#x60;. To find the program&#39;s limit, use the [Get loyalty program](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyProgram) endpoint.  - If the loyalty program has a defined code format, it will be used for the loyalty card identifier. 
 
 ### Example
 ```java
@@ -2131,7 +2131,7 @@ public class Example {
 
 <a id="trackEventV2"></a>
 # **trackEventV2**
-> TrackEventV2Response trackEventV2(integrationEventV2Request, silent, dry, forceCompleteEvaluation)
+> IntegrationEventV2Response trackEventV2(integrationEventV2Request, silent, dry, forceCompleteEvaluation)
 
 Track event
 
@@ -2164,7 +2164,7 @@ public class Example {
     Boolean dry = true; // Boolean | Indicates whether to persist the changes. Changes are ignored when `dry=true`. 
     Boolean forceCompleteEvaluation = false; // Boolean | Forces evaluation for all matching campaigns regardless of the [campaign evaluation mode](https://docs.talon.one/docs/product/applications/managing-campaign-evaluation#setting-campaign-evaluation-mode). Requires `dry=true`. 
     try {
-      TrackEventV2Response result = apiInstance.trackEventV2(integrationEventV2Request, silent, dry, forceCompleteEvaluation);
+      IntegrationEventV2Response result = apiInstance.trackEventV2(integrationEventV2Request, silent, dry, forceCompleteEvaluation);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling IntegrationApi#trackEventV2");
@@ -2188,7 +2188,7 @@ public class Example {
 
 ### Return type
 
-[**TrackEventV2Response**](TrackEventV2Response.md)
+[**IntegrationEventV2Response**](IntegrationEventV2Response.md)
 
 ### Authorization
 

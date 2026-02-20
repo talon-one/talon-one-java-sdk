@@ -51,7 +51,7 @@ import one.talon.JSON;
 /**
  * NewReturn
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.20.0")
 public class NewReturn {
   public static final String SERIALIZED_NAME_RETURNED_CART_ITEMS = "returnedCartItems";
   @SerializedName(SERIALIZED_NAME_RETURNED_CART_ITEMS)
@@ -166,16 +166,16 @@ public class NewReturn {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      // ensure the json data is an array
-      if (!jsonObj.get("returnedCartItems").isJsonArray()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `returnedCartItems` to be an array in the JSON string but got `%s`", jsonObj.get("returnedCartItems").toString()));
+      if (jsonObj.get("returnedCartItems") != null) {
+        if (!jsonObj.get("returnedCartItems").isJsonArray()) {
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `returnedCartItems` to be an array in the JSON string but got `%s`", jsonObj.get("returnedCartItems").toString()));
+        }
+        JsonArray jsonArrayreturnedCartItems = jsonObj.getAsJsonArray("returnedCartItems");
+        // validate the required field `returnedCartItems` (array)
+        for (int i = 0; i < jsonArrayreturnedCartItems.size(); i++) {
+          ReturnedCartItem.validateJsonElement(jsonArrayreturnedCartItems.get(i));
+        }
       }
-
-      JsonArray jsonArrayreturnedCartItems = jsonObj.getAsJsonArray("returnedCartItems");
-      // validate the required field `returnedCartItems` (array)
-      for (int i = 0; i < jsonArrayreturnedCartItems.size(); i++) {
-        ReturnedCartItem.validateJsonElement(jsonArrayreturnedCartItems.get(i));
-      };
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {

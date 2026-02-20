@@ -53,7 +53,7 @@ import one.talon.JSON;
 /**
  * Ruleset
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.20.0")
 public class Ruleset {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -444,16 +444,16 @@ public class Ruleset {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      // ensure the json data is an array
-      if (!jsonObj.get("rules").isJsonArray()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `rules` to be an array in the JSON string but got `%s`", jsonObj.get("rules").toString()));
+      if (jsonObj.get("rules") != null) {
+        if (!jsonObj.get("rules").isJsonArray()) {
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `rules` to be an array in the JSON string but got `%s`", jsonObj.get("rules").toString()));
+        }
+        JsonArray jsonArrayrules = jsonObj.getAsJsonArray("rules");
+        // validate the required field `rules` (array)
+        for (int i = 0; i < jsonArrayrules.size(); i++) {
+          Rule.validateJsonElement(jsonArrayrules.get(i));
+        }
       }
-
-      JsonArray jsonArrayrules = jsonObj.getAsJsonArray("rules");
-      // validate the required field `rules` (array)
-      for (int i = 0; i < jsonArrayrules.size(); i++) {
-        Rule.validateJsonElement(jsonArrayrules.get(i));
-      };
       if (jsonObj.get("strikethroughRules") != null && !jsonObj.get("strikethroughRules").isJsonNull()) {
         JsonArray jsonArraystrikethroughRules = jsonObj.getAsJsonArray("strikethroughRules");
         if (jsonArraystrikethroughRules != null) {
@@ -468,16 +468,16 @@ public class Ruleset {
           };
         }
       }
-      // ensure the json data is an array
-      if (!jsonObj.get("bindings").isJsonArray()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `bindings` to be an array in the JSON string but got `%s`", jsonObj.get("bindings").toString()));
+      if (jsonObj.get("bindings") != null) {
+        if (!jsonObj.get("bindings").isJsonArray()) {
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `bindings` to be an array in the JSON string but got `%s`", jsonObj.get("bindings").toString()));
+        }
+        JsonArray jsonArraybindings = jsonObj.getAsJsonArray("bindings");
+        // validate the required field `bindings` (array)
+        for (int i = 0; i < jsonArraybindings.size(); i++) {
+          Binding.validateJsonElement(jsonArraybindings.get(i));
+        }
       }
-
-      JsonArray jsonArraybindings = jsonObj.getAsJsonArray("bindings");
-      // validate the required field `bindings` (array)
-      for (int i = 0; i < jsonArraybindings.size(); i++) {
-        Binding.validateJsonElement(jsonArraybindings.get(i));
-      };
       if ((jsonObj.get("rbVersion") != null && !jsonObj.get("rbVersion").isJsonNull()) && !jsonObj.get("rbVersion").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `rbVersion` to be a primitive type in the JSON string but got `%s`", jsonObj.get("rbVersion").toString()));
       }
