@@ -11,8 +11,8 @@ If you use Maven, we also host [Maven Artifacts](https://github.com/talon-one/ta
 
 Building the API client library requires:
 
-1. Java 21+
-2. Maven/Gradle
+1. Java 1.8+
+2. Maven (3.8.3+) / Gradle (7.2+)
 
 ## Installation
 
