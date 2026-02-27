@@ -7,6 +7,10 @@ This SDK supports all of the operations of Talon.One's Integration API and Manag
 
 If you use Maven, we also host [Maven Artifacts](https://github.com/talon-one/talon-one-maven-artifacts).
 
+## Migrating from the legacy SDK
+
+See our [migration guide](MIGRATION.md).
+
 ## Requirements
 
 Building the API client library requires:

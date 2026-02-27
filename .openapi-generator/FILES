@@ -3,6 +3,7 @@
 .gitignore
 .travis.yml
 Example.java
+MIGRATION.md
 Makefile
 README.md
 api/openapi.yaml
