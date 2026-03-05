@@ -53,6 +53,11 @@ import one.talon.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.20.0")
 public class BestPriorPrice {
+  public static final String SERIALIZED_NAME_ID = "id";
+  @SerializedName(SERIALIZED_NAME_ID)
+  @javax.annotation.Nonnull
+  private Long id;
+
   public static final String SERIALIZED_NAME_SKU = "sku";
   @SerializedName(SERIALIZED_NAME_SKU)
   @javax.annotation.Nonnull
@@ -86,6 +91,25 @@ public class BestPriorPrice {
   public BestPriorPrice() {
   }
 
+  public BestPriorPrice id(@javax.annotation.Nonnull Long id) {
+    this.id = id;
+    return this;
+  }
+
+  /**
+   * The ID of the historical price.
+   * @return id
+   */
+  @javax.annotation.Nonnull
+  public Long getId() {
+    return id;
+  }
+
+  public void setId(@javax.annotation.Nonnull Long id) {
+    this.id = id;
+  }
+
+
   public BestPriorPrice sku(@javax.annotation.Nonnull String sku) {
     this.sku = sku;
     return this;
@@ -111,7 +135,7 @@ public class BestPriorPrice {
   }
 
   /**
-   * The date and time when the best price was observed.
+   * The date and time when the price was observed.
    * @return observedAt
    */
   @javax.annotation.Nonnull
@@ -210,7 +234,8 @@ public class BestPriorPrice {
       return false;
     }
     BestPriorPrice bestPriorPrice = (BestPriorPrice) o;
-    return Objects.equals(this.sku, bestPriorPrice.sku) &&
+    return Objects.equals(this.id, bestPriorPrice.id) &&
+        Objects.equals(this.sku, bestPriorPrice.sku) &&
         Objects.equals(this.observedAt, bestPriorPrice.observedAt) &&
         Objects.equals(this.contextId, bestPriorPrice.contextId) &&
         Objects.equals(this.price, bestPriorPrice.price) &&
@@ -220,13 +245,14 @@ public class BestPriorPrice {
 
   @Override
   public int hashCode() {
-    return Objects.hash(sku, observedAt, contextId, price, metadata, target);
+    return Objects.hash(id, sku, observedAt, contextId, price, metadata, target);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class BestPriorPrice {\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    sku: ").append(toIndentedString(sku)).append("\n");
     sb.append("    observedAt: ").append(toIndentedString(observedAt)).append("\n");
     sb.append("    contextId: ").append(toIndentedString(contextId)).append("\n");
@@ -254,10 +280,10 @@ public class BestPriorPrice {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("sku", "observedAt", "contextId", "price", "metadata", "target"));
+    openapiFields = new HashSet<String>(Arrays.asList("id", "sku", "observedAt", "contextId", "price", "metadata", "target"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("sku", "observedAt", "contextId", "price", "metadata", "target"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("id", "sku", "observedAt", "contextId", "price", "metadata", "target"));
   }
 
   /**

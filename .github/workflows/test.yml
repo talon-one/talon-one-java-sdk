@@ -5,6 +5,9 @@ on: [push]
 jobs:
   test:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        java-version: [8, 11, 17, 21]
     permissions:
       contents: "read"
       id-token: "write"
@@ -29,7 +32,7 @@ jobs:
         uses: actions/setup-java@v4
         with:
           distribution: "temurin"
-          java-version: "21"
+          java-version: ${{ matrix.java-version }}
           cache: "gradle"
       - name: Install dependencies
         run: |

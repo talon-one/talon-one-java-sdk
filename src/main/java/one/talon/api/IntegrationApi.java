@@ -67,6 +67,8 @@ import one.talon.model.NewAudience;
 import one.talon.model.NewReferral;
 import one.talon.model.NewReferralsForMultipleAdvocates;
 import java.time.OffsetDateTime;
+import one.talon.model.PriceHistoryRequest;
+import one.talon.model.PriceHistoryResponse;
 import one.talon.model.Referral;
 import one.talon.model.ReopenSessionResponse;
 import one.talon.model.ReturnIntegrationRequest;
@@ -3992,6 +3994,133 @@ public class IntegrationApi {
 
         okhttp3.Call localVarCall = linkLoyaltyCardToProfileValidateBeforeCall(loyaltyProgramId, loyaltyCardId, loyaltyCardRegistration, _callback);
         Type localVarReturnType = new TypeToken<LoyaltyCard>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for priceHistory
+     * @param priceHistoryRequest body (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call priceHistoryCall(@javax.annotation.Nonnull PriceHistoryRequest priceHistoryRequest, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = priceHistoryRequest;
+
+        // create path and map variables
+        String localVarPath = "/v1/best_prior_price_history";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "management_key", "manager_auth", "api_key_v1" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call priceHistoryValidateBeforeCall(@javax.annotation.Nonnull PriceHistoryRequest priceHistoryRequest, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'priceHistoryRequest' is set
+        if (priceHistoryRequest == null) {
+            throw new ApiException("Missing the required parameter 'priceHistoryRequest' when calling priceHistory(Async)");
+        }
+
+        return priceHistoryCall(priceHistoryRequest, _callback);
+
+    }
+
+    /**
+     * Get summary of price history
+     * Fetch the historical price data for a given SKU within a defined timeframe. 
+     * @param priceHistoryRequest body (required)
+     * @return PriceHistoryResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+     </table>
+     */
+    public PriceHistoryResponse priceHistory(@javax.annotation.Nonnull PriceHistoryRequest priceHistoryRequest) throws ApiException {
+        ApiResponse<PriceHistoryResponse> localVarResp = priceHistoryWithHttpInfo(priceHistoryRequest);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Get summary of price history
+     * Fetch the historical price data for a given SKU within a defined timeframe. 
+     * @param priceHistoryRequest body (required)
+     * @return ApiResponse&lt;PriceHistoryResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<PriceHistoryResponse> priceHistoryWithHttpInfo(@javax.annotation.Nonnull PriceHistoryRequest priceHistoryRequest) throws ApiException {
+        okhttp3.Call localVarCall = priceHistoryValidateBeforeCall(priceHistoryRequest, null);
+        Type localVarReturnType = new TypeToken<PriceHistoryResponse>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Get summary of price history (asynchronously)
+     * Fetch the historical price data for a given SKU within a defined timeframe. 
+     * @param priceHistoryRequest body (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call priceHistoryAsync(@javax.annotation.Nonnull PriceHistoryRequest priceHistoryRequest, final ApiCallback<PriceHistoryResponse> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = priceHistoryValidateBeforeCall(priceHistoryRequest, _callback);
+        Type localVarReturnType = new TypeToken<PriceHistoryResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }

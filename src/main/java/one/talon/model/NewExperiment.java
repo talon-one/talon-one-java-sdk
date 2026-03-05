@@ -20,7 +20,6 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
-import java.time.OffsetDateTime;
 import java.util.Arrays;
 import one.talon.model.NewCampaign;
 
@@ -57,68 +56,6 @@ public class NewExperiment {
   @javax.annotation.Nonnull
   private Boolean isVariantAssignmentExternal;
 
-  public static final String SERIALIZED_NAME_ACTIVATED = "activated";
-  @SerializedName(SERIALIZED_NAME_ACTIVATED)
-  @javax.annotation.Nullable
-  private OffsetDateTime activated;
-
-  /**
-   * A disabled experiment is not evaluated for rules or coupons. 
-   */
-  @JsonAdapter(StateEnum.Adapter.class)
-  public enum StateEnum {
-    ENABLED("enabled"),
-    
-    DISABLED("disabled");
-
-    private String value;
-
-    StateEnum(String value) {
-      this.value = value;
-    }
-
-    public String getValue() {
-      return value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-
-    public static StateEnum fromValue(String value) {
-      for (StateEnum b : StateEnum.values()) {
-        if (b.value.equals(value)) {
-          return b;
-        }
-      }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
-    }
-
-    public static class Adapter extends TypeAdapter<StateEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final StateEnum enumeration) throws IOException {
-        jsonWriter.value(enumeration.getValue());
-      }
-
-      @Override
-      public StateEnum read(final JsonReader jsonReader) throws IOException {
-        String value =  jsonReader.nextString();
-        return StateEnum.fromValue(value);
-      }
-    }
-
-    public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-      String value = jsonElement.getAsString();
-      StateEnum.fromValue(value);
-    }
-  }
-
-  public static final String SERIALIZED_NAME_STATE = "state";
-  @SerializedName(SERIALIZED_NAME_STATE)
-  @javax.annotation.Nullable
-  private StateEnum state = StateEnum.DISABLED;
-
   public static final String SERIALIZED_NAME_CAMPAIGN = "campaign";
   @SerializedName(SERIALIZED_NAME_CAMPAIGN)
   @javax.annotation.Nonnull
@@ -133,7 +70,7 @@ public class NewExperiment {
   }
 
   /**
-   * The source of the assignment. - false - The assignment to the variant is handled internally by the Talon.Oneandled internally by the Talon.One. - true - The assignment to the variant handled externally. 
+   * The source of the assignment. - false - The variant assignment is handled internally by Talon.One. - true - The variant assignment is handled externally. 
    * @return isVariantAssignmentExternal
    */
   @javax.annotation.Nonnull
@@ -143,44 +80,6 @@ public class NewExperiment {
 
   public void setIsVariantAssignmentExternal(@javax.annotation.Nonnull Boolean isVariantAssignmentExternal) {
     this.isVariantAssignmentExternal = isVariantAssignmentExternal;
-  }
-
-
-  public NewExperiment activated(@javax.annotation.Nullable OffsetDateTime activated) {
-    this.activated = activated;
-    return this;
-  }
-
-  /**
-   * The date and time the experiment was activated. 
-   * @return activated
-   */
-  @javax.annotation.Nullable
-  public OffsetDateTime getActivated() {
-    return activated;
-  }
-
-  public void setActivated(@javax.annotation.Nullable OffsetDateTime activated) {
-    this.activated = activated;
-  }
-
-
-  public NewExperiment state(@javax.annotation.Nullable StateEnum state) {
-    this.state = state;
-    return this;
-  }
-
-  /**
-   * A disabled experiment is not evaluated for rules or coupons. 
-   * @return state
-   */
-  @javax.annotation.Nullable
-  public StateEnum getState() {
-    return state;
-  }
-
-  public void setState(@javax.annotation.Nullable StateEnum state) {
-    this.state = state;
   }
 
 
@@ -214,14 +113,12 @@ public class NewExperiment {
     }
     NewExperiment newExperiment = (NewExperiment) o;
     return Objects.equals(this.isVariantAssignmentExternal, newExperiment.isVariantAssignmentExternal) &&
-        Objects.equals(this.activated, newExperiment.activated) &&
-        Objects.equals(this.state, newExperiment.state) &&
         Objects.equals(this.campaign, newExperiment.campaign);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(isVariantAssignmentExternal, activated, state, campaign);
+    return Objects.hash(isVariantAssignmentExternal, campaign);
   }
 
   @Override
@@ -229,8 +126,6 @@ public class NewExperiment {
     StringBuilder sb = new StringBuilder();
     sb.append("class NewExperiment {\n");
     sb.append("    isVariantAssignmentExternal: ").append(toIndentedString(isVariantAssignmentExternal)).append("\n");
-    sb.append("    activated: ").append(toIndentedString(activated)).append("\n");
-    sb.append("    state: ").append(toIndentedString(state)).append("\n");
     sb.append("    campaign: ").append(toIndentedString(campaign)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -253,7 +148,7 @@ public class NewExperiment {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("isVariantAssignmentExternal", "activated", "state", "campaign"));
+    openapiFields = new HashSet<String>(Arrays.asList("isVariantAssignmentExternal", "campaign"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("isVariantAssignmentExternal", "campaign"));
@@ -287,13 +182,6 @@ public class NewExperiment {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if ((jsonObj.get("state") != null && !jsonObj.get("state").isJsonNull()) && !jsonObj.get("state").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `state` to be a primitive type in the JSON string but got `%s`", jsonObj.get("state").toString()));
-      }
-      // validate the optional field `state`
-      if (jsonObj.get("state") != null && !jsonObj.get("state").isJsonNull()) {
-        StateEnum.validateJsonElement(jsonObj.get("state"));
-      }
       // validate the required field `campaign`
       NewCampaign.validateJsonElement(jsonObj.get("campaign"));
   }

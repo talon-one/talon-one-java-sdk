@@ -99,7 +99,7 @@ public class UpdateExperimentVariant {
   }
 
   /**
-   * Get name
+   * The name of this variant.
    * @return name
    */
   @javax.annotation.Nonnull

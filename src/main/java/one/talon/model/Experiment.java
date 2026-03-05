@@ -92,7 +92,9 @@ public class Experiment {
   public enum StateEnum {
     ENABLED("enabled"),
     
-    DISABLED("disabled");
+    DISABLED("disabled"),
+    
+    ARCHIVED("archived");
 
     private String value;
 
@@ -139,7 +141,7 @@ public class Experiment {
 
   public static final String SERIALIZED_NAME_STATE = "state";
   @SerializedName(SERIALIZED_NAME_STATE)
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
   private StateEnum state = StateEnum.DISABLED;
 
   public static final String SERIALIZED_NAME_VARIANTS = "variants";
@@ -218,7 +220,7 @@ public class Experiment {
   }
 
   /**
-   * The source of the assignment. - false - The assignment to the variant is handled internally by the Talon.Oneandled internally by the Talon.One. - true - The assignment to the variant handled externally. 
+   * The source of the assignment. - false - The variant assignment is handled internally by Talon.One. - true - The variant assignment is handled externally. 
    * @return isVariantAssignmentExternal
    */
   @javax.annotation.Nullable
@@ -269,7 +271,7 @@ public class Experiment {
   }
 
 
-  public Experiment state(@javax.annotation.Nullable StateEnum state) {
+  public Experiment state(@javax.annotation.Nonnull StateEnum state) {
     this.state = state;
     return this;
   }
@@ -278,12 +280,12 @@ public class Experiment {
    * A disabled experiment is not evaluated for rules or coupons. 
    * @return state
    */
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
   public StateEnum getState() {
     return state;
   }
 
-  public void setState(@javax.annotation.Nullable StateEnum state) {
+  public void setState(@javax.annotation.Nonnull StateEnum state) {
     this.state = state;
   }
 
@@ -397,7 +399,7 @@ public class Experiment {
     openapiFields = new HashSet<String>(Arrays.asList("id", "created", "applicationId", "isVariantAssignmentExternal", "campaign", "activated", "state", "variants", "deletedat"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("id", "created", "applicationId"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("id", "created", "applicationId", "state"));
   }
 
   /**
@@ -432,13 +434,11 @@ public class Experiment {
       if (jsonObj.get("campaign") != null && !jsonObj.get("campaign").isJsonNull()) {
         Campaign.validateJsonElement(jsonObj.get("campaign"));
       }
-      if ((jsonObj.get("state") != null && !jsonObj.get("state").isJsonNull()) && !jsonObj.get("state").isJsonPrimitive()) {
+      if (!jsonObj.get("state").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `state` to be a primitive type in the JSON string but got `%s`", jsonObj.get("state").toString()));
       }
-      // validate the optional field `state`
-      if (jsonObj.get("state") != null && !jsonObj.get("state").isJsonNull()) {
-        StateEnum.validateJsonElement(jsonObj.get("state"));
-      }
+      // validate the required field `state`
+      StateEnum.validateJsonElement(jsonObj.get("state"));
       if (jsonObj.get("variants") != null && !jsonObj.get("variants").isJsonNull()) {
         JsonArray jsonArrayvariants = jsonObj.getAsJsonArray("variants");
         if (jsonArrayvariants != null) {

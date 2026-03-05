@@ -54,6 +54,8 @@ import one.talon.model.NewAudience;
 import one.talon.model.NewReferral;
 import one.talon.model.NewReferralsForMultipleAdvocates;
 import java.time.OffsetDateTime;
+import one.talon.model.PriceHistoryRequest;
+import one.talon.model.PriceHistoryResponse;
 import one.talon.model.Referral;
 import one.talon.model.ReopenSessionResponse;
 import one.talon.model.ReturnIntegrationRequest;
@@ -480,6 +482,20 @@ public class IntegrationApiTest {
         String loyaltyCardId = null;
         LoyaltyCardRegistration loyaltyCardRegistration = null;
         LoyaltyCard response = api.linkLoyaltyCardToProfile(loyaltyProgramId, loyaltyCardId, loyaltyCardRegistration);
+        // TODO: test validations
+    }
+
+    /**
+     * Get summary of price history
+     *
+     * Fetch the historical price data for a given SKU within a defined timeframe. 
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void priceHistoryTest() throws ApiException {
+        PriceHistoryRequest priceHistoryRequest = null;
+        PriceHistoryResponse response = api.priceHistory(priceHistoryRequest);
         // TODO: test validations
     }
 
