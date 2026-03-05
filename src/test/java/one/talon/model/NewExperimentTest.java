@@ -19,7 +19,6 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
-import java.time.OffsetDateTime;
 import java.util.Arrays;
 import one.talon.model.NewCampaign;
 import org.junit.jupiter.api.Disabled;
@@ -45,22 +44,6 @@ public class NewExperimentTest {
     @Test
     public void isVariantAssignmentExternalTest() {
         // TODO: test isVariantAssignmentExternal
-    }
-
-    /**
-     * Test the property 'activated'
-     */
-    @Test
-    public void activatedTest() {
-        // TODO: test activated
-    }
-
-    /**
-     * Test the property 'state'
-     */
-    @Test
-    public void stateTest() {
-        // TODO: test state
     }
 
     /**
