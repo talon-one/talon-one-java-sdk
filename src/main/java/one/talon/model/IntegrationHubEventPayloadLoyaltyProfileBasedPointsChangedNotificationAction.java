@@ -22,6 +22,7 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.time.OffsetDateTime;
 import java.util.Arrays;
+import java.util.UUID;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -68,7 +69,7 @@ public class IntegrationHubEventPayloadLoyaltyProfileBasedPointsChangedNotificat
   public enum OperationEnum {
     ADDITION("addition"),
     
-    DEDUCTION("deduction");
+    SUBTRACTION("subtraction");
 
     private String value;
 
@@ -127,6 +128,11 @@ public class IntegrationHubEventPayloadLoyaltyProfileBasedPointsChangedNotificat
   @SerializedName(SERIALIZED_NAME_EXPIRY_DATE)
   @javax.annotation.Nullable
   private OffsetDateTime expiryDate;
+
+  public static final String SERIALIZED_NAME_TRANSACTION_U_U_I_D = "TransactionUUID";
+  @SerializedName(SERIALIZED_NAME_TRANSACTION_U_U_I_D)
+  @javax.annotation.Nonnull
+  private UUID transactionUUID;
 
   public IntegrationHubEventPayloadLoyaltyProfileBasedPointsChangedNotificationAction() {
   }
@@ -226,6 +232,25 @@ public class IntegrationHubEventPayloadLoyaltyProfileBasedPointsChangedNotificat
   }
 
 
+  public IntegrationHubEventPayloadLoyaltyProfileBasedPointsChangedNotificationAction transactionUUID(@javax.annotation.Nonnull UUID transactionUUID) {
+    this.transactionUUID = transactionUUID;
+    return this;
+  }
+
+  /**
+   * The identifier of the transaction in the loyalty ledger.
+   * @return transactionUUID
+   */
+  @javax.annotation.Nonnull
+  public UUID getTransactionUUID() {
+    return transactionUUID;
+  }
+
+  public void setTransactionUUID(@javax.annotation.Nonnull UUID transactionUUID) {
+    this.transactionUUID = transactionUUID;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -240,12 +265,13 @@ public class IntegrationHubEventPayloadLoyaltyProfileBasedPointsChangedNotificat
         Objects.equals(this.reason, integrationHubEventPayloadLoyaltyProfileBasedPointsChangedNotificationAction.reason) &&
         Objects.equals(this.operation, integrationHubEventPayloadLoyaltyProfileBasedPointsChangedNotificationAction.operation) &&
         Objects.equals(this.startDate, integrationHubEventPayloadLoyaltyProfileBasedPointsChangedNotificationAction.startDate) &&
-        Objects.equals(this.expiryDate, integrationHubEventPayloadLoyaltyProfileBasedPointsChangedNotificationAction.expiryDate);
+        Objects.equals(this.expiryDate, integrationHubEventPayloadLoyaltyProfileBasedPointsChangedNotificationAction.expiryDate) &&
+        Objects.equals(this.transactionUUID, integrationHubEventPayloadLoyaltyProfileBasedPointsChangedNotificationAction.transactionUUID);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(amount, reason, operation, startDate, expiryDate);
+    return Objects.hash(amount, reason, operation, startDate, expiryDate, transactionUUID);
   }
 
   @Override
@@ -257,6 +283,7 @@ public class IntegrationHubEventPayloadLoyaltyProfileBasedPointsChangedNotificat
     sb.append("    operation: ").append(toIndentedString(operation)).append("\n");
     sb.append("    startDate: ").append(toIndentedString(startDate)).append("\n");
     sb.append("    expiryDate: ").append(toIndentedString(expiryDate)).append("\n");
+    sb.append("    transactionUUID: ").append(toIndentedString(transactionUUID)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -278,10 +305,10 @@ public class IntegrationHubEventPayloadLoyaltyProfileBasedPointsChangedNotificat
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("Amount", "Reason", "Operation", "StartDate", "ExpiryDate"));
+    openapiFields = new HashSet<String>(Arrays.asList("Amount", "Reason", "Operation", "StartDate", "ExpiryDate", "TransactionUUID"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("Amount", "Operation"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("Amount", "Operation", "TransactionUUID"));
   }
 
   /**
@@ -320,6 +347,9 @@ public class IntegrationHubEventPayloadLoyaltyProfileBasedPointsChangedNotificat
       }
       // validate the required field `Operation`
       OperationEnum.validateJsonElement(jsonObj.get("Operation"));
+      if (!jsonObj.get("TransactionUUID").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `TransactionUUID` to be a primitive type in the JSON string but got `%s`", jsonObj.get("TransactionUUID").toString()));
+      }
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {

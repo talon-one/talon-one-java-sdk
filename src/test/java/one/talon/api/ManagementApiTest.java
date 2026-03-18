@@ -769,7 +769,7 @@ public class ManagementApiTest {
     /**
      * Export Application analytics aggregated by campaign
      *
-     * Download a CSV file containing analytics data aggregated by campaign for the campaigns of an Application.  **Tip:** If the exported CSV file is too large to view, you can [split it into multiple files](https://www.makeuseof.com/tag/how-to-split-a-huge-csv-excel-workbook-into-seperate-files/).  The CSV file contains the following columns: - &#x60;campaign_id&#x60;: The ID of the campaign. This column also contains labels for the [total and influenced values](https://docs.talon.one/docs/product/campaigns/analytics/application-dashboard#understanding-the-analytics-data). - &#x60;start_date&#x60;: The start of the aggregation time frame in UTC. - &#x60;end_date&#x60;: The end of the aggregation time frame in UTC. - &#x60;revenue&#x60;: The total, pre-discount value of all items purchased in a customer session. - &#x60;sessions&#x60;: The number of all closed sessions. - &#x60;average_session_value&#x60;: The average customer session value, calculated by dividing the revenue value by the number of sessions. - &#x60;average_items_per_session&#x60;: The number of items from sessions divided by the number of sessions. - &#x60;coupons&#x60;: The number of times a coupon was successfully redeemed in sessions. - &#x60;discounts&#x60;: The total value of discounts given for cart items in sessions. 
+     * Download a CSV file containing analytics data aggregated by campaign for the campaigns of an Application.  **Tip:** If the exported CSV file is too large to view, you can [split it into multiple files](https://www.makeuseof.com/tag/how-to-split-a-huge-csv-excel-workbook-into-seperate-files/).  The CSV file contains the following columns: - &#x60;campaign_id&#x60;: The ID of the campaign. This column also contains labels for the [total and influenced values](https://docs.talon.one/docs/product/campaigns/analytics/application-dashboard#display-the-analytics-data). - &#x60;start_date&#x60;: The start of the aggregation time frame in UTC. - &#x60;end_date&#x60;: The end of the aggregation time frame in UTC. - &#x60;revenue&#x60;: The total, pre-discount value of all items purchased in a customer session. - &#x60;sessions&#x60;: The number of all closed sessions. - &#x60;average_session_value&#x60;: The average customer session value, calculated by dividing the revenue value by the number of sessions. - &#x60;average_items_per_session&#x60;: The number of items from sessions divided by the number of sessions. - &#x60;coupons&#x60;: The number of times a coupon was successfully redeemed in sessions. - &#x60;discounts&#x60;: The total value of discounts given for cart items in sessions. 
      *
      * @throws ApiException if the Api call fails
      */
@@ -959,7 +959,7 @@ public class ManagementApiTest {
     /**
      * Export all card transaction logs
      *
-     * Download a CSV file containing the balances of all cards in the loyalty program.  **Tip:** If the exported CSV file is too large to view, you can [split it into multiple files](https://www.makeuseof.com/tag/how-to-split-a-huge-csv-excel-workbook-into-seperate-files/).  The CSV file contains the following columns: - &#x60;loyaltyProgramID&#x60;: The ID of the loyalty program. - &#x60;loyaltySubledger&#x60;: The name of the subdleger, when applicatble. - &#x60;cardIdentifier&#x60;: The alphanumeric identifier of the loyalty card. - &#x60;cardState&#x60;:The state of the loyalty card. It can be &#x60;active&#x60; or &#x60;inactive&#x60;. - &#x60;currentBalance&#x60;: The current point balance. - &#x60;pendingBalance&#x60;: The number of pending points. - &#x60;expiredBalance&#x60;: The number of expired points. - &#x60;spentBalance&#x60;: The number of spent points. 
+     * Download a CSV file containing the balances of all cards in the loyalty program.  **Tip:** If the exported CSV file is too large to view, you can [split it into multiple files](https://www.makeuseof.com/tag/how-to-split-a-huge-csv-excel-workbook-into-seperate-files/).  The CSV file contains the following columns: - &#x60;loyaltyProgramID&#x60;: The ID of the loyalty program. - &#x60;loyaltySubledger&#x60;: The name of the subdleger, when applicatble. - &#x60;cardIdentifier&#x60;: The identifier of the loyalty card, which must match the regular expression &#x60;^[A-Za-z0-9._%+@-]+$&#x60;. - &#x60;cardState&#x60;:The state of the loyalty card. It can be &#x60;active&#x60; or &#x60;inactive&#x60;. - &#x60;currentBalance&#x60;: The current point balance. - &#x60;pendingBalance&#x60;: The number of pending points. - &#x60;expiredBalance&#x60;: The number of expired points. - &#x60;spentBalance&#x60;: The number of spent points. 
      *
      * @throws ApiException if the Api call fails
      */
@@ -1375,6 +1375,7 @@ public class ManagementApiTest {
         Long pageSize = null;
         Long skip = null;
         String sort = null;
+        Boolean partialMatch = null;
         String profile = null;
         String state = null;
         OffsetDateTime createdBefore = null;
@@ -1383,7 +1384,7 @@ public class ManagementApiTest {
         String referral = null;
         String integrationId = null;
         String storeIntegrationId = null;
-        GetApplicationSessions200Response response = api.getApplicationSessions(applicationId, pageSize, skip, sort, profile, state, createdBefore, createdAfter, coupon, referral, integrationId, storeIntegrationId);
+        GetApplicationSessions200Response response = api.getApplicationSessions(applicationId, pageSize, skip, sort, partialMatch, profile, state, createdBefore, createdAfter, coupon, referral, integrationId, storeIntegrationId);
         // TODO: test validations
     }
 
@@ -2376,7 +2377,7 @@ public class ManagementApiTest {
     /**
      * Import loyalty cards
      *
-     * Upload a CSV file containing the loyalty cards that you want to use in your card-based loyalty program. Send the file as multipart data.  It contains the following columns for each card:  - &#x60;identifier&#x60; (required): The alphanumeric identifier of the loyalty card. - &#x60;state&#x60; (required): The state of the loyalty card. It can be &#x60;active&#x60; or &#x60;inactive&#x60;. - &#x60;customerprofileids&#x60; (optional): An array of strings representing the identifiers of the customer profiles linked to the loyalty card. The identifiers should be separated with a semicolon (;). - &#x60;attributes&#x60; (optional): A JSON object that contains the loyalty card&#39;s custom attributes and their values. These attributes must be created and connected to this loyalty program before  they can be assigned to the cards through this endpoint.  **Note:** We recommend limiting your file size to 500MB.  **Example:**  &#x60;&#x60;&#x60;csv identifier,state,customerprofileids,attributes 123-456-789AT,active,Alexa001;UserA,\&quot;{\&quot;\&quot;my_attribute\&quot;\&quot;: \&quot;\&quot;10_off\&quot;\&quot;}\&quot; &#x60;&#x60;&#x60; 
+     * Upload a CSV file containing the loyalty cards that you want to use in your card-based loyalty program. Send the file as multipart data.  It contains the following columns for each card:  - &#x60;identifier&#x60; (required): The identifier of the loyalty card,  which must match the regular expression &#x60;^[A-Za-z0-9._%+@-]+$&#x60;. - &#x60;state&#x60; (required): The state of the loyalty card. It can be &#x60;active&#x60; or &#x60;inactive&#x60;. - &#x60;customerprofileids&#x60; (optional): An array of strings representing the identifiers of the customer profiles linked to the loyalty card. The identifiers should be separated with a semicolon (;).  **Note:** We recommend limiting your file size to 500MB.  **Example:**  &#x60;&#x60;&#x60;csv identifier,state,customerprofileids 123-456-789AT,active,Alexa001;UserA &#x60;&#x60;&#x60; 
      *
      * @throws ApiException if the Api call fails
      */
@@ -3097,7 +3098,7 @@ public class ManagementApiTest {
     /**
      * Update loyalty card
      *
-     * Update the details of a specific loyalty card. You can set the card&#39;s status to &#x60;active&#x60; or &#x60;inactive&#x60; through this endpoint. At least one of &#x60;status&#x60; or &#x60;attributes&#x60; must be provided. 
+     * Update the details of a specific loyalty card. You can set the card&#39;s status to &#x60;active&#x60; or &#x60;inactive&#x60; through this endpoint. At least one of &#x60;status&#x60; or &#x60;attributes&#x60; must be provided.
      *
      * @throws ApiException if the Api call fails
      */

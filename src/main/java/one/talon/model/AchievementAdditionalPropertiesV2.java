@@ -20,9 +20,7 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -48,18 +46,37 @@ import java.util.Set;
 import one.talon.JSON;
 
 /**
- * The parameters necessary to generate a loyalty card.
+ * AchievementAdditionalPropertiesV2
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.20.0")
-public class GenerateLoyaltyCard {
+public class AchievementAdditionalPropertiesV2 {
+  public static final String SERIALIZED_NAME_USER_ID = "userId";
+  @SerializedName(SERIALIZED_NAME_USER_ID)
+  @javax.annotation.Nonnull
+  private Long userId;
+
+  public static final String SERIALIZED_NAME_CREATED_BY = "createdBy";
+  @SerializedName(SERIALIZED_NAME_CREATED_BY)
+  @javax.annotation.Nullable
+  private String createdBy;
+
+  public static final String SERIALIZED_NAME_HAS_PROGRESS = "hasProgress";
+  @SerializedName(SERIALIZED_NAME_HAS_PROGRESS)
+  @javax.annotation.Nullable
+  private Boolean hasProgress;
+
   /**
-   * Status of the loyalty card.
+   * The status of the achievement.
    */
   @JsonAdapter(StatusEnum.Adapter.class)
   public enum StatusEnum {
-    ACTIVE("active"),
+    INPROGRESS("inprogress"),
     
-    INACTIVE("inactive");
+    EXPIRED("expired"),
+    
+    NOT_STARTED("not_started"),
+    
+    COMPLETED("completed");
 
     private String value;
 
@@ -107,28 +124,75 @@ public class GenerateLoyaltyCard {
   public static final String SERIALIZED_NAME_STATUS = "status";
   @SerializedName(SERIALIZED_NAME_STATUS)
   @javax.annotation.Nullable
-  private StatusEnum status = StatusEnum.ACTIVE;
+  private StatusEnum status;
 
-  public static final String SERIALIZED_NAME_CUSTOMER_PROFILE_IDS = "customerProfileIds";
-  @SerializedName(SERIALIZED_NAME_CUSTOMER_PROFILE_IDS)
-  @javax.annotation.Nullable
-  private List<String> customerProfileIds = new ArrayList<>();
-
-  public static final String SERIALIZED_NAME_CARD_IDENTIFIER = "cardIdentifier";
-  @SerializedName(SERIALIZED_NAME_CARD_IDENTIFIER)
-  @javax.annotation.Nullable
-  private String cardIdentifier;
-
-  public GenerateLoyaltyCard() {
+  public AchievementAdditionalPropertiesV2() {
   }
 
-  public GenerateLoyaltyCard status(@javax.annotation.Nullable StatusEnum status) {
+  public AchievementAdditionalPropertiesV2 userId(@javax.annotation.Nonnull Long userId) {
+    this.userId = userId;
+    return this;
+  }
+
+  /**
+   * The ID of the user that created this achievement.
+   * @return userId
+   */
+  @javax.annotation.Nonnull
+  public Long getUserId() {
+    return userId;
+  }
+
+  public void setUserId(@javax.annotation.Nonnull Long userId) {
+    this.userId = userId;
+  }
+
+
+  public AchievementAdditionalPropertiesV2 createdBy(@javax.annotation.Nullable String createdBy) {
+    this.createdBy = createdBy;
+    return this;
+  }
+
+  /**
+   * Name of the user that created the achievement.  **Note**: This is not available if the user has been deleted. 
+   * @return createdBy
+   */
+  @javax.annotation.Nullable
+  public String getCreatedBy() {
+    return createdBy;
+  }
+
+  public void setCreatedBy(@javax.annotation.Nullable String createdBy) {
+    this.createdBy = createdBy;
+  }
+
+
+  public AchievementAdditionalPropertiesV2 hasProgress(@javax.annotation.Nullable Boolean hasProgress) {
+    this.hasProgress = hasProgress;
+    return this;
+  }
+
+  /**
+   * Indicates if a customer has made progress in the achievement.
+   * @return hasProgress
+   */
+  @javax.annotation.Nullable
+  public Boolean getHasProgress() {
+    return hasProgress;
+  }
+
+  public void setHasProgress(@javax.annotation.Nullable Boolean hasProgress) {
+    this.hasProgress = hasProgress;
+  }
+
+
+  public AchievementAdditionalPropertiesV2 status(@javax.annotation.Nullable StatusEnum status) {
     this.status = status;
     return this;
   }
 
   /**
-   * Status of the loyalty card.
+   * The status of the achievement.
    * @return status
    */
   @javax.annotation.Nullable
@@ -141,52 +205,6 @@ public class GenerateLoyaltyCard {
   }
 
 
-  public GenerateLoyaltyCard customerProfileIds(@javax.annotation.Nullable List<String> customerProfileIds) {
-    this.customerProfileIds = customerProfileIds;
-    return this;
-  }
-
-  public GenerateLoyaltyCard addCustomerProfileIdsItem(String customerProfileIdsItem) {
-    if (this.customerProfileIds == null) {
-      this.customerProfileIds = new ArrayList<>();
-    }
-    this.customerProfileIds.add(customerProfileIdsItem);
-    return this;
-  }
-
-  /**
-   * Integration IDs of the customer profiles linked to the card.
-   * @return customerProfileIds
-   */
-  @javax.annotation.Nullable
-  public List<String> getCustomerProfileIds() {
-    return customerProfileIds;
-  }
-
-  public void setCustomerProfileIds(@javax.annotation.Nullable List<String> customerProfileIds) {
-    this.customerProfileIds = customerProfileIds;
-  }
-
-
-  public GenerateLoyaltyCard cardIdentifier(@javax.annotation.Nullable String cardIdentifier) {
-    this.cardIdentifier = cardIdentifier;
-    return this;
-  }
-
-  /**
-   * The identifier of the loyalty card, which must match the regular expression &#x60;^[A-Za-z0-9._%+@-]+$&#x60;. 
-   * @return cardIdentifier
-   */
-  @javax.annotation.Nullable
-  public String getCardIdentifier() {
-    return cardIdentifier;
-  }
-
-  public void setCardIdentifier(@javax.annotation.Nullable String cardIdentifier) {
-    this.cardIdentifier = cardIdentifier;
-  }
-
-
 
   @Override
   public boolean equals(Object o) {
@@ -196,24 +214,26 @@ public class GenerateLoyaltyCard {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    GenerateLoyaltyCard generateLoyaltyCard = (GenerateLoyaltyCard) o;
-    return Objects.equals(this.status, generateLoyaltyCard.status) &&
-        Objects.equals(this.customerProfileIds, generateLoyaltyCard.customerProfileIds) &&
-        Objects.equals(this.cardIdentifier, generateLoyaltyCard.cardIdentifier);
+    AchievementAdditionalPropertiesV2 achievementAdditionalPropertiesV2 = (AchievementAdditionalPropertiesV2) o;
+    return Objects.equals(this.userId, achievementAdditionalPropertiesV2.userId) &&
+        Objects.equals(this.createdBy, achievementAdditionalPropertiesV2.createdBy) &&
+        Objects.equals(this.hasProgress, achievementAdditionalPropertiesV2.hasProgress) &&
+        Objects.equals(this.status, achievementAdditionalPropertiesV2.status);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(status, customerProfileIds, cardIdentifier);
+    return Objects.hash(userId, createdBy, hasProgress, status);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class GenerateLoyaltyCard {\n");
+    sb.append("class AchievementAdditionalPropertiesV2 {\n");
+    sb.append("    userId: ").append(toIndentedString(userId)).append("\n");
+    sb.append("    createdBy: ").append(toIndentedString(createdBy)).append("\n");
+    sb.append("    hasProgress: ").append(toIndentedString(hasProgress)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
-    sb.append("    customerProfileIds: ").append(toIndentedString(customerProfileIds)).append("\n");
-    sb.append("    cardIdentifier: ").append(toIndentedString(cardIdentifier)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -235,33 +255,43 @@ public class GenerateLoyaltyCard {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("status", "customerProfileIds", "cardIdentifier"));
+    openapiFields = new HashSet<String>(Arrays.asList("userId", "createdBy", "hasProgress", "status"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(0);
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("userId"));
   }
 
   /**
    * Validates the JSON Element and throws an exception if issues found
    *
    * @param jsonElement JSON Element
-   * @throws IOException if the JSON Element is invalid with respect to GenerateLoyaltyCard
+   * @throws IOException if the JSON Element is invalid with respect to AchievementAdditionalPropertiesV2
    */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
-        if (!GenerateLoyaltyCard.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in GenerateLoyaltyCard is not found in the empty JSON string", GenerateLoyaltyCard.openapiRequiredFields.toString()));
+        if (!AchievementAdditionalPropertiesV2.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in AchievementAdditionalPropertiesV2 is not found in the empty JSON string", AchievementAdditionalPropertiesV2.openapiRequiredFields.toString()));
         }
       }
 
       Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
-        if (!GenerateLoyaltyCard.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `GenerateLoyaltyCard` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+        if (!AchievementAdditionalPropertiesV2.openapiFields.contains(entry.getKey())) {
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `AchievementAdditionalPropertiesV2` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+        }
+      }
+
+      // check to make sure all required properties/fields are present in the JSON string
+      for (String requiredField : AchievementAdditionalPropertiesV2.openapiRequiredFields) {
+        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
+      if ((jsonObj.get("createdBy") != null && !jsonObj.get("createdBy").isJsonNull()) && !jsonObj.get("createdBy").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `createdBy` to be a primitive type in the JSON string but got `%s`", jsonObj.get("createdBy").toString()));
+      }
       if ((jsonObj.get("status") != null && !jsonObj.get("status").isJsonNull()) && !jsonObj.get("status").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `status` to be a primitive type in the JSON string but got `%s`", jsonObj.get("status").toString()));
       }
@@ -269,35 +299,28 @@ public class GenerateLoyaltyCard {
       if (jsonObj.get("status") != null && !jsonObj.get("status").isJsonNull()) {
         StatusEnum.validateJsonElement(jsonObj.get("status"));
       }
-      // ensure the optional json data is an array if present
-      if (jsonObj.get("customerProfileIds") != null && !jsonObj.get("customerProfileIds").isJsonNull() && !jsonObj.get("customerProfileIds").isJsonArray()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `customerProfileIds` to be an array in the JSON string but got `%s`", jsonObj.get("customerProfileIds").toString()));
-      }
-      if ((jsonObj.get("cardIdentifier") != null && !jsonObj.get("cardIdentifier").isJsonNull()) && !jsonObj.get("cardIdentifier").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `cardIdentifier` to be a primitive type in the JSON string but got `%s`", jsonObj.get("cardIdentifier").toString()));
-      }
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!GenerateLoyaltyCard.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'GenerateLoyaltyCard' and its subtypes
+       if (!AchievementAdditionalPropertiesV2.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'AchievementAdditionalPropertiesV2' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<GenerateLoyaltyCard> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(GenerateLoyaltyCard.class));
+       final TypeAdapter<AchievementAdditionalPropertiesV2> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(AchievementAdditionalPropertiesV2.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<GenerateLoyaltyCard>() {
+       return (TypeAdapter<T>) new TypeAdapter<AchievementAdditionalPropertiesV2>() {
            @Override
-           public void write(JsonWriter out, GenerateLoyaltyCard value) throws IOException {
+           public void write(JsonWriter out, AchievementAdditionalPropertiesV2 value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              elementAdapter.write(out, obj);
            }
 
            @Override
-           public GenerateLoyaltyCard read(JsonReader in) throws IOException {
+           public AchievementAdditionalPropertiesV2 read(JsonReader in) throws IOException {
              JsonElement jsonElement = elementAdapter.read(in);
              validateJsonElement(jsonElement);
              return thisAdapter.fromJsonTree(jsonElement);
@@ -308,18 +331,18 @@ public class GenerateLoyaltyCard {
   }
 
   /**
-   * Create an instance of GenerateLoyaltyCard given an JSON string
+   * Create an instance of AchievementAdditionalPropertiesV2 given an JSON string
    *
    * @param jsonString JSON string
-   * @return An instance of GenerateLoyaltyCard
-   * @throws IOException if the JSON string is invalid with respect to GenerateLoyaltyCard
+   * @return An instance of AchievementAdditionalPropertiesV2
+   * @throws IOException if the JSON string is invalid with respect to AchievementAdditionalPropertiesV2
    */
-  public static GenerateLoyaltyCard fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, GenerateLoyaltyCard.class);
+  public static AchievementAdditionalPropertiesV2 fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, AchievementAdditionalPropertiesV2.class);
   }
 
   /**
-   * Convert an instance of GenerateLoyaltyCard to an JSON string
+   * Convert an instance of AchievementAdditionalPropertiesV2 to an JSON string
    *
    * @return JSON string
    */

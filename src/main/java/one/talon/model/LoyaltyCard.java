@@ -279,7 +279,7 @@ public class LoyaltyCard {
   }
 
   /**
-   * The alphanumeric identifier of the loyalty card. 
+   * The identifier of the loyalty card, which must match the regular expression &#x60;^[A-Za-z0-9._%+@-]+$&#x60;. 
    * @return identifier
    */
   @javax.annotation.Nonnull

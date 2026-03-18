@@ -53,4 +53,12 @@ public class StrikethroughSetDiscountPerItemEffectPropsTest {
         // TODO: test value
     }
 
+    /**
+     * Test the property 'excludeFromBestPriorPriceHistory'
+     */
+    @Test
+    public void excludeFromBestPriorPriceHistoryTest() {
+        // TODO: test excludeFromBestPriorPriceHistory
+    }
+
 }

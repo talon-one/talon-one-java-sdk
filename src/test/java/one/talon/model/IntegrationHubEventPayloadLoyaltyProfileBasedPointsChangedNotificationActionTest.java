@@ -21,6 +21,7 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.time.OffsetDateTime;
 import java.util.Arrays;
+import java.util.UUID;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
@@ -76,6 +77,14 @@ public class IntegrationHubEventPayloadLoyaltyProfileBasedPointsChangedNotificat
     @Test
     public void expiryDateTest() {
         // TODO: test expiryDate
+    }
+
+    /**
+     * Test the property 'transactionUUID'
+     */
+    @Test
+    public void transactionUUIDTest() {
+        // TODO: test transactionUUID
     }
 
 }

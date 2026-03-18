@@ -19,73 +19,54 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
-import java.math.BigDecimal;
-import java.time.OffsetDateTime;
 import java.util.Arrays;
-import java.util.UUID;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 /**
- * Model tests for AddedDeductedPointsBalancesAction
+ * Model tests for AchievementReference
  */
-public class AddedDeductedPointsBalancesActionTest {
-    private final AddedDeductedPointsBalancesAction model = new AddedDeductedPointsBalancesAction();
+public class AchievementReferenceTest {
+    private final AchievementReference model = new AchievementReference();
 
     /**
-     * Model tests for AddedDeductedPointsBalancesAction
+     * Model tests for AchievementReference
      */
     @Test
-    public void testAddedDeductedPointsBalancesAction() {
-        // TODO: test AddedDeductedPointsBalancesAction
+    public void testAchievementReference() {
+        // TODO: test AchievementReference
     }
 
     /**
-     * Test the property 'amount'
+     * Test the property 'achievementId'
      */
     @Test
-    public void amountTest() {
-        // TODO: test amount
+    public void achievementIdTest() {
+        // TODO: test achievementId
     }
 
     /**
-     * Test the property 'reason'
+     * Test the property 'applicationId'
      */
     @Test
-    public void reasonTest() {
-        // TODO: test reason
+    public void applicationIdTest() {
+        // TODO: test applicationId
     }
 
     /**
-     * Test the property 'operation'
+     * Test the property 'applicationName'
      */
     @Test
-    public void operationTest() {
-        // TODO: test operation
+    public void applicationNameTest() {
+        // TODO: test applicationName
     }
 
     /**
-     * Test the property 'startDate'
+     * Test the property 'campaignId'
      */
     @Test
-    public void startDateTest() {
-        // TODO: test startDate
-    }
-
-    /**
-     * Test the property 'expiryDate'
-     */
-    @Test
-    public void expiryDateTest() {
-        // TODO: test expiryDate
-    }
-
-    /**
-     * Test the property 'transactionUUID'
-     */
-    @Test
-    public void transactionUUIDTest() {
-        // TODO: test transactionUUID
+    public void campaignIdTest() {
+        // TODO: test campaignId
     }
 
 }

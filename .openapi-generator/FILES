@@ -27,10 +27,14 @@ docs/AccountEntity.md
 docs/AccountLimits.md
 docs/Achievement.md
 docs/AchievementAdditionalProperties.md
+docs/AchievementAdditionalPropertiesV2.md
 docs/AchievementBase.md
+docs/AchievementBaseV2.md
 docs/AchievementProgress.md
 docs/AchievementProgressWithDefinition.md
+docs/AchievementReference.md
 docs/AchievementStatusEntry.md
+docs/AchievementV2.md
 docs/ActivateLoyaltyPoints.md
 docs/ActivateLoyaltyPointsResponse.md
 docs/ActivateUserRequest.md
@@ -186,6 +190,7 @@ docs/CouponWithApplication.md
 docs/CouponsNotificationData.md
 docs/CouponsNotificationPolicy.md
 docs/CreateAchievement.md
+docs/CreateAchievementV2.md
 docs/CreateApplicationAPIKey.md
 docs/CreateCouponData.md
 docs/CreateCoupons200Response.md
@@ -321,6 +326,7 @@ docs/ImportEntity.md
 docs/IncreaseAchievementProgressEffectProps.md
 docs/InfluencingCampaignDetails.md
 docs/IntegrationApi.md
+docs/IntegrationCampaign.md
 docs/IntegrationCoupon.md
 docs/IntegrationCustomerProfileAudienceRequest.md
 docs/IntegrationCustomerProfileAudienceRequestItem.md
@@ -635,6 +641,7 @@ docs/TriggerWebhookEffectProps.md
 docs/TwoFAConfig.md
 docs/UpdateAccount.md
 docs/UpdateAchievement.md
+docs/UpdateAchievementV2.md
 docs/UpdateApplication.md
 docs/UpdateApplicationAPIKey.md
 docs/UpdateApplicationCIF.md
@@ -725,10 +732,14 @@ src/main/java/one/talon/model/AccountEntity.java
 src/main/java/one/talon/model/AccountLimits.java
 src/main/java/one/talon/model/Achievement.java
 src/main/java/one/talon/model/AchievementAdditionalProperties.java
+src/main/java/one/talon/model/AchievementAdditionalPropertiesV2.java
 src/main/java/one/talon/model/AchievementBase.java
+src/main/java/one/talon/model/AchievementBaseV2.java
 src/main/java/one/talon/model/AchievementProgress.java
 src/main/java/one/talon/model/AchievementProgressWithDefinition.java
+src/main/java/one/talon/model/AchievementReference.java
 src/main/java/one/talon/model/AchievementStatusEntry.java
+src/main/java/one/talon/model/AchievementV2.java
 src/main/java/one/talon/model/ActivateLoyaltyPoints.java
 src/main/java/one/talon/model/ActivateLoyaltyPointsResponse.java
 src/main/java/one/talon/model/ActivateUserRequest.java
@@ -884,6 +895,7 @@ src/main/java/one/talon/model/CouponWithApplication.java
 src/main/java/one/talon/model/CouponsNotificationData.java
 src/main/java/one/talon/model/CouponsNotificationPolicy.java
 src/main/java/one/talon/model/CreateAchievement.java
+src/main/java/one/talon/model/CreateAchievementV2.java
 src/main/java/one/talon/model/CreateApplicationAPIKey.java
 src/main/java/one/talon/model/CreateCouponData.java
 src/main/java/one/talon/model/CreateCoupons200Response.java
@@ -1018,6 +1030,7 @@ src/main/java/one/talon/model/IdentifiableEntity.java
 src/main/java/one/talon/model/ImportEntity.java
 src/main/java/one/talon/model/IncreaseAchievementProgressEffectProps.java
 src/main/java/one/talon/model/InfluencingCampaignDetails.java
+src/main/java/one/talon/model/IntegrationCampaign.java
 src/main/java/one/talon/model/IntegrationCoupon.java
 src/main/java/one/talon/model/IntegrationCustomerProfileAudienceRequest.java
 src/main/java/one/talon/model/IntegrationCustomerProfileAudienceRequestItem.java
@@ -1331,6 +1344,7 @@ src/main/java/one/talon/model/TriggerWebhookEffectProps.java
 src/main/java/one/talon/model/TwoFAConfig.java
 src/main/java/one/talon/model/UpdateAccount.java
 src/main/java/one/talon/model/UpdateAchievement.java
+src/main/java/one/talon/model/UpdateAchievementV2.java
 src/main/java/one/talon/model/UpdateApplication.java
 src/main/java/one/talon/model/UpdateApplicationAPIKey.java
 src/main/java/one/talon/model/UpdateApplicationCIF.java
@@ -1393,11 +1407,15 @@ src/test/java/one/talon/model/AccountEntityTest.java
 src/test/java/one/talon/model/AccountLimitsTest.java
 src/test/java/one/talon/model/AccountTest.java
 src/test/java/one/talon/model/AchievementAdditionalPropertiesTest.java
+src/test/java/one/talon/model/AchievementAdditionalPropertiesV2Test.java
 src/test/java/one/talon/model/AchievementBaseTest.java
+src/test/java/one/talon/model/AchievementBaseV2Test.java
 src/test/java/one/talon/model/AchievementProgressTest.java
 src/test/java/one/talon/model/AchievementProgressWithDefinitionTest.java
+src/test/java/one/talon/model/AchievementReferenceTest.java
 src/test/java/one/talon/model/AchievementStatusEntryTest.java
 src/test/java/one/talon/model/AchievementTest.java
+src/test/java/one/talon/model/AchievementV2Test.java
 src/test/java/one/talon/model/ActivateLoyaltyPointsResponseTest.java
 src/test/java/one/talon/model/ActivateLoyaltyPointsTest.java
 src/test/java/one/talon/model/ActivateUserRequestTest.java
@@ -1553,6 +1571,7 @@ src/test/java/one/talon/model/CouponWithApplicationTest.java
 src/test/java/one/talon/model/CouponsNotificationDataTest.java
 src/test/java/one/talon/model/CouponsNotificationPolicyTest.java
 src/test/java/one/talon/model/CreateAchievementTest.java
+src/test/java/one/talon/model/CreateAchievementV2Test.java
 src/test/java/one/talon/model/CreateApplicationAPIKeyTest.java
 src/test/java/one/talon/model/CreateCouponDataTest.java
 src/test/java/one/talon/model/CreateCoupons200ResponseTest.java
@@ -1687,6 +1706,7 @@ src/test/java/one/talon/model/IdentifiableEntityTest.java
 src/test/java/one/talon/model/ImportEntityTest.java
 src/test/java/one/talon/model/IncreaseAchievementProgressEffectPropsTest.java
 src/test/java/one/talon/model/InfluencingCampaignDetailsTest.java
+src/test/java/one/talon/model/IntegrationCampaignTest.java
 src/test/java/one/talon/model/IntegrationCouponTest.java
 src/test/java/one/talon/model/IntegrationCustomerProfileAudienceRequestItemTest.java
 src/test/java/one/talon/model/IntegrationCustomerProfileAudienceRequestTest.java
@@ -2000,6 +2020,7 @@ src/test/java/one/talon/model/TriggerWebhookEffectPropsTest.java
 src/test/java/one/talon/model/TwoFAConfigTest.java
 src/test/java/one/talon/model/UpdateAccountTest.java
 src/test/java/one/talon/model/UpdateAchievementTest.java
+src/test/java/one/talon/model/UpdateAchievementV2Test.java
 src/test/java/one/talon/model/UpdateApplicationAPIKeyTest.java
 src/test/java/one/talon/model/UpdateApplicationCIFTest.java
 src/test/java/one/talon/model/UpdateApplicationTest.java
