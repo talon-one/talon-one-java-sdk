@@ -175,7 +175,7 @@ public class ExpiringCardPointsData {
   }
 
   /**
-   * The alphanumeric identifier of the loyalty card.
+   * The identifier of the loyalty card, &#x60;which must match the regular expression &#x60;^[A-Za-z0-9._%+@-]+$&#x60;. 
    * @return cardIdentifier
    */
   @javax.annotation.Nonnull

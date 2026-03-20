@@ -22,6 +22,7 @@ import java.io.IOException;
 import java.math.BigDecimal;
 import java.time.OffsetDateTime;
 import java.util.Arrays;
+import java.util.UUID;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
@@ -141,6 +142,14 @@ public class AddedDeductedPointsNotificationTest {
     @Test
     public void startDateTest() {
         // TODO: test startDate
+    }
+
+    /**
+     * Test the property 'transactionUUID'
+     */
+    @Test
+    public void transactionUUIDTest() {
+        // TODO: test transactionUUID
     }
 
 }

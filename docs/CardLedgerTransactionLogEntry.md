@@ -11,7 +11,7 @@ Log entry for a given loyalty card transaction.
 |**transactionUUID** | **String** | Unique identifier of the transaction in the UUID format. |  |
 |**created** | **OffsetDateTime** | Date and time the loyalty card transaction occurred. |  |
 |**programId** | **Long** | ID of the loyalty program. |  |
-|**cardIdentifier** | **String** | The alphanumeric identifier of the loyalty card.  |  |
+|**cardIdentifier** | **String** | The identifier of the loyalty card, which must match the regular expression &#x60;^[A-Za-z0-9._%+@-]+$&#x60;.  |  |
 |**applicationId** | **Long** | The ID of the Application that owns this entity. |  [optional] |
 |**sessionId** | **Long** | The **internal** ID of the session.  |  [optional] |
 |**customerSessionId** | **String** | ID of the customer session where the transaction occurred. |  [optional] |

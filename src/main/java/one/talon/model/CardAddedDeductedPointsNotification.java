@@ -25,6 +25,7 @@ import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.UUID;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -221,13 +222,13 @@ public class CardAddedDeductedPointsNotification {
   private OffsetDateTime expiryDate;
 
   /**
-   * The action (addition or deduction) made with loyalty points.
+   * The action (addition or subtraction) made with loyalty points.
    */
   @JsonAdapter(OperationEnum.Adapter.class)
   public enum OperationEnum {
     ADDITION("addition"),
     
-    DEDUCTION("deduction");
+    SUBTRACTION("subtraction");
 
     private String value;
 
@@ -286,6 +287,11 @@ public class CardAddedDeductedPointsNotification {
   @SerializedName(SERIALIZED_NAME_START_DATE)
   @javax.annotation.Nullable
   private OffsetDateTime startDate;
+
+  public static final String SERIALIZED_NAME_TRANSACTION_U_U_I_D = "TransactionUUID";
+  @SerializedName(SERIALIZED_NAME_TRANSACTION_U_U_I_D)
+  @javax.annotation.Nonnull
+  private UUID transactionUUID;
 
   public CardAddedDeductedPointsNotification() {
   }
@@ -533,7 +539,7 @@ public class CardAddedDeductedPointsNotification {
   }
 
   /**
-   * The action (addition or deduction) made with loyalty points.
+   * The action (addition or subtraction) made with loyalty points.
    * @return operation
    */
   @javax.annotation.Nonnull
@@ -584,6 +590,25 @@ public class CardAddedDeductedPointsNotification {
   }
 
 
+  public CardAddedDeductedPointsNotification transactionUUID(@javax.annotation.Nonnull UUID transactionUUID) {
+    this.transactionUUID = transactionUUID;
+    return this;
+  }
+
+  /**
+   * The identifier of the transaction in the loyalty ledger.
+   * @return transactionUUID
+   */
+  @javax.annotation.Nonnull
+  public UUID getTransactionUUID() {
+    return transactionUUID;
+  }
+
+  public void setTransactionUUID(@javax.annotation.Nonnull UUID transactionUUID) {
+    this.transactionUUID = transactionUUID;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -608,12 +633,13 @@ public class CardAddedDeductedPointsNotification {
         Objects.equals(this.expiryDate, cardAddedDeductedPointsNotification.expiryDate) &&
         Objects.equals(this.operation, cardAddedDeductedPointsNotification.operation) &&
         Objects.equals(this.reason, cardAddedDeductedPointsNotification.reason) &&
-        Objects.equals(this.startDate, cardAddedDeductedPointsNotification.startDate);
+        Objects.equals(this.startDate, cardAddedDeductedPointsNotification.startDate) &&
+        Objects.equals(this.transactionUUID, cardAddedDeductedPointsNotification.transactionUUID);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(cardIdentifier, employeeName, loyaltyProgramID, notificationType, profileIntegrationIDs, sessionIntegrationID, subledgerID, typeOfChange, userID, usersPerCardLimit, amount, expiryDate, operation, reason, startDate);
+    return Objects.hash(cardIdentifier, employeeName, loyaltyProgramID, notificationType, profileIntegrationIDs, sessionIntegrationID, subledgerID, typeOfChange, userID, usersPerCardLimit, amount, expiryDate, operation, reason, startDate, transactionUUID);
   }
 
   @Override
@@ -635,6 +661,7 @@ public class CardAddedDeductedPointsNotification {
     sb.append("    operation: ").append(toIndentedString(operation)).append("\n");
     sb.append("    reason: ").append(toIndentedString(reason)).append("\n");
     sb.append("    startDate: ").append(toIndentedString(startDate)).append("\n");
+    sb.append("    transactionUUID: ").append(toIndentedString(transactionUUID)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -656,10 +683,10 @@ public class CardAddedDeductedPointsNotification {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("CardIdentifier", "EmployeeName", "LoyaltyProgramID", "NotificationType", "ProfileIntegrationIDs", "SessionIntegrationID", "SubledgerID", "TypeOfChange", "UserID", "UsersPerCardLimit", "Amount", "ExpiryDate", "Operation", "Reason", "StartDate"));
+    openapiFields = new HashSet<String>(Arrays.asList("CardIdentifier", "EmployeeName", "LoyaltyProgramID", "NotificationType", "ProfileIntegrationIDs", "SessionIntegrationID", "SubledgerID", "TypeOfChange", "UserID", "UsersPerCardLimit", "Amount", "ExpiryDate", "Operation", "Reason", "StartDate", "TransactionUUID"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("CardIdentifier", "EmployeeName", "LoyaltyProgramID", "NotificationType", "ProfileIntegrationIDs", "SessionIntegrationID", "SubledgerID", "TypeOfChange", "UserID", "UsersPerCardLimit", "Amount", "Operation", "Reason"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("CardIdentifier", "EmployeeName", "LoyaltyProgramID", "NotificationType", "ProfileIntegrationIDs", "SessionIntegrationID", "SubledgerID", "TypeOfChange", "UserID", "UsersPerCardLimit", "Amount", "Operation", "Reason", "TransactionUUID"));
   }
 
   /**
@@ -725,6 +752,9 @@ public class CardAddedDeductedPointsNotification {
       OperationEnum.validateJsonElement(jsonObj.get("Operation"));
       if (!jsonObj.get("Reason").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `Reason` to be a primitive type in the JSON string but got `%s`", jsonObj.get("Reason").toString()));
+      }
+      if (!jsonObj.get("TransactionUUID").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `TransactionUUID` to be a primitive type in the JSON string but got `%s`", jsonObj.get("TransactionUUID").toString()));
       }
   }
 

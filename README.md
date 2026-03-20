@@ -42,7 +42,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>one.talon</groupId>
   <artifactId>talon-one-client</artifactId>
-  <version>26.05</version>
+  <version>26.06.0</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -52,7 +52,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "one.talon:talon-one-client:26.05"
+compile "one.talon:talon-one-client:26.06.0"
 ```
 
 ### Others
@@ -443,10 +443,14 @@ Class | Method | HTTP request | Description
 - [AccountLimits](docs/AccountLimits.md)
 - [Achievement](docs/Achievement.md)
 - [AchievementAdditionalProperties](docs/AchievementAdditionalProperties.md)
+- [AchievementAdditionalPropertiesV2](docs/AchievementAdditionalPropertiesV2.md)
 - [AchievementBase](docs/AchievementBase.md)
+- [AchievementBaseV2](docs/AchievementBaseV2.md)
 - [AchievementProgress](docs/AchievementProgress.md)
 - [AchievementProgressWithDefinition](docs/AchievementProgressWithDefinition.md)
+- [AchievementReference](docs/AchievementReference.md)
 - [AchievementStatusEntry](docs/AchievementStatusEntry.md)
+- [AchievementV2](docs/AchievementV2.md)
 - [ActivateLoyaltyPoints](docs/ActivateLoyaltyPoints.md)
 - [ActivateLoyaltyPointsResponse](docs/ActivateLoyaltyPointsResponse.md)
 - [ActivateUserRequest](docs/ActivateUserRequest.md)
@@ -602,6 +606,7 @@ Class | Method | HTTP request | Description
 - [CouponsNotificationData](docs/CouponsNotificationData.md)
 - [CouponsNotificationPolicy](docs/CouponsNotificationPolicy.md)
 - [CreateAchievement](docs/CreateAchievement.md)
+- [CreateAchievementV2](docs/CreateAchievementV2.md)
 - [CreateApplicationAPIKey](docs/CreateApplicationAPIKey.md)
 - [CreateCouponData](docs/CreateCouponData.md)
 - [CreateCoupons200Response](docs/CreateCoupons200Response.md)
@@ -736,6 +741,7 @@ Class | Method | HTTP request | Description
 - [ImportEntity](docs/ImportEntity.md)
 - [IncreaseAchievementProgressEffectProps](docs/IncreaseAchievementProgressEffectProps.md)
 - [InfluencingCampaignDetails](docs/InfluencingCampaignDetails.md)
+- [IntegrationCampaign](docs/IntegrationCampaign.md)
 - [IntegrationCoupon](docs/IntegrationCoupon.md)
 - [IntegrationCustomerProfileAudienceRequest](docs/IntegrationCustomerProfileAudienceRequest.md)
 - [IntegrationCustomerProfileAudienceRequestItem](docs/IntegrationCustomerProfileAudienceRequestItem.md)
@@ -1049,6 +1055,7 @@ Class | Method | HTTP request | Description
 - [TwoFAConfig](docs/TwoFAConfig.md)
 - [UpdateAccount](docs/UpdateAccount.md)
 - [UpdateAchievement](docs/UpdateAchievement.md)
+- [UpdateAchievementV2](docs/UpdateAchievementV2.md)
 - [UpdateApplication](docs/UpdateApplication.md)
 - [UpdateApplicationAPIKey](docs/UpdateApplicationAPIKey.md)
 - [UpdateApplicationCIF](docs/UpdateApplicationCIF.md)

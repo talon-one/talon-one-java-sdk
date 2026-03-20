@@ -19,73 +19,54 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
-import java.math.BigDecimal;
-import java.time.OffsetDateTime;
 import java.util.Arrays;
-import java.util.UUID;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 /**
- * Model tests for AddedDeductedPointsBalancesAction
+ * Model tests for AchievementAdditionalPropertiesV2
  */
-public class AddedDeductedPointsBalancesActionTest {
-    private final AddedDeductedPointsBalancesAction model = new AddedDeductedPointsBalancesAction();
+public class AchievementAdditionalPropertiesV2Test {
+    private final AchievementAdditionalPropertiesV2 model = new AchievementAdditionalPropertiesV2();
 
     /**
-     * Model tests for AddedDeductedPointsBalancesAction
+     * Model tests for AchievementAdditionalPropertiesV2
      */
     @Test
-    public void testAddedDeductedPointsBalancesAction() {
-        // TODO: test AddedDeductedPointsBalancesAction
+    public void testAchievementAdditionalPropertiesV2() {
+        // TODO: test AchievementAdditionalPropertiesV2
     }
 
     /**
-     * Test the property 'amount'
+     * Test the property 'userId'
      */
     @Test
-    public void amountTest() {
-        // TODO: test amount
+    public void userIdTest() {
+        // TODO: test userId
     }
 
     /**
-     * Test the property 'reason'
+     * Test the property 'createdBy'
      */
     @Test
-    public void reasonTest() {
-        // TODO: test reason
+    public void createdByTest() {
+        // TODO: test createdBy
     }
 
     /**
-     * Test the property 'operation'
+     * Test the property 'hasProgress'
      */
     @Test
-    public void operationTest() {
-        // TODO: test operation
+    public void hasProgressTest() {
+        // TODO: test hasProgress
     }
 
     /**
-     * Test the property 'startDate'
+     * Test the property 'status'
      */
     @Test
-    public void startDateTest() {
-        // TODO: test startDate
-    }
-
-    /**
-     * Test the property 'expiryDate'
-     */
-    @Test
-    public void expiryDateTest() {
-        // TODO: test expiryDate
-    }
-
-    /**
-     * Test the property 'transactionUUID'
-     */
-    @Test
-    public void transactionUUIDTest() {
-        // TODO: test transactionUUID
+    public void statusTest() {
+        // TODO: test status
     }
 
 }

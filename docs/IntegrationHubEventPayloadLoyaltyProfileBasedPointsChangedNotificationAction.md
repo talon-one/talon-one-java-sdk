@@ -12,6 +12,7 @@
 |**operation** | [**OperationEnum**](#OperationEnum) |  |  |
 |**startDate** | **OffsetDateTime** |  |  [optional] |
 |**expiryDate** | **OffsetDateTime** |  |  [optional] |
+|**transactionUUID** | **UUID** | The identifier of the transaction in the loyalty ledger. |  |
 
 
 
@@ -20,7 +21,7 @@
 | Name | Value |
 |---- | -----|
 | ADDITION | &quot;addition&quot; |
-| DEDUCTION | &quot;deduction&quot; |
+| SUBTRACTION | &quot;subtraction&quot; |
 
 
 

@@ -24,6 +24,7 @@ import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.UUID;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
@@ -159,6 +160,14 @@ public class CardAddedDeductedPointsNotificationTest {
     @Test
     public void startDateTest() {
         // TODO: test startDate
+    }
+
+    /**
+     * Test the property 'transactionUUID'
+     */
+    @Test
+    public void transactionUUIDTest() {
+        // TODO: test transactionUUID
     }
 
 }
