@@ -25,6 +25,7 @@ import java.util.Arrays;
 import java.util.List;
 import one.talon.model.CartItemFilterTemplate;
 import one.talon.model.CatalogRule;
+import com.google.gson.JsonElement;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -52,7 +53,7 @@ import one.talon.JSON;
 /**
  * NewBlueprint
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.20.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.21.0")
 public class NewBlueprint {
   public static final String SERIALIZED_NAME_TITLE = "title";
   @SerializedName(SERIALIZED_NAME_TITLE)
@@ -128,12 +129,12 @@ public class NewBlueprint {
   public static final String SERIALIZED_NAME_RULES = "rules";
   @SerializedName(SERIALIZED_NAME_RULES)
   @javax.annotation.Nullable
-  private List<CatalogRule> rules = new ArrayList<>();
+  private List<CatalogRule> rules;
 
   public static final String SERIALIZED_NAME_CART_ITEM_FILTERS = "cartItemFilters";
   @SerializedName(SERIALIZED_NAME_CART_ITEM_FILTERS)
   @javax.annotation.Nullable
-  private List<CartItemFilterTemplate> cartItemFilters = new ArrayList<>();
+  private List<CartItemFilterTemplate> cartItemFilters;
 
   public NewBlueprint() {
   }

@@ -25,6 +25,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import one.talon.model.CouponDeletionFilters;
+import com.google.gson.JsonElement;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -52,7 +53,7 @@ import one.talon.JSON;
 /**
  * CouponDeletionJob
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.20.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.21.0")
 public class CouponDeletionJob {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -112,7 +113,7 @@ public class CouponDeletionJob {
   public static final String SERIALIZED_NAME_CAMPAIGN_I_DS = "campaignIDs";
   @SerializedName(SERIALIZED_NAME_CAMPAIGN_I_DS)
   @javax.annotation.Nullable
-  private List<Long> campaignIDs = new ArrayList<>();
+  private List<Long> campaignIDs;
 
   public CouponDeletionJob() {
   }

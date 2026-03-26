@@ -24,6 +24,7 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 import one.talon.model.RoleV2ApplicationDetails;
+import com.google.gson.JsonElement;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -51,22 +52,22 @@ import one.talon.JSON;
 /**
  * RoleV2RolesGroup
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.20.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.21.0")
 public class RoleV2RolesGroup {
   public static final String SERIALIZED_NAME_APPLICATIONS = "applications";
   @SerializedName(SERIALIZED_NAME_APPLICATIONS)
   @javax.annotation.Nullable
-  private Map<String, RoleV2ApplicationDetails> applications = new HashMap<>();
+  private Map<String, RoleV2ApplicationDetails> applications;
 
   public static final String SERIALIZED_NAME_LOYALTY_PROGRAMS = "loyaltyPrograms";
   @SerializedName(SERIALIZED_NAME_LOYALTY_PROGRAMS)
   @javax.annotation.Nullable
-  private Map<String, String> loyaltyPrograms = new HashMap<>();
+  private Map<String, String> loyaltyPrograms;
 
   public static final String SERIALIZED_NAME_CAMPAIGN_ACCESS_GROUPS = "campaignAccessGroups";
   @SerializedName(SERIALIZED_NAME_CAMPAIGN_ACCESS_GROUPS)
   @javax.annotation.Nullable
-  private Map<String, String> campaignAccessGroups = new HashMap<>();
+  private Map<String, String> campaignAccessGroups;
 
   public static final String SERIALIZED_NAME_ACCOUNT = "account";
   @SerializedName(SERIALIZED_NAME_ACCOUNT)

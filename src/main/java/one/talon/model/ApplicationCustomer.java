@@ -27,6 +27,7 @@ import java.util.Arrays;
 import java.util.List;
 import one.talon.model.AudienceMembership;
 import one.talon.model.LoyaltyMembership;
+import com.google.gson.JsonElement;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -54,7 +55,7 @@ import one.talon.JSON;
 /**
  * ApplicationCustomer
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.20.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.21.0")
 public class ApplicationCustomer {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -94,12 +95,12 @@ public class ApplicationCustomer {
   public static final String SERIALIZED_NAME_LOYALTY_MEMBERSHIPS = "loyaltyMemberships";
   @SerializedName(SERIALIZED_NAME_LOYALTY_MEMBERSHIPS)
   @javax.annotation.Nullable
-  private List<LoyaltyMembership> loyaltyMemberships = new ArrayList<>();
+  private List<LoyaltyMembership> loyaltyMemberships;
 
   public static final String SERIALIZED_NAME_AUDIENCE_MEMBERSHIPS = "audienceMemberships";
   @SerializedName(SERIALIZED_NAME_AUDIENCE_MEMBERSHIPS)
   @javax.annotation.Nullable
-  private List<AudienceMembership> audienceMemberships = new ArrayList<>();
+  private List<AudienceMembership> audienceMemberships;
 
   public static final String SERIALIZED_NAME_LAST_ACTIVITY = "lastActivity";
   @SerializedName(SERIALIZED_NAME_LAST_ACTIVITY)

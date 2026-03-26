@@ -24,6 +24,7 @@ import java.util.Arrays;
 import java.util.LinkedHashSet;
 import java.util.Set;
 import java.util.UUID;
+import com.google.gson.JsonElement;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -51,12 +52,12 @@ import one.talon.JSON;
 /**
  * Activate loyalty points
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.20.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.21.0")
 public class ActivateLoyaltyPoints {
   public static final String SERIALIZED_NAME_TRANSACTION_U_U_I_DS = "transactionUUIDs";
   @SerializedName(SERIALIZED_NAME_TRANSACTION_U_U_I_DS)
   @javax.annotation.Nullable
-  private Set<UUID> transactionUUIDs = new LinkedHashSet<>();
+  private Set<UUID> transactionUUIDs;
 
   public static final String SERIALIZED_NAME_SESSION_ID = "sessionId";
   @SerializedName(SERIALIZED_NAME_SESSION_ID)

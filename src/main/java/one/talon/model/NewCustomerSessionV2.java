@@ -28,6 +28,7 @@ import java.util.Map;
 import one.talon.model.AdditionalCost;
 import one.talon.model.CartItem;
 import one.talon.model.ExperimentVariantAllocation;
+import com.google.gson.JsonElement;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -55,7 +56,7 @@ import one.talon.JSON;
 /**
  * The representation of the customer session.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.20.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.21.0")
 public class NewCustomerSessionV2 {
   public static final String SERIALIZED_NAME_PROFILE_ID = "profileId";
   @SerializedName(SERIALIZED_NAME_PROFILE_ID)
@@ -70,12 +71,12 @@ public class NewCustomerSessionV2 {
   public static final String SERIALIZED_NAME_EVALUABLE_CAMPAIGN_IDS = "evaluableCampaignIds";
   @SerializedName(SERIALIZED_NAME_EVALUABLE_CAMPAIGN_IDS)
   @javax.annotation.Nullable
-  private List<Long> evaluableCampaignIds = new ArrayList<>();
+  private List<Long> evaluableCampaignIds;
 
   public static final String SERIALIZED_NAME_COUPON_CODES = "couponCodes";
   @SerializedName(SERIALIZED_NAME_COUPON_CODES)
   @javax.annotation.Nullable
-  private List<String> couponCodes = new ArrayList<>();
+  private List<String> couponCodes;
 
   public static final String SERIALIZED_NAME_REFERRAL_CODE = "referralCode";
   @SerializedName(SERIALIZED_NAME_REFERRAL_CODE)
@@ -85,7 +86,7 @@ public class NewCustomerSessionV2 {
   public static final String SERIALIZED_NAME_LOYALTY_CARDS = "loyaltyCards";
   @SerializedName(SERIALIZED_NAME_LOYALTY_CARDS)
   @javax.annotation.Nullable
-  private List<String> loyaltyCards = new ArrayList<>();
+  private List<String> loyaltyCards;
 
   /**
    * Indicates the current state of the session. Sessions can be created as &#x60;open&#x60; or &#x60;closed&#x60;. The state transitions are:  1. &#x60;open&#x60; → &#x60;closed&#x60; 2. &#x60;open&#x60; → &#x60;cancelled&#x60; 3. Either:    - &#x60;closed&#x60; → &#x60;cancelled&#x60; (**only** via [Update customer session](https://docs.talon.one/integration-api#tag/Customer-sessions/operation/updateCustomerSessionV2)) or    - &#x60;closed&#x60; → &#x60;partially_returned&#x60; (**only** via [Return cart items](https://docs.talon.one/integration-api#tag/Customer-sessions/operation/returnCartItems))    - &#x60;closed&#x60; → &#x60;open&#x60; (**only** via [Reopen customer session](https://docs.talon.one/integration-api#tag/Customer-sessions/operation/reopenCustomerSession)) 4. &#x60;partially_returned&#x60; → &#x60;cancelled&#x60;  For more information, see [Customer session states](https://docs.talon.one/docs/dev/concepts/entities/customer-sessions). 
@@ -151,22 +152,22 @@ public class NewCustomerSessionV2 {
   public static final String SERIALIZED_NAME_CART_ITEMS = "cartItems";
   @SerializedName(SERIALIZED_NAME_CART_ITEMS)
   @javax.annotation.Nullable
-  private List<CartItem> cartItems = new ArrayList<>();
+  private List<CartItem> cartItems;
 
   public static final String SERIALIZED_NAME_EXPERIMENT_VARIANT_ALLOCATIONS = "experimentVariantAllocations";
   @SerializedName(SERIALIZED_NAME_EXPERIMENT_VARIANT_ALLOCATIONS)
   @javax.annotation.Nullable
-  private List<ExperimentVariantAllocation> experimentVariantAllocations = new ArrayList<>();
+  private List<ExperimentVariantAllocation> experimentVariantAllocations;
 
   public static final String SERIALIZED_NAME_ADDITIONAL_COSTS = "additionalCosts";
   @SerializedName(SERIALIZED_NAME_ADDITIONAL_COSTS)
   @javax.annotation.Nullable
-  private Map<String, AdditionalCost> additionalCosts = new HashMap<>();
+  private Map<String, AdditionalCost> additionalCosts;
 
   public static final String SERIALIZED_NAME_IDENTIFIERS = "identifiers";
   @SerializedName(SERIALIZED_NAME_IDENTIFIERS)
   @javax.annotation.Nullable
-  private List<String> identifiers = new ArrayList<>();
+  private List<String> identifiers;
 
   public static final String SERIALIZED_NAME_ATTRIBUTES = "attributes";
   @SerializedName(SERIALIZED_NAME_ATTRIBUTES)

@@ -24,6 +24,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import one.talon.model.ScimResource;
+import com.google.gson.JsonElement;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -51,7 +52,7 @@ import one.talon.JSON;
 /**
  * List of resource types supported by the SCIM provisioning protocol.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.20.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.21.0")
 public class ScimResourceTypesListResponse {
   public static final String SERIALIZED_NAME_RESOURCES = "Resources";
   @SerializedName(SERIALIZED_NAME_RESOURCES)

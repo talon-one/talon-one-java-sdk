@@ -24,6 +24,7 @@ import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import com.google.gson.JsonElement;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -51,7 +52,7 @@ import one.talon.JSON;
 /**
  * NewReferralsForMultipleAdvocates
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.20.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.21.0")
 public class NewReferralsForMultipleAdvocates {
   public static final String SERIALIZED_NAME_START_DATE = "startDate";
   @SerializedName(SERIALIZED_NAME_START_DATE)
@@ -86,7 +87,7 @@ public class NewReferralsForMultipleAdvocates {
   public static final String SERIALIZED_NAME_VALID_CHARACTERS = "validCharacters";
   @SerializedName(SERIALIZED_NAME_VALID_CHARACTERS)
   @javax.annotation.Nullable
-  private List<String> validCharacters = new ArrayList<>();
+  private List<String> validCharacters;
 
   public static final String SERIALIZED_NAME_REFERRAL_PATTERN = "referralPattern";
   @SerializedName(SERIALIZED_NAME_REFERRAL_PATTERN)

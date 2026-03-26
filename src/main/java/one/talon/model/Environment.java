@@ -36,6 +36,7 @@ import one.talon.model.LoyaltyProgram;
 import one.talon.model.PriceType;
 import one.talon.model.SlotDef;
 import one.talon.model.TemplateDef;
+import com.google.gson.JsonElement;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -63,7 +64,7 @@ import one.talon.JSON;
 /**
  * Environment
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.20.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.21.0")
 public class Environment {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -103,47 +104,47 @@ public class Environment {
   public static final String SERIALIZED_NAME_GIVEAWAYS_POOLS = "giveawaysPools";
   @SerializedName(SERIALIZED_NAME_GIVEAWAYS_POOLS)
   @javax.annotation.Nullable
-  private List<GiveawaysPool> giveawaysPools = new ArrayList<>();
+  private List<GiveawaysPool> giveawaysPools;
 
   public static final String SERIALIZED_NAME_LOYALTY_PROGRAMS = "loyaltyPrograms";
   @SerializedName(SERIALIZED_NAME_LOYALTY_PROGRAMS)
   @javax.annotation.Nullable
-  private List<LoyaltyProgram> loyaltyPrograms = new ArrayList<>();
+  private List<LoyaltyProgram> loyaltyPrograms;
 
   public static final String SERIALIZED_NAME_ACHIEVEMENTS = "achievements";
   @SerializedName(SERIALIZED_NAME_ACHIEVEMENTS)
   @javax.annotation.Nullable
-  private List<Achievement> achievements = new ArrayList<>();
+  private List<Achievement> achievements;
 
   public static final String SERIALIZED_NAME_ATTRIBUTES = "attributes";
   @SerializedName(SERIALIZED_NAME_ATTRIBUTES)
   @javax.annotation.Nullable
-  private List<Attribute> attributes = new ArrayList<>();
+  private List<Attribute> attributes;
 
   public static final String SERIALIZED_NAME_ADDITIONAL_COSTS = "additionalCosts";
   @SerializedName(SERIALIZED_NAME_ADDITIONAL_COSTS)
   @javax.annotation.Nullable
-  private List<AccountAdditionalCost> additionalCosts = new ArrayList<>();
+  private List<AccountAdditionalCost> additionalCosts;
 
   public static final String SERIALIZED_NAME_AUDIENCES = "audiences";
   @SerializedName(SERIALIZED_NAME_AUDIENCES)
   @javax.annotation.Nullable
-  private List<Audience> audiences = new ArrayList<>();
+  private List<Audience> audiences;
 
   public static final String SERIALIZED_NAME_COLLECTIONS = "collections";
   @SerializedName(SERIALIZED_NAME_COLLECTIONS)
   @javax.annotation.Nullable
-  private List<Collection> collections = new ArrayList<>();
+  private List<Collection> collections;
 
   public static final String SERIALIZED_NAME_APPLICATION_CART_ITEM_FILTERS = "applicationCartItemFilters";
   @SerializedName(SERIALIZED_NAME_APPLICATION_CART_ITEM_FILTERS)
   @javax.annotation.Nullable
-  private List<ApplicationCIF> applicationCartItemFilters = new ArrayList<>();
+  private List<ApplicationCIF> applicationCartItemFilters;
 
   public static final String SERIALIZED_NAME_PRICE_TYPES = "priceTypes";
   @SerializedName(SERIALIZED_NAME_PRICE_TYPES)
   @javax.annotation.Nullable
-  private List<PriceType> priceTypes = new ArrayList<>();
+  private List<PriceType> priceTypes;
 
   public Environment() {
   }

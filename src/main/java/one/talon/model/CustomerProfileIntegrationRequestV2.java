@@ -24,6 +24,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import one.talon.model.ProfileAudiencesChanges;
+import com.google.gson.JsonElement;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -51,7 +52,7 @@ import one.talon.JSON;
 /**
  * CustomerProfileIntegrationRequestV2
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.20.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.21.0")
 public class CustomerProfileIntegrationRequestV2 {
   public static final String SERIALIZED_NAME_ATTRIBUTES = "attributes";
   @SerializedName(SERIALIZED_NAME_ATTRIBUTES)
@@ -61,7 +62,7 @@ public class CustomerProfileIntegrationRequestV2 {
   public static final String SERIALIZED_NAME_EVALUABLE_CAMPAIGN_IDS = "evaluableCampaignIds";
   @SerializedName(SERIALIZED_NAME_EVALUABLE_CAMPAIGN_IDS)
   @javax.annotation.Nullable
-  private List<Long> evaluableCampaignIds = new ArrayList<>();
+  private List<Long> evaluableCampaignIds;
 
   /**
    * Gets or Sets responseContent
@@ -126,7 +127,7 @@ public class CustomerProfileIntegrationRequestV2 {
   public static final String SERIALIZED_NAME_RESPONSE_CONTENT = "responseContent";
   @SerializedName(SERIALIZED_NAME_RESPONSE_CONTENT)
   @javax.annotation.Nullable
-  private List<ResponseContentEnum> responseContent = new ArrayList<>();
+  private List<ResponseContentEnum> responseContent;
 
   public static final String SERIALIZED_NAME_AUDIENCES_CHANGES = "audiencesChanges";
   @SerializedName(SERIALIZED_NAME_AUDIENCES_CHANGES)

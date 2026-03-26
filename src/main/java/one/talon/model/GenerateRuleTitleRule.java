@@ -23,6 +23,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import com.google.gson.JsonElement;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -50,17 +51,17 @@ import one.talon.JSON;
 /**
  * GenerateRuleTitleRule
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.20.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.21.0")
 public class GenerateRuleTitleRule {
   public static final String SERIALIZED_NAME_EFFECTS = "effects";
   @SerializedName(SERIALIZED_NAME_EFFECTS)
   @javax.annotation.Nullable
-  private List<Object> effects = new ArrayList<>();
+  private List<Object> effects;
 
   public static final String SERIALIZED_NAME_CONDITION = "condition";
   @SerializedName(SERIALIZED_NAME_CONDITION)
   @javax.annotation.Nullable
-  private List<Object> condition = new ArrayList<>();
+  private List<Object> condition;
 
   public GenerateRuleTitleRule() {
   }

@@ -24,6 +24,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import one.talon.model.LoyaltyLedgerEntry;
+import com.google.gson.JsonElement;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -51,12 +52,12 @@ import one.talon.JSON;
 /**
  * ActivateLoyaltyPointsResponse
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.20.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.21.0")
 public class ActivateLoyaltyPointsResponse {
   public static final String SERIALIZED_NAME_LEDGER_ENTRIES = "ledgerEntries";
   @SerializedName(SERIALIZED_NAME_LEDGER_ENTRIES)
   @javax.annotation.Nullable
-  private List<LoyaltyLedgerEntry> ledgerEntries = new ArrayList<>();
+  private List<LoyaltyLedgerEntry> ledgerEntries;
 
   public ActivateLoyaltyPointsResponse() {
   }

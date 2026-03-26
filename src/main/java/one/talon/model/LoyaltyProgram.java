@@ -26,6 +26,7 @@ import java.util.Arrays;
 import java.util.List;
 import one.talon.model.CodeGeneratorSettings;
 import one.talon.model.LoyaltyTier;
+import com.google.gson.JsonElement;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -53,7 +54,7 @@ import one.talon.JSON;
 /**
  * LoyaltyProgram
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.20.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.21.0")
 public class LoyaltyProgram {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -78,7 +79,7 @@ public class LoyaltyProgram {
   public static final String SERIALIZED_NAME_SUBSCRIBED_APPLICATIONS = "subscribedApplications";
   @SerializedName(SERIALIZED_NAME_SUBSCRIBED_APPLICATIONS)
   @javax.annotation.Nullable
-  private List<Long> subscribedApplications = new ArrayList<>();
+  private List<Long> subscribedApplications;
 
   public static final String SERIALIZED_NAME_DEFAULT_VALIDITY = "defaultValidity";
   @SerializedName(SERIALIZED_NAME_DEFAULT_VALIDITY)
@@ -369,7 +370,7 @@ public class LoyaltyProgram {
   public static final String SERIALIZED_NAME_TIERS = "tiers";
   @SerializedName(SERIALIZED_NAME_TIERS)
   @javax.annotation.Nullable
-  private List<LoyaltyTier> tiers = new ArrayList<>();
+  private List<LoyaltyTier> tiers;
 
   public static final String SERIALIZED_NAME_TIMEZONE = "timezone";
   @SerializedName(SERIALIZED_NAME_TIMEZONE)

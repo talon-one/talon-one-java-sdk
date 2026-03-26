@@ -24,6 +24,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import one.talon.model.PriceTypeReferenceDetail;
+import com.google.gson.JsonElement;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -51,7 +52,7 @@ import one.talon.JSON;
 /**
  * PriceTypeReferences
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.20.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.21.0")
 public class PriceTypeReferences {
   public static final String SERIALIZED_NAME_PRICE_TYPE_ID = "priceTypeId";
   @SerializedName(SERIALIZED_NAME_PRICE_TYPE_ID)
@@ -61,7 +62,7 @@ public class PriceTypeReferences {
   public static final String SERIALIZED_NAME_REFERENCES = "references";
   @SerializedName(SERIALIZED_NAME_REFERENCES)
   @javax.annotation.Nullable
-  private List<PriceTypeReferenceDetail> references = new ArrayList<>();
+  private List<PriceTypeReferenceDetail> references;
 
   public PriceTypeReferences() {
   }

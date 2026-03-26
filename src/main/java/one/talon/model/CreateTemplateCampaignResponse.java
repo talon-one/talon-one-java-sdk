@@ -26,6 +26,7 @@ import java.util.List;
 import one.talon.model.Campaign;
 import one.talon.model.Collection;
 import one.talon.model.Ruleset;
+import com.google.gson.JsonElement;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -53,7 +54,7 @@ import one.talon.JSON;
 /**
  * CreateTemplateCampaignResponse
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.20.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.21.0")
 public class CreateTemplateCampaignResponse {
   public static final String SERIALIZED_NAME_CAMPAIGN = "campaign";
   @SerializedName(SERIALIZED_NAME_CAMPAIGN)
@@ -68,7 +69,7 @@ public class CreateTemplateCampaignResponse {
   public static final String SERIALIZED_NAME_COLLECTIONS = "collections";
   @SerializedName(SERIALIZED_NAME_COLLECTIONS)
   @javax.annotation.Nullable
-  private List<Collection> collections = new ArrayList<>();
+  private List<Collection> collections;
 
   public CreateTemplateCampaignResponse() {
   }

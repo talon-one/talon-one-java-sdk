@@ -21,6 +21,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.util.Arrays;
+import com.google.gson.JsonElement;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -48,7 +49,7 @@ import one.talon.JSON;
 /**
  * LoyaltyCardBatchResponse
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.20.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.21.0")
 public class LoyaltyCardBatchResponse {
   public static final String SERIALIZED_NAME_NUMBER_OF_CARDS_GENERATED = "numberOfCardsGenerated";
   @SerializedName(SERIALIZED_NAME_NUMBER_OF_CARDS_GENERATED)

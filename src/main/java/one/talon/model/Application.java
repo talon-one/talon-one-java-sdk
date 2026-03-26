@@ -27,6 +27,7 @@ import java.util.List;
 import one.talon.model.AttributesSettings;
 import one.talon.model.LimitConfig;
 import one.talon.model.LoyaltyProgram;
+import com.google.gson.JsonElement;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -54,7 +55,7 @@ import one.talon.JSON;
 /**
  * Application
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.20.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.21.0")
 public class Application {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -163,7 +164,7 @@ public class Application {
   public static final String SERIALIZED_NAME_LIMITS = "limits";
   @SerializedName(SERIALIZED_NAME_LIMITS)
   @javax.annotation.Nullable
-  private List<LimitConfig> limits = new ArrayList<>();
+  private List<LimitConfig> limits;
 
   /**
    * The default scope to apply &#x60;setDiscount&#x60; effects on if no scope was provided with the effect. 

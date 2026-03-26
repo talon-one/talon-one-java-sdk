@@ -26,6 +26,7 @@ import java.util.Arrays;
 import java.util.List;
 import one.talon.model.LedgerEntry;
 import one.talon.model.Meta;
+import com.google.gson.JsonElement;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -53,7 +54,7 @@ import one.talon.JSON;
 /**
  * Event
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.20.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.21.0")
 public class Event {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -103,7 +104,7 @@ public class Event {
   public static final String SERIALIZED_NAME_LEDGER_ENTRIES = "ledgerEntries";
   @SerializedName(SERIALIZED_NAME_LEDGER_ENTRIES)
   @javax.annotation.Nullable
-  private List<LedgerEntry> ledgerEntries = new ArrayList<>();
+  private List<LedgerEntry> ledgerEntries;
 
   public static final String SERIALIZED_NAME_META = "meta";
   @SerializedName(SERIALIZED_NAME_META)

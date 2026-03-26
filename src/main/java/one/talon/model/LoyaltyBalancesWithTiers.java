@@ -24,6 +24,7 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 import one.talon.model.LoyaltyBalanceWithTier;
+import com.google.gson.JsonElement;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -51,7 +52,7 @@ import one.talon.JSON;
 /**
  * List of loyalty balances for a ledger and its subledgers.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.20.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.21.0")
 public class LoyaltyBalancesWithTiers {
   public static final String SERIALIZED_NAME_BALANCE = "balance";
   @SerializedName(SERIALIZED_NAME_BALANCE)
@@ -61,7 +62,7 @@ public class LoyaltyBalancesWithTiers {
   public static final String SERIALIZED_NAME_SUBLEDGER_BALANCES = "subledgerBalances";
   @SerializedName(SERIALIZED_NAME_SUBLEDGER_BALANCES)
   @javax.annotation.Nullable
-  private Map<String, LoyaltyBalanceWithTier> subledgerBalances = new HashMap<>();
+  private Map<String, LoyaltyBalanceWithTier> subledgerBalances;
 
   public LoyaltyBalancesWithTiers() {
   }

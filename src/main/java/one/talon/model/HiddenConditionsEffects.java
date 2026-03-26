@@ -23,6 +23,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import com.google.gson.JsonElement;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -50,27 +51,27 @@ import one.talon.JSON;
 /**
  * Contains information about hidden conditions and effects in the Application.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.20.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.21.0")
 public class HiddenConditionsEffects {
   public static final String SERIALIZED_NAME_BUILT_IN_EFFECTS = "builtInEffects";
   @SerializedName(SERIALIZED_NAME_BUILT_IN_EFFECTS)
   @javax.annotation.Nullable
-  private List<String> builtInEffects = new ArrayList<>();
+  private List<String> builtInEffects;
 
   public static final String SERIALIZED_NAME_CONDITIONS = "conditions";
   @SerializedName(SERIALIZED_NAME_CONDITIONS)
   @javax.annotation.Nullable
-  private List<String> conditions = new ArrayList<>();
+  private List<String> conditions;
 
   public static final String SERIALIZED_NAME_CUSTOM_EFFECTS = "customEffects";
   @SerializedName(SERIALIZED_NAME_CUSTOM_EFFECTS)
   @javax.annotation.Nullable
-  private List<Long> customEffects = new ArrayList<>();
+  private List<Long> customEffects;
 
   public static final String SERIALIZED_NAME_WEBHOOKS = "webhooks";
   @SerializedName(SERIALIZED_NAME_WEBHOOKS)
   @javax.annotation.Nullable
-  private List<Long> webhooks = new ArrayList<>();
+  private List<Long> webhooks;
 
   public HiddenConditionsEffects() {
   }

@@ -25,6 +25,7 @@ import java.util.Arrays;
 import java.util.List;
 import one.talon.model.RoleV2PermissionSet;
 import one.talon.model.RoleV2RolesGroup;
+import com.google.gson.JsonElement;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -52,12 +53,12 @@ import one.talon.JSON;
 /**
  * RoleV2Permissions
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.20.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.21.0")
 public class RoleV2Permissions {
   public static final String SERIALIZED_NAME_PERMISSION_SETS = "permissionSets";
   @SerializedName(SERIALIZED_NAME_PERMISSION_SETS)
   @javax.annotation.Nullable
-  private List<RoleV2PermissionSet> permissionSets = new ArrayList<>();
+  private List<RoleV2PermissionSet> permissionSets;
 
   public static final String SERIALIZED_NAME_ROLES = "roles";
   @SerializedName(SERIALIZED_NAME_ROLES)

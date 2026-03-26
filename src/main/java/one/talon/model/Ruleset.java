@@ -26,6 +26,7 @@ import java.util.Arrays;
 import java.util.List;
 import one.talon.model.Binding;
 import one.talon.model.Rule;
+import com.google.gson.JsonElement;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -53,7 +54,7 @@ import one.talon.JSON;
 /**
  * Ruleset
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.20.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.21.0")
 public class Ruleset {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -78,7 +79,7 @@ public class Ruleset {
   public static final String SERIALIZED_NAME_STRIKETHROUGH_RULES = "strikethroughRules";
   @SerializedName(SERIALIZED_NAME_STRIKETHROUGH_RULES)
   @javax.annotation.Nullable
-  private List<Rule> strikethroughRules = new ArrayList<>();
+  private List<Rule> strikethroughRules;
 
   public static final String SERIALIZED_NAME_BINDINGS = "bindings";
   @SerializedName(SERIALIZED_NAME_BINDINGS)

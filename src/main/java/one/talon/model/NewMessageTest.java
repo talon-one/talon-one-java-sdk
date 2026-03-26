@@ -26,6 +26,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import one.talon.model.TemplateArgDef;
+import com.google.gson.JsonElement;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -53,12 +54,12 @@ import one.talon.JSON;
 /**
  * NewMessageTest
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.20.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.21.0")
 public class NewMessageTest {
   public static final String SERIALIZED_NAME_HEADERS = "headers";
   @SerializedName(SERIALIZED_NAME_HEADERS)
   @javax.annotation.Nullable
-  private Map<String, String> headers = new HashMap<>();
+  private Map<String, String> headers;
 
   /**
    * API method for this message.
@@ -136,12 +137,12 @@ public class NewMessageTest {
   public static final String SERIALIZED_NAME_PARAMS = "params";
   @SerializedName(SERIALIZED_NAME_PARAMS)
   @javax.annotation.Nullable
-  private List<TemplateArgDef> params = new ArrayList<>();
+  private List<TemplateArgDef> params;
 
   public static final String SERIALIZED_NAME_APPLICATION_IDS = "applicationIds";
   @SerializedName(SERIALIZED_NAME_APPLICATION_IDS)
   @javax.annotation.Nullable
-  private List<Long> applicationIds = new ArrayList<>();
+  private List<Long> applicationIds;
 
   public static final String SERIALIZED_NAME_AUTHENTICATION_ID = "authenticationId";
   @SerializedName(SERIALIZED_NAME_AUTHENTICATION_ID)

@@ -23,6 +23,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import com.google.gson.JsonElement;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -50,17 +51,17 @@ import one.talon.JSON;
 /**
  * TalangAttributeVisibility
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.20.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.21.0")
 public class TalangAttributeVisibility {
   public static final String SERIALIZED_NAME_INVISIBLE = "invisible";
   @SerializedName(SERIALIZED_NAME_INVISIBLE)
   @javax.annotation.Nullable
-  private List<String> invisible = new ArrayList<>();
+  private List<String> invisible;
 
   public static final String SERIALIZED_NAME_VISIBLE = "visible";
   @SerializedName(SERIALIZED_NAME_VISIBLE)
   @javax.annotation.Nullable
-  private List<String> visible = new ArrayList<>();
+  private List<String> visible;
 
   public TalangAttributeVisibility() {
   }

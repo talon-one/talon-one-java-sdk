@@ -23,6 +23,7 @@ import java.io.IOException;
 import java.math.BigDecimal;
 import java.time.OffsetDateTime;
 import java.util.Arrays;
+import com.google.gson.JsonElement;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -50,7 +51,7 @@ import one.talon.JSON;
 /**
  * Log entry for a given loyalty card transaction.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.20.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.21.0")
 public class CardLedgerTransactionLogEntryIntegrationAPI {
   public static final String SERIALIZED_NAME_TRANSACTION_U_U_I_D = "transactionUUID";
   @SerializedName(SERIALIZED_NAME_TRANSACTION_U_U_I_D)

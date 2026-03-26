@@ -26,6 +26,7 @@ import java.util.Arrays;
 import java.util.List;
 import one.talon.model.LoyaltyLedgerEntry;
 import one.talon.model.Tier;
+import com.google.gson.JsonElement;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -53,7 +54,7 @@ import one.talon.JSON;
 /**
  * Ledger of Balance in Loyalty Program for a Customer.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.20.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.21.0")
 public class LoyaltySubLedger {
   public static final String SERIALIZED_NAME_TOTAL = "total";
   @SerializedName(SERIALIZED_NAME_TOTAL)
@@ -88,27 +89,27 @@ public class LoyaltySubLedger {
   public static final String SERIALIZED_NAME_TRANSACTIONS = "transactions";
   @SerializedName(SERIALIZED_NAME_TRANSACTIONS)
   @javax.annotation.Nullable
-  private List<LoyaltyLedgerEntry> transactions = new ArrayList<>();
+  private List<LoyaltyLedgerEntry> transactions;
 
   public static final String SERIALIZED_NAME_EXPIRING_POINTS = "expiringPoints";
   @SerializedName(SERIALIZED_NAME_EXPIRING_POINTS)
   @javax.annotation.Nullable
-  private List<LoyaltyLedgerEntry> expiringPoints = new ArrayList<>();
+  private List<LoyaltyLedgerEntry> expiringPoints;
 
   public static final String SERIALIZED_NAME_ACTIVE_POINTS = "activePoints";
   @SerializedName(SERIALIZED_NAME_ACTIVE_POINTS)
   @javax.annotation.Nullable
-  private List<LoyaltyLedgerEntry> activePoints = new ArrayList<>();
+  private List<LoyaltyLedgerEntry> activePoints;
 
   public static final String SERIALIZED_NAME_PENDING_POINTS = "pendingPoints";
   @SerializedName(SERIALIZED_NAME_PENDING_POINTS)
   @javax.annotation.Nullable
-  private List<LoyaltyLedgerEntry> pendingPoints = new ArrayList<>();
+  private List<LoyaltyLedgerEntry> pendingPoints;
 
   public static final String SERIALIZED_NAME_EXPIRED_POINTS = "expiredPoints";
   @SerializedName(SERIALIZED_NAME_EXPIRED_POINTS)
   @javax.annotation.Nullable
-  private List<LoyaltyLedgerEntry> expiredPoints = new ArrayList<>();
+  private List<LoyaltyLedgerEntry> expiredPoints;
 
   public static final String SERIALIZED_NAME_CURRENT_TIER = "currentTier";
   @SerializedName(SERIALIZED_NAME_CURRENT_TIER)

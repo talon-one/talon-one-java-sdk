@@ -24,6 +24,7 @@ import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import com.google.gson.JsonElement;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -51,7 +52,7 @@ import one.talon.JSON;
 /**
  * Attribute
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.20.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.21.0")
 public class Attribute {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -257,12 +258,12 @@ public class Attribute {
   public static final String SERIALIZED_NAME_SUBSCRIBED_APPLICATIONS_IDS = "subscribedApplicationsIds";
   @SerializedName(SERIALIZED_NAME_SUBSCRIBED_APPLICATIONS_IDS)
   @javax.annotation.Nullable
-  private List<Long> subscribedApplicationsIds = new ArrayList<>();
+  private List<Long> subscribedApplicationsIds;
 
   public static final String SERIALIZED_NAME_SUBSCRIBED_CATALOGS_IDS = "subscribedCatalogsIds";
   @SerializedName(SERIALIZED_NAME_SUBSCRIBED_CATALOGS_IDS)
   @javax.annotation.Nullable
-  private List<Long> subscribedCatalogsIds = new ArrayList<>();
+  private List<Long> subscribedCatalogsIds;
 
   /**
    * Gets or Sets allowedSubscriptions
@@ -319,7 +320,7 @@ public class Attribute {
   public static final String SERIALIZED_NAME_ALLOWED_SUBSCRIPTIONS = "allowedSubscriptions";
   @SerializedName(SERIALIZED_NAME_ALLOWED_SUBSCRIPTIONS)
   @javax.annotation.Nullable
-  private List<AllowedSubscriptionsEnum> allowedSubscriptions = new ArrayList<>();
+  private List<AllowedSubscriptionsEnum> allowedSubscriptions;
 
   public static final String SERIALIZED_NAME_EVENT_TYPE_ID = "eventTypeId";
   @SerializedName(SERIALIZED_NAME_EVENT_TYPE_ID)

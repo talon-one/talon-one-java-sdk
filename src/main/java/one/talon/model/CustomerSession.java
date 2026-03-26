@@ -28,6 +28,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import one.talon.model.CartItem;
+import com.google.gson.JsonElement;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -55,7 +56,7 @@ import one.talon.JSON;
 /**
  * CustomerSession
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.20.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.21.0")
 public class CustomerSession {
   public static final String SERIALIZED_NAME_INTEGRATION_ID = "integrationId";
   @SerializedName(SERIALIZED_NAME_INTEGRATION_ID)
@@ -151,12 +152,12 @@ public class CustomerSession {
   public static final String SERIALIZED_NAME_CART_ITEMS = "cartItems";
   @SerializedName(SERIALIZED_NAME_CART_ITEMS)
   @javax.annotation.Nullable
-  private List<CartItem> cartItems = new ArrayList<>();
+  private List<CartItem> cartItems;
 
   public static final String SERIALIZED_NAME_IDENTIFIERS = "identifiers";
   @SerializedName(SERIALIZED_NAME_IDENTIFIERS)
   @javax.annotation.Nullable
-  private List<String> identifiers = new ArrayList<>();
+  private List<String> identifiers;
 
   public static final String SERIALIZED_NAME_TOTAL = "total";
   @SerializedName(SERIALIZED_NAME_TOTAL)

@@ -24,6 +24,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import one.talon.model.CampaignDetail;
+import com.google.gson.JsonElement;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -51,7 +52,7 @@ import one.talon.JSON;
 /**
  * ApplicationCIFReferences
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.20.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.21.0")
 public class ApplicationCIFReferences {
   public static final String SERIALIZED_NAME_APPLICATION_CART_ITEM_FILTER_ID = "applicationCartItemFilterId";
   @SerializedName(SERIALIZED_NAME_APPLICATION_CART_ITEM_FILTER_ID)
@@ -61,7 +62,7 @@ public class ApplicationCIFReferences {
   public static final String SERIALIZED_NAME_CAMPAIGNS = "campaigns";
   @SerializedName(SERIALIZED_NAME_CAMPAIGNS)
   @javax.annotation.Nullable
-  private List<CampaignDetail> campaigns = new ArrayList<>();
+  private List<CampaignDetail> campaigns;
 
   public ApplicationCIFReferences() {
   }

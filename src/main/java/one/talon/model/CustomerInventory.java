@@ -29,6 +29,7 @@ import one.talon.model.Giveaway;
 import one.talon.model.InventoryCoupon;
 import one.talon.model.InventoryReferral;
 import one.talon.model.Loyalty;
+import com.google.gson.JsonElement;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -56,7 +57,7 @@ import one.talon.JSON;
 /**
  * CustomerInventory
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.20.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.21.0")
 public class CustomerInventory {
   public static final String SERIALIZED_NAME_PROFILE = "profile";
   @SerializedName(SERIALIZED_NAME_PROFILE)
@@ -71,22 +72,22 @@ public class CustomerInventory {
   public static final String SERIALIZED_NAME_REFERRALS = "referrals";
   @SerializedName(SERIALIZED_NAME_REFERRALS)
   @javax.annotation.Nullable
-  private List<InventoryReferral> referrals = new ArrayList<>();
+  private List<InventoryReferral> referrals;
 
   public static final String SERIALIZED_NAME_COUPONS = "coupons";
   @SerializedName(SERIALIZED_NAME_COUPONS)
   @javax.annotation.Nullable
-  private List<InventoryCoupon> coupons = new ArrayList<>();
+  private List<InventoryCoupon> coupons;
 
   public static final String SERIALIZED_NAME_GIVEAWAYS = "giveaways";
   @SerializedName(SERIALIZED_NAME_GIVEAWAYS)
   @javax.annotation.Nullable
-  private List<Giveaway> giveaways = new ArrayList<>();
+  private List<Giveaway> giveaways;
 
   public static final String SERIALIZED_NAME_ACHIEVEMENTS = "achievements";
   @SerializedName(SERIALIZED_NAME_ACHIEVEMENTS)
   @javax.annotation.Nullable
-  private List<AchievementProgressWithDefinition> achievements = new ArrayList<>();
+  private List<AchievementProgressWithDefinition> achievements;
 
   public CustomerInventory() {
   }

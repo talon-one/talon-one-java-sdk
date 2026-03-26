@@ -26,6 +26,7 @@ import java.util.Arrays;
 import java.util.List;
 import one.talon.model.CodeGeneratorSettings;
 import one.talon.model.LimitConfig;
+import com.google.gson.JsonElement;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -53,7 +54,7 @@ import one.talon.JSON;
 /**
  * BaseCampaign
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.20.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.21.0")
 public class BaseCampaign {
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
@@ -237,7 +238,7 @@ public class BaseCampaign {
   public static final String SERIALIZED_NAME_CAMPAIGN_GROUPS = "campaignGroups";
   @SerializedName(SERIALIZED_NAME_CAMPAIGN_GROUPS)
   @javax.annotation.Nullable
-  private List<Long> campaignGroups = new ArrayList<>();
+  private List<Long> campaignGroups;
 
   /**
    * The campaign type. Possible type values:   - &#x60;cartItem&#x60;: Type of campaign that can apply effects only to cart items.   - &#x60;advanced&#x60;: Type of campaign that can apply effects to customer sessions and cart items. 
@@ -299,7 +300,7 @@ public class BaseCampaign {
   public static final String SERIALIZED_NAME_LINKED_STORE_IDS = "linkedStoreIds";
   @SerializedName(SERIALIZED_NAME_LINKED_STORE_IDS)
   @javax.annotation.Nullable
-  private List<Long> linkedStoreIds = new ArrayList<>();
+  private List<Long> linkedStoreIds;
 
   public BaseCampaign() {
   }

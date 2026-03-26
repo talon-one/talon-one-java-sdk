@@ -23,6 +23,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import com.google.gson.JsonElement;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -50,7 +51,7 @@ import one.talon.JSON;
 /**
  * The parameters necessary to generate a loyalty card.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.20.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.21.0")
 public class GenerateLoyaltyCard {
   /**
    * Status of the loyalty card.
@@ -112,7 +113,7 @@ public class GenerateLoyaltyCard {
   public static final String SERIALIZED_NAME_CUSTOMER_PROFILE_IDS = "customerProfileIds";
   @SerializedName(SERIALIZED_NAME_CUSTOMER_PROFILE_IDS)
   @javax.annotation.Nullable
-  private List<String> customerProfileIds = new ArrayList<>();
+  private List<String> customerProfileIds;
 
   public static final String SERIALIZED_NAME_CARD_IDENTIFIER = "cardIdentifier";
   @SerializedName(SERIALIZED_NAME_CARD_IDENTIFIER)

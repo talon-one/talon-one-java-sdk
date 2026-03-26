@@ -23,6 +23,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import com.google.gson.JsonElement;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -50,7 +51,7 @@ import one.talon.JSON;
 /**
  * NewAttribute
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.20.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.21.0")
 public class NewAttribute {
   /**
    * The name of the entity that can have this attribute. When creating or updating the entities of a given type, you can include an &#x60;attributes&#x60; object with keys corresponding to the &#x60;name&#x60; of the custom attributes for that type.
@@ -241,12 +242,12 @@ public class NewAttribute {
   public static final String SERIALIZED_NAME_SUBSCRIBED_APPLICATIONS_IDS = "subscribedApplicationsIds";
   @SerializedName(SERIALIZED_NAME_SUBSCRIBED_APPLICATIONS_IDS)
   @javax.annotation.Nullable
-  private List<Long> subscribedApplicationsIds = new ArrayList<>();
+  private List<Long> subscribedApplicationsIds;
 
   public static final String SERIALIZED_NAME_SUBSCRIBED_CATALOGS_IDS = "subscribedCatalogsIds";
   @SerializedName(SERIALIZED_NAME_SUBSCRIBED_CATALOGS_IDS)
   @javax.annotation.Nullable
-  private List<Long> subscribedCatalogsIds = new ArrayList<>();
+  private List<Long> subscribedCatalogsIds;
 
   /**
    * Gets or Sets allowedSubscriptions
@@ -303,7 +304,7 @@ public class NewAttribute {
   public static final String SERIALIZED_NAME_ALLOWED_SUBSCRIPTIONS = "allowedSubscriptions";
   @SerializedName(SERIALIZED_NAME_ALLOWED_SUBSCRIPTIONS)
   @javax.annotation.Nullable
-  private List<AllowedSubscriptionsEnum> allowedSubscriptions = new ArrayList<>();
+  private List<AllowedSubscriptionsEnum> allowedSubscriptions;
 
   public NewAttribute() {
   }
