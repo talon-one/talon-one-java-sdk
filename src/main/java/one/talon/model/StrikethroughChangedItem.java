@@ -29,6 +29,7 @@ import java.util.List;
 import java.util.Map;
 import one.talon.model.PriceDetail;
 import one.talon.model.StrikethroughEffect;
+import com.google.gson.JsonElement;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -56,7 +57,7 @@ import one.talon.JSON;
 /**
  * The information of affected items.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.20.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.21.0")
 public class StrikethroughChangedItem {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -86,7 +87,7 @@ public class StrikethroughChangedItem {
   public static final String SERIALIZED_NAME_PRICES = "prices";
   @SerializedName(SERIALIZED_NAME_PRICES)
   @javax.annotation.Nullable
-  private Map<String, PriceDetail> prices = new HashMap<>();
+  private Map<String, PriceDetail> prices;
 
   public static final String SERIALIZED_NAME_EVALUATED_AT = "evaluatedAt";
   @SerializedName(SERIALIZED_NAME_EVALUATED_AT)
@@ -96,7 +97,7 @@ public class StrikethroughChangedItem {
   public static final String SERIALIZED_NAME_EFFECTS = "effects";
   @SerializedName(SERIALIZED_NAME_EFFECTS)
   @javax.annotation.Nullable
-  private List<StrikethroughEffect> effects = new ArrayList<>();
+  private List<StrikethroughEffect> effects;
 
   public StrikethroughChangedItem() {
   }

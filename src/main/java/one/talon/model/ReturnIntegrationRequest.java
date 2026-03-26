@@ -24,6 +24,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import one.talon.model.NewReturn;
+import com.google.gson.JsonElement;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -51,7 +52,7 @@ import one.talon.JSON;
 /**
  * The body of a return integration API request. Next to the cart items details, this contains an optional listing of extra properties that should be returned in the response.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.20.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.21.0")
 public class ReturnIntegrationRequest {
   public static final String SERIALIZED_NAME_RETURN = "return";
   @SerializedName(SERIALIZED_NAME_RETURN)
@@ -125,7 +126,7 @@ public class ReturnIntegrationRequest {
   public static final String SERIALIZED_NAME_RESPONSE_CONTENT = "responseContent";
   @SerializedName(SERIALIZED_NAME_RESPONSE_CONTENT)
   @javax.annotation.Nullable
-  private List<ResponseContentEnum> responseContent = new ArrayList<>();
+  private List<ResponseContentEnum> responseContent;
 
   public ReturnIntegrationRequest() {
   }

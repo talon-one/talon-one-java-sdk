@@ -27,6 +27,7 @@ import java.util.List;
 import java.util.Map;
 import one.talon.model.LoyaltyCard;
 import one.talon.model.LoyaltyProgramLedgers;
+import com.google.gson.JsonElement;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -54,12 +55,12 @@ import one.talon.JSON;
 /**
  * Customer-specific information about loyalty points.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.20.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.21.0")
 public class Loyalty {
   public static final String SERIALIZED_NAME_CARDS = "cards";
   @SerializedName(SERIALIZED_NAME_CARDS)
   @javax.annotation.Nullable
-  private List<LoyaltyCard> cards = new ArrayList<>();
+  private List<LoyaltyCard> cards;
 
   public static final String SERIALIZED_NAME_PROGRAMS = "programs";
   @SerializedName(SERIALIZED_NAME_PROGRAMS)

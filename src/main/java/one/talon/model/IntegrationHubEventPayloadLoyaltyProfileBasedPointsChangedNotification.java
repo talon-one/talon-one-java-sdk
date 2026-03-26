@@ -25,6 +25,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import one.talon.model.IntegrationHubEventPayloadLoyaltyProfileBasedPointsChangedNotificationAction;
+import com.google.gson.JsonElement;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -52,7 +53,7 @@ import one.talon.JSON;
 /**
  * IntegrationHubEventPayloadLoyaltyProfileBasedPointsChangedNotification
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.20.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.21.0")
 public class IntegrationHubEventPayloadLoyaltyProfileBasedPointsChangedNotification {
   public static final String SERIALIZED_NAME_PROFILE_INTEGRATION_I_D = "ProfileIntegrationID";
   @SerializedName(SERIALIZED_NAME_PROFILE_INTEGRATION_I_D)
@@ -92,7 +93,7 @@ public class IntegrationHubEventPayloadLoyaltyProfileBasedPointsChangedNotificat
   public static final String SERIALIZED_NAME_ACTIONS = "Actions";
   @SerializedName(SERIALIZED_NAME_ACTIONS)
   @javax.annotation.Nullable
-  private List<IntegrationHubEventPayloadLoyaltyProfileBasedPointsChangedNotificationAction> actions = new ArrayList<>();
+  private List<IntegrationHubEventPayloadLoyaltyProfileBasedPointsChangedNotificationAction> actions;
 
   public static final String SERIALIZED_NAME_PUBLISHED_AT = "PublishedAt";
   @SerializedName(SERIALIZED_NAME_PUBLISHED_AT)

@@ -24,6 +24,7 @@ import java.math.BigDecimal;
 import java.util.Arrays;
 import one.talon.model.ProjectedTier;
 import one.talon.model.Tier;
+import com.google.gson.JsonElement;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -51,7 +52,7 @@ import one.talon.JSON;
 /**
  * LoyaltyBalanceWithTier
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.20.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.21.0")
 public class LoyaltyBalanceWithTier {
   public static final String SERIALIZED_NAME_ACTIVE_POINTS = "activePoints";
   @SerializedName(SERIALIZED_NAME_ACTIVE_POINTS)

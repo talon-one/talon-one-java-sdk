@@ -26,6 +26,7 @@ import java.util.Arrays;
 import java.util.List;
 import one.talon.model.Effect;
 import one.talon.model.RuleFailureReason;
+import com.google.gson.JsonElement;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -53,7 +54,7 @@ import one.talon.JSON;
 /**
  * ApplicationEvent
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.20.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.21.0")
 public class ApplicationEvent {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -108,7 +109,7 @@ public class ApplicationEvent {
   public static final String SERIALIZED_NAME_RULE_FAILURE_REASONS = "ruleFailureReasons";
   @SerializedName(SERIALIZED_NAME_RULE_FAILURE_REASONS)
   @javax.annotation.Nullable
-  private List<RuleFailureReason> ruleFailureReasons = new ArrayList<>();
+  private List<RuleFailureReason> ruleFailureReasons;
 
   public ApplicationEvent() {
   }

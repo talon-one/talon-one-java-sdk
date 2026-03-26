@@ -29,6 +29,7 @@ import java.util.UUID;
 import one.talon.model.AdditionalCost;
 import one.talon.model.PriceDetail;
 import one.talon.model.Product;
+import com.google.gson.JsonElement;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -56,7 +57,7 @@ import one.talon.JSON;
 /**
  * CartItem
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.20.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.21.0")
 public class CartItem {
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
@@ -131,7 +132,7 @@ public class CartItem {
   public static final String SERIALIZED_NAME_ADDITIONAL_COSTS = "additionalCosts";
   @SerializedName(SERIALIZED_NAME_ADDITIONAL_COSTS)
   @javax.annotation.Nullable
-  private Map<String, AdditionalCost> additionalCosts = new HashMap<>();
+  private Map<String, AdditionalCost> additionalCosts;
 
   public static final String SERIALIZED_NAME_CATALOG_ITEM_I_D = "catalogItemID";
   @SerializedName(SERIALIZED_NAME_CATALOG_ITEM_I_D)
@@ -161,7 +162,7 @@ public class CartItem {
   public static final String SERIALIZED_NAME_PRICES = "prices";
   @SerializedName(SERIALIZED_NAME_PRICES)
   @javax.annotation.Nullable
-  private Map<String, PriceDetail> prices = new HashMap<>();
+  private Map<String, PriceDetail> prices;
 
   public CartItem() {
   }

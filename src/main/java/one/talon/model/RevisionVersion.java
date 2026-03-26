@@ -26,6 +26,7 @@ import java.util.Arrays;
 import java.util.List;
 import one.talon.model.CodeGeneratorSettings;
 import one.talon.model.LimitConfig;
+import com.google.gson.JsonElement;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -53,7 +54,7 @@ import one.talon.JSON;
 /**
  * RevisionVersion
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.20.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.21.0")
 public class RevisionVersion {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -93,7 +94,7 @@ public class RevisionVersion {
   public static final String SERIALIZED_NAME_TAGS = "tags";
   @SerializedName(SERIALIZED_NAME_TAGS)
   @javax.annotation.Nullable
-  private List<String> tags = new ArrayList<>();
+  private List<String> tags;
 
   public static final String SERIALIZED_NAME_COUPON_SETTINGS = "couponSettings";
   @SerializedName(SERIALIZED_NAME_COUPON_SETTINGS)
@@ -108,7 +109,7 @@ public class RevisionVersion {
   public static final String SERIALIZED_NAME_LIMITS = "limits";
   @SerializedName(SERIALIZED_NAME_LIMITS)
   @javax.annotation.Nullable
-  private List<LimitConfig> limits = new ArrayList<>();
+  private List<LimitConfig> limits;
 
   public static final String SERIALIZED_NAME_REEVALUATE_ON_RETURN = "reevaluateOnReturn";
   @SerializedName(SERIALIZED_NAME_REEVALUATE_ON_RETURN)
@@ -178,7 +179,7 @@ public class RevisionVersion {
   public static final String SERIALIZED_NAME_FEATURES = "features";
   @SerializedName(SERIALIZED_NAME_FEATURES)
   @javax.annotation.Nullable
-  private List<FeaturesEnum> features = new ArrayList<>();
+  private List<FeaturesEnum> features;
 
   public static final String SERIALIZED_NAME_ACCOUNT_ID = "accountId";
   @SerializedName(SERIALIZED_NAME_ACCOUNT_ID)

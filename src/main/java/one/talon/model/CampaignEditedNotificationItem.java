@@ -26,6 +26,7 @@ import java.util.List;
 import one.talon.model.Campaign;
 import one.talon.model.PlaceholderDetails;
 import one.talon.model.Ruleset;
+import com.google.gson.JsonElement;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -53,7 +54,7 @@ import one.talon.JSON;
 /**
  * CampaignEditedNotificationItem
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.20.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.21.0")
 public class CampaignEditedNotificationItem {
   public static final String SERIALIZED_NAME_EVENT = "Event";
   @SerializedName(SERIALIZED_NAME_EVENT)
@@ -78,7 +79,7 @@ public class CampaignEditedNotificationItem {
   public static final String SERIALIZED_NAME_PLACEHOLDERS = "placeholders";
   @SerializedName(SERIALIZED_NAME_PLACEHOLDERS)
   @javax.annotation.Nullable
-  private List<PlaceholderDetails> placeholders = new ArrayList<>();
+  private List<PlaceholderDetails> placeholders;
 
   public CampaignEditedNotificationItem() {
   }

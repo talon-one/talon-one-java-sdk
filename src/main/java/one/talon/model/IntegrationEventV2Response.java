@@ -32,6 +32,7 @@ import one.talon.model.Giveaway;
 import one.talon.model.Loyalty;
 import one.talon.model.Referral;
 import one.talon.model.RuleFailureReason;
+import com.google.gson.JsonElement;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -59,7 +60,7 @@ import one.talon.JSON;
 /**
  * IntegrationEventV2Response
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.20.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.21.0")
 public class IntegrationEventV2Response {
   public static final String SERIALIZED_NAME_CUSTOMER_PROFILE = "customerProfile";
   @SerializedName(SERIALIZED_NAME_CUSTOMER_PROFILE)
@@ -74,7 +75,7 @@ public class IntegrationEventV2Response {
   public static final String SERIALIZED_NAME_TRIGGERED_CAMPAIGNS = "triggeredCampaigns";
   @SerializedName(SERIALIZED_NAME_TRIGGERED_CAMPAIGNS)
   @javax.annotation.Nullable
-  private List<Campaign> triggeredCampaigns = new ArrayList<>();
+  private List<Campaign> triggeredCampaigns;
 
   public static final String SERIALIZED_NAME_EFFECTS = "effects";
   @SerializedName(SERIALIZED_NAME_EFFECTS)
@@ -84,7 +85,7 @@ public class IntegrationEventV2Response {
   public static final String SERIALIZED_NAME_RULE_FAILURE_REASONS = "ruleFailureReasons";
   @SerializedName(SERIALIZED_NAME_RULE_FAILURE_REASONS)
   @javax.annotation.Nullable
-  private List<RuleFailureReason> ruleFailureReasons = new ArrayList<>();
+  private List<RuleFailureReason> ruleFailureReasons;
 
   public static final String SERIALIZED_NAME_CREATED_COUPONS = "createdCoupons";
   @SerializedName(SERIALIZED_NAME_CREATED_COUPONS)
@@ -99,7 +100,7 @@ public class IntegrationEventV2Response {
   public static final String SERIALIZED_NAME_AWARDED_GIVEAWAYS = "awardedGiveaways";
   @SerializedName(SERIALIZED_NAME_AWARDED_GIVEAWAYS)
   @javax.annotation.Nullable
-  private List<Giveaway> awardedGiveaways = new ArrayList<>();
+  private List<Giveaway> awardedGiveaways;
 
   public static final String SERIALIZED_NAME_EVENT = "event";
   @SerializedName(SERIALIZED_NAME_EVENT)

@@ -26,6 +26,7 @@ import one.talon.model.CustomerProfile;
 import one.talon.model.CustomerSession;
 import one.talon.model.Event;
 import one.talon.model.Loyalty;
+import com.google.gson.JsonElement;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -53,7 +54,7 @@ import one.talon.JSON;
 /**
  * Contains all state that might interest application integration plugins. This is the response type returned by all of the Integration API operations. 
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.20.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.21.0")
 public class IntegrationState {
   public static final String SERIALIZED_NAME_SESSION = "session";
   @SerializedName(SERIALIZED_NAME_SESSION)

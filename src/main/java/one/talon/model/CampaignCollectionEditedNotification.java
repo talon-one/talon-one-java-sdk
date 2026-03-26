@@ -24,6 +24,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import one.talon.model.CampaignCollectionEditedNotificationItem;
+import com.google.gson.JsonElement;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -51,7 +52,7 @@ import one.talon.JSON;
 /**
  * CampaignCollectionEditedNotification
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.20.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.21.0")
 public class CampaignCollectionEditedNotification {
   /**
    * The type of the notification
@@ -116,7 +117,7 @@ public class CampaignCollectionEditedNotification {
   public static final String SERIALIZED_NAME_DATA = "Data";
   @SerializedName(SERIALIZED_NAME_DATA)
   @javax.annotation.Nullable
-  private List<CampaignCollectionEditedNotificationItem> data = new ArrayList<>();
+  private List<CampaignCollectionEditedNotificationItem> data;
 
   public CampaignCollectionEditedNotification() {
   }

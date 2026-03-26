@@ -28,6 +28,7 @@ import one.talon.model.AccountDashboardStatisticDiscount;
 import one.talon.model.AccountDashboardStatisticLoyaltyPoints;
 import one.talon.model.AccountDashboardStatisticReferrals;
 import one.talon.model.AccountDashboardStatisticRevenue;
+import com.google.gson.JsonElement;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -55,27 +56,27 @@ import one.talon.JSON;
 /**
  * AccountDashboardStatistic
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.20.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.21.0")
 public class AccountDashboardStatistic {
   public static final String SERIALIZED_NAME_REVENUE = "revenue";
   @SerializedName(SERIALIZED_NAME_REVENUE)
   @javax.annotation.Nullable
-  private List<AccountDashboardStatisticRevenue> revenue = new ArrayList<>();
+  private List<AccountDashboardStatisticRevenue> revenue;
 
   public static final String SERIALIZED_NAME_DISCOUNTS = "discounts";
   @SerializedName(SERIALIZED_NAME_DISCOUNTS)
   @javax.annotation.Nullable
-  private List<AccountDashboardStatisticDiscount> discounts = new ArrayList<>();
+  private List<AccountDashboardStatisticDiscount> discounts;
 
   public static final String SERIALIZED_NAME_LOYALTY_POINTS = "loyaltyPoints";
   @SerializedName(SERIALIZED_NAME_LOYALTY_POINTS)
   @javax.annotation.Nullable
-  private List<AccountDashboardStatisticLoyaltyPoints> loyaltyPoints = new ArrayList<>();
+  private List<AccountDashboardStatisticLoyaltyPoints> loyaltyPoints;
 
   public static final String SERIALIZED_NAME_REFERRALS = "referrals";
   @SerializedName(SERIALIZED_NAME_REFERRALS)
   @javax.annotation.Nullable
-  private List<AccountDashboardStatisticReferrals> referrals = new ArrayList<>();
+  private List<AccountDashboardStatisticReferrals> referrals;
 
   public static final String SERIALIZED_NAME_CAMPAIGNS = "campaigns";
   @SerializedName(SERIALIZED_NAME_CAMPAIGNS)

@@ -28,6 +28,7 @@ import one.talon.model.ScimServiceProviderConfigResponseChangePassword;
 import one.talon.model.ScimServiceProviderConfigResponseFilter;
 import one.talon.model.ScimServiceProviderConfigResponsePatch;
 import one.talon.model.ScimServiceProviderConfigResponseSort;
+import com.google.gson.JsonElement;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -55,7 +56,7 @@ import one.talon.JSON;
 /**
  * Service provider configuration details.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.20.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.21.0")
 public class ScimServiceProviderConfigResponse {
   public static final String SERIALIZED_NAME_BULK = "bulk";
   @SerializedName(SERIALIZED_NAME_BULK)
@@ -85,7 +86,7 @@ public class ScimServiceProviderConfigResponse {
   public static final String SERIALIZED_NAME_SCHEMAS = "schemas";
   @SerializedName(SERIALIZED_NAME_SCHEMAS)
   @javax.annotation.Nullable
-  private List<String> schemas = new ArrayList<>();
+  private List<String> schemas;
 
   public static final String SERIALIZED_NAME_SORT = "sort";
   @SerializedName(SERIALIZED_NAME_SORT)

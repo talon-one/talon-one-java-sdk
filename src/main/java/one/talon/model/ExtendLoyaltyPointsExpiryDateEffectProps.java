@@ -24,6 +24,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import one.talon.model.LoyaltyLedgerEntryExpiryDateChange;
+import com.google.gson.JsonElement;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -51,7 +52,7 @@ import one.talon.JSON;
 /**
  * The properties specific to the \&quot;extendLoyaltyPointsExpiryDate\&quot; effect. This gets triggered when a validated rule contains the \&quot;extend expiry date\&quot; effect. The current expiry date gets extended by the time frame given in the effect. 
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.20.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.21.0")
 public class ExtendLoyaltyPointsExpiryDateEffectProps {
   public static final String SERIALIZED_NAME_PROGRAM_ID = "programId";
   @SerializedName(SERIALIZED_NAME_PROGRAM_ID)
@@ -71,7 +72,7 @@ public class ExtendLoyaltyPointsExpiryDateEffectProps {
   public static final String SERIALIZED_NAME_AFFECTED_TRANSACTIONS = "affectedTransactions";
   @SerializedName(SERIALIZED_NAME_AFFECTED_TRANSACTIONS)
   @javax.annotation.Nullable
-  private List<LoyaltyLedgerEntryExpiryDateChange> affectedTransactions = new ArrayList<>();
+  private List<LoyaltyLedgerEntryExpiryDateChange> affectedTransactions;
 
   public ExtendLoyaltyPointsExpiryDateEffectProps() {
   }

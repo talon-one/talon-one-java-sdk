@@ -24,6 +24,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import one.talon.model.StrikethroughEffect;
+import com.google.gson.JsonElement;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -51,17 +52,17 @@ import one.talon.JSON;
 /**
  * StrikethroughDebugResponse
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.20.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.21.0")
 public class StrikethroughDebugResponse {
   public static final String SERIALIZED_NAME_CAMPAIGNS_I_DS = "campaignsIDs";
   @SerializedName(SERIALIZED_NAME_CAMPAIGNS_I_DS)
   @javax.annotation.Nullable
-  private List<Long> campaignsIDs = new ArrayList<>();
+  private List<Long> campaignsIDs;
 
   public static final String SERIALIZED_NAME_EFFECTS = "effects";
   @SerializedName(SERIALIZED_NAME_EFFECTS)
   @javax.annotation.Nullable
-  private List<StrikethroughEffect> effects = new ArrayList<>();
+  private List<StrikethroughEffect> effects;
 
   public StrikethroughDebugResponse() {
   }

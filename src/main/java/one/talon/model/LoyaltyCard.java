@@ -28,6 +28,7 @@ import java.util.List;
 import java.util.Map;
 import one.talon.model.LedgerInfo;
 import one.talon.model.LoyaltyCardProfileRegistration;
+import com.google.gson.JsonElement;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -55,7 +56,7 @@ import one.talon.JSON;
 /**
  * LoyaltyCard
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.20.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.21.0")
 public class LoyaltyCard {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -105,7 +106,7 @@ public class LoyaltyCard {
   public static final String SERIALIZED_NAME_PROFILES = "profiles";
   @SerializedName(SERIALIZED_NAME_PROFILES)
   @javax.annotation.Nullable
-  private List<LoyaltyCardProfileRegistration> profiles = new ArrayList<>();
+  private List<LoyaltyCardProfileRegistration> profiles;
 
   public static final String SERIALIZED_NAME_LEDGER = "ledger";
   @SerializedName(SERIALIZED_NAME_LEDGER)
@@ -115,7 +116,7 @@ public class LoyaltyCard {
   public static final String SERIALIZED_NAME_SUBLEDGERS = "subledgers";
   @SerializedName(SERIALIZED_NAME_SUBLEDGERS)
   @javax.annotation.Nullable
-  private Map<String, LedgerInfo> subledgers = new HashMap<>();
+  private Map<String, LedgerInfo> subledgers;
 
   public static final String SERIALIZED_NAME_MODIFIED = "modified";
   @SerializedName(SERIALIZED_NAME_MODIFIED)

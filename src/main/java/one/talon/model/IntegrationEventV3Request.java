@@ -23,6 +23,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import com.google.gson.JsonElement;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -50,7 +51,7 @@ import one.talon.JSON;
 /**
  * IntegrationEventV3Request
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.20.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.21.0")
 public class IntegrationEventV3Request {
   public static final String SERIALIZED_NAME_PROFILE_ID = "profileId";
   @SerializedName(SERIALIZED_NAME_PROFILE_ID)
@@ -65,7 +66,7 @@ public class IntegrationEventV3Request {
   public static final String SERIALIZED_NAME_EVALUABLE_CAMPAIGN_IDS = "evaluableCampaignIds";
   @SerializedName(SERIALIZED_NAME_EVALUABLE_CAMPAIGN_IDS)
   @javax.annotation.Nullable
-  private List<Long> evaluableCampaignIds = new ArrayList<>();
+  private List<Long> evaluableCampaignIds;
 
   public static final String SERIALIZED_NAME_INTEGRATION_ID = "integrationId";
   @SerializedName(SERIALIZED_NAME_INTEGRATION_ID)
@@ -95,7 +96,7 @@ public class IntegrationEventV3Request {
   public static final String SERIALIZED_NAME_LOYALTY_CARDS = "loyaltyCards";
   @SerializedName(SERIALIZED_NAME_LOYALTY_CARDS)
   @javax.annotation.Nullable
-  private List<String> loyaltyCards = new ArrayList<>();
+  private List<String> loyaltyCards;
 
   /**
    * Gets or Sets responseContent
@@ -160,7 +161,7 @@ public class IntegrationEventV3Request {
   public static final String SERIALIZED_NAME_RESPONSE_CONTENT = "responseContent";
   @SerializedName(SERIALIZED_NAME_RESPONSE_CONTENT)
   @javax.annotation.Nullable
-  private List<ResponseContentEnum> responseContent = new ArrayList<>();
+  private List<ResponseContentEnum> responseContent;
 
   public IntegrationEventV3Request() {
   }

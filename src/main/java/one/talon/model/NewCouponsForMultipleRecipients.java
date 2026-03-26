@@ -25,6 +25,7 @@ import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import com.google.gson.JsonElement;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -52,7 +53,7 @@ import one.talon.JSON;
 /**
  * NewCouponsForMultipleRecipients
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.20.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.21.0")
 public class NewCouponsForMultipleRecipients {
   public static final String SERIALIZED_NAME_USAGE_LIMIT = "usageLimit";
   @SerializedName(SERIALIZED_NAME_USAGE_LIMIT)
@@ -92,7 +93,7 @@ public class NewCouponsForMultipleRecipients {
   public static final String SERIALIZED_NAME_VALID_CHARACTERS = "validCharacters";
   @SerializedName(SERIALIZED_NAME_VALID_CHARACTERS)
   @javax.annotation.Nullable
-  private List<String> validCharacters = new ArrayList<>();
+  private List<String> validCharacters;
 
   public static final String SERIALIZED_NAME_COUPON_PATTERN = "couponPattern";
   @SerializedName(SERIALIZED_NAME_COUPON_PATTERN)

@@ -23,6 +23,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import com.google.gson.JsonElement;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -50,7 +51,7 @@ import one.talon.JSON;
 /**
  * TalangAttribute
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.20.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.21.0")
 public class TalangAttribute {
   /**
    * The name of the entity of the attribute.
@@ -235,7 +236,7 @@ public class TalangAttribute {
   public static final String SERIALIZED_NAME_EXAMPLE_VALUE = "exampleValue";
   @SerializedName(SERIALIZED_NAME_EXAMPLE_VALUE)
   @javax.annotation.Nullable
-  private List<String> exampleValue = new ArrayList<>();
+  private List<String> exampleValue;
 
   public TalangAttribute() {
   }

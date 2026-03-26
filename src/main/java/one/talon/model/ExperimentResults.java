@@ -25,6 +25,7 @@ import java.util.Arrays;
 import java.util.List;
 import one.talon.model.ExperimentVariantResult;
 import one.talon.model.ExperimentVariantResultConfidence;
+import com.google.gson.JsonElement;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -52,12 +53,12 @@ import one.talon.JSON;
 /**
  * ExperimentResults
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.20.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.21.0")
 public class ExperimentResults {
   public static final String SERIALIZED_NAME_VARIANTS = "variants";
   @SerializedName(SERIALIZED_NAME_VARIANTS)
   @javax.annotation.Nullable
-  private List<ExperimentVariantResult> variants = new ArrayList<>();
+  private List<ExperimentVariantResult> variants;
 
   public static final String SERIALIZED_NAME_CONFIDENCE = "confidence";
   @SerializedName(SERIALIZED_NAME_CONFIDENCE)

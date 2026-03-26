@@ -25,6 +25,7 @@ import java.util.Arrays;
 import java.util.List;
 import one.talon.model.CustomerSessionV2;
 import one.talon.model.Effect;
+import com.google.gson.JsonElement;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -52,7 +53,7 @@ import one.talon.JSON;
 /**
  * IntegrationCustomerSessionResponse
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.20.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.21.0")
 public class IntegrationCustomerSessionResponse {
   public static final String SERIALIZED_NAME_CUSTOMER_SESSION = "customerSession";
   @SerializedName(SERIALIZED_NAME_CUSTOMER_SESSION)
@@ -62,7 +63,7 @@ public class IntegrationCustomerSessionResponse {
   public static final String SERIALIZED_NAME_EFFECTS = "effects";
   @SerializedName(SERIALIZED_NAME_EFFECTS)
   @javax.annotation.Nullable
-  private List<Effect> effects = new ArrayList<>();
+  private List<Effect> effects;
 
   public IntegrationCustomerSessionResponse() {
   }

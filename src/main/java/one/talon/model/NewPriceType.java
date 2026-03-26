@@ -23,6 +23,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import com.google.gson.JsonElement;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -50,7 +51,7 @@ import one.talon.JSON;
 /**
  * NewPriceType
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.20.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.21.0")
 public class NewPriceType {
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
@@ -70,7 +71,7 @@ public class NewPriceType {
   public static final String SERIALIZED_NAME_TARGETED_AUDIENCES_IDS = "targetedAudiencesIds";
   @SerializedName(SERIALIZED_NAME_TARGETED_AUDIENCES_IDS)
   @javax.annotation.Nullable
-  private List<Long> targetedAudiencesIds = new ArrayList<>();
+  private List<Long> targetedAudiencesIds;
 
   public NewPriceType() {
   }

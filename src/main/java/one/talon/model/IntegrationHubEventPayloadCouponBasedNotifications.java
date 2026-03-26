@@ -25,6 +25,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import one.talon.model.IntegrationHubEventPayloadCouponBasedNotificationsLimits;
+import com.google.gson.JsonElement;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -52,7 +53,7 @@ import one.talon.JSON;
 /**
  * IntegrationHubEventPayloadCouponBasedNotifications
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.20.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.21.0")
 public class IntegrationHubEventPayloadCouponBasedNotifications {
   public static final String SERIALIZED_NAME_ID = "Id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -142,7 +143,7 @@ public class IntegrationHubEventPayloadCouponBasedNotifications {
   public static final String SERIALIZED_NAME_LIMITS = "Limits";
   @SerializedName(SERIALIZED_NAME_LIMITS)
   @javax.annotation.Nullable
-  private List<IntegrationHubEventPayloadCouponBasedNotificationsLimits> limits = new ArrayList<>();
+  private List<IntegrationHubEventPayloadCouponBasedNotificationsLimits> limits;
 
   public static final String SERIALIZED_NAME_PUBLISHED_AT = "PublishedAt";
   @SerializedName(SERIALIZED_NAME_PUBLISHED_AT)
