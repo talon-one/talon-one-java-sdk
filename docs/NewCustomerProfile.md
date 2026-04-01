@@ -7,7 +7,7 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**attributes** | **Object** | Arbitrary properties associated with this item. |  [optional] |
+|**attributes** | **Map&lt;String, Object&gt;** | Arbitrary properties associated with this item. |  [optional] |
 
 
 

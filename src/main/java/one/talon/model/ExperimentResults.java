@@ -1,6 +1,6 @@
 /*
  * Talon.One API
- * Use the Talon.One API to integrate with your application and to manage applications and campaigns:  - Use the operations in the [Integration API section](#integration-api) are used to integrate with our platform - Use the operation in the [Management API section](#management-api) to manage applications and campaigns.  ## Determining the base URL of the endpoints  The API is available at the same hostname as your Campaign Manager deployment. For example, if you access the Campaign Manager at `https://yourbaseurl.talon.one/`, the URL for the [updateCustomerSessionV2](https://docs.talon.one/integration-api#operation/updateCustomerSessionV2) endpoint is `https://yourbaseurl.talon.one/v2/customer_sessions/{Id}` 
+ * Use the Talon.One API to integrate with your application and to manage applications and campaigns:  - Use the operations in the [Integration API section](#integration-api) to integrate with our platform. - Use the operation in the [Management API section](#management-api) to manage applications and campaigns.  ## Determining the base URL of the endpoints  The API is available at the same hostname as your Campaign Manager deployment.  For example, if you access the Campaign Manager at `https://yourbaseurl.talon.one/`, the URL for the [updateCustomerSessionV2](https://docs.talon.one/integration-api#tag/Customer-sessions/operation/updateCustomerSessionV2) endpoint is `https://yourbaseurl.talon.one/v2/customer_sessions/{Id}`. 
  *
  * The version of the OpenAPI document: 
  * 
@@ -57,8 +57,8 @@ import one.talon.JSON;
 public class ExperimentResults {
   public static final String SERIALIZED_NAME_VARIANTS = "variants";
   @SerializedName(SERIALIZED_NAME_VARIANTS)
-  @javax.annotation.Nullable
-  private List<ExperimentVariantResult> variants;
+  @javax.annotation.Nonnull
+  private List<ExperimentVariantResult> variants = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_CONFIDENCE = "confidence";
   @SerializedName(SERIALIZED_NAME_CONFIDENCE)
@@ -68,7 +68,7 @@ public class ExperimentResults {
   public ExperimentResults() {
   }
 
-  public ExperimentResults variants(@javax.annotation.Nullable List<ExperimentVariantResult> variants) {
+  public ExperimentResults variants(@javax.annotation.Nonnull List<ExperimentVariantResult> variants) {
     this.variants = variants;
     return this;
   }
@@ -85,12 +85,12 @@ public class ExperimentResults {
    * Get variants
    * @return variants
    */
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
   public List<ExperimentVariantResult> getVariants() {
     return variants;
   }
 
-  public void setVariants(@javax.annotation.Nullable List<ExperimentVariantResult> variants) {
+  public void setVariants(@javax.annotation.Nonnull List<ExperimentVariantResult> variants) {
     this.variants = variants;
   }
 
@@ -163,7 +163,7 @@ public class ExperimentResults {
     openapiFields = new HashSet<String>(Arrays.asList("variants", "confidence"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("confidence"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("variants", "confidence"));
   }
 
   /**
@@ -194,18 +194,14 @@ public class ExperimentResults {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if (jsonObj.get("variants") != null && !jsonObj.get("variants").isJsonNull()) {
+      if (jsonObj.get("variants") != null) {
+        if (!jsonObj.get("variants").isJsonArray()) {
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `variants` to be an array in the JSON string but got `%s`", jsonObj.get("variants").toString()));
+        }
         JsonArray jsonArrayvariants = jsonObj.getAsJsonArray("variants");
-        if (jsonArrayvariants != null) {
-          // ensure the json data is an array
-          if (!jsonObj.get("variants").isJsonArray()) {
-            throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `variants` to be an array in the JSON string but got `%s`", jsonObj.get("variants").toString()));
-          }
-
-          // validate the optional field `variants` (array)
-          for (int i = 0; i < jsonArrayvariants.size(); i++) {
-            ExperimentVariantResult.validateJsonElement(jsonArrayvariants.get(i));
-          };
+        // validate the required field `variants` (array)
+        for (int i = 0; i < jsonArrayvariants.size(); i++) {
+          ExperimentVariantResult.validateJsonElement(jsonArrayvariants.get(i));
         }
       }
       // validate the required field `confidence`

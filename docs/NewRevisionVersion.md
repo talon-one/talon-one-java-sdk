@@ -19,6 +19,7 @@
 |**limits** | [**List&lt;LimitConfig&gt;**](LimitConfig.md) | The set of limits that will operate for this campaign version. |  [optional] |
 |**reevaluateOnReturn** | **Boolean** | Indicates whether this campaign should be reevaluated when a customer returns an item. |  [optional] |
 |**features** | [**List&lt;FeaturesEnum&gt;**](#List&lt;FeaturesEnum&gt;) | A list of features for the campaign. |  [optional] |
+|**couponAttributes** | **Object** | Arbitrary properties associated with coupons in this campaign. |  [optional] |
 
 
 
