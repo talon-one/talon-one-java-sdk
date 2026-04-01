@@ -1,6 +1,6 @@
 /*
  * Talon.One API
- * Use the Talon.One API to integrate with your application and to manage applications and campaigns:  - Use the operations in the [Integration API section](#integration-api) are used to integrate with our platform - Use the operation in the [Management API section](#management-api) to manage applications and campaigns.  ## Determining the base URL of the endpoints  The API is available at the same hostname as your Campaign Manager deployment. For example, if you access the Campaign Manager at `https://yourbaseurl.talon.one/`, the URL for the [updateCustomerSessionV2](https://docs.talon.one/integration-api#operation/updateCustomerSessionV2) endpoint is `https://yourbaseurl.talon.one/v2/customer_sessions/{Id}` 
+ * Use the Talon.One API to integrate with your application and to manage applications and campaigns:  - Use the operations in the [Integration API section](#integration-api) to integrate with our platform. - Use the operation in the [Management API section](#management-api) to manage applications and campaigns.  ## Determining the base URL of the endpoints  The API is available at the same hostname as your Campaign Manager deployment.  For example, if you access the Campaign Manager at `https://yourbaseurl.talon.one/`, the URL for the [updateCustomerSessionV2](https://docs.talon.one/integration-api#tag/Customer-sessions/operation/updateCustomerSessionV2) endpoint is `https://yourbaseurl.talon.one/v2/customer_sessions/{Id}`. 
  *
  * The version of the OpenAPI document: 
  * 
@@ -21,6 +21,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.util.Arrays;
+import one.talon.model.RolesV2Thresholds;
 import com.google.gson.JsonElement;
 
 import com.google.gson.Gson;
@@ -70,6 +71,11 @@ public class RoleV2ApplicationDetails {
   @SerializedName(SERIALIZED_NAME_TOOLS)
   @javax.annotation.Nullable
   private String tools;
+
+  public static final String SERIALIZED_NAME_THRESHOLDS = "thresholds";
+  @SerializedName(SERIALIZED_NAME_THRESHOLDS)
+  @javax.annotation.Nullable
+  private RolesV2Thresholds thresholds;
 
   public RoleV2ApplicationDetails() {
   }
@@ -150,6 +156,25 @@ public class RoleV2ApplicationDetails {
   }
 
 
+  public RoleV2ApplicationDetails thresholds(@javax.annotation.Nullable RolesV2Thresholds thresholds) {
+    this.thresholds = thresholds;
+    return this;
+  }
+
+  /**
+   * Support user limits for actions that require admin approval within the given application.
+   * @return thresholds
+   */
+  @javax.annotation.Nullable
+  public RolesV2Thresholds getThresholds() {
+    return thresholds;
+  }
+
+  public void setThresholds(@javax.annotation.Nullable RolesV2Thresholds thresholds) {
+    this.thresholds = thresholds;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -163,12 +188,13 @@ public class RoleV2ApplicationDetails {
     return Objects.equals(this.application, roleV2ApplicationDetails.application) &&
         Objects.equals(this.campaign, roleV2ApplicationDetails.campaign) &&
         Objects.equals(this.draftCampaign, roleV2ApplicationDetails.draftCampaign) &&
-        Objects.equals(this.tools, roleV2ApplicationDetails.tools);
+        Objects.equals(this.tools, roleV2ApplicationDetails.tools) &&
+        Objects.equals(this.thresholds, roleV2ApplicationDetails.thresholds);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(application, campaign, draftCampaign, tools);
+    return Objects.hash(application, campaign, draftCampaign, tools, thresholds);
   }
 
   @Override
@@ -179,6 +205,7 @@ public class RoleV2ApplicationDetails {
     sb.append("    campaign: ").append(toIndentedString(campaign)).append("\n");
     sb.append("    draftCampaign: ").append(toIndentedString(draftCampaign)).append("\n");
     sb.append("    tools: ").append(toIndentedString(tools)).append("\n");
+    sb.append("    thresholds: ").append(toIndentedString(thresholds)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -200,7 +227,7 @@ public class RoleV2ApplicationDetails {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("application", "campaign", "draftCampaign", "tools"));
+    openapiFields = new HashSet<String>(Arrays.asList("application", "campaign", "draftCampaign", "tools", "thresholds"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(0);
@@ -238,6 +265,10 @@ public class RoleV2ApplicationDetails {
       }
       if ((jsonObj.get("tools") != null && !jsonObj.get("tools").isJsonNull()) && !jsonObj.get("tools").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `tools` to be a primitive type in the JSON string but got `%s`", jsonObj.get("tools").toString()));
+      }
+      // validate the optional field `thresholds`
+      if (jsonObj.get("thresholds") != null && !jsonObj.get("thresholds").isJsonNull()) {
+        RolesV2Thresholds.validateJsonElement(jsonObj.get("thresholds"));
       }
   }
 

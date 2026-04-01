@@ -222,6 +222,9 @@ docs/DeleteUserRequest.md
 docs/Effect.md
 docs/EffectEntity.md
 docs/EmailEntity.md
+docs/EmbeddedAnalyticsConfiguration.md
+docs/EmbeddedAnalyticsConfigurationDashboards.md
+docs/EmbeddedDashboardConfiguration.md
 docs/Endpoint.md
 docs/Entity.md
 docs/EntityWithTalangVisibleID.md
@@ -240,6 +243,9 @@ docs/Experiment.md
 docs/ExperimentCampaignCopy.md
 docs/ExperimentCopy.md
 docs/ExperimentCopyExperiment.md
+docs/ExperimentListResults.md
+docs/ExperimentListResultsRequest.md
+docs/ExperimentResult.md
 docs/ExperimentResults.md
 docs/ExperimentVariant.md
 docs/ExperimentVariantAllocation.md
@@ -318,6 +324,8 @@ docs/GetRulesets200Response.md
 docs/GetUsers200Response.md
 docs/GetWebhooks200Response.md
 docs/Giveaway.md
+docs/GiveawayPoolNotification.md
+docs/GiveawayPoolNotificationData.md
 docs/GiveawaysPool.md
 docs/HiddenConditionsEffects.md
 docs/History.md
@@ -561,6 +569,7 @@ docs/RoleV2PermissionSet.md
 docs/RoleV2Permissions.md
 docs/RoleV2Readonly.md
 docs/RoleV2RolesGroup.md
+docs/RolesV2Thresholds.md
 docs/RollbackAddedLoyaltyPointsEffectProps.md
 docs/RollbackCouponEffectProps.md
 docs/RollbackDeductedLoyaltyPointsEffectProps.md
@@ -569,6 +578,7 @@ docs/RollbackIncreasedAchievementProgressEffectProps.md
 docs/RollbackReferralEffectProps.md
 docs/Rule.md
 docs/RuleFailureReason.md
+docs/RuleMetadata.md
 docs/Ruleset.md
 docs/SSOConfig.md
 docs/SamlConnection.md
@@ -927,6 +937,9 @@ src/main/java/one/talon/model/DeleteUserRequest.java
 src/main/java/one/talon/model/Effect.java
 src/main/java/one/talon/model/EffectEntity.java
 src/main/java/one/talon/model/EmailEntity.java
+src/main/java/one/talon/model/EmbeddedAnalyticsConfiguration.java
+src/main/java/one/talon/model/EmbeddedAnalyticsConfigurationDashboards.java
+src/main/java/one/talon/model/EmbeddedDashboardConfiguration.java
 src/main/java/one/talon/model/Endpoint.java
 src/main/java/one/talon/model/Entity.java
 src/main/java/one/talon/model/EntityWithTalangVisibleID.java
@@ -945,6 +958,9 @@ src/main/java/one/talon/model/Experiment.java
 src/main/java/one/talon/model/ExperimentCampaignCopy.java
 src/main/java/one/talon/model/ExperimentCopy.java
 src/main/java/one/talon/model/ExperimentCopyExperiment.java
+src/main/java/one/talon/model/ExperimentListResults.java
+src/main/java/one/talon/model/ExperimentListResultsRequest.java
+src/main/java/one/talon/model/ExperimentResult.java
 src/main/java/one/talon/model/ExperimentResults.java
 src/main/java/one/talon/model/ExperimentVariant.java
 src/main/java/one/talon/model/ExperimentVariantAllocation.java
@@ -1023,6 +1039,8 @@ src/main/java/one/talon/model/GetRulesets200Response.java
 src/main/java/one/talon/model/GetUsers200Response.java
 src/main/java/one/talon/model/GetWebhooks200Response.java
 src/main/java/one/talon/model/Giveaway.java
+src/main/java/one/talon/model/GiveawayPoolNotification.java
+src/main/java/one/talon/model/GiveawayPoolNotificationData.java
 src/main/java/one/talon/model/GiveawaysPool.java
 src/main/java/one/talon/model/HiddenConditionsEffects.java
 src/main/java/one/talon/model/History.java
@@ -1264,6 +1282,7 @@ src/main/java/one/talon/model/RoleV2PermissionSet.java
 src/main/java/one/talon/model/RoleV2Permissions.java
 src/main/java/one/talon/model/RoleV2Readonly.java
 src/main/java/one/talon/model/RoleV2RolesGroup.java
+src/main/java/one/talon/model/RolesV2Thresholds.java
 src/main/java/one/talon/model/RollbackAddedLoyaltyPointsEffectProps.java
 src/main/java/one/talon/model/RollbackCouponEffectProps.java
 src/main/java/one/talon/model/RollbackDeductedLoyaltyPointsEffectProps.java
@@ -1272,6 +1291,7 @@ src/main/java/one/talon/model/RollbackIncreasedAchievementProgressEffectProps.ja
 src/main/java/one/talon/model/RollbackReferralEffectProps.java
 src/main/java/one/talon/model/Rule.java
 src/main/java/one/talon/model/RuleFailureReason.java
+src/main/java/one/talon/model/RuleMetadata.java
 src/main/java/one/talon/model/Ruleset.java
 src/main/java/one/talon/model/SSOConfig.java
 src/main/java/one/talon/model/SamlConnection.java
@@ -1603,6 +1623,9 @@ src/test/java/one/talon/model/DeleteUserRequestTest.java
 src/test/java/one/talon/model/EffectEntityTest.java
 src/test/java/one/talon/model/EffectTest.java
 src/test/java/one/talon/model/EmailEntityTest.java
+src/test/java/one/talon/model/EmbeddedAnalyticsConfigurationDashboardsTest.java
+src/test/java/one/talon/model/EmbeddedAnalyticsConfigurationTest.java
+src/test/java/one/talon/model/EmbeddedDashboardConfigurationTest.java
 src/test/java/one/talon/model/EndpointTest.java
 src/test/java/one/talon/model/EntityTest.java
 src/test/java/one/talon/model/EntityWithTalangVisibleIDTest.java
@@ -1620,6 +1643,9 @@ src/test/java/one/talon/model/EventV3Test.java
 src/test/java/one/talon/model/ExperimentCampaignCopyTest.java
 src/test/java/one/talon/model/ExperimentCopyExperimentTest.java
 src/test/java/one/talon/model/ExperimentCopyTest.java
+src/test/java/one/talon/model/ExperimentListResultsRequestTest.java
+src/test/java/one/talon/model/ExperimentListResultsTest.java
+src/test/java/one/talon/model/ExperimentResultTest.java
 src/test/java/one/talon/model/ExperimentResultsTest.java
 src/test/java/one/talon/model/ExperimentTest.java
 src/test/java/one/talon/model/ExperimentVariantAllocationTest.java
@@ -1698,6 +1724,8 @@ src/test/java/one/talon/model/GetReservedCustomers200ResponseTest.java
 src/test/java/one/talon/model/GetRulesets200ResponseTest.java
 src/test/java/one/talon/model/GetUsers200ResponseTest.java
 src/test/java/one/talon/model/GetWebhooks200ResponseTest.java
+src/test/java/one/talon/model/GiveawayPoolNotificationDataTest.java
+src/test/java/one/talon/model/GiveawayPoolNotificationTest.java
 src/test/java/one/talon/model/GiveawayTest.java
 src/test/java/one/talon/model/GiveawaysPoolTest.java
 src/test/java/one/talon/model/HiddenConditionsEffectsTest.java
@@ -1940,6 +1968,7 @@ src/test/java/one/talon/model/RoleV2PermissionsTest.java
 src/test/java/one/talon/model/RoleV2ReadonlyTest.java
 src/test/java/one/talon/model/RoleV2RolesGroupTest.java
 src/test/java/one/talon/model/RoleV2Test.java
+src/test/java/one/talon/model/RolesV2ThresholdsTest.java
 src/test/java/one/talon/model/RollbackAddedLoyaltyPointsEffectPropsTest.java
 src/test/java/one/talon/model/RollbackCouponEffectPropsTest.java
 src/test/java/one/talon/model/RollbackDeductedLoyaltyPointsEffectPropsTest.java
@@ -1947,6 +1976,7 @@ src/test/java/one/talon/model/RollbackDiscountEffectPropsTest.java
 src/test/java/one/talon/model/RollbackIncreasedAchievementProgressEffectPropsTest.java
 src/test/java/one/talon/model/RollbackReferralEffectPropsTest.java
 src/test/java/one/talon/model/RuleFailureReasonTest.java
+src/test/java/one/talon/model/RuleMetadataTest.java
 src/test/java/one/talon/model/RuleTest.java
 src/test/java/one/talon/model/RulesetTest.java
 src/test/java/one/talon/model/SSOConfigTest.java

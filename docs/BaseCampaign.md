@@ -13,7 +13,7 @@
 |**endTime** | **OffsetDateTime** | Timestamp when the campaign will become inactive. |  [optional] |
 |**attributes** | **Object** | Arbitrary properties associated with this campaign. |  [optional] |
 |**state** | [**StateEnum**](#StateEnum) | A disabled or archived campaign is not evaluated for rules or coupons.  |  |
-|**activeRulesetId** | **Long** | [ID of Ruleset](https://docs.talon.one/management-api#operation/getRulesets) this campaign applies on customer session evaluation.  |  [optional] |
+|**activeRulesetId** | **Long** | [ID of Ruleset](https://docs.talon.one/management-api#tag/Campaigns/operation/getRulesets) this campaign applies on customer session evaluation.  |  [optional] |
 |**tags** | **List&lt;String&gt;** | A list of tags for the campaign. |  |
 |**reevaluateOnReturn** | **Boolean** | Indicates whether this campaign should be reevaluated when a customer returns an item. |  [optional] |
 |**features** | [**List&lt;FeaturesEnum&gt;**](#List&lt;FeaturesEnum&gt;) | The features enabled in this campaign. |  |
@@ -23,6 +23,7 @@
 |**campaignGroups** | **List&lt;Long&gt;** | The IDs of the [campaign groups](https://docs.talon.one/docs/product/account/managing-campaign-groups) this campaign belongs to.  |  [optional] |
 |**type** | [**TypeEnum**](#TypeEnum) | The campaign type. Possible type values:   - &#x60;cartItem&#x60;: Type of campaign that can apply effects only to cart items.   - &#x60;advanced&#x60;: Type of campaign that can apply effects to customer sessions and cart items.  |  [optional] |
 |**linkedStoreIds** | **List&lt;Long&gt;** | A list of store IDs that you want to link to the campaign.  **Note:** Campaigns with linked store IDs will only be evaluated when there is a [customer session update](https://docs.talon.one/integration-api#tag/Customer-sessions/operation/updateCustomerSessionV2) that references a linked store.  |  [optional] |
+|**couponAttributes** | **Object** | Arbitrary properties associated with coupons in this campaign. |  [optional] |
 
 
 

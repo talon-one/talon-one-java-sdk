@@ -14,7 +14,7 @@
 |**expiryDate** | **OffsetDateTime** | Expiration date of the coupon. Coupon never expires if this is omitted. |  [optional] |
 |**limits** | [**List&lt;LimitConfig&gt;**](LimitConfig.md) | Limits configuration for a coupon. These limits will override the limits set from the campaign.  **Note:** Only usable when creating a single coupon which is not tied to a specific recipient. Only per-profile limits are allowed to be configured.  |  [optional] |
 |**numberOfCoupons** | **Long** | The number of new coupon codes to generate for the campaign. Must be at least 1. |  |
-|**uniquePrefix** | **String** | **DEPRECATED** To create more than 20,000 coupons in one request, use [Create coupons asynchronously](https://docs.talon.one/management-api#operation/createCouponsAsync) endpoint.  |  [optional] |
+|**uniquePrefix** | **String** | **DEPRECATED** To create more than 20,000 coupons in one request, use [Create coupons asynchronously](https://docs.talon.one/management-api#tag/Coupons/operation/createCouponsAsync) endpoint.  |  [optional] |
 |**attributes** | **Object** | Arbitrary properties associated with this item. |  [optional] |
 |**recipientIntegrationId** | **String** | The integration ID for this coupon&#39;s beneficiary&#39;s profile. |  [optional] |
 |**validCharacters** | **List&lt;String&gt;** | List of characters used to generate the random parts of a code. By default, the list of characters is equivalent to the &#x60;[A-Z, 0-9]&#x60; regular expression.  |  [optional] |

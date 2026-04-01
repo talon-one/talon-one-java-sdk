@@ -1,6 +1,6 @@
 /*
  * Talon.One API
- * Use the Talon.One API to integrate with your application and to manage applications and campaigns:  - Use the operations in the [Integration API section](#integration-api) are used to integrate with our platform - Use the operation in the [Management API section](#management-api) to manage applications and campaigns.  ## Determining the base URL of the endpoints  The API is available at the same hostname as your Campaign Manager deployment. For example, if you access the Campaign Manager at `https://yourbaseurl.talon.one/`, the URL for the [updateCustomerSessionV2](https://docs.talon.one/integration-api#operation/updateCustomerSessionV2) endpoint is `https://yourbaseurl.talon.one/v2/customer_sessions/{Id}` 
+ * Use the Talon.One API to integrate with your application and to manage applications and campaigns:  - Use the operations in the [Integration API section](#integration-api) to integrate with our platform. - Use the operation in the [Management API section](#management-api) to manage applications and campaigns.  ## Determining the base URL of the endpoints  The API is available at the same hostname as your Campaign Manager deployment.  For example, if you access the Campaign Manager at `https://yourbaseurl.talon.one/`, the URL for the [updateCustomerSessionV2](https://docs.talon.one/integration-api#tag/Customer-sessions/operation/updateCustomerSessionV2) endpoint is `https://yourbaseurl.talon.one/v2/customer_sessions/{Id}`. 
  *
  * The version of the OpenAPI document: 
  * 
@@ -302,6 +302,11 @@ public class BaseCampaign {
   @javax.annotation.Nullable
   private List<Long> linkedStoreIds;
 
+  public static final String SERIALIZED_NAME_COUPON_ATTRIBUTES = "couponAttributes";
+  @SerializedName(SERIALIZED_NAME_COUPON_ATTRIBUTES)
+  @javax.annotation.Nullable
+  private Object couponAttributes;
+
   public BaseCampaign() {
   }
 
@@ -425,7 +430,7 @@ public class BaseCampaign {
   }
 
   /**
-   * [ID of Ruleset](https://docs.talon.one/management-api#operation/getRulesets) this campaign applies on customer session evaluation. 
+   * [ID of Ruleset](https://docs.talon.one/management-api#tag/Campaigns/operation/getRulesets) this campaign applies on customer session evaluation. 
    * @return activeRulesetId
    */
   @javax.annotation.Nullable
@@ -649,6 +654,25 @@ public class BaseCampaign {
   }
 
 
+  public BaseCampaign couponAttributes(@javax.annotation.Nullable Object couponAttributes) {
+    this.couponAttributes = couponAttributes;
+    return this;
+  }
+
+  /**
+   * Arbitrary properties associated with coupons in this campaign.
+   * @return couponAttributes
+   */
+  @javax.annotation.Nullable
+  public Object getCouponAttributes() {
+    return couponAttributes;
+  }
+
+  public void setCouponAttributes(@javax.annotation.Nullable Object couponAttributes) {
+    this.couponAttributes = couponAttributes;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -674,12 +698,13 @@ public class BaseCampaign {
         Objects.equals(this.limits, baseCampaign.limits) &&
         Objects.equals(this.campaignGroups, baseCampaign.campaignGroups) &&
         Objects.equals(this.type, baseCampaign.type) &&
-        Objects.equals(this.linkedStoreIds, baseCampaign.linkedStoreIds);
+        Objects.equals(this.linkedStoreIds, baseCampaign.linkedStoreIds) &&
+        Objects.equals(this.couponAttributes, baseCampaign.couponAttributes);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, description, startTime, endTime, attributes, state, activeRulesetId, tags, reevaluateOnReturn, features, couponSettings, referralSettings, limits, campaignGroups, type, linkedStoreIds);
+    return Objects.hash(name, description, startTime, endTime, attributes, state, activeRulesetId, tags, reevaluateOnReturn, features, couponSettings, referralSettings, limits, campaignGroups, type, linkedStoreIds, couponAttributes);
   }
 
   @Override
@@ -702,6 +727,7 @@ public class BaseCampaign {
     sb.append("    campaignGroups: ").append(toIndentedString(campaignGroups)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    linkedStoreIds: ").append(toIndentedString(linkedStoreIds)).append("\n");
+    sb.append("    couponAttributes: ").append(toIndentedString(couponAttributes)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -723,7 +749,7 @@ public class BaseCampaign {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("name", "description", "startTime", "endTime", "attributes", "state", "activeRulesetId", "tags", "reevaluateOnReturn", "features", "couponSettings", "referralSettings", "limits", "campaignGroups", "type", "linkedStoreIds"));
+    openapiFields = new HashSet<String>(Arrays.asList("name", "description", "startTime", "endTime", "attributes", "state", "activeRulesetId", "tags", "reevaluateOnReturn", "features", "couponSettings", "referralSettings", "limits", "campaignGroups", "type", "linkedStoreIds", "couponAttributes"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("name", "state", "tags", "features", "limits"));

@@ -7,7 +7,7 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**attributes** | **Object** | Arbitrary properties associated with this item. |  [optional] |
+|**attributes** | **Map&lt;String, Object&gt;** | Arbitrary properties associated with this item. |  [optional] |
 |**evaluableCampaignIds** | **List&lt;Long&gt;** | When using the &#x60;dry&#x60; query parameter, use this property to list the campaign to be evaluated by the Rule Engine.  These campaigns will be evaluated, even if they are disabled, allowing you to test specific campaigns before activating them.  |  [optional] |
 |**responseContent** | [**List&lt;ResponseContentEnum&gt;**](#List&lt;ResponseContentEnum&gt;) | Extends the response with the chosen data entities. Use this property to get as much data back as needed from one request instead of sending extra requests to other endpoints.  |  [optional] |
 |**audiencesChanges** | [**ProfileAudiencesChanges**](ProfileAudiencesChanges.md) | Audiences memberships changes for this profile. |  [optional] |

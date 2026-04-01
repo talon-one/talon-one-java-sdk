@@ -150,6 +150,7 @@ All URIs are relative to *https://yourbaseurl.talon.one*
 | [**listExperiments**](ManagementApi.md#listExperiments) | **GET** /v1/applications/{applicationId}/experiments | List experiments |
 | [**listStores**](ManagementApi.md#listStores) | **GET** /v1/applications/{applicationId}/stores | List stores |
 | [**oktaEventHandlerChallenge**](ManagementApi.md#oktaEventHandlerChallenge) | **GET** /v1/provisioning/okta | Validate Okta API ownership |
+| [**priceHistory**](ManagementApi.md#priceHistory) | **POST** /v1/applications/{applicationId}/price_history | Get summary of price history |
 | [**removeLoyaltyPoints**](ManagementApi.md#removeLoyaltyPoints) | **PUT** /v1/loyalty_programs/{loyaltyProgramId}/profile/{integrationId}/deduct_points | Deduct points from customer profile |
 | [**resetPassword**](ManagementApi.md#resetPassword) | **POST** /v1/reset_password | Reset password |
 | [**scimCreateGroup**](ManagementApi.md#scimCreateGroup) | **POST** /v1/provisioning/scim/Groups | Create SCIM group |
@@ -209,18 +210,6 @@ public class Example {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://yourbaseurl.talon.one");
     
-    // Configure API key authorization: management_key
-    ApiKeyAuth management_key = (ApiKeyAuth) defaultClient.getAuthentication("management_key");
-    management_key.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //management_key.setApiKeyPrefix("Token");
-
-    // Configure API key authorization: manager_auth
-    ApiKeyAuth manager_auth = (ApiKeyAuth) defaultClient.getAuthentication("manager_auth");
-    manager_auth.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //manager_auth.setApiKeyPrefix("Token");
-
     // Configure API key authorization: api_key_v1
     ApiKeyAuth api_key_v1 = (ApiKeyAuth) defaultClient.getAuthentication("api_key_v1");
     api_key_v1.setApiKey("YOUR API KEY");
@@ -254,7 +243,7 @@ null (empty response body)
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth), [api_key_v1](../README.md#api_key_v1)
+[api_key_v1](../README.md#api_key_v1)
 
 ### HTTP request headers
 
@@ -289,18 +278,6 @@ public class Example {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://yourbaseurl.talon.one");
     
-    // Configure API key authorization: management_key
-    ApiKeyAuth management_key = (ApiKeyAuth) defaultClient.getAuthentication("management_key");
-    management_key.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //management_key.setApiKeyPrefix("Token");
-
-    // Configure API key authorization: manager_auth
-    ApiKeyAuth manager_auth = (ApiKeyAuth) defaultClient.getAuthentication("manager_auth");
-    manager_auth.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //manager_auth.setApiKeyPrefix("Token");
-
     // Configure API key authorization: api_key_v1
     ApiKeyAuth api_key_v1 = (ApiKeyAuth) defaultClient.getAuthentication("api_key_v1");
     api_key_v1.setApiKey("YOUR API KEY");
@@ -338,7 +315,7 @@ null (empty response body)
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth), [api_key_v1](../README.md#api_key_v1)
+[api_key_v1](../README.md#api_key_v1)
 
 ### HTTP request headers
 
@@ -359,7 +336,7 @@ null (empty response body)
 
 Add points to customer profile
 
-Add points in the specified loyalty program for the given customer.  To get the &#x60;integrationId&#x60; of the profile from a &#x60;sessionId&#x60;, use the [Update customer session](https://docs.talon.one/integration-api#operation/updateCustomerSessionV2) endpoint. 
+Add points in the specified loyalty program for the given customer.  To get the &#x60;integrationId&#x60; of the profile from a &#x60;sessionId&#x60;, use the [Update customer session](https://docs.talon.one/integration-api#tag/Customer-sessions/operation/updateCustomerSessionV2) endpoint. 
 
 ### Example
 ```java
@@ -376,18 +353,6 @@ public class Example {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://yourbaseurl.talon.one");
     
-    // Configure API key authorization: management_key
-    ApiKeyAuth management_key = (ApiKeyAuth) defaultClient.getAuthentication("management_key");
-    management_key.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //management_key.setApiKeyPrefix("Token");
-
-    // Configure API key authorization: manager_auth
-    ApiKeyAuth manager_auth = (ApiKeyAuth) defaultClient.getAuthentication("manager_auth");
-    manager_auth.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //manager_auth.setApiKeyPrefix("Token");
-
     // Configure API key authorization: api_key_v1
     ApiKeyAuth api_key_v1 = (ApiKeyAuth) defaultClient.getAuthentication("api_key_v1");
     api_key_v1.setApiKey("YOUR API KEY");
@@ -425,7 +390,7 @@ null (empty response body)
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth), [api_key_v1](../README.md#api_key_v1)
+[api_key_v1](../README.md#api_key_v1)
 
 ### HTTP request headers
 
@@ -463,18 +428,6 @@ public class Example {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://yourbaseurl.talon.one");
     
-    // Configure API key authorization: management_key
-    ApiKeyAuth management_key = (ApiKeyAuth) defaultClient.getAuthentication("management_key");
-    management_key.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //management_key.setApiKeyPrefix("Token");
-
-    // Configure API key authorization: manager_auth
-    ApiKeyAuth manager_auth = (ApiKeyAuth) defaultClient.getAuthentication("manager_auth");
-    manager_auth.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //manager_auth.setApiKeyPrefix("Token");
-
     // Configure API key authorization: api_key_v1
     ApiKeyAuth api_key_v1 = (ApiKeyAuth) defaultClient.getAuthentication("api_key_v1");
     api_key_v1.setApiKey("YOUR API KEY");
@@ -513,7 +466,7 @@ public class Example {
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth), [api_key_v1](../README.md#api_key_v1)
+[api_key_v1](../README.md#api_key_v1)
 
 ### HTTP request headers
 
@@ -548,18 +501,6 @@ public class Example {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://yourbaseurl.talon.one");
     
-    // Configure API key authorization: management_key
-    ApiKeyAuth management_key = (ApiKeyAuth) defaultClient.getAuthentication("management_key");
-    management_key.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //management_key.setApiKeyPrefix("Token");
-
-    // Configure API key authorization: manager_auth
-    ApiKeyAuth manager_auth = (ApiKeyAuth) defaultClient.getAuthentication("manager_auth");
-    manager_auth.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //manager_auth.setApiKeyPrefix("Token");
-
     // Configure API key authorization: api_key_v1
     ApiKeyAuth api_key_v1 = (ApiKeyAuth) defaultClient.getAuthentication("api_key_v1");
     api_key_v1.setApiKey("YOUR API KEY");
@@ -594,7 +535,7 @@ public class Example {
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth), [api_key_v1](../README.md#api_key_v1)
+[api_key_v1](../README.md#api_key_v1)
 
 ### HTTP request headers
 
@@ -632,18 +573,6 @@ public class Example {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://yourbaseurl.talon.one");
     
-    // Configure API key authorization: management_key
-    ApiKeyAuth management_key = (ApiKeyAuth) defaultClient.getAuthentication("management_key");
-    management_key.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //management_key.setApiKeyPrefix("Token");
-
-    // Configure API key authorization: manager_auth
-    ApiKeyAuth manager_auth = (ApiKeyAuth) defaultClient.getAuthentication("manager_auth");
-    manager_auth.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //manager_auth.setApiKeyPrefix("Token");
-
     // Configure API key authorization: api_key_v1
     ApiKeyAuth api_key_v1 = (ApiKeyAuth) defaultClient.getAuthentication("api_key_v1");
     api_key_v1.setApiKey("YOUR API KEY");
@@ -682,7 +611,7 @@ public class Example {
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth), [api_key_v1](../README.md#api_key_v1)
+[api_key_v1](../README.md#api_key_v1)
 
 ### HTTP request headers
 
@@ -720,18 +649,6 @@ public class Example {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://yourbaseurl.talon.one");
     
-    // Configure API key authorization: management_key
-    ApiKeyAuth management_key = (ApiKeyAuth) defaultClient.getAuthentication("management_key");
-    management_key.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //management_key.setApiKeyPrefix("Token");
-
-    // Configure API key authorization: manager_auth
-    ApiKeyAuth manager_auth = (ApiKeyAuth) defaultClient.getAuthentication("manager_auth");
-    manager_auth.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //manager_auth.setApiKeyPrefix("Token");
-
     // Configure API key authorization: api_key_v1
     ApiKeyAuth api_key_v1 = (ApiKeyAuth) defaultClient.getAuthentication("api_key_v1");
     api_key_v1.setApiKey("YOUR API KEY");
@@ -766,7 +683,7 @@ public class Example {
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth), [api_key_v1](../README.md#api_key_v1)
+[api_key_v1](../README.md#api_key_v1)
 
 ### HTTP request headers
 
@@ -801,18 +718,6 @@ public class Example {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://yourbaseurl.talon.one");
     
-    // Configure API key authorization: management_key
-    ApiKeyAuth management_key = (ApiKeyAuth) defaultClient.getAuthentication("management_key");
-    management_key.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //management_key.setApiKeyPrefix("Token");
-
-    // Configure API key authorization: manager_auth
-    ApiKeyAuth manager_auth = (ApiKeyAuth) defaultClient.getAuthentication("manager_auth");
-    manager_auth.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //manager_auth.setApiKeyPrefix("Token");
-
     // Configure API key authorization: api_key_v1
     ApiKeyAuth api_key_v1 = (ApiKeyAuth) defaultClient.getAuthentication("api_key_v1");
     api_key_v1.setApiKey("YOUR API KEY");
@@ -847,7 +752,7 @@ public class Example {
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth), [api_key_v1](../README.md#api_key_v1)
+[api_key_v1](../README.md#api_key_v1)
 
 ### HTTP request headers
 
@@ -865,7 +770,7 @@ public class Example {
 
 Create loyalty cards
 
-Create a batch of loyalty cards in a specified [card-based loyalty program](https://docs.talon.one/docs/product/loyalty-programs/overview#loyalty-program-types).  Customers can use loyalty cards to collect and spend loyalty points.  **Important:**  - The specified card-based loyalty program must have a defined card code format that is used to generate the loyalty card codes. - Trying to create more than 20,000 loyalty cards in a single request returns an error message with a &#x60;400&#x60; status code. 
+Create a batch of loyalty cards in a specified [card-based loyalty program](https://docs.talon.one/docs/product/loyalty-programs/overview#loyalty-program-types).  Customers can use loyalty cards to collect and spend loyalty points.  &gt; [!important] **Note** &gt; - The specified card-based loyalty program must have a defined card code &gt;   format that is used to generate the loyalty card codes. &gt; - Trying to create more than 20,000 loyalty cards in a single request &gt;   returns an error message with a &#x60;400&#x60; status code. 
 
 ### Example
 ```java
@@ -882,18 +787,6 @@ public class Example {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://yourbaseurl.talon.one");
     
-    // Configure API key authorization: management_key
-    ApiKeyAuth management_key = (ApiKeyAuth) defaultClient.getAuthentication("management_key");
-    management_key.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //management_key.setApiKeyPrefix("Token");
-
-    // Configure API key authorization: manager_auth
-    ApiKeyAuth manager_auth = (ApiKeyAuth) defaultClient.getAuthentication("manager_auth");
-    manager_auth.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //manager_auth.setApiKeyPrefix("Token");
-
     // Configure API key authorization: api_key_v1
     ApiKeyAuth api_key_v1 = (ApiKeyAuth) defaultClient.getAuthentication("api_key_v1");
     api_key_v1.setApiKey("YOUR API KEY");
@@ -930,7 +823,7 @@ public class Example {
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth), [api_key_v1](../README.md#api_key_v1)
+[api_key_v1](../README.md#api_key_v1)
 
 ### HTTP request headers
 
@@ -968,18 +861,6 @@ public class Example {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://yourbaseurl.talon.one");
     
-    // Configure API key authorization: management_key
-    ApiKeyAuth management_key = (ApiKeyAuth) defaultClient.getAuthentication("management_key");
-    management_key.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //management_key.setApiKeyPrefix("Token");
-
-    // Configure API key authorization: manager_auth
-    ApiKeyAuth manager_auth = (ApiKeyAuth) defaultClient.getAuthentication("manager_auth");
-    manager_auth.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //manager_auth.setApiKeyPrefix("Token");
-
     // Configure API key authorization: api_key_v1
     ApiKeyAuth api_key_v1 = (ApiKeyAuth) defaultClient.getAuthentication("api_key_v1");
     api_key_v1.setApiKey("YOUR API KEY");
@@ -1016,7 +897,7 @@ public class Example {
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth), [api_key_v1](../README.md#api_key_v1)
+[api_key_v1](../README.md#api_key_v1)
 
 ### HTTP request headers
 
@@ -1051,18 +932,6 @@ public class Example {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://yourbaseurl.talon.one");
     
-    // Configure API key authorization: management_key
-    ApiKeyAuth management_key = (ApiKeyAuth) defaultClient.getAuthentication("management_key");
-    management_key.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //management_key.setApiKeyPrefix("Token");
-
-    // Configure API key authorization: manager_auth
-    ApiKeyAuth manager_auth = (ApiKeyAuth) defaultClient.getAuthentication("manager_auth");
-    manager_auth.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //manager_auth.setApiKeyPrefix("Token");
-
     // Configure API key authorization: api_key_v1
     ApiKeyAuth api_key_v1 = (ApiKeyAuth) defaultClient.getAuthentication("api_key_v1");
     api_key_v1.setApiKey("YOUR API KEY");
@@ -1100,7 +969,7 @@ null (empty response body)
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth), [api_key_v1](../README.md#api_key_v1)
+[api_key_v1](../README.md#api_key_v1)
 
 ### HTTP request headers
 
@@ -1137,18 +1006,6 @@ public class Example {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://yourbaseurl.talon.one");
     
-    // Configure API key authorization: management_key
-    ApiKeyAuth management_key = (ApiKeyAuth) defaultClient.getAuthentication("management_key");
-    management_key.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //management_key.setApiKeyPrefix("Token");
-
-    // Configure API key authorization: manager_auth
-    ApiKeyAuth manager_auth = (ApiKeyAuth) defaultClient.getAuthentication("manager_auth");
-    manager_auth.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //manager_auth.setApiKeyPrefix("Token");
-
     // Configure API key authorization: api_key_v1
     ApiKeyAuth api_key_v1 = (ApiKeyAuth) defaultClient.getAuthentication("api_key_v1");
     api_key_v1.setApiKey("YOUR API KEY");
@@ -1187,7 +1044,7 @@ public class Example {
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth), [api_key_v1](../README.md#api_key_v1)
+[api_key_v1](../README.md#api_key_v1)
 
 ### HTTP request headers
 
@@ -1222,18 +1079,6 @@ public class Example {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://yourbaseurl.talon.one");
     
-    // Configure API key authorization: management_key
-    ApiKeyAuth management_key = (ApiKeyAuth) defaultClient.getAuthentication("management_key");
-    management_key.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //management_key.setApiKeyPrefix("Token");
-
-    // Configure API key authorization: manager_auth
-    ApiKeyAuth manager_auth = (ApiKeyAuth) defaultClient.getAuthentication("manager_auth");
-    manager_auth.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //manager_auth.setApiKeyPrefix("Token");
-
     // Configure API key authorization: api_key_v1
     ApiKeyAuth api_key_v1 = (ApiKeyAuth) defaultClient.getAuthentication("api_key_v1");
     api_key_v1.setApiKey("YOUR API KEY");
@@ -1274,7 +1119,7 @@ public class Example {
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth), [api_key_v1](../README.md#api_key_v1)
+[api_key_v1](../README.md#api_key_v1)
 
 ### HTTP request headers
 
@@ -1310,18 +1155,6 @@ public class Example {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://yourbaseurl.talon.one");
     
-    // Configure API key authorization: management_key
-    ApiKeyAuth management_key = (ApiKeyAuth) defaultClient.getAuthentication("management_key");
-    management_key.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //management_key.setApiKeyPrefix("Token");
-
-    // Configure API key authorization: manager_auth
-    ApiKeyAuth manager_auth = (ApiKeyAuth) defaultClient.getAuthentication("manager_auth");
-    manager_auth.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //manager_auth.setApiKeyPrefix("Token");
-
     // Configure API key authorization: api_key_v1
     ApiKeyAuth api_key_v1 = (ApiKeyAuth) defaultClient.getAuthentication("api_key_v1");
     api_key_v1.setApiKey("YOUR API KEY");
@@ -1360,7 +1193,7 @@ public class Example {
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth), [api_key_v1](../README.md#api_key_v1)
+[api_key_v1](../README.md#api_key_v1)
 
 ### HTTP request headers
 
@@ -1395,18 +1228,6 @@ public class Example {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://yourbaseurl.talon.one");
     
-    // Configure API key authorization: management_key
-    ApiKeyAuth management_key = (ApiKeyAuth) defaultClient.getAuthentication("management_key");
-    management_key.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //management_key.setApiKeyPrefix("Token");
-
-    // Configure API key authorization: manager_auth
-    ApiKeyAuth manager_auth = (ApiKeyAuth) defaultClient.getAuthentication("manager_auth");
-    manager_auth.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //manager_auth.setApiKeyPrefix("Token");
-
     // Configure API key authorization: api_key_v1
     ApiKeyAuth api_key_v1 = (ApiKeyAuth) defaultClient.getAuthentication("api_key_v1");
     api_key_v1.setApiKey("YOUR API KEY");
@@ -1445,7 +1266,7 @@ public class Example {
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth), [api_key_v1](../README.md#api_key_v1)
+[api_key_v1](../README.md#api_key_v1)
 
 ### HTTP request headers
 
@@ -1480,18 +1301,6 @@ public class Example {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://yourbaseurl.talon.one");
     
-    // Configure API key authorization: management_key
-    ApiKeyAuth management_key = (ApiKeyAuth) defaultClient.getAuthentication("management_key");
-    management_key.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //management_key.setApiKeyPrefix("Token");
-
-    // Configure API key authorization: manager_auth
-    ApiKeyAuth manager_auth = (ApiKeyAuth) defaultClient.getAuthentication("manager_auth");
-    manager_auth.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //manager_auth.setApiKeyPrefix("Token");
-
     // Configure API key authorization: api_key_v1
     ApiKeyAuth api_key_v1 = (ApiKeyAuth) defaultClient.getAuthentication("api_key_v1");
     api_key_v1.setApiKey("YOUR API KEY");
@@ -1532,7 +1341,7 @@ public class Example {
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth), [api_key_v1](../README.md#api_key_v1)
+[api_key_v1](../README.md#api_key_v1)
 
 ### HTTP request headers
 
@@ -1551,7 +1360,7 @@ public class Example {
 
 Resend invitation email
 
-Resend an email invitation to an existing user.  **Note:** The invitation token is valid for 24 hours after the email has been sent. 
+Resend an email invitation to an existing user.  &gt; [!note] The invitation token is valid for 24 hours after the email has been sent. 
 
 ### Example
 ```java
@@ -1568,18 +1377,6 @@ public class Example {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://yourbaseurl.talon.one");
     
-    // Configure API key authorization: management_key
-    ApiKeyAuth management_key = (ApiKeyAuth) defaultClient.getAuthentication("management_key");
-    management_key.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //management_key.setApiKeyPrefix("Token");
-
-    // Configure API key authorization: manager_auth
-    ApiKeyAuth manager_auth = (ApiKeyAuth) defaultClient.getAuthentication("manager_auth");
-    manager_auth.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //manager_auth.setApiKeyPrefix("Token");
-
     // Configure API key authorization: api_key_v1
     ApiKeyAuth api_key_v1 = (ApiKeyAuth) defaultClient.getAuthentication("api_key_v1");
     api_key_v1.setApiKey("YOUR API KEY");
@@ -1614,7 +1411,7 @@ public class Example {
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth), [api_key_v1](../README.md#api_key_v1)
+[api_key_v1](../README.md#api_key_v1)
 
 ### HTTP request headers
 
@@ -1632,7 +1429,7 @@ public class Example {
 
 Invite user
 
-Create a new user in the account and send an invitation to their email address.  **Note**: The invitation token is valid for 24 hours after the email has been sent. You can resend an invitation to a user with the [Resend invitation email](https://docs.talon.one/management-api#tag/Accounts-and-users/operation/createInviteEmail) endpoint. 
+Create a new user in the account and send an invitation to their email address.  &gt; [!note] The invitation token is valid for 24 hours after the email has &gt; been sent. You can resend an invitation to a user with the [Resend &gt; invitation email](https://docs.talon.one/management-api#tag/Accounts-and-users/operation/createInviteEmail) &gt; endpoint. 
 
 ### Example
 ```java
@@ -1649,18 +1446,6 @@ public class Example {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://yourbaseurl.talon.one");
     
-    // Configure API key authorization: management_key
-    ApiKeyAuth management_key = (ApiKeyAuth) defaultClient.getAuthentication("management_key");
-    management_key.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //management_key.setApiKeyPrefix("Token");
-
-    // Configure API key authorization: manager_auth
-    ApiKeyAuth manager_auth = (ApiKeyAuth) defaultClient.getAuthentication("manager_auth");
-    manager_auth.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //manager_auth.setApiKeyPrefix("Token");
-
     // Configure API key authorization: api_key_v1
     ApiKeyAuth api_key_v1 = (ApiKeyAuth) defaultClient.getAuthentication("api_key_v1");
     api_key_v1.setApiKey("YOUR API KEY");
@@ -1695,7 +1480,7 @@ public class Example {
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth), [api_key_v1](../README.md#api_key_v1)
+[api_key_v1](../README.md#api_key_v1)
 
 ### HTTP request headers
 
@@ -1713,7 +1498,7 @@ public class Example {
 
 Request a password reset
 
-Send an email with a password recovery link to the email address of an existing account.  **Note:** The password recovery link expires 30 minutes after this endpoint is triggered. 
+Send an email with a password recovery link to the email address of an existing account.  &gt; [!note] The password recovery link expires 30 minutes after this endpoint is triggered. 
 
 ### Example
 ```java
@@ -1730,18 +1515,6 @@ public class Example {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://yourbaseurl.talon.one");
     
-    // Configure API key authorization: management_key
-    ApiKeyAuth management_key = (ApiKeyAuth) defaultClient.getAuthentication("management_key");
-    management_key.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //management_key.setApiKeyPrefix("Token");
-
-    // Configure API key authorization: manager_auth
-    ApiKeyAuth manager_auth = (ApiKeyAuth) defaultClient.getAuthentication("manager_auth");
-    manager_auth.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //manager_auth.setApiKeyPrefix("Token");
-
     // Configure API key authorization: api_key_v1
     ApiKeyAuth api_key_v1 = (ApiKeyAuth) defaultClient.getAuthentication("api_key_v1");
     api_key_v1.setApiKey("YOUR API KEY");
@@ -1776,7 +1549,7 @@ public class Example {
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth), [api_key_v1](../README.md#api_key_v1)
+[api_key_v1](../README.md#api_key_v1)
 
 ### HTTP request headers
 
@@ -1794,7 +1567,7 @@ public class Example {
 
 Create session
 
-Create a session to use the Management API endpoints. Use the value of the &#x60;token&#x60; property provided in the response as bearer token in other API calls.  A token is valid for 3 months. In accordance with best pratices, use your generated token for all your API requests. Do **not** regenerate a token for each request.  This endpoint has a rate limit of 3 to 6 requests per second per account, depending on your setup.  &lt;div class&#x3D;\&quot;redoc-section\&quot;&gt;   &lt;p class&#x3D;\&quot;title\&quot;&gt;Granular API key&lt;/p&gt;   Instead of using a session, you can also use the &lt;a href&#x3D;\&quot;https://docs.talon.one/docs/product/account/dev-tools/managing-mapi-keys\&quot;&gt;Management API key feature&lt;/a&gt;   in the Campaign Manager to decide which endpoints can be used with a given key. &lt;/div&gt; 
+Create a session to use the Management API endpoints.  Use the value of the &#x60;token&#x60; property provided in the response as bearer token in other API calls.  A token is valid for 3 months. In accordance with best pratices, use your generated token for all your API requests. Do **not** regenerate a token for each request.  This endpoint has a rate limit of 3 to 6 requests per second per account, depending on your setup.  &gt; [!note] &gt; Instead of using a session, you can also use the &lt;a href&#x3D;\&quot;https://docs.talon.one/docs/product/account/dev-tools/managing-mapi-keys\&quot;&gt;Management API key feature&lt;/a&gt; &gt; in the Campaign Manager to decide which endpoints can be used with a given key. 
 
 ### Example
 ```java
@@ -1811,18 +1584,6 @@ public class Example {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://yourbaseurl.talon.one");
     
-    // Configure API key authorization: management_key
-    ApiKeyAuth management_key = (ApiKeyAuth) defaultClient.getAuthentication("management_key");
-    management_key.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //management_key.setApiKeyPrefix("Token");
-
-    // Configure API key authorization: manager_auth
-    ApiKeyAuth manager_auth = (ApiKeyAuth) defaultClient.getAuthentication("manager_auth");
-    manager_auth.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //manager_auth.setApiKeyPrefix("Token");
-
     // Configure API key authorization: api_key_v1
     ApiKeyAuth api_key_v1 = (ApiKeyAuth) defaultClient.getAuthentication("api_key_v1");
     api_key_v1.setApiKey("YOUR API KEY");
@@ -1857,7 +1618,7 @@ public class Example {
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth), [api_key_v1](../README.md#api_key_v1)
+[api_key_v1](../README.md#api_key_v1)
 
 ### HTTP request headers
 
@@ -1892,18 +1653,6 @@ public class Example {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://yourbaseurl.talon.one");
     
-    // Configure API key authorization: management_key
-    ApiKeyAuth management_key = (ApiKeyAuth) defaultClient.getAuthentication("management_key");
-    management_key.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //management_key.setApiKeyPrefix("Token");
-
-    // Configure API key authorization: manager_auth
-    ApiKeyAuth manager_auth = (ApiKeyAuth) defaultClient.getAuthentication("manager_auth");
-    manager_auth.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //manager_auth.setApiKeyPrefix("Token");
-
     // Configure API key authorization: api_key_v1
     ApiKeyAuth api_key_v1 = (ApiKeyAuth) defaultClient.getAuthentication("api_key_v1");
     api_key_v1.setApiKey("YOUR API KEY");
@@ -1940,7 +1689,7 @@ public class Example {
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth), [api_key_v1](../README.md#api_key_v1)
+[api_key_v1](../README.md#api_key_v1)
 
 ### HTTP request headers
 
@@ -1977,18 +1726,6 @@ public class Example {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://yourbaseurl.talon.one");
     
-    // Configure API key authorization: management_key
-    ApiKeyAuth management_key = (ApiKeyAuth) defaultClient.getAuthentication("management_key");
-    management_key.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //management_key.setApiKeyPrefix("Token");
-
-    // Configure API key authorization: manager_auth
-    ApiKeyAuth manager_auth = (ApiKeyAuth) defaultClient.getAuthentication("manager_auth");
-    manager_auth.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //manager_auth.setApiKeyPrefix("Token");
-
     // Configure API key authorization: api_key_v1
     ApiKeyAuth api_key_v1 = (ApiKeyAuth) defaultClient.getAuthentication("api_key_v1");
     api_key_v1.setApiKey("YOUR API KEY");
@@ -2022,7 +1759,7 @@ null (empty response body)
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth), [api_key_v1](../README.md#api_key_v1)
+[api_key_v1](../README.md#api_key_v1)
 
 ### HTTP request headers
 
@@ -2057,18 +1794,6 @@ public class Example {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://yourbaseurl.talon.one");
     
-    // Configure API key authorization: management_key
-    ApiKeyAuth management_key = (ApiKeyAuth) defaultClient.getAuthentication("management_key");
-    management_key.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //management_key.setApiKeyPrefix("Token");
-
-    // Configure API key authorization: manager_auth
-    ApiKeyAuth manager_auth = (ApiKeyAuth) defaultClient.getAuthentication("manager_auth");
-    manager_auth.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //manager_auth.setApiKeyPrefix("Token");
-
     // Configure API key authorization: api_key_v1
     ApiKeyAuth api_key_v1 = (ApiKeyAuth) defaultClient.getAuthentication("api_key_v1");
     api_key_v1.setApiKey("YOUR API KEY");
@@ -2106,7 +1831,7 @@ null (empty response body)
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth), [api_key_v1](../README.md#api_key_v1)
+[api_key_v1](../README.md#api_key_v1)
 
 ### HTTP request headers
 
@@ -2144,18 +1869,6 @@ public class Example {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://yourbaseurl.talon.one");
     
-    // Configure API key authorization: management_key
-    ApiKeyAuth management_key = (ApiKeyAuth) defaultClient.getAuthentication("management_key");
-    management_key.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //management_key.setApiKeyPrefix("Token");
-
-    // Configure API key authorization: manager_auth
-    ApiKeyAuth manager_auth = (ApiKeyAuth) defaultClient.getAuthentication("manager_auth");
-    manager_auth.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //manager_auth.setApiKeyPrefix("Token");
-
     // Configure API key authorization: api_key_v1
     ApiKeyAuth api_key_v1 = (ApiKeyAuth) defaultClient.getAuthentication("api_key_v1");
     api_key_v1.setApiKey("YOUR API KEY");
@@ -2163,7 +1876,7 @@ public class Example {
     //api_key_v1.setApiKeyPrefix("Token");
 
     ManagementApi apiInstance = new ManagementApi(defaultClient);
-    Long collectionId = 56L; // Long | The ID of the collection. You can get it with the [List collections in account](#operation/listAccountCollections) endpoint.
+    Long collectionId = 56L; // Long | The ID of the collection. You can get it with the [List collections in account](#tag/Collections/operation/listAccountCollections) endpoint.
     try {
       apiInstance.deleteAccountCollection(collectionId);
     } catch (ApiException e) {
@@ -2181,7 +1894,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **collectionId** | **Long**| The ID of the collection. You can get it with the [List collections in account](#operation/listAccountCollections) endpoint. | |
+| **collectionId** | **Long**| The ID of the collection. You can get it with the [List collections in account](#tag/Collections/operation/listAccountCollections) endpoint. | |
 
 ### Return type
 
@@ -2189,7 +1902,7 @@ null (empty response body)
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth), [api_key_v1](../README.md#api_key_v1)
+[api_key_v1](../README.md#api_key_v1)
 
 ### HTTP request headers
 
@@ -2225,18 +1938,6 @@ public class Example {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://yourbaseurl.talon.one");
     
-    // Configure API key authorization: management_key
-    ApiKeyAuth management_key = (ApiKeyAuth) defaultClient.getAuthentication("management_key");
-    management_key.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //management_key.setApiKeyPrefix("Token");
-
-    // Configure API key authorization: manager_auth
-    ApiKeyAuth manager_auth = (ApiKeyAuth) defaultClient.getAuthentication("manager_auth");
-    manager_auth.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //manager_auth.setApiKeyPrefix("Token");
-
     // Configure API key authorization: api_key_v1
     ApiKeyAuth api_key_v1 = (ApiKeyAuth) defaultClient.getAuthentication("api_key_v1");
     api_key_v1.setApiKey("YOUR API KEY");
@@ -2274,7 +1975,7 @@ null (empty response body)
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth), [api_key_v1](../README.md#api_key_v1)
+[api_key_v1](../README.md#api_key_v1)
 
 ### HTTP request headers
 
@@ -2311,18 +2012,6 @@ public class Example {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://yourbaseurl.talon.one");
     
-    // Configure API key authorization: management_key
-    ApiKeyAuth management_key = (ApiKeyAuth) defaultClient.getAuthentication("management_key");
-    management_key.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //management_key.setApiKeyPrefix("Token");
-
-    // Configure API key authorization: manager_auth
-    ApiKeyAuth manager_auth = (ApiKeyAuth) defaultClient.getAuthentication("manager_auth");
-    manager_auth.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //manager_auth.setApiKeyPrefix("Token");
-
     // Configure API key authorization: api_key_v1
     ApiKeyAuth api_key_v1 = (ApiKeyAuth) defaultClient.getAuthentication("api_key_v1");
     api_key_v1.setApiKey("YOUR API KEY");
@@ -2358,7 +2047,7 @@ null (empty response body)
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth), [api_key_v1](../README.md#api_key_v1)
+[api_key_v1](../README.md#api_key_v1)
 
 ### HTTP request headers
 
@@ -2393,18 +2082,6 @@ public class Example {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://yourbaseurl.talon.one");
     
-    // Configure API key authorization: management_key
-    ApiKeyAuth management_key = (ApiKeyAuth) defaultClient.getAuthentication("management_key");
-    management_key.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //management_key.setApiKeyPrefix("Token");
-
-    // Configure API key authorization: manager_auth
-    ApiKeyAuth manager_auth = (ApiKeyAuth) defaultClient.getAuthentication("manager_auth");
-    manager_auth.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //manager_auth.setApiKeyPrefix("Token");
-
     // Configure API key authorization: api_key_v1
     ApiKeyAuth api_key_v1 = (ApiKeyAuth) defaultClient.getAuthentication("api_key_v1");
     api_key_v1.setApiKey("YOUR API KEY");
@@ -2444,7 +2121,7 @@ null (empty response body)
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth), [api_key_v1](../README.md#api_key_v1)
+[api_key_v1](../README.md#api_key_v1)
 
 ### HTTP request headers
 
@@ -2480,18 +2157,6 @@ public class Example {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://yourbaseurl.talon.one");
     
-    // Configure API key authorization: management_key
-    ApiKeyAuth management_key = (ApiKeyAuth) defaultClient.getAuthentication("management_key");
-    management_key.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //management_key.setApiKeyPrefix("Token");
-
-    // Configure API key authorization: manager_auth
-    ApiKeyAuth manager_auth = (ApiKeyAuth) defaultClient.getAuthentication("manager_auth");
-    manager_auth.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //manager_auth.setApiKeyPrefix("Token");
-
     // Configure API key authorization: api_key_v1
     ApiKeyAuth api_key_v1 = (ApiKeyAuth) defaultClient.getAuthentication("api_key_v1");
     api_key_v1.setApiKey("YOUR API KEY");
@@ -2501,7 +2166,7 @@ public class Example {
     ManagementApi apiInstance = new ManagementApi(defaultClient);
     Long applicationId = 56L; // Long | The ID of the Application. It is displayed in your Talon.One deployment URL.
     Long campaignId = 56L; // Long | The ID of the campaign. It is displayed in your Talon.One deployment URL.
-    Long collectionId = 56L; // Long | The ID of the collection. You can get it with the [List collections in Application](#operation/listCollectionsInApplication) endpoint.
+    Long collectionId = 56L; // Long | The ID of the collection. You can get it with the [List collections in Application](#tag/Collections/operation/listCollectionsInApplication) endpoint.
     try {
       apiInstance.deleteCollection(applicationId, campaignId, collectionId);
     } catch (ApiException e) {
@@ -2521,7 +2186,7 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **applicationId** | **Long**| The ID of the Application. It is displayed in your Talon.One deployment URL. | |
 | **campaignId** | **Long**| The ID of the campaign. It is displayed in your Talon.One deployment URL. | |
-| **collectionId** | **Long**| The ID of the collection. You can get it with the [List collections in Application](#operation/listCollectionsInApplication) endpoint. | |
+| **collectionId** | **Long**| The ID of the collection. You can get it with the [List collections in Application](#tag/Collections/operation/listCollectionsInApplication) endpoint. | |
 
 ### Return type
 
@@ -2529,7 +2194,7 @@ null (empty response body)
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth), [api_key_v1](../README.md#api_key_v1)
+[api_key_v1](../README.md#api_key_v1)
 
 ### HTTP request headers
 
@@ -2565,18 +2230,6 @@ public class Example {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://yourbaseurl.talon.one");
     
-    // Configure API key authorization: management_key
-    ApiKeyAuth management_key = (ApiKeyAuth) defaultClient.getAuthentication("management_key");
-    management_key.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //management_key.setApiKeyPrefix("Token");
-
-    // Configure API key authorization: manager_auth
-    ApiKeyAuth manager_auth = (ApiKeyAuth) defaultClient.getAuthentication("manager_auth");
-    manager_auth.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //manager_auth.setApiKeyPrefix("Token");
-
     // Configure API key authorization: api_key_v1
     ApiKeyAuth api_key_v1 = (ApiKeyAuth) defaultClient.getAuthentication("api_key_v1");
     api_key_v1.setApiKey("YOUR API KEY");
@@ -2614,7 +2267,7 @@ null (empty response body)
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth), [api_key_v1](../README.md#api_key_v1)
+[api_key_v1](../README.md#api_key_v1)
 
 ### HTTP request headers
 
@@ -2649,18 +2302,6 @@ public class Example {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://yourbaseurl.talon.one");
     
-    // Configure API key authorization: management_key
-    ApiKeyAuth management_key = (ApiKeyAuth) defaultClient.getAuthentication("management_key");
-    management_key.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //management_key.setApiKeyPrefix("Token");
-
-    // Configure API key authorization: manager_auth
-    ApiKeyAuth manager_auth = (ApiKeyAuth) defaultClient.getAuthentication("manager_auth");
-    manager_auth.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //manager_auth.setApiKeyPrefix("Token");
-
     // Configure API key authorization: api_key_v1
     ApiKeyAuth api_key_v1 = (ApiKeyAuth) defaultClient.getAuthentication("api_key_v1");
     api_key_v1.setApiKey("YOUR API KEY");
@@ -2722,7 +2363,7 @@ null (empty response body)
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth), [api_key_v1](../README.md#api_key_v1)
+[api_key_v1](../README.md#api_key_v1)
 
 ### HTTP request headers
 
@@ -2757,18 +2398,6 @@ public class Example {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://yourbaseurl.talon.one");
     
-    // Configure API key authorization: management_key
-    ApiKeyAuth management_key = (ApiKeyAuth) defaultClient.getAuthentication("management_key");
-    management_key.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //management_key.setApiKeyPrefix("Token");
-
-    // Configure API key authorization: manager_auth
-    ApiKeyAuth manager_auth = (ApiKeyAuth) defaultClient.getAuthentication("manager_auth");
-    manager_auth.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //manager_auth.setApiKeyPrefix("Token");
-
     // Configure API key authorization: api_key_v1
     ApiKeyAuth api_key_v1 = (ApiKeyAuth) defaultClient.getAuthentication("api_key_v1");
     api_key_v1.setApiKey("YOUR API KEY");
@@ -2804,7 +2433,7 @@ null (empty response body)
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth), [api_key_v1](../README.md#api_key_v1)
+[api_key_v1](../README.md#api_key_v1)
 
 ### HTTP request headers
 
@@ -2841,18 +2470,6 @@ public class Example {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://yourbaseurl.talon.one");
     
-    // Configure API key authorization: management_key
-    ApiKeyAuth management_key = (ApiKeyAuth) defaultClient.getAuthentication("management_key");
-    management_key.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //management_key.setApiKeyPrefix("Token");
-
-    // Configure API key authorization: manager_auth
-    ApiKeyAuth manager_auth = (ApiKeyAuth) defaultClient.getAuthentication("manager_auth");
-    manager_auth.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //manager_auth.setApiKeyPrefix("Token");
-
     // Configure API key authorization: api_key_v1
     ApiKeyAuth api_key_v1 = (ApiKeyAuth) defaultClient.getAuthentication("api_key_v1");
     api_key_v1.setApiKey("YOUR API KEY");
@@ -2890,7 +2507,7 @@ null (empty response body)
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth), [api_key_v1](../README.md#api_key_v1)
+[api_key_v1](../README.md#api_key_v1)
 
 ### HTTP request headers
 
@@ -2925,18 +2542,6 @@ public class Example {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://yourbaseurl.talon.one");
     
-    // Configure API key authorization: management_key
-    ApiKeyAuth management_key = (ApiKeyAuth) defaultClient.getAuthentication("management_key");
-    management_key.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //management_key.setApiKeyPrefix("Token");
-
-    // Configure API key authorization: manager_auth
-    ApiKeyAuth manager_auth = (ApiKeyAuth) defaultClient.getAuthentication("manager_auth");
-    manager_auth.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //manager_auth.setApiKeyPrefix("Token");
-
     // Configure API key authorization: api_key_v1
     ApiKeyAuth api_key_v1 = (ApiKeyAuth) defaultClient.getAuthentication("api_key_v1");
     api_key_v1.setApiKey("YOUR API KEY");
@@ -2972,7 +2577,7 @@ null (empty response body)
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth), [api_key_v1](../README.md#api_key_v1)
+[api_key_v1](../README.md#api_key_v1)
 
 ### HTTP request headers
 
@@ -3008,18 +2613,6 @@ public class Example {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://yourbaseurl.talon.one");
     
-    // Configure API key authorization: management_key
-    ApiKeyAuth management_key = (ApiKeyAuth) defaultClient.getAuthentication("management_key");
-    management_key.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //management_key.setApiKeyPrefix("Token");
-
-    // Configure API key authorization: manager_auth
-    ApiKeyAuth manager_auth = (ApiKeyAuth) defaultClient.getAuthentication("manager_auth");
-    manager_auth.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //manager_auth.setApiKeyPrefix("Token");
-
     // Configure API key authorization: api_key_v1
     ApiKeyAuth api_key_v1 = (ApiKeyAuth) defaultClient.getAuthentication("api_key_v1");
     api_key_v1.setApiKey("YOUR API KEY");
@@ -3053,7 +2646,7 @@ null (empty response body)
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth), [api_key_v1](../README.md#api_key_v1)
+[api_key_v1](../README.md#api_key_v1)
 
 ### HTTP request headers
 
@@ -3088,18 +2681,6 @@ public class Example {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://yourbaseurl.talon.one");
     
-    // Configure API key authorization: management_key
-    ApiKeyAuth management_key = (ApiKeyAuth) defaultClient.getAuthentication("management_key");
-    management_key.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //management_key.setApiKeyPrefix("Token");
-
-    // Configure API key authorization: manager_auth
-    ApiKeyAuth manager_auth = (ApiKeyAuth) defaultClient.getAuthentication("manager_auth");
-    manager_auth.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //manager_auth.setApiKeyPrefix("Token");
-
     // Configure API key authorization: api_key_v1
     ApiKeyAuth api_key_v1 = (ApiKeyAuth) defaultClient.getAuthentication("api_key_v1");
     api_key_v1.setApiKey("YOUR API KEY");
@@ -3133,7 +2714,7 @@ null (empty response body)
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth), [api_key_v1](../README.md#api_key_v1)
+[api_key_v1](../README.md#api_key_v1)
 
 ### HTTP request headers
 
@@ -3168,18 +2749,6 @@ public class Example {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://yourbaseurl.talon.one");
     
-    // Configure API key authorization: management_key
-    ApiKeyAuth management_key = (ApiKeyAuth) defaultClient.getAuthentication("management_key");
-    management_key.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //management_key.setApiKeyPrefix("Token");
-
-    // Configure API key authorization: manager_auth
-    ApiKeyAuth manager_auth = (ApiKeyAuth) defaultClient.getAuthentication("manager_auth");
-    manager_auth.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //manager_auth.setApiKeyPrefix("Token");
-
     // Configure API key authorization: api_key_v1
     ApiKeyAuth api_key_v1 = (ApiKeyAuth) defaultClient.getAuthentication("api_key_v1");
     api_key_v1.setApiKey("YOUR API KEY");
@@ -3209,7 +2778,7 @@ null (empty response body)
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth), [api_key_v1](../README.md#api_key_v1)
+[api_key_v1](../README.md#api_key_v1)
 
 ### HTTP request headers
 
@@ -3244,18 +2813,6 @@ public class Example {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://yourbaseurl.talon.one");
     
-    // Configure API key authorization: management_key
-    ApiKeyAuth management_key = (ApiKeyAuth) defaultClient.getAuthentication("management_key");
-    management_key.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //management_key.setApiKeyPrefix("Token");
-
-    // Configure API key authorization: manager_auth
-    ApiKeyAuth manager_auth = (ApiKeyAuth) defaultClient.getAuthentication("manager_auth");
-    manager_auth.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //manager_auth.setApiKeyPrefix("Token");
-
     // Configure API key authorization: api_key_v1
     ApiKeyAuth api_key_v1 = (ApiKeyAuth) defaultClient.getAuthentication("api_key_v1");
     api_key_v1.setApiKey("YOUR API KEY");
@@ -3291,7 +2848,7 @@ null (empty response body)
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth), [api_key_v1](../README.md#api_key_v1)
+[api_key_v1](../README.md#api_key_v1)
 
 ### HTTP request headers
 
@@ -3312,7 +2869,7 @@ null (empty response body)
 
 Export account-level collection&#39;s items
 
-Download a CSV file containing items from a given account-level collection.  **Tip:** If the exported CSV file is too large to view, you can [split it into multiple files](https://www.makeuseof.com/tag/how-to-split-a-huge-csv-excel-workbook-into-seperate-files/). 
+Download a CSV file containing items from a given account-level collection.  &gt; [!tip] If the exported CSV file is too large to view, you can &gt; [split it into multiple files](https://www.google.com/search?q&#x3D;split+CSV+into+multiple+files). 
 
 ### Example
 ```java
@@ -3329,18 +2886,6 @@ public class Example {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://yourbaseurl.talon.one");
     
-    // Configure API key authorization: management_key
-    ApiKeyAuth management_key = (ApiKeyAuth) defaultClient.getAuthentication("management_key");
-    management_key.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //management_key.setApiKeyPrefix("Token");
-
-    // Configure API key authorization: manager_auth
-    ApiKeyAuth manager_auth = (ApiKeyAuth) defaultClient.getAuthentication("manager_auth");
-    manager_auth.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //manager_auth.setApiKeyPrefix("Token");
-
     // Configure API key authorization: api_key_v1
     ApiKeyAuth api_key_v1 = (ApiKeyAuth) defaultClient.getAuthentication("api_key_v1");
     api_key_v1.setApiKey("YOUR API KEY");
@@ -3348,7 +2893,7 @@ public class Example {
     //api_key_v1.setApiKeyPrefix("Token");
 
     ManagementApi apiInstance = new ManagementApi(defaultClient);
-    Long collectionId = 56L; // Long | The ID of the collection. You can get it with the [List collections in account](#operation/listAccountCollections) endpoint.
+    Long collectionId = 56L; // Long | The ID of the collection. You can get it with the [List collections in account](#tag/Collections/operation/listAccountCollections) endpoint.
     try {
       String result = apiInstance.exportAccountCollectionItems(collectionId);
       System.out.println(result);
@@ -3367,7 +2912,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **collectionId** | **Long**| The ID of the collection. You can get it with the [List collections in account](#operation/listAccountCollections) endpoint. | |
+| **collectionId** | **Long**| The ID of the collection. You can get it with the [List collections in account](#tag/Collections/operation/listAccountCollections) endpoint. | |
 
 ### Return type
 
@@ -3375,7 +2920,7 @@ public class Example {
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth), [api_key_v1](../README.md#api_key_v1)
+[api_key_v1](../README.md#api_key_v1)
 
 ### HTTP request headers
 
@@ -3412,18 +2957,6 @@ public class Example {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://yourbaseurl.talon.one");
     
-    // Configure API key authorization: management_key
-    ApiKeyAuth management_key = (ApiKeyAuth) defaultClient.getAuthentication("management_key");
-    management_key.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //management_key.setApiKeyPrefix("Token");
-
-    // Configure API key authorization: manager_auth
-    ApiKeyAuth manager_auth = (ApiKeyAuth) defaultClient.getAuthentication("manager_auth");
-    manager_auth.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //manager_auth.setApiKeyPrefix("Token");
-
     // Configure API key authorization: api_key_v1
     ApiKeyAuth api_key_v1 = (ApiKeyAuth) defaultClient.getAuthentication("api_key_v1");
     api_key_v1.setApiKey("YOUR API KEY");
@@ -3462,7 +2995,7 @@ public class Example {
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth), [api_key_v1](../README.md#api_key_v1)
+[api_key_v1](../README.md#api_key_v1)
 
 ### HTTP request headers
 
@@ -3483,7 +3016,7 @@ public class Example {
 
 Export Application analytics aggregated by campaign
 
-Download a CSV file containing analytics data aggregated by campaign for the campaigns of an Application.  **Tip:** If the exported CSV file is too large to view, you can [split it into multiple files](https://www.makeuseof.com/tag/how-to-split-a-huge-csv-excel-workbook-into-seperate-files/).  The CSV file contains the following columns: - &#x60;campaign_id&#x60;: The ID of the campaign. This column also contains labels for the [total and influenced values](https://docs.talon.one/docs/product/campaigns/analytics/application-dashboard#display-the-analytics-data). - &#x60;start_date&#x60;: The start of the aggregation time frame in UTC. - &#x60;end_date&#x60;: The end of the aggregation time frame in UTC. - &#x60;revenue&#x60;: The total, pre-discount value of all items purchased in a customer session. - &#x60;sessions&#x60;: The number of all closed sessions. - &#x60;average_session_value&#x60;: The average customer session value, calculated by dividing the revenue value by the number of sessions. - &#x60;average_items_per_session&#x60;: The number of items from sessions divided by the number of sessions. - &#x60;coupons&#x60;: The number of times a coupon was successfully redeemed in sessions. - &#x60;discounts&#x60;: The total value of discounts given for cart items in sessions. 
+Download a CSV file containing analytics data aggregated by campaign for the campaigns of an Application.  &gt; [!tip] If the exported CSV file is too large to view, you can &gt; [split it into multiple files](https://www.google.com/search?q&#x3D;split+CSV+into+multiple+files).  The CSV file contains the following columns:  - &#x60;campaign_id&#x60;: The ID of the campaign. This column also contains labels   for the [total and influenced values](https://docs.talon.one/docs/product/campaigns/analytics/application-dashboard#display-the-analytics-data). - &#x60;start_date&#x60;: The start of the aggregation time frame in UTC. - &#x60;end_date&#x60;: The end of the aggregation time frame in UTC. - &#x60;revenue&#x60;: The total, pre-discount value of all items purchased in a customer session. - &#x60;sessions&#x60;: The number of all closed sessions. - &#x60;average_session_value&#x60;: The average customer session value, calculated by dividing the revenue value by the number of sessions. - &#x60;average_items_per_session&#x60;: The number of items from sessions divided by the number of sessions. - &#x60;coupons&#x60;: The number of times a coupon was successfully redeemed in sessions. - &#x60;discounts&#x60;: The total value of discounts given for cart items in sessions. 
 
 ### Example
 ```java
@@ -3500,18 +3033,6 @@ public class Example {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://yourbaseurl.talon.one");
     
-    // Configure API key authorization: management_key
-    ApiKeyAuth management_key = (ApiKeyAuth) defaultClient.getAuthentication("management_key");
-    management_key.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //management_key.setApiKeyPrefix("Token");
-
-    // Configure API key authorization: manager_auth
-    ApiKeyAuth manager_auth = (ApiKeyAuth) defaultClient.getAuthentication("manager_auth");
-    manager_auth.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //manager_auth.setApiKeyPrefix("Token");
-
     // Configure API key authorization: api_key_v1
     ApiKeyAuth api_key_v1 = (ApiKeyAuth) defaultClient.getAuthentication("api_key_v1");
     api_key_v1.setApiKey("YOUR API KEY");
@@ -3520,8 +3041,8 @@ public class Example {
 
     ManagementApi apiInstance = new ManagementApi(defaultClient);
     Long applicationId = 56L; // Long | The ID of the Application. It is displayed in your Talon.One deployment URL.
-    OffsetDateTime rangeStart = OffsetDateTime.now(); // OffsetDateTime | Only return results from after this timestamp.  **Note:** - This must be an RFC3339 timestamp string. - You can include a time component in your string, for example, `T23:59:59` to specify the end of the day. The time zone setting considered is `UTC`. If you do not include a time component, a default time value of `T00:00:00` (midnight) in `UTC` is considered. 
-    OffsetDateTime rangeEnd = OffsetDateTime.now(); // OffsetDateTime | Only return results from before this timestamp.  **Note:** - This must be an RFC3339 timestamp string. - You can include a time component in your string, for example, `T23:59:59` to specify the end of the day. The time zone setting considered is `UTC`. If you do not include a time component, a default time value of `T00:00:00` (midnight) in `UTC` is considered. 
+    OffsetDateTime rangeStart = OffsetDateTime.now(); // OffsetDateTime | Only return results from after this timestamp.  > [!note] **Note** > - This must be an RFC3339 timestamp string. > - You can include a time component in your string, for example, `T23:59:59` to specify the end of the day. The time zone setting >   considered is `UTC`. If you do not include a time component, a default time value of `T00:00:00` (midnight) in `UTC` is considered. 
+    OffsetDateTime rangeEnd = OffsetDateTime.now(); // OffsetDateTime | Only return results from before this timestamp.  > [!note] **Note** > - This must be an RFC3339 timestamp string. > - You can include a time component in your string, for example, `T23:59:59` to specify the end of the day. The time zone setting >   considered is `UTC`. If you do not include a time component, a default time value of `T00:00:00` (midnight) in `UTC` is considered. 
     List<String> campaignIds = Arrays.asList(); // List<String> | Filter by one or more Campaign IDs, separated by a comma.  **Note:** If no campaigns are specified, data for all the campaigns in the Application is returned. 
     try {
       String result = apiInstance.exportApplicationCampaignAnalytics(applicationId, rangeStart, rangeEnd, campaignIds);
@@ -3542,8 +3063,8 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **applicationId** | **Long**| The ID of the Application. It is displayed in your Talon.One deployment URL. | |
-| **rangeStart** | **OffsetDateTime**| Only return results from after this timestamp.  **Note:** - This must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered.  | |
-| **rangeEnd** | **OffsetDateTime**| Only return results from before this timestamp.  **Note:** - This must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered.  | |
+| **rangeStart** | **OffsetDateTime**| Only return results from after this timestamp.  &gt; [!note] **Note** &gt; - This must be an RFC3339 timestamp string. &gt; - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting &gt;   considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered.  | |
+| **rangeEnd** | **OffsetDateTime**| Only return results from before this timestamp.  &gt; [!note] **Note** &gt; - This must be an RFC3339 timestamp string. &gt; - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting &gt;   considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered.  | |
 | **campaignIds** | [**List&lt;String&gt;**](String.md)| Filter by one or more Campaign IDs, separated by a comma.  **Note:** If no campaigns are specified, data for all the campaigns in the Application is returned.  | [optional] |
 
 ### Return type
@@ -3552,7 +3073,7 @@ public class Example {
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth), [api_key_v1](../README.md#api_key_v1)
+[api_key_v1](../README.md#api_key_v1)
 
 ### HTTP request headers
 
@@ -3570,7 +3091,7 @@ public class Example {
 
 Export audience members
 
-Download a CSV file containing the integration IDs of the members of an audience.  **Tip:** If the exported CSV file is too large to view, you can [split it into multiple files](https://www.makeuseof.com/tag/how-to-split-a-huge-csv-excel-workbook-into-seperate-files/).  The file contains the following column: - &#x60;profileintegrationid&#x60;: The integration ID of the customer profile. 
+Download a CSV file containing the integration IDs of the members of an audience.  &gt; [!tip] If the exported CSV file is too large to view, you can &gt; [split it into multiple files](https://www.google.com/search?q&#x3D;split+CSV+into+multiple+files).  The file contains the following column:  - &#x60;profileintegrationid&#x60;: The integration ID of the customer profile. 
 
 ### Example
 ```java
@@ -3587,18 +3108,6 @@ public class Example {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://yourbaseurl.talon.one");
     
-    // Configure API key authorization: management_key
-    ApiKeyAuth management_key = (ApiKeyAuth) defaultClient.getAuthentication("management_key");
-    management_key.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //management_key.setApiKeyPrefix("Token");
-
-    // Configure API key authorization: manager_auth
-    ApiKeyAuth manager_auth = (ApiKeyAuth) defaultClient.getAuthentication("manager_auth");
-    manager_auth.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //manager_auth.setApiKeyPrefix("Token");
-
     // Configure API key authorization: api_key_v1
     ApiKeyAuth api_key_v1 = (ApiKeyAuth) defaultClient.getAuthentication("api_key_v1");
     api_key_v1.setApiKey("YOUR API KEY");
@@ -3633,7 +3142,7 @@ public class Example {
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth), [api_key_v1](../README.md#api_key_v1)
+[api_key_v1](../README.md#api_key_v1)
 
 ### HTTP request headers
 
@@ -3654,7 +3163,7 @@ public class Example {
 
 Export campaign store budgets
 
-Download a CSV file containing the store budgets for a given campaign.  **Tip:** If the exported CSV file is too large to view, you can [split it into multiple files](https://www.makeuseof.com/tag/how-to-split-a-huge-csv-excel-workbook-into-seperate-files/).  The CSV file contains the following columns:  - &#x60;store_integration_id&#x60;: The identifier of the store. - &#x60;limit&#x60;: The budget limit for the store. 
+Download a CSV file containing the store budgets for a given campaign.  &gt; [!tip] If the exported CSV file is too large to view, you can &gt; [split it into multiple files](https://www.google.com/search?q&#x3D;split+CSV+into+multiple+files).  The CSV file contains the following columns:  - &#x60;store_integration_id&#x60;: The identifier of the store. - &#x60;limit&#x60;: The budget limit for the store. 
 
 ### Example
 ```java
@@ -3671,18 +3180,6 @@ public class Example {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://yourbaseurl.talon.one");
     
-    // Configure API key authorization: management_key
-    ApiKeyAuth management_key = (ApiKeyAuth) defaultClient.getAuthentication("management_key");
-    management_key.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //management_key.setApiKeyPrefix("Token");
-
-    // Configure API key authorization: manager_auth
-    ApiKeyAuth manager_auth = (ApiKeyAuth) defaultClient.getAuthentication("manager_auth");
-    manager_auth.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //manager_auth.setApiKeyPrefix("Token");
-
     // Configure API key authorization: api_key_v1
     ApiKeyAuth api_key_v1 = (ApiKeyAuth) defaultClient.getAuthentication("api_key_v1");
     api_key_v1.setApiKey("YOUR API KEY");
@@ -3723,7 +3220,7 @@ public class Example {
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth), [api_key_v1](../README.md#api_key_v1)
+[api_key_v1](../README.md#api_key_v1)
 
 ### HTTP request headers
 
@@ -3744,7 +3241,7 @@ public class Example {
 
 Export stores
 
-Download a CSV file containing the stores linked to a specific campaign.  **Tip:** If the exported CSV file is too large to view, you can [split it into multiple files](https://www.makeuseof.com/tag/how-to-split-a-huge-csv-excel-workbook-into-seperate-files/).  The CSV file contains the following column:  - &#x60;store_integration_id&#x60;: The identifier of the store. 
+Download a CSV file containing the stores linked to a specific campaign.  &gt; [!tip] If the exported CSV file is too large to view, you can &gt; [split it into multiple files](https://www.google.com/search?q&#x3D;split+CSV+into+multiple+files).  The CSV file contains the following column:  - &#x60;store_integration_id&#x60;: The identifier of the store. 
 
 ### Example
 ```java
@@ -3761,18 +3258,6 @@ public class Example {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://yourbaseurl.talon.one");
     
-    // Configure API key authorization: management_key
-    ApiKeyAuth management_key = (ApiKeyAuth) defaultClient.getAuthentication("management_key");
-    management_key.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //management_key.setApiKeyPrefix("Token");
-
-    // Configure API key authorization: manager_auth
-    ApiKeyAuth manager_auth = (ApiKeyAuth) defaultClient.getAuthentication("manager_auth");
-    manager_auth.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //manager_auth.setApiKeyPrefix("Token");
-
     // Configure API key authorization: api_key_v1
     ApiKeyAuth api_key_v1 = (ApiKeyAuth) defaultClient.getAuthentication("api_key_v1");
     api_key_v1.setApiKey("YOUR API KEY");
@@ -3809,7 +3294,7 @@ public class Example {
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth), [api_key_v1](../README.md#api_key_v1)
+[api_key_v1](../README.md#api_key_v1)
 
 ### HTTP request headers
 
@@ -3830,7 +3315,7 @@ public class Example {
 
 Export campaign-level collection&#39;s items
 
-Download a CSV file containing items from a given campaign-level collection.  **Tip:** If the exported CSV file is too large to view, you can [split it into multiple files](https://www.makeuseof.com/tag/how-to-split-a-huge-csv-excel-workbook-into-seperate-files/). 
+Download a CSV file containing items from a given campaign-level collection.  &gt; [!tip] If the exported CSV file is too large to view, you can &gt; [split it into multiple files](https://www.google.com/search?q&#x3D;split+CSV+into+multiple+files). 
 
 ### Example
 ```java
@@ -3847,18 +3332,6 @@ public class Example {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://yourbaseurl.talon.one");
     
-    // Configure API key authorization: management_key
-    ApiKeyAuth management_key = (ApiKeyAuth) defaultClient.getAuthentication("management_key");
-    management_key.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //management_key.setApiKeyPrefix("Token");
-
-    // Configure API key authorization: manager_auth
-    ApiKeyAuth manager_auth = (ApiKeyAuth) defaultClient.getAuthentication("manager_auth");
-    manager_auth.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //manager_auth.setApiKeyPrefix("Token");
-
     // Configure API key authorization: api_key_v1
     ApiKeyAuth api_key_v1 = (ApiKeyAuth) defaultClient.getAuthentication("api_key_v1");
     api_key_v1.setApiKey("YOUR API KEY");
@@ -3868,7 +3341,7 @@ public class Example {
     ManagementApi apiInstance = new ManagementApi(defaultClient);
     Long applicationId = 56L; // Long | The ID of the Application. It is displayed in your Talon.One deployment URL.
     Long campaignId = 56L; // Long | The ID of the campaign. It is displayed in your Talon.One deployment URL.
-    Long collectionId = 56L; // Long | The ID of the collection. You can get it with the [List collections in Application](#operation/listCollectionsInApplication) endpoint.
+    Long collectionId = 56L; // Long | The ID of the collection. You can get it with the [List collections in Application](#tag/Collections/operation/listCollectionsInApplication) endpoint.
     try {
       String result = apiInstance.exportCollectionItems(applicationId, campaignId, collectionId);
       System.out.println(result);
@@ -3889,7 +3362,7 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **applicationId** | **Long**| The ID of the Application. It is displayed in your Talon.One deployment URL. | |
 | **campaignId** | **Long**| The ID of the campaign. It is displayed in your Talon.One deployment URL. | |
-| **collectionId** | **Long**| The ID of the collection. You can get it with the [List collections in Application](#operation/listCollectionsInApplication) endpoint. | |
+| **collectionId** | **Long**| The ID of the collection. You can get it with the [List collections in Application](#tag/Collections/operation/listCollectionsInApplication) endpoint. | |
 
 ### Return type
 
@@ -3897,7 +3370,7 @@ public class Example {
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth), [api_key_v1](../README.md#api_key_v1)
+[api_key_v1](../README.md#api_key_v1)
 
 ### HTTP request headers
 
@@ -3917,7 +3390,7 @@ public class Example {
 
 Export coupons
 
-Download a CSV file containing the coupons that match the given properties.  **Tip:** If the exported CSV file is too large to view, you can [split it into multiple files](https://www.makeuseof.com/tag/how-to-split-a-huge-csv-excel-workbook-into-seperate-files/).  The CSV file can contain the following columns:  - &#x60;accountid&#x60;: The ID of your deployment. - &#x60;applicationid&#x60;: The ID of the Application this coupon is related to. - &#x60;attributes&#x60;: A json object describing _custom_ referral attribute names and their values. - &#x60;batchid&#x60;: The ID of the batch this coupon is part of. - &#x60;campaignid&#x60;: The ID of the campaign this coupon is related to. - &#x60;counter&#x60;: The number of times this coupon has been redeemed. - &#x60;created&#x60;: The creation date in RFC3339 of the coupon code. - &#x60;deleted&#x60;: Whether the coupon code is deleted. - &#x60;deleted_changelogid&#x60;: The ID of the delete event in the logs. - &#x60;discount_counter&#x60;: The amount of discount given by this coupon. - &#x60;discount_limitval&#x60;: The maximum discount amount that can be given be this coupon. - &#x60;expirydate&#x60;: The end date in RFC3339 of the code redemption period. - &#x60;id&#x60;: The internal ID of the coupon code. - &#x60;importid&#x60;: The ID of the import job that created this coupon. - &#x60;is_reservation_mandatory&#x60;: Whether this coupon requires a reservation to be redeemed. - &#x60;limits&#x60;: The limits set on this coupon. - &#x60;limitval&#x60;: The maximum number of redemptions of this code. - &#x60;recipientintegrationid&#x60;: The integration ID of the recipient of the coupon.   Only the customer with this integration ID can redeem this code. Available only for personal codes. - &#x60;referralid&#x60;: The ID of the referral code that triggered the creation of this coupon (create coupon effect). - &#x60;reservation&#x60;: Whether the coupon can be reserved for multiple customers. - &#x60;reservation_counter&#x60;: How many times this coupon has been reserved. - &#x60;reservation_limitval&#x60;: The maximum of number of reservations this coupon can have. - &#x60;startdate&#x60;: The start date in RFC3339 of the code redemption period. - &#x60;value&#x60;: The coupon code. 
+Download a CSV file containing the coupons that match the given properties.  &gt; [!tip] If the exported CSV file is too large to view, you can &gt; [split it into multiple files](https://www.google.com/search?q&#x3D;split+CSV+into+multiple+files).  The CSV file can contain the following columns:  - &#x60;accountid&#x60;: The ID of your deployment. - &#x60;applicationid&#x60;: The ID of the Application this coupon is related to. - &#x60;attributes&#x60;: A json object describing _custom_ referral attribute names and their values. - &#x60;batchid&#x60;: The ID of the batch this coupon is part of. - &#x60;campaignid&#x60;: The ID of the campaign this coupon is related to. - &#x60;counter&#x60;: The number of times this coupon has been redeemed. - &#x60;created&#x60;: The creation date in RFC3339 of the coupon code. - &#x60;deleted&#x60;: Whether the coupon code is deleted. - &#x60;deleted_changelogid&#x60;: The ID of the delete event in the logs. - &#x60;discount_counter&#x60;: The amount of discount given by this coupon. - &#x60;discount_limitval&#x60;: The maximum discount amount that can be given be this coupon. - &#x60;expirydate&#x60;: The end date in RFC3339 of the code redemption period. - &#x60;id&#x60;: The internal ID of the coupon code. - &#x60;importid&#x60;: The ID of the import job that created this coupon. - &#x60;is_reservation_mandatory&#x60;: Whether this coupon requires a reservation to be redeemed. - &#x60;limits&#x60;: The limits set on this coupon. - &#x60;limitval&#x60;: The maximum number of redemptions of this code. - &#x60;recipientintegrationid&#x60;: The integration ID of the recipient of the coupon.    Only the customer with this integration ID can redeem this code. Available only for personal codes. - &#x60;referralid&#x60;: The ID of the referral code that triggered the creation of this coupon (create coupon effect). - &#x60;reservation&#x60;: Whether the coupon can be reserved for multiple customers. - &#x60;reservation_counter&#x60;: How many times this coupon has been reserved. - &#x60;reservation_limitval&#x60;: The maximum of number of reservations this coupon can have. - &#x60;startdate&#x60;: The start date in RFC3339 of the code redemption period. - &#x60;value&#x60;: The coupon code. 
 
 ### Example
 ```java
@@ -3934,18 +3407,6 @@ public class Example {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://yourbaseurl.talon.one");
     
-    // Configure API key authorization: management_key
-    ApiKeyAuth management_key = (ApiKeyAuth) defaultClient.getAuthentication("management_key");
-    management_key.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //management_key.setApiKeyPrefix("Token");
-
-    // Configure API key authorization: manager_auth
-    ApiKeyAuth manager_auth = (ApiKeyAuth) defaultClient.getAuthentication("manager_auth");
-    manager_auth.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //manager_auth.setApiKeyPrefix("Token");
-
     // Configure API key authorization: api_key_v1
     ApiKeyAuth api_key_v1 = (ApiKeyAuth) defaultClient.getAuthentication("api_key_v1");
     api_key_v1.setApiKey("YOUR API KEY");
@@ -4008,7 +3469,7 @@ public class Example {
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth), [api_key_v1](../README.md#api_key_v1)
+[api_key_v1](../README.md#api_key_v1)
 
 ### HTTP request headers
 
@@ -4026,7 +3487,7 @@ public class Example {
 
 Export customer sessions
 
-Download a CSV file containing the customer sessions that match the request.  **Important:** Archived sessions cannot be exported. See the [retention policy](https://docs.talon.one/docs/dev/server-infrastructure-and-data-retention).  **Tip:** If the exported CSV file is too large to view, you can [split it into multiple files](https://www.makeuseof.com/tag/how-to-split-a-huge-csv-excel-workbook-into-seperate-files/).  - &#x60;id&#x60;: The internal ID of the session. - &#x60;firstsession&#x60;: Whether this is a first session. - &#x60;integrationid&#x60;: The integration ID of the session. - &#x60;applicationid&#x60;: The ID of the Application. - &#x60;profileid&#x60;: The internal ID of the customer profile. - &#x60;profileintegrationid&#x60;: The integration ID of the customer profile. - &#x60;created&#x60;: The timestamp when the session was created. - &#x60;state&#x60;: The [state](https://docs.talon.one/docs/dev/concepts/entities/customer-sessions#customer-session-states) of the session. - &#x60;cartitems&#x60;: The cart items in the session. - &#x60;discounts&#x60;: The discounts in the session. - &#x60;total&#x60;: The total value of cart items and additional costs in the session, before any discounts are applied. - &#x60;attributes&#x60;: The attributes set in the session. - &#x60;closedat&#x60;: Timestamp when the session was closed. - &#x60;cancelledat&#x60;: Timestamp when the session was cancelled. - &#x60;referral&#x60;: The referral code in the session. - &#x60;identifiers&#x60;: The identifiers in the session. - &#x60;additional_costs&#x60;: The [additional costs](https://docs.talon.one/docs/product/account/dev-tools/managing-additional-costs) in the session. - &#x60;updated&#x60;: Timestamp of the last session update. - &#x60;store_integration_id&#x60;: The integration ID of the store. - &#x60;coupons&#x60;: Coupon codes in the session. 
+Download a CSV file containing the customer sessions that match the request.  &gt; [!important] Archived sessions cannot be exported. See the [retention &gt; policy](https://docs.talon.one/docs/dev/server-infrastructure-and-data-retention).  &gt; [!tip] If the exported CSV file is too large to view, you can &gt; [split it into multiple files](https://www.google.com/search?q&#x3D;split+CSV+into+multiple+files).  - &#x60;id&#x60;: The internal ID of the session. - &#x60;firstsession&#x60;: Whether this is a first session. - &#x60;integrationid&#x60;: The integration ID of the session. - &#x60;applicationid&#x60;: The ID of the Application. - &#x60;profileid&#x60;: The internal ID of the customer profile. - &#x60;profileintegrationid&#x60;: The integration ID of the customer profile. - &#x60;created&#x60;: The timestamp when the session was created. - &#x60;state&#x60;: The [state](https://docs.talon.one/docs/dev/concepts/entities/customer-sessions#customer-session-states)    of the session. - &#x60;cartitems&#x60;: The cart items in the session. - &#x60;discounts&#x60;: The discounts in the session. - &#x60;total&#x60;: The total value of cart items and additional costs in the session, before any discounts are applied. - &#x60;attributes&#x60;: The attributes set in the session. - &#x60;closedat&#x60;: Timestamp when the session was closed. - &#x60;cancelledat&#x60;: Timestamp when the session was cancelled. - &#x60;referral&#x60;: The referral code in the session. - &#x60;identifiers&#x60;: The identifiers in the session. - &#x60;additional_costs&#x60;: The [additional costs](https://docs.talon.one/docs/product/account/dev-tools/managing-additional-costs)    in the session. - &#x60;updated&#x60;: Timestamp of the last session update. - &#x60;store_integration_id&#x60;: The integration ID of the store. - &#x60;coupons&#x60;: Coupon codes in the session. 
 
 ### Example
 ```java
@@ -4043,18 +3504,6 @@ public class Example {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://yourbaseurl.talon.one");
     
-    // Configure API key authorization: management_key
-    ApiKeyAuth management_key = (ApiKeyAuth) defaultClient.getAuthentication("management_key");
-    management_key.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //management_key.setApiKeyPrefix("Token");
-
-    // Configure API key authorization: manager_auth
-    ApiKeyAuth manager_auth = (ApiKeyAuth) defaultClient.getAuthentication("manager_auth");
-    manager_auth.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //manager_auth.setApiKeyPrefix("Token");
-
     // Configure API key authorization: api_key_v1
     ApiKeyAuth api_key_v1 = (ApiKeyAuth) defaultClient.getAuthentication("api_key_v1");
     api_key_v1.setApiKey("YOUR API KEY");
@@ -4099,7 +3548,7 @@ public class Example {
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth), [api_key_v1](../README.md#api_key_v1)
+[api_key_v1](../README.md#api_key_v1)
 
 ### HTTP request headers
 
@@ -4134,18 +3583,6 @@ public class Example {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://yourbaseurl.talon.one");
     
-    // Configure API key authorization: management_key
-    ApiKeyAuth management_key = (ApiKeyAuth) defaultClient.getAuthentication("management_key");
-    management_key.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //management_key.setApiKeyPrefix("Token");
-
-    // Configure API key authorization: manager_auth
-    ApiKeyAuth manager_auth = (ApiKeyAuth) defaultClient.getAuthentication("manager_auth");
-    manager_auth.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //manager_auth.setApiKeyPrefix("Token");
-
     // Configure API key authorization: api_key_v1
     ApiKeyAuth api_key_v1 = (ApiKeyAuth) defaultClient.getAuthentication("api_key_v1");
     api_key_v1.setApiKey("YOUR API KEY");
@@ -4184,7 +3621,7 @@ public class Example {
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth), [api_key_v1](../README.md#api_key_v1)
+[api_key_v1](../README.md#api_key_v1)
 
 ### HTTP request headers
 
@@ -4202,7 +3639,7 @@ public class Example {
 
 Export triggered effects
 
-Download a CSV file containing the triggered effects that match the given attributes.  **Tip:** If the exported CSV file is too large to view, you can [split it into multiple files](https://www.makeuseof.com/tag/how-to-split-a-huge-csv-excel-workbook-into-seperate-files/).  The generated file can contain the following columns:  - &#x60;applicationid&#x60;: The ID of the Application. - &#x60;campaignid&#x60;: The ID of the campaign. - &#x60;couponid&#x60;: The ID of the coupon, when applicable to the effect. - &#x60;created&#x60;: The timestamp of the effect. - &#x60;event_type&#x60;: The name of the event. See the [docs](https://docs.talon.one/docs/dev/concepts/entities/events). - &#x60;eventid&#x60;: The internal ID of the effect. - &#x60;name&#x60;: The effect name. See the [docs](https://docs.talon.one/docs/dev/integration-api/api-effects). - &#x60;profileintegrationid&#x60;: The ID of the customer profile, when applicable. - &#x60;props&#x60;: The [properties](https://docs.talon.one/docs/dev/integration-api/api-effects) of the effect. - &#x60;ruleindex&#x60;: The index of the rule. - &#x60;rulesetid&#x60;: The ID of the rule set. - &#x60;sessionid&#x60;: The internal ID of the session that triggered the effect. - &#x60;profileid&#x60;: The internal ID of the customer profile. - &#x60;sessionintegrationid&#x60;: The integration ID of the session. - &#x60;total_revenue&#x60;: The total revenue. - &#x60;store_integration_id&#x60;: The integration ID of the store. You choose this ID when you create a store. 
+Download a CSV file containing the triggered effects that match the given attributes.  &gt; [!tip] If the exported CSV file is too large to view, you can &gt; [split it into multiple files](https://www.google.com/search?q&#x3D;split+CSV+into+multiple+files).  The generated file can contain the following columns:  - &#x60;applicationid&#x60;: The ID of the Application. - &#x60;campaignid&#x60;: The ID of the campaign. - &#x60;couponid&#x60;: The ID of the coupon, when applicable to the effect. - &#x60;created&#x60;: The timestamp of the effect. - &#x60;event_type&#x60;: The name of the event. See the [docs](https://docs.talon.one/docs/dev/concepts/entities/events). - &#x60;eventid&#x60;: The internal ID of the effect. - &#x60;name&#x60;: The effect name. See the [docs](https://docs.talon.one/docs/dev/integration-api/api-effects). - &#x60;profileintegrationid&#x60;: The ID of the customer profile, when applicable. - &#x60;props&#x60;: The [properties](https://docs.talon.one/docs/dev/integration-api/api-effects) of the effect. - &#x60;ruleindex&#x60;: The index of the rule. - &#x60;rulesetid&#x60;: The ID of the rule set. - &#x60;sessionid&#x60;: The internal ID of the session that triggered the effect. - &#x60;profileid&#x60;: The internal ID of the customer profile. - &#x60;sessionintegrationid&#x60;: The integration ID of the session. - &#x60;total_revenue&#x60;: The total revenue. - &#x60;store_integration_id&#x60;: The integration ID of the store. You choose this ID when you create a store. 
 
 ### Example
 ```java
@@ -4219,18 +3656,6 @@ public class Example {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://yourbaseurl.talon.one");
     
-    // Configure API key authorization: management_key
-    ApiKeyAuth management_key = (ApiKeyAuth) defaultClient.getAuthentication("management_key");
-    management_key.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //management_key.setApiKeyPrefix("Token");
-
-    // Configure API key authorization: manager_auth
-    ApiKeyAuth manager_auth = (ApiKeyAuth) defaultClient.getAuthentication("manager_auth");
-    manager_auth.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //manager_auth.setApiKeyPrefix("Token");
-
     // Configure API key authorization: api_key_v1
     ApiKeyAuth api_key_v1 = (ApiKeyAuth) defaultClient.getAuthentication("api_key_v1");
     api_key_v1.setApiKey("YOUR API KEY");
@@ -4273,7 +3698,7 @@ public class Example {
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth), [api_key_v1](../README.md#api_key_v1)
+[api_key_v1](../README.md#api_key_v1)
 
 ### HTTP request headers
 
@@ -4291,7 +3716,7 @@ public class Example {
 
 Export customer loyalty balance to CSV
 
-⚠️ Deprecation notice: Support for requests to this endpoint will end soon. To export customer loyalty balances to CSV, use the [Export customer loyalty balances to CSV](/management-api#tag/Loyalty/operation/exportLoyaltyBalances) endpoint.  Download a CSV file containing the balance of each customer in the loyalty program.  **Tip:** If the exported CSV file is too large to view, you can [split it into multiple files](https://www.makeuseof.com/tag/how-to-split-a-huge-csv-excel-workbook-into-seperate-files/). 
+To export customer loyalty balances to CSV, use the [Export customer loyalty balances to CSV](/management-api#tag/Loyalty/operation/exportLoyaltyBalances) endpoint.  Download a CSV file containing the balance of each customer in the loyalty program.  &gt; [!tip] If the exported CSV file is too large to view, you can &gt; [split it into multiple files](https://www.google.com/search?q&#x3D;split+CSV+into+multiple+files). 
 
 ### Example
 ```java
@@ -4308,18 +3733,6 @@ public class Example {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://yourbaseurl.talon.one");
     
-    // Configure API key authorization: management_key
-    ApiKeyAuth management_key = (ApiKeyAuth) defaultClient.getAuthentication("management_key");
-    management_key.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //management_key.setApiKeyPrefix("Token");
-
-    // Configure API key authorization: manager_auth
-    ApiKeyAuth manager_auth = (ApiKeyAuth) defaultClient.getAuthentication("manager_auth");
-    manager_auth.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //manager_auth.setApiKeyPrefix("Token");
-
     // Configure API key authorization: api_key_v1
     ApiKeyAuth api_key_v1 = (ApiKeyAuth) defaultClient.getAuthentication("api_key_v1");
     api_key_v1.setApiKey("YOUR API KEY");
@@ -4328,7 +3741,7 @@ public class Example {
 
     ManagementApi apiInstance = new ManagementApi(defaultClient);
     String loyaltyProgramId = "loyaltyProgramId_example"; // String | The identifier for the loyalty program.
-    OffsetDateTime endDate = OffsetDateTime.now(); // OffsetDateTime | Used to return expired, active, and pending loyalty balances before this timestamp. You can enter any past, present, or future timestamp value.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, `T23:59:59` to specify the end of the day. The time zone setting considered is `UTC`. If you do not include a time component, a default time value of `T00:00:00` (midnight) in `UTC` is considered. 
+    OffsetDateTime endDate = OffsetDateTime.now(); // OffsetDateTime | Used to return expired, active, and pending loyalty balances before this timestamp. You can enter any past, present, or future timestamp value.  > [!note] **Note** > - This must be an RFC3339 timestamp string. > - You can include a time component in your string, for example, `T23:59:59` to specify the end of the day. The time zone setting >   considered is `UTC`. If you do not include a time component, a default time value of `T00:00:00` (midnight) in `UTC` is considered. 
     try {
       String result = apiInstance.exportLoyaltyBalance(loyaltyProgramId, endDate);
       System.out.println(result);
@@ -4348,7 +3761,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **loyaltyProgramId** | **String**| The identifier for the loyalty program. | |
-| **endDate** | **OffsetDateTime**| Used to return expired, active, and pending loyalty balances before this timestamp. You can enter any past, present, or future timestamp value.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered.  | [optional] |
+| **endDate** | **OffsetDateTime**| Used to return expired, active, and pending loyalty balances before this timestamp. You can enter any past, present, or future timestamp value.  &gt; [!note] **Note** &gt; - This must be an RFC3339 timestamp string. &gt; - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting &gt;   considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered.  | [optional] |
 
 ### Return type
 
@@ -4356,7 +3769,7 @@ public class Example {
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth), [api_key_v1](../README.md#api_key_v1)
+[api_key_v1](../README.md#api_key_v1)
 
 ### HTTP request headers
 
@@ -4376,7 +3789,7 @@ public class Example {
 
 Export customer loyalty balances
 
-Download a CSV file containing the balance of each customer in the loyalty program.  **Tip:** If the exported CSV file is too large to view, you can [split it into multiple files](https://www.makeuseof.com/tag/how-to-split-a-huge-csv-excel-workbook-into-seperate-files/).  The generated file can contain the following columns:  - &#x60;loyaltyProgramID&#x60;: The ID of the loyalty program. - &#x60;loyaltySubledger&#x60;: The name of the subdleger, when applicatble. - &#x60;profileIntegrationID&#x60;: The integration ID of the customer profile. - &#x60;currentBalance&#x60;: The current point balance. - &#x60;pendingBalance&#x60;: The number of pending points. - &#x60;expiredBalance&#x60;: The number of expired points. - &#x60;spentBalance&#x60;: The number of spent points. - &#x60;currentTier&#x60;: The tier that the customer is in at the time of the export. 
+Download a CSV file containing the balance of each customer in the loyalty program.  &gt; [!tip] If the exported CSV file is too large to view, you can &gt; [split it into multiple files](https://www.google.com/search?q&#x3D;split+CSV+into+multiple+files).  The generated file can contain the following columns:  - &#x60;loyaltyProgramID&#x60;: The ID of the loyalty program. - &#x60;loyaltySubledger&#x60;: The name of the subledger, when applicable. - &#x60;profileIntegrationID&#x60;: The integration ID of the customer profile. - &#x60;currentBalance&#x60;: The current point balance. - &#x60;pendingBalance&#x60;: The number of pending points. - &#x60;expiredBalance&#x60;: The number of expired points. - &#x60;spentBalance&#x60;: The number of spent points. - &#x60;currentTier&#x60;: The tier that the customer is in at the time of the export. 
 
 ### Example
 ```java
@@ -4393,18 +3806,6 @@ public class Example {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://yourbaseurl.talon.one");
     
-    // Configure API key authorization: management_key
-    ApiKeyAuth management_key = (ApiKeyAuth) defaultClient.getAuthentication("management_key");
-    management_key.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //management_key.setApiKeyPrefix("Token");
-
-    // Configure API key authorization: manager_auth
-    ApiKeyAuth manager_auth = (ApiKeyAuth) defaultClient.getAuthentication("manager_auth");
-    manager_auth.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //manager_auth.setApiKeyPrefix("Token");
-
     // Configure API key authorization: api_key_v1
     ApiKeyAuth api_key_v1 = (ApiKeyAuth) defaultClient.getAuthentication("api_key_v1");
     api_key_v1.setApiKey("YOUR API KEY");
@@ -4413,7 +3814,7 @@ public class Example {
 
     ManagementApi apiInstance = new ManagementApi(defaultClient);
     String loyaltyProgramId = "loyaltyProgramId_example"; // String | The identifier for the loyalty program.
-    OffsetDateTime endDate = OffsetDateTime.now(); // OffsetDateTime | Used to return expired, active, and pending loyalty balances before this timestamp. You can enter any past, present, or future timestamp value.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, `T23:59:59` to specify the end of the day. The time zone setting considered is `UTC`. If you do not include a time component, a default time value of `T00:00:00` (midnight) in `UTC` is considered. - This parameter does not affect the `currentTier` field in the CSV file,  which shows the customer's tier at the time of export. 
+    OffsetDateTime endDate = OffsetDateTime.now(); // OffsetDateTime | Used to return expired, active, and pending loyalty balances before this timestamp. You can enter any past, present, or future timestamp value.  > [!note] **Note** > - This must be an RFC3339 timestamp string. > - You can include a time component in your string, for example, `T23:59:59` to specify the end of the day. The time zone setting >   considered is `UTC`. If you do not include a time component, a default time value of `T00:00:00` (midnight) in `UTC` is considered. > - This parameter does not affect the `currentTier` field in the CSV file, which shows the customer's tier at the time of export. 
     try {
       String result = apiInstance.exportLoyaltyBalances(loyaltyProgramId, endDate);
       System.out.println(result);
@@ -4433,7 +3834,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **loyaltyProgramId** | **String**| The identifier for the loyalty program. | |
-| **endDate** | **OffsetDateTime**| Used to return expired, active, and pending loyalty balances before this timestamp. You can enter any past, present, or future timestamp value.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered. - This parameter does not affect the &#x60;currentTier&#x60; field in the CSV file,  which shows the customer&#39;s tier at the time of export.  | [optional] |
+| **endDate** | **OffsetDateTime**| Used to return expired, active, and pending loyalty balances before this timestamp. You can enter any past, present, or future timestamp value.  &gt; [!note] **Note** &gt; - This must be an RFC3339 timestamp string. &gt; - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting &gt;   considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered. &gt; - This parameter does not affect the &#x60;currentTier&#x60; field in the CSV file, which shows the customer&#39;s tier at the time of export.  | [optional] |
 
 ### Return type
 
@@ -4441,7 +3842,7 @@ public class Example {
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth), [api_key_v1](../README.md#api_key_v1)
+[api_key_v1](../README.md#api_key_v1)
 
 ### HTTP request headers
 
@@ -4461,7 +3862,7 @@ public class Example {
 
 Export all card transaction logs
 
-Download a CSV file containing the balances of all cards in the loyalty program.  **Tip:** If the exported CSV file is too large to view, you can [split it into multiple files](https://www.makeuseof.com/tag/how-to-split-a-huge-csv-excel-workbook-into-seperate-files/).  The CSV file contains the following columns: - &#x60;loyaltyProgramID&#x60;: The ID of the loyalty program. - &#x60;loyaltySubledger&#x60;: The name of the subdleger, when applicatble. - &#x60;cardIdentifier&#x60;: The identifier of the loyalty card, which must match the regular expression &#x60;^[A-Za-z0-9._%+@-]+$&#x60;. - &#x60;cardState&#x60;:The state of the loyalty card. It can be &#x60;active&#x60; or &#x60;inactive&#x60;. - &#x60;currentBalance&#x60;: The current point balance. - &#x60;pendingBalance&#x60;: The number of pending points. - &#x60;expiredBalance&#x60;: The number of expired points. - &#x60;spentBalance&#x60;: The number of spent points. 
+Download a CSV file containing the balances of all cards in the loyalty program.  &gt; [!tip] If the exported CSV file is too large to view, you can &gt; [split it into multiple files](https://www.google.com/search?q&#x3D;split+CSV+into+multiple+files).  The CSV file contains the following columns: - &#x60;loyaltyProgramID&#x60;: The ID of the loyalty program. - &#x60;loyaltySubledger&#x60;: The name of the subdleger, when applicatble. - &#x60;cardIdentifier&#x60;: The identifier of the loyalty card, which must match the regular expression &#x60;^[A-Za-z0-9._%+@-]+$&#x60;. - &#x60;cardState&#x60;:The state of the loyalty card. It can be &#x60;active&#x60; or &#x60;inactive&#x60;. - &#x60;currentBalance&#x60;: The current point balance. - &#x60;pendingBalance&#x60;: The number of pending points. - &#x60;expiredBalance&#x60;: The number of expired points. - &#x60;spentBalance&#x60;: The number of spent points. 
 
 ### Example
 ```java
@@ -4478,18 +3879,6 @@ public class Example {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://yourbaseurl.talon.one");
     
-    // Configure API key authorization: management_key
-    ApiKeyAuth management_key = (ApiKeyAuth) defaultClient.getAuthentication("management_key");
-    management_key.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //management_key.setApiKeyPrefix("Token");
-
-    // Configure API key authorization: manager_auth
-    ApiKeyAuth manager_auth = (ApiKeyAuth) defaultClient.getAuthentication("manager_auth");
-    manager_auth.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //manager_auth.setApiKeyPrefix("Token");
-
     // Configure API key authorization: api_key_v1
     ApiKeyAuth api_key_v1 = (ApiKeyAuth) defaultClient.getAuthentication("api_key_v1");
     api_key_v1.setApiKey("YOUR API KEY");
@@ -4498,7 +3887,7 @@ public class Example {
 
     ManagementApi apiInstance = new ManagementApi(defaultClient);
     Long loyaltyProgramId = 56L; // Long | Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. 
-    OffsetDateTime endDate = OffsetDateTime.now(); // OffsetDateTime | Used to return expired, active, and pending loyalty balances before this timestamp. You can enter any past, present, or future timestamp value.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, `T23:59:59` to specify the end of the day. The time zone setting considered is `UTC`. If you do not include a time component, a default time value of `T00:00:00` (midnight) in `UTC` is considered. 
+    OffsetDateTime endDate = OffsetDateTime.now(); // OffsetDateTime | Used to return expired, active, and pending loyalty balances before this timestamp. You can enter any past, present, or future timestamp value.  > [!note] **Note** > - This must be an RFC3339 timestamp string. > - You can include a time component in your string, for example, `T23:59:59` to specify the end of the day. The time zone setting >   considered is `UTC`. If you do not include a time component, a default time value of `T00:00:00` (midnight) in `UTC` is considered. 
     try {
       String result = apiInstance.exportLoyaltyCardBalances(loyaltyProgramId, endDate);
       System.out.println(result);
@@ -4518,7 +3907,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **loyaltyProgramId** | **Long**| Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint.  | |
-| **endDate** | **OffsetDateTime**| Used to return expired, active, and pending loyalty balances before this timestamp. You can enter any past, present, or future timestamp value.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered.  | [optional] |
+| **endDate** | **OffsetDateTime**| Used to return expired, active, and pending loyalty balances before this timestamp. You can enter any past, present, or future timestamp value.  &gt; [!note] **Note** &gt; - This must be an RFC3339 timestamp string. &gt; - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting &gt;   considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered.  | [optional] |
 
 ### Return type
 
@@ -4526,7 +3915,7 @@ public class Example {
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth), [api_key_v1](../README.md#api_key_v1)
+[api_key_v1](../README.md#api_key_v1)
 
 ### HTTP request headers
 
@@ -4546,7 +3935,7 @@ public class Example {
 
 Export card&#39;s ledger log
 
-Download a CSV file containing a loyalty card ledger log of the loyalty program.  **Tip:** If the exported CSV file is too large to view, you can [split it into multiple files](https://www.makeuseof.com/tag/how-to-split-a-huge-csv-excel-workbook-into-seperate-files/). 
+Download a CSV file containing a loyalty card ledger log of the loyalty program.  &gt; [!tip] If the exported CSV file is too large to view, you can &gt; [split it into multiple files](https://www.google.com/search?q&#x3D;split+CSV+into+multiple+files). 
 
 ### Example
 ```java
@@ -4563,18 +3952,6 @@ public class Example {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://yourbaseurl.talon.one");
     
-    // Configure API key authorization: management_key
-    ApiKeyAuth management_key = (ApiKeyAuth) defaultClient.getAuthentication("management_key");
-    management_key.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //management_key.setApiKeyPrefix("Token");
-
-    // Configure API key authorization: manager_auth
-    ApiKeyAuth manager_auth = (ApiKeyAuth) defaultClient.getAuthentication("manager_auth");
-    manager_auth.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //manager_auth.setApiKeyPrefix("Token");
-
     // Configure API key authorization: api_key_v1
     ApiKeyAuth api_key_v1 = (ApiKeyAuth) defaultClient.getAuthentication("api_key_v1");
     api_key_v1.setApiKey("YOUR API KEY");
@@ -4584,8 +3961,8 @@ public class Example {
     ManagementApi apiInstance = new ManagementApi(defaultClient);
     Long loyaltyProgramId = 56L; // Long | Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. 
     String loyaltyCardId = "loyaltyCardId_example"; // String | Identifier of the loyalty card. You can get the identifier with the [List loyalty cards](https://docs.talon.one/management-api#tag/Loyalty-cards/operation/getLoyaltyCards) endpoint.  **Important**: The loyalty card ID requires [URL encoding](https://www.w3schools.com/tags//ref_urlencode.asp) if it contains special characters. For example, you must encode `NewCard2026%` as `NewCard2026%25`. 
-    OffsetDateTime rangeStart = OffsetDateTime.now(); // OffsetDateTime | Only return results from after this timestamp.  **Note:** - This must be an RFC3339 timestamp string. - You can include a time component in your string, for example, `T23:59:59` to specify the end of the day. The time zone setting considered is `UTC`. If you do not include a time component, a default time value of `T00:00:00` (midnight) in `UTC` is considered. 
-    OffsetDateTime rangeEnd = OffsetDateTime.now(); // OffsetDateTime | Only return results from before this timestamp.  **Note:** - This must be an RFC3339 timestamp string. - You can include a time component in your string, for example, `T23:59:59` to specify the end of the day. The time zone setting considered is `UTC`. If you do not include a time component, a default time value of `T00:00:00` (midnight) in `UTC` is considered. 
+    OffsetDateTime rangeStart = OffsetDateTime.now(); // OffsetDateTime | Only return results from after this timestamp.  > [!note] **Note** > - This must be an RFC3339 timestamp string. > - You can include a time component in your string, for example, `T23:59:59` to specify the end of the day. The time zone setting >   considered is `UTC`. If you do not include a time component, a default time value of `T00:00:00` (midnight) in `UTC` is considered. 
+    OffsetDateTime rangeEnd = OffsetDateTime.now(); // OffsetDateTime | Only return results from before this timestamp.  > [!note] **Note** > - This must be an RFC3339 timestamp string. > - You can include a time component in your string, for example, `T23:59:59` to specify the end of the day. The time zone setting >   considered is `UTC`. If you do not include a time component, a default time value of `T00:00:00` (midnight) in `UTC` is considered. 
     String dateFormat = "excel"; // String | Determines the format of dates in the export document.
     try {
       String result = apiInstance.exportLoyaltyCardLedger(loyaltyProgramId, loyaltyCardId, rangeStart, rangeEnd, dateFormat);
@@ -4607,8 +3984,8 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **loyaltyProgramId** | **Long**| Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint.  | |
 | **loyaltyCardId** | **String**| Identifier of the loyalty card. You can get the identifier with the [List loyalty cards](https://docs.talon.one/management-api#tag/Loyalty-cards/operation/getLoyaltyCards) endpoint.  **Important**: The loyalty card ID requires [URL encoding](https://www.w3schools.com/tags//ref_urlencode.asp) if it contains special characters. For example, you must encode &#x60;NewCard2026%&#x60; as &#x60;NewCard2026%25&#x60;.  | |
-| **rangeStart** | **OffsetDateTime**| Only return results from after this timestamp.  **Note:** - This must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered.  | |
-| **rangeEnd** | **OffsetDateTime**| Only return results from before this timestamp.  **Note:** - This must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered.  | |
+| **rangeStart** | **OffsetDateTime**| Only return results from after this timestamp.  &gt; [!note] **Note** &gt; - This must be an RFC3339 timestamp string. &gt; - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting &gt;   considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered.  | |
+| **rangeEnd** | **OffsetDateTime**| Only return results from before this timestamp.  &gt; [!note] **Note** &gt; - This must be an RFC3339 timestamp string. &gt; - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting &gt;   considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered.  | |
 | **dateFormat** | **String**| Determines the format of dates in the export document. | [optional] [enum: excel, ISO8601] |
 
 ### Return type
@@ -4617,7 +3994,7 @@ public class Example {
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth), [api_key_v1](../README.md#api_key_v1)
+[api_key_v1](../README.md#api_key_v1)
 
 ### HTTP request headers
 
@@ -4637,7 +4014,7 @@ public class Example {
 
 Export loyalty cards
 
-Download a CSV file containing the loyalty cards from a specified loyalty program.  **Tip:** If the exported CSV file is too large to view, you can [split it into multiple files](https://www.makeuseof.com/tag/how-to-split-a-huge-csv-excel-workbook-into-seperate-files/).  The CSV file contains the following columns: - &#x60;identifier&#x60;: The unique identifier of the loyalty card. - &#x60;created&#x60;: The date and time the loyalty card was created. - &#x60;status&#x60;: The status of the loyalty card. - &#x60;userpercardlimit&#x60;: The maximum number of customer profiles that can be linked to the card. - &#x60;customerprofileids&#x60;: Integration IDs of the customer profiles linked to the card. - &#x60;blockreason&#x60;: The reason for transferring and blocking the loyalty card. - &#x60;generated&#x60;: An indicator of whether the loyalty card was generated. - &#x60;batchid&#x60;: The ID of the batch the loyalty card is in. 
+Download a CSV file containing the loyalty cards from a specified loyalty program.  &gt; [!tip] If the exported CSV file is too large to view, you can &gt; [split it into multiple files](https://www.google.com/search?q&#x3D;split+CSV+into+multiple+files).  The CSV file contains the following columns:  - &#x60;identifier&#x60;: The unique identifier of the loyalty card. - &#x60;created&#x60;: The date and time the loyalty card was created. - &#x60;status&#x60;: The status of the loyalty card. - &#x60;userpercardlimit&#x60;: The maximum number of customer profiles that can be linked to the card. - &#x60;customerprofileids&#x60;: Integration IDs of the customer profiles linked to the card. - &#x60;blockreason&#x60;: The reason for transferring and blocking the loyalty card. - &#x60;generated&#x60;: An indicator of whether the loyalty card was generated. - &#x60;batchid&#x60;: The ID of the batch the loyalty card is in. - &#x60;attributes&#x60;: The custom attributes of this loyalty card. Currently, this feature is only available upon request. 
 
 ### Example
 ```java
@@ -4654,18 +4031,6 @@ public class Example {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://yourbaseurl.talon.one");
     
-    // Configure API key authorization: management_key
-    ApiKeyAuth management_key = (ApiKeyAuth) defaultClient.getAuthentication("management_key");
-    management_key.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //management_key.setApiKeyPrefix("Token");
-
-    // Configure API key authorization: manager_auth
-    ApiKeyAuth manager_auth = (ApiKeyAuth) defaultClient.getAuthentication("manager_auth");
-    manager_auth.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //manager_auth.setApiKeyPrefix("Token");
-
     // Configure API key authorization: api_key_v1
     ApiKeyAuth api_key_v1 = (ApiKeyAuth) defaultClient.getAuthentication("api_key_v1");
     api_key_v1.setApiKey("YOUR API KEY");
@@ -4675,8 +4040,8 @@ public class Example {
     ManagementApi apiInstance = new ManagementApi(defaultClient);
     Long loyaltyProgramId = 56L; // Long | Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. 
     String batchId = "batchId_example"; // String | Filter results by loyalty card batch ID.
-    OffsetDateTime createdBefore = OffsetDateTime.now(); // OffsetDateTime | Only return loyalty cards created before this timestamp.  **Note:** - This must be an RFC3339 timestamp string. 
-    OffsetDateTime createdAfter = OffsetDateTime.now(); // OffsetDateTime | Only return loyalty cards created after this timestamp.  **Note:** - This must be an RFC3339 timestamp string. 
+    OffsetDateTime createdBefore = OffsetDateTime.now(); // OffsetDateTime | Only return loyalty cards created before this timestamp.  **Note:** This must be an RFC3339 timestamp string. 
+    OffsetDateTime createdAfter = OffsetDateTime.now(); // OffsetDateTime | Only return loyalty cards created after this timestamp.  **Note:** This must be an RFC3339 timestamp string. 
     String dateFormat = "excel"; // String | Determines the format of dates in the export document.
     try {
       String result = apiInstance.exportLoyaltyCards(loyaltyProgramId, batchId, createdBefore, createdAfter, dateFormat);
@@ -4698,8 +4063,8 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **loyaltyProgramId** | **Long**| Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint.  | |
 | **batchId** | **String**| Filter results by loyalty card batch ID. | [optional] |
-| **createdBefore** | **OffsetDateTime**| Only return loyalty cards created before this timestamp.  **Note:** - This must be an RFC3339 timestamp string.  | [optional] |
-| **createdAfter** | **OffsetDateTime**| Only return loyalty cards created after this timestamp.  **Note:** - This must be an RFC3339 timestamp string.  | [optional] |
+| **createdBefore** | **OffsetDateTime**| Only return loyalty cards created before this timestamp.  **Note:** This must be an RFC3339 timestamp string.  | [optional] |
+| **createdAfter** | **OffsetDateTime**| Only return loyalty cards created after this timestamp.  **Note:** This must be an RFC3339 timestamp string.  | [optional] |
 | **dateFormat** | **String**| Determines the format of dates in the export document. | [optional] [enum: excel, ISO8601] |
 
 ### Return type
@@ -4708,7 +4073,7 @@ public class Example {
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth), [api_key_v1](../README.md#api_key_v1)
+[api_key_v1](../README.md#api_key_v1)
 
 ### HTTP request headers
 
@@ -4728,7 +4093,7 @@ public class Example {
 
 Export customers&#39; loyalty program join dates
 
-Download a CSV file containing the join dates of all customers in the loyalty program.  **Tip:** If the exported CSV file is too large to view, you can [split it into multiple files](https://www.makeuseof.com/tag/how-to-split-a-huge-csv-excel-workbook-into-seperate-files/).  The generated file can contain the following columns:  - &#x60;loyaltyProgramID&#x60;: The ID of the loyalty program. - &#x60;profileIntegrationID&#x60;: The integration ID of the customer profile. - &#x60;joinDate&#x60;: The customer&#39;s loyalty program join date in RFC3339 format. 
+Download a CSV file containing the join dates of all customers in the loyalty program.  &gt; [!tip] If the exported CSV file is too large to view, you can &gt; [split it into multiple files](https://www.google.com/search?q&#x3D;split+CSV+into+multiple+files).  The generated file can contain the following columns:  - &#x60;loyaltyProgramID&#x60;: The ID of the loyalty program. - &#x60;profileIntegrationID&#x60;: The integration ID of the customer profile. - &#x60;joinDate&#x60;: The customer&#39;s loyalty program join date in RFC3339 format. 
 
 ### Example
 ```java
@@ -4745,18 +4110,6 @@ public class Example {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://yourbaseurl.talon.one");
     
-    // Configure API key authorization: management_key
-    ApiKeyAuth management_key = (ApiKeyAuth) defaultClient.getAuthentication("management_key");
-    management_key.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //management_key.setApiKeyPrefix("Token");
-
-    // Configure API key authorization: manager_auth
-    ApiKeyAuth manager_auth = (ApiKeyAuth) defaultClient.getAuthentication("manager_auth");
-    manager_auth.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //manager_auth.setApiKeyPrefix("Token");
-
     // Configure API key authorization: api_key_v1
     ApiKeyAuth api_key_v1 = (ApiKeyAuth) defaultClient.getAuthentication("api_key_v1");
     api_key_v1.setApiKey("YOUR API KEY");
@@ -4791,7 +4144,7 @@ public class Example {
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth), [api_key_v1](../README.md#api_key_v1)
+[api_key_v1](../README.md#api_key_v1)
 
 ### HTTP request headers
 
@@ -4811,7 +4164,7 @@ public class Example {
 
 Export customer&#39;s transaction logs
 
-Download a CSV file containing a customer&#39;s transaction logs in the loyalty program.  **Tip:** If the exported CSV file is too large to view, you can [split it into multiple files](https://www.makeuseof.com/tag/how-to-split-a-huge-csv-excel-workbook-into-seperate-files/).  The generated file can contain the following columns:  - &#x60;customerprofileid&#x60;: The ID of the profile. - &#x60;customersessionid&#x60;: The ID of the customer session. - &#x60;rulesetid&#x60;: The ID of the rule set. - &#x60;rulename&#x60;: The name of the rule. - &#x60;programid&#x60;: The ID of the loyalty program. - &#x60;type&#x60;: The transaction type, such as &#x60;addition&#x60; or &#x60;subtraction&#x60;. - &#x60;name&#x60;: The reason for the transaction. - &#x60;subledgerid&#x60;: The ID of the subledger, when applicable. - &#x60;startdate&#x60;: The start date of the program. - &#x60;expirydate&#x60;: The expiration date of the program. - &#x60;id&#x60;: The ID of the transaction. - &#x60;created&#x60;: The timestamp of the creation of the loyalty program. - &#x60;amount&#x60;: The number of points in that transaction. - &#x60;archived&#x60;: Whether the session related to the transaction is archived. - &#x60;campaignid&#x60;: The ID of the campaign. - &#x60;flags&#x60;: The flags of the transaction, when applicable. The &#x60;createsNegativeBalance&#x60; flag indicates whether the transaction results in a negative balance. - &#x60;transactionUUID&#x60;: Unique identifier of the transaction in the UUID format. 
+Download a CSV file containing a customer&#39;s transaction logs in the loyalty program.  &gt; [!tip] If the exported CSV file is too large to view, you can &gt; [split it into multiple files](https://www.google.com/search?q&#x3D;split+CSV+into+multiple+files).  The generated file can contain the following columns:  - &#x60;customerprofileid&#x60;: The ID of the profile. - &#x60;customersessionid&#x60;: The ID of the customer session. - &#x60;rulesetid&#x60;: The ID of the rule set. - &#x60;rulename&#x60;: The name of the rule. - &#x60;programid&#x60;: The ID of the loyalty program. - &#x60;type&#x60;: The transaction type, such as &#x60;addition&#x60; or &#x60;subtraction&#x60;. - &#x60;name&#x60;: The reason for the transaction. - &#x60;subledgerid&#x60;: The ID of the subledger, when applicable. - &#x60;startdate&#x60;: The start date of the program. - &#x60;expirydate&#x60;: The expiration date of the program. - &#x60;id&#x60;: The ID of the transaction. - &#x60;created&#x60;: The timestamp of the creation of the loyalty program. - &#x60;amount&#x60;: The number of points in that transaction. - &#x60;archived&#x60;: Whether the session related to the transaction is archived. - &#x60;campaignid&#x60;: The ID of the campaign. - &#x60;flags&#x60;: The flags of the transaction, when applicable. The &#x60;createsNegativeBalance&#x60; flag indicates whether the transaction results in a negative balance. - &#x60;transactionUUID&#x60;: Unique identifier of the transaction in the UUID format. 
 
 ### Example
 ```java
@@ -4828,18 +4181,6 @@ public class Example {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://yourbaseurl.talon.one");
     
-    // Configure API key authorization: management_key
-    ApiKeyAuth management_key = (ApiKeyAuth) defaultClient.getAuthentication("management_key");
-    management_key.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //management_key.setApiKeyPrefix("Token");
-
-    // Configure API key authorization: manager_auth
-    ApiKeyAuth manager_auth = (ApiKeyAuth) defaultClient.getAuthentication("manager_auth");
-    manager_auth.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //manager_auth.setApiKeyPrefix("Token");
-
     // Configure API key authorization: api_key_v1
     ApiKeyAuth api_key_v1 = (ApiKeyAuth) defaultClient.getAuthentication("api_key_v1");
     api_key_v1.setApiKey("YOUR API KEY");
@@ -4847,8 +4188,8 @@ public class Example {
     //api_key_v1.setApiKeyPrefix("Token");
 
     ManagementApi apiInstance = new ManagementApi(defaultClient);
-    OffsetDateTime rangeStart = OffsetDateTime.now(); // OffsetDateTime | Only return results from after this timestamp.  **Note:** - This must be an RFC3339 timestamp string. - You can include a time component in your string, for example, `T23:59:59` to specify the end of the day. The time zone setting considered is `UTC`. If you do not include a time component, a default time value of `T00:00:00` (midnight) in `UTC` is considered. 
-    OffsetDateTime rangeEnd = OffsetDateTime.now(); // OffsetDateTime | Only return results from before this timestamp.  **Note:** - This must be an RFC3339 timestamp string. - You can include a time component in your string, for example, `T23:59:59` to specify the end of the day. The time zone setting considered is `UTC`. If you do not include a time component, a default time value of `T00:00:00` (midnight) in `UTC` is considered. 
+    OffsetDateTime rangeStart = OffsetDateTime.now(); // OffsetDateTime | Only return results from after this timestamp.  > [!note] **Note** > - This must be an RFC3339 timestamp string. > - You can include a time component in your string, for example, `T23:59:59` to specify the end of the day. The time zone setting >   considered is `UTC`. If you do not include a time component, a default time value of `T00:00:00` (midnight) in `UTC` is considered. 
+    OffsetDateTime rangeEnd = OffsetDateTime.now(); // OffsetDateTime | Only return results from before this timestamp.  > [!note] **Note** > - This must be an RFC3339 timestamp string. > - You can include a time component in your string, for example, `T23:59:59` to specify the end of the day. The time zone setting >   considered is `UTC`. If you do not include a time component, a default time value of `T00:00:00` (midnight) in `UTC` is considered. 
     String loyaltyProgramId = "loyaltyProgramId_example"; // String | The identifier for the loyalty program.
     String integrationId = "integrationId_example"; // String | The integration identifier for this customer profile. Must be: - Unique within the deployment. - Stable for the customer. Do not use an ID that the customer can update themselves. For example, you can use a database ID.  Once set, you cannot update this identifier. 
     String dateFormat = "excel"; // String | Determines the format of dates in the export document.
@@ -4870,8 +4211,8 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **rangeStart** | **OffsetDateTime**| Only return results from after this timestamp.  **Note:** - This must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered.  | |
-| **rangeEnd** | **OffsetDateTime**| Only return results from before this timestamp.  **Note:** - This must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered.  | |
+| **rangeStart** | **OffsetDateTime**| Only return results from after this timestamp.  &gt; [!note] **Note** &gt; - This must be an RFC3339 timestamp string. &gt; - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting &gt;   considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered.  | |
+| **rangeEnd** | **OffsetDateTime**| Only return results from before this timestamp.  &gt; [!note] **Note** &gt; - This must be an RFC3339 timestamp string. &gt; - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting &gt;   considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered.  | |
 | **loyaltyProgramId** | **String**| The identifier for the loyalty program. | |
 | **integrationId** | **String**| The integration identifier for this customer profile. Must be: - Unique within the deployment. - Stable for the customer. Do not use an ID that the customer can update themselves. For example, you can use a database ID.  Once set, you cannot update this identifier.  | |
 | **dateFormat** | **String**| Determines the format of dates in the export document. | [optional] [enum: excel, ISO8601] |
@@ -4882,7 +4223,7 @@ public class Example {
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth), [api_key_v1](../README.md#api_key_v1)
+[api_key_v1](../README.md#api_key_v1)
 
 ### HTTP request headers
 
@@ -4900,7 +4241,7 @@ public class Example {
 
 Export giveaway codes of a giveaway pool
 
-Download a CSV file containing the giveaway codes of a specific giveaway pool.  **Tip:** If the exported CSV file is too large to view, you can [split it into multiple files](https://www.makeuseof.com/tag/how-to-split-a-huge-csv-excel-workbook-into-seperate-files/).  The CSV file contains the following columns:  - &#x60;id&#x60;: The internal ID of the giveaway. - &#x60;poolid&#x60;: The internal ID of the giveaway pool. - &#x60;code&#x60;: The giveaway code. - &#x60;startdate&#x60;: The validity start date in RFC3339 of the giveaway (can be empty). - &#x60;enddate&#x60;: The validity end date in RFC3339 of the giveaway (can be empty). - &#x60;attributes&#x60;: Any custom attributes associated with the giveaway code (can be empty). - &#x60;used&#x60;: An indication of whether the giveaway is already awarded. - &#x60;importid&#x60;: The ID of the import which created the giveaway. - &#x60;created&#x60;: The creation time of the giveaway code. - &#x60;profileintegrationid&#x60;: The third-party integration ID of the customer profile that was awarded the giveaway. Can be empty if the giveaway was not awarded. - &#x60;profileid&#x60;: The internal ID of the customer profile that was awarded the giveaway. Can be empty if the giveaway was not awarded or an internal ID does not exist. 
+Download a CSV file containing the giveaway codes of a specific giveaway pool.  &gt; [!tip] If the exported CSV file is too large to view, you can &gt; [split it into multiple files](https://www.google.com/search?q&#x3D;split+CSV+into+multiple+files).  The CSV file contains the following columns:  - &#x60;id&#x60;: The internal ID of the giveaway. - &#x60;poolid&#x60;: The internal ID of the giveaway pool. - &#x60;code&#x60;: The giveaway code. - &#x60;startdate&#x60;: The validity start date in RFC3339 of the giveaway (can be empty). - &#x60;enddate&#x60;: The validity end date in RFC3339 of the giveaway (can be empty). - &#x60;attributes&#x60;: Any custom attributes associated with the giveaway code (can be empty). - &#x60;used&#x60;: An indication of whether the giveaway is already awarded. - &#x60;importid&#x60;: The ID of the import which created the giveaway. - &#x60;created&#x60;: The creation time of the giveaway code. - &#x60;profileintegrationid&#x60;: The third-party integration ID of the customer    profile that was awarded the giveaway. Can be empty if the giveaway was not    awarded. - &#x60;profileid&#x60;: The internal ID of the customer profile that was awarded the    giveaway. Can be empty if the giveaway was not awarded or an internal ID    does not exist. 
 
 ### Example
 ```java
@@ -4917,18 +4258,6 @@ public class Example {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://yourbaseurl.talon.one");
     
-    // Configure API key authorization: management_key
-    ApiKeyAuth management_key = (ApiKeyAuth) defaultClient.getAuthentication("management_key");
-    management_key.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //management_key.setApiKeyPrefix("Token");
-
-    // Configure API key authorization: manager_auth
-    ApiKeyAuth manager_auth = (ApiKeyAuth) defaultClient.getAuthentication("manager_auth");
-    manager_auth.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //manager_auth.setApiKeyPrefix("Token");
-
     // Configure API key authorization: api_key_v1
     ApiKeyAuth api_key_v1 = (ApiKeyAuth) defaultClient.getAuthentication("api_key_v1");
     api_key_v1.setApiKey("YOUR API KEY");
@@ -4967,7 +4296,7 @@ public class Example {
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth), [api_key_v1](../README.md#api_key_v1)
+[api_key_v1](../README.md#api_key_v1)
 
 ### HTTP request headers
 
@@ -4986,7 +4315,7 @@ public class Example {
 
 Export referrals
 
-Download a CSV file containing the referrals that match the given parameters.  **Tip:** If the exported CSV file is too large to view, you can [split it into multiple files](https://www.makeuseof.com/tag/how-to-split-a-huge-csv-excel-workbook-into-seperate-files/).  The CSV file contains the following columns:  - &#x60;code&#x60;: The referral code. - &#x60;advocateprofileintegrationid&#x60;: The profile ID of the advocate. - &#x60;startdate&#x60;: The start date in RFC3339 of the code redemption period. - &#x60;expirydate&#x60;: The end date in RFC3339 of the code redemption period. - &#x60;limitval&#x60;: The maximum number of redemptions of this code. Defaults to &#x60;1&#x60; when left blank. - &#x60;attributes&#x60;: A json object describing _custom_ referral attribute names and their values. 
+Download a CSV file containing the referrals that match the given parameters.  &gt; [!tip] If the exported CSV file is too large to view, you can &gt; [split it into multiple files](https://www.google.com/search?q&#x3D;split+CSV+into+multiple+files).  The CSV file contains the following columns:  - &#x60;code&#x60;: The referral code. - &#x60;advocateprofileintegrationid&#x60;: The profile ID of the advocate. - &#x60;startdate&#x60;: The start date in RFC3339 of the code redemption period. - &#x60;expirydate&#x60;: The end date in RFC3339 of the code redemption period. - &#x60;limitval&#x60;: The maximum number of redemptions of this code. Defaults to &#x60;1&#x60; when left blank. - &#x60;attributes&#x60;: A json object describing _custom_ referral attribute names and their values. 
 
 ### Example
 ```java
@@ -5003,18 +4332,6 @@ public class Example {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://yourbaseurl.talon.one");
     
-    // Configure API key authorization: management_key
-    ApiKeyAuth management_key = (ApiKeyAuth) defaultClient.getAuthentication("management_key");
-    management_key.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //management_key.setApiKeyPrefix("Token");
-
-    // Configure API key authorization: manager_auth
-    ApiKeyAuth manager_auth = (ApiKeyAuth) defaultClient.getAuthentication("manager_auth");
-    manager_auth.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //manager_auth.setApiKeyPrefix("Token");
-
     // Configure API key authorization: api_key_v1
     ApiKeyAuth api_key_v1 = (ApiKeyAuth) defaultClient.getAuthentication("api_key_v1");
     api_key_v1.setApiKey("YOUR API KEY");
@@ -5063,7 +4380,7 @@ public class Example {
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth), [api_key_v1](../README.md#api_key_v1)
+[api_key_v1](../README.md#api_key_v1)
 
 ### HTTP request headers
 
@@ -5098,18 +4415,6 @@ public class Example {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://yourbaseurl.talon.one");
     
-    // Configure API key authorization: management_key
-    ApiKeyAuth management_key = (ApiKeyAuth) defaultClient.getAuthentication("management_key");
-    management_key.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //management_key.setApiKeyPrefix("Token");
-
-    // Configure API key authorization: manager_auth
-    ApiKeyAuth manager_auth = (ApiKeyAuth) defaultClient.getAuthentication("manager_auth");
-    manager_auth.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //manager_auth.setApiKeyPrefix("Token");
-
     // Configure API key authorization: api_key_v1
     ApiKeyAuth api_key_v1 = (ApiKeyAuth) defaultClient.getAuthentication("api_key_v1");
     api_key_v1.setApiKey("YOUR API KEY");
@@ -5150,7 +4455,7 @@ public class Example {
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth), [api_key_v1](../README.md#api_key_v1)
+[api_key_v1](../README.md#api_key_v1)
 
 ### HTTP request headers
 
@@ -5185,18 +4490,6 @@ public class Example {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://yourbaseurl.talon.one");
     
-    // Configure API key authorization: management_key
-    ApiKeyAuth management_key = (ApiKeyAuth) defaultClient.getAuthentication("management_key");
-    management_key.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //management_key.setApiKeyPrefix("Token");
-
-    // Configure API key authorization: manager_auth
-    ApiKeyAuth manager_auth = (ApiKeyAuth) defaultClient.getAuthentication("manager_auth");
-    manager_auth.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //manager_auth.setApiKeyPrefix("Token");
-
     // Configure API key authorization: api_key_v1
     ApiKeyAuth api_key_v1 = (ApiKeyAuth) defaultClient.getAuthentication("api_key_v1");
     api_key_v1.setApiKey("YOUR API KEY");
@@ -5205,8 +4498,8 @@ public class Example {
 
     ManagementApi apiInstance = new ManagementApi(defaultClient);
     Long applicationId = 56L; // Long | The ID of the Application. It is displayed in your Talon.One deployment URL.
-    OffsetDateTime rangeStart = OffsetDateTime.now(); // OffsetDateTime | Only return results from after this timestamp.  **Note:** - This must be an RFC3339 timestamp string. - You can include a time component in your string, for example, `T23:59:59` to specify the end of the day. The time zone setting considered is `UTC`. If you do not include a time component, a default time value of `T00:00:00` (midnight) in `UTC` is considered. 
-    OffsetDateTime rangeEnd = OffsetDateTime.now(); // OffsetDateTime | Only return results from before this timestamp.  **Note:** - This must be an RFC3339 timestamp string. - You can include a time component in your string, for example, `T23:59:59` to specify the end of the day. The time zone setting considered is `UTC`. If you do not include a time component, a default time value of `T00:00:00` (midnight) in `UTC` is considered. 
+    OffsetDateTime rangeStart = OffsetDateTime.now(); // OffsetDateTime | Only return results from after this timestamp.  > [!note] **Note** > - This must be an RFC3339 timestamp string. > - You can include a time component in your string, for example, `T23:59:59` to specify the end of the day. The time zone setting >   considered is `UTC`. If you do not include a time component, a default time value of `T00:00:00` (midnight) in `UTC` is considered. 
+    OffsetDateTime rangeEnd = OffsetDateTime.now(); // OffsetDateTime | Only return results from before this timestamp.  > [!note] **Note** > - This must be an RFC3339 timestamp string. > - You can include a time component in your string, for example, `T23:59:59` to specify the end of the day. The time zone setting >   considered is `UTC`. If you do not include a time component, a default time value of `T00:00:00` (midnight) in `UTC` is considered. 
     String path = "path_example"; // String | Only return results where the request path matches the given regular expression.
     String method = "get"; // String | Only return results where the request method matches the given regular expression.
     String status = "success"; // String | Filter results by HTTP status codes.
@@ -5232,8 +4525,8 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **applicationId** | **Long**| The ID of the Application. It is displayed in your Talon.One deployment URL. | |
-| **rangeStart** | **OffsetDateTime**| Only return results from after this timestamp.  **Note:** - This must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered.  | |
-| **rangeEnd** | **OffsetDateTime**| Only return results from before this timestamp.  **Note:** - This must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered.  | |
+| **rangeStart** | **OffsetDateTime**| Only return results from after this timestamp.  &gt; [!note] **Note** &gt; - This must be an RFC3339 timestamp string. &gt; - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting &gt;   considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered.  | |
+| **rangeEnd** | **OffsetDateTime**| Only return results from before this timestamp.  &gt; [!note] **Note** &gt; - This must be an RFC3339 timestamp string. &gt; - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting &gt;   considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered.  | |
 | **path** | **String**| Only return results where the request path matches the given regular expression. | [optional] |
 | **method** | **String**| Only return results where the request method matches the given regular expression. | [optional] [enum: get, put, post, delete, patch] |
 | **status** | **String**| Filter results by HTTP status codes. | [optional] [enum: success, error] |
@@ -5247,7 +4540,7 @@ public class Example {
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth), [api_key_v1](../README.md#api_key_v1)
+[api_key_v1](../README.md#api_key_v1)
 
 ### HTTP request headers
 
@@ -5282,18 +4575,6 @@ public class Example {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://yourbaseurl.talon.one");
     
-    // Configure API key authorization: management_key
-    ApiKeyAuth management_key = (ApiKeyAuth) defaultClient.getAuthentication("management_key");
-    management_key.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //management_key.setApiKeyPrefix("Token");
-
-    // Configure API key authorization: manager_auth
-    ApiKeyAuth manager_auth = (ApiKeyAuth) defaultClient.getAuthentication("manager_auth");
-    manager_auth.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //manager_auth.setApiKeyPrefix("Token");
-
     // Configure API key authorization: api_key_v1
     ApiKeyAuth api_key_v1 = (ApiKeyAuth) defaultClient.getAuthentication("api_key_v1");
     api_key_v1.setApiKey("YOUR API KEY");
@@ -5301,7 +4582,7 @@ public class Example {
     //api_key_v1.setApiKeyPrefix("Token");
 
     ManagementApi apiInstance = new ManagementApi(defaultClient);
-    Long accountId = 56L; // Long | The identifier of the account. Retrieve it via the [List users in account](https://docs.talon.one/management-api#operation/getUsers) endpoint in the `accountId` property. 
+    Long accountId = 56L; // Long | The identifier of the account. Retrieve it via the [List users in account](https://docs.talon.one/management-api#tag/Accounts-and-users/operation/getUsers) endpoint in the `accountId` property. 
     try {
       Account result = apiInstance.getAccount(accountId);
       System.out.println(result);
@@ -5320,7 +4601,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **accountId** | **Long**| The identifier of the account. Retrieve it via the [List users in account](https://docs.talon.one/management-api#operation/getUsers) endpoint in the &#x60;accountId&#x60; property.  | |
+| **accountId** | **Long**| The identifier of the account. Retrieve it via the [List users in account](https://docs.talon.one/management-api#tag/Accounts-and-users/operation/getUsers) endpoint in the &#x60;accountId&#x60; property.  | |
 
 ### Return type
 
@@ -5328,7 +4609,7 @@ public class Example {
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth), [api_key_v1](../README.md#api_key_v1)
+[api_key_v1](../README.md#api_key_v1)
 
 ### HTTP request headers
 
@@ -5363,18 +4644,6 @@ public class Example {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://yourbaseurl.talon.one");
     
-    // Configure API key authorization: management_key
-    ApiKeyAuth management_key = (ApiKeyAuth) defaultClient.getAuthentication("management_key");
-    management_key.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //management_key.setApiKeyPrefix("Token");
-
-    // Configure API key authorization: manager_auth
-    ApiKeyAuth manager_auth = (ApiKeyAuth) defaultClient.getAuthentication("manager_auth");
-    manager_auth.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //manager_auth.setApiKeyPrefix("Token");
-
     // Configure API key authorization: api_key_v1
     ApiKeyAuth api_key_v1 = (ApiKeyAuth) defaultClient.getAuthentication("api_key_v1");
     api_key_v1.setApiKey("YOUR API KEY");
@@ -5382,7 +4651,7 @@ public class Example {
     //api_key_v1.setApiKeyPrefix("Token");
 
     ManagementApi apiInstance = new ManagementApi(defaultClient);
-    Long accountId = 56L; // Long | The identifier of the account. Retrieve it via the [List users in account](https://docs.talon.one/management-api#operation/getUsers) endpoint in the `accountId` property. 
+    Long accountId = 56L; // Long | The identifier of the account. Retrieve it via the [List users in account](https://docs.talon.one/management-api#tag/Accounts-and-users/operation/getUsers) endpoint in the `accountId` property. 
     try {
       AccountAnalytics result = apiInstance.getAccountAnalytics(accountId);
       System.out.println(result);
@@ -5401,7 +4670,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **accountId** | **Long**| The identifier of the account. Retrieve it via the [List users in account](https://docs.talon.one/management-api#operation/getUsers) endpoint in the &#x60;accountId&#x60; property.  | |
+| **accountId** | **Long**| The identifier of the account. Retrieve it via the [List users in account](https://docs.talon.one/management-api#tag/Accounts-and-users/operation/getUsers) endpoint in the &#x60;accountId&#x60; property.  | |
 
 ### Return type
 
@@ -5409,7 +4678,7 @@ public class Example {
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth), [api_key_v1](../README.md#api_key_v1)
+[api_key_v1](../README.md#api_key_v1)
 
 ### HTTP request headers
 
@@ -5444,18 +4713,6 @@ public class Example {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://yourbaseurl.talon.one");
     
-    // Configure API key authorization: management_key
-    ApiKeyAuth management_key = (ApiKeyAuth) defaultClient.getAuthentication("management_key");
-    management_key.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //management_key.setApiKeyPrefix("Token");
-
-    // Configure API key authorization: manager_auth
-    ApiKeyAuth manager_auth = (ApiKeyAuth) defaultClient.getAuthentication("manager_auth");
-    manager_auth.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //manager_auth.setApiKeyPrefix("Token");
-
     // Configure API key authorization: api_key_v1
     ApiKeyAuth api_key_v1 = (ApiKeyAuth) defaultClient.getAuthentication("api_key_v1");
     api_key_v1.setApiKey("YOUR API KEY");
@@ -5463,7 +4720,7 @@ public class Example {
     //api_key_v1.setApiKeyPrefix("Token");
 
     ManagementApi apiInstance = new ManagementApi(defaultClient);
-    Long collectionId = 56L; // Long | The ID of the collection. You can get it with the [List collections in account](#operation/listAccountCollections) endpoint.
+    Long collectionId = 56L; // Long | The ID of the collection. You can get it with the [List collections in account](#tag/Collections/operation/listAccountCollections) endpoint.
     try {
       Collection result = apiInstance.getAccountCollection(collectionId);
       System.out.println(result);
@@ -5482,7 +4739,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **collectionId** | **Long**| The ID of the collection. You can get it with the [List collections in account](#operation/listAccountCollections) endpoint. | |
+| **collectionId** | **Long**| The ID of the collection. You can get it with the [List collections in account](#tag/Collections/operation/listAccountCollections) endpoint. | |
 
 ### Return type
 
@@ -5490,7 +4747,7 @@ public class Example {
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth), [api_key_v1](../README.md#api_key_v1)
+[api_key_v1](../README.md#api_key_v1)
 
 ### HTTP request headers
 
@@ -5526,18 +4783,6 @@ public class Example {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://yourbaseurl.talon.one");
     
-    // Configure API key authorization: management_key
-    ApiKeyAuth management_key = (ApiKeyAuth) defaultClient.getAuthentication("management_key");
-    management_key.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //management_key.setApiKeyPrefix("Token");
-
-    // Configure API key authorization: manager_auth
-    ApiKeyAuth manager_auth = (ApiKeyAuth) defaultClient.getAuthentication("manager_auth");
-    manager_auth.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //manager_auth.setApiKeyPrefix("Token");
-
     // Configure API key authorization: api_key_v1
     ApiKeyAuth api_key_v1 = (ApiKeyAuth) defaultClient.getAuthentication("api_key_v1");
     api_key_v1.setApiKey("YOUR API KEY");
@@ -5576,7 +4821,7 @@ public class Example {
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth), [api_key_v1](../README.md#api_key_v1)
+[api_key_v1](../README.md#api_key_v1)
 
 ### HTTP request headers
 
@@ -5613,18 +4858,6 @@ public class Example {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://yourbaseurl.talon.one");
     
-    // Configure API key authorization: management_key
-    ApiKeyAuth management_key = (ApiKeyAuth) defaultClient.getAuthentication("management_key");
-    management_key.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //management_key.setApiKeyPrefix("Token");
-
-    // Configure API key authorization: manager_auth
-    ApiKeyAuth manager_auth = (ApiKeyAuth) defaultClient.getAuthentication("manager_auth");
-    manager_auth.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //manager_auth.setApiKeyPrefix("Token");
-
     // Configure API key authorization: api_key_v1
     ApiKeyAuth api_key_v1 = (ApiKeyAuth) defaultClient.getAuthentication("api_key_v1");
     api_key_v1.setApiKey("YOUR API KEY");
@@ -5659,7 +4892,7 @@ public class Example {
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth), [api_key_v1](../README.md#api_key_v1)
+[api_key_v1](../README.md#api_key_v1)
 
 ### HTTP request headers
 
@@ -5694,18 +4927,6 @@ public class Example {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://yourbaseurl.talon.one");
     
-    // Configure API key authorization: management_key
-    ApiKeyAuth management_key = (ApiKeyAuth) defaultClient.getAuthentication("management_key");
-    management_key.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //management_key.setApiKeyPrefix("Token");
-
-    // Configure API key authorization: manager_auth
-    ApiKeyAuth manager_auth = (ApiKeyAuth) defaultClient.getAuthentication("manager_auth");
-    manager_auth.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //manager_auth.setApiKeyPrefix("Token");
-
     // Configure API key authorization: api_key_v1
     ApiKeyAuth api_key_v1 = (ApiKeyAuth) defaultClient.getAuthentication("api_key_v1");
     api_key_v1.setApiKey("YOUR API KEY");
@@ -5744,7 +4965,7 @@ public class Example {
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth), [api_key_v1](../README.md#api_key_v1)
+[api_key_v1](../README.md#api_key_v1)
 
 ### HTTP request headers
 
@@ -5779,18 +5000,6 @@ public class Example {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://yourbaseurl.talon.one");
     
-    // Configure API key authorization: management_key
-    ApiKeyAuth management_key = (ApiKeyAuth) defaultClient.getAuthentication("management_key");
-    management_key.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //management_key.setApiKeyPrefix("Token");
-
-    // Configure API key authorization: manager_auth
-    ApiKeyAuth manager_auth = (ApiKeyAuth) defaultClient.getAuthentication("manager_auth");
-    manager_auth.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //manager_auth.setApiKeyPrefix("Token");
-
     // Configure API key authorization: api_key_v1
     ApiKeyAuth api_key_v1 = (ApiKeyAuth) defaultClient.getAuthentication("api_key_v1");
     api_key_v1.setApiKey("YOUR API KEY");
@@ -5825,7 +5034,7 @@ public class Example {
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth), [api_key_v1](../README.md#api_key_v1)
+[api_key_v1](../README.md#api_key_v1)
 
 ### HTTP request headers
 
@@ -5860,18 +5069,6 @@ public class Example {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://yourbaseurl.talon.one");
     
-    // Configure API key authorization: management_key
-    ApiKeyAuth management_key = (ApiKeyAuth) defaultClient.getAuthentication("management_key");
-    management_key.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //management_key.setApiKeyPrefix("Token");
-
-    // Configure API key authorization: manager_auth
-    ApiKeyAuth manager_auth = (ApiKeyAuth) defaultClient.getAuthentication("manager_auth");
-    manager_auth.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //manager_auth.setApiKeyPrefix("Token");
-
     // Configure API key authorization: api_key_v1
     ApiKeyAuth api_key_v1 = (ApiKeyAuth) defaultClient.getAuthentication("api_key_v1");
     api_key_v1.setApiKey("YOUR API KEY");
@@ -5906,7 +5103,7 @@ public class Example {
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth), [api_key_v1](../README.md#api_key_v1)
+[api_key_v1](../README.md#api_key_v1)
 
 ### HTTP request headers
 
@@ -5941,18 +5138,6 @@ public class Example {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://yourbaseurl.talon.one");
     
-    // Configure API key authorization: management_key
-    ApiKeyAuth management_key = (ApiKeyAuth) defaultClient.getAuthentication("management_key");
-    management_key.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //management_key.setApiKeyPrefix("Token");
-
-    // Configure API key authorization: manager_auth
-    ApiKeyAuth manager_auth = (ApiKeyAuth) defaultClient.getAuthentication("manager_auth");
-    manager_auth.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //manager_auth.setApiKeyPrefix("Token");
-
     // Configure API key authorization: api_key_v1
     ApiKeyAuth api_key_v1 = (ApiKeyAuth) defaultClient.getAuthentication("api_key_v1");
     api_key_v1.setApiKey("YOUR API KEY");
@@ -5961,7 +5146,7 @@ public class Example {
 
     ManagementApi apiInstance = new ManagementApi(defaultClient);
     Long applicationId = 56L; // Long | The ID of the Application. It is displayed in your Talon.One deployment URL.
-    Long customerId = 56L; // Long | The value of the `id` property of a customer profile. Get it with the [List Application's customers](https://docs.talon.one/management-api#operation/getApplicationCustomers) endpoint. 
+    Long customerId = 56L; // Long | The value of the `id` property of a customer profile. Get it with the [List Application's customers](https://docs.talon.one/management-api#tag/Customer-data/operation/getApplicationCustomers) endpoint. 
     try {
       ApplicationCustomer result = apiInstance.getApplicationCustomer(applicationId, customerId);
       System.out.println(result);
@@ -5981,7 +5166,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **applicationId** | **Long**| The ID of the Application. It is displayed in your Talon.One deployment URL. | |
-| **customerId** | **Long**| The value of the &#x60;id&#x60; property of a customer profile. Get it with the [List Application&#39;s customers](https://docs.talon.one/management-api#operation/getApplicationCustomers) endpoint.  | |
+| **customerId** | **Long**| The value of the &#x60;id&#x60; property of a customer profile. Get it with the [List Application&#39;s customers](https://docs.talon.one/management-api#tag/Customer-data/operation/getApplicationCustomers) endpoint.  | |
 
 ### Return type
 
@@ -5989,7 +5174,7 @@ public class Example {
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth), [api_key_v1](../README.md#api_key_v1)
+[api_key_v1](../README.md#api_key_v1)
 
 ### HTTP request headers
 
@@ -6024,18 +5209,6 @@ public class Example {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://yourbaseurl.talon.one");
     
-    // Configure API key authorization: management_key
-    ApiKeyAuth management_key = (ApiKeyAuth) defaultClient.getAuthentication("management_key");
-    management_key.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //management_key.setApiKeyPrefix("Token");
-
-    // Configure API key authorization: manager_auth
-    ApiKeyAuth manager_auth = (ApiKeyAuth) defaultClient.getAuthentication("manager_auth");
-    manager_auth.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //manager_auth.setApiKeyPrefix("Token");
-
     // Configure API key authorization: api_key_v1
     ApiKeyAuth api_key_v1 = (ApiKeyAuth) defaultClient.getAuthentication("api_key_v1");
     api_key_v1.setApiKey("YOUR API KEY");
@@ -6080,7 +5253,7 @@ public class Example {
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth), [api_key_v1](../README.md#api_key_v1)
+[api_key_v1](../README.md#api_key_v1)
 
 ### HTTP request headers
 
@@ -6115,18 +5288,6 @@ public class Example {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://yourbaseurl.talon.one");
     
-    // Configure API key authorization: management_key
-    ApiKeyAuth management_key = (ApiKeyAuth) defaultClient.getAuthentication("management_key");
-    management_key.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //management_key.setApiKeyPrefix("Token");
-
-    // Configure API key authorization: manager_auth
-    ApiKeyAuth manager_auth = (ApiKeyAuth) defaultClient.getAuthentication("manager_auth");
-    manager_auth.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //manager_auth.setApiKeyPrefix("Token");
-
     // Configure API key authorization: api_key_v1
     ApiKeyAuth api_key_v1 = (ApiKeyAuth) defaultClient.getAuthentication("api_key_v1");
     api_key_v1.setApiKey("YOUR API KEY");
@@ -6169,7 +5330,7 @@ public class Example {
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth), [api_key_v1](../README.md#api_key_v1)
+[api_key_v1](../README.md#api_key_v1)
 
 ### HTTP request headers
 
@@ -6204,18 +5365,6 @@ public class Example {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://yourbaseurl.talon.one");
     
-    // Configure API key authorization: management_key
-    ApiKeyAuth management_key = (ApiKeyAuth) defaultClient.getAuthentication("management_key");
-    management_key.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //management_key.setApiKeyPrefix("Token");
-
-    // Configure API key authorization: manager_auth
-    ApiKeyAuth manager_auth = (ApiKeyAuth) defaultClient.getAuthentication("manager_auth");
-    manager_auth.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //manager_auth.setApiKeyPrefix("Token");
-
     // Configure API key authorization: api_key_v1
     ApiKeyAuth api_key_v1 = (ApiKeyAuth) defaultClient.getAuthentication("api_key_v1");
     api_key_v1.setApiKey("YOUR API KEY");
@@ -6258,7 +5407,7 @@ public class Example {
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth), [api_key_v1](../README.md#api_key_v1)
+[api_key_v1](../README.md#api_key_v1)
 
 ### HTTP request headers
 
@@ -6293,18 +5442,6 @@ public class Example {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://yourbaseurl.talon.one");
     
-    // Configure API key authorization: management_key
-    ApiKeyAuth management_key = (ApiKeyAuth) defaultClient.getAuthentication("management_key");
-    management_key.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //management_key.setApiKeyPrefix("Token");
-
-    // Configure API key authorization: manager_auth
-    ApiKeyAuth manager_auth = (ApiKeyAuth) defaultClient.getAuthentication("manager_auth");
-    manager_auth.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //manager_auth.setApiKeyPrefix("Token");
-
     // Configure API key authorization: api_key_v1
     ApiKeyAuth api_key_v1 = (ApiKeyAuth) defaultClient.getAuthentication("api_key_v1");
     api_key_v1.setApiKey("YOUR API KEY");
@@ -6345,7 +5482,7 @@ public class Example {
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth), [api_key_v1](../README.md#api_key_v1)
+[api_key_v1](../README.md#api_key_v1)
 
 ### HTTP request headers
 
@@ -6380,18 +5517,6 @@ public class Example {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://yourbaseurl.talon.one");
     
-    // Configure API key authorization: management_key
-    ApiKeyAuth management_key = (ApiKeyAuth) defaultClient.getAuthentication("management_key");
-    management_key.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //management_key.setApiKeyPrefix("Token");
-
-    // Configure API key authorization: manager_auth
-    ApiKeyAuth manager_auth = (ApiKeyAuth) defaultClient.getAuthentication("manager_auth");
-    manager_auth.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //manager_auth.setApiKeyPrefix("Token");
-
     // Configure API key authorization: api_key_v1
     ApiKeyAuth api_key_v1 = (ApiKeyAuth) defaultClient.getAuthentication("api_key_v1");
     api_key_v1.setApiKey("YOUR API KEY");
@@ -6456,7 +5581,7 @@ public class Example {
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth), [api_key_v1](../README.md#api_key_v1)
+[api_key_v1](../README.md#api_key_v1)
 
 ### HTTP request headers
 
@@ -6491,18 +5616,6 @@ public class Example {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://yourbaseurl.talon.one");
     
-    // Configure API key authorization: management_key
-    ApiKeyAuth management_key = (ApiKeyAuth) defaultClient.getAuthentication("management_key");
-    management_key.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //management_key.setApiKeyPrefix("Token");
-
-    // Configure API key authorization: manager_auth
-    ApiKeyAuth manager_auth = (ApiKeyAuth) defaultClient.getAuthentication("manager_auth");
-    manager_auth.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //manager_auth.setApiKeyPrefix("Token");
-
     // Configure API key authorization: api_key_v1
     ApiKeyAuth api_key_v1 = (ApiKeyAuth) defaultClient.getAuthentication("api_key_v1");
     api_key_v1.setApiKey("YOUR API KEY");
@@ -6539,7 +5652,7 @@ public class Example {
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth), [api_key_v1](../README.md#api_key_v1)
+[api_key_v1](../README.md#api_key_v1)
 
 ### HTTP request headers
 
@@ -6574,18 +5687,6 @@ public class Example {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://yourbaseurl.talon.one");
     
-    // Configure API key authorization: management_key
-    ApiKeyAuth management_key = (ApiKeyAuth) defaultClient.getAuthentication("management_key");
-    management_key.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //management_key.setApiKeyPrefix("Token");
-
-    // Configure API key authorization: manager_auth
-    ApiKeyAuth manager_auth = (ApiKeyAuth) defaultClient.getAuthentication("manager_auth");
-    manager_auth.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //manager_auth.setApiKeyPrefix("Token");
-
     // Configure API key authorization: api_key_v1
     ApiKeyAuth api_key_v1 = (ApiKeyAuth) defaultClient.getAuthentication("api_key_v1");
     api_key_v1.setApiKey("YOUR API KEY");
@@ -6644,7 +5745,7 @@ public class Example {
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth), [api_key_v1](../README.md#api_key_v1)
+[api_key_v1](../README.md#api_key_v1)
 
 ### HTTP request headers
 
@@ -6679,18 +5780,6 @@ public class Example {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://yourbaseurl.talon.one");
     
-    // Configure API key authorization: management_key
-    ApiKeyAuth management_key = (ApiKeyAuth) defaultClient.getAuthentication("management_key");
-    management_key.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //management_key.setApiKeyPrefix("Token");
-
-    // Configure API key authorization: manager_auth
-    ApiKeyAuth manager_auth = (ApiKeyAuth) defaultClient.getAuthentication("manager_auth");
-    manager_auth.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //manager_auth.setApiKeyPrefix("Token");
-
     // Configure API key authorization: api_key_v1
     ApiKeyAuth api_key_v1 = (ApiKeyAuth) defaultClient.getAuthentication("api_key_v1");
     api_key_v1.setApiKey("YOUR API KEY");
@@ -6729,7 +5818,7 @@ public class Example {
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth), [api_key_v1](../README.md#api_key_v1)
+[api_key_v1](../README.md#api_key_v1)
 
 ### HTTP request headers
 
@@ -6764,18 +5853,6 @@ public class Example {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://yourbaseurl.talon.one");
     
-    // Configure API key authorization: management_key
-    ApiKeyAuth management_key = (ApiKeyAuth) defaultClient.getAuthentication("management_key");
-    management_key.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //management_key.setApiKeyPrefix("Token");
-
-    // Configure API key authorization: manager_auth
-    ApiKeyAuth manager_auth = (ApiKeyAuth) defaultClient.getAuthentication("manager_auth");
-    manager_auth.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //manager_auth.setApiKeyPrefix("Token");
-
     // Configure API key authorization: api_key_v1
     ApiKeyAuth api_key_v1 = (ApiKeyAuth) defaultClient.getAuthentication("api_key_v1");
     api_key_v1.setApiKey("YOUR API KEY");
@@ -6810,7 +5887,7 @@ public class Example {
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth), [api_key_v1](../README.md#api_key_v1)
+[api_key_v1](../README.md#api_key_v1)
 
 ### HTTP request headers
 
@@ -6845,18 +5922,6 @@ public class Example {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://yourbaseurl.talon.one");
     
-    // Configure API key authorization: management_key
-    ApiKeyAuth management_key = (ApiKeyAuth) defaultClient.getAuthentication("management_key");
-    management_key.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //management_key.setApiKeyPrefix("Token");
-
-    // Configure API key authorization: manager_auth
-    ApiKeyAuth manager_auth = (ApiKeyAuth) defaultClient.getAuthentication("manager_auth");
-    manager_auth.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //manager_auth.setApiKeyPrefix("Token");
-
     // Configure API key authorization: api_key_v1
     ApiKeyAuth api_key_v1 = (ApiKeyAuth) defaultClient.getAuthentication("api_key_v1");
     api_key_v1.setApiKey("YOUR API KEY");
@@ -6905,7 +5970,7 @@ public class Example {
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth), [api_key_v1](../README.md#api_key_v1)
+[api_key_v1](../README.md#api_key_v1)
 
 ### HTTP request headers
 
@@ -6940,18 +6005,6 @@ public class Example {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://yourbaseurl.talon.one");
     
-    // Configure API key authorization: management_key
-    ApiKeyAuth management_key = (ApiKeyAuth) defaultClient.getAuthentication("management_key");
-    management_key.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //management_key.setApiKeyPrefix("Token");
-
-    // Configure API key authorization: manager_auth
-    ApiKeyAuth manager_auth = (ApiKeyAuth) defaultClient.getAuthentication("manager_auth");
-    manager_auth.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //manager_auth.setApiKeyPrefix("Token");
-
     // Configure API key authorization: api_key_v1
     ApiKeyAuth api_key_v1 = (ApiKeyAuth) defaultClient.getAuthentication("api_key_v1");
     api_key_v1.setApiKey("YOUR API KEY");
@@ -6994,7 +6047,7 @@ public class Example {
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth), [api_key_v1](../README.md#api_key_v1)
+[api_key_v1](../README.md#api_key_v1)
 
 ### HTTP request headers
 
@@ -7030,18 +6083,6 @@ public class Example {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://yourbaseurl.talon.one");
     
-    // Configure API key authorization: management_key
-    ApiKeyAuth management_key = (ApiKeyAuth) defaultClient.getAuthentication("management_key");
-    management_key.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //management_key.setApiKeyPrefix("Token");
-
-    // Configure API key authorization: manager_auth
-    ApiKeyAuth manager_auth = (ApiKeyAuth) defaultClient.getAuthentication("manager_auth");
-    manager_auth.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //manager_auth.setApiKeyPrefix("Token");
-
     // Configure API key authorization: api_key_v1
     ApiKeyAuth api_key_v1 = (ApiKeyAuth) defaultClient.getAuthentication("api_key_v1");
     api_key_v1.setApiKey("YOUR API KEY");
@@ -7082,7 +6123,7 @@ public class Example {
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth), [api_key_v1](../README.md#api_key_v1)
+[api_key_v1](../README.md#api_key_v1)
 
 ### HTTP request headers
 
@@ -7117,18 +6158,6 @@ public class Example {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://yourbaseurl.talon.one");
     
-    // Configure API key authorization: management_key
-    ApiKeyAuth management_key = (ApiKeyAuth) defaultClient.getAuthentication("management_key");
-    management_key.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //management_key.setApiKeyPrefix("Token");
-
-    // Configure API key authorization: manager_auth
-    ApiKeyAuth manager_auth = (ApiKeyAuth) defaultClient.getAuthentication("manager_auth");
-    manager_auth.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //manager_auth.setApiKeyPrefix("Token");
-
     // Configure API key authorization: api_key_v1
     ApiKeyAuth api_key_v1 = (ApiKeyAuth) defaultClient.getAuthentication("api_key_v1");
     api_key_v1.setApiKey("YOUR API KEY");
@@ -7165,7 +6194,7 @@ public class Example {
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth), [api_key_v1](../README.md#api_key_v1)
+[api_key_v1](../README.md#api_key_v1)
 
 ### HTTP request headers
 
@@ -7200,18 +6229,6 @@ public class Example {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://yourbaseurl.talon.one");
     
-    // Configure API key authorization: management_key
-    ApiKeyAuth management_key = (ApiKeyAuth) defaultClient.getAuthentication("management_key");
-    management_key.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //management_key.setApiKeyPrefix("Token");
-
-    // Configure API key authorization: manager_auth
-    ApiKeyAuth manager_auth = (ApiKeyAuth) defaultClient.getAuthentication("manager_auth");
-    manager_auth.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //manager_auth.setApiKeyPrefix("Token");
-
     // Configure API key authorization: api_key_v1
     ApiKeyAuth api_key_v1 = (ApiKeyAuth) defaultClient.getAuthentication("api_key_v1");
     api_key_v1.setApiKey("YOUR API KEY");
@@ -7248,7 +6265,7 @@ public class Example {
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth), [api_key_v1](../README.md#api_key_v1)
+[api_key_v1](../README.md#api_key_v1)
 
 ### HTTP request headers
 
@@ -7283,18 +6300,6 @@ public class Example {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://yourbaseurl.talon.one");
     
-    // Configure API key authorization: management_key
-    ApiKeyAuth management_key = (ApiKeyAuth) defaultClient.getAuthentication("management_key");
-    management_key.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //management_key.setApiKeyPrefix("Token");
-
-    // Configure API key authorization: manager_auth
-    ApiKeyAuth manager_auth = (ApiKeyAuth) defaultClient.getAuthentication("manager_auth");
-    manager_auth.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //manager_auth.setApiKeyPrefix("Token");
-
     // Configure API key authorization: api_key_v1
     ApiKeyAuth api_key_v1 = (ApiKeyAuth) defaultClient.getAuthentication("api_key_v1");
     api_key_v1.setApiKey("YOUR API KEY");
@@ -7304,8 +6309,8 @@ public class Example {
     ManagementApi apiInstance = new ManagementApi(defaultClient);
     Long applicationId = 56L; // Long | The ID of the Application. It is displayed in your Talon.One deployment URL.
     Long campaignId = 56L; // Long | The ID of the campaign. It is displayed in your Talon.One deployment URL.
-    OffsetDateTime rangeStart = OffsetDateTime.now(); // OffsetDateTime | Only return results from after this timestamp.  **Note:** - This must be an RFC3339 timestamp string. - You can include a time component in your string, for example, `T23:59:59` to specify the end of the day. The time zone setting considered is `UTC`. If you do not include a time component, a default time value of `T00:00:00` (midnight) in `UTC` is considered. 
-    OffsetDateTime rangeEnd = OffsetDateTime.now(); // OffsetDateTime | Only return results from before this timestamp.  **Note:** - This must be an RFC3339 timestamp string. - You can include a time component in your string, for example, `T23:59:59` to specify the end of the day. The time zone setting considered is `UTC`. If you do not include a time component, a default time value of `T00:00:00` (midnight) in `UTC` is considered. 
+    OffsetDateTime rangeStart = OffsetDateTime.now(); // OffsetDateTime | Only return results from after this timestamp.  > [!note] **Note** > - This must be an RFC3339 timestamp string. > - You can include a time component in your string, for example, `T23:59:59` to specify the end of the day. The time zone setting >   considered is `UTC`. If you do not include a time component, a default time value of `T00:00:00` (midnight) in `UTC` is considered. 
+    OffsetDateTime rangeEnd = OffsetDateTime.now(); // OffsetDateTime | Only return results from before this timestamp.  > [!note] **Note** > - This must be an RFC3339 timestamp string. > - You can include a time component in your string, for example, `T23:59:59` to specify the end of the day. The time zone setting >   considered is `UTC`. If you do not include a time component, a default time value of `T00:00:00` (midnight) in `UTC` is considered. 
     String granularity = "1 hour"; // String | The time interval between the results in the returned time-series.
     try {
       GetCampaignAnalytics200Response result = apiInstance.getCampaignAnalytics(applicationId, campaignId, rangeStart, rangeEnd, granularity);
@@ -7327,8 +6332,8 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **applicationId** | **Long**| The ID of the Application. It is displayed in your Talon.One deployment URL. | |
 | **campaignId** | **Long**| The ID of the campaign. It is displayed in your Talon.One deployment URL. | |
-| **rangeStart** | **OffsetDateTime**| Only return results from after this timestamp.  **Note:** - This must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered.  | |
-| **rangeEnd** | **OffsetDateTime**| Only return results from before this timestamp.  **Note:** - This must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered.  | |
+| **rangeStart** | **OffsetDateTime**| Only return results from after this timestamp.  &gt; [!note] **Note** &gt; - This must be an RFC3339 timestamp string. &gt; - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting &gt;   considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered.  | |
+| **rangeEnd** | **OffsetDateTime**| Only return results from before this timestamp.  &gt; [!note] **Note** &gt; - This must be an RFC3339 timestamp string. &gt; - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting &gt;   considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered.  | |
 | **granularity** | **String**| The time interval between the results in the returned time-series. | [optional] [enum: 1 hour, 1 day, 1 week, 1 month, 1 year] |
 
 ### Return type
@@ -7337,7 +6342,7 @@ public class Example {
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth), [api_key_v1](../README.md#api_key_v1)
+[api_key_v1](../README.md#api_key_v1)
 
 ### HTTP request headers
 
@@ -7372,18 +6377,6 @@ public class Example {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://yourbaseurl.talon.one");
     
-    // Configure API key authorization: management_key
-    ApiKeyAuth management_key = (ApiKeyAuth) defaultClient.getAuthentication("management_key");
-    management_key.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //management_key.setApiKeyPrefix("Token");
-
-    // Configure API key authorization: manager_auth
-    ApiKeyAuth manager_auth = (ApiKeyAuth) defaultClient.getAuthentication("manager_auth");
-    manager_auth.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //manager_auth.setApiKeyPrefix("Token");
-
     // Configure API key authorization: api_key_v1
     ApiKeyAuth api_key_v1 = (ApiKeyAuth) defaultClient.getAuthentication("api_key_v1");
     api_key_v1.setApiKey("YOUR API KEY");
@@ -7428,7 +6421,7 @@ public class Example {
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth), [api_key_v1](../README.md#api_key_v1)
+[api_key_v1](../README.md#api_key_v1)
 
 ### HTTP request headers
 
@@ -7463,18 +6456,6 @@ public class Example {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://yourbaseurl.talon.one");
     
-    // Configure API key authorization: management_key
-    ApiKeyAuth management_key = (ApiKeyAuth) defaultClient.getAuthentication("management_key");
-    management_key.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //management_key.setApiKeyPrefix("Token");
-
-    // Configure API key authorization: manager_auth
-    ApiKeyAuth manager_auth = (ApiKeyAuth) defaultClient.getAuthentication("manager_auth");
-    manager_auth.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //manager_auth.setApiKeyPrefix("Token");
-
     // Configure API key authorization: api_key_v1
     ApiKeyAuth api_key_v1 = (ApiKeyAuth) defaultClient.getAuthentication("api_key_v1");
     api_key_v1.setApiKey("YOUR API KEY");
@@ -7509,7 +6490,7 @@ public class Example {
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth), [api_key_v1](../README.md#api_key_v1)
+[api_key_v1](../README.md#api_key_v1)
 
 ### HTTP request headers
 
@@ -7544,18 +6525,6 @@ public class Example {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://yourbaseurl.talon.one");
     
-    // Configure API key authorization: management_key
-    ApiKeyAuth management_key = (ApiKeyAuth) defaultClient.getAuthentication("management_key");
-    management_key.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //management_key.setApiKeyPrefix("Token");
-
-    // Configure API key authorization: manager_auth
-    ApiKeyAuth manager_auth = (ApiKeyAuth) defaultClient.getAuthentication("manager_auth");
-    manager_auth.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //manager_auth.setApiKeyPrefix("Token");
-
     // Configure API key authorization: api_key_v1
     ApiKeyAuth api_key_v1 = (ApiKeyAuth) defaultClient.getAuthentication("api_key_v1");
     api_key_v1.setApiKey("YOUR API KEY");
@@ -7594,7 +6563,7 @@ public class Example {
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth), [api_key_v1](../README.md#api_key_v1)
+[api_key_v1](../README.md#api_key_v1)
 
 ### HTTP request headers
 
@@ -7629,18 +6598,6 @@ public class Example {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://yourbaseurl.talon.one");
     
-    // Configure API key authorization: management_key
-    ApiKeyAuth management_key = (ApiKeyAuth) defaultClient.getAuthentication("management_key");
-    management_key.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //management_key.setApiKeyPrefix("Token");
-
-    // Configure API key authorization: manager_auth
-    ApiKeyAuth manager_auth = (ApiKeyAuth) defaultClient.getAuthentication("manager_auth");
-    manager_auth.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //manager_auth.setApiKeyPrefix("Token");
-
     // Configure API key authorization: api_key_v1
     ApiKeyAuth api_key_v1 = (ApiKeyAuth) defaultClient.getAuthentication("api_key_v1");
     api_key_v1.setApiKey("YOUR API KEY");
@@ -7687,7 +6644,7 @@ public class Example {
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth), [api_key_v1](../README.md#api_key_v1)
+[api_key_v1](../README.md#api_key_v1)
 
 ### HTTP request headers
 
@@ -7722,18 +6679,6 @@ public class Example {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://yourbaseurl.talon.one");
     
-    // Configure API key authorization: management_key
-    ApiKeyAuth management_key = (ApiKeyAuth) defaultClient.getAuthentication("management_key");
-    management_key.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //management_key.setApiKeyPrefix("Token");
-
-    // Configure API key authorization: manager_auth
-    ApiKeyAuth manager_auth = (ApiKeyAuth) defaultClient.getAuthentication("manager_auth");
-    manager_auth.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //manager_auth.setApiKeyPrefix("Token");
-
     // Configure API key authorization: api_key_v1
     ApiKeyAuth api_key_v1 = (ApiKeyAuth) defaultClient.getAuthentication("api_key_v1");
     api_key_v1.setApiKey("YOUR API KEY");
@@ -7798,7 +6743,7 @@ public class Example {
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth), [api_key_v1](../README.md#api_key_v1)
+[api_key_v1](../README.md#api_key_v1)
 
 ### HTTP request headers
 
@@ -7834,18 +6779,6 @@ public class Example {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://yourbaseurl.talon.one");
     
-    // Configure API key authorization: management_key
-    ApiKeyAuth management_key = (ApiKeyAuth) defaultClient.getAuthentication("management_key");
-    management_key.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //management_key.setApiKeyPrefix("Token");
-
-    // Configure API key authorization: manager_auth
-    ApiKeyAuth manager_auth = (ApiKeyAuth) defaultClient.getAuthentication("manager_auth");
-    manager_auth.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //manager_auth.setApiKeyPrefix("Token");
-
     // Configure API key authorization: api_key_v1
     ApiKeyAuth api_key_v1 = (ApiKeyAuth) defaultClient.getAuthentication("api_key_v1");
     api_key_v1.setApiKey("YOUR API KEY");
@@ -7900,7 +6833,7 @@ public class Example {
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth), [api_key_v1](../README.md#api_key_v1)
+[api_key_v1](../README.md#api_key_v1)
 
 ### HTTP request headers
 
@@ -7935,18 +6868,6 @@ public class Example {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://yourbaseurl.talon.one");
     
-    // Configure API key authorization: management_key
-    ApiKeyAuth management_key = (ApiKeyAuth) defaultClient.getAuthentication("management_key");
-    management_key.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //management_key.setApiKeyPrefix("Token");
-
-    // Configure API key authorization: manager_auth
-    ApiKeyAuth manager_auth = (ApiKeyAuth) defaultClient.getAuthentication("manager_auth");
-    manager_auth.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //manager_auth.setApiKeyPrefix("Token");
-
     // Configure API key authorization: api_key_v1
     ApiKeyAuth api_key_v1 = (ApiKeyAuth) defaultClient.getAuthentication("api_key_v1");
     api_key_v1.setApiKey("YOUR API KEY");
@@ -7956,7 +6877,7 @@ public class Example {
     ManagementApi apiInstance = new ManagementApi(defaultClient);
     Long applicationId = 56L; // Long | The ID of the Application. It is displayed in your Talon.One deployment URL.
     Long campaignId = 56L; // Long | The ID of the campaign. It is displayed in your Talon.One deployment URL.
-    Long collectionId = 56L; // Long | The ID of the collection. You can get it with the [List collections in Application](#operation/listCollectionsInApplication) endpoint.
+    Long collectionId = 56L; // Long | The ID of the collection. You can get it with the [List collections in Application](#tag/Collections/operation/listCollectionsInApplication) endpoint.
     try {
       Collection result = apiInstance.getCollection(applicationId, campaignId, collectionId);
       System.out.println(result);
@@ -7977,7 +6898,7 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **applicationId** | **Long**| The ID of the Application. It is displayed in your Talon.One deployment URL. | |
 | **campaignId** | **Long**| The ID of the campaign. It is displayed in your Talon.One deployment URL. | |
-| **collectionId** | **Long**| The ID of the collection. You can get it with the [List collections in Application](#operation/listCollectionsInApplication) endpoint. | |
+| **collectionId** | **Long**| The ID of the collection. You can get it with the [List collections in Application](#tag/Collections/operation/listCollectionsInApplication) endpoint. | |
 
 ### Return type
 
@@ -7985,7 +6906,7 @@ public class Example {
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth), [api_key_v1](../README.md#api_key_v1)
+[api_key_v1](../README.md#api_key_v1)
 
 ### HTTP request headers
 
@@ -8021,18 +6942,6 @@ public class Example {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://yourbaseurl.talon.one");
     
-    // Configure API key authorization: management_key
-    ApiKeyAuth management_key = (ApiKeyAuth) defaultClient.getAuthentication("management_key");
-    management_key.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //management_key.setApiKeyPrefix("Token");
-
-    // Configure API key authorization: manager_auth
-    ApiKeyAuth manager_auth = (ApiKeyAuth) defaultClient.getAuthentication("manager_auth");
-    manager_auth.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //manager_auth.setApiKeyPrefix("Token");
-
     // Configure API key authorization: api_key_v1
     ApiKeyAuth api_key_v1 = (ApiKeyAuth) defaultClient.getAuthentication("api_key_v1");
     api_key_v1.setApiKey("YOUR API KEY");
@@ -8040,7 +6949,7 @@ public class Example {
     //api_key_v1.setApiKeyPrefix("Token");
 
     ManagementApi apiInstance = new ManagementApi(defaultClient);
-    Long collectionId = 56L; // Long | The ID of the collection. You can get it with the [List collections in account](#operation/listAccountCollections) endpoint.
+    Long collectionId = 56L; // Long | The ID of the collection. You can get it with the [List collections in account](#tag/Collections/operation/listAccountCollections) endpoint.
     Long pageSize = 1000L; // Long | The number of items in the response.
     Long skip = 56L; // Long | The number of items to skip when paging through large result sets.
     try {
@@ -8061,7 +6970,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **collectionId** | **Long**| The ID of the collection. You can get it with the [List collections in account](#operation/listAccountCollections) endpoint. | |
+| **collectionId** | **Long**| The ID of the collection. You can get it with the [List collections in account](#tag/Collections/operation/listAccountCollections) endpoint. | |
 | **pageSize** | **Long**| The number of items in the response. | [optional] [default to 1000] |
 | **skip** | **Long**| The number of items to skip when paging through large result sets. | [optional] |
 
@@ -8071,7 +6980,7 @@ public class Example {
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth), [api_key_v1](../README.md#api_key_v1)
+[api_key_v1](../README.md#api_key_v1)
 
 ### HTTP request headers
 
@@ -8107,18 +7016,6 @@ public class Example {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://yourbaseurl.talon.one");
     
-    // Configure API key authorization: management_key
-    ApiKeyAuth management_key = (ApiKeyAuth) defaultClient.getAuthentication("management_key");
-    management_key.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //management_key.setApiKeyPrefix("Token");
-
-    // Configure API key authorization: manager_auth
-    ApiKeyAuth manager_auth = (ApiKeyAuth) defaultClient.getAuthentication("manager_auth");
-    manager_auth.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //manager_auth.setApiKeyPrefix("Token");
-
     // Configure API key authorization: api_key_v1
     ApiKeyAuth api_key_v1 = (ApiKeyAuth) defaultClient.getAuthentication("api_key_v1");
     api_key_v1.setApiKey("YOUR API KEY");
@@ -8191,7 +7088,7 @@ public class Example {
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth), [api_key_v1](../README.md#api_key_v1)
+[api_key_v1](../README.md#api_key_v1)
 
 ### HTTP request headers
 
@@ -8226,18 +7123,6 @@ public class Example {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://yourbaseurl.talon.one");
     
-    // Configure API key authorization: management_key
-    ApiKeyAuth management_key = (ApiKeyAuth) defaultClient.getAuthentication("management_key");
-    management_key.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //management_key.setApiKeyPrefix("Token");
-
-    // Configure API key authorization: manager_auth
-    ApiKeyAuth manager_auth = (ApiKeyAuth) defaultClient.getAuthentication("manager_auth");
-    manager_auth.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //manager_auth.setApiKeyPrefix("Token");
-
     // Configure API key authorization: api_key_v1
     ApiKeyAuth api_key_v1 = (ApiKeyAuth) defaultClient.getAuthentication("api_key_v1");
     api_key_v1.setApiKey("YOUR API KEY");
@@ -8245,10 +7130,10 @@ public class Example {
     //api_key_v1.setApiKeyPrefix("Token");
 
     ManagementApi apiInstance = new ManagementApi(defaultClient);
-    OffsetDateTime rangeStart = OffsetDateTime.now(); // OffsetDateTime | Only return results from after this timestamp.  **Note:** - This must be an RFC3339 timestamp string. - You can include a time component in your string, for example, `T23:59:59` to specify the end of the day. The time zone setting considered is `UTC`. If you do not include a time component, a default time value of `T00:00:00` (midnight) in `UTC` is considered. 
-    OffsetDateTime rangeEnd = OffsetDateTime.now(); // OffsetDateTime | Only return results from before this timestamp.  **Note:** - This must be an RFC3339 timestamp string. - You can include a time component in your string, for example, `T23:59:59` to specify the end of the day. The time zone setting considered is `UTC`. If you do not include a time component, a default time value of `T00:00:00` (midnight) in `UTC` is considered. 
+    OffsetDateTime rangeStart = OffsetDateTime.now(); // OffsetDateTime | Only return results from after this timestamp.  > [!note] **Note** > - This must be an RFC3339 timestamp string. > - You can include a time component in your string, for example, `T23:59:59` to specify the end of the day. The time zone setting >   considered is `UTC`. If you do not include a time component, a default time value of `T00:00:00` (midnight) in `UTC` is considered. 
+    OffsetDateTime rangeEnd = OffsetDateTime.now(); // OffsetDateTime | Only return results from before this timestamp.  > [!note] **Note** > - This must be an RFC3339 timestamp string. > - You can include a time component in your string, for example, `T23:59:59` to specify the end of the day. The time zone setting >   considered is `UTC`. If you do not include a time component, a default time value of `T00:00:00` (midnight) in `UTC` is considered. 
     Long applicationId = 56L; // Long | The ID of the Application. It is displayed in your Talon.One deployment URL.
-    Long customerId = 56L; // Long | The value of the `id` property of a customer profile. Get it with the [List Application's customers](https://docs.talon.one/management-api#operation/getApplicationCustomers) endpoint. 
+    Long customerId = 56L; // Long | The value of the `id` property of a customer profile. Get it with the [List Application's customers](https://docs.talon.one/management-api#tag/Customer-data/operation/getApplicationCustomers) endpoint. 
     Long pageSize = 1000L; // Long | The number of items in the response.
     Long skip = 56L; // Long | The number of items to skip when paging through large result sets.
     try {
@@ -8269,10 +7154,10 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **rangeStart** | **OffsetDateTime**| Only return results from after this timestamp.  **Note:** - This must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered.  | |
-| **rangeEnd** | **OffsetDateTime**| Only return results from before this timestamp.  **Note:** - This must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered.  | |
+| **rangeStart** | **OffsetDateTime**| Only return results from after this timestamp.  &gt; [!note] **Note** &gt; - This must be an RFC3339 timestamp string. &gt; - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting &gt;   considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered.  | |
+| **rangeEnd** | **OffsetDateTime**| Only return results from before this timestamp.  &gt; [!note] **Note** &gt; - This must be an RFC3339 timestamp string. &gt; - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting &gt;   considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered.  | |
 | **applicationId** | **Long**| The ID of the Application. It is displayed in your Talon.One deployment URL. | |
-| **customerId** | **Long**| The value of the &#x60;id&#x60; property of a customer profile. Get it with the [List Application&#39;s customers](https://docs.talon.one/management-api#operation/getApplicationCustomers) endpoint.  | |
+| **customerId** | **Long**| The value of the &#x60;id&#x60; property of a customer profile. Get it with the [List Application&#39;s customers](https://docs.talon.one/management-api#tag/Customer-data/operation/getApplicationCustomers) endpoint.  | |
 | **pageSize** | **Long**| The number of items in the response. | [optional] [default to 1000] |
 | **skip** | **Long**| The number of items to skip when paging through large result sets. | [optional] |
 
@@ -8282,7 +7167,7 @@ public class Example {
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth), [api_key_v1](../README.md#api_key_v1)
+[api_key_v1](../README.md#api_key_v1)
 
 ### HTTP request headers
 
@@ -8317,18 +7202,6 @@ public class Example {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://yourbaseurl.talon.one");
     
-    // Configure API key authorization: management_key
-    ApiKeyAuth management_key = (ApiKeyAuth) defaultClient.getAuthentication("management_key");
-    management_key.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //management_key.setApiKeyPrefix("Token");
-
-    // Configure API key authorization: manager_auth
-    ApiKeyAuth manager_auth = (ApiKeyAuth) defaultClient.getAuthentication("manager_auth");
-    manager_auth.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //manager_auth.setApiKeyPrefix("Token");
-
     // Configure API key authorization: api_key_v1
     ApiKeyAuth api_key_v1 = (ApiKeyAuth) defaultClient.getAuthentication("api_key_v1");
     api_key_v1.setApiKey("YOUR API KEY");
@@ -8336,8 +7209,8 @@ public class Example {
     //api_key_v1.setApiKeyPrefix("Token");
 
     ManagementApi apiInstance = new ManagementApi(defaultClient);
-    OffsetDateTime rangeStart = OffsetDateTime.now(); // OffsetDateTime | Only return results from after this timestamp.  **Note:** - This must be an RFC3339 timestamp string. - You can include a time component in your string, for example, `T23:59:59` to specify the end of the day. The time zone setting considered is `UTC`. If you do not include a time component, a default time value of `T00:00:00` (midnight) in `UTC` is considered. 
-    OffsetDateTime rangeEnd = OffsetDateTime.now(); // OffsetDateTime | Only return results from before this timestamp.  **Note:** - This must be an RFC3339 timestamp string. - You can include a time component in your string, for example, `T23:59:59` to specify the end of the day. The time zone setting considered is `UTC`. If you do not include a time component, a default time value of `T00:00:00` (midnight) in `UTC` is considered. 
+    OffsetDateTime rangeStart = OffsetDateTime.now(); // OffsetDateTime | Only return results from after this timestamp.  > [!note] **Note** > - This must be an RFC3339 timestamp string. > - You can include a time component in your string, for example, `T23:59:59` to specify the end of the day. The time zone setting >   considered is `UTC`. If you do not include a time component, a default time value of `T00:00:00` (midnight) in `UTC` is considered. 
+    OffsetDateTime rangeEnd = OffsetDateTime.now(); // OffsetDateTime | Only return results from before this timestamp.  > [!note] **Note** > - This must be an RFC3339 timestamp string. > - You can include a time component in your string, for example, `T23:59:59` to specify the end of the day. The time zone setting >   considered is `UTC`. If you do not include a time component, a default time value of `T00:00:00` (midnight) in `UTC` is considered. 
     Long applicationId = 56L; // Long | The ID of the Application. It is displayed in your Talon.One deployment URL.
     Long pageSize = 1000L; // Long | The number of items in the response.
     Long skip = 56L; // Long | The number of items to skip when paging through large result sets.
@@ -8364,8 +7237,8 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **rangeStart** | **OffsetDateTime**| Only return results from after this timestamp.  **Note:** - This must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered.  | |
-| **rangeEnd** | **OffsetDateTime**| Only return results from before this timestamp.  **Note:** - This must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered.  | |
+| **rangeStart** | **OffsetDateTime**| Only return results from after this timestamp.  &gt; [!note] **Note** &gt; - This must be an RFC3339 timestamp string. &gt; - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting &gt;   considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered.  | |
+| **rangeEnd** | **OffsetDateTime**| Only return results from before this timestamp.  &gt; [!note] **Note** &gt; - This must be an RFC3339 timestamp string. &gt; - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting &gt;   considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered.  | |
 | **applicationId** | **Long**| The ID of the Application. It is displayed in your Talon.One deployment URL. | |
 | **pageSize** | **Long**| The number of items in the response. | [optional] [default to 1000] |
 | **skip** | **Long**| The number of items to skip when paging through large result sets. | [optional] |
@@ -8381,7 +7254,7 @@ public class Example {
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth), [api_key_v1](../README.md#api_key_v1)
+[api_key_v1](../README.md#api_key_v1)
 
 ### HTTP request headers
 
@@ -8416,18 +7289,6 @@ public class Example {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://yourbaseurl.talon.one");
     
-    // Configure API key authorization: management_key
-    ApiKeyAuth management_key = (ApiKeyAuth) defaultClient.getAuthentication("management_key");
-    management_key.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //management_key.setApiKeyPrefix("Token");
-
-    // Configure API key authorization: manager_auth
-    ApiKeyAuth manager_auth = (ApiKeyAuth) defaultClient.getAuthentication("manager_auth");
-    manager_auth.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //manager_auth.setApiKeyPrefix("Token");
-
     // Configure API key authorization: api_key_v1
     ApiKeyAuth api_key_v1 = (ApiKeyAuth) defaultClient.getAuthentication("api_key_v1");
     api_key_v1.setApiKey("YOUR API KEY");
@@ -8436,7 +7297,7 @@ public class Example {
 
     ManagementApi apiInstance = new ManagementApi(defaultClient);
     Long applicationId = 56L; // Long | The ID of the Application. It is displayed in your Talon.One deployment URL.
-    Long customerId = 56L; // Long | The value of the `id` property of a customer profile. Get it with the [List Application's customers](https://docs.talon.one/management-api#operation/getApplicationCustomers) endpoint. 
+    Long customerId = 56L; // Long | The value of the `id` property of a customer profile. Get it with the [List Application's customers](https://docs.talon.one/management-api#tag/Customer-data/operation/getApplicationCustomers) endpoint. 
     Long pageSize = 1000L; // Long | The number of items in the response.
     Long skip = 56L; // Long | The number of items to skip when paging through large result sets.
     String sort = "sort_example"; // String | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations. 
@@ -8459,7 +7320,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **applicationId** | **Long**| The ID of the Application. It is displayed in your Talon.One deployment URL. | |
-| **customerId** | **Long**| The value of the &#x60;id&#x60; property of a customer profile. Get it with the [List Application&#39;s customers](https://docs.talon.one/management-api#operation/getApplicationCustomers) endpoint.  | |
+| **customerId** | **Long**| The value of the &#x60;id&#x60; property of a customer profile. Get it with the [List Application&#39;s customers](https://docs.talon.one/management-api#tag/Customer-data/operation/getApplicationCustomers) endpoint.  | |
 | **pageSize** | **Long**| The number of items in the response. | [optional] [default to 1000] |
 | **skip** | **Long**| The number of items to skip when paging through large result sets. | [optional] |
 | **sort** | **String**| The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.  | [optional] |
@@ -8470,7 +7331,7 @@ public class Example {
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth), [api_key_v1](../README.md#api_key_v1)
+[api_key_v1](../README.md#api_key_v1)
 
 ### HTTP request headers
 
@@ -8488,7 +7349,7 @@ public class Example {
 
 Get customer profile
 
-Return the details of the specified customer profile.  &lt;div class&#x3D;\&quot;redoc-section\&quot;&gt;   &lt;p class&#x3D;\&quot;title\&quot;&gt;Performance tips&lt;/p&gt;    You can retrieve the same information via the Integration API, which can save you extra API requests. consider these options:    - Request the customer profile to be part of the response content using     [Update Customer Session](https://docs.talon.one/integration-api#tag/Customer-sessions/operation/updateCustomerSessionV2).   - Send an empty update with the [Update Customer Profile](https://docs.talon.one/integration-api#tag/Customer-profiles/operation/updateCustomerProfileV2) endpoint with &#x60;runRuleEngine&#x3D;false&#x60;. &lt;/div&gt; 
+Return the details of the specified customer profile.  &gt; [!note] &gt; You can retrieve the same information via the Integration API, which can save you extra API requests. Consider these options: &gt; - Request the customer profile to be part of the response content using &gt;   [Update Customer Session](https://docs.talon.one/integration-api#tag/Customer-sessions/operation/updateCustomerSessionV2). &gt; - Send an empty update with the [Update Customer Profile](https://docs.talon.one/integration-api#tag/Customer-profiles/operation/updateCustomerProfileV2) endpoint with &#x60;runRuleEngine&#x3D;false&#x60;. 
 
 ### Example
 ```java
@@ -8505,18 +7366,6 @@ public class Example {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://yourbaseurl.talon.one");
     
-    // Configure API key authorization: management_key
-    ApiKeyAuth management_key = (ApiKeyAuth) defaultClient.getAuthentication("management_key");
-    management_key.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //management_key.setApiKeyPrefix("Token");
-
-    // Configure API key authorization: manager_auth
-    ApiKeyAuth manager_auth = (ApiKeyAuth) defaultClient.getAuthentication("manager_auth");
-    manager_auth.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //manager_auth.setApiKeyPrefix("Token");
-
     // Configure API key authorization: api_key_v1
     ApiKeyAuth api_key_v1 = (ApiKeyAuth) defaultClient.getAuthentication("api_key_v1");
     api_key_v1.setApiKey("YOUR API KEY");
@@ -8524,7 +7373,7 @@ public class Example {
     //api_key_v1.setApiKeyPrefix("Token");
 
     ManagementApi apiInstance = new ManagementApi(defaultClient);
-    Long customerId = 56L; // Long | The value of the `id` property of a customer profile. Get it with the [List Application's customers](https://docs.talon.one/management-api#operation/getApplicationCustomers) endpoint. 
+    Long customerId = 56L; // Long | The value of the `id` property of a customer profile. Get it with the [List Application's customers](https://docs.talon.one/management-api#tag/Customer-data/operation/getApplicationCustomers) endpoint. 
     try {
       CustomerProfile result = apiInstance.getCustomerProfile(customerId);
       System.out.println(result);
@@ -8543,7 +7392,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **customerId** | **Long**| The value of the &#x60;id&#x60; property of a customer profile. Get it with the [List Application&#39;s customers](https://docs.talon.one/management-api#operation/getApplicationCustomers) endpoint.  | |
+| **customerId** | **Long**| The value of the &#x60;id&#x60; property of a customer profile. Get it with the [List Application&#39;s customers](https://docs.talon.one/management-api#tag/Customer-data/operation/getApplicationCustomers) endpoint.  | |
 
 ### Return type
 
@@ -8551,7 +7400,7 @@ public class Example {
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth), [api_key_v1](../README.md#api_key_v1)
+[api_key_v1](../README.md#api_key_v1)
 
 ### HTTP request headers
 
@@ -8586,18 +7435,6 @@ public class Example {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://yourbaseurl.talon.one");
     
-    // Configure API key authorization: management_key
-    ApiKeyAuth management_key = (ApiKeyAuth) defaultClient.getAuthentication("management_key");
-    management_key.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //management_key.setApiKeyPrefix("Token");
-
-    // Configure API key authorization: manager_auth
-    ApiKeyAuth manager_auth = (ApiKeyAuth) defaultClient.getAuthentication("manager_auth");
-    manager_auth.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //manager_auth.setApiKeyPrefix("Token");
-
     // Configure API key authorization: api_key_v1
     ApiKeyAuth api_key_v1 = (ApiKeyAuth) defaultClient.getAuthentication("api_key_v1");
     api_key_v1.setApiKey("YOUR API KEY");
@@ -8642,7 +7479,7 @@ public class Example {
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth), [api_key_v1](../README.md#api_key_v1)
+[api_key_v1](../README.md#api_key_v1)
 
 ### HTTP request headers
 
@@ -8679,18 +7516,6 @@ public class Example {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://yourbaseurl.talon.one");
     
-    // Configure API key authorization: management_key
-    ApiKeyAuth management_key = (ApiKeyAuth) defaultClient.getAuthentication("management_key");
-    management_key.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //management_key.setApiKeyPrefix("Token");
-
-    // Configure API key authorization: manager_auth
-    ApiKeyAuth manager_auth = (ApiKeyAuth) defaultClient.getAuthentication("manager_auth");
-    manager_auth.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //manager_auth.setApiKeyPrefix("Token");
-
     // Configure API key authorization: api_key_v1
     ApiKeyAuth api_key_v1 = (ApiKeyAuth) defaultClient.getAuthentication("api_key_v1");
     api_key_v1.setApiKey("YOUR API KEY");
@@ -8729,7 +7554,7 @@ public class Example {
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth), [api_key_v1](../README.md#api_key_v1)
+[api_key_v1](../README.md#api_key_v1)
 
 ### HTTP request headers
 
@@ -8764,18 +7589,6 @@ public class Example {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://yourbaseurl.talon.one");
     
-    // Configure API key authorization: management_key
-    ApiKeyAuth management_key = (ApiKeyAuth) defaultClient.getAuthentication("management_key");
-    management_key.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //management_key.setApiKeyPrefix("Token");
-
-    // Configure API key authorization: manager_auth
-    ApiKeyAuth manager_auth = (ApiKeyAuth) defaultClient.getAuthentication("manager_auth");
-    manager_auth.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //manager_auth.setApiKeyPrefix("Token");
-
     // Configure API key authorization: api_key_v1
     ApiKeyAuth api_key_v1 = (ApiKeyAuth) defaultClient.getAuthentication("api_key_v1");
     api_key_v1.setApiKey("YOUR API KEY");
@@ -8816,7 +7629,7 @@ public class Example {
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth), [api_key_v1](../README.md#api_key_v1)
+[api_key_v1](../README.md#api_key_v1)
 
 ### HTTP request headers
 
@@ -8834,7 +7647,7 @@ public class Example {
 
 Get statistics for loyalty dashboard
 
-Retrieve the statistics displayed on the specified loyalty program&#39;s dashboard, such as the total active points, pending points, spent points, and expired points.  **Important:** The returned data does not include the current day. All statistics are updated daily at 11:59 PM in the loyalty program time zone. 
+Retrieve the statistics displayed on the specified loyalty program&#39;s dashboard, such as the total active points, pending points, spent points, and expired points.  &gt; [!important] The returned data does not include the current day. All statistics &gt; are updated daily at 11:59 PM in the loyalty program time zone. 
 
 ### Example
 ```java
@@ -8851,18 +7664,6 @@ public class Example {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://yourbaseurl.talon.one");
     
-    // Configure API key authorization: management_key
-    ApiKeyAuth management_key = (ApiKeyAuth) defaultClient.getAuthentication("management_key");
-    management_key.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //management_key.setApiKeyPrefix("Token");
-
-    // Configure API key authorization: manager_auth
-    ApiKeyAuth manager_auth = (ApiKeyAuth) defaultClient.getAuthentication("manager_auth");
-    manager_auth.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //manager_auth.setApiKeyPrefix("Token");
-
     // Configure API key authorization: api_key_v1
     ApiKeyAuth api_key_v1 = (ApiKeyAuth) defaultClient.getAuthentication("api_key_v1");
     api_key_v1.setApiKey("YOUR API KEY");
@@ -8871,8 +7672,8 @@ public class Example {
 
     ManagementApi apiInstance = new ManagementApi(defaultClient);
     Long loyaltyProgramId = 56L; // Long | Identifier of the loyalty program. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. 
-    OffsetDateTime rangeStart = OffsetDateTime.now(); // OffsetDateTime | Only return results from after this timestamp.  **Note:** - This must be an RFC3339 timestamp string. - You can include a time component in your string, for example, `T23:59:59` to specify the end of the day. The time zone setting considered is `UTC`. If you do not include a time component, a default time value of `T00:00:00` (midnight) in `UTC` is considered. 
-    OffsetDateTime rangeEnd = OffsetDateTime.now(); // OffsetDateTime | Only return results from before this timestamp.  **Note:** - This must be an RFC3339 timestamp string. - You can include a time component in your string, for example, `T23:59:59` to specify the end of the day. The time zone setting considered is `UTC`. If you do not include a time component, a default time value of `T00:00:00` (midnight) in `UTC` is considered. 
+    OffsetDateTime rangeStart = OffsetDateTime.now(); // OffsetDateTime | Only return results from after this timestamp.  > [!note] **Note** > - This must be an RFC3339 timestamp string. > - You can include a time component in your string, for example, `T23:59:59` to specify the end of the day. The time zone setting >   considered is `UTC`. If you do not include a time component, a default time value of `T00:00:00` (midnight) in `UTC` is considered. 
+    OffsetDateTime rangeEnd = OffsetDateTime.now(); // OffsetDateTime | Only return results from before this timestamp.  > [!note] **Note** > - This must be an RFC3339 timestamp string. > - You can include a time component in your string, for example, `T23:59:59` to specify the end of the day. The time zone setting >   considered is `UTC`. If you do not include a time component, a default time value of `T00:00:00` (midnight) in `UTC` is considered. 
     String subledgerId = "subledgerId_example"; // String | The ID of the subledger by which we filter the data.
     try {
       GetDashboardStatistics200Response result = apiInstance.getDashboardStatistics(loyaltyProgramId, rangeStart, rangeEnd, subledgerId);
@@ -8893,8 +7694,8 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **loyaltyProgramId** | **Long**| Identifier of the loyalty program. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint.  | |
-| **rangeStart** | **OffsetDateTime**| Only return results from after this timestamp.  **Note:** - This must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered.  | |
-| **rangeEnd** | **OffsetDateTime**| Only return results from before this timestamp.  **Note:** - This must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered.  | |
+| **rangeStart** | **OffsetDateTime**| Only return results from after this timestamp.  &gt; [!note] **Note** &gt; - This must be an RFC3339 timestamp string. &gt; - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting &gt;   considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered.  | |
+| **rangeEnd** | **OffsetDateTime**| Only return results from before this timestamp.  &gt; [!note] **Note** &gt; - This must be an RFC3339 timestamp string. &gt; - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting &gt;   considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered.  | |
 | **subledgerId** | **String**| The ID of the subledger by which we filter the data. | [optional] |
 
 ### Return type
@@ -8903,7 +7704,7 @@ public class Example {
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth), [api_key_v1](../README.md#api_key_v1)
+[api_key_v1](../README.md#api_key_v1)
 
 ### HTTP request headers
 
@@ -8938,18 +7739,6 @@ public class Example {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://yourbaseurl.talon.one");
     
-    // Configure API key authorization: management_key
-    ApiKeyAuth management_key = (ApiKeyAuth) defaultClient.getAuthentication("management_key");
-    management_key.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //management_key.setApiKeyPrefix("Token");
-
-    // Configure API key authorization: manager_auth
-    ApiKeyAuth manager_auth = (ApiKeyAuth) defaultClient.getAuthentication("manager_auth");
-    manager_auth.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //manager_auth.setApiKeyPrefix("Token");
-
     // Configure API key authorization: api_key_v1
     ApiKeyAuth api_key_v1 = (ApiKeyAuth) defaultClient.getAuthentication("api_key_v1");
     api_key_v1.setApiKey("YOUR API KEY");
@@ -8992,7 +7781,7 @@ public class Example {
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth), [api_key_v1](../README.md#api_key_v1)
+[api_key_v1](../README.md#api_key_v1)
 
 ### HTTP request headers
 
@@ -9027,18 +7816,6 @@ public class Example {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://yourbaseurl.talon.one");
     
-    // Configure API key authorization: management_key
-    ApiKeyAuth management_key = (ApiKeyAuth) defaultClient.getAuthentication("management_key");
-    management_key.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //management_key.setApiKeyPrefix("Token");
-
-    // Configure API key authorization: manager_auth
-    ApiKeyAuth manager_auth = (ApiKeyAuth) defaultClient.getAuthentication("manager_auth");
-    manager_auth.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //manager_auth.setApiKeyPrefix("Token");
-
     // Configure API key authorization: api_key_v1
     ApiKeyAuth api_key_v1 = (ApiKeyAuth) defaultClient.getAuthentication("api_key_v1");
     api_key_v1.setApiKey("YOUR API KEY");
@@ -9075,7 +7852,7 @@ public class Example {
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth), [api_key_v1](../README.md#api_key_v1)
+[api_key_v1](../README.md#api_key_v1)
 
 ### HTTP request headers
 
@@ -9110,18 +7887,6 @@ public class Example {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://yourbaseurl.talon.one");
     
-    // Configure API key authorization: management_key
-    ApiKeyAuth management_key = (ApiKeyAuth) defaultClient.getAuthentication("management_key");
-    management_key.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //management_key.setApiKeyPrefix("Token");
-
-    // Configure API key authorization: manager_auth
-    ApiKeyAuth manager_auth = (ApiKeyAuth) defaultClient.getAuthentication("manager_auth");
-    manager_auth.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //manager_auth.setApiKeyPrefix("Token");
-
     // Configure API key authorization: api_key_v1
     ApiKeyAuth api_key_v1 = (ApiKeyAuth) defaultClient.getAuthentication("api_key_v1");
     api_key_v1.setApiKey("YOUR API KEY");
@@ -9164,7 +7929,7 @@ public class Example {
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth), [api_key_v1](../README.md#api_key_v1)
+[api_key_v1](../README.md#api_key_v1)
 
 ### HTTP request headers
 
@@ -9199,18 +7964,6 @@ public class Example {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://yourbaseurl.talon.one");
     
-    // Configure API key authorization: management_key
-    ApiKeyAuth management_key = (ApiKeyAuth) defaultClient.getAuthentication("management_key");
-    management_key.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //management_key.setApiKeyPrefix("Token");
-
-    // Configure API key authorization: manager_auth
-    ApiKeyAuth manager_auth = (ApiKeyAuth) defaultClient.getAuthentication("manager_auth");
-    manager_auth.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //manager_auth.setApiKeyPrefix("Token");
-
     // Configure API key authorization: api_key_v1
     ApiKeyAuth api_key_v1 = (ApiKeyAuth) defaultClient.getAuthentication("api_key_v1");
     api_key_v1.setApiKey("YOUR API KEY");
@@ -9247,7 +8000,7 @@ public class Example {
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth), [api_key_v1](../README.md#api_key_v1)
+[api_key_v1](../README.md#api_key_v1)
 
 ### HTTP request headers
 
@@ -9285,18 +8038,6 @@ public class Example {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://yourbaseurl.talon.one");
     
-    // Configure API key authorization: management_key
-    ApiKeyAuth management_key = (ApiKeyAuth) defaultClient.getAuthentication("management_key");
-    management_key.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //management_key.setApiKeyPrefix("Token");
-
-    // Configure API key authorization: manager_auth
-    ApiKeyAuth manager_auth = (ApiKeyAuth) defaultClient.getAuthentication("manager_auth");
-    manager_auth.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //manager_auth.setApiKeyPrefix("Token");
-
     // Configure API key authorization: api_key_v1
     ApiKeyAuth api_key_v1 = (ApiKeyAuth) defaultClient.getAuthentication("api_key_v1");
     api_key_v1.setApiKey("YOUR API KEY");
@@ -9306,8 +8047,8 @@ public class Example {
     ManagementApi apiInstance = new ManagementApi(defaultClient);
     Long loyaltyProgramId = 56L; // Long | Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. 
     String loyaltyCardId = "loyaltyCardId_example"; // String | Identifier of the loyalty card. You can get the identifier with the [List loyalty cards](https://docs.talon.one/management-api#tag/Loyalty-cards/operation/getLoyaltyCards) endpoint.  **Important**: The loyalty card ID requires [URL encoding](https://www.w3schools.com/tags//ref_urlencode.asp) if it contains special characters. For example, you must encode `NewCard2026%` as `NewCard2026%25`. 
-    OffsetDateTime startDate = OffsetDateTime.now(); // OffsetDateTime | Date and time from which results are returned. Results are filtered by transaction creation date.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, `T23:59:59` to specify the end of the day. The time zone setting considered is `UTC`. If you do not include a time component, a default time value of `T00:00:00` (midnight) in `UTC` is considered. 
-    OffsetDateTime endDate = OffsetDateTime.now(); // OffsetDateTime | Date and time by which results are returned. Results are filtered by transaction creation date.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, `T23:59:59` to specify the end of the day. The time zone setting considered is `UTC`. If you do not include a time component, a default time value of `T00:00:00` (midnight) in `UTC` is considered. 
+    OffsetDateTime startDate = OffsetDateTime.now(); // OffsetDateTime | Date and time from which results are returned. Results are filtered by transaction creation date.  > [!note] **Note** > - This must be an RFC3339 timestamp string. > - You can include a time component in your string, for example, `T23:59:59` to specify the end of the day. The time zone setting >   considered is `UTC`. If you do not include a time component, a default time value of `T00:00:00` (midnight) in `UTC` is considered. 
+    OffsetDateTime endDate = OffsetDateTime.now(); // OffsetDateTime | Date and time by which results are returned. Results are filtered by transaction creation date.  > [!note] **Note** > - This must be an RFC3339 timestamp string. > - You can include a time component in your string, for example, `T23:59:59` to specify the end of the day. The time zone setting >   considered is `UTC`. If you do not include a time component, a default time value of `T00:00:00` (midnight) in `UTC` is considered. 
     Long pageSize = 1000L; // Long | The number of items in the response.
     Long skip = 56L; // Long | The number of items to skip when paging through large result sets.
     String subledgerId = "subledgerId_example"; // String | The ID of the subledger by which we filter the data.
@@ -9333,8 +8074,8 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **loyaltyProgramId** | **Long**| Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint.  | |
 | **loyaltyCardId** | **String**| Identifier of the loyalty card. You can get the identifier with the [List loyalty cards](https://docs.talon.one/management-api#tag/Loyalty-cards/operation/getLoyaltyCards) endpoint.  **Important**: The loyalty card ID requires [URL encoding](https://www.w3schools.com/tags//ref_urlencode.asp) if it contains special characters. For example, you must encode &#x60;NewCard2026%&#x60; as &#x60;NewCard2026%25&#x60;.  | |
-| **startDate** | **OffsetDateTime**| Date and time from which results are returned. Results are filtered by transaction creation date.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered.  | [optional] |
-| **endDate** | **OffsetDateTime**| Date and time by which results are returned. Results are filtered by transaction creation date.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered.  | [optional] |
+| **startDate** | **OffsetDateTime**| Date and time from which results are returned. Results are filtered by transaction creation date.  &gt; [!note] **Note** &gt; - This must be an RFC3339 timestamp string. &gt; - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting &gt;   considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered.  | [optional] |
+| **endDate** | **OffsetDateTime**| Date and time by which results are returned. Results are filtered by transaction creation date.  &gt; [!note] **Note** &gt; - This must be an RFC3339 timestamp string. &gt; - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting &gt;   considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered.  | [optional] |
 | **pageSize** | **Long**| The number of items in the response. | [optional] [default to 1000] |
 | **skip** | **Long**| The number of items to skip when paging through large result sets. | [optional] |
 | **subledgerId** | **String**| The ID of the subledger by which we filter the data. | [optional] |
@@ -9347,7 +8088,7 @@ public class Example {
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth), [api_key_v1](../README.md#api_key_v1)
+[api_key_v1](../README.md#api_key_v1)
 
 ### HTTP request headers
 
@@ -9384,18 +8125,6 @@ public class Example {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://yourbaseurl.talon.one");
     
-    // Configure API key authorization: management_key
-    ApiKeyAuth management_key = (ApiKeyAuth) defaultClient.getAuthentication("management_key");
-    management_key.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //management_key.setApiKeyPrefix("Token");
-
-    // Configure API key authorization: manager_auth
-    ApiKeyAuth manager_auth = (ApiKeyAuth) defaultClient.getAuthentication("manager_auth");
-    manager_auth.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //manager_auth.setApiKeyPrefix("Token");
-
     // Configure API key authorization: api_key_v1
     ApiKeyAuth api_key_v1 = (ApiKeyAuth) defaultClient.getAuthentication("api_key_v1");
     api_key_v1.setApiKey("YOUR API KEY");
@@ -9442,7 +8171,7 @@ public class Example {
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth), [api_key_v1](../README.md#api_key_v1)
+[api_key_v1](../README.md#api_key_v1)
 
 ### HTTP request headers
 
@@ -9462,7 +8191,7 @@ public class Example {
 
 Get customer&#39;s loyalty balances
 
-Retrieve loyalty ledger balances for the given Integration ID in the specified loyalty program. You can filter balances by date and subledger ID, and include tier-related information in the response.  **Note**: If no filtering options are applied, you retrieve all loyalty balances on the current date for the given integration ID.  Loyalty balances are calculated when Talon.One receives your request using the points stored in our database, so retrieving a large number of balances at once can impact performance.  For more information, see: - [Managing card-based loyalty program data](https://docs.talon.one/docs/product/loyalty-programs/card-based/managing-loyalty-cards) - [Managing profile-based loyalty program data](https://docs.talon.one/docs/product/loyalty-programs/profile-based/managing-pb-lp-data) 
+Retrieve loyalty ledger balances for the given Integration ID in the specified loyalty program.  You can filter balances by date and subledger ID, and include tier-related information in the response.  &gt; [!note] If no filtering options are applied, you retrieve all loyalty &gt; balances on the current date for the given integration ID.  Loyalty balances are calculated when Talon.One receives your request using the points stored in our database, so retrieving a large number of balances at once can impact performance.  For more information, see:  - [Managing card-based loyalty program data](https://docs.talon.one/docs/product/loyalty-programs/card-based/managing-loyalty-cards)  - [Managing profile-based loyalty program data](https://docs.talon.one/docs/product/loyalty-programs/profile-based/managing-pb-lp-data) 
 
 ### Example
 ```java
@@ -9479,18 +8208,6 @@ public class Example {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://yourbaseurl.talon.one");
     
-    // Configure API key authorization: management_key
-    ApiKeyAuth management_key = (ApiKeyAuth) defaultClient.getAuthentication("management_key");
-    management_key.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //management_key.setApiKeyPrefix("Token");
-
-    // Configure API key authorization: manager_auth
-    ApiKeyAuth manager_auth = (ApiKeyAuth) defaultClient.getAuthentication("manager_auth");
-    manager_auth.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //manager_auth.setApiKeyPrefix("Token");
-
     // Configure API key authorization: api_key_v1
     ApiKeyAuth api_key_v1 = (ApiKeyAuth) defaultClient.getAuthentication("api_key_v1");
     api_key_v1.setApiKey("YOUR API KEY");
@@ -9500,7 +8217,7 @@ public class Example {
     ManagementApi apiInstance = new ManagementApi(defaultClient);
     Long loyaltyProgramId = 56L; // Long | Identifier of the profile-based loyalty program. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. 
     String integrationId = "integrationId_example"; // String | The integration identifier for this customer profile. Must be: - Unique within the deployment. - Stable for the customer. Do not use an ID that the customer can update themselves. For example, you can use a database ID.  Once set, you cannot update this identifier. 
-    OffsetDateTime endDate = OffsetDateTime.now(); // OffsetDateTime | Used to return expired, active, and pending loyalty balances before this timestamp. You can enter any past, present, or future timestamp value.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, `T23:59:59` to specify the end of the day. The time zone setting considered is `UTC`. If you do not include a time component, a default time value of `T00:00:00` (midnight) in `UTC` is considered. 
+    OffsetDateTime endDate = OffsetDateTime.now(); // OffsetDateTime | Used to return expired, active, and pending loyalty balances before this timestamp. You can enter any past, present, or future timestamp value.  > [!note] **Note** > - This must be an RFC3339 timestamp string. > - You can include a time component in your string, for example, `T23:59:59` to specify the end of the day. The time zone setting >   considered is `UTC`. If you do not include a time component, a default time value of `T00:00:00` (midnight) in `UTC` is considered. 
     String subledgerId = "subledgerId_example"; // String | The ID of the subledger used to filter the data. Leave this value empty (\"\") to query the main ledger.
     Boolean includeTiers = false; // Boolean | Indicates whether tier information is included in the response.  When set to `true`, the response includes information about the current tier and the number of points required to move to next tier. 
     Boolean includeProjectedTier = false; // Boolean | Indicates whether the customer's projected tier information is included in the response.  When set to `true`, the response includes information about the customer's active points and the name of the projected tier.  **Note** We recommend filtering by `subledgerId` for better performance. 
@@ -9524,7 +8241,7 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **loyaltyProgramId** | **Long**| Identifier of the profile-based loyalty program. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint.  | |
 | **integrationId** | **String**| The integration identifier for this customer profile. Must be: - Unique within the deployment. - Stable for the customer. Do not use an ID that the customer can update themselves. For example, you can use a database ID.  Once set, you cannot update this identifier.  | |
-| **endDate** | **OffsetDateTime**| Used to return expired, active, and pending loyalty balances before this timestamp. You can enter any past, present, or future timestamp value.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered.  | [optional] |
+| **endDate** | **OffsetDateTime**| Used to return expired, active, and pending loyalty balances before this timestamp. You can enter any past, present, or future timestamp value.  &gt; [!note] **Note** &gt; - This must be an RFC3339 timestamp string. &gt; - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting &gt;   considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered.  | [optional] |
 | **subledgerId** | **String**| The ID of the subledger used to filter the data. Leave this value empty (\&quot;\&quot;) to query the main ledger. | [optional] |
 | **includeTiers** | **Boolean**| Indicates whether tier information is included in the response.  When set to &#x60;true&#x60;, the response includes information about the current tier and the number of points required to move to next tier.  | [optional] [default to false] |
 | **includeProjectedTier** | **Boolean**| Indicates whether the customer&#39;s projected tier information is included in the response.  When set to &#x60;true&#x60;, the response includes information about the customer&#39;s active points and the name of the projected tier.  **Note** We recommend filtering by &#x60;subledgerId&#x60; for better performance.  | [optional] [default to false] |
@@ -9535,7 +8252,7 @@ public class Example {
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth), [api_key_v1](../README.md#api_key_v1)
+[api_key_v1](../README.md#api_key_v1)
 
 ### HTTP request headers
 
@@ -9556,7 +8273,7 @@ public class Example {
 
 Get customer&#39;s full loyalty ledger
 
-Get the loyalty ledger for this profile integration ID.  To get the &#x60;integrationId&#x60; of the profile from a &#x60;sessionId&#x60;, use the [Update customer session](https://docs.talon.one/integration-api#operation/updateCustomerSessionV2) endpoint.  **Important:** To get loyalty transaction logs for a given Integration ID in a loyalty program, we recommend using the Integration API&#39;s [Get customer&#39;s loyalty logs](https://docs.talon.one/integration-api#tag/Loyalty/operation/getLoyaltyProgramProfileTransactions). 
+Get the loyalty ledger for this profile integration ID.  To get the &#x60;integrationId&#x60; of the profile from a &#x60;sessionId&#x60;, use the [Update customer session](https://docs.talon.one/integration-api#tag/Customer-sessions/operation/updateCustomerSessionV2) endpoint.  **Important:** To get loyalty transaction logs for a given Integration ID in a loyalty program, we recommend using the Integration API&#39;s [Get customer&#39;s loyalty logs](https://docs.talon.one/integration-api#tag/Loyalty/operation/getLoyaltyProgramProfileTransactions). 
 
 ### Example
 ```java
@@ -9573,18 +8290,6 @@ public class Example {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://yourbaseurl.talon.one");
     
-    // Configure API key authorization: management_key
-    ApiKeyAuth management_key = (ApiKeyAuth) defaultClient.getAuthentication("management_key");
-    management_key.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //management_key.setApiKeyPrefix("Token");
-
-    // Configure API key authorization: manager_auth
-    ApiKeyAuth manager_auth = (ApiKeyAuth) defaultClient.getAuthentication("manager_auth");
-    manager_auth.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //manager_auth.setApiKeyPrefix("Token");
-
     // Configure API key authorization: api_key_v1
     ApiKeyAuth api_key_v1 = (ApiKeyAuth) defaultClient.getAuthentication("api_key_v1");
     api_key_v1.setApiKey("YOUR API KEY");
@@ -9621,7 +8326,7 @@ public class Example {
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth), [api_key_v1](../README.md#api_key_v1)
+[api_key_v1](../README.md#api_key_v1)
 
 ### HTTP request headers
 
@@ -9639,7 +8344,7 @@ public class Example {
 
 Get loyalty program
 
-Get the specified [loyalty program](https://docs.talon.one/docs/product/loyalty-programs/overview). To list all loyalty programs in your Application, use [List loyalty programs](#operation/getLoyaltyPrograms).  To list the loyalty programs that a customer profile is part of, use the [List customer data](https://docs.talon.one/integration-api#tag/Customer-profiles/operation/getCustomerInventory) 
+Get the specified [loyalty program](https://docs.talon.one/docs/product/loyalty-programs/overview).  To list all loyalty programs in your Application, use [List loyalty programs](#tag/Loyalty/operation/getLoyaltyPrograms).  To list the loyalty programs that a customer profile is part of, use [List customer data](https://docs.talon.one/integration-api#tag/Customer-profiles/operation/getCustomerInventory). 
 
 ### Example
 ```java
@@ -9656,18 +8361,6 @@ public class Example {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://yourbaseurl.talon.one");
     
-    // Configure API key authorization: management_key
-    ApiKeyAuth management_key = (ApiKeyAuth) defaultClient.getAuthentication("management_key");
-    management_key.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //management_key.setApiKeyPrefix("Token");
-
-    // Configure API key authorization: manager_auth
-    ApiKeyAuth manager_auth = (ApiKeyAuth) defaultClient.getAuthentication("manager_auth");
-    manager_auth.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //manager_auth.setApiKeyPrefix("Token");
-
     // Configure API key authorization: api_key_v1
     ApiKeyAuth api_key_v1 = (ApiKeyAuth) defaultClient.getAuthentication("api_key_v1");
     api_key_v1.setApiKey("YOUR API KEY");
@@ -9702,7 +8395,7 @@ public class Example {
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth), [api_key_v1](../README.md#api_key_v1)
+[api_key_v1](../README.md#api_key_v1)
 
 ### HTTP request headers
 
@@ -9720,7 +8413,7 @@ public class Example {
 
 List customer&#39;s loyalty transactions
 
-Retrieve paginated results of loyalty transaction logs for the given Integration ID in the specified loyalty program.  You can filter transactions by date or by ledger (subledger or main ledger). If no filters are applied, the last 50 loyalty transactions for the given integration ID are returned.  **Note:** To retrieve all loyalty program transaction logs in a given loyalty program, use the [List loyalty program transactions](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyProgramTransactions) endpoint. 
+Retrieve paginated results of loyalty transaction logs for the given Integration ID in the specified loyalty program.  You can filter transactions by date or by ledger (subledger or main ledger). If no filters are applied, the last 50 loyalty transactions for the given integration ID are returned.  &gt; [!note] To retrieve all loyalty program transaction logs in a given &gt; loyalty program, use the [List loyalty program transactions](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyProgramTransactions) &gt; endpoint. 
 
 ### Example
 ```java
@@ -9737,18 +8430,6 @@ public class Example {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://yourbaseurl.talon.one");
     
-    // Configure API key authorization: management_key
-    ApiKeyAuth management_key = (ApiKeyAuth) defaultClient.getAuthentication("management_key");
-    management_key.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //management_key.setApiKeyPrefix("Token");
-
-    // Configure API key authorization: manager_auth
-    ApiKeyAuth manager_auth = (ApiKeyAuth) defaultClient.getAuthentication("manager_auth");
-    manager_auth.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //manager_auth.setApiKeyPrefix("Token");
-
     // Configure API key authorization: api_key_v1
     ApiKeyAuth api_key_v1 = (ApiKeyAuth) defaultClient.getAuthentication("api_key_v1");
     api_key_v1.setApiKey("YOUR API KEY");
@@ -9758,12 +8439,12 @@ public class Example {
     ManagementApi apiInstance = new ManagementApi(defaultClient);
     Long loyaltyProgramId = 56L; // Long | Identifier of the profile-based loyalty program. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. 
     String integrationId = "integrationId_example"; // String | The integration identifier for this customer profile. Must be: - Unique within the deployment. - Stable for the customer. Do not use an ID that the customer can update themselves. For example, you can use a database ID.  Once set, you cannot update this identifier. 
-    List<String> customerSessionIDs = Arrays.asList(); // List<String> | Filter the results by a list of customer session IDs.   To include multiple IDs, repeat the parameter for each one, for example,  `?customerSessionIDs=id1&customerSessionIDs=id2`.  The response contains only data associated with the specified sessions. 
-    List<String> transactionUUIDs = Arrays.asList(); // List<String> | Filter the results by a list of transaction UUIDs.  To include multiple IDs, repeat the parameter for each one, for example,  `?transactionUUIDs=uuid1&transactionUUIDs=uuid2`.  The response contains only data associated with the specified transactions. 
+    List<String> customerSessionIDs = Arrays.asList(); // List<String> | Filter the results by a list of customer session IDs.  To include multiple IDs, repeat the parameter for each one, for example, `?customerSessionIDs=id1&customerSessionIDs=id2`.  The response contains only data associated with the specified sessions. 
+    List<String> transactionUUIDs = Arrays.asList(); // List<String> | Filter the results by a list of transaction UUIDs.  To include multiple IDs, repeat the parameter for each one, for example, `?transactionUUIDs=uuid1&transactionUUIDs=uuid2`.  The response contains only data associated with the specified transactions. 
     String subledgerId = "subledgerId_example"; // String | The ID of the subledger used to filter the data. Leave this value empty (\"\") to query the main ledger.
     String loyaltyTransactionType = "manual"; // String | Filter results by loyalty transaction type: - `manual`: Loyalty transaction that was done manually. - `session`: Loyalty transaction that resulted from a customer session. - `import`: Loyalty transaction that was imported from a CSV file. 
-    OffsetDateTime startDate = OffsetDateTime.now(); // OffsetDateTime | Date and time from which results are returned. Results are filtered by transaction creation date.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, `T23:59:59` to specify the end of the day. The time zone setting considered is `UTC`. If you do not include a time component, a default time value of `T00:00:00` (midnight) in `UTC` is considered. 
-    OffsetDateTime endDate = OffsetDateTime.now(); // OffsetDateTime | Date and time by which results are returned. Results are filtered by transaction creation date.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, `T23:59:59` to specify the end of the day. The time zone setting considered is `UTC`. If you do not include a time component, a default time value of `T00:00:00` (midnight) in `UTC` is considered. 
+    OffsetDateTime startDate = OffsetDateTime.now(); // OffsetDateTime | Date and time from which results are returned. Results are filtered by transaction creation date.  > [!note] **Note** > - This must be an RFC3339 timestamp string. > - You can include a time component in your string, for example, `T23:59:59` to specify the end of the day. The time zone setting >   considered is `UTC`. If you do not include a time component, a default time value of `T00:00:00` (midnight) in `UTC` is considered. 
+    OffsetDateTime endDate = OffsetDateTime.now(); // OffsetDateTime | Date and time by which results are returned. Results are filtered by transaction creation date.  > [!note] **Note** > - This must be an RFC3339 timestamp string. > - You can include a time component in your string, for example, `T23:59:59` to specify the end of the day. The time zone setting >   considered is `UTC`. If you do not include a time component, a default time value of `T00:00:00` (midnight) in `UTC` is considered. 
     Long pageSize = 50L; // Long | The number of items in the response.
     Long skip = 56L; // Long | The number of items to skip when paging through large result sets.
     Boolean awaitsActivation = true; // Boolean | If `true`: Filters results to include only point transactions that have action-based activation and have not expired.  If `false`: Returns a `400` response. 
@@ -9787,12 +8468,12 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **loyaltyProgramId** | **Long**| Identifier of the profile-based loyalty program. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint.  | |
 | **integrationId** | **String**| The integration identifier for this customer profile. Must be: - Unique within the deployment. - Stable for the customer. Do not use an ID that the customer can update themselves. For example, you can use a database ID.  Once set, you cannot update this identifier.  | |
-| **customerSessionIDs** | [**List&lt;String&gt;**](String.md)| Filter the results by a list of customer session IDs.   To include multiple IDs, repeat the parameter for each one, for example,  &#x60;?customerSessionIDs&#x3D;id1&amp;customerSessionIDs&#x3D;id2&#x60;.  The response contains only data associated with the specified sessions.  | [optional] |
-| **transactionUUIDs** | [**List&lt;String&gt;**](String.md)| Filter the results by a list of transaction UUIDs.  To include multiple IDs, repeat the parameter for each one, for example,  &#x60;?transactionUUIDs&#x3D;uuid1&amp;transactionUUIDs&#x3D;uuid2&#x60;.  The response contains only data associated with the specified transactions.  | [optional] |
+| **customerSessionIDs** | [**List&lt;String&gt;**](String.md)| Filter the results by a list of customer session IDs.  To include multiple IDs, repeat the parameter for each one, for example, &#x60;?customerSessionIDs&#x3D;id1&amp;customerSessionIDs&#x3D;id2&#x60;.  The response contains only data associated with the specified sessions.  | [optional] |
+| **transactionUUIDs** | [**List&lt;String&gt;**](String.md)| Filter the results by a list of transaction UUIDs.  To include multiple IDs, repeat the parameter for each one, for example, &#x60;?transactionUUIDs&#x3D;uuid1&amp;transactionUUIDs&#x3D;uuid2&#x60;.  The response contains only data associated with the specified transactions.  | [optional] |
 | **subledgerId** | **String**| The ID of the subledger used to filter the data. Leave this value empty (\&quot;\&quot;) to query the main ledger. | [optional] |
 | **loyaltyTransactionType** | **String**| Filter results by loyalty transaction type: - &#x60;manual&#x60;: Loyalty transaction that was done manually. - &#x60;session&#x60;: Loyalty transaction that resulted from a customer session. - &#x60;import&#x60;: Loyalty transaction that was imported from a CSV file.  | [optional] [enum: manual, session, import] |
-| **startDate** | **OffsetDateTime**| Date and time from which results are returned. Results are filtered by transaction creation date.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered.  | [optional] |
-| **endDate** | **OffsetDateTime**| Date and time by which results are returned. Results are filtered by transaction creation date.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered.  | [optional] |
+| **startDate** | **OffsetDateTime**| Date and time from which results are returned. Results are filtered by transaction creation date.  &gt; [!note] **Note** &gt; - This must be an RFC3339 timestamp string. &gt; - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting &gt;   considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered.  | [optional] |
+| **endDate** | **OffsetDateTime**| Date and time by which results are returned. Results are filtered by transaction creation date.  &gt; [!note] **Note** &gt; - This must be an RFC3339 timestamp string. &gt; - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting &gt;   considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered.  | [optional] |
 | **pageSize** | **Long**| The number of items in the response. | [optional] [default to 50] |
 | **skip** | **Long**| The number of items to skip when paging through large result sets. | [optional] |
 | **awaitsActivation** | **Boolean**| If &#x60;true&#x60;: Filters results to include only point transactions that have action-based activation and have not expired.  If &#x60;false&#x60;: Returns a &#x60;400&#x60; response.  | [optional] |
@@ -9803,7 +8484,7 @@ public class Example {
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth), [api_key_v1](../README.md#api_key_v1)
+[api_key_v1](../README.md#api_key_v1)
 
 ### HTTP request headers
 
@@ -9824,7 +8505,7 @@ public class Example {
 
 List loyalty program transactions
 
-Retrieve loyalty program transaction logs in a given loyalty program with filtering options applied. Manual and imported transactions are also included. **Note:** If no filters are applied, the last 50 loyalty transactions for the given loyalty program are returned.  **Important:** To get loyalty transaction logs for a given Integration ID in a loyalty program, we recommend using the Integration API&#39;s [Get customer&#39;s loyalty logs](https://docs.talon.one/integration-api#tag/Loyalty/operation/getLoyaltyProgramProfileTransactions). 
+Retrieve loyalty program transaction logs in a given loyalty program with filtering options applied. Manual and imported transactions are also included.  &gt; [!note] **Note** &gt; - If no filters are applied, the last 50 loyalty transactions for the given loyalty program are returned. &gt; - To get loyalty transaction logs for a given Integration ID in &gt;   a loyalty program, we recommend using the Integration API&#39;s [Get customer&#39;s loyalty &gt;   logs](https://docs.talon.one/integration-api#tag/Loyalty/operation/getLoyaltyProgramProfileTransactions). 
 
 ### Example
 ```java
@@ -9841,18 +8522,6 @@ public class Example {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://yourbaseurl.talon.one");
     
-    // Configure API key authorization: management_key
-    ApiKeyAuth management_key = (ApiKeyAuth) defaultClient.getAuthentication("management_key");
-    management_key.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //management_key.setApiKeyPrefix("Token");
-
-    // Configure API key authorization: manager_auth
-    ApiKeyAuth manager_auth = (ApiKeyAuth) defaultClient.getAuthentication("manager_auth");
-    manager_auth.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //manager_auth.setApiKeyPrefix("Token");
-
     // Configure API key authorization: api_key_v1
     ApiKeyAuth api_key_v1 = (ApiKeyAuth) defaultClient.getAuthentication("api_key_v1");
     api_key_v1.setApiKey("YOUR API KEY");
@@ -9863,10 +8532,10 @@ public class Example {
     Long loyaltyProgramId = 56L; // Long | Identifier of the loyalty program. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. 
     String loyaltyTransactionType = "manual"; // String | Filter results by loyalty transaction type: - `manual`: Loyalty transaction that was done manually. - `session`: Loyalty transaction that resulted from a customer session. - `import`: Loyalty transaction that was imported from a CSV file. 
     String subledgerId = "subledgerId_example"; // String | The ID of the subledger by which we filter the data.
-    List<String> customerSessionIDs = Arrays.asList(); // List<String> | Filter the results by a list of customer session IDs.   To include multiple IDs, repeat the parameter for each one, for example,  `?customerSessionIDs=id1&customerSessionIDs=id2`.  The response contains only data associated with the specified sessions. 
-    List<String> transactionUUIDs = Arrays.asList(); // List<String> | Filter the results by a list of transaction UUIDs.  To include multiple IDs, repeat the parameter for each one, for example,  `?transactionUUIDs=uuid1&transactionUUIDs=uuid2`.  The response contains only data associated with the specified transactions. 
-    OffsetDateTime startDate = OffsetDateTime.now(); // OffsetDateTime | Date and time from which results are returned. Results are filtered by transaction creation date.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, `T23:59:59` to specify the end of the day. The time zone setting considered is `UTC`. If you do not include a time component, a default time value of `T00:00:00` (midnight) in `UTC` is considered. 
-    OffsetDateTime endDate = OffsetDateTime.now(); // OffsetDateTime | Date and time by which results are returned. Results are filtered by transaction creation date.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, `T23:59:59` to specify the end of the day. The time zone setting considered is `UTC`. If you do not include a time component, a default time value of `T00:00:00` (midnight) in `UTC` is considered. 
+    List<String> customerSessionIDs = Arrays.asList(); // List<String> | Filter the results by a list of customer session IDs.  To include multiple IDs, repeat the parameter for each one, for example, `?customerSessionIDs=id1&customerSessionIDs=id2`.  The response contains only data associated with the specified sessions. 
+    List<String> transactionUUIDs = Arrays.asList(); // List<String> | Filter the results by a list of transaction UUIDs.  To include multiple IDs, repeat the parameter for each one, for example, `?transactionUUIDs=uuid1&transactionUUIDs=uuid2`.  The response contains only data associated with the specified transactions. 
+    OffsetDateTime startDate = OffsetDateTime.now(); // OffsetDateTime | Date and time from which results are returned. Results are filtered by transaction creation date.  > [!note] **Note** > - This must be an RFC3339 timestamp string. > - You can include a time component in your string, for example, `T23:59:59` to specify the end of the day. The time zone setting >   considered is `UTC`. If you do not include a time component, a default time value of `T00:00:00` (midnight) in `UTC` is considered. 
+    OffsetDateTime endDate = OffsetDateTime.now(); // OffsetDateTime | Date and time by which results are returned. Results are filtered by transaction creation date.  > [!note] **Note** > - This must be an RFC3339 timestamp string. > - You can include a time component in your string, for example, `T23:59:59` to specify the end of the day. The time zone setting >   considered is `UTC`. If you do not include a time component, a default time value of `T00:00:00` (midnight) in `UTC` is considered. 
     Long pageSize = 50L; // Long | The number of items in the response.
     Long skip = 56L; // Long | The number of items to skip when paging through large result sets.
     Boolean awaitsActivation = true; // Boolean | If `true`: Filters results to include only point transactions that have action-based activation and have not expired.  If `false`: Returns a `400` response. 
@@ -9891,10 +8560,10 @@ public class Example {
 | **loyaltyProgramId** | **Long**| Identifier of the loyalty program. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint.  | |
 | **loyaltyTransactionType** | **String**| Filter results by loyalty transaction type: - &#x60;manual&#x60;: Loyalty transaction that was done manually. - &#x60;session&#x60;: Loyalty transaction that resulted from a customer session. - &#x60;import&#x60;: Loyalty transaction that was imported from a CSV file.  | [optional] [enum: manual, session, import] |
 | **subledgerId** | **String**| The ID of the subledger by which we filter the data. | [optional] |
-| **customerSessionIDs** | [**List&lt;String&gt;**](String.md)| Filter the results by a list of customer session IDs.   To include multiple IDs, repeat the parameter for each one, for example,  &#x60;?customerSessionIDs&#x3D;id1&amp;customerSessionIDs&#x3D;id2&#x60;.  The response contains only data associated with the specified sessions.  | [optional] |
-| **transactionUUIDs** | [**List&lt;String&gt;**](String.md)| Filter the results by a list of transaction UUIDs.  To include multiple IDs, repeat the parameter for each one, for example,  &#x60;?transactionUUIDs&#x3D;uuid1&amp;transactionUUIDs&#x3D;uuid2&#x60;.  The response contains only data associated with the specified transactions.  | [optional] |
-| **startDate** | **OffsetDateTime**| Date and time from which results are returned. Results are filtered by transaction creation date.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered.  | [optional] |
-| **endDate** | **OffsetDateTime**| Date and time by which results are returned. Results are filtered by transaction creation date.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered.  | [optional] |
+| **customerSessionIDs** | [**List&lt;String&gt;**](String.md)| Filter the results by a list of customer session IDs.  To include multiple IDs, repeat the parameter for each one, for example, &#x60;?customerSessionIDs&#x3D;id1&amp;customerSessionIDs&#x3D;id2&#x60;.  The response contains only data associated with the specified sessions.  | [optional] |
+| **transactionUUIDs** | [**List&lt;String&gt;**](String.md)| Filter the results by a list of transaction UUIDs.  To include multiple IDs, repeat the parameter for each one, for example, &#x60;?transactionUUIDs&#x3D;uuid1&amp;transactionUUIDs&#x3D;uuid2&#x60;.  The response contains only data associated with the specified transactions.  | [optional] |
+| **startDate** | **OffsetDateTime**| Date and time from which results are returned. Results are filtered by transaction creation date.  &gt; [!note] **Note** &gt; - This must be an RFC3339 timestamp string. &gt; - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting &gt;   considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered.  | [optional] |
+| **endDate** | **OffsetDateTime**| Date and time by which results are returned. Results are filtered by transaction creation date.  &gt; [!note] **Note** &gt; - This must be an RFC3339 timestamp string. &gt; - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting &gt;   considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered.  | [optional] |
 | **pageSize** | **Long**| The number of items in the response. | [optional] [default to 50] |
 | **skip** | **Long**| The number of items to skip when paging through large result sets. | [optional] |
 | **awaitsActivation** | **Boolean**| If &#x60;true&#x60;: Filters results to include only point transactions that have action-based activation and have not expired.  If &#x60;false&#x60;: Returns a &#x60;400&#x60; response.  | [optional] |
@@ -9905,7 +8574,7 @@ public class Example {
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth), [api_key_v1](../README.md#api_key_v1)
+[api_key_v1](../README.md#api_key_v1)
 
 ### HTTP request headers
 
@@ -9943,18 +8612,6 @@ public class Example {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://yourbaseurl.talon.one");
     
-    // Configure API key authorization: management_key
-    ApiKeyAuth management_key = (ApiKeyAuth) defaultClient.getAuthentication("management_key");
-    management_key.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //management_key.setApiKeyPrefix("Token");
-
-    // Configure API key authorization: manager_auth
-    ApiKeyAuth manager_auth = (ApiKeyAuth) defaultClient.getAuthentication("manager_auth");
-    manager_auth.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //manager_auth.setApiKeyPrefix("Token");
-
     // Configure API key authorization: api_key_v1
     ApiKeyAuth api_key_v1 = (ApiKeyAuth) defaultClient.getAuthentication("api_key_v1");
     api_key_v1.setApiKey("YOUR API KEY");
@@ -9985,7 +8642,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth), [api_key_v1](../README.md#api_key_v1)
+[api_key_v1](../README.md#api_key_v1)
 
 ### HTTP request headers
 
@@ -10003,7 +8660,7 @@ This endpoint does not need any parameter.
 
 Get loyalty program statistics
 
-⚠️ Deprecation notice: Support for requests to this endpoint will end soon. To retrieve statistics for a loyalty program, use the [Get statistics for loyalty dashboard](/management-api#tag/Loyalty/operation/getDashboardStatistics) endpoint.  Retrieve the statistics of the specified loyalty program, such as the total active points, pending points, spent points, and expired points. 
+&gt; [warning] This endpoint is deprecated.  To retrieve statistics for a loyalty program, use the [Get statistics for loyalty dashboard](/management-api#tag/Loyalty/operation/getDashboardStatistics) endpoint.  Retrieve the statistics of the specified loyalty program, such as the total active points, pending points, spent points, and expired points. 
 
 ### Example
 ```java
@@ -10020,18 +8677,6 @@ public class Example {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://yourbaseurl.talon.one");
     
-    // Configure API key authorization: management_key
-    ApiKeyAuth management_key = (ApiKeyAuth) defaultClient.getAuthentication("management_key");
-    management_key.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //management_key.setApiKeyPrefix("Token");
-
-    // Configure API key authorization: manager_auth
-    ApiKeyAuth manager_auth = (ApiKeyAuth) defaultClient.getAuthentication("manager_auth");
-    manager_auth.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //manager_auth.setApiKeyPrefix("Token");
-
     // Configure API key authorization: api_key_v1
     ApiKeyAuth api_key_v1 = (ApiKeyAuth) defaultClient.getAuthentication("api_key_v1");
     api_key_v1.setApiKey("YOUR API KEY");
@@ -10066,7 +8711,7 @@ public class Example {
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth), [api_key_v1](../README.md#api_key_v1)
+[api_key_v1](../README.md#api_key_v1)
 
 ### HTTP request headers
 
@@ -10101,18 +8746,6 @@ public class Example {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://yourbaseurl.talon.one");
     
-    // Configure API key authorization: management_key
-    ApiKeyAuth management_key = (ApiKeyAuth) defaultClient.getAuthentication("management_key");
-    management_key.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //management_key.setApiKeyPrefix("Token");
-
-    // Configure API key authorization: manager_auth
-    ApiKeyAuth manager_auth = (ApiKeyAuth) defaultClient.getAuthentication("manager_auth");
-    manager_auth.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //manager_auth.setApiKeyPrefix("Token");
-
     // Configure API key authorization: api_key_v1
     ApiKeyAuth api_key_v1 = (ApiKeyAuth) defaultClient.getAuthentication("api_key_v1");
     api_key_v1.setApiKey("YOUR API KEY");
@@ -10173,7 +8806,7 @@ public class Example {
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth), [api_key_v1](../README.md#api_key_v1)
+[api_key_v1](../README.md#api_key_v1)
 
 ### HTTP request headers
 
@@ -10208,18 +8841,6 @@ public class Example {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://yourbaseurl.talon.one");
     
-    // Configure API key authorization: management_key
-    ApiKeyAuth management_key = (ApiKeyAuth) defaultClient.getAuthentication("management_key");
-    management_key.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //management_key.setApiKeyPrefix("Token");
-
-    // Configure API key authorization: manager_auth
-    ApiKeyAuth manager_auth = (ApiKeyAuth) defaultClient.getAuthentication("manager_auth");
-    manager_auth.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //manager_auth.setApiKeyPrefix("Token");
-
     // Configure API key authorization: api_key_v1
     ApiKeyAuth api_key_v1 = (ApiKeyAuth) defaultClient.getAuthentication("api_key_v1");
     api_key_v1.setApiKey("YOUR API KEY");
@@ -10274,7 +8895,7 @@ public class Example {
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth), [api_key_v1](../README.md#api_key_v1)
+[api_key_v1](../README.md#api_key_v1)
 
 ### HTTP request headers
 
@@ -10309,18 +8930,6 @@ public class Example {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://yourbaseurl.talon.one");
     
-    // Configure API key authorization: management_key
-    ApiKeyAuth management_key = (ApiKeyAuth) defaultClient.getAuthentication("management_key");
-    management_key.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //management_key.setApiKeyPrefix("Token");
-
-    // Configure API key authorization: manager_auth
-    ApiKeyAuth manager_auth = (ApiKeyAuth) defaultClient.getAuthentication("manager_auth");
-    manager_auth.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //manager_auth.setApiKeyPrefix("Token");
-
     // Configure API key authorization: api_key_v1
     ApiKeyAuth api_key_v1 = (ApiKeyAuth) defaultClient.getAuthentication("api_key_v1");
     api_key_v1.setApiKey("YOUR API KEY");
@@ -10355,7 +8964,7 @@ public class Example {
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth), [api_key_v1](../README.md#api_key_v1)
+[api_key_v1](../README.md#api_key_v1)
 
 ### HTTP request headers
 
@@ -10390,18 +8999,6 @@ public class Example {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://yourbaseurl.talon.one");
     
-    // Configure API key authorization: management_key
-    ApiKeyAuth management_key = (ApiKeyAuth) defaultClient.getAuthentication("management_key");
-    management_key.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //management_key.setApiKeyPrefix("Token");
-
-    // Configure API key authorization: manager_auth
-    ApiKeyAuth manager_auth = (ApiKeyAuth) defaultClient.getAuthentication("manager_auth");
-    manager_auth.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //manager_auth.setApiKeyPrefix("Token");
-
     // Configure API key authorization: api_key_v1
     ApiKeyAuth api_key_v1 = (ApiKeyAuth) defaultClient.getAuthentication("api_key_v1");
     api_key_v1.setApiKey("YOUR API KEY");
@@ -10440,7 +9037,7 @@ public class Example {
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth), [api_key_v1](../README.md#api_key_v1)
+[api_key_v1](../README.md#api_key_v1)
 
 ### HTTP request headers
 
@@ -10475,18 +9072,6 @@ public class Example {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://yourbaseurl.talon.one");
     
-    // Configure API key authorization: management_key
-    ApiKeyAuth management_key = (ApiKeyAuth) defaultClient.getAuthentication("management_key");
-    management_key.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //management_key.setApiKeyPrefix("Token");
-
-    // Configure API key authorization: manager_auth
-    ApiKeyAuth manager_auth = (ApiKeyAuth) defaultClient.getAuthentication("manager_auth");
-    manager_auth.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //manager_auth.setApiKeyPrefix("Token");
-
     // Configure API key authorization: api_key_v1
     ApiKeyAuth api_key_v1 = (ApiKeyAuth) defaultClient.getAuthentication("api_key_v1");
     api_key_v1.setApiKey("YOUR API KEY");
@@ -10529,7 +9114,7 @@ public class Example {
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth), [api_key_v1](../README.md#api_key_v1)
+[api_key_v1](../README.md#api_key_v1)
 
 ### HTTP request headers
 
@@ -10564,18 +9149,6 @@ public class Example {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://yourbaseurl.talon.one");
     
-    // Configure API key authorization: management_key
-    ApiKeyAuth management_key = (ApiKeyAuth) defaultClient.getAuthentication("management_key");
-    management_key.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //management_key.setApiKeyPrefix("Token");
-
-    // Configure API key authorization: manager_auth
-    ApiKeyAuth manager_auth = (ApiKeyAuth) defaultClient.getAuthentication("manager_auth");
-    manager_auth.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //manager_auth.setApiKeyPrefix("Token");
-
     // Configure API key authorization: api_key_v1
     ApiKeyAuth api_key_v1 = (ApiKeyAuth) defaultClient.getAuthentication("api_key_v1");
     api_key_v1.setApiKey("YOUR API KEY");
@@ -10612,7 +9185,7 @@ public class Example {
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth), [api_key_v1](../README.md#api_key_v1)
+[api_key_v1](../README.md#api_key_v1)
 
 ### HTTP request headers
 
@@ -10648,18 +9221,6 @@ public class Example {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://yourbaseurl.talon.one");
     
-    // Configure API key authorization: management_key
-    ApiKeyAuth management_key = (ApiKeyAuth) defaultClient.getAuthentication("management_key");
-    management_key.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //management_key.setApiKeyPrefix("Token");
-
-    // Configure API key authorization: manager_auth
-    ApiKeyAuth manager_auth = (ApiKeyAuth) defaultClient.getAuthentication("manager_auth");
-    manager_auth.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //manager_auth.setApiKeyPrefix("Token");
-
     // Configure API key authorization: api_key_v1
     ApiKeyAuth api_key_v1 = (ApiKeyAuth) defaultClient.getAuthentication("api_key_v1");
     api_key_v1.setApiKey("YOUR API KEY");
@@ -10694,7 +9255,7 @@ public class Example {
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth), [api_key_v1](../README.md#api_key_v1)
+[api_key_v1](../README.md#api_key_v1)
 
 ### HTTP request headers
 
@@ -10729,18 +9290,6 @@ public class Example {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://yourbaseurl.talon.one");
     
-    // Configure API key authorization: management_key
-    ApiKeyAuth management_key = (ApiKeyAuth) defaultClient.getAuthentication("management_key");
-    management_key.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //management_key.setApiKeyPrefix("Token");
-
-    // Configure API key authorization: manager_auth
-    ApiKeyAuth manager_auth = (ApiKeyAuth) defaultClient.getAuthentication("manager_auth");
-    manager_auth.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //manager_auth.setApiKeyPrefix("Token");
-
     // Configure API key authorization: api_key_v1
     ApiKeyAuth api_key_v1 = (ApiKeyAuth) defaultClient.getAuthentication("api_key_v1");
     api_key_v1.setApiKey("YOUR API KEY");
@@ -10779,7 +9328,7 @@ public class Example {
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth), [api_key_v1](../README.md#api_key_v1)
+[api_key_v1](../README.md#api_key_v1)
 
 ### HTTP request headers
 
@@ -10814,18 +9363,6 @@ public class Example {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://yourbaseurl.talon.one");
     
-    // Configure API key authorization: management_key
-    ApiKeyAuth management_key = (ApiKeyAuth) defaultClient.getAuthentication("management_key");
-    management_key.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //management_key.setApiKeyPrefix("Token");
-
-    // Configure API key authorization: manager_auth
-    ApiKeyAuth manager_auth = (ApiKeyAuth) defaultClient.getAuthentication("manager_auth");
-    manager_auth.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //manager_auth.setApiKeyPrefix("Token");
-
     // Configure API key authorization: api_key_v1
     ApiKeyAuth api_key_v1 = (ApiKeyAuth) defaultClient.getAuthentication("api_key_v1");
     api_key_v1.setApiKey("YOUR API KEY");
@@ -10860,7 +9397,7 @@ public class Example {
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth), [api_key_v1](../README.md#api_key_v1)
+[api_key_v1](../README.md#api_key_v1)
 
 ### HTTP request headers
 
@@ -10895,18 +9432,6 @@ public class Example {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://yourbaseurl.talon.one");
     
-    // Configure API key authorization: management_key
-    ApiKeyAuth management_key = (ApiKeyAuth) defaultClient.getAuthentication("management_key");
-    management_key.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //management_key.setApiKeyPrefix("Token");
-
-    // Configure API key authorization: manager_auth
-    ApiKeyAuth manager_auth = (ApiKeyAuth) defaultClient.getAuthentication("manager_auth");
-    manager_auth.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //manager_auth.setApiKeyPrefix("Token");
-
     // Configure API key authorization: api_key_v1
     ApiKeyAuth api_key_v1 = (ApiKeyAuth) defaultClient.getAuthentication("api_key_v1");
     api_key_v1.setApiKey("YOUR API KEY");
@@ -10955,7 +9480,7 @@ public class Example {
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth), [api_key_v1](../README.md#api_key_v1)
+[api_key_v1](../README.md#api_key_v1)
 
 ### HTTP request headers
 
@@ -10973,7 +9498,7 @@ public class Example {
 
 Import data into existing account-level collection
 
-Upload a CSV file containing the collection of string values that should be attached as payload for collection. The file should be sent as multipart data.  The import **replaces** the initial content of the collection.  The CSV file **must** only contain the following column:  - &#x60;item&#x60;: the values in your collection.  A collection is limited to 500,000 items.  Example:  &#x60;&#x60;&#x60; item Addidas Nike Asics &#x60;&#x60;&#x60;  **Note:** Before sending a request to this endpoint, ensure the data in the CSV to import is different from the data currently stored in the collection. 
+Upload a CSV file containing the collection of string values that should be attached as payload for collection.  The file should be sent as multipart data.  The import **replaces** the initial content of the collection.  The CSV file **must** only contain the following column:  - &#x60;item&#x60;: the values in your collection.  A collection is limited to 500,000 items.  ## Example  &#x60;&#x60;&#x60; item Adidas Nike Asics &#x60;&#x60;&#x60;  &gt; [!note] Before sending a request to this endpoint, ensure the data in the &gt; CSV to import is different from the data currently stored in the collection. 
 
 ### Example
 ```java
@@ -10990,18 +9515,6 @@ public class Example {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://yourbaseurl.talon.one");
     
-    // Configure API key authorization: management_key
-    ApiKeyAuth management_key = (ApiKeyAuth) defaultClient.getAuthentication("management_key");
-    management_key.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //management_key.setApiKeyPrefix("Token");
-
-    // Configure API key authorization: manager_auth
-    ApiKeyAuth manager_auth = (ApiKeyAuth) defaultClient.getAuthentication("manager_auth");
-    manager_auth.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //manager_auth.setApiKeyPrefix("Token");
-
     // Configure API key authorization: api_key_v1
     ApiKeyAuth api_key_v1 = (ApiKeyAuth) defaultClient.getAuthentication("api_key_v1");
     api_key_v1.setApiKey("YOUR API KEY");
@@ -11009,7 +9522,7 @@ public class Example {
     //api_key_v1.setApiKeyPrefix("Token");
 
     ManagementApi apiInstance = new ManagementApi(defaultClient);
-    Long collectionId = 56L; // Long | The ID of the collection. You can get it with the [List collections in account](#operation/listAccountCollections) endpoint.
+    Long collectionId = 56L; // Long | The ID of the collection. You can get it with the [List collections in account](#tag/Collections/operation/listAccountCollections) endpoint.
     String upFile = "upFile_example"; // String | The file containing the data that is being imported.
     try {
       ModelImport result = apiInstance.importAccountCollection(collectionId, upFile);
@@ -11029,7 +9542,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **collectionId** | **Long**| The ID of the collection. You can get it with the [List collections in account](#operation/listAccountCollections) endpoint. | |
+| **collectionId** | **Long**| The ID of the collection. You can get it with the [List collections in account](#tag/Collections/operation/listAccountCollections) endpoint. | |
 | **upFile** | **String**| The file containing the data that is being imported. | [optional] |
 
 ### Return type
@@ -11038,7 +9551,7 @@ public class Example {
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth), [api_key_v1](../README.md#api_key_v1)
+[api_key_v1](../README.md#api_key_v1)
 
 ### HTTP request headers
 
@@ -11058,7 +9571,7 @@ public class Example {
 
 Import allowed values for attribute
 
-Upload a CSV file containing a list of [picklist values](https://docs.talon.one/docs/product/account/dev-tools/managing-attributes#picklist-values) for the specified attribute.  The file should be sent as multipart data.  The import **replaces** the previous list of allowed values for this attribute, if any.  The CSV file **must** only contain the following column: - &#x60;item&#x60; (required): the values in your allowed list, for example a list of SKU&#39;s.  An allowed list is limited to 500,000 items.  Example:  &#x60;&#x60;&#x60;text item CS-VG-04032021-UP-50D-10 CS-DV-04042021-UP-49D-12 CS-DG-02082021-UP-50G-07 &#x60;&#x60;&#x60; 
+Upload a CSV file containing a list of [picklist values](https://docs.talon.one/docs/product/account/dev-tools/managing-attributes#picklist-values) for the specified attribute.  The file should be sent as multipart data.  The import **replaces** the previous list of allowed values for this attribute, if any.  The CSV file **must** only contain the following column:  - &#x60;item&#x60;: The values in your allowed list, for example a list of SKUs.  An allowed list is limited to 500,000 items.  ## Example  &#x60;&#x60;&#x60;text item CS-VG-04032021-UP-50D-10 CS-DV-04042021-UP-49D-12 CS-DG-02082021-UP-50G-07 &#x60;&#x60;&#x60; 
 
 ### Example
 ```java
@@ -11075,18 +9588,6 @@ public class Example {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://yourbaseurl.talon.one");
     
-    // Configure API key authorization: management_key
-    ApiKeyAuth management_key = (ApiKeyAuth) defaultClient.getAuthentication("management_key");
-    management_key.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //management_key.setApiKeyPrefix("Token");
-
-    // Configure API key authorization: manager_auth
-    ApiKeyAuth manager_auth = (ApiKeyAuth) defaultClient.getAuthentication("manager_auth");
-    manager_auth.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //manager_auth.setApiKeyPrefix("Token");
-
     // Configure API key authorization: api_key_v1
     ApiKeyAuth api_key_v1 = (ApiKeyAuth) defaultClient.getAuthentication("api_key_v1");
     api_key_v1.setApiKey("YOUR API KEY");
@@ -11123,7 +9624,7 @@ public class Example {
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth), [api_key_v1](../README.md#api_key_v1)
+[api_key_v1](../README.md#api_key_v1)
 
 ### HTTP request headers
 
@@ -11144,7 +9645,7 @@ public class Example {
 
 Import audience members
 
-Upload a CSV file containing the integration IDs of the members you want to add to an audience.  The file should be sent as multipart data and should contain only the following column (required): - &#x60;profileintegrationid&#x60;: The integration ID of the customer profile.  The import **replaces** the previous list of audience members.  **Note:** We recommend limiting your file size to 500MB.  Example:  &#x60;&#x60;&#x60;text profileintegrationid charles alexa &#x60;&#x60;&#x60; 
+Upload a CSV file containing the integration IDs of the members you want to add to an audience.  The file should be sent as multipart data and should contain only the following column (required):  - &#x60;profileintegrationid&#x60;: The integration ID of the customer profile.  The import **replaces** the previous list of audience members.  &gt; [!note] We recommend limiting your file size to 500 MB.  ## Example  &#x60;&#x60;&#x60;text profileintegrationid charles alexa &#x60;&#x60;&#x60; 
 
 ### Example
 ```java
@@ -11161,18 +9662,6 @@ public class Example {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://yourbaseurl.talon.one");
     
-    // Configure API key authorization: management_key
-    ApiKeyAuth management_key = (ApiKeyAuth) defaultClient.getAuthentication("management_key");
-    management_key.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //management_key.setApiKeyPrefix("Token");
-
-    // Configure API key authorization: manager_auth
-    ApiKeyAuth manager_auth = (ApiKeyAuth) defaultClient.getAuthentication("manager_auth");
-    manager_auth.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //manager_auth.setApiKeyPrefix("Token");
-
     // Configure API key authorization: api_key_v1
     ApiKeyAuth api_key_v1 = (ApiKeyAuth) defaultClient.getAuthentication("api_key_v1");
     api_key_v1.setApiKey("YOUR API KEY");
@@ -11209,7 +9698,7 @@ public class Example {
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth), [api_key_v1](../README.md#api_key_v1)
+[api_key_v1](../README.md#api_key_v1)
 
 ### HTTP request headers
 
@@ -11247,18 +9736,6 @@ public class Example {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://yourbaseurl.talon.one");
     
-    // Configure API key authorization: management_key
-    ApiKeyAuth management_key = (ApiKeyAuth) defaultClient.getAuthentication("management_key");
-    management_key.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //management_key.setApiKeyPrefix("Token");
-
-    // Configure API key authorization: manager_auth
-    ApiKeyAuth manager_auth = (ApiKeyAuth) defaultClient.getAuthentication("manager_auth");
-    manager_auth.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //manager_auth.setApiKeyPrefix("Token");
-
     // Configure API key authorization: api_key_v1
     ApiKeyAuth api_key_v1 = (ApiKeyAuth) defaultClient.getAuthentication("api_key_v1");
     api_key_v1.setApiKey("YOUR API KEY");
@@ -11301,7 +9778,7 @@ public class Example {
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth), [api_key_v1](../README.md#api_key_v1)
+[api_key_v1](../README.md#api_key_v1)
 
 ### HTTP request headers
 
@@ -11337,18 +9814,6 @@ public class Example {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://yourbaseurl.talon.one");
     
-    // Configure API key authorization: management_key
-    ApiKeyAuth management_key = (ApiKeyAuth) defaultClient.getAuthentication("management_key");
-    management_key.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //management_key.setApiKeyPrefix("Token");
-
-    // Configure API key authorization: manager_auth
-    ApiKeyAuth manager_auth = (ApiKeyAuth) defaultClient.getAuthentication("manager_auth");
-    manager_auth.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //manager_auth.setApiKeyPrefix("Token");
-
     // Configure API key authorization: api_key_v1
     ApiKeyAuth api_key_v1 = (ApiKeyAuth) defaultClient.getAuthentication("api_key_v1");
     api_key_v1.setApiKey("YOUR API KEY");
@@ -11387,7 +9852,7 @@ public class Example {
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth), [api_key_v1](../README.md#api_key_v1)
+[api_key_v1](../README.md#api_key_v1)
 
 ### HTTP request headers
 
@@ -11408,7 +9873,7 @@ public class Example {
 
 Import data into existing campaign-level collection
 
-Upload a CSV file containing the collection of string values that should be attached as payload for collection. The file should be sent as multipart data.  The import **replaces** the initial content of the collection.  The CSV file **must** only contain the following column:  - &#x60;item&#x60;: the values in your collection.  A collection is limited to 500,000 items.  Example:  &#x60;&#x60;&#x60; item Addidas Nike Asics &#x60;&#x60;&#x60;  **Note:** Before sending a request to this endpoint, ensure the data in the CSV to import is different from the data currently stored in the collection. 
+Upload a CSV file containing the collection of string values that should be attached as payload for collection.  The file should be sent as multipart data.  The import **replaces** the initial content of the collection.  The CSV file **must** only contain the following column:  - &#x60;item&#x60;: the values in your collection.  A collection is limited to 500,000 items.  ## Example  &#x60;&#x60;&#x60; item Adidas Nike Asics &#x60;&#x60;&#x60;  &gt; [!note] Before sending a request to this endpoint, ensure the data in the &gt; CSV to import is different from the data currently stored in the collection. 
 
 ### Example
 ```java
@@ -11425,18 +9890,6 @@ public class Example {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://yourbaseurl.talon.one");
     
-    // Configure API key authorization: management_key
-    ApiKeyAuth management_key = (ApiKeyAuth) defaultClient.getAuthentication("management_key");
-    management_key.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //management_key.setApiKeyPrefix("Token");
-
-    // Configure API key authorization: manager_auth
-    ApiKeyAuth manager_auth = (ApiKeyAuth) defaultClient.getAuthentication("manager_auth");
-    manager_auth.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //manager_auth.setApiKeyPrefix("Token");
-
     // Configure API key authorization: api_key_v1
     ApiKeyAuth api_key_v1 = (ApiKeyAuth) defaultClient.getAuthentication("api_key_v1");
     api_key_v1.setApiKey("YOUR API KEY");
@@ -11446,7 +9899,7 @@ public class Example {
     ManagementApi apiInstance = new ManagementApi(defaultClient);
     Long applicationId = 56L; // Long | The ID of the Application. It is displayed in your Talon.One deployment URL.
     Long campaignId = 56L; // Long | The ID of the campaign. It is displayed in your Talon.One deployment URL.
-    Long collectionId = 56L; // Long | The ID of the collection. You can get it with the [List collections in Application](#operation/listCollectionsInApplication) endpoint.
+    Long collectionId = 56L; // Long | The ID of the collection. You can get it with the [List collections in Application](#tag/Collections/operation/listCollectionsInApplication) endpoint.
     String upFile = "upFile_example"; // String | The file containing the data that is being imported.
     try {
       ModelImport result = apiInstance.importCollection(applicationId, campaignId, collectionId, upFile);
@@ -11468,7 +9921,7 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **applicationId** | **Long**| The ID of the Application. It is displayed in your Talon.One deployment URL. | |
 | **campaignId** | **Long**| The ID of the campaign. It is displayed in your Talon.One deployment URL. | |
-| **collectionId** | **Long**| The ID of the collection. You can get it with the [List collections in Application](#operation/listCollectionsInApplication) endpoint. | |
+| **collectionId** | **Long**| The ID of the collection. You can get it with the [List collections in Application](#tag/Collections/operation/listCollectionsInApplication) endpoint. | |
 | **upFile** | **String**| The file containing the data that is being imported. | [optional] |
 
 ### Return type
@@ -11477,7 +9930,7 @@ public class Example {
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth), [api_key_v1](../README.md#api_key_v1)
+[api_key_v1](../README.md#api_key_v1)
 
 ### HTTP request headers
 
@@ -11496,7 +9949,7 @@ public class Example {
 
 Import coupons
 
-Upload a CSV file containing the coupons that should be created. The file should be sent as multipart data.  The CSV file contains the following columns:  - &#x60;value&#x60; (required): The coupon code. Must be at least 3 characters long. We recommend using alphanumeric characters.   There is no maximum length but limiting the code to 30 characters   ensures it is fully readable in the Campaign Manager.   The code should be unique unless you set &#x60;skipDuplicates&#x60; to &#x60;true&#x60;.  - &#x60;expirydate&#x60;: The end date in RFC3339 of the code redemption period. - &#x60;startdate&#x60;: The start date in RFC3339 of the code redemption period. - &#x60;recipientintegrationid&#x60;: The integration ID of the recipient of the coupon.   Only the customer with this integration ID can redeem this code. Available only for personal codes. - &#x60;limitval&#x60;: The maximum number of redemptions of this code. For unlimited redemptions, use &#x60;0&#x60;. Defaults to &#x60;1&#x60; when not provided. - &#x60;discountlimit&#x60;: The total discount value that the code can give. This is typically used to represent a gift card value. - &#x60;attributes&#x60;: A JSON object describing _custom_ coupon attribute names and their values, enclosed with double quotation marks.    For example, if you created a [custom attribute](https://docs.talon.one/docs/dev/concepts/attributes#custom-attributes)   called &#x60;category&#x60; associated with the coupon entity, the object in the CSV file, when opened in a text editor, must be: &#x60;\&quot;{\&quot;category\&quot;: \&quot;10_off\&quot;}\&quot;&#x60;.  You can use the time zone of your choice. It is converted to UTC internally by Talon.One.  **Note:** We recommend limiting your file size to 500MB.  **Example:**  &#x60;&#x60;&#x60;text \&quot;value\&quot;,\&quot;expirydate\&quot;,\&quot;startdate\&quot;,\&quot;recipientintegrationid\&quot;,\&quot;limitval\&quot;,\&quot;attributes\&quot;,\&quot;discountlimit\&quot; COUP1,2018-07-01T04:00:00Z,2018-05-01T04:00:00Z,cust123,1,\&quot;{\&quot;\&quot;Category\&quot;\&quot;: \&quot;\&quot;10_off\&quot;\&quot;}\&quot;,2.4 &#x60;&#x60;&#x60;  Once imported, you can find the &#x60;batchId&#x60; in the Campaign Manager or by using [List coupons](#tag/Coupons/operation/getCouponsWithoutTotalCount). 
+Upload a CSV file containing the coupons that should be created. The file should be sent as multipart data.  The CSV file contains the following columns:  - &#x60;value&#x60; (required): The coupon code. Must be at least 3 characters long. We recommend using alphanumeric characters.   There is no maximum length but limiting the code to 30 characters   ensures it is fully readable in the Campaign Manager.   The code should be unique unless you set &#x60;skipDuplicates&#x60; to &#x60;true&#x60;. - &#x60;expirydate&#x60;: The end date in RFC3339 of the code redemption period. - &#x60;startdate&#x60;: The start date in RFC3339 of the code redemption period. - &#x60;recipientintegrationid&#x60;: The integration ID of the recipient of the coupon.   Only the customer with this integration ID can redeem this code. Available only for personal codes. - &#x60;limitval&#x60;: The maximum number of redemptions of this code. For unlimited redemptions, use &#x60;0&#x60;. Defaults to &#x60;1&#x60; when not provided. - &#x60;discountlimit&#x60;: The total discount value that the code can give. This is typically used to represent a gift card value. - &#x60;attributes&#x60;: A JSON object describing _custom_ coupon attribute names and their values, enclosed with double quotation marks.&lt;br /&gt;   For example, if you created a [custom attribute](https://docs.talon.one/docs/dev/concepts/attributes#custom-attributes)   called &#x60;category&#x60; associated with the coupon entity, the object in the CSV file, when opened in a text editor, must be: &#x60;\&quot;{\&quot;category\&quot;: \&quot;10_off\&quot;}\&quot;&#x60;.  You can use the time zone of your choice. It is converted to UTC internally by Talon.One.  &gt; [!note] We recommend limiting your file size to 500 MB.  ## Example  &#x60;&#x60;&#x60;text \&quot;value\&quot;,\&quot;expirydate\&quot;,\&quot;startdate\&quot;,\&quot;recipientintegrationid\&quot;,\&quot;limitval\&quot;,\&quot;attributes\&quot;,\&quot;discountlimit\&quot; COUP1,2018-07-01T04:00:00Z,2018-05-01T04:00:00Z,cust123,1,\&quot;{\&quot;\&quot;Category\&quot;\&quot;: \&quot;\&quot;10_off\&quot;\&quot;}\&quot;,2.4 &#x60;&#x60;&#x60;  Once imported, you can find the &#x60;batchId&#x60; in the Campaign Manager or by using [List coupons](#tag/Coupons/operation/getCouponsWithoutTotalCount). 
 
 ### Example
 ```java
@@ -11513,18 +9966,6 @@ public class Example {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://yourbaseurl.talon.one");
     
-    // Configure API key authorization: management_key
-    ApiKeyAuth management_key = (ApiKeyAuth) defaultClient.getAuthentication("management_key");
-    management_key.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //management_key.setApiKeyPrefix("Token");
-
-    // Configure API key authorization: manager_auth
-    ApiKeyAuth manager_auth = (ApiKeyAuth) defaultClient.getAuthentication("manager_auth");
-    manager_auth.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //manager_auth.setApiKeyPrefix("Token");
-
     // Configure API key authorization: api_key_v1
     ApiKeyAuth api_key_v1 = (ApiKeyAuth) defaultClient.getAuthentication("api_key_v1");
     api_key_v1.setApiKey("YOUR API KEY");
@@ -11565,7 +10006,7 @@ public class Example {
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth), [api_key_v1](../README.md#api_key_v1)
+[api_key_v1](../README.md#api_key_v1)
 
 ### HTTP request headers
 
@@ -11583,7 +10024,7 @@ public class Example {
 
 Import loyalty cards
 
-Upload a CSV file containing the loyalty cards that you want to use in your card-based loyalty program. Send the file as multipart data.  It contains the following columns for each card:  - &#x60;identifier&#x60; (required): The identifier of the loyalty card,  which must match the regular expression &#x60;^[A-Za-z0-9._%+@-]+$&#x60;. - &#x60;state&#x60; (required): The state of the loyalty card. It can be &#x60;active&#x60; or &#x60;inactive&#x60;. - &#x60;customerprofileids&#x60; (optional): An array of strings representing the identifiers of the customer profiles linked to the loyalty card. The identifiers should be separated with a semicolon (;).  **Note:** We recommend limiting your file size to 500MB.  **Example:**  &#x60;&#x60;&#x60;csv identifier,state,customerprofileids 123-456-789AT,active,Alexa001;UserA &#x60;&#x60;&#x60; 
+Upload a CSV file containing the loyalty cards that you want to use in your card-based loyalty program.  Send the file as multipart data.  It contains the following columns for each card:  - &#x60;identifier&#x60; (required): The identifier of the loyalty card, which must match the regular expression &#x60;^[A-Za-z0-9._%+@-]+$&#x60;. - &#x60;state&#x60; (required): The state of the loyalty card. It can be &#x60;active&#x60; or &#x60;inactive&#x60;. - &#x60;customerprofileids&#x60; (optional): An array of strings representing the identifiers of the customer profiles linked to the loyalty card. The identifiers should be separated with a semicolon (;).  &gt; [!note] We recommend limiting your file size to 500MB.  ## Example  &#x60;&#x60;&#x60;csv identifier,state,customerprofileids 123-456-789AT,active,Alexa001;UserA &#x60;&#x60;&#x60; 
 
 ### Example
 ```java
@@ -11600,18 +10041,6 @@ public class Example {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://yourbaseurl.talon.one");
     
-    // Configure API key authorization: management_key
-    ApiKeyAuth management_key = (ApiKeyAuth) defaultClient.getAuthentication("management_key");
-    management_key.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //management_key.setApiKeyPrefix("Token");
-
-    // Configure API key authorization: manager_auth
-    ApiKeyAuth manager_auth = (ApiKeyAuth) defaultClient.getAuthentication("manager_auth");
-    manager_auth.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //manager_auth.setApiKeyPrefix("Token");
-
     // Configure API key authorization: api_key_v1
     ApiKeyAuth api_key_v1 = (ApiKeyAuth) defaultClient.getAuthentication("api_key_v1");
     api_key_v1.setApiKey("YOUR API KEY");
@@ -11648,7 +10077,7 @@ public class Example {
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth), [api_key_v1](../README.md#api_key_v1)
+[api_key_v1](../README.md#api_key_v1)
 
 ### HTTP request headers
 
@@ -11668,7 +10097,7 @@ public class Example {
 
 Import customers into loyalty tiers
 
-Upload a CSV file containing existing customers to be assigned to existing tiers. Send the file as multipart data.  **Important:** This endpoint only works with loyalty programs with advanced tiers (with expiration and downgrade policy) feature enabled.  The CSV file should contain the following columns: - &#x60;subledgerid&#x60; (optional): The ID of the subledger. If this field is empty, the main ledger will be used. - &#x60;customerprofileid&#x60;: The integration ID of the customer profile to whom the tier should be assigned. - &#x60;tiername&#x60;: The name of an existing tier to assign to the customer. - &#x60;expirydate&#x60;: The expiration date of the tier when the tier is reevaluated. It should be a future date.  About customer assignment to a tier: - If the customer isn&#39;t already in a tier, the customer is assigned to the specified tier during the tier import. - If the customer is already in the tier that&#39;s specified in the CSV file, only the expiration date is updated.  **Note:** We recommend not using this endpoint to update the tier of a customer. To update a customer&#39;s tier, you can [add](/management-api#tag/Loyalty/operation/addLoyaltyPoints) or [deduct](/management-api#tag/Loyalty/operation/removeLoyaltyPoints) their loyalty points.  You can use the time zone of your choice. It is converted to UTC internally by Talon.One.  **Note:** We recommend limiting your file size to 500MB.  **Example:** &#x60;&#x60;&#x60;csv subledgerid,customerprofileid,tiername,expirydate SUB1,alexa,Gold,2024-03-21T07:32:14Z ,george,Silver,2025-04-16T21:12:37Z SUB2,avocado,Bronze,2026-05-03T11:47:01Z &#x60;&#x60;&#x60; 
+Upload a CSV file containing existing customers to be assigned to existing tiers.  Send the file as multipart data.  &gt; [!important] This endpoint only works with loyalty programs with advanced &gt; tiers (with expiration and downgrade policy) feature enabled.  The CSV file should contain the following columns:  - &#x60;subledgerid&#x60; (optional): The ID of the subledger. If this field is empty, the main ledger will be used. - &#x60;customerprofileid&#x60;: The integration ID of the customer profile to whom the tier should be assigned. - &#x60;tiername&#x60;: The name of an existing tier to assign to the customer. - &#x60;expirydate&#x60;: The expiration date of the tier when the tier is reevaluated. It should be a future date.  About customer assignment to a tier:  - If the customer isn&#39;t already in a tier, the customer is assigned to the specified tier during the tier import. - If the customer is already in the tier that&#39;s specified in the CSV file, only the expiration date is updated.  &gt; [!note] We recommend not using this endpoint to update the tier of a customer.  To update a customer&#39;s tier, you can [add](/management-api#tag/Loyalty/operation/addLoyaltyPoints) or [deduct](/management-api#tag/Loyalty/operation/removeLoyaltyPoints) their loyalty points.  You can use the time zone of your choice. It is converted to UTC internally by Talon.One.  &gt; [!note] We recommend limiting your file size to 500 MB.  ## Example  &#x60;&#x60;&#x60;csv subledgerid,customerprofileid,tiername,expirydate SUB1,alexa,Gold,2024-03-21T07:32:14Z ,george,Silver,2025-04-16T21:12:37Z SUB2,avocado,Bronze,2026-05-03T11:47:01Z &#x60;&#x60;&#x60; 
 
 ### Example
 ```java
@@ -11685,18 +10114,6 @@ public class Example {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://yourbaseurl.talon.one");
     
-    // Configure API key authorization: management_key
-    ApiKeyAuth management_key = (ApiKeyAuth) defaultClient.getAuthentication("management_key");
-    management_key.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //management_key.setApiKeyPrefix("Token");
-
-    // Configure API key authorization: manager_auth
-    ApiKeyAuth manager_auth = (ApiKeyAuth) defaultClient.getAuthentication("manager_auth");
-    manager_auth.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //manager_auth.setApiKeyPrefix("Token");
-
     // Configure API key authorization: api_key_v1
     ApiKeyAuth api_key_v1 = (ApiKeyAuth) defaultClient.getAuthentication("api_key_v1");
     api_key_v1.setApiKey("YOUR API KEY");
@@ -11733,7 +10150,7 @@ public class Example {
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth), [api_key_v1](../README.md#api_key_v1)
+[api_key_v1](../README.md#api_key_v1)
 
 ### HTTP request headers
 
@@ -11754,7 +10171,7 @@ public class Example {
 
 Import loyalty points
 
-Upload a CSV file containing the loyalty points you want to import into a given loyalty program. Send the file as multipart data.  Depending on the type of loyalty program, you can import points into a given customer profile or loyalty card.  The CSV file contains the following columns:  - &#x60;customerprofileid&#x60; (optional): For profile-based loyalty programs, the integration ID of the customer profile where the loyalty points are imported.    **Note**: If the customer profile does not exist, it will be created. The profile will not be visible in any Application   until a session or profile update is received for that profile. - &#x60;identifier&#x60; (optional): For card-based loyalty programs, the identifier of the loyalty card where the loyalty points are imported. - &#x60;amount&#x60;: The amount of points to award to the customer profile. - &#x60;startdate&#x60; (optional): The earliest date when the points can be redeemed. The points are &#x60;active&#x60; from this date until the expiration date.    This parameter accepts one of the following values:   - A timestamp string in RFC3339 format.   - &#x60;immediate&#x60;   - &#x60;on_action&#x60;      **Note**:   Empty or missing values default to &#x60;immediate&#x60;. - &#x60;expirydate&#x60; (optional): The latest date when the points can be redeemed. The points are &#x60;expired&#x60; after this date.    **Note**: It must be an RFC3339 timestamp string or string &#x60;unlimited&#x60;. Empty or missing values are considered &#x60;unlimited&#x60;.      If passed, &#x60;validityDuration&#x60; should be omitted. - &#x60;validityDuration&#x60; (optional): The duration for which the points remain active, relative to the    activation date.    The time format is an **integer** followed by one letter indicating the time unit.     Examples: &#x60;30s&#x60;, &#x60;40m&#x60;, &#x60;1h&#x60;, &#x60;5D&#x60;, &#x60;7W&#x60;, &#x60;10M&#x60;, &#x60;15Y&#x60;.     Available units:     - &#x60;s&#x60;: seconds   - &#x60;m&#x60;: minutes   - &#x60;h&#x60;: hours   - &#x60;D&#x60;: days   - &#x60;W&#x60;: weeks   - &#x60;M&#x60;: months   - &#x60;Y&#x60;: years     You can round certain units up or down:    - &#x60;_D&#x60; for rounding down days only. Signifies the start of the day.   - &#x60;_U&#x60; for rounding up days, weeks, months and years. Signifies the end of   the day, week, month or year.    If passed, &#x60;expirydate&#x60; should be omitted. - &#x60;subledgerid&#x60; (optional): The ID of the subledger that should received the points. - &#x60;reason&#x60; (optional): The reason why these points are awarded.  You can use the time zone of your choice. It is converted to UTC internally by Talon.One.  **Note:** For existing customer profiles and loyalty cards, the imported points are added to any previous active or pending points, depending on the value provided for &#x60;startdate&#x60;. If &#x60;startdate&#x60; matches the current date, the imported points are _active_. If it is later, the points are _pending_ until the date provided for &#x60;startdate&#x60; is reached.  **Note:** We recommend limiting your file size to 500MB.  **Example for profile-based programs:**  &#x60;&#x60;&#x60;text customerprofileid,amount,startdate,expirydate,subledgerid,reason URNGV8294NV,100,2009-11-10T23:00:00Z,2009-11-11T23:00:00Z,subledger1,appeasement &#x60;&#x60;&#x60;  **Example for card-based programs:**  &#x60;&#x60;&#x60;text identifier,amount,startdate,expirydate,subledgerid,reason summer-loyalty-card-0543,100,2009-11-10T23:00:00Z,2009-11-11T23:00:00Z,subledger1,appeasement &#x60;&#x60;&#x60; 
+Upload a CSV file containing the loyalty points you want to import into a given loyalty program.  Send the file as multipart data.  Depending on the type of loyalty program, you can import points into a given customer profile or loyalty card.  The CSV file contains the following columns:  - &#x60;customerprofileid&#x60; (optional): For profile-based loyalty programs, the   integration ID of the customer profile where the loyalty points are   imported.   **Note**: If the customer profile does not exist, it will be created. The profile will not be visible in any Application   until a session or profile update is received for that profile. - &#x60;identifier&#x60; (optional): For card-based loyalty programs, the identifier of the loyalty card where the loyalty points are imported. - &#x60;amount&#x60;: The amount of points to award to the customer profile. - &#x60;startdate&#x60; (optional): The earliest date when the points can be redeemed. The points are &#x60;active&#x60; from this date until the expiration date.   This parameter accepts one of the following values:     - A timestamp string in RFC3339 format.     - &#x60;immediate&#x60;     - &#x60;on_action&#x60;   **Note**: Empty or missing values default to &#x60;immediate&#x60;. - &#x60;expirydate&#x60; (optional): The latest date when the points can be redeemed.   The points are &#x60;expired&#x60; after this date.   **Note**: It must be an RFC3339 timestamp string or string &#x60;unlimited&#x60;. Empty or missing values are considered &#x60;unlimited&#x60;.   If passed, &#x60;validityDuration&#x60; should be omitted. - &#x60;validityDuration&#x60; (optional): The duration for which the points remain active, relative to the   activation date. The time format is an **integer** followed by one letter indicating the time unit.&lt;br /&gt;   Examples: &#x60;30s&#x60;, &#x60;40m&#x60;, &#x60;1h&#x60;, &#x60;5D&#x60;, &#x60;7W&#x60;, &#x60;10M&#x60;, &#x60;15Y&#x60;.    Available units:    - &#x60;s&#x60;: seconds   - &#x60;m&#x60;: minutes   - &#x60;h&#x60;: hours   - &#x60;D&#x60;: days   - &#x60;W&#x60;: weeks   - &#x60;M&#x60;: months   - &#x60;Y&#x60;: years    You can round certain units up or down:    - &#x60;_D&#x60; for rounding down days only. Signifies the start of the day.   - &#x60;_U&#x60; for rounding up days, weeks, months and years. Signifies the end of   the day, week, month or year.    If passed, &#x60;expirydate&#x60; should be omitted. - &#x60;subledgerid&#x60; (optional): The ID of the subledger that should received the points. - &#x60;reason&#x60; (optional): The reason why these points are awarded.  You can use the time zone of your choice. It is converted to UTC internally by Talon.One.  &gt; [!note] For existing customer profiles and loyalty cards, the imported &gt; points are added to any previous active or pending points, depending on the &gt; value provided for &#x60;startdate&#x60;. If &#x60;startdate&#x60; matches the current date, the &gt; imported points are _active_. If it is later, the points are _pending_ until &gt; the date provided for &#x60;startdate&#x60; is reached.  &gt; [!note] We recommend limiting your file size to 500 MB.  ## Example for profile-based programs  &#x60;&#x60;&#x60;text customerprofileid,amount,startdate,expirydate,subledgerid,reason URNGV8294NV,100,2009-11-10T23:00:00Z,2009-11-11T23:00:00Z,subledger1,appeasement &#x60;&#x60;&#x60;  ## Example for card-based programs  &#x60;&#x60;&#x60;text identifier,amount,startdate,expirydate,subledgerid,reason summer-loyalty-card-0543,100,2009-11-10T23:00:00Z,2009-11-11T23:00:00Z,subledger1,appeasement &#x60;&#x60;&#x60; 
 
 ### Example
 ```java
@@ -11771,18 +10188,6 @@ public class Example {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://yourbaseurl.talon.one");
     
-    // Configure API key authorization: management_key
-    ApiKeyAuth management_key = (ApiKeyAuth) defaultClient.getAuthentication("management_key");
-    management_key.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //management_key.setApiKeyPrefix("Token");
-
-    // Configure API key authorization: manager_auth
-    ApiKeyAuth manager_auth = (ApiKeyAuth) defaultClient.getAuthentication("manager_auth");
-    manager_auth.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //manager_auth.setApiKeyPrefix("Token");
-
     // Configure API key authorization: api_key_v1
     ApiKeyAuth api_key_v1 = (ApiKeyAuth) defaultClient.getAuthentication("api_key_v1");
     api_key_v1.setApiKey("YOUR API KEY");
@@ -11821,7 +10226,7 @@ public class Example {
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth), [api_key_v1](../README.md#api_key_v1)
+[api_key_v1](../README.md#api_key_v1)
 
 ### HTTP request headers
 
@@ -11839,7 +10244,7 @@ public class Example {
 
 Import giveaway codes into a giveaway pool
 
-Upload a CSV file containing the giveaway codes that should be created. Send the file as multipart data.  The CSV file contains the following columns: - &#x60;code&#x60; (required): The code of your giveaway, for instance, a gift card redemption code. - &#x60;startdate&#x60;:  The start date in RFC3339 of the code redemption period. - &#x60;enddate&#x60;: The last date in RFC3339 of the code redemption period. - &#x60;attributes&#x60;: A JSON object describing _custom_ giveaway attribute names and their values, enclosed with double quotation marks.    For example, if you created a [custom attribute](https://docs.talon.one/docs/dev/concepts/attributes#custom-attributes)   called &#x60;provider&#x60; associated with the giveaway entity, the object in the CSV file, when opened in a text editor, must be: &#x60;\&quot;{\&quot;provider\&quot;: \&quot;myPartnerCompany\&quot;}\&quot;&#x60;.  The &#x60;startdate&#x60; and &#x60;enddate&#x60; have nothing to do with the _validity_ of the codes. They are only used by the Rule Engine to award the codes or not. You can use the time zone setting of your choice. The values are converted to UTC internally by Talon.One.  **Note:**  - We recommend limiting your file size to 500MB. - You can import the same code multiple times. Duplicate codes are treated and distributed to customers as unique codes.  **Example:**  &#x60;&#x60;&#x60;text code,startdate,enddate,attributes GIVEAWAY1,2020-11-10T23:00:00Z,2022-11-11T23:00:00Z,\&quot;{\&quot;\&quot;provider\&quot;\&quot;: \&quot;\&quot;Amazon\&quot;\&quot;}\&quot; GIVEAWAY2,2020-11-10T23:00:00Z,2022-11-11T23:00:00Z,\&quot;{\&quot;\&quot;provider\&quot;\&quot;: \&quot;\&quot;Amazon\&quot;\&quot;}\&quot; GIVEAWAY3,2021-01-10T23:00:00Z,2022-11-11T23:00:00Z,\&quot;{\&quot;\&quot;provider\&quot;\&quot;: \&quot;\&quot;Aliexpress\&quot;\&quot;}\&quot; &#x60;&#x60;&#x60; 
+Upload a CSV file containing the giveaway codes that should be created. Send the file as multipart data.  The CSV file contains the following columns:  - &#x60;code&#x60; (required): The code of your giveaway, for instance, a gift card redemption code. - &#x60;startdate&#x60;:  The start date in RFC3339 of the code redemption period. - &#x60;enddate&#x60;: The last date in RFC3339 of the code redemption period. - &#x60;attributes&#x60;: A JSON object describing _custom_ giveaway attribute names and their values, enclosed with double quotation marks.&lt;br /&gt;   For example, if you created a [custom attribute](https://docs.talon.one/docs/dev/concepts/attributes#custom-attributes)   called &#x60;provider&#x60; associated with the giveaway entity, the object in the CSV file, when opened in a text editor, must be: &#x60;\&quot;{\&quot;provider\&quot;: \&quot;myPartnerCompany\&quot;}\&quot;&#x60;.  The &#x60;startdate&#x60; and &#x60;enddate&#x60; have nothing to do with the _validity_ of the codes. They are only used by the Rule Engine to award the codes or not.  You can use the time zone setting of your choice. The values are converted to UTC internally by Talon.One.  &gt; [!note] **Note** &gt; - We recommend limiting your file size to 500MB. &gt; - You can import the same code multiple times. Duplicate codes are treated and distributed to customers as unique codes.  ## Example  &#x60;&#x60;&#x60;text code,startdate,enddate,attributes GIVEAWAY1,2020-11-10T23:00:00Z,2022-11-11T23:00:00Z,\&quot;{\&quot;\&quot;provider\&quot;\&quot;: \&quot;\&quot;Amazon\&quot;\&quot;}\&quot; GIVEAWAY2,2020-11-10T23:00:00Z,2022-11-11T23:00:00Z,\&quot;{\&quot;\&quot;provider\&quot;\&quot;: \&quot;\&quot;Amazon\&quot;\&quot;}\&quot; GIVEAWAY3,2021-01-10T23:00:00Z,2022-11-11T23:00:00Z,\&quot;{\&quot;\&quot;provider\&quot;\&quot;: \&quot;\&quot;Aliexpress\&quot;\&quot;}\&quot; &#x60;&#x60;&#x60; 
 
 ### Example
 ```java
@@ -11856,18 +10261,6 @@ public class Example {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://yourbaseurl.talon.one");
     
-    // Configure API key authorization: management_key
-    ApiKeyAuth management_key = (ApiKeyAuth) defaultClient.getAuthentication("management_key");
-    management_key.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //management_key.setApiKeyPrefix("Token");
-
-    // Configure API key authorization: manager_auth
-    ApiKeyAuth manager_auth = (ApiKeyAuth) defaultClient.getAuthentication("manager_auth");
-    manager_auth.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //manager_auth.setApiKeyPrefix("Token");
-
     // Configure API key authorization: api_key_v1
     ApiKeyAuth api_key_v1 = (ApiKeyAuth) defaultClient.getAuthentication("api_key_v1");
     api_key_v1.setApiKey("YOUR API KEY");
@@ -11904,7 +10297,7 @@ public class Example {
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth), [api_key_v1](../README.md#api_key_v1)
+[api_key_v1](../README.md#api_key_v1)
 
 ### HTTP request headers
 
@@ -11922,7 +10315,7 @@ public class Example {
 
 Import referrals
 
-Upload a CSV file containing the referrals that should be created. The file should be sent as multipart data.  The CSV file contains the following columns:  - &#x60;code&#x60; (required): The referral code. - &#x60;advocateprofileintegrationid&#x60; (required): The profile ID of the advocate. - &#x60;startdate&#x60;: The start date in RFC3339 of the code redemption period. - &#x60;expirydate&#x60;: The end date in RFC3339 of the code redemption period. - &#x60;limitval&#x60;: The maximum number of redemptions of this code. Defaults to &#x60;1&#x60; when left blank. - &#x60;attributes&#x60;: A JSON object describing _custom_ referral attribute names and their values, enclosed with double quotation marks.    For example, if you created a [custom attribute](https://docs.talon.one/docs/dev/concepts/attributes#custom-attributes)   called &#x60;category&#x60; associated with the referral entity, the object in the CSV file, when opened in a text editor, must be: &#x60;\&quot;{\&quot;category\&quot;: \&quot;10_off\&quot;}\&quot;&#x60;.  You can use the time zone of your choice. It is converted to UTC internally by Talon.One.  **Important:** When you import a CSV file with referrals, a [customer profile](https://docs.talon.one/docs/dev/concepts/entities/customer-profiles) is **not** automatically created for each &#x60;advocateprofileintegrationid&#x60; column value. Use the [Update customer profile](https://docs.talon.one/integration-api#tag/Customer-profiles/operation/updateCustomerProfileV2) endpoint or the [Update multiple customer profiles](https://docs.talon.one/integration-api#tag/Customer-profiles/operation/updateCustomerProfilesV2) endpoint to create the customer profiles.  **Note:** We recommend limiting your file size to 500MB.  **Example:**  &#x60;&#x60;&#x60;text code,startdate,expirydate,advocateprofileintegrationid,limitval,attributes REFERRAL_CODE1,2020-11-10T23:00:00Z,2021-11-11T23:00:00Z,integid_4,1,\&quot;{\&quot;\&quot;my_attribute\&quot;\&quot;: \&quot;\&quot;10_off\&quot;\&quot;}\&quot; REFERRAL_CODE2,2020-11-10T23:00:00Z,2021-11-11T23:00:00Z,integid1,1,\&quot;{\&quot;\&quot;my_attribute\&quot;\&quot;: \&quot;\&quot;20_off\&quot;\&quot;}\&quot; &#x60;&#x60;&#x60; 
+Upload a CSV file containing the referrals that should be created.  The file should be sent as multipart data.  The CSV file contains the following columns:  - &#x60;code&#x60; (required): The referral code. - &#x60;advocateprofileintegrationid&#x60; (required): The profile ID of the advocate. - &#x60;startdate&#x60;: The start date in RFC3339 of the code redemption period. - &#x60;expirydate&#x60;: The end date in RFC3339 of the code redemption period. - &#x60;limitval&#x60;: The maximum number of redemptions of this code. Defaults to &#x60;1&#x60; when left blank. - &#x60;attributes&#x60;: A JSON object describing _custom_ referral attribute names and their values, enclosed with double quotation marks.&lt;br /&gt;   For example, if you created a [custom attribute](https://docs.talon.one/docs/dev/concepts/attributes#custom-attributes)   called &#x60;category&#x60; associated with the referral entity, the object in the CSV file, when opened in a text editor, must be: &#x60;\&quot;{\&quot;category\&quot;: \&quot;10_off\&quot;}\&quot;&#x60;.  You can use the time zone of your choice. It is converted to UTC internally by Talon.One.  &gt; [!important] When you import a CSV file with referrals, &gt; a [customer profile](https://docs.talon.one/docs/dev/concepts/entities/customer-profiles) &gt; is **not** automatically created for each &#x60;advocateprofileintegrationid&#x60; &gt; column value. Use the [Update customer profile](https://docs.talon.one/integration-api#tag/Customer-profiles/operation/updateCustomerProfileV2) &gt; endpoint or the [Update multiple customer profiles](https://docs.talon.one/integration-api#tag/Customer-profiles/operation/updateCustomerProfilesV2) &gt; endpoint to create the customer profiles.  &gt; [!note] We recommend limiting your file size to 500 MB.  ## Example  &#x60;&#x60;&#x60;text code,startdate,expirydate,advocateprofileintegrationid,limitval,attributes REFERRAL_CODE1,2020-11-10T23:00:00Z,2021-11-11T23:00:00Z,integid_4,1,\&quot;{\&quot;\&quot;my_attribute\&quot;\&quot;: \&quot;\&quot;10_off\&quot;\&quot;}\&quot; REFERRAL_CODE2,2020-11-10T23:00:00Z,2021-11-11T23:00:00Z,integid1,1,\&quot;{\&quot;\&quot;my_attribute\&quot;\&quot;: \&quot;\&quot;20_off\&quot;\&quot;}\&quot; &#x60;&#x60;&#x60; 
 
 ### Example
 ```java
@@ -11939,18 +10332,6 @@ public class Example {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://yourbaseurl.talon.one");
     
-    // Configure API key authorization: management_key
-    ApiKeyAuth management_key = (ApiKeyAuth) defaultClient.getAuthentication("management_key");
-    management_key.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //management_key.setApiKeyPrefix("Token");
-
-    // Configure API key authorization: manager_auth
-    ApiKeyAuth manager_auth = (ApiKeyAuth) defaultClient.getAuthentication("manager_auth");
-    manager_auth.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //manager_auth.setApiKeyPrefix("Token");
-
     // Configure API key authorization: api_key_v1
     ApiKeyAuth api_key_v1 = (ApiKeyAuth) defaultClient.getAuthentication("api_key_v1");
     api_key_v1.setApiKey("YOUR API KEY");
@@ -11989,7 +10370,7 @@ public class Example {
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth), [api_key_v1](../README.md#api_key_v1)
+[api_key_v1](../README.md#api_key_v1)
 
 ### HTTP request headers
 
@@ -12024,18 +10405,6 @@ public class Example {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://yourbaseurl.talon.one");
     
-    // Configure API key authorization: management_key
-    ApiKeyAuth management_key = (ApiKeyAuth) defaultClient.getAuthentication("management_key");
-    management_key.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //management_key.setApiKeyPrefix("Token");
-
-    // Configure API key authorization: manager_auth
-    ApiKeyAuth manager_auth = (ApiKeyAuth) defaultClient.getAuthentication("manager_auth");
-    manager_auth.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //manager_auth.setApiKeyPrefix("Token");
-
     // Configure API key authorization: api_key_v1
     ApiKeyAuth api_key_v1 = (ApiKeyAuth) defaultClient.getAuthentication("api_key_v1");
     api_key_v1.setApiKey("YOUR API KEY");
@@ -12069,7 +10438,7 @@ null (empty response body)
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth), [api_key_v1](../README.md#api_key_v1)
+[api_key_v1](../README.md#api_key_v1)
 
 ### HTTP request headers
 
@@ -12104,18 +10473,6 @@ public class Example {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://yourbaseurl.talon.one");
     
-    // Configure API key authorization: management_key
-    ApiKeyAuth management_key = (ApiKeyAuth) defaultClient.getAuthentication("management_key");
-    management_key.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //management_key.setApiKeyPrefix("Token");
-
-    // Configure API key authorization: manager_auth
-    ApiKeyAuth manager_auth = (ApiKeyAuth) defaultClient.getAuthentication("manager_auth");
-    manager_auth.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //manager_auth.setApiKeyPrefix("Token");
-
     // Configure API key authorization: api_key_v1
     ApiKeyAuth api_key_v1 = (ApiKeyAuth) defaultClient.getAuthentication("api_key_v1");
     api_key_v1.setApiKey("YOUR API KEY");
@@ -12158,7 +10515,7 @@ public class Example {
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth), [api_key_v1](../README.md#api_key_v1)
+[api_key_v1](../README.md#api_key_v1)
 
 ### HTTP request headers
 
@@ -12196,18 +10553,6 @@ public class Example {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://yourbaseurl.talon.one");
     
-    // Configure API key authorization: management_key
-    ApiKeyAuth management_key = (ApiKeyAuth) defaultClient.getAuthentication("management_key");
-    management_key.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //management_key.setApiKeyPrefix("Token");
-
-    // Configure API key authorization: manager_auth
-    ApiKeyAuth manager_auth = (ApiKeyAuth) defaultClient.getAuthentication("manager_auth");
-    manager_auth.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //manager_auth.setApiKeyPrefix("Token");
-
     // Configure API key authorization: api_key_v1
     ApiKeyAuth api_key_v1 = (ApiKeyAuth) defaultClient.getAuthentication("api_key_v1");
     api_key_v1.setApiKey("YOUR API KEY");
@@ -12250,7 +10595,7 @@ public class Example {
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth), [api_key_v1](../README.md#api_key_v1)
+[api_key_v1](../README.md#api_key_v1)
 
 ### HTTP request headers
 
@@ -12285,18 +10630,6 @@ public class Example {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://yourbaseurl.talon.one");
     
-    // Configure API key authorization: management_key
-    ApiKeyAuth management_key = (ApiKeyAuth) defaultClient.getAuthentication("management_key");
-    management_key.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //management_key.setApiKeyPrefix("Token");
-
-    // Configure API key authorization: manager_auth
-    ApiKeyAuth manager_auth = (ApiKeyAuth) defaultClient.getAuthentication("manager_auth");
-    manager_auth.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //manager_auth.setApiKeyPrefix("Token");
-
     // Configure API key authorization: api_key_v1
     ApiKeyAuth api_key_v1 = (ApiKeyAuth) defaultClient.getAuthentication("api_key_v1");
     api_key_v1.setApiKey("YOUR API KEY");
@@ -12327,7 +10660,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth), [api_key_v1](../README.md#api_key_v1)
+[api_key_v1](../README.md#api_key_v1)
 
 ### HTTP request headers
 
@@ -12362,18 +10695,6 @@ public class Example {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://yourbaseurl.talon.one");
     
-    // Configure API key authorization: management_key
-    ApiKeyAuth management_key = (ApiKeyAuth) defaultClient.getAuthentication("management_key");
-    management_key.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //management_key.setApiKeyPrefix("Token");
-
-    // Configure API key authorization: manager_auth
-    ApiKeyAuth manager_auth = (ApiKeyAuth) defaultClient.getAuthentication("manager_auth");
-    manager_auth.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //manager_auth.setApiKeyPrefix("Token");
-
     // Configure API key authorization: api_key_v1
     ApiKeyAuth api_key_v1 = (ApiKeyAuth) defaultClient.getAuthentication("api_key_v1");
     api_key_v1.setApiKey("YOUR API KEY");
@@ -12414,7 +10735,7 @@ public class Example {
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth), [api_key_v1](../README.md#api_key_v1)
+[api_key_v1](../README.md#api_key_v1)
 
 ### HTTP request headers
 
@@ -12452,18 +10773,6 @@ public class Example {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://yourbaseurl.talon.one");
     
-    // Configure API key authorization: management_key
-    ApiKeyAuth management_key = (ApiKeyAuth) defaultClient.getAuthentication("management_key");
-    management_key.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //management_key.setApiKeyPrefix("Token");
-
-    // Configure API key authorization: manager_auth
-    ApiKeyAuth manager_auth = (ApiKeyAuth) defaultClient.getAuthentication("manager_auth");
-    manager_auth.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //manager_auth.setApiKeyPrefix("Token");
-
     // Configure API key authorization: api_key_v1
     ApiKeyAuth api_key_v1 = (ApiKeyAuth) defaultClient.getAuthentication("api_key_v1");
     api_key_v1.setApiKey("YOUR API KEY");
@@ -12508,7 +10817,7 @@ public class Example {
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth), [api_key_v1](../README.md#api_key_v1)
+[api_key_v1](../README.md#api_key_v1)
 
 ### HTTP request headers
 
@@ -12543,18 +10852,6 @@ public class Example {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://yourbaseurl.talon.one");
     
-    // Configure API key authorization: management_key
-    ApiKeyAuth management_key = (ApiKeyAuth) defaultClient.getAuthentication("management_key");
-    management_key.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //management_key.setApiKeyPrefix("Token");
-
-    // Configure API key authorization: manager_auth
-    ApiKeyAuth manager_auth = (ApiKeyAuth) defaultClient.getAuthentication("manager_auth");
-    manager_auth.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //manager_auth.setApiKeyPrefix("Token");
-
     // Configure API key authorization: api_key_v1
     ApiKeyAuth api_key_v1 = (ApiKeyAuth) defaultClient.getAuthentication("api_key_v1");
     api_key_v1.setApiKey("YOUR API KEY");
@@ -12601,7 +10898,7 @@ public class Example {
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth), [api_key_v1](../README.md#api_key_v1)
+[api_key_v1](../README.md#api_key_v1)
 
 ### HTTP request headers
 
@@ -12637,18 +10934,6 @@ public class Example {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://yourbaseurl.talon.one");
     
-    // Configure API key authorization: management_key
-    ApiKeyAuth management_key = (ApiKeyAuth) defaultClient.getAuthentication("management_key");
-    management_key.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //management_key.setApiKeyPrefix("Token");
-
-    // Configure API key authorization: manager_auth
-    ApiKeyAuth manager_auth = (ApiKeyAuth) defaultClient.getAuthentication("manager_auth");
-    manager_auth.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //manager_auth.setApiKeyPrefix("Token");
-
     // Configure API key authorization: api_key_v1
     ApiKeyAuth api_key_v1 = (ApiKeyAuth) defaultClient.getAuthentication("api_key_v1");
     api_key_v1.setApiKey("YOUR API KEY");
@@ -12693,7 +10978,7 @@ public class Example {
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth), [api_key_v1](../README.md#api_key_v1)
+[api_key_v1](../README.md#api_key_v1)
 
 ### HTTP request headers
 
@@ -12729,18 +11014,6 @@ public class Example {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://yourbaseurl.talon.one");
     
-    // Configure API key authorization: management_key
-    ApiKeyAuth management_key = (ApiKeyAuth) defaultClient.getAuthentication("management_key");
-    management_key.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //management_key.setApiKeyPrefix("Token");
-
-    // Configure API key authorization: manager_auth
-    ApiKeyAuth manager_auth = (ApiKeyAuth) defaultClient.getAuthentication("manager_auth");
-    manager_auth.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //manager_auth.setApiKeyPrefix("Token");
-
     // Configure API key authorization: api_key_v1
     ApiKeyAuth api_key_v1 = (ApiKeyAuth) defaultClient.getAuthentication("api_key_v1");
     api_key_v1.setApiKey("YOUR API KEY");
@@ -12781,7 +11054,7 @@ public class Example {
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth), [api_key_v1](../README.md#api_key_v1)
+[api_key_v1](../README.md#api_key_v1)
 
 ### HTTP request headers
 
@@ -12816,18 +11089,6 @@ public class Example {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://yourbaseurl.talon.one");
     
-    // Configure API key authorization: management_key
-    ApiKeyAuth management_key = (ApiKeyAuth) defaultClient.getAuthentication("management_key");
-    management_key.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //management_key.setApiKeyPrefix("Token");
-
-    // Configure API key authorization: manager_auth
-    ApiKeyAuth manager_auth = (ApiKeyAuth) defaultClient.getAuthentication("manager_auth");
-    manager_auth.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //manager_auth.setApiKeyPrefix("Token");
-
     // Configure API key authorization: api_key_v1
     ApiKeyAuth api_key_v1 = (ApiKeyAuth) defaultClient.getAuthentication("api_key_v1");
     api_key_v1.setApiKey("YOUR API KEY");
@@ -12878,7 +11139,7 @@ public class Example {
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth), [api_key_v1](../README.md#api_key_v1)
+[api_key_v1](../README.md#api_key_v1)
 
 ### HTTP request headers
 
@@ -12913,18 +11174,6 @@ public class Example {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://yourbaseurl.talon.one");
     
-    // Configure API key authorization: management_key
-    ApiKeyAuth management_key = (ApiKeyAuth) defaultClient.getAuthentication("management_key");
-    management_key.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //management_key.setApiKeyPrefix("Token");
-
-    // Configure API key authorization: manager_auth
-    ApiKeyAuth manager_auth = (ApiKeyAuth) defaultClient.getAuthentication("manager_auth");
-    manager_auth.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //manager_auth.setApiKeyPrefix("Token");
-
     // Configure API key authorization: api_key_v1
     ApiKeyAuth api_key_v1 = (ApiKeyAuth) defaultClient.getAuthentication("api_key_v1");
     api_key_v1.setApiKey("YOUR API KEY");
@@ -12954,7 +11203,7 @@ null (empty response body)
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth), [api_key_v1](../README.md#api_key_v1)
+[api_key_v1](../README.md#api_key_v1)
 
 ### HTTP request headers
 
@@ -12966,13 +11215,13 @@ null (empty response body)
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
 
-<a id="removeLoyaltyPoints"></a>
-# **removeLoyaltyPoints**
-> removeLoyaltyPoints(loyaltyProgramId, integrationId, deductLoyaltyPoints)
+<a id="priceHistory"></a>
+# **priceHistory**
+> PriceHistoryResponse priceHistory(applicationId, priceHistoryRequest)
 
-Deduct points from customer profile
+Get summary of price history
 
-Deduct points from the specified loyalty program and specified customer profile.  **Important:** - Only active points can be deducted. - Only pending points are rolled back when a session is cancelled or reopened.  To get the &#x60;integrationId&#x60; of the profile from a &#x60;sessionId&#x60;, use the [Update customer session](https://docs.talon.one/integration-api#operation/updateCustomerSessionV2) endpoint. 
+Fetch the historical price data for a given SKU within a defined timeframe. 
 
 ### Example
 ```java
@@ -12989,18 +11238,77 @@ public class Example {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://yourbaseurl.talon.one");
     
-    // Configure API key authorization: management_key
-    ApiKeyAuth management_key = (ApiKeyAuth) defaultClient.getAuthentication("management_key");
-    management_key.setApiKey("YOUR API KEY");
+    // Configure API key authorization: api_key_v1
+    ApiKeyAuth api_key_v1 = (ApiKeyAuth) defaultClient.getAuthentication("api_key_v1");
+    api_key_v1.setApiKey("YOUR API KEY");
     // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //management_key.setApiKeyPrefix("Token");
+    //api_key_v1.setApiKeyPrefix("Token");
 
-    // Configure API key authorization: manager_auth
-    ApiKeyAuth manager_auth = (ApiKeyAuth) defaultClient.getAuthentication("manager_auth");
-    manager_auth.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //manager_auth.setApiKeyPrefix("Token");
+    ManagementApi apiInstance = new ManagementApi(defaultClient);
+    Long applicationId = 56L; // Long | The ID of the Application. It is displayed in your Talon.One deployment URL.
+    PriceHistoryRequest priceHistoryRequest = new PriceHistoryRequest(); // PriceHistoryRequest | body
+    try {
+      PriceHistoryResponse result = apiInstance.priceHistory(applicationId, priceHistoryRequest);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling ManagementApi#priceHistory");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
 
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **applicationId** | **Long**| The ID of the Application. It is displayed in your Talon.One deployment URL. | |
+| **priceHistoryRequest** | [**PriceHistoryRequest**](PriceHistoryRequest.md)| body | |
+
+### Return type
+
+[**PriceHistoryResponse**](PriceHistoryResponse.md)
+
+### Authorization
+
+[api_key_v1](../README.md#api_key_v1)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Ok |  -  |
+
+<a id="removeLoyaltyPoints"></a>
+# **removeLoyaltyPoints**
+> removeLoyaltyPoints(loyaltyProgramId, integrationId, deductLoyaltyPoints)
+
+Deduct points from customer profile
+
+Deduct points from the specified loyalty program and specified customer profile.  &gt; [!note] **Note** &gt; - Only active points can be deducted. &gt; - Only pending points are rolled back when a session is cancelled or reopened.  To get the &#x60;integrationId&#x60; of the profile from a &#x60;sessionId&#x60;, use the [Update customer session](https://docs.talon.one/integration-api#tag/Customer-sessions/operation/updateCustomerSessionV2) endpoint. 
+
+### Example
+```java
+// Import classes:
+import one.talon.ApiClient;
+import one.talon.ApiException;
+import one.talon.Configuration;
+import one.talon.auth.*;
+import one.talon.models.*;
+import one.talon.api.ManagementApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://yourbaseurl.talon.one");
+    
     // Configure API key authorization: api_key_v1
     ApiKeyAuth api_key_v1 = (ApiKeyAuth) defaultClient.getAuthentication("api_key_v1");
     api_key_v1.setApiKey("YOUR API KEY");
@@ -13038,7 +11346,7 @@ null (empty response body)
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth), [api_key_v1](../README.md#api_key_v1)
+[api_key_v1](../README.md#api_key_v1)
 
 ### HTTP request headers
 
@@ -13076,18 +11384,6 @@ public class Example {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://yourbaseurl.talon.one");
     
-    // Configure API key authorization: management_key
-    ApiKeyAuth management_key = (ApiKeyAuth) defaultClient.getAuthentication("management_key");
-    management_key.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //management_key.setApiKeyPrefix("Token");
-
-    // Configure API key authorization: manager_auth
-    ApiKeyAuth manager_auth = (ApiKeyAuth) defaultClient.getAuthentication("manager_auth");
-    manager_auth.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //manager_auth.setApiKeyPrefix("Token");
-
     // Configure API key authorization: api_key_v1
     ApiKeyAuth api_key_v1 = (ApiKeyAuth) defaultClient.getAuthentication("api_key_v1");
     api_key_v1.setApiKey("YOUR API KEY");
@@ -13122,7 +11418,7 @@ public class Example {
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth), [api_key_v1](../README.md#api_key_v1)
+[api_key_v1](../README.md#api_key_v1)
 
 ### HTTP request headers
 
@@ -13157,18 +11453,6 @@ public class Example {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://yourbaseurl.talon.one");
     
-    // Configure API key authorization: management_key
-    ApiKeyAuth management_key = (ApiKeyAuth) defaultClient.getAuthentication("management_key");
-    management_key.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //management_key.setApiKeyPrefix("Token");
-
-    // Configure API key authorization: manager_auth
-    ApiKeyAuth manager_auth = (ApiKeyAuth) defaultClient.getAuthentication("manager_auth");
-    manager_auth.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //manager_auth.setApiKeyPrefix("Token");
-
     // Configure API key authorization: api_key_v1
     ApiKeyAuth api_key_v1 = (ApiKeyAuth) defaultClient.getAuthentication("api_key_v1");
     api_key_v1.setApiKey("YOUR API KEY");
@@ -13203,7 +11487,7 @@ public class Example {
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth), [api_key_v1](../README.md#api_key_v1)
+[api_key_v1](../README.md#api_key_v1)
 
 ### HTTP request headers
 
@@ -13238,18 +11522,6 @@ public class Example {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://yourbaseurl.talon.one");
     
-    // Configure API key authorization: management_key
-    ApiKeyAuth management_key = (ApiKeyAuth) defaultClient.getAuthentication("management_key");
-    management_key.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //management_key.setApiKeyPrefix("Token");
-
-    // Configure API key authorization: manager_auth
-    ApiKeyAuth manager_auth = (ApiKeyAuth) defaultClient.getAuthentication("manager_auth");
-    manager_auth.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //manager_auth.setApiKeyPrefix("Token");
-
     // Configure API key authorization: api_key_v1
     ApiKeyAuth api_key_v1 = (ApiKeyAuth) defaultClient.getAuthentication("api_key_v1");
     api_key_v1.setApiKey("YOUR API KEY");
@@ -13284,7 +11556,7 @@ public class Example {
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth), [api_key_v1](../README.md#api_key_v1)
+[api_key_v1](../README.md#api_key_v1)
 
 ### HTTP request headers
 
@@ -13319,18 +11591,6 @@ public class Example {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://yourbaseurl.talon.one");
     
-    // Configure API key authorization: management_key
-    ApiKeyAuth management_key = (ApiKeyAuth) defaultClient.getAuthentication("management_key");
-    management_key.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //management_key.setApiKeyPrefix("Token");
-
-    // Configure API key authorization: manager_auth
-    ApiKeyAuth manager_auth = (ApiKeyAuth) defaultClient.getAuthentication("manager_auth");
-    manager_auth.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //manager_auth.setApiKeyPrefix("Token");
-
     // Configure API key authorization: api_key_v1
     ApiKeyAuth api_key_v1 = (ApiKeyAuth) defaultClient.getAuthentication("api_key_v1");
     api_key_v1.setApiKey("YOUR API KEY");
@@ -13364,7 +11624,7 @@ null (empty response body)
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth), [api_key_v1](../README.md#api_key_v1)
+[api_key_v1](../README.md#api_key_v1)
 
 ### HTTP request headers
 
@@ -13399,18 +11659,6 @@ public class Example {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://yourbaseurl.talon.one");
     
-    // Configure API key authorization: management_key
-    ApiKeyAuth management_key = (ApiKeyAuth) defaultClient.getAuthentication("management_key");
-    management_key.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //management_key.setApiKeyPrefix("Token");
-
-    // Configure API key authorization: manager_auth
-    ApiKeyAuth manager_auth = (ApiKeyAuth) defaultClient.getAuthentication("manager_auth");
-    manager_auth.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //manager_auth.setApiKeyPrefix("Token");
-
     // Configure API key authorization: api_key_v1
     ApiKeyAuth api_key_v1 = (ApiKeyAuth) defaultClient.getAuthentication("api_key_v1");
     api_key_v1.setApiKey("YOUR API KEY");
@@ -13444,7 +11692,7 @@ null (empty response body)
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth), [api_key_v1](../README.md#api_key_v1)
+[api_key_v1](../README.md#api_key_v1)
 
 ### HTTP request headers
 
@@ -13479,18 +11727,6 @@ public class Example {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://yourbaseurl.talon.one");
     
-    // Configure API key authorization: management_key
-    ApiKeyAuth management_key = (ApiKeyAuth) defaultClient.getAuthentication("management_key");
-    management_key.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //management_key.setApiKeyPrefix("Token");
-
-    // Configure API key authorization: manager_auth
-    ApiKeyAuth manager_auth = (ApiKeyAuth) defaultClient.getAuthentication("manager_auth");
-    manager_auth.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //manager_auth.setApiKeyPrefix("Token");
-
     // Configure API key authorization: api_key_v1
     ApiKeyAuth api_key_v1 = (ApiKeyAuth) defaultClient.getAuthentication("api_key_v1");
     api_key_v1.setApiKey("YOUR API KEY");
@@ -13525,7 +11761,7 @@ public class Example {
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth), [api_key_v1](../README.md#api_key_v1)
+[api_key_v1](../README.md#api_key_v1)
 
 ### HTTP request headers
 
@@ -13560,18 +11796,6 @@ public class Example {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://yourbaseurl.talon.one");
     
-    // Configure API key authorization: management_key
-    ApiKeyAuth management_key = (ApiKeyAuth) defaultClient.getAuthentication("management_key");
-    management_key.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //management_key.setApiKeyPrefix("Token");
-
-    // Configure API key authorization: manager_auth
-    ApiKeyAuth manager_auth = (ApiKeyAuth) defaultClient.getAuthentication("manager_auth");
-    manager_auth.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //manager_auth.setApiKeyPrefix("Token");
-
     // Configure API key authorization: api_key_v1
     ApiKeyAuth api_key_v1 = (ApiKeyAuth) defaultClient.getAuthentication("api_key_v1");
     api_key_v1.setApiKey("YOUR API KEY");
@@ -13602,7 +11826,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth), [api_key_v1](../README.md#api_key_v1)
+[api_key_v1](../README.md#api_key_v1)
 
 ### HTTP request headers
 
@@ -13637,18 +11861,6 @@ public class Example {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://yourbaseurl.talon.one");
     
-    // Configure API key authorization: management_key
-    ApiKeyAuth management_key = (ApiKeyAuth) defaultClient.getAuthentication("management_key");
-    management_key.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //management_key.setApiKeyPrefix("Token");
-
-    // Configure API key authorization: manager_auth
-    ApiKeyAuth manager_auth = (ApiKeyAuth) defaultClient.getAuthentication("manager_auth");
-    manager_auth.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //manager_auth.setApiKeyPrefix("Token");
-
     // Configure API key authorization: api_key_v1
     ApiKeyAuth api_key_v1 = (ApiKeyAuth) defaultClient.getAuthentication("api_key_v1");
     api_key_v1.setApiKey("YOUR API KEY");
@@ -13679,7 +11891,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth), [api_key_v1](../README.md#api_key_v1)
+[api_key_v1](../README.md#api_key_v1)
 
 ### HTTP request headers
 
@@ -13714,18 +11926,6 @@ public class Example {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://yourbaseurl.talon.one");
     
-    // Configure API key authorization: management_key
-    ApiKeyAuth management_key = (ApiKeyAuth) defaultClient.getAuthentication("management_key");
-    management_key.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //management_key.setApiKeyPrefix("Token");
-
-    // Configure API key authorization: manager_auth
-    ApiKeyAuth manager_auth = (ApiKeyAuth) defaultClient.getAuthentication("manager_auth");
-    manager_auth.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //manager_auth.setApiKeyPrefix("Token");
-
     // Configure API key authorization: api_key_v1
     ApiKeyAuth api_key_v1 = (ApiKeyAuth) defaultClient.getAuthentication("api_key_v1");
     api_key_v1.setApiKey("YOUR API KEY");
@@ -13756,7 +11956,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth), [api_key_v1](../README.md#api_key_v1)
+[api_key_v1](../README.md#api_key_v1)
 
 ### HTTP request headers
 
@@ -13791,18 +11991,6 @@ public class Example {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://yourbaseurl.talon.one");
     
-    // Configure API key authorization: management_key
-    ApiKeyAuth management_key = (ApiKeyAuth) defaultClient.getAuthentication("management_key");
-    management_key.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //management_key.setApiKeyPrefix("Token");
-
-    // Configure API key authorization: manager_auth
-    ApiKeyAuth manager_auth = (ApiKeyAuth) defaultClient.getAuthentication("manager_auth");
-    manager_auth.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //manager_auth.setApiKeyPrefix("Token");
-
     // Configure API key authorization: api_key_v1
     ApiKeyAuth api_key_v1 = (ApiKeyAuth) defaultClient.getAuthentication("api_key_v1");
     api_key_v1.setApiKey("YOUR API KEY");
@@ -13833,7 +12021,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth), [api_key_v1](../README.md#api_key_v1)
+[api_key_v1](../README.md#api_key_v1)
 
 ### HTTP request headers
 
@@ -13868,18 +12056,6 @@ public class Example {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://yourbaseurl.talon.one");
     
-    // Configure API key authorization: management_key
-    ApiKeyAuth management_key = (ApiKeyAuth) defaultClient.getAuthentication("management_key");
-    management_key.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //management_key.setApiKeyPrefix("Token");
-
-    // Configure API key authorization: manager_auth
-    ApiKeyAuth manager_auth = (ApiKeyAuth) defaultClient.getAuthentication("manager_auth");
-    manager_auth.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //manager_auth.setApiKeyPrefix("Token");
-
     // Configure API key authorization: api_key_v1
     ApiKeyAuth api_key_v1 = (ApiKeyAuth) defaultClient.getAuthentication("api_key_v1");
     api_key_v1.setApiKey("YOUR API KEY");
@@ -13914,7 +12090,7 @@ public class Example {
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth), [api_key_v1](../README.md#api_key_v1)
+[api_key_v1](../README.md#api_key_v1)
 
 ### HTTP request headers
 
@@ -13949,18 +12125,6 @@ public class Example {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://yourbaseurl.talon.one");
     
-    // Configure API key authorization: management_key
-    ApiKeyAuth management_key = (ApiKeyAuth) defaultClient.getAuthentication("management_key");
-    management_key.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //management_key.setApiKeyPrefix("Token");
-
-    // Configure API key authorization: manager_auth
-    ApiKeyAuth manager_auth = (ApiKeyAuth) defaultClient.getAuthentication("manager_auth");
-    manager_auth.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //manager_auth.setApiKeyPrefix("Token");
-
     // Configure API key authorization: api_key_v1
     ApiKeyAuth api_key_v1 = (ApiKeyAuth) defaultClient.getAuthentication("api_key_v1");
     api_key_v1.setApiKey("YOUR API KEY");
@@ -13991,7 +12155,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth), [api_key_v1](../README.md#api_key_v1)
+[api_key_v1](../README.md#api_key_v1)
 
 ### HTTP request headers
 
@@ -14026,18 +12190,6 @@ public class Example {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://yourbaseurl.talon.one");
     
-    // Configure API key authorization: management_key
-    ApiKeyAuth management_key = (ApiKeyAuth) defaultClient.getAuthentication("management_key");
-    management_key.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //management_key.setApiKeyPrefix("Token");
-
-    // Configure API key authorization: manager_auth
-    ApiKeyAuth manager_auth = (ApiKeyAuth) defaultClient.getAuthentication("manager_auth");
-    manager_auth.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //manager_auth.setApiKeyPrefix("Token");
-
     // Configure API key authorization: api_key_v1
     ApiKeyAuth api_key_v1 = (ApiKeyAuth) defaultClient.getAuthentication("api_key_v1");
     api_key_v1.setApiKey("YOUR API KEY");
@@ -14074,7 +12226,7 @@ public class Example {
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth), [api_key_v1](../README.md#api_key_v1)
+[api_key_v1](../README.md#api_key_v1)
 
 ### HTTP request headers
 
@@ -14109,18 +12261,6 @@ public class Example {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://yourbaseurl.talon.one");
     
-    // Configure API key authorization: management_key
-    ApiKeyAuth management_key = (ApiKeyAuth) defaultClient.getAuthentication("management_key");
-    management_key.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //management_key.setApiKeyPrefix("Token");
-
-    // Configure API key authorization: manager_auth
-    ApiKeyAuth manager_auth = (ApiKeyAuth) defaultClient.getAuthentication("manager_auth");
-    manager_auth.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //manager_auth.setApiKeyPrefix("Token");
-
     // Configure API key authorization: api_key_v1
     ApiKeyAuth api_key_v1 = (ApiKeyAuth) defaultClient.getAuthentication("api_key_v1");
     api_key_v1.setApiKey("YOUR API KEY");
@@ -14157,7 +12297,7 @@ public class Example {
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth), [api_key_v1](../README.md#api_key_v1)
+[api_key_v1](../README.md#api_key_v1)
 
 ### HTTP request headers
 
@@ -14192,18 +12332,6 @@ public class Example {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://yourbaseurl.talon.one");
     
-    // Configure API key authorization: management_key
-    ApiKeyAuth management_key = (ApiKeyAuth) defaultClient.getAuthentication("management_key");
-    management_key.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //management_key.setApiKeyPrefix("Token");
-
-    // Configure API key authorization: manager_auth
-    ApiKeyAuth manager_auth = (ApiKeyAuth) defaultClient.getAuthentication("manager_auth");
-    manager_auth.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //manager_auth.setApiKeyPrefix("Token");
-
     // Configure API key authorization: api_key_v1
     ApiKeyAuth api_key_v1 = (ApiKeyAuth) defaultClient.getAuthentication("api_key_v1");
     api_key_v1.setApiKey("YOUR API KEY");
@@ -14240,7 +12368,7 @@ public class Example {
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth), [api_key_v1](../README.md#api_key_v1)
+[api_key_v1](../README.md#api_key_v1)
 
 ### HTTP request headers
 
@@ -14275,18 +12403,6 @@ public class Example {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://yourbaseurl.talon.one");
     
-    // Configure API key authorization: management_key
-    ApiKeyAuth management_key = (ApiKeyAuth) defaultClient.getAuthentication("management_key");
-    management_key.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //management_key.setApiKeyPrefix("Token");
-
-    // Configure API key authorization: manager_auth
-    ApiKeyAuth manager_auth = (ApiKeyAuth) defaultClient.getAuthentication("manager_auth");
-    manager_auth.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //manager_auth.setApiKeyPrefix("Token");
-
     // Configure API key authorization: api_key_v1
     ApiKeyAuth api_key_v1 = (ApiKeyAuth) defaultClient.getAuthentication("api_key_v1");
     api_key_v1.setApiKey("YOUR API KEY");
@@ -14323,7 +12439,7 @@ public class Example {
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth), [api_key_v1](../README.md#api_key_v1)
+[api_key_v1](../README.md#api_key_v1)
 
 ### HTTP request headers
 
@@ -14341,7 +12457,7 @@ public class Example {
 
 List coupons that match the given attributes (without total count)
 
-List the coupons whose attributes match the query criteria in all the campaigns of the given Application.  The match is successful if all the attributes of the request are found in a coupon, even if the coupon has more attributes that are not present on the request.  **Note:** The total count is not included in the response. 
+List the coupons whose attributes match the query criteria in all the campaigns of the given Application.  The match is successful if all the attributes of the request are found in a coupon, even if the coupon has more attributes that are not present on the request.  &gt; [!note] The total count is not included in the response. 
 
 ### Example
 ```java
@@ -14358,18 +12474,6 @@ public class Example {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://yourbaseurl.talon.one");
     
-    // Configure API key authorization: management_key
-    ApiKeyAuth management_key = (ApiKeyAuth) defaultClient.getAuthentication("management_key");
-    management_key.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //management_key.setApiKeyPrefix("Token");
-
-    // Configure API key authorization: manager_auth
-    ApiKeyAuth manager_auth = (ApiKeyAuth) defaultClient.getAuthentication("manager_auth");
-    manager_auth.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //manager_auth.setApiKeyPrefix("Token");
-
     // Configure API key authorization: api_key_v1
     ApiKeyAuth api_key_v1 = (ApiKeyAuth) defaultClient.getAuthentication("api_key_v1");
     api_key_v1.setApiKey("YOUR API KEY");
@@ -14432,7 +12536,7 @@ public class Example {
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth), [api_key_v1](../README.md#api_key_v1)
+[api_key_v1](../README.md#api_key_v1)
 
 ### HTTP request headers
 
@@ -14450,7 +12554,7 @@ public class Example {
 
 List coupons that match the given attributes in campaign (without total count)
 
-List the coupons whose attributes match the query criteria in the given campaign.  The match is successful if all the attributes of the request are found in a coupon, even if the coupon has more attributes that are not present on the request.  **Note:** The total count is not included in the response. 
+List the coupons whose attributes match the query criteria in the given campaign.  The match is successful if all the attributes of the request are found in a coupon, even if the coupon has more attributes that are not present on the request.  &gt; [!note] The total count is not included in the response. 
 
 ### Example
 ```java
@@ -14467,18 +12571,6 @@ public class Example {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://yourbaseurl.talon.one");
     
-    // Configure API key authorization: management_key
-    ApiKeyAuth management_key = (ApiKeyAuth) defaultClient.getAuthentication("management_key");
-    management_key.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //management_key.setApiKeyPrefix("Token");
-
-    // Configure API key authorization: manager_auth
-    ApiKeyAuth manager_auth = (ApiKeyAuth) defaultClient.getAuthentication("manager_auth");
-    manager_auth.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //manager_auth.setApiKeyPrefix("Token");
-
     // Configure API key authorization: api_key_v1
     ApiKeyAuth api_key_v1 = (ApiKeyAuth) defaultClient.getAuthentication("api_key_v1");
     api_key_v1.setApiKey("YOUR API KEY");
@@ -14541,7 +12633,7 @@ public class Example {
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth), [api_key_v1](../README.md#api_key_v1)
+[api_key_v1](../README.md#api_key_v1)
 
 ### HTTP request headers
 
@@ -14576,18 +12668,6 @@ public class Example {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://yourbaseurl.talon.one");
     
-    // Configure API key authorization: management_key
-    ApiKeyAuth management_key = (ApiKeyAuth) defaultClient.getAuthentication("management_key");
-    management_key.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //management_key.setApiKeyPrefix("Token");
-
-    // Configure API key authorization: manager_auth
-    ApiKeyAuth manager_auth = (ApiKeyAuth) defaultClient.getAuthentication("manager_auth");
-    manager_auth.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //manager_auth.setApiKeyPrefix("Token");
-
     // Configure API key authorization: api_key_v1
     ApiKeyAuth api_key_v1 = (ApiKeyAuth) defaultClient.getAuthentication("api_key_v1");
     api_key_v1.setApiKey("YOUR API KEY");
@@ -14624,7 +12704,7 @@ public class Example {
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth), [api_key_v1](../README.md#api_key_v1)
+[api_key_v1](../README.md#api_key_v1)
 
 ### HTTP request headers
 
@@ -14645,7 +12725,7 @@ public class Example {
 
 Transfer card data
 
-Transfer loyalty card data, such as linked customers, loyalty balances and transactions, from a given loyalty card to a new, automatically created loyalty card.  **Important:**  - The original card is automatically blocked once the new card is created, and it cannot be activated again. - The default status of the new card is _active_. 
+Transfer loyalty card data, such as linked customers, loyalty balances and transactions, from a given loyalty card to a new, automatically created loyalty card.  &gt; [!important] **Note** &gt; - The original card is automatically blocked once the new card is created,     and it cannot be activated again. &gt; - The default status of the new card is _active_. 
 
 ### Example
 ```java
@@ -14662,18 +12742,6 @@ public class Example {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://yourbaseurl.talon.one");
     
-    // Configure API key authorization: management_key
-    ApiKeyAuth management_key = (ApiKeyAuth) defaultClient.getAuthentication("management_key");
-    management_key.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //management_key.setApiKeyPrefix("Token");
-
-    // Configure API key authorization: manager_auth
-    ApiKeyAuth manager_auth = (ApiKeyAuth) defaultClient.getAuthentication("manager_auth");
-    manager_auth.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //manager_auth.setApiKeyPrefix("Token");
-
     // Configure API key authorization: api_key_v1
     ApiKeyAuth api_key_v1 = (ApiKeyAuth) defaultClient.getAuthentication("api_key_v1");
     api_key_v1.setApiKey("YOUR API KEY");
@@ -14711,7 +12779,7 @@ null (empty response body)
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth), [api_key_v1](../README.md#api_key_v1)
+[api_key_v1](../README.md#api_key_v1)
 
 ### HTTP request headers
 
@@ -14749,18 +12817,6 @@ public class Example {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://yourbaseurl.talon.one");
     
-    // Configure API key authorization: management_key
-    ApiKeyAuth management_key = (ApiKeyAuth) defaultClient.getAuthentication("management_key");
-    management_key.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //management_key.setApiKeyPrefix("Token");
-
-    // Configure API key authorization: manager_auth
-    ApiKeyAuth manager_auth = (ApiKeyAuth) defaultClient.getAuthentication("manager_auth");
-    manager_auth.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //manager_auth.setApiKeyPrefix("Token");
-
     // Configure API key authorization: api_key_v1
     ApiKeyAuth api_key_v1 = (ApiKeyAuth) defaultClient.getAuthentication("api_key_v1");
     api_key_v1.setApiKey("YOUR API KEY");
@@ -14768,7 +12824,7 @@ public class Example {
     //api_key_v1.setApiKeyPrefix("Token");
 
     ManagementApi apiInstance = new ManagementApi(defaultClient);
-    Long collectionId = 56L; // Long | The ID of the collection. You can get it with the [List collections in account](#operation/listAccountCollections) endpoint.
+    Long collectionId = 56L; // Long | The ID of the collection. You can get it with the [List collections in account](#tag/Collections/operation/listAccountCollections) endpoint.
     UpdateCollection updateCollection = new UpdateCollection(); // UpdateCollection | body
     try {
       Collection result = apiInstance.updateAccountCollection(collectionId, updateCollection);
@@ -14788,7 +12844,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **collectionId** | **Long**| The ID of the collection. You can get it with the [List collections in account](#operation/listAccountCollections) endpoint. | |
+| **collectionId** | **Long**| The ID of the collection. You can get it with the [List collections in account](#tag/Collections/operation/listAccountCollections) endpoint. | |
 | **updateCollection** | [**UpdateCollection**](UpdateCollection.md)| body | |
 
 ### Return type
@@ -14797,7 +12853,7 @@ public class Example {
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth), [api_key_v1](../README.md#api_key_v1)
+[api_key_v1](../README.md#api_key_v1)
 
 ### HTTP request headers
 
@@ -14835,18 +12891,6 @@ public class Example {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://yourbaseurl.talon.one");
     
-    // Configure API key authorization: management_key
-    ApiKeyAuth management_key = (ApiKeyAuth) defaultClient.getAuthentication("management_key");
-    management_key.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //management_key.setApiKeyPrefix("Token");
-
-    // Configure API key authorization: manager_auth
-    ApiKeyAuth manager_auth = (ApiKeyAuth) defaultClient.getAuthentication("manager_auth");
-    manager_auth.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //manager_auth.setApiKeyPrefix("Token");
-
     // Configure API key authorization: api_key_v1
     ApiKeyAuth api_key_v1 = (ApiKeyAuth) defaultClient.getAuthentication("api_key_v1");
     api_key_v1.setApiKey("YOUR API KEY");
@@ -14887,7 +12931,7 @@ public class Example {
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth), [api_key_v1](../README.md#api_key_v1)
+[api_key_v1](../README.md#api_key_v1)
 
 ### HTTP request headers
 
@@ -14925,18 +12969,6 @@ public class Example {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://yourbaseurl.talon.one");
     
-    // Configure API key authorization: management_key
-    ApiKeyAuth management_key = (ApiKeyAuth) defaultClient.getAuthentication("management_key");
-    management_key.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //management_key.setApiKeyPrefix("Token");
-
-    // Configure API key authorization: manager_auth
-    ApiKeyAuth manager_auth = (ApiKeyAuth) defaultClient.getAuthentication("manager_auth");
-    manager_auth.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //manager_auth.setApiKeyPrefix("Token");
-
     // Configure API key authorization: api_key_v1
     ApiKeyAuth api_key_v1 = (ApiKeyAuth) defaultClient.getAuthentication("api_key_v1");
     api_key_v1.setApiKey("YOUR API KEY");
@@ -14973,7 +13005,7 @@ public class Example {
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth), [api_key_v1](../README.md#api_key_v1)
+[api_key_v1](../README.md#api_key_v1)
 
 ### HTTP request headers
 
@@ -15008,18 +13040,6 @@ public class Example {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://yourbaseurl.talon.one");
     
-    // Configure API key authorization: management_key
-    ApiKeyAuth management_key = (ApiKeyAuth) defaultClient.getAuthentication("management_key");
-    management_key.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //management_key.setApiKeyPrefix("Token");
-
-    // Configure API key authorization: manager_auth
-    ApiKeyAuth manager_auth = (ApiKeyAuth) defaultClient.getAuthentication("manager_auth");
-    manager_auth.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //manager_auth.setApiKeyPrefix("Token");
-
     // Configure API key authorization: api_key_v1
     ApiKeyAuth api_key_v1 = (ApiKeyAuth) defaultClient.getAuthentication("api_key_v1");
     api_key_v1.setApiKey("YOUR API KEY");
@@ -15056,7 +13076,7 @@ public class Example {
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth), [api_key_v1](../README.md#api_key_v1)
+[api_key_v1](../README.md#api_key_v1)
 
 ### HTTP request headers
 
@@ -15074,7 +13094,7 @@ public class Example {
 
 Update campaign
 
-Update the given campaign.  **Important:** You cannot use this endpoint to update campaigns if [campaign staging and revisions](https://docs.talon.one/docs/product/applications/managing-general-settings#campaign-staging-and-revisions) is enabled for your Application. 
+Update the given campaign.  &gt; [!important] You cannot use this endpoint to update campaigns if [campaign staging and &gt; revisions](https://docs.talon.one/docs/product/applications/managing-general-settings#campaign-staging-and-revisions) &gt; is enabled for your Application. 
 
 ### Example
 ```java
@@ -15091,18 +13111,6 @@ public class Example {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://yourbaseurl.talon.one");
     
-    // Configure API key authorization: management_key
-    ApiKeyAuth management_key = (ApiKeyAuth) defaultClient.getAuthentication("management_key");
-    management_key.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //management_key.setApiKeyPrefix("Token");
-
-    // Configure API key authorization: manager_auth
-    ApiKeyAuth manager_auth = (ApiKeyAuth) defaultClient.getAuthentication("manager_auth");
-    manager_auth.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //manager_auth.setApiKeyPrefix("Token");
-
     // Configure API key authorization: api_key_v1
     ApiKeyAuth api_key_v1 = (ApiKeyAuth) defaultClient.getAuthentication("api_key_v1");
     api_key_v1.setApiKey("YOUR API KEY");
@@ -15141,7 +13149,7 @@ public class Example {
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth), [api_key_v1](../README.md#api_key_v1)
+[api_key_v1](../README.md#api_key_v1)
 
 ### HTTP request headers
 
@@ -15176,18 +13184,6 @@ public class Example {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://yourbaseurl.talon.one");
     
-    // Configure API key authorization: management_key
-    ApiKeyAuth management_key = (ApiKeyAuth) defaultClient.getAuthentication("management_key");
-    management_key.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //management_key.setApiKeyPrefix("Token");
-
-    // Configure API key authorization: manager_auth
-    ApiKeyAuth manager_auth = (ApiKeyAuth) defaultClient.getAuthentication("manager_auth");
-    manager_auth.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //manager_auth.setApiKeyPrefix("Token");
-
     // Configure API key authorization: api_key_v1
     ApiKeyAuth api_key_v1 = (ApiKeyAuth) defaultClient.getAuthentication("api_key_v1");
     api_key_v1.setApiKey("YOUR API KEY");
@@ -15197,7 +13193,7 @@ public class Example {
     ManagementApi apiInstance = new ManagementApi(defaultClient);
     Long applicationId = 56L; // Long | The ID of the Application. It is displayed in your Talon.One deployment URL.
     Long campaignId = 56L; // Long | The ID of the campaign. It is displayed in your Talon.One deployment URL.
-    Long collectionId = 56L; // Long | The ID of the collection. You can get it with the [List collections in Application](#operation/listCollectionsInApplication) endpoint.
+    Long collectionId = 56L; // Long | The ID of the collection. You can get it with the [List collections in Application](#tag/Collections/operation/listCollectionsInApplication) endpoint.
     UpdateCampaignCollection updateCampaignCollection = new UpdateCampaignCollection(); // UpdateCampaignCollection | body
     try {
       Collection result = apiInstance.updateCollection(applicationId, campaignId, collectionId, updateCampaignCollection);
@@ -15219,7 +13215,7 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **applicationId** | **Long**| The ID of the Application. It is displayed in your Talon.One deployment URL. | |
 | **campaignId** | **Long**| The ID of the campaign. It is displayed in your Talon.One deployment URL. | |
-| **collectionId** | **Long**| The ID of the collection. You can get it with the [List collections in Application](#operation/listCollectionsInApplication) endpoint. | |
+| **collectionId** | **Long**| The ID of the collection. You can get it with the [List collections in Application](#tag/Collections/operation/listCollectionsInApplication) endpoint. | |
 | **updateCampaignCollection** | [**UpdateCampaignCollection**](UpdateCampaignCollection.md)| body | |
 
 ### Return type
@@ -15228,7 +13224,7 @@ public class Example {
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth), [api_key_v1](../README.md#api_key_v1)
+[api_key_v1](../README.md#api_key_v1)
 
 ### HTTP request headers
 
@@ -15247,7 +13243,7 @@ public class Example {
 
 Update coupon
 
-Update the specified coupon.  &lt;div class&#x3D;\&quot;redoc-section\&quot;&gt;   &lt;p class&#x3D;\&quot;title\&quot;&gt;Important&lt;/p&gt;    &lt;p&gt;With this &lt;code&gt;PUT&lt;/code&gt; endpoint, if you do not explicitly set a value for the &lt;code&gt;startDate&lt;/code&gt;, &lt;code&gt;expiryDate&lt;/code&gt;, and &lt;code&gt;recipientIntegrationId&lt;/code&gt; properties in your request, it is automatically set to &lt;code&gt;null&lt;/code&gt;.&lt;/p&gt;  &lt;/div&gt; 
+Update the specified coupon.  &gt; [!note] &gt; With this &#x60;PUT&#x60; endpoint, if you do not explicitly set a value for the &#x60;startDate&#x60;, &#x60;expiryDate&#x60;, &gt; and &#x60;recipientIntegrationId&#x60; properties in your request, it is automatically set to &#x60;null&#x60;. 
 
 ### Example
 ```java
@@ -15264,18 +13260,6 @@ public class Example {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://yourbaseurl.talon.one");
     
-    // Configure API key authorization: management_key
-    ApiKeyAuth management_key = (ApiKeyAuth) defaultClient.getAuthentication("management_key");
-    management_key.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //management_key.setApiKeyPrefix("Token");
-
-    // Configure API key authorization: manager_auth
-    ApiKeyAuth manager_auth = (ApiKeyAuth) defaultClient.getAuthentication("manager_auth");
-    manager_auth.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //manager_auth.setApiKeyPrefix("Token");
-
     // Configure API key authorization: api_key_v1
     ApiKeyAuth api_key_v1 = (ApiKeyAuth) defaultClient.getAuthentication("api_key_v1");
     api_key_v1.setApiKey("YOUR API KEY");
@@ -15316,7 +13300,7 @@ public class Example {
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth), [api_key_v1](../README.md#api_key_v1)
+[api_key_v1](../README.md#api_key_v1)
 
 ### HTTP request headers
 
@@ -15334,7 +13318,7 @@ public class Example {
 
 Update coupons
 
-Update all coupons or a specific batch of coupons in the given campaign. You can find the &#x60;batchId&#x60; on the **Coupons** page of your campaign in the Campaign Manager, or you can use [List coupons](#operation/getCouponsWithoutTotalCount).  &lt;div class&#x3D;\&quot;redoc-section\&quot;&gt;   &lt;p class&#x3D;\&quot;title\&quot;&gt;Important&lt;/p&gt;    &lt;ul&gt;     &lt;li&gt;Only send sequential requests to this endpoint.&lt;/li&gt;     &lt;li&gt;Requests to this endpoint time out after 30 minutes. If you hit a timeout, contact our support team.&lt;/li&gt;     &lt;li&gt;With this &lt;code&gt;PUT&lt;/code&gt; endpoint, if you do not explicitly set a value for the &lt;code&gt;startDate&lt;/code&gt; and &lt;code&gt;expiryDate&lt;/code&gt; properties in your request, it is automatically set to &lt;code&gt;null&lt;/code&gt;.&lt;/li&gt;   &lt;/ul&gt;  &lt;/div&gt;  To update a specific coupon, use [Update coupon](#operation/updateCoupon). 
+Update all coupons or a specific batch of coupons in the given campaign.  You can find the &#x60;batchId&#x60; on the **Coupons** page of your campaign in the Campaign Manager, or you can use [List coupons](#tag/Coupons/operation/getCouponsWithoutTotalCount).  &gt; [!note] **Note** &gt; - Only send sequential requests to this endpoint. &gt; - Requests to this endpoint time out after 30 minutes. If you hit a timeout, contact our support team. &gt; - With this &#x60;PUT&#x60; endpoint, if you do not explicitly set a value for the &#x60;startDate&#x60; and &#x60;expiryDate&#x60; properties in your request, it is automatically set to &#x60;null&#x60;.  To update a specific coupon, use [Update coupon](#tag/Coupons/operation/updateCoupon). 
 
 ### Example
 ```java
@@ -15351,18 +13335,6 @@ public class Example {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://yourbaseurl.talon.one");
     
-    // Configure API key authorization: management_key
-    ApiKeyAuth management_key = (ApiKeyAuth) defaultClient.getAuthentication("management_key");
-    management_key.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //management_key.setApiKeyPrefix("Token");
-
-    // Configure API key authorization: manager_auth
-    ApiKeyAuth manager_auth = (ApiKeyAuth) defaultClient.getAuthentication("manager_auth");
-    manager_auth.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //manager_auth.setApiKeyPrefix("Token");
-
     // Configure API key authorization: api_key_v1
     ApiKeyAuth api_key_v1 = (ApiKeyAuth) defaultClient.getAuthentication("api_key_v1");
     api_key_v1.setApiKey("YOUR API KEY");
@@ -15400,7 +13372,7 @@ null (empty response body)
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth), [api_key_v1](../README.md#api_key_v1)
+[api_key_v1](../README.md#api_key_v1)
 
 ### HTTP request headers
 
@@ -15435,18 +13407,6 @@ public class Example {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://yourbaseurl.talon.one");
     
-    // Configure API key authorization: management_key
-    ApiKeyAuth management_key = (ApiKeyAuth) defaultClient.getAuthentication("management_key");
-    management_key.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //management_key.setApiKeyPrefix("Token");
-
-    // Configure API key authorization: manager_auth
-    ApiKeyAuth manager_auth = (ApiKeyAuth) defaultClient.getAuthentication("manager_auth");
-    manager_auth.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //manager_auth.setApiKeyPrefix("Token");
-
     // Configure API key authorization: api_key_v1
     ApiKeyAuth api_key_v1 = (ApiKeyAuth) defaultClient.getAuthentication("api_key_v1");
     api_key_v1.setApiKey("YOUR API KEY");
@@ -15485,7 +13445,7 @@ public class Example {
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth), [api_key_v1](../README.md#api_key_v1)
+[api_key_v1](../README.md#api_key_v1)
 
 ### HTTP request headers
 
@@ -15523,18 +13483,6 @@ public class Example {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://yourbaseurl.talon.one");
     
-    // Configure API key authorization: management_key
-    ApiKeyAuth management_key = (ApiKeyAuth) defaultClient.getAuthentication("management_key");
-    management_key.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //management_key.setApiKeyPrefix("Token");
-
-    // Configure API key authorization: manager_auth
-    ApiKeyAuth manager_auth = (ApiKeyAuth) defaultClient.getAuthentication("manager_auth");
-    manager_auth.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //manager_auth.setApiKeyPrefix("Token");
-
     // Configure API key authorization: api_key_v1
     ApiKeyAuth api_key_v1 = (ApiKeyAuth) defaultClient.getAuthentication("api_key_v1");
     api_key_v1.setApiKey("YOUR API KEY");
@@ -15575,7 +13523,7 @@ public class Example {
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth), [api_key_v1](../README.md#api_key_v1)
+[api_key_v1](../README.md#api_key_v1)
 
 ### HTTP request headers
 
@@ -15610,18 +13558,6 @@ public class Example {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://yourbaseurl.talon.one");
     
-    // Configure API key authorization: management_key
-    ApiKeyAuth management_key = (ApiKeyAuth) defaultClient.getAuthentication("management_key");
-    management_key.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //management_key.setApiKeyPrefix("Token");
-
-    // Configure API key authorization: manager_auth
-    ApiKeyAuth manager_auth = (ApiKeyAuth) defaultClient.getAuthentication("manager_auth");
-    manager_auth.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //manager_auth.setApiKeyPrefix("Token");
-
     // Configure API key authorization: api_key_v1
     ApiKeyAuth api_key_v1 = (ApiKeyAuth) defaultClient.getAuthentication("api_key_v1");
     api_key_v1.setApiKey("YOUR API KEY");
@@ -15658,7 +13594,7 @@ public class Example {
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth), [api_key_v1](../README.md#api_key_v1)
+[api_key_v1](../README.md#api_key_v1)
 
 ### HTTP request headers
 
@@ -15693,18 +13629,6 @@ public class Example {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://yourbaseurl.talon.one");
     
-    // Configure API key authorization: management_key
-    ApiKeyAuth management_key = (ApiKeyAuth) defaultClient.getAuthentication("management_key");
-    management_key.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //management_key.setApiKeyPrefix("Token");
-
-    // Configure API key authorization: manager_auth
-    ApiKeyAuth manager_auth = (ApiKeyAuth) defaultClient.getAuthentication("manager_auth");
-    manager_auth.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //manager_auth.setApiKeyPrefix("Token");
-
     // Configure API key authorization: api_key_v1
     ApiKeyAuth api_key_v1 = (ApiKeyAuth) defaultClient.getAuthentication("api_key_v1");
     api_key_v1.setApiKey("YOUR API KEY");
@@ -15743,7 +13667,7 @@ public class Example {
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth), [api_key_v1](../README.md#api_key_v1)
+[api_key_v1](../README.md#api_key_v1)
 
 ### HTTP request headers
 
@@ -15780,18 +13704,6 @@ public class Example {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://yourbaseurl.talon.one");
     
-    // Configure API key authorization: management_key
-    ApiKeyAuth management_key = (ApiKeyAuth) defaultClient.getAuthentication("management_key");
-    management_key.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //management_key.setApiKeyPrefix("Token");
-
-    // Configure API key authorization: manager_auth
-    ApiKeyAuth manager_auth = (ApiKeyAuth) defaultClient.getAuthentication("manager_auth");
-    manager_auth.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //manager_auth.setApiKeyPrefix("Token");
-
     // Configure API key authorization: api_key_v1
     ApiKeyAuth api_key_v1 = (ApiKeyAuth) defaultClient.getAuthentication("api_key_v1");
     api_key_v1.setApiKey("YOUR API KEY");
@@ -15828,7 +13740,7 @@ public class Example {
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth), [api_key_v1](../README.md#api_key_v1)
+[api_key_v1](../README.md#api_key_v1)
 
 ### HTTP request headers
 
