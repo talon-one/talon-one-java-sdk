@@ -103,6 +103,11 @@ public class LedgerInfo {
   @javax.annotation.Nullable
   private BigDecimal pointsToNextTier;
 
+  public static final String SERIALIZED_NAME_NEXT_TIER_NAME = "nextTierName";
+  @SerializedName(SERIALIZED_NAME_NEXT_TIER_NAME)
+  @javax.annotation.Nullable
+  private String nextTierName;
+
   public LedgerInfo() {
   }
 
@@ -296,6 +301,25 @@ public class LedgerInfo {
   }
 
 
+  public LedgerInfo nextTierName(@javax.annotation.Nullable String nextTierName) {
+    this.nextTierName = nextTierName;
+    return this;
+  }
+
+  /**
+   * The name of the next higher tier level in the loyalty program.  **Note**: - Returns &#x60;null&#x60; if the customer has reached the highest available tier. - Returns the lowest level tier name if the customer is not currently assigned to any tier. 
+   * @return nextTierName
+   */
+  @javax.annotation.Nullable
+  public String getNextTierName() {
+    return nextTierName;
+  }
+
+  public void setNextTierName(@javax.annotation.Nullable String nextTierName) {
+    this.nextTierName = nextTierName;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -315,12 +339,13 @@ public class LedgerInfo {
         Objects.equals(this.tentativePendingBalance, ledgerInfo.tentativePendingBalance) &&
         Objects.equals(this.tentativeNegativeBalance, ledgerInfo.tentativeNegativeBalance) &&
         Objects.equals(this.currentTier, ledgerInfo.currentTier) &&
-        Objects.equals(this.pointsToNextTier, ledgerInfo.pointsToNextTier);
+        Objects.equals(this.pointsToNextTier, ledgerInfo.pointsToNextTier) &&
+        Objects.equals(this.nextTierName, ledgerInfo.nextTierName);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(currentBalance, pendingBalance, negativeBalance, expiredBalance, spentBalance, tentativeCurrentBalance, tentativePendingBalance, tentativeNegativeBalance, currentTier, pointsToNextTier);
+    return Objects.hash(currentBalance, pendingBalance, negativeBalance, expiredBalance, spentBalance, tentativeCurrentBalance, tentativePendingBalance, tentativeNegativeBalance, currentTier, pointsToNextTier, nextTierName);
   }
 
   @Override
@@ -337,6 +362,7 @@ public class LedgerInfo {
     sb.append("    tentativeNegativeBalance: ").append(toIndentedString(tentativeNegativeBalance)).append("\n");
     sb.append("    currentTier: ").append(toIndentedString(currentTier)).append("\n");
     sb.append("    pointsToNextTier: ").append(toIndentedString(pointsToNextTier)).append("\n");
+    sb.append("    nextTierName: ").append(toIndentedString(nextTierName)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -358,7 +384,7 @@ public class LedgerInfo {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("currentBalance", "pendingBalance", "negativeBalance", "expiredBalance", "spentBalance", "tentativeCurrentBalance", "tentativePendingBalance", "tentativeNegativeBalance", "currentTier", "pointsToNextTier"));
+    openapiFields = new HashSet<String>(Arrays.asList("currentBalance", "pendingBalance", "negativeBalance", "expiredBalance", "spentBalance", "tentativeCurrentBalance", "tentativePendingBalance", "tentativeNegativeBalance", "currentTier", "pointsToNextTier", "nextTierName"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("currentBalance", "pendingBalance", "expiredBalance", "spentBalance", "tentativeCurrentBalance"));
@@ -395,6 +421,9 @@ public class LedgerInfo {
       // validate the optional field `currentTier`
       if (jsonObj.get("currentTier") != null && !jsonObj.get("currentTier").isJsonNull()) {
         Tier.validateJsonElement(jsonObj.get("currentTier"));
+      }
+      if ((jsonObj.get("nextTierName") != null && !jsonObj.get("nextTierName").isJsonNull()) && !jsonObj.get("nextTierName").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `nextTierName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("nextTierName").toString()));
       }
   }
 

@@ -42,6 +42,7 @@ import one.talon.model.GetReservedCustomers200Response;
 import one.talon.model.IntegrationCustomerSessionResponse;
 import one.talon.model.IntegrationEventV2Request;
 import one.talon.model.IntegrationEventV2Response;
+import one.talon.model.IntegrationGetAllCampaigns200Response;
 import one.talon.model.IntegrationRequest;
 import one.talon.model.IntegrationStateV2;
 import one.talon.model.LoyaltyBalancesWithTiers;
@@ -468,6 +469,26 @@ public class IntegrationApiTest {
     }
 
     /**
+     * List all running campaigns
+     *
+     * Retrieve all running campaigns for the specified Application. You can filter the results by providing specific campaign IDs or a range of  start and end dates. 
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void integrationGetAllCampaignsTest() throws ApiException {
+        Long pageSize = null;
+        Long skip = null;
+        List<String> campaignIds = null;
+        OffsetDateTime startAfter = null;
+        OffsetDateTime startBefore = null;
+        OffsetDateTime endAfter = null;
+        OffsetDateTime endBefore = null;
+        IntegrationGetAllCampaigns200Response response = api.integrationGetAllCampaigns(pageSize, skip, campaignIds, startAfter, startBefore, endAfter, endBefore);
+        // TODO: test validations
+    }
+
+    /**
      * Link customer profile to card
      *
      * [Loyalty cards](https://docs.talon.one/docs/product/loyalty-programs/card-based/card-based-overview) allow customers to collect and spend loyalty points within a [card-based loyalty program](https://docs.talon.one/docs/product/loyalty-programs/overview#loyalty-program-types).  They are useful to gamify loyalty programs and can be used with or without customer profiles linked to them.  Link a customer profile to a given loyalty card for the card to be set as **Registered**.  This affects how it can be used. See the [docs](https://docs.talon.one/docs/product/loyalty-programs/card-based/managing-loyalty-cards#linking-customer-profiles-to-a-loyalty-card).  &gt; [!note] You can link as many customer profiles to a given loyalty card as the &gt; [**card user limit**](https://docs.talon.one/docs/product/loyalty-programs/card-based/creating-cb-programs) &gt; allows. 
@@ -509,7 +530,8 @@ public class IntegrationApiTest {
         String customerSessionId = null;
         ReturnIntegrationRequest returnIntegrationRequest = null;
         Boolean dry = null;
-        IntegrationStateV2 response = api.returnCartItems(customerSessionId, returnIntegrationRequest, dry);
+        Boolean runRuleEngine = null;
+        IntegrationStateV2 response = api.returnCartItems(customerSessionId, returnIntegrationRequest, dry, runRuleEngine);
         // TODO: test validations
     }
 

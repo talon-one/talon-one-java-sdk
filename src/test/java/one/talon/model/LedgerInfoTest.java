@@ -119,4 +119,12 @@ public class LedgerInfoTest {
         // TODO: test pointsToNextTier
     }
 
+    /**
+     * Test the property 'nextTierName'
+     */
+    @Test
+    public void nextTierNameTest() {
+        // TODO: test nextTierName
+    }
+
 }

@@ -18,7 +18,7 @@
 |**endDate** | **OffsetDateTime** | The achievement&#39;s end date. If defined, customers cannot participate in the achievement after this date.  **Note:** It must be an RFC3339 timestamp string.  |  [optional] |
 |**allowRollbackAfterCompletion** | **Boolean** | When &#x60;true&#x60;, customer progress can be rolled back in completed achievements. |  [optional] |
 |**sandbox** | **Boolean** | Indicates if this achievement is a live or sandbox achievement. Achievements of a given type can only be connected to Applications of the same type. |  |
-|**subscribedApplications** | **List&lt;Long&gt;** | A list containing the IDs of all applications that are subscribed to A list containing the IDs of all Applications that are connected to this achievement. |  |
+|**subscribedApplications** | **List&lt;Long&gt;** | A list containing the IDs of all applications that are subscribed to A list containing the IDs of all Applications that are connected to this achievement. |  [optional] |
 |**timezone** | **String** | A string containing an IANA timezone descriptor. |  |
 
 

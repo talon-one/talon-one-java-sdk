@@ -22,6 +22,7 @@ import one.talon.model.ActivateUserRequest;
 import one.talon.model.AddLoyaltyPoints;
 import one.talon.model.Application;
 import one.talon.model.ApplicationApiHealth;
+import one.talon.model.ApplicationCIFExpression;
 import one.talon.model.ApplicationCustomer;
 import one.talon.model.ApplicationSession;
 import one.talon.model.AsyncCouponCreationResponse;
@@ -88,6 +89,7 @@ import one.talon.model.GetWebhooks200Response;
 import one.talon.model.ListAccountCollections200Response;
 import one.talon.model.ListAchievements200Response;
 import one.talon.model.ListAllRolesV2200Response;
+import one.talon.model.ListApplicationCartItemFilters200Response;
 import one.talon.model.ListCampaignStoreBudgetLimits200Response;
 import one.talon.model.ListCatalogItems200Response;
 import one.talon.model.ListExperiments200Response;
@@ -372,11 +374,11 @@ public class ManagementApiTest {
      * @throws ApiException if the Api call fails
      */
     @Test
-    public void createCouponsAsyncTest() throws ApiException {
+    public void createCouponsAsynchronouslyTest() throws ApiException {
         Long applicationId = null;
         Long campaignId = null;
         NewCouponCreationJob newCouponCreationJob = null;
-        AsyncCouponCreationResponse response = api.createCouponsAsync(applicationId, campaignId, newCouponCreationJob);
+        AsyncCouponCreationResponse response = api.createCouponsAsynchronously(applicationId, campaignId, newCouponCreationJob);
         // TODO: test validations
     }
 
@@ -832,6 +834,22 @@ public class ManagementApiTest {
     }
 
     /**
+     * Export campaign value map
+     *
+     * Download a CSV file containing all the value map items in a campaign. If there are multiple versions of the value map, only the items of the current version are exported.  &gt; [!tip] If the exported CSV file is too large to view, you can &gt; [split it into multiple files](https://www.google.com/search?q&#x3D;split+CSV+into+multiple+files).  The generated file can contain the following columns:  - &#x60;identifier&#x60;: The value of the attribute in the targeted item, for example, an item&#39;s SKU. - &#x60;value&#x60;: The value that is associated with the identifier, for example, the item&#39;s price. 
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void exportCampaignValueMapTest() throws ApiException {
+        Long applicationId = null;
+        Long campaignId = null;
+        Long valueMapId = null;
+        String response = api.exportCampaignValueMap(applicationId, campaignId, valueMapId);
+        // TODO: test validations
+    }
+
+    /**
      * Export campaign-level collection&#39;s items
      *
      * Download a CSV file containing items from a given campaign-level collection.  &gt; [!tip] If the exported CSV file is too large to view, you can &gt; [split it into multiple files](https://www.google.com/search?q&#x3D;split+CSV+into+multiple+files). 
@@ -1208,7 +1226,7 @@ public class ManagementApiTest {
     /**
      * Get Application
      *
-     * Get the application specified by the ID.
+     * Get the Application specified by the ID.
      *
      * @throws ApiException if the Api call fails
      */
@@ -1230,6 +1248,22 @@ public class ManagementApiTest {
     public void getApplicationApiHealthTest() throws ApiException {
         Long applicationId = null;
         ApplicationApiHealth response = api.getApplicationApiHealth(applicationId);
+        // TODO: test validations
+    }
+
+    /**
+     * Get Application cart item filter expression
+     *
+     * Get an Application cart item filter expression for a specific Application.
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void getApplicationCartItemFilterExpressionTest() throws ApiException {
+        Long applicationId = null;
+        Long cartItemFilterId = null;
+        Long expressionId = null;
+        ApplicationCIFExpression response = api.getApplicationCartItemFilterExpression(applicationId, cartItemFilterId, expressionId);
         // TODO: test validations
     }
 
@@ -1393,7 +1427,7 @@ public class ManagementApiTest {
     /**
      * List Applications
      *
-     * List all applications in the current account.
+     * List all the Applications in the current account.
      *
      * @throws ApiException if the Api call fails
      */
@@ -2513,6 +2547,23 @@ public class ManagementApiTest {
     @Test
     public void listAllRolesV2Test() throws ApiException {
         ListAllRolesV2200Response response = api.listAllRolesV2();
+        // TODO: test validations
+    }
+
+    /**
+     * List Application cart item filters
+     *
+     * Return all the Application cart item filters for a specific Application.
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void listApplicationCartItemFiltersTest() throws ApiException {
+        Long applicationId = null;
+        Long pageSize = null;
+        Long skip = null;
+        String title = null;
+        ListApplicationCartItemFilters200Response response = api.listApplicationCartItemFilters(applicationId, pageSize, skip, title);
         // TODO: test validations
     }
 

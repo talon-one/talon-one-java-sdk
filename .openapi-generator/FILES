@@ -194,6 +194,7 @@ docs/CreateAchievementV2.md
 docs/CreateApplicationAPIKey.md
 docs/CreateCouponData.md
 docs/CreateCoupons200Response.md
+docs/CreateMCPKey.md
 docs/CreateManagementKey.md
 docs/CreateReferralsForMultipleAdvocates201Response.md
 docs/CreateTemplateCampaign.md
@@ -247,10 +248,16 @@ docs/ExperimentListResults.md
 docs/ExperimentListResultsRequest.md
 docs/ExperimentResult.md
 docs/ExperimentResults.md
+docs/ExperimentSegmentInsight.md
+docs/ExperimentSegmentInsightMetric.md
+docs/ExperimentSegmentInsightVariant.md
+docs/ExperimentSegmentInsights.md
 docs/ExperimentVariant.md
 docs/ExperimentVariantAllocation.md
 docs/ExperimentVariantResult.md
 docs/ExperimentVariantResultConfidence.md
+docs/ExperimentVerdict.md
+docs/ExperimentVerdictResponse.md
 docs/ExpiringCardPointsData.md
 docs/ExpiringCardPointsNotification.md
 docs/ExpiringCouponsData.md
@@ -345,6 +352,7 @@ docs/IntegrationEventV2Request.md
 docs/IntegrationEventV2Response.md
 docs/IntegrationEventV3Request.md
 docs/IntegrationEventV3Response.md
+docs/IntegrationGetAllCampaigns200Response.md
 docs/IntegrationHubConfig.md
 docs/IntegrationHubEventPayloadCouponBasedNotifications.md
 docs/IntegrationHubEventPayloadCouponBasedNotificationsLimits.md
@@ -382,6 +390,7 @@ docs/LimitCounter.md
 docs/ListAccountCollections200Response.md
 docs/ListAchievements200Response.md
 docs/ListAllRolesV2200Response.md
+docs/ListApplicationCartItemFilters200Response.md
 docs/ListCampaignStoreBudgetLimits200Response.md
 docs/ListCampaignStoreBudgets.md
 docs/ListCampaignStoreBudgetsStore.md
@@ -415,6 +424,7 @@ docs/LoyaltyProgramLedgers.md
 docs/LoyaltyProgramTransaction.md
 docs/LoyaltySubLedger.md
 docs/LoyaltyTier.md
+docs/MCPKey.md
 docs/ManagementApi.md
 docs/ManagementKey.md
 docs/ManagerConfig.md
@@ -478,6 +488,7 @@ docs/NewInvitation.md
 docs/NewInviteEmail.md
 docs/NewLoyaltyProgram.md
 docs/NewLoyaltyTier.md
+docs/NewMCPKey.md
 docs/NewManagementKey.md
 docs/NewMessageTest.md
 docs/NewMultipleAudiencesItem.md
@@ -492,6 +503,7 @@ docs/NewReferral.md
 docs/NewReferralsForMultipleAdvocates.md
 docs/NewReturn.md
 docs/NewRevisionVersion.md
+docs/NewReward.md
 docs/NewRole.md
 docs/NewRoleV2.md
 docs/NewRuleset.md
@@ -559,6 +571,7 @@ docs/Revision.md
 docs/RevisionActivation.md
 docs/RevisionActivationRequest.md
 docs/RevisionVersion.md
+docs/Reward.md
 docs/Role.md
 docs/RoleAssign.md
 docs/RoleMembership.md
@@ -909,6 +922,7 @@ src/main/java/one/talon/model/CreateAchievementV2.java
 src/main/java/one/talon/model/CreateApplicationAPIKey.java
 src/main/java/one/talon/model/CreateCouponData.java
 src/main/java/one/talon/model/CreateCoupons200Response.java
+src/main/java/one/talon/model/CreateMCPKey.java
 src/main/java/one/talon/model/CreateManagementKey.java
 src/main/java/one/talon/model/CreateReferralsForMultipleAdvocates201Response.java
 src/main/java/one/talon/model/CreateTemplateCampaign.java
@@ -962,10 +976,16 @@ src/main/java/one/talon/model/ExperimentListResults.java
 src/main/java/one/talon/model/ExperimentListResultsRequest.java
 src/main/java/one/talon/model/ExperimentResult.java
 src/main/java/one/talon/model/ExperimentResults.java
+src/main/java/one/talon/model/ExperimentSegmentInsight.java
+src/main/java/one/talon/model/ExperimentSegmentInsightMetric.java
+src/main/java/one/talon/model/ExperimentSegmentInsightVariant.java
+src/main/java/one/talon/model/ExperimentSegmentInsights.java
 src/main/java/one/talon/model/ExperimentVariant.java
 src/main/java/one/talon/model/ExperimentVariantAllocation.java
 src/main/java/one/talon/model/ExperimentVariantResult.java
 src/main/java/one/talon/model/ExperimentVariantResultConfidence.java
+src/main/java/one/talon/model/ExperimentVerdict.java
+src/main/java/one/talon/model/ExperimentVerdictResponse.java
 src/main/java/one/talon/model/ExpiringCardPointsData.java
 src/main/java/one/talon/model/ExpiringCardPointsNotification.java
 src/main/java/one/talon/model/ExpiringCouponsData.java
@@ -1059,6 +1079,7 @@ src/main/java/one/talon/model/IntegrationEventV2Request.java
 src/main/java/one/talon/model/IntegrationEventV2Response.java
 src/main/java/one/talon/model/IntegrationEventV3Request.java
 src/main/java/one/talon/model/IntegrationEventV3Response.java
+src/main/java/one/talon/model/IntegrationGetAllCampaigns200Response.java
 src/main/java/one/talon/model/IntegrationHubConfig.java
 src/main/java/one/talon/model/IntegrationHubEventPayloadCouponBasedNotifications.java
 src/main/java/one/talon/model/IntegrationHubEventPayloadCouponBasedNotificationsLimits.java
@@ -1096,6 +1117,7 @@ src/main/java/one/talon/model/LimitCounter.java
 src/main/java/one/talon/model/ListAccountCollections200Response.java
 src/main/java/one/talon/model/ListAchievements200Response.java
 src/main/java/one/talon/model/ListAllRolesV2200Response.java
+src/main/java/one/talon/model/ListApplicationCartItemFilters200Response.java
 src/main/java/one/talon/model/ListCampaignStoreBudgetLimits200Response.java
 src/main/java/one/talon/model/ListCampaignStoreBudgets.java
 src/main/java/one/talon/model/ListCampaignStoreBudgetsStore.java
@@ -1129,6 +1151,7 @@ src/main/java/one/talon/model/LoyaltyProgramLedgers.java
 src/main/java/one/talon/model/LoyaltyProgramTransaction.java
 src/main/java/one/talon/model/LoyaltySubLedger.java
 src/main/java/one/talon/model/LoyaltyTier.java
+src/main/java/one/talon/model/MCPKey.java
 src/main/java/one/talon/model/ManagementKey.java
 src/main/java/one/talon/model/ManagerConfig.java
 src/main/java/one/talon/model/MessageLogEntries.java
@@ -1191,6 +1214,7 @@ src/main/java/one/talon/model/NewInvitation.java
 src/main/java/one/talon/model/NewInviteEmail.java
 src/main/java/one/talon/model/NewLoyaltyProgram.java
 src/main/java/one/talon/model/NewLoyaltyTier.java
+src/main/java/one/talon/model/NewMCPKey.java
 src/main/java/one/talon/model/NewManagementKey.java
 src/main/java/one/talon/model/NewMessageTest.java
 src/main/java/one/talon/model/NewMultipleAudiencesItem.java
@@ -1205,6 +1229,7 @@ src/main/java/one/talon/model/NewReferral.java
 src/main/java/one/talon/model/NewReferralsForMultipleAdvocates.java
 src/main/java/one/talon/model/NewReturn.java
 src/main/java/one/talon/model/NewRevisionVersion.java
+src/main/java/one/talon/model/NewReward.java
 src/main/java/one/talon/model/NewRole.java
 src/main/java/one/talon/model/NewRoleV2.java
 src/main/java/one/talon/model/NewRuleset.java
@@ -1272,6 +1297,7 @@ src/main/java/one/talon/model/Revision.java
 src/main/java/one/talon/model/RevisionActivation.java
 src/main/java/one/talon/model/RevisionActivationRequest.java
 src/main/java/one/talon/model/RevisionVersion.java
+src/main/java/one/talon/model/Reward.java
 src/main/java/one/talon/model/Role.java
 src/main/java/one/talon/model/RoleAssign.java
 src/main/java/one/talon/model/RoleMembership.java
@@ -1595,6 +1621,7 @@ src/test/java/one/talon/model/CreateAchievementV2Test.java
 src/test/java/one/talon/model/CreateApplicationAPIKeyTest.java
 src/test/java/one/talon/model/CreateCouponDataTest.java
 src/test/java/one/talon/model/CreateCoupons200ResponseTest.java
+src/test/java/one/talon/model/CreateMCPKeyTest.java
 src/test/java/one/talon/model/CreateManagementKeyTest.java
 src/test/java/one/talon/model/CreateReferralsForMultipleAdvocates201ResponseTest.java
 src/test/java/one/talon/model/CreateTemplateCampaignResponseTest.java
@@ -1647,11 +1674,17 @@ src/test/java/one/talon/model/ExperimentListResultsRequestTest.java
 src/test/java/one/talon/model/ExperimentListResultsTest.java
 src/test/java/one/talon/model/ExperimentResultTest.java
 src/test/java/one/talon/model/ExperimentResultsTest.java
+src/test/java/one/talon/model/ExperimentSegmentInsightMetricTest.java
+src/test/java/one/talon/model/ExperimentSegmentInsightTest.java
+src/test/java/one/talon/model/ExperimentSegmentInsightVariantTest.java
+src/test/java/one/talon/model/ExperimentSegmentInsightsTest.java
 src/test/java/one/talon/model/ExperimentTest.java
 src/test/java/one/talon/model/ExperimentVariantAllocationTest.java
 src/test/java/one/talon/model/ExperimentVariantResultConfidenceTest.java
 src/test/java/one/talon/model/ExperimentVariantResultTest.java
 src/test/java/one/talon/model/ExperimentVariantTest.java
+src/test/java/one/talon/model/ExperimentVerdictResponseTest.java
+src/test/java/one/talon/model/ExperimentVerdictTest.java
 src/test/java/one/talon/model/ExpiringCardPointsDataTest.java
 src/test/java/one/talon/model/ExpiringCardPointsNotificationTest.java
 src/test/java/one/talon/model/ExpiringCouponsDataTest.java
@@ -1745,6 +1778,7 @@ src/test/java/one/talon/model/IntegrationEventV2RequestTest.java
 src/test/java/one/talon/model/IntegrationEventV2ResponseTest.java
 src/test/java/one/talon/model/IntegrationEventV3RequestTest.java
 src/test/java/one/talon/model/IntegrationEventV3ResponseTest.java
+src/test/java/one/talon/model/IntegrationGetAllCampaigns200ResponseTest.java
 src/test/java/one/talon/model/IntegrationHubConfigTest.java
 src/test/java/one/talon/model/IntegrationHubEventPayloadCouponBasedNotificationsLimitsTest.java
 src/test/java/one/talon/model/IntegrationHubEventPayloadCouponBasedNotificationsTest.java
@@ -1782,6 +1816,7 @@ src/test/java/one/talon/model/LimitCounterTest.java
 src/test/java/one/talon/model/ListAccountCollections200ResponseTest.java
 src/test/java/one/talon/model/ListAchievements200ResponseTest.java
 src/test/java/one/talon/model/ListAllRolesV2200ResponseTest.java
+src/test/java/one/talon/model/ListApplicationCartItemFilters200ResponseTest.java
 src/test/java/one/talon/model/ListCampaignStoreBudgetLimits200ResponseTest.java
 src/test/java/one/talon/model/ListCampaignStoreBudgetsStoreTest.java
 src/test/java/one/talon/model/ListCampaignStoreBudgetsTest.java
@@ -1815,6 +1850,7 @@ src/test/java/one/talon/model/LoyaltyProgramTransactionTest.java
 src/test/java/one/talon/model/LoyaltySubLedgerTest.java
 src/test/java/one/talon/model/LoyaltyTest.java
 src/test/java/one/talon/model/LoyaltyTierTest.java
+src/test/java/one/talon/model/MCPKeyTest.java
 src/test/java/one/talon/model/ManagementKeyTest.java
 src/test/java/one/talon/model/ManagerConfigTest.java
 src/test/java/one/talon/model/MessageLogEntriesTest.java
@@ -1877,6 +1913,7 @@ src/test/java/one/talon/model/NewInvitationTest.java
 src/test/java/one/talon/model/NewInviteEmailTest.java
 src/test/java/one/talon/model/NewLoyaltyProgramTest.java
 src/test/java/one/talon/model/NewLoyaltyTierTest.java
+src/test/java/one/talon/model/NewMCPKeyTest.java
 src/test/java/one/talon/model/NewManagementKeyTest.java
 src/test/java/one/talon/model/NewMessageTestTest.java
 src/test/java/one/talon/model/NewMultipleAudiencesItemTest.java
@@ -1891,6 +1928,7 @@ src/test/java/one/talon/model/NewReferralTest.java
 src/test/java/one/talon/model/NewReferralsForMultipleAdvocatesTest.java
 src/test/java/one/talon/model/NewReturnTest.java
 src/test/java/one/talon/model/NewRevisionVersionTest.java
+src/test/java/one/talon/model/NewRewardTest.java
 src/test/java/one/talon/model/NewRoleTest.java
 src/test/java/one/talon/model/NewRoleV2Test.java
 src/test/java/one/talon/model/NewRulesetTest.java
@@ -1958,6 +1996,7 @@ src/test/java/one/talon/model/RevisionActivationRequestTest.java
 src/test/java/one/talon/model/RevisionActivationTest.java
 src/test/java/one/talon/model/RevisionTest.java
 src/test/java/one/talon/model/RevisionVersionTest.java
+src/test/java/one/talon/model/RewardTest.java
 src/test/java/one/talon/model/RoleAssignTest.java
 src/test/java/one/talon/model/RoleMembershipTest.java
 src/test/java/one/talon/model/RoleTest.java

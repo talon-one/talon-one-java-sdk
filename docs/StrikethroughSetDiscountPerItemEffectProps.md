@@ -10,7 +10,7 @@ setDiscountPerItem effect in strikethrough pricing payload.
 |------------ | ------------- | ------------- | -------------|
 |**name** | **String** | effect name. |  |
 |**value** | **Object** |  |  |
-|**excludeFromBestPriorPriceHistory** | **Boolean** |  |  [optional] |
+|**excludedFromPriceHistory** | **Boolean** |  |  [optional] |
 
 
 

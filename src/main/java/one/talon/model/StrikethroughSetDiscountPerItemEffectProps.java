@@ -61,10 +61,10 @@ public class StrikethroughSetDiscountPerItemEffectProps {
   @javax.annotation.Nullable
   private Object value = null;
 
-  public static final String SERIALIZED_NAME_EXCLUDE_FROM_BEST_PRIOR_PRICE_HISTORY = "excludeFromBestPriorPriceHistory";
-  @SerializedName(SERIALIZED_NAME_EXCLUDE_FROM_BEST_PRIOR_PRICE_HISTORY)
+  public static final String SERIALIZED_NAME_EXCLUDED_FROM_PRICE_HISTORY = "excludedFromPriceHistory";
+  @SerializedName(SERIALIZED_NAME_EXCLUDED_FROM_PRICE_HISTORY)
   @javax.annotation.Nullable
-  private Boolean excludeFromBestPriorPriceHistory;
+  private Boolean excludedFromPriceHistory;
 
   public StrikethroughSetDiscountPerItemEffectProps() {
   }
@@ -107,22 +107,22 @@ public class StrikethroughSetDiscountPerItemEffectProps {
   }
 
 
-  public StrikethroughSetDiscountPerItemEffectProps excludeFromBestPriorPriceHistory(@javax.annotation.Nullable Boolean excludeFromBestPriorPriceHistory) {
-    this.excludeFromBestPriorPriceHistory = excludeFromBestPriorPriceHistory;
+  public StrikethroughSetDiscountPerItemEffectProps excludedFromPriceHistory(@javax.annotation.Nullable Boolean excludedFromPriceHistory) {
+    this.excludedFromPriceHistory = excludedFromPriceHistory;
     return this;
   }
 
   /**
-   * Get excludeFromBestPriorPriceHistory
-   * @return excludeFromBestPriorPriceHistory
+   * Get excludedFromPriceHistory
+   * @return excludedFromPriceHistory
    */
   @javax.annotation.Nullable
-  public Boolean getExcludeFromBestPriorPriceHistory() {
-    return excludeFromBestPriorPriceHistory;
+  public Boolean getExcludedFromPriceHistory() {
+    return excludedFromPriceHistory;
   }
 
-  public void setExcludeFromBestPriorPriceHistory(@javax.annotation.Nullable Boolean excludeFromBestPriorPriceHistory) {
-    this.excludeFromBestPriorPriceHistory = excludeFromBestPriorPriceHistory;
+  public void setExcludedFromPriceHistory(@javax.annotation.Nullable Boolean excludedFromPriceHistory) {
+    this.excludedFromPriceHistory = excludedFromPriceHistory;
   }
 
 
@@ -138,12 +138,12 @@ public class StrikethroughSetDiscountPerItemEffectProps {
     StrikethroughSetDiscountPerItemEffectProps strikethroughSetDiscountPerItemEffectProps = (StrikethroughSetDiscountPerItemEffectProps) o;
     return Objects.equals(this.name, strikethroughSetDiscountPerItemEffectProps.name) &&
         Objects.equals(this.value, strikethroughSetDiscountPerItemEffectProps.value) &&
-        Objects.equals(this.excludeFromBestPriorPriceHistory, strikethroughSetDiscountPerItemEffectProps.excludeFromBestPriorPriceHistory);
+        Objects.equals(this.excludedFromPriceHistory, strikethroughSetDiscountPerItemEffectProps.excludedFromPriceHistory);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, value, excludeFromBestPriorPriceHistory);
+    return Objects.hash(name, value, excludedFromPriceHistory);
   }
 
   @Override
@@ -152,7 +152,7 @@ public class StrikethroughSetDiscountPerItemEffectProps {
     sb.append("class StrikethroughSetDiscountPerItemEffectProps {\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    value: ").append(toIndentedString(value)).append("\n");
-    sb.append("    excludeFromBestPriorPriceHistory: ").append(toIndentedString(excludeFromBestPriorPriceHistory)).append("\n");
+    sb.append("    excludedFromPriceHistory: ").append(toIndentedString(excludedFromPriceHistory)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -174,7 +174,7 @@ public class StrikethroughSetDiscountPerItemEffectProps {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("name", "value", "excludeFromBestPriorPriceHistory"));
+    openapiFields = new HashSet<String>(Arrays.asList("name", "value", "excludedFromPriceHistory"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("name", "value"));

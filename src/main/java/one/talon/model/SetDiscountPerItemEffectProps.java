@@ -112,6 +112,11 @@ public class SetDiscountPerItemEffectProps {
   @javax.annotation.Nullable
   private BigDecimal targetedItemSubPosition;
 
+  public static final String SERIALIZED_NAME_EXCLUDED_FROM_PRICE_HISTORY = "excludedFromPriceHistory";
+  @SerializedName(SERIALIZED_NAME_EXCLUDED_FROM_PRICE_HISTORY)
+  @javax.annotation.Nullable
+  private Boolean excludedFromPriceHistory;
+
   public SetDiscountPerItemEffectProps() {
   }
 
@@ -343,6 +348,25 @@ public class SetDiscountPerItemEffectProps {
   }
 
 
+  public SetDiscountPerItemEffectProps excludedFromPriceHistory(@javax.annotation.Nullable Boolean excludedFromPriceHistory) {
+    this.excludedFromPriceHistory = excludedFromPriceHistory;
+    return this;
+  }
+
+  /**
+   * When set to &#x60;true&#x60;, the applied discount is excluded from the item&#39;s price history.
+   * @return excludedFromPriceHistory
+   */
+  @javax.annotation.Nullable
+  public Boolean getExcludedFromPriceHistory() {
+    return excludedFromPriceHistory;
+  }
+
+  public void setExcludedFromPriceHistory(@javax.annotation.Nullable Boolean excludedFromPriceHistory) {
+    this.excludedFromPriceHistory = excludedFromPriceHistory;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -364,12 +388,13 @@ public class SetDiscountPerItemEffectProps {
         Objects.equals(this.bundleIndex, setDiscountPerItemEffectProps.bundleIndex) &&
         Objects.equals(this.bundleName, setDiscountPerItemEffectProps.bundleName) &&
         Objects.equals(this.targetedItemPosition, setDiscountPerItemEffectProps.targetedItemPosition) &&
-        Objects.equals(this.targetedItemSubPosition, setDiscountPerItemEffectProps.targetedItemSubPosition);
+        Objects.equals(this.targetedItemSubPosition, setDiscountPerItemEffectProps.targetedItemSubPosition) &&
+        Objects.equals(this.excludedFromPriceHistory, setDiscountPerItemEffectProps.excludedFromPriceHistory);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, value, position, subPosition, desiredValue, scope, totalDiscount, desiredTotalDiscount, bundleIndex, bundleName, targetedItemPosition, targetedItemSubPosition);
+    return Objects.hash(name, value, position, subPosition, desiredValue, scope, totalDiscount, desiredTotalDiscount, bundleIndex, bundleName, targetedItemPosition, targetedItemSubPosition, excludedFromPriceHistory);
   }
 
   @Override
@@ -388,6 +413,7 @@ public class SetDiscountPerItemEffectProps {
     sb.append("    bundleName: ").append(toIndentedString(bundleName)).append("\n");
     sb.append("    targetedItemPosition: ").append(toIndentedString(targetedItemPosition)).append("\n");
     sb.append("    targetedItemSubPosition: ").append(toIndentedString(targetedItemSubPosition)).append("\n");
+    sb.append("    excludedFromPriceHistory: ").append(toIndentedString(excludedFromPriceHistory)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -409,7 +435,7 @@ public class SetDiscountPerItemEffectProps {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("name", "value", "position", "subPosition", "desiredValue", "scope", "totalDiscount", "desiredTotalDiscount", "bundleIndex", "bundleName", "targetedItemPosition", "targetedItemSubPosition"));
+    openapiFields = new HashSet<String>(Arrays.asList("name", "value", "position", "subPosition", "desiredValue", "scope", "totalDiscount", "desiredTotalDiscount", "bundleIndex", "bundleName", "targetedItemPosition", "targetedItemSubPosition", "excludedFromPriceHistory"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("name", "value", "position"));
