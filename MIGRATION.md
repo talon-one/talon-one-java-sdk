@@ -42,7 +42,7 @@ And this repository:
 ```xml
 <repository>
   <id>talon-one</id>
-  <url>https://github.com/talon-one/talon-one-maven-artifacts/raw/master</url>
+  <url>https://github.com/talon-one/talon-one-maven-artifacts/raw/main</url>
 </repository>
 ```
 
