@@ -218,8 +218,8 @@ public class CreateAchievementV2 {
 
   public static final String SERIALIZED_NAME_SUBSCRIBED_APPLICATIONS = "subscribedApplications";
   @SerializedName(SERIALIZED_NAME_SUBSCRIBED_APPLICATIONS)
-  @javax.annotation.Nonnull
-  private List<Long> subscribedApplications = new ArrayList<>();
+  @javax.annotation.Nullable
+  private List<Long> subscribedApplications;
 
   public static final String SERIALIZED_NAME_TIMEZONE = "timezone";
   @SerializedName(SERIALIZED_NAME_TIMEZONE)
@@ -438,7 +438,7 @@ public class CreateAchievementV2 {
   }
 
 
-  public CreateAchievementV2 subscribedApplications(@javax.annotation.Nonnull List<Long> subscribedApplications) {
+  public CreateAchievementV2 subscribedApplications(@javax.annotation.Nullable List<Long> subscribedApplications) {
     this.subscribedApplications = subscribedApplications;
     return this;
   }
@@ -455,12 +455,12 @@ public class CreateAchievementV2 {
    * A list containing the IDs of all applications that are subscribed to A list containing the IDs of all Applications that are connected to this achievement.
    * @return subscribedApplications
    */
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   public List<Long> getSubscribedApplications() {
     return subscribedApplications;
   }
 
-  public void setSubscribedApplications(@javax.annotation.Nonnull List<Long> subscribedApplications) {
+  public void setSubscribedApplications(@javax.annotation.Nullable List<Long> subscribedApplications) {
     this.subscribedApplications = subscribedApplications;
   }
 
@@ -555,7 +555,7 @@ public class CreateAchievementV2 {
     openapiFields = new HashSet<String>(Arrays.asList("name", "title", "description", "target", "period", "recurrencePolicy", "activationPolicy", "fixedStartDate", "endDate", "allowRollbackAfterCompletion", "sandbox", "subscribedApplications", "timezone"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("name", "title", "description", "target", "sandbox", "subscribedApplications", "timezone"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("name", "title", "description", "target", "sandbox", "timezone"));
   }
 
   /**
@@ -612,10 +612,8 @@ public class CreateAchievementV2 {
       if (jsonObj.get("activationPolicy") != null && !jsonObj.get("activationPolicy").isJsonNull()) {
         ActivationPolicyEnum.validateJsonElement(jsonObj.get("activationPolicy"));
       }
-      // ensure the required json array is present
-      if (jsonObj.get("subscribedApplications") == null) {
-        throw new IllegalArgumentException("Expected the field `linkedContent` to be an array in the JSON string but got `null`");
-      } else if (!jsonObj.get("subscribedApplications").isJsonArray()) {
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("subscribedApplications") != null && !jsonObj.get("subscribedApplications").isJsonNull() && !jsonObj.get("subscribedApplications").isJsonArray()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `subscribedApplications` to be an array in the JSON string but got `%s`", jsonObj.get("subscribedApplications").toString()));
       }
       if (!jsonObj.get("timezone").isJsonPrimitive()) {

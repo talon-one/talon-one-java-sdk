@@ -55,6 +55,7 @@ import one.talon.model.GetReservedCustomers200Response;
 import one.talon.model.IntegrationCustomerSessionResponse;
 import one.talon.model.IntegrationEventV2Request;
 import one.talon.model.IntegrationEventV2Response;
+import one.talon.model.IntegrationGetAllCampaigns200Response;
 import one.talon.model.IntegrationRequest;
 import one.talon.model.IntegrationStateV2;
 import one.talon.model.LoyaltyBalancesWithTiers;
@@ -3837,6 +3838,191 @@ public class IntegrationApi {
         return localVarCall;
     }
     /**
+     * Build call for integrationGetAllCampaigns
+     * @param pageSize The number of items in the response. (optional, default to 50)
+     * @param skip The number of items to skip when paging through large result sets. (optional)
+     * @param campaignIds Filter by one or more campaign IDs, separated by a comma.  **Note:** If no campaigns are specified, data for all the campaigns in the Application is returned.  (optional)
+     * @param startAfter Filter results to only include campaigns that start on or after  the specified timestamp.  **Note:**  - It must be an RFC3339 timestamp string.  - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered.  (optional)
+     * @param startBefore Filter results to only include campaigns that start on or before  the specified timestamp.  **Note:**  - It must be an RFC3339 timestamp string.  - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered.  (optional)
+     * @param endAfter Filter results to only include campaigns that end on or after  the specified timestamp.  **Note:**  - It must be an RFC3339 timestamp string.  - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered.  (optional)
+     * @param endBefore Filter results to only include campaigns that end on or before  the specified timestamp.  **Note:**  - It must be an RFC3339 timestamp string.  - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered.  (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call integrationGetAllCampaignsCall(@javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable List<String> campaignIds, @javax.annotation.Nullable OffsetDateTime startAfter, @javax.annotation.Nullable OffsetDateTime startBefore, @javax.annotation.Nullable OffsetDateTime endAfter, @javax.annotation.Nullable OffsetDateTime endBefore, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/v1/integration/campaigns";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (pageSize != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("pageSize", pageSize));
+        }
+
+        if (skip != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("skip", skip));
+        }
+
+        if (campaignIds != null) {
+            localVarCollectionQueryParams.addAll(localVarApiClient.parameterToPairs("csv", "campaignIds", campaignIds));
+        }
+
+        if (startAfter != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("startAfter", startAfter));
+        }
+
+        if (startBefore != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("startBefore", startBefore));
+        }
+
+        if (endAfter != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("endAfter", endAfter));
+        }
+
+        if (endBefore != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("endBefore", endBefore));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "api_key_v1" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call integrationGetAllCampaignsValidateBeforeCall(@javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable List<String> campaignIds, @javax.annotation.Nullable OffsetDateTime startAfter, @javax.annotation.Nullable OffsetDateTime startBefore, @javax.annotation.Nullable OffsetDateTime endAfter, @javax.annotation.Nullable OffsetDateTime endBefore, final ApiCallback _callback) throws ApiException {
+        return integrationGetAllCampaignsCall(pageSize, skip, campaignIds, startAfter, startBefore, endAfter, endBefore, _callback);
+
+    }
+
+    /**
+     * List all running campaigns
+     * Retrieve all running campaigns for the specified Application. You can filter the results by providing specific campaign IDs or a range of  start and end dates. 
+     * @param pageSize The number of items in the response. (optional, default to 50)
+     * @param skip The number of items to skip when paging through large result sets. (optional)
+     * @param campaignIds Filter by one or more campaign IDs, separated by a comma.  **Note:** If no campaigns are specified, data for all the campaigns in the Application is returned.  (optional)
+     * @param startAfter Filter results to only include campaigns that start on or after  the specified timestamp.  **Note:**  - It must be an RFC3339 timestamp string.  - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered.  (optional)
+     * @param startBefore Filter results to only include campaigns that start on or before  the specified timestamp.  **Note:**  - It must be an RFC3339 timestamp string.  - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered.  (optional)
+     * @param endAfter Filter results to only include campaigns that end on or after  the specified timestamp.  **Note:**  - It must be an RFC3339 timestamp string.  - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered.  (optional)
+     * @param endBefore Filter results to only include campaigns that end on or before  the specified timestamp.  **Note:**  - It must be an RFC3339 timestamp string.  - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered.  (optional)
+     * @return IntegrationGetAllCampaigns200Response
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
+     </table>
+     */
+    public IntegrationGetAllCampaigns200Response integrationGetAllCampaigns(@javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable List<String> campaignIds, @javax.annotation.Nullable OffsetDateTime startAfter, @javax.annotation.Nullable OffsetDateTime startBefore, @javax.annotation.Nullable OffsetDateTime endAfter, @javax.annotation.Nullable OffsetDateTime endBefore) throws ApiException {
+        ApiResponse<IntegrationGetAllCampaigns200Response> localVarResp = integrationGetAllCampaignsWithHttpInfo(pageSize, skip, campaignIds, startAfter, startBefore, endAfter, endBefore);
+        return localVarResp.getData();
+    }
+
+    /**
+     * List all running campaigns
+     * Retrieve all running campaigns for the specified Application. You can filter the results by providing specific campaign IDs or a range of  start and end dates. 
+     * @param pageSize The number of items in the response. (optional, default to 50)
+     * @param skip The number of items to skip when paging through large result sets. (optional)
+     * @param campaignIds Filter by one or more campaign IDs, separated by a comma.  **Note:** If no campaigns are specified, data for all the campaigns in the Application is returned.  (optional)
+     * @param startAfter Filter results to only include campaigns that start on or after  the specified timestamp.  **Note:**  - It must be an RFC3339 timestamp string.  - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered.  (optional)
+     * @param startBefore Filter results to only include campaigns that start on or before  the specified timestamp.  **Note:**  - It must be an RFC3339 timestamp string.  - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered.  (optional)
+     * @param endAfter Filter results to only include campaigns that end on or after  the specified timestamp.  **Note:**  - It must be an RFC3339 timestamp string.  - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered.  (optional)
+     * @param endBefore Filter results to only include campaigns that end on or before  the specified timestamp.  **Note:**  - It must be an RFC3339 timestamp string.  - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered.  (optional)
+     * @return ApiResponse&lt;IntegrationGetAllCampaigns200Response&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<IntegrationGetAllCampaigns200Response> integrationGetAllCampaignsWithHttpInfo(@javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable List<String> campaignIds, @javax.annotation.Nullable OffsetDateTime startAfter, @javax.annotation.Nullable OffsetDateTime startBefore, @javax.annotation.Nullable OffsetDateTime endAfter, @javax.annotation.Nullable OffsetDateTime endBefore) throws ApiException {
+        okhttp3.Call localVarCall = integrationGetAllCampaignsValidateBeforeCall(pageSize, skip, campaignIds, startAfter, startBefore, endAfter, endBefore, null);
+        Type localVarReturnType = new TypeToken<IntegrationGetAllCampaigns200Response>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * List all running campaigns (asynchronously)
+     * Retrieve all running campaigns for the specified Application. You can filter the results by providing specific campaign IDs or a range of  start and end dates. 
+     * @param pageSize The number of items in the response. (optional, default to 50)
+     * @param skip The number of items to skip when paging through large result sets. (optional)
+     * @param campaignIds Filter by one or more campaign IDs, separated by a comma.  **Note:** If no campaigns are specified, data for all the campaigns in the Application is returned.  (optional)
+     * @param startAfter Filter results to only include campaigns that start on or after  the specified timestamp.  **Note:**  - It must be an RFC3339 timestamp string.  - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered.  (optional)
+     * @param startBefore Filter results to only include campaigns that start on or before  the specified timestamp.  **Note:**  - It must be an RFC3339 timestamp string.  - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered.  (optional)
+     * @param endAfter Filter results to only include campaigns that end on or after  the specified timestamp.  **Note:**  - It must be an RFC3339 timestamp string.  - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered.  (optional)
+     * @param endBefore Filter results to only include campaigns that end on or before  the specified timestamp.  **Note:**  - It must be an RFC3339 timestamp string.  - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered.  (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call integrationGetAllCampaignsAsync(@javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable List<String> campaignIds, @javax.annotation.Nullable OffsetDateTime startAfter, @javax.annotation.Nullable OffsetDateTime startBefore, @javax.annotation.Nullable OffsetDateTime endAfter, @javax.annotation.Nullable OffsetDateTime endBefore, final ApiCallback<IntegrationGetAllCampaigns200Response> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = integrationGetAllCampaignsValidateBeforeCall(pageSize, skip, campaignIds, startAfter, startBefore, endAfter, endBefore, _callback);
+        Type localVarReturnType = new TypeToken<IntegrationGetAllCampaigns200Response>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
      * Build call for linkLoyaltyCardToProfile
      * @param loyaltyProgramId Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint.  (required)
      * @param loyaltyCardId Identifier of the loyalty card. You can get the identifier with the [List loyalty cards](https://docs.talon.one/management-api#tag/Loyalty-cards/operation/getLoyaltyCards) endpoint.  **Important**: The loyalty card ID requires [URL encoding](https://www.w3schools.com/tags//ref_urlencode.asp) if it contains special characters. For example, you must encode &#x60;NewCard2026%&#x60; as &#x60;NewCard2026%25&#x60;.  (required)
@@ -4135,6 +4321,7 @@ public class IntegrationApi {
      * @param customerSessionId The &#x60;integration ID&#x60; of the customer session. You set this ID when you create a customer session.  You can see existing customer session integration IDs in the Campaign Manager&#39;s **Sessions** menu, or via the [List Application session](https://docs.talon.one/management-api#tag/Customer-data/operation/getApplicationSessions) endpoint.  (required)
      * @param returnIntegrationRequest body (required)
      * @param dry Indicates whether to persist the changes. Changes are ignored when &#x60;dry&#x3D;true&#x60;.  (optional)
+     * @param runRuleEngine When set to &#x60;true&#x60;, reevaluates the updated session after items are returned. Only reevaluates campaigns where &#x60;reevaluateOnReturn&#x60; is set to &#x60;true&#x60; and which produced an effect when the session was closed.  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -4147,7 +4334,7 @@ public class IntegrationApi {
         <tr><td> 401 </td><td> Unauthorized - Invalid API key </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call returnCartItemsCall(@javax.annotation.Nonnull String customerSessionId, @javax.annotation.Nonnull ReturnIntegrationRequest returnIntegrationRequest, @javax.annotation.Nullable Boolean dry, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call returnCartItemsCall(@javax.annotation.Nonnull String customerSessionId, @javax.annotation.Nonnull ReturnIntegrationRequest returnIntegrationRequest, @javax.annotation.Nullable Boolean dry, @javax.annotation.Nullable Boolean runRuleEngine, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -4177,6 +4364,10 @@ public class IntegrationApi {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("dry", dry));
         }
 
+        if (runRuleEngine != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("runRuleEngine", runRuleEngine));
+        }
+
         final String[] localVarAccepts = {
             "application/json"
         };
@@ -4198,7 +4389,7 @@ public class IntegrationApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call returnCartItemsValidateBeforeCall(@javax.annotation.Nonnull String customerSessionId, @javax.annotation.Nonnull ReturnIntegrationRequest returnIntegrationRequest, @javax.annotation.Nullable Boolean dry, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call returnCartItemsValidateBeforeCall(@javax.annotation.Nonnull String customerSessionId, @javax.annotation.Nonnull ReturnIntegrationRequest returnIntegrationRequest, @javax.annotation.Nullable Boolean dry, @javax.annotation.Nullable Boolean runRuleEngine, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'customerSessionId' is set
         if (customerSessionId == null) {
             throw new ApiException("Missing the required parameter 'customerSessionId' when calling returnCartItems(Async)");
@@ -4209,7 +4400,7 @@ public class IntegrationApi {
             throw new ApiException("Missing the required parameter 'returnIntegrationRequest' when calling returnCartItems(Async)");
         }
 
-        return returnCartItemsCall(customerSessionId, returnIntegrationRequest, dry, _callback);
+        return returnCartItemsCall(customerSessionId, returnIntegrationRequest, dry, runRuleEngine, _callback);
 
     }
 
@@ -4219,6 +4410,7 @@ public class IntegrationApi {
      * @param customerSessionId The &#x60;integration ID&#x60; of the customer session. You set this ID when you create a customer session.  You can see existing customer session integration IDs in the Campaign Manager&#39;s **Sessions** menu, or via the [List Application session](https://docs.talon.one/management-api#tag/Customer-data/operation/getApplicationSessions) endpoint.  (required)
      * @param returnIntegrationRequest body (required)
      * @param dry Indicates whether to persist the changes. Changes are ignored when &#x60;dry&#x3D;true&#x60;.  (optional)
+     * @param runRuleEngine When set to &#x60;true&#x60;, reevaluates the updated session after items are returned. Only reevaluates campaigns where &#x60;reevaluateOnReturn&#x60; is set to &#x60;true&#x60; and which produced an effect when the session was closed.  (optional)
      * @return IntegrationStateV2
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -4230,8 +4422,8 @@ public class IntegrationApi {
         <tr><td> 401 </td><td> Unauthorized - Invalid API key </td><td>  -  </td></tr>
      </table>
      */
-    public IntegrationStateV2 returnCartItems(@javax.annotation.Nonnull String customerSessionId, @javax.annotation.Nonnull ReturnIntegrationRequest returnIntegrationRequest, @javax.annotation.Nullable Boolean dry) throws ApiException {
-        ApiResponse<IntegrationStateV2> localVarResp = returnCartItemsWithHttpInfo(customerSessionId, returnIntegrationRequest, dry);
+    public IntegrationStateV2 returnCartItems(@javax.annotation.Nonnull String customerSessionId, @javax.annotation.Nonnull ReturnIntegrationRequest returnIntegrationRequest, @javax.annotation.Nullable Boolean dry, @javax.annotation.Nullable Boolean runRuleEngine) throws ApiException {
+        ApiResponse<IntegrationStateV2> localVarResp = returnCartItemsWithHttpInfo(customerSessionId, returnIntegrationRequest, dry, runRuleEngine);
         return localVarResp.getData();
     }
 
@@ -4241,6 +4433,7 @@ public class IntegrationApi {
      * @param customerSessionId The &#x60;integration ID&#x60; of the customer session. You set this ID when you create a customer session.  You can see existing customer session integration IDs in the Campaign Manager&#39;s **Sessions** menu, or via the [List Application session](https://docs.talon.one/management-api#tag/Customer-data/operation/getApplicationSessions) endpoint.  (required)
      * @param returnIntegrationRequest body (required)
      * @param dry Indicates whether to persist the changes. Changes are ignored when &#x60;dry&#x3D;true&#x60;.  (optional)
+     * @param runRuleEngine When set to &#x60;true&#x60;, reevaluates the updated session after items are returned. Only reevaluates campaigns where &#x60;reevaluateOnReturn&#x60; is set to &#x60;true&#x60; and which produced an effect when the session was closed.  (optional)
      * @return ApiResponse&lt;IntegrationStateV2&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -4252,8 +4445,8 @@ public class IntegrationApi {
         <tr><td> 401 </td><td> Unauthorized - Invalid API key </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<IntegrationStateV2> returnCartItemsWithHttpInfo(@javax.annotation.Nonnull String customerSessionId, @javax.annotation.Nonnull ReturnIntegrationRequest returnIntegrationRequest, @javax.annotation.Nullable Boolean dry) throws ApiException {
-        okhttp3.Call localVarCall = returnCartItemsValidateBeforeCall(customerSessionId, returnIntegrationRequest, dry, null);
+    public ApiResponse<IntegrationStateV2> returnCartItemsWithHttpInfo(@javax.annotation.Nonnull String customerSessionId, @javax.annotation.Nonnull ReturnIntegrationRequest returnIntegrationRequest, @javax.annotation.Nullable Boolean dry, @javax.annotation.Nullable Boolean runRuleEngine) throws ApiException {
+        okhttp3.Call localVarCall = returnCartItemsValidateBeforeCall(customerSessionId, returnIntegrationRequest, dry, runRuleEngine, null);
         Type localVarReturnType = new TypeToken<IntegrationStateV2>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -4264,6 +4457,7 @@ public class IntegrationApi {
      * @param customerSessionId The &#x60;integration ID&#x60; of the customer session. You set this ID when you create a customer session.  You can see existing customer session integration IDs in the Campaign Manager&#39;s **Sessions** menu, or via the [List Application session](https://docs.talon.one/management-api#tag/Customer-data/operation/getApplicationSessions) endpoint.  (required)
      * @param returnIntegrationRequest body (required)
      * @param dry Indicates whether to persist the changes. Changes are ignored when &#x60;dry&#x3D;true&#x60;.  (optional)
+     * @param runRuleEngine When set to &#x60;true&#x60;, reevaluates the updated session after items are returned. Only reevaluates campaigns where &#x60;reevaluateOnReturn&#x60; is set to &#x60;true&#x60; and which produced an effect when the session was closed.  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -4276,9 +4470,9 @@ public class IntegrationApi {
         <tr><td> 401 </td><td> Unauthorized - Invalid API key </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call returnCartItemsAsync(@javax.annotation.Nonnull String customerSessionId, @javax.annotation.Nonnull ReturnIntegrationRequest returnIntegrationRequest, @javax.annotation.Nullable Boolean dry, final ApiCallback<IntegrationStateV2> _callback) throws ApiException {
+    public okhttp3.Call returnCartItemsAsync(@javax.annotation.Nonnull String customerSessionId, @javax.annotation.Nonnull ReturnIntegrationRequest returnIntegrationRequest, @javax.annotation.Nullable Boolean dry, @javax.annotation.Nullable Boolean runRuleEngine, final ApiCallback<IntegrationStateV2> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = returnCartItemsValidateBeforeCall(customerSessionId, returnIntegrationRequest, dry, _callback);
+        okhttp3.Call localVarCall = returnCartItemsValidateBeforeCall(customerSessionId, returnIntegrationRequest, dry, runRuleEngine, _callback);
         Type localVarReturnType = new TypeToken<IntegrationStateV2>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

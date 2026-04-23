@@ -67,22 +67,22 @@ public class AchievementV2 {
 
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
   private String name;
 
   public static final String SERIALIZED_NAME_TITLE = "title";
   @SerializedName(SERIALIZED_NAME_TITLE)
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
   private String title;
 
   public static final String SERIALIZED_NAME_DESCRIPTION = "description";
   @SerializedName(SERIALIZED_NAME_DESCRIPTION)
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
   private String description;
 
   public static final String SERIALIZED_NAME_TARGET = "target";
   @SerializedName(SERIALIZED_NAME_TARGET)
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
   private BigDecimal target;
 
   public static final String SERIALIZED_NAME_PERIOD = "period";
@@ -146,7 +146,7 @@ public class AchievementV2 {
 
   public static final String SERIALIZED_NAME_RECURRENCE_POLICY = "recurrencePolicy";
   @SerializedName(SERIALIZED_NAME_RECURRENCE_POLICY)
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
   private RecurrencePolicyEnum recurrencePolicy;
 
   /**
@@ -203,7 +203,7 @@ public class AchievementV2 {
 
   public static final String SERIALIZED_NAME_ACTIVATION_POLICY = "activationPolicy";
   @SerializedName(SERIALIZED_NAME_ACTIVATION_POLICY)
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
   private ActivationPolicyEnum activationPolicy;
 
   public static final String SERIALIZED_NAME_FIXED_START_DATE = "fixedStartDate";
@@ -223,17 +223,17 @@ public class AchievementV2 {
 
   public static final String SERIALIZED_NAME_SANDBOX = "sandbox";
   @SerializedName(SERIALIZED_NAME_SANDBOX)
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
   private Boolean sandbox;
 
   public static final String SERIALIZED_NAME_SUBSCRIBED_APPLICATIONS = "subscribedApplications";
   @SerializedName(SERIALIZED_NAME_SUBSCRIBED_APPLICATIONS)
-  @javax.annotation.Nullable
-  private List<Long> subscribedApplications;
+  @javax.annotation.Nonnull
+  private List<Long> subscribedApplications = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_TIMEZONE = "timezone";
   @SerializedName(SERIALIZED_NAME_TIMEZONE)
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
   private String timezone;
 
   public static final String SERIALIZED_NAME_USER_ID = "userId";
@@ -353,7 +353,7 @@ public class AchievementV2 {
   }
 
 
-  public AchievementV2 name(@javax.annotation.Nullable String name) {
+  public AchievementV2 name(@javax.annotation.Nonnull String name) {
     this.name = name;
     return this;
   }
@@ -362,17 +362,17 @@ public class AchievementV2 {
    * The internal name of the achievement used in API requests.  **Note**: The name should start with a letter. This cannot be changed after the achievement has been created. 
    * @return name
    */
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
   public String getName() {
     return name;
   }
 
-  public void setName(@javax.annotation.Nullable String name) {
+  public void setName(@javax.annotation.Nonnull String name) {
     this.name = name;
   }
 
 
-  public AchievementV2 title(@javax.annotation.Nullable String title) {
+  public AchievementV2 title(@javax.annotation.Nonnull String title) {
     this.title = title;
     return this;
   }
@@ -381,17 +381,17 @@ public class AchievementV2 {
    * The display name for the achievement in the Campaign Manager.
    * @return title
    */
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
   public String getTitle() {
     return title;
   }
 
-  public void setTitle(@javax.annotation.Nullable String title) {
+  public void setTitle(@javax.annotation.Nonnull String title) {
     this.title = title;
   }
 
 
-  public AchievementV2 description(@javax.annotation.Nullable String description) {
+  public AchievementV2 description(@javax.annotation.Nonnull String description) {
     this.description = description;
     return this;
   }
@@ -400,17 +400,17 @@ public class AchievementV2 {
    * A description of the achievement.
    * @return description
    */
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
   public String getDescription() {
     return description;
   }
 
-  public void setDescription(@javax.annotation.Nullable String description) {
+  public void setDescription(@javax.annotation.Nonnull String description) {
     this.description = description;
   }
 
 
-  public AchievementV2 target(@javax.annotation.Nullable BigDecimal target) {
+  public AchievementV2 target(@javax.annotation.Nonnull BigDecimal target) {
     this.target = target;
     return this;
   }
@@ -419,12 +419,12 @@ public class AchievementV2 {
    * The required number of actions or the transactional milestone to complete the achievement.
    * @return target
    */
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
   public BigDecimal getTarget() {
     return target;
   }
 
-  public void setTarget(@javax.annotation.Nullable BigDecimal target) {
+  public void setTarget(@javax.annotation.Nonnull BigDecimal target) {
     this.target = target;
   }
 
@@ -448,7 +448,7 @@ public class AchievementV2 {
   }
 
 
-  public AchievementV2 recurrencePolicy(@javax.annotation.Nullable RecurrencePolicyEnum recurrencePolicy) {
+  public AchievementV2 recurrencePolicy(@javax.annotation.Nonnull RecurrencePolicyEnum recurrencePolicy) {
     this.recurrencePolicy = recurrencePolicy;
     return this;
   }
@@ -457,17 +457,17 @@ public class AchievementV2 {
    * The policy that determines if and how the achievement recurs. - &#x60;no_recurrence&#x60;: The achievement can be completed only once. - &#x60;on_expiration&#x60;: The achievement resets after it expires and becomes available again. - &#x60;on_completion&#x60;: When the customer progress status reaches &#x60;completed&#x60;, the achievement resets and becomes available again. 
    * @return recurrencePolicy
    */
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
   public RecurrencePolicyEnum getRecurrencePolicy() {
     return recurrencePolicy;
   }
 
-  public void setRecurrencePolicy(@javax.annotation.Nullable RecurrencePolicyEnum recurrencePolicy) {
+  public void setRecurrencePolicy(@javax.annotation.Nonnull RecurrencePolicyEnum recurrencePolicy) {
     this.recurrencePolicy = recurrencePolicy;
   }
 
 
-  public AchievementV2 activationPolicy(@javax.annotation.Nullable ActivationPolicyEnum activationPolicy) {
+  public AchievementV2 activationPolicy(@javax.annotation.Nonnull ActivationPolicyEnum activationPolicy) {
     this.activationPolicy = activationPolicy;
     return this;
   }
@@ -476,12 +476,12 @@ public class AchievementV2 {
    * The policy that determines how the achievement starts, ends, or resets. - &#x60;user_action&#x60;: The achievement ends or resets relative to when the customer started the achievement. - &#x60;fixed_schedule&#x60;: The achievement starts, ends, or resets for all customers following a fixed schedule. 
    * @return activationPolicy
    */
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
   public ActivationPolicyEnum getActivationPolicy() {
     return activationPolicy;
   }
 
-  public void setActivationPolicy(@javax.annotation.Nullable ActivationPolicyEnum activationPolicy) {
+  public void setActivationPolicy(@javax.annotation.Nonnull ActivationPolicyEnum activationPolicy) {
     this.activationPolicy = activationPolicy;
   }
 
@@ -543,7 +543,7 @@ public class AchievementV2 {
   }
 
 
-  public AchievementV2 sandbox(@javax.annotation.Nullable Boolean sandbox) {
+  public AchievementV2 sandbox(@javax.annotation.Nonnull Boolean sandbox) {
     this.sandbox = sandbox;
     return this;
   }
@@ -552,17 +552,17 @@ public class AchievementV2 {
    * Indicates if this achievement is a live or sandbox achievement. Achievements of a given type can only be connected to Applications of the same type.
    * @return sandbox
    */
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
   public Boolean getSandbox() {
     return sandbox;
   }
 
-  public void setSandbox(@javax.annotation.Nullable Boolean sandbox) {
+  public void setSandbox(@javax.annotation.Nonnull Boolean sandbox) {
     this.sandbox = sandbox;
   }
 
 
-  public AchievementV2 subscribedApplications(@javax.annotation.Nullable List<Long> subscribedApplications) {
+  public AchievementV2 subscribedApplications(@javax.annotation.Nonnull List<Long> subscribedApplications) {
     this.subscribedApplications = subscribedApplications;
     return this;
   }
@@ -579,17 +579,17 @@ public class AchievementV2 {
    * A list containing the IDs of all applications that are subscribed to A list containing the IDs of all Applications that are connected to this achievement.
    * @return subscribedApplications
    */
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
   public List<Long> getSubscribedApplications() {
     return subscribedApplications;
   }
 
-  public void setSubscribedApplications(@javax.annotation.Nullable List<Long> subscribedApplications) {
+  public void setSubscribedApplications(@javax.annotation.Nonnull List<Long> subscribedApplications) {
     this.subscribedApplications = subscribedApplications;
   }
 
 
-  public AchievementV2 timezone(@javax.annotation.Nullable String timezone) {
+  public AchievementV2 timezone(@javax.annotation.Nonnull String timezone) {
     this.timezone = timezone;
     return this;
   }
@@ -598,12 +598,12 @@ public class AchievementV2 {
    * A string containing an IANA timezone descriptor.
    * @return timezone
    */
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
   public String getTimezone() {
     return timezone;
   }
 
-  public void setTimezone(@javax.annotation.Nullable String timezone) {
+  public void setTimezone(@javax.annotation.Nonnull String timezone) {
     this.timezone = timezone;
   }
 
@@ -767,7 +767,7 @@ public class AchievementV2 {
     openapiFields = new HashSet<String>(Arrays.asList("id", "created", "name", "title", "description", "target", "period", "recurrencePolicy", "activationPolicy", "fixedStartDate", "endDate", "allowRollbackAfterCompletion", "sandbox", "subscribedApplications", "timezone", "userId", "createdBy", "hasProgress", "status"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("id", "created", "userId"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("id", "created", "name", "title", "description", "target", "recurrencePolicy", "activationPolicy", "sandbox", "subscribedApplications", "timezone", "userId"));
   }
 
   /**
@@ -798,37 +798,35 @@ public class AchievementV2 {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if ((jsonObj.get("name") != null && !jsonObj.get("name").isJsonNull()) && !jsonObj.get("name").isJsonPrimitive()) {
+      if (!jsonObj.get("name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
       }
-      if ((jsonObj.get("title") != null && !jsonObj.get("title").isJsonNull()) && !jsonObj.get("title").isJsonPrimitive()) {
+      if (!jsonObj.get("title").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `title` to be a primitive type in the JSON string but got `%s`", jsonObj.get("title").toString()));
       }
-      if ((jsonObj.get("description") != null && !jsonObj.get("description").isJsonNull()) && !jsonObj.get("description").isJsonPrimitive()) {
+      if (!jsonObj.get("description").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `description` to be a primitive type in the JSON string but got `%s`", jsonObj.get("description").toString()));
       }
       if ((jsonObj.get("period") != null && !jsonObj.get("period").isJsonNull()) && !jsonObj.get("period").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `period` to be a primitive type in the JSON string but got `%s`", jsonObj.get("period").toString()));
       }
-      if ((jsonObj.get("recurrencePolicy") != null && !jsonObj.get("recurrencePolicy").isJsonNull()) && !jsonObj.get("recurrencePolicy").isJsonPrimitive()) {
+      if (!jsonObj.get("recurrencePolicy").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `recurrencePolicy` to be a primitive type in the JSON string but got `%s`", jsonObj.get("recurrencePolicy").toString()));
       }
-      // validate the optional field `recurrencePolicy`
-      if (jsonObj.get("recurrencePolicy") != null && !jsonObj.get("recurrencePolicy").isJsonNull()) {
-        RecurrencePolicyEnum.validateJsonElement(jsonObj.get("recurrencePolicy"));
-      }
-      if ((jsonObj.get("activationPolicy") != null && !jsonObj.get("activationPolicy").isJsonNull()) && !jsonObj.get("activationPolicy").isJsonPrimitive()) {
+      // validate the required field `recurrencePolicy`
+      RecurrencePolicyEnum.validateJsonElement(jsonObj.get("recurrencePolicy"));
+      if (!jsonObj.get("activationPolicy").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `activationPolicy` to be a primitive type in the JSON string but got `%s`", jsonObj.get("activationPolicy").toString()));
       }
-      // validate the optional field `activationPolicy`
-      if (jsonObj.get("activationPolicy") != null && !jsonObj.get("activationPolicy").isJsonNull()) {
-        ActivationPolicyEnum.validateJsonElement(jsonObj.get("activationPolicy"));
-      }
-      // ensure the optional json data is an array if present
-      if (jsonObj.get("subscribedApplications") != null && !jsonObj.get("subscribedApplications").isJsonNull() && !jsonObj.get("subscribedApplications").isJsonArray()) {
+      // validate the required field `activationPolicy`
+      ActivationPolicyEnum.validateJsonElement(jsonObj.get("activationPolicy"));
+      // ensure the required json array is present
+      if (jsonObj.get("subscribedApplications") == null) {
+        throw new IllegalArgumentException("Expected the field `linkedContent` to be an array in the JSON string but got `null`");
+      } else if (!jsonObj.get("subscribedApplications").isJsonArray()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `subscribedApplications` to be an array in the JSON string but got `%s`", jsonObj.get("subscribedApplications").toString()));
       }
-      if ((jsonObj.get("timezone") != null && !jsonObj.get("timezone").isJsonNull()) && !jsonObj.get("timezone").isJsonPrimitive()) {
+      if (!jsonObj.get("timezone").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `timezone` to be a primitive type in the JSON string but got `%s`", jsonObj.get("timezone").toString()));
       }
       if ((jsonObj.get("createdBy") != null && !jsonObj.get("createdBy").isJsonNull()) && !jsonObj.get("createdBy").isJsonPrimitive()) {

@@ -260,7 +260,7 @@ public class LoyaltyBalanceWithTier {
   }
 
   /**
-   * The name of the tier consecutive to the current tier.
+   * The name of the next higher tier level in the loyalty program.  **Note**: - Returns &#x60;null&#x60; if the customer has reached the highest available tier. - Returns the lowest level tier name if the customer is not currently assigned to any tier. 
    * @return nextTierName
    */
   @javax.annotation.Nullable

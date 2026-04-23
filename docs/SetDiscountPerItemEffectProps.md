@@ -20,6 +20,7 @@ The properties specific to the `setDiscountPerItem` effect, triggered whenever a
 |**bundleName** | **String** | The name of the bundle definition. |  [optional] |
 |**targetedItemPosition** | **BigDecimal** | The index of the targeted bundle item on which the applied discount is based. |  [optional] |
 |**targetedItemSubPosition** | **BigDecimal** | The sub-position of the targeted bundle item on which the applied discount is based.  |  [optional] |
+|**excludedFromPriceHistory** | **Boolean** | When set to &#x60;true&#x60;, the applied discount is excluded from the item&#39;s price history. |  [optional] |
 
 
 

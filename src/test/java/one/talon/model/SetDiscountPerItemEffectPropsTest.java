@@ -134,4 +134,12 @@ public class SetDiscountPerItemEffectPropsTest {
         // TODO: test targetedItemSubPosition
     }
 
+    /**
+     * Test the property 'excludedFromPriceHistory'
+     */
+    @Test
+    public void excludedFromPriceHistoryTest() {
+        // TODO: test excludedFromPriceHistory
+    }
+
 }
