@@ -23,6 +23,7 @@ import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import one.talon.model.RuleMetadata;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
@@ -118,6 +119,14 @@ public class IntegrationCampaignTest {
     @Test
     public void featuresTest() {
         // TODO: test features
+    }
+
+    /**
+     * Test the property 'rules'
+     */
+    @Test
+    public void rulesTest() {
+        // TODO: test rules
     }
 
 }

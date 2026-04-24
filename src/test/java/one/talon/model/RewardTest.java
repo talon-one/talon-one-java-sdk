@@ -23,6 +23,8 @@ import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import one.talon.model.Binding;
+import one.talon.model.Rule;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
@@ -102,6 +104,22 @@ public class RewardTest {
     @Test
     public void sandboxTest() {
         // TODO: test sandbox
+    }
+
+    /**
+     * Test the property 'rule'
+     */
+    @Test
+    public void ruleTest() {
+        // TODO: test rule
+    }
+
+    /**
+     * Test the property 'bindings'
+     */
+    @Test
+    public void bindingsTest() {
+        // TODO: test bindings
     }
 
     /**

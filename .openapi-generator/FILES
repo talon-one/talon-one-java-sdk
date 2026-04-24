@@ -121,6 +121,7 @@ docs/CampaignDeletedNotificationItem.md
 docs/CampaignDetail.md
 docs/CampaignEditedNotification.md
 docs/CampaignEditedNotificationItem.md
+docs/CampaignEligibility.md
 docs/CampaignEntity.md
 docs/CampaignEvaluationGroup.md
 docs/CampaignEvaluationPosition.md
@@ -849,6 +850,7 @@ src/main/java/one/talon/model/CampaignDeletedNotificationItem.java
 src/main/java/one/talon/model/CampaignDetail.java
 src/main/java/one/talon/model/CampaignEditedNotification.java
 src/main/java/one/talon/model/CampaignEditedNotificationItem.java
+src/main/java/one/talon/model/CampaignEligibility.java
 src/main/java/one/talon/model/CampaignEntity.java
 src/main/java/one/talon/model/CampaignEvaluationGroup.java
 src/main/java/one/talon/model/CampaignEvaluationPosition.java
@@ -1547,6 +1549,7 @@ src/test/java/one/talon/model/CampaignDeletedNotificationTest.java
 src/test/java/one/talon/model/CampaignDetailTest.java
 src/test/java/one/talon/model/CampaignEditedNotificationItemTest.java
 src/test/java/one/talon/model/CampaignEditedNotificationTest.java
+src/test/java/one/talon/model/CampaignEligibilityTest.java
 src/test/java/one/talon/model/CampaignEntityTest.java
 src/test/java/one/talon/model/CampaignEvaluationGroupTest.java
 src/test/java/one/talon/model/CampaignEvaluationPositionTest.java

@@ -12,6 +12,8 @@
 |**description** | **String** | A description of the reward. |  [optional] |
 |**applicationIds** | **List&lt;Long&gt;** | The IDs of the Applications this reward is connected to.   **Note**: Currently, a reward can only be connected to one Application.  |  |
 |**sandbox** | **Boolean** | Indicates if this is a live or sandbox reward. Rewards of a given type can only be connected to Applications of the same type. |  |
+|**rule** | [**List&lt;Rule&gt;**](Rule.md) | Rule to apply. |  [optional] |
+|**bindings** | [**List&lt;Binding&gt;**](Binding.md) | A list of named variables created before the reward&#39;s rules are evaluated.  Each binding pairs a name with a talang expression. The expression is evaluated once  and its result is available by name in any rule condition or effect. Bindings must be defined outside of individual rules. |  [optional] |
 
 
 

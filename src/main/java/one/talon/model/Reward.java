@@ -24,6 +24,8 @@ import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import one.talon.model.Binding;
+import one.talon.model.Rule;
 import com.google.gson.JsonElement;
 
 import com.google.gson.Gson;
@@ -93,6 +95,16 @@ public class Reward {
   @SerializedName(SERIALIZED_NAME_SANDBOX)
   @javax.annotation.Nonnull
   private Boolean sandbox;
+
+  public static final String SERIALIZED_NAME_RULE = "rule";
+  @SerializedName(SERIALIZED_NAME_RULE)
+  @javax.annotation.Nullable
+  private List<Rule> rule;
+
+  public static final String SERIALIZED_NAME_BINDINGS = "bindings";
+  @SerializedName(SERIALIZED_NAME_BINDINGS)
+  @javax.annotation.Nullable
+  private List<Binding> bindings;
 
   /**
    * The status of the reward.
@@ -314,6 +326,60 @@ public class Reward {
   }
 
 
+  public Reward rule(@javax.annotation.Nullable List<Rule> rule) {
+    this.rule = rule;
+    return this;
+  }
+
+  public Reward addRuleItem(Rule ruleItem) {
+    if (this.rule == null) {
+      this.rule = new ArrayList<>();
+    }
+    this.rule.add(ruleItem);
+    return this;
+  }
+
+  /**
+   * Rule to apply.
+   * @return rule
+   */
+  @javax.annotation.Nullable
+  public List<Rule> getRule() {
+    return rule;
+  }
+
+  public void setRule(@javax.annotation.Nullable List<Rule> rule) {
+    this.rule = rule;
+  }
+
+
+  public Reward bindings(@javax.annotation.Nullable List<Binding> bindings) {
+    this.bindings = bindings;
+    return this;
+  }
+
+  public Reward addBindingsItem(Binding bindingsItem) {
+    if (this.bindings == null) {
+      this.bindings = new ArrayList<>();
+    }
+    this.bindings.add(bindingsItem);
+    return this;
+  }
+
+  /**
+   * A list of named variables created before the reward&#39;s rules are evaluated.  Each binding pairs a name with a talang expression. The expression is evaluated once  and its result is available by name in any rule condition or effect. Bindings must be defined outside of individual rules.
+   * @return bindings
+   */
+  @javax.annotation.Nullable
+  public List<Binding> getBindings() {
+    return bindings;
+  }
+
+  public void setBindings(@javax.annotation.Nullable List<Binding> bindings) {
+    this.bindings = bindings;
+  }
+
+
   public Reward status(@javax.annotation.Nonnull StatusEnum status) {
     this.status = status;
     return this;
@@ -332,6 +398,50 @@ public class Reward {
     this.status = status;
   }
 
+  /**
+   * A container for additional, undeclared properties.
+   * This is a holder for any undeclared properties as specified with
+   * the 'additionalProperties' keyword in the OAS document.
+   */
+  private Map<String, Object> additionalProperties;
+
+  /**
+   * Set the additional (undeclared) property with the specified name and value.
+   * If the property does not already exist, create it otherwise replace it.
+   *
+   * @param key name of the property
+   * @param value value of the property
+   * @return the Reward instance itself
+   */
+  public Reward putAdditionalProperty(String key, Object value) {
+    if (this.additionalProperties == null) {
+        this.additionalProperties = new HashMap<String, Object>();
+    }
+    this.additionalProperties.put(key, value);
+    return this;
+  }
+
+  /**
+   * Return the additional (undeclared) property.
+   *
+   * @return a map of objects
+   */
+  public Map<String, Object> getAdditionalProperties() {
+    return additionalProperties;
+  }
+
+  /**
+   * Return the additional (undeclared) property with the specified name.
+   *
+   * @param key name of the property
+   * @return an object
+   */
+  public Object getAdditionalProperty(String key) {
+    if (this.additionalProperties == null) {
+        return null;
+    }
+    return this.additionalProperties.get(key);
+  }
 
 
   @Override
@@ -351,12 +461,15 @@ public class Reward {
         Objects.equals(this.description, reward.description) &&
         Objects.equals(this.applicationIds, reward.applicationIds) &&
         Objects.equals(this.sandbox, reward.sandbox) &&
-        Objects.equals(this.status, reward.status);
+        Objects.equals(this.rule, reward.rule) &&
+        Objects.equals(this.bindings, reward.bindings) &&
+        Objects.equals(this.status, reward.status)&&
+        Objects.equals(this.additionalProperties, reward.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, created, accountId, name, apiName, description, applicationIds, sandbox, status);
+    return Objects.hash(id, created, accountId, name, apiName, description, applicationIds, sandbox, rule, bindings, status, additionalProperties);
   }
 
   @Override
@@ -371,7 +484,10 @@ public class Reward {
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    applicationIds: ").append(toIndentedString(applicationIds)).append("\n");
     sb.append("    sandbox: ").append(toIndentedString(sandbox)).append("\n");
+    sb.append("    rule: ").append(toIndentedString(rule)).append("\n");
+    sb.append("    bindings: ").append(toIndentedString(bindings)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
+    sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -393,7 +509,7 @@ public class Reward {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("id", "created", "accountId", "name", "apiName", "description", "applicationIds", "sandbox", "status"));
+    openapiFields = new HashSet<String>(Arrays.asList("id", "created", "accountId", "name", "apiName", "description", "applicationIds", "sandbox", "rule", "bindings", "status"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("id", "created", "accountId", "name", "apiName", "applicationIds", "sandbox", "status"));
@@ -409,14 +525,6 @@ public class Reward {
       if (jsonElement == null) {
         if (!Reward.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
           throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in Reward is not found in the empty JSON string", Reward.openapiRequiredFields.toString()));
-        }
-      }
-
-      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
-      // check to see if the JSON string contains additional fields
-      for (Map.Entry<String, JsonElement> entry : entries) {
-        if (!Reward.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `Reward` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
@@ -442,6 +550,34 @@ public class Reward {
       } else if (!jsonObj.get("applicationIds").isJsonArray()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `applicationIds` to be an array in the JSON string but got `%s`", jsonObj.get("applicationIds").toString()));
       }
+      if (jsonObj.get("rule") != null && !jsonObj.get("rule").isJsonNull()) {
+        JsonArray jsonArrayrule = jsonObj.getAsJsonArray("rule");
+        if (jsonArrayrule != null) {
+          // ensure the json data is an array
+          if (!jsonObj.get("rule").isJsonArray()) {
+            throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `rule` to be an array in the JSON string but got `%s`", jsonObj.get("rule").toString()));
+          }
+
+          // validate the optional field `rule` (array)
+          for (int i = 0; i < jsonArrayrule.size(); i++) {
+            Rule.validateJsonElement(jsonArrayrule.get(i));
+          };
+        }
+      }
+      if (jsonObj.get("bindings") != null && !jsonObj.get("bindings").isJsonNull()) {
+        JsonArray jsonArraybindings = jsonObj.getAsJsonArray("bindings");
+        if (jsonArraybindings != null) {
+          // ensure the json data is an array
+          if (!jsonObj.get("bindings").isJsonArray()) {
+            throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `bindings` to be an array in the JSON string but got `%s`", jsonObj.get("bindings").toString()));
+          }
+
+          // validate the optional field `bindings` (array)
+          for (int i = 0; i < jsonArraybindings.size(); i++) {
+            Binding.validateJsonElement(jsonArraybindings.get(i));
+          };
+        }
+      }
       if (!jsonObj.get("status").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `status` to be a primitive type in the JSON string but got `%s`", jsonObj.get("status").toString()));
       }
@@ -464,6 +600,28 @@ public class Reward {
            @Override
            public void write(JsonWriter out, Reward value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+             obj.remove("additionalProperties");
+             // serialize additional properties
+             if (value.getAdditionalProperties() != null) {
+               for (Map.Entry<String, Object> entry : value.getAdditionalProperties().entrySet()) {
+                 if (entry.getValue() instanceof String)
+                   obj.addProperty(entry.getKey(), (String) entry.getValue());
+                 else if (entry.getValue() instanceof Number)
+                   obj.addProperty(entry.getKey(), (Number) entry.getValue());
+                 else if (entry.getValue() instanceof Boolean)
+                   obj.addProperty(entry.getKey(), (Boolean) entry.getValue());
+                 else if (entry.getValue() instanceof Character)
+                   obj.addProperty(entry.getKey(), (Character) entry.getValue());
+                 else {
+                   JsonElement jsonElement = gson.toJsonTree(entry.getValue());
+                   if (jsonElement.isJsonArray()) {
+                     obj.add(entry.getKey(), jsonElement.getAsJsonArray());
+                   } else {
+                     obj.add(entry.getKey(), jsonElement.getAsJsonObject());
+                   }
+                 }
+               }
+             }
              elementAdapter.write(out, obj);
            }
 
@@ -471,7 +629,28 @@ public class Reward {
            public Reward read(JsonReader in) throws IOException {
              JsonElement jsonElement = elementAdapter.read(in);
              validateJsonElement(jsonElement);
-             return thisAdapter.fromJsonTree(jsonElement);
+             JsonObject jsonObj = jsonElement.getAsJsonObject();
+             // store additional fields in the deserialized instance
+             Reward instance = thisAdapter.fromJsonTree(jsonObj);
+             for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
+               if (!openapiFields.contains(entry.getKey())) {
+                 if (entry.getValue().isJsonPrimitive()) { // primitive type
+                   if (entry.getValue().getAsJsonPrimitive().isString())
+                     instance.putAdditionalProperty(entry.getKey(), entry.getValue().getAsString());
+                   else if (entry.getValue().getAsJsonPrimitive().isNumber())
+                     instance.putAdditionalProperty(entry.getKey(), entry.getValue().getAsNumber());
+                   else if (entry.getValue().getAsJsonPrimitive().isBoolean())
+                     instance.putAdditionalProperty(entry.getKey(), entry.getValue().getAsBoolean());
+                   else
+                     throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` has unknown primitive type. Value: %s", entry.getKey(), entry.getValue().toString()));
+                 } else if (entry.getValue().isJsonArray()) {
+                     instance.putAdditionalProperty(entry.getKey(), gson.fromJson(entry.getValue(), List.class));
+                 } else { // JSON object
+                     instance.putAdditionalProperty(entry.getKey(), gson.fromJson(entry.getValue(), HashMap.class));
+                 }
+               }
+             }
+             return instance;
            }
 
        }.nullSafe();

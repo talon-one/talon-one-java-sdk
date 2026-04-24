@@ -21,6 +21,8 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.time.OffsetDateTime;
 import java.util.Arrays;
+import java.util.LinkedHashSet;
+import java.util.Set;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
@@ -84,6 +86,14 @@ public class AudienceTest {
     @Test
     public void descriptionTest() {
         // TODO: test description
+    }
+
+    /**
+     * Test the property 'subscribedApplicationsIds'
+     */
+    @Test
+    public void subscribedApplicationsIdsTest() {
+        // TODO: test subscribedApplicationsIds
     }
 
     /**
