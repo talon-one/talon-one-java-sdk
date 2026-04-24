@@ -957,7 +957,8 @@ public class ManagementApiTest {
     public void exportLoyaltyBalanceTest() throws ApiException {
         String loyaltyProgramId = null;
         OffsetDateTime endDate = null;
-        String response = api.exportLoyaltyBalance(loyaltyProgramId, endDate);
+        String balances = null;
+        String response = api.exportLoyaltyBalance(loyaltyProgramId, endDate, balances);
         // TODO: test validations
     }
 
@@ -972,7 +973,8 @@ public class ManagementApiTest {
     public void exportLoyaltyBalancesTest() throws ApiException {
         String loyaltyProgramId = null;
         OffsetDateTime endDate = null;
-        String response = api.exportLoyaltyBalances(loyaltyProgramId, endDate);
+        String balances = null;
+        String response = api.exportLoyaltyBalances(loyaltyProgramId, endDate, balances);
         // TODO: test validations
     }
 
@@ -987,7 +989,8 @@ public class ManagementApiTest {
     public void exportLoyaltyCardBalancesTest() throws ApiException {
         Long loyaltyProgramId = null;
         OffsetDateTime endDate = null;
-        String response = api.exportLoyaltyCardBalances(loyaltyProgramId, endDate);
+        String balances = null;
+        String response = api.exportLoyaltyCardBalances(loyaltyProgramId, endDate, balances);
         // TODO: test validations
     }
 

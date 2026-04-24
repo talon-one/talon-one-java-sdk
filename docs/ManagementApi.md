@@ -3791,7 +3791,7 @@ public class Example {
 
 <a id="exportLoyaltyBalance"></a>
 # **exportLoyaltyBalance**
-> String exportLoyaltyBalance(loyaltyProgramId, endDate)
+> String exportLoyaltyBalance(loyaltyProgramId, endDate, balances)
 
 Export customer loyalty balance to CSV
 
@@ -3821,8 +3821,9 @@ public class Example {
     ManagementApi apiInstance = new ManagementApi(defaultClient);
     String loyaltyProgramId = "loyaltyProgramId_example"; // String | The identifier for the loyalty program.
     OffsetDateTime endDate = OffsetDateTime.now(); // OffsetDateTime | Used to return expired, active, and pending loyalty balances before this timestamp. You can enter any past, present, or future timestamp value.  > [!note] **Note** > - This must be an RFC3339 timestamp string. > - You can include a time component in your string, for example, `T23:59:59` to specify the end of the day. The time zone setting >   considered is `UTC`. If you do not include a time component, a default time value of `T00:00:00` (midnight) in `UTC` is considered. 
+    String balances = "balances_example"; // String | Filters which balance fields are included in the CSV export. `currentBalance` is always returned.  By default, all balance fields are included. When this parameter is provided, only the listed fields contain values and the rest are returned empty.  Accepted values: - `currentBalance` - `pendingBalance` - `expiredBalance` - `spentBalance` - `negativeBalance`  Multiple values must be provided as a comma-separated list. 
     try {
-      String result = apiInstance.exportLoyaltyBalance(loyaltyProgramId, endDate);
+      String result = apiInstance.exportLoyaltyBalance(loyaltyProgramId, endDate, balances);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ManagementApi#exportLoyaltyBalance");
@@ -3841,6 +3842,7 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **loyaltyProgramId** | **String**| The identifier for the loyalty program. | |
 | **endDate** | **OffsetDateTime**| Used to return expired, active, and pending loyalty balances before this timestamp. You can enter any past, present, or future timestamp value.  &gt; [!note] **Note** &gt; - This must be an RFC3339 timestamp string. &gt; - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting &gt;   considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered.  | [optional] |
+| **balances** | **String**| Filters which balance fields are included in the CSV export. &#x60;currentBalance&#x60; is always returned.  By default, all balance fields are included. When this parameter is provided, only the listed fields contain values and the rest are returned empty.  Accepted values: - &#x60;currentBalance&#x60; - &#x60;pendingBalance&#x60; - &#x60;expiredBalance&#x60; - &#x60;spentBalance&#x60; - &#x60;negativeBalance&#x60;  Multiple values must be provided as a comma-separated list.  | [optional] |
 
 ### Return type
 
@@ -3864,7 +3866,7 @@ public class Example {
 
 <a id="exportLoyaltyBalances"></a>
 # **exportLoyaltyBalances**
-> String exportLoyaltyBalances(loyaltyProgramId, endDate)
+> String exportLoyaltyBalances(loyaltyProgramId, endDate, balances)
 
 Export customer loyalty balances
 
@@ -3894,8 +3896,9 @@ public class Example {
     ManagementApi apiInstance = new ManagementApi(defaultClient);
     String loyaltyProgramId = "loyaltyProgramId_example"; // String | The identifier for the loyalty program.
     OffsetDateTime endDate = OffsetDateTime.now(); // OffsetDateTime | Used to return expired, active, and pending loyalty balances before this timestamp. You can enter any past, present, or future timestamp value.  > [!note] **Note** > - This must be an RFC3339 timestamp string. > - You can include a time component in your string, for example, `T23:59:59` to specify the end of the day. The time zone setting >   considered is `UTC`. If you do not include a time component, a default time value of `T00:00:00` (midnight) in `UTC` is considered. > - This parameter does not affect the `currentTier` field in the CSV file, which shows the customer's tier at the time of export. 
+    String balances = "balances_example"; // String | Filters which balance fields are included in the CSV export. `currentBalance` is always returned.  By default, all balance fields are included. When this parameter is provided, only the listed fields contain values and the rest are returned empty.  Accepted values: - `currentBalance` - `pendingBalance` - `expiredBalance` - `spentBalance` - `negativeBalance`  Multiple values must be provided as a comma-separated list. 
     try {
-      String result = apiInstance.exportLoyaltyBalances(loyaltyProgramId, endDate);
+      String result = apiInstance.exportLoyaltyBalances(loyaltyProgramId, endDate, balances);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ManagementApi#exportLoyaltyBalances");
@@ -3914,6 +3917,7 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **loyaltyProgramId** | **String**| The identifier for the loyalty program. | |
 | **endDate** | **OffsetDateTime**| Used to return expired, active, and pending loyalty balances before this timestamp. You can enter any past, present, or future timestamp value.  &gt; [!note] **Note** &gt; - This must be an RFC3339 timestamp string. &gt; - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting &gt;   considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered. &gt; - This parameter does not affect the &#x60;currentTier&#x60; field in the CSV file, which shows the customer&#39;s tier at the time of export.  | [optional] |
+| **balances** | **String**| Filters which balance fields are included in the CSV export. &#x60;currentBalance&#x60; is always returned.  By default, all balance fields are included. When this parameter is provided, only the listed fields contain values and the rest are returned empty.  Accepted values: - &#x60;currentBalance&#x60; - &#x60;pendingBalance&#x60; - &#x60;expiredBalance&#x60; - &#x60;spentBalance&#x60; - &#x60;negativeBalance&#x60;  Multiple values must be provided as a comma-separated list.  | [optional] |
 
 ### Return type
 
@@ -3937,7 +3941,7 @@ public class Example {
 
 <a id="exportLoyaltyCardBalances"></a>
 # **exportLoyaltyCardBalances**
-> String exportLoyaltyCardBalances(loyaltyProgramId, endDate)
+> String exportLoyaltyCardBalances(loyaltyProgramId, endDate, balances)
 
 Export all card transaction logs
 
@@ -3967,8 +3971,9 @@ public class Example {
     ManagementApi apiInstance = new ManagementApi(defaultClient);
     Long loyaltyProgramId = 56L; // Long | Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. 
     OffsetDateTime endDate = OffsetDateTime.now(); // OffsetDateTime | Used to return expired, active, and pending loyalty balances before this timestamp. You can enter any past, present, or future timestamp value.  > [!note] **Note** > - This must be an RFC3339 timestamp string. > - You can include a time component in your string, for example, `T23:59:59` to specify the end of the day. The time zone setting >   considered is `UTC`. If you do not include a time component, a default time value of `T00:00:00` (midnight) in `UTC` is considered. 
+    String balances = "balances_example"; // String | Filters which balance fields are included in the CSV export. By default, all balance fields are included. When this parameter is provided, only the listed fields contain values and the rest are returned empty.  Accepted values: - `currentBalance` - `pendingBalance` - `expiredBalance` - `spentBalance` - `negativeBalance`  Multiple values must be provided as a comma-separated list.  **Note:** - The `negativeBalance` value is not supported for card balance exports. - Providing an unsupported or invalid value returns a `400 Bad Request` error. 
     try {
-      String result = apiInstance.exportLoyaltyCardBalances(loyaltyProgramId, endDate);
+      String result = apiInstance.exportLoyaltyCardBalances(loyaltyProgramId, endDate, balances);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ManagementApi#exportLoyaltyCardBalances");
@@ -3987,6 +3992,7 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **loyaltyProgramId** | **Long**| Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint.  | |
 | **endDate** | **OffsetDateTime**| Used to return expired, active, and pending loyalty balances before this timestamp. You can enter any past, present, or future timestamp value.  &gt; [!note] **Note** &gt; - This must be an RFC3339 timestamp string. &gt; - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting &gt;   considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered.  | [optional] |
+| **balances** | **String**| Filters which balance fields are included in the CSV export. By default, all balance fields are included. When this parameter is provided, only the listed fields contain values and the rest are returned empty.  Accepted values: - &#x60;currentBalance&#x60; - &#x60;pendingBalance&#x60; - &#x60;expiredBalance&#x60; - &#x60;spentBalance&#x60; - &#x60;negativeBalance&#x60;  Multiple values must be provided as a comma-separated list.  **Note:** - The &#x60;negativeBalance&#x60; value is not supported for card balance exports. - Providing an unsupported or invalid value returns a &#x60;400 Bad Request&#x60; error.  | [optional] |
 
 ### Return type
 

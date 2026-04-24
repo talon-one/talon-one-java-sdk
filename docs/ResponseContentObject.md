@@ -21,6 +21,7 @@
 | EVENT | &quot;event&quot; |
 | AWARDED_GIVEAWAYS | &quot;awardedGiveaways&quot; |
 | RULE_FAILURE_REASONS | &quot;ruleFailureReasons&quot; |
+| CAMPAIGN_ELIGIBILITY | &quot;campaignEligibility&quot; |
 
 
 

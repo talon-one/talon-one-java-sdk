@@ -42,7 +42,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>one.talon</groupId>
   <artifactId>talon-one-client</artifactId>
-  <version>26.08.0</version>
+  <version>26.08.01</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -52,7 +52,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "one.talon:talon-one-client:26.08.0"
+compile "one.talon:talon-one-client:26.08.01"
 ```
 
 ### Others
@@ -541,6 +541,7 @@ Class | Method | HTTP request | Description
 - [CampaignDetail](docs/CampaignDetail.md)
 - [CampaignEditedNotification](docs/CampaignEditedNotification.md)
 - [CampaignEditedNotificationItem](docs/CampaignEditedNotificationItem.md)
+- [CampaignEligibility](docs/CampaignEligibility.md)
 - [CampaignEntity](docs/CampaignEntity.md)
 - [CampaignEvaluationGroup](docs/CampaignEvaluationGroup.md)
 - [CampaignEvaluationPosition](docs/CampaignEvaluationPosition.md)

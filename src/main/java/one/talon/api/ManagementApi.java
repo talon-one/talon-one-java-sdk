@@ -7409,6 +7409,7 @@ public class ManagementApi {
      * Build call for exportLoyaltyBalance
      * @param loyaltyProgramId The identifier for the loyalty program. (required)
      * @param endDate Used to return expired, active, and pending loyalty balances before this timestamp. You can enter any past, present, or future timestamp value.  &gt; [!note] **Note** &gt; - This must be an RFC3339 timestamp string. &gt; - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting &gt;   considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered.  (optional)
+     * @param balances Filters which balance fields are included in the CSV export. &#x60;currentBalance&#x60; is always returned.  By default, all balance fields are included. When this parameter is provided, only the listed fields contain values and the rest are returned empty.  Accepted values: - &#x60;currentBalance&#x60; - &#x60;pendingBalance&#x60; - &#x60;expiredBalance&#x60; - &#x60;spentBalance&#x60; - &#x60;negativeBalance&#x60;  Multiple values must be provided as a comma-separated list.  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -7423,7 +7424,7 @@ public class ManagementApi {
      * @deprecated
      */
     @Deprecated
-    public okhttp3.Call exportLoyaltyBalanceCall(@javax.annotation.Nonnull String loyaltyProgramId, @javax.annotation.Nullable OffsetDateTime endDate, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call exportLoyaltyBalanceCall(@javax.annotation.Nonnull String loyaltyProgramId, @javax.annotation.Nullable OffsetDateTime endDate, @javax.annotation.Nullable String balances, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -7453,6 +7454,10 @@ public class ManagementApi {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("endDate", endDate));
         }
 
+        if (balances != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("balances", balances));
+        }
+
         final String[] localVarAccepts = {
             "application/csv"
         };
@@ -7474,13 +7479,13 @@ public class ManagementApi {
 
     @Deprecated
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call exportLoyaltyBalanceValidateBeforeCall(@javax.annotation.Nonnull String loyaltyProgramId, @javax.annotation.Nullable OffsetDateTime endDate, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call exportLoyaltyBalanceValidateBeforeCall(@javax.annotation.Nonnull String loyaltyProgramId, @javax.annotation.Nullable OffsetDateTime endDate, @javax.annotation.Nullable String balances, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'loyaltyProgramId' is set
         if (loyaltyProgramId == null) {
             throw new ApiException("Missing the required parameter 'loyaltyProgramId' when calling exportLoyaltyBalance(Async)");
         }
 
-        return exportLoyaltyBalanceCall(loyaltyProgramId, endDate, _callback);
+        return exportLoyaltyBalanceCall(loyaltyProgramId, endDate, balances, _callback);
 
     }
 
@@ -7489,6 +7494,7 @@ public class ManagementApi {
      * To export customer loyalty balances to CSV, use the [Export customer loyalty balances to CSV](/management-api#tag/Loyalty/operation/exportLoyaltyBalances) endpoint.  Download a CSV file containing the balance of each customer in the loyalty program.  &gt; [!tip] If the exported CSV file is too large to view, you can &gt; [split it into multiple files](https://www.google.com/search?q&#x3D;split+CSV+into+multiple+files). 
      * @param loyaltyProgramId The identifier for the loyalty program. (required)
      * @param endDate Used to return expired, active, and pending loyalty balances before this timestamp. You can enter any past, present, or future timestamp value.  &gt; [!note] **Note** &gt; - This must be an RFC3339 timestamp string. &gt; - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting &gt;   considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered.  (optional)
+     * @param balances Filters which balance fields are included in the CSV export. &#x60;currentBalance&#x60; is always returned.  By default, all balance fields are included. When this parameter is provided, only the listed fields contain values and the rest are returned empty.  Accepted values: - &#x60;currentBalance&#x60; - &#x60;pendingBalance&#x60; - &#x60;expiredBalance&#x60; - &#x60;spentBalance&#x60; - &#x60;negativeBalance&#x60;  Multiple values must be provided as a comma-separated list.  (optional)
      * @return String
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -7502,8 +7508,8 @@ public class ManagementApi {
      * @deprecated
      */
     @Deprecated
-    public String exportLoyaltyBalance(@javax.annotation.Nonnull String loyaltyProgramId, @javax.annotation.Nullable OffsetDateTime endDate) throws ApiException {
-        ApiResponse<String> localVarResp = exportLoyaltyBalanceWithHttpInfo(loyaltyProgramId, endDate);
+    public String exportLoyaltyBalance(@javax.annotation.Nonnull String loyaltyProgramId, @javax.annotation.Nullable OffsetDateTime endDate, @javax.annotation.Nullable String balances) throws ApiException {
+        ApiResponse<String> localVarResp = exportLoyaltyBalanceWithHttpInfo(loyaltyProgramId, endDate, balances);
         return localVarResp.getData();
     }
 
@@ -7512,6 +7518,7 @@ public class ManagementApi {
      * To export customer loyalty balances to CSV, use the [Export customer loyalty balances to CSV](/management-api#tag/Loyalty/operation/exportLoyaltyBalances) endpoint.  Download a CSV file containing the balance of each customer in the loyalty program.  &gt; [!tip] If the exported CSV file is too large to view, you can &gt; [split it into multiple files](https://www.google.com/search?q&#x3D;split+CSV+into+multiple+files). 
      * @param loyaltyProgramId The identifier for the loyalty program. (required)
      * @param endDate Used to return expired, active, and pending loyalty balances before this timestamp. You can enter any past, present, or future timestamp value.  &gt; [!note] **Note** &gt; - This must be an RFC3339 timestamp string. &gt; - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting &gt;   considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered.  (optional)
+     * @param balances Filters which balance fields are included in the CSV export. &#x60;currentBalance&#x60; is always returned.  By default, all balance fields are included. When this parameter is provided, only the listed fields contain values and the rest are returned empty.  Accepted values: - &#x60;currentBalance&#x60; - &#x60;pendingBalance&#x60; - &#x60;expiredBalance&#x60; - &#x60;spentBalance&#x60; - &#x60;negativeBalance&#x60;  Multiple values must be provided as a comma-separated list.  (optional)
      * @return ApiResponse&lt;String&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -7525,8 +7532,8 @@ public class ManagementApi {
      * @deprecated
      */
     @Deprecated
-    public ApiResponse<String> exportLoyaltyBalanceWithHttpInfo(@javax.annotation.Nonnull String loyaltyProgramId, @javax.annotation.Nullable OffsetDateTime endDate) throws ApiException {
-        okhttp3.Call localVarCall = exportLoyaltyBalanceValidateBeforeCall(loyaltyProgramId, endDate, null);
+    public ApiResponse<String> exportLoyaltyBalanceWithHttpInfo(@javax.annotation.Nonnull String loyaltyProgramId, @javax.annotation.Nullable OffsetDateTime endDate, @javax.annotation.Nullable String balances) throws ApiException {
+        okhttp3.Call localVarCall = exportLoyaltyBalanceValidateBeforeCall(loyaltyProgramId, endDate, balances, null);
         Type localVarReturnType = new TypeToken<String>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -7536,6 +7543,7 @@ public class ManagementApi {
      * To export customer loyalty balances to CSV, use the [Export customer loyalty balances to CSV](/management-api#tag/Loyalty/operation/exportLoyaltyBalances) endpoint.  Download a CSV file containing the balance of each customer in the loyalty program.  &gt; [!tip] If the exported CSV file is too large to view, you can &gt; [split it into multiple files](https://www.google.com/search?q&#x3D;split+CSV+into+multiple+files). 
      * @param loyaltyProgramId The identifier for the loyalty program. (required)
      * @param endDate Used to return expired, active, and pending loyalty balances before this timestamp. You can enter any past, present, or future timestamp value.  &gt; [!note] **Note** &gt; - This must be an RFC3339 timestamp string. &gt; - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting &gt;   considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered.  (optional)
+     * @param balances Filters which balance fields are included in the CSV export. &#x60;currentBalance&#x60; is always returned.  By default, all balance fields are included. When this parameter is provided, only the listed fields contain values and the rest are returned empty.  Accepted values: - &#x60;currentBalance&#x60; - &#x60;pendingBalance&#x60; - &#x60;expiredBalance&#x60; - &#x60;spentBalance&#x60; - &#x60;negativeBalance&#x60;  Multiple values must be provided as a comma-separated list.  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -7550,9 +7558,9 @@ public class ManagementApi {
      * @deprecated
      */
     @Deprecated
-    public okhttp3.Call exportLoyaltyBalanceAsync(@javax.annotation.Nonnull String loyaltyProgramId, @javax.annotation.Nullable OffsetDateTime endDate, final ApiCallback<String> _callback) throws ApiException {
+    public okhttp3.Call exportLoyaltyBalanceAsync(@javax.annotation.Nonnull String loyaltyProgramId, @javax.annotation.Nullable OffsetDateTime endDate, @javax.annotation.Nullable String balances, final ApiCallback<String> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = exportLoyaltyBalanceValidateBeforeCall(loyaltyProgramId, endDate, _callback);
+        okhttp3.Call localVarCall = exportLoyaltyBalanceValidateBeforeCall(loyaltyProgramId, endDate, balances, _callback);
         Type localVarReturnType = new TypeToken<String>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -7561,6 +7569,7 @@ public class ManagementApi {
      * Build call for exportLoyaltyBalances
      * @param loyaltyProgramId The identifier for the loyalty program. (required)
      * @param endDate Used to return expired, active, and pending loyalty balances before this timestamp. You can enter any past, present, or future timestamp value.  &gt; [!note] **Note** &gt; - This must be an RFC3339 timestamp string. &gt; - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting &gt;   considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered. &gt; - This parameter does not affect the &#x60;currentTier&#x60; field in the CSV file, which shows the customer&#39;s tier at the time of export.  (optional)
+     * @param balances Filters which balance fields are included in the CSV export. &#x60;currentBalance&#x60; is always returned.  By default, all balance fields are included. When this parameter is provided, only the listed fields contain values and the rest are returned empty.  Accepted values: - &#x60;currentBalance&#x60; - &#x60;pendingBalance&#x60; - &#x60;expiredBalance&#x60; - &#x60;spentBalance&#x60; - &#x60;negativeBalance&#x60;  Multiple values must be provided as a comma-separated list.  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -7573,7 +7582,7 @@ public class ManagementApi {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call exportLoyaltyBalancesCall(@javax.annotation.Nonnull String loyaltyProgramId, @javax.annotation.Nullable OffsetDateTime endDate, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call exportLoyaltyBalancesCall(@javax.annotation.Nonnull String loyaltyProgramId, @javax.annotation.Nullable OffsetDateTime endDate, @javax.annotation.Nullable String balances, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -7603,6 +7612,10 @@ public class ManagementApi {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("endDate", endDate));
         }
 
+        if (balances != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("balances", balances));
+        }
+
         final String[] localVarAccepts = {
             "application/csv"
         };
@@ -7623,13 +7636,13 @@ public class ManagementApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call exportLoyaltyBalancesValidateBeforeCall(@javax.annotation.Nonnull String loyaltyProgramId, @javax.annotation.Nullable OffsetDateTime endDate, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call exportLoyaltyBalancesValidateBeforeCall(@javax.annotation.Nonnull String loyaltyProgramId, @javax.annotation.Nullable OffsetDateTime endDate, @javax.annotation.Nullable String balances, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'loyaltyProgramId' is set
         if (loyaltyProgramId == null) {
             throw new ApiException("Missing the required parameter 'loyaltyProgramId' when calling exportLoyaltyBalances(Async)");
         }
 
-        return exportLoyaltyBalancesCall(loyaltyProgramId, endDate, _callback);
+        return exportLoyaltyBalancesCall(loyaltyProgramId, endDate, balances, _callback);
 
     }
 
@@ -7638,6 +7651,7 @@ public class ManagementApi {
      * Download a CSV file containing the balance of each customer in the loyalty program.  &gt; [!tip] If the exported CSV file is too large to view, you can &gt; [split it into multiple files](https://www.google.com/search?q&#x3D;split+CSV+into+multiple+files).  The generated file can contain the following columns:  - &#x60;loyaltyProgramID&#x60;: The ID of the loyalty program. - &#x60;loyaltySubledger&#x60;: The name of the subledger, when applicable. - &#x60;profileIntegrationID&#x60;: The integration ID of the customer profile. - &#x60;currentBalance&#x60;: The current point balance. - &#x60;pendingBalance&#x60;: The number of pending points. - &#x60;expiredBalance&#x60;: The number of expired points. - &#x60;spentBalance&#x60;: The number of spent points. - &#x60;currentTier&#x60;: The tier that the customer is in at the time of the export. 
      * @param loyaltyProgramId The identifier for the loyalty program. (required)
      * @param endDate Used to return expired, active, and pending loyalty balances before this timestamp. You can enter any past, present, or future timestamp value.  &gt; [!note] **Note** &gt; - This must be an RFC3339 timestamp string. &gt; - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting &gt;   considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered. &gt; - This parameter does not affect the &#x60;currentTier&#x60; field in the CSV file, which shows the customer&#39;s tier at the time of export.  (optional)
+     * @param balances Filters which balance fields are included in the CSV export. &#x60;currentBalance&#x60; is always returned.  By default, all balance fields are included. When this parameter is provided, only the listed fields contain values and the rest are returned empty.  Accepted values: - &#x60;currentBalance&#x60; - &#x60;pendingBalance&#x60; - &#x60;expiredBalance&#x60; - &#x60;spentBalance&#x60; - &#x60;negativeBalance&#x60;  Multiple values must be provided as a comma-separated list.  (optional)
      * @return String
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -7649,8 +7663,8 @@ public class ManagementApi {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public String exportLoyaltyBalances(@javax.annotation.Nonnull String loyaltyProgramId, @javax.annotation.Nullable OffsetDateTime endDate) throws ApiException {
-        ApiResponse<String> localVarResp = exportLoyaltyBalancesWithHttpInfo(loyaltyProgramId, endDate);
+    public String exportLoyaltyBalances(@javax.annotation.Nonnull String loyaltyProgramId, @javax.annotation.Nullable OffsetDateTime endDate, @javax.annotation.Nullable String balances) throws ApiException {
+        ApiResponse<String> localVarResp = exportLoyaltyBalancesWithHttpInfo(loyaltyProgramId, endDate, balances);
         return localVarResp.getData();
     }
 
@@ -7659,6 +7673,7 @@ public class ManagementApi {
      * Download a CSV file containing the balance of each customer in the loyalty program.  &gt; [!tip] If the exported CSV file is too large to view, you can &gt; [split it into multiple files](https://www.google.com/search?q&#x3D;split+CSV+into+multiple+files).  The generated file can contain the following columns:  - &#x60;loyaltyProgramID&#x60;: The ID of the loyalty program. - &#x60;loyaltySubledger&#x60;: The name of the subledger, when applicable. - &#x60;profileIntegrationID&#x60;: The integration ID of the customer profile. - &#x60;currentBalance&#x60;: The current point balance. - &#x60;pendingBalance&#x60;: The number of pending points. - &#x60;expiredBalance&#x60;: The number of expired points. - &#x60;spentBalance&#x60;: The number of spent points. - &#x60;currentTier&#x60;: The tier that the customer is in at the time of the export. 
      * @param loyaltyProgramId The identifier for the loyalty program. (required)
      * @param endDate Used to return expired, active, and pending loyalty balances before this timestamp. You can enter any past, present, or future timestamp value.  &gt; [!note] **Note** &gt; - This must be an RFC3339 timestamp string. &gt; - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting &gt;   considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered. &gt; - This parameter does not affect the &#x60;currentTier&#x60; field in the CSV file, which shows the customer&#39;s tier at the time of export.  (optional)
+     * @param balances Filters which balance fields are included in the CSV export. &#x60;currentBalance&#x60; is always returned.  By default, all balance fields are included. When this parameter is provided, only the listed fields contain values and the rest are returned empty.  Accepted values: - &#x60;currentBalance&#x60; - &#x60;pendingBalance&#x60; - &#x60;expiredBalance&#x60; - &#x60;spentBalance&#x60; - &#x60;negativeBalance&#x60;  Multiple values must be provided as a comma-separated list.  (optional)
      * @return ApiResponse&lt;String&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -7670,8 +7685,8 @@ public class ManagementApi {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<String> exportLoyaltyBalancesWithHttpInfo(@javax.annotation.Nonnull String loyaltyProgramId, @javax.annotation.Nullable OffsetDateTime endDate) throws ApiException {
-        okhttp3.Call localVarCall = exportLoyaltyBalancesValidateBeforeCall(loyaltyProgramId, endDate, null);
+    public ApiResponse<String> exportLoyaltyBalancesWithHttpInfo(@javax.annotation.Nonnull String loyaltyProgramId, @javax.annotation.Nullable OffsetDateTime endDate, @javax.annotation.Nullable String balances) throws ApiException {
+        okhttp3.Call localVarCall = exportLoyaltyBalancesValidateBeforeCall(loyaltyProgramId, endDate, balances, null);
         Type localVarReturnType = new TypeToken<String>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -7681,6 +7696,7 @@ public class ManagementApi {
      * Download a CSV file containing the balance of each customer in the loyalty program.  &gt; [!tip] If the exported CSV file is too large to view, you can &gt; [split it into multiple files](https://www.google.com/search?q&#x3D;split+CSV+into+multiple+files).  The generated file can contain the following columns:  - &#x60;loyaltyProgramID&#x60;: The ID of the loyalty program. - &#x60;loyaltySubledger&#x60;: The name of the subledger, when applicable. - &#x60;profileIntegrationID&#x60;: The integration ID of the customer profile. - &#x60;currentBalance&#x60;: The current point balance. - &#x60;pendingBalance&#x60;: The number of pending points. - &#x60;expiredBalance&#x60;: The number of expired points. - &#x60;spentBalance&#x60;: The number of spent points. - &#x60;currentTier&#x60;: The tier that the customer is in at the time of the export. 
      * @param loyaltyProgramId The identifier for the loyalty program. (required)
      * @param endDate Used to return expired, active, and pending loyalty balances before this timestamp. You can enter any past, present, or future timestamp value.  &gt; [!note] **Note** &gt; - This must be an RFC3339 timestamp string. &gt; - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting &gt;   considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered. &gt; - This parameter does not affect the &#x60;currentTier&#x60; field in the CSV file, which shows the customer&#39;s tier at the time of export.  (optional)
+     * @param balances Filters which balance fields are included in the CSV export. &#x60;currentBalance&#x60; is always returned.  By default, all balance fields are included. When this parameter is provided, only the listed fields contain values and the rest are returned empty.  Accepted values: - &#x60;currentBalance&#x60; - &#x60;pendingBalance&#x60; - &#x60;expiredBalance&#x60; - &#x60;spentBalance&#x60; - &#x60;negativeBalance&#x60;  Multiple values must be provided as a comma-separated list.  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -7693,9 +7709,9 @@ public class ManagementApi {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call exportLoyaltyBalancesAsync(@javax.annotation.Nonnull String loyaltyProgramId, @javax.annotation.Nullable OffsetDateTime endDate, final ApiCallback<String> _callback) throws ApiException {
+    public okhttp3.Call exportLoyaltyBalancesAsync(@javax.annotation.Nonnull String loyaltyProgramId, @javax.annotation.Nullable OffsetDateTime endDate, @javax.annotation.Nullable String balances, final ApiCallback<String> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = exportLoyaltyBalancesValidateBeforeCall(loyaltyProgramId, endDate, _callback);
+        okhttp3.Call localVarCall = exportLoyaltyBalancesValidateBeforeCall(loyaltyProgramId, endDate, balances, _callback);
         Type localVarReturnType = new TypeToken<String>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -7704,6 +7720,7 @@ public class ManagementApi {
      * Build call for exportLoyaltyCardBalances
      * @param loyaltyProgramId Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint.  (required)
      * @param endDate Used to return expired, active, and pending loyalty balances before this timestamp. You can enter any past, present, or future timestamp value.  &gt; [!note] **Note** &gt; - This must be an RFC3339 timestamp string. &gt; - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting &gt;   considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered.  (optional)
+     * @param balances Filters which balance fields are included in the CSV export. By default, all balance fields are included. When this parameter is provided, only the listed fields contain values and the rest are returned empty.  Accepted values: - &#x60;currentBalance&#x60; - &#x60;pendingBalance&#x60; - &#x60;expiredBalance&#x60; - &#x60;spentBalance&#x60; - &#x60;negativeBalance&#x60;  Multiple values must be provided as a comma-separated list.  **Note:** - The &#x60;negativeBalance&#x60; value is not supported for card balance exports. - Providing an unsupported or invalid value returns a &#x60;400 Bad Request&#x60; error.  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -7716,7 +7733,7 @@ public class ManagementApi {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call exportLoyaltyCardBalancesCall(@javax.annotation.Nonnull Long loyaltyProgramId, @javax.annotation.Nullable OffsetDateTime endDate, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call exportLoyaltyCardBalancesCall(@javax.annotation.Nonnull Long loyaltyProgramId, @javax.annotation.Nullable OffsetDateTime endDate, @javax.annotation.Nullable String balances, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -7746,6 +7763,10 @@ public class ManagementApi {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("endDate", endDate));
         }
 
+        if (balances != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("balances", balances));
+        }
+
         final String[] localVarAccepts = {
             "application/csv"
         };
@@ -7766,13 +7787,13 @@ public class ManagementApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call exportLoyaltyCardBalancesValidateBeforeCall(@javax.annotation.Nonnull Long loyaltyProgramId, @javax.annotation.Nullable OffsetDateTime endDate, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call exportLoyaltyCardBalancesValidateBeforeCall(@javax.annotation.Nonnull Long loyaltyProgramId, @javax.annotation.Nullable OffsetDateTime endDate, @javax.annotation.Nullable String balances, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'loyaltyProgramId' is set
         if (loyaltyProgramId == null) {
             throw new ApiException("Missing the required parameter 'loyaltyProgramId' when calling exportLoyaltyCardBalances(Async)");
         }
 
-        return exportLoyaltyCardBalancesCall(loyaltyProgramId, endDate, _callback);
+        return exportLoyaltyCardBalancesCall(loyaltyProgramId, endDate, balances, _callback);
 
     }
 
@@ -7781,6 +7802,7 @@ public class ManagementApi {
      * Download a CSV file containing the balances of all cards in the loyalty program.  &gt; [!tip] If the exported CSV file is too large to view, you can &gt; [split it into multiple files](https://www.google.com/search?q&#x3D;split+CSV+into+multiple+files).  The CSV file contains the following columns: - &#x60;loyaltyProgramID&#x60;: The ID of the loyalty program. - &#x60;loyaltySubledger&#x60;: The name of the subdleger, when applicatble. - &#x60;cardIdentifier&#x60;: The identifier of the loyalty card, which must match the regular expression &#x60;^[A-Za-z0-9._%+@-]+$&#x60;. - &#x60;cardState&#x60;:The state of the loyalty card. It can be &#x60;active&#x60; or &#x60;inactive&#x60;. - &#x60;currentBalance&#x60;: The current point balance. - &#x60;pendingBalance&#x60;: The number of pending points. - &#x60;expiredBalance&#x60;: The number of expired points. - &#x60;spentBalance&#x60;: The number of spent points. 
      * @param loyaltyProgramId Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint.  (required)
      * @param endDate Used to return expired, active, and pending loyalty balances before this timestamp. You can enter any past, present, or future timestamp value.  &gt; [!note] **Note** &gt; - This must be an RFC3339 timestamp string. &gt; - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting &gt;   considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered.  (optional)
+     * @param balances Filters which balance fields are included in the CSV export. By default, all balance fields are included. When this parameter is provided, only the listed fields contain values and the rest are returned empty.  Accepted values: - &#x60;currentBalance&#x60; - &#x60;pendingBalance&#x60; - &#x60;expiredBalance&#x60; - &#x60;spentBalance&#x60; - &#x60;negativeBalance&#x60;  Multiple values must be provided as a comma-separated list.  **Note:** - The &#x60;negativeBalance&#x60; value is not supported for card balance exports. - Providing an unsupported or invalid value returns a &#x60;400 Bad Request&#x60; error.  (optional)
      * @return String
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -7792,8 +7814,8 @@ public class ManagementApi {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public String exportLoyaltyCardBalances(@javax.annotation.Nonnull Long loyaltyProgramId, @javax.annotation.Nullable OffsetDateTime endDate) throws ApiException {
-        ApiResponse<String> localVarResp = exportLoyaltyCardBalancesWithHttpInfo(loyaltyProgramId, endDate);
+    public String exportLoyaltyCardBalances(@javax.annotation.Nonnull Long loyaltyProgramId, @javax.annotation.Nullable OffsetDateTime endDate, @javax.annotation.Nullable String balances) throws ApiException {
+        ApiResponse<String> localVarResp = exportLoyaltyCardBalancesWithHttpInfo(loyaltyProgramId, endDate, balances);
         return localVarResp.getData();
     }
 
@@ -7802,6 +7824,7 @@ public class ManagementApi {
      * Download a CSV file containing the balances of all cards in the loyalty program.  &gt; [!tip] If the exported CSV file is too large to view, you can &gt; [split it into multiple files](https://www.google.com/search?q&#x3D;split+CSV+into+multiple+files).  The CSV file contains the following columns: - &#x60;loyaltyProgramID&#x60;: The ID of the loyalty program. - &#x60;loyaltySubledger&#x60;: The name of the subdleger, when applicatble. - &#x60;cardIdentifier&#x60;: The identifier of the loyalty card, which must match the regular expression &#x60;^[A-Za-z0-9._%+@-]+$&#x60;. - &#x60;cardState&#x60;:The state of the loyalty card. It can be &#x60;active&#x60; or &#x60;inactive&#x60;. - &#x60;currentBalance&#x60;: The current point balance. - &#x60;pendingBalance&#x60;: The number of pending points. - &#x60;expiredBalance&#x60;: The number of expired points. - &#x60;spentBalance&#x60;: The number of spent points. 
      * @param loyaltyProgramId Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint.  (required)
      * @param endDate Used to return expired, active, and pending loyalty balances before this timestamp. You can enter any past, present, or future timestamp value.  &gt; [!note] **Note** &gt; - This must be an RFC3339 timestamp string. &gt; - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting &gt;   considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered.  (optional)
+     * @param balances Filters which balance fields are included in the CSV export. By default, all balance fields are included. When this parameter is provided, only the listed fields contain values and the rest are returned empty.  Accepted values: - &#x60;currentBalance&#x60; - &#x60;pendingBalance&#x60; - &#x60;expiredBalance&#x60; - &#x60;spentBalance&#x60; - &#x60;negativeBalance&#x60;  Multiple values must be provided as a comma-separated list.  **Note:** - The &#x60;negativeBalance&#x60; value is not supported for card balance exports. - Providing an unsupported or invalid value returns a &#x60;400 Bad Request&#x60; error.  (optional)
      * @return ApiResponse&lt;String&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -7813,8 +7836,8 @@ public class ManagementApi {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<String> exportLoyaltyCardBalancesWithHttpInfo(@javax.annotation.Nonnull Long loyaltyProgramId, @javax.annotation.Nullable OffsetDateTime endDate) throws ApiException {
-        okhttp3.Call localVarCall = exportLoyaltyCardBalancesValidateBeforeCall(loyaltyProgramId, endDate, null);
+    public ApiResponse<String> exportLoyaltyCardBalancesWithHttpInfo(@javax.annotation.Nonnull Long loyaltyProgramId, @javax.annotation.Nullable OffsetDateTime endDate, @javax.annotation.Nullable String balances) throws ApiException {
+        okhttp3.Call localVarCall = exportLoyaltyCardBalancesValidateBeforeCall(loyaltyProgramId, endDate, balances, null);
         Type localVarReturnType = new TypeToken<String>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -7824,6 +7847,7 @@ public class ManagementApi {
      * Download a CSV file containing the balances of all cards in the loyalty program.  &gt; [!tip] If the exported CSV file is too large to view, you can &gt; [split it into multiple files](https://www.google.com/search?q&#x3D;split+CSV+into+multiple+files).  The CSV file contains the following columns: - &#x60;loyaltyProgramID&#x60;: The ID of the loyalty program. - &#x60;loyaltySubledger&#x60;: The name of the subdleger, when applicatble. - &#x60;cardIdentifier&#x60;: The identifier of the loyalty card, which must match the regular expression &#x60;^[A-Za-z0-9._%+@-]+$&#x60;. - &#x60;cardState&#x60;:The state of the loyalty card. It can be &#x60;active&#x60; or &#x60;inactive&#x60;. - &#x60;currentBalance&#x60;: The current point balance. - &#x60;pendingBalance&#x60;: The number of pending points. - &#x60;expiredBalance&#x60;: The number of expired points. - &#x60;spentBalance&#x60;: The number of spent points. 
      * @param loyaltyProgramId Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint.  (required)
      * @param endDate Used to return expired, active, and pending loyalty balances before this timestamp. You can enter any past, present, or future timestamp value.  &gt; [!note] **Note** &gt; - This must be an RFC3339 timestamp string. &gt; - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting &gt;   considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered.  (optional)
+     * @param balances Filters which balance fields are included in the CSV export. By default, all balance fields are included. When this parameter is provided, only the listed fields contain values and the rest are returned empty.  Accepted values: - &#x60;currentBalance&#x60; - &#x60;pendingBalance&#x60; - &#x60;expiredBalance&#x60; - &#x60;spentBalance&#x60; - &#x60;negativeBalance&#x60;  Multiple values must be provided as a comma-separated list.  **Note:** - The &#x60;negativeBalance&#x60; value is not supported for card balance exports. - Providing an unsupported or invalid value returns a &#x60;400 Bad Request&#x60; error.  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -7836,9 +7860,9 @@ public class ManagementApi {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call exportLoyaltyCardBalancesAsync(@javax.annotation.Nonnull Long loyaltyProgramId, @javax.annotation.Nullable OffsetDateTime endDate, final ApiCallback<String> _callback) throws ApiException {
+    public okhttp3.Call exportLoyaltyCardBalancesAsync(@javax.annotation.Nonnull Long loyaltyProgramId, @javax.annotation.Nullable OffsetDateTime endDate, @javax.annotation.Nullable String balances, final ApiCallback<String> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = exportLoyaltyCardBalancesValidateBeforeCall(loyaltyProgramId, endDate, _callback);
+        okhttp3.Call localVarCall = exportLoyaltyCardBalancesValidateBeforeCall(loyaltyProgramId, endDate, balances, _callback);
         Type localVarReturnType = new TypeToken<String>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

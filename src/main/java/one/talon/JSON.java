@@ -207,6 +207,7 @@ public class JSON {
         gsonBuilder.registerTypeAdapterFactory(new one.talon.model.CampaignDetail.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new one.talon.model.CampaignEditedNotification.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new one.talon.model.CampaignEditedNotificationItem.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new one.talon.model.CampaignEligibility.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new one.talon.model.CampaignEntity.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new one.talon.model.CampaignEvaluationGroup.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new one.talon.model.CampaignEvaluationPosition.CustomTypeAdapterFactory());

@@ -5986,6 +5986,28 @@ paths:
           format: date-time
           type: string
         style: form
+      - description: |
+          Filters which balance fields are included in the CSV export. `currentBalance`
+          is always returned.
+
+          By default, all balance fields are included. When this parameter is provided, only the
+          listed fields contain values and the rest are returned empty.
+
+          Accepted values:
+          - `currentBalance`
+          - `pendingBalance`
+          - `expiredBalance`
+          - `spentBalance`
+          - `negativeBalance`
+
+          Multiple values must be provided as a comma-separated list.
+        explode: true
+        in: query
+        name: balances
+        required: false
+        schema:
+          type: string
+        style: form
       responses:
         "200":
           content:
@@ -6053,6 +6075,28 @@ paths:
         required: false
         schema:
           format: date-time
+          type: string
+        style: form
+      - description: |
+          Filters which balance fields are included in the CSV export. `currentBalance`
+          is always returned.
+
+          By default, all balance fields are included. When this parameter is provided, only the
+          listed fields contain values and the rest are returned empty.
+
+          Accepted values:
+          - `currentBalance`
+          - `pendingBalance`
+          - `expiredBalance`
+          - `spentBalance`
+          - `negativeBalance`
+
+          Multiple values must be provided as a comma-separated list.
+        explode: true
+        in: query
+        name: balances
+        required: false
+        schema:
           type: string
         style: form
       responses:
@@ -6428,6 +6472,30 @@ paths:
         required: false
         schema:
           format: date-time
+          type: string
+        style: form
+      - description: |
+          Filters which balance fields are included in the CSV export. By default,
+          all balance fields are included. When this parameter is provided, only the
+          listed fields contain values and the rest are returned empty.
+
+          Accepted values:
+          - `currentBalance`
+          - `pendingBalance`
+          - `expiredBalance`
+          - `spentBalance`
+          - `negativeBalance`
+
+          Multiple values must be provided as a comma-separated list.
+
+          **Note:**
+          - The `negativeBalance` value is not supported for card balance exports.
+          - Providing an unsupported or invalid value returns a `400 Bad Request` error.
+        explode: true
+        in: query
+        name: balances
+        required: false
+        schema:
           type: string
         style: form
       responses:
@@ -16250,6 +16318,7 @@ components:
             - awardedGiveaways
             - ruleFailureReasons
             - previousReturns
+            - campaignEligibility
             type: string
           type: array
       required:
@@ -17540,6 +17609,155 @@ components:
         lastActivity: 2022-11-10T23:00:00Z
         endTime: 2021-09-22T22:00:00Z
         referralRedemptionCount: 3
+    RuleMetadata:
+      example:
+        displayDescription: Get a 20% discount on all shoes during Thanksgiving! Offer
+          valid till Dec 5 only.
+        displayName: 20% off all shoes!
+        eligibility:
+        - ""
+        - ""
+        relatedData: https://example.com/discounts/20-off-shoes.png
+        title: Give discount via coupon
+      properties:
+        title:
+          description: A short description of the rule.
+          example: Give discount via coupon
+          type: string
+        displayName:
+          description: A customer-facing name for the rule.
+          example: 20% off all shoes!
+          type: string
+        displayDescription:
+          description: "A customer-facing description that explains the details of\
+            \ the rule. \n\nFor example, this property can contain details about eligibility\
+            \ requirements, reward timelines, or terms and conditions.\n"
+          example: Get a 20% discount on all shoes during Thanksgiving! Offer valid
+            till Dec 5 only.
+          type: string
+        relatedData:
+          description: |
+            Any additional data associated with the rule, such as an image URL, vendor name, or a content management system (CMS) ID.
+          example: https://example.com/discounts/20-off-shoes.png
+          type: string
+        eligibility:
+          items: {}
+          type: array
+      required:
+      - title
+    IntegrationCampaign:
+      allOf:
+      - properties:
+          id:
+            description: Unique ID of Campaign.
+            example: 4
+            format: int64
+            type: integer
+        required:
+        - id
+      - $ref: "#/components/schemas/ApplicationEntity"
+      - properties:
+          name:
+            description: The name of the campaign.
+            example: Summer promotions
+            minLength: 1
+            title: Campaign Name
+            type: string
+          description:
+            description: A detailed description of the campaign.
+            example: Campaign for all summer 2021 promotions
+            title: Campaign Description
+            type: string
+          startTime:
+            description: Timestamp when the campaign will become active.
+            example: 2021-07-20T22:00:00Z
+            format: date-time
+            type: string
+          endTime:
+            description: Timestamp when the campaign will become inactive.
+            example: 2021-09-22T22:00:00Z
+            format: date-time
+            type: string
+          attributes:
+            $ref: "#/components/schemas/IntegrationCampaign_allOf_attributes"
+          state:
+            default: enabled
+            description: |
+              The state of the campaign.
+            enum:
+            - enabled
+            example: enabled
+            type: string
+          tags:
+            description: A list of tags for the campaign.
+            example:
+            - summer
+            items:
+              maxLength: 50
+              minLength: 1
+              type: string
+            maxItems: 50
+            type: array
+          features:
+            description: The features enabled in this campaign.
+            example:
+            - coupons
+            - referrals
+            items:
+              enum:
+              - coupons
+              - referrals
+              - loyalty
+              - giveaways
+              - strikethrough
+              - achievements
+              type: string
+            type: array
+          rules:
+            description: A list of rules containing customer-facing details of the
+              rewards defined in the campaign.
+            items:
+              $ref: "#/components/schemas/RuleMetadata"
+            type: array
+        required:
+        - features
+        - name
+        - state
+        - tags
+      example:
+        features:
+        - coupons
+        - referrals
+        name: Summer promotions
+        description: Campaign for all summer 2021 promotions
+        startTime: 2021-07-20T22:00:00Z
+        attributes: null
+        rules:
+        - displayDescription: Get a 20% discount on all shoes during Thanksgiving!
+            Offer valid till Dec 5 only.
+          displayName: 20% off all shoes!
+          eligibility:
+          - ""
+          - ""
+          relatedData: https://example.com/discounts/20-off-shoes.png
+          title: Give discount via coupon
+        - displayDescription: Get a 20% discount on all shoes during Thanksgiving!
+            Offer valid till Dec 5 only.
+          displayName: 20% off all shoes!
+          eligibility:
+          - ""
+          - ""
+          relatedData: https://example.com/discounts/20-off-shoes.png
+          title: Give discount via coupon
+        id: 4
+        endTime: 2021-09-22T22:00:00Z
+        state: enabled
+        applicationId: 322
+        tags:
+        - summer
+    CampaignEligibility:
+      allOf:
+      - $ref: "#/components/schemas/IntegrationCampaign"
     RuleFailureReason:
       description: Details about why a rule failed.
       example:
@@ -19246,6 +19464,7 @@ components:
             - event
             - awardedGiveaways
             - ruleFailureReasons
+            - campaignEligibility
             type: string
           type: array
     ProfileAudiencesChanges:
@@ -20117,6 +20336,17 @@ components:
           description: A description of the audience.
           example: Travel audience 18-27
           type: string
+        subscribedApplicationsIds:
+          description: A list of the IDs of the Applications that are connected to
+            this audience.
+          example:
+          - 3
+          - 13
+          items:
+            format: int64
+            type: integer
+          type: array
+          uniqueItems: true
       required:
       - name
     NewAudience:
@@ -20154,6 +20384,9 @@ components:
         lastUpdate: 2022-04-26T11:02:38Z
         name: Travel audience
         sandbox: true
+        subscribedApplicationsIds:
+        - 3
+        - 13
         integration: mparticle
         description: Travel audience 18-27
         integrationId: 382370BKDB946
@@ -20169,6 +20402,9 @@ components:
         lastUpdate: 2022-04-26T11:02:38Z
         name: Travel audience
         sandbox: true
+        subscribedApplicationsIds:
+        - 3
+        - 13
         integration: mparticle
         description: Travel audience 18-27
         integrationId: 382370BKDB946
@@ -20177,12 +20413,26 @@ components:
     UpdateAudience:
       example:
         name: Travel audience
+        subscribedApplicationsIds:
+        - 3
+        - 13
       properties:
         name:
           description: The human-friendly display name for this audience.
           example: Travel audience
           minLength: 1
           type: string
+        subscribedApplicationsIds:
+          description: A list of the IDs of the Applications that are connected to
+            this audience.
+          example:
+          - 3
+          - 13
+          items:
+            format: int64
+            type: integer
+          type: array
+          uniqueItems: true
       required:
       - name
     CustomerProfileAudienceRequestItem:
@@ -20286,117 +20536,6 @@ components:
           items:
             $ref: "#/components/schemas/IntegrationCustomerProfileAudienceRequestItem"
           type: array
-    RuleMetadata:
-      properties:
-        title:
-          description: A short description of the rule.
-          example: Give discount via coupon
-          type: string
-        displayName:
-          description: A customer-facing name for the rule.
-          example: 20% off all shoes!
-          type: string
-        displayDescription:
-          description: "A customer-facing description that explains the details of\
-            \ the rule. \n\nFor example, this property can contain details about eligibility\
-            \ requirements, reward timelines, or terms and conditions.\n"
-          example: Get a 20% discount on all shoes during Thanksgiving! Offer valid
-            till Dec 5 only.
-          type: string
-        relatedData:
-          description: |
-            Any additional data associated with the rule, such as an image URL, vendor name, or a content management system (CMS) ID.
-          example: https://example.com/discounts/20-off-shoes.png
-          type: string
-      required:
-      - title
-    IntegrationCampaign:
-      allOf:
-      - properties:
-          id:
-            description: Unique ID of Campaign.
-            example: 4
-            format: int64
-            type: integer
-        required:
-        - id
-      - $ref: "#/components/schemas/ApplicationEntity"
-      - properties:
-          name:
-            description: A user-facing name for this campaign.
-            example: Summer promotions
-            minLength: 1
-            title: Campaign Name
-            type: string
-          description:
-            description: A detailed description of the campaign.
-            example: Campaign for all summer 2021 promotions
-            title: Campaign Description
-            type: string
-          startTime:
-            description: Timestamp when the campaign will become active.
-            example: 2021-07-20T22:00:00Z
-            format: date-time
-            type: string
-          endTime:
-            description: Timestamp when the campaign will become inactive.
-            example: 2021-09-22T22:00:00Z
-            format: date-time
-            type: string
-          attributes:
-            $ref: "#/components/schemas/IntegrationCampaign_allOf_attributes"
-          state:
-            default: enabled
-            description: |
-              The state of the campaign.
-            enum:
-            - enabled
-            example: enabled
-            type: string
-          tags:
-            description: A list of tags for the campaign.
-            example:
-            - summer
-            items:
-              maxLength: 50
-              minLength: 1
-              type: string
-            maxItems: 50
-            type: array
-          features:
-            description: The features enabled in this campaign.
-            example:
-            - coupons
-            - referrals
-            items:
-              enum:
-              - coupons
-              - referrals
-              - loyalty
-              - giveaways
-              - strikethrough
-              - achievements
-              type: string
-            type: array
-        required:
-        - features
-        - name
-        - state
-        - tags
-      example:
-        features:
-        - coupons
-        - referrals
-        name: Summer promotions
-        description: Campaign for all summer 2021 promotions
-        startTime: 2021-07-20T22:00:00Z
-        attributes: null
-        id: 4
-        endTime: 2021-09-22T22:00:00Z
-        state: enabled
-        applicationId: 322
-        tags:
-        - summer
     NewAttribute:
       allOf:
       - properties:
@@ -36433,6 +36572,21 @@ components:
           example: true
           title: Sandbox
           type: boolean
+        rule:
+          description: Rule to apply.
+          items:
+            $ref: "#/components/schemas/Rule"
+          type: array
+        bindings:
+          description: A list of named variables created before the reward's rules
+            are evaluated.  Each binding pairs a name with a talang expression. The
+            expression is evaluated once  and its result is available by name in any
+            rule condition or effect. Bindings must be defined outside of individual
+            rules.
+          example: []
+          items:
+            $ref: "#/components/schemas/Binding"
+          type: array
       required:
       - apiName
       - applicationIds
@@ -38162,6 +38316,23 @@ components:
           description: Campaign for all summer 2021 promotions
           startTime: 2021-07-20T22:00:00Z
           attributes: null
+          rules:
+          - displayDescription: Get a 20% discount on all shoes during Thanksgiving!
+              Offer valid till Dec 5 only.
+            displayName: 20% off all shoes!
+            eligibility:
+            - ""
+            - ""
+            relatedData: https://example.com/discounts/20-off-shoes.png
+            title: Give discount via coupon
+          - displayDescription: Get a 20% discount on all shoes during Thanksgiving!
+              Offer valid till Dec 5 only.
+            displayName: 20% off all shoes!
+            eligibility:
+            - ""
+            - ""
+            relatedData: https://example.com/discounts/20-off-shoes.png
+            title: Give discount via coupon
           id: 4
           endTime: 2021-09-22T22:00:00Z
           state: enabled
@@ -38175,6 +38346,23 @@ components:
           description: Campaign for all summer 2021 promotions
           startTime: 2021-07-20T22:00:00Z
           attributes: null
+          rules:
+          - displayDescription: Get a 20% discount on all shoes during Thanksgiving!
+              Offer valid till Dec 5 only.
+            displayName: 20% off all shoes!
+            eligibility:
+            - ""
+            - ""
+            relatedData: https://example.com/discounts/20-off-shoes.png
+            title: Give discount via coupon
+          - displayDescription: Get a 20% discount on all shoes during Thanksgiving!
+              Offer valid till Dec 5 only.
+            displayName: 20% off all shoes!
+            eligibility:
+            - ""
+            - ""
+            relatedData: https://example.com/discounts/20-off-shoes.png
+            title: Give discount via coupon
           id: 4
           endTime: 2021-09-22T22:00:00Z
           state: enabled
@@ -42445,6 +42633,9 @@ components:
           lastUpdate: 2022-04-26T11:02:38Z
           name: Travel audience
           sandbox: true
+          subscribedApplicationsIds:
+          - 3
+          - 13
           integration: mparticle
           description: Travel audience 18-27
           integrationId: 382370BKDB946
@@ -42455,6 +42646,9 @@ components:
           lastUpdate: 2022-04-26T11:02:38Z
           name: Travel audience
           sandbox: true
+          subscribedApplicationsIds:
+          - 3
+          - 13
           integration: mparticle
           description: Travel audience 18-27
           integrationId: 382370BKDB946
@@ -43247,6 +43441,9 @@ components:
           items: {}
           minItems: 1
           type: array
+    IntegrationCampaign_allOf_attributes:
+      description: Arbitrary properties associated with this campaign.
+      type: object
     Attributes_of_coupon:
       description: Custom attributes associated with this coupon.
       title: Attributes of coupon
@@ -43267,9 +43464,6 @@ components:
         \ They must be created in the Campaign Manager before setting them with this\
         \ property. See [creating custom attributes](https://docs.talon.one/docs/product/account/dev-tools/managing-attributes#creating-a-custom-attribute)."
       example: "{myAttribute=myValue}"
-      type: object
-    IntegrationCampaign_allOf_attributes:
-      description: Arbitrary properties associated with this campaign.
       type: object
     NewCustomerSession_allOf_attributes:
       description: |
