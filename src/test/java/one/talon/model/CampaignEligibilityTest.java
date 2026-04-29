@@ -23,6 +23,7 @@ import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import one.talon.model.CampaignEligibilityDetails;
 import one.talon.model.RuleMetadata;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
@@ -127,6 +128,14 @@ public class CampaignEligibilityTest {
     @Test
     public void rulesTest() {
         // TODO: test rules
+    }
+
+    /**
+     * Test the property 'eligibility'
+     */
+    @Test
+    public void eligibilityTest() {
+        // TODO: test eligibility
     }
 
 }

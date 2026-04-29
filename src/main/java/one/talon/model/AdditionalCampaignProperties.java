@@ -54,7 +54,7 @@ import one.talon.JSON;
 /**
  * AdditionalCampaignProperties
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.21.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.22.0")
 public class AdditionalCampaignProperties {
   public static final String SERIALIZED_NAME_BUDGETS = "budgets";
   @SerializedName(SERIALIZED_NAME_BUDGETS)

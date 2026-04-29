@@ -51,7 +51,7 @@ import one.talon.JSON;
 /**
  * ExperimentListResultsRequest
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.21.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.22.0")
 public class ExperimentListResultsRequest {
   public static final String SERIALIZED_NAME_EXPERIMENT_IDS = "experimentIds";
   @SerializedName(SERIALIZED_NAME_EXPERIMENT_IDS)

@@ -49,7 +49,7 @@ import one.talon.JSON;
 /**
  * The properties for a single filtering condition in a catalog sync action.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.21.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.22.0")
 public class CatalogActionFilter {
   public static final String SERIALIZED_NAME_ATTR = "attr";
   @SerializedName(SERIALIZED_NAME_ATTR)

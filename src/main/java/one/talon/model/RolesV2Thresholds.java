@@ -49,7 +49,7 @@ import one.talon.JSON;
 /**
  * RolesV2Thresholds
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.21.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.22.0")
 public class RolesV2Thresholds {
   public static final String SERIALIZED_NAME_LOYALTY_POINTS_LIMIT = "loyaltyPointsLimit";
   @SerializedName(SERIALIZED_NAME_LOYALTY_POINTS_LIMIT)

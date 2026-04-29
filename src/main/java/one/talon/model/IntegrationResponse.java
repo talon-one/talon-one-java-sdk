@@ -24,6 +24,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import one.talon.model.Campaign;
+import one.talon.model.CampaignEligibility;
 import one.talon.model.Coupon;
 import one.talon.model.CustomerProfile;
 import one.talon.model.Effect;
@@ -59,7 +60,7 @@ import one.talon.JSON;
 /**
  * Contains entities that might be valuable in Talon.One integrations. 
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.21.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.22.0")
 public class IntegrationResponse {
   public static final String SERIALIZED_NAME_CUSTOMER_PROFILE = "customerProfile";
   @SerializedName(SERIALIZED_NAME_CUSTOMER_PROFILE)
@@ -75,6 +76,11 @@ public class IntegrationResponse {
   @SerializedName(SERIALIZED_NAME_TRIGGERED_CAMPAIGNS)
   @javax.annotation.Nullable
   private List<Campaign> triggeredCampaigns;
+
+  public static final String SERIALIZED_NAME_CAMPAIGN_ELIGIBILITY = "campaignEligibility";
+  @SerializedName(SERIALIZED_NAME_CAMPAIGN_ELIGIBILITY)
+  @javax.annotation.Nullable
+  private List<CampaignEligibility> campaignEligibility;
 
   public static final String SERIALIZED_NAME_EFFECTS = "effects";
   @SerializedName(SERIALIZED_NAME_EFFECTS)
@@ -166,6 +172,33 @@ public class IntegrationResponse {
 
   public void setTriggeredCampaigns(@javax.annotation.Nullable List<Campaign> triggeredCampaigns) {
     this.triggeredCampaigns = triggeredCampaigns;
+  }
+
+
+  public IntegrationResponse campaignEligibility(@javax.annotation.Nullable List<CampaignEligibility> campaignEligibility) {
+    this.campaignEligibility = campaignEligibility;
+    return this;
+  }
+
+  public IntegrationResponse addCampaignEligibilityItem(CampaignEligibility campaignEligibilityItem) {
+    if (this.campaignEligibility == null) {
+      this.campaignEligibility = new ArrayList<>();
+    }
+    this.campaignEligibility.add(campaignEligibilityItem);
+    return this;
+  }
+
+  /**
+   * A list of campaigns and their evaluation status for the current customer session.  **Note**:  - This response can **only** be included if the &#x60;dry&#x60; parameter in the query is set to &#x60;true&#x60;.  - Do not include &#x60;triggeredCampaigns&#x60; or &#x60;ruleFailureReasons&#x60; in &#x60;responseContent&#x60; to avoid duplicate results. 
+   * @return campaignEligibility
+   */
+  @javax.annotation.Nullable
+  public List<CampaignEligibility> getCampaignEligibility() {
+    return campaignEligibility;
+  }
+
+  public void setCampaignEligibility(@javax.annotation.Nullable List<CampaignEligibility> campaignEligibility) {
+    this.campaignEligibility = campaignEligibility;
   }
 
 
@@ -361,6 +394,7 @@ public class IntegrationResponse {
     return Objects.equals(this.customerProfile, integrationResponse.customerProfile) &&
         Objects.equals(this.loyalty, integrationResponse.loyalty) &&
         Objects.equals(this.triggeredCampaigns, integrationResponse.triggeredCampaigns) &&
+        Objects.equals(this.campaignEligibility, integrationResponse.campaignEligibility) &&
         Objects.equals(this.effects, integrationResponse.effects) &&
         Objects.equals(this.ruleFailureReasons, integrationResponse.ruleFailureReasons) &&
         Objects.equals(this.createdCoupons, integrationResponse.createdCoupons) &&
@@ -371,7 +405,7 @@ public class IntegrationResponse {
 
   @Override
   public int hashCode() {
-    return Objects.hash(customerProfile, loyalty, triggeredCampaigns, effects, ruleFailureReasons, createdCoupons, createdReferrals, awardedGiveaways, additionalProperties);
+    return Objects.hash(customerProfile, loyalty, triggeredCampaigns, campaignEligibility, effects, ruleFailureReasons, createdCoupons, createdReferrals, awardedGiveaways, additionalProperties);
   }
 
   @Override
@@ -381,6 +415,7 @@ public class IntegrationResponse {
     sb.append("    customerProfile: ").append(toIndentedString(customerProfile)).append("\n");
     sb.append("    loyalty: ").append(toIndentedString(loyalty)).append("\n");
     sb.append("    triggeredCampaigns: ").append(toIndentedString(triggeredCampaigns)).append("\n");
+    sb.append("    campaignEligibility: ").append(toIndentedString(campaignEligibility)).append("\n");
     sb.append("    effects: ").append(toIndentedString(effects)).append("\n");
     sb.append("    ruleFailureReasons: ").append(toIndentedString(ruleFailureReasons)).append("\n");
     sb.append("    createdCoupons: ").append(toIndentedString(createdCoupons)).append("\n");
@@ -408,7 +443,7 @@ public class IntegrationResponse {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("customerProfile", "loyalty", "triggeredCampaigns", "effects", "ruleFailureReasons", "createdCoupons", "createdReferrals", "awardedGiveaways"));
+    openapiFields = new HashSet<String>(Arrays.asList("customerProfile", "loyalty", "triggeredCampaigns", "campaignEligibility", "effects", "ruleFailureReasons", "createdCoupons", "createdReferrals", "awardedGiveaways"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("effects", "createdCoupons", "createdReferrals"));
@@ -453,6 +488,20 @@ public class IntegrationResponse {
           // validate the optional field `triggeredCampaigns` (array)
           for (int i = 0; i < jsonArraytriggeredCampaigns.size(); i++) {
             Campaign.validateJsonElement(jsonArraytriggeredCampaigns.get(i));
+          };
+        }
+      }
+      if (jsonObj.get("campaignEligibility") != null && !jsonObj.get("campaignEligibility").isJsonNull()) {
+        JsonArray jsonArraycampaignEligibility = jsonObj.getAsJsonArray("campaignEligibility");
+        if (jsonArraycampaignEligibility != null) {
+          // ensure the json data is an array
+          if (!jsonObj.get("campaignEligibility").isJsonArray()) {
+            throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `campaignEligibility` to be an array in the JSON string but got `%s`", jsonObj.get("campaignEligibility").toString()));
+          }
+
+          // validate the optional field `campaignEligibility` (array)
+          for (int i = 0; i < jsonArraycampaignEligibility.size(); i++) {
+            CampaignEligibility.validateJsonElement(jsonArraycampaignEligibility.get(i));
           };
         }
       }

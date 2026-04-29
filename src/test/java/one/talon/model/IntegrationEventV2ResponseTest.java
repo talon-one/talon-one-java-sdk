@@ -23,6 +23,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import one.talon.model.Campaign;
+import one.talon.model.CampaignEligibility;
 import one.talon.model.Coupon;
 import one.talon.model.CustomerProfile;
 import one.talon.model.Effect;
@@ -70,6 +71,14 @@ public class IntegrationEventV2ResponseTest {
     @Test
     public void triggeredCampaignsTest() {
         // TODO: test triggeredCampaigns
+    }
+
+    /**
+     * Test the property 'campaignEligibility'
+     */
+    @Test
+    public void campaignEligibilityTest() {
+        // TODO: test campaignEligibility
     }
 
     /**

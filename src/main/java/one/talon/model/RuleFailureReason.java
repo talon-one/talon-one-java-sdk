@@ -49,7 +49,7 @@ import one.talon.JSON;
 /**
  * Details about why a rule failed.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.21.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.22.0")
 public class RuleFailureReason {
   public static final String SERIALIZED_NAME_CAMPAIGN_I_D = "campaignID";
   @SerializedName(SERIALIZED_NAME_CAMPAIGN_I_D)

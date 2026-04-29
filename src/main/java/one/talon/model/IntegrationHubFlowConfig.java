@@ -49,7 +49,7 @@ import one.talon.JSON;
 /**
  * IntegrationHubFlowConfig
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.21.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.22.0")
 public class IntegrationHubFlowConfig {
   public static final String SERIALIZED_NAME_API_KEY = "ApiKey";
   @SerializedName(SERIALIZED_NAME_API_KEY)

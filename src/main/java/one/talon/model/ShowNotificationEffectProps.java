@@ -49,7 +49,7 @@ import one.talon.JSON;
 /**
  * The properties specific to the \&quot;showNotification\&quot; effect. This gets triggered whenever a validated rule contained a \&quot;show notification\&quot; effect.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.21.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.22.0")
 public class ShowNotificationEffectProps {
   public static final String SERIALIZED_NAME_NOTIFICATION_TYPE = "notificationType";
   @SerializedName(SERIALIZED_NAME_NOTIFICATION_TYPE)

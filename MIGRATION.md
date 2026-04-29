@@ -56,11 +56,7 @@ compile "one.talon:talon-one-client:26.04"
 
 Authentication is API-key based using the `Authorization` header.
 
-Common authentication schemes:
-
-- `api_key_v1`
-- `manager_auth`
-- `management_key`
+Common authentication scheme: `api_key_v1`.
 
 ## API clients
 
@@ -130,7 +126,7 @@ public class App {
     apiKeyV1.setApiKey("MY_API_KEY");
 
     // Management API key (optional)
-    ApiKeyAuth mgmtKey = (ApiKeyAuth) apiClient.getAuthentication("management_key");
+    ApiKeyAuth mgmtKey = (ApiKeyAuth) apiClient.getAuthentication("api_key_v1");
     mgmtKey.setApiKeyPrefix("ManagementKey-v1");
     mgmtKey.setApiKey("MY_MGMT_KEY");
 

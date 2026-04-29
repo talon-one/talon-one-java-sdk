@@ -51,7 +51,7 @@ import one.talon.JSON;
 /**
  * Definition of all properties that are present on all effects, independent of their type.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.21.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.22.0")
 public class EffectEntity {
   public static final String SERIALIZED_NAME_EXPERIMENT_ID = "experimentId";
   @SerializedName(SERIALIZED_NAME_EXPERIMENT_ID)

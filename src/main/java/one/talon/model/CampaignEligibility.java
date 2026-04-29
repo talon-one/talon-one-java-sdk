@@ -24,6 +24,7 @@ import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import one.talon.model.CampaignEligibilityDetails;
 import one.talon.model.RuleMetadata;
 import com.google.gson.JsonElement;
 
@@ -53,7 +54,7 @@ import one.talon.JSON;
 /**
  * CampaignEligibility
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.21.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.22.0")
 public class CampaignEligibility {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -219,6 +220,11 @@ public class CampaignEligibility {
   @SerializedName(SERIALIZED_NAME_RULES)
   @javax.annotation.Nullable
   private List<RuleMetadata> rules;
+
+  public static final String SERIALIZED_NAME_ELIGIBILITY = "eligibility";
+  @SerializedName(SERIALIZED_NAME_ELIGIBILITY)
+  @javax.annotation.Nonnull
+  private List<CampaignEligibilityDetails> eligibility = new ArrayList<>();
 
   public CampaignEligibility() {
   }
@@ -455,6 +461,33 @@ public class CampaignEligibility {
     this.rules = rules;
   }
 
+
+  public CampaignEligibility eligibility(@javax.annotation.Nonnull List<CampaignEligibilityDetails> eligibility) {
+    this.eligibility = eligibility;
+    return this;
+  }
+
+  public CampaignEligibility addEligibilityItem(CampaignEligibilityDetails eligibilityItem) {
+    if (this.eligibility == null) {
+      this.eligibility = new ArrayList<>();
+    }
+    this.eligibility.add(eligibilityItem);
+    return this;
+  }
+
+  /**
+   * The customer&#39;s eligibility for each campaign in the current customer session.
+   * @return eligibility
+   */
+  @javax.annotation.Nonnull
+  public List<CampaignEligibilityDetails> getEligibility() {
+    return eligibility;
+  }
+
+  public void setEligibility(@javax.annotation.Nonnull List<CampaignEligibilityDetails> eligibility) {
+    this.eligibility = eligibility;
+  }
+
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -520,13 +553,14 @@ public class CampaignEligibility {
         Objects.equals(this.state, campaignEligibility.state) &&
         Objects.equals(this.tags, campaignEligibility.tags) &&
         Objects.equals(this.features, campaignEligibility.features) &&
-        Objects.equals(this.rules, campaignEligibility.rules)&&
+        Objects.equals(this.rules, campaignEligibility.rules) &&
+        Objects.equals(this.eligibility, campaignEligibility.eligibility)&&
         Objects.equals(this.additionalProperties, campaignEligibility.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, applicationId, name, description, startTime, endTime, attributes, state, tags, features, rules, additionalProperties);
+    return Objects.hash(id, applicationId, name, description, startTime, endTime, attributes, state, tags, features, rules, eligibility, additionalProperties);
   }
 
   @Override
@@ -544,6 +578,7 @@ public class CampaignEligibility {
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    features: ").append(toIndentedString(features)).append("\n");
     sb.append("    rules: ").append(toIndentedString(rules)).append("\n");
+    sb.append("    eligibility: ").append(toIndentedString(eligibility)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -566,10 +601,10 @@ public class CampaignEligibility {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("id", "applicationId", "name", "description", "startTime", "endTime", "attributes", "state", "tags", "features", "rules"));
+    openapiFields = new HashSet<String>(Arrays.asList("id", "applicationId", "name", "description", "startTime", "endTime", "attributes", "state", "tags", "features", "rules", "eligibility"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("id", "applicationId", "name", "state", "tags", "features"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("id", "applicationId", "name", "state", "tags", "features", "eligibility"));
   }
 
   /**
@@ -627,6 +662,16 @@ public class CampaignEligibility {
           for (int i = 0; i < jsonArrayrules.size(); i++) {
             RuleMetadata.validateJsonElement(jsonArrayrules.get(i));
           };
+        }
+      }
+      if (jsonObj.get("eligibility") != null) {
+        if (!jsonObj.get("eligibility").isJsonArray()) {
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `eligibility` to be an array in the JSON string but got `%s`", jsonObj.get("eligibility").toString()));
+        }
+        JsonArray jsonArrayeligibility = jsonObj.getAsJsonArray("eligibility");
+        // validate the required field `eligibility` (array)
+        for (int i = 0; i < jsonArrayeligibility.size(); i++) {
+          CampaignEligibilityDetails.validateJsonElement(jsonArrayeligibility.get(i));
         }
       }
   }

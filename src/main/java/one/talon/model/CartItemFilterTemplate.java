@@ -51,7 +51,7 @@ import one.talon.JSON;
 /**
  * A cart item filter template stored in a library entry. Cart item filters in library entries only contain name (no description, as description is at the library entry level).
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.21.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.22.0")
 public class CartItemFilterTemplate {
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)

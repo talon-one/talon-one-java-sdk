@@ -814,6 +814,12 @@ paths:
               schema:
                 $ref: "#/components/schemas/MultipleCustomerProfileIntegrationResponseV2"
           description: OK
+        "204":
+          content:
+            application/json:
+              schema:
+                type: string
+          description: No content
         "400":
           content:
             application/json:
@@ -1532,6 +1538,12 @@ paths:
               schema:
                 $ref: "#/components/schemas/IntegrationEventV2Response"
           description: OK
+        "204":
+          content:
+            application/json:
+              schema:
+                type: string
+          description: No content
         "400":
           content:
             application/json:
@@ -13864,6 +13876,13 @@ components:
             $ref: "#/components/schemas/NewReward"
       description: body
       required: true
+    UpdateReward:
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/UpdateReward"
+      description: body
+      required: true
     IntegrationEventV3Request:
       content:
         application/json:
@@ -17609,14 +17628,87 @@ components:
         lastActivity: 2022-11-10T23:00:00Z
         endTime: 2021-09-22T22:00:00Z
         referralRedemptionCount: 3
+    RuleEligibilityFailureDetails:
+      description: The details about why the customer was not eligible for the rule
+        in the current session.
+      properties:
+        failureCode:
+          description: A code identifying why the customer was not eligible for the
+            rule in the current session.
+          enum:
+          - CONDITION_NOT_MET
+          - EFFECT_FAILED
+          type: string
+        couponID:
+          description: |
+            The ID of the coupon that was being evaluated when the rule failed.
+          example: 4928
+          format: int64
+          type: integer
+        couponValue:
+          description: |
+            The coupon code that was being evaluated when the rule failed.
+          type: string
+        referralID:
+          description: |
+            The ID of the referral that was being evaluated when the rule failed.
+          format: int64
+          type: integer
+        referralValue:
+          description: |
+            The referral code that was being evaluated when the rule failed.
+          type: string
+        conditionIndex:
+          description: The index of the condition that caused the rule to fail.
+          format: int64
+          type: integer
+        effectIndex:
+          description: The index of the effect that caused the rule to fail.
+          format: int64
+          type: integer
+        details:
+          description: Additional details about the failure.
+          type: string
+      required:
+      - details
+      - failureCode
+    RuleEligibility:
+      description: "The customer's eligibility for a rule in the current session,\
+        \ based on whether all of the rule's conditions were met."
+      example:
+        details: ""
+        passed: true
+        couponCode: couponCode
+      properties:
+        passed:
+          description: "Indicates whether the customer was eligible for the rule in\
+            \ the current session, based on whether all of the rule's conditions were\
+            \ met."
+          example: true
+          type: boolean
+        couponCode:
+          description: "The coupon code used to check a customer's eligibility for\
+            \ the rule in the current session, if applicable."
+          type: string
+        details:
+          allOf:
+          - $ref: "#/components/schemas/RuleEligibilityFailureDetails"
+          description: The details about why the customer was not eligible for the
+            rule in the current session. Only returned when `passed` is `false`.
+      required:
+      - passed
     RuleMetadata:
       example:
         displayDescription: Get a 20% discount on all shoes during Thanksgiving! Offer
           valid till Dec 5 only.
         displayName: 20% off all shoes!
         eligibility:
-        - ""
-        - ""
+        - details: ""
+          passed: true
+          couponCode: couponCode
+        - details: ""
+          passed: true
+          couponCode: couponCode
         relatedData: https://example.com/discounts/20-off-shoes.png
         title: Give discount via coupon
       properties:
@@ -17641,7 +17733,8 @@ components:
           example: https://example.com/discounts/20-off-shoes.png
           type: string
         eligibility:
-          items: {}
+          items:
+            $ref: "#/components/schemas/RuleEligibility"
           type: array
       required:
       - title
@@ -17737,16 +17830,24 @@ components:
             Offer valid till Dec 5 only.
           displayName: 20% off all shoes!
           eligibility:
-          - ""
-          - ""
+          - details: ""
+            passed: true
+            couponCode: couponCode
+          - details: ""
+            passed: true
+            couponCode: couponCode
           relatedData: https://example.com/discounts/20-off-shoes.png
           title: Give discount via coupon
         - displayDescription: Get a 20% discount on all shoes during Thanksgiving!
             Offer valid till Dec 5 only.
           displayName: 20% off all shoes!
           eligibility:
-          - ""
-          - ""
+          - details: ""
+            passed: true
+            couponCode: couponCode
+          - details: ""
+            passed: true
+            couponCode: couponCode
           relatedData: https://example.com/discounts/20-off-shoes.png
           title: Give discount via coupon
         id: 4
@@ -17755,9 +17856,104 @@ components:
         applicationId: 322
         tags:
         - summer
+    CampaignEligibilityFailureDetails:
+      description: The details about why the customer was not eligible for the campaign
+        in the current session.
+      properties:
+        failureCode:
+          description: A code identifying why the customer was not eligible for the
+            campaign.
+          enum:
+          - ALL_RULES_FAILED
+          - SKIPPED
+          - AUDIENCE_NOT_MATCHED
+          type: string
+      required:
+      - failureCode
+    CampaignEligibilityDetails:
+      example:
+        details: ""
+        passed: true
+        couponCode: couponCode
+      properties:
+        passed:
+          description: Indicates whether the customer was eligible for the campaign
+            in the current session.
+          type: boolean
+        couponCode:
+          description: "The coupon code used to check a customer's eligibility for\
+            \ the campaign in the current session, if applicable."
+          type: string
+        details:
+          allOf:
+          - $ref: "#/components/schemas/CampaignEligibilityFailureDetails"
+          description: The details about why the customer was not eligible for the
+            campaign in the current session. Only returned when `passed` is `false`.
+      required:
+      - passed
     CampaignEligibility:
       allOf:
       - $ref: "#/components/schemas/IntegrationCampaign"
+      - description: "A list of campaigns and their evaluation status for the current\
+          \ customer session.\n\n**Note**:\n\n- This response can **only** be included\
+          \ if the `dry` parameter in the query is set to `true`. \n- Do not include\
+          \ `triggeredCampaigns` or `ruleFailureReasons` in `responseContent` to avoid\
+          \ duplicate results.\n"
+        properties:
+          eligibility:
+            description: The customer's eligibility for each campaign in the current
+              customer session.
+            items:
+              $ref: "#/components/schemas/CampaignEligibilityDetails"
+            type: array
+        required:
+        - eligibility
+      example:
+        features:
+        - coupons
+        - referrals
+        name: Summer promotions
+        description: Campaign for all summer 2021 promotions
+        eligibility:
+        - details: ""
+          passed: true
+          couponCode: couponCode
+        - details: ""
+          passed: true
+          couponCode: couponCode
+        startTime: 2021-07-20T22:00:00Z
+        attributes: null
+        rules:
+        - displayDescription: Get a 20% discount on all shoes during Thanksgiving!
+            Offer valid till Dec 5 only.
+          displayName: 20% off all shoes!
+          eligibility:
+          - details: ""
+            passed: true
+            couponCode: couponCode
+          - details: ""
+            passed: true
+            couponCode: couponCode
+          relatedData: https://example.com/discounts/20-off-shoes.png
+          title: Give discount via coupon
+        - displayDescription: Get a 20% discount on all shoes during Thanksgiving!
+            Offer valid till Dec 5 only.
+          displayName: 20% off all shoes!
+          eligibility:
+          - details: ""
+            passed: true
+            couponCode: couponCode
+          - details: ""
+            passed: true
+            couponCode: couponCode
+          relatedData: https://example.com/discounts/20-off-shoes.png
+          title: Give discount via coupon
+        id: 4
+        endTime: 2021-09-22T22:00:00Z
+        state: enabled
+        applicationId: 322
+        tags:
+        - summer
     RuleFailureReason:
       description: Details about why a rule failed.
       example:
@@ -18220,6 +18416,15 @@ components:
             the event.
           items:
             $ref: "#/components/schemas/Campaign"
+          type: array
+        campaignEligibility:
+          description: "A list of campaigns and their evaluation status for the current\
+            \ customer session.\n\n**Note**:\n\n- This response can **only** be included\
+            \ if the `dry` parameter in the query is set to `true`. \n- Do not include\
+            \ `triggeredCampaigns` or `ruleFailureReasons` in `responseContent` to\
+            \ avoid duplicate results.\n"
+          items:
+            $ref: "#/components/schemas/CampaignEligibility"
           type: array
         effects:
           description: "The effects generated by the rules in your running campaigns.\
@@ -19333,6 +19538,97 @@ components:
           id: 6
           sessionId: 123
           applicationId: 322
+        campaignEligibility:
+        - features:
+          - coupons
+          - referrals
+          name: Summer promotions
+          description: Campaign for all summer 2021 promotions
+          eligibility:
+          - details: ""
+            passed: true
+            couponCode: couponCode
+          - details: ""
+            passed: true
+            couponCode: couponCode
+          startTime: 2021-07-20T22:00:00Z
+          attributes: null
+          rules:
+          - displayDescription: Get a 20% discount on all shoes during Thanksgiving!
+              Offer valid till Dec 5 only.
+            displayName: 20% off all shoes!
+            eligibility:
+            - details: ""
+              passed: true
+              couponCode: couponCode
+            - details: ""
+              passed: true
+              couponCode: couponCode
+            relatedData: https://example.com/discounts/20-off-shoes.png
+            title: Give discount via coupon
+          - displayDescription: Get a 20% discount on all shoes during Thanksgiving!
+              Offer valid till Dec 5 only.
+            displayName: 20% off all shoes!
+            eligibility:
+            - details: ""
+              passed: true
+              couponCode: couponCode
+            - details: ""
+              passed: true
+              couponCode: couponCode
+            relatedData: https://example.com/discounts/20-off-shoes.png
+            title: Give discount via coupon
+          id: 4
+          endTime: 2021-09-22T22:00:00Z
+          state: enabled
+          applicationId: 322
+          tags:
+          - summer
+        - features:
+          - coupons
+          - referrals
+          name: Summer promotions
+          description: Campaign for all summer 2021 promotions
+          eligibility:
+          - details: ""
+            passed: true
+            couponCode: couponCode
+          - details: ""
+            passed: true
+            couponCode: couponCode
+          startTime: 2021-07-20T22:00:00Z
+          attributes: null
+          rules:
+          - displayDescription: Get a 20% discount on all shoes during Thanksgiving!
+              Offer valid till Dec 5 only.
+            displayName: 20% off all shoes!
+            eligibility:
+            - details: ""
+              passed: true
+              couponCode: couponCode
+            - details: ""
+              passed: true
+              couponCode: couponCode
+            relatedData: https://example.com/discounts/20-off-shoes.png
+            title: Give discount via coupon
+          - displayDescription: Get a 20% discount on all shoes during Thanksgiving!
+              Offer valid till Dec 5 only.
+            displayName: 20% off all shoes!
+            eligibility:
+            - details: ""
+              passed: true
+              couponCode: couponCode
+            - details: ""
+              passed: true
+              couponCode: couponCode
+            relatedData: https://example.com/discounts/20-off-shoes.png
+            title: Give discount via coupon
+          id: 4
+          endTime: 2021-09-22T22:00:00Z
+          state: enabled
+          applicationId: 322
+          tags:
+          - summer
         advancedEvent: ""
         event: ""
         ruleFailureReasons:
@@ -19973,6 +20269,97 @@ components:
               name: program1
               id: 5
               title: My loyalty program
+        campaignEligibility:
+        - features:
+          - coupons
+          - referrals
+          name: Summer promotions
+          description: Campaign for all summer 2021 promotions
+          eligibility:
+          - details: ""
+            passed: true
+            couponCode: couponCode
+          - details: ""
+            passed: true
+            couponCode: couponCode
+          startTime: 2021-07-20T22:00:00Z
+          attributes: null
+          rules:
+          - displayDescription: Get a 20% discount on all shoes during Thanksgiving!
+              Offer valid till Dec 5 only.
+            displayName: 20% off all shoes!
+            eligibility:
+            - details: ""
+              passed: true
+              couponCode: couponCode
+            - details: ""
+              passed: true
+              couponCode: couponCode
+            relatedData: https://example.com/discounts/20-off-shoes.png
+            title: Give discount via coupon
+          - displayDescription: Get a 20% discount on all shoes during Thanksgiving!
+              Offer valid till Dec 5 only.
+            displayName: 20% off all shoes!
+            eligibility:
+            - details: ""
+              passed: true
+              couponCode: couponCode
+            - details: ""
+              passed: true
+              couponCode: couponCode
+            relatedData: https://example.com/discounts/20-off-shoes.png
+            title: Give discount via coupon
+          id: 4
+          endTime: 2021-09-22T22:00:00Z
+          state: enabled
+          applicationId: 322
+          tags:
+          - summer
+        - features:
+          - coupons
+          - referrals
+          name: Summer promotions
+          description: Campaign for all summer 2021 promotions
+          eligibility:
+          - details: ""
+            passed: true
+            couponCode: couponCode
+          - details: ""
+            passed: true
+            couponCode: couponCode
+          startTime: 2021-07-20T22:00:00Z
+          attributes: null
+          rules:
+          - displayDescription: Get a 20% discount on all shoes during Thanksgiving!
+              Offer valid till Dec 5 only.
+            displayName: 20% off all shoes!
+            eligibility:
+            - details: ""
+              passed: true
+              couponCode: couponCode
+            - details: ""
+              passed: true
+              couponCode: couponCode
+            relatedData: https://example.com/discounts/20-off-shoes.png
+            title: Give discount via coupon
+          - displayDescription: Get a 20% discount on all shoes during Thanksgiving!
+              Offer valid till Dec 5 only.
+            displayName: 20% off all shoes!
+            eligibility:
+            - details: ""
+              passed: true
+              couponCode: couponCode
+            - details: ""
+              passed: true
+              couponCode: couponCode
+            relatedData: https://example.com/discounts/20-off-shoes.png
+            title: Give discount via coupon
+          id: 4
+          endTime: 2021-09-22T22:00:00Z
+          state: enabled
+          applicationId: 322
+          tags:
+          - summer
         awardedGiveaways:
         - profileIntegrationId: R195412
           code: GIVEAWAY1
@@ -20176,6 +20563,10 @@ components:
         ruleFailureReasons:
           items:
             $ref: "#/components/schemas/RuleFailureReason"
+          type: array
+        campaignEligibility:
+          items:
+            $ref: "#/components/schemas/CampaignEligibility"
           type: array
         awardedGiveaways:
           items:
@@ -22193,6 +22584,97 @@ components:
           referralRedemptionCount: 3
         customerProfile: ""
         loyalty: ""
+        campaignEligibility:
+        - features:
+          - coupons
+          - referrals
+          name: Summer promotions
+          description: Campaign for all summer 2021 promotions
+          eligibility:
+          - details: ""
+            passed: true
+            couponCode: couponCode
+          - details: ""
+            passed: true
+            couponCode: couponCode
+          startTime: 2021-07-20T22:00:00Z
+          attributes: null
+          rules:
+          - displayDescription: Get a 20% discount on all shoes during Thanksgiving!
+              Offer valid till Dec 5 only.
+            displayName: 20% off all shoes!
+            eligibility:
+            - details: ""
+              passed: true
+              couponCode: couponCode
+            - details: ""
+              passed: true
+              couponCode: couponCode
+            relatedData: https://example.com/discounts/20-off-shoes.png
+            title: Give discount via coupon
+          - displayDescription: Get a 20% discount on all shoes during Thanksgiving!
+              Offer valid till Dec 5 only.
+            displayName: 20% off all shoes!
+            eligibility:
+            - details: ""
+              passed: true
+              couponCode: couponCode
+            - details: ""
+              passed: true
+              couponCode: couponCode
+            relatedData: https://example.com/discounts/20-off-shoes.png
+            title: Give discount via coupon
+          id: 4
+          endTime: 2021-09-22T22:00:00Z
+          state: enabled
+          applicationId: 322
+          tags:
+          - summer
+        - features:
+          - coupons
+          - referrals
+          name: Summer promotions
+          description: Campaign for all summer 2021 promotions
+          eligibility:
+          - details: ""
+            passed: true
+            couponCode: couponCode
+          - details: ""
+            passed: true
+            couponCode: couponCode
+          startTime: 2021-07-20T22:00:00Z
+          attributes: null
+          rules:
+          - displayDescription: Get a 20% discount on all shoes during Thanksgiving!
+              Offer valid till Dec 5 only.
+            displayName: 20% off all shoes!
+            eligibility:
+            - details: ""
+              passed: true
+              couponCode: couponCode
+            - details: ""
+              passed: true
+              couponCode: couponCode
+            relatedData: https://example.com/discounts/20-off-shoes.png
+            title: Give discount via coupon
+          - displayDescription: Get a 20% discount on all shoes during Thanksgiving!
+              Offer valid till Dec 5 only.
+            displayName: 20% off all shoes!
+            eligibility:
+            - details: ""
+              passed: true
+              couponCode: couponCode
+            - details: ""
+              passed: true
+              couponCode: couponCode
+            relatedData: https://example.com/discounts/20-off-shoes.png
+            title: Give discount via coupon
+          id: 4
+          endTime: 2021-09-22T22:00:00Z
+          state: enabled
+          applicationId: 322
+          tags:
+          - summer
         awardedGiveaways:
         - profileIntegrationId: R195412
           code: GIVEAWAY1
@@ -36607,6 +37089,47 @@ components:
             type: string
         required:
         - status
+    UpdateReward:
+      properties:
+        name:
+          description: The name of the reward.
+          example: Free Coffee
+          minLength: 1
+          type: string
+        description:
+          description: A description of the reward.
+          example: This reward gets you one free coffee.
+          type: string
+        status:
+          description: The status of the reward.
+          enum:
+          - active
+          - inactive
+          example: active
+          type: string
+        rule:
+          description: |
+            Rule to apply.
+
+            **Note**: The `bindings` field inside the rule must not be used in this
+            endpoint. All bindings should be defined at the reward level via the
+            top-level `bindings` field.
+          items:
+            $ref: "#/components/schemas/Rule"
+          type: array
+        bindings:
+          description: A list of named variables created before the reward's rules
+            are evaluated.  Each binding pairs a name with a talang expression. The
+            expression is evaluated once  and its result is available by name in any
+            rule condition or effect. Bindings must be defined outside of individual
+            rules.
+          example: []
+          items:
+            $ref: "#/components/schemas/Binding"
+          type: array
+      required:
+      - name
+      - status
     IntegrationEventV3Request:
       allOf:
       - $ref: "#/components/schemas/EventV3"
@@ -38321,16 +38844,24 @@ components:
               Offer valid till Dec 5 only.
             displayName: 20% off all shoes!
             eligibility:
-            - ""
-            - ""
+            - details: ""
+              passed: true
+              couponCode: couponCode
+            - details: ""
+              passed: true
+              couponCode: couponCode
             relatedData: https://example.com/discounts/20-off-shoes.png
             title: Give discount via coupon
           - displayDescription: Get a 20% discount on all shoes during Thanksgiving!
               Offer valid till Dec 5 only.
             displayName: 20% off all shoes!
             eligibility:
-            - ""
-            - ""
+            - details: ""
+              passed: true
+              couponCode: couponCode
+            - details: ""
+              passed: true
+              couponCode: couponCode
             relatedData: https://example.com/discounts/20-off-shoes.png
             title: Give discount via coupon
           id: 4
@@ -38351,16 +38882,24 @@ components:
               Offer valid till Dec 5 only.
             displayName: 20% off all shoes!
             eligibility:
-            - ""
-            - ""
+            - details: ""
+              passed: true
+              couponCode: couponCode
+            - details: ""
+              passed: true
+              couponCode: couponCode
             relatedData: https://example.com/discounts/20-off-shoes.png
             title: Give discount via coupon
           - displayDescription: Get a 20% discount on all shoes during Thanksgiving!
               Offer valid till Dec 5 only.
             displayName: 20% off all shoes!
             eligibility:
-            - ""
-            - ""
+            - details: ""
+              passed: true
+              couponCode: couponCode
+            - details: ""
+              passed: true
+              couponCode: couponCode
             relatedData: https://example.com/discounts/20-off-shoes.png
             title: Give discount via coupon
           id: 4
