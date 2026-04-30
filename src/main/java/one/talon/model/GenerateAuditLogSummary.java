@@ -49,7 +49,7 @@ import one.talon.JSON;
 /**
  * GenerateAuditLogSummary
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.21.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.22.0")
 public class GenerateAuditLogSummary {
   public static final String SERIALIZED_NAME_LOG_I_D = "logID";
   @SerializedName(SERIALIZED_NAME_LOG_I_D)

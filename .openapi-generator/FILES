@@ -1,3 +1,5 @@
+.github/ISSUE_TEMPLATE/bug_report.yml
+.github/ISSUE_TEMPLATE/config.yml
 .github/workflows/autorelease.yml
 .github/workflows/test.yml
 .gitignore
@@ -122,6 +124,8 @@ docs/CampaignDetail.md
 docs/CampaignEditedNotification.md
 docs/CampaignEditedNotificationItem.md
 docs/CampaignEligibility.md
+docs/CampaignEligibilityDetails.md
+docs/CampaignEligibilityFailureDetails.md
 docs/CampaignEntity.md
 docs/CampaignEvaluationGroup.md
 docs/CampaignEvaluationPosition.md
@@ -591,6 +595,8 @@ docs/RollbackDiscountEffectProps.md
 docs/RollbackIncreasedAchievementProgressEffectProps.md
 docs/RollbackReferralEffectProps.md
 docs/Rule.md
+docs/RuleEligibility.md
+docs/RuleEligibilityFailureDetails.md
 docs/RuleFailureReason.md
 docs/RuleMetadata.md
 docs/Ruleset.md
@@ -697,6 +703,7 @@ docs/UpdatePicklist.md
 docs/UpdatePriceType.md
 docs/UpdateReferral.md
 docs/UpdateReferralBatch.md
+docs/UpdateReward.md
 docs/UpdateRole.md
 docs/UpdateStore.md
 docs/UpdateUser.md
@@ -851,6 +858,8 @@ src/main/java/one/talon/model/CampaignDetail.java
 src/main/java/one/talon/model/CampaignEditedNotification.java
 src/main/java/one/talon/model/CampaignEditedNotificationItem.java
 src/main/java/one/talon/model/CampaignEligibility.java
+src/main/java/one/talon/model/CampaignEligibilityDetails.java
+src/main/java/one/talon/model/CampaignEligibilityFailureDetails.java
 src/main/java/one/talon/model/CampaignEntity.java
 src/main/java/one/talon/model/CampaignEvaluationGroup.java
 src/main/java/one/talon/model/CampaignEvaluationPosition.java
@@ -1318,6 +1327,8 @@ src/main/java/one/talon/model/RollbackDiscountEffectProps.java
 src/main/java/one/talon/model/RollbackIncreasedAchievementProgressEffectProps.java
 src/main/java/one/talon/model/RollbackReferralEffectProps.java
 src/main/java/one/talon/model/Rule.java
+src/main/java/one/talon/model/RuleEligibility.java
+src/main/java/one/talon/model/RuleEligibilityFailureDetails.java
 src/main/java/one/talon/model/RuleFailureReason.java
 src/main/java/one/talon/model/RuleMetadata.java
 src/main/java/one/talon/model/Ruleset.java
@@ -1424,6 +1435,7 @@ src/main/java/one/talon/model/UpdatePicklist.java
 src/main/java/one/talon/model/UpdatePriceType.java
 src/main/java/one/talon/model/UpdateReferral.java
 src/main/java/one/talon/model/UpdateReferralBatch.java
+src/main/java/one/talon/model/UpdateReward.java
 src/main/java/one/talon/model/UpdateRole.java
 src/main/java/one/talon/model/UpdateStore.java
 src/main/java/one/talon/model/UpdateUser.java
@@ -1549,6 +1561,8 @@ src/test/java/one/talon/model/CampaignDeletedNotificationTest.java
 src/test/java/one/talon/model/CampaignDetailTest.java
 src/test/java/one/talon/model/CampaignEditedNotificationItemTest.java
 src/test/java/one/talon/model/CampaignEditedNotificationTest.java
+src/test/java/one/talon/model/CampaignEligibilityDetailsTest.java
+src/test/java/one/talon/model/CampaignEligibilityFailureDetailsTest.java
 src/test/java/one/talon/model/CampaignEligibilityTest.java
 src/test/java/one/talon/model/CampaignEntityTest.java
 src/test/java/one/talon/model/CampaignEvaluationGroupTest.java
@@ -2017,6 +2031,8 @@ src/test/java/one/talon/model/RollbackDeductedLoyaltyPointsEffectPropsTest.java
 src/test/java/one/talon/model/RollbackDiscountEffectPropsTest.java
 src/test/java/one/talon/model/RollbackIncreasedAchievementProgressEffectPropsTest.java
 src/test/java/one/talon/model/RollbackReferralEffectPropsTest.java
+src/test/java/one/talon/model/RuleEligibilityFailureDetailsTest.java
+src/test/java/one/talon/model/RuleEligibilityTest.java
 src/test/java/one/talon/model/RuleFailureReasonTest.java
 src/test/java/one/talon/model/RuleMetadataTest.java
 src/test/java/one/talon/model/RuleTest.java
@@ -2124,6 +2140,7 @@ src/test/java/one/talon/model/UpdatePicklistTest.java
 src/test/java/one/talon/model/UpdatePriceTypeTest.java
 src/test/java/one/talon/model/UpdateReferralBatchTest.java
 src/test/java/one/talon/model/UpdateReferralTest.java
+src/test/java/one/talon/model/UpdateRewardTest.java
 src/test/java/one/talon/model/UpdateRoleTest.java
 src/test/java/one/talon/model/UpdateStoreTest.java
 src/test/java/one/talon/model/UpdateUserTest.java

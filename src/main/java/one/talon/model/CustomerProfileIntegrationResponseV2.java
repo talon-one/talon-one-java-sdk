@@ -24,6 +24,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import one.talon.model.Campaign;
+import one.talon.model.CampaignEligibility;
 import one.talon.model.Coupon;
 import one.talon.model.CustomerProfile;
 import one.talon.model.Effect;
@@ -60,7 +61,7 @@ import one.talon.JSON;
 /**
  * This is the response type returned by the updateCustomerProfileV2 endpoint. 
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.21.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.22.0")
 public class CustomerProfileIntegrationResponseV2 {
   public static final String SERIALIZED_NAME_CUSTOMER_PROFILE = "customerProfile";
   @SerializedName(SERIALIZED_NAME_CUSTOMER_PROFILE)
@@ -86,6 +87,11 @@ public class CustomerProfileIntegrationResponseV2 {
   @SerializedName(SERIALIZED_NAME_RULE_FAILURE_REASONS)
   @javax.annotation.Nullable
   private List<RuleFailureReason> ruleFailureReasons;
+
+  public static final String SERIALIZED_NAME_CAMPAIGN_ELIGIBILITY = "campaignEligibility";
+  @SerializedName(SERIALIZED_NAME_CAMPAIGN_ELIGIBILITY)
+  @javax.annotation.Nullable
+  private List<CampaignEligibility> campaignEligibility;
 
   public static final String SERIALIZED_NAME_AWARDED_GIVEAWAYS = "awardedGiveaways";
   @SerializedName(SERIALIZED_NAME_AWARDED_GIVEAWAYS)
@@ -218,6 +224,33 @@ public class CustomerProfileIntegrationResponseV2 {
 
   public void setRuleFailureReasons(@javax.annotation.Nullable List<RuleFailureReason> ruleFailureReasons) {
     this.ruleFailureReasons = ruleFailureReasons;
+  }
+
+
+  public CustomerProfileIntegrationResponseV2 campaignEligibility(@javax.annotation.Nullable List<CampaignEligibility> campaignEligibility) {
+    this.campaignEligibility = campaignEligibility;
+    return this;
+  }
+
+  public CustomerProfileIntegrationResponseV2 addCampaignEligibilityItem(CampaignEligibility campaignEligibilityItem) {
+    if (this.campaignEligibility == null) {
+      this.campaignEligibility = new ArrayList<>();
+    }
+    this.campaignEligibility.add(campaignEligibilityItem);
+    return this;
+  }
+
+  /**
+   * Get campaignEligibility
+   * @return campaignEligibility
+   */
+  @javax.annotation.Nullable
+  public List<CampaignEligibility> getCampaignEligibility() {
+    return campaignEligibility;
+  }
+
+  public void setCampaignEligibility(@javax.annotation.Nullable List<CampaignEligibility> campaignEligibility) {
+    this.campaignEligibility = campaignEligibility;
   }
 
 
@@ -388,6 +421,7 @@ public class CustomerProfileIntegrationResponseV2 {
         Objects.equals(this.loyalty, customerProfileIntegrationResponseV2.loyalty) &&
         Objects.equals(this.triggeredCampaigns, customerProfileIntegrationResponseV2.triggeredCampaigns) &&
         Objects.equals(this.ruleFailureReasons, customerProfileIntegrationResponseV2.ruleFailureReasons) &&
+        Objects.equals(this.campaignEligibility, customerProfileIntegrationResponseV2.campaignEligibility) &&
         Objects.equals(this.awardedGiveaways, customerProfileIntegrationResponseV2.awardedGiveaways) &&
         Objects.equals(this.effects, customerProfileIntegrationResponseV2.effects) &&
         Objects.equals(this.createdCoupons, customerProfileIntegrationResponseV2.createdCoupons) &&
@@ -397,7 +431,7 @@ public class CustomerProfileIntegrationResponseV2 {
 
   @Override
   public int hashCode() {
-    return Objects.hash(customerProfile, event, loyalty, triggeredCampaigns, ruleFailureReasons, awardedGiveaways, effects, createdCoupons, createdReferrals, additionalProperties);
+    return Objects.hash(customerProfile, event, loyalty, triggeredCampaigns, ruleFailureReasons, campaignEligibility, awardedGiveaways, effects, createdCoupons, createdReferrals, additionalProperties);
   }
 
   @Override
@@ -409,6 +443,7 @@ public class CustomerProfileIntegrationResponseV2 {
     sb.append("    loyalty: ").append(toIndentedString(loyalty)).append("\n");
     sb.append("    triggeredCampaigns: ").append(toIndentedString(triggeredCampaigns)).append("\n");
     sb.append("    ruleFailureReasons: ").append(toIndentedString(ruleFailureReasons)).append("\n");
+    sb.append("    campaignEligibility: ").append(toIndentedString(campaignEligibility)).append("\n");
     sb.append("    awardedGiveaways: ").append(toIndentedString(awardedGiveaways)).append("\n");
     sb.append("    effects: ").append(toIndentedString(effects)).append("\n");
     sb.append("    createdCoupons: ").append(toIndentedString(createdCoupons)).append("\n");
@@ -435,7 +470,7 @@ public class CustomerProfileIntegrationResponseV2 {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("customerProfile", "event", "loyalty", "triggeredCampaigns", "ruleFailureReasons", "awardedGiveaways", "effects", "createdCoupons", "createdReferrals"));
+    openapiFields = new HashSet<String>(Arrays.asList("customerProfile", "event", "loyalty", "triggeredCampaigns", "ruleFailureReasons", "campaignEligibility", "awardedGiveaways", "effects", "createdCoupons", "createdReferrals"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("effects", "createdCoupons", "createdReferrals"));
@@ -498,6 +533,20 @@ public class CustomerProfileIntegrationResponseV2 {
           // validate the optional field `ruleFailureReasons` (array)
           for (int i = 0; i < jsonArrayruleFailureReasons.size(); i++) {
             RuleFailureReason.validateJsonElement(jsonArrayruleFailureReasons.get(i));
+          };
+        }
+      }
+      if (jsonObj.get("campaignEligibility") != null && !jsonObj.get("campaignEligibility").isJsonNull()) {
+        JsonArray jsonArraycampaignEligibility = jsonObj.getAsJsonArray("campaignEligibility");
+        if (jsonArraycampaignEligibility != null) {
+          // ensure the json data is an array
+          if (!jsonObj.get("campaignEligibility").isJsonArray()) {
+            throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `campaignEligibility` to be an array in the JSON string but got `%s`", jsonObj.get("campaignEligibility").toString()));
+          }
+
+          // validate the optional field `campaignEligibility` (array)
+          for (int i = 0; i < jsonArraycampaignEligibility.size(); i++) {
+            CampaignEligibility.validateJsonElement(jsonArraycampaignEligibility.get(i));
           };
         }
       }

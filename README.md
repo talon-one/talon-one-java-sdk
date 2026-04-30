@@ -42,7 +42,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>one.talon</groupId>
   <artifactId>talon-one-client</artifactId>
-  <version>26.08.01</version>
+  <version>26.09.0</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -52,7 +52,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "one.talon:talon-one-client:26.08.01"
+compile "one.talon:talon-one-client:26.09.0"
 ```
 
 ### Others
@@ -184,7 +184,7 @@ public class TalonApiTest {
         apiClient.setBasePath("https://yourbaseurl.talon.one"); // No trailing slash!
 
         // Setup: Authorization
-        ApiKeyAuth apiKeyV1 = (ApiKeyAuth) apiClient.getAuthentication("management_key");
+        ApiKeyAuth apiKeyV1 = (ApiKeyAuth) apiClient.getAuthentication("api_key_v1");
         apiKeyV1.setApiKeyPrefix("ManagementKey-v1");
         apiKeyV1.setApiKey("2f0dce055da01ae595005d7d79154bae7448d319d5fc7c5b2951fadd6ba1ea07");
 
@@ -542,6 +542,8 @@ Class | Method | HTTP request | Description
 - [CampaignEditedNotification](docs/CampaignEditedNotification.md)
 - [CampaignEditedNotificationItem](docs/CampaignEditedNotificationItem.md)
 - [CampaignEligibility](docs/CampaignEligibility.md)
+- [CampaignEligibilityDetails](docs/CampaignEligibilityDetails.md)
+- [CampaignEligibilityFailureDetails](docs/CampaignEligibilityFailureDetails.md)
 - [CampaignEntity](docs/CampaignEntity.md)
 - [CampaignEvaluationGroup](docs/CampaignEvaluationGroup.md)
 - [CampaignEvaluationPosition](docs/CampaignEvaluationPosition.md)
@@ -1009,6 +1011,8 @@ Class | Method | HTTP request | Description
 - [RollbackIncreasedAchievementProgressEffectProps](docs/RollbackIncreasedAchievementProgressEffectProps.md)
 - [RollbackReferralEffectProps](docs/RollbackReferralEffectProps.md)
 - [Rule](docs/Rule.md)
+- [RuleEligibility](docs/RuleEligibility.md)
+- [RuleEligibilityFailureDetails](docs/RuleEligibilityFailureDetails.md)
 - [RuleFailureReason](docs/RuleFailureReason.md)
 - [RuleMetadata](docs/RuleMetadata.md)
 - [Ruleset](docs/Ruleset.md)
@@ -1115,6 +1119,7 @@ Class | Method | HTTP request | Description
 - [UpdatePriceType](docs/UpdatePriceType.md)
 - [UpdateReferral](docs/UpdateReferral.md)
 - [UpdateReferralBatch](docs/UpdateReferralBatch.md)
+- [UpdateReward](docs/UpdateReward.md)
 - [UpdateRole](docs/UpdateRole.md)
 - [UpdateStore](docs/UpdateStore.md)
 - [UpdateUser](docs/UpdateUser.md)

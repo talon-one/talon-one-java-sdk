@@ -49,7 +49,7 @@ import one.talon.JSON;
 /**
  * Specifies the target for which the best prior price calculation is taken into consideration.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.21.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.22.0")
 public class BestPriorTarget {
   /**
    * The type of price target.

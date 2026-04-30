@@ -50,7 +50,7 @@ import one.talon.JSON;
 /**
  * UpdateReferral
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.21.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.22.0")
 public class UpdateReferral {
   public static final String SERIALIZED_NAME_FRIEND_PROFILE_INTEGRATION_ID = "friendProfileIntegrationId";
   @SerializedName(SERIALIZED_NAME_FRIEND_PROFILE_INTEGRATION_ID)

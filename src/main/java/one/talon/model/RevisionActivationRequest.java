@@ -52,7 +52,7 @@ import one.talon.JSON;
 /**
  * RevisionActivationRequest
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.21.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.22.0")
 public class RevisionActivationRequest {
   public static final String SERIALIZED_NAME_USER_IDS = "userIds";
   @SerializedName(SERIALIZED_NAME_USER_IDS)

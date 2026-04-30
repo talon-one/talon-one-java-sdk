@@ -50,7 +50,7 @@ import one.talon.JSON;
 /**
  * ProductUnitAnalyticsTotals
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.21.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.22.0")
 public class ProductUnitAnalyticsTotals {
   public static final String SERIALIZED_NAME_UNITS_SOLD = "unitsSold";
   @SerializedName(SERIALIZED_NAME_UNITS_SOLD)

@@ -23,6 +23,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import one.talon.model.RuleEligibility;
 import com.google.gson.JsonElement;
 
 import com.google.gson.Gson;
@@ -51,7 +52,7 @@ import one.talon.JSON;
 /**
  * RuleMetadata
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.21.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.22.0")
 public class RuleMetadata {
   public static final String SERIALIZED_NAME_TITLE = "title";
   @SerializedName(SERIALIZED_NAME_TITLE)
@@ -76,7 +77,7 @@ public class RuleMetadata {
   public static final String SERIALIZED_NAME_ELIGIBILITY = "eligibility";
   @SerializedName(SERIALIZED_NAME_ELIGIBILITY)
   @javax.annotation.Nullable
-  private List<Object> eligibility;
+  private List<RuleEligibility> eligibility;
 
   public RuleMetadata() {
   }
@@ -157,12 +158,12 @@ public class RuleMetadata {
   }
 
 
-  public RuleMetadata eligibility(@javax.annotation.Nullable List<Object> eligibility) {
+  public RuleMetadata eligibility(@javax.annotation.Nullable List<RuleEligibility> eligibility) {
     this.eligibility = eligibility;
     return this;
   }
 
-  public RuleMetadata addEligibilityItem(Object eligibilityItem) {
+  public RuleMetadata addEligibilityItem(RuleEligibility eligibilityItem) {
     if (this.eligibility == null) {
       this.eligibility = new ArrayList<>();
     }
@@ -175,11 +176,11 @@ public class RuleMetadata {
    * @return eligibility
    */
   @javax.annotation.Nullable
-  public List<Object> getEligibility() {
+  public List<RuleEligibility> getEligibility() {
     return eligibility;
   }
 
-  public void setEligibility(@javax.annotation.Nullable List<Object> eligibility) {
+  public void setEligibility(@javax.annotation.Nullable List<RuleEligibility> eligibility) {
     this.eligibility = eligibility;
   }
 
@@ -320,9 +321,19 @@ public class RuleMetadata {
       if ((jsonObj.get("relatedData") != null && !jsonObj.get("relatedData").isJsonNull()) && !jsonObj.get("relatedData").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `relatedData` to be a primitive type in the JSON string but got `%s`", jsonObj.get("relatedData").toString()));
       }
-      // ensure the optional json data is an array if present
-      if (jsonObj.get("eligibility") != null && !jsonObj.get("eligibility").isJsonNull() && !jsonObj.get("eligibility").isJsonArray()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `eligibility` to be an array in the JSON string but got `%s`", jsonObj.get("eligibility").toString()));
+      if (jsonObj.get("eligibility") != null && !jsonObj.get("eligibility").isJsonNull()) {
+        JsonArray jsonArrayeligibility = jsonObj.getAsJsonArray("eligibility");
+        if (jsonArrayeligibility != null) {
+          // ensure the json data is an array
+          if (!jsonObj.get("eligibility").isJsonArray()) {
+            throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `eligibility` to be an array in the JSON string but got `%s`", jsonObj.get("eligibility").toString()));
+          }
+
+          // validate the optional field `eligibility` (array)
+          for (int i = 0; i < jsonArrayeligibility.size(); i++) {
+            RuleEligibility.validateJsonElement(jsonArrayeligibility.get(i));
+          };
+        }
       }
   }
 

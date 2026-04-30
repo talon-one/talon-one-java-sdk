@@ -52,7 +52,7 @@ import one.talon.JSON;
 /**
  * LoyaltyBalanceWithTier
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.21.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.22.0")
 public class LoyaltyBalanceWithTier {
   public static final String SERIALIZED_NAME_ACTIVE_POINTS = "activePoints";
   @SerializedName(SERIALIZED_NAME_ACTIVE_POINTS)
