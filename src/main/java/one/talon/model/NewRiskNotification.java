@@ -21,7 +21,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.util.Arrays;
-import one.talon.model.NewCampaign;
 import com.google.gson.JsonElement;
 
 import com.google.gson.Gson;
@@ -48,36 +47,22 @@ import java.util.Set;
 import one.talon.JSON;
 
 /**
- * NewExperiment
+ * Data for creating a new risk notification.
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.22.0")
-public class NewExperiment {
-  public static final String SERIALIZED_NAME_IS_VARIANT_ASSIGNMENT_EXTERNAL = "isVariantAssignmentExternal";
-  @SerializedName(SERIALIZED_NAME_IS_VARIANT_ASSIGNMENT_EXTERNAL)
-  @javax.annotation.Nonnull
-  private Boolean isVariantAssignmentExternal;
-
-  public static final String SERIALIZED_NAME_CAMPAIGN = "campaign";
-  @SerializedName(SERIALIZED_NAME_CAMPAIGN)
-  @javax.annotation.Nonnull
-  private NewCampaign campaign;
-
+public class NewRiskNotification {
   /**
-   * The goal of the experiment. Determines which single metric is used to decide the winning variant. When set to &#x60;other&#x60;, multiple metrics are used. 
+   * The entity type to analyze within the given time frame.
    */
-  @JsonAdapter(GoalTypeEnum.Adapter.class)
-  public enum GoalTypeEnum {
-    OTHER("other"),
+  @JsonAdapter(EntityEnum.Adapter.class)
+  public enum EntityEnum {
+    CUSTOMER_PROFILE("customer_profile"),
     
-    MAXIMIZE_REVENUE("maximize_revenue"),
-    
-    OPTIMIZE_DISCOUNT_EFFICIENCY("optimize_discount_efficiency"),
-    
-    MAXIMIZE_ITEMS_SOLD("maximize_items_sold");
+    CUSTOMER_SESSION("customer_session");
 
     private String value;
 
-    GoalTypeEnum(String value) {
+    EntityEnum(String value) {
       this.value = value;
     }
 
@@ -90,8 +75,8 @@ public class NewExperiment {
       return String.valueOf(value);
     }
 
-    public static GoalTypeEnum fromValue(String value) {
-      for (GoalTypeEnum b : GoalTypeEnum.values()) {
+    public static EntityEnum fromValue(String value) {
+      for (EntityEnum b : EntityEnum.values()) {
         if (b.value.equals(value)) {
           return b;
         }
@@ -99,111 +84,207 @@ public class NewExperiment {
       throw new IllegalArgumentException("Unexpected value '" + value + "'");
     }
 
-    public static class Adapter extends TypeAdapter<GoalTypeEnum> {
+    public static class Adapter extends TypeAdapter<EntityEnum> {
       @Override
-      public void write(final JsonWriter jsonWriter, final GoalTypeEnum enumeration) throws IOException {
+      public void write(final JsonWriter jsonWriter, final EntityEnum enumeration) throws IOException {
         jsonWriter.value(enumeration.getValue());
       }
 
       @Override
-      public GoalTypeEnum read(final JsonReader jsonReader) throws IOException {
+      public EntityEnum read(final JsonReader jsonReader) throws IOException {
         String value =  jsonReader.nextString();
-        return GoalTypeEnum.fromValue(value);
+        return EntityEnum.fromValue(value);
       }
     }
 
     public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       String value = jsonElement.getAsString();
-      GoalTypeEnum.fromValue(value);
+      EntityEnum.fromValue(value);
     }
   }
 
-  public static final String SERIALIZED_NAME_GOAL_TYPE = "goalType";
-  @SerializedName(SERIALIZED_NAME_GOAL_TYPE)
+  public static final String SERIALIZED_NAME_ENTITY = "entity";
+  @SerializedName(SERIALIZED_NAME_ENTITY)
   @javax.annotation.Nonnull
-  private GoalTypeEnum goalType;
+  private EntityEnum entity;
 
-  public static final String SERIALIZED_NAME_GOAL_DESCRIPTION = "goalDescription";
-  @SerializedName(SERIALIZED_NAME_GOAL_DESCRIPTION)
-  @javax.annotation.Nullable
-  private String goalDescription;
+  /**
+   * The activity metric to analyze within the given entity.
+   */
+  @JsonAdapter(ActivityEnum.Adapter.class)
+  public enum ActivityEnum {
+    LOYALTY_POINTS_EARNED("loyalty_points_earned"),
+    
+    DISCOUNTED_AMOUNT("discounted_amount"),
+    
+    COMPLETED_ORDERS("completed_orders"),
+    
+    COUPON_ATTEMPTS("coupon_attempts");
 
-  public NewExperiment() {
+    private String value;
+
+    ActivityEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static ActivityEnum fromValue(String value) {
+      for (ActivityEnum b : ActivityEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    }
+
+    public static class Adapter extends TypeAdapter<ActivityEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final ActivityEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public ActivityEnum read(final JsonReader jsonReader) throws IOException {
+        String value =  jsonReader.nextString();
+        return ActivityEnum.fromValue(value);
+      }
+    }
+
+    public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      String value = jsonElement.getAsString();
+      ActivityEnum.fromValue(value);
+    }
   }
 
-  public NewExperiment isVariantAssignmentExternal(@javax.annotation.Nonnull Boolean isVariantAssignmentExternal) {
-    this.isVariantAssignmentExternal = isVariantAssignmentExternal;
+  public static final String SERIALIZED_NAME_ACTIVITY = "activity";
+  @SerializedName(SERIALIZED_NAME_ACTIVITY)
+  @javax.annotation.Nonnull
+  private ActivityEnum activity;
+
+  /**
+   * The rolling time window for risk evaluation.
+   */
+  @JsonAdapter(TimeFrameEnum.Adapter.class)
+  public enum TimeFrameEnum {
+    _1_DAY("1_day"),
+    
+    _1_WEEK("1_week"),
+    
+    _1_MONTH("1_month");
+
+    private String value;
+
+    TimeFrameEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static TimeFrameEnum fromValue(String value) {
+      for (TimeFrameEnum b : TimeFrameEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    }
+
+    public static class Adapter extends TypeAdapter<TimeFrameEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final TimeFrameEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public TimeFrameEnum read(final JsonReader jsonReader) throws IOException {
+        String value =  jsonReader.nextString();
+        return TimeFrameEnum.fromValue(value);
+      }
+    }
+
+    public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      String value = jsonElement.getAsString();
+      TimeFrameEnum.fromValue(value);
+    }
+  }
+
+  public static final String SERIALIZED_NAME_TIME_FRAME = "timeFrame";
+  @SerializedName(SERIALIZED_NAME_TIME_FRAME)
+  @javax.annotation.Nonnull
+  private TimeFrameEnum timeFrame;
+
+  public NewRiskNotification() {
+  }
+
+  public NewRiskNotification entity(@javax.annotation.Nonnull EntityEnum entity) {
+    this.entity = entity;
     return this;
   }
 
   /**
-   * The source of the assignment. - false - The variant assignment is handled internally by Talon.One. - true - The variant assignment is handled externally. 
-   * @return isVariantAssignmentExternal
+   * The entity type to analyze within the given time frame.
+   * @return entity
    */
   @javax.annotation.Nonnull
-  public Boolean getIsVariantAssignmentExternal() {
-    return isVariantAssignmentExternal;
+  public EntityEnum getEntity() {
+    return entity;
   }
 
-  public void setIsVariantAssignmentExternal(@javax.annotation.Nonnull Boolean isVariantAssignmentExternal) {
-    this.isVariantAssignmentExternal = isVariantAssignmentExternal;
+  public void setEntity(@javax.annotation.Nonnull EntityEnum entity) {
+    this.entity = entity;
   }
 
 
-  public NewExperiment campaign(@javax.annotation.Nonnull NewCampaign campaign) {
-    this.campaign = campaign;
+  public NewRiskNotification activity(@javax.annotation.Nonnull ActivityEnum activity) {
+    this.activity = activity;
     return this;
   }
 
   /**
-   * Get campaign
-   * @return campaign
+   * The activity metric to analyze within the given entity.
+   * @return activity
    */
   @javax.annotation.Nonnull
-  public NewCampaign getCampaign() {
-    return campaign;
+  public ActivityEnum getActivity() {
+    return activity;
   }
 
-  public void setCampaign(@javax.annotation.Nonnull NewCampaign campaign) {
-    this.campaign = campaign;
+  public void setActivity(@javax.annotation.Nonnull ActivityEnum activity) {
+    this.activity = activity;
   }
 
 
-  public NewExperiment goalType(@javax.annotation.Nonnull GoalTypeEnum goalType) {
-    this.goalType = goalType;
+  public NewRiskNotification timeFrame(@javax.annotation.Nonnull TimeFrameEnum timeFrame) {
+    this.timeFrame = timeFrame;
     return this;
   }
 
   /**
-   * The goal of the experiment. Determines which single metric is used to decide the winning variant. When set to &#x60;other&#x60;, multiple metrics are used. 
-   * @return goalType
+   * The rolling time window for risk evaluation.
+   * @return timeFrame
    */
   @javax.annotation.Nonnull
-  public GoalTypeEnum getGoalType() {
-    return goalType;
+  public TimeFrameEnum getTimeFrame() {
+    return timeFrame;
   }
 
-  public void setGoalType(@javax.annotation.Nonnull GoalTypeEnum goalType) {
-    this.goalType = goalType;
-  }
-
-
-  public NewExperiment goalDescription(@javax.annotation.Nullable String goalDescription) {
-    this.goalDescription = goalDescription;
-    return this;
-  }
-
-  /**
-   * A description of the experiment goal. Provides context for the AI summary and helps it interpret the outcome of the experiment against the stated goal. 
-   * @return goalDescription
-   */
-  @javax.annotation.Nullable
-  public String getGoalDescription() {
-    return goalDescription;
-  }
-
-  public void setGoalDescription(@javax.annotation.Nullable String goalDescription) {
-    this.goalDescription = goalDescription;
+  public void setTimeFrame(@javax.annotation.Nonnull TimeFrameEnum timeFrame) {
+    this.timeFrame = timeFrame;
   }
 
   /**
@@ -219,9 +300,9 @@ public class NewExperiment {
    *
    * @param key name of the property
    * @param value value of the property
-   * @return the NewExperiment instance itself
+   * @return the NewRiskNotification instance itself
    */
-  public NewExperiment putAdditionalProperty(String key, Object value) {
+  public NewRiskNotification putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
         this.additionalProperties = new HashMap<String, Object>();
     }
@@ -260,27 +341,25 @@ public class NewExperiment {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    NewExperiment newExperiment = (NewExperiment) o;
-    return Objects.equals(this.isVariantAssignmentExternal, newExperiment.isVariantAssignmentExternal) &&
-        Objects.equals(this.campaign, newExperiment.campaign) &&
-        Objects.equals(this.goalType, newExperiment.goalType) &&
-        Objects.equals(this.goalDescription, newExperiment.goalDescription)&&
-        Objects.equals(this.additionalProperties, newExperiment.additionalProperties);
+    NewRiskNotification newRiskNotification = (NewRiskNotification) o;
+    return Objects.equals(this.entity, newRiskNotification.entity) &&
+        Objects.equals(this.activity, newRiskNotification.activity) &&
+        Objects.equals(this.timeFrame, newRiskNotification.timeFrame)&&
+        Objects.equals(this.additionalProperties, newRiskNotification.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(isVariantAssignmentExternal, campaign, goalType, goalDescription, additionalProperties);
+    return Objects.hash(entity, activity, timeFrame, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class NewExperiment {\n");
-    sb.append("    isVariantAssignmentExternal: ").append(toIndentedString(isVariantAssignmentExternal)).append("\n");
-    sb.append("    campaign: ").append(toIndentedString(campaign)).append("\n");
-    sb.append("    goalType: ").append(toIndentedString(goalType)).append("\n");
-    sb.append("    goalDescription: ").append(toIndentedString(goalDescription)).append("\n");
+    sb.append("class NewRiskNotification {\n");
+    sb.append("    entity: ").append(toIndentedString(entity)).append("\n");
+    sb.append("    activity: ").append(toIndentedString(activity)).append("\n");
+    sb.append("    timeFrame: ").append(toIndentedString(timeFrame)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -303,58 +382,63 @@ public class NewExperiment {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("isVariantAssignmentExternal", "campaign", "goalType", "goalDescription"));
+    openapiFields = new HashSet<String>(Arrays.asList("entity", "activity", "timeFrame"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("isVariantAssignmentExternal", "campaign", "goalType"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("entity", "activity", "timeFrame"));
   }
 
   /**
    * Validates the JSON Element and throws an exception if issues found
    *
    * @param jsonElement JSON Element
-   * @throws IOException if the JSON Element is invalid with respect to NewExperiment
+   * @throws IOException if the JSON Element is invalid with respect to NewRiskNotification
    */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
-        if (!NewExperiment.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in NewExperiment is not found in the empty JSON string", NewExperiment.openapiRequiredFields.toString()));
+        if (!NewRiskNotification.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in NewRiskNotification is not found in the empty JSON string", NewRiskNotification.openapiRequiredFields.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : NewExperiment.openapiRequiredFields) {
+      for (String requiredField : NewRiskNotification.openapiRequiredFields) {
         if (jsonElement.getAsJsonObject().get(requiredField) == null) {
           throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      // validate the required field `campaign`
-      NewCampaign.validateJsonElement(jsonObj.get("campaign"));
-      if (!jsonObj.get("goalType").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `goalType` to be a primitive type in the JSON string but got `%s`", jsonObj.get("goalType").toString()));
+      if (!jsonObj.get("entity").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `entity` to be a primitive type in the JSON string but got `%s`", jsonObj.get("entity").toString()));
       }
-      // validate the required field `goalType`
-      GoalTypeEnum.validateJsonElement(jsonObj.get("goalType"));
-      if ((jsonObj.get("goalDescription") != null && !jsonObj.get("goalDescription").isJsonNull()) && !jsonObj.get("goalDescription").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `goalDescription` to be a primitive type in the JSON string but got `%s`", jsonObj.get("goalDescription").toString()));
+      // validate the required field `entity`
+      EntityEnum.validateJsonElement(jsonObj.get("entity"));
+      if (!jsonObj.get("activity").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `activity` to be a primitive type in the JSON string but got `%s`", jsonObj.get("activity").toString()));
       }
+      // validate the required field `activity`
+      ActivityEnum.validateJsonElement(jsonObj.get("activity"));
+      if (!jsonObj.get("timeFrame").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `timeFrame` to be a primitive type in the JSON string but got `%s`", jsonObj.get("timeFrame").toString()));
+      }
+      // validate the required field `timeFrame`
+      TimeFrameEnum.validateJsonElement(jsonObj.get("timeFrame"));
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!NewExperiment.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'NewExperiment' and its subtypes
+       if (!NewRiskNotification.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'NewRiskNotification' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<NewExperiment> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(NewExperiment.class));
+       final TypeAdapter<NewRiskNotification> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(NewRiskNotification.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<NewExperiment>() {
+       return (TypeAdapter<T>) new TypeAdapter<NewRiskNotification>() {
            @Override
-           public void write(JsonWriter out, NewExperiment value) throws IOException {
+           public void write(JsonWriter out, NewRiskNotification value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              obj.remove("additionalProperties");
              // serialize additional properties
@@ -382,12 +466,12 @@ public class NewExperiment {
            }
 
            @Override
-           public NewExperiment read(JsonReader in) throws IOException {
+           public NewRiskNotification read(JsonReader in) throws IOException {
              JsonElement jsonElement = elementAdapter.read(in);
              validateJsonElement(jsonElement);
              JsonObject jsonObj = jsonElement.getAsJsonObject();
              // store additional fields in the deserialized instance
-             NewExperiment instance = thisAdapter.fromJsonTree(jsonObj);
+             NewRiskNotification instance = thisAdapter.fromJsonTree(jsonObj);
              for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
                if (!openapiFields.contains(entry.getKey())) {
                  if (entry.getValue().isJsonPrimitive()) { // primitive type
@@ -414,18 +498,18 @@ public class NewExperiment {
   }
 
   /**
-   * Create an instance of NewExperiment given an JSON string
+   * Create an instance of NewRiskNotification given an JSON string
    *
    * @param jsonString JSON string
-   * @return An instance of NewExperiment
-   * @throws IOException if the JSON string is invalid with respect to NewExperiment
+   * @return An instance of NewRiskNotification
+   * @throws IOException if the JSON string is invalid with respect to NewRiskNotification
    */
-  public static NewExperiment fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, NewExperiment.class);
+  public static NewRiskNotification fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, NewRiskNotification.class);
   }
 
   /**
-   * Convert an instance of NewExperiment to an JSON string
+   * Convert an instance of NewRiskNotification to an JSON string
    *
    * @return JSON string
    */

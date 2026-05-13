@@ -107,6 +107,14 @@ public class RewardTest {
     }
 
     /**
+     * Test the property 'visibilityConditions'
+     */
+    @Test
+    public void visibilityConditionsTest() {
+        // TODO: test visibilityConditions
+    }
+
+    /**
      * Test the property 'rule'
      */
     @Test
@@ -120,6 +128,14 @@ public class RewardTest {
     @Test
     public void bindingsTest() {
         // TODO: test bindings
+    }
+
+    /**
+     * Test the property 'modified'
+     */
+    @Test
+    public void modifiedTest() {
+        // TODO: test modified
     }
 
     /**

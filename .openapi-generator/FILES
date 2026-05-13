@@ -277,6 +277,7 @@ docs/Export.md
 docs/ExtendLoyaltyPointsExpiryDateEffectProps.md
 docs/ExtendedCoupon.md
 docs/FeatureFlag.md
+docs/FeatureFlagUpdate.md
 docs/FeaturesFeed.md
 docs/FuncArgDef.md
 docs/FunctionDef.md
@@ -347,6 +348,7 @@ docs/IncreaseAchievementProgressEffectProps.md
 docs/InfluencingCampaignDetails.md
 docs/IntegrationApi.md
 docs/IntegrationCampaign.md
+docs/IntegrationCampaignBase.md
 docs/IntegrationCoupon.md
 docs/IntegrationCustomerProfileAudienceRequest.md
 docs/IntegrationCustomerProfileAudienceRequestItem.md
@@ -509,6 +511,7 @@ docs/NewReferralsForMultipleAdvocates.md
 docs/NewReturn.md
 docs/NewRevisionVersion.md
 docs/NewReward.md
+docs/NewRiskNotification.md
 docs/NewRole.md
 docs/NewRoleV2.md
 docs/NewRuleset.md
@@ -577,6 +580,7 @@ docs/RevisionActivation.md
 docs/RevisionActivationRequest.md
 docs/RevisionVersion.md
 docs/Reward.md
+docs/RiskNotification.md
 docs/Role.md
 docs/RoleAssign.md
 docs/RoleMembership.md
@@ -599,6 +603,7 @@ docs/RuleEligibility.md
 docs/RuleEligibilityFailureDetails.md
 docs/RuleFailureReason.md
 docs/RuleMetadata.md
+docs/RuleMetadataEligibility.md
 docs/Ruleset.md
 docs/SSOConfig.md
 docs/SamlConnection.md
@@ -1011,6 +1016,7 @@ src/main/java/one/talon/model/Export.java
 src/main/java/one/talon/model/ExtendLoyaltyPointsExpiryDateEffectProps.java
 src/main/java/one/talon/model/ExtendedCoupon.java
 src/main/java/one/talon/model/FeatureFlag.java
+src/main/java/one/talon/model/FeatureFlagUpdate.java
 src/main/java/one/talon/model/FeaturesFeed.java
 src/main/java/one/talon/model/FuncArgDef.java
 src/main/java/one/talon/model/FunctionDef.java
@@ -1080,6 +1086,7 @@ src/main/java/one/talon/model/ImportEntity.java
 src/main/java/one/talon/model/IncreaseAchievementProgressEffectProps.java
 src/main/java/one/talon/model/InfluencingCampaignDetails.java
 src/main/java/one/talon/model/IntegrationCampaign.java
+src/main/java/one/talon/model/IntegrationCampaignBase.java
 src/main/java/one/talon/model/IntegrationCoupon.java
 src/main/java/one/talon/model/IntegrationCustomerProfileAudienceRequest.java
 src/main/java/one/talon/model/IntegrationCustomerProfileAudienceRequestItem.java
@@ -1241,6 +1248,7 @@ src/main/java/one/talon/model/NewReferralsForMultipleAdvocates.java
 src/main/java/one/talon/model/NewReturn.java
 src/main/java/one/talon/model/NewRevisionVersion.java
 src/main/java/one/talon/model/NewReward.java
+src/main/java/one/talon/model/NewRiskNotification.java
 src/main/java/one/talon/model/NewRole.java
 src/main/java/one/talon/model/NewRoleV2.java
 src/main/java/one/talon/model/NewRuleset.java
@@ -1309,6 +1317,7 @@ src/main/java/one/talon/model/RevisionActivation.java
 src/main/java/one/talon/model/RevisionActivationRequest.java
 src/main/java/one/talon/model/RevisionVersion.java
 src/main/java/one/talon/model/Reward.java
+src/main/java/one/talon/model/RiskNotification.java
 src/main/java/one/talon/model/Role.java
 src/main/java/one/talon/model/RoleAssign.java
 src/main/java/one/talon/model/RoleMembership.java
@@ -1331,6 +1340,7 @@ src/main/java/one/talon/model/RuleEligibility.java
 src/main/java/one/talon/model/RuleEligibilityFailureDetails.java
 src/main/java/one/talon/model/RuleFailureReason.java
 src/main/java/one/talon/model/RuleMetadata.java
+src/main/java/one/talon/model/RuleMetadataEligibility.java
 src/main/java/one/talon/model/Ruleset.java
 src/main/java/one/talon/model/SSOConfig.java
 src/main/java/one/talon/model/SamlConnection.java
@@ -1716,6 +1726,7 @@ src/test/java/one/talon/model/ExportTest.java
 src/test/java/one/talon/model/ExtendLoyaltyPointsExpiryDateEffectPropsTest.java
 src/test/java/one/talon/model/ExtendedCouponTest.java
 src/test/java/one/talon/model/FeatureFlagTest.java
+src/test/java/one/talon/model/FeatureFlagUpdateTest.java
 src/test/java/one/talon/model/FeaturesFeedTest.java
 src/test/java/one/talon/model/FuncArgDefTest.java
 src/test/java/one/talon/model/FunctionDefTest.java
@@ -1784,6 +1795,7 @@ src/test/java/one/talon/model/IdentifiableEntityTest.java
 src/test/java/one/talon/model/ImportEntityTest.java
 src/test/java/one/talon/model/IncreaseAchievementProgressEffectPropsTest.java
 src/test/java/one/talon/model/InfluencingCampaignDetailsTest.java
+src/test/java/one/talon/model/IntegrationCampaignBaseTest.java
 src/test/java/one/talon/model/IntegrationCampaignTest.java
 src/test/java/one/talon/model/IntegrationCouponTest.java
 src/test/java/one/talon/model/IntegrationCustomerProfileAudienceRequestItemTest.java
@@ -1946,6 +1958,7 @@ src/test/java/one/talon/model/NewReferralsForMultipleAdvocatesTest.java
 src/test/java/one/talon/model/NewReturnTest.java
 src/test/java/one/talon/model/NewRevisionVersionTest.java
 src/test/java/one/talon/model/NewRewardTest.java
+src/test/java/one/talon/model/NewRiskNotificationTest.java
 src/test/java/one/talon/model/NewRoleTest.java
 src/test/java/one/talon/model/NewRoleV2Test.java
 src/test/java/one/talon/model/NewRulesetTest.java
@@ -2014,6 +2027,7 @@ src/test/java/one/talon/model/RevisionActivationTest.java
 src/test/java/one/talon/model/RevisionTest.java
 src/test/java/one/talon/model/RevisionVersionTest.java
 src/test/java/one/talon/model/RewardTest.java
+src/test/java/one/talon/model/RiskNotificationTest.java
 src/test/java/one/talon/model/RoleAssignTest.java
 src/test/java/one/talon/model/RoleMembershipTest.java
 src/test/java/one/talon/model/RoleTest.java
@@ -2034,6 +2048,7 @@ src/test/java/one/talon/model/RollbackReferralEffectPropsTest.java
 src/test/java/one/talon/model/RuleEligibilityFailureDetailsTest.java
 src/test/java/one/talon/model/RuleEligibilityTest.java
 src/test/java/one/talon/model/RuleFailureReasonTest.java
+src/test/java/one/talon/model/RuleMetadataEligibilityTest.java
 src/test/java/one/talon/model/RuleMetadataTest.java
 src/test/java/one/talon/model/RuleTest.java
 src/test/java/one/talon/model/RulesetTest.java

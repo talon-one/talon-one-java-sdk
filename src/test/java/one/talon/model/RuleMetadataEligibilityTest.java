@@ -19,55 +19,65 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Arrays;
-import one.talon.model.NewCampaign;
+import java.util.List;
+import one.talon.model.RuleEligibility;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 /**
- * Model tests for NewExperiment
+ * Model tests for RuleMetadataEligibility
  */
-public class NewExperimentTest {
-    private final NewExperiment model = new NewExperiment();
+public class RuleMetadataEligibilityTest {
+    private final RuleMetadataEligibility model = new RuleMetadataEligibility();
 
     /**
-     * Model tests for NewExperiment
+     * Model tests for RuleMetadataEligibility
      */
     @Test
-    public void testNewExperiment() {
-        // TODO: test NewExperiment
+    public void testRuleMetadataEligibility() {
+        // TODO: test RuleMetadataEligibility
     }
 
     /**
-     * Test the property 'isVariantAssignmentExternal'
+     * Test the property 'title'
      */
     @Test
-    public void isVariantAssignmentExternalTest() {
-        // TODO: test isVariantAssignmentExternal
+    public void titleTest() {
+        // TODO: test title
     }
 
     /**
-     * Test the property 'campaign'
+     * Test the property 'displayName'
      */
     @Test
-    public void campaignTest() {
-        // TODO: test campaign
+    public void displayNameTest() {
+        // TODO: test displayName
     }
 
     /**
-     * Test the property 'goalType'
+     * Test the property 'displayDescription'
      */
     @Test
-    public void goalTypeTest() {
-        // TODO: test goalType
+    public void displayDescriptionTest() {
+        // TODO: test displayDescription
     }
 
     /**
-     * Test the property 'goalDescription'
+     * Test the property 'relatedData'
      */
     @Test
-    public void goalDescriptionTest() {
-        // TODO: test goalDescription
+    public void relatedDataTest() {
+        // TODO: test relatedData
+    }
+
+    /**
+     * Test the property 'eligibility'
+     */
+    @Test
+    public void eligibilityTest() {
+        // TODO: test eligibility
     }
 
 }

@@ -25,7 +25,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import one.talon.model.CampaignEligibilityDetails;
-import one.talon.model.RuleMetadata;
+import one.talon.model.RuleMetadataEligibility;
 import com.google.gson.JsonElement;
 
 import com.google.gson.Gson;
@@ -56,15 +56,15 @@ import one.talon.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.22.0")
 public class CampaignEligibility {
-  public static final String SERIALIZED_NAME_ID = "id";
-  @SerializedName(SERIALIZED_NAME_ID)
-  @javax.annotation.Nonnull
-  private Long id;
-
   public static final String SERIALIZED_NAME_APPLICATION_ID = "applicationId";
   @SerializedName(SERIALIZED_NAME_APPLICATION_ID)
   @javax.annotation.Nonnull
   private Long applicationId;
+
+  public static final String SERIALIZED_NAME_ID = "id";
+  @SerializedName(SERIALIZED_NAME_ID)
+  @javax.annotation.Nonnull
+  private Long id;
 
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
@@ -216,37 +216,18 @@ public class CampaignEligibility {
   @javax.annotation.Nonnull
   private List<FeaturesEnum> features = new ArrayList<>();
 
-  public static final String SERIALIZED_NAME_RULES = "rules";
-  @SerializedName(SERIALIZED_NAME_RULES)
-  @javax.annotation.Nullable
-  private List<RuleMetadata> rules;
-
   public static final String SERIALIZED_NAME_ELIGIBILITY = "eligibility";
   @SerializedName(SERIALIZED_NAME_ELIGIBILITY)
   @javax.annotation.Nonnull
   private List<CampaignEligibilityDetails> eligibility = new ArrayList<>();
 
+  public static final String SERIALIZED_NAME_RULES = "rules";
+  @SerializedName(SERIALIZED_NAME_RULES)
+  @javax.annotation.Nonnull
+  private List<RuleMetadataEligibility> rules = new ArrayList<>();
+
   public CampaignEligibility() {
   }
-
-  public CampaignEligibility id(@javax.annotation.Nonnull Long id) {
-    this.id = id;
-    return this;
-  }
-
-  /**
-   * Unique ID of Campaign.
-   * @return id
-   */
-  @javax.annotation.Nonnull
-  public Long getId() {
-    return id;
-  }
-
-  public void setId(@javax.annotation.Nonnull Long id) {
-    this.id = id;
-  }
-
 
   public CampaignEligibility applicationId(@javax.annotation.Nonnull Long applicationId) {
     this.applicationId = applicationId;
@@ -264,6 +245,25 @@ public class CampaignEligibility {
 
   public void setApplicationId(@javax.annotation.Nonnull Long applicationId) {
     this.applicationId = applicationId;
+  }
+
+
+  public CampaignEligibility id(@javax.annotation.Nonnull Long id) {
+    this.id = id;
+    return this;
+  }
+
+  /**
+   * Unique ID of Campaign.
+   * @return id
+   */
+  @javax.annotation.Nonnull
+  public Long getId() {
+    return id;
+  }
+
+  public void setId(@javax.annotation.Nonnull Long id) {
+    this.id = id;
   }
 
 
@@ -435,33 +435,6 @@ public class CampaignEligibility {
   }
 
 
-  public CampaignEligibility rules(@javax.annotation.Nullable List<RuleMetadata> rules) {
-    this.rules = rules;
-    return this;
-  }
-
-  public CampaignEligibility addRulesItem(RuleMetadata rulesItem) {
-    if (this.rules == null) {
-      this.rules = new ArrayList<>();
-    }
-    this.rules.add(rulesItem);
-    return this;
-  }
-
-  /**
-   * A list of rules containing customer-facing details of the rewards defined in the campaign.
-   * @return rules
-   */
-  @javax.annotation.Nullable
-  public List<RuleMetadata> getRules() {
-    return rules;
-  }
-
-  public void setRules(@javax.annotation.Nullable List<RuleMetadata> rules) {
-    this.rules = rules;
-  }
-
-
   public CampaignEligibility eligibility(@javax.annotation.Nonnull List<CampaignEligibilityDetails> eligibility) {
     this.eligibility = eligibility;
     return this;
@@ -486,6 +459,33 @@ public class CampaignEligibility {
 
   public void setEligibility(@javax.annotation.Nonnull List<CampaignEligibilityDetails> eligibility) {
     this.eligibility = eligibility;
+  }
+
+
+  public CampaignEligibility rules(@javax.annotation.Nonnull List<RuleMetadataEligibility> rules) {
+    this.rules = rules;
+    return this;
+  }
+
+  public CampaignEligibility addRulesItem(RuleMetadataEligibility rulesItem) {
+    if (this.rules == null) {
+      this.rules = new ArrayList<>();
+    }
+    this.rules.add(rulesItem);
+    return this;
+  }
+
+  /**
+   * A list of rules containing customer-facing details of the rewards defined in the campaign.
+   * @return rules
+   */
+  @javax.annotation.Nonnull
+  public List<RuleMetadataEligibility> getRules() {
+    return rules;
+  }
+
+  public void setRules(@javax.annotation.Nonnull List<RuleMetadataEligibility> rules) {
+    this.rules = rules;
   }
 
   /**
@@ -543,8 +543,8 @@ public class CampaignEligibility {
       return false;
     }
     CampaignEligibility campaignEligibility = (CampaignEligibility) o;
-    return Objects.equals(this.id, campaignEligibility.id) &&
-        Objects.equals(this.applicationId, campaignEligibility.applicationId) &&
+    return Objects.equals(this.applicationId, campaignEligibility.applicationId) &&
+        Objects.equals(this.id, campaignEligibility.id) &&
         Objects.equals(this.name, campaignEligibility.name) &&
         Objects.equals(this.description, campaignEligibility.description) &&
         Objects.equals(this.startTime, campaignEligibility.startTime) &&
@@ -553,22 +553,22 @@ public class CampaignEligibility {
         Objects.equals(this.state, campaignEligibility.state) &&
         Objects.equals(this.tags, campaignEligibility.tags) &&
         Objects.equals(this.features, campaignEligibility.features) &&
-        Objects.equals(this.rules, campaignEligibility.rules) &&
-        Objects.equals(this.eligibility, campaignEligibility.eligibility)&&
+        Objects.equals(this.eligibility, campaignEligibility.eligibility) &&
+        Objects.equals(this.rules, campaignEligibility.rules)&&
         Objects.equals(this.additionalProperties, campaignEligibility.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, applicationId, name, description, startTime, endTime, attributes, state, tags, features, rules, eligibility, additionalProperties);
+    return Objects.hash(applicationId, id, name, description, startTime, endTime, attributes, state, tags, features, eligibility, rules, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class CampaignEligibility {\n");
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    applicationId: ").append(toIndentedString(applicationId)).append("\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    startTime: ").append(toIndentedString(startTime)).append("\n");
@@ -577,8 +577,8 @@ public class CampaignEligibility {
     sb.append("    state: ").append(toIndentedString(state)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    features: ").append(toIndentedString(features)).append("\n");
-    sb.append("    rules: ").append(toIndentedString(rules)).append("\n");
     sb.append("    eligibility: ").append(toIndentedString(eligibility)).append("\n");
+    sb.append("    rules: ").append(toIndentedString(rules)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -601,10 +601,10 @@ public class CampaignEligibility {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("id", "applicationId", "name", "description", "startTime", "endTime", "attributes", "state", "tags", "features", "rules", "eligibility"));
+    openapiFields = new HashSet<String>(Arrays.asList("applicationId", "id", "name", "description", "startTime", "endTime", "attributes", "state", "tags", "features", "eligibility", "rules"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("id", "applicationId", "name", "state", "tags", "features", "eligibility"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("applicationId", "id", "name", "state", "tags", "features", "eligibility", "rules"));
   }
 
   /**
@@ -650,20 +650,6 @@ public class CampaignEligibility {
       } else if (!jsonObj.get("features").isJsonArray()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `features` to be an array in the JSON string but got `%s`", jsonObj.get("features").toString()));
       }
-      if (jsonObj.get("rules") != null && !jsonObj.get("rules").isJsonNull()) {
-        JsonArray jsonArrayrules = jsonObj.getAsJsonArray("rules");
-        if (jsonArrayrules != null) {
-          // ensure the json data is an array
-          if (!jsonObj.get("rules").isJsonArray()) {
-            throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `rules` to be an array in the JSON string but got `%s`", jsonObj.get("rules").toString()));
-          }
-
-          // validate the optional field `rules` (array)
-          for (int i = 0; i < jsonArrayrules.size(); i++) {
-            RuleMetadata.validateJsonElement(jsonArrayrules.get(i));
-          };
-        }
-      }
       if (jsonObj.get("eligibility") != null) {
         if (!jsonObj.get("eligibility").isJsonArray()) {
           throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `eligibility` to be an array in the JSON string but got `%s`", jsonObj.get("eligibility").toString()));
@@ -672,6 +658,16 @@ public class CampaignEligibility {
         // validate the required field `eligibility` (array)
         for (int i = 0; i < jsonArrayeligibility.size(); i++) {
           CampaignEligibilityDetails.validateJsonElement(jsonArrayeligibility.get(i));
+        }
+      }
+      if (jsonObj.get("rules") != null) {
+        if (!jsonObj.get("rules").isJsonArray()) {
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `rules` to be an array in the JSON string but got `%s`", jsonObj.get("rules").toString()));
+        }
+        JsonArray jsonArrayrules = jsonObj.getAsJsonArray("rules");
+        // validate the required field `rules` (array)
+        for (int i = 0; i < jsonArrayrules.size(); i++) {
+          RuleMetadataEligibility.validateJsonElement(jsonArrayrules.get(i));
         }
       }
   }

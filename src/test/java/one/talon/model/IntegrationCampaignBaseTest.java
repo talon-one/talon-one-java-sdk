@@ -19,26 +19,41 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
+import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import one.talon.model.Binding;
-import one.talon.model.Rule;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 /**
- * Model tests for UpdateReward
+ * Model tests for IntegrationCampaignBase
  */
-public class UpdateRewardTest {
-    private final UpdateReward model = new UpdateReward();
+public class IntegrationCampaignBaseTest {
+    private final IntegrationCampaignBase model = new IntegrationCampaignBase();
 
     /**
-     * Model tests for UpdateReward
+     * Model tests for IntegrationCampaignBase
      */
     @Test
-    public void testUpdateReward() {
-        // TODO: test UpdateReward
+    public void testIntegrationCampaignBase() {
+        // TODO: test IntegrationCampaignBase
+    }
+
+    /**
+     * Test the property 'applicationId'
+     */
+    @Test
+    public void applicationIdTest() {
+        // TODO: test applicationId
+    }
+
+    /**
+     * Test the property 'id'
+     */
+    @Test
+    public void idTest() {
+        // TODO: test id
     }
 
     /**
@@ -58,35 +73,51 @@ public class UpdateRewardTest {
     }
 
     /**
-     * Test the property 'status'
+     * Test the property 'startTime'
      */
     @Test
-    public void statusTest() {
-        // TODO: test status
+    public void startTimeTest() {
+        // TODO: test startTime
     }
 
     /**
-     * Test the property 'visibilityConditions'
+     * Test the property 'endTime'
      */
     @Test
-    public void visibilityConditionsTest() {
-        // TODO: test visibilityConditions
+    public void endTimeTest() {
+        // TODO: test endTime
     }
 
     /**
-     * Test the property 'rule'
+     * Test the property 'attributes'
      */
     @Test
-    public void ruleTest() {
-        // TODO: test rule
+    public void attributesTest() {
+        // TODO: test attributes
     }
 
     /**
-     * Test the property 'bindings'
+     * Test the property 'state'
      */
     @Test
-    public void bindingsTest() {
-        // TODO: test bindings
+    public void stateTest() {
+        // TODO: test state
+    }
+
+    /**
+     * Test the property 'tags'
+     */
+    @Test
+    public void tagsTest() {
+        // TODO: test tags
+    }
+
+    /**
+     * Test the property 'features'
+     */
+    @Test
+    public void featuresTest() {
+        // TODO: test features
     }
 
 }

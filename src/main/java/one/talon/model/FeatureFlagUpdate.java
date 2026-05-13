@@ -47,106 +47,58 @@ import java.util.Set;
 import one.talon.JSON;
 
 /**
- * RuleMetadata
+ * FeatureFlagUpdate
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.22.0")
-public class RuleMetadata {
-  public static final String SERIALIZED_NAME_TITLE = "title";
-  @SerializedName(SERIALIZED_NAME_TITLE)
+public class FeatureFlagUpdate {
+  public static final String SERIALIZED_NAME_NAME = "name";
+  @SerializedName(SERIALIZED_NAME_NAME)
   @javax.annotation.Nonnull
-  private String title;
+  private String name;
 
-  public static final String SERIALIZED_NAME_DISPLAY_NAME = "displayName";
-  @SerializedName(SERIALIZED_NAME_DISPLAY_NAME)
-  @javax.annotation.Nullable
-  private String displayName;
+  public static final String SERIALIZED_NAME_VALUE = "value";
+  @SerializedName(SERIALIZED_NAME_VALUE)
+  @javax.annotation.Nonnull
+  private String value;
 
-  public static final String SERIALIZED_NAME_DISPLAY_DESCRIPTION = "displayDescription";
-  @SerializedName(SERIALIZED_NAME_DISPLAY_DESCRIPTION)
-  @javax.annotation.Nullable
-  private String displayDescription;
-
-  public static final String SERIALIZED_NAME_RELATED_DATA = "relatedData";
-  @SerializedName(SERIALIZED_NAME_RELATED_DATA)
-  @javax.annotation.Nullable
-  private String relatedData;
-
-  public RuleMetadata() {
+  public FeatureFlagUpdate() {
   }
 
-  public RuleMetadata title(@javax.annotation.Nonnull String title) {
-    this.title = title;
+  public FeatureFlagUpdate name(@javax.annotation.Nonnull String name) {
+    this.name = name;
     return this;
   }
 
   /**
-   * A short description of the rule.
-   * @return title
+   * The name of the feature flag.
+   * @return name
    */
   @javax.annotation.Nonnull
-  public String getTitle() {
-    return title;
+  public String getName() {
+    return name;
   }
 
-  public void setTitle(@javax.annotation.Nonnull String title) {
-    this.title = title;
+  public void setName(@javax.annotation.Nonnull String name) {
+    this.name = name;
   }
 
 
-  public RuleMetadata displayName(@javax.annotation.Nullable String displayName) {
-    this.displayName = displayName;
+  public FeatureFlagUpdate value(@javax.annotation.Nonnull String value) {
+    this.value = value;
     return this;
   }
 
   /**
-   * A customer-facing name for the rule.
-   * @return displayName
+   * The value of the feature flag.
+   * @return value
    */
-  @javax.annotation.Nullable
-  public String getDisplayName() {
-    return displayName;
+  @javax.annotation.Nonnull
+  public String getValue() {
+    return value;
   }
 
-  public void setDisplayName(@javax.annotation.Nullable String displayName) {
-    this.displayName = displayName;
-  }
-
-
-  public RuleMetadata displayDescription(@javax.annotation.Nullable String displayDescription) {
-    this.displayDescription = displayDescription;
-    return this;
-  }
-
-  /**
-   * A customer-facing description that explains the details of the rule.   For example, this property can contain details about eligibility requirements, reward timelines, or terms and conditions. 
-   * @return displayDescription
-   */
-  @javax.annotation.Nullable
-  public String getDisplayDescription() {
-    return displayDescription;
-  }
-
-  public void setDisplayDescription(@javax.annotation.Nullable String displayDescription) {
-    this.displayDescription = displayDescription;
-  }
-
-
-  public RuleMetadata relatedData(@javax.annotation.Nullable String relatedData) {
-    this.relatedData = relatedData;
-    return this;
-  }
-
-  /**
-   * Any additional data associated with the rule, such as an image URL, vendor name, or a content management system (CMS) ID. 
-   * @return relatedData
-   */
-  @javax.annotation.Nullable
-  public String getRelatedData() {
-    return relatedData;
-  }
-
-  public void setRelatedData(@javax.annotation.Nullable String relatedData) {
-    this.relatedData = relatedData;
+  public void setValue(@javax.annotation.Nonnull String value) {
+    this.value = value;
   }
 
   /**
@@ -162,9 +114,9 @@ public class RuleMetadata {
    *
    * @param key name of the property
    * @param value value of the property
-   * @return the RuleMetadata instance itself
+   * @return the FeatureFlagUpdate instance itself
    */
-  public RuleMetadata putAdditionalProperty(String key, Object value) {
+  public FeatureFlagUpdate putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
         this.additionalProperties = new HashMap<String, Object>();
     }
@@ -203,27 +155,23 @@ public class RuleMetadata {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    RuleMetadata ruleMetadata = (RuleMetadata) o;
-    return Objects.equals(this.title, ruleMetadata.title) &&
-        Objects.equals(this.displayName, ruleMetadata.displayName) &&
-        Objects.equals(this.displayDescription, ruleMetadata.displayDescription) &&
-        Objects.equals(this.relatedData, ruleMetadata.relatedData)&&
-        Objects.equals(this.additionalProperties, ruleMetadata.additionalProperties);
+    FeatureFlagUpdate featureFlagUpdate = (FeatureFlagUpdate) o;
+    return Objects.equals(this.name, featureFlagUpdate.name) &&
+        Objects.equals(this.value, featureFlagUpdate.value)&&
+        Objects.equals(this.additionalProperties, featureFlagUpdate.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(title, displayName, displayDescription, relatedData, additionalProperties);
+    return Objects.hash(name, value, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class RuleMetadata {\n");
-    sb.append("    title: ").append(toIndentedString(title)).append("\n");
-    sb.append("    displayName: ").append(toIndentedString(displayName)).append("\n");
-    sb.append("    displayDescription: ").append(toIndentedString(displayDescription)).append("\n");
-    sb.append("    relatedData: ").append(toIndentedString(relatedData)).append("\n");
+    sb.append("class FeatureFlagUpdate {\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    value: ").append(toIndentedString(value)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -246,43 +194,37 @@ public class RuleMetadata {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("title", "displayName", "displayDescription", "relatedData"));
+    openapiFields = new HashSet<String>(Arrays.asList("name", "value"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("title"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("name", "value"));
   }
 
   /**
    * Validates the JSON Element and throws an exception if issues found
    *
    * @param jsonElement JSON Element
-   * @throws IOException if the JSON Element is invalid with respect to RuleMetadata
+   * @throws IOException if the JSON Element is invalid with respect to FeatureFlagUpdate
    */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
-        if (!RuleMetadata.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in RuleMetadata is not found in the empty JSON string", RuleMetadata.openapiRequiredFields.toString()));
+        if (!FeatureFlagUpdate.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in FeatureFlagUpdate is not found in the empty JSON string", FeatureFlagUpdate.openapiRequiredFields.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : RuleMetadata.openapiRequiredFields) {
+      for (String requiredField : FeatureFlagUpdate.openapiRequiredFields) {
         if (jsonElement.getAsJsonObject().get(requiredField) == null) {
           throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if (!jsonObj.get("title").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `title` to be a primitive type in the JSON string but got `%s`", jsonObj.get("title").toString()));
+      if (!jsonObj.get("name").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
       }
-      if ((jsonObj.get("displayName") != null && !jsonObj.get("displayName").isJsonNull()) && !jsonObj.get("displayName").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `displayName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("displayName").toString()));
-      }
-      if ((jsonObj.get("displayDescription") != null && !jsonObj.get("displayDescription").isJsonNull()) && !jsonObj.get("displayDescription").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `displayDescription` to be a primitive type in the JSON string but got `%s`", jsonObj.get("displayDescription").toString()));
-      }
-      if ((jsonObj.get("relatedData") != null && !jsonObj.get("relatedData").isJsonNull()) && !jsonObj.get("relatedData").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `relatedData` to be a primitive type in the JSON string but got `%s`", jsonObj.get("relatedData").toString()));
+      if (!jsonObj.get("value").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `value` to be a primitive type in the JSON string but got `%s`", jsonObj.get("value").toString()));
       }
   }
 
@@ -290,16 +232,16 @@ public class RuleMetadata {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!RuleMetadata.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'RuleMetadata' and its subtypes
+       if (!FeatureFlagUpdate.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'FeatureFlagUpdate' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<RuleMetadata> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(RuleMetadata.class));
+       final TypeAdapter<FeatureFlagUpdate> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(FeatureFlagUpdate.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<RuleMetadata>() {
+       return (TypeAdapter<T>) new TypeAdapter<FeatureFlagUpdate>() {
            @Override
-           public void write(JsonWriter out, RuleMetadata value) throws IOException {
+           public void write(JsonWriter out, FeatureFlagUpdate value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              obj.remove("additionalProperties");
              // serialize additional properties
@@ -327,12 +269,12 @@ public class RuleMetadata {
            }
 
            @Override
-           public RuleMetadata read(JsonReader in) throws IOException {
+           public FeatureFlagUpdate read(JsonReader in) throws IOException {
              JsonElement jsonElement = elementAdapter.read(in);
              validateJsonElement(jsonElement);
              JsonObject jsonObj = jsonElement.getAsJsonObject();
              // store additional fields in the deserialized instance
-             RuleMetadata instance = thisAdapter.fromJsonTree(jsonObj);
+             FeatureFlagUpdate instance = thisAdapter.fromJsonTree(jsonObj);
              for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
                if (!openapiFields.contains(entry.getKey())) {
                  if (entry.getValue().isJsonPrimitive()) { // primitive type
@@ -359,18 +301,18 @@ public class RuleMetadata {
   }
 
   /**
-   * Create an instance of RuleMetadata given an JSON string
+   * Create an instance of FeatureFlagUpdate given an JSON string
    *
    * @param jsonString JSON string
-   * @return An instance of RuleMetadata
-   * @throws IOException if the JSON string is invalid with respect to RuleMetadata
+   * @return An instance of FeatureFlagUpdate
+   * @throws IOException if the JSON string is invalid with respect to FeatureFlagUpdate
    */
-  public static RuleMetadata fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, RuleMetadata.class);
+  public static FeatureFlagUpdate fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, FeatureFlagUpdate.class);
   }
 
   /**
-   * Convert an instance of RuleMetadata to an JSON string
+   * Convert an instance of FeatureFlagUpdate to an JSON string
    *
    * @return JSON string
    */

@@ -57,7 +57,7 @@ import one.talon.JSON;
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.22.0")
 public class StrikethroughLabelingNotification {
   /**
-   * The version of the strikethrough pricing notification.
+   * The version of the strikethrough pricing notification. Set for **scheduled** strikethrough pricing updates only. 
    */
   @JsonAdapter(VersionEnum.Adapter.class)
   public enum VersionEnum {
@@ -210,7 +210,7 @@ public class StrikethroughLabelingNotification {
   }
 
   /**
-   * The version of the strikethrough pricing notification.
+   * The version of the strikethrough pricing notification. Set for **scheduled** strikethrough pricing updates only. 
    * @return version
    */
   @javax.annotation.Nullable

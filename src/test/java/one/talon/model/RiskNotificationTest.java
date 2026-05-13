@@ -19,55 +19,79 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
+import java.time.OffsetDateTime;
 import java.util.Arrays;
-import one.talon.model.NewCampaign;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 /**
- * Model tests for NewExperiment
+ * Model tests for RiskNotification
  */
-public class NewExperimentTest {
-    private final NewExperiment model = new NewExperiment();
+public class RiskNotificationTest {
+    private final RiskNotification model = new RiskNotification();
 
     /**
-     * Model tests for NewExperiment
+     * Model tests for RiskNotification
      */
     @Test
-    public void testNewExperiment() {
-        // TODO: test NewExperiment
+    public void testRiskNotification() {
+        // TODO: test RiskNotification
     }
 
     /**
-     * Test the property 'isVariantAssignmentExternal'
+     * Test the property 'id'
      */
     @Test
-    public void isVariantAssignmentExternalTest() {
-        // TODO: test isVariantAssignmentExternal
+    public void idTest() {
+        // TODO: test id
     }
 
     /**
-     * Test the property 'campaign'
+     * Test the property 'created'
      */
     @Test
-    public void campaignTest() {
-        // TODO: test campaign
+    public void createdTest() {
+        // TODO: test created
     }
 
     /**
-     * Test the property 'goalType'
+     * Test the property 'entity'
      */
     @Test
-    public void goalTypeTest() {
-        // TODO: test goalType
+    public void entityTest() {
+        // TODO: test entity
     }
 
     /**
-     * Test the property 'goalDescription'
+     * Test the property 'activity'
      */
     @Test
-    public void goalDescriptionTest() {
-        // TODO: test goalDescription
+    public void activityTest() {
+        // TODO: test activity
+    }
+
+    /**
+     * Test the property 'timeFrame'
+     */
+    @Test
+    public void timeFrameTest() {
+        // TODO: test timeFrame
+    }
+
+    /**
+     * Test the property 'active'
+     */
+    @Test
+    public void activeTest() {
+        // TODO: test active
+    }
+
+    /**
+     * Test the property 'modified'
+     */
+    @Test
+    public void modifiedTest() {
+        // TODO: test modified
     }
 
 }

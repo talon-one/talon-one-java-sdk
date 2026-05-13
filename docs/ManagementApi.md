@@ -110,12 +110,12 @@ All URIs are relative to *https://yourbaseurl.talon.one*
 | [**getExperiment**](ManagementApi.md#getExperiment) | **GET** /v1/applications/{applicationId}/experiments/{experimentId} | Get experiment in Application |
 | [**getExports**](ManagementApi.md#getExports) | **GET** /v1/exports | Get exports |
 | [**getLoyaltyCard**](ManagementApi.md#getLoyaltyCard) | **GET** /v1/loyalty_programs/{loyaltyProgramId}/cards/{loyaltyCardId} | Get loyalty card |
-| [**getLoyaltyCardTransactionLogs**](ManagementApi.md#getLoyaltyCardTransactionLogs) | **GET** /v1/loyalty_programs/{loyaltyProgramId}/cards/{loyaltyCardId}/logs | List card&#39;s transactions |
+| [**getLoyaltyCardTransactionLogs**](ManagementApi.md#getLoyaltyCardTransactionLogs) | **GET** /v1/loyalty_programs/{loyaltyProgramId}/cards/{loyaltyCardId}/logs | List card&#39;s transactions (Management API) |
 | [**getLoyaltyCards**](ManagementApi.md#getLoyaltyCards) | **GET** /v1/loyalty_programs/{loyaltyProgramId}/cards | List loyalty cards |
-| [**getLoyaltyLedgerBalances**](ManagementApi.md#getLoyaltyLedgerBalances) | **GET** /v1/loyalty_programs/{loyaltyProgramId}/profile/{integrationId}/ledger_balances | Get customer&#39;s loyalty balances |
+| [**getLoyaltyLedgerBalances**](ManagementApi.md#getLoyaltyLedgerBalances) | **GET** /v1/loyalty_programs/{loyaltyProgramId}/profile/{integrationId}/ledger_balances | Get customer&#39;s loyalty balances (Management API) |
 | [**getLoyaltyPoints**](ManagementApi.md#getLoyaltyPoints) | **GET** /v1/loyalty_programs/{loyaltyProgramId}/profile/{integrationId} | Get customer&#39;s full loyalty ledger |
 | [**getLoyaltyProgram**](ManagementApi.md#getLoyaltyProgram) | **GET** /v1/loyalty_programs/{loyaltyProgramId} | Get loyalty program |
-| [**getLoyaltyProgramProfileLedgerTransactions**](ManagementApi.md#getLoyaltyProgramProfileLedgerTransactions) | **GET** /v1/loyalty_programs/{loyaltyProgramId}/profile/{integrationId}/ledger_transactions | List customer&#39;s loyalty transactions |
+| [**getLoyaltyProgramProfileLedgerTransactions**](ManagementApi.md#getLoyaltyProgramProfileLedgerTransactions) | **GET** /v1/loyalty_programs/{loyaltyProgramId}/profile/{integrationId}/ledger_transactions | List customer&#39;s loyalty transactions (Management API) |
 | [**getLoyaltyProgramTransactions**](ManagementApi.md#getLoyaltyProgramTransactions) | **GET** /v1/loyalty_programs/{loyaltyProgramId}/transactions | List loyalty program transactions |
 | [**getLoyaltyPrograms**](ManagementApi.md#getLoyaltyPrograms) | **GET** /v1/loyalty_programs | List loyalty programs |
 | [**getLoyaltyStatistics**](ManagementApi.md#getLoyaltyStatistics) | **GET** /v1/loyalty_programs/{loyaltyProgramId}/statistics | Get loyalty program statistics |
@@ -8177,9 +8177,9 @@ public class Example {
 # **getLoyaltyCardTransactionLogs**
 > GetLoyaltyCardTransactionLogs200Response getLoyaltyCardTransactionLogs(loyaltyProgramId, loyaltyCardId, startDate, endDate, pageSize, skip, subledgerId, customerSessionIDs, transactionUUIDs)
 
-List card&#39;s transactions
+List card&#39;s transactions (Management API)
 
-Retrieve the transaction logs for the given [loyalty card](https://docs.talon.one/docs/product/loyalty-programs/card-based/card-based-overview) within the specified [card-based loyalty program](https://docs.talon.one/docs/product/loyalty-programs/overview#loyalty-program-types) with filtering options applied. If no filtering options are applied, the last 50 loyalty transactions for the given loyalty card are returned. 
+Retrieve the transaction logs for the given [loyalty card](https://docs.talon.one/docs/product/loyalty-programs/card-based/card-based-overview) within the specified [card-based loyalty program](https://docs.talon.one/docs/product/loyalty-programs/overview#loyalty-program-types) with filtering options applied.  &gt; [!note] For most use cases, especially real-time integrations, use the Integration API endpoint: &gt; [List card&#39;s transactions](https://docs.talon.one/integration-api#tag/Loyalty-cards/operation/getLoyaltyCardTransactions).  If no filtering options are applied, the last 50 loyalty transactions for the given loyalty card are returned. 
 
 ### Example
 ```java
@@ -8347,9 +8347,9 @@ public class Example {
 # **getLoyaltyLedgerBalances**
 > LoyaltyBalancesWithTiers getLoyaltyLedgerBalances(loyaltyProgramId, integrationId, endDate, subledgerId, includeTiers, includeProjectedTier)
 
-Get customer&#39;s loyalty balances
+Get customer&#39;s loyalty balances (Management API)
 
-Retrieve loyalty ledger balances for the given Integration ID in the specified loyalty program.  You can filter balances by date and subledger ID, and include tier-related information in the response.  &gt; [!note] If no filtering options are applied, you retrieve all loyalty &gt; balances on the current date for the given integration ID.  Loyalty balances are calculated when Talon.One receives your request using the points stored in our database, so retrieving a large number of balances at once can impact performance.  For more information, see:  - [Managing card-based loyalty program data](https://docs.talon.one/docs/product/loyalty-programs/card-based/managing-loyalty-cards)  - [Managing profile-based loyalty program data](https://docs.talon.one/docs/product/loyalty-programs/profile-based/managing-pb-lp-data) 
+Retrieve loyalty ledger balances for the given Integration ID in the specified loyalty program.  You can filter balances by date and subledger ID, and include tier-related information in the response.  &gt; [!note] **Note** &gt; - For most use cases, especially real-time integrations, use the Integration API endpoint:     [Get customer&#39;s loyalty balances](https://docs.talon.one/integration-api#tag/Loyalty/operation/getLoyaltyBalances). &gt; - If no filtering options are applied, you retrieve all loyalty balances on the current date for the given integration ID.  Loyalty balances are calculated when Talon.One receives your request using the points stored in our database, so retrieving a large number of balances at once can impact performance.  For more information, see:  - [Managing card-based loyalty program data](https://docs.talon.one/docs/product/loyalty-programs/card-based/managing-loyalty-cards)  - [Managing profile-based loyalty program data](https://docs.talon.one/docs/product/loyalty-programs/profile-based/managing-pb-lp-data) 
 
 ### Example
 ```java
@@ -8569,9 +8569,9 @@ public class Example {
 # **getLoyaltyProgramProfileLedgerTransactions**
 > GetLoyaltyProgramProfileTransactions200Response getLoyaltyProgramProfileLedgerTransactions(loyaltyProgramId, integrationId, customerSessionIDs, transactionUUIDs, subledgerId, loyaltyTransactionType, startDate, endDate, pageSize, skip, awaitsActivation)
 
-List customer&#39;s loyalty transactions
+List customer&#39;s loyalty transactions (Management API)
 
-Retrieve paginated results of loyalty transaction logs for the given Integration ID in the specified loyalty program.  You can filter transactions by date or by ledger (subledger or main ledger). If no filters are applied, the last 50 loyalty transactions for the given integration ID are returned.  &gt; [!note] To retrieve all loyalty program transaction logs in a given &gt; loyalty program, use the [List loyalty program transactions](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyProgramTransactions) &gt; endpoint. 
+Retrieve paginated results of loyalty transaction logs for the given Integration ID in the specified loyalty program.  You can filter transactions by date or by ledger (subledger or main ledger). If no filters are applied, the last 50 loyalty transactions for the given integration ID are returned.  &gt; [!note] **Note** &gt; - For most use cases, especially real-time integrations, use the Integration API endpoint: &gt;   [List customer&#39;s loyalty transactions](https://docs.talon.one/integration-api#tag/Loyalty/operation/getLoyaltyProgramProfileTransactions). &gt; - To retrieve all loyalty program transaction logs in a given loyalty program, use the &gt;   [List loyalty program transactions](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyProgramTransactions) endpoint. 
 
 ### Example
 ```java
@@ -9681,7 +9681,7 @@ public class Example {
 
     ManagementApi apiInstance = new ManagementApi(defaultClient);
     Long collectionId = 56L; // Long | The ID of the collection. You can get it with the [List collections in account](#tag/Collections/operation/listAccountCollections) endpoint.
-    String upFile = "upFile_example"; // String | The file containing the data that is being imported.
+    File upFile = new File("/path/to/file"); // File | The CSV file containing the data that is being imported.
     try {
       ModelImport result = apiInstance.importAccountCollection(collectionId, upFile);
       System.out.println(result);
@@ -9701,7 +9701,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **collectionId** | **Long**| The ID of the collection. You can get it with the [List collections in account](#tag/Collections/operation/listAccountCollections) endpoint. | |
-| **upFile** | **String**| The file containing the data that is being imported. | [optional] |
+| **upFile** | **File**| The CSV file containing the data that is being imported. | [optional] |
 
 ### Return type
 
@@ -9754,7 +9754,7 @@ public class Example {
 
     ManagementApi apiInstance = new ManagementApi(defaultClient);
     Long attributeId = 56L; // Long | The ID of the attribute. You can find the ID in the Campaign Manager's URL when you display the details of an attribute in **Account** > **Tools** > **Attributes**.
-    String upFile = "upFile_example"; // String | The file containing the data that is being imported.
+    File upFile = new File("/path/to/file"); // File | The CSV file containing the data that is being imported.
     try {
       ModelImport result = apiInstance.importAllowedList(attributeId, upFile);
       System.out.println(result);
@@ -9774,7 +9774,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **attributeId** | **Long**| The ID of the attribute. You can find the ID in the Campaign Manager&#39;s URL when you display the details of an attribute in **Account** &gt; **Tools** &gt; **Attributes**. | |
-| **upFile** | **String**| The file containing the data that is being imported. | [optional] |
+| **upFile** | **File**| The CSV file containing the data that is being imported. | [optional] |
 
 ### Return type
 
@@ -9828,7 +9828,7 @@ public class Example {
 
     ManagementApi apiInstance = new ManagementApi(defaultClient);
     Long audienceId = 56L; // Long | The ID of the audience.
-    String upFile = "upFile_example"; // String | The file containing the data that is being imported.
+    File upFile = new File("/path/to/file"); // File | The CSV file containing the data that is being imported.
     try {
       ModelImport result = apiInstance.importAudiencesMemberships(audienceId, upFile);
       System.out.println(result);
@@ -9848,7 +9848,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **audienceId** | **Long**| The ID of the audience. | |
-| **upFile** | **String**| The file containing the data that is being imported. | [optional] |
+| **upFile** | **File**| The CSV file containing the data that is being imported. | [optional] |
 
 ### Return type
 
@@ -9905,7 +9905,7 @@ public class Example {
     Long campaignId = 56L; // Long | The ID of the campaign. It is displayed in your Talon.One deployment URL.
     String action = "setDiscount"; // String | The action that this budget is limiting.
     String period = "overall"; // String | The period to which the limit applies.  **Note**: For budgets with no period, set this to `overall`. 
-    String upFile = "upFile_example"; // String | The file containing the data that is being imported.
+    File upFile = new File("/path/to/file"); // File | The CSV file containing the data that is being imported.
     try {
       ModelImport result = apiInstance.importCampaignStoreBudget(applicationId, campaignId, action, period, upFile);
       System.out.println(result);
@@ -9928,7 +9928,7 @@ public class Example {
 | **campaignId** | **Long**| The ID of the campaign. It is displayed in your Talon.One deployment URL. | |
 | **action** | **String**| The action that this budget is limiting. | [optional] [enum: setDiscount] |
 | **period** | **String**| The period to which the limit applies.  **Note**: For budgets with no period, set this to &#x60;overall&#x60;.  | [optional] [enum: overall, daily, weekly, monthly, yearly] |
-| **upFile** | **String**| The file containing the data that is being imported. | [optional] |
+| **upFile** | **File**| The CSV file containing the data that is being imported. | [optional] |
 
 ### Return type
 
@@ -9981,7 +9981,7 @@ public class Example {
     ManagementApi apiInstance = new ManagementApi(defaultClient);
     Long applicationId = 56L; // Long | The ID of the Application. It is displayed in your Talon.One deployment URL.
     Long campaignId = 56L; // Long | The ID of the campaign. It is displayed in your Talon.One deployment URL.
-    String upFile = "upFile_example"; // String | The file containing the data that is being imported.
+    File upFile = new File("/path/to/file"); // File | The CSV file containing the data that is being imported.
     try {
       ModelImport result = apiInstance.importCampaignStores(applicationId, campaignId, upFile);
       System.out.println(result);
@@ -10002,7 +10002,7 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **applicationId** | **Long**| The ID of the Application. It is displayed in your Talon.One deployment URL. | |
 | **campaignId** | **Long**| The ID of the campaign. It is displayed in your Talon.One deployment URL. | |
-| **upFile** | **String**| The file containing the data that is being imported. | [optional] |
+| **upFile** | **File**| The CSV file containing the data that is being imported. | [optional] |
 
 ### Return type
 
@@ -10058,7 +10058,7 @@ public class Example {
     Long applicationId = 56L; // Long | The ID of the Application. It is displayed in your Talon.One deployment URL.
     Long campaignId = 56L; // Long | The ID of the campaign. It is displayed in your Talon.One deployment URL.
     Long collectionId = 56L; // Long | The ID of the collection. You can get it with the [List collections in Application](#tag/Collections/operation/listCollectionsInApplication) endpoint.
-    String upFile = "upFile_example"; // String | The file containing the data that is being imported.
+    File upFile = new File("/path/to/file"); // File | The CSV file containing the data that is being imported.
     try {
       ModelImport result = apiInstance.importCollection(applicationId, campaignId, collectionId, upFile);
       System.out.println(result);
@@ -10080,7 +10080,7 @@ public class Example {
 | **applicationId** | **Long**| The ID of the Application. It is displayed in your Talon.One deployment URL. | |
 | **campaignId** | **Long**| The ID of the campaign. It is displayed in your Talon.One deployment URL. | |
 | **collectionId** | **Long**| The ID of the collection. You can get it with the [List collections in Application](#tag/Collections/operation/listCollectionsInApplication) endpoint. | |
-| **upFile** | **String**| The file containing the data that is being imported. | [optional] |
+| **upFile** | **File**| The CSV file containing the data that is being imported. | [optional] |
 
 ### Return type
 
@@ -10134,7 +10134,7 @@ public class Example {
     Long applicationId = 56L; // Long | The ID of the Application. It is displayed in your Talon.One deployment URL.
     Long campaignId = 56L; // Long | The ID of the campaign. It is displayed in your Talon.One deployment URL.
     Boolean skipDuplicates = true; // Boolean | An indicator of whether to skip duplicate coupon values instead of causing an error. Duplicate values are ignored when `skipDuplicates=true`. 
-    String upFile = "upFile_example"; // String | The file containing the data that is being imported.
+    File upFile = new File("/path/to/file"); // File | The CSV file containing the data that is being imported.
     try {
       ModelImport result = apiInstance.importCoupons(applicationId, campaignId, skipDuplicates, upFile);
       System.out.println(result);
@@ -10156,7 +10156,7 @@ public class Example {
 | **applicationId** | **Long**| The ID of the Application. It is displayed in your Talon.One deployment URL. | |
 | **campaignId** | **Long**| The ID of the campaign. It is displayed in your Talon.One deployment URL. | |
 | **skipDuplicates** | **Boolean**| An indicator of whether to skip duplicate coupon values instead of causing an error. Duplicate values are ignored when &#x60;skipDuplicates&#x3D;true&#x60;.  | [optional] |
-| **upFile** | **String**| The file containing the data that is being imported. | [optional] |
+| **upFile** | **File**| The CSV file containing the data that is being imported. | [optional] |
 
 ### Return type
 
@@ -10207,7 +10207,7 @@ public class Example {
 
     ManagementApi apiInstance = new ManagementApi(defaultClient);
     Long loyaltyProgramId = 56L; // Long | Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. 
-    String upFile = "upFile_example"; // String | The file containing the data that is being imported.
+    File upFile = new File("/path/to/file"); // File | The CSV file containing the data that is being imported.
     try {
       ModelImport result = apiInstance.importLoyaltyCards(loyaltyProgramId, upFile);
       System.out.println(result);
@@ -10227,7 +10227,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **loyaltyProgramId** | **Long**| Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint.  | |
-| **upFile** | **String**| The file containing the data that is being imported. | [optional] |
+| **upFile** | **File**| The CSV file containing the data that is being imported. | [optional] |
 
 ### Return type
 
@@ -10280,7 +10280,7 @@ public class Example {
 
     ManagementApi apiInstance = new ManagementApi(defaultClient);
     Long loyaltyProgramId = 56L; // Long | Identifier of the loyalty program. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. 
-    String upFile = "upFile_example"; // String | The file containing the data that is being imported.
+    File upFile = new File("/path/to/file"); // File | The CSV file containing the data that is being imported.
     try {
       ModelImport result = apiInstance.importLoyaltyCustomersTiers(loyaltyProgramId, upFile);
       System.out.println(result);
@@ -10300,7 +10300,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **loyaltyProgramId** | **Long**| Identifier of the loyalty program. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint.  | |
-| **upFile** | **String**| The file containing the data that is being imported. | [optional] |
+| **upFile** | **File**| The CSV file containing the data that is being imported. | [optional] |
 
 ### Return type
 
@@ -10355,7 +10355,7 @@ public class Example {
     ManagementApi apiInstance = new ManagementApi(defaultClient);
     Long loyaltyProgramId = 56L; // Long | Identifier of the loyalty program. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. 
     Boolean notificationsEnabled = true; // Boolean | Indicates whether the points import triggers notifications about its effects. For example, a notification is sent if the import upgrades a customer's tier or offsets their negative points balance.  This parameter is optional and defaults to `true`. 
-    String upFile = "upFile_example"; // String | The file containing the data that is being imported.
+    File upFile = new File("/path/to/file"); // File | The CSV file containing the data that is being imported.
     try {
       ModelImport result = apiInstance.importLoyaltyPoints(loyaltyProgramId, notificationsEnabled, upFile);
       System.out.println(result);
@@ -10376,7 +10376,7 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **loyaltyProgramId** | **Long**| Identifier of the loyalty program. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint.  | |
 | **notificationsEnabled** | **Boolean**| Indicates whether the points import triggers notifications about its effects. For example, a notification is sent if the import upgrades a customer&#39;s tier or offsets their negative points balance.  This parameter is optional and defaults to &#x60;true&#x60;.  | [optional] |
-| **upFile** | **String**| The file containing the data that is being imported. | [optional] |
+| **upFile** | **File**| The CSV file containing the data that is being imported. | [optional] |
 
 ### Return type
 
@@ -10427,7 +10427,7 @@ public class Example {
 
     ManagementApi apiInstance = new ManagementApi(defaultClient);
     Long poolId = 56L; // Long | The ID of the pool. You can find it in the Campaign Manager, in the **Giveaways** section.
-    String upFile = "upFile_example"; // String | The file containing the data that is being imported.
+    File upFile = new File("/path/to/file"); // File | The CSV file containing the data that is being imported.
     try {
       ModelImport result = apiInstance.importPoolGiveaways(poolId, upFile);
       System.out.println(result);
@@ -10447,7 +10447,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **poolId** | **Long**| The ID of the pool. You can find it in the Campaign Manager, in the **Giveaways** section. | |
-| **upFile** | **String**| The file containing the data that is being imported. | [optional] |
+| **upFile** | **File**| The CSV file containing the data that is being imported. | [optional] |
 
 ### Return type
 
@@ -10499,7 +10499,7 @@ public class Example {
     ManagementApi apiInstance = new ManagementApi(defaultClient);
     Long applicationId = 56L; // Long | The ID of the Application. It is displayed in your Talon.One deployment URL.
     Long campaignId = 56L; // Long | The ID of the campaign. It is displayed in your Talon.One deployment URL.
-    String upFile = "upFile_example"; // String | The file containing the data that is being imported.
+    File upFile = new File("/path/to/file"); // File | The CSV file containing the data that is being imported.
     try {
       ModelImport result = apiInstance.importReferrals(applicationId, campaignId, upFile);
       System.out.println(result);
@@ -10520,7 +10520,7 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **applicationId** | **Long**| The ID of the Application. It is displayed in your Talon.One deployment URL. | |
 | **campaignId** | **Long**| The ID of the campaign. It is displayed in your Talon.One deployment URL. | |
-| **upFile** | **String**| The file containing the data that is being imported. | [optional] |
+| **upFile** | **File**| The CSV file containing the data that is being imported. | [optional] |
 
 ### Return type
 

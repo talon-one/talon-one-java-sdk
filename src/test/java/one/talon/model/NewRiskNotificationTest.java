@@ -20,54 +20,45 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.util.Arrays;
-import one.talon.model.NewCampaign;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 /**
- * Model tests for NewExperiment
+ * Model tests for NewRiskNotification
  */
-public class NewExperimentTest {
-    private final NewExperiment model = new NewExperiment();
+public class NewRiskNotificationTest {
+    private final NewRiskNotification model = new NewRiskNotification();
 
     /**
-     * Model tests for NewExperiment
+     * Model tests for NewRiskNotification
      */
     @Test
-    public void testNewExperiment() {
-        // TODO: test NewExperiment
+    public void testNewRiskNotification() {
+        // TODO: test NewRiskNotification
     }
 
     /**
-     * Test the property 'isVariantAssignmentExternal'
+     * Test the property 'entity'
      */
     @Test
-    public void isVariantAssignmentExternalTest() {
-        // TODO: test isVariantAssignmentExternal
+    public void entityTest() {
+        // TODO: test entity
     }
 
     /**
-     * Test the property 'campaign'
+     * Test the property 'activity'
      */
     @Test
-    public void campaignTest() {
-        // TODO: test campaign
+    public void activityTest() {
+        // TODO: test activity
     }
 
     /**
-     * Test the property 'goalType'
+     * Test the property 'timeFrame'
      */
     @Test
-    public void goalTypeTest() {
-        // TODO: test goalType
-    }
-
-    /**
-     * Test the property 'goalDescription'
-     */
-    @Test
-    public void goalDescriptionTest() {
-        // TODO: test goalDescription
+    public void timeFrameTest() {
+        // TODO: test timeFrame
     }
 
 }

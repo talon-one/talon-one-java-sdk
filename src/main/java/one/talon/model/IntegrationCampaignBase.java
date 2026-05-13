@@ -24,8 +24,6 @@ import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import one.talon.model.Campaign;
-import one.talon.model.ExperimentVariant;
 import com.google.gson.JsonElement;
 
 import com.google.gson.Gson;
@@ -52,50 +50,51 @@ import java.util.Set;
 import one.talon.JSON;
 
 /**
- * Experiment
+ * IntegrationCampaignBase
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.22.0")
-public class Experiment {
-  public static final String SERIALIZED_NAME_ID = "id";
-  @SerializedName(SERIALIZED_NAME_ID)
-  @javax.annotation.Nonnull
-  private Long id;
-
-  public static final String SERIALIZED_NAME_CREATED = "created";
-  @SerializedName(SERIALIZED_NAME_CREATED)
-  @javax.annotation.Nonnull
-  private OffsetDateTime created;
-
+public class IntegrationCampaignBase {
   public static final String SERIALIZED_NAME_APPLICATION_ID = "applicationId";
   @SerializedName(SERIALIZED_NAME_APPLICATION_ID)
   @javax.annotation.Nonnull
   private Long applicationId;
 
-  public static final String SERIALIZED_NAME_IS_VARIANT_ASSIGNMENT_EXTERNAL = "isVariantAssignmentExternal";
-  @SerializedName(SERIALIZED_NAME_IS_VARIANT_ASSIGNMENT_EXTERNAL)
-  @javax.annotation.Nullable
-  private Boolean isVariantAssignmentExternal;
+  public static final String SERIALIZED_NAME_ID = "id";
+  @SerializedName(SERIALIZED_NAME_ID)
+  @javax.annotation.Nonnull
+  private Long id;
 
-  public static final String SERIALIZED_NAME_CAMPAIGN = "campaign";
-  @SerializedName(SERIALIZED_NAME_CAMPAIGN)
-  @javax.annotation.Nullable
-  private Campaign campaign;
+  public static final String SERIALIZED_NAME_NAME = "name";
+  @SerializedName(SERIALIZED_NAME_NAME)
+  @javax.annotation.Nonnull
+  private String name;
 
-  public static final String SERIALIZED_NAME_ACTIVATED = "activated";
-  @SerializedName(SERIALIZED_NAME_ACTIVATED)
+  public static final String SERIALIZED_NAME_DESCRIPTION = "description";
+  @SerializedName(SERIALIZED_NAME_DESCRIPTION)
   @javax.annotation.Nullable
-  private OffsetDateTime activated;
+  private String description;
+
+  public static final String SERIALIZED_NAME_START_TIME = "startTime";
+  @SerializedName(SERIALIZED_NAME_START_TIME)
+  @javax.annotation.Nullable
+  private OffsetDateTime startTime;
+
+  public static final String SERIALIZED_NAME_END_TIME = "endTime";
+  @SerializedName(SERIALIZED_NAME_END_TIME)
+  @javax.annotation.Nullable
+  private OffsetDateTime endTime;
+
+  public static final String SERIALIZED_NAME_ATTRIBUTES = "attributes";
+  @SerializedName(SERIALIZED_NAME_ATTRIBUTES)
+  @javax.annotation.Nullable
+  private Object attributes;
 
   /**
-   * A disabled experiment is not evaluated for rules or coupons. 
+   * The state of the campaign. 
    */
   @JsonAdapter(StateEnum.Adapter.class)
   public enum StateEnum {
-    ENABLED("enabled"),
-    
-    DISABLED("disabled"),
-    
-    ARCHIVED("archived");
+    ENABLED("enabled");
 
     private String value;
 
@@ -143,29 +142,33 @@ public class Experiment {
   public static final String SERIALIZED_NAME_STATE = "state";
   @SerializedName(SERIALIZED_NAME_STATE)
   @javax.annotation.Nonnull
-  private StateEnum state = StateEnum.DISABLED;
+  private StateEnum state = StateEnum.ENABLED;
 
-  public static final String SERIALIZED_NAME_VARIANTS = "variants";
-  @SerializedName(SERIALIZED_NAME_VARIANTS)
-  @javax.annotation.Nullable
-  private List<ExperimentVariant> variants;
+  public static final String SERIALIZED_NAME_TAGS = "tags";
+  @SerializedName(SERIALIZED_NAME_TAGS)
+  @javax.annotation.Nonnull
+  private List<String> tags = new ArrayList<>();
 
   /**
-   * The goal of the experiment. Determines which single metric is used to decide the winning variant. When set to &#x60;other&#x60;, multiple metrics are used. 
+   * Gets or Sets features
    */
-  @JsonAdapter(GoalTypeEnum.Adapter.class)
-  public enum GoalTypeEnum {
-    OTHER("other"),
+  @JsonAdapter(FeaturesEnum.Adapter.class)
+  public enum FeaturesEnum {
+    COUPONS("coupons"),
     
-    MAXIMIZE_REVENUE("maximize_revenue"),
+    REFERRALS("referrals"),
     
-    OPTIMIZE_DISCOUNT_EFFICIENCY("optimize_discount_efficiency"),
+    LOYALTY("loyalty"),
     
-    MAXIMIZE_ITEMS_SOLD("maximize_items_sold");
+    GIVEAWAYS("giveaways"),
+    
+    STRIKETHROUGH("strikethrough"),
+    
+    ACHIEVEMENTS("achievements");
 
     private String value;
 
-    GoalTypeEnum(String value) {
+    FeaturesEnum(String value) {
       this.value = value;
     }
 
@@ -178,8 +181,8 @@ public class Experiment {
       return String.valueOf(value);
     }
 
-    public static GoalTypeEnum fromValue(String value) {
-      for (GoalTypeEnum b : GoalTypeEnum.values()) {
+    public static FeaturesEnum fromValue(String value) {
+      for (FeaturesEnum b : FeaturesEnum.values()) {
         if (b.value.equals(value)) {
           return b;
         }
@@ -187,82 +190,34 @@ public class Experiment {
       throw new IllegalArgumentException("Unexpected value '" + value + "'");
     }
 
-    public static class Adapter extends TypeAdapter<GoalTypeEnum> {
+    public static class Adapter extends TypeAdapter<FeaturesEnum> {
       @Override
-      public void write(final JsonWriter jsonWriter, final GoalTypeEnum enumeration) throws IOException {
+      public void write(final JsonWriter jsonWriter, final FeaturesEnum enumeration) throws IOException {
         jsonWriter.value(enumeration.getValue());
       }
 
       @Override
-      public GoalTypeEnum read(final JsonReader jsonReader) throws IOException {
+      public FeaturesEnum read(final JsonReader jsonReader) throws IOException {
         String value =  jsonReader.nextString();
-        return GoalTypeEnum.fromValue(value);
+        return FeaturesEnum.fromValue(value);
       }
     }
 
     public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       String value = jsonElement.getAsString();
-      GoalTypeEnum.fromValue(value);
+      FeaturesEnum.fromValue(value);
     }
   }
 
-  public static final String SERIALIZED_NAME_GOAL_TYPE = "goalType";
-  @SerializedName(SERIALIZED_NAME_GOAL_TYPE)
+  public static final String SERIALIZED_NAME_FEATURES = "features";
+  @SerializedName(SERIALIZED_NAME_FEATURES)
   @javax.annotation.Nonnull
-  private GoalTypeEnum goalType;
+  private List<FeaturesEnum> features = new ArrayList<>();
 
-  public static final String SERIALIZED_NAME_GOAL_DESCRIPTION = "goalDescription";
-  @SerializedName(SERIALIZED_NAME_GOAL_DESCRIPTION)
-  @javax.annotation.Nullable
-  private String goalDescription;
-
-  public static final String SERIALIZED_NAME_DELETEDAT = "deletedat";
-  @SerializedName(SERIALIZED_NAME_DELETEDAT)
-  @javax.annotation.Nullable
-  private OffsetDateTime deletedat;
-
-  public Experiment() {
+  public IntegrationCampaignBase() {
   }
 
-  public Experiment id(@javax.annotation.Nonnull Long id) {
-    this.id = id;
-    return this;
-  }
-
-  /**
-   * The internal ID of this entity.
-   * @return id
-   */
-  @javax.annotation.Nonnull
-  public Long getId() {
-    return id;
-  }
-
-  public void setId(@javax.annotation.Nonnull Long id) {
-    this.id = id;
-  }
-
-
-  public Experiment created(@javax.annotation.Nonnull OffsetDateTime created) {
-    this.created = created;
-    return this;
-  }
-
-  /**
-   * The time this entity was created.
-   * @return created
-   */
-  @javax.annotation.Nonnull
-  public OffsetDateTime getCreated() {
-    return created;
-  }
-
-  public void setCreated(@javax.annotation.Nonnull OffsetDateTime created) {
-    this.created = created;
-  }
-
-
-  public Experiment applicationId(@javax.annotation.Nonnull Long applicationId) {
+  public IntegrationCampaignBase applicationId(@javax.annotation.Nonnull Long applicationId) {
     this.applicationId = applicationId;
     return this;
   }
@@ -281,70 +236,127 @@ public class Experiment {
   }
 
 
-  public Experiment isVariantAssignmentExternal(@javax.annotation.Nullable Boolean isVariantAssignmentExternal) {
-    this.isVariantAssignmentExternal = isVariantAssignmentExternal;
+  public IntegrationCampaignBase id(@javax.annotation.Nonnull Long id) {
+    this.id = id;
     return this;
   }
 
   /**
-   * The source of the assignment. - false - The variant assignment is handled internally by Talon.One. - true - The variant assignment is handled externally. 
-   * @return isVariantAssignmentExternal
+   * Unique ID of Campaign.
+   * @return id
    */
-  @javax.annotation.Nullable
-  public Boolean getIsVariantAssignmentExternal() {
-    return isVariantAssignmentExternal;
+  @javax.annotation.Nonnull
+  public Long getId() {
+    return id;
   }
 
-  public void setIsVariantAssignmentExternal(@javax.annotation.Nullable Boolean isVariantAssignmentExternal) {
-    this.isVariantAssignmentExternal = isVariantAssignmentExternal;
+  public void setId(@javax.annotation.Nonnull Long id) {
+    this.id = id;
   }
 
 
-  public Experiment campaign(@javax.annotation.Nullable Campaign campaign) {
-    this.campaign = campaign;
+  public IntegrationCampaignBase name(@javax.annotation.Nonnull String name) {
+    this.name = name;
     return this;
   }
 
   /**
-   * Get campaign
-   * @return campaign
+   * The name of the campaign.
+   * @return name
    */
-  @javax.annotation.Nullable
-  public Campaign getCampaign() {
-    return campaign;
+  @javax.annotation.Nonnull
+  public String getName() {
+    return name;
   }
 
-  public void setCampaign(@javax.annotation.Nullable Campaign campaign) {
-    this.campaign = campaign;
+  public void setName(@javax.annotation.Nonnull String name) {
+    this.name = name;
   }
 
 
-  public Experiment activated(@javax.annotation.Nullable OffsetDateTime activated) {
-    this.activated = activated;
+  public IntegrationCampaignBase description(@javax.annotation.Nullable String description) {
+    this.description = description;
     return this;
   }
 
   /**
-   * The date and time the experiment was activated. 
-   * @return activated
+   * A detailed description of the campaign.
+   * @return description
    */
   @javax.annotation.Nullable
-  public OffsetDateTime getActivated() {
-    return activated;
+  public String getDescription() {
+    return description;
   }
 
-  public void setActivated(@javax.annotation.Nullable OffsetDateTime activated) {
-    this.activated = activated;
+  public void setDescription(@javax.annotation.Nullable String description) {
+    this.description = description;
   }
 
 
-  public Experiment state(@javax.annotation.Nonnull StateEnum state) {
+  public IntegrationCampaignBase startTime(@javax.annotation.Nullable OffsetDateTime startTime) {
+    this.startTime = startTime;
+    return this;
+  }
+
+  /**
+   * Timestamp when the campaign will become active.
+   * @return startTime
+   */
+  @javax.annotation.Nullable
+  public OffsetDateTime getStartTime() {
+    return startTime;
+  }
+
+  public void setStartTime(@javax.annotation.Nullable OffsetDateTime startTime) {
+    this.startTime = startTime;
+  }
+
+
+  public IntegrationCampaignBase endTime(@javax.annotation.Nullable OffsetDateTime endTime) {
+    this.endTime = endTime;
+    return this;
+  }
+
+  /**
+   * Timestamp when the campaign will become inactive.
+   * @return endTime
+   */
+  @javax.annotation.Nullable
+  public OffsetDateTime getEndTime() {
+    return endTime;
+  }
+
+  public void setEndTime(@javax.annotation.Nullable OffsetDateTime endTime) {
+    this.endTime = endTime;
+  }
+
+
+  public IntegrationCampaignBase attributes(@javax.annotation.Nullable Object attributes) {
+    this.attributes = attributes;
+    return this;
+  }
+
+  /**
+   * Arbitrary properties associated with this campaign.
+   * @return attributes
+   */
+  @javax.annotation.Nullable
+  public Object getAttributes() {
+    return attributes;
+  }
+
+  public void setAttributes(@javax.annotation.Nullable Object attributes) {
+    this.attributes = attributes;
+  }
+
+
+  public IntegrationCampaignBase state(@javax.annotation.Nonnull StateEnum state) {
     this.state = state;
     return this;
   }
 
   /**
-   * A disabled experiment is not evaluated for rules or coupons. 
+   * The state of the campaign. 
    * @return state
    */
   @javax.annotation.Nonnull
@@ -357,87 +369,57 @@ public class Experiment {
   }
 
 
-  public Experiment variants(@javax.annotation.Nullable List<ExperimentVariant> variants) {
-    this.variants = variants;
+  public IntegrationCampaignBase tags(@javax.annotation.Nonnull List<String> tags) {
+    this.tags = tags;
     return this;
   }
 
-  public Experiment addVariantsItem(ExperimentVariant variantsItem) {
-    if (this.variants == null) {
-      this.variants = new ArrayList<>();
+  public IntegrationCampaignBase addTagsItem(String tagsItem) {
+    if (this.tags == null) {
+      this.tags = new ArrayList<>();
     }
-    this.variants.add(variantsItem);
+    this.tags.add(tagsItem);
     return this;
   }
 
   /**
-   * Get variants
-   * @return variants
-   */
-  @javax.annotation.Nullable
-  public List<ExperimentVariant> getVariants() {
-    return variants;
-  }
-
-  public void setVariants(@javax.annotation.Nullable List<ExperimentVariant> variants) {
-    this.variants = variants;
-  }
-
-
-  public Experiment goalType(@javax.annotation.Nonnull GoalTypeEnum goalType) {
-    this.goalType = goalType;
-    return this;
-  }
-
-  /**
-   * The goal of the experiment. Determines which single metric is used to decide the winning variant. When set to &#x60;other&#x60;, multiple metrics are used. 
-   * @return goalType
+   * A list of tags for the campaign.
+   * @return tags
    */
   @javax.annotation.Nonnull
-  public GoalTypeEnum getGoalType() {
-    return goalType;
+  public List<String> getTags() {
+    return tags;
   }
 
-  public void setGoalType(@javax.annotation.Nonnull GoalTypeEnum goalType) {
-    this.goalType = goalType;
+  public void setTags(@javax.annotation.Nonnull List<String> tags) {
+    this.tags = tags;
   }
 
 
-  public Experiment goalDescription(@javax.annotation.Nullable String goalDescription) {
-    this.goalDescription = goalDescription;
+  public IntegrationCampaignBase features(@javax.annotation.Nonnull List<FeaturesEnum> features) {
+    this.features = features;
+    return this;
+  }
+
+  public IntegrationCampaignBase addFeaturesItem(FeaturesEnum featuresItem) {
+    if (this.features == null) {
+      this.features = new ArrayList<>();
+    }
+    this.features.add(featuresItem);
     return this;
   }
 
   /**
-   * A description of the experiment goal. Provides context for the AI summary and helps it interpret the outcome of the experiment against the stated goal. 
-   * @return goalDescription
+   * The features enabled in this campaign.
+   * @return features
    */
-  @javax.annotation.Nullable
-  public String getGoalDescription() {
-    return goalDescription;
+  @javax.annotation.Nonnull
+  public List<FeaturesEnum> getFeatures() {
+    return features;
   }
 
-  public void setGoalDescription(@javax.annotation.Nullable String goalDescription) {
-    this.goalDescription = goalDescription;
-  }
-
-
-  public Experiment deletedat(@javax.annotation.Nullable OffsetDateTime deletedat) {
-    this.deletedat = deletedat;
-    return this;
-  }
-
-  /**
-   * The date and time the experiment was deleted. 
-   * @return deletedat
-   */
-  @javax.annotation.Nullable
-  public OffsetDateTime getDeletedat() {
-    return deletedat;
-  }
-
-  public void setDeletedat(@javax.annotation.Nullable OffsetDateTime deletedat) {
-    this.deletedat = deletedat;
+  public void setFeatures(@javax.annotation.Nonnull List<FeaturesEnum> features) {
+    this.features = features;
   }
 
   /**
@@ -453,9 +435,9 @@ public class Experiment {
    *
    * @param key name of the property
    * @param value value of the property
-   * @return the Experiment instance itself
+   * @return the IntegrationCampaignBase instance itself
    */
-  public Experiment putAdditionalProperty(String key, Object value) {
+  public IntegrationCampaignBase putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
         this.additionalProperties = new HashMap<String, Object>();
     }
@@ -494,41 +476,39 @@ public class Experiment {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    Experiment experiment = (Experiment) o;
-    return Objects.equals(this.id, experiment.id) &&
-        Objects.equals(this.created, experiment.created) &&
-        Objects.equals(this.applicationId, experiment.applicationId) &&
-        Objects.equals(this.isVariantAssignmentExternal, experiment.isVariantAssignmentExternal) &&
-        Objects.equals(this.campaign, experiment.campaign) &&
-        Objects.equals(this.activated, experiment.activated) &&
-        Objects.equals(this.state, experiment.state) &&
-        Objects.equals(this.variants, experiment.variants) &&
-        Objects.equals(this.goalType, experiment.goalType) &&
-        Objects.equals(this.goalDescription, experiment.goalDescription) &&
-        Objects.equals(this.deletedat, experiment.deletedat)&&
-        Objects.equals(this.additionalProperties, experiment.additionalProperties);
+    IntegrationCampaignBase integrationCampaignBase = (IntegrationCampaignBase) o;
+    return Objects.equals(this.applicationId, integrationCampaignBase.applicationId) &&
+        Objects.equals(this.id, integrationCampaignBase.id) &&
+        Objects.equals(this.name, integrationCampaignBase.name) &&
+        Objects.equals(this.description, integrationCampaignBase.description) &&
+        Objects.equals(this.startTime, integrationCampaignBase.startTime) &&
+        Objects.equals(this.endTime, integrationCampaignBase.endTime) &&
+        Objects.equals(this.attributes, integrationCampaignBase.attributes) &&
+        Objects.equals(this.state, integrationCampaignBase.state) &&
+        Objects.equals(this.tags, integrationCampaignBase.tags) &&
+        Objects.equals(this.features, integrationCampaignBase.features)&&
+        Objects.equals(this.additionalProperties, integrationCampaignBase.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, created, applicationId, isVariantAssignmentExternal, campaign, activated, state, variants, goalType, goalDescription, deletedat, additionalProperties);
+    return Objects.hash(applicationId, id, name, description, startTime, endTime, attributes, state, tags, features, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class Experiment {\n");
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    created: ").append(toIndentedString(created)).append("\n");
+    sb.append("class IntegrationCampaignBase {\n");
     sb.append("    applicationId: ").append(toIndentedString(applicationId)).append("\n");
-    sb.append("    isVariantAssignmentExternal: ").append(toIndentedString(isVariantAssignmentExternal)).append("\n");
-    sb.append("    campaign: ").append(toIndentedString(campaign)).append("\n");
-    sb.append("    activated: ").append(toIndentedString(activated)).append("\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    startTime: ").append(toIndentedString(startTime)).append("\n");
+    sb.append("    endTime: ").append(toIndentedString(endTime)).append("\n");
+    sb.append("    attributes: ").append(toIndentedString(attributes)).append("\n");
     sb.append("    state: ").append(toIndentedString(state)).append("\n");
-    sb.append("    variants: ").append(toIndentedString(variants)).append("\n");
-    sb.append("    goalType: ").append(toIndentedString(goalType)).append("\n");
-    sb.append("    goalDescription: ").append(toIndentedString(goalDescription)).append("\n");
-    sb.append("    deletedat: ").append(toIndentedString(deletedat)).append("\n");
+    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
+    sb.append("    features: ").append(toIndentedString(features)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -551,62 +531,54 @@ public class Experiment {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("id", "created", "applicationId", "isVariantAssignmentExternal", "campaign", "activated", "state", "variants", "goalType", "goalDescription", "deletedat"));
+    openapiFields = new HashSet<String>(Arrays.asList("applicationId", "id", "name", "description", "startTime", "endTime", "attributes", "state", "tags", "features"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("id", "created", "applicationId", "state", "goalType"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("applicationId", "id", "name", "state", "tags", "features"));
   }
 
   /**
    * Validates the JSON Element and throws an exception if issues found
    *
    * @param jsonElement JSON Element
-   * @throws IOException if the JSON Element is invalid with respect to Experiment
+   * @throws IOException if the JSON Element is invalid with respect to IntegrationCampaignBase
    */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
-        if (!Experiment.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in Experiment is not found in the empty JSON string", Experiment.openapiRequiredFields.toString()));
+        if (!IntegrationCampaignBase.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in IntegrationCampaignBase is not found in the empty JSON string", IntegrationCampaignBase.openapiRequiredFields.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : Experiment.openapiRequiredFields) {
+      for (String requiredField : IntegrationCampaignBase.openapiRequiredFields) {
         if (jsonElement.getAsJsonObject().get(requiredField) == null) {
           throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      // validate the optional field `campaign`
-      if (jsonObj.get("campaign") != null && !jsonObj.get("campaign").isJsonNull()) {
-        Campaign.validateJsonElement(jsonObj.get("campaign"));
+      if (!jsonObj.get("name").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
+      }
+      if ((jsonObj.get("description") != null && !jsonObj.get("description").isJsonNull()) && !jsonObj.get("description").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `description` to be a primitive type in the JSON string but got `%s`", jsonObj.get("description").toString()));
       }
       if (!jsonObj.get("state").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `state` to be a primitive type in the JSON string but got `%s`", jsonObj.get("state").toString()));
       }
       // validate the required field `state`
       StateEnum.validateJsonElement(jsonObj.get("state"));
-      if (jsonObj.get("variants") != null && !jsonObj.get("variants").isJsonNull()) {
-        JsonArray jsonArrayvariants = jsonObj.getAsJsonArray("variants");
-        if (jsonArrayvariants != null) {
-          // ensure the json data is an array
-          if (!jsonObj.get("variants").isJsonArray()) {
-            throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `variants` to be an array in the JSON string but got `%s`", jsonObj.get("variants").toString()));
-          }
-
-          // validate the optional field `variants` (array)
-          for (int i = 0; i < jsonArrayvariants.size(); i++) {
-            ExperimentVariant.validateJsonElement(jsonArrayvariants.get(i));
-          };
-        }
+      // ensure the required json array is present
+      if (jsonObj.get("tags") == null) {
+        throw new IllegalArgumentException("Expected the field `linkedContent` to be an array in the JSON string but got `null`");
+      } else if (!jsonObj.get("tags").isJsonArray()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `tags` to be an array in the JSON string but got `%s`", jsonObj.get("tags").toString()));
       }
-      if (!jsonObj.get("goalType").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `goalType` to be a primitive type in the JSON string but got `%s`", jsonObj.get("goalType").toString()));
-      }
-      // validate the required field `goalType`
-      GoalTypeEnum.validateJsonElement(jsonObj.get("goalType"));
-      if ((jsonObj.get("goalDescription") != null && !jsonObj.get("goalDescription").isJsonNull()) && !jsonObj.get("goalDescription").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `goalDescription` to be a primitive type in the JSON string but got `%s`", jsonObj.get("goalDescription").toString()));
+      // ensure the required json array is present
+      if (jsonObj.get("features") == null) {
+        throw new IllegalArgumentException("Expected the field `linkedContent` to be an array in the JSON string but got `null`");
+      } else if (!jsonObj.get("features").isJsonArray()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `features` to be an array in the JSON string but got `%s`", jsonObj.get("features").toString()));
       }
   }
 
@@ -614,16 +586,16 @@ public class Experiment {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!Experiment.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'Experiment' and its subtypes
+       if (!IntegrationCampaignBase.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'IntegrationCampaignBase' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<Experiment> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(Experiment.class));
+       final TypeAdapter<IntegrationCampaignBase> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(IntegrationCampaignBase.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<Experiment>() {
+       return (TypeAdapter<T>) new TypeAdapter<IntegrationCampaignBase>() {
            @Override
-           public void write(JsonWriter out, Experiment value) throws IOException {
+           public void write(JsonWriter out, IntegrationCampaignBase value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              obj.remove("additionalProperties");
              // serialize additional properties
@@ -651,12 +623,12 @@ public class Experiment {
            }
 
            @Override
-           public Experiment read(JsonReader in) throws IOException {
+           public IntegrationCampaignBase read(JsonReader in) throws IOException {
              JsonElement jsonElement = elementAdapter.read(in);
              validateJsonElement(jsonElement);
              JsonObject jsonObj = jsonElement.getAsJsonObject();
              // store additional fields in the deserialized instance
-             Experiment instance = thisAdapter.fromJsonTree(jsonObj);
+             IntegrationCampaignBase instance = thisAdapter.fromJsonTree(jsonObj);
              for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
                if (!openapiFields.contains(entry.getKey())) {
                  if (entry.getValue().isJsonPrimitive()) { // primitive type
@@ -683,18 +655,18 @@ public class Experiment {
   }
 
   /**
-   * Create an instance of Experiment given an JSON string
+   * Create an instance of IntegrationCampaignBase given an JSON string
    *
    * @param jsonString JSON string
-   * @return An instance of Experiment
-   * @throws IOException if the JSON string is invalid with respect to Experiment
+   * @return An instance of IntegrationCampaignBase
+   * @throws IOException if the JSON string is invalid with respect to IntegrationCampaignBase
    */
-  public static Experiment fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, Experiment.class);
+  public static IntegrationCampaignBase fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, IntegrationCampaignBase.class);
   }
 
   /**
-   * Convert an instance of Experiment to an JSON string
+   * Convert an instance of IntegrationCampaignBase to an JSON string
    *
    * @return JSON string
    */

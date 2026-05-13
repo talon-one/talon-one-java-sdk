@@ -75,7 +75,7 @@ public class StrikethroughSetDiscountPerItemEffectProps {
   }
 
   /**
-   * effect name.
+   * The effect name.
    * @return name
    */
   @javax.annotation.Nonnull
@@ -113,7 +113,7 @@ public class StrikethroughSetDiscountPerItemEffectProps {
   }
 
   /**
-   * Get excludedFromPriceHistory
+   * When set to &#x60;true&#x60;, the applied discount is excluded from the item&#39;s price history.
    * @return excludedFromPriceHistory
    */
   @javax.annotation.Nullable

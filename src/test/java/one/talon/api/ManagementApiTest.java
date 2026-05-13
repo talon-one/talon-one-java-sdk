@@ -49,6 +49,7 @@ import one.talon.model.DeleteUserRequest;
 import one.talon.model.ErrorResponse;
 import one.talon.model.ErrorResponseWithStatus;
 import one.talon.model.Experiment;
+import java.io.File;
 import one.talon.model.GenerateCouponRejections200Response;
 import one.talon.model.GetAccessLogsWithoutTotalCount200Response;
 import one.talon.model.GetAdditionalCosts200Response;
@@ -1958,9 +1959,9 @@ public class ManagementApiTest {
     }
 
     /**
-     * List card&#39;s transactions
+     * List card&#39;s transactions (Management API)
      *
-     * Retrieve the transaction logs for the given [loyalty card](https://docs.talon.one/docs/product/loyalty-programs/card-based/card-based-overview) within the specified [card-based loyalty program](https://docs.talon.one/docs/product/loyalty-programs/overview#loyalty-program-types) with filtering options applied. If no filtering options are applied, the last 50 loyalty transactions for the given loyalty card are returned. 
+     * Retrieve the transaction logs for the given [loyalty card](https://docs.talon.one/docs/product/loyalty-programs/card-based/card-based-overview) within the specified [card-based loyalty program](https://docs.talon.one/docs/product/loyalty-programs/overview#loyalty-program-types) with filtering options applied.  &gt; [!note] For most use cases, especially real-time integrations, use the Integration API endpoint: &gt; [List card&#39;s transactions](https://docs.talon.one/integration-api#tag/Loyalty-cards/operation/getLoyaltyCardTransactions).  If no filtering options are applied, the last 50 loyalty transactions for the given loyalty card are returned. 
      *
      * @throws ApiException if the Api call fails
      */
@@ -2000,9 +2001,9 @@ public class ManagementApiTest {
     }
 
     /**
-     * Get customer&#39;s loyalty balances
+     * Get customer&#39;s loyalty balances (Management API)
      *
-     * Retrieve loyalty ledger balances for the given Integration ID in the specified loyalty program.  You can filter balances by date and subledger ID, and include tier-related information in the response.  &gt; [!note] If no filtering options are applied, you retrieve all loyalty &gt; balances on the current date for the given integration ID.  Loyalty balances are calculated when Talon.One receives your request using the points stored in our database, so retrieving a large number of balances at once can impact performance.  For more information, see:  - [Managing card-based loyalty program data](https://docs.talon.one/docs/product/loyalty-programs/card-based/managing-loyalty-cards)  - [Managing profile-based loyalty program data](https://docs.talon.one/docs/product/loyalty-programs/profile-based/managing-pb-lp-data) 
+     * Retrieve loyalty ledger balances for the given Integration ID in the specified loyalty program.  You can filter balances by date and subledger ID, and include tier-related information in the response.  &gt; [!note] **Note** &gt; - For most use cases, especially real-time integrations, use the Integration API endpoint:     [Get customer&#39;s loyalty balances](https://docs.talon.one/integration-api#tag/Loyalty/operation/getLoyaltyBalances). &gt; - If no filtering options are applied, you retrieve all loyalty balances on the current date for the given integration ID.  Loyalty balances are calculated when Talon.One receives your request using the points stored in our database, so retrieving a large number of balances at once can impact performance.  For more information, see:  - [Managing card-based loyalty program data](https://docs.talon.one/docs/product/loyalty-programs/card-based/managing-loyalty-cards)  - [Managing profile-based loyalty program data](https://docs.talon.one/docs/product/loyalty-programs/profile-based/managing-pb-lp-data) 
      *
      * @throws ApiException if the Api call fails
      */
@@ -2048,9 +2049,9 @@ public class ManagementApiTest {
     }
 
     /**
-     * List customer&#39;s loyalty transactions
+     * List customer&#39;s loyalty transactions (Management API)
      *
-     * Retrieve paginated results of loyalty transaction logs for the given Integration ID in the specified loyalty program.  You can filter transactions by date or by ledger (subledger or main ledger). If no filters are applied, the last 50 loyalty transactions for the given integration ID are returned.  &gt; [!note] To retrieve all loyalty program transaction logs in a given &gt; loyalty program, use the [List loyalty program transactions](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyProgramTransactions) &gt; endpoint. 
+     * Retrieve paginated results of loyalty transaction logs for the given Integration ID in the specified loyalty program.  You can filter transactions by date or by ledger (subledger or main ledger). If no filters are applied, the last 50 loyalty transactions for the given integration ID are returned.  &gt; [!note] **Note** &gt; - For most use cases, especially real-time integrations, use the Integration API endpoint: &gt;   [List customer&#39;s loyalty transactions](https://docs.talon.one/integration-api#tag/Loyalty/operation/getLoyaltyProgramProfileTransactions). &gt; - To retrieve all loyalty program transaction logs in a given loyalty program, use the &gt;   [List loyalty program transactions](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyProgramTransactions) endpoint. 
      *
      * @throws ApiException if the Api call fails
      */
@@ -2310,7 +2311,7 @@ public class ManagementApiTest {
     @Test
     public void importAccountCollectionTest() throws ApiException {
         Long collectionId = null;
-        String upFile = null;
+        File upFile = null;
         ModelImport response = api.importAccountCollection(collectionId, upFile);
         // TODO: test validations
     }
@@ -2325,7 +2326,7 @@ public class ManagementApiTest {
     @Test
     public void importAllowedListTest() throws ApiException {
         Long attributeId = null;
-        String upFile = null;
+        File upFile = null;
         ModelImport response = api.importAllowedList(attributeId, upFile);
         // TODO: test validations
     }
@@ -2340,7 +2341,7 @@ public class ManagementApiTest {
     @Test
     public void importAudiencesMembershipsTest() throws ApiException {
         Long audienceId = null;
-        String upFile = null;
+        File upFile = null;
         ModelImport response = api.importAudiencesMemberships(audienceId, upFile);
         // TODO: test validations
     }
@@ -2358,7 +2359,7 @@ public class ManagementApiTest {
         Long campaignId = null;
         String action = null;
         String period = null;
-        String upFile = null;
+        File upFile = null;
         ModelImport response = api.importCampaignStoreBudget(applicationId, campaignId, action, period, upFile);
         // TODO: test validations
     }
@@ -2374,7 +2375,7 @@ public class ManagementApiTest {
     public void importCampaignStoresTest() throws ApiException {
         Long applicationId = null;
         Long campaignId = null;
-        String upFile = null;
+        File upFile = null;
         ModelImport response = api.importCampaignStores(applicationId, campaignId, upFile);
         // TODO: test validations
     }
@@ -2391,7 +2392,7 @@ public class ManagementApiTest {
         Long applicationId = null;
         Long campaignId = null;
         Long collectionId = null;
-        String upFile = null;
+        File upFile = null;
         ModelImport response = api.importCollection(applicationId, campaignId, collectionId, upFile);
         // TODO: test validations
     }
@@ -2408,7 +2409,7 @@ public class ManagementApiTest {
         Long applicationId = null;
         Long campaignId = null;
         Boolean skipDuplicates = null;
-        String upFile = null;
+        File upFile = null;
         ModelImport response = api.importCoupons(applicationId, campaignId, skipDuplicates, upFile);
         // TODO: test validations
     }
@@ -2423,7 +2424,7 @@ public class ManagementApiTest {
     @Test
     public void importLoyaltyCardsTest() throws ApiException {
         Long loyaltyProgramId = null;
-        String upFile = null;
+        File upFile = null;
         ModelImport response = api.importLoyaltyCards(loyaltyProgramId, upFile);
         // TODO: test validations
     }
@@ -2438,7 +2439,7 @@ public class ManagementApiTest {
     @Test
     public void importLoyaltyCustomersTiersTest() throws ApiException {
         Long loyaltyProgramId = null;
-        String upFile = null;
+        File upFile = null;
         ModelImport response = api.importLoyaltyCustomersTiers(loyaltyProgramId, upFile);
         // TODO: test validations
     }
@@ -2454,7 +2455,7 @@ public class ManagementApiTest {
     public void importLoyaltyPointsTest() throws ApiException {
         Long loyaltyProgramId = null;
         Boolean notificationsEnabled = null;
-        String upFile = null;
+        File upFile = null;
         ModelImport response = api.importLoyaltyPoints(loyaltyProgramId, notificationsEnabled, upFile);
         // TODO: test validations
     }
@@ -2469,7 +2470,7 @@ public class ManagementApiTest {
     @Test
     public void importPoolGiveawaysTest() throws ApiException {
         Long poolId = null;
-        String upFile = null;
+        File upFile = null;
         ModelImport response = api.importPoolGiveaways(poolId, upFile);
         // TODO: test validations
     }
@@ -2485,7 +2486,7 @@ public class ManagementApiTest {
     public void importReferralsTest() throws ApiException {
         Long applicationId = null;
         Long campaignId = null;
-        String upFile = null;
+        File upFile = null;
         ModelImport response = api.importReferrals(applicationId, campaignId, upFile);
         // TODO: test validations
     }
