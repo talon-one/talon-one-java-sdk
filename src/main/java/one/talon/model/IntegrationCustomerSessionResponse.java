@@ -25,7 +25,6 @@ import java.util.Arrays;
 import java.util.List;
 import one.talon.model.CustomerSessionV2;
 import one.talon.model.Effect;
-import com.google.gson.JsonElement;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;

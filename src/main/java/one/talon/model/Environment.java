@@ -36,7 +36,6 @@ import one.talon.model.LoyaltyProgram;
 import one.talon.model.PriceType;
 import one.talon.model.SlotDef;
 import one.talon.model.TemplateDef;
-import com.google.gson.JsonElement;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;

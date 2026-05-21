@@ -24,7 +24,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import one.talon.model.TierDowngradeData;
-import com.google.gson.JsonElement;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;

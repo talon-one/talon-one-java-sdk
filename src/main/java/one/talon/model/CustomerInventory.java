@@ -29,7 +29,6 @@ import one.talon.model.Giveaway;
 import one.talon.model.InventoryCoupon;
 import one.talon.model.InventoryReferral;
 import one.talon.model.Loyalty;
-import com.google.gson.JsonElement;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;

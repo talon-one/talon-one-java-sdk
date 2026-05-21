@@ -28,7 +28,6 @@ import one.talon.model.CampaignTemplateCouponReservationSettings;
 import one.talon.model.CampaignTemplateParams;
 import one.talon.model.CodeGeneratorSettings;
 import one.talon.model.TemplateLimitConfig;
-import com.google.gson.JsonElement;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;

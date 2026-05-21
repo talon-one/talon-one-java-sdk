@@ -28,7 +28,6 @@ import one.talon.model.ScimServiceProviderConfigResponseChangePassword;
 import one.talon.model.ScimServiceProviderConfigResponseFilter;
 import one.talon.model.ScimServiceProviderConfigResponsePatch;
 import one.talon.model.ScimServiceProviderConfigResponseSort;
-import com.google.gson.JsonElement;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;

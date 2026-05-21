@@ -27,7 +27,6 @@ import java.util.List;
 import java.util.Map;
 import one.talon.model.LoyaltyBalance;
 import one.talon.model.LoyaltyCardProfileRegistration;
-import com.google.gson.JsonElement;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;

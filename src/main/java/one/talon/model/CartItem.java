@@ -29,7 +29,6 @@ import java.util.UUID;
 import one.talon.model.AdditionalCost;
 import one.talon.model.PriceDetail;
 import one.talon.model.Product;
-import com.google.gson.JsonElement;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;

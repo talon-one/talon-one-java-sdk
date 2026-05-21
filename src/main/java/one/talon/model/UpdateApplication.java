@@ -25,7 +25,6 @@ import java.util.Arrays;
 import java.util.List;
 import one.talon.model.AttributesSettings;
 import one.talon.model.LimitConfig;
-import com.google.gson.JsonElement;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;

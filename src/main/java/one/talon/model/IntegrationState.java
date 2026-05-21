@@ -26,7 +26,6 @@ import one.talon.model.CustomerProfile;
 import one.talon.model.CustomerSession;
 import one.talon.model.Event;
 import one.talon.model.Loyalty;
-import com.google.gson.JsonElement;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;

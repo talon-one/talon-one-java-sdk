@@ -25,7 +25,6 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.UUID;
 import one.talon.model.Binding;
-import com.google.gson.JsonElement;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;

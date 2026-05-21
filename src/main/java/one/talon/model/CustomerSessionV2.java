@@ -30,7 +30,6 @@ import java.util.Map;
 import one.talon.model.AdditionalCost;
 import one.talon.model.CartItem;
 import one.talon.model.ExperimentVariantAllocation;
-import com.google.gson.JsonElement;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;

@@ -23,7 +23,6 @@ import java.io.IOException;
 import java.util.Arrays;
 import one.talon.model.CouponRejectionReason;
 import one.talon.model.ReferralRejectionReason;
-import com.google.gson.JsonElement;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
