@@ -24,7 +24,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import one.talon.model.CampaignEligibilityDetails;
-import one.talon.model.RuleMetadata;
+import one.talon.model.RuleMetadataEligibility;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
@@ -43,19 +43,19 @@ public class CampaignEligibilityTest {
     }
 
     /**
-     * Test the property 'id'
-     */
-    @Test
-    public void idTest() {
-        // TODO: test id
-    }
-
-    /**
      * Test the property 'applicationId'
      */
     @Test
     public void applicationIdTest() {
         // TODO: test applicationId
+    }
+
+    /**
+     * Test the property 'id'
+     */
+    @Test
+    public void idTest() {
+        // TODO: test id
     }
 
     /**
@@ -123,19 +123,19 @@ public class CampaignEligibilityTest {
     }
 
     /**
-     * Test the property 'rules'
-     */
-    @Test
-    public void rulesTest() {
-        // TODO: test rules
-    }
-
-    /**
      * Test the property 'eligibility'
      */
     @Test
     public void eligibilityTest() {
         // TODO: test eligibility
+    }
+
+    /**
+     * Test the property 'rules'
+     */
+    @Test
+    public void rulesTest() {
+        // TODO: test rules
     }
 
 }

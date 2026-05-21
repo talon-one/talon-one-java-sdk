@@ -19,6 +19,7 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
+import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -40,6 +41,38 @@ public class EventV3Test {
     }
 
     /**
+     * Test the property 'connectedSessionId'
+     */
+    @Test
+    public void connectedSessionIdTest() {
+        // TODO: test connectedSessionId
+    }
+
+    /**
+     * Test the property 'id'
+     */
+    @Test
+    public void idTest() {
+        // TODO: test id
+    }
+
+    /**
+     * Test the property 'created'
+     */
+    @Test
+    public void createdTest() {
+        // TODO: test created
+    }
+
+    /**
+     * Test the property 'applicationId'
+     */
+    @Test
+    public void applicationIdTest() {
+        // TODO: test applicationId
+    }
+
+    /**
      * Test the property 'profileId'
      */
     @Test
@@ -53,22 +86,6 @@ public class EventV3Test {
     @Test
     public void storeIntegrationIdTest() {
         // TODO: test storeIntegrationId
-    }
-
-    /**
-     * Test the property 'evaluableCampaignIds'
-     */
-    @Test
-    public void evaluableCampaignIdsTest() {
-        // TODO: test evaluableCampaignIds
-    }
-
-    /**
-     * Test the property 'integrationId'
-     */
-    @Test
-    public void integrationIdTest() {
-        // TODO: test integrationId
     }
 
     /**
@@ -88,19 +105,19 @@ public class EventV3Test {
     }
 
     /**
-     * Test the property 'connectedSessionID'
+     * Test the property 'integrationId'
      */
     @Test
-    public void connectedSessionIDTest() {
-        // TODO: test connectedSessionID
+    public void integrationIdTest() {
+        // TODO: test integrationId
     }
 
     /**
-     * Test the property 'previousEventID'
+     * Test the property 'effects'
      */
     @Test
-    public void previousEventIDTest() {
-        // TODO: test previousEventID
+    public void effectsTest() {
+        // TODO: test effects
     }
 
 }

@@ -70,7 +70,7 @@ public class StrikethroughSetDiscountPerItemMemberEffectProps {
   }
 
   /**
-   * effect name.
+   * The effect name.
    * @return name
    */
   @javax.annotation.Nonnull

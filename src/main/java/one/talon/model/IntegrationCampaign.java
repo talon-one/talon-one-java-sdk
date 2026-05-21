@@ -217,8 +217,8 @@ public class IntegrationCampaign {
 
   public static final String SERIALIZED_NAME_RULES = "rules";
   @SerializedName(SERIALIZED_NAME_RULES)
-  @javax.annotation.Nullable
-  private List<RuleMetadata> rules;
+  @javax.annotation.Nonnull
+  private List<RuleMetadata> rules = new ArrayList<>();
 
   public IntegrationCampaign() {
   }
@@ -429,7 +429,7 @@ public class IntegrationCampaign {
   }
 
 
-  public IntegrationCampaign rules(@javax.annotation.Nullable List<RuleMetadata> rules) {
+  public IntegrationCampaign rules(@javax.annotation.Nonnull List<RuleMetadata> rules) {
     this.rules = rules;
     return this;
   }
@@ -446,12 +446,12 @@ public class IntegrationCampaign {
    * A list of rules containing customer-facing details of the rewards defined in the campaign.
    * @return rules
    */
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
   public List<RuleMetadata> getRules() {
     return rules;
   }
 
-  public void setRules(@javax.annotation.Nullable List<RuleMetadata> rules) {
+  public void setRules(@javax.annotation.Nonnull List<RuleMetadata> rules) {
     this.rules = rules;
   }
 
@@ -569,7 +569,7 @@ public class IntegrationCampaign {
     openapiFields = new HashSet<String>(Arrays.asList("applicationId", "id", "name", "description", "startTime", "endTime", "attributes", "state", "tags", "features", "rules"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("applicationId", "id", "name", "state", "tags", "features"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("applicationId", "id", "name", "state", "tags", "features", "rules"));
   }
 
   /**
@@ -615,18 +615,14 @@ public class IntegrationCampaign {
       } else if (!jsonObj.get("features").isJsonArray()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `features` to be an array in the JSON string but got `%s`", jsonObj.get("features").toString()));
       }
-      if (jsonObj.get("rules") != null && !jsonObj.get("rules").isJsonNull()) {
+      if (jsonObj.get("rules") != null) {
+        if (!jsonObj.get("rules").isJsonArray()) {
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `rules` to be an array in the JSON string but got `%s`", jsonObj.get("rules").toString()));
+        }
         JsonArray jsonArrayrules = jsonObj.getAsJsonArray("rules");
-        if (jsonArrayrules != null) {
-          // ensure the json data is an array
-          if (!jsonObj.get("rules").isJsonArray()) {
-            throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `rules` to be an array in the JSON string but got `%s`", jsonObj.get("rules").toString()));
-          }
-
-          // validate the optional field `rules` (array)
-          for (int i = 0; i < jsonArrayrules.size(); i++) {
-            RuleMetadata.validateJsonElement(jsonArrayrules.get(i));
-          };
+        // validate the required field `rules` (array)
+        for (int i = 0; i < jsonArrayrules.size(); i++) {
+          RuleMetadata.validateJsonElement(jsonArrayrules.get(i));
         }
       }
   }

@@ -20,6 +20,7 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
+import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -53,25 +54,35 @@ import one.talon.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.22.0")
 public class EventV3 {
+  public static final String SERIALIZED_NAME_CONNECTED_SESSION_ID = "connectedSessionId";
+  @SerializedName(SERIALIZED_NAME_CONNECTED_SESSION_ID)
+  @javax.annotation.Nullable
+  private String connectedSessionId;
+
+  public static final String SERIALIZED_NAME_ID = "id";
+  @SerializedName(SERIALIZED_NAME_ID)
+  @javax.annotation.Nonnull
+  private Long id;
+
+  public static final String SERIALIZED_NAME_CREATED = "created";
+  @SerializedName(SERIALIZED_NAME_CREATED)
+  @javax.annotation.Nonnull
+  private OffsetDateTime created;
+
+  public static final String SERIALIZED_NAME_APPLICATION_ID = "applicationId";
+  @SerializedName(SERIALIZED_NAME_APPLICATION_ID)
+  @javax.annotation.Nonnull
+  private Long applicationId;
+
   public static final String SERIALIZED_NAME_PROFILE_ID = "profileId";
   @SerializedName(SERIALIZED_NAME_PROFILE_ID)
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   private String profileId;
 
   public static final String SERIALIZED_NAME_STORE_INTEGRATION_ID = "storeIntegrationId";
   @SerializedName(SERIALIZED_NAME_STORE_INTEGRATION_ID)
   @javax.annotation.Nullable
   private String storeIntegrationId;
-
-  public static final String SERIALIZED_NAME_EVALUABLE_CAMPAIGN_IDS = "evaluableCampaignIds";
-  @SerializedName(SERIALIZED_NAME_EVALUABLE_CAMPAIGN_IDS)
-  @javax.annotation.Nullable
-  private List<Long> evaluableCampaignIds;
-
-  public static final String SERIALIZED_NAME_INTEGRATION_ID = "integrationId";
-  @SerializedName(SERIALIZED_NAME_INTEGRATION_ID)
-  @javax.annotation.Nonnull
-  private String integrationId;
 
   public static final String SERIALIZED_NAME_TYPE = "type";
   @SerializedName(SERIALIZED_NAME_TYPE)
@@ -80,23 +91,99 @@ public class EventV3 {
 
   public static final String SERIALIZED_NAME_ATTRIBUTES = "attributes";
   @SerializedName(SERIALIZED_NAME_ATTRIBUTES)
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
   private Object attributes;
 
-  public static final String SERIALIZED_NAME_CONNECTED_SESSION_I_D = "connectedSessionID";
-  @SerializedName(SERIALIZED_NAME_CONNECTED_SESSION_I_D)
+  public static final String SERIALIZED_NAME_INTEGRATION_ID = "integrationId";
+  @SerializedName(SERIALIZED_NAME_INTEGRATION_ID)
   @javax.annotation.Nullable
-  private String connectedSessionID;
+  private String integrationId;
 
-  public static final String SERIALIZED_NAME_PREVIOUS_EVENT_I_D = "previousEventID";
-  @SerializedName(SERIALIZED_NAME_PREVIOUS_EVENT_I_D)
-  @javax.annotation.Nullable
-  private String previousEventID;
+  public static final String SERIALIZED_NAME_EFFECTS = "effects";
+  @SerializedName(SERIALIZED_NAME_EFFECTS)
+  @javax.annotation.Nonnull
+  private List<Object> effects = new ArrayList<>();
 
   public EventV3() {
   }
 
-  public EventV3 profileId(@javax.annotation.Nonnull String profileId) {
+  public EventV3 connectedSessionId(@javax.annotation.Nullable String connectedSessionId) {
+    this.connectedSessionId = connectedSessionId;
+    return this;
+  }
+
+  /**
+   * The ID of the session to reference. The session must be in &#x60;closed&#x60; state. Otherwise, the API call will fail.
+   * @return connectedSessionId
+   */
+  @javax.annotation.Nullable
+  public String getConnectedSessionId() {
+    return connectedSessionId;
+  }
+
+  public void setConnectedSessionId(@javax.annotation.Nullable String connectedSessionId) {
+    this.connectedSessionId = connectedSessionId;
+  }
+
+
+  public EventV3 id(@javax.annotation.Nonnull Long id) {
+    this.id = id;
+    return this;
+  }
+
+  /**
+   * The internal ID of this entity.
+   * @return id
+   */
+  @javax.annotation.Nonnull
+  public Long getId() {
+    return id;
+  }
+
+  public void setId(@javax.annotation.Nonnull Long id) {
+    this.id = id;
+  }
+
+
+  public EventV3 created(@javax.annotation.Nonnull OffsetDateTime created) {
+    this.created = created;
+    return this;
+  }
+
+  /**
+   * The time this entity was created.
+   * @return created
+   */
+  @javax.annotation.Nonnull
+  public OffsetDateTime getCreated() {
+    return created;
+  }
+
+  public void setCreated(@javax.annotation.Nonnull OffsetDateTime created) {
+    this.created = created;
+  }
+
+
+  public EventV3 applicationId(@javax.annotation.Nonnull Long applicationId) {
+    this.applicationId = applicationId;
+    return this;
+  }
+
+  /**
+   * The ID of the Application that owns this entity.
+   * @return applicationId
+   */
+  @javax.annotation.Nonnull
+  public Long getApplicationId() {
+    return applicationId;
+  }
+
+  public void setApplicationId(@javax.annotation.Nonnull Long applicationId) {
+    this.applicationId = applicationId;
+  }
+
+
+  public EventV3 profileId(@javax.annotation.Nullable String profileId) {
     this.profileId = profileId;
     return this;
   }
@@ -105,12 +192,12 @@ public class EventV3 {
    * ID of the customer profile set by your integration layer.  **Note:** If the customer does not yet have a known &#x60;profileId&#x60;, we recommend you use a guest &#x60;profileId&#x60;. 
    * @return profileId
    */
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   public String getProfileId() {
     return profileId;
   }
 
-  public void setProfileId(@javax.annotation.Nonnull String profileId) {
+  public void setProfileId(@javax.annotation.Nullable String profileId) {
     this.profileId = profileId;
   }
 
@@ -134,59 +221,13 @@ public class EventV3 {
   }
 
 
-  public EventV3 evaluableCampaignIds(@javax.annotation.Nullable List<Long> evaluableCampaignIds) {
-    this.evaluableCampaignIds = evaluableCampaignIds;
-    return this;
-  }
-
-  public EventV3 addEvaluableCampaignIdsItem(Long evaluableCampaignIdsItem) {
-    if (this.evaluableCampaignIds == null) {
-      this.evaluableCampaignIds = new ArrayList<>();
-    }
-    this.evaluableCampaignIds.add(evaluableCampaignIdsItem);
-    return this;
-  }
-
-  /**
-   * When using the &#x60;dry&#x60; query parameter, use this property to list the campaign to be evaluated by the Rule Engine.  These campaigns will be evaluated, even if they are disabled, allowing you to test specific campaigns before activating them. 
-   * @return evaluableCampaignIds
-   */
-  @javax.annotation.Nullable
-  public List<Long> getEvaluableCampaignIds() {
-    return evaluableCampaignIds;
-  }
-
-  public void setEvaluableCampaignIds(@javax.annotation.Nullable List<Long> evaluableCampaignIds) {
-    this.evaluableCampaignIds = evaluableCampaignIds;
-  }
-
-
-  public EventV3 integrationId(@javax.annotation.Nonnull String integrationId) {
-    this.integrationId = integrationId;
-    return this;
-  }
-
-  /**
-   * The unique ID of the current event. Only one event with this ID could be activated, duplicated events are forbidden. 
-   * @return integrationId
-   */
-  @javax.annotation.Nonnull
-  public String getIntegrationId() {
-    return integrationId;
-  }
-
-  public void setIntegrationId(@javax.annotation.Nonnull String integrationId) {
-    this.integrationId = integrationId;
-  }
-
-
   public EventV3 type(@javax.annotation.Nonnull String type) {
     this.type = type;
     return this;
   }
 
   /**
-   * A string representing the event name. Must not be a reserved event name. You create this value when you [create an attribute](https://docs.talon.one/docs/dev/concepts/entities/events#creating-a-custom-event) of type &#x60;event&#x60; in the Campaign Manager. 
+   * The name of the event. Must be a [custom event](https://docs.talon.one/docs/dev/concepts/entities/events#custom-events), not a built-in event.
    * @return type
    */
   @javax.annotation.Nonnull
@@ -199,60 +240,68 @@ public class EventV3 {
   }
 
 
-  public EventV3 attributes(@javax.annotation.Nullable Object attributes) {
+  public EventV3 attributes(@javax.annotation.Nonnull Object attributes) {
     this.attributes = attributes;
     return this;
   }
 
   /**
-   * Arbitrary additional JSON properties associated with the event. They must be created in the Campaign Manager before setting them with this property. See [creating custom attributes](https://docs.talon.one/docs/product/account/dev-tools/managing-attributes#creating-a-custom-attribute).
+   * Arbitrary additional JSON data associated with the event.
    * @return attributes
    */
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
   public Object getAttributes() {
     return attributes;
   }
 
-  public void setAttributes(@javax.annotation.Nullable Object attributes) {
+  public void setAttributes(@javax.annotation.Nonnull Object attributes) {
     this.attributes = attributes;
   }
 
 
-  public EventV3 connectedSessionID(@javax.annotation.Nullable String connectedSessionID) {
-    this.connectedSessionID = connectedSessionID;
+  public EventV3 integrationId(@javax.annotation.Nullable String integrationId) {
+    this.integrationId = integrationId;
     return this;
   }
 
   /**
-   * The ID of the session that happened in the past.
-   * @return connectedSessionID
+   * The unique ID of the event. Only one event with this ID can be registered. 
+   * @return integrationId
    */
   @javax.annotation.Nullable
-  public String getConnectedSessionID() {
-    return connectedSessionID;
+  public String getIntegrationId() {
+    return integrationId;
   }
 
-  public void setConnectedSessionID(@javax.annotation.Nullable String connectedSessionID) {
-    this.connectedSessionID = connectedSessionID;
+  public void setIntegrationId(@javax.annotation.Nullable String integrationId) {
+    this.integrationId = integrationId;
   }
 
 
-  public EventV3 previousEventID(@javax.annotation.Nullable String previousEventID) {
-    this.previousEventID = previousEventID;
+  public EventV3 effects(@javax.annotation.Nonnull List<Object> effects) {
+    this.effects = effects;
+    return this;
+  }
+
+  public EventV3 addEffectsItem(Object effectsItem) {
+    if (this.effects == null) {
+      this.effects = new ArrayList<>();
+    }
+    this.effects.add(effectsItem);
     return this;
   }
 
   /**
-   * The unique identifier of the event that happened in the past.
-   * @return previousEventID
+   * An array of effects generated by the rules of the enabled campaigns of the Application.  You decide how to apply them in your system. See the list of [API effects](https://docs.talon.one/docs/dev/integration-api/api-effects). 
+   * @return effects
    */
-  @javax.annotation.Nullable
-  public String getPreviousEventID() {
-    return previousEventID;
+  @javax.annotation.Nonnull
+  public List<Object> getEffects() {
+    return effects;
   }
 
-  public void setPreviousEventID(@javax.annotation.Nullable String previousEventID) {
-    this.previousEventID = previousEventID;
+  public void setEffects(@javax.annotation.Nonnull List<Object> effects) {
+    this.effects = effects;
   }
 
   /**
@@ -310,34 +359,38 @@ public class EventV3 {
       return false;
     }
     EventV3 eventV3 = (EventV3) o;
-    return Objects.equals(this.profileId, eventV3.profileId) &&
+    return Objects.equals(this.connectedSessionId, eventV3.connectedSessionId) &&
+        Objects.equals(this.id, eventV3.id) &&
+        Objects.equals(this.created, eventV3.created) &&
+        Objects.equals(this.applicationId, eventV3.applicationId) &&
+        Objects.equals(this.profileId, eventV3.profileId) &&
         Objects.equals(this.storeIntegrationId, eventV3.storeIntegrationId) &&
-        Objects.equals(this.evaluableCampaignIds, eventV3.evaluableCampaignIds) &&
-        Objects.equals(this.integrationId, eventV3.integrationId) &&
         Objects.equals(this.type, eventV3.type) &&
         Objects.equals(this.attributes, eventV3.attributes) &&
-        Objects.equals(this.connectedSessionID, eventV3.connectedSessionID) &&
-        Objects.equals(this.previousEventID, eventV3.previousEventID)&&
+        Objects.equals(this.integrationId, eventV3.integrationId) &&
+        Objects.equals(this.effects, eventV3.effects)&&
         Objects.equals(this.additionalProperties, eventV3.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(profileId, storeIntegrationId, evaluableCampaignIds, integrationId, type, attributes, connectedSessionID, previousEventID, additionalProperties);
+    return Objects.hash(connectedSessionId, id, created, applicationId, profileId, storeIntegrationId, type, attributes, integrationId, effects, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class EventV3 {\n");
+    sb.append("    connectedSessionId: ").append(toIndentedString(connectedSessionId)).append("\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    created: ").append(toIndentedString(created)).append("\n");
+    sb.append("    applicationId: ").append(toIndentedString(applicationId)).append("\n");
     sb.append("    profileId: ").append(toIndentedString(profileId)).append("\n");
     sb.append("    storeIntegrationId: ").append(toIndentedString(storeIntegrationId)).append("\n");
-    sb.append("    evaluableCampaignIds: ").append(toIndentedString(evaluableCampaignIds)).append("\n");
-    sb.append("    integrationId: ").append(toIndentedString(integrationId)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    attributes: ").append(toIndentedString(attributes)).append("\n");
-    sb.append("    connectedSessionID: ").append(toIndentedString(connectedSessionID)).append("\n");
-    sb.append("    previousEventID: ").append(toIndentedString(previousEventID)).append("\n");
+    sb.append("    integrationId: ").append(toIndentedString(integrationId)).append("\n");
+    sb.append("    effects: ").append(toIndentedString(effects)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -360,10 +413,10 @@ public class EventV3 {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("profileId", "storeIntegrationId", "evaluableCampaignIds", "integrationId", "type", "attributes", "connectedSessionID", "previousEventID"));
+    openapiFields = new HashSet<String>(Arrays.asList("connectedSessionId", "id", "created", "applicationId", "profileId", "storeIntegrationId", "type", "attributes", "integrationId", "effects"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("profileId", "integrationId", "type"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("id", "created", "applicationId", "type", "attributes", "effects"));
   }
 
   /**
@@ -386,27 +439,26 @@ public class EventV3 {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if (!jsonObj.get("profileId").isJsonPrimitive()) {
+      if ((jsonObj.get("connectedSessionId") != null && !jsonObj.get("connectedSessionId").isJsonNull()) && !jsonObj.get("connectedSessionId").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `connectedSessionId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("connectedSessionId").toString()));
+      }
+      if ((jsonObj.get("profileId") != null && !jsonObj.get("profileId").isJsonNull()) && !jsonObj.get("profileId").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `profileId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("profileId").toString()));
       }
       if ((jsonObj.get("storeIntegrationId") != null && !jsonObj.get("storeIntegrationId").isJsonNull()) && !jsonObj.get("storeIntegrationId").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `storeIntegrationId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("storeIntegrationId").toString()));
       }
-      // ensure the optional json data is an array if present
-      if (jsonObj.get("evaluableCampaignIds") != null && !jsonObj.get("evaluableCampaignIds").isJsonNull() && !jsonObj.get("evaluableCampaignIds").isJsonArray()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `evaluableCampaignIds` to be an array in the JSON string but got `%s`", jsonObj.get("evaluableCampaignIds").toString()));
-      }
-      if (!jsonObj.get("integrationId").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `integrationId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("integrationId").toString()));
-      }
       if (!jsonObj.get("type").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("type").toString()));
       }
-      if ((jsonObj.get("connectedSessionID") != null && !jsonObj.get("connectedSessionID").isJsonNull()) && !jsonObj.get("connectedSessionID").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `connectedSessionID` to be a primitive type in the JSON string but got `%s`", jsonObj.get("connectedSessionID").toString()));
+      if ((jsonObj.get("integrationId") != null && !jsonObj.get("integrationId").isJsonNull()) && !jsonObj.get("integrationId").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `integrationId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("integrationId").toString()));
       }
-      if ((jsonObj.get("previousEventID") != null && !jsonObj.get("previousEventID").isJsonNull()) && !jsonObj.get("previousEventID").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `previousEventID` to be a primitive type in the JSON string but got `%s`", jsonObj.get("previousEventID").toString()));
+      // ensure the required json array is present
+      if (jsonObj.get("effects") == null) {
+        throw new IllegalArgumentException("Expected the field `linkedContent` to be an array in the JSON string but got `null`");
+      } else if (!jsonObj.get("effects").isJsonArray()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `effects` to be an array in the JSON string but got `%s`", jsonObj.get("effects").toString()));
       }
   }
 

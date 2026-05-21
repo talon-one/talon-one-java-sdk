@@ -24,6 +24,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import one.talon.model.Binding;
+import one.talon.model.RewardPointsRequired;
 import one.talon.model.Rule;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
@@ -107,6 +108,14 @@ public class RewardTest {
     }
 
     /**
+     * Test the property 'visibilityConditions'
+     */
+    @Test
+    public void visibilityConditionsTest() {
+        // TODO: test visibilityConditions
+    }
+
+    /**
      * Test the property 'rule'
      */
     @Test
@@ -123,11 +132,27 @@ public class RewardTest {
     }
 
     /**
+     * Test the property 'modified'
+     */
+    @Test
+    public void modifiedTest() {
+        // TODO: test modified
+    }
+
+    /**
      * Test the property 'status'
      */
     @Test
     public void statusTest() {
         // TODO: test status
+    }
+
+    /**
+     * Test the property 'pointsRequired'
+     */
+    @Test
+    public void pointsRequiredTest() {
+        // TODO: test pointsRequired
     }
 
 }

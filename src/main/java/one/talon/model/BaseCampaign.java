@@ -170,7 +170,9 @@ public class BaseCampaign {
     
     STRIKETHROUGH("strikethrough"),
     
-    ACHIEVEMENTS("achievements");
+    ACHIEVEMENTS("achievements"),
+    
+    ADVANCED_EVENTS("advancedEvents");
 
     private String value;
 

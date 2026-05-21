@@ -245,6 +245,9 @@ docs/EventAttributesEntity.md
 docs/EventType.md
 docs/EventV2.md
 docs/EventV3.md
+docs/EventV3Connections.md
+docs/EventV3Entity.md
+docs/EventV3RequestEntity.md
 docs/Experiment.md
 docs/ExperimentCampaignCopy.md
 docs/ExperimentCopy.md
@@ -277,6 +280,7 @@ docs/Export.md
 docs/ExtendLoyaltyPointsExpiryDateEffectProps.md
 docs/ExtendedCoupon.md
 docs/FeatureFlag.md
+docs/FeatureFlagUpdate.md
 docs/FeaturesFeed.md
 docs/FuncArgDef.md
 docs/FunctionDef.md
@@ -347,6 +351,7 @@ docs/IncreaseAchievementProgressEffectProps.md
 docs/InfluencingCampaignDetails.md
 docs/IntegrationApi.md
 docs/IntegrationCampaign.md
+docs/IntegrationCampaignBase.md
 docs/IntegrationCoupon.md
 docs/IntegrationCustomerProfileAudienceRequest.md
 docs/IntegrationCustomerProfileAudienceRequestItem.md
@@ -367,6 +372,7 @@ docs/IntegrationHubEventPayloadLoyaltyProfileBasedPointsChangedNotificationActio
 docs/IntegrationHubEventPayloadLoyaltyProfileBasedTierDowngradeNotification.md
 docs/IntegrationHubEventPayloadLoyaltyProfileBasedTierUpgradeNotification.md
 docs/IntegrationHubEventRecord.md
+docs/IntegrationHubEventStatusUpdate.md
 docs/IntegrationHubFlow.md
 docs/IntegrationHubFlowConfig.md
 docs/IntegrationHubFlowConfigResponse.md
@@ -483,6 +489,7 @@ docs/NewCustomerSession.md
 docs/NewCustomerSessionV2.md
 docs/NewEvent.md
 docs/NewEventType.md
+docs/NewEventV3Entity.md
 docs/NewExperiment.md
 docs/NewExperimentVariant.md
 docs/NewExperimentVariantArray.md
@@ -509,6 +516,7 @@ docs/NewReferralsForMultipleAdvocates.md
 docs/NewReturn.md
 docs/NewRevisionVersion.md
 docs/NewReward.md
+docs/NewRiskNotification.md
 docs/NewRole.md
 docs/NewRoleV2.md
 docs/NewRuleset.md
@@ -577,6 +585,8 @@ docs/RevisionActivation.md
 docs/RevisionActivationRequest.md
 docs/RevisionVersion.md
 docs/Reward.md
+docs/RewardPointsRequired.md
+docs/RiskNotification.md
 docs/Role.md
 docs/RoleAssign.md
 docs/RoleMembership.md
@@ -599,6 +609,7 @@ docs/RuleEligibility.md
 docs/RuleEligibilityFailureDetails.md
 docs/RuleFailureReason.md
 docs/RuleMetadata.md
+docs/RuleMetadataEligibility.md
 docs/Ruleset.md
 docs/SSOConfig.md
 docs/SamlConnection.md
@@ -979,6 +990,9 @@ src/main/java/one/talon/model/EventAttributesEntity.java
 src/main/java/one/talon/model/EventType.java
 src/main/java/one/talon/model/EventV2.java
 src/main/java/one/talon/model/EventV3.java
+src/main/java/one/talon/model/EventV3Connections.java
+src/main/java/one/talon/model/EventV3Entity.java
+src/main/java/one/talon/model/EventV3RequestEntity.java
 src/main/java/one/talon/model/Experiment.java
 src/main/java/one/talon/model/ExperimentCampaignCopy.java
 src/main/java/one/talon/model/ExperimentCopy.java
@@ -1011,6 +1025,7 @@ src/main/java/one/talon/model/Export.java
 src/main/java/one/talon/model/ExtendLoyaltyPointsExpiryDateEffectProps.java
 src/main/java/one/talon/model/ExtendedCoupon.java
 src/main/java/one/talon/model/FeatureFlag.java
+src/main/java/one/talon/model/FeatureFlagUpdate.java
 src/main/java/one/talon/model/FeaturesFeed.java
 src/main/java/one/talon/model/FuncArgDef.java
 src/main/java/one/talon/model/FunctionDef.java
@@ -1080,6 +1095,7 @@ src/main/java/one/talon/model/ImportEntity.java
 src/main/java/one/talon/model/IncreaseAchievementProgressEffectProps.java
 src/main/java/one/talon/model/InfluencingCampaignDetails.java
 src/main/java/one/talon/model/IntegrationCampaign.java
+src/main/java/one/talon/model/IntegrationCampaignBase.java
 src/main/java/one/talon/model/IntegrationCoupon.java
 src/main/java/one/talon/model/IntegrationCustomerProfileAudienceRequest.java
 src/main/java/one/talon/model/IntegrationCustomerProfileAudienceRequestItem.java
@@ -1100,6 +1116,7 @@ src/main/java/one/talon/model/IntegrationHubEventPayloadLoyaltyProfileBasedPoint
 src/main/java/one/talon/model/IntegrationHubEventPayloadLoyaltyProfileBasedTierDowngradeNotification.java
 src/main/java/one/talon/model/IntegrationHubEventPayloadLoyaltyProfileBasedTierUpgradeNotification.java
 src/main/java/one/talon/model/IntegrationHubEventRecord.java
+src/main/java/one/talon/model/IntegrationHubEventStatusUpdate.java
 src/main/java/one/talon/model/IntegrationHubFlow.java
 src/main/java/one/talon/model/IntegrationHubFlowConfig.java
 src/main/java/one/talon/model/IntegrationHubFlowConfigResponse.java
@@ -1215,6 +1232,7 @@ src/main/java/one/talon/model/NewCustomerSession.java
 src/main/java/one/talon/model/NewCustomerSessionV2.java
 src/main/java/one/talon/model/NewEvent.java
 src/main/java/one/talon/model/NewEventType.java
+src/main/java/one/talon/model/NewEventV3Entity.java
 src/main/java/one/talon/model/NewExperiment.java
 src/main/java/one/talon/model/NewExperimentVariant.java
 src/main/java/one/talon/model/NewExperimentVariantArray.java
@@ -1241,6 +1259,7 @@ src/main/java/one/talon/model/NewReferralsForMultipleAdvocates.java
 src/main/java/one/talon/model/NewReturn.java
 src/main/java/one/talon/model/NewRevisionVersion.java
 src/main/java/one/talon/model/NewReward.java
+src/main/java/one/talon/model/NewRiskNotification.java
 src/main/java/one/talon/model/NewRole.java
 src/main/java/one/talon/model/NewRoleV2.java
 src/main/java/one/talon/model/NewRuleset.java
@@ -1309,6 +1328,8 @@ src/main/java/one/talon/model/RevisionActivation.java
 src/main/java/one/talon/model/RevisionActivationRequest.java
 src/main/java/one/talon/model/RevisionVersion.java
 src/main/java/one/talon/model/Reward.java
+src/main/java/one/talon/model/RewardPointsRequired.java
+src/main/java/one/talon/model/RiskNotification.java
 src/main/java/one/talon/model/Role.java
 src/main/java/one/talon/model/RoleAssign.java
 src/main/java/one/talon/model/RoleMembership.java
@@ -1331,6 +1352,7 @@ src/main/java/one/talon/model/RuleEligibility.java
 src/main/java/one/talon/model/RuleEligibilityFailureDetails.java
 src/main/java/one/talon/model/RuleFailureReason.java
 src/main/java/one/talon/model/RuleMetadata.java
+src/main/java/one/talon/model/RuleMetadataEligibility.java
 src/main/java/one/talon/model/Ruleset.java
 src/main/java/one/talon/model/SSOConfig.java
 src/main/java/one/talon/model/SamlConnection.java
@@ -1683,6 +1705,9 @@ src/test/java/one/talon/model/EventAttributesEntityTest.java
 src/test/java/one/talon/model/EventTest.java
 src/test/java/one/talon/model/EventTypeTest.java
 src/test/java/one/talon/model/EventV2Test.java
+src/test/java/one/talon/model/EventV3ConnectionsTest.java
+src/test/java/one/talon/model/EventV3EntityTest.java
+src/test/java/one/talon/model/EventV3RequestEntityTest.java
 src/test/java/one/talon/model/EventV3Test.java
 src/test/java/one/talon/model/ExperimentCampaignCopyTest.java
 src/test/java/one/talon/model/ExperimentCopyExperimentTest.java
@@ -1716,6 +1741,7 @@ src/test/java/one/talon/model/ExportTest.java
 src/test/java/one/talon/model/ExtendLoyaltyPointsExpiryDateEffectPropsTest.java
 src/test/java/one/talon/model/ExtendedCouponTest.java
 src/test/java/one/talon/model/FeatureFlagTest.java
+src/test/java/one/talon/model/FeatureFlagUpdateTest.java
 src/test/java/one/talon/model/FeaturesFeedTest.java
 src/test/java/one/talon/model/FuncArgDefTest.java
 src/test/java/one/talon/model/FunctionDefTest.java
@@ -1784,6 +1810,7 @@ src/test/java/one/talon/model/IdentifiableEntityTest.java
 src/test/java/one/talon/model/ImportEntityTest.java
 src/test/java/one/talon/model/IncreaseAchievementProgressEffectPropsTest.java
 src/test/java/one/talon/model/InfluencingCampaignDetailsTest.java
+src/test/java/one/talon/model/IntegrationCampaignBaseTest.java
 src/test/java/one/talon/model/IntegrationCampaignTest.java
 src/test/java/one/talon/model/IntegrationCouponTest.java
 src/test/java/one/talon/model/IntegrationCustomerProfileAudienceRequestItemTest.java
@@ -1805,6 +1832,7 @@ src/test/java/one/talon/model/IntegrationHubEventPayloadLoyaltyProfileBasedPoint
 src/test/java/one/talon/model/IntegrationHubEventPayloadLoyaltyProfileBasedTierDowngradeNotificationTest.java
 src/test/java/one/talon/model/IntegrationHubEventPayloadLoyaltyProfileBasedTierUpgradeNotificationTest.java
 src/test/java/one/talon/model/IntegrationHubEventRecordTest.java
+src/test/java/one/talon/model/IntegrationHubEventStatusUpdateTest.java
 src/test/java/one/talon/model/IntegrationHubFlowConfigResponseTest.java
 src/test/java/one/talon/model/IntegrationHubFlowConfigTest.java
 src/test/java/one/talon/model/IntegrationHubFlowResponseTest.java
@@ -1920,6 +1948,7 @@ src/test/java/one/talon/model/NewCustomerSessionTest.java
 src/test/java/one/talon/model/NewCustomerSessionV2Test.java
 src/test/java/one/talon/model/NewEventTest.java
 src/test/java/one/talon/model/NewEventTypeTest.java
+src/test/java/one/talon/model/NewEventV3EntityTest.java
 src/test/java/one/talon/model/NewExperimentTest.java
 src/test/java/one/talon/model/NewExperimentVariantArrayTest.java
 src/test/java/one/talon/model/NewExperimentVariantTest.java
@@ -1946,6 +1975,7 @@ src/test/java/one/talon/model/NewReferralsForMultipleAdvocatesTest.java
 src/test/java/one/talon/model/NewReturnTest.java
 src/test/java/one/talon/model/NewRevisionVersionTest.java
 src/test/java/one/talon/model/NewRewardTest.java
+src/test/java/one/talon/model/NewRiskNotificationTest.java
 src/test/java/one/talon/model/NewRoleTest.java
 src/test/java/one/talon/model/NewRoleV2Test.java
 src/test/java/one/talon/model/NewRulesetTest.java
@@ -2013,7 +2043,9 @@ src/test/java/one/talon/model/RevisionActivationRequestTest.java
 src/test/java/one/talon/model/RevisionActivationTest.java
 src/test/java/one/talon/model/RevisionTest.java
 src/test/java/one/talon/model/RevisionVersionTest.java
+src/test/java/one/talon/model/RewardPointsRequiredTest.java
 src/test/java/one/talon/model/RewardTest.java
+src/test/java/one/talon/model/RiskNotificationTest.java
 src/test/java/one/talon/model/RoleAssignTest.java
 src/test/java/one/talon/model/RoleMembershipTest.java
 src/test/java/one/talon/model/RoleTest.java
@@ -2034,6 +2066,7 @@ src/test/java/one/talon/model/RollbackReferralEffectPropsTest.java
 src/test/java/one/talon/model/RuleEligibilityFailureDetailsTest.java
 src/test/java/one/talon/model/RuleEligibilityTest.java
 src/test/java/one/talon/model/RuleFailureReasonTest.java
+src/test/java/one/talon/model/RuleMetadataEligibilityTest.java
 src/test/java/one/talon/model/RuleMetadataTest.java
 src/test/java/one/talon/model/RuleTest.java
 src/test/java/one/talon/model/RulesetTest.java

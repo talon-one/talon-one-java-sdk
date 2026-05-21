@@ -68,11 +68,6 @@ public class IntegrationEventV3Request {
   @javax.annotation.Nullable
   private List<Long> evaluableCampaignIds;
 
-  public static final String SERIALIZED_NAME_INTEGRATION_ID = "integrationId";
-  @SerializedName(SERIALIZED_NAME_INTEGRATION_ID)
-  @javax.annotation.Nonnull
-  private String integrationId;
-
   public static final String SERIALIZED_NAME_TYPE = "type";
   @SerializedName(SERIALIZED_NAME_TYPE)
   @javax.annotation.Nonnull
@@ -83,15 +78,15 @@ public class IntegrationEventV3Request {
   @javax.annotation.Nullable
   private Object attributes;
 
-  public static final String SERIALIZED_NAME_CONNECTED_SESSION_I_D = "connectedSessionID";
-  @SerializedName(SERIALIZED_NAME_CONNECTED_SESSION_I_D)
-  @javax.annotation.Nullable
-  private String connectedSessionID;
+  public static final String SERIALIZED_NAME_INTEGRATION_ID = "integrationId";
+  @SerializedName(SERIALIZED_NAME_INTEGRATION_ID)
+  @javax.annotation.Nonnull
+  private String integrationId;
 
-  public static final String SERIALIZED_NAME_PREVIOUS_EVENT_I_D = "previousEventID";
-  @SerializedName(SERIALIZED_NAME_PREVIOUS_EVENT_I_D)
+  public static final String SERIALIZED_NAME_CONNECTED_SESSION_ID = "connectedSessionId";
+  @SerializedName(SERIALIZED_NAME_CONNECTED_SESSION_ID)
   @javax.annotation.Nullable
-  private String previousEventID;
+  private String connectedSessionId;
 
   public static final String SERIALIZED_NAME_LOYALTY_CARDS = "loyaltyCards";
   @SerializedName(SERIALIZED_NAME_LOYALTY_CARDS)
@@ -231,32 +226,13 @@ public class IntegrationEventV3Request {
   }
 
 
-  public IntegrationEventV3Request integrationId(@javax.annotation.Nonnull String integrationId) {
-    this.integrationId = integrationId;
-    return this;
-  }
-
-  /**
-   * The unique ID of the current event. Only one event with this ID could be activated, duplicated events are forbidden. 
-   * @return integrationId
-   */
-  @javax.annotation.Nonnull
-  public String getIntegrationId() {
-    return integrationId;
-  }
-
-  public void setIntegrationId(@javax.annotation.Nonnull String integrationId) {
-    this.integrationId = integrationId;
-  }
-
-
   public IntegrationEventV3Request type(@javax.annotation.Nonnull String type) {
     this.type = type;
     return this;
   }
 
   /**
-   * A string representing the event name. Must not be a reserved event name. You create this value when you [create an attribute](https://docs.talon.one/docs/dev/concepts/entities/events#creating-a-custom-event) of type &#x60;event&#x60; in the Campaign Manager. 
+   * The name of the event. Must be a [custom event](https://docs.talon.one/docs/dev/concepts/entities/events#custom-events), not a built-in event.
    * @return type
    */
   @javax.annotation.Nonnull
@@ -288,41 +264,41 @@ public class IntegrationEventV3Request {
   }
 
 
-  public IntegrationEventV3Request connectedSessionID(@javax.annotation.Nullable String connectedSessionID) {
-    this.connectedSessionID = connectedSessionID;
+  public IntegrationEventV3Request integrationId(@javax.annotation.Nonnull String integrationId) {
+    this.integrationId = integrationId;
     return this;
   }
 
   /**
-   * The ID of the session that happened in the past.
-   * @return connectedSessionID
+   * The unique ID of the event. Only one event with this ID can be registered. 
+   * @return integrationId
    */
-  @javax.annotation.Nullable
-  public String getConnectedSessionID() {
-    return connectedSessionID;
+  @javax.annotation.Nonnull
+  public String getIntegrationId() {
+    return integrationId;
   }
 
-  public void setConnectedSessionID(@javax.annotation.Nullable String connectedSessionID) {
-    this.connectedSessionID = connectedSessionID;
+  public void setIntegrationId(@javax.annotation.Nonnull String integrationId) {
+    this.integrationId = integrationId;
   }
 
 
-  public IntegrationEventV3Request previousEventID(@javax.annotation.Nullable String previousEventID) {
-    this.previousEventID = previousEventID;
+  public IntegrationEventV3Request connectedSessionId(@javax.annotation.Nullable String connectedSessionId) {
+    this.connectedSessionId = connectedSessionId;
     return this;
   }
 
   /**
-   * The unique identifier of the event that happened in the past.
-   * @return previousEventID
+   * The ID of the session to reference. The session must be in &#x60;closed&#x60; state. Otherwise, the API call will fail.
+   * @return connectedSessionId
    */
   @javax.annotation.Nullable
-  public String getPreviousEventID() {
-    return previousEventID;
+  public String getConnectedSessionId() {
+    return connectedSessionId;
   }
 
-  public void setPreviousEventID(@javax.annotation.Nullable String previousEventID) {
-    this.previousEventID = previousEventID;
+  public void setConnectedSessionId(@javax.annotation.Nullable String connectedSessionId) {
+    this.connectedSessionId = connectedSessionId;
   }
 
 
@@ -437,11 +413,10 @@ public class IntegrationEventV3Request {
     return Objects.equals(this.profileId, integrationEventV3Request.profileId) &&
         Objects.equals(this.storeIntegrationId, integrationEventV3Request.storeIntegrationId) &&
         Objects.equals(this.evaluableCampaignIds, integrationEventV3Request.evaluableCampaignIds) &&
-        Objects.equals(this.integrationId, integrationEventV3Request.integrationId) &&
         Objects.equals(this.type, integrationEventV3Request.type) &&
         Objects.equals(this.attributes, integrationEventV3Request.attributes) &&
-        Objects.equals(this.connectedSessionID, integrationEventV3Request.connectedSessionID) &&
-        Objects.equals(this.previousEventID, integrationEventV3Request.previousEventID) &&
+        Objects.equals(this.integrationId, integrationEventV3Request.integrationId) &&
+        Objects.equals(this.connectedSessionId, integrationEventV3Request.connectedSessionId) &&
         Objects.equals(this.loyaltyCards, integrationEventV3Request.loyaltyCards) &&
         Objects.equals(this.responseContent, integrationEventV3Request.responseContent)&&
         Objects.equals(this.additionalProperties, integrationEventV3Request.additionalProperties);
@@ -449,7 +424,7 @@ public class IntegrationEventV3Request {
 
   @Override
   public int hashCode() {
-    return Objects.hash(profileId, storeIntegrationId, evaluableCampaignIds, integrationId, type, attributes, connectedSessionID, previousEventID, loyaltyCards, responseContent, additionalProperties);
+    return Objects.hash(profileId, storeIntegrationId, evaluableCampaignIds, type, attributes, integrationId, connectedSessionId, loyaltyCards, responseContent, additionalProperties);
   }
 
   @Override
@@ -459,11 +434,10 @@ public class IntegrationEventV3Request {
     sb.append("    profileId: ").append(toIndentedString(profileId)).append("\n");
     sb.append("    storeIntegrationId: ").append(toIndentedString(storeIntegrationId)).append("\n");
     sb.append("    evaluableCampaignIds: ").append(toIndentedString(evaluableCampaignIds)).append("\n");
-    sb.append("    integrationId: ").append(toIndentedString(integrationId)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    attributes: ").append(toIndentedString(attributes)).append("\n");
-    sb.append("    connectedSessionID: ").append(toIndentedString(connectedSessionID)).append("\n");
-    sb.append("    previousEventID: ").append(toIndentedString(previousEventID)).append("\n");
+    sb.append("    integrationId: ").append(toIndentedString(integrationId)).append("\n");
+    sb.append("    connectedSessionId: ").append(toIndentedString(connectedSessionId)).append("\n");
     sb.append("    loyaltyCards: ").append(toIndentedString(loyaltyCards)).append("\n");
     sb.append("    responseContent: ").append(toIndentedString(responseContent)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
@@ -488,10 +462,10 @@ public class IntegrationEventV3Request {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("profileId", "storeIntegrationId", "evaluableCampaignIds", "integrationId", "type", "attributes", "connectedSessionID", "previousEventID", "loyaltyCards", "responseContent"));
+    openapiFields = new HashSet<String>(Arrays.asList("profileId", "storeIntegrationId", "evaluableCampaignIds", "type", "attributes", "integrationId", "connectedSessionId", "loyaltyCards", "responseContent"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("profileId", "integrationId", "type"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("profileId", "type", "integrationId"));
   }
 
   /**
@@ -524,17 +498,14 @@ public class IntegrationEventV3Request {
       if (jsonObj.get("evaluableCampaignIds") != null && !jsonObj.get("evaluableCampaignIds").isJsonNull() && !jsonObj.get("evaluableCampaignIds").isJsonArray()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `evaluableCampaignIds` to be an array in the JSON string but got `%s`", jsonObj.get("evaluableCampaignIds").toString()));
       }
-      if (!jsonObj.get("integrationId").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `integrationId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("integrationId").toString()));
-      }
       if (!jsonObj.get("type").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("type").toString()));
       }
-      if ((jsonObj.get("connectedSessionID") != null && !jsonObj.get("connectedSessionID").isJsonNull()) && !jsonObj.get("connectedSessionID").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `connectedSessionID` to be a primitive type in the JSON string but got `%s`", jsonObj.get("connectedSessionID").toString()));
+      if (!jsonObj.get("integrationId").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `integrationId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("integrationId").toString()));
       }
-      if ((jsonObj.get("previousEventID") != null && !jsonObj.get("previousEventID").isJsonNull()) && !jsonObj.get("previousEventID").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `previousEventID` to be a primitive type in the JSON string but got `%s`", jsonObj.get("previousEventID").toString()));
+      if ((jsonObj.get("connectedSessionId") != null && !jsonObj.get("connectedSessionId").isJsonNull()) && !jsonObj.get("connectedSessionId").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `connectedSessionId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("connectedSessionId").toString()));
       }
       // ensure the optional json data is an array if present
       if (jsonObj.get("loyaltyCards") != null && !jsonObj.get("loyaltyCards").isJsonNull() && !jsonObj.get("loyaltyCards").isJsonArray()) {

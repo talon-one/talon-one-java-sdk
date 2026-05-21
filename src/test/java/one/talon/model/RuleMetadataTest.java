@@ -19,10 +19,7 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
-import one.talon.model.RuleEligibility;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
@@ -70,14 +67,6 @@ public class RuleMetadataTest {
     @Test
     public void relatedDataTest() {
         // TODO: test relatedData
-    }
-
-    /**
-     * Test the property 'eligibility'
-     */
-    @Test
-    public void eligibilityTest() {
-        // TODO: test eligibility
     }
 
 }

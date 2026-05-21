@@ -167,7 +167,9 @@ public class NewCampaignTemplate {
     
     STRIKETHROUGH("strikethrough"),
     
-    ACHIEVEMENTS("achievements");
+    ACHIEVEMENTS("achievements"),
+    
+    ADVANCED_EVENTS("advancedEvents");
 
     private String value;
 

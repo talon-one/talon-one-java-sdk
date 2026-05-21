@@ -4,7 +4,7 @@ apply plugin: 'java'
 apply plugin: 'com.diffplug.spotless'
 
 group = 'one.talon'
-version = '26.09.0'
+version = '99.99.99'
 
 buildscript {
     repositories {

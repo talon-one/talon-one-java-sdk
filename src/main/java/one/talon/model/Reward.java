@@ -25,6 +25,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import one.talon.model.Binding;
+import one.talon.model.RewardPointsRequired;
 import one.talon.model.Rule;
 import com.google.gson.JsonElement;
 
@@ -96,15 +97,25 @@ public class Reward {
   @javax.annotation.Nonnull
   private Boolean sandbox;
 
+  public static final String SERIALIZED_NAME_VISIBILITY_CONDITIONS = "visibilityConditions";
+  @SerializedName(SERIALIZED_NAME_VISIBILITY_CONDITIONS)
+  @javax.annotation.Nullable
+  private Rule visibilityConditions;
+
   public static final String SERIALIZED_NAME_RULE = "rule";
   @SerializedName(SERIALIZED_NAME_RULE)
   @javax.annotation.Nullable
-  private List<Rule> rule;
+  private Rule rule;
 
   public static final String SERIALIZED_NAME_BINDINGS = "bindings";
   @SerializedName(SERIALIZED_NAME_BINDINGS)
   @javax.annotation.Nullable
   private List<Binding> bindings;
+
+  public static final String SERIALIZED_NAME_MODIFIED = "modified";
+  @SerializedName(SERIALIZED_NAME_MODIFIED)
+  @javax.annotation.Nullable
+  private OffsetDateTime modified;
 
   /**
    * The status of the reward.
@@ -162,6 +173,11 @@ public class Reward {
   @SerializedName(SERIALIZED_NAME_STATUS)
   @javax.annotation.Nonnull
   private StatusEnum status;
+
+  public static final String SERIALIZED_NAME_POINTS_REQUIRED = "pointsRequired";
+  @SerializedName(SERIALIZED_NAME_POINTS_REQUIRED)
+  @javax.annotation.Nullable
+  private List<RewardPointsRequired> pointsRequired;
 
   public Reward() {
   }
@@ -326,29 +342,40 @@ public class Reward {
   }
 
 
-  public Reward rule(@javax.annotation.Nullable List<Rule> rule) {
-    this.rule = rule;
-    return this;
-  }
-
-  public Reward addRuleItem(Rule ruleItem) {
-    if (this.rule == null) {
-      this.rule = new ArrayList<>();
-    }
-    this.rule.add(ruleItem);
+  public Reward visibilityConditions(@javax.annotation.Nullable Rule visibilityConditions) {
+    this.visibilityConditions = visibilityConditions;
     return this;
   }
 
   /**
-   * Rule to apply.
+   * An optional rule that manages who can see this reward. If not specified, the reward is visible to all customers.  **Note:** Only the &#x60;condition&#x60; field is evaluated within this rule. The &#x60;effects&#x60; field must be an empty array, and &#x60;bindings&#x60; are not supported. 
+   * @return visibilityConditions
+   */
+  @javax.annotation.Nullable
+  public Rule getVisibilityConditions() {
+    return visibilityConditions;
+  }
+
+  public void setVisibilityConditions(@javax.annotation.Nullable Rule visibilityConditions) {
+    this.visibilityConditions = visibilityConditions;
+  }
+
+
+  public Reward rule(@javax.annotation.Nullable Rule rule) {
+    this.rule = rule;
+    return this;
+  }
+
+  /**
+   * Rule to apply.  **Note**: The &#x60;bindings&#x60; field inside the rule must not be used in this endpoint. All bindings should be defined at the reward level via the top-level &#x60;bindings&#x60; field. 
    * @return rule
    */
   @javax.annotation.Nullable
-  public List<Rule> getRule() {
+  public Rule getRule() {
     return rule;
   }
 
-  public void setRule(@javax.annotation.Nullable List<Rule> rule) {
+  public void setRule(@javax.annotation.Nullable Rule rule) {
     this.rule = rule;
   }
 
@@ -380,6 +407,25 @@ public class Reward {
   }
 
 
+  public Reward modified(@javax.annotation.Nullable OffsetDateTime modified) {
+    this.modified = modified;
+    return this;
+  }
+
+  /**
+   * The timestamp when the reward was last updated in RFC3339 format.
+   * @return modified
+   */
+  @javax.annotation.Nullable
+  public OffsetDateTime getModified() {
+    return modified;
+  }
+
+  public void setModified(@javax.annotation.Nullable OffsetDateTime modified) {
+    this.modified = modified;
+  }
+
+
   public Reward status(@javax.annotation.Nonnull StatusEnum status) {
     this.status = status;
     return this;
@@ -396,6 +442,33 @@ public class Reward {
 
   public void setStatus(@javax.annotation.Nonnull StatusEnum status) {
     this.status = status;
+  }
+
+
+  public Reward pointsRequired(@javax.annotation.Nullable List<RewardPointsRequired> pointsRequired) {
+    this.pointsRequired = pointsRequired;
+    return this;
+  }
+
+  public Reward addPointsRequiredItem(RewardPointsRequired pointsRequiredItem) {
+    if (this.pointsRequired == null) {
+      this.pointsRequired = new ArrayList<>();
+    }
+    this.pointsRequired.add(pointsRequiredItem);
+    return this;
+  }
+
+  /**
+   * The loyalty points required to activate a reward.
+   * @return pointsRequired
+   */
+  @javax.annotation.Nullable
+  public List<RewardPointsRequired> getPointsRequired() {
+    return pointsRequired;
+  }
+
+  public void setPointsRequired(@javax.annotation.Nullable List<RewardPointsRequired> pointsRequired) {
+    this.pointsRequired = pointsRequired;
   }
 
   /**
@@ -461,15 +534,18 @@ public class Reward {
         Objects.equals(this.description, reward.description) &&
         Objects.equals(this.applicationIds, reward.applicationIds) &&
         Objects.equals(this.sandbox, reward.sandbox) &&
+        Objects.equals(this.visibilityConditions, reward.visibilityConditions) &&
         Objects.equals(this.rule, reward.rule) &&
         Objects.equals(this.bindings, reward.bindings) &&
-        Objects.equals(this.status, reward.status)&&
+        Objects.equals(this.modified, reward.modified) &&
+        Objects.equals(this.status, reward.status) &&
+        Objects.equals(this.pointsRequired, reward.pointsRequired)&&
         Objects.equals(this.additionalProperties, reward.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, created, accountId, name, apiName, description, applicationIds, sandbox, rule, bindings, status, additionalProperties);
+    return Objects.hash(id, created, accountId, name, apiName, description, applicationIds, sandbox, visibilityConditions, rule, bindings, modified, status, pointsRequired, additionalProperties);
   }
 
   @Override
@@ -484,9 +560,12 @@ public class Reward {
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    applicationIds: ").append(toIndentedString(applicationIds)).append("\n");
     sb.append("    sandbox: ").append(toIndentedString(sandbox)).append("\n");
+    sb.append("    visibilityConditions: ").append(toIndentedString(visibilityConditions)).append("\n");
     sb.append("    rule: ").append(toIndentedString(rule)).append("\n");
     sb.append("    bindings: ").append(toIndentedString(bindings)).append("\n");
+    sb.append("    modified: ").append(toIndentedString(modified)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
+    sb.append("    pointsRequired: ").append(toIndentedString(pointsRequired)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -509,7 +588,7 @@ public class Reward {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("id", "created", "accountId", "name", "apiName", "description", "applicationIds", "sandbox", "rule", "bindings", "status"));
+    openapiFields = new HashSet<String>(Arrays.asList("id", "created", "accountId", "name", "apiName", "description", "applicationIds", "sandbox", "visibilityConditions", "rule", "bindings", "modified", "status", "pointsRequired"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("id", "created", "accountId", "name", "apiName", "applicationIds", "sandbox", "status"));
@@ -550,19 +629,13 @@ public class Reward {
       } else if (!jsonObj.get("applicationIds").isJsonArray()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `applicationIds` to be an array in the JSON string but got `%s`", jsonObj.get("applicationIds").toString()));
       }
+      // validate the optional field `visibilityConditions`
+      if (jsonObj.get("visibilityConditions") != null && !jsonObj.get("visibilityConditions").isJsonNull()) {
+        Rule.validateJsonElement(jsonObj.get("visibilityConditions"));
+      }
+      // validate the optional field `rule`
       if (jsonObj.get("rule") != null && !jsonObj.get("rule").isJsonNull()) {
-        JsonArray jsonArrayrule = jsonObj.getAsJsonArray("rule");
-        if (jsonArrayrule != null) {
-          // ensure the json data is an array
-          if (!jsonObj.get("rule").isJsonArray()) {
-            throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `rule` to be an array in the JSON string but got `%s`", jsonObj.get("rule").toString()));
-          }
-
-          // validate the optional field `rule` (array)
-          for (int i = 0; i < jsonArrayrule.size(); i++) {
-            Rule.validateJsonElement(jsonArrayrule.get(i));
-          };
-        }
+        Rule.validateJsonElement(jsonObj.get("rule"));
       }
       if (jsonObj.get("bindings") != null && !jsonObj.get("bindings").isJsonNull()) {
         JsonArray jsonArraybindings = jsonObj.getAsJsonArray("bindings");
@@ -583,6 +656,20 @@ public class Reward {
       }
       // validate the required field `status`
       StatusEnum.validateJsonElement(jsonObj.get("status"));
+      if (jsonObj.get("pointsRequired") != null && !jsonObj.get("pointsRequired").isJsonNull()) {
+        JsonArray jsonArraypointsRequired = jsonObj.getAsJsonArray("pointsRequired");
+        if (jsonArraypointsRequired != null) {
+          // ensure the json data is an array
+          if (!jsonObj.get("pointsRequired").isJsonArray()) {
+            throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `pointsRequired` to be an array in the JSON string but got `%s`", jsonObj.get("pointsRequired").toString()));
+          }
+
+          // validate the optional field `pointsRequired` (array)
+          for (int i = 0; i < jsonArraypointsRequired.size(); i++) {
+            RewardPointsRequired.validateJsonElement(jsonArraypointsRequired.get(i));
+          };
+        }
+      }
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {

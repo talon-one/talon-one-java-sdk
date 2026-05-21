@@ -58,6 +58,7 @@
 | GIVEAWAYS | &quot;giveaways&quot; |
 | STRIKETHROUGH | &quot;strikethrough&quot; |
 | ACHIEVEMENTS | &quot;achievements&quot; |
+| ADVANCED_EVENTS | &quot;advancedEvents&quot; |
 
 
 

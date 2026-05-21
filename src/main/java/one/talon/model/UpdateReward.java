@@ -24,6 +24,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import one.talon.model.Binding;
+import one.talon.model.RewardPointsRequired;
 import one.talon.model.Rule;
 import com.google.gson.JsonElement;
 
@@ -122,15 +123,25 @@ public class UpdateReward {
   @javax.annotation.Nonnull
   private StatusEnum status;
 
+  public static final String SERIALIZED_NAME_VISIBILITY_CONDITIONS = "visibilityConditions";
+  @SerializedName(SERIALIZED_NAME_VISIBILITY_CONDITIONS)
+  @javax.annotation.Nullable
+  private Rule visibilityConditions;
+
   public static final String SERIALIZED_NAME_RULE = "rule";
   @SerializedName(SERIALIZED_NAME_RULE)
   @javax.annotation.Nullable
-  private List<Rule> rule;
+  private Rule rule;
 
   public static final String SERIALIZED_NAME_BINDINGS = "bindings";
   @SerializedName(SERIALIZED_NAME_BINDINGS)
   @javax.annotation.Nullable
   private List<Binding> bindings;
+
+  public static final String SERIALIZED_NAME_POINTS_REQUIRED = "pointsRequired";
+  @SerializedName(SERIALIZED_NAME_POINTS_REQUIRED)
+  @javax.annotation.Nullable
+  private List<RewardPointsRequired> pointsRequired;
 
   public UpdateReward() {
   }
@@ -192,16 +203,27 @@ public class UpdateReward {
   }
 
 
-  public UpdateReward rule(@javax.annotation.Nullable List<Rule> rule) {
-    this.rule = rule;
+  public UpdateReward visibilityConditions(@javax.annotation.Nullable Rule visibilityConditions) {
+    this.visibilityConditions = visibilityConditions;
     return this;
   }
 
-  public UpdateReward addRuleItem(Rule ruleItem) {
-    if (this.rule == null) {
-      this.rule = new ArrayList<>();
-    }
-    this.rule.add(ruleItem);
+  /**
+   * An optional rule that manages who can see this reward. If not specified, the reward is visible to all customers.  **Note:** Only the &#x60;condition&#x60; field is evaluated within this rule. The &#x60;effects&#x60; field must be an empty array, and &#x60;bindings&#x60; are not supported. 
+   * @return visibilityConditions
+   */
+  @javax.annotation.Nullable
+  public Rule getVisibilityConditions() {
+    return visibilityConditions;
+  }
+
+  public void setVisibilityConditions(@javax.annotation.Nullable Rule visibilityConditions) {
+    this.visibilityConditions = visibilityConditions;
+  }
+
+
+  public UpdateReward rule(@javax.annotation.Nullable Rule rule) {
+    this.rule = rule;
     return this;
   }
 
@@ -210,11 +232,11 @@ public class UpdateReward {
    * @return rule
    */
   @javax.annotation.Nullable
-  public List<Rule> getRule() {
+  public Rule getRule() {
     return rule;
   }
 
-  public void setRule(@javax.annotation.Nullable List<Rule> rule) {
+  public void setRule(@javax.annotation.Nullable Rule rule) {
     this.rule = rule;
   }
 
@@ -243,6 +265,33 @@ public class UpdateReward {
 
   public void setBindings(@javax.annotation.Nullable List<Binding> bindings) {
     this.bindings = bindings;
+  }
+
+
+  public UpdateReward pointsRequired(@javax.annotation.Nullable List<RewardPointsRequired> pointsRequired) {
+    this.pointsRequired = pointsRequired;
+    return this;
+  }
+
+  public UpdateReward addPointsRequiredItem(RewardPointsRequired pointsRequiredItem) {
+    if (this.pointsRequired == null) {
+      this.pointsRequired = new ArrayList<>();
+    }
+    this.pointsRequired.add(pointsRequiredItem);
+    return this;
+  }
+
+  /**
+   * The loyalty points required to activate the reward. Each object defines the specific loyalty program and subledger from which points are deducted when activating the reward.  **Note:** - Objects with an &#x60;id&#x60; are updated. - Objects without an &#x60;id&#x60; are created. - Existing objects omitted from the payload are deleted. 
+   * @return pointsRequired
+   */
+  @javax.annotation.Nullable
+  public List<RewardPointsRequired> getPointsRequired() {
+    return pointsRequired;
+  }
+
+  public void setPointsRequired(@javax.annotation.Nullable List<RewardPointsRequired> pointsRequired) {
+    this.pointsRequired = pointsRequired;
   }
 
   /**
@@ -303,14 +352,16 @@ public class UpdateReward {
     return Objects.equals(this.name, updateReward.name) &&
         Objects.equals(this.description, updateReward.description) &&
         Objects.equals(this.status, updateReward.status) &&
+        Objects.equals(this.visibilityConditions, updateReward.visibilityConditions) &&
         Objects.equals(this.rule, updateReward.rule) &&
-        Objects.equals(this.bindings, updateReward.bindings)&&
+        Objects.equals(this.bindings, updateReward.bindings) &&
+        Objects.equals(this.pointsRequired, updateReward.pointsRequired)&&
         Objects.equals(this.additionalProperties, updateReward.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, description, status, rule, bindings, additionalProperties);
+    return Objects.hash(name, description, status, visibilityConditions, rule, bindings, pointsRequired, additionalProperties);
   }
 
   @Override
@@ -320,8 +371,10 @@ public class UpdateReward {
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
+    sb.append("    visibilityConditions: ").append(toIndentedString(visibilityConditions)).append("\n");
     sb.append("    rule: ").append(toIndentedString(rule)).append("\n");
     sb.append("    bindings: ").append(toIndentedString(bindings)).append("\n");
+    sb.append("    pointsRequired: ").append(toIndentedString(pointsRequired)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -344,7 +397,7 @@ public class UpdateReward {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("name", "description", "status", "rule", "bindings"));
+    openapiFields = new HashSet<String>(Arrays.asList("name", "description", "status", "visibilityConditions", "rule", "bindings", "pointsRequired"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("name", "status"));
@@ -381,19 +434,13 @@ public class UpdateReward {
       }
       // validate the required field `status`
       StatusEnum.validateJsonElement(jsonObj.get("status"));
+      // validate the optional field `visibilityConditions`
+      if (jsonObj.get("visibilityConditions") != null && !jsonObj.get("visibilityConditions").isJsonNull()) {
+        Rule.validateJsonElement(jsonObj.get("visibilityConditions"));
+      }
+      // validate the optional field `rule`
       if (jsonObj.get("rule") != null && !jsonObj.get("rule").isJsonNull()) {
-        JsonArray jsonArrayrule = jsonObj.getAsJsonArray("rule");
-        if (jsonArrayrule != null) {
-          // ensure the json data is an array
-          if (!jsonObj.get("rule").isJsonArray()) {
-            throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `rule` to be an array in the JSON string but got `%s`", jsonObj.get("rule").toString()));
-          }
-
-          // validate the optional field `rule` (array)
-          for (int i = 0; i < jsonArrayrule.size(); i++) {
-            Rule.validateJsonElement(jsonArrayrule.get(i));
-          };
-        }
+        Rule.validateJsonElement(jsonObj.get("rule"));
       }
       if (jsonObj.get("bindings") != null && !jsonObj.get("bindings").isJsonNull()) {
         JsonArray jsonArraybindings = jsonObj.getAsJsonArray("bindings");
@@ -406,6 +453,20 @@ public class UpdateReward {
           // validate the optional field `bindings` (array)
           for (int i = 0; i < jsonArraybindings.size(); i++) {
             Binding.validateJsonElement(jsonArraybindings.get(i));
+          };
+        }
+      }
+      if (jsonObj.get("pointsRequired") != null && !jsonObj.get("pointsRequired").isJsonNull()) {
+        JsonArray jsonArraypointsRequired = jsonObj.getAsJsonArray("pointsRequired");
+        if (jsonArraypointsRequired != null) {
+          // ensure the json data is an array
+          if (!jsonObj.get("pointsRequired").isJsonArray()) {
+            throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `pointsRequired` to be an array in the JSON string but got `%s`", jsonObj.get("pointsRequired").toString()));
+          }
+
+          // validate the optional field `pointsRequired` (array)
+          for (int i = 0; i < jsonArraypointsRequired.size(); i++) {
+            RewardPointsRequired.validateJsonElement(jsonArraypointsRequired.get(i));
           };
         }
       }

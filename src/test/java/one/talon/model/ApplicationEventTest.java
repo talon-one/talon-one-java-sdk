@@ -91,6 +91,14 @@ public class ApplicationEventTest {
     }
 
     /**
+     * Test the property 'integrationId'
+     */
+    @Test
+    public void integrationIdTest() {
+        // TODO: test integrationId
+    }
+
+    /**
      * Test the property 'sessionId'
      */
     @Test
