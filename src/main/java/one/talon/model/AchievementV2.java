@@ -25,7 +25,6 @@ import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import com.google.gson.JsonElement;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -221,20 +220,10 @@ public class AchievementV2 {
   @javax.annotation.Nullable
   private Boolean allowRollbackAfterCompletion;
 
-  public static final String SERIALIZED_NAME_SANDBOX = "sandbox";
-  @SerializedName(SERIALIZED_NAME_SANDBOX)
-  @javax.annotation.Nonnull
-  private Boolean sandbox;
-
   public static final String SERIALIZED_NAME_SUBSCRIBED_APPLICATIONS = "subscribedApplications";
   @SerializedName(SERIALIZED_NAME_SUBSCRIBED_APPLICATIONS)
   @javax.annotation.Nonnull
   private List<Long> subscribedApplications = new ArrayList<>();
-
-  public static final String SERIALIZED_NAME_TIMEZONE = "timezone";
-  @SerializedName(SERIALIZED_NAME_TIMEZONE)
-  @javax.annotation.Nonnull
-  private String timezone;
 
   public static final String SERIALIZED_NAME_USER_ID = "userId";
   @SerializedName(SERIALIZED_NAME_USER_ID)
@@ -311,6 +300,16 @@ public class AchievementV2 {
   @SerializedName(SERIALIZED_NAME_STATUS)
   @javax.annotation.Nullable
   private StatusEnum status;
+
+  public static final String SERIALIZED_NAME_SANDBOX = "sandbox";
+  @SerializedName(SERIALIZED_NAME_SANDBOX)
+  @javax.annotation.Nonnull
+  private Boolean sandbox;
+
+  public static final String SERIALIZED_NAME_TIMEZONE = "timezone";
+  @SerializedName(SERIALIZED_NAME_TIMEZONE)
+  @javax.annotation.Nonnull
+  private String timezone;
 
   public AchievementV2() {
   }
@@ -543,25 +542,6 @@ public class AchievementV2 {
   }
 
 
-  public AchievementV2 sandbox(@javax.annotation.Nonnull Boolean sandbox) {
-    this.sandbox = sandbox;
-    return this;
-  }
-
-  /**
-   * Indicates if this achievement is a live or sandbox achievement. Achievements of a given type can only be connected to Applications of the same type.
-   * @return sandbox
-   */
-  @javax.annotation.Nonnull
-  public Boolean getSandbox() {
-    return sandbox;
-  }
-
-  public void setSandbox(@javax.annotation.Nonnull Boolean sandbox) {
-    this.sandbox = sandbox;
-  }
-
-
   public AchievementV2 subscribedApplications(@javax.annotation.Nonnull List<Long> subscribedApplications) {
     this.subscribedApplications = subscribedApplications;
     return this;
@@ -586,25 +566,6 @@ public class AchievementV2 {
 
   public void setSubscribedApplications(@javax.annotation.Nonnull List<Long> subscribedApplications) {
     this.subscribedApplications = subscribedApplications;
-  }
-
-
-  public AchievementV2 timezone(@javax.annotation.Nonnull String timezone) {
-    this.timezone = timezone;
-    return this;
-  }
-
-  /**
-   * A string containing an IANA timezone descriptor.
-   * @return timezone
-   */
-  @javax.annotation.Nonnull
-  public String getTimezone() {
-    return timezone;
-  }
-
-  public void setTimezone(@javax.annotation.Nonnull String timezone) {
-    this.timezone = timezone;
   }
 
 
@@ -683,6 +644,44 @@ public class AchievementV2 {
     this.status = status;
   }
 
+
+  public AchievementV2 sandbox(@javax.annotation.Nonnull Boolean sandbox) {
+    this.sandbox = sandbox;
+    return this;
+  }
+
+  /**
+   * Indicates if this achievement is a live or sandbox achievement. Achievements of a given type can only be connected to Applications of the same type.
+   * @return sandbox
+   */
+  @javax.annotation.Nonnull
+  public Boolean getSandbox() {
+    return sandbox;
+  }
+
+  public void setSandbox(@javax.annotation.Nonnull Boolean sandbox) {
+    this.sandbox = sandbox;
+  }
+
+
+  public AchievementV2 timezone(@javax.annotation.Nonnull String timezone) {
+    this.timezone = timezone;
+    return this;
+  }
+
+  /**
+   * A string containing an IANA timezone descriptor.
+   * @return timezone
+   */
+  @javax.annotation.Nonnull
+  public String getTimezone() {
+    return timezone;
+  }
+
+  public void setTimezone(@javax.annotation.Nonnull String timezone) {
+    this.timezone = timezone;
+  }
+
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -750,19 +749,19 @@ public class AchievementV2 {
         Objects.equals(this.fixedStartDate, achievementV2.fixedStartDate) &&
         Objects.equals(this.endDate, achievementV2.endDate) &&
         Objects.equals(this.allowRollbackAfterCompletion, achievementV2.allowRollbackAfterCompletion) &&
-        Objects.equals(this.sandbox, achievementV2.sandbox) &&
         Objects.equals(this.subscribedApplications, achievementV2.subscribedApplications) &&
-        Objects.equals(this.timezone, achievementV2.timezone) &&
         Objects.equals(this.userId, achievementV2.userId) &&
         Objects.equals(this.createdBy, achievementV2.createdBy) &&
         Objects.equals(this.hasProgress, achievementV2.hasProgress) &&
-        Objects.equals(this.status, achievementV2.status)&&
+        Objects.equals(this.status, achievementV2.status) &&
+        Objects.equals(this.sandbox, achievementV2.sandbox) &&
+        Objects.equals(this.timezone, achievementV2.timezone)&&
         Objects.equals(this.additionalProperties, achievementV2.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, created, name, title, description, target, period, recurrencePolicy, activationPolicy, fixedStartDate, endDate, allowRollbackAfterCompletion, sandbox, subscribedApplications, timezone, userId, createdBy, hasProgress, status, additionalProperties);
+    return Objects.hash(id, created, name, title, description, target, period, recurrencePolicy, activationPolicy, fixedStartDate, endDate, allowRollbackAfterCompletion, subscribedApplications, userId, createdBy, hasProgress, status, sandbox, timezone, additionalProperties);
   }
 
   @Override
@@ -781,13 +780,13 @@ public class AchievementV2 {
     sb.append("    fixedStartDate: ").append(toIndentedString(fixedStartDate)).append("\n");
     sb.append("    endDate: ").append(toIndentedString(endDate)).append("\n");
     sb.append("    allowRollbackAfterCompletion: ").append(toIndentedString(allowRollbackAfterCompletion)).append("\n");
-    sb.append("    sandbox: ").append(toIndentedString(sandbox)).append("\n");
     sb.append("    subscribedApplications: ").append(toIndentedString(subscribedApplications)).append("\n");
-    sb.append("    timezone: ").append(toIndentedString(timezone)).append("\n");
     sb.append("    userId: ").append(toIndentedString(userId)).append("\n");
     sb.append("    createdBy: ").append(toIndentedString(createdBy)).append("\n");
     sb.append("    hasProgress: ").append(toIndentedString(hasProgress)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
+    sb.append("    sandbox: ").append(toIndentedString(sandbox)).append("\n");
+    sb.append("    timezone: ").append(toIndentedString(timezone)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -798,10 +797,7 @@ public class AchievementV2 {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
@@ -810,10 +806,10 @@ public class AchievementV2 {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("id", "created", "name", "title", "description", "target", "period", "recurrencePolicy", "activationPolicy", "fixedStartDate", "endDate", "allowRollbackAfterCompletion", "sandbox", "subscribedApplications", "timezone", "userId", "createdBy", "hasProgress", "status"));
+    openapiFields = new HashSet<String>(Arrays.asList("id", "created", "name", "title", "description", "target", "period", "recurrencePolicy", "activationPolicy", "fixedStartDate", "endDate", "allowRollbackAfterCompletion", "subscribedApplications", "userId", "createdBy", "hasProgress", "status", "sandbox", "timezone"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("id", "created", "name", "title", "description", "target", "recurrencePolicy", "activationPolicy", "sandbox", "subscribedApplications", "timezone", "userId"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("id", "created", "name", "title", "description", "target", "recurrencePolicy", "activationPolicy", "subscribedApplications", "userId", "sandbox", "timezone"));
   }
 
   /**
@@ -864,9 +860,6 @@ public class AchievementV2 {
       } else if (!jsonObj.get("subscribedApplications").isJsonArray()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `subscribedApplications` to be an array in the JSON string but got `%s`", jsonObj.get("subscribedApplications").toString()));
       }
-      if (!jsonObj.get("timezone").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `timezone` to be a primitive type in the JSON string but got `%s`", jsonObj.get("timezone").toString()));
-      }
       if ((jsonObj.get("createdBy") != null && !jsonObj.get("createdBy").isJsonNull()) && !jsonObj.get("createdBy").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `createdBy` to be a primitive type in the JSON string but got `%s`", jsonObj.get("createdBy").toString()));
       }
@@ -876,6 +869,9 @@ public class AchievementV2 {
       // validate the optional field `status`
       if (jsonObj.get("status") != null && !jsonObj.get("status").isJsonNull()) {
         StatusEnum.validateJsonElement(jsonObj.get("status"));
+      }
+      if (!jsonObj.get("timezone").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `timezone` to be a primitive type in the JSON string but got `%s`", jsonObj.get("timezone").toString()));
       }
   }
 

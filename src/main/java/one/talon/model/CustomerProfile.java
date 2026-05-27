@@ -29,7 +29,6 @@ import java.util.List;
 import java.util.Map;
 import one.talon.model.AudienceMembership;
 import one.talon.model.LoyaltyMembership;
-import com.google.gson.JsonElement;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -448,10 +447,7 @@ public class CustomerProfile {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 

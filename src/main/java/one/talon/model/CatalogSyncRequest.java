@@ -23,7 +23,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import com.google.gson.JsonElement;
+import one.talon.model.CatalogAction;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -56,7 +56,7 @@ public class CatalogSyncRequest {
   public static final String SERIALIZED_NAME_ACTIONS = "actions";
   @SerializedName(SERIALIZED_NAME_ACTIONS)
   @javax.annotation.Nonnull
-  private List<Object> actions = new ArrayList<>();
+  private List<CatalogAction> actions = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_VERSION = "version";
   @SerializedName(SERIALIZED_NAME_VERSION)
@@ -66,12 +66,12 @@ public class CatalogSyncRequest {
   public CatalogSyncRequest() {
   }
 
-  public CatalogSyncRequest actions(@javax.annotation.Nonnull List<Object> actions) {
+  public CatalogSyncRequest actions(@javax.annotation.Nonnull List<CatalogAction> actions) {
     this.actions = actions;
     return this;
   }
 
-  public CatalogSyncRequest addActionsItem(Object actionsItem) {
+  public CatalogSyncRequest addActionsItem(CatalogAction actionsItem) {
     if (this.actions == null) {
       this.actions = new ArrayList<>();
     }
@@ -84,11 +84,11 @@ public class CatalogSyncRequest {
    * @return actions
    */
   @javax.annotation.Nonnull
-  public List<Object> getActions() {
+  public List<CatalogAction> getActions() {
     return actions;
   }
 
-  public void setActions(@javax.annotation.Nonnull List<Object> actions) {
+  public void setActions(@javax.annotation.Nonnull List<CatalogAction> actions) {
     this.actions = actions;
   }
 
@@ -193,10 +193,7 @@ public class CatalogSyncRequest {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
@@ -231,11 +228,15 @@ public class CatalogSyncRequest {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      // ensure the required json array is present
-      if (jsonObj.get("actions") == null) {
-        throw new IllegalArgumentException("Expected the field `linkedContent` to be an array in the JSON string but got `null`");
-      } else if (!jsonObj.get("actions").isJsonArray()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `actions` to be an array in the JSON string but got `%s`", jsonObj.get("actions").toString()));
+      if (jsonObj.get("actions") != null) {
+        if (!jsonObj.get("actions").isJsonArray()) {
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `actions` to be an array in the JSON string but got `%s`", jsonObj.get("actions").toString()));
+        }
+        JsonArray jsonArrayactions = jsonObj.getAsJsonArray("actions");
+        // validate the required field `actions` (array)
+        for (int i = 0; i < jsonArrayactions.size(); i++) {
+          CatalogAction.validateJsonElement(jsonArrayactions.get(i));
+        }
       }
   }
 

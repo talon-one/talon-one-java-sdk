@@ -22,7 +22,6 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.time.OffsetDateTime;
 import java.util.Arrays;
-import com.google.gson.JsonElement;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -81,6 +80,11 @@ public class IntegrationHubEventRecord {
   @SerializedName(SERIALIZED_NAME_PROCESSED_AT)
   @javax.annotation.Nullable
   private OffsetDateTime processedAt;
+
+  public static final String SERIALIZED_NAME_DELIVERED_AT = "DeliveredAt";
+  @SerializedName(SERIALIZED_NAME_DELIVERED_AT)
+  @javax.annotation.Nullable
+  private OffsetDateTime deliveredAt;
 
   public static final String SERIALIZED_NAME_PROCESS_AFTER = "ProcessAfter";
   @SerializedName(SERIALIZED_NAME_PROCESS_AFTER)
@@ -209,6 +213,25 @@ public class IntegrationHubEventRecord {
   }
 
 
+  public IntegrationHubEventRecord deliveredAt(@javax.annotation.Nullable OffsetDateTime deliveredAt) {
+    this.deliveredAt = deliveredAt;
+    return this;
+  }
+
+  /**
+   * Get deliveredAt
+   * @return deliveredAt
+   */
+  @javax.annotation.Nullable
+  public OffsetDateTime getDeliveredAt() {
+    return deliveredAt;
+  }
+
+  public void setDeliveredAt(@javax.annotation.Nullable OffsetDateTime deliveredAt) {
+    this.deliveredAt = deliveredAt;
+  }
+
+
   public IntegrationHubEventRecord processAfter(@javax.annotation.Nonnull OffsetDateTime processAfter) {
     this.processAfter = processAfter;
     return this;
@@ -307,6 +330,7 @@ public class IntegrationHubEventRecord {
         Objects.equals(this.eventData, integrationHubEventRecord.eventData) &&
         Objects.equals(this.publishedAt, integrationHubEventRecord.publishedAt) &&
         Objects.equals(this.processedAt, integrationHubEventRecord.processedAt) &&
+        Objects.equals(this.deliveredAt, integrationHubEventRecord.deliveredAt) &&
         Objects.equals(this.processAfter, integrationHubEventRecord.processAfter) &&
         Objects.equals(this.retry, integrationHubEventRecord.retry)&&
         Objects.equals(this.additionalProperties, integrationHubEventRecord.additionalProperties);
@@ -314,7 +338,7 @@ public class IntegrationHubEventRecord {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, flowId, eventType, eventData, publishedAt, processedAt, processAfter, retry, additionalProperties);
+    return Objects.hash(id, flowId, eventType, eventData, publishedAt, processedAt, deliveredAt, processAfter, retry, additionalProperties);
   }
 
   @Override
@@ -327,6 +351,7 @@ public class IntegrationHubEventRecord {
     sb.append("    eventData: ").append(toIndentedString(eventData)).append("\n");
     sb.append("    publishedAt: ").append(toIndentedString(publishedAt)).append("\n");
     sb.append("    processedAt: ").append(toIndentedString(processedAt)).append("\n");
+    sb.append("    deliveredAt: ").append(toIndentedString(deliveredAt)).append("\n");
     sb.append("    processAfter: ").append(toIndentedString(processAfter)).append("\n");
     sb.append("    retry: ").append(toIndentedString(retry)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
@@ -339,10 +364,7 @@ public class IntegrationHubEventRecord {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
@@ -351,7 +373,7 @@ public class IntegrationHubEventRecord {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("Id", "FlowId", "EventType", "EventData", "PublishedAt", "ProcessedAt", "ProcessAfter", "Retry"));
+    openapiFields = new HashSet<String>(Arrays.asList("Id", "FlowId", "EventType", "EventData", "PublishedAt", "ProcessedAt", "DeliveredAt", "ProcessAfter", "Retry"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("Id", "FlowId", "EventType", "EventData", "PublishedAt", "ProcessAfter", "Retry"));

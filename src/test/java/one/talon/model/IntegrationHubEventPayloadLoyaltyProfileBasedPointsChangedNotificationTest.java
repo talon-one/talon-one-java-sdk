@@ -58,6 +58,14 @@ public class IntegrationHubEventPayloadLoyaltyProfileBasedPointsChangedNotificat
     }
 
     /**
+     * Test the property 'loyaltyProgramName'
+     */
+    @Test
+    public void loyaltyProgramNameTest() {
+        // TODO: test loyaltyProgramName
+    }
+
+    /**
      * Test the property 'subledgerID'
      */
     @Test
@@ -71,6 +79,14 @@ public class IntegrationHubEventPayloadLoyaltyProfileBasedPointsChangedNotificat
     @Test
     public void sourceOfEventTest() {
         // TODO: test sourceOfEvent
+    }
+
+    /**
+     * Test the property 'currentTier'
+     */
+    @Test
+    public void currentTierTest() {
+        // TODO: test currentTier
     }
 
     /**

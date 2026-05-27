@@ -26,7 +26,6 @@ import java.util.Arrays;
 import java.util.List;
 import one.talon.model.LedgerEntry;
 import one.talon.model.Meta;
-import com.google.gson.JsonElement;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -90,6 +89,11 @@ public class Event {
   @SerializedName(SERIALIZED_NAME_ATTRIBUTES)
   @javax.annotation.Nonnull
   private Object attributes;
+
+  public static final String SERIALIZED_NAME_INTEGRATION_ID = "integrationId";
+  @SerializedName(SERIALIZED_NAME_INTEGRATION_ID)
+  @javax.annotation.Nullable
+  private String integrationId;
 
   public static final String SERIALIZED_NAME_SESSION_ID = "sessionId";
   @SerializedName(SERIALIZED_NAME_SESSION_ID)
@@ -215,7 +219,7 @@ public class Event {
   }
 
   /**
-   * A string representing the event. Must not be a reserved event name.
+   * The name of the event. Must be a [custom event](https://docs.talon.one/docs/dev/concepts/entities/events#custom-events), not a built-in event.
    * @return type
    */
   @javax.annotation.Nonnull
@@ -244,6 +248,25 @@ public class Event {
 
   public void setAttributes(@javax.annotation.Nonnull Object attributes) {
     this.attributes = attributes;
+  }
+
+
+  public Event integrationId(@javax.annotation.Nullable String integrationId) {
+    this.integrationId = integrationId;
+    return this;
+  }
+
+  /**
+   * The unique ID of the event. Only one event with this ID can be registered. 
+   * @return integrationId
+   */
+  @javax.annotation.Nullable
+  public String getIntegrationId() {
+    return integrationId;
+  }
+
+  public void setIntegrationId(@javax.annotation.Nullable String integrationId) {
+    this.integrationId = integrationId;
   }
 
 
@@ -400,6 +423,7 @@ public class Event {
         Objects.equals(this.storeIntegrationId, event.storeIntegrationId) &&
         Objects.equals(this.type, event.type) &&
         Objects.equals(this.attributes, event.attributes) &&
+        Objects.equals(this.integrationId, event.integrationId) &&
         Objects.equals(this.sessionId, event.sessionId) &&
         Objects.equals(this.effects, event.effects) &&
         Objects.equals(this.ledgerEntries, event.ledgerEntries) &&
@@ -409,7 +433,7 @@ public class Event {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, created, applicationId, profileId, storeIntegrationId, type, attributes, sessionId, effects, ledgerEntries, meta, additionalProperties);
+    return Objects.hash(id, created, applicationId, profileId, storeIntegrationId, type, attributes, integrationId, sessionId, effects, ledgerEntries, meta, additionalProperties);
   }
 
   @Override
@@ -423,6 +447,7 @@ public class Event {
     sb.append("    storeIntegrationId: ").append(toIndentedString(storeIntegrationId)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    attributes: ").append(toIndentedString(attributes)).append("\n");
+    sb.append("    integrationId: ").append(toIndentedString(integrationId)).append("\n");
     sb.append("    sessionId: ").append(toIndentedString(sessionId)).append("\n");
     sb.append("    effects: ").append(toIndentedString(effects)).append("\n");
     sb.append("    ledgerEntries: ").append(toIndentedString(ledgerEntries)).append("\n");
@@ -437,10 +462,7 @@ public class Event {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
@@ -449,7 +471,7 @@ public class Event {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("id", "created", "applicationId", "profileId", "storeIntegrationId", "type", "attributes", "sessionId", "effects", "ledgerEntries", "meta"));
+    openapiFields = new HashSet<String>(Arrays.asList("id", "created", "applicationId", "profileId", "storeIntegrationId", "type", "attributes", "integrationId", "sessionId", "effects", "ledgerEntries", "meta"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("id", "created", "applicationId", "type", "attributes", "effects"));
@@ -483,6 +505,9 @@ public class Event {
       }
       if (!jsonObj.get("type").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("type").toString()));
+      }
+      if ((jsonObj.get("integrationId") != null && !jsonObj.get("integrationId").isJsonNull()) && !jsonObj.get("integrationId").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `integrationId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("integrationId").toString()));
       }
       if ((jsonObj.get("sessionId") != null && !jsonObj.get("sessionId").isJsonNull()) && !jsonObj.get("sessionId").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `sessionId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("sessionId").toString()));

@@ -25,7 +25,6 @@ import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import com.google.gson.JsonElement;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -211,15 +210,15 @@ public class CreateAchievementV2 {
   @javax.annotation.Nullable
   private Boolean allowRollbackAfterCompletion;
 
-  public static final String SERIALIZED_NAME_SANDBOX = "sandbox";
-  @SerializedName(SERIALIZED_NAME_SANDBOX)
-  @javax.annotation.Nonnull
-  private Boolean sandbox;
-
   public static final String SERIALIZED_NAME_SUBSCRIBED_APPLICATIONS = "subscribedApplications";
   @SerializedName(SERIALIZED_NAME_SUBSCRIBED_APPLICATIONS)
   @javax.annotation.Nullable
   private List<Long> subscribedApplications;
+
+  public static final String SERIALIZED_NAME_SANDBOX = "sandbox";
+  @SerializedName(SERIALIZED_NAME_SANDBOX)
+  @javax.annotation.Nonnull
+  private Boolean sandbox;
 
   public static final String SERIALIZED_NAME_TIMEZONE = "timezone";
   @SerializedName(SERIALIZED_NAME_TIMEZONE)
@@ -419,25 +418,6 @@ public class CreateAchievementV2 {
   }
 
 
-  public CreateAchievementV2 sandbox(@javax.annotation.Nonnull Boolean sandbox) {
-    this.sandbox = sandbox;
-    return this;
-  }
-
-  /**
-   * Indicates if this achievement is a live or sandbox achievement. Achievements of a given type can only be connected to Applications of the same type.
-   * @return sandbox
-   */
-  @javax.annotation.Nonnull
-  public Boolean getSandbox() {
-    return sandbox;
-  }
-
-  public void setSandbox(@javax.annotation.Nonnull Boolean sandbox) {
-    this.sandbox = sandbox;
-  }
-
-
   public CreateAchievementV2 subscribedApplications(@javax.annotation.Nullable List<Long> subscribedApplications) {
     this.subscribedApplications = subscribedApplications;
     return this;
@@ -462,6 +442,25 @@ public class CreateAchievementV2 {
 
   public void setSubscribedApplications(@javax.annotation.Nullable List<Long> subscribedApplications) {
     this.subscribedApplications = subscribedApplications;
+  }
+
+
+  public CreateAchievementV2 sandbox(@javax.annotation.Nonnull Boolean sandbox) {
+    this.sandbox = sandbox;
+    return this;
+  }
+
+  /**
+   * Indicates if this achievement is a live or sandbox achievement. Achievements of a given type can only be connected to Applications of the same type.
+   * @return sandbox
+   */
+  @javax.annotation.Nonnull
+  public Boolean getSandbox() {
+    return sandbox;
+  }
+
+  public void setSandbox(@javax.annotation.Nonnull Boolean sandbox) {
+    this.sandbox = sandbox;
   }
 
 
@@ -548,15 +547,15 @@ public class CreateAchievementV2 {
         Objects.equals(this.fixedStartDate, createAchievementV2.fixedStartDate) &&
         Objects.equals(this.endDate, createAchievementV2.endDate) &&
         Objects.equals(this.allowRollbackAfterCompletion, createAchievementV2.allowRollbackAfterCompletion) &&
-        Objects.equals(this.sandbox, createAchievementV2.sandbox) &&
         Objects.equals(this.subscribedApplications, createAchievementV2.subscribedApplications) &&
+        Objects.equals(this.sandbox, createAchievementV2.sandbox) &&
         Objects.equals(this.timezone, createAchievementV2.timezone)&&
         Objects.equals(this.additionalProperties, createAchievementV2.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, title, description, target, period, recurrencePolicy, activationPolicy, fixedStartDate, endDate, allowRollbackAfterCompletion, sandbox, subscribedApplications, timezone, additionalProperties);
+    return Objects.hash(name, title, description, target, period, recurrencePolicy, activationPolicy, fixedStartDate, endDate, allowRollbackAfterCompletion, subscribedApplications, sandbox, timezone, additionalProperties);
   }
 
   @Override
@@ -573,8 +572,8 @@ public class CreateAchievementV2 {
     sb.append("    fixedStartDate: ").append(toIndentedString(fixedStartDate)).append("\n");
     sb.append("    endDate: ").append(toIndentedString(endDate)).append("\n");
     sb.append("    allowRollbackAfterCompletion: ").append(toIndentedString(allowRollbackAfterCompletion)).append("\n");
-    sb.append("    sandbox: ").append(toIndentedString(sandbox)).append("\n");
     sb.append("    subscribedApplications: ").append(toIndentedString(subscribedApplications)).append("\n");
+    sb.append("    sandbox: ").append(toIndentedString(sandbox)).append("\n");
     sb.append("    timezone: ").append(toIndentedString(timezone)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
@@ -586,10 +585,7 @@ public class CreateAchievementV2 {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
@@ -598,7 +594,7 @@ public class CreateAchievementV2 {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("name", "title", "description", "target", "period", "recurrencePolicy", "activationPolicy", "fixedStartDate", "endDate", "allowRollbackAfterCompletion", "sandbox", "subscribedApplications", "timezone"));
+    openapiFields = new HashSet<String>(Arrays.asList("name", "title", "description", "target", "period", "recurrencePolicy", "activationPolicy", "fixedStartDate", "endDate", "allowRollbackAfterCompletion", "subscribedApplications", "sandbox", "timezone"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("name", "title", "description", "target", "sandbox", "timezone"));

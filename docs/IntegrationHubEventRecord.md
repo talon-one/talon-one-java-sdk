@@ -13,6 +13,7 @@
 |**eventData** | **Object** |  |  |
 |**publishedAt** | **OffsetDateTime** |  |  |
 |**processedAt** | **OffsetDateTime** |  |  [optional] |
+|**deliveredAt** | **OffsetDateTime** |  |  [optional] |
 |**processAfter** | **OffsetDateTime** |  |  |
 |**retry** | **Long** |  |  |
 

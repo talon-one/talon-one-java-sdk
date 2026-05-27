@@ -138,27 +138,11 @@ public class AchievementV2Test {
     }
 
     /**
-     * Test the property 'sandbox'
-     */
-    @Test
-    public void sandboxTest() {
-        // TODO: test sandbox
-    }
-
-    /**
      * Test the property 'subscribedApplications'
      */
     @Test
     public void subscribedApplicationsTest() {
         // TODO: test subscribedApplications
-    }
-
-    /**
-     * Test the property 'timezone'
-     */
-    @Test
-    public void timezoneTest() {
-        // TODO: test timezone
     }
 
     /**
@@ -191,6 +175,22 @@ public class AchievementV2Test {
     @Test
     public void statusTest() {
         // TODO: test status
+    }
+
+    /**
+     * Test the property 'sandbox'
+     */
+    @Test
+    public void sandboxTest() {
+        // TODO: test sandbox
+    }
+
+    /**
+     * Test the property 'timezone'
+     */
+    @Test
+    public void timezoneTest() {
+        // TODO: test timezone
     }
 
 }

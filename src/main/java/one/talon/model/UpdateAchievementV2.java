@@ -25,7 +25,6 @@ import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import com.google.gson.JsonElement;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -57,22 +56,22 @@ import one.talon.JSON;
 public class UpdateAchievementV2 {
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
   private String name;
 
   public static final String SERIALIZED_NAME_TITLE = "title";
   @SerializedName(SERIALIZED_NAME_TITLE)
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
   private String title;
 
   public static final String SERIALIZED_NAME_DESCRIPTION = "description";
   @SerializedName(SERIALIZED_NAME_DESCRIPTION)
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
   private String description;
 
   public static final String SERIALIZED_NAME_TARGET = "target";
   @SerializedName(SERIALIZED_NAME_TARGET)
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
   private BigDecimal target;
 
   public static final String SERIALIZED_NAME_PERIOD = "period";
@@ -211,25 +210,15 @@ public class UpdateAchievementV2 {
   @javax.annotation.Nullable
   private Boolean allowRollbackAfterCompletion;
 
-  public static final String SERIALIZED_NAME_SANDBOX = "sandbox";
-  @SerializedName(SERIALIZED_NAME_SANDBOX)
-  @javax.annotation.Nullable
-  private Boolean sandbox;
-
   public static final String SERIALIZED_NAME_SUBSCRIBED_APPLICATIONS = "subscribedApplications";
   @SerializedName(SERIALIZED_NAME_SUBSCRIBED_APPLICATIONS)
-  @javax.annotation.Nullable
-  private List<Long> subscribedApplications;
-
-  public static final String SERIALIZED_NAME_TIMEZONE = "timezone";
-  @SerializedName(SERIALIZED_NAME_TIMEZONE)
-  @javax.annotation.Nullable
-  private String timezone;
+  @javax.annotation.Nonnull
+  private List<Long> subscribedApplications = new ArrayList<>();
 
   public UpdateAchievementV2() {
   }
 
-  public UpdateAchievementV2 name(@javax.annotation.Nullable String name) {
+  public UpdateAchievementV2 name(@javax.annotation.Nonnull String name) {
     this.name = name;
     return this;
   }
@@ -238,17 +227,17 @@ public class UpdateAchievementV2 {
    * The internal name of the achievement used in API requests.  **Note**: The name should start with a letter. This cannot be changed after the achievement has been created. 
    * @return name
    */
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
   public String getName() {
     return name;
   }
 
-  public void setName(@javax.annotation.Nullable String name) {
+  public void setName(@javax.annotation.Nonnull String name) {
     this.name = name;
   }
 
 
-  public UpdateAchievementV2 title(@javax.annotation.Nullable String title) {
+  public UpdateAchievementV2 title(@javax.annotation.Nonnull String title) {
     this.title = title;
     return this;
   }
@@ -257,17 +246,17 @@ public class UpdateAchievementV2 {
    * The display name for the achievement in the Campaign Manager.
    * @return title
    */
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
   public String getTitle() {
     return title;
   }
 
-  public void setTitle(@javax.annotation.Nullable String title) {
+  public void setTitle(@javax.annotation.Nonnull String title) {
     this.title = title;
   }
 
 
-  public UpdateAchievementV2 description(@javax.annotation.Nullable String description) {
+  public UpdateAchievementV2 description(@javax.annotation.Nonnull String description) {
     this.description = description;
     return this;
   }
@@ -276,17 +265,17 @@ public class UpdateAchievementV2 {
    * A description of the achievement.
    * @return description
    */
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
   public String getDescription() {
     return description;
   }
 
-  public void setDescription(@javax.annotation.Nullable String description) {
+  public void setDescription(@javax.annotation.Nonnull String description) {
     this.description = description;
   }
 
 
-  public UpdateAchievementV2 target(@javax.annotation.Nullable BigDecimal target) {
+  public UpdateAchievementV2 target(@javax.annotation.Nonnull BigDecimal target) {
     this.target = target;
     return this;
   }
@@ -295,12 +284,12 @@ public class UpdateAchievementV2 {
    * The required number of actions or the transactional milestone to complete the achievement.
    * @return target
    */
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
   public BigDecimal getTarget() {
     return target;
   }
 
-  public void setTarget(@javax.annotation.Nullable BigDecimal target) {
+  public void setTarget(@javax.annotation.Nonnull BigDecimal target) {
     this.target = target;
   }
 
@@ -419,26 +408,7 @@ public class UpdateAchievementV2 {
   }
 
 
-  public UpdateAchievementV2 sandbox(@javax.annotation.Nullable Boolean sandbox) {
-    this.sandbox = sandbox;
-    return this;
-  }
-
-  /**
-   * Indicates if this achievement is a live or sandbox achievement. Achievements of a given type can only be connected to Applications of the same type.
-   * @return sandbox
-   */
-  @javax.annotation.Nullable
-  public Boolean getSandbox() {
-    return sandbox;
-  }
-
-  public void setSandbox(@javax.annotation.Nullable Boolean sandbox) {
-    this.sandbox = sandbox;
-  }
-
-
-  public UpdateAchievementV2 subscribedApplications(@javax.annotation.Nullable List<Long> subscribedApplications) {
+  public UpdateAchievementV2 subscribedApplications(@javax.annotation.Nonnull List<Long> subscribedApplications) {
     this.subscribedApplications = subscribedApplications;
     return this;
   }
@@ -455,32 +425,13 @@ public class UpdateAchievementV2 {
    * A list containing the IDs of all applications that are subscribed to A list containing the IDs of all Applications that are connected to this achievement.
    * @return subscribedApplications
    */
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
   public List<Long> getSubscribedApplications() {
     return subscribedApplications;
   }
 
-  public void setSubscribedApplications(@javax.annotation.Nullable List<Long> subscribedApplications) {
+  public void setSubscribedApplications(@javax.annotation.Nonnull List<Long> subscribedApplications) {
     this.subscribedApplications = subscribedApplications;
-  }
-
-
-  public UpdateAchievementV2 timezone(@javax.annotation.Nullable String timezone) {
-    this.timezone = timezone;
-    return this;
-  }
-
-  /**
-   * A string containing an IANA timezone descriptor.
-   * @return timezone
-   */
-  @javax.annotation.Nullable
-  public String getTimezone() {
-    return timezone;
-  }
-
-  public void setTimezone(@javax.annotation.Nullable String timezone) {
-    this.timezone = timezone;
   }
 
   /**
@@ -548,15 +499,13 @@ public class UpdateAchievementV2 {
         Objects.equals(this.fixedStartDate, updateAchievementV2.fixedStartDate) &&
         Objects.equals(this.endDate, updateAchievementV2.endDate) &&
         Objects.equals(this.allowRollbackAfterCompletion, updateAchievementV2.allowRollbackAfterCompletion) &&
-        Objects.equals(this.sandbox, updateAchievementV2.sandbox) &&
-        Objects.equals(this.subscribedApplications, updateAchievementV2.subscribedApplications) &&
-        Objects.equals(this.timezone, updateAchievementV2.timezone)&&
+        Objects.equals(this.subscribedApplications, updateAchievementV2.subscribedApplications)&&
         Objects.equals(this.additionalProperties, updateAchievementV2.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, title, description, target, period, recurrencePolicy, activationPolicy, fixedStartDate, endDate, allowRollbackAfterCompletion, sandbox, subscribedApplications, timezone, additionalProperties);
+    return Objects.hash(name, title, description, target, period, recurrencePolicy, activationPolicy, fixedStartDate, endDate, allowRollbackAfterCompletion, subscribedApplications, additionalProperties);
   }
 
   @Override
@@ -573,9 +522,7 @@ public class UpdateAchievementV2 {
     sb.append("    fixedStartDate: ").append(toIndentedString(fixedStartDate)).append("\n");
     sb.append("    endDate: ").append(toIndentedString(endDate)).append("\n");
     sb.append("    allowRollbackAfterCompletion: ").append(toIndentedString(allowRollbackAfterCompletion)).append("\n");
-    sb.append("    sandbox: ").append(toIndentedString(sandbox)).append("\n");
     sb.append("    subscribedApplications: ").append(toIndentedString(subscribedApplications)).append("\n");
-    sb.append("    timezone: ").append(toIndentedString(timezone)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -586,10 +533,7 @@ public class UpdateAchievementV2 {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
@@ -598,10 +542,10 @@ public class UpdateAchievementV2 {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("name", "title", "description", "target", "period", "recurrencePolicy", "activationPolicy", "fixedStartDate", "endDate", "allowRollbackAfterCompletion", "sandbox", "subscribedApplications", "timezone"));
+    openapiFields = new HashSet<String>(Arrays.asList("name", "title", "description", "target", "period", "recurrencePolicy", "activationPolicy", "fixedStartDate", "endDate", "allowRollbackAfterCompletion", "subscribedApplications"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(0);
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("name", "title", "description", "target", "subscribedApplications"));
   }
 
   /**
@@ -616,14 +560,21 @@ public class UpdateAchievementV2 {
           throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in UpdateAchievementV2 is not found in the empty JSON string", UpdateAchievementV2.openapiRequiredFields.toString()));
         }
       }
+
+      // check to make sure all required properties/fields are present in the JSON string
+      for (String requiredField : UpdateAchievementV2.openapiRequiredFields) {
+        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
+        }
+      }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if ((jsonObj.get("name") != null && !jsonObj.get("name").isJsonNull()) && !jsonObj.get("name").isJsonPrimitive()) {
+      if (!jsonObj.get("name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
       }
-      if ((jsonObj.get("title") != null && !jsonObj.get("title").isJsonNull()) && !jsonObj.get("title").isJsonPrimitive()) {
+      if (!jsonObj.get("title").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `title` to be a primitive type in the JSON string but got `%s`", jsonObj.get("title").toString()));
       }
-      if ((jsonObj.get("description") != null && !jsonObj.get("description").isJsonNull()) && !jsonObj.get("description").isJsonPrimitive()) {
+      if (!jsonObj.get("description").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `description` to be a primitive type in the JSON string but got `%s`", jsonObj.get("description").toString()));
       }
       if ((jsonObj.get("period") != null && !jsonObj.get("period").isJsonNull()) && !jsonObj.get("period").isJsonPrimitive()) {
@@ -643,12 +594,11 @@ public class UpdateAchievementV2 {
       if (jsonObj.get("activationPolicy") != null && !jsonObj.get("activationPolicy").isJsonNull()) {
         ActivationPolicyEnum.validateJsonElement(jsonObj.get("activationPolicy"));
       }
-      // ensure the optional json data is an array if present
-      if (jsonObj.get("subscribedApplications") != null && !jsonObj.get("subscribedApplications").isJsonNull() && !jsonObj.get("subscribedApplications").isJsonArray()) {
+      // ensure the required json array is present
+      if (jsonObj.get("subscribedApplications") == null) {
+        throw new IllegalArgumentException("Expected the field `linkedContent` to be an array in the JSON string but got `null`");
+      } else if (!jsonObj.get("subscribedApplications").isJsonArray()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `subscribedApplications` to be an array in the JSON string but got `%s`", jsonObj.get("subscribedApplications").toString()));
-      }
-      if ((jsonObj.get("timezone") != null && !jsonObj.get("timezone").isJsonNull()) && !jsonObj.get("timezone").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `timezone` to be a primitive type in the JSON string but got `%s`", jsonObj.get("timezone").toString()));
       }
   }
 

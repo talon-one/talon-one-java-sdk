@@ -22,9 +22,10 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.math.BigDecimal;
 import java.time.OffsetDateTime;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import one.talon.model.BestPriorPriceMetadata;
-import com.google.gson.JsonElement;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -69,10 +70,15 @@ public class BestPriorPrice {
   @javax.annotation.Nonnull
   private OffsetDateTime observedAt;
 
+  public static final String SERIALIZED_NAME_CONTEXT_IDS = "contextIds";
+  @SerializedName(SERIALIZED_NAME_CONTEXT_IDS)
+  @javax.annotation.Nonnull
+  private List<String> contextIds = new ArrayList<>();
+
   public static final String SERIALIZED_NAME_CONTEXT_ID = "contextId";
   @SerializedName(SERIALIZED_NAME_CONTEXT_ID)
-  @javax.annotation.Nonnull
-  private String contextId;
+  @javax.annotation.Nullable
+  private String contextId = "";
 
   public static final String SERIALIZED_NAME_PRICE = "price";
   @SerializedName(SERIALIZED_NAME_PRICE)
@@ -149,21 +155,48 @@ public class BestPriorPrice {
   }
 
 
-  public BestPriorPrice contextId(@javax.annotation.Nonnull String contextId) {
+  public BestPriorPrice contextIds(@javax.annotation.Nonnull List<String> contextIds) {
+    this.contextIds = contextIds;
+    return this;
+  }
+
+  public BestPriorPrice addContextIdsItem(String contextIdsItem) {
+    if (this.contextIds == null) {
+      this.contextIds = new ArrayList<>();
+    }
+    this.contextIds.add(contextIdsItem);
+    return this;
+  }
+
+  /**
+   * The identifiers of the relevant context at the time the price was observed. Includes the context IDs of any price adjustments and of the campaigns that influenced the final price. 
+   * @return contextIds
+   */
+  @javax.annotation.Nonnull
+  public List<String> getContextIds() {
+    return contextIds;
+  }
+
+  public void setContextIds(@javax.annotation.Nonnull List<String> contextIds) {
+    this.contextIds = contextIds;
+  }
+
+
+  public BestPriorPrice contextId(@javax.annotation.Nullable String contextId) {
     this.contextId = contextId;
     return this;
   }
 
   /**
-   * The context ID of the context active at the time of observation. 
+   * This property is **deprecated**. Use &#x60;contextIds&#x60; instead. Defaults to an empty string. 
    * @return contextId
    */
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   public String getContextId() {
     return contextId;
   }
 
-  public void setContextId(@javax.annotation.Nonnull String contextId) {
+  public void setContextId(@javax.annotation.Nullable String contextId) {
     this.contextId = contextId;
   }
 
@@ -282,6 +315,7 @@ public class BestPriorPrice {
     return Objects.equals(this.id, bestPriorPrice.id) &&
         Objects.equals(this.sku, bestPriorPrice.sku) &&
         Objects.equals(this.observedAt, bestPriorPrice.observedAt) &&
+        Objects.equals(this.contextIds, bestPriorPrice.contextIds) &&
         Objects.equals(this.contextId, bestPriorPrice.contextId) &&
         Objects.equals(this.price, bestPriorPrice.price) &&
         Objects.equals(this.metadata, bestPriorPrice.metadata) &&
@@ -291,7 +325,7 @@ public class BestPriorPrice {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, sku, observedAt, contextId, price, metadata, target, additionalProperties);
+    return Objects.hash(id, sku, observedAt, contextIds, contextId, price, metadata, target, additionalProperties);
   }
 
   @Override
@@ -301,6 +335,7 @@ public class BestPriorPrice {
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    sku: ").append(toIndentedString(sku)).append("\n");
     sb.append("    observedAt: ").append(toIndentedString(observedAt)).append("\n");
+    sb.append("    contextIds: ").append(toIndentedString(contextIds)).append("\n");
     sb.append("    contextId: ").append(toIndentedString(contextId)).append("\n");
     sb.append("    price: ").append(toIndentedString(price)).append("\n");
     sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
@@ -315,10 +350,7 @@ public class BestPriorPrice {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
@@ -327,10 +359,10 @@ public class BestPriorPrice {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("id", "sku", "observedAt", "contextId", "price", "metadata", "target"));
+    openapiFields = new HashSet<String>(Arrays.asList("id", "sku", "observedAt", "contextIds", "contextId", "price", "metadata", "target"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("id", "sku", "observedAt", "contextId", "price", "metadata", "target"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("id", "sku", "observedAt", "contextIds", "price", "metadata", "target"));
   }
 
   /**
@@ -356,7 +388,13 @@ public class BestPriorPrice {
       if (!jsonObj.get("sku").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `sku` to be a primitive type in the JSON string but got `%s`", jsonObj.get("sku").toString()));
       }
-      if (!jsonObj.get("contextId").isJsonPrimitive()) {
+      // ensure the required json array is present
+      if (jsonObj.get("contextIds") == null) {
+        throw new IllegalArgumentException("Expected the field `linkedContent` to be an array in the JSON string but got `null`");
+      } else if (!jsonObj.get("contextIds").isJsonArray()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `contextIds` to be an array in the JSON string but got `%s`", jsonObj.get("contextIds").toString()));
+      }
+      if ((jsonObj.get("contextId") != null && !jsonObj.get("contextId").isJsonNull()) && !jsonObj.get("contextId").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `contextId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("contextId").toString()));
       }
       // validate the required field `metadata`

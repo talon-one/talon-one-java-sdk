@@ -55,6 +55,14 @@ public class IntegrationHubEventPayloadLoyaltyProfileBasedTierUpgradeNotificatio
     }
 
     /**
+     * Test the property 'loyaltyProgramName'
+     */
+    @Test
+    public void loyaltyProgramNameTest() {
+        // TODO: test loyaltyProgramName
+    }
+
+    /**
      * Test the property 'subledgerID'
      */
     @Test
