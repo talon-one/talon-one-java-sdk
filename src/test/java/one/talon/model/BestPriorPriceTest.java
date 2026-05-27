@@ -21,7 +21,9 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.math.BigDecimal;
 import java.time.OffsetDateTime;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import one.talon.model.BestPriorPriceMetadata;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
@@ -62,6 +64,14 @@ public class BestPriorPriceTest {
     @Test
     public void observedAtTest() {
         // TODO: test observedAt
+    }
+
+    /**
+     * Test the property 'contextIds'
+     */
+    @Test
+    public void contextIdsTest() {
+        // TODO: test contextIds
     }
 
     /**

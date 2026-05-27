@@ -26,7 +26,6 @@ import java.util.Arrays;
 import java.util.List;
 import one.talon.model.Campaign;
 import one.talon.model.ExperimentVariant;
-import com.google.gson.JsonElement;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -149,6 +148,72 @@ public class Experiment {
   @SerializedName(SERIALIZED_NAME_VARIANTS)
   @javax.annotation.Nullable
   private List<ExperimentVariant> variants;
+
+  /**
+   * The goal of the experiment. Determines which single metric is used to decide the winning variant. When set to &#x60;other&#x60;, multiple metrics are used. 
+   */
+  @JsonAdapter(GoalTypeEnum.Adapter.class)
+  public enum GoalTypeEnum {
+    OTHER("other"),
+    
+    MAXIMIZE_REVENUE("maximize_revenue"),
+    
+    OPTIMIZE_DISCOUNT_EFFICIENCY("optimize_discount_efficiency"),
+    
+    MAXIMIZE_ITEMS_SOLD("maximize_items_sold");
+
+    private String value;
+
+    GoalTypeEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static GoalTypeEnum fromValue(String value) {
+      for (GoalTypeEnum b : GoalTypeEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    }
+
+    public static class Adapter extends TypeAdapter<GoalTypeEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final GoalTypeEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public GoalTypeEnum read(final JsonReader jsonReader) throws IOException {
+        String value =  jsonReader.nextString();
+        return GoalTypeEnum.fromValue(value);
+      }
+    }
+
+    public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      String value = jsonElement.getAsString();
+      GoalTypeEnum.fromValue(value);
+    }
+  }
+
+  public static final String SERIALIZED_NAME_GOAL_TYPE = "goalType";
+  @SerializedName(SERIALIZED_NAME_GOAL_TYPE)
+  @javax.annotation.Nonnull
+  private GoalTypeEnum goalType;
+
+  public static final String SERIALIZED_NAME_GOAL_DESCRIPTION = "goalDescription";
+  @SerializedName(SERIALIZED_NAME_GOAL_DESCRIPTION)
+  @javax.annotation.Nullable
+  private String goalDescription;
 
   public static final String SERIALIZED_NAME_DELETEDAT = "deletedat";
   @SerializedName(SERIALIZED_NAME_DELETEDAT)
@@ -318,6 +383,44 @@ public class Experiment {
   }
 
 
+  public Experiment goalType(@javax.annotation.Nonnull GoalTypeEnum goalType) {
+    this.goalType = goalType;
+    return this;
+  }
+
+  /**
+   * The goal of the experiment. Determines which single metric is used to decide the winning variant. When set to &#x60;other&#x60;, multiple metrics are used. 
+   * @return goalType
+   */
+  @javax.annotation.Nonnull
+  public GoalTypeEnum getGoalType() {
+    return goalType;
+  }
+
+  public void setGoalType(@javax.annotation.Nonnull GoalTypeEnum goalType) {
+    this.goalType = goalType;
+  }
+
+
+  public Experiment goalDescription(@javax.annotation.Nullable String goalDescription) {
+    this.goalDescription = goalDescription;
+    return this;
+  }
+
+  /**
+   * A description of the experiment goal. Provides context for the AI summary and helps it interpret the outcome of the experiment against the stated goal. 
+   * @return goalDescription
+   */
+  @javax.annotation.Nullable
+  public String getGoalDescription() {
+    return goalDescription;
+  }
+
+  public void setGoalDescription(@javax.annotation.Nullable String goalDescription) {
+    this.goalDescription = goalDescription;
+  }
+
+
   public Experiment deletedat(@javax.annotation.Nullable OffsetDateTime deletedat) {
     this.deletedat = deletedat;
     return this;
@@ -399,13 +502,15 @@ public class Experiment {
         Objects.equals(this.activated, experiment.activated) &&
         Objects.equals(this.state, experiment.state) &&
         Objects.equals(this.variants, experiment.variants) &&
+        Objects.equals(this.goalType, experiment.goalType) &&
+        Objects.equals(this.goalDescription, experiment.goalDescription) &&
         Objects.equals(this.deletedat, experiment.deletedat)&&
         Objects.equals(this.additionalProperties, experiment.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, created, applicationId, isVariantAssignmentExternal, campaign, activated, state, variants, deletedat, additionalProperties);
+    return Objects.hash(id, created, applicationId, isVariantAssignmentExternal, campaign, activated, state, variants, goalType, goalDescription, deletedat, additionalProperties);
   }
 
   @Override
@@ -420,6 +525,8 @@ public class Experiment {
     sb.append("    activated: ").append(toIndentedString(activated)).append("\n");
     sb.append("    state: ").append(toIndentedString(state)).append("\n");
     sb.append("    variants: ").append(toIndentedString(variants)).append("\n");
+    sb.append("    goalType: ").append(toIndentedString(goalType)).append("\n");
+    sb.append("    goalDescription: ").append(toIndentedString(goalDescription)).append("\n");
     sb.append("    deletedat: ").append(toIndentedString(deletedat)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
@@ -431,10 +538,7 @@ public class Experiment {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
@@ -443,10 +547,10 @@ public class Experiment {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("id", "created", "applicationId", "isVariantAssignmentExternal", "campaign", "activated", "state", "variants", "deletedat"));
+    openapiFields = new HashSet<String>(Arrays.asList("id", "created", "applicationId", "isVariantAssignmentExternal", "campaign", "activated", "state", "variants", "goalType", "goalDescription", "deletedat"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("id", "created", "applicationId", "state"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("id", "created", "applicationId", "state", "goalType"));
   }
 
   /**
@@ -491,6 +595,14 @@ public class Experiment {
             ExperimentVariant.validateJsonElement(jsonArrayvariants.get(i));
           };
         }
+      }
+      if (!jsonObj.get("goalType").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `goalType` to be a primitive type in the JSON string but got `%s`", jsonObj.get("goalType").toString()));
+      }
+      // validate the required field `goalType`
+      GoalTypeEnum.validateJsonElement(jsonObj.get("goalType"));
+      if ((jsonObj.get("goalDescription") != null && !jsonObj.get("goalDescription").isJsonNull()) && !jsonObj.get("goalDescription").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `goalDescription` to be a primitive type in the JSON string but got `%s`", jsonObj.get("goalDescription").toString()));
       }
   }
 

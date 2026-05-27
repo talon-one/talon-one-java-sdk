@@ -26,7 +26,6 @@ import one.talon.model.CustomerProfile;
 import one.talon.model.CustomerSession;
 import one.talon.model.Event;
 import one.talon.model.Loyalty;
-import com.google.gson.JsonElement;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -265,10 +264,7 @@ public class IntegrationState {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 

@@ -64,14 +64,6 @@ public class IntegrationEventV3RequestTest {
     }
 
     /**
-     * Test the property 'integrationId'
-     */
-    @Test
-    public void integrationIdTest() {
-        // TODO: test integrationId
-    }
-
-    /**
      * Test the property 'type'
      */
     @Test
@@ -88,19 +80,19 @@ public class IntegrationEventV3RequestTest {
     }
 
     /**
-     * Test the property 'connectedSessionID'
+     * Test the property 'integrationId'
      */
     @Test
-    public void connectedSessionIDTest() {
-        // TODO: test connectedSessionID
+    public void integrationIdTest() {
+        // TODO: test integrationId
     }
 
     /**
-     * Test the property 'previousEventID'
+     * Test the property 'connectedSessionId'
      */
     @Test
-    public void previousEventIDTest() {
-        // TODO: test previousEventID
+    public void connectedSessionIdTest() {
+        // TODO: test connectedSessionId
     }
 
     /**

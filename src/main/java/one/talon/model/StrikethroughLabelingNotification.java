@@ -26,7 +26,6 @@ import java.util.Arrays;
 import java.util.List;
 import one.talon.model.StrikethroughChangedItem;
 import one.talon.model.StrikethroughTrigger;
-import com.google.gson.JsonElement;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -57,7 +56,7 @@ import one.talon.JSON;
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.22.0")
 public class StrikethroughLabelingNotification {
   /**
-   * The version of the strikethrough pricing notification.
+   * The version of the strikethrough pricing notification. Set for **scheduled** strikethrough pricing updates only. 
    */
   @JsonAdapter(VersionEnum.Adapter.class)
   public enum VersionEnum {
@@ -210,7 +209,7 @@ public class StrikethroughLabelingNotification {
   }
 
   /**
-   * The version of the strikethrough pricing notification.
+   * The version of the strikethrough pricing notification. Set for **scheduled** strikethrough pricing updates only. 
    * @return version
    */
   @javax.annotation.Nullable
@@ -477,10 +476,7 @@ public class StrikethroughLabelingNotification {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 

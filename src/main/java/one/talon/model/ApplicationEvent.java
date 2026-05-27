@@ -26,7 +26,6 @@ import java.util.Arrays;
 import java.util.List;
 import one.talon.model.Effect;
 import one.talon.model.RuleFailureReason;
-import com.google.gson.JsonElement;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -85,6 +84,11 @@ public class ApplicationEvent {
   @SerializedName(SERIALIZED_NAME_STORE_INTEGRATION_ID)
   @javax.annotation.Nullable
   private String storeIntegrationId;
+
+  public static final String SERIALIZED_NAME_INTEGRATION_ID = "integrationId";
+  @SerializedName(SERIALIZED_NAME_INTEGRATION_ID)
+  @javax.annotation.Nullable
+  private String integrationId;
 
   public static final String SERIALIZED_NAME_SESSION_ID = "sessionId";
   @SerializedName(SERIALIZED_NAME_SESSION_ID)
@@ -228,6 +232,25 @@ public class ApplicationEvent {
   }
 
 
+  public ApplicationEvent integrationId(@javax.annotation.Nullable String integrationId) {
+    this.integrationId = integrationId;
+    return this;
+  }
+
+  /**
+   * The unique ID of the event. Only one event with this ID can be registered. 
+   * @return integrationId
+   */
+  @javax.annotation.Nullable
+  public String getIntegrationId() {
+    return integrationId;
+  }
+
+  public void setIntegrationId(@javax.annotation.Nullable String integrationId) {
+    this.integrationId = integrationId;
+  }
+
+
   public ApplicationEvent sessionId(@javax.annotation.Nullable Long sessionId) {
     this.sessionId = sessionId;
     return this;
@@ -253,7 +276,7 @@ public class ApplicationEvent {
   }
 
   /**
-   * A string representing the event. Must not be a reserved event name.
+   * The name of the event. Must be a [custom event](https://docs.talon.one/docs/dev/concepts/entities/events#custom-events), not a built-in event.
    * @return type
    */
   @javax.annotation.Nonnull
@@ -399,6 +422,7 @@ public class ApplicationEvent {
         Objects.equals(this.profileId, applicationEvent.profileId) &&
         Objects.equals(this.storeId, applicationEvent.storeId) &&
         Objects.equals(this.storeIntegrationId, applicationEvent.storeIntegrationId) &&
+        Objects.equals(this.integrationId, applicationEvent.integrationId) &&
         Objects.equals(this.sessionId, applicationEvent.sessionId) &&
         Objects.equals(this.type, applicationEvent.type) &&
         Objects.equals(this.attributes, applicationEvent.attributes) &&
@@ -409,7 +433,7 @@ public class ApplicationEvent {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, created, applicationId, profileId, storeId, storeIntegrationId, sessionId, type, attributes, effects, ruleFailureReasons, additionalProperties);
+    return Objects.hash(id, created, applicationId, profileId, storeId, storeIntegrationId, integrationId, sessionId, type, attributes, effects, ruleFailureReasons, additionalProperties);
   }
 
   @Override
@@ -422,6 +446,7 @@ public class ApplicationEvent {
     sb.append("    profileId: ").append(toIndentedString(profileId)).append("\n");
     sb.append("    storeId: ").append(toIndentedString(storeId)).append("\n");
     sb.append("    storeIntegrationId: ").append(toIndentedString(storeIntegrationId)).append("\n");
+    sb.append("    integrationId: ").append(toIndentedString(integrationId)).append("\n");
     sb.append("    sessionId: ").append(toIndentedString(sessionId)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    attributes: ").append(toIndentedString(attributes)).append("\n");
@@ -437,10 +462,7 @@ public class ApplicationEvent {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
@@ -449,7 +471,7 @@ public class ApplicationEvent {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("id", "created", "applicationId", "profileId", "storeId", "storeIntegrationId", "sessionId", "type", "attributes", "effects", "ruleFailureReasons"));
+    openapiFields = new HashSet<String>(Arrays.asList("id", "created", "applicationId", "profileId", "storeId", "storeIntegrationId", "integrationId", "sessionId", "type", "attributes", "effects", "ruleFailureReasons"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("id", "created", "applicationId", "type", "attributes", "effects"));
@@ -477,6 +499,9 @@ public class ApplicationEvent {
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("storeIntegrationId") != null && !jsonObj.get("storeIntegrationId").isJsonNull()) && !jsonObj.get("storeIntegrationId").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `storeIntegrationId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("storeIntegrationId").toString()));
+      }
+      if ((jsonObj.get("integrationId") != null && !jsonObj.get("integrationId").isJsonNull()) && !jsonObj.get("integrationId").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `integrationId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("integrationId").toString()));
       }
       if (!jsonObj.get("type").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("type").toString()));

@@ -28,7 +28,6 @@ import one.talon.model.ScimServiceProviderConfigResponseChangePassword;
 import one.talon.model.ScimServiceProviderConfigResponseFilter;
 import one.talon.model.ScimServiceProviderConfigResponsePatch;
 import one.talon.model.ScimServiceProviderConfigResponseSort;
-import com.google.gson.JsonElement;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -327,10 +326,7 @@ public class ScimServiceProviderConfigResponse {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 

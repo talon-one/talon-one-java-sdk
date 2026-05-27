@@ -42,7 +42,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>one.talon</groupId>
   <artifactId>talon-one-client</artifactId>
-  <version>26.09.0</version>
+  <version>26.11.0</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -52,7 +52,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "one.talon:talon-one-client:26.09.0"
+compile "one.talon:talon-one-client:26.11.0"
 ```
 
 ### Others
@@ -349,12 +349,12 @@ Class | Method | HTTP request | Description
 *ManagementApi* | [**getExperiment**](docs/ManagementApi.md#getExperiment) | **GET** /v1/applications/{applicationId}/experiments/{experimentId} | Get experiment in Application
 *ManagementApi* | [**getExports**](docs/ManagementApi.md#getExports) | **GET** /v1/exports | Get exports
 *ManagementApi* | [**getLoyaltyCard**](docs/ManagementApi.md#getLoyaltyCard) | **GET** /v1/loyalty_programs/{loyaltyProgramId}/cards/{loyaltyCardId} | Get loyalty card
-*ManagementApi* | [**getLoyaltyCardTransactionLogs**](docs/ManagementApi.md#getLoyaltyCardTransactionLogs) | **GET** /v1/loyalty_programs/{loyaltyProgramId}/cards/{loyaltyCardId}/logs | List card&#39;s transactions
+*ManagementApi* | [**getLoyaltyCardTransactionLogs**](docs/ManagementApi.md#getLoyaltyCardTransactionLogs) | **GET** /v1/loyalty_programs/{loyaltyProgramId}/cards/{loyaltyCardId}/logs | List card&#39;s transactions (Management API)
 *ManagementApi* | [**getLoyaltyCards**](docs/ManagementApi.md#getLoyaltyCards) | **GET** /v1/loyalty_programs/{loyaltyProgramId}/cards | List loyalty cards
-*ManagementApi* | [**getLoyaltyLedgerBalances**](docs/ManagementApi.md#getLoyaltyLedgerBalances) | **GET** /v1/loyalty_programs/{loyaltyProgramId}/profile/{integrationId}/ledger_balances | Get customer&#39;s loyalty balances
+*ManagementApi* | [**getLoyaltyLedgerBalances**](docs/ManagementApi.md#getLoyaltyLedgerBalances) | **GET** /v1/loyalty_programs/{loyaltyProgramId}/profile/{integrationId}/ledger_balances | Get customer&#39;s loyalty balances (Management API)
 *ManagementApi* | [**getLoyaltyPoints**](docs/ManagementApi.md#getLoyaltyPoints) | **GET** /v1/loyalty_programs/{loyaltyProgramId}/profile/{integrationId} | Get customer&#39;s full loyalty ledger
 *ManagementApi* | [**getLoyaltyProgram**](docs/ManagementApi.md#getLoyaltyProgram) | **GET** /v1/loyalty_programs/{loyaltyProgramId} | Get loyalty program
-*ManagementApi* | [**getLoyaltyProgramProfileLedgerTransactions**](docs/ManagementApi.md#getLoyaltyProgramProfileLedgerTransactions) | **GET** /v1/loyalty_programs/{loyaltyProgramId}/profile/{integrationId}/ledger_transactions | List customer&#39;s loyalty transactions
+*ManagementApi* | [**getLoyaltyProgramProfileLedgerTransactions**](docs/ManagementApi.md#getLoyaltyProgramProfileLedgerTransactions) | **GET** /v1/loyalty_programs/{loyaltyProgramId}/profile/{integrationId}/ledger_transactions | List customer&#39;s loyalty transactions (Management API)
 *ManagementApi* | [**getLoyaltyProgramTransactions**](docs/ManagementApi.md#getLoyaltyProgramTransactions) | **GET** /v1/loyalty_programs/{loyaltyProgramId}/transactions | List loyalty program transactions
 *ManagementApi* | [**getLoyaltyPrograms**](docs/ManagementApi.md#getLoyaltyPrograms) | **GET** /v1/loyalty_programs | List loyalty programs
 *ManagementApi* | [**getLoyaltyStatistics**](docs/ManagementApi.md#getLoyaltyStatistics) | **GET** /v1/loyalty_programs/{loyaltyProgramId}/statistics | Get loyalty program statistics
@@ -584,6 +584,7 @@ Class | Method | HTTP request | Description
 - [CartItem](docs/CartItem.md)
 - [CartItemFilterTemplate](docs/CartItemFilterTemplate.md)
 - [Catalog](docs/Catalog.md)
+- [CatalogAction](docs/CatalogAction.md)
 - [CatalogActionFilter](docs/CatalogActionFilter.md)
 - [CatalogItem](docs/CatalogItem.md)
 - [CatalogRule](docs/CatalogRule.md)
@@ -663,6 +664,9 @@ Class | Method | HTTP request | Description
 - [EventType](docs/EventType.md)
 - [EventV2](docs/EventV2.md)
 - [EventV3](docs/EventV3.md)
+- [EventV3Connections](docs/EventV3Connections.md)
+- [EventV3Entity](docs/EventV3Entity.md)
+- [EventV3RequestEntity](docs/EventV3RequestEntity.md)
 - [Experiment](docs/Experiment.md)
 - [ExperimentCampaignCopy](docs/ExperimentCampaignCopy.md)
 - [ExperimentCopy](docs/ExperimentCopy.md)
@@ -695,6 +699,7 @@ Class | Method | HTTP request | Description
 - [ExtendLoyaltyPointsExpiryDateEffectProps](docs/ExtendLoyaltyPointsExpiryDateEffectProps.md)
 - [ExtendedCoupon](docs/ExtendedCoupon.md)
 - [FeatureFlag](docs/FeatureFlag.md)
+- [FeatureFlagUpdate](docs/FeatureFlagUpdate.md)
 - [FeaturesFeed](docs/FeaturesFeed.md)
 - [FuncArgDef](docs/FuncArgDef.md)
 - [FunctionDef](docs/FunctionDef.md)
@@ -764,6 +769,7 @@ Class | Method | HTTP request | Description
 - [IncreaseAchievementProgressEffectProps](docs/IncreaseAchievementProgressEffectProps.md)
 - [InfluencingCampaignDetails](docs/InfluencingCampaignDetails.md)
 - [IntegrationCampaign](docs/IntegrationCampaign.md)
+- [IntegrationCampaignBase](docs/IntegrationCampaignBase.md)
 - [IntegrationCoupon](docs/IntegrationCoupon.md)
 - [IntegrationCustomerProfileAudienceRequest](docs/IntegrationCustomerProfileAudienceRequest.md)
 - [IntegrationCustomerProfileAudienceRequestItem](docs/IntegrationCustomerProfileAudienceRequestItem.md)
@@ -784,6 +790,7 @@ Class | Method | HTTP request | Description
 - [IntegrationHubEventPayloadLoyaltyProfileBasedTierDowngradeNotification](docs/IntegrationHubEventPayloadLoyaltyProfileBasedTierDowngradeNotification.md)
 - [IntegrationHubEventPayloadLoyaltyProfileBasedTierUpgradeNotification](docs/IntegrationHubEventPayloadLoyaltyProfileBasedTierUpgradeNotification.md)
 - [IntegrationHubEventRecord](docs/IntegrationHubEventRecord.md)
+- [IntegrationHubEventStatusUpdate](docs/IntegrationHubEventStatusUpdate.md)
 - [IntegrationHubFlow](docs/IntegrationHubFlow.md)
 - [IntegrationHubFlowConfig](docs/IntegrationHubFlowConfig.md)
 - [IntegrationHubFlowConfigResponse](docs/IntegrationHubFlowConfigResponse.md)
@@ -899,6 +906,7 @@ Class | Method | HTTP request | Description
 - [NewCustomerSessionV2](docs/NewCustomerSessionV2.md)
 - [NewEvent](docs/NewEvent.md)
 - [NewEventType](docs/NewEventType.md)
+- [NewEventV3Entity](docs/NewEventV3Entity.md)
 - [NewExperiment](docs/NewExperiment.md)
 - [NewExperimentVariant](docs/NewExperimentVariant.md)
 - [NewExperimentVariantArray](docs/NewExperimentVariantArray.md)
@@ -925,6 +933,7 @@ Class | Method | HTTP request | Description
 - [NewReturn](docs/NewReturn.md)
 - [NewRevisionVersion](docs/NewRevisionVersion.md)
 - [NewReward](docs/NewReward.md)
+- [NewRiskNotification](docs/NewRiskNotification.md)
 - [NewRole](docs/NewRole.md)
 - [NewRoleV2](docs/NewRoleV2.md)
 - [NewRuleset](docs/NewRuleset.md)
@@ -993,6 +1002,8 @@ Class | Method | HTTP request | Description
 - [RevisionActivationRequest](docs/RevisionActivationRequest.md)
 - [RevisionVersion](docs/RevisionVersion.md)
 - [Reward](docs/Reward.md)
+- [RewardPointsRequired](docs/RewardPointsRequired.md)
+- [RiskNotification](docs/RiskNotification.md)
 - [Role](docs/Role.md)
 - [RoleAssign](docs/RoleAssign.md)
 - [RoleMembership](docs/RoleMembership.md)
@@ -1015,6 +1026,7 @@ Class | Method | HTTP request | Description
 - [RuleEligibilityFailureDetails](docs/RuleEligibilityFailureDetails.md)
 - [RuleFailureReason](docs/RuleFailureReason.md)
 - [RuleMetadata](docs/RuleMetadata.md)
+- [RuleMetadataEligibility](docs/RuleMetadataEligibility.md)
 - [Ruleset](docs/Ruleset.md)
 - [SSOConfig](docs/SSOConfig.md)
 - [SamlConnection](docs/SamlConnection.md)
@@ -1065,6 +1077,8 @@ Class | Method | HTTP request | Description
 - [StrikethroughTrigger](docs/StrikethroughTrigger.md)
 - [SummarizeCampaignStoreBudget200Response](docs/SummarizeCampaignStoreBudget200Response.md)
 - [SummaryCampaignStoreBudget](docs/SummaryCampaignStoreBudget.md)
+- [SupportRequest](docs/SupportRequest.md)
+- [SupportRequestInput](docs/SupportRequestInput.md)
 - [TalangAttribute](docs/TalangAttribute.md)
 - [TalangAttributeVisibility](docs/TalangAttributeVisibility.md)
 - [TemplateArgDef](docs/TemplateArgDef.md)
@@ -1122,6 +1136,7 @@ Class | Method | HTTP request | Description
 - [UpdateReward](docs/UpdateReward.md)
 - [UpdateRole](docs/UpdateRole.md)
 - [UpdateStore](docs/UpdateStore.md)
+- [UpdateSupportRequest](docs/UpdateSupportRequest.md)
 - [UpdateUser](docs/UpdateUser.md)
 - [User](docs/User.md)
 - [UserEntity](docs/UserEntity.md)

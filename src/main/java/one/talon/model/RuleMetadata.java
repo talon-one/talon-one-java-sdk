@@ -20,11 +20,7 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
-import one.talon.model.RuleEligibility;
-import com.google.gson.JsonElement;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -73,11 +69,6 @@ public class RuleMetadata {
   @SerializedName(SERIALIZED_NAME_RELATED_DATA)
   @javax.annotation.Nullable
   private String relatedData;
-
-  public static final String SERIALIZED_NAME_ELIGIBILITY = "eligibility";
-  @SerializedName(SERIALIZED_NAME_ELIGIBILITY)
-  @javax.annotation.Nullable
-  private List<RuleEligibility> eligibility;
 
   public RuleMetadata() {
   }
@@ -157,33 +148,6 @@ public class RuleMetadata {
     this.relatedData = relatedData;
   }
 
-
-  public RuleMetadata eligibility(@javax.annotation.Nullable List<RuleEligibility> eligibility) {
-    this.eligibility = eligibility;
-    return this;
-  }
-
-  public RuleMetadata addEligibilityItem(RuleEligibility eligibilityItem) {
-    if (this.eligibility == null) {
-      this.eligibility = new ArrayList<>();
-    }
-    this.eligibility.add(eligibilityItem);
-    return this;
-  }
-
-  /**
-   * Get eligibility
-   * @return eligibility
-   */
-  @javax.annotation.Nullable
-  public List<RuleEligibility> getEligibility() {
-    return eligibility;
-  }
-
-  public void setEligibility(@javax.annotation.Nullable List<RuleEligibility> eligibility) {
-    this.eligibility = eligibility;
-  }
-
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -242,14 +206,13 @@ public class RuleMetadata {
     return Objects.equals(this.title, ruleMetadata.title) &&
         Objects.equals(this.displayName, ruleMetadata.displayName) &&
         Objects.equals(this.displayDescription, ruleMetadata.displayDescription) &&
-        Objects.equals(this.relatedData, ruleMetadata.relatedData) &&
-        Objects.equals(this.eligibility, ruleMetadata.eligibility)&&
+        Objects.equals(this.relatedData, ruleMetadata.relatedData)&&
         Objects.equals(this.additionalProperties, ruleMetadata.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(title, displayName, displayDescription, relatedData, eligibility, additionalProperties);
+    return Objects.hash(title, displayName, displayDescription, relatedData, additionalProperties);
   }
 
   @Override
@@ -260,7 +223,6 @@ public class RuleMetadata {
     sb.append("    displayName: ").append(toIndentedString(displayName)).append("\n");
     sb.append("    displayDescription: ").append(toIndentedString(displayDescription)).append("\n");
     sb.append("    relatedData: ").append(toIndentedString(relatedData)).append("\n");
-    sb.append("    eligibility: ").append(toIndentedString(eligibility)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -271,10 +233,7 @@ public class RuleMetadata {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
@@ -283,7 +242,7 @@ public class RuleMetadata {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("title", "displayName", "displayDescription", "relatedData", "eligibility"));
+    openapiFields = new HashSet<String>(Arrays.asList("title", "displayName", "displayDescription", "relatedData"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("title"));
@@ -320,20 +279,6 @@ public class RuleMetadata {
       }
       if ((jsonObj.get("relatedData") != null && !jsonObj.get("relatedData").isJsonNull()) && !jsonObj.get("relatedData").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `relatedData` to be a primitive type in the JSON string but got `%s`", jsonObj.get("relatedData").toString()));
-      }
-      if (jsonObj.get("eligibility") != null && !jsonObj.get("eligibility").isJsonNull()) {
-        JsonArray jsonArrayeligibility = jsonObj.getAsJsonArray("eligibility");
-        if (jsonArrayeligibility != null) {
-          // ensure the json data is an array
-          if (!jsonObj.get("eligibility").isJsonArray()) {
-            throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `eligibility` to be an array in the JSON string but got `%s`", jsonObj.get("eligibility").toString()));
-          }
-
-          // validate the optional field `eligibility` (array)
-          for (int i = 0; i < jsonArrayeligibility.size(); i++) {
-            RuleEligibility.validateJsonElement(jsonArrayeligibility.get(i));
-          };
-        }
       }
   }
 

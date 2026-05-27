@@ -27,7 +27,6 @@ import java.util.List;
 import one.talon.model.AttributesSettings;
 import one.talon.model.LimitConfig;
 import one.talon.model.LoyaltyProgram;
-import com.google.gson.JsonElement;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -886,10 +885,7 @@ public class Application {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 

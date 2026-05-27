@@ -62,6 +62,7 @@ import one.talon.model.DeleteUserRequest;
 import one.talon.model.ErrorResponse;
 import one.talon.model.ErrorResponseWithStatus;
 import one.talon.model.Experiment;
+import java.io.File;
 import one.talon.model.GenerateCouponRejections200Response;
 import one.talon.model.GetAccessLogsWithoutTotalCount200Response;
 import one.talon.model.GetAdditionalCosts200Response;
@@ -16669,8 +16670,8 @@ public class ManagementApi {
     }
 
     /**
-     * List card&#39;s transactions
-     * Retrieve the transaction logs for the given [loyalty card](https://docs.talon.one/docs/product/loyalty-programs/card-based/card-based-overview) within the specified [card-based loyalty program](https://docs.talon.one/docs/product/loyalty-programs/overview#loyalty-program-types) with filtering options applied. If no filtering options are applied, the last 50 loyalty transactions for the given loyalty card are returned. 
+     * List card&#39;s transactions (Management API)
+     * Retrieve the transaction logs for the given [loyalty card](https://docs.talon.one/docs/product/loyalty-programs/card-based/card-based-overview) within the specified [card-based loyalty program](https://docs.talon.one/docs/product/loyalty-programs/overview#loyalty-program-types) with filtering options applied.  &gt; [!note] For most use cases, especially real-time integrations, use the Integration API endpoint: &gt; [List card&#39;s transactions](https://docs.talon.one/integration-api#tag/Loyalty-cards/operation/getLoyaltyCardTransactions).  If no filtering options are applied, the last 50 loyalty transactions for the given loyalty card are returned. 
      * @param loyaltyProgramId Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint.  (required)
      * @param loyaltyCardId Identifier of the loyalty card. You can get the identifier with the [List loyalty cards](https://docs.talon.one/management-api#tag/Loyalty-cards/operation/getLoyaltyCards) endpoint.  **Important**: The loyalty card ID requires [URL encoding](https://www.w3schools.com/tags//ref_urlencode.asp) if it contains special characters. For example, you must encode &#x60;NewCard2026%&#x60; as &#x60;NewCard2026%25&#x60;.  (required)
      * @param startDate Date and time from which results are returned. Results are filtered by transaction creation date.  &gt; [!note] **Note** &gt; - This must be an RFC3339 timestamp string. &gt; - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting &gt;   considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered.  (optional)
@@ -16697,8 +16698,8 @@ public class ManagementApi {
     }
 
     /**
-     * List card&#39;s transactions
-     * Retrieve the transaction logs for the given [loyalty card](https://docs.talon.one/docs/product/loyalty-programs/card-based/card-based-overview) within the specified [card-based loyalty program](https://docs.talon.one/docs/product/loyalty-programs/overview#loyalty-program-types) with filtering options applied. If no filtering options are applied, the last 50 loyalty transactions for the given loyalty card are returned. 
+     * List card&#39;s transactions (Management API)
+     * Retrieve the transaction logs for the given [loyalty card](https://docs.talon.one/docs/product/loyalty-programs/card-based/card-based-overview) within the specified [card-based loyalty program](https://docs.talon.one/docs/product/loyalty-programs/overview#loyalty-program-types) with filtering options applied.  &gt; [!note] For most use cases, especially real-time integrations, use the Integration API endpoint: &gt; [List card&#39;s transactions](https://docs.talon.one/integration-api#tag/Loyalty-cards/operation/getLoyaltyCardTransactions).  If no filtering options are applied, the last 50 loyalty transactions for the given loyalty card are returned. 
      * @param loyaltyProgramId Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint.  (required)
      * @param loyaltyCardId Identifier of the loyalty card. You can get the identifier with the [List loyalty cards](https://docs.talon.one/management-api#tag/Loyalty-cards/operation/getLoyaltyCards) endpoint.  **Important**: The loyalty card ID requires [URL encoding](https://www.w3schools.com/tags//ref_urlencode.asp) if it contains special characters. For example, you must encode &#x60;NewCard2026%&#x60; as &#x60;NewCard2026%25&#x60;.  (required)
      * @param startDate Date and time from which results are returned. Results are filtered by transaction creation date.  &gt; [!note] **Note** &gt; - This must be an RFC3339 timestamp string. &gt; - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting &gt;   considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered.  (optional)
@@ -16726,8 +16727,8 @@ public class ManagementApi {
     }
 
     /**
-     * List card&#39;s transactions (asynchronously)
-     * Retrieve the transaction logs for the given [loyalty card](https://docs.talon.one/docs/product/loyalty-programs/card-based/card-based-overview) within the specified [card-based loyalty program](https://docs.talon.one/docs/product/loyalty-programs/overview#loyalty-program-types) with filtering options applied. If no filtering options are applied, the last 50 loyalty transactions for the given loyalty card are returned. 
+     * List card&#39;s transactions (Management API) (asynchronously)
+     * Retrieve the transaction logs for the given [loyalty card](https://docs.talon.one/docs/product/loyalty-programs/card-based/card-based-overview) within the specified [card-based loyalty program](https://docs.talon.one/docs/product/loyalty-programs/overview#loyalty-program-types) with filtering options applied.  &gt; [!note] For most use cases, especially real-time integrations, use the Integration API endpoint: &gt; [List card&#39;s transactions](https://docs.talon.one/integration-api#tag/Loyalty-cards/operation/getLoyaltyCardTransactions).  If no filtering options are applied, the last 50 loyalty transactions for the given loyalty card are returned. 
      * @param loyaltyProgramId Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint.  (required)
      * @param loyaltyCardId Identifier of the loyalty card. You can get the identifier with the [List loyalty cards](https://docs.talon.one/management-api#tag/Loyalty-cards/operation/getLoyaltyCards) endpoint.  **Important**: The loyalty card ID requires [URL encoding](https://www.w3schools.com/tags//ref_urlencode.asp) if it contains special characters. For example, you must encode &#x60;NewCard2026%&#x60; as &#x60;NewCard2026%25&#x60;.  (required)
      * @param startDate Date and time from which results are returned. Results are filtered by transaction creation date.  &gt; [!note] **Note** &gt; - This must be an RFC3339 timestamp string. &gt; - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting &gt;   considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered.  (optional)
@@ -17039,8 +17040,8 @@ public class ManagementApi {
     }
 
     /**
-     * Get customer&#39;s loyalty balances
-     * Retrieve loyalty ledger balances for the given Integration ID in the specified loyalty program.  You can filter balances by date and subledger ID, and include tier-related information in the response.  &gt; [!note] If no filtering options are applied, you retrieve all loyalty &gt; balances on the current date for the given integration ID.  Loyalty balances are calculated when Talon.One receives your request using the points stored in our database, so retrieving a large number of balances at once can impact performance.  For more information, see:  - [Managing card-based loyalty program data](https://docs.talon.one/docs/product/loyalty-programs/card-based/managing-loyalty-cards)  - [Managing profile-based loyalty program data](https://docs.talon.one/docs/product/loyalty-programs/profile-based/managing-pb-lp-data) 
+     * Get customer&#39;s loyalty balances (Management API)
+     * Retrieve loyalty ledger balances for the given Integration ID in the specified loyalty program.  You can filter balances by date and subledger ID, and include tier-related information in the response.  &gt; [!note] **Note** &gt; - For most use cases, especially real-time integrations, use the Integration API endpoint:     [Get customer&#39;s loyalty balances](https://docs.talon.one/integration-api#tag/Loyalty/operation/getLoyaltyBalances). &gt; - If no filtering options are applied, you retrieve all loyalty balances on the current date for the given integration ID.  Loyalty balances are calculated when Talon.One receives your request using the points stored in our database, so retrieving a large number of balances at once can impact performance.  For more information, see:  - [Managing card-based loyalty program data](https://docs.talon.one/docs/product/loyalty-programs/card-based/managing-loyalty-cards)  - [Managing profile-based loyalty program data](https://docs.talon.one/docs/product/loyalty-programs/profile-based/managing-pb-lp-data) 
      * @param loyaltyProgramId Identifier of the profile-based loyalty program. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint.  (required)
      * @param integrationId The integration identifier for this customer profile. Must be: - Unique within the deployment. - Stable for the customer. Do not use an ID that the customer can update themselves. For example, you can use a database ID.  Once set, you cannot update this identifier.  (required)
      * @param endDate Used to return expired, active, and pending loyalty balances before this timestamp. You can enter any past, present, or future timestamp value.  &gt; [!note] **Note** &gt; - This must be an RFC3339 timestamp string. &gt; - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting &gt;   considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered.  (optional)
@@ -17065,8 +17066,8 @@ public class ManagementApi {
     }
 
     /**
-     * Get customer&#39;s loyalty balances
-     * Retrieve loyalty ledger balances for the given Integration ID in the specified loyalty program.  You can filter balances by date and subledger ID, and include tier-related information in the response.  &gt; [!note] If no filtering options are applied, you retrieve all loyalty &gt; balances on the current date for the given integration ID.  Loyalty balances are calculated when Talon.One receives your request using the points stored in our database, so retrieving a large number of balances at once can impact performance.  For more information, see:  - [Managing card-based loyalty program data](https://docs.talon.one/docs/product/loyalty-programs/card-based/managing-loyalty-cards)  - [Managing profile-based loyalty program data](https://docs.talon.one/docs/product/loyalty-programs/profile-based/managing-pb-lp-data) 
+     * Get customer&#39;s loyalty balances (Management API)
+     * Retrieve loyalty ledger balances for the given Integration ID in the specified loyalty program.  You can filter balances by date and subledger ID, and include tier-related information in the response.  &gt; [!note] **Note** &gt; - For most use cases, especially real-time integrations, use the Integration API endpoint:     [Get customer&#39;s loyalty balances](https://docs.talon.one/integration-api#tag/Loyalty/operation/getLoyaltyBalances). &gt; - If no filtering options are applied, you retrieve all loyalty balances on the current date for the given integration ID.  Loyalty balances are calculated when Talon.One receives your request using the points stored in our database, so retrieving a large number of balances at once can impact performance.  For more information, see:  - [Managing card-based loyalty program data](https://docs.talon.one/docs/product/loyalty-programs/card-based/managing-loyalty-cards)  - [Managing profile-based loyalty program data](https://docs.talon.one/docs/product/loyalty-programs/profile-based/managing-pb-lp-data) 
      * @param loyaltyProgramId Identifier of the profile-based loyalty program. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint.  (required)
      * @param integrationId The integration identifier for this customer profile. Must be: - Unique within the deployment. - Stable for the customer. Do not use an ID that the customer can update themselves. For example, you can use a database ID.  Once set, you cannot update this identifier.  (required)
      * @param endDate Used to return expired, active, and pending loyalty balances before this timestamp. You can enter any past, present, or future timestamp value.  &gt; [!note] **Note** &gt; - This must be an RFC3339 timestamp string. &gt; - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting &gt;   considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered.  (optional)
@@ -17092,8 +17093,8 @@ public class ManagementApi {
     }
 
     /**
-     * Get customer&#39;s loyalty balances (asynchronously)
-     * Retrieve loyalty ledger balances for the given Integration ID in the specified loyalty program.  You can filter balances by date and subledger ID, and include tier-related information in the response.  &gt; [!note] If no filtering options are applied, you retrieve all loyalty &gt; balances on the current date for the given integration ID.  Loyalty balances are calculated when Talon.One receives your request using the points stored in our database, so retrieving a large number of balances at once can impact performance.  For more information, see:  - [Managing card-based loyalty program data](https://docs.talon.one/docs/product/loyalty-programs/card-based/managing-loyalty-cards)  - [Managing profile-based loyalty program data](https://docs.talon.one/docs/product/loyalty-programs/profile-based/managing-pb-lp-data) 
+     * Get customer&#39;s loyalty balances (Management API) (asynchronously)
+     * Retrieve loyalty ledger balances for the given Integration ID in the specified loyalty program.  You can filter balances by date and subledger ID, and include tier-related information in the response.  &gt; [!note] **Note** &gt; - For most use cases, especially real-time integrations, use the Integration API endpoint:     [Get customer&#39;s loyalty balances](https://docs.talon.one/integration-api#tag/Loyalty/operation/getLoyaltyBalances). &gt; - If no filtering options are applied, you retrieve all loyalty balances on the current date for the given integration ID.  Loyalty balances are calculated when Talon.One receives your request using the points stored in our database, so retrieving a large number of balances at once can impact performance.  For more information, see:  - [Managing card-based loyalty program data](https://docs.talon.one/docs/product/loyalty-programs/card-based/managing-loyalty-cards)  - [Managing profile-based loyalty program data](https://docs.talon.one/docs/product/loyalty-programs/profile-based/managing-pb-lp-data) 
      * @param loyaltyProgramId Identifier of the profile-based loyalty program. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint.  (required)
      * @param integrationId The integration identifier for this customer profile. Must be: - Unique within the deployment. - Stable for the customer. Do not use an ID that the customer can update themselves. For example, you can use a database ID.  Once set, you cannot update this identifier.  (required)
      * @param endDate Used to return expired, active, and pending loyalty balances before this timestamp. You can enter any past, present, or future timestamp value.  &gt; [!note] **Note** &gt; - This must be an RFC3339 timestamp string. &gt; - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting &gt;   considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered.  (optional)
@@ -17518,8 +17519,8 @@ public class ManagementApi {
     }
 
     /**
-     * List customer&#39;s loyalty transactions
-     * Retrieve paginated results of loyalty transaction logs for the given Integration ID in the specified loyalty program.  You can filter transactions by date or by ledger (subledger or main ledger). If no filters are applied, the last 50 loyalty transactions for the given integration ID are returned.  &gt; [!note] To retrieve all loyalty program transaction logs in a given &gt; loyalty program, use the [List loyalty program transactions](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyProgramTransactions) &gt; endpoint. 
+     * List customer&#39;s loyalty transactions (Management API)
+     * Retrieve paginated results of loyalty transaction logs for the given Integration ID in the specified loyalty program.  You can filter transactions by date or by ledger (subledger or main ledger). If no filters are applied, the last 50 loyalty transactions for the given integration ID are returned.  &gt; [!note] **Note** &gt; - For most use cases, especially real-time integrations, use the Integration API endpoint: &gt;   [List customer&#39;s loyalty transactions](https://docs.talon.one/integration-api#tag/Loyalty/operation/getLoyaltyProgramProfileTransactions). &gt; - To retrieve all loyalty program transaction logs in a given loyalty program, use the &gt;   [List loyalty program transactions](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyProgramTransactions) endpoint. 
      * @param loyaltyProgramId Identifier of the profile-based loyalty program. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint.  (required)
      * @param integrationId The integration identifier for this customer profile. Must be: - Unique within the deployment. - Stable for the customer. Do not use an ID that the customer can update themselves. For example, you can use a database ID.  Once set, you cannot update this identifier.  (required)
      * @param customerSessionIDs Filter the results by a list of customer session IDs.  To include multiple IDs, repeat the parameter for each one, for example, &#x60;?customerSessionIDs&#x3D;id1&amp;customerSessionIDs&#x3D;id2&#x60;.  The response contains only data associated with the specified sessions.  (optional)
@@ -17549,8 +17550,8 @@ public class ManagementApi {
     }
 
     /**
-     * List customer&#39;s loyalty transactions
-     * Retrieve paginated results of loyalty transaction logs for the given Integration ID in the specified loyalty program.  You can filter transactions by date or by ledger (subledger or main ledger). If no filters are applied, the last 50 loyalty transactions for the given integration ID are returned.  &gt; [!note] To retrieve all loyalty program transaction logs in a given &gt; loyalty program, use the [List loyalty program transactions](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyProgramTransactions) &gt; endpoint. 
+     * List customer&#39;s loyalty transactions (Management API)
+     * Retrieve paginated results of loyalty transaction logs for the given Integration ID in the specified loyalty program.  You can filter transactions by date or by ledger (subledger or main ledger). If no filters are applied, the last 50 loyalty transactions for the given integration ID are returned.  &gt; [!note] **Note** &gt; - For most use cases, especially real-time integrations, use the Integration API endpoint: &gt;   [List customer&#39;s loyalty transactions](https://docs.talon.one/integration-api#tag/Loyalty/operation/getLoyaltyProgramProfileTransactions). &gt; - To retrieve all loyalty program transaction logs in a given loyalty program, use the &gt;   [List loyalty program transactions](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyProgramTransactions) endpoint. 
      * @param loyaltyProgramId Identifier of the profile-based loyalty program. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint.  (required)
      * @param integrationId The integration identifier for this customer profile. Must be: - Unique within the deployment. - Stable for the customer. Do not use an ID that the customer can update themselves. For example, you can use a database ID.  Once set, you cannot update this identifier.  (required)
      * @param customerSessionIDs Filter the results by a list of customer session IDs.  To include multiple IDs, repeat the parameter for each one, for example, &#x60;?customerSessionIDs&#x3D;id1&amp;customerSessionIDs&#x3D;id2&#x60;.  The response contains only data associated with the specified sessions.  (optional)
@@ -17581,8 +17582,8 @@ public class ManagementApi {
     }
 
     /**
-     * List customer&#39;s loyalty transactions (asynchronously)
-     * Retrieve paginated results of loyalty transaction logs for the given Integration ID in the specified loyalty program.  You can filter transactions by date or by ledger (subledger or main ledger). If no filters are applied, the last 50 loyalty transactions for the given integration ID are returned.  &gt; [!note] To retrieve all loyalty program transaction logs in a given &gt; loyalty program, use the [List loyalty program transactions](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyProgramTransactions) &gt; endpoint. 
+     * List customer&#39;s loyalty transactions (Management API) (asynchronously)
+     * Retrieve paginated results of loyalty transaction logs for the given Integration ID in the specified loyalty program.  You can filter transactions by date or by ledger (subledger or main ledger). If no filters are applied, the last 50 loyalty transactions for the given integration ID are returned.  &gt; [!note] **Note** &gt; - For most use cases, especially real-time integrations, use the Integration API endpoint: &gt;   [List customer&#39;s loyalty transactions](https://docs.talon.one/integration-api#tag/Loyalty/operation/getLoyaltyProgramProfileTransactions). &gt; - To retrieve all loyalty program transaction logs in a given loyalty program, use the &gt;   [List loyalty program transactions](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyProgramTransactions) endpoint. 
      * @param loyaltyProgramId Identifier of the profile-based loyalty program. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint.  (required)
      * @param integrationId The integration identifier for this customer profile. Must be: - Unique within the deployment. - Stable for the customer. Do not use an ID that the customer can update themselves. For example, you can use a database ID.  Once set, you cannot update this identifier.  (required)
      * @param customerSessionIDs Filter the results by a list of customer session IDs.  To include multiple IDs, repeat the parameter for each one, for example, &#x60;?customerSessionIDs&#x3D;id1&amp;customerSessionIDs&#x3D;id2&#x60;.  The response contains only data associated with the specified sessions.  (optional)
@@ -19676,7 +19677,7 @@ public class ManagementApi {
     /**
      * Build call for importAccountCollection
      * @param collectionId The ID of the collection. You can get it with the [List collections in account](#tag/Collections/operation/listAccountCollections) endpoint. (required)
-     * @param upFile The file containing the data that is being imported. (optional)
+     * @param upFile The CSV file containing the data that is being imported. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -19689,7 +19690,7 @@ public class ManagementApi {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call importAccountCollectionCall(@javax.annotation.Nonnull Long collectionId, @javax.annotation.Nullable String upFile, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call importAccountCollectionCall(@javax.annotation.Nonnull Long collectionId, @javax.annotation.Nullable File upFile, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -19740,7 +19741,7 @@ public class ManagementApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call importAccountCollectionValidateBeforeCall(@javax.annotation.Nonnull Long collectionId, @javax.annotation.Nullable String upFile, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call importAccountCollectionValidateBeforeCall(@javax.annotation.Nonnull Long collectionId, @javax.annotation.Nullable File upFile, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'collectionId' is set
         if (collectionId == null) {
             throw new ApiException("Missing the required parameter 'collectionId' when calling importAccountCollection(Async)");
@@ -19754,7 +19755,7 @@ public class ManagementApi {
      * Import data into existing account-level collection
      * Upload a CSV file containing the collection of string values that should be attached as payload for collection.  The file should be sent as multipart data.  The import **replaces** the initial content of the collection.  The CSV file **must** only contain the following column:  - &#x60;item&#x60;: the values in your collection.  A collection is limited to 500,000 items.  ## Example  &#x60;&#x60;&#x60; item Adidas Nike Asics &#x60;&#x60;&#x60;  &gt; [!note] Before sending a request to this endpoint, ensure the data in the &gt; CSV to import is different from the data currently stored in the collection. 
      * @param collectionId The ID of the collection. You can get it with the [List collections in account](#tag/Collections/operation/listAccountCollections) endpoint. (required)
-     * @param upFile The file containing the data that is being imported. (optional)
+     * @param upFile The CSV file containing the data that is being imported. (optional)
      * @return ModelImport
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -19766,7 +19767,7 @@ public class ManagementApi {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public ModelImport importAccountCollection(@javax.annotation.Nonnull Long collectionId, @javax.annotation.Nullable String upFile) throws ApiException {
+    public ModelImport importAccountCollection(@javax.annotation.Nonnull Long collectionId, @javax.annotation.Nullable File upFile) throws ApiException {
         ApiResponse<ModelImport> localVarResp = importAccountCollectionWithHttpInfo(collectionId, upFile);
         return localVarResp.getData();
     }
@@ -19775,7 +19776,7 @@ public class ManagementApi {
      * Import data into existing account-level collection
      * Upload a CSV file containing the collection of string values that should be attached as payload for collection.  The file should be sent as multipart data.  The import **replaces** the initial content of the collection.  The CSV file **must** only contain the following column:  - &#x60;item&#x60;: the values in your collection.  A collection is limited to 500,000 items.  ## Example  &#x60;&#x60;&#x60; item Adidas Nike Asics &#x60;&#x60;&#x60;  &gt; [!note] Before sending a request to this endpoint, ensure the data in the &gt; CSV to import is different from the data currently stored in the collection. 
      * @param collectionId The ID of the collection. You can get it with the [List collections in account](#tag/Collections/operation/listAccountCollections) endpoint. (required)
-     * @param upFile The file containing the data that is being imported. (optional)
+     * @param upFile The CSV file containing the data that is being imported. (optional)
      * @return ApiResponse&lt;ModelImport&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -19787,7 +19788,7 @@ public class ManagementApi {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<ModelImport> importAccountCollectionWithHttpInfo(@javax.annotation.Nonnull Long collectionId, @javax.annotation.Nullable String upFile) throws ApiException {
+    public ApiResponse<ModelImport> importAccountCollectionWithHttpInfo(@javax.annotation.Nonnull Long collectionId, @javax.annotation.Nullable File upFile) throws ApiException {
         okhttp3.Call localVarCall = importAccountCollectionValidateBeforeCall(collectionId, upFile, null);
         Type localVarReturnType = new TypeToken<ModelImport>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -19797,7 +19798,7 @@ public class ManagementApi {
      * Import data into existing account-level collection (asynchronously)
      * Upload a CSV file containing the collection of string values that should be attached as payload for collection.  The file should be sent as multipart data.  The import **replaces** the initial content of the collection.  The CSV file **must** only contain the following column:  - &#x60;item&#x60;: the values in your collection.  A collection is limited to 500,000 items.  ## Example  &#x60;&#x60;&#x60; item Adidas Nike Asics &#x60;&#x60;&#x60;  &gt; [!note] Before sending a request to this endpoint, ensure the data in the &gt; CSV to import is different from the data currently stored in the collection. 
      * @param collectionId The ID of the collection. You can get it with the [List collections in account](#tag/Collections/operation/listAccountCollections) endpoint. (required)
-     * @param upFile The file containing the data that is being imported. (optional)
+     * @param upFile The CSV file containing the data that is being imported. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -19810,7 +19811,7 @@ public class ManagementApi {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call importAccountCollectionAsync(@javax.annotation.Nonnull Long collectionId, @javax.annotation.Nullable String upFile, final ApiCallback<ModelImport> _callback) throws ApiException {
+    public okhttp3.Call importAccountCollectionAsync(@javax.annotation.Nonnull Long collectionId, @javax.annotation.Nullable File upFile, final ApiCallback<ModelImport> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = importAccountCollectionValidateBeforeCall(collectionId, upFile, _callback);
         Type localVarReturnType = new TypeToken<ModelImport>(){}.getType();
@@ -19820,7 +19821,7 @@ public class ManagementApi {
     /**
      * Build call for importAllowedList
      * @param attributeId The ID of the attribute. You can find the ID in the Campaign Manager&#39;s URL when you display the details of an attribute in **Account** &gt; **Tools** &gt; **Attributes**. (required)
-     * @param upFile The file containing the data that is being imported. (optional)
+     * @param upFile The CSV file containing the data that is being imported. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -19834,7 +19835,7 @@ public class ManagementApi {
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call importAllowedListCall(@javax.annotation.Nonnull Long attributeId, @javax.annotation.Nullable String upFile, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call importAllowedListCall(@javax.annotation.Nonnull Long attributeId, @javax.annotation.Nullable File upFile, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -19885,7 +19886,7 @@ public class ManagementApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call importAllowedListValidateBeforeCall(@javax.annotation.Nonnull Long attributeId, @javax.annotation.Nullable String upFile, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call importAllowedListValidateBeforeCall(@javax.annotation.Nonnull Long attributeId, @javax.annotation.Nullable File upFile, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'attributeId' is set
         if (attributeId == null) {
             throw new ApiException("Missing the required parameter 'attributeId' when calling importAllowedList(Async)");
@@ -19899,7 +19900,7 @@ public class ManagementApi {
      * Import allowed values for attribute
      * Upload a CSV file containing a list of [picklist values](https://docs.talon.one/docs/product/account/dev-tools/managing-attributes#picklist-values) for the specified attribute.  The file should be sent as multipart data.  The import **replaces** the previous list of allowed values for this attribute, if any.  The CSV file **must** only contain the following column:  - &#x60;item&#x60;: The values in your allowed list, for example a list of SKUs.  An allowed list is limited to 500,000 items.  ## Example  &#x60;&#x60;&#x60;text item CS-VG-04032021-UP-50D-10 CS-DV-04042021-UP-49D-12 CS-DG-02082021-UP-50G-07 &#x60;&#x60;&#x60; 
      * @param attributeId The ID of the attribute. You can find the ID in the Campaign Manager&#39;s URL when you display the details of an attribute in **Account** &gt; **Tools** &gt; **Attributes**. (required)
-     * @param upFile The file containing the data that is being imported. (optional)
+     * @param upFile The CSV file containing the data that is being imported. (optional)
      * @return ModelImport
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -19912,7 +19913,7 @@ public class ManagementApi {
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
      */
-    public ModelImport importAllowedList(@javax.annotation.Nonnull Long attributeId, @javax.annotation.Nullable String upFile) throws ApiException {
+    public ModelImport importAllowedList(@javax.annotation.Nonnull Long attributeId, @javax.annotation.Nullable File upFile) throws ApiException {
         ApiResponse<ModelImport> localVarResp = importAllowedListWithHttpInfo(attributeId, upFile);
         return localVarResp.getData();
     }
@@ -19921,7 +19922,7 @@ public class ManagementApi {
      * Import allowed values for attribute
      * Upload a CSV file containing a list of [picklist values](https://docs.talon.one/docs/product/account/dev-tools/managing-attributes#picklist-values) for the specified attribute.  The file should be sent as multipart data.  The import **replaces** the previous list of allowed values for this attribute, if any.  The CSV file **must** only contain the following column:  - &#x60;item&#x60;: The values in your allowed list, for example a list of SKUs.  An allowed list is limited to 500,000 items.  ## Example  &#x60;&#x60;&#x60;text item CS-VG-04032021-UP-50D-10 CS-DV-04042021-UP-49D-12 CS-DG-02082021-UP-50G-07 &#x60;&#x60;&#x60; 
      * @param attributeId The ID of the attribute. You can find the ID in the Campaign Manager&#39;s URL when you display the details of an attribute in **Account** &gt; **Tools** &gt; **Attributes**. (required)
-     * @param upFile The file containing the data that is being imported. (optional)
+     * @param upFile The CSV file containing the data that is being imported. (optional)
      * @return ApiResponse&lt;ModelImport&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -19934,7 +19935,7 @@ public class ManagementApi {
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<ModelImport> importAllowedListWithHttpInfo(@javax.annotation.Nonnull Long attributeId, @javax.annotation.Nullable String upFile) throws ApiException {
+    public ApiResponse<ModelImport> importAllowedListWithHttpInfo(@javax.annotation.Nonnull Long attributeId, @javax.annotation.Nullable File upFile) throws ApiException {
         okhttp3.Call localVarCall = importAllowedListValidateBeforeCall(attributeId, upFile, null);
         Type localVarReturnType = new TypeToken<ModelImport>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -19944,7 +19945,7 @@ public class ManagementApi {
      * Import allowed values for attribute (asynchronously)
      * Upload a CSV file containing a list of [picklist values](https://docs.talon.one/docs/product/account/dev-tools/managing-attributes#picklist-values) for the specified attribute.  The file should be sent as multipart data.  The import **replaces** the previous list of allowed values for this attribute, if any.  The CSV file **must** only contain the following column:  - &#x60;item&#x60;: The values in your allowed list, for example a list of SKUs.  An allowed list is limited to 500,000 items.  ## Example  &#x60;&#x60;&#x60;text item CS-VG-04032021-UP-50D-10 CS-DV-04042021-UP-49D-12 CS-DG-02082021-UP-50G-07 &#x60;&#x60;&#x60; 
      * @param attributeId The ID of the attribute. You can find the ID in the Campaign Manager&#39;s URL when you display the details of an attribute in **Account** &gt; **Tools** &gt; **Attributes**. (required)
-     * @param upFile The file containing the data that is being imported. (optional)
+     * @param upFile The CSV file containing the data that is being imported. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -19958,7 +19959,7 @@ public class ManagementApi {
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call importAllowedListAsync(@javax.annotation.Nonnull Long attributeId, @javax.annotation.Nullable String upFile, final ApiCallback<ModelImport> _callback) throws ApiException {
+    public okhttp3.Call importAllowedListAsync(@javax.annotation.Nonnull Long attributeId, @javax.annotation.Nullable File upFile, final ApiCallback<ModelImport> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = importAllowedListValidateBeforeCall(attributeId, upFile, _callback);
         Type localVarReturnType = new TypeToken<ModelImport>(){}.getType();
@@ -19968,7 +19969,7 @@ public class ManagementApi {
     /**
      * Build call for importAudiencesMemberships
      * @param audienceId The ID of the audience. (required)
-     * @param upFile The file containing the data that is being imported. (optional)
+     * @param upFile The CSV file containing the data that is being imported. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -19982,7 +19983,7 @@ public class ManagementApi {
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call importAudiencesMembershipsCall(@javax.annotation.Nonnull Long audienceId, @javax.annotation.Nullable String upFile, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call importAudiencesMembershipsCall(@javax.annotation.Nonnull Long audienceId, @javax.annotation.Nullable File upFile, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -20033,7 +20034,7 @@ public class ManagementApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call importAudiencesMembershipsValidateBeforeCall(@javax.annotation.Nonnull Long audienceId, @javax.annotation.Nullable String upFile, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call importAudiencesMembershipsValidateBeforeCall(@javax.annotation.Nonnull Long audienceId, @javax.annotation.Nullable File upFile, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'audienceId' is set
         if (audienceId == null) {
             throw new ApiException("Missing the required parameter 'audienceId' when calling importAudiencesMemberships(Async)");
@@ -20047,7 +20048,7 @@ public class ManagementApi {
      * Import audience members
      * Upload a CSV file containing the integration IDs of the members you want to add to an audience.  The file should be sent as multipart data and should contain only the following column (required):  - &#x60;profileintegrationid&#x60;: The integration ID of the customer profile.  The import **replaces** the previous list of audience members.  &gt; [!note] We recommend limiting your file size to 500 MB.  ## Example  &#x60;&#x60;&#x60;text profileintegrationid charles alexa &#x60;&#x60;&#x60; 
      * @param audienceId The ID of the audience. (required)
-     * @param upFile The file containing the data that is being imported. (optional)
+     * @param upFile The CSV file containing the data that is being imported. (optional)
      * @return ModelImport
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -20060,7 +20061,7 @@ public class ManagementApi {
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
      */
-    public ModelImport importAudiencesMemberships(@javax.annotation.Nonnull Long audienceId, @javax.annotation.Nullable String upFile) throws ApiException {
+    public ModelImport importAudiencesMemberships(@javax.annotation.Nonnull Long audienceId, @javax.annotation.Nullable File upFile) throws ApiException {
         ApiResponse<ModelImport> localVarResp = importAudiencesMembershipsWithHttpInfo(audienceId, upFile);
         return localVarResp.getData();
     }
@@ -20069,7 +20070,7 @@ public class ManagementApi {
      * Import audience members
      * Upload a CSV file containing the integration IDs of the members you want to add to an audience.  The file should be sent as multipart data and should contain only the following column (required):  - &#x60;profileintegrationid&#x60;: The integration ID of the customer profile.  The import **replaces** the previous list of audience members.  &gt; [!note] We recommend limiting your file size to 500 MB.  ## Example  &#x60;&#x60;&#x60;text profileintegrationid charles alexa &#x60;&#x60;&#x60; 
      * @param audienceId The ID of the audience. (required)
-     * @param upFile The file containing the data that is being imported. (optional)
+     * @param upFile The CSV file containing the data that is being imported. (optional)
      * @return ApiResponse&lt;ModelImport&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -20082,7 +20083,7 @@ public class ManagementApi {
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<ModelImport> importAudiencesMembershipsWithHttpInfo(@javax.annotation.Nonnull Long audienceId, @javax.annotation.Nullable String upFile) throws ApiException {
+    public ApiResponse<ModelImport> importAudiencesMembershipsWithHttpInfo(@javax.annotation.Nonnull Long audienceId, @javax.annotation.Nullable File upFile) throws ApiException {
         okhttp3.Call localVarCall = importAudiencesMembershipsValidateBeforeCall(audienceId, upFile, null);
         Type localVarReturnType = new TypeToken<ModelImport>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -20092,7 +20093,7 @@ public class ManagementApi {
      * Import audience members (asynchronously)
      * Upload a CSV file containing the integration IDs of the members you want to add to an audience.  The file should be sent as multipart data and should contain only the following column (required):  - &#x60;profileintegrationid&#x60;: The integration ID of the customer profile.  The import **replaces** the previous list of audience members.  &gt; [!note] We recommend limiting your file size to 500 MB.  ## Example  &#x60;&#x60;&#x60;text profileintegrationid charles alexa &#x60;&#x60;&#x60; 
      * @param audienceId The ID of the audience. (required)
-     * @param upFile The file containing the data that is being imported. (optional)
+     * @param upFile The CSV file containing the data that is being imported. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -20106,7 +20107,7 @@ public class ManagementApi {
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call importAudiencesMembershipsAsync(@javax.annotation.Nonnull Long audienceId, @javax.annotation.Nullable String upFile, final ApiCallback<ModelImport> _callback) throws ApiException {
+    public okhttp3.Call importAudiencesMembershipsAsync(@javax.annotation.Nonnull Long audienceId, @javax.annotation.Nullable File upFile, final ApiCallback<ModelImport> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = importAudiencesMembershipsValidateBeforeCall(audienceId, upFile, _callback);
         Type localVarReturnType = new TypeToken<ModelImport>(){}.getType();
@@ -20119,7 +20120,7 @@ public class ManagementApi {
      * @param campaignId The ID of the campaign. It is displayed in your Talon.One deployment URL. (required)
      * @param action The action that this budget is limiting. (optional)
      * @param period The period to which the limit applies.  **Note**: For budgets with no period, set this to &#x60;overall&#x60;.  (optional)
-     * @param upFile The file containing the data that is being imported. (optional)
+     * @param upFile The CSV file containing the data that is being imported. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -20131,7 +20132,7 @@ public class ManagementApi {
         <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call importCampaignStoreBudgetCall(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, @javax.annotation.Nullable String action, @javax.annotation.Nullable String period, @javax.annotation.Nullable String upFile, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call importCampaignStoreBudgetCall(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, @javax.annotation.Nullable String action, @javax.annotation.Nullable String period, @javax.annotation.Nullable File upFile, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -20191,7 +20192,7 @@ public class ManagementApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call importCampaignStoreBudgetValidateBeforeCall(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, @javax.annotation.Nullable String action, @javax.annotation.Nullable String period, @javax.annotation.Nullable String upFile, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call importCampaignStoreBudgetValidateBeforeCall(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, @javax.annotation.Nullable String action, @javax.annotation.Nullable String period, @javax.annotation.Nullable File upFile, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'applicationId' is set
         if (applicationId == null) {
             throw new ApiException("Missing the required parameter 'applicationId' when calling importCampaignStoreBudget(Async)");
@@ -20213,7 +20214,7 @@ public class ManagementApi {
      * @param campaignId The ID of the campaign. It is displayed in your Talon.One deployment URL. (required)
      * @param action The action that this budget is limiting. (optional)
      * @param period The period to which the limit applies.  **Note**: For budgets with no period, set this to &#x60;overall&#x60;.  (optional)
-     * @param upFile The file containing the data that is being imported. (optional)
+     * @param upFile The CSV file containing the data that is being imported. (optional)
      * @return ModelImport
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -20224,7 +20225,7 @@ public class ManagementApi {
         <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
      </table>
      */
-    public ModelImport importCampaignStoreBudget(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, @javax.annotation.Nullable String action, @javax.annotation.Nullable String period, @javax.annotation.Nullable String upFile) throws ApiException {
+    public ModelImport importCampaignStoreBudget(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, @javax.annotation.Nullable String action, @javax.annotation.Nullable String period, @javax.annotation.Nullable File upFile) throws ApiException {
         ApiResponse<ModelImport> localVarResp = importCampaignStoreBudgetWithHttpInfo(applicationId, campaignId, action, period, upFile);
         return localVarResp.getData();
     }
@@ -20236,7 +20237,7 @@ public class ManagementApi {
      * @param campaignId The ID of the campaign. It is displayed in your Talon.One deployment URL. (required)
      * @param action The action that this budget is limiting. (optional)
      * @param period The period to which the limit applies.  **Note**: For budgets with no period, set this to &#x60;overall&#x60;.  (optional)
-     * @param upFile The file containing the data that is being imported. (optional)
+     * @param upFile The CSV file containing the data that is being imported. (optional)
      * @return ApiResponse&lt;ModelImport&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -20247,7 +20248,7 @@ public class ManagementApi {
         <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<ModelImport> importCampaignStoreBudgetWithHttpInfo(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, @javax.annotation.Nullable String action, @javax.annotation.Nullable String period, @javax.annotation.Nullable String upFile) throws ApiException {
+    public ApiResponse<ModelImport> importCampaignStoreBudgetWithHttpInfo(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, @javax.annotation.Nullable String action, @javax.annotation.Nullable String period, @javax.annotation.Nullable File upFile) throws ApiException {
         okhttp3.Call localVarCall = importCampaignStoreBudgetValidateBeforeCall(applicationId, campaignId, action, period, upFile, null);
         Type localVarReturnType = new TypeToken<ModelImport>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -20260,7 +20261,7 @@ public class ManagementApi {
      * @param campaignId The ID of the campaign. It is displayed in your Talon.One deployment URL. (required)
      * @param action The action that this budget is limiting. (optional)
      * @param period The period to which the limit applies.  **Note**: For budgets with no period, set this to &#x60;overall&#x60;.  (optional)
-     * @param upFile The file containing the data that is being imported. (optional)
+     * @param upFile The CSV file containing the data that is being imported. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -20272,7 +20273,7 @@ public class ManagementApi {
         <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call importCampaignStoreBudgetAsync(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, @javax.annotation.Nullable String action, @javax.annotation.Nullable String period, @javax.annotation.Nullable String upFile, final ApiCallback<ModelImport> _callback) throws ApiException {
+    public okhttp3.Call importCampaignStoreBudgetAsync(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, @javax.annotation.Nullable String action, @javax.annotation.Nullable String period, @javax.annotation.Nullable File upFile, final ApiCallback<ModelImport> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = importCampaignStoreBudgetValidateBeforeCall(applicationId, campaignId, action, period, upFile, _callback);
         Type localVarReturnType = new TypeToken<ModelImport>(){}.getType();
@@ -20283,7 +20284,7 @@ public class ManagementApi {
      * Build call for importCampaignStores
      * @param applicationId The ID of the Application. It is displayed in your Talon.One deployment URL. (required)
      * @param campaignId The ID of the campaign. It is displayed in your Talon.One deployment URL. (required)
-     * @param upFile The file containing the data that is being imported. (optional)
+     * @param upFile The CSV file containing the data that is being imported. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -20297,7 +20298,7 @@ public class ManagementApi {
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call importCampaignStoresCall(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, @javax.annotation.Nullable String upFile, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call importCampaignStoresCall(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, @javax.annotation.Nullable File upFile, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -20349,7 +20350,7 @@ public class ManagementApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call importCampaignStoresValidateBeforeCall(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, @javax.annotation.Nullable String upFile, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call importCampaignStoresValidateBeforeCall(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, @javax.annotation.Nullable File upFile, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'applicationId' is set
         if (applicationId == null) {
             throw new ApiException("Missing the required parameter 'applicationId' when calling importCampaignStores(Async)");
@@ -20369,7 +20370,7 @@ public class ManagementApi {
      * Upload a CSV file containing the stores you want to link to a specific campaign.  Send the file as multipart data.  The CSV file **must** only contain the following column: - &#x60;store_integration_id&#x60;: The identifier of the store.  The import **replaces** the previous list of stores linked to the campaign. 
      * @param applicationId The ID of the Application. It is displayed in your Talon.One deployment URL. (required)
      * @param campaignId The ID of the campaign. It is displayed in your Talon.One deployment URL. (required)
-     * @param upFile The file containing the data that is being imported. (optional)
+     * @param upFile The CSV file containing the data that is being imported. (optional)
      * @return ModelImport
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -20382,7 +20383,7 @@ public class ManagementApi {
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
      */
-    public ModelImport importCampaignStores(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, @javax.annotation.Nullable String upFile) throws ApiException {
+    public ModelImport importCampaignStores(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, @javax.annotation.Nullable File upFile) throws ApiException {
         ApiResponse<ModelImport> localVarResp = importCampaignStoresWithHttpInfo(applicationId, campaignId, upFile);
         return localVarResp.getData();
     }
@@ -20392,7 +20393,7 @@ public class ManagementApi {
      * Upload a CSV file containing the stores you want to link to a specific campaign.  Send the file as multipart data.  The CSV file **must** only contain the following column: - &#x60;store_integration_id&#x60;: The identifier of the store.  The import **replaces** the previous list of stores linked to the campaign. 
      * @param applicationId The ID of the Application. It is displayed in your Talon.One deployment URL. (required)
      * @param campaignId The ID of the campaign. It is displayed in your Talon.One deployment URL. (required)
-     * @param upFile The file containing the data that is being imported. (optional)
+     * @param upFile The CSV file containing the data that is being imported. (optional)
      * @return ApiResponse&lt;ModelImport&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -20405,7 +20406,7 @@ public class ManagementApi {
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<ModelImport> importCampaignStoresWithHttpInfo(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, @javax.annotation.Nullable String upFile) throws ApiException {
+    public ApiResponse<ModelImport> importCampaignStoresWithHttpInfo(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, @javax.annotation.Nullable File upFile) throws ApiException {
         okhttp3.Call localVarCall = importCampaignStoresValidateBeforeCall(applicationId, campaignId, upFile, null);
         Type localVarReturnType = new TypeToken<ModelImport>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -20416,7 +20417,7 @@ public class ManagementApi {
      * Upload a CSV file containing the stores you want to link to a specific campaign.  Send the file as multipart data.  The CSV file **must** only contain the following column: - &#x60;store_integration_id&#x60;: The identifier of the store.  The import **replaces** the previous list of stores linked to the campaign. 
      * @param applicationId The ID of the Application. It is displayed in your Talon.One deployment URL. (required)
      * @param campaignId The ID of the campaign. It is displayed in your Talon.One deployment URL. (required)
-     * @param upFile The file containing the data that is being imported. (optional)
+     * @param upFile The CSV file containing the data that is being imported. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -20430,7 +20431,7 @@ public class ManagementApi {
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call importCampaignStoresAsync(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, @javax.annotation.Nullable String upFile, final ApiCallback<ModelImport> _callback) throws ApiException {
+    public okhttp3.Call importCampaignStoresAsync(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, @javax.annotation.Nullable File upFile, final ApiCallback<ModelImport> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = importCampaignStoresValidateBeforeCall(applicationId, campaignId, upFile, _callback);
         Type localVarReturnType = new TypeToken<ModelImport>(){}.getType();
@@ -20442,7 +20443,7 @@ public class ManagementApi {
      * @param applicationId The ID of the Application. It is displayed in your Talon.One deployment URL. (required)
      * @param campaignId The ID of the campaign. It is displayed in your Talon.One deployment URL. (required)
      * @param collectionId The ID of the collection. You can get it with the [List collections in Application](#tag/Collections/operation/listCollectionsInApplication) endpoint. (required)
-     * @param upFile The file containing the data that is being imported. (optional)
+     * @param upFile The CSV file containing the data that is being imported. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -20454,7 +20455,7 @@ public class ManagementApi {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call importCollectionCall(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, @javax.annotation.Nonnull Long collectionId, @javax.annotation.Nullable String upFile, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call importCollectionCall(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, @javax.annotation.Nonnull Long collectionId, @javax.annotation.Nullable File upFile, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -20507,7 +20508,7 @@ public class ManagementApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call importCollectionValidateBeforeCall(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, @javax.annotation.Nonnull Long collectionId, @javax.annotation.Nullable String upFile, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call importCollectionValidateBeforeCall(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, @javax.annotation.Nonnull Long collectionId, @javax.annotation.Nullable File upFile, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'applicationId' is set
         if (applicationId == null) {
             throw new ApiException("Missing the required parameter 'applicationId' when calling importCollection(Async)");
@@ -20533,7 +20534,7 @@ public class ManagementApi {
      * @param applicationId The ID of the Application. It is displayed in your Talon.One deployment URL. (required)
      * @param campaignId The ID of the campaign. It is displayed in your Talon.One deployment URL. (required)
      * @param collectionId The ID of the collection. You can get it with the [List collections in Application](#tag/Collections/operation/listCollectionsInApplication) endpoint. (required)
-     * @param upFile The file containing the data that is being imported. (optional)
+     * @param upFile The CSV file containing the data that is being imported. (optional)
      * @return ModelImport
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -20544,7 +20545,7 @@ public class ManagementApi {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public ModelImport importCollection(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, @javax.annotation.Nonnull Long collectionId, @javax.annotation.Nullable String upFile) throws ApiException {
+    public ModelImport importCollection(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, @javax.annotation.Nonnull Long collectionId, @javax.annotation.Nullable File upFile) throws ApiException {
         ApiResponse<ModelImport> localVarResp = importCollectionWithHttpInfo(applicationId, campaignId, collectionId, upFile);
         return localVarResp.getData();
     }
@@ -20555,7 +20556,7 @@ public class ManagementApi {
      * @param applicationId The ID of the Application. It is displayed in your Talon.One deployment URL. (required)
      * @param campaignId The ID of the campaign. It is displayed in your Talon.One deployment URL. (required)
      * @param collectionId The ID of the collection. You can get it with the [List collections in Application](#tag/Collections/operation/listCollectionsInApplication) endpoint. (required)
-     * @param upFile The file containing the data that is being imported. (optional)
+     * @param upFile The CSV file containing the data that is being imported. (optional)
      * @return ApiResponse&lt;ModelImport&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -20566,7 +20567,7 @@ public class ManagementApi {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<ModelImport> importCollectionWithHttpInfo(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, @javax.annotation.Nonnull Long collectionId, @javax.annotation.Nullable String upFile) throws ApiException {
+    public ApiResponse<ModelImport> importCollectionWithHttpInfo(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, @javax.annotation.Nonnull Long collectionId, @javax.annotation.Nullable File upFile) throws ApiException {
         okhttp3.Call localVarCall = importCollectionValidateBeforeCall(applicationId, campaignId, collectionId, upFile, null);
         Type localVarReturnType = new TypeToken<ModelImport>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -20578,7 +20579,7 @@ public class ManagementApi {
      * @param applicationId The ID of the Application. It is displayed in your Talon.One deployment URL. (required)
      * @param campaignId The ID of the campaign. It is displayed in your Talon.One deployment URL. (required)
      * @param collectionId The ID of the collection. You can get it with the [List collections in Application](#tag/Collections/operation/listCollectionsInApplication) endpoint. (required)
-     * @param upFile The file containing the data that is being imported. (optional)
+     * @param upFile The CSV file containing the data that is being imported. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -20590,7 +20591,7 @@ public class ManagementApi {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call importCollectionAsync(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, @javax.annotation.Nonnull Long collectionId, @javax.annotation.Nullable String upFile, final ApiCallback<ModelImport> _callback) throws ApiException {
+    public okhttp3.Call importCollectionAsync(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, @javax.annotation.Nonnull Long collectionId, @javax.annotation.Nullable File upFile, final ApiCallback<ModelImport> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = importCollectionValidateBeforeCall(applicationId, campaignId, collectionId, upFile, _callback);
         Type localVarReturnType = new TypeToken<ModelImport>(){}.getType();
@@ -20602,7 +20603,7 @@ public class ManagementApi {
      * @param applicationId The ID of the Application. It is displayed in your Talon.One deployment URL. (required)
      * @param campaignId The ID of the campaign. It is displayed in your Talon.One deployment URL. (required)
      * @param skipDuplicates An indicator of whether to skip duplicate coupon values instead of causing an error. Duplicate values are ignored when &#x60;skipDuplicates&#x3D;true&#x60;.  (optional)
-     * @param upFile The file containing the data that is being imported. (optional)
+     * @param upFile The CSV file containing the data that is being imported. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -20613,7 +20614,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call importCouponsCall(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, @javax.annotation.Nullable Boolean skipDuplicates, @javax.annotation.Nullable String upFile, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call importCouponsCall(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, @javax.annotation.Nullable Boolean skipDuplicates, @javax.annotation.Nullable File upFile, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -20669,7 +20670,7 @@ public class ManagementApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call importCouponsValidateBeforeCall(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, @javax.annotation.Nullable Boolean skipDuplicates, @javax.annotation.Nullable String upFile, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call importCouponsValidateBeforeCall(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, @javax.annotation.Nullable Boolean skipDuplicates, @javax.annotation.Nullable File upFile, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'applicationId' is set
         if (applicationId == null) {
             throw new ApiException("Missing the required parameter 'applicationId' when calling importCoupons(Async)");
@@ -20690,7 +20691,7 @@ public class ManagementApi {
      * @param applicationId The ID of the Application. It is displayed in your Talon.One deployment URL. (required)
      * @param campaignId The ID of the campaign. It is displayed in your Talon.One deployment URL. (required)
      * @param skipDuplicates An indicator of whether to skip duplicate coupon values instead of causing an error. Duplicate values are ignored when &#x60;skipDuplicates&#x3D;true&#x60;.  (optional)
-     * @param upFile The file containing the data that is being imported. (optional)
+     * @param upFile The CSV file containing the data that is being imported. (optional)
      * @return ModelImport
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -20700,7 +20701,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ModelImport importCoupons(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, @javax.annotation.Nullable Boolean skipDuplicates, @javax.annotation.Nullable String upFile) throws ApiException {
+    public ModelImport importCoupons(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, @javax.annotation.Nullable Boolean skipDuplicates, @javax.annotation.Nullable File upFile) throws ApiException {
         ApiResponse<ModelImport> localVarResp = importCouponsWithHttpInfo(applicationId, campaignId, skipDuplicates, upFile);
         return localVarResp.getData();
     }
@@ -20711,7 +20712,7 @@ public class ManagementApi {
      * @param applicationId The ID of the Application. It is displayed in your Talon.One deployment URL. (required)
      * @param campaignId The ID of the campaign. It is displayed in your Talon.One deployment URL. (required)
      * @param skipDuplicates An indicator of whether to skip duplicate coupon values instead of causing an error. Duplicate values are ignored when &#x60;skipDuplicates&#x3D;true&#x60;.  (optional)
-     * @param upFile The file containing the data that is being imported. (optional)
+     * @param upFile The CSV file containing the data that is being imported. (optional)
      * @return ApiResponse&lt;ModelImport&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -20721,7 +20722,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<ModelImport> importCouponsWithHttpInfo(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, @javax.annotation.Nullable Boolean skipDuplicates, @javax.annotation.Nullable String upFile) throws ApiException {
+    public ApiResponse<ModelImport> importCouponsWithHttpInfo(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, @javax.annotation.Nullable Boolean skipDuplicates, @javax.annotation.Nullable File upFile) throws ApiException {
         okhttp3.Call localVarCall = importCouponsValidateBeforeCall(applicationId, campaignId, skipDuplicates, upFile, null);
         Type localVarReturnType = new TypeToken<ModelImport>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -20733,7 +20734,7 @@ public class ManagementApi {
      * @param applicationId The ID of the Application. It is displayed in your Talon.One deployment URL. (required)
      * @param campaignId The ID of the campaign. It is displayed in your Talon.One deployment URL. (required)
      * @param skipDuplicates An indicator of whether to skip duplicate coupon values instead of causing an error. Duplicate values are ignored when &#x60;skipDuplicates&#x3D;true&#x60;.  (optional)
-     * @param upFile The file containing the data that is being imported. (optional)
+     * @param upFile The CSV file containing the data that is being imported. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -20744,7 +20745,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call importCouponsAsync(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, @javax.annotation.Nullable Boolean skipDuplicates, @javax.annotation.Nullable String upFile, final ApiCallback<ModelImport> _callback) throws ApiException {
+    public okhttp3.Call importCouponsAsync(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, @javax.annotation.Nullable Boolean skipDuplicates, @javax.annotation.Nullable File upFile, final ApiCallback<ModelImport> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = importCouponsValidateBeforeCall(applicationId, campaignId, skipDuplicates, upFile, _callback);
         Type localVarReturnType = new TypeToken<ModelImport>(){}.getType();
@@ -20754,7 +20755,7 @@ public class ManagementApi {
     /**
      * Build call for importLoyaltyCards
      * @param loyaltyProgramId Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint.  (required)
-     * @param upFile The file containing the data that is being imported. (optional)
+     * @param upFile The CSV file containing the data that is being imported. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -20767,7 +20768,7 @@ public class ManagementApi {
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call importLoyaltyCardsCall(@javax.annotation.Nonnull Long loyaltyProgramId, @javax.annotation.Nullable String upFile, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call importLoyaltyCardsCall(@javax.annotation.Nonnull Long loyaltyProgramId, @javax.annotation.Nullable File upFile, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -20818,7 +20819,7 @@ public class ManagementApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call importLoyaltyCardsValidateBeforeCall(@javax.annotation.Nonnull Long loyaltyProgramId, @javax.annotation.Nullable String upFile, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call importLoyaltyCardsValidateBeforeCall(@javax.annotation.Nonnull Long loyaltyProgramId, @javax.annotation.Nullable File upFile, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'loyaltyProgramId' is set
         if (loyaltyProgramId == null) {
             throw new ApiException("Missing the required parameter 'loyaltyProgramId' when calling importLoyaltyCards(Async)");
@@ -20830,9 +20831,9 @@ public class ManagementApi {
 
     /**
      * Import loyalty cards
-     * Upload a CSV file containing the loyalty cards that you want to use in your card-based loyalty program.  Send the file as multipart data.  It contains the following columns for each card:  - &#x60;identifier&#x60; (required): The identifier of the loyalty card, which must match the regular expression &#x60;^[A-Za-z0-9._%+@-]+$&#x60;. - &#x60;state&#x60; (required): The state of the loyalty card. It can be &#x60;active&#x60; or &#x60;inactive&#x60;. - &#x60;customerprofileids&#x60; (optional): An array of strings representing the identifiers of the customer profiles linked to the loyalty card. The identifiers should be separated with a semicolon (;).  &gt; [!note] We recommend limiting your file size to 500MB.  ## Example  &#x60;&#x60;&#x60;csv identifier,state,customerprofileids 123-456-789AT,active,Alexa001;UserA &#x60;&#x60;&#x60; 
+     * Upload a CSV file containing the loyalty cards that you want to use in your card-based loyalty program.  Send the file as multipart data.  It contains the following columns for each card:  - &#x60;identifier&#x60; (required): The identifier of the loyalty card, which must match the regular expression &#x60;^[A-Za-z0-9._%+@-]+$&#x60;. - &#x60;state&#x60; (required): The state of the loyalty card. It can be &#x60;active&#x60; or &#x60;inactive&#x60;. - &#x60;customerprofileids&#x60; (optional): An array of strings representing the identifiers of the customer profiles linked to the loyalty card. The identifiers should be separated with a semicolon (;).  &gt; [!note] Your CSV file must contain less than 500,000 rows. Requests time out after 30 seconds.  ## Example  &#x60;&#x60;&#x60;csv identifier,state,customerprofileids 123-456-789AT,active,Alexa001;UserA &#x60;&#x60;&#x60; 
      * @param loyaltyProgramId Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint.  (required)
-     * @param upFile The file containing the data that is being imported. (optional)
+     * @param upFile The CSV file containing the data that is being imported. (optional)
      * @return ModelImport
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -20844,16 +20845,16 @@ public class ManagementApi {
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
      */
-    public ModelImport importLoyaltyCards(@javax.annotation.Nonnull Long loyaltyProgramId, @javax.annotation.Nullable String upFile) throws ApiException {
+    public ModelImport importLoyaltyCards(@javax.annotation.Nonnull Long loyaltyProgramId, @javax.annotation.Nullable File upFile) throws ApiException {
         ApiResponse<ModelImport> localVarResp = importLoyaltyCardsWithHttpInfo(loyaltyProgramId, upFile);
         return localVarResp.getData();
     }
 
     /**
      * Import loyalty cards
-     * Upload a CSV file containing the loyalty cards that you want to use in your card-based loyalty program.  Send the file as multipart data.  It contains the following columns for each card:  - &#x60;identifier&#x60; (required): The identifier of the loyalty card, which must match the regular expression &#x60;^[A-Za-z0-9._%+@-]+$&#x60;. - &#x60;state&#x60; (required): The state of the loyalty card. It can be &#x60;active&#x60; or &#x60;inactive&#x60;. - &#x60;customerprofileids&#x60; (optional): An array of strings representing the identifiers of the customer profiles linked to the loyalty card. The identifiers should be separated with a semicolon (;).  &gt; [!note] We recommend limiting your file size to 500MB.  ## Example  &#x60;&#x60;&#x60;csv identifier,state,customerprofileids 123-456-789AT,active,Alexa001;UserA &#x60;&#x60;&#x60; 
+     * Upload a CSV file containing the loyalty cards that you want to use in your card-based loyalty program.  Send the file as multipart data.  It contains the following columns for each card:  - &#x60;identifier&#x60; (required): The identifier of the loyalty card, which must match the regular expression &#x60;^[A-Za-z0-9._%+@-]+$&#x60;. - &#x60;state&#x60; (required): The state of the loyalty card. It can be &#x60;active&#x60; or &#x60;inactive&#x60;. - &#x60;customerprofileids&#x60; (optional): An array of strings representing the identifiers of the customer profiles linked to the loyalty card. The identifiers should be separated with a semicolon (;).  &gt; [!note] Your CSV file must contain less than 500,000 rows. Requests time out after 30 seconds.  ## Example  &#x60;&#x60;&#x60;csv identifier,state,customerprofileids 123-456-789AT,active,Alexa001;UserA &#x60;&#x60;&#x60; 
      * @param loyaltyProgramId Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint.  (required)
-     * @param upFile The file containing the data that is being imported. (optional)
+     * @param upFile The CSV file containing the data that is being imported. (optional)
      * @return ApiResponse&lt;ModelImport&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -20865,7 +20866,7 @@ public class ManagementApi {
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<ModelImport> importLoyaltyCardsWithHttpInfo(@javax.annotation.Nonnull Long loyaltyProgramId, @javax.annotation.Nullable String upFile) throws ApiException {
+    public ApiResponse<ModelImport> importLoyaltyCardsWithHttpInfo(@javax.annotation.Nonnull Long loyaltyProgramId, @javax.annotation.Nullable File upFile) throws ApiException {
         okhttp3.Call localVarCall = importLoyaltyCardsValidateBeforeCall(loyaltyProgramId, upFile, null);
         Type localVarReturnType = new TypeToken<ModelImport>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -20873,9 +20874,9 @@ public class ManagementApi {
 
     /**
      * Import loyalty cards (asynchronously)
-     * Upload a CSV file containing the loyalty cards that you want to use in your card-based loyalty program.  Send the file as multipart data.  It contains the following columns for each card:  - &#x60;identifier&#x60; (required): The identifier of the loyalty card, which must match the regular expression &#x60;^[A-Za-z0-9._%+@-]+$&#x60;. - &#x60;state&#x60; (required): The state of the loyalty card. It can be &#x60;active&#x60; or &#x60;inactive&#x60;. - &#x60;customerprofileids&#x60; (optional): An array of strings representing the identifiers of the customer profiles linked to the loyalty card. The identifiers should be separated with a semicolon (;).  &gt; [!note] We recommend limiting your file size to 500MB.  ## Example  &#x60;&#x60;&#x60;csv identifier,state,customerprofileids 123-456-789AT,active,Alexa001;UserA &#x60;&#x60;&#x60; 
+     * Upload a CSV file containing the loyalty cards that you want to use in your card-based loyalty program.  Send the file as multipart data.  It contains the following columns for each card:  - &#x60;identifier&#x60; (required): The identifier of the loyalty card, which must match the regular expression &#x60;^[A-Za-z0-9._%+@-]+$&#x60;. - &#x60;state&#x60; (required): The state of the loyalty card. It can be &#x60;active&#x60; or &#x60;inactive&#x60;. - &#x60;customerprofileids&#x60; (optional): An array of strings representing the identifiers of the customer profiles linked to the loyalty card. The identifiers should be separated with a semicolon (;).  &gt; [!note] Your CSV file must contain less than 500,000 rows. Requests time out after 30 seconds.  ## Example  &#x60;&#x60;&#x60;csv identifier,state,customerprofileids 123-456-789AT,active,Alexa001;UserA &#x60;&#x60;&#x60; 
      * @param loyaltyProgramId Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint.  (required)
-     * @param upFile The file containing the data that is being imported. (optional)
+     * @param upFile The CSV file containing the data that is being imported. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -20888,7 +20889,7 @@ public class ManagementApi {
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call importLoyaltyCardsAsync(@javax.annotation.Nonnull Long loyaltyProgramId, @javax.annotation.Nullable String upFile, final ApiCallback<ModelImport> _callback) throws ApiException {
+    public okhttp3.Call importLoyaltyCardsAsync(@javax.annotation.Nonnull Long loyaltyProgramId, @javax.annotation.Nullable File upFile, final ApiCallback<ModelImport> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = importLoyaltyCardsValidateBeforeCall(loyaltyProgramId, upFile, _callback);
         Type localVarReturnType = new TypeToken<ModelImport>(){}.getType();
@@ -20898,7 +20899,7 @@ public class ManagementApi {
     /**
      * Build call for importLoyaltyCustomersTiers
      * @param loyaltyProgramId Identifier of the loyalty program. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint.  (required)
-     * @param upFile The file containing the data that is being imported. (optional)
+     * @param upFile The CSV file containing the data that is being imported. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -20912,7 +20913,7 @@ public class ManagementApi {
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call importLoyaltyCustomersTiersCall(@javax.annotation.Nonnull Long loyaltyProgramId, @javax.annotation.Nullable String upFile, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call importLoyaltyCustomersTiersCall(@javax.annotation.Nonnull Long loyaltyProgramId, @javax.annotation.Nullable File upFile, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -20963,7 +20964,7 @@ public class ManagementApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call importLoyaltyCustomersTiersValidateBeforeCall(@javax.annotation.Nonnull Long loyaltyProgramId, @javax.annotation.Nullable String upFile, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call importLoyaltyCustomersTiersValidateBeforeCall(@javax.annotation.Nonnull Long loyaltyProgramId, @javax.annotation.Nullable File upFile, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'loyaltyProgramId' is set
         if (loyaltyProgramId == null) {
             throw new ApiException("Missing the required parameter 'loyaltyProgramId' when calling importLoyaltyCustomersTiers(Async)");
@@ -20975,9 +20976,9 @@ public class ManagementApi {
 
     /**
      * Import customers into loyalty tiers
-     * Upload a CSV file containing existing customers to be assigned to existing tiers.  Send the file as multipart data.  &gt; [!important] This endpoint only works with loyalty programs with advanced &gt; tiers (with expiration and downgrade policy) feature enabled.  The CSV file should contain the following columns:  - &#x60;subledgerid&#x60; (optional): The ID of the subledger. If this field is empty, the main ledger will be used. - &#x60;customerprofileid&#x60;: The integration ID of the customer profile to whom the tier should be assigned. - &#x60;tiername&#x60;: The name of an existing tier to assign to the customer. - &#x60;expirydate&#x60;: The expiration date of the tier when the tier is reevaluated. It should be a future date.  About customer assignment to a tier:  - If the customer isn&#39;t already in a tier, the customer is assigned to the specified tier during the tier import. - If the customer is already in the tier that&#39;s specified in the CSV file, only the expiration date is updated.  &gt; [!note] We recommend not using this endpoint to update the tier of a customer.  To update a customer&#39;s tier, you can [add](/management-api#tag/Loyalty/operation/addLoyaltyPoints) or [deduct](/management-api#tag/Loyalty/operation/removeLoyaltyPoints) their loyalty points.  You can use the time zone of your choice. It is converted to UTC internally by Talon.One.  &gt; [!note] We recommend limiting your file size to 500 MB.  ## Example  &#x60;&#x60;&#x60;csv subledgerid,customerprofileid,tiername,expirydate SUB1,alexa,Gold,2024-03-21T07:32:14Z ,george,Silver,2025-04-16T21:12:37Z SUB2,avocado,Bronze,2026-05-03T11:47:01Z &#x60;&#x60;&#x60; 
+     * Upload a CSV file containing existing customers to be assigned to existing tiers.  Send the file as multipart data.  &gt; [!important] This endpoint only works with loyalty programs with advanced &gt; tiers (with expiration and downgrade policy) feature enabled.  The CSV file should contain the following columns:  - &#x60;subledgerid&#x60; (optional): The ID of the subledger. If this field is empty, the main ledger will be used. - &#x60;customerprofileid&#x60;: The integration ID of the customer profile to whom the tier should be assigned. - &#x60;tiername&#x60;: The name of an existing tier to assign to the customer. - &#x60;expirydate&#x60;: The expiry date of the tier when the tier is reevaluated. It should be a future date.  About customer assignment to a tier:  - If the customer isn&#39;t already in a tier, the customer is assigned to the specified tier during the tier import. - If the customer is already in the tier that&#39;s specified in the CSV file, only the expiry date is updated.  &gt; [!note] We recommend importing customers into the tier that matches their &gt; current balance. If a customer is imported into a lower tier, any session &gt; or points update automatically upgrades them to the tier they qualify for.  To update a customer&#39;s tier, you can [add](/management-api#tag/Loyalty/operation/addLoyaltyPoints) or [deduct](/management-api#tag/Loyalty/operation/removeLoyaltyPoints) their loyalty points.  You can use the time zone of your choice. It is converted to UTC internally by Talon.One.  &gt; [!note] We recommend limiting your file size to 500 MB.  ## Example  &#x60;&#x60;&#x60;csv subledgerid,customerprofileid,tiername,expirydate SUB1,alexa,Gold,2024-03-21T07:32:14Z ,george,Silver,2025-04-16T21:12:37Z SUB2,avocado,Bronze,2026-05-03T11:47:01Z &#x60;&#x60;&#x60; 
      * @param loyaltyProgramId Identifier of the loyalty program. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint.  (required)
-     * @param upFile The file containing the data that is being imported. (optional)
+     * @param upFile The CSV file containing the data that is being imported. (optional)
      * @return ModelImport
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -20990,16 +20991,16 @@ public class ManagementApi {
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
      */
-    public ModelImport importLoyaltyCustomersTiers(@javax.annotation.Nonnull Long loyaltyProgramId, @javax.annotation.Nullable String upFile) throws ApiException {
+    public ModelImport importLoyaltyCustomersTiers(@javax.annotation.Nonnull Long loyaltyProgramId, @javax.annotation.Nullable File upFile) throws ApiException {
         ApiResponse<ModelImport> localVarResp = importLoyaltyCustomersTiersWithHttpInfo(loyaltyProgramId, upFile);
         return localVarResp.getData();
     }
 
     /**
      * Import customers into loyalty tiers
-     * Upload a CSV file containing existing customers to be assigned to existing tiers.  Send the file as multipart data.  &gt; [!important] This endpoint only works with loyalty programs with advanced &gt; tiers (with expiration and downgrade policy) feature enabled.  The CSV file should contain the following columns:  - &#x60;subledgerid&#x60; (optional): The ID of the subledger. If this field is empty, the main ledger will be used. - &#x60;customerprofileid&#x60;: The integration ID of the customer profile to whom the tier should be assigned. - &#x60;tiername&#x60;: The name of an existing tier to assign to the customer. - &#x60;expirydate&#x60;: The expiration date of the tier when the tier is reevaluated. It should be a future date.  About customer assignment to a tier:  - If the customer isn&#39;t already in a tier, the customer is assigned to the specified tier during the tier import. - If the customer is already in the tier that&#39;s specified in the CSV file, only the expiration date is updated.  &gt; [!note] We recommend not using this endpoint to update the tier of a customer.  To update a customer&#39;s tier, you can [add](/management-api#tag/Loyalty/operation/addLoyaltyPoints) or [deduct](/management-api#tag/Loyalty/operation/removeLoyaltyPoints) their loyalty points.  You can use the time zone of your choice. It is converted to UTC internally by Talon.One.  &gt; [!note] We recommend limiting your file size to 500 MB.  ## Example  &#x60;&#x60;&#x60;csv subledgerid,customerprofileid,tiername,expirydate SUB1,alexa,Gold,2024-03-21T07:32:14Z ,george,Silver,2025-04-16T21:12:37Z SUB2,avocado,Bronze,2026-05-03T11:47:01Z &#x60;&#x60;&#x60; 
+     * Upload a CSV file containing existing customers to be assigned to existing tiers.  Send the file as multipart data.  &gt; [!important] This endpoint only works with loyalty programs with advanced &gt; tiers (with expiration and downgrade policy) feature enabled.  The CSV file should contain the following columns:  - &#x60;subledgerid&#x60; (optional): The ID of the subledger. If this field is empty, the main ledger will be used. - &#x60;customerprofileid&#x60;: The integration ID of the customer profile to whom the tier should be assigned. - &#x60;tiername&#x60;: The name of an existing tier to assign to the customer. - &#x60;expirydate&#x60;: The expiry date of the tier when the tier is reevaluated. It should be a future date.  About customer assignment to a tier:  - If the customer isn&#39;t already in a tier, the customer is assigned to the specified tier during the tier import. - If the customer is already in the tier that&#39;s specified in the CSV file, only the expiry date is updated.  &gt; [!note] We recommend importing customers into the tier that matches their &gt; current balance. If a customer is imported into a lower tier, any session &gt; or points update automatically upgrades them to the tier they qualify for.  To update a customer&#39;s tier, you can [add](/management-api#tag/Loyalty/operation/addLoyaltyPoints) or [deduct](/management-api#tag/Loyalty/operation/removeLoyaltyPoints) their loyalty points.  You can use the time zone of your choice. It is converted to UTC internally by Talon.One.  &gt; [!note] We recommend limiting your file size to 500 MB.  ## Example  &#x60;&#x60;&#x60;csv subledgerid,customerprofileid,tiername,expirydate SUB1,alexa,Gold,2024-03-21T07:32:14Z ,george,Silver,2025-04-16T21:12:37Z SUB2,avocado,Bronze,2026-05-03T11:47:01Z &#x60;&#x60;&#x60; 
      * @param loyaltyProgramId Identifier of the loyalty program. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint.  (required)
-     * @param upFile The file containing the data that is being imported. (optional)
+     * @param upFile The CSV file containing the data that is being imported. (optional)
      * @return ApiResponse&lt;ModelImport&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -21012,7 +21013,7 @@ public class ManagementApi {
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<ModelImport> importLoyaltyCustomersTiersWithHttpInfo(@javax.annotation.Nonnull Long loyaltyProgramId, @javax.annotation.Nullable String upFile) throws ApiException {
+    public ApiResponse<ModelImport> importLoyaltyCustomersTiersWithHttpInfo(@javax.annotation.Nonnull Long loyaltyProgramId, @javax.annotation.Nullable File upFile) throws ApiException {
         okhttp3.Call localVarCall = importLoyaltyCustomersTiersValidateBeforeCall(loyaltyProgramId, upFile, null);
         Type localVarReturnType = new TypeToken<ModelImport>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -21020,9 +21021,9 @@ public class ManagementApi {
 
     /**
      * Import customers into loyalty tiers (asynchronously)
-     * Upload a CSV file containing existing customers to be assigned to existing tiers.  Send the file as multipart data.  &gt; [!important] This endpoint only works with loyalty programs with advanced &gt; tiers (with expiration and downgrade policy) feature enabled.  The CSV file should contain the following columns:  - &#x60;subledgerid&#x60; (optional): The ID of the subledger. If this field is empty, the main ledger will be used. - &#x60;customerprofileid&#x60;: The integration ID of the customer profile to whom the tier should be assigned. - &#x60;tiername&#x60;: The name of an existing tier to assign to the customer. - &#x60;expirydate&#x60;: The expiration date of the tier when the tier is reevaluated. It should be a future date.  About customer assignment to a tier:  - If the customer isn&#39;t already in a tier, the customer is assigned to the specified tier during the tier import. - If the customer is already in the tier that&#39;s specified in the CSV file, only the expiration date is updated.  &gt; [!note] We recommend not using this endpoint to update the tier of a customer.  To update a customer&#39;s tier, you can [add](/management-api#tag/Loyalty/operation/addLoyaltyPoints) or [deduct](/management-api#tag/Loyalty/operation/removeLoyaltyPoints) their loyalty points.  You can use the time zone of your choice. It is converted to UTC internally by Talon.One.  &gt; [!note] We recommend limiting your file size to 500 MB.  ## Example  &#x60;&#x60;&#x60;csv subledgerid,customerprofileid,tiername,expirydate SUB1,alexa,Gold,2024-03-21T07:32:14Z ,george,Silver,2025-04-16T21:12:37Z SUB2,avocado,Bronze,2026-05-03T11:47:01Z &#x60;&#x60;&#x60; 
+     * Upload a CSV file containing existing customers to be assigned to existing tiers.  Send the file as multipart data.  &gt; [!important] This endpoint only works with loyalty programs with advanced &gt; tiers (with expiration and downgrade policy) feature enabled.  The CSV file should contain the following columns:  - &#x60;subledgerid&#x60; (optional): The ID of the subledger. If this field is empty, the main ledger will be used. - &#x60;customerprofileid&#x60;: The integration ID of the customer profile to whom the tier should be assigned. - &#x60;tiername&#x60;: The name of an existing tier to assign to the customer. - &#x60;expirydate&#x60;: The expiry date of the tier when the tier is reevaluated. It should be a future date.  About customer assignment to a tier:  - If the customer isn&#39;t already in a tier, the customer is assigned to the specified tier during the tier import. - If the customer is already in the tier that&#39;s specified in the CSV file, only the expiry date is updated.  &gt; [!note] We recommend importing customers into the tier that matches their &gt; current balance. If a customer is imported into a lower tier, any session &gt; or points update automatically upgrades them to the tier they qualify for.  To update a customer&#39;s tier, you can [add](/management-api#tag/Loyalty/operation/addLoyaltyPoints) or [deduct](/management-api#tag/Loyalty/operation/removeLoyaltyPoints) their loyalty points.  You can use the time zone of your choice. It is converted to UTC internally by Talon.One.  &gt; [!note] We recommend limiting your file size to 500 MB.  ## Example  &#x60;&#x60;&#x60;csv subledgerid,customerprofileid,tiername,expirydate SUB1,alexa,Gold,2024-03-21T07:32:14Z ,george,Silver,2025-04-16T21:12:37Z SUB2,avocado,Bronze,2026-05-03T11:47:01Z &#x60;&#x60;&#x60; 
      * @param loyaltyProgramId Identifier of the loyalty program. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint.  (required)
-     * @param upFile The file containing the data that is being imported. (optional)
+     * @param upFile The CSV file containing the data that is being imported. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -21036,7 +21037,7 @@ public class ManagementApi {
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call importLoyaltyCustomersTiersAsync(@javax.annotation.Nonnull Long loyaltyProgramId, @javax.annotation.Nullable String upFile, final ApiCallback<ModelImport> _callback) throws ApiException {
+    public okhttp3.Call importLoyaltyCustomersTiersAsync(@javax.annotation.Nonnull Long loyaltyProgramId, @javax.annotation.Nullable File upFile, final ApiCallback<ModelImport> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = importLoyaltyCustomersTiersValidateBeforeCall(loyaltyProgramId, upFile, _callback);
         Type localVarReturnType = new TypeToken<ModelImport>(){}.getType();
@@ -21047,7 +21048,7 @@ public class ManagementApi {
      * Build call for importLoyaltyPoints
      * @param loyaltyProgramId Identifier of the loyalty program. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint.  (required)
      * @param notificationsEnabled Indicates whether the points import triggers notifications about its effects. For example, a notification is sent if the import upgrades a customer&#39;s tier or offsets their negative points balance.  This parameter is optional and defaults to &#x60;true&#x60;.  (optional)
-     * @param upFile The file containing the data that is being imported. (optional)
+     * @param upFile The CSV file containing the data that is being imported. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -21058,7 +21059,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call importLoyaltyPointsCall(@javax.annotation.Nonnull Long loyaltyProgramId, @javax.annotation.Nullable Boolean notificationsEnabled, @javax.annotation.Nullable String upFile, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call importLoyaltyPointsCall(@javax.annotation.Nonnull Long loyaltyProgramId, @javax.annotation.Nullable Boolean notificationsEnabled, @javax.annotation.Nullable File upFile, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -21113,7 +21114,7 @@ public class ManagementApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call importLoyaltyPointsValidateBeforeCall(@javax.annotation.Nonnull Long loyaltyProgramId, @javax.annotation.Nullable Boolean notificationsEnabled, @javax.annotation.Nullable String upFile, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call importLoyaltyPointsValidateBeforeCall(@javax.annotation.Nonnull Long loyaltyProgramId, @javax.annotation.Nullable Boolean notificationsEnabled, @javax.annotation.Nullable File upFile, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'loyaltyProgramId' is set
         if (loyaltyProgramId == null) {
             throw new ApiException("Missing the required parameter 'loyaltyProgramId' when calling importLoyaltyPoints(Async)");
@@ -21128,7 +21129,7 @@ public class ManagementApi {
      * Upload a CSV file containing the loyalty points you want to import into a given loyalty program.  Send the file as multipart data.  Depending on the type of loyalty program, you can import points into a given customer profile or loyalty card.  The CSV file contains the following columns:  - &#x60;customerprofileid&#x60; (optional): For profile-based loyalty programs, the   integration ID of the customer profile where the loyalty points are   imported.   **Note**: If the customer profile does not exist, it will be created. The profile will not be visible in any Application   until a session or profile update is received for that profile. - &#x60;identifier&#x60; (optional): For card-based loyalty programs, the identifier of the loyalty card where the loyalty points are imported. - &#x60;amount&#x60;: The amount of points to award to the customer profile. - &#x60;startdate&#x60; (optional): The earliest date when the points can be redeemed. The points are &#x60;active&#x60; from this date until the expiration date.   This parameter accepts one of the following values:     - A timestamp string in RFC3339 format.     - &#x60;immediate&#x60;     - &#x60;on_action&#x60;   **Note**: Empty or missing values default to &#x60;immediate&#x60;. - &#x60;expirydate&#x60; (optional): The latest date when the points can be redeemed.   The points are &#x60;expired&#x60; after this date.   **Note**: It must be an RFC3339 timestamp string or string &#x60;unlimited&#x60;. Empty or missing values are considered &#x60;unlimited&#x60;.   If passed, &#x60;validityDuration&#x60; should be omitted. - &#x60;validityDuration&#x60; (optional): The duration for which the points remain active, relative to the   activation date. The time format is an **integer** followed by one letter indicating the time unit.&lt;br /&gt;   Examples: &#x60;30s&#x60;, &#x60;40m&#x60;, &#x60;1h&#x60;, &#x60;5D&#x60;, &#x60;7W&#x60;, &#x60;10M&#x60;, &#x60;15Y&#x60;.    Available units:    - &#x60;s&#x60;: seconds   - &#x60;m&#x60;: minutes   - &#x60;h&#x60;: hours   - &#x60;D&#x60;: days   - &#x60;W&#x60;: weeks   - &#x60;M&#x60;: months   - &#x60;Y&#x60;: years    You can round certain units up or down:    - &#x60;_D&#x60; for rounding down days only. Signifies the start of the day.   - &#x60;_U&#x60; for rounding up days, weeks, months and years. Signifies the end of   the day, week, month or year.    If passed, &#x60;expirydate&#x60; should be omitted. - &#x60;subledgerid&#x60; (optional): The ID of the subledger that should received the points. - &#x60;reason&#x60; (optional): The reason why these points are awarded.  You can use the time zone of your choice. It is converted to UTC internally by Talon.One.  &gt; [!note] For existing customer profiles and loyalty cards, the imported &gt; points are added to any previous active or pending points, depending on the &gt; value provided for &#x60;startdate&#x60;. If &#x60;startdate&#x60; matches the current date, the &gt; imported points are _active_. If it is later, the points are _pending_ until &gt; the date provided for &#x60;startdate&#x60; is reached.  &gt; [!note] We recommend limiting your file size to 500 MB.  ## Example for profile-based programs  &#x60;&#x60;&#x60;text customerprofileid,amount,startdate,expirydate,subledgerid,reason URNGV8294NV,100,2009-11-10T23:00:00Z,2009-11-11T23:00:00Z,subledger1,appeasement &#x60;&#x60;&#x60;  ## Example for card-based programs  &#x60;&#x60;&#x60;text identifier,amount,startdate,expirydate,subledgerid,reason summer-loyalty-card-0543,100,2009-11-10T23:00:00Z,2009-11-11T23:00:00Z,subledger1,appeasement &#x60;&#x60;&#x60; 
      * @param loyaltyProgramId Identifier of the loyalty program. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint.  (required)
      * @param notificationsEnabled Indicates whether the points import triggers notifications about its effects. For example, a notification is sent if the import upgrades a customer&#39;s tier or offsets their negative points balance.  This parameter is optional and defaults to &#x60;true&#x60;.  (optional)
-     * @param upFile The file containing the data that is being imported. (optional)
+     * @param upFile The CSV file containing the data that is being imported. (optional)
      * @return ModelImport
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -21138,7 +21139,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ModelImport importLoyaltyPoints(@javax.annotation.Nonnull Long loyaltyProgramId, @javax.annotation.Nullable Boolean notificationsEnabled, @javax.annotation.Nullable String upFile) throws ApiException {
+    public ModelImport importLoyaltyPoints(@javax.annotation.Nonnull Long loyaltyProgramId, @javax.annotation.Nullable Boolean notificationsEnabled, @javax.annotation.Nullable File upFile) throws ApiException {
         ApiResponse<ModelImport> localVarResp = importLoyaltyPointsWithHttpInfo(loyaltyProgramId, notificationsEnabled, upFile);
         return localVarResp.getData();
     }
@@ -21148,7 +21149,7 @@ public class ManagementApi {
      * Upload a CSV file containing the loyalty points you want to import into a given loyalty program.  Send the file as multipart data.  Depending on the type of loyalty program, you can import points into a given customer profile or loyalty card.  The CSV file contains the following columns:  - &#x60;customerprofileid&#x60; (optional): For profile-based loyalty programs, the   integration ID of the customer profile where the loyalty points are   imported.   **Note**: If the customer profile does not exist, it will be created. The profile will not be visible in any Application   until a session or profile update is received for that profile. - &#x60;identifier&#x60; (optional): For card-based loyalty programs, the identifier of the loyalty card where the loyalty points are imported. - &#x60;amount&#x60;: The amount of points to award to the customer profile. - &#x60;startdate&#x60; (optional): The earliest date when the points can be redeemed. The points are &#x60;active&#x60; from this date until the expiration date.   This parameter accepts one of the following values:     - A timestamp string in RFC3339 format.     - &#x60;immediate&#x60;     - &#x60;on_action&#x60;   **Note**: Empty or missing values default to &#x60;immediate&#x60;. - &#x60;expirydate&#x60; (optional): The latest date when the points can be redeemed.   The points are &#x60;expired&#x60; after this date.   **Note**: It must be an RFC3339 timestamp string or string &#x60;unlimited&#x60;. Empty or missing values are considered &#x60;unlimited&#x60;.   If passed, &#x60;validityDuration&#x60; should be omitted. - &#x60;validityDuration&#x60; (optional): The duration for which the points remain active, relative to the   activation date. The time format is an **integer** followed by one letter indicating the time unit.&lt;br /&gt;   Examples: &#x60;30s&#x60;, &#x60;40m&#x60;, &#x60;1h&#x60;, &#x60;5D&#x60;, &#x60;7W&#x60;, &#x60;10M&#x60;, &#x60;15Y&#x60;.    Available units:    - &#x60;s&#x60;: seconds   - &#x60;m&#x60;: minutes   - &#x60;h&#x60;: hours   - &#x60;D&#x60;: days   - &#x60;W&#x60;: weeks   - &#x60;M&#x60;: months   - &#x60;Y&#x60;: years    You can round certain units up or down:    - &#x60;_D&#x60; for rounding down days only. Signifies the start of the day.   - &#x60;_U&#x60; for rounding up days, weeks, months and years. Signifies the end of   the day, week, month or year.    If passed, &#x60;expirydate&#x60; should be omitted. - &#x60;subledgerid&#x60; (optional): The ID of the subledger that should received the points. - &#x60;reason&#x60; (optional): The reason why these points are awarded.  You can use the time zone of your choice. It is converted to UTC internally by Talon.One.  &gt; [!note] For existing customer profiles and loyalty cards, the imported &gt; points are added to any previous active or pending points, depending on the &gt; value provided for &#x60;startdate&#x60;. If &#x60;startdate&#x60; matches the current date, the &gt; imported points are _active_. If it is later, the points are _pending_ until &gt; the date provided for &#x60;startdate&#x60; is reached.  &gt; [!note] We recommend limiting your file size to 500 MB.  ## Example for profile-based programs  &#x60;&#x60;&#x60;text customerprofileid,amount,startdate,expirydate,subledgerid,reason URNGV8294NV,100,2009-11-10T23:00:00Z,2009-11-11T23:00:00Z,subledger1,appeasement &#x60;&#x60;&#x60;  ## Example for card-based programs  &#x60;&#x60;&#x60;text identifier,amount,startdate,expirydate,subledgerid,reason summer-loyalty-card-0543,100,2009-11-10T23:00:00Z,2009-11-11T23:00:00Z,subledger1,appeasement &#x60;&#x60;&#x60; 
      * @param loyaltyProgramId Identifier of the loyalty program. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint.  (required)
      * @param notificationsEnabled Indicates whether the points import triggers notifications about its effects. For example, a notification is sent if the import upgrades a customer&#39;s tier or offsets their negative points balance.  This parameter is optional and defaults to &#x60;true&#x60;.  (optional)
-     * @param upFile The file containing the data that is being imported. (optional)
+     * @param upFile The CSV file containing the data that is being imported. (optional)
      * @return ApiResponse&lt;ModelImport&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -21158,7 +21159,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<ModelImport> importLoyaltyPointsWithHttpInfo(@javax.annotation.Nonnull Long loyaltyProgramId, @javax.annotation.Nullable Boolean notificationsEnabled, @javax.annotation.Nullable String upFile) throws ApiException {
+    public ApiResponse<ModelImport> importLoyaltyPointsWithHttpInfo(@javax.annotation.Nonnull Long loyaltyProgramId, @javax.annotation.Nullable Boolean notificationsEnabled, @javax.annotation.Nullable File upFile) throws ApiException {
         okhttp3.Call localVarCall = importLoyaltyPointsValidateBeforeCall(loyaltyProgramId, notificationsEnabled, upFile, null);
         Type localVarReturnType = new TypeToken<ModelImport>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -21169,7 +21170,7 @@ public class ManagementApi {
      * Upload a CSV file containing the loyalty points you want to import into a given loyalty program.  Send the file as multipart data.  Depending on the type of loyalty program, you can import points into a given customer profile or loyalty card.  The CSV file contains the following columns:  - &#x60;customerprofileid&#x60; (optional): For profile-based loyalty programs, the   integration ID of the customer profile where the loyalty points are   imported.   **Note**: If the customer profile does not exist, it will be created. The profile will not be visible in any Application   until a session or profile update is received for that profile. - &#x60;identifier&#x60; (optional): For card-based loyalty programs, the identifier of the loyalty card where the loyalty points are imported. - &#x60;amount&#x60;: The amount of points to award to the customer profile. - &#x60;startdate&#x60; (optional): The earliest date when the points can be redeemed. The points are &#x60;active&#x60; from this date until the expiration date.   This parameter accepts one of the following values:     - A timestamp string in RFC3339 format.     - &#x60;immediate&#x60;     - &#x60;on_action&#x60;   **Note**: Empty or missing values default to &#x60;immediate&#x60;. - &#x60;expirydate&#x60; (optional): The latest date when the points can be redeemed.   The points are &#x60;expired&#x60; after this date.   **Note**: It must be an RFC3339 timestamp string or string &#x60;unlimited&#x60;. Empty or missing values are considered &#x60;unlimited&#x60;.   If passed, &#x60;validityDuration&#x60; should be omitted. - &#x60;validityDuration&#x60; (optional): The duration for which the points remain active, relative to the   activation date. The time format is an **integer** followed by one letter indicating the time unit.&lt;br /&gt;   Examples: &#x60;30s&#x60;, &#x60;40m&#x60;, &#x60;1h&#x60;, &#x60;5D&#x60;, &#x60;7W&#x60;, &#x60;10M&#x60;, &#x60;15Y&#x60;.    Available units:    - &#x60;s&#x60;: seconds   - &#x60;m&#x60;: minutes   - &#x60;h&#x60;: hours   - &#x60;D&#x60;: days   - &#x60;W&#x60;: weeks   - &#x60;M&#x60;: months   - &#x60;Y&#x60;: years    You can round certain units up or down:    - &#x60;_D&#x60; for rounding down days only. Signifies the start of the day.   - &#x60;_U&#x60; for rounding up days, weeks, months and years. Signifies the end of   the day, week, month or year.    If passed, &#x60;expirydate&#x60; should be omitted. - &#x60;subledgerid&#x60; (optional): The ID of the subledger that should received the points. - &#x60;reason&#x60; (optional): The reason why these points are awarded.  You can use the time zone of your choice. It is converted to UTC internally by Talon.One.  &gt; [!note] For existing customer profiles and loyalty cards, the imported &gt; points are added to any previous active or pending points, depending on the &gt; value provided for &#x60;startdate&#x60;. If &#x60;startdate&#x60; matches the current date, the &gt; imported points are _active_. If it is later, the points are _pending_ until &gt; the date provided for &#x60;startdate&#x60; is reached.  &gt; [!note] We recommend limiting your file size to 500 MB.  ## Example for profile-based programs  &#x60;&#x60;&#x60;text customerprofileid,amount,startdate,expirydate,subledgerid,reason URNGV8294NV,100,2009-11-10T23:00:00Z,2009-11-11T23:00:00Z,subledger1,appeasement &#x60;&#x60;&#x60;  ## Example for card-based programs  &#x60;&#x60;&#x60;text identifier,amount,startdate,expirydate,subledgerid,reason summer-loyalty-card-0543,100,2009-11-10T23:00:00Z,2009-11-11T23:00:00Z,subledger1,appeasement &#x60;&#x60;&#x60; 
      * @param loyaltyProgramId Identifier of the loyalty program. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint.  (required)
      * @param notificationsEnabled Indicates whether the points import triggers notifications about its effects. For example, a notification is sent if the import upgrades a customer&#39;s tier or offsets their negative points balance.  This parameter is optional and defaults to &#x60;true&#x60;.  (optional)
-     * @param upFile The file containing the data that is being imported. (optional)
+     * @param upFile The CSV file containing the data that is being imported. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -21180,7 +21181,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call importLoyaltyPointsAsync(@javax.annotation.Nonnull Long loyaltyProgramId, @javax.annotation.Nullable Boolean notificationsEnabled, @javax.annotation.Nullable String upFile, final ApiCallback<ModelImport> _callback) throws ApiException {
+    public okhttp3.Call importLoyaltyPointsAsync(@javax.annotation.Nonnull Long loyaltyProgramId, @javax.annotation.Nullable Boolean notificationsEnabled, @javax.annotation.Nullable File upFile, final ApiCallback<ModelImport> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = importLoyaltyPointsValidateBeforeCall(loyaltyProgramId, notificationsEnabled, upFile, _callback);
         Type localVarReturnType = new TypeToken<ModelImport>(){}.getType();
@@ -21190,7 +21191,7 @@ public class ManagementApi {
     /**
      * Build call for importPoolGiveaways
      * @param poolId The ID of the pool. You can find it in the Campaign Manager, in the **Giveaways** section. (required)
-     * @param upFile The file containing the data that is being imported. (optional)
+     * @param upFile The CSV file containing the data that is being imported. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -21201,7 +21202,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call importPoolGiveawaysCall(@javax.annotation.Nonnull Long poolId, @javax.annotation.Nullable String upFile, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call importPoolGiveawaysCall(@javax.annotation.Nonnull Long poolId, @javax.annotation.Nullable File upFile, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -21252,7 +21253,7 @@ public class ManagementApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call importPoolGiveawaysValidateBeforeCall(@javax.annotation.Nonnull Long poolId, @javax.annotation.Nullable String upFile, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call importPoolGiveawaysValidateBeforeCall(@javax.annotation.Nonnull Long poolId, @javax.annotation.Nullable File upFile, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'poolId' is set
         if (poolId == null) {
             throw new ApiException("Missing the required parameter 'poolId' when calling importPoolGiveaways(Async)");
@@ -21266,7 +21267,7 @@ public class ManagementApi {
      * Import giveaway codes into a giveaway pool
      * Upload a CSV file containing the giveaway codes that should be created. Send the file as multipart data.  The CSV file contains the following columns:  - &#x60;code&#x60; (required): The code of your giveaway, for instance, a gift card redemption code. - &#x60;startdate&#x60;:  The start date in RFC3339 of the code redemption period. - &#x60;enddate&#x60;: The last date in RFC3339 of the code redemption period. - &#x60;attributes&#x60;: A JSON object describing _custom_ giveaway attribute names and their values, enclosed with double quotation marks.&lt;br /&gt;   For example, if you created a [custom attribute](https://docs.talon.one/docs/dev/concepts/attributes#custom-attributes)   called &#x60;provider&#x60; associated with the giveaway entity, the object in the CSV file, when opened in a text editor, must be: &#x60;\&quot;{\&quot;provider\&quot;: \&quot;myPartnerCompany\&quot;}\&quot;&#x60;.  The &#x60;startdate&#x60; and &#x60;enddate&#x60; have nothing to do with the _validity_ of the codes. They are only used by the Rule Engine to award the codes or not.  You can use the time zone setting of your choice. The values are converted to UTC internally by Talon.One.  &gt; [!note] **Note** &gt; - We recommend limiting your file size to 500MB. &gt; - You can import the same code multiple times. Duplicate codes are treated and distributed to customers as unique codes.  ## Example  &#x60;&#x60;&#x60;text code,startdate,enddate,attributes GIVEAWAY1,2020-11-10T23:00:00Z,2022-11-11T23:00:00Z,\&quot;{\&quot;\&quot;provider\&quot;\&quot;: \&quot;\&quot;Amazon\&quot;\&quot;}\&quot; GIVEAWAY2,2020-11-10T23:00:00Z,2022-11-11T23:00:00Z,\&quot;{\&quot;\&quot;provider\&quot;\&quot;: \&quot;\&quot;Amazon\&quot;\&quot;}\&quot; GIVEAWAY3,2021-01-10T23:00:00Z,2022-11-11T23:00:00Z,\&quot;{\&quot;\&quot;provider\&quot;\&quot;: \&quot;\&quot;Aliexpress\&quot;\&quot;}\&quot; &#x60;&#x60;&#x60; 
      * @param poolId The ID of the pool. You can find it in the Campaign Manager, in the **Giveaways** section. (required)
-     * @param upFile The file containing the data that is being imported. (optional)
+     * @param upFile The CSV file containing the data that is being imported. (optional)
      * @return ModelImport
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -21276,7 +21277,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ModelImport importPoolGiveaways(@javax.annotation.Nonnull Long poolId, @javax.annotation.Nullable String upFile) throws ApiException {
+    public ModelImport importPoolGiveaways(@javax.annotation.Nonnull Long poolId, @javax.annotation.Nullable File upFile) throws ApiException {
         ApiResponse<ModelImport> localVarResp = importPoolGiveawaysWithHttpInfo(poolId, upFile);
         return localVarResp.getData();
     }
@@ -21285,7 +21286,7 @@ public class ManagementApi {
      * Import giveaway codes into a giveaway pool
      * Upload a CSV file containing the giveaway codes that should be created. Send the file as multipart data.  The CSV file contains the following columns:  - &#x60;code&#x60; (required): The code of your giveaway, for instance, a gift card redemption code. - &#x60;startdate&#x60;:  The start date in RFC3339 of the code redemption period. - &#x60;enddate&#x60;: The last date in RFC3339 of the code redemption period. - &#x60;attributes&#x60;: A JSON object describing _custom_ giveaway attribute names and their values, enclosed with double quotation marks.&lt;br /&gt;   For example, if you created a [custom attribute](https://docs.talon.one/docs/dev/concepts/attributes#custom-attributes)   called &#x60;provider&#x60; associated with the giveaway entity, the object in the CSV file, when opened in a text editor, must be: &#x60;\&quot;{\&quot;provider\&quot;: \&quot;myPartnerCompany\&quot;}\&quot;&#x60;.  The &#x60;startdate&#x60; and &#x60;enddate&#x60; have nothing to do with the _validity_ of the codes. They are only used by the Rule Engine to award the codes or not.  You can use the time zone setting of your choice. The values are converted to UTC internally by Talon.One.  &gt; [!note] **Note** &gt; - We recommend limiting your file size to 500MB. &gt; - You can import the same code multiple times. Duplicate codes are treated and distributed to customers as unique codes.  ## Example  &#x60;&#x60;&#x60;text code,startdate,enddate,attributes GIVEAWAY1,2020-11-10T23:00:00Z,2022-11-11T23:00:00Z,\&quot;{\&quot;\&quot;provider\&quot;\&quot;: \&quot;\&quot;Amazon\&quot;\&quot;}\&quot; GIVEAWAY2,2020-11-10T23:00:00Z,2022-11-11T23:00:00Z,\&quot;{\&quot;\&quot;provider\&quot;\&quot;: \&quot;\&quot;Amazon\&quot;\&quot;}\&quot; GIVEAWAY3,2021-01-10T23:00:00Z,2022-11-11T23:00:00Z,\&quot;{\&quot;\&quot;provider\&quot;\&quot;: \&quot;\&quot;Aliexpress\&quot;\&quot;}\&quot; &#x60;&#x60;&#x60; 
      * @param poolId The ID of the pool. You can find it in the Campaign Manager, in the **Giveaways** section. (required)
-     * @param upFile The file containing the data that is being imported. (optional)
+     * @param upFile The CSV file containing the data that is being imported. (optional)
      * @return ApiResponse&lt;ModelImport&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -21295,7 +21296,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<ModelImport> importPoolGiveawaysWithHttpInfo(@javax.annotation.Nonnull Long poolId, @javax.annotation.Nullable String upFile) throws ApiException {
+    public ApiResponse<ModelImport> importPoolGiveawaysWithHttpInfo(@javax.annotation.Nonnull Long poolId, @javax.annotation.Nullable File upFile) throws ApiException {
         okhttp3.Call localVarCall = importPoolGiveawaysValidateBeforeCall(poolId, upFile, null);
         Type localVarReturnType = new TypeToken<ModelImport>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -21305,7 +21306,7 @@ public class ManagementApi {
      * Import giveaway codes into a giveaway pool (asynchronously)
      * Upload a CSV file containing the giveaway codes that should be created. Send the file as multipart data.  The CSV file contains the following columns:  - &#x60;code&#x60; (required): The code of your giveaway, for instance, a gift card redemption code. - &#x60;startdate&#x60;:  The start date in RFC3339 of the code redemption period. - &#x60;enddate&#x60;: The last date in RFC3339 of the code redemption period. - &#x60;attributes&#x60;: A JSON object describing _custom_ giveaway attribute names and their values, enclosed with double quotation marks.&lt;br /&gt;   For example, if you created a [custom attribute](https://docs.talon.one/docs/dev/concepts/attributes#custom-attributes)   called &#x60;provider&#x60; associated with the giveaway entity, the object in the CSV file, when opened in a text editor, must be: &#x60;\&quot;{\&quot;provider\&quot;: \&quot;myPartnerCompany\&quot;}\&quot;&#x60;.  The &#x60;startdate&#x60; and &#x60;enddate&#x60; have nothing to do with the _validity_ of the codes. They are only used by the Rule Engine to award the codes or not.  You can use the time zone setting of your choice. The values are converted to UTC internally by Talon.One.  &gt; [!note] **Note** &gt; - We recommend limiting your file size to 500MB. &gt; - You can import the same code multiple times. Duplicate codes are treated and distributed to customers as unique codes.  ## Example  &#x60;&#x60;&#x60;text code,startdate,enddate,attributes GIVEAWAY1,2020-11-10T23:00:00Z,2022-11-11T23:00:00Z,\&quot;{\&quot;\&quot;provider\&quot;\&quot;: \&quot;\&quot;Amazon\&quot;\&quot;}\&quot; GIVEAWAY2,2020-11-10T23:00:00Z,2022-11-11T23:00:00Z,\&quot;{\&quot;\&quot;provider\&quot;\&quot;: \&quot;\&quot;Amazon\&quot;\&quot;}\&quot; GIVEAWAY3,2021-01-10T23:00:00Z,2022-11-11T23:00:00Z,\&quot;{\&quot;\&quot;provider\&quot;\&quot;: \&quot;\&quot;Aliexpress\&quot;\&quot;}\&quot; &#x60;&#x60;&#x60; 
      * @param poolId The ID of the pool. You can find it in the Campaign Manager, in the **Giveaways** section. (required)
-     * @param upFile The file containing the data that is being imported. (optional)
+     * @param upFile The CSV file containing the data that is being imported. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -21316,7 +21317,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call importPoolGiveawaysAsync(@javax.annotation.Nonnull Long poolId, @javax.annotation.Nullable String upFile, final ApiCallback<ModelImport> _callback) throws ApiException {
+    public okhttp3.Call importPoolGiveawaysAsync(@javax.annotation.Nonnull Long poolId, @javax.annotation.Nullable File upFile, final ApiCallback<ModelImport> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = importPoolGiveawaysValidateBeforeCall(poolId, upFile, _callback);
         Type localVarReturnType = new TypeToken<ModelImport>(){}.getType();
@@ -21327,7 +21328,7 @@ public class ManagementApi {
      * Build call for importReferrals
      * @param applicationId The ID of the Application. It is displayed in your Talon.One deployment URL. (required)
      * @param campaignId The ID of the campaign. It is displayed in your Talon.One deployment URL. (required)
-     * @param upFile The file containing the data that is being imported. (optional)
+     * @param upFile The CSV file containing the data that is being imported. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -21338,7 +21339,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call importReferralsCall(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, @javax.annotation.Nullable String upFile, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call importReferralsCall(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, @javax.annotation.Nullable File upFile, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -21390,7 +21391,7 @@ public class ManagementApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call importReferralsValidateBeforeCall(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, @javax.annotation.Nullable String upFile, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call importReferralsValidateBeforeCall(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, @javax.annotation.Nullable File upFile, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'applicationId' is set
         if (applicationId == null) {
             throw new ApiException("Missing the required parameter 'applicationId' when calling importReferrals(Async)");
@@ -21410,7 +21411,7 @@ public class ManagementApi {
      * Upload a CSV file containing the referrals that should be created.  The file should be sent as multipart data.  The CSV file contains the following columns:  - &#x60;code&#x60; (required): The referral code. - &#x60;advocateprofileintegrationid&#x60; (required): The profile ID of the advocate. - &#x60;startdate&#x60;: The start date in RFC3339 of the code redemption period. - &#x60;expirydate&#x60;: The end date in RFC3339 of the code redemption period. - &#x60;limitval&#x60;: The maximum number of redemptions of this code. Defaults to &#x60;1&#x60; when left blank. - &#x60;attributes&#x60;: A JSON object describing _custom_ referral attribute names and their values, enclosed with double quotation marks.&lt;br /&gt;   For example, if you created a [custom attribute](https://docs.talon.one/docs/dev/concepts/attributes#custom-attributes)   called &#x60;category&#x60; associated with the referral entity, the object in the CSV file, when opened in a text editor, must be: &#x60;\&quot;{\&quot;category\&quot;: \&quot;10_off\&quot;}\&quot;&#x60;.  You can use the time zone of your choice. It is converted to UTC internally by Talon.One.  &gt; [!important] When you import a CSV file with referrals, &gt; a [customer profile](https://docs.talon.one/docs/dev/concepts/entities/customer-profiles) &gt; is **not** automatically created for each &#x60;advocateprofileintegrationid&#x60; &gt; column value. Use the [Update customer profile](https://docs.talon.one/integration-api#tag/Customer-profiles/operation/updateCustomerProfileV2) &gt; endpoint or the [Update multiple customer profiles](https://docs.talon.one/integration-api#tag/Customer-profiles/operation/updateCustomerProfilesV2) &gt; endpoint to create the customer profiles.  &gt; [!note] We recommend limiting your file size to 500 MB.  ## Example  &#x60;&#x60;&#x60;text code,startdate,expirydate,advocateprofileintegrationid,limitval,attributes REFERRAL_CODE1,2020-11-10T23:00:00Z,2021-11-11T23:00:00Z,integid_4,1,\&quot;{\&quot;\&quot;my_attribute\&quot;\&quot;: \&quot;\&quot;10_off\&quot;\&quot;}\&quot; REFERRAL_CODE2,2020-11-10T23:00:00Z,2021-11-11T23:00:00Z,integid1,1,\&quot;{\&quot;\&quot;my_attribute\&quot;\&quot;: \&quot;\&quot;20_off\&quot;\&quot;}\&quot; &#x60;&#x60;&#x60; 
      * @param applicationId The ID of the Application. It is displayed in your Talon.One deployment URL. (required)
      * @param campaignId The ID of the campaign. It is displayed in your Talon.One deployment URL. (required)
-     * @param upFile The file containing the data that is being imported. (optional)
+     * @param upFile The CSV file containing the data that is being imported. (optional)
      * @return ModelImport
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -21420,7 +21421,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ModelImport importReferrals(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, @javax.annotation.Nullable String upFile) throws ApiException {
+    public ModelImport importReferrals(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, @javax.annotation.Nullable File upFile) throws ApiException {
         ApiResponse<ModelImport> localVarResp = importReferralsWithHttpInfo(applicationId, campaignId, upFile);
         return localVarResp.getData();
     }
@@ -21430,7 +21431,7 @@ public class ManagementApi {
      * Upload a CSV file containing the referrals that should be created.  The file should be sent as multipart data.  The CSV file contains the following columns:  - &#x60;code&#x60; (required): The referral code. - &#x60;advocateprofileintegrationid&#x60; (required): The profile ID of the advocate. - &#x60;startdate&#x60;: The start date in RFC3339 of the code redemption period. - &#x60;expirydate&#x60;: The end date in RFC3339 of the code redemption period. - &#x60;limitval&#x60;: The maximum number of redemptions of this code. Defaults to &#x60;1&#x60; when left blank. - &#x60;attributes&#x60;: A JSON object describing _custom_ referral attribute names and their values, enclosed with double quotation marks.&lt;br /&gt;   For example, if you created a [custom attribute](https://docs.talon.one/docs/dev/concepts/attributes#custom-attributes)   called &#x60;category&#x60; associated with the referral entity, the object in the CSV file, when opened in a text editor, must be: &#x60;\&quot;{\&quot;category\&quot;: \&quot;10_off\&quot;}\&quot;&#x60;.  You can use the time zone of your choice. It is converted to UTC internally by Talon.One.  &gt; [!important] When you import a CSV file with referrals, &gt; a [customer profile](https://docs.talon.one/docs/dev/concepts/entities/customer-profiles) &gt; is **not** automatically created for each &#x60;advocateprofileintegrationid&#x60; &gt; column value. Use the [Update customer profile](https://docs.talon.one/integration-api#tag/Customer-profiles/operation/updateCustomerProfileV2) &gt; endpoint or the [Update multiple customer profiles](https://docs.talon.one/integration-api#tag/Customer-profiles/operation/updateCustomerProfilesV2) &gt; endpoint to create the customer profiles.  &gt; [!note] We recommend limiting your file size to 500 MB.  ## Example  &#x60;&#x60;&#x60;text code,startdate,expirydate,advocateprofileintegrationid,limitval,attributes REFERRAL_CODE1,2020-11-10T23:00:00Z,2021-11-11T23:00:00Z,integid_4,1,\&quot;{\&quot;\&quot;my_attribute\&quot;\&quot;: \&quot;\&quot;10_off\&quot;\&quot;}\&quot; REFERRAL_CODE2,2020-11-10T23:00:00Z,2021-11-11T23:00:00Z,integid1,1,\&quot;{\&quot;\&quot;my_attribute\&quot;\&quot;: \&quot;\&quot;20_off\&quot;\&quot;}\&quot; &#x60;&#x60;&#x60; 
      * @param applicationId The ID of the Application. It is displayed in your Talon.One deployment URL. (required)
      * @param campaignId The ID of the campaign. It is displayed in your Talon.One deployment URL. (required)
-     * @param upFile The file containing the data that is being imported. (optional)
+     * @param upFile The CSV file containing the data that is being imported. (optional)
      * @return ApiResponse&lt;ModelImport&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -21440,7 +21441,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<ModelImport> importReferralsWithHttpInfo(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, @javax.annotation.Nullable String upFile) throws ApiException {
+    public ApiResponse<ModelImport> importReferralsWithHttpInfo(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, @javax.annotation.Nullable File upFile) throws ApiException {
         okhttp3.Call localVarCall = importReferralsValidateBeforeCall(applicationId, campaignId, upFile, null);
         Type localVarReturnType = new TypeToken<ModelImport>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -21451,7 +21452,7 @@ public class ManagementApi {
      * Upload a CSV file containing the referrals that should be created.  The file should be sent as multipart data.  The CSV file contains the following columns:  - &#x60;code&#x60; (required): The referral code. - &#x60;advocateprofileintegrationid&#x60; (required): The profile ID of the advocate. - &#x60;startdate&#x60;: The start date in RFC3339 of the code redemption period. - &#x60;expirydate&#x60;: The end date in RFC3339 of the code redemption period. - &#x60;limitval&#x60;: The maximum number of redemptions of this code. Defaults to &#x60;1&#x60; when left blank. - &#x60;attributes&#x60;: A JSON object describing _custom_ referral attribute names and their values, enclosed with double quotation marks.&lt;br /&gt;   For example, if you created a [custom attribute](https://docs.talon.one/docs/dev/concepts/attributes#custom-attributes)   called &#x60;category&#x60; associated with the referral entity, the object in the CSV file, when opened in a text editor, must be: &#x60;\&quot;{\&quot;category\&quot;: \&quot;10_off\&quot;}\&quot;&#x60;.  You can use the time zone of your choice. It is converted to UTC internally by Talon.One.  &gt; [!important] When you import a CSV file with referrals, &gt; a [customer profile](https://docs.talon.one/docs/dev/concepts/entities/customer-profiles) &gt; is **not** automatically created for each &#x60;advocateprofileintegrationid&#x60; &gt; column value. Use the [Update customer profile](https://docs.talon.one/integration-api#tag/Customer-profiles/operation/updateCustomerProfileV2) &gt; endpoint or the [Update multiple customer profiles](https://docs.talon.one/integration-api#tag/Customer-profiles/operation/updateCustomerProfilesV2) &gt; endpoint to create the customer profiles.  &gt; [!note] We recommend limiting your file size to 500 MB.  ## Example  &#x60;&#x60;&#x60;text code,startdate,expirydate,advocateprofileintegrationid,limitval,attributes REFERRAL_CODE1,2020-11-10T23:00:00Z,2021-11-11T23:00:00Z,integid_4,1,\&quot;{\&quot;\&quot;my_attribute\&quot;\&quot;: \&quot;\&quot;10_off\&quot;\&quot;}\&quot; REFERRAL_CODE2,2020-11-10T23:00:00Z,2021-11-11T23:00:00Z,integid1,1,\&quot;{\&quot;\&quot;my_attribute\&quot;\&quot;: \&quot;\&quot;20_off\&quot;\&quot;}\&quot; &#x60;&#x60;&#x60; 
      * @param applicationId The ID of the Application. It is displayed in your Talon.One deployment URL. (required)
      * @param campaignId The ID of the campaign. It is displayed in your Talon.One deployment URL. (required)
-     * @param upFile The file containing the data that is being imported. (optional)
+     * @param upFile The CSV file containing the data that is being imported. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -21462,7 +21463,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call importReferralsAsync(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, @javax.annotation.Nullable String upFile, final ApiCallback<ModelImport> _callback) throws ApiException {
+    public okhttp3.Call importReferralsAsync(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, @javax.annotation.Nullable File upFile, final ApiCallback<ModelImport> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = importReferralsValidateBeforeCall(applicationId, campaignId, upFile, _callback);
         Type localVarReturnType = new TypeToken<ModelImport>(){}.getType();

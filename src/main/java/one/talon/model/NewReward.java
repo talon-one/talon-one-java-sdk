@@ -23,9 +23,6 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import one.talon.model.Binding;
-import one.talon.model.Rule;
-import com.google.gson.JsonElement;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -79,16 +76,6 @@ public class NewReward {
   @SerializedName(SERIALIZED_NAME_SANDBOX)
   @javax.annotation.Nonnull
   private Boolean sandbox;
-
-  public static final String SERIALIZED_NAME_RULE = "rule";
-  @SerializedName(SERIALIZED_NAME_RULE)
-  @javax.annotation.Nullable
-  private List<Rule> rule;
-
-  public static final String SERIALIZED_NAME_BINDINGS = "bindings";
-  @SerializedName(SERIALIZED_NAME_BINDINGS)
-  @javax.annotation.Nullable
-  private List<Binding> bindings;
 
   public NewReward() {
   }
@@ -195,60 +182,6 @@ public class NewReward {
     this.sandbox = sandbox;
   }
 
-
-  public NewReward rule(@javax.annotation.Nullable List<Rule> rule) {
-    this.rule = rule;
-    return this;
-  }
-
-  public NewReward addRuleItem(Rule ruleItem) {
-    if (this.rule == null) {
-      this.rule = new ArrayList<>();
-    }
-    this.rule.add(ruleItem);
-    return this;
-  }
-
-  /**
-   * Rule to apply.
-   * @return rule
-   */
-  @javax.annotation.Nullable
-  public List<Rule> getRule() {
-    return rule;
-  }
-
-  public void setRule(@javax.annotation.Nullable List<Rule> rule) {
-    this.rule = rule;
-  }
-
-
-  public NewReward bindings(@javax.annotation.Nullable List<Binding> bindings) {
-    this.bindings = bindings;
-    return this;
-  }
-
-  public NewReward addBindingsItem(Binding bindingsItem) {
-    if (this.bindings == null) {
-      this.bindings = new ArrayList<>();
-    }
-    this.bindings.add(bindingsItem);
-    return this;
-  }
-
-  /**
-   * A list of named variables created before the reward&#39;s rules are evaluated.  Each binding pairs a name with a talang expression. The expression is evaluated once  and its result is available by name in any rule condition or effect. Bindings must be defined outside of individual rules.
-   * @return bindings
-   */
-  @javax.annotation.Nullable
-  public List<Binding> getBindings() {
-    return bindings;
-  }
-
-  public void setBindings(@javax.annotation.Nullable List<Binding> bindings) {
-    this.bindings = bindings;
-  }
-
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -308,15 +241,13 @@ public class NewReward {
         Objects.equals(this.apiName, newReward.apiName) &&
         Objects.equals(this.description, newReward.description) &&
         Objects.equals(this.applicationIds, newReward.applicationIds) &&
-        Objects.equals(this.sandbox, newReward.sandbox) &&
-        Objects.equals(this.rule, newReward.rule) &&
-        Objects.equals(this.bindings, newReward.bindings)&&
+        Objects.equals(this.sandbox, newReward.sandbox)&&
         Objects.equals(this.additionalProperties, newReward.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, apiName, description, applicationIds, sandbox, rule, bindings, additionalProperties);
+    return Objects.hash(name, apiName, description, applicationIds, sandbox, additionalProperties);
   }
 
   @Override
@@ -328,8 +259,6 @@ public class NewReward {
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    applicationIds: ").append(toIndentedString(applicationIds)).append("\n");
     sb.append("    sandbox: ").append(toIndentedString(sandbox)).append("\n");
-    sb.append("    rule: ").append(toIndentedString(rule)).append("\n");
-    sb.append("    bindings: ").append(toIndentedString(bindings)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -340,10 +269,7 @@ public class NewReward {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
@@ -352,7 +278,7 @@ public class NewReward {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("name", "apiName", "description", "applicationIds", "sandbox", "rule", "bindings"));
+    openapiFields = new HashSet<String>(Arrays.asList("name", "apiName", "description", "applicationIds", "sandbox"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("name", "apiName", "applicationIds", "sandbox"));
@@ -392,34 +318,6 @@ public class NewReward {
         throw new IllegalArgumentException("Expected the field `linkedContent` to be an array in the JSON string but got `null`");
       } else if (!jsonObj.get("applicationIds").isJsonArray()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `applicationIds` to be an array in the JSON string but got `%s`", jsonObj.get("applicationIds").toString()));
-      }
-      if (jsonObj.get("rule") != null && !jsonObj.get("rule").isJsonNull()) {
-        JsonArray jsonArrayrule = jsonObj.getAsJsonArray("rule");
-        if (jsonArrayrule != null) {
-          // ensure the json data is an array
-          if (!jsonObj.get("rule").isJsonArray()) {
-            throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `rule` to be an array in the JSON string but got `%s`", jsonObj.get("rule").toString()));
-          }
-
-          // validate the optional field `rule` (array)
-          for (int i = 0; i < jsonArrayrule.size(); i++) {
-            Rule.validateJsonElement(jsonArrayrule.get(i));
-          };
-        }
-      }
-      if (jsonObj.get("bindings") != null && !jsonObj.get("bindings").isJsonNull()) {
-        JsonArray jsonArraybindings = jsonObj.getAsJsonArray("bindings");
-        if (jsonArraybindings != null) {
-          // ensure the json data is an array
-          if (!jsonObj.get("bindings").isJsonArray()) {
-            throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `bindings` to be an array in the JSON string but got `%s`", jsonObj.get("bindings").toString()));
-          }
-
-          // validate the optional field `bindings` (array)
-          for (int i = 0; i < jsonArraybindings.size(); i++) {
-            Binding.validateJsonElement(jsonArraybindings.get(i));
-          };
-        }
       }
   }
 

@@ -30,7 +30,6 @@ import java.util.Map;
 import one.talon.model.AdditionalCost;
 import one.talon.model.CartItem;
 import one.talon.model.ExperimentVariantAllocation;
-import com.google.gson.JsonElement;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -221,12 +220,24 @@ public class CustomerSessionV2 {
   @javax.annotation.Nonnull
   private BigDecimal additionalCostTotal;
 
+  public static final String SERIALIZED_NAME_CART_ITEM_ADDITIONAL_COST_TOTAL = "cartItemAdditionalCostTotal";
+  @SerializedName(SERIALIZED_NAME_CART_ITEM_ADDITIONAL_COST_TOTAL)
+  @javax.annotation.Nonnull
+  private BigDecimal cartItemAdditionalCostTotal;
+
   public static final String SERIALIZED_NAME_UPDATED = "updated";
   @SerializedName(SERIALIZED_NAME_UPDATED)
   @javax.annotation.Nonnull
   private OffsetDateTime updated;
 
   public CustomerSessionV2() {
+  }
+
+  public CustomerSessionV2(
+     BigDecimal cartItemAdditionalCostTotal
+  ) {
+    this();
+    this.cartItemAdditionalCostTotal = cartItemAdditionalCostTotal;
   }
 
   public CustomerSessionV2 id(@javax.annotation.Nonnull Long id) {
@@ -692,6 +703,17 @@ public class CustomerSessionV2 {
   }
 
 
+  /**
+   * The total value of additional costs applied to individual items, before any discounts are applied.
+   * @return cartItemAdditionalCostTotal
+   */
+  @javax.annotation.Nonnull
+  public BigDecimal getCartItemAdditionalCostTotal() {
+    return cartItemAdditionalCostTotal;
+  }
+
+
+
   public CustomerSessionV2 updated(@javax.annotation.Nonnull OffsetDateTime updated) {
     this.updated = updated;
     return this;
@@ -786,13 +808,14 @@ public class CustomerSessionV2 {
         Objects.equals(this.total, customerSessionV2.total) &&
         Objects.equals(this.cartItemTotal, customerSessionV2.cartItemTotal) &&
         Objects.equals(this.additionalCostTotal, customerSessionV2.additionalCostTotal) &&
+        Objects.equals(this.cartItemAdditionalCostTotal, customerSessionV2.cartItemAdditionalCostTotal) &&
         Objects.equals(this.updated, customerSessionV2.updated)&&
         Objects.equals(this.additionalProperties, customerSessionV2.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, created, integrationId, applicationId, profileId, storeIntegrationId, evaluableCampaignIds, couponCodes, referralCode, loyaltyCards, state, cartItems, experimentVariantAllocations, additionalCosts, identifiers, attributes, firstSession, updateCount, total, cartItemTotal, additionalCostTotal, updated, additionalProperties);
+    return Objects.hash(id, created, integrationId, applicationId, profileId, storeIntegrationId, evaluableCampaignIds, couponCodes, referralCode, loyaltyCards, state, cartItems, experimentVariantAllocations, additionalCosts, identifiers, attributes, firstSession, updateCount, total, cartItemTotal, additionalCostTotal, cartItemAdditionalCostTotal, updated, additionalProperties);
   }
 
   @Override
@@ -820,6 +843,7 @@ public class CustomerSessionV2 {
     sb.append("    total: ").append(toIndentedString(total)).append("\n");
     sb.append("    cartItemTotal: ").append(toIndentedString(cartItemTotal)).append("\n");
     sb.append("    additionalCostTotal: ").append(toIndentedString(additionalCostTotal)).append("\n");
+    sb.append("    cartItemAdditionalCostTotal: ").append(toIndentedString(cartItemAdditionalCostTotal)).append("\n");
     sb.append("    updated: ").append(toIndentedString(updated)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
@@ -831,10 +855,7 @@ public class CustomerSessionV2 {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
@@ -843,10 +864,10 @@ public class CustomerSessionV2 {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("id", "created", "integrationId", "applicationId", "profileId", "storeIntegrationId", "evaluableCampaignIds", "couponCodes", "referralCode", "loyaltyCards", "state", "cartItems", "experimentVariantAllocations", "additionalCosts", "identifiers", "attributes", "firstSession", "updateCount", "total", "cartItemTotal", "additionalCostTotal", "updated"));
+    openapiFields = new HashSet<String>(Arrays.asList("id", "created", "integrationId", "applicationId", "profileId", "storeIntegrationId", "evaluableCampaignIds", "couponCodes", "referralCode", "loyaltyCards", "state", "cartItems", "experimentVariantAllocations", "additionalCosts", "identifiers", "attributes", "firstSession", "updateCount", "total", "cartItemTotal", "additionalCostTotal", "cartItemAdditionalCostTotal", "updated"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("id", "created", "integrationId", "applicationId", "firstSession", "updateCount", "total", "cartItemTotal", "additionalCostTotal", "updated"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("id", "created", "integrationId", "applicationId", "firstSession", "updateCount", "total", "cartItemTotal", "additionalCostTotal", "cartItemAdditionalCostTotal", "updated"));
   }
 
   /**

@@ -215,6 +215,14 @@ public class CustomerSessionV2Test {
     }
 
     /**
+     * Test the property 'cartItemAdditionalCostTotal'
+     */
+    @Test
+    public void cartItemAdditionalCostTotalTest() {
+        // TODO: test cartItemAdditionalCostTotal
+    }
+
+    /**
      * Test the property 'updated'
      */
     @Test

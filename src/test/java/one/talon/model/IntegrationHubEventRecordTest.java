@@ -87,6 +87,14 @@ public class IntegrationHubEventRecordTest {
     }
 
     /**
+     * Test the property 'deliveredAt'
+     */
+    @Test
+    public void deliveredAtTest() {
+        // TODO: test deliveredAt
+    }
+
+    /**
      * Test the property 'processAfter'
      */
     @Test

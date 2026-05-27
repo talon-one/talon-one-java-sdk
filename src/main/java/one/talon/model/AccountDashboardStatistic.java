@@ -28,7 +28,6 @@ import one.talon.model.AccountDashboardStatisticDiscount;
 import one.talon.model.AccountDashboardStatisticLoyaltyPoints;
 import one.talon.model.AccountDashboardStatisticReferrals;
 import one.talon.model.AccountDashboardStatisticRevenue;
-import com.google.gson.JsonElement;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -299,10 +298,7 @@ public class AccountDashboardStatistic {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 

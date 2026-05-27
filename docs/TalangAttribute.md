@@ -43,6 +43,8 @@
 | SESSION | &quot;Session&quot; |
 | STORE | &quot;Store&quot; |
 | ACHIEVEMENTS | &quot;Achievements&quot; |
+| ADVANCED_EVENT | &quot;AdvancedEvent&quot; |
+| ADVANCED_EVENT_CONNECTED_SESSION | &quot;AdvancedEventConnectedSession&quot; |
 
 
 

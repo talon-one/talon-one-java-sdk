@@ -25,7 +25,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import one.talon.model.IntegrationHubEventPayloadLoyaltyProfileBasedPointsChangedNotificationAction;
-import com.google.gson.JsonElement;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -65,6 +64,11 @@ public class IntegrationHubEventPayloadLoyaltyProfileBasedNotification {
   @javax.annotation.Nonnull
   private Long loyaltyProgramID;
 
+  public static final String SERIALIZED_NAME_LOYALTY_PROGRAM_NAME = "LoyaltyProgramName";
+  @SerializedName(SERIALIZED_NAME_LOYALTY_PROGRAM_NAME)
+  @javax.annotation.Nonnull
+  private String loyaltyProgramName;
+
   public static final String SERIALIZED_NAME_SUBLEDGER_I_D = "SubledgerID";
   @SerializedName(SERIALIZED_NAME_SUBLEDGER_I_D)
   @javax.annotation.Nonnull
@@ -74,6 +78,11 @@ public class IntegrationHubEventPayloadLoyaltyProfileBasedNotification {
   @SerializedName(SERIALIZED_NAME_SOURCE_OF_EVENT)
   @javax.annotation.Nonnull
   private String sourceOfEvent;
+
+  public static final String SERIALIZED_NAME_CURRENT_TIER = "CurrentTier";
+  @SerializedName(SERIALIZED_NAME_CURRENT_TIER)
+  @javax.annotation.Nonnull
+  private String currentTier;
 
   public static final String SERIALIZED_NAME_EMPLOYEE_NAME = "EmployeeName";
   @SerializedName(SERIALIZED_NAME_EMPLOYEE_NAME)
@@ -99,11 +108,6 @@ public class IntegrationHubEventPayloadLoyaltyProfileBasedNotification {
   @SerializedName(SERIALIZED_NAME_PUBLISHED_AT)
   @javax.annotation.Nonnull
   private OffsetDateTime publishedAt;
-
-  public static final String SERIALIZED_NAME_CURRENT_TIER = "CurrentTier";
-  @SerializedName(SERIALIZED_NAME_CURRENT_TIER)
-  @javax.annotation.Nullable
-  private String currentTier;
 
   public static final String SERIALIZED_NAME_OLD_TIER = "OldTier";
   @SerializedName(SERIALIZED_NAME_OLD_TIER)
@@ -171,6 +175,25 @@ public class IntegrationHubEventPayloadLoyaltyProfileBasedNotification {
   }
 
 
+  public IntegrationHubEventPayloadLoyaltyProfileBasedNotification loyaltyProgramName(@javax.annotation.Nonnull String loyaltyProgramName) {
+    this.loyaltyProgramName = loyaltyProgramName;
+    return this;
+  }
+
+  /**
+   * The name of the loyalty program.
+   * @return loyaltyProgramName
+   */
+  @javax.annotation.Nonnull
+  public String getLoyaltyProgramName() {
+    return loyaltyProgramName;
+  }
+
+  public void setLoyaltyProgramName(@javax.annotation.Nonnull String loyaltyProgramName) {
+    this.loyaltyProgramName = loyaltyProgramName;
+  }
+
+
   public IntegrationHubEventPayloadLoyaltyProfileBasedNotification subledgerID(@javax.annotation.Nonnull String subledgerID) {
     this.subledgerID = subledgerID;
     return this;
@@ -206,6 +229,25 @@ public class IntegrationHubEventPayloadLoyaltyProfileBasedNotification {
 
   public void setSourceOfEvent(@javax.annotation.Nonnull String sourceOfEvent) {
     this.sourceOfEvent = sourceOfEvent;
+  }
+
+
+  public IntegrationHubEventPayloadLoyaltyProfileBasedNotification currentTier(@javax.annotation.Nonnull String currentTier) {
+    this.currentTier = currentTier;
+    return this;
+  }
+
+  /**
+   * The name of the customer&#39;s current tier.
+   * @return currentTier
+   */
+  @javax.annotation.Nonnull
+  public String getCurrentTier() {
+    return currentTier;
+  }
+
+  public void setCurrentTier(@javax.annotation.Nonnull String currentTier) {
+    this.currentTier = currentTier;
   }
 
 
@@ -309,25 +351,6 @@ public class IntegrationHubEventPayloadLoyaltyProfileBasedNotification {
 
   public void setPublishedAt(@javax.annotation.Nonnull OffsetDateTime publishedAt) {
     this.publishedAt = publishedAt;
-  }
-
-
-  public IntegrationHubEventPayloadLoyaltyProfileBasedNotification currentTier(@javax.annotation.Nullable String currentTier) {
-    this.currentTier = currentTier;
-    return this;
-  }
-
-  /**
-   * Get currentTier
-   * @return currentTier
-   */
-  @javax.annotation.Nullable
-  public String getCurrentTier() {
-    return currentTier;
-  }
-
-  public void setCurrentTier(@javax.annotation.Nullable String currentTier) {
-    this.currentTier = currentTier;
   }
 
 
@@ -482,14 +505,15 @@ public class IntegrationHubEventPayloadLoyaltyProfileBasedNotification {
     IntegrationHubEventPayloadLoyaltyProfileBasedNotification integrationHubEventPayloadLoyaltyProfileBasedNotification = (IntegrationHubEventPayloadLoyaltyProfileBasedNotification) o;
     return Objects.equals(this.profileIntegrationID, integrationHubEventPayloadLoyaltyProfileBasedNotification.profileIntegrationID) &&
         Objects.equals(this.loyaltyProgramID, integrationHubEventPayloadLoyaltyProfileBasedNotification.loyaltyProgramID) &&
+        Objects.equals(this.loyaltyProgramName, integrationHubEventPayloadLoyaltyProfileBasedNotification.loyaltyProgramName) &&
         Objects.equals(this.subledgerID, integrationHubEventPayloadLoyaltyProfileBasedNotification.subledgerID) &&
         Objects.equals(this.sourceOfEvent, integrationHubEventPayloadLoyaltyProfileBasedNotification.sourceOfEvent) &&
+        Objects.equals(this.currentTier, integrationHubEventPayloadLoyaltyProfileBasedNotification.currentTier) &&
         Objects.equals(this.employeeName, integrationHubEventPayloadLoyaltyProfileBasedNotification.employeeName) &&
         Objects.equals(this.userID, integrationHubEventPayloadLoyaltyProfileBasedNotification.userID) &&
         Objects.equals(this.currentPoints, integrationHubEventPayloadLoyaltyProfileBasedNotification.currentPoints) &&
         Objects.equals(this.actions, integrationHubEventPayloadLoyaltyProfileBasedNotification.actions) &&
         Objects.equals(this.publishedAt, integrationHubEventPayloadLoyaltyProfileBasedNotification.publishedAt) &&
-        Objects.equals(this.currentTier, integrationHubEventPayloadLoyaltyProfileBasedNotification.currentTier) &&
         Objects.equals(this.oldTier, integrationHubEventPayloadLoyaltyProfileBasedNotification.oldTier) &&
         Objects.equals(this.tierExpirationDate, integrationHubEventPayloadLoyaltyProfileBasedNotification.tierExpirationDate) &&
         Objects.equals(this.timestampOfTierChange, integrationHubEventPayloadLoyaltyProfileBasedNotification.timestampOfTierChange) &&
@@ -500,7 +524,7 @@ public class IntegrationHubEventPayloadLoyaltyProfileBasedNotification {
 
   @Override
   public int hashCode() {
-    return Objects.hash(profileIntegrationID, loyaltyProgramID, subledgerID, sourceOfEvent, employeeName, userID, currentPoints, actions, publishedAt, currentTier, oldTier, tierExpirationDate, timestampOfTierChange, pointsRequiredToTheNextTier, nextTier, additionalProperties);
+    return Objects.hash(profileIntegrationID, loyaltyProgramID, loyaltyProgramName, subledgerID, sourceOfEvent, currentTier, employeeName, userID, currentPoints, actions, publishedAt, oldTier, tierExpirationDate, timestampOfTierChange, pointsRequiredToTheNextTier, nextTier, additionalProperties);
   }
 
   @Override
@@ -509,14 +533,15 @@ public class IntegrationHubEventPayloadLoyaltyProfileBasedNotification {
     sb.append("class IntegrationHubEventPayloadLoyaltyProfileBasedNotification {\n");
     sb.append("    profileIntegrationID: ").append(toIndentedString(profileIntegrationID)).append("\n");
     sb.append("    loyaltyProgramID: ").append(toIndentedString(loyaltyProgramID)).append("\n");
+    sb.append("    loyaltyProgramName: ").append(toIndentedString(loyaltyProgramName)).append("\n");
     sb.append("    subledgerID: ").append(toIndentedString(subledgerID)).append("\n");
     sb.append("    sourceOfEvent: ").append(toIndentedString(sourceOfEvent)).append("\n");
+    sb.append("    currentTier: ").append(toIndentedString(currentTier)).append("\n");
     sb.append("    employeeName: ").append(toIndentedString(employeeName)).append("\n");
     sb.append("    userID: ").append(toIndentedString(userID)).append("\n");
     sb.append("    currentPoints: ").append(toIndentedString(currentPoints)).append("\n");
     sb.append("    actions: ").append(toIndentedString(actions)).append("\n");
     sb.append("    publishedAt: ").append(toIndentedString(publishedAt)).append("\n");
-    sb.append("    currentTier: ").append(toIndentedString(currentTier)).append("\n");
     sb.append("    oldTier: ").append(toIndentedString(oldTier)).append("\n");
     sb.append("    tierExpirationDate: ").append(toIndentedString(tierExpirationDate)).append("\n");
     sb.append("    timestampOfTierChange: ").append(toIndentedString(timestampOfTierChange)).append("\n");
@@ -532,10 +557,7 @@ public class IntegrationHubEventPayloadLoyaltyProfileBasedNotification {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
@@ -544,10 +566,10 @@ public class IntegrationHubEventPayloadLoyaltyProfileBasedNotification {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("ProfileIntegrationID", "LoyaltyProgramID", "SubledgerID", "SourceOfEvent", "EmployeeName", "UserID", "CurrentPoints", "Actions", "PublishedAt", "CurrentTier", "OldTier", "TierExpirationDate", "TimestampOfTierChange", "PointsRequiredToTheNextTier", "NextTier"));
+    openapiFields = new HashSet<String>(Arrays.asList("ProfileIntegrationID", "LoyaltyProgramID", "LoyaltyProgramName", "SubledgerID", "SourceOfEvent", "CurrentTier", "EmployeeName", "UserID", "CurrentPoints", "Actions", "PublishedAt", "OldTier", "TierExpirationDate", "TimestampOfTierChange", "PointsRequiredToTheNextTier", "NextTier"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("ProfileIntegrationID", "LoyaltyProgramID", "SubledgerID", "SourceOfEvent", "CurrentPoints", "PublishedAt"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("ProfileIntegrationID", "LoyaltyProgramID", "LoyaltyProgramName", "SubledgerID", "SourceOfEvent", "CurrentTier", "CurrentPoints", "PublishedAt"));
   }
 
   /**
@@ -573,11 +595,17 @@ public class IntegrationHubEventPayloadLoyaltyProfileBasedNotification {
       if (!jsonObj.get("ProfileIntegrationID").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `ProfileIntegrationID` to be a primitive type in the JSON string but got `%s`", jsonObj.get("ProfileIntegrationID").toString()));
       }
+      if (!jsonObj.get("LoyaltyProgramName").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `LoyaltyProgramName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("LoyaltyProgramName").toString()));
+      }
       if (!jsonObj.get("SubledgerID").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `SubledgerID` to be a primitive type in the JSON string but got `%s`", jsonObj.get("SubledgerID").toString()));
       }
       if (!jsonObj.get("SourceOfEvent").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `SourceOfEvent` to be a primitive type in the JSON string but got `%s`", jsonObj.get("SourceOfEvent").toString()));
+      }
+      if (!jsonObj.get("CurrentTier").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `CurrentTier` to be a primitive type in the JSON string but got `%s`", jsonObj.get("CurrentTier").toString()));
       }
       if ((jsonObj.get("EmployeeName") != null && !jsonObj.get("EmployeeName").isJsonNull()) && !jsonObj.get("EmployeeName").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `EmployeeName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("EmployeeName").toString()));
@@ -595,9 +623,6 @@ public class IntegrationHubEventPayloadLoyaltyProfileBasedNotification {
             IntegrationHubEventPayloadLoyaltyProfileBasedPointsChangedNotificationAction.validateJsonElement(jsonArrayactions.get(i));
           };
         }
-      }
-      if ((jsonObj.get("CurrentTier") != null && !jsonObj.get("CurrentTier").isJsonNull()) && !jsonObj.get("CurrentTier").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `CurrentTier` to be a primitive type in the JSON string but got `%s`", jsonObj.get("CurrentTier").toString()));
       }
       if ((jsonObj.get("OldTier") != null && !jsonObj.get("OldTier").isJsonNull()) && !jsonObj.get("OldTier").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `OldTier` to be a primitive type in the JSON string but got `%s`", jsonObj.get("OldTier").toString()));

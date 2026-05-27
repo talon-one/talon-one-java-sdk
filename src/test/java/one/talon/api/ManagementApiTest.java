@@ -49,6 +49,7 @@ import one.talon.model.DeleteUserRequest;
 import one.talon.model.ErrorResponse;
 import one.talon.model.ErrorResponseWithStatus;
 import one.talon.model.Experiment;
+import java.io.File;
 import one.talon.model.GenerateCouponRejections200Response;
 import one.talon.model.GetAccessLogsWithoutTotalCount200Response;
 import one.talon.model.GetAdditionalCosts200Response;
@@ -1958,9 +1959,9 @@ public class ManagementApiTest {
     }
 
     /**
-     * List card&#39;s transactions
+     * List card&#39;s transactions (Management API)
      *
-     * Retrieve the transaction logs for the given [loyalty card](https://docs.talon.one/docs/product/loyalty-programs/card-based/card-based-overview) within the specified [card-based loyalty program](https://docs.talon.one/docs/product/loyalty-programs/overview#loyalty-program-types) with filtering options applied. If no filtering options are applied, the last 50 loyalty transactions for the given loyalty card are returned. 
+     * Retrieve the transaction logs for the given [loyalty card](https://docs.talon.one/docs/product/loyalty-programs/card-based/card-based-overview) within the specified [card-based loyalty program](https://docs.talon.one/docs/product/loyalty-programs/overview#loyalty-program-types) with filtering options applied.  &gt; [!note] For most use cases, especially real-time integrations, use the Integration API endpoint: &gt; [List card&#39;s transactions](https://docs.talon.one/integration-api#tag/Loyalty-cards/operation/getLoyaltyCardTransactions).  If no filtering options are applied, the last 50 loyalty transactions for the given loyalty card are returned. 
      *
      * @throws ApiException if the Api call fails
      */
@@ -2000,9 +2001,9 @@ public class ManagementApiTest {
     }
 
     /**
-     * Get customer&#39;s loyalty balances
+     * Get customer&#39;s loyalty balances (Management API)
      *
-     * Retrieve loyalty ledger balances for the given Integration ID in the specified loyalty program.  You can filter balances by date and subledger ID, and include tier-related information in the response.  &gt; [!note] If no filtering options are applied, you retrieve all loyalty &gt; balances on the current date for the given integration ID.  Loyalty balances are calculated when Talon.One receives your request using the points stored in our database, so retrieving a large number of balances at once can impact performance.  For more information, see:  - [Managing card-based loyalty program data](https://docs.talon.one/docs/product/loyalty-programs/card-based/managing-loyalty-cards)  - [Managing profile-based loyalty program data](https://docs.talon.one/docs/product/loyalty-programs/profile-based/managing-pb-lp-data) 
+     * Retrieve loyalty ledger balances for the given Integration ID in the specified loyalty program.  You can filter balances by date and subledger ID, and include tier-related information in the response.  &gt; [!note] **Note** &gt; - For most use cases, especially real-time integrations, use the Integration API endpoint:     [Get customer&#39;s loyalty balances](https://docs.talon.one/integration-api#tag/Loyalty/operation/getLoyaltyBalances). &gt; - If no filtering options are applied, you retrieve all loyalty balances on the current date for the given integration ID.  Loyalty balances are calculated when Talon.One receives your request using the points stored in our database, so retrieving a large number of balances at once can impact performance.  For more information, see:  - [Managing card-based loyalty program data](https://docs.talon.one/docs/product/loyalty-programs/card-based/managing-loyalty-cards)  - [Managing profile-based loyalty program data](https://docs.talon.one/docs/product/loyalty-programs/profile-based/managing-pb-lp-data) 
      *
      * @throws ApiException if the Api call fails
      */
@@ -2048,9 +2049,9 @@ public class ManagementApiTest {
     }
 
     /**
-     * List customer&#39;s loyalty transactions
+     * List customer&#39;s loyalty transactions (Management API)
      *
-     * Retrieve paginated results of loyalty transaction logs for the given Integration ID in the specified loyalty program.  You can filter transactions by date or by ledger (subledger or main ledger). If no filters are applied, the last 50 loyalty transactions for the given integration ID are returned.  &gt; [!note] To retrieve all loyalty program transaction logs in a given &gt; loyalty program, use the [List loyalty program transactions](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyProgramTransactions) &gt; endpoint. 
+     * Retrieve paginated results of loyalty transaction logs for the given Integration ID in the specified loyalty program.  You can filter transactions by date or by ledger (subledger or main ledger). If no filters are applied, the last 50 loyalty transactions for the given integration ID are returned.  &gt; [!note] **Note** &gt; - For most use cases, especially real-time integrations, use the Integration API endpoint: &gt;   [List customer&#39;s loyalty transactions](https://docs.talon.one/integration-api#tag/Loyalty/operation/getLoyaltyProgramProfileTransactions). &gt; - To retrieve all loyalty program transaction logs in a given loyalty program, use the &gt;   [List loyalty program transactions](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyProgramTransactions) endpoint. 
      *
      * @throws ApiException if the Api call fails
      */
@@ -2310,7 +2311,7 @@ public class ManagementApiTest {
     @Test
     public void importAccountCollectionTest() throws ApiException {
         Long collectionId = null;
-        String upFile = null;
+        File upFile = null;
         ModelImport response = api.importAccountCollection(collectionId, upFile);
         // TODO: test validations
     }
@@ -2325,7 +2326,7 @@ public class ManagementApiTest {
     @Test
     public void importAllowedListTest() throws ApiException {
         Long attributeId = null;
-        String upFile = null;
+        File upFile = null;
         ModelImport response = api.importAllowedList(attributeId, upFile);
         // TODO: test validations
     }
@@ -2340,7 +2341,7 @@ public class ManagementApiTest {
     @Test
     public void importAudiencesMembershipsTest() throws ApiException {
         Long audienceId = null;
-        String upFile = null;
+        File upFile = null;
         ModelImport response = api.importAudiencesMemberships(audienceId, upFile);
         // TODO: test validations
     }
@@ -2358,7 +2359,7 @@ public class ManagementApiTest {
         Long campaignId = null;
         String action = null;
         String period = null;
-        String upFile = null;
+        File upFile = null;
         ModelImport response = api.importCampaignStoreBudget(applicationId, campaignId, action, period, upFile);
         // TODO: test validations
     }
@@ -2374,7 +2375,7 @@ public class ManagementApiTest {
     public void importCampaignStoresTest() throws ApiException {
         Long applicationId = null;
         Long campaignId = null;
-        String upFile = null;
+        File upFile = null;
         ModelImport response = api.importCampaignStores(applicationId, campaignId, upFile);
         // TODO: test validations
     }
@@ -2391,7 +2392,7 @@ public class ManagementApiTest {
         Long applicationId = null;
         Long campaignId = null;
         Long collectionId = null;
-        String upFile = null;
+        File upFile = null;
         ModelImport response = api.importCollection(applicationId, campaignId, collectionId, upFile);
         // TODO: test validations
     }
@@ -2408,7 +2409,7 @@ public class ManagementApiTest {
         Long applicationId = null;
         Long campaignId = null;
         Boolean skipDuplicates = null;
-        String upFile = null;
+        File upFile = null;
         ModelImport response = api.importCoupons(applicationId, campaignId, skipDuplicates, upFile);
         // TODO: test validations
     }
@@ -2416,14 +2417,14 @@ public class ManagementApiTest {
     /**
      * Import loyalty cards
      *
-     * Upload a CSV file containing the loyalty cards that you want to use in your card-based loyalty program.  Send the file as multipart data.  It contains the following columns for each card:  - &#x60;identifier&#x60; (required): The identifier of the loyalty card, which must match the regular expression &#x60;^[A-Za-z0-9._%+@-]+$&#x60;. - &#x60;state&#x60; (required): The state of the loyalty card. It can be &#x60;active&#x60; or &#x60;inactive&#x60;. - &#x60;customerprofileids&#x60; (optional): An array of strings representing the identifiers of the customer profiles linked to the loyalty card. The identifiers should be separated with a semicolon (;).  &gt; [!note] We recommend limiting your file size to 500MB.  ## Example  &#x60;&#x60;&#x60;csv identifier,state,customerprofileids 123-456-789AT,active,Alexa001;UserA &#x60;&#x60;&#x60; 
+     * Upload a CSV file containing the loyalty cards that you want to use in your card-based loyalty program.  Send the file as multipart data.  It contains the following columns for each card:  - &#x60;identifier&#x60; (required): The identifier of the loyalty card, which must match the regular expression &#x60;^[A-Za-z0-9._%+@-]+$&#x60;. - &#x60;state&#x60; (required): The state of the loyalty card. It can be &#x60;active&#x60; or &#x60;inactive&#x60;. - &#x60;customerprofileids&#x60; (optional): An array of strings representing the identifiers of the customer profiles linked to the loyalty card. The identifiers should be separated with a semicolon (;).  &gt; [!note] Your CSV file must contain less than 500,000 rows. Requests time out after 30 seconds.  ## Example  &#x60;&#x60;&#x60;csv identifier,state,customerprofileids 123-456-789AT,active,Alexa001;UserA &#x60;&#x60;&#x60; 
      *
      * @throws ApiException if the Api call fails
      */
     @Test
     public void importLoyaltyCardsTest() throws ApiException {
         Long loyaltyProgramId = null;
-        String upFile = null;
+        File upFile = null;
         ModelImport response = api.importLoyaltyCards(loyaltyProgramId, upFile);
         // TODO: test validations
     }
@@ -2431,14 +2432,14 @@ public class ManagementApiTest {
     /**
      * Import customers into loyalty tiers
      *
-     * Upload a CSV file containing existing customers to be assigned to existing tiers.  Send the file as multipart data.  &gt; [!important] This endpoint only works with loyalty programs with advanced &gt; tiers (with expiration and downgrade policy) feature enabled.  The CSV file should contain the following columns:  - &#x60;subledgerid&#x60; (optional): The ID of the subledger. If this field is empty, the main ledger will be used. - &#x60;customerprofileid&#x60;: The integration ID of the customer profile to whom the tier should be assigned. - &#x60;tiername&#x60;: The name of an existing tier to assign to the customer. - &#x60;expirydate&#x60;: The expiration date of the tier when the tier is reevaluated. It should be a future date.  About customer assignment to a tier:  - If the customer isn&#39;t already in a tier, the customer is assigned to the specified tier during the tier import. - If the customer is already in the tier that&#39;s specified in the CSV file, only the expiration date is updated.  &gt; [!note] We recommend not using this endpoint to update the tier of a customer.  To update a customer&#39;s tier, you can [add](/management-api#tag/Loyalty/operation/addLoyaltyPoints) or [deduct](/management-api#tag/Loyalty/operation/removeLoyaltyPoints) their loyalty points.  You can use the time zone of your choice. It is converted to UTC internally by Talon.One.  &gt; [!note] We recommend limiting your file size to 500 MB.  ## Example  &#x60;&#x60;&#x60;csv subledgerid,customerprofileid,tiername,expirydate SUB1,alexa,Gold,2024-03-21T07:32:14Z ,george,Silver,2025-04-16T21:12:37Z SUB2,avocado,Bronze,2026-05-03T11:47:01Z &#x60;&#x60;&#x60; 
+     * Upload a CSV file containing existing customers to be assigned to existing tiers.  Send the file as multipart data.  &gt; [!important] This endpoint only works with loyalty programs with advanced &gt; tiers (with expiration and downgrade policy) feature enabled.  The CSV file should contain the following columns:  - &#x60;subledgerid&#x60; (optional): The ID of the subledger. If this field is empty, the main ledger will be used. - &#x60;customerprofileid&#x60;: The integration ID of the customer profile to whom the tier should be assigned. - &#x60;tiername&#x60;: The name of an existing tier to assign to the customer. - &#x60;expirydate&#x60;: The expiry date of the tier when the tier is reevaluated. It should be a future date.  About customer assignment to a tier:  - If the customer isn&#39;t already in a tier, the customer is assigned to the specified tier during the tier import. - If the customer is already in the tier that&#39;s specified in the CSV file, only the expiry date is updated.  &gt; [!note] We recommend importing customers into the tier that matches their &gt; current balance. If a customer is imported into a lower tier, any session &gt; or points update automatically upgrades them to the tier they qualify for.  To update a customer&#39;s tier, you can [add](/management-api#tag/Loyalty/operation/addLoyaltyPoints) or [deduct](/management-api#tag/Loyalty/operation/removeLoyaltyPoints) their loyalty points.  You can use the time zone of your choice. It is converted to UTC internally by Talon.One.  &gt; [!note] We recommend limiting your file size to 500 MB.  ## Example  &#x60;&#x60;&#x60;csv subledgerid,customerprofileid,tiername,expirydate SUB1,alexa,Gold,2024-03-21T07:32:14Z ,george,Silver,2025-04-16T21:12:37Z SUB2,avocado,Bronze,2026-05-03T11:47:01Z &#x60;&#x60;&#x60; 
      *
      * @throws ApiException if the Api call fails
      */
     @Test
     public void importLoyaltyCustomersTiersTest() throws ApiException {
         Long loyaltyProgramId = null;
-        String upFile = null;
+        File upFile = null;
         ModelImport response = api.importLoyaltyCustomersTiers(loyaltyProgramId, upFile);
         // TODO: test validations
     }
@@ -2454,7 +2455,7 @@ public class ManagementApiTest {
     public void importLoyaltyPointsTest() throws ApiException {
         Long loyaltyProgramId = null;
         Boolean notificationsEnabled = null;
-        String upFile = null;
+        File upFile = null;
         ModelImport response = api.importLoyaltyPoints(loyaltyProgramId, notificationsEnabled, upFile);
         // TODO: test validations
     }
@@ -2469,7 +2470,7 @@ public class ManagementApiTest {
     @Test
     public void importPoolGiveawaysTest() throws ApiException {
         Long poolId = null;
-        String upFile = null;
+        File upFile = null;
         ModelImport response = api.importPoolGiveaways(poolId, upFile);
         // TODO: test validations
     }
@@ -2485,7 +2486,7 @@ public class ManagementApiTest {
     public void importReferralsTest() throws ApiException {
         Long applicationId = null;
         Long campaignId = null;
-        String upFile = null;
+        File upFile = null;
         ModelImport response = api.importReferrals(applicationId, campaignId, upFile);
         // TODO: test validations
     }
