@@ -50,7 +50,7 @@ import one.talon.JSON;
 /**
  * UpdateCouponBatch
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.22.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.23.0")
 public class UpdateCouponBatch {
   public static final String SERIALIZED_NAME_USAGE_LIMIT = "usageLimit";
   @SerializedName(SERIALIZED_NAME_USAGE_LIMIT)
@@ -197,7 +197,7 @@ public class UpdateCouponBatch {
   }
 
   /**
-   * Optional property to set the value of custom coupon attributes. They are defined in the Campaign Manager, see [Managing attributes](https://docs.talon.one/docs/product/account/dev-tools/managing-attributes).  Coupon attributes can also be set to _mandatory_ in your Application [settings](https://docs.talon.one/docs/product/applications/using-attributes#making-attributes-mandatory). If your Application uses mandatory attributes, you must use this property to set their value. 
+   * Arbitrary properties associated with this campaign.
    * @return attributes
    */
   @javax.annotation.Nullable

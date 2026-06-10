@@ -25,6 +25,7 @@ import java.util.Arrays;
 import java.util.List;
 import one.talon.model.RoleV2PermissionSet;
 import one.talon.model.RoleV2RolesGroup;
+import one.talon.model.RolesV2Thresholds;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -52,7 +53,7 @@ import one.talon.JSON;
 /**
  * RoleV2Permissions
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.22.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.23.0")
 public class RoleV2Permissions {
   public static final String SERIALIZED_NAME_PERMISSION_SETS = "permissionSets";
   @SerializedName(SERIALIZED_NAME_PERMISSION_SETS)
@@ -63,6 +64,11 @@ public class RoleV2Permissions {
   @SerializedName(SERIALIZED_NAME_ROLES)
   @javax.annotation.Nullable
   private RoleV2RolesGroup roles;
+
+  public static final String SERIALIZED_NAME_THRESHOLDS = "thresholds";
+  @SerializedName(SERIALIZED_NAME_THRESHOLDS)
+  @javax.annotation.Nullable
+  private List<RolesV2Thresholds> thresholds;
 
   public RoleV2Permissions() {
   }
@@ -110,6 +116,33 @@ public class RoleV2Permissions {
 
   public void setRoles(@javax.annotation.Nullable RoleV2RolesGroup roles) {
     this.roles = roles;
+  }
+
+
+  public RoleV2Permissions thresholds(@javax.annotation.Nullable List<RolesV2Thresholds> thresholds) {
+    this.thresholds = thresholds;
+    return this;
+  }
+
+  public RoleV2Permissions addThresholdsItem(RolesV2Thresholds thresholdsItem) {
+    if (this.thresholds == null) {
+      this.thresholds = new ArrayList<>();
+    }
+    this.thresholds.add(thresholdsItem);
+    return this;
+  }
+
+  /**
+   * Support user limits for actions that require admin approval within the given application.
+   * @return thresholds
+   */
+  @javax.annotation.Nullable
+  public List<RolesV2Thresholds> getThresholds() {
+    return thresholds;
+  }
+
+  public void setThresholds(@javax.annotation.Nullable List<RolesV2Thresholds> thresholds) {
+    this.thresholds = thresholds;
   }
 
   /**
@@ -168,13 +201,14 @@ public class RoleV2Permissions {
     }
     RoleV2Permissions roleV2Permissions = (RoleV2Permissions) o;
     return Objects.equals(this.permissionSets, roleV2Permissions.permissionSets) &&
-        Objects.equals(this.roles, roleV2Permissions.roles)&&
+        Objects.equals(this.roles, roleV2Permissions.roles) &&
+        Objects.equals(this.thresholds, roleV2Permissions.thresholds)&&
         Objects.equals(this.additionalProperties, roleV2Permissions.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(permissionSets, roles, additionalProperties);
+    return Objects.hash(permissionSets, roles, thresholds, additionalProperties);
   }
 
   @Override
@@ -183,6 +217,7 @@ public class RoleV2Permissions {
     sb.append("class RoleV2Permissions {\n");
     sb.append("    permissionSets: ").append(toIndentedString(permissionSets)).append("\n");
     sb.append("    roles: ").append(toIndentedString(roles)).append("\n");
+    sb.append("    thresholds: ").append(toIndentedString(thresholds)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -202,7 +237,7 @@ public class RoleV2Permissions {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("permissionSets", "roles"));
+    openapiFields = new HashSet<String>(Arrays.asList("permissionSets", "roles", "thresholds"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(0);
@@ -238,6 +273,20 @@ public class RoleV2Permissions {
       // validate the optional field `roles`
       if (jsonObj.get("roles") != null && !jsonObj.get("roles").isJsonNull()) {
         RoleV2RolesGroup.validateJsonElement(jsonObj.get("roles"));
+      }
+      if (jsonObj.get("thresholds") != null && !jsonObj.get("thresholds").isJsonNull()) {
+        JsonArray jsonArraythresholds = jsonObj.getAsJsonArray("thresholds");
+        if (jsonArraythresholds != null) {
+          // ensure the json data is an array
+          if (!jsonObj.get("thresholds").isJsonArray()) {
+            throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `thresholds` to be an array in the JSON string but got `%s`", jsonObj.get("thresholds").toString()));
+          }
+
+          // validate the optional field `thresholds` (array)
+          for (int i = 0; i < jsonArraythresholds.size(); i++) {
+            RolesV2Thresholds.validateJsonElement(jsonArraythresholds.get(i));
+          };
+        }
       }
   }
 

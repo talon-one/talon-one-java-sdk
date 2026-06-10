@@ -48,7 +48,7 @@ import one.talon.JSON;
 /**
  * The campaign position within the evaluation tree.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.22.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.23.0")
 public class CampaignEvaluationPosition {
   public static final String SERIALIZED_NAME_GROUP_ID = "groupId";
   @SerializedName(SERIALIZED_NAME_GROUP_ID)

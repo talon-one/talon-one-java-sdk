@@ -46,9 +46,9 @@ import java.util.Set;
 import one.talon.JSON;
 
 /**
- * The properties specific to the \&quot;updateAttribute\&quot; effect. This gets triggered whenever a validated rule contained an \&quot;update an attribute\&quot; effect.
+ * This effect indicates that a rule containing an [Update attribute value](https://docs.talon.one/docs/product/rules/effects/available-effects#update-effects) or [Update cart item attribute value](https://docs.talon.one/docs/product/rules/effects/available-effects#update-effects) was validated. You should update the value of the attribute in your system based on the content of the returned effect.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.22.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.23.0")
 public class UpdateAttributeEffectProps {
   public static final String SERIALIZED_NAME_PATH = "path";
   @SerializedName(SERIALIZED_NAME_PATH)
@@ -69,7 +69,7 @@ public class UpdateAttributeEffectProps {
   }
 
   /**
-   * The exact path of the attribute that was updated.
+   * The entity type and the attribute name.
    * @return path
    */
   @javax.annotation.Nonnull

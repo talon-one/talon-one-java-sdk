@@ -47,9 +47,9 @@ import java.util.Set;
 import one.talon.JSON;
 
 /**
- * The properties specific to the \&quot;changeLoyaltyTierLevel\&quot; effect. This is triggered whenever the user&#39;s loyalty tier is upgraded due to a validated rule that contained an \&quot;addLoyaltyPoints\&quot; effect. 
+ * This effect indicates that a customer&#39;s loyalty tier has been upgraded.  This effect is generated only when the [Add loyalty points](https://docs.talon.one/docs/product/rules/effects/use-effects#add-loyalty-points) and the [Add loyalty points per cart item](https://docs.talon.one/docs/product/rules/effects/use-effects#add-loyalty-points-per-cart-item) effects are triggered for a particular customer, and, as a result, the customer&#39;s loyalty tier is upgraded.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.22.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.23.0")
 public class ChangeLoyaltyTierLevelEffectProps {
   public static final String SERIALIZED_NAME_RULE_TITLE = "ruleTitle";
   @SerializedName(SERIALIZED_NAME_RULE_TITLE)
@@ -109,7 +109,7 @@ public class ChangeLoyaltyTierLevelEffectProps {
   }
 
   /**
-   * The ID of the loyalty program where these points were added.
+   * The ID of the loyalty program where the points were added.
    * @return programId
    */
   @javax.annotation.Nonnull
@@ -128,7 +128,7 @@ public class ChangeLoyaltyTierLevelEffectProps {
   }
 
   /**
-   * The ID of the subledger within the loyalty program where these points were added.
+   * The ID of the subledger within the loyalty program where the points were added.
    * @return subLedgerId
    */
   @javax.annotation.Nonnull

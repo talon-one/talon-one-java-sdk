@@ -19,6 +19,7 @@
 |**features** | [**List&lt;FeaturesEnum&gt;**](#List&lt;FeaturesEnum&gt;) | The features enabled in this campaign. |  |
 |**eligibility** | [**List&lt;CampaignEligibilityDetails&gt;**](CampaignEligibilityDetails.md) | The customer&#39;s eligibility for each campaign in the current customer session. |  |
 |**rules** | [**List&lt;RuleMetadataEligibility&gt;**](RuleMetadataEligibility.md) | A list of rules containing customer-facing details of the rewards defined in the campaign. |  |
+|**experiment** | [**CampaignEligibilityExperiment**](CampaignEligibilityExperiment.md) |  |  [optional] |
 
 
 

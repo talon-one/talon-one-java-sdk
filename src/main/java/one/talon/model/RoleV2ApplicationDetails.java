@@ -21,7 +21,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.util.Arrays;
-import one.talon.model.RolesV2Thresholds;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -49,7 +48,7 @@ import one.talon.JSON;
 /**
  * RoleV2ApplicationDetails
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.22.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.23.0")
 public class RoleV2ApplicationDetails {
   public static final String SERIALIZED_NAME_APPLICATION = "application";
   @SerializedName(SERIALIZED_NAME_APPLICATION)
@@ -70,11 +69,6 @@ public class RoleV2ApplicationDetails {
   @SerializedName(SERIALIZED_NAME_TOOLS)
   @javax.annotation.Nullable
   private String tools;
-
-  public static final String SERIALIZED_NAME_THRESHOLDS = "thresholds";
-  @SerializedName(SERIALIZED_NAME_THRESHOLDS)
-  @javax.annotation.Nullable
-  private RolesV2Thresholds thresholds;
 
   public RoleV2ApplicationDetails() {
   }
@@ -154,25 +148,6 @@ public class RoleV2ApplicationDetails {
     this.tools = tools;
   }
 
-
-  public RoleV2ApplicationDetails thresholds(@javax.annotation.Nullable RolesV2Thresholds thresholds) {
-    this.thresholds = thresholds;
-    return this;
-  }
-
-  /**
-   * Support user limits for actions that require admin approval within the given application.
-   * @return thresholds
-   */
-  @javax.annotation.Nullable
-  public RolesV2Thresholds getThresholds() {
-    return thresholds;
-  }
-
-  public void setThresholds(@javax.annotation.Nullable RolesV2Thresholds thresholds) {
-    this.thresholds = thresholds;
-  }
-
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -231,14 +206,13 @@ public class RoleV2ApplicationDetails {
     return Objects.equals(this.application, roleV2ApplicationDetails.application) &&
         Objects.equals(this.campaign, roleV2ApplicationDetails.campaign) &&
         Objects.equals(this.draftCampaign, roleV2ApplicationDetails.draftCampaign) &&
-        Objects.equals(this.tools, roleV2ApplicationDetails.tools) &&
-        Objects.equals(this.thresholds, roleV2ApplicationDetails.thresholds)&&
+        Objects.equals(this.tools, roleV2ApplicationDetails.tools)&&
         Objects.equals(this.additionalProperties, roleV2ApplicationDetails.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(application, campaign, draftCampaign, tools, thresholds, additionalProperties);
+    return Objects.hash(application, campaign, draftCampaign, tools, additionalProperties);
   }
 
   @Override
@@ -249,7 +223,6 @@ public class RoleV2ApplicationDetails {
     sb.append("    campaign: ").append(toIndentedString(campaign)).append("\n");
     sb.append("    draftCampaign: ").append(toIndentedString(draftCampaign)).append("\n");
     sb.append("    tools: ").append(toIndentedString(tools)).append("\n");
-    sb.append("    thresholds: ").append(toIndentedString(thresholds)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -269,7 +242,7 @@ public class RoleV2ApplicationDetails {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("application", "campaign", "draftCampaign", "tools", "thresholds"));
+    openapiFields = new HashSet<String>(Arrays.asList("application", "campaign", "draftCampaign", "tools"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(0);
@@ -299,10 +272,6 @@ public class RoleV2ApplicationDetails {
       }
       if ((jsonObj.get("tools") != null && !jsonObj.get("tools").isJsonNull()) && !jsonObj.get("tools").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `tools` to be a primitive type in the JSON string but got `%s`", jsonObj.get("tools").toString()));
-      }
-      // validate the optional field `thresholds`
-      if (jsonObj.get("thresholds") != null && !jsonObj.get("thresholds").isJsonNull()) {
-        RolesV2Thresholds.validateJsonElement(jsonObj.get("thresholds"));
       }
   }
 

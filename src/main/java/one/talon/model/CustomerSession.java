@@ -55,7 +55,7 @@ import one.talon.JSON;
 /**
  * CustomerSession
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.22.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.23.0")
 public class CustomerSession {
   public static final String SERIALIZED_NAME_INTEGRATION_ID = "integrationId";
   @SerializedName(SERIALIZED_NAME_INTEGRATION_ID)
@@ -403,7 +403,7 @@ public class CustomerSession {
   }
 
   /**
-   * A key-value map of the sessions attributes. The potentially valid attributes are configured in your accounts developer settings. 
+   * Arbitrary properties associated with this campaign.
    * @return attributes
    */
   @javax.annotation.Nullable

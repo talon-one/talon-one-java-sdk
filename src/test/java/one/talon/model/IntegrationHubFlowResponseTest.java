@@ -19,8 +19,10 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
+import java.time.OffsetDateTime;
 import java.util.Arrays;
 import one.talon.model.IntegrationHubFlowConfigResponse;
+import org.openapitools.jackson.nullable.JsonNullable;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
@@ -47,11 +49,51 @@ public class IntegrationHubFlowResponseTest {
     }
 
     /**
-     * Test the property 'applicationID'
+     * Test the property 'integrationName'
      */
     @Test
-    public void applicationIDTest() {
-        // TODO: test applicationID
+    public void integrationNameTest() {
+        // TODO: test integrationName
+    }
+
+    /**
+     * Test the property 'instanceName'
+     */
+    @Test
+    public void instanceNameTest() {
+        // TODO: test instanceName
+    }
+
+    /**
+     * Test the property 'createdAt'
+     */
+    @Test
+    public void createdAtTest() {
+        // TODO: test createdAt
+    }
+
+    /**
+     * Test the property 'disabledUntil'
+     */
+    @Test
+    public void disabledUntilTest() {
+        // TODO: test disabledUntil
+    }
+
+    /**
+     * Test the property 'applicationId'
+     */
+    @Test
+    public void applicationIdTest() {
+        // TODO: test applicationId
+    }
+
+    /**
+     * Test the property 'loyaltyProgramId'
+     */
+    @Test
+    public void loyaltyProgramIdTest() {
+        // TODO: test loyaltyProgramId
     }
 
     /**

@@ -47,9 +47,9 @@ import java.util.Set;
 import one.talon.JSON;
 
 /**
- * The properties specific to the \&quot;setDiscount\&quot; effect. This gets triggered whenever a validated rule contained a \&quot;set discount\&quot; effect. This is a discount that should be applied on the scope of defined with it.
+ * This effect indicates that a discount should be set on the total shopping cart value of the current order with the given label and amount.  The discount should overwrite any existing discount with the same name. The most recent integration state update always returns the latest values for **all** effects, effectively overwriting any previous effects.  Enabling [partial discounts](https://docs.talon.one/docs/product/applications/manage-general-settings#partial-discounts) allows a rule that would fail because of insufficient budget to pass. The rule still fails when the budget reaches &#x60;0&#x60;. Use the &#x60;desiredValue&#x60; property to identify the original value of the discount.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.22.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.23.0")
 public class SetDiscountEffectProps {
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
@@ -80,7 +80,7 @@ public class SetDiscountEffectProps {
   }
 
   /**
-   * The name / description of this discount
+   * The name or description of this discount.
    * @return name
    */
   @javax.annotation.Nonnull
@@ -99,7 +99,7 @@ public class SetDiscountEffectProps {
   }
 
   /**
-   * The total monetary value of the discount.
+   * The monetary value of the effective discount.
    * @return value
    */
   @javax.annotation.Nonnull
@@ -118,7 +118,7 @@ public class SetDiscountEffectProps {
   }
 
   /**
-   * The scope which the discount was applied on, can be one of (cartItems,additionalCosts,sessionTotal).
+   * What the discount applies to. Possible values:  - &#x60;cartItems&#x60;: Discount on the price of the items. - &#x60;additionalCosts&#x60;: Discount on the [additional costs](https://docs.talon.one/docs/product/account/dev-tools/manage-additional-costs) of the items. - &#x60;sessionTotal&#x60;: Discount on the total value of the customer session.  **Note:** [Cascading discounts](https://docs.talon.one/docs/product/applications/manage-general-settings#cascading-discounts) must be enabled for this property to be returned.
    * @return scope
    */
   @javax.annotation.Nullable
@@ -137,7 +137,7 @@ public class SetDiscountEffectProps {
   }
 
   /**
-   * The original value of the discount.
+   * _(Partial discounts enabled only)_ The monetary value of the discount to be applied without considering budget limitations.
    * @return desiredValue
    */
   @javax.annotation.Nullable

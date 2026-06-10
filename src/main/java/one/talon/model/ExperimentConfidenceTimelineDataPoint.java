@@ -20,7 +20,9 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
+import java.time.OffsetDateTime;
 import java.util.Arrays;
+import one.talon.model.ExperimentVariantResultConfidence;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -46,34 +48,58 @@ import java.util.Set;
 import one.talon.JSON;
 
 /**
- * Configuration settings related to sorting SCIM resources in query responses.
+ * ExperimentConfidenceTimelineDataPoint
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.22.0")
-public class ScimServiceProviderConfigResponseSort {
-  public static final String SERIALIZED_NAME_SUPPORTED = "supported";
-  @SerializedName(SERIALIZED_NAME_SUPPORTED)
-  @javax.annotation.Nullable
-  private Boolean supported;
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.23.0")
+public class ExperimentConfidenceTimelineDataPoint {
+  public static final String SERIALIZED_NAME_DATE = "date";
+  @SerializedName(SERIALIZED_NAME_DATE)
+  @javax.annotation.Nonnull
+  private OffsetDateTime date;
 
-  public ScimServiceProviderConfigResponseSort() {
+  public static final String SERIALIZED_NAME_CONFIDENCE = "confidence";
+  @SerializedName(SERIALIZED_NAME_CONFIDENCE)
+  @javax.annotation.Nonnull
+  private ExperimentVariantResultConfidence confidence;
+
+  public ExperimentConfidenceTimelineDataPoint() {
   }
 
-  public ScimServiceProviderConfigResponseSort supported(@javax.annotation.Nullable Boolean supported) {
-    this.supported = supported;
+  public ExperimentConfidenceTimelineDataPoint date(@javax.annotation.Nonnull OffsetDateTime date) {
+    this.date = date;
     return this;
   }
 
   /**
-   * Indicates whether the service provider supports sorting operations for ordered query results.
-   * @return supported
+   * The date-time this data point represents.
+   * @return date
    */
-  @javax.annotation.Nullable
-  public Boolean getSupported() {
-    return supported;
+  @javax.annotation.Nonnull
+  public OffsetDateTime getDate() {
+    return date;
   }
 
-  public void setSupported(@javax.annotation.Nullable Boolean supported) {
-    this.supported = supported;
+  public void setDate(@javax.annotation.Nonnull OffsetDateTime date) {
+    this.date = date;
+  }
+
+
+  public ExperimentConfidenceTimelineDataPoint confidence(@javax.annotation.Nonnull ExperimentVariantResultConfidence confidence) {
+    this.confidence = confidence;
+    return this;
+  }
+
+  /**
+   * Get confidence
+   * @return confidence
+   */
+  @javax.annotation.Nonnull
+  public ExperimentVariantResultConfidence getConfidence() {
+    return confidence;
+  }
+
+  public void setConfidence(@javax.annotation.Nonnull ExperimentVariantResultConfidence confidence) {
+    this.confidence = confidence;
   }
 
   /**
@@ -89,9 +115,9 @@ public class ScimServiceProviderConfigResponseSort {
    *
    * @param key name of the property
    * @param value value of the property
-   * @return the ScimServiceProviderConfigResponseSort instance itself
+   * @return the ExperimentConfidenceTimelineDataPoint instance itself
    */
-  public ScimServiceProviderConfigResponseSort putAdditionalProperty(String key, Object value) {
+  public ExperimentConfidenceTimelineDataPoint putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
         this.additionalProperties = new HashMap<String, Object>();
     }
@@ -130,21 +156,23 @@ public class ScimServiceProviderConfigResponseSort {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ScimServiceProviderConfigResponseSort scimServiceProviderConfigResponseSort = (ScimServiceProviderConfigResponseSort) o;
-    return Objects.equals(this.supported, scimServiceProviderConfigResponseSort.supported)&&
-        Objects.equals(this.additionalProperties, scimServiceProviderConfigResponseSort.additionalProperties);
+    ExperimentConfidenceTimelineDataPoint experimentConfidenceTimelineDataPoint = (ExperimentConfidenceTimelineDataPoint) o;
+    return Objects.equals(this.date, experimentConfidenceTimelineDataPoint.date) &&
+        Objects.equals(this.confidence, experimentConfidenceTimelineDataPoint.confidence)&&
+        Objects.equals(this.additionalProperties, experimentConfidenceTimelineDataPoint.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(supported, additionalProperties);
+    return Objects.hash(date, confidence, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ScimServiceProviderConfigResponseSort {\n");
-    sb.append("    supported: ").append(toIndentedString(supported)).append("\n");
+    sb.append("class ExperimentConfidenceTimelineDataPoint {\n");
+    sb.append("    date: ").append(toIndentedString(date)).append("\n");
+    sb.append("    confidence: ").append(toIndentedString(confidence)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -164,41 +192,50 @@ public class ScimServiceProviderConfigResponseSort {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("supported"));
+    openapiFields = new HashSet<String>(Arrays.asList("date", "confidence"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(0);
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("date", "confidence"));
   }
 
   /**
    * Validates the JSON Element and throws an exception if issues found
    *
    * @param jsonElement JSON Element
-   * @throws IOException if the JSON Element is invalid with respect to ScimServiceProviderConfigResponseSort
+   * @throws IOException if the JSON Element is invalid with respect to ExperimentConfidenceTimelineDataPoint
    */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
-        if (!ScimServiceProviderConfigResponseSort.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in ScimServiceProviderConfigResponseSort is not found in the empty JSON string", ScimServiceProviderConfigResponseSort.openapiRequiredFields.toString()));
+        if (!ExperimentConfidenceTimelineDataPoint.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in ExperimentConfidenceTimelineDataPoint is not found in the empty JSON string", ExperimentConfidenceTimelineDataPoint.openapiRequiredFields.toString()));
+        }
+      }
+
+      // check to make sure all required properties/fields are present in the JSON string
+      for (String requiredField : ExperimentConfidenceTimelineDataPoint.openapiRequiredFields) {
+        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
+      // validate the required field `confidence`
+      ExperimentVariantResultConfidence.validateJsonElement(jsonObj.get("confidence"));
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!ScimServiceProviderConfigResponseSort.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'ScimServiceProviderConfigResponseSort' and its subtypes
+       if (!ExperimentConfidenceTimelineDataPoint.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'ExperimentConfidenceTimelineDataPoint' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<ScimServiceProviderConfigResponseSort> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(ScimServiceProviderConfigResponseSort.class));
+       final TypeAdapter<ExperimentConfidenceTimelineDataPoint> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(ExperimentConfidenceTimelineDataPoint.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<ScimServiceProviderConfigResponseSort>() {
+       return (TypeAdapter<T>) new TypeAdapter<ExperimentConfidenceTimelineDataPoint>() {
            @Override
-           public void write(JsonWriter out, ScimServiceProviderConfigResponseSort value) throws IOException {
+           public void write(JsonWriter out, ExperimentConfidenceTimelineDataPoint value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              obj.remove("additionalProperties");
              // serialize additional properties
@@ -226,12 +263,12 @@ public class ScimServiceProviderConfigResponseSort {
            }
 
            @Override
-           public ScimServiceProviderConfigResponseSort read(JsonReader in) throws IOException {
+           public ExperimentConfidenceTimelineDataPoint read(JsonReader in) throws IOException {
              JsonElement jsonElement = elementAdapter.read(in);
              validateJsonElement(jsonElement);
              JsonObject jsonObj = jsonElement.getAsJsonObject();
              // store additional fields in the deserialized instance
-             ScimServiceProviderConfigResponseSort instance = thisAdapter.fromJsonTree(jsonObj);
+             ExperimentConfidenceTimelineDataPoint instance = thisAdapter.fromJsonTree(jsonObj);
              for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
                if (!openapiFields.contains(entry.getKey())) {
                  if (entry.getValue().isJsonPrimitive()) { // primitive type
@@ -258,18 +295,18 @@ public class ScimServiceProviderConfigResponseSort {
   }
 
   /**
-   * Create an instance of ScimServiceProviderConfigResponseSort given an JSON string
+   * Create an instance of ExperimentConfidenceTimelineDataPoint given an JSON string
    *
    * @param jsonString JSON string
-   * @return An instance of ScimServiceProviderConfigResponseSort
-   * @throws IOException if the JSON string is invalid with respect to ScimServiceProviderConfigResponseSort
+   * @return An instance of ExperimentConfidenceTimelineDataPoint
+   * @throws IOException if the JSON string is invalid with respect to ExperimentConfidenceTimelineDataPoint
    */
-  public static ScimServiceProviderConfigResponseSort fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, ScimServiceProviderConfigResponseSort.class);
+  public static ExperimentConfidenceTimelineDataPoint fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, ExperimentConfidenceTimelineDataPoint.class);
   }
 
   /**
-   * Convert an instance of ScimServiceProviderConfigResponseSort to an JSON string
+   * Convert an instance of ExperimentConfidenceTimelineDataPoint to an JSON string
    *
    * @return JSON string
    */

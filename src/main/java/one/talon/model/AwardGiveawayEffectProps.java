@@ -46,9 +46,9 @@ import java.util.Set;
 import one.talon.JSON;
 
 /**
- * The properties specific to the \&quot;awardGiveaway\&quot; effect. This effect contains information on the giveaway item, and which profile it was awarded to.
+ * This effect indicates the awarded giveaway item and to which profile the item was awarded. Learn more about [giveaways](https://docs.talon.one/docs/product/giveaways/overview).
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.22.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.23.0")
 public class AwardGiveawayEffectProps {
   public static final String SERIALIZED_NAME_POOL_ID = "poolId";
   @SerializedName(SERIALIZED_NAME_POOL_ID)
@@ -84,7 +84,7 @@ public class AwardGiveawayEffectProps {
   }
 
   /**
-   * The ID of the giveaways pool the code was taken from.
+   * The internal ID of the giveaway pool.
    * @return poolId
    */
   @javax.annotation.Nonnull
@@ -103,7 +103,7 @@ public class AwardGiveawayEffectProps {
   }
 
   /**
-   * The name of the giveaways pool the code was taken from.
+   * The name of the giveaway pool.
    * @return poolName
    */
   @javax.annotation.Nonnull
@@ -122,7 +122,7 @@ public class AwardGiveawayEffectProps {
   }
 
   /**
-   * The integration ID of the profile that was awarded the giveaway.
+   * The integration ID of the customer that receives the giveaway.
    * @return recipientIntegrationId
    */
   @javax.annotation.Nonnull
@@ -141,7 +141,7 @@ public class AwardGiveawayEffectProps {
   }
 
   /**
-   * The internal ID for the giveaway that was awarded.
+   * The internal ID of the giveaway.
    * @return giveawayId
    */
   @javax.annotation.Nonnull
@@ -160,7 +160,7 @@ public class AwardGiveawayEffectProps {
   }
 
   /**
-   * The giveaway code that was awarded.
+   * The giveaway code to be rewarded.
    * @return code
    */
   @javax.annotation.Nonnull

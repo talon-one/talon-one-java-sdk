@@ -51,7 +51,7 @@ import one.talon.JSON;
 /**
  * User
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.22.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.23.0")
 public class User {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -437,7 +437,7 @@ public class User {
   }
 
   /**
-   * Application notifications that the user is subscribed to.
+   * Arbitrary properties associated with this campaign.
    * @return applicationNotificationSubscriptions
    */
   @javax.annotation.Nullable
@@ -513,7 +513,7 @@ public class User {
   }
 
   /**
-   * Additional user attributes, created and used by external identity providers.
+   * Arbitrary properties associated with this campaign.
    * @return additionalAttributes
    */
   @javax.annotation.Nullable

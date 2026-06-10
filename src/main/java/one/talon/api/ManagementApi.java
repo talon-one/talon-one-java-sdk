@@ -6942,6 +6942,8 @@ public class ManagementApi {
      * @param applicationId The ID of the Application. It is displayed in your Talon.One deployment URL. (required)
      * @param createdBefore Filter results comparing the parameter value, expected to be an RFC3339 timestamp string. (optional)
      * @param createdAfter Filter results comparing the parameter value, expected to be an RFC3339 timestamp string. (optional)
+     * @param updatedBefore Filter results comparing the parameter value, expected to be an RFC3339 timestamp string. (optional)
+     * @param updatedAfter Filter results comparing the parameter value, expected to be an RFC3339 timestamp string. (optional)
      * @param profileIntegrationId Only return sessions for the customer that matches this customer integration ID. (optional)
      * @param dateFormat Determines the format of dates in the export document. (optional)
      * @param customerSessionState Filter results by state. (optional)
@@ -6955,7 +6957,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call exportCustomerSessionsCall(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nullable OffsetDateTime createdBefore, @javax.annotation.Nullable OffsetDateTime createdAfter, @javax.annotation.Nullable String profileIntegrationId, @javax.annotation.Nullable String dateFormat, @javax.annotation.Nullable String customerSessionState, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call exportCustomerSessionsCall(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nullable OffsetDateTime createdBefore, @javax.annotation.Nullable OffsetDateTime createdAfter, @javax.annotation.Nullable OffsetDateTime updatedBefore, @javax.annotation.Nullable OffsetDateTime updatedAfter, @javax.annotation.Nullable String profileIntegrationId, @javax.annotation.Nullable String dateFormat, @javax.annotation.Nullable String customerSessionState, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -6987,6 +6989,14 @@ public class ManagementApi {
 
         if (createdAfter != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("createdAfter", createdAfter));
+        }
+
+        if (updatedBefore != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("updatedBefore", updatedBefore));
+        }
+
+        if (updatedAfter != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("updatedAfter", updatedAfter));
         }
 
         if (profileIntegrationId != null) {
@@ -7021,13 +7031,13 @@ public class ManagementApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call exportCustomerSessionsValidateBeforeCall(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nullable OffsetDateTime createdBefore, @javax.annotation.Nullable OffsetDateTime createdAfter, @javax.annotation.Nullable String profileIntegrationId, @javax.annotation.Nullable String dateFormat, @javax.annotation.Nullable String customerSessionState, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call exportCustomerSessionsValidateBeforeCall(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nullable OffsetDateTime createdBefore, @javax.annotation.Nullable OffsetDateTime createdAfter, @javax.annotation.Nullable OffsetDateTime updatedBefore, @javax.annotation.Nullable OffsetDateTime updatedAfter, @javax.annotation.Nullable String profileIntegrationId, @javax.annotation.Nullable String dateFormat, @javax.annotation.Nullable String customerSessionState, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'applicationId' is set
         if (applicationId == null) {
             throw new ApiException("Missing the required parameter 'applicationId' when calling exportCustomerSessions(Async)");
         }
 
-        return exportCustomerSessionsCall(applicationId, createdBefore, createdAfter, profileIntegrationId, dateFormat, customerSessionState, _callback);
+        return exportCustomerSessionsCall(applicationId, createdBefore, createdAfter, updatedBefore, updatedAfter, profileIntegrationId, dateFormat, customerSessionState, _callback);
 
     }
 
@@ -7037,6 +7047,8 @@ public class ManagementApi {
      * @param applicationId The ID of the Application. It is displayed in your Talon.One deployment URL. (required)
      * @param createdBefore Filter results comparing the parameter value, expected to be an RFC3339 timestamp string. (optional)
      * @param createdAfter Filter results comparing the parameter value, expected to be an RFC3339 timestamp string. (optional)
+     * @param updatedBefore Filter results comparing the parameter value, expected to be an RFC3339 timestamp string. (optional)
+     * @param updatedAfter Filter results comparing the parameter value, expected to be an RFC3339 timestamp string. (optional)
      * @param profileIntegrationId Only return sessions for the customer that matches this customer integration ID. (optional)
      * @param dateFormat Determines the format of dates in the export document. (optional)
      * @param customerSessionState Filter results by state. (optional)
@@ -7049,8 +7061,8 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public String exportCustomerSessions(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nullable OffsetDateTime createdBefore, @javax.annotation.Nullable OffsetDateTime createdAfter, @javax.annotation.Nullable String profileIntegrationId, @javax.annotation.Nullable String dateFormat, @javax.annotation.Nullable String customerSessionState) throws ApiException {
-        ApiResponse<String> localVarResp = exportCustomerSessionsWithHttpInfo(applicationId, createdBefore, createdAfter, profileIntegrationId, dateFormat, customerSessionState);
+    public String exportCustomerSessions(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nullable OffsetDateTime createdBefore, @javax.annotation.Nullable OffsetDateTime createdAfter, @javax.annotation.Nullable OffsetDateTime updatedBefore, @javax.annotation.Nullable OffsetDateTime updatedAfter, @javax.annotation.Nullable String profileIntegrationId, @javax.annotation.Nullable String dateFormat, @javax.annotation.Nullable String customerSessionState) throws ApiException {
+        ApiResponse<String> localVarResp = exportCustomerSessionsWithHttpInfo(applicationId, createdBefore, createdAfter, updatedBefore, updatedAfter, profileIntegrationId, dateFormat, customerSessionState);
         return localVarResp.getData();
     }
 
@@ -7060,6 +7072,8 @@ public class ManagementApi {
      * @param applicationId The ID of the Application. It is displayed in your Talon.One deployment URL. (required)
      * @param createdBefore Filter results comparing the parameter value, expected to be an RFC3339 timestamp string. (optional)
      * @param createdAfter Filter results comparing the parameter value, expected to be an RFC3339 timestamp string. (optional)
+     * @param updatedBefore Filter results comparing the parameter value, expected to be an RFC3339 timestamp string. (optional)
+     * @param updatedAfter Filter results comparing the parameter value, expected to be an RFC3339 timestamp string. (optional)
      * @param profileIntegrationId Only return sessions for the customer that matches this customer integration ID. (optional)
      * @param dateFormat Determines the format of dates in the export document. (optional)
      * @param customerSessionState Filter results by state. (optional)
@@ -7072,8 +7086,8 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<String> exportCustomerSessionsWithHttpInfo(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nullable OffsetDateTime createdBefore, @javax.annotation.Nullable OffsetDateTime createdAfter, @javax.annotation.Nullable String profileIntegrationId, @javax.annotation.Nullable String dateFormat, @javax.annotation.Nullable String customerSessionState) throws ApiException {
-        okhttp3.Call localVarCall = exportCustomerSessionsValidateBeforeCall(applicationId, createdBefore, createdAfter, profileIntegrationId, dateFormat, customerSessionState, null);
+    public ApiResponse<String> exportCustomerSessionsWithHttpInfo(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nullable OffsetDateTime createdBefore, @javax.annotation.Nullable OffsetDateTime createdAfter, @javax.annotation.Nullable OffsetDateTime updatedBefore, @javax.annotation.Nullable OffsetDateTime updatedAfter, @javax.annotation.Nullable String profileIntegrationId, @javax.annotation.Nullable String dateFormat, @javax.annotation.Nullable String customerSessionState) throws ApiException {
+        okhttp3.Call localVarCall = exportCustomerSessionsValidateBeforeCall(applicationId, createdBefore, createdAfter, updatedBefore, updatedAfter, profileIntegrationId, dateFormat, customerSessionState, null);
         Type localVarReturnType = new TypeToken<String>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -7084,6 +7098,8 @@ public class ManagementApi {
      * @param applicationId The ID of the Application. It is displayed in your Talon.One deployment URL. (required)
      * @param createdBefore Filter results comparing the parameter value, expected to be an RFC3339 timestamp string. (optional)
      * @param createdAfter Filter results comparing the parameter value, expected to be an RFC3339 timestamp string. (optional)
+     * @param updatedBefore Filter results comparing the parameter value, expected to be an RFC3339 timestamp string. (optional)
+     * @param updatedAfter Filter results comparing the parameter value, expected to be an RFC3339 timestamp string. (optional)
      * @param profileIntegrationId Only return sessions for the customer that matches this customer integration ID. (optional)
      * @param dateFormat Determines the format of dates in the export document. (optional)
      * @param customerSessionState Filter results by state. (optional)
@@ -7097,9 +7113,9 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call exportCustomerSessionsAsync(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nullable OffsetDateTime createdBefore, @javax.annotation.Nullable OffsetDateTime createdAfter, @javax.annotation.Nullable String profileIntegrationId, @javax.annotation.Nullable String dateFormat, @javax.annotation.Nullable String customerSessionState, final ApiCallback<String> _callback) throws ApiException {
+    public okhttp3.Call exportCustomerSessionsAsync(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nullable OffsetDateTime createdBefore, @javax.annotation.Nullable OffsetDateTime createdAfter, @javax.annotation.Nullable OffsetDateTime updatedBefore, @javax.annotation.Nullable OffsetDateTime updatedAfter, @javax.annotation.Nullable String profileIntegrationId, @javax.annotation.Nullable String dateFormat, @javax.annotation.Nullable String customerSessionState, final ApiCallback<String> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = exportCustomerSessionsValidateBeforeCall(applicationId, createdBefore, createdAfter, profileIntegrationId, dateFormat, customerSessionState, _callback);
+        okhttp3.Call localVarCall = exportCustomerSessionsValidateBeforeCall(applicationId, createdBefore, createdAfter, updatedBefore, updatedAfter, profileIntegrationId, dateFormat, customerSessionState, _callback);
         Type localVarReturnType = new TypeToken<String>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -8140,7 +8156,7 @@ public class ManagementApi {
 
     /**
      * Export loyalty cards
-     * Download a CSV file containing the loyalty cards from a specified loyalty program.  &gt; [!tip] If the exported CSV file is too large to view, you can &gt; [split it into multiple files](https://www.google.com/search?q&#x3D;split+CSV+into+multiple+files).  The CSV file contains the following columns:  - &#x60;identifier&#x60;: The unique identifier of the loyalty card. - &#x60;created&#x60;: The date and time the loyalty card was created. - &#x60;status&#x60;: The status of the loyalty card. - &#x60;userpercardlimit&#x60;: The maximum number of customer profiles that can be linked to the card. - &#x60;customerprofileids&#x60;: Integration IDs of the customer profiles linked to the card. - &#x60;blockreason&#x60;: The reason for transferring and blocking the loyalty card. - &#x60;generated&#x60;: An indicator of whether the loyalty card was generated. - &#x60;batchid&#x60;: The ID of the batch the loyalty card is in. - &#x60;attributes&#x60;: The custom attributes of this loyalty card. Currently, this feature is only available upon request. 
+     * Download a CSV file containing the loyalty cards from a specified loyalty program.  &gt; [!tip] If the exported CSV file is too large to view, you can &gt; [split it into multiple files](https://www.google.com/search?q&#x3D;split+CSV+into+multiple+files).  The CSV file contains the following columns:  - &#x60;identifier&#x60;: The unique identifier of the loyalty card. - &#x60;created&#x60;: The date and time the loyalty card was created. - &#x60;status&#x60;: The status of the loyalty card. - &#x60;userpercardlimit&#x60;: The maximum number of customer profiles that can be linked to the card. - &#x60;customerprofileids&#x60;: Integration IDs of the customer profiles linked to the card. - &#x60;blockreason&#x60;: The reason for transferring and blocking the loyalty card. - &#x60;generated&#x60;: An indicator of whether the loyalty card was generated. - &#x60;batchid&#x60;: The ID of the batch the loyalty card is in. - &#x60;attributes&#x60;: The custom attributes of this loyalty card. 
      * @param loyaltyProgramId Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint.  (required)
      * @param batchId Filter results by loyalty card batch ID. (optional)
      * @param createdBefore Only return loyalty cards created before this timestamp.  **Note:** This must be an RFC3339 timestamp string.  (optional)
@@ -8164,7 +8180,7 @@ public class ManagementApi {
 
     /**
      * Export loyalty cards
-     * Download a CSV file containing the loyalty cards from a specified loyalty program.  &gt; [!tip] If the exported CSV file is too large to view, you can &gt; [split it into multiple files](https://www.google.com/search?q&#x3D;split+CSV+into+multiple+files).  The CSV file contains the following columns:  - &#x60;identifier&#x60;: The unique identifier of the loyalty card. - &#x60;created&#x60;: The date and time the loyalty card was created. - &#x60;status&#x60;: The status of the loyalty card. - &#x60;userpercardlimit&#x60;: The maximum number of customer profiles that can be linked to the card. - &#x60;customerprofileids&#x60;: Integration IDs of the customer profiles linked to the card. - &#x60;blockreason&#x60;: The reason for transferring and blocking the loyalty card. - &#x60;generated&#x60;: An indicator of whether the loyalty card was generated. - &#x60;batchid&#x60;: The ID of the batch the loyalty card is in. - &#x60;attributes&#x60;: The custom attributes of this loyalty card. Currently, this feature is only available upon request. 
+     * Download a CSV file containing the loyalty cards from a specified loyalty program.  &gt; [!tip] If the exported CSV file is too large to view, you can &gt; [split it into multiple files](https://www.google.com/search?q&#x3D;split+CSV+into+multiple+files).  The CSV file contains the following columns:  - &#x60;identifier&#x60;: The unique identifier of the loyalty card. - &#x60;created&#x60;: The date and time the loyalty card was created. - &#x60;status&#x60;: The status of the loyalty card. - &#x60;userpercardlimit&#x60;: The maximum number of customer profiles that can be linked to the card. - &#x60;customerprofileids&#x60;: Integration IDs of the customer profiles linked to the card. - &#x60;blockreason&#x60;: The reason for transferring and blocking the loyalty card. - &#x60;generated&#x60;: An indicator of whether the loyalty card was generated. - &#x60;batchid&#x60;: The ID of the batch the loyalty card is in. - &#x60;attributes&#x60;: The custom attributes of this loyalty card. 
      * @param loyaltyProgramId Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint.  (required)
      * @param batchId Filter results by loyalty card batch ID. (optional)
      * @param createdBefore Only return loyalty cards created before this timestamp.  **Note:** This must be an RFC3339 timestamp string.  (optional)
@@ -8189,7 +8205,7 @@ public class ManagementApi {
 
     /**
      * Export loyalty cards (asynchronously)
-     * Download a CSV file containing the loyalty cards from a specified loyalty program.  &gt; [!tip] If the exported CSV file is too large to view, you can &gt; [split it into multiple files](https://www.google.com/search?q&#x3D;split+CSV+into+multiple+files).  The CSV file contains the following columns:  - &#x60;identifier&#x60;: The unique identifier of the loyalty card. - &#x60;created&#x60;: The date and time the loyalty card was created. - &#x60;status&#x60;: The status of the loyalty card. - &#x60;userpercardlimit&#x60;: The maximum number of customer profiles that can be linked to the card. - &#x60;customerprofileids&#x60;: Integration IDs of the customer profiles linked to the card. - &#x60;blockreason&#x60;: The reason for transferring and blocking the loyalty card. - &#x60;generated&#x60;: An indicator of whether the loyalty card was generated. - &#x60;batchid&#x60;: The ID of the batch the loyalty card is in. - &#x60;attributes&#x60;: The custom attributes of this loyalty card. Currently, this feature is only available upon request. 
+     * Download a CSV file containing the loyalty cards from a specified loyalty program.  &gt; [!tip] If the exported CSV file is too large to view, you can &gt; [split it into multiple files](https://www.google.com/search?q&#x3D;split+CSV+into+multiple+files).  The CSV file contains the following columns:  - &#x60;identifier&#x60;: The unique identifier of the loyalty card. - &#x60;created&#x60;: The date and time the loyalty card was created. - &#x60;status&#x60;: The status of the loyalty card. - &#x60;userpercardlimit&#x60;: The maximum number of customer profiles that can be linked to the card. - &#x60;customerprofileids&#x60;: Integration IDs of the customer profiles linked to the card. - &#x60;blockreason&#x60;: The reason for transferring and blocking the loyalty card. - &#x60;generated&#x60;: An indicator of whether the loyalty card was generated. - &#x60;batchid&#x60;: The ID of the batch the loyalty card is in. - &#x60;attributes&#x60;: The custom attributes of this loyalty card. 
      * @param loyaltyProgramId Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint.  (required)
      * @param batchId Filter results by loyalty card batch ID. (optional)
      * @param createdBefore Only return loyalty cards created before this timestamp.  **Note:** This must be an RFC3339 timestamp string.  (optional)
@@ -12561,7 +12577,7 @@ public class ManagementApi {
     }
     /**
      * Build call for getAudiencesAnalytics
-     * @param audienceIds The IDs of one or more audiences, separated by commas, by which to filter results. (required)
+     * @param audienceIds The IDs of one or more audiences, separated by commas, by which to filter results. Do not provide more than 1000 audience IDs. (required)
      * @param sort The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -12639,7 +12655,7 @@ public class ManagementApi {
     /**
      * List audience analytics
      * Get a list of audience IDs and their member count. 
-     * @param audienceIds The IDs of one or more audiences, separated by commas, by which to filter results. (required)
+     * @param audienceIds The IDs of one or more audiences, separated by commas, by which to filter results. Do not provide more than 1000 audience IDs. (required)
      * @param sort The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.  (optional)
      * @return GetAudiencesAnalytics200Response
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -12658,7 +12674,7 @@ public class ManagementApi {
     /**
      * List audience analytics
      * Get a list of audience IDs and their member count. 
-     * @param audienceIds The IDs of one or more audiences, separated by commas, by which to filter results. (required)
+     * @param audienceIds The IDs of one or more audiences, separated by commas, by which to filter results. Do not provide more than 1000 audience IDs. (required)
      * @param sort The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.  (optional)
      * @return ApiResponse&lt;GetAudiencesAnalytics200Response&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -12678,7 +12694,7 @@ public class ManagementApi {
     /**
      * List audience analytics (asynchronously)
      * Get a list of audience IDs and their member count. 
-     * @param audienceIds The IDs of one or more audiences, separated by commas, by which to filter results. (required)
+     * @param audienceIds The IDs of one or more audiences, separated by commas, by which to filter results. Do not provide more than 1000 audience IDs. (required)
      * @param sort The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -20831,7 +20847,7 @@ public class ManagementApi {
 
     /**
      * Import loyalty cards
-     * Upload a CSV file containing the loyalty cards that you want to use in your card-based loyalty program.  Send the file as multipart data.  It contains the following columns for each card:  - &#x60;identifier&#x60; (required): The identifier of the loyalty card, which must match the regular expression &#x60;^[A-Za-z0-9._%+@-]+$&#x60;. - &#x60;state&#x60; (required): The state of the loyalty card. It can be &#x60;active&#x60; or &#x60;inactive&#x60;. - &#x60;customerprofileids&#x60; (optional): An array of strings representing the identifiers of the customer profiles linked to the loyalty card. The identifiers should be separated with a semicolon (;).  &gt; [!note] Your CSV file must contain less than 500,000 rows. Requests time out after 30 seconds.  ## Example  &#x60;&#x60;&#x60;csv identifier,state,customerprofileids 123-456-789AT,active,Alexa001;UserA &#x60;&#x60;&#x60; 
+     * Upload a CSV file containing the loyalty cards that you want to use in your card-based loyalty program.  Send the file as multipart data.  It contains the following columns for each card:  - &#x60;identifier&#x60; (required): The identifier of the loyalty card, which must match the regular expression &#x60;^[A-Za-z0-9._%+@-]+$&#x60;. - &#x60;state&#x60; (required): The state of the loyalty card. It can be &#x60;active&#x60; or &#x60;inactive&#x60;. - &#x60;customerprofileids&#x60; (optional): An array of strings representing the identifiers of the customer profiles linked to the loyalty card. The identifiers should be separated with a semicolon (;). - &#x60;attributes&#x60; (optional): A JSON object that contains the loyalty card&#39;s custom attributes and their values. These attributes must be created and connected to this loyalty program before they can be assigned to the cards through this endpoint.  &gt; [!note] Your CSV file must contain less than 500,000 rows. Requests time out after 30 seconds.  ## Example  &#x60;&#x60;&#x60;csv identifier,state,customerprofileids,attributes 123-456-789AT,active,Alexa001;UserA,&#39;{\&quot;\&quot;my_attributes\&quot;\&quot;: \&quot;\&quot;10_off\&quot;\&quot;}\&quot; &#x60;&#x60;&#x60; 
      * @param loyaltyProgramId Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint.  (required)
      * @param upFile The CSV file containing the data that is being imported. (optional)
      * @return ModelImport
@@ -20852,7 +20868,7 @@ public class ManagementApi {
 
     /**
      * Import loyalty cards
-     * Upload a CSV file containing the loyalty cards that you want to use in your card-based loyalty program.  Send the file as multipart data.  It contains the following columns for each card:  - &#x60;identifier&#x60; (required): The identifier of the loyalty card, which must match the regular expression &#x60;^[A-Za-z0-9._%+@-]+$&#x60;. - &#x60;state&#x60; (required): The state of the loyalty card. It can be &#x60;active&#x60; or &#x60;inactive&#x60;. - &#x60;customerprofileids&#x60; (optional): An array of strings representing the identifiers of the customer profiles linked to the loyalty card. The identifiers should be separated with a semicolon (;).  &gt; [!note] Your CSV file must contain less than 500,000 rows. Requests time out after 30 seconds.  ## Example  &#x60;&#x60;&#x60;csv identifier,state,customerprofileids 123-456-789AT,active,Alexa001;UserA &#x60;&#x60;&#x60; 
+     * Upload a CSV file containing the loyalty cards that you want to use in your card-based loyalty program.  Send the file as multipart data.  It contains the following columns for each card:  - &#x60;identifier&#x60; (required): The identifier of the loyalty card, which must match the regular expression &#x60;^[A-Za-z0-9._%+@-]+$&#x60;. - &#x60;state&#x60; (required): The state of the loyalty card. It can be &#x60;active&#x60; or &#x60;inactive&#x60;. - &#x60;customerprofileids&#x60; (optional): An array of strings representing the identifiers of the customer profiles linked to the loyalty card. The identifiers should be separated with a semicolon (;). - &#x60;attributes&#x60; (optional): A JSON object that contains the loyalty card&#39;s custom attributes and their values. These attributes must be created and connected to this loyalty program before they can be assigned to the cards through this endpoint.  &gt; [!note] Your CSV file must contain less than 500,000 rows. Requests time out after 30 seconds.  ## Example  &#x60;&#x60;&#x60;csv identifier,state,customerprofileids,attributes 123-456-789AT,active,Alexa001;UserA,&#39;{\&quot;\&quot;my_attributes\&quot;\&quot;: \&quot;\&quot;10_off\&quot;\&quot;}\&quot; &#x60;&#x60;&#x60; 
      * @param loyaltyProgramId Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint.  (required)
      * @param upFile The CSV file containing the data that is being imported. (optional)
      * @return ApiResponse&lt;ModelImport&gt;
@@ -20874,7 +20890,7 @@ public class ManagementApi {
 
     /**
      * Import loyalty cards (asynchronously)
-     * Upload a CSV file containing the loyalty cards that you want to use in your card-based loyalty program.  Send the file as multipart data.  It contains the following columns for each card:  - &#x60;identifier&#x60; (required): The identifier of the loyalty card, which must match the regular expression &#x60;^[A-Za-z0-9._%+@-]+$&#x60;. - &#x60;state&#x60; (required): The state of the loyalty card. It can be &#x60;active&#x60; or &#x60;inactive&#x60;. - &#x60;customerprofileids&#x60; (optional): An array of strings representing the identifiers of the customer profiles linked to the loyalty card. The identifiers should be separated with a semicolon (;).  &gt; [!note] Your CSV file must contain less than 500,000 rows. Requests time out after 30 seconds.  ## Example  &#x60;&#x60;&#x60;csv identifier,state,customerprofileids 123-456-789AT,active,Alexa001;UserA &#x60;&#x60;&#x60; 
+     * Upload a CSV file containing the loyalty cards that you want to use in your card-based loyalty program.  Send the file as multipart data.  It contains the following columns for each card:  - &#x60;identifier&#x60; (required): The identifier of the loyalty card, which must match the regular expression &#x60;^[A-Za-z0-9._%+@-]+$&#x60;. - &#x60;state&#x60; (required): The state of the loyalty card. It can be &#x60;active&#x60; or &#x60;inactive&#x60;. - &#x60;customerprofileids&#x60; (optional): An array of strings representing the identifiers of the customer profiles linked to the loyalty card. The identifiers should be separated with a semicolon (;). - &#x60;attributes&#x60; (optional): A JSON object that contains the loyalty card&#39;s custom attributes and their values. These attributes must be created and connected to this loyalty program before they can be assigned to the cards through this endpoint.  &gt; [!note] Your CSV file must contain less than 500,000 rows. Requests time out after 30 seconds.  ## Example  &#x60;&#x60;&#x60;csv identifier,state,customerprofileids,attributes 123-456-789AT,active,Alexa001;UserA,&#39;{\&quot;\&quot;my_attributes\&quot;\&quot;: \&quot;\&quot;10_off\&quot;\&quot;}\&quot; &#x60;&#x60;&#x60; 
      * @param loyaltyProgramId Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint.  (required)
      * @param upFile The CSV file containing the data that is being imported. (optional)
      * @param _callback The callback to be executed when the API call finishes
@@ -21040,6 +21056,154 @@ public class ManagementApi {
     public okhttp3.Call importLoyaltyCustomersTiersAsync(@javax.annotation.Nonnull Long loyaltyProgramId, @javax.annotation.Nullable File upFile, final ApiCallback<ModelImport> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = importLoyaltyCustomersTiersValidateBeforeCall(loyaltyProgramId, upFile, _callback);
+        Type localVarReturnType = new TypeToken<ModelImport>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for importLoyaltyJoinDates
+     * @param loyaltyProgramId Identifier of the profile-based loyalty program. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint.  (required)
+     * @param upFile The CSV file containing the data that is being imported. (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call importLoyaltyJoinDatesCall(@javax.annotation.Nonnull Long loyaltyProgramId, @javax.annotation.Nullable File upFile, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/v1/loyalty_programs/{loyaltyProgramId}/import_join_dates"
+            .replace("{" + "loyaltyProgramId" + "}", localVarApiClient.escapeString(loyaltyProgramId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (upFile != null) {
+            localVarFormParams.put("upFile", upFile);
+        }
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "multipart/form-data"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "api_key_v1" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call importLoyaltyJoinDatesValidateBeforeCall(@javax.annotation.Nonnull Long loyaltyProgramId, @javax.annotation.Nullable File upFile, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'loyaltyProgramId' is set
+        if (loyaltyProgramId == null) {
+            throw new ApiException("Missing the required parameter 'loyaltyProgramId' when calling importLoyaltyJoinDates(Async)");
+        }
+
+        return importLoyaltyJoinDatesCall(loyaltyProgramId, upFile, _callback);
+
+    }
+
+    /**
+     * Import join dates for a loyalty program
+     * Upload a CSV file containing customer profile IDs and their join dates for the specified loyalty program. Send the file as multipart data.  &gt; [!important] This endpoint only works with profile-based loyalty programs.  The CSV file **must** contain the following columns:  - &#x60;customerprofileid&#x60;: The integration ID of the customer profile whose join   date you want to update. - &#x60;newjoindate&#x60;: The new join date for the customer in RFC3339 format. You   can use the time zone of your choice. It is converted to UTC internally   by Talon.One.  **Note**: - Customer profiles must already exist. If a referenced profile does not exist, the import fails with a &#x60;400&#x60; error. - If a join date already exists for a profile, the uploaded date replaces it.  &gt; [!note] We recommend limiting your file size to 500 MB.  ## Example  &#x60;&#x60;&#x60;csv customerprofileid,newjoindate customer1,2024-03-21T07:32:14Z customer2,2025-04-16T21:12:37Z customer3,2026-05-03T11:47:01Z &#x60;&#x60;&#x60; 
+     * @param loyaltyProgramId Identifier of the profile-based loyalty program. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint.  (required)
+     * @param upFile The CSV file containing the data that is being imported. (optional)
+     * @return ModelImport
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
+     </table>
+     */
+    public ModelImport importLoyaltyJoinDates(@javax.annotation.Nonnull Long loyaltyProgramId, @javax.annotation.Nullable File upFile) throws ApiException {
+        ApiResponse<ModelImport> localVarResp = importLoyaltyJoinDatesWithHttpInfo(loyaltyProgramId, upFile);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Import join dates for a loyalty program
+     * Upload a CSV file containing customer profile IDs and their join dates for the specified loyalty program. Send the file as multipart data.  &gt; [!important] This endpoint only works with profile-based loyalty programs.  The CSV file **must** contain the following columns:  - &#x60;customerprofileid&#x60;: The integration ID of the customer profile whose join   date you want to update. - &#x60;newjoindate&#x60;: The new join date for the customer in RFC3339 format. You   can use the time zone of your choice. It is converted to UTC internally   by Talon.One.  **Note**: - Customer profiles must already exist. If a referenced profile does not exist, the import fails with a &#x60;400&#x60; error. - If a join date already exists for a profile, the uploaded date replaces it.  &gt; [!note] We recommend limiting your file size to 500 MB.  ## Example  &#x60;&#x60;&#x60;csv customerprofileid,newjoindate customer1,2024-03-21T07:32:14Z customer2,2025-04-16T21:12:37Z customer3,2026-05-03T11:47:01Z &#x60;&#x60;&#x60; 
+     * @param loyaltyProgramId Identifier of the profile-based loyalty program. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint.  (required)
+     * @param upFile The CSV file containing the data that is being imported. (optional)
+     * @return ApiResponse&lt;ModelImport&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<ModelImport> importLoyaltyJoinDatesWithHttpInfo(@javax.annotation.Nonnull Long loyaltyProgramId, @javax.annotation.Nullable File upFile) throws ApiException {
+        okhttp3.Call localVarCall = importLoyaltyJoinDatesValidateBeforeCall(loyaltyProgramId, upFile, null);
+        Type localVarReturnType = new TypeToken<ModelImport>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Import join dates for a loyalty program (asynchronously)
+     * Upload a CSV file containing customer profile IDs and their join dates for the specified loyalty program. Send the file as multipart data.  &gt; [!important] This endpoint only works with profile-based loyalty programs.  The CSV file **must** contain the following columns:  - &#x60;customerprofileid&#x60;: The integration ID of the customer profile whose join   date you want to update. - &#x60;newjoindate&#x60;: The new join date for the customer in RFC3339 format. You   can use the time zone of your choice. It is converted to UTC internally   by Talon.One.  **Note**: - Customer profiles must already exist. If a referenced profile does not exist, the import fails with a &#x60;400&#x60; error. - If a join date already exists for a profile, the uploaded date replaces it.  &gt; [!note] We recommend limiting your file size to 500 MB.  ## Example  &#x60;&#x60;&#x60;csv customerprofileid,newjoindate customer1,2024-03-21T07:32:14Z customer2,2025-04-16T21:12:37Z customer3,2026-05-03T11:47:01Z &#x60;&#x60;&#x60; 
+     * @param loyaltyProgramId Identifier of the profile-based loyalty program. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint.  (required)
+     * @param upFile The CSV file containing the data that is being imported. (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call importLoyaltyJoinDatesAsync(@javax.annotation.Nonnull Long loyaltyProgramId, @javax.annotation.Nullable File upFile, final ApiCallback<ModelImport> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = importLoyaltyJoinDatesValidateBeforeCall(loyaltyProgramId, upFile, _callback);
         Type localVarReturnType = new TypeToken<ModelImport>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -22044,7 +22208,7 @@ public class ManagementApi {
      * @param applicationId The ID of the Application. It is displayed in your Talon.One deployment URL. (required)
      * @param pageSize The number of items in the response. (optional, default to 50)
      * @param skip The number of items to skip when paging through large result sets. (optional)
-     * @param title Filter by the display name of the Application cart item filter in the Application.  **Note**: If no &#x60;title&#x60; is provided, all the Application cart item filters in the Application are returned.  (optional)
+     * @param name Filter by the display name of the Application cart item filter in the Application.  **Note**: If no &#x60;name&#x60; is provided, all the Application cart item filters in the Application are returned.  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -22055,7 +22219,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call listApplicationCartItemFiltersCall(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable String title, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call listApplicationCartItemFiltersCall(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable String name, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -22089,8 +22253,8 @@ public class ManagementApi {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("skip", skip));
         }
 
-        if (title != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("title", title));
+        if (name != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("name", name));
         }
 
         final String[] localVarAccepts = {
@@ -22113,13 +22277,13 @@ public class ManagementApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call listApplicationCartItemFiltersValidateBeforeCall(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable String title, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call listApplicationCartItemFiltersValidateBeforeCall(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable String name, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'applicationId' is set
         if (applicationId == null) {
             throw new ApiException("Missing the required parameter 'applicationId' when calling listApplicationCartItemFilters(Async)");
         }
 
-        return listApplicationCartItemFiltersCall(applicationId, pageSize, skip, title, _callback);
+        return listApplicationCartItemFiltersCall(applicationId, pageSize, skip, name, _callback);
 
     }
 
@@ -22129,7 +22293,7 @@ public class ManagementApi {
      * @param applicationId The ID of the Application. It is displayed in your Talon.One deployment URL. (required)
      * @param pageSize The number of items in the response. (optional, default to 50)
      * @param skip The number of items to skip when paging through large result sets. (optional)
-     * @param title Filter by the display name of the Application cart item filter in the Application.  **Note**: If no &#x60;title&#x60; is provided, all the Application cart item filters in the Application are returned.  (optional)
+     * @param name Filter by the display name of the Application cart item filter in the Application.  **Note**: If no &#x60;name&#x60; is provided, all the Application cart item filters in the Application are returned.  (optional)
      * @return ListApplicationCartItemFilters200Response
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -22139,8 +22303,8 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ListApplicationCartItemFilters200Response listApplicationCartItemFilters(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable String title) throws ApiException {
-        ApiResponse<ListApplicationCartItemFilters200Response> localVarResp = listApplicationCartItemFiltersWithHttpInfo(applicationId, pageSize, skip, title);
+    public ListApplicationCartItemFilters200Response listApplicationCartItemFilters(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable String name) throws ApiException {
+        ApiResponse<ListApplicationCartItemFilters200Response> localVarResp = listApplicationCartItemFiltersWithHttpInfo(applicationId, pageSize, skip, name);
         return localVarResp.getData();
     }
 
@@ -22150,7 +22314,7 @@ public class ManagementApi {
      * @param applicationId The ID of the Application. It is displayed in your Talon.One deployment URL. (required)
      * @param pageSize The number of items in the response. (optional, default to 50)
      * @param skip The number of items to skip when paging through large result sets. (optional)
-     * @param title Filter by the display name of the Application cart item filter in the Application.  **Note**: If no &#x60;title&#x60; is provided, all the Application cart item filters in the Application are returned.  (optional)
+     * @param name Filter by the display name of the Application cart item filter in the Application.  **Note**: If no &#x60;name&#x60; is provided, all the Application cart item filters in the Application are returned.  (optional)
      * @return ApiResponse&lt;ListApplicationCartItemFilters200Response&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -22160,8 +22324,8 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<ListApplicationCartItemFilters200Response> listApplicationCartItemFiltersWithHttpInfo(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable String title) throws ApiException {
-        okhttp3.Call localVarCall = listApplicationCartItemFiltersValidateBeforeCall(applicationId, pageSize, skip, title, null);
+    public ApiResponse<ListApplicationCartItemFilters200Response> listApplicationCartItemFiltersWithHttpInfo(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable String name) throws ApiException {
+        okhttp3.Call localVarCall = listApplicationCartItemFiltersValidateBeforeCall(applicationId, pageSize, skip, name, null);
         Type localVarReturnType = new TypeToken<ListApplicationCartItemFilters200Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -22172,7 +22336,7 @@ public class ManagementApi {
      * @param applicationId The ID of the Application. It is displayed in your Talon.One deployment URL. (required)
      * @param pageSize The number of items in the response. (optional, default to 50)
      * @param skip The number of items to skip when paging through large result sets. (optional)
-     * @param title Filter by the display name of the Application cart item filter in the Application.  **Note**: If no &#x60;title&#x60; is provided, all the Application cart item filters in the Application are returned.  (optional)
+     * @param name Filter by the display name of the Application cart item filter in the Application.  **Note**: If no &#x60;name&#x60; is provided, all the Application cart item filters in the Application are returned.  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -22183,9 +22347,9 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call listApplicationCartItemFiltersAsync(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable String title, final ApiCallback<ListApplicationCartItemFilters200Response> _callback) throws ApiException {
+    public okhttp3.Call listApplicationCartItemFiltersAsync(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable String name, final ApiCallback<ListApplicationCartItemFilters200Response> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = listApplicationCartItemFiltersValidateBeforeCall(applicationId, pageSize, skip, title, _callback);
+        okhttp3.Call localVarCall = listApplicationCartItemFiltersValidateBeforeCall(applicationId, pageSize, skip, name, _callback);
         Type localVarReturnType = new TypeToken<ListApplicationCartItemFilters200Response>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

@@ -20,6 +20,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.util.Arrays;
+import one.talon.model.TimePoint;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
@@ -51,6 +52,14 @@ public class AchievementAdditionalPropertiesV2Test {
     @Test
     public void createdByTest() {
         // TODO: test createdBy
+    }
+
+    /**
+     * Test the property 'periodEndOverride'
+     */
+    @Test
+    public void periodEndOverrideTest() {
+        // TODO: test periodEndOverride
     }
 
     /**

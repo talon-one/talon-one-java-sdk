@@ -47,9 +47,9 @@ import java.util.Set;
 import one.talon.JSON;
 
 /**
- * The properties specific to the &#x60;setDiscountPerItem&#x60; effect, triggered whenever a validated rule contained a \&quot;set per item discount\&quot; effect. This is a discount that will be applied either on a specific item, on a specific item + additional cost or on all additional costs per item. This depends on the chosen scope. 
+ * This effect schema is returned when you use the **Discount individual items**, **Discount individual items pro rata**, or **Discount individual item in bundles** effect in a rule.  It indicates that a discount per item should be applied on the specific item specified in the effect.  The properties it contains depends on:  - Whether you used a pro rata effect or not. - Whether you used an effect with bundles or not. - Whether the partial discount feature is enabled.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.22.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.23.0")
 public class SetDiscountPerItemEffectProps {
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
@@ -125,7 +125,7 @@ public class SetDiscountPerItemEffectProps {
   }
 
   /**
-   * The name of the discount. Contains a hashtag character indicating the index of the position of the item the discount applies to. It is identical to the value of the &#x60;position&#x60; property. 
+   * The description of this discount. &#x60;#number&#x60; is equal to the &#x60;position&#x60; property.
    * @return name
    */
   @javax.annotation.Nonnull
@@ -144,7 +144,7 @@ public class SetDiscountPerItemEffectProps {
   }
 
   /**
-   * The total monetary value of the discount.
+   * The monetary value of the effective discount applied to the item.
    * @return value
    */
   @javax.annotation.Nonnull
@@ -163,7 +163,7 @@ public class SetDiscountPerItemEffectProps {
   }
 
   /**
-   * The index of the item in the cart items list on which this discount should be applied.
+   * The index of the item in the &#x60;cartItem&#x60; object on which this discount should be applied.
    * @return position
    */
   @javax.annotation.Nonnull
@@ -182,7 +182,7 @@ public class SetDiscountPerItemEffectProps {
   }
 
   /**
-   * For cart items with &#x60;quantity&#x60; &gt; 1, the sub position indicates which item the discount applies to. 
+   * The index of the item unit in its line item.
    * @return subPosition
    */
   @javax.annotation.Nullable
@@ -201,7 +201,7 @@ public class SetDiscountPerItemEffectProps {
   }
 
   /**
-   * The original value of the discount.
+   * _(Partial discounts enabled only)_ The monetary value of the discount to be applied to the item without considering budget limitations.
    * @return desiredValue
    */
   @javax.annotation.Nullable
@@ -220,7 +220,7 @@ public class SetDiscountPerItemEffectProps {
   }
 
   /**
-   * The scope of the discount: - &#x60;additionalCosts&#x60;: The discount applies to all the additional costs of the item. - &#x60;itemTotal&#x60;: The discount applies to the price of the item + the additional costs of the item. - &#x60;price&#x60;: The discount applies to the price of the item. 
+   * What the discount applies to. Possible values:  - &#x60;price&#x60;: discount on the price of the item. - &#x60;additionalCosts&#x60;: discount on the [additional cost](https://docs.talon.one/docs/product/account/dev-tools/manage-additional-costs) of the item. - &#x60;itemTotal&#x60;: discount on the sum of price + additional cost of the item.
    * @return scope
    */
   @javax.annotation.Nullable
@@ -239,7 +239,7 @@ public class SetDiscountPerItemEffectProps {
   }
 
   /**
-   * The total discount given if this effect is a result of a prorated discount.
+   * _(Pro rata discounts only)_ The monetary value of the total effective discount
    * @return totalDiscount
    */
   @javax.annotation.Nullable
@@ -258,7 +258,7 @@ public class SetDiscountPerItemEffectProps {
   }
 
   /**
-   * The original total discount to give if this effect is a result of a prorated discount.
+   * _(Pro rata discounts only)_ The monetary value of the total discount to be applied without considering budget limitations
    * @return desiredTotalDiscount
    */
   @javax.annotation.Nullable
@@ -277,7 +277,7 @@ public class SetDiscountPerItemEffectProps {
   }
 
   /**
-   * The position of the bundle in a list of item bundles created from the same bundle definition.
+   * _(Discounts with bundles only)_ The position of the specific item bundle in the list of bundles created from the same bundle definition.
    * @return bundleIndex
    */
   @javax.annotation.Nullable
@@ -296,7 +296,7 @@ public class SetDiscountPerItemEffectProps {
   }
 
   /**
-   * The name of the bundle definition.
+   * _(Discounts with bundles only)_ The name of the bundle definition.
    * @return bundleName
    */
   @javax.annotation.Nullable
@@ -315,7 +315,7 @@ public class SetDiscountPerItemEffectProps {
   }
 
   /**
-   * The index of the targeted bundle item on which the applied discount is based.
+   * _(Discounting individual item in bundles only)_ The index of the targeted bundle item on which the applied discount is based.
    * @return targetedItemPosition
    */
   @javax.annotation.Nullable
@@ -334,7 +334,7 @@ public class SetDiscountPerItemEffectProps {
   }
 
   /**
-   * The sub-position of the targeted bundle item on which the applied discount is based. 
+   * _(Discounting individual item in bundles only)_ The sub-position of the targeted bundle item on which the applied discount is based.
    * @return targetedItemSubPosition
    */
   @javax.annotation.Nullable

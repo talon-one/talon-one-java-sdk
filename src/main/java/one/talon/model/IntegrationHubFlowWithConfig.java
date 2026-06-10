@@ -21,6 +21,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.util.Arrays;
+import one.talon.model.IntegrationHubEventType;
 import one.talon.model.IntegrationHubFlowConfig;
 
 import com.google.gson.Gson;
@@ -49,17 +50,22 @@ import one.talon.JSON;
 /**
  * IntegrationHubFlowWithConfig
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.22.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.23.0")
 public class IntegrationHubFlowWithConfig {
   public static final String SERIALIZED_NAME_APPLICATION_I_D = "ApplicationID";
   @SerializedName(SERIALIZED_NAME_APPLICATION_I_D)
   @javax.annotation.Nullable
   private Long applicationID;
 
+  public static final String SERIALIZED_NAME_LOYALTY_PROGRAM_I_D = "LoyaltyProgramID";
+  @SerializedName(SERIALIZED_NAME_LOYALTY_PROGRAM_I_D)
+  @javax.annotation.Nullable
+  private Long loyaltyProgramID;
+
   public static final String SERIALIZED_NAME_EVENT_TYPE = "EventType";
   @SerializedName(SERIALIZED_NAME_EVENT_TYPE)
   @javax.annotation.Nonnull
-  private String eventType;
+  private IntegrationHubEventType eventType;
 
   public static final String SERIALIZED_NAME_INTEGRATION_HUB_FLOW_URL = "IntegrationHubFlowUrl";
   @SerializedName(SERIALIZED_NAME_INTEGRATION_HUB_FLOW_URL)
@@ -80,7 +86,7 @@ public class IntegrationHubFlowWithConfig {
   }
 
   /**
-   * ID of application the flow is registered for.
+   * ID of the application the flow is registered for.
    * @return applicationID
    */
   @javax.annotation.Nullable
@@ -93,21 +99,40 @@ public class IntegrationHubFlowWithConfig {
   }
 
 
-  public IntegrationHubFlowWithConfig eventType(@javax.annotation.Nonnull String eventType) {
+  public IntegrationHubFlowWithConfig loyaltyProgramID(@javax.annotation.Nullable Long loyaltyProgramID) {
+    this.loyaltyProgramID = loyaltyProgramID;
+    return this;
+  }
+
+  /**
+   * ID of the loyalty program the flow is registered for.
+   * @return loyaltyProgramID
+   */
+  @javax.annotation.Nullable
+  public Long getLoyaltyProgramID() {
+    return loyaltyProgramID;
+  }
+
+  public void setLoyaltyProgramID(@javax.annotation.Nullable Long loyaltyProgramID) {
+    this.loyaltyProgramID = loyaltyProgramID;
+  }
+
+
+  public IntegrationHubFlowWithConfig eventType(@javax.annotation.Nonnull IntegrationHubEventType eventType) {
     this.eventType = eventType;
     return this;
   }
 
   /**
-   * The event type we want to register a flow for.
+   * Get eventType
    * @return eventType
    */
   @javax.annotation.Nonnull
-  public String getEventType() {
+  public IntegrationHubEventType getEventType() {
     return eventType;
   }
 
-  public void setEventType(@javax.annotation.Nonnull String eventType) {
+  public void setEventType(@javax.annotation.Nonnull IntegrationHubEventType eventType) {
     this.eventType = eventType;
   }
 
@@ -205,6 +230,7 @@ public class IntegrationHubFlowWithConfig {
     }
     IntegrationHubFlowWithConfig integrationHubFlowWithConfig = (IntegrationHubFlowWithConfig) o;
     return Objects.equals(this.applicationID, integrationHubFlowWithConfig.applicationID) &&
+        Objects.equals(this.loyaltyProgramID, integrationHubFlowWithConfig.loyaltyProgramID) &&
         Objects.equals(this.eventType, integrationHubFlowWithConfig.eventType) &&
         Objects.equals(this.integrationHubFlowUrl, integrationHubFlowWithConfig.integrationHubFlowUrl) &&
         Objects.equals(this.config, integrationHubFlowWithConfig.config)&&
@@ -213,7 +239,7 @@ public class IntegrationHubFlowWithConfig {
 
   @Override
   public int hashCode() {
-    return Objects.hash(applicationID, eventType, integrationHubFlowUrl, config, additionalProperties);
+    return Objects.hash(applicationID, loyaltyProgramID, eventType, integrationHubFlowUrl, config, additionalProperties);
   }
 
   @Override
@@ -221,6 +247,7 @@ public class IntegrationHubFlowWithConfig {
     StringBuilder sb = new StringBuilder();
     sb.append("class IntegrationHubFlowWithConfig {\n");
     sb.append("    applicationID: ").append(toIndentedString(applicationID)).append("\n");
+    sb.append("    loyaltyProgramID: ").append(toIndentedString(loyaltyProgramID)).append("\n");
     sb.append("    eventType: ").append(toIndentedString(eventType)).append("\n");
     sb.append("    integrationHubFlowUrl: ").append(toIndentedString(integrationHubFlowUrl)).append("\n");
     sb.append("    config: ").append(toIndentedString(config)).append("\n");
@@ -243,7 +270,7 @@ public class IntegrationHubFlowWithConfig {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("ApplicationID", "EventType", "IntegrationHubFlowUrl", "Config"));
+    openapiFields = new HashSet<String>(Arrays.asList("ApplicationID", "LoyaltyProgramID", "EventType", "IntegrationHubFlowUrl", "Config"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("EventType", "IntegrationHubFlowUrl", "Config"));
@@ -269,9 +296,8 @@ public class IntegrationHubFlowWithConfig {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if (!jsonObj.get("EventType").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `EventType` to be a primitive type in the JSON string but got `%s`", jsonObj.get("EventType").toString()));
-      }
+      // validate the required field `EventType`
+      IntegrationHubEventType.validateJsonElement(jsonObj.get("EventType"));
       if (!jsonObj.get("IntegrationHubFlowUrl").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `IntegrationHubFlowUrl` to be a primitive type in the JSON string but got `%s`", jsonObj.get("IntegrationHubFlowUrl").toString()));
       }

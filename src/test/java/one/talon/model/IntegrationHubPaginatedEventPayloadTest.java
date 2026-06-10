@@ -23,6 +23,7 @@ import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import one.talon.model.IntegrationHubEventType;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 

@@ -50,9 +50,9 @@ import java.util.Set;
 import one.talon.JSON;
 
 /**
- * The properties specific to the \&quot;setLoyaltyPointsExpiryDate\&quot; effect. This gets triggered when a validated rule contains the \&quot;set expiry date\&quot; effect. The current expiry date gets set to the date given in the effect. 
+ * This effect updates the expiry date of all active, pending, and unlimited point transactions to a specific date. 
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.22.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.23.0")
 public class SetLoyaltyPointsExpiryDateEffectProps {
   public static final String SERIALIZED_NAME_PROGRAM_ID = "programId";
   @SerializedName(SERIALIZED_NAME_PROGRAM_ID)

@@ -46,34 +46,58 @@ import java.util.Set;
 import one.talon.JSON;
 
 /**
- * Configuration settings related to patch operations, which allow partial updates to SCIM resources.
+ * The identifiers for the [experiment](https://docs.talon.one/management-api#tag/Experiments) and the variant assigned to the customer profile. Only returned when the customer profile has been assigned to a variant in an experiment campaign. 
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.22.0")
-public class ScimServiceProviderConfigResponsePatch {
-  public static final String SERIALIZED_NAME_SUPPORTED = "supported";
-  @SerializedName(SERIALIZED_NAME_SUPPORTED)
-  @javax.annotation.Nullable
-  private Boolean supported;
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.23.0")
+public class CampaignEligibilityExperiment {
+  public static final String SERIALIZED_NAME_ID = "id";
+  @SerializedName(SERIALIZED_NAME_ID)
+  @javax.annotation.Nonnull
+  private Long id;
 
-  public ScimServiceProviderConfigResponsePatch() {
+  public static final String SERIALIZED_NAME_VARIANT_ID = "variantId";
+  @SerializedName(SERIALIZED_NAME_VARIANT_ID)
+  @javax.annotation.Nonnull
+  private Long variantId;
+
+  public CampaignEligibilityExperiment() {
   }
 
-  public ScimServiceProviderConfigResponsePatch supported(@javax.annotation.Nullable Boolean supported) {
-    this.supported = supported;
+  public CampaignEligibilityExperiment id(@javax.annotation.Nonnull Long id) {
+    this.id = id;
     return this;
   }
 
   /**
-   * Indicates whether the service provider supports patch operations for modifying resources.
-   * @return supported
+   * The ID of the experiment.
+   * @return id
    */
-  @javax.annotation.Nullable
-  public Boolean getSupported() {
-    return supported;
+  @javax.annotation.Nonnull
+  public Long getId() {
+    return id;
   }
 
-  public void setSupported(@javax.annotation.Nullable Boolean supported) {
-    this.supported = supported;
+  public void setId(@javax.annotation.Nonnull Long id) {
+    this.id = id;
+  }
+
+
+  public CampaignEligibilityExperiment variantId(@javax.annotation.Nonnull Long variantId) {
+    this.variantId = variantId;
+    return this;
+  }
+
+  /**
+   * The ID of the variant assigned to the customer profile.
+   * @return variantId
+   */
+  @javax.annotation.Nonnull
+  public Long getVariantId() {
+    return variantId;
+  }
+
+  public void setVariantId(@javax.annotation.Nonnull Long variantId) {
+    this.variantId = variantId;
   }
 
   /**
@@ -89,9 +113,9 @@ public class ScimServiceProviderConfigResponsePatch {
    *
    * @param key name of the property
    * @param value value of the property
-   * @return the ScimServiceProviderConfigResponsePatch instance itself
+   * @return the CampaignEligibilityExperiment instance itself
    */
-  public ScimServiceProviderConfigResponsePatch putAdditionalProperty(String key, Object value) {
+  public CampaignEligibilityExperiment putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
         this.additionalProperties = new HashMap<String, Object>();
     }
@@ -130,21 +154,23 @@ public class ScimServiceProviderConfigResponsePatch {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ScimServiceProviderConfigResponsePatch scimServiceProviderConfigResponsePatch = (ScimServiceProviderConfigResponsePatch) o;
-    return Objects.equals(this.supported, scimServiceProviderConfigResponsePatch.supported)&&
-        Objects.equals(this.additionalProperties, scimServiceProviderConfigResponsePatch.additionalProperties);
+    CampaignEligibilityExperiment campaignEligibilityExperiment = (CampaignEligibilityExperiment) o;
+    return Objects.equals(this.id, campaignEligibilityExperiment.id) &&
+        Objects.equals(this.variantId, campaignEligibilityExperiment.variantId)&&
+        Objects.equals(this.additionalProperties, campaignEligibilityExperiment.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(supported, additionalProperties);
+    return Objects.hash(id, variantId, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ScimServiceProviderConfigResponsePatch {\n");
-    sb.append("    supported: ").append(toIndentedString(supported)).append("\n");
+    sb.append("class CampaignEligibilityExperiment {\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    variantId: ").append(toIndentedString(variantId)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -164,22 +190,29 @@ public class ScimServiceProviderConfigResponsePatch {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("supported"));
+    openapiFields = new HashSet<String>(Arrays.asList("id", "variantId"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(0);
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("id", "variantId"));
   }
 
   /**
    * Validates the JSON Element and throws an exception if issues found
    *
    * @param jsonElement JSON Element
-   * @throws IOException if the JSON Element is invalid with respect to ScimServiceProviderConfigResponsePatch
+   * @throws IOException if the JSON Element is invalid with respect to CampaignEligibilityExperiment
    */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
-        if (!ScimServiceProviderConfigResponsePatch.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in ScimServiceProviderConfigResponsePatch is not found in the empty JSON string", ScimServiceProviderConfigResponsePatch.openapiRequiredFields.toString()));
+        if (!CampaignEligibilityExperiment.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in CampaignEligibilityExperiment is not found in the empty JSON string", CampaignEligibilityExperiment.openapiRequiredFields.toString()));
+        }
+      }
+
+      // check to make sure all required properties/fields are present in the JSON string
+      for (String requiredField : CampaignEligibilityExperiment.openapiRequiredFields) {
+        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
@@ -189,16 +222,16 @@ public class ScimServiceProviderConfigResponsePatch {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!ScimServiceProviderConfigResponsePatch.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'ScimServiceProviderConfigResponsePatch' and its subtypes
+       if (!CampaignEligibilityExperiment.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'CampaignEligibilityExperiment' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<ScimServiceProviderConfigResponsePatch> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(ScimServiceProviderConfigResponsePatch.class));
+       final TypeAdapter<CampaignEligibilityExperiment> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(CampaignEligibilityExperiment.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<ScimServiceProviderConfigResponsePatch>() {
+       return (TypeAdapter<T>) new TypeAdapter<CampaignEligibilityExperiment>() {
            @Override
-           public void write(JsonWriter out, ScimServiceProviderConfigResponsePatch value) throws IOException {
+           public void write(JsonWriter out, CampaignEligibilityExperiment value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              obj.remove("additionalProperties");
              // serialize additional properties
@@ -226,12 +259,12 @@ public class ScimServiceProviderConfigResponsePatch {
            }
 
            @Override
-           public ScimServiceProviderConfigResponsePatch read(JsonReader in) throws IOException {
+           public CampaignEligibilityExperiment read(JsonReader in) throws IOException {
              JsonElement jsonElement = elementAdapter.read(in);
              validateJsonElement(jsonElement);
              JsonObject jsonObj = jsonElement.getAsJsonObject();
              // store additional fields in the deserialized instance
-             ScimServiceProviderConfigResponsePatch instance = thisAdapter.fromJsonTree(jsonObj);
+             CampaignEligibilityExperiment instance = thisAdapter.fromJsonTree(jsonObj);
              for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
                if (!openapiFields.contains(entry.getKey())) {
                  if (entry.getValue().isJsonPrimitive()) { // primitive type
@@ -258,18 +291,18 @@ public class ScimServiceProviderConfigResponsePatch {
   }
 
   /**
-   * Create an instance of ScimServiceProviderConfigResponsePatch given an JSON string
+   * Create an instance of CampaignEligibilityExperiment given an JSON string
    *
    * @param jsonString JSON string
-   * @return An instance of ScimServiceProviderConfigResponsePatch
-   * @throws IOException if the JSON string is invalid with respect to ScimServiceProviderConfigResponsePatch
+   * @return An instance of CampaignEligibilityExperiment
+   * @throws IOException if the JSON string is invalid with respect to CampaignEligibilityExperiment
    */
-  public static ScimServiceProviderConfigResponsePatch fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, ScimServiceProviderConfigResponsePatch.class);
+  public static CampaignEligibilityExperiment fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, CampaignEligibilityExperiment.class);
   }
 
   /**
-   * Convert an instance of ScimServiceProviderConfigResponsePatch to an JSON string
+   * Convert an instance of CampaignEligibilityExperiment to an JSON string
    *
    * @return JSON string
    */

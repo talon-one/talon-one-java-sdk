@@ -14,7 +14,7 @@
 |**expiryDate** | **OffsetDateTime** | Expiration date of the coupon. Coupon never expires if this is omitted. |  [optional] |
 |**numberOfCoupons** | **Long** | The number of new coupon codes to generate for the campaign. |  |
 |**couponSettings** | [**CodeGeneratorSettings**](CodeGeneratorSettings.md) |  |  [optional] |
-|**attributes** | **Object** | Arbitrary properties associated with coupons. |  |
+|**attributes** | **Object** | Arbitrary properties associated with this campaign. |  |
 |**isReservationMandatory** | **Boolean** | An indication of whether the code can be redeemed only if it has been reserved first. |  [optional] |
 
 

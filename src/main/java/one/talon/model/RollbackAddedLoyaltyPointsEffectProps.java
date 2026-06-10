@@ -47,9 +47,9 @@ import java.util.Set;
 import one.talon.JSON;
 
 /**
- * The properties specific to the \&quot;rollbackAddedLoyaltyPoints\&quot; effect. This gets triggered whenever previously a closed session with an addLoyaltyPoints effect is cancelled.
+ * This effect is triggered in the following cases:  - A session was cancelled in which loyalty points have been added. - A session was partially returned and loyalty point were added by the returned items. See [returning items](https://docs.talon.one/docs/dev/tutorials/partially-return-a-session).  If you use the [Add loyalty points per item effect](https://docs.talon.one/docs/product/rules/effects/available-effects#reward-effects), use the &#x60;cartItemPosition&#x60; property to identify which items the loyalty points were rolled back for.  If you use **Add loyalty points per item** and if the session contains some cart items with _quantity &gt; 1_, use the &#x60;cartItemSubPosition&#x60; property to identify the item unit in its line item.  If the loyalty program is [profile-based](https://docs.talon.one/docs/product/loyalty-programs/overview#loyalty-program-types), use the &#x60;recipientIntegrationId&#x60; property to identify the user for whom the loyalty points are rolled back. If the loyalty program is [card-based](https://docs.talon.one/docs/product/loyalty-programs/overview#loyalty-program-types), use the &#x60;cardIdentifier&#x60; property to identify the loyalty card where the points were originally added.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.22.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.23.0")
 public class RollbackAddedLoyaltyPointsEffectProps {
   public static final String SERIALIZED_NAME_PROGRAM_ID = "programId";
   @SerializedName(SERIALIZED_NAME_PROGRAM_ID)
@@ -100,7 +100,7 @@ public class RollbackAddedLoyaltyPointsEffectProps {
   }
 
   /**
-   * The ID of the loyalty program where the points were originally added.
+   * The ID of the loyalty program where these points were rolled back.
    * @return programId
    */
   @javax.annotation.Nonnull
@@ -119,7 +119,7 @@ public class RollbackAddedLoyaltyPointsEffectProps {
   }
 
   /**
-   * The ID of the subledger within the loyalty program where these points were originally added.
+   * The ID of the subledger within the loyalty program where these points were rolled back.
    * @return subLedgerId
    */
   @javax.annotation.Nonnull
@@ -157,7 +157,7 @@ public class RollbackAddedLoyaltyPointsEffectProps {
   }
 
   /**
-   * The user for whom these points were originally added.
+   * The user for whom these points were rolled back.
    * @return recipientIntegrationId
    */
   @javax.annotation.Nonnull
@@ -176,7 +176,7 @@ public class RollbackAddedLoyaltyPointsEffectProps {
   }
 
   /**
-   * The identifier of &#39;deduction&#39; entry added to the ledger as the &#x60;addLoyaltyPoints&#x60; effect is rolled back.
+   * The identifier of this loyalty point transaction.
    * @return transactionUUID
    */
   @javax.annotation.Nonnull
@@ -195,7 +195,7 @@ public class RollbackAddedLoyaltyPointsEffectProps {
   }
 
   /**
-   * The index of the item in the cart items for which the loyalty points were rolled back.
+   * (_Add points per cart item_ only.) The index of the item in the &#x60;cartItem&#x60; object for which these points were rolled back.
    * @return cartItemPosition
    */
   @javax.annotation.Nullable
@@ -214,7 +214,7 @@ public class RollbackAddedLoyaltyPointsEffectProps {
   }
 
   /**
-   * For cart items with &#x60;quantity&#x60; &gt; 1, the sub-position indicates to which item the loyalty points were rolled back. 
+   * (_Add points per cart item_ ) The index of the item unit in its line item.
    * @return cartItemSubPosition
    */
   @javax.annotation.Nullable
@@ -233,7 +233,7 @@ public class RollbackAddedLoyaltyPointsEffectProps {
   }
 
   /**
-   * The card on which these points were originally added.
+   * The identifier of the card on which these points were originally added.
    * @return cardIdentifier
    */
   @javax.annotation.Nullable

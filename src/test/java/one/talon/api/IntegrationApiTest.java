@@ -31,6 +31,7 @@ import one.talon.model.CustomerProfileIntegrationResponseV2;
 import one.talon.model.DeleteLoyaltyTransactionsRequest;
 import one.talon.model.ErrorResponse;
 import one.talon.model.ErrorResponseWithStatus;
+import one.talon.model.EventV3;
 import one.talon.model.GenerateLoyaltyCard;
 import one.talon.model.GetCustomerAchievementHistory200Response;
 import one.talon.model.GetCustomerAchievements200Response;
@@ -42,6 +43,8 @@ import one.talon.model.GetReservedCustomers200Response;
 import one.talon.model.IntegrationCustomerSessionResponse;
 import one.talon.model.IntegrationEventV2Request;
 import one.talon.model.IntegrationEventV2Response;
+import one.talon.model.IntegrationEventV3Request;
+import one.talon.model.IntegrationEventV3Response;
 import one.talon.model.IntegrationGetAllCampaigns200Response;
 import one.talon.model.IntegrationRequest;
 import one.talon.model.IntegrationStateV2;
@@ -59,7 +62,6 @@ import one.talon.model.Referral;
 import one.talon.model.ReopenSessionResponse;
 import one.talon.model.ReturnIntegrationRequest;
 import one.talon.model.UpdateAudience;
-import one.talon.model.UpdateCustomerProfileV2409Response;
 import one.talon.model.UpdateCustomerSessionV2409Response;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
@@ -181,7 +183,7 @@ public class IntegrationApiTest {
     /**
      * Delete audience
      *
-     * Delete an audience created by a third-party integration.  &gt; [!warning] This endpoint also removes any associations recorded between a customer profile and this audience.  &gt; [!note] Audiences can also be deleted via the Campaign Manager. See the [docs](https://docs.talon.one/docs/product/audiences/managing-audiences#deleting-an-audience). 
+     * Delete an audience.  &gt; [!warning] This endpoint also removes any associations recorded between a customer profile and this audience.  &gt; [!note] Audiences can also be deleted via the Campaign Manager. See the [docs](https://docs.talon.one/docs/product/audiences/managing-audiences#deleting-an-audience). 
      *
      * @throws ApiException if the Api call fails
      */
@@ -327,6 +329,20 @@ public class IntegrationApiTest {
     }
 
     /**
+     * Get advanced event
+     *
+     * Retrieve an advanced event by its identifier. 
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void getEventV3Test() throws ApiException {
+        String integrationId = null;
+        EventV3 response = api.getEventV3(integrationId);
+        // TODO: test validations
+    }
+
+    /**
      * Get customer&#39;s loyalty balances
      *
      * Retrieve loyalty ledger balances for the given Integration ID in the specified loyalty program.  You can filter balances by date and subledger ID, and include tier-related information in the response.  &gt; [!note] If no filtering options are applied, you retrieve all loyalty &gt; balances on the current date for the given integration ID.  Loyalty balances are calculated when Talon.One receives your request using the points stored in our database, so retrieving a large number of balances at once can impact performance.  For more information, see: - [Managing card-based loyalty program data](https://docs.talon.one/docs/product/loyalty-programs/card-based/managing-loyalty-cards) - [Managing profile-based loyalty program data](https://docs.talon.one/docs/product/loyalty-programs/profile-based/managing-pb-lp-data) 
@@ -420,7 +436,7 @@ public class IntegrationApiTest {
         Long loyaltyProgramId = null;
         String integrationId = null;
         String status = null;
-        String subledgerId = null;
+        List<String> subledgerId = null;
         List<String> customerSessionIDs = null;
         List<String> transactionUUIDs = null;
         Long pageSize = null;
@@ -553,7 +569,7 @@ public class IntegrationApiTest {
     /**
      * Track event
      *
-     * Triggers a custom event.  To use this endpoint:  1. [Create a custom event](https://docs.talon.one/docs/dev/concepts/entities/events#creating-a-custom-event) in the Campaign Manager. 1. In a rule, add the **Check for event types** [condition](https://docs.talon.one/docs/dev/concepts/entities/events#use-an-event-in-a-rule) and select the event you created. 1. Trigger the event with this endpoint.  You can [list](https://docs.talon.one/docs/product/applications/display-events#list-events) the received events in the **Events** view of the Campaign Manager.  For example, you can use this endpoint to trigger an event when a customer shares a link to a product. See our [tutorial](https://docs.talon.one/docs/product/tutorials/referrals/incentivizing-product-link-sharing).  &gt; [!note] **Note** &gt; - &#x60;profileId&#x60; is required even though the schema does not specify it. &gt; - If the customer profile ID is new, a new profile is automatically created but the &#x60;customer_profile_created&#x60; [built-in event ](https://docs.talon.one/docs/dev/concepts/entities/events) is **not** triggered. &gt; - We recommend sending requests sequentially. See [Managing parallel requests](https://docs.talon.one/docs/dev/getting-started/integration-tutorial#managing-parallel-requests). &gt; - [Archived campaigns](https://docs.talon.one/docs/product/campaigns/managing-campaigns#archiving-a-campaign) are not considered in rule evaluation. 
+     * Trigger a custom event.  To use this endpoint:  1. [Create a custom event](https://docs.talon.one/docs/dev/concepts/entities/events#creating-a-custom-event) in the Campaign Manager. 1. In a rule, add the **Check for event types** [condition](https://docs.talon.one/docs/dev/concepts/entities/events#use-an-event-in-a-rule) and select the event you created. 1. Trigger the event with this endpoint.  You can [list](https://docs.talon.one/docs/product/applications/display-events#list-events) the received events in the **Events** view of the Campaign Manager.  For example, you can use this endpoint to trigger an event when a customer shares a link to a product. See our [tutorial](https://docs.talon.one/docs/product/tutorials/referrals/incentivizing-product-link-sharing).  &gt; [!note] **Note** &gt; - &#x60;profileId&#x60; is required even though the schema does not specify it. &gt; - If the customer profile ID is new, a new profile is automatically created but the &#x60;customer_profile_created&#x60; [built-in event ](https://docs.talon.one/docs/dev/concepts/entities/events) is **not** triggered. &gt; - We recommend sending requests sequentially. See [Managing parallel requests](https://docs.talon.one/docs/dev/getting-started/integration-tutorial#managing-parallel-requests). &gt; - [Archived campaigns](https://docs.talon.one/docs/product/campaigns/managing-campaigns#archiving-a-campaign) are not considered in rule evaluation. 
      *
      * @throws ApiException if the Api call fails
      */
@@ -564,6 +580,23 @@ public class IntegrationApiTest {
         Boolean dry = null;
         Boolean forceCompleteEvaluation = null;
         IntegrationEventV2Response response = api.trackEventV2(integrationEventV2Request, silent, dry, forceCompleteEvaluation);
+        // TODO: test validations
+    }
+
+    /**
+     * Track advanced event
+     *
+     * Trigger an advanced event.  Advanced events are idempotent, uniquely identifiable events. They can also reference a previously closed session to add more context for rule evaluation.  To use this endpoint:  1. [Create a custom event](https://docs.talon.one/docs/dev/concepts/entities/events#creating-a-custom-event) in the Campaign Manager. 1. In a rule, add the **Check for event types** [condition](https://docs.talon.one/docs/dev/concepts/entities/events#use-an-event-in-a-rule) and select the event you created. 1. Trigger the event with this endpoint.  You can [list](https://docs.talon.one/docs/product/applications/display-events#list-events) the received events in the **Events** view of the Campaign Manager.  For example, you can use this endpoint to trigger an event when a customer shares a link to a product. See our [tutorial](https://docs.talon.one/docs/product/tutorials/referrals/incentivizing-product-link-sharing).  &gt; [!note] **Note** &gt; - If the customer profile does not exist, it will be created. However, the &#x60;customer_profile_created&#x60; [built-in event](https://docs.talon.one/docs/dev/concepts/entities/events) is **not** triggered. &gt; - We recommend sending requests sequentially. See [Managing parallel requests](https://docs.talon.one/docs/dev/getting-started/integration-tutorial#managing-parallel-requests). &gt; - [Archived campaigns](https://docs.talon.one/docs/product/campaigns/managing-campaigns#archiving-a-campaign) are not considered in rule evaluation. 
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void trackEventV3Test() throws ApiException {
+        IntegrationEventV3Request integrationEventV3Request = null;
+        String silent = null;
+        Boolean dry = null;
+        Boolean forceCompleteEvaluation = null;
+        IntegrationEventV3Response response = api.trackEventV3(integrationEventV3Request, silent, dry, forceCompleteEvaluation);
         // TODO: test validations
     }
 

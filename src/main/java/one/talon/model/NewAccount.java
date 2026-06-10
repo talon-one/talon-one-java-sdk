@@ -48,7 +48,7 @@ import one.talon.JSON;
 /**
  * NewAccount
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.22.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.23.0")
 public class NewAccount {
   public static final String SERIALIZED_NAME_COMPANY_NAME = "companyName";
   @SerializedName(SERIALIZED_NAME_COMPANY_NAME)

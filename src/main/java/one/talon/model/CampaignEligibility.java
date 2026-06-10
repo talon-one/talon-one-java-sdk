@@ -25,6 +25,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import one.talon.model.CampaignEligibilityDetails;
+import one.talon.model.CampaignEligibilityExperiment;
 import one.talon.model.RuleMetadataEligibility;
 
 import com.google.gson.Gson;
@@ -53,7 +54,7 @@ import one.talon.JSON;
 /**
  * CampaignEligibility
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.22.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.23.0")
 public class CampaignEligibility {
   public static final String SERIALIZED_NAME_APPLICATION_ID = "applicationId";
   @SerializedName(SERIALIZED_NAME_APPLICATION_ID)
@@ -224,6 +225,11 @@ public class CampaignEligibility {
   @SerializedName(SERIALIZED_NAME_RULES)
   @javax.annotation.Nonnull
   private List<RuleMetadataEligibility> rules = new ArrayList<>();
+
+  public static final String SERIALIZED_NAME_EXPERIMENT = "experiment";
+  @SerializedName(SERIALIZED_NAME_EXPERIMENT)
+  @javax.annotation.Nullable
+  private CampaignEligibilityExperiment experiment;
 
   public CampaignEligibility() {
   }
@@ -487,6 +493,25 @@ public class CampaignEligibility {
     this.rules = rules;
   }
 
+
+  public CampaignEligibility experiment(@javax.annotation.Nullable CampaignEligibilityExperiment experiment) {
+    this.experiment = experiment;
+    return this;
+  }
+
+  /**
+   * Get experiment
+   * @return experiment
+   */
+  @javax.annotation.Nullable
+  public CampaignEligibilityExperiment getExperiment() {
+    return experiment;
+  }
+
+  public void setExperiment(@javax.annotation.Nullable CampaignEligibilityExperiment experiment) {
+    this.experiment = experiment;
+  }
+
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -553,13 +578,14 @@ public class CampaignEligibility {
         Objects.equals(this.tags, campaignEligibility.tags) &&
         Objects.equals(this.features, campaignEligibility.features) &&
         Objects.equals(this.eligibility, campaignEligibility.eligibility) &&
-        Objects.equals(this.rules, campaignEligibility.rules)&&
+        Objects.equals(this.rules, campaignEligibility.rules) &&
+        Objects.equals(this.experiment, campaignEligibility.experiment)&&
         Objects.equals(this.additionalProperties, campaignEligibility.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(applicationId, id, name, description, startTime, endTime, attributes, state, tags, features, eligibility, rules, additionalProperties);
+    return Objects.hash(applicationId, id, name, description, startTime, endTime, attributes, state, tags, features, eligibility, rules, experiment, additionalProperties);
   }
 
   @Override
@@ -578,6 +604,7 @@ public class CampaignEligibility {
     sb.append("    features: ").append(toIndentedString(features)).append("\n");
     sb.append("    eligibility: ").append(toIndentedString(eligibility)).append("\n");
     sb.append("    rules: ").append(toIndentedString(rules)).append("\n");
+    sb.append("    experiment: ").append(toIndentedString(experiment)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -597,7 +624,7 @@ public class CampaignEligibility {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("applicationId", "id", "name", "description", "startTime", "endTime", "attributes", "state", "tags", "features", "eligibility", "rules"));
+    openapiFields = new HashSet<String>(Arrays.asList("applicationId", "id", "name", "description", "startTime", "endTime", "attributes", "state", "tags", "features", "eligibility", "rules", "experiment"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("applicationId", "id", "name", "state", "tags", "features", "eligibility", "rules"));
@@ -665,6 +692,10 @@ public class CampaignEligibility {
         for (int i = 0; i < jsonArrayrules.size(); i++) {
           RuleMetadataEligibility.validateJsonElement(jsonArrayrules.get(i));
         }
+      }
+      // validate the optional field `experiment`
+      if (jsonObj.get("experiment") != null && !jsonObj.get("experiment").isJsonNull()) {
+        CampaignEligibilityExperiment.validateJsonElement(jsonObj.get("experiment"));
       }
   }
 

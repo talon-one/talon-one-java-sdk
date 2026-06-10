@@ -49,9 +49,9 @@ import java.util.Set;
 import one.talon.JSON;
 
 /**
- * The properties specific to the \&quot;extendLoyaltyPointsExpiryDate\&quot; effect. This gets triggered when a validated rule contains the \&quot;extend expiry date\&quot; effect. The current expiry date gets extended by the time frame given in the effect. 
+ * If loyalty points have an expiry date, this effect extends the expiry of all active and pending point transactions by a selected duration. 
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.22.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.23.0")
 public class ExtendLoyaltyPointsExpiryDateEffectProps {
   public static final String SERIALIZED_NAME_PROGRAM_ID = "programId";
   @SerializedName(SERIALIZED_NAME_PROGRAM_ID)
@@ -101,7 +101,7 @@ public class ExtendLoyaltyPointsExpiryDateEffectProps {
   }
 
   /**
-   * API name of the loyalty program subledger that contains these points. added.
+   * API name of the loyalty program subledger that contains these points.
    * @return subLedgerId
    */
   @javax.annotation.Nonnull

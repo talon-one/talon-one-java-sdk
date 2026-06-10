@@ -24,6 +24,7 @@ import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import one.talon.model.IntegrationHubEventType;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -51,7 +52,7 @@ import one.talon.JSON;
 /**
  * IntegrationHubPaginatedEventPayload
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.22.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.23.0")
 public class IntegrationHubPaginatedEventPayload {
   public static final String SERIALIZED_NAME_TOTAL_RESULT_SIZE = "TotalResultSize";
   @SerializedName(SERIALIZED_NAME_TOTAL_RESULT_SIZE)
@@ -63,70 +64,10 @@ public class IntegrationHubPaginatedEventPayload {
   @javax.annotation.Nullable
   private OffsetDateTime batchedAt;
 
-  /**
-   * Gets or Sets eventType
-   */
-  @JsonAdapter(EventTypeEnum.Adapter.class)
-  public enum EventTypeEnum {
-    LOYALTY_POINTS_CHANGED("LoyaltyPointsChanged"),
-    
-    LOYALTY_TIER_DOWNGRADE("LoyaltyTierDowngrade"),
-    
-    LOYALTY_TIER_UPGRADE("LoyaltyTierUpgrade"),
-    
-    COUPON_CREATED("CouponCreated"),
-    
-    COUPON_UPDATED("CouponUpdated"),
-    
-    COUPON_DELETED("CouponDeleted");
-
-    private String value;
-
-    EventTypeEnum(String value) {
-      this.value = value;
-    }
-
-    public String getValue() {
-      return value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-
-    public static EventTypeEnum fromValue(String value) {
-      for (EventTypeEnum b : EventTypeEnum.values()) {
-        if (b.value.equals(value)) {
-          return b;
-        }
-      }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
-    }
-
-    public static class Adapter extends TypeAdapter<EventTypeEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final EventTypeEnum enumeration) throws IOException {
-        jsonWriter.value(enumeration.getValue());
-      }
-
-      @Override
-      public EventTypeEnum read(final JsonReader jsonReader) throws IOException {
-        String value =  jsonReader.nextString();
-        return EventTypeEnum.fromValue(value);
-      }
-    }
-
-    public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-      String value = jsonElement.getAsString();
-      EventTypeEnum.fromValue(value);
-    }
-  }
-
   public static final String SERIALIZED_NAME_EVENT_TYPE = "EventType";
   @SerializedName(SERIALIZED_NAME_EVENT_TYPE)
   @javax.annotation.Nonnull
-  private EventTypeEnum eventType;
+  private IntegrationHubEventType eventType;
 
   public static final String SERIALIZED_NAME_DATA = "Data";
   @SerializedName(SERIALIZED_NAME_DATA)
@@ -174,7 +115,7 @@ public class IntegrationHubPaginatedEventPayload {
   }
 
 
-  public IntegrationHubPaginatedEventPayload eventType(@javax.annotation.Nonnull EventTypeEnum eventType) {
+  public IntegrationHubPaginatedEventPayload eventType(@javax.annotation.Nonnull IntegrationHubEventType eventType) {
     this.eventType = eventType;
     return this;
   }
@@ -184,11 +125,11 @@ public class IntegrationHubPaginatedEventPayload {
    * @return eventType
    */
   @javax.annotation.Nonnull
-  public EventTypeEnum getEventType() {
+  public IntegrationHubEventType getEventType() {
     return eventType;
   }
 
-  public void setEventType(@javax.annotation.Nonnull EventTypeEnum eventType) {
+  public void setEventType(@javax.annotation.Nonnull IntegrationHubEventType eventType) {
     this.eventType = eventType;
   }
 
@@ -339,11 +280,8 @@ public class IntegrationHubPaginatedEventPayload {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if (!jsonObj.get("EventType").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `EventType` to be a primitive type in the JSON string but got `%s`", jsonObj.get("EventType").toString()));
-      }
       // validate the required field `EventType`
-      EventTypeEnum.validateJsonElement(jsonObj.get("EventType"));
+      IntegrationHubEventType.validateJsonElement(jsonObj.get("EventType"));
       // ensure the required json array is present
       if (jsonObj.get("Data") == null) {
         throw new IllegalArgumentException("Expected the field `linkedContent` to be an array in the JSON string but got `null`");

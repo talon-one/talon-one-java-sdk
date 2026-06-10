@@ -44,6 +44,7 @@ import one.talon.model.CustomerProfileIntegrationResponseV2;
 import one.talon.model.DeleteLoyaltyTransactionsRequest;
 import one.talon.model.ErrorResponse;
 import one.talon.model.ErrorResponseWithStatus;
+import one.talon.model.EventV3;
 import one.talon.model.GenerateLoyaltyCard;
 import one.talon.model.GetCustomerAchievementHistory200Response;
 import one.talon.model.GetCustomerAchievements200Response;
@@ -55,6 +56,8 @@ import one.talon.model.GetReservedCustomers200Response;
 import one.talon.model.IntegrationCustomerSessionResponse;
 import one.talon.model.IntegrationEventV2Request;
 import one.talon.model.IntegrationEventV2Response;
+import one.talon.model.IntegrationEventV3Request;
+import one.talon.model.IntegrationEventV3Response;
 import one.talon.model.IntegrationGetAllCampaigns200Response;
 import one.talon.model.IntegrationRequest;
 import one.talon.model.IntegrationStateV2;
@@ -72,7 +75,6 @@ import one.talon.model.Referral;
 import one.talon.model.ReopenSessionResponse;
 import one.talon.model.ReturnIntegrationRequest;
 import one.talon.model.UpdateAudience;
-import one.talon.model.UpdateCustomerProfileV2409Response;
 import one.talon.model.UpdateCustomerSessionV2409Response;
 
 import java.lang.reflect.Type;
@@ -1169,7 +1171,7 @@ public class IntegrationApi {
 
     /**
      * Delete audience
-     * Delete an audience created by a third-party integration.  &gt; [!warning] This endpoint also removes any associations recorded between a customer profile and this audience.  &gt; [!note] Audiences can also be deleted via the Campaign Manager. See the [docs](https://docs.talon.one/docs/product/audiences/managing-audiences#deleting-an-audience). 
+     * Delete an audience.  &gt; [!warning] This endpoint also removes any associations recorded between a customer profile and this audience.  &gt; [!note] Audiences can also be deleted via the Campaign Manager. See the [docs](https://docs.talon.one/docs/product/audiences/managing-audiences#deleting-an-audience). 
      * @param audienceId The ID of the audience. (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1188,7 +1190,7 @@ public class IntegrationApi {
 
     /**
      * Delete audience
-     * Delete an audience created by a third-party integration.  &gt; [!warning] This endpoint also removes any associations recorded between a customer profile and this audience.  &gt; [!note] Audiences can also be deleted via the Campaign Manager. See the [docs](https://docs.talon.one/docs/product/audiences/managing-audiences#deleting-an-audience). 
+     * Delete an audience.  &gt; [!warning] This endpoint also removes any associations recorded between a customer profile and this audience.  &gt; [!note] Audiences can also be deleted via the Campaign Manager. See the [docs](https://docs.talon.one/docs/product/audiences/managing-audiences#deleting-an-audience). 
      * @param audienceId The ID of the audience. (required)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1209,7 +1211,7 @@ public class IntegrationApi {
 
     /**
      * Delete audience (asynchronously)
-     * Delete an audience created by a third-party integration.  &gt; [!warning] This endpoint also removes any associations recorded between a customer profile and this audience.  &gt; [!note] Audiences can also be deleted via the Campaign Manager. See the [docs](https://docs.talon.one/docs/product/audiences/managing-audiences#deleting-an-audience). 
+     * Delete an audience.  &gt; [!warning] This endpoint also removes any associations recorded between a customer profile and this audience.  &gt; [!note] Audiences can also be deleted via the Campaign Manager. See the [docs](https://docs.talon.one/docs/product/audiences/managing-audiences#deleting-an-audience). 
      * @param audienceId The ID of the audience. (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -2501,6 +2503,137 @@ public class IntegrationApi {
         return localVarCall;
     }
     /**
+     * Build call for getEventV3
+     * @param integrationId The unique ID of the advanced event. (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getEventV3Call(@javax.annotation.Nonnull String integrationId, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/v3/events/{integrationId}"
+            .replace("{" + "integrationId" + "}", localVarApiClient.escapeString(integrationId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "api_key_v1" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call getEventV3ValidateBeforeCall(@javax.annotation.Nonnull String integrationId, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'integrationId' is set
+        if (integrationId == null) {
+            throw new ApiException("Missing the required parameter 'integrationId' when calling getEventV3(Async)");
+        }
+
+        return getEventV3Call(integrationId, _callback);
+
+    }
+
+    /**
+     * Get advanced event
+     * Retrieve an advanced event by its identifier. 
+     * @param integrationId The unique ID of the advanced event. (required)
+     * @return EventV3
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
+     </table>
+     */
+    public EventV3 getEventV3(@javax.annotation.Nonnull String integrationId) throws ApiException {
+        ApiResponse<EventV3> localVarResp = getEventV3WithHttpInfo(integrationId);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Get advanced event
+     * Retrieve an advanced event by its identifier. 
+     * @param integrationId The unique ID of the advanced event. (required)
+     * @return ApiResponse&lt;EventV3&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<EventV3> getEventV3WithHttpInfo(@javax.annotation.Nonnull String integrationId) throws ApiException {
+        okhttp3.Call localVarCall = getEventV3ValidateBeforeCall(integrationId, null);
+        Type localVarReturnType = new TypeToken<EventV3>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Get advanced event (asynchronously)
+     * Retrieve an advanced event by its identifier. 
+     * @param integrationId The unique ID of the advanced event. (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getEventV3Async(@javax.annotation.Nonnull String integrationId, final ApiCallback<EventV3> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = getEventV3ValidateBeforeCall(integrationId, _callback);
+        Type localVarReturnType = new TypeToken<EventV3>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
      * Build call for getLoyaltyBalances
      * @param loyaltyProgramId Identifier of the profile-based loyalty program. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint.  (required)
      * @param integrationId The integration identifier for this customer profile. Must be: - Unique within the deployment. - Stable for the customer. Do not use an ID that the customer can update themselves. For example, you can use a database ID.  Once set, you cannot update this identifier.  (required)
@@ -3277,7 +3410,7 @@ public class IntegrationApi {
      * @param loyaltyProgramId Identifier of the profile-based loyalty program. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint.  (required)
      * @param integrationId The integration identifier for this customer profile. Must be: - Unique within the deployment. - Stable for the customer. Do not use an ID that the customer can update themselves. For example, you can use a database ID.  Once set, you cannot update this identifier.  (required)
      * @param status Filter points based on their status. (optional, default to active)
-     * @param subledgerId The ID of the subledger by which we filter the data. (optional)
+     * @param subledgerId Filter the results by a list of subledger IDs.  To include multiple IDs, repeat the parameter for each one, for example, &#x60;?subledgerId&#x3D;id1&amp;subledgerId&#x3D;id2&#x60;.  The response contains only data associated with the specified subledgers.  (optional)
      * @param customerSessionIDs Filter the results by a list of customer session IDs.   To include multiple IDs, repeat the parameter for each one, for example,  &#x60;?customerSessionIDs&#x3D;id1&amp;customerSessionIDs&#x3D;id2&#x60;.  The response contains only data associated with the specified sessions.  (optional)
      * @param transactionUUIDs Filter the results by a list of transaction UUIDs.  To include multiple IDs, repeat the parameter for each one, for example,  &#x60;?transactionUUIDs&#x3D;uuid1&amp;transactionUUIDs&#x3D;uuid2&#x60;.  The response contains only data associated with the specified transactions.  (optional)
      * @param pageSize The number of items in the response. (optional, default to 50)
@@ -3296,7 +3429,7 @@ public class IntegrationApi {
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getLoyaltyProgramProfilePointsCall(@javax.annotation.Nonnull Long loyaltyProgramId, @javax.annotation.Nonnull String integrationId, @javax.annotation.Nullable String status, @javax.annotation.Nullable String subledgerId, @javax.annotation.Nullable List<String> customerSessionIDs, @javax.annotation.Nullable List<String> transactionUUIDs, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable String sort, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getLoyaltyProgramProfilePointsCall(@javax.annotation.Nonnull Long loyaltyProgramId, @javax.annotation.Nonnull String integrationId, @javax.annotation.Nullable String status, @javax.annotation.Nullable List<String> subledgerId, @javax.annotation.Nullable List<String> customerSessionIDs, @javax.annotation.Nullable List<String> transactionUUIDs, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable String sort, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -3328,7 +3461,7 @@ public class IntegrationApi {
         }
 
         if (subledgerId != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("subledgerId", subledgerId));
+            localVarCollectionQueryParams.addAll(localVarApiClient.parameterToPairs("multi", "subledgerId", subledgerId));
         }
 
         if (customerSessionIDs != null) {
@@ -3371,7 +3504,7 @@ public class IntegrationApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getLoyaltyProgramProfilePointsValidateBeforeCall(@javax.annotation.Nonnull Long loyaltyProgramId, @javax.annotation.Nonnull String integrationId, @javax.annotation.Nullable String status, @javax.annotation.Nullable String subledgerId, @javax.annotation.Nullable List<String> customerSessionIDs, @javax.annotation.Nullable List<String> transactionUUIDs, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable String sort, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getLoyaltyProgramProfilePointsValidateBeforeCall(@javax.annotation.Nonnull Long loyaltyProgramId, @javax.annotation.Nonnull String integrationId, @javax.annotation.Nullable String status, @javax.annotation.Nullable List<String> subledgerId, @javax.annotation.Nullable List<String> customerSessionIDs, @javax.annotation.Nullable List<String> transactionUUIDs, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable String sort, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'loyaltyProgramId' is set
         if (loyaltyProgramId == null) {
             throw new ApiException("Missing the required parameter 'loyaltyProgramId' when calling getLoyaltyProgramProfilePoints(Async)");
@@ -3392,7 +3525,7 @@ public class IntegrationApi {
      * @param loyaltyProgramId Identifier of the profile-based loyalty program. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint.  (required)
      * @param integrationId The integration identifier for this customer profile. Must be: - Unique within the deployment. - Stable for the customer. Do not use an ID that the customer can update themselves. For example, you can use a database ID.  Once set, you cannot update this identifier.  (required)
      * @param status Filter points based on their status. (optional, default to active)
-     * @param subledgerId The ID of the subledger by which we filter the data. (optional)
+     * @param subledgerId Filter the results by a list of subledger IDs.  To include multiple IDs, repeat the parameter for each one, for example, &#x60;?subledgerId&#x3D;id1&amp;subledgerId&#x3D;id2&#x60;.  The response contains only data associated with the specified subledgers.  (optional)
      * @param customerSessionIDs Filter the results by a list of customer session IDs.   To include multiple IDs, repeat the parameter for each one, for example,  &#x60;?customerSessionIDs&#x3D;id1&amp;customerSessionIDs&#x3D;id2&#x60;.  The response contains only data associated with the specified sessions.  (optional)
      * @param transactionUUIDs Filter the results by a list of transaction UUIDs.  To include multiple IDs, repeat the parameter for each one, for example,  &#x60;?transactionUUIDs&#x3D;uuid1&amp;transactionUUIDs&#x3D;uuid2&#x60;.  The response contains only data associated with the specified transactions.  (optional)
      * @param pageSize The number of items in the response. (optional, default to 50)
@@ -3410,7 +3543,7 @@ public class IntegrationApi {
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
      */
-    public GetLoyaltyProgramProfilePoints200Response getLoyaltyProgramProfilePoints(@javax.annotation.Nonnull Long loyaltyProgramId, @javax.annotation.Nonnull String integrationId, @javax.annotation.Nullable String status, @javax.annotation.Nullable String subledgerId, @javax.annotation.Nullable List<String> customerSessionIDs, @javax.annotation.Nullable List<String> transactionUUIDs, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable String sort) throws ApiException {
+    public GetLoyaltyProgramProfilePoints200Response getLoyaltyProgramProfilePoints(@javax.annotation.Nonnull Long loyaltyProgramId, @javax.annotation.Nonnull String integrationId, @javax.annotation.Nullable String status, @javax.annotation.Nullable List<String> subledgerId, @javax.annotation.Nullable List<String> customerSessionIDs, @javax.annotation.Nullable List<String> transactionUUIDs, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable String sort) throws ApiException {
         ApiResponse<GetLoyaltyProgramProfilePoints200Response> localVarResp = getLoyaltyProgramProfilePointsWithHttpInfo(loyaltyProgramId, integrationId, status, subledgerId, customerSessionIDs, transactionUUIDs, pageSize, skip, sort);
         return localVarResp.getData();
     }
@@ -3421,7 +3554,7 @@ public class IntegrationApi {
      * @param loyaltyProgramId Identifier of the profile-based loyalty program. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint.  (required)
      * @param integrationId The integration identifier for this customer profile. Must be: - Unique within the deployment. - Stable for the customer. Do not use an ID that the customer can update themselves. For example, you can use a database ID.  Once set, you cannot update this identifier.  (required)
      * @param status Filter points based on their status. (optional, default to active)
-     * @param subledgerId The ID of the subledger by which we filter the data. (optional)
+     * @param subledgerId Filter the results by a list of subledger IDs.  To include multiple IDs, repeat the parameter for each one, for example, &#x60;?subledgerId&#x3D;id1&amp;subledgerId&#x3D;id2&#x60;.  The response contains only data associated with the specified subledgers.  (optional)
      * @param customerSessionIDs Filter the results by a list of customer session IDs.   To include multiple IDs, repeat the parameter for each one, for example,  &#x60;?customerSessionIDs&#x3D;id1&amp;customerSessionIDs&#x3D;id2&#x60;.  The response contains only data associated with the specified sessions.  (optional)
      * @param transactionUUIDs Filter the results by a list of transaction UUIDs.  To include multiple IDs, repeat the parameter for each one, for example,  &#x60;?transactionUUIDs&#x3D;uuid1&amp;transactionUUIDs&#x3D;uuid2&#x60;.  The response contains only data associated with the specified transactions.  (optional)
      * @param pageSize The number of items in the response. (optional, default to 50)
@@ -3439,7 +3572,7 @@ public class IntegrationApi {
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<GetLoyaltyProgramProfilePoints200Response> getLoyaltyProgramProfilePointsWithHttpInfo(@javax.annotation.Nonnull Long loyaltyProgramId, @javax.annotation.Nonnull String integrationId, @javax.annotation.Nullable String status, @javax.annotation.Nullable String subledgerId, @javax.annotation.Nullable List<String> customerSessionIDs, @javax.annotation.Nullable List<String> transactionUUIDs, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable String sort) throws ApiException {
+    public ApiResponse<GetLoyaltyProgramProfilePoints200Response> getLoyaltyProgramProfilePointsWithHttpInfo(@javax.annotation.Nonnull Long loyaltyProgramId, @javax.annotation.Nonnull String integrationId, @javax.annotation.Nullable String status, @javax.annotation.Nullable List<String> subledgerId, @javax.annotation.Nullable List<String> customerSessionIDs, @javax.annotation.Nullable List<String> transactionUUIDs, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable String sort) throws ApiException {
         okhttp3.Call localVarCall = getLoyaltyProgramProfilePointsValidateBeforeCall(loyaltyProgramId, integrationId, status, subledgerId, customerSessionIDs, transactionUUIDs, pageSize, skip, sort, null);
         Type localVarReturnType = new TypeToken<GetLoyaltyProgramProfilePoints200Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -3451,7 +3584,7 @@ public class IntegrationApi {
      * @param loyaltyProgramId Identifier of the profile-based loyalty program. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint.  (required)
      * @param integrationId The integration identifier for this customer profile. Must be: - Unique within the deployment. - Stable for the customer. Do not use an ID that the customer can update themselves. For example, you can use a database ID.  Once set, you cannot update this identifier.  (required)
      * @param status Filter points based on their status. (optional, default to active)
-     * @param subledgerId The ID of the subledger by which we filter the data. (optional)
+     * @param subledgerId Filter the results by a list of subledger IDs.  To include multiple IDs, repeat the parameter for each one, for example, &#x60;?subledgerId&#x3D;id1&amp;subledgerId&#x3D;id2&#x60;.  The response contains only data associated with the specified subledgers.  (optional)
      * @param customerSessionIDs Filter the results by a list of customer session IDs.   To include multiple IDs, repeat the parameter for each one, for example,  &#x60;?customerSessionIDs&#x3D;id1&amp;customerSessionIDs&#x3D;id2&#x60;.  The response contains only data associated with the specified sessions.  (optional)
      * @param transactionUUIDs Filter the results by a list of transaction UUIDs.  To include multiple IDs, repeat the parameter for each one, for example,  &#x60;?transactionUUIDs&#x3D;uuid1&amp;transactionUUIDs&#x3D;uuid2&#x60;.  The response contains only data associated with the specified transactions.  (optional)
      * @param pageSize The number of items in the response. (optional, default to 50)
@@ -3470,7 +3603,7 @@ public class IntegrationApi {
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getLoyaltyProgramProfilePointsAsync(@javax.annotation.Nonnull Long loyaltyProgramId, @javax.annotation.Nonnull String integrationId, @javax.annotation.Nullable String status, @javax.annotation.Nullable String subledgerId, @javax.annotation.Nullable List<String> customerSessionIDs, @javax.annotation.Nullable List<String> transactionUUIDs, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable String sort, final ApiCallback<GetLoyaltyProgramProfilePoints200Response> _callback) throws ApiException {
+    public okhttp3.Call getLoyaltyProgramProfilePointsAsync(@javax.annotation.Nonnull Long loyaltyProgramId, @javax.annotation.Nonnull String integrationId, @javax.annotation.Nullable String status, @javax.annotation.Nullable List<String> subledgerId, @javax.annotation.Nullable List<String> customerSessionIDs, @javax.annotation.Nullable List<String> transactionUUIDs, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable String sort, final ApiCallback<GetLoyaltyProgramProfilePoints200Response> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getLoyaltyProgramProfilePointsValidateBeforeCall(loyaltyProgramId, integrationId, status, subledgerId, customerSessionIDs, transactionUUIDs, pageSize, skip, sort, _callback);
         Type localVarReturnType = new TypeToken<GetLoyaltyProgramProfilePoints200Response>(){}.getType();
@@ -4716,7 +4849,7 @@ public class IntegrationApi {
 
     /**
      * Track event
-     * Triggers a custom event.  To use this endpoint:  1. [Create a custom event](https://docs.talon.one/docs/dev/concepts/entities/events#creating-a-custom-event) in the Campaign Manager. 1. In a rule, add the **Check for event types** [condition](https://docs.talon.one/docs/dev/concepts/entities/events#use-an-event-in-a-rule) and select the event you created. 1. Trigger the event with this endpoint.  You can [list](https://docs.talon.one/docs/product/applications/display-events#list-events) the received events in the **Events** view of the Campaign Manager.  For example, you can use this endpoint to trigger an event when a customer shares a link to a product. See our [tutorial](https://docs.talon.one/docs/product/tutorials/referrals/incentivizing-product-link-sharing).  &gt; [!note] **Note** &gt; - &#x60;profileId&#x60; is required even though the schema does not specify it. &gt; - If the customer profile ID is new, a new profile is automatically created but the &#x60;customer_profile_created&#x60; [built-in event ](https://docs.talon.one/docs/dev/concepts/entities/events) is **not** triggered. &gt; - We recommend sending requests sequentially. See [Managing parallel requests](https://docs.talon.one/docs/dev/getting-started/integration-tutorial#managing-parallel-requests). &gt; - [Archived campaigns](https://docs.talon.one/docs/product/campaigns/managing-campaigns#archiving-a-campaign) are not considered in rule evaluation. 
+     * Trigger a custom event.  To use this endpoint:  1. [Create a custom event](https://docs.talon.one/docs/dev/concepts/entities/events#creating-a-custom-event) in the Campaign Manager. 1. In a rule, add the **Check for event types** [condition](https://docs.talon.one/docs/dev/concepts/entities/events#use-an-event-in-a-rule) and select the event you created. 1. Trigger the event with this endpoint.  You can [list](https://docs.talon.one/docs/product/applications/display-events#list-events) the received events in the **Events** view of the Campaign Manager.  For example, you can use this endpoint to trigger an event when a customer shares a link to a product. See our [tutorial](https://docs.talon.one/docs/product/tutorials/referrals/incentivizing-product-link-sharing).  &gt; [!note] **Note** &gt; - &#x60;profileId&#x60; is required even though the schema does not specify it. &gt; - If the customer profile ID is new, a new profile is automatically created but the &#x60;customer_profile_created&#x60; [built-in event ](https://docs.talon.one/docs/dev/concepts/entities/events) is **not** triggered. &gt; - We recommend sending requests sequentially. See [Managing parallel requests](https://docs.talon.one/docs/dev/getting-started/integration-tutorial#managing-parallel-requests). &gt; - [Archived campaigns](https://docs.talon.one/docs/product/campaigns/managing-campaigns#archiving-a-campaign) are not considered in rule evaluation. 
      * @param integrationEventV2Request body (required)
      * @param silent Possible values: &#x60;yes&#x60; or &#x60;no&#x60;. - &#x60;yes&#x60;: Increases the performance of the API call by returning a 204 response. - &#x60;no&#x60;: Returns a 200 response that contains the updated customer profiles.  (optional, default to yes)
      * @param dry Indicates whether to persist the changes. Changes are ignored when &#x60;dry&#x3D;true&#x60;.  (optional)
@@ -4741,7 +4874,7 @@ public class IntegrationApi {
 
     /**
      * Track event
-     * Triggers a custom event.  To use this endpoint:  1. [Create a custom event](https://docs.talon.one/docs/dev/concepts/entities/events#creating-a-custom-event) in the Campaign Manager. 1. In a rule, add the **Check for event types** [condition](https://docs.talon.one/docs/dev/concepts/entities/events#use-an-event-in-a-rule) and select the event you created. 1. Trigger the event with this endpoint.  You can [list](https://docs.talon.one/docs/product/applications/display-events#list-events) the received events in the **Events** view of the Campaign Manager.  For example, you can use this endpoint to trigger an event when a customer shares a link to a product. See our [tutorial](https://docs.talon.one/docs/product/tutorials/referrals/incentivizing-product-link-sharing).  &gt; [!note] **Note** &gt; - &#x60;profileId&#x60; is required even though the schema does not specify it. &gt; - If the customer profile ID is new, a new profile is automatically created but the &#x60;customer_profile_created&#x60; [built-in event ](https://docs.talon.one/docs/dev/concepts/entities/events) is **not** triggered. &gt; - We recommend sending requests sequentially. See [Managing parallel requests](https://docs.talon.one/docs/dev/getting-started/integration-tutorial#managing-parallel-requests). &gt; - [Archived campaigns](https://docs.talon.one/docs/product/campaigns/managing-campaigns#archiving-a-campaign) are not considered in rule evaluation. 
+     * Trigger a custom event.  To use this endpoint:  1. [Create a custom event](https://docs.talon.one/docs/dev/concepts/entities/events#creating-a-custom-event) in the Campaign Manager. 1. In a rule, add the **Check for event types** [condition](https://docs.talon.one/docs/dev/concepts/entities/events#use-an-event-in-a-rule) and select the event you created. 1. Trigger the event with this endpoint.  You can [list](https://docs.talon.one/docs/product/applications/display-events#list-events) the received events in the **Events** view of the Campaign Manager.  For example, you can use this endpoint to trigger an event when a customer shares a link to a product. See our [tutorial](https://docs.talon.one/docs/product/tutorials/referrals/incentivizing-product-link-sharing).  &gt; [!note] **Note** &gt; - &#x60;profileId&#x60; is required even though the schema does not specify it. &gt; - If the customer profile ID is new, a new profile is automatically created but the &#x60;customer_profile_created&#x60; [built-in event ](https://docs.talon.one/docs/dev/concepts/entities/events) is **not** triggered. &gt; - We recommend sending requests sequentially. See [Managing parallel requests](https://docs.talon.one/docs/dev/getting-started/integration-tutorial#managing-parallel-requests). &gt; - [Archived campaigns](https://docs.talon.one/docs/product/campaigns/managing-campaigns#archiving-a-campaign) are not considered in rule evaluation. 
      * @param integrationEventV2Request body (required)
      * @param silent Possible values: &#x60;yes&#x60; or &#x60;no&#x60;. - &#x60;yes&#x60;: Increases the performance of the API call by returning a 204 response. - &#x60;no&#x60;: Returns a 200 response that contains the updated customer profiles.  (optional, default to yes)
      * @param dry Indicates whether to persist the changes. Changes are ignored when &#x60;dry&#x3D;true&#x60;.  (optional)
@@ -4767,7 +4900,7 @@ public class IntegrationApi {
 
     /**
      * Track event (asynchronously)
-     * Triggers a custom event.  To use this endpoint:  1. [Create a custom event](https://docs.talon.one/docs/dev/concepts/entities/events#creating-a-custom-event) in the Campaign Manager. 1. In a rule, add the **Check for event types** [condition](https://docs.talon.one/docs/dev/concepts/entities/events#use-an-event-in-a-rule) and select the event you created. 1. Trigger the event with this endpoint.  You can [list](https://docs.talon.one/docs/product/applications/display-events#list-events) the received events in the **Events** view of the Campaign Manager.  For example, you can use this endpoint to trigger an event when a customer shares a link to a product. See our [tutorial](https://docs.talon.one/docs/product/tutorials/referrals/incentivizing-product-link-sharing).  &gt; [!note] **Note** &gt; - &#x60;profileId&#x60; is required even though the schema does not specify it. &gt; - If the customer profile ID is new, a new profile is automatically created but the &#x60;customer_profile_created&#x60; [built-in event ](https://docs.talon.one/docs/dev/concepts/entities/events) is **not** triggered. &gt; - We recommend sending requests sequentially. See [Managing parallel requests](https://docs.talon.one/docs/dev/getting-started/integration-tutorial#managing-parallel-requests). &gt; - [Archived campaigns](https://docs.talon.one/docs/product/campaigns/managing-campaigns#archiving-a-campaign) are not considered in rule evaluation. 
+     * Trigger a custom event.  To use this endpoint:  1. [Create a custom event](https://docs.talon.one/docs/dev/concepts/entities/events#creating-a-custom-event) in the Campaign Manager. 1. In a rule, add the **Check for event types** [condition](https://docs.talon.one/docs/dev/concepts/entities/events#use-an-event-in-a-rule) and select the event you created. 1. Trigger the event with this endpoint.  You can [list](https://docs.talon.one/docs/product/applications/display-events#list-events) the received events in the **Events** view of the Campaign Manager.  For example, you can use this endpoint to trigger an event when a customer shares a link to a product. See our [tutorial](https://docs.talon.one/docs/product/tutorials/referrals/incentivizing-product-link-sharing).  &gt; [!note] **Note** &gt; - &#x60;profileId&#x60; is required even though the schema does not specify it. &gt; - If the customer profile ID is new, a new profile is automatically created but the &#x60;customer_profile_created&#x60; [built-in event ](https://docs.talon.one/docs/dev/concepts/entities/events) is **not** triggered. &gt; - We recommend sending requests sequentially. See [Managing parallel requests](https://docs.talon.one/docs/dev/getting-started/integration-tutorial#managing-parallel-requests). &gt; - [Archived campaigns](https://docs.talon.one/docs/product/campaigns/managing-campaigns#archiving-a-campaign) are not considered in rule evaluation. 
      * @param integrationEventV2Request body (required)
      * @param silent Possible values: &#x60;yes&#x60; or &#x60;no&#x60;. - &#x60;yes&#x60;: Increases the performance of the API call by returning a 204 response. - &#x60;no&#x60;: Returns a 200 response that contains the updated customer profiles.  (optional, default to yes)
      * @param dry Indicates whether to persist the changes. Changes are ignored when &#x60;dry&#x3D;true&#x60;.  (optional)
@@ -4790,6 +4923,169 @@ public class IntegrationApi {
 
         okhttp3.Call localVarCall = trackEventV2ValidateBeforeCall(integrationEventV2Request, silent, dry, forceCompleteEvaluation, _callback);
         Type localVarReturnType = new TypeToken<IntegrationEventV2Response>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for trackEventV3
+     * @param integrationEventV3Request body (required)
+     * @param silent Possible values: &#x60;yes&#x60; or &#x60;no&#x60;. - &#x60;yes&#x60;: Increases the performance of the API call by returning a 204 response. - &#x60;no&#x60;: Returns a 200 response that contains the updated customer profiles.  (optional, default to yes)
+     * @param dry Indicates whether to persist the changes. Changes are ignored when &#x60;dry&#x3D;true&#x60;.  (optional)
+     * @param forceCompleteEvaluation Forces evaluation for all matching campaigns regardless of the [campaign evaluation mode](https://docs.talon.one/docs/product/applications/managing-campaign-evaluation#setting-campaign-evaluation-mode). Requires &#x60;dry&#x3D;true&#x60;.  (optional, default to false)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized - Invalid API key </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> An advanced event already exists, too many requests, or limit reached. Avoid parallel requests. See the [docs](https://docs.talon.one/docs/dev/tutorials/integrating-talon-one#managing-parallel-requests). </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call trackEventV3Call(@javax.annotation.Nonnull IntegrationEventV3Request integrationEventV3Request, @javax.annotation.Nullable String silent, @javax.annotation.Nullable Boolean dry, @javax.annotation.Nullable Boolean forceCompleteEvaluation, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = integrationEventV3Request;
+
+        // create path and map variables
+        String localVarPath = "/v3/events";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (silent != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("silent", silent));
+        }
+
+        if (dry != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("dry", dry));
+        }
+
+        if (forceCompleteEvaluation != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("forceCompleteEvaluation", forceCompleteEvaluation));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "api_key_v1" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call trackEventV3ValidateBeforeCall(@javax.annotation.Nonnull IntegrationEventV3Request integrationEventV3Request, @javax.annotation.Nullable String silent, @javax.annotation.Nullable Boolean dry, @javax.annotation.Nullable Boolean forceCompleteEvaluation, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'integrationEventV3Request' is set
+        if (integrationEventV3Request == null) {
+            throw new ApiException("Missing the required parameter 'integrationEventV3Request' when calling trackEventV3(Async)");
+        }
+
+        return trackEventV3Call(integrationEventV3Request, silent, dry, forceCompleteEvaluation, _callback);
+
+    }
+
+    /**
+     * Track advanced event
+     * Trigger an advanced event.  Advanced events are idempotent, uniquely identifiable events. They can also reference a previously closed session to add more context for rule evaluation.  To use this endpoint:  1. [Create a custom event](https://docs.talon.one/docs/dev/concepts/entities/events#creating-a-custom-event) in the Campaign Manager. 1. In a rule, add the **Check for event types** [condition](https://docs.talon.one/docs/dev/concepts/entities/events#use-an-event-in-a-rule) and select the event you created. 1. Trigger the event with this endpoint.  You can [list](https://docs.talon.one/docs/product/applications/display-events#list-events) the received events in the **Events** view of the Campaign Manager.  For example, you can use this endpoint to trigger an event when a customer shares a link to a product. See our [tutorial](https://docs.talon.one/docs/product/tutorials/referrals/incentivizing-product-link-sharing).  &gt; [!note] **Note** &gt; - If the customer profile does not exist, it will be created. However, the &#x60;customer_profile_created&#x60; [built-in event](https://docs.talon.one/docs/dev/concepts/entities/events) is **not** triggered. &gt; - We recommend sending requests sequentially. See [Managing parallel requests](https://docs.talon.one/docs/dev/getting-started/integration-tutorial#managing-parallel-requests). &gt; - [Archived campaigns](https://docs.talon.one/docs/product/campaigns/managing-campaigns#archiving-a-campaign) are not considered in rule evaluation. 
+     * @param integrationEventV3Request body (required)
+     * @param silent Possible values: &#x60;yes&#x60; or &#x60;no&#x60;. - &#x60;yes&#x60;: Increases the performance of the API call by returning a 204 response. - &#x60;no&#x60;: Returns a 200 response that contains the updated customer profiles.  (optional, default to yes)
+     * @param dry Indicates whether to persist the changes. Changes are ignored when &#x60;dry&#x3D;true&#x60;.  (optional)
+     * @param forceCompleteEvaluation Forces evaluation for all matching campaigns regardless of the [campaign evaluation mode](https://docs.talon.one/docs/product/applications/managing-campaign-evaluation#setting-campaign-evaluation-mode). Requires &#x60;dry&#x3D;true&#x60;.  (optional, default to false)
+     * @return IntegrationEventV3Response
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized - Invalid API key </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> An advanced event already exists, too many requests, or limit reached. Avoid parallel requests. See the [docs](https://docs.talon.one/docs/dev/tutorials/integrating-talon-one#managing-parallel-requests). </td><td>  -  </td></tr>
+     </table>
+     */
+    public IntegrationEventV3Response trackEventV3(@javax.annotation.Nonnull IntegrationEventV3Request integrationEventV3Request, @javax.annotation.Nullable String silent, @javax.annotation.Nullable Boolean dry, @javax.annotation.Nullable Boolean forceCompleteEvaluation) throws ApiException {
+        ApiResponse<IntegrationEventV3Response> localVarResp = trackEventV3WithHttpInfo(integrationEventV3Request, silent, dry, forceCompleteEvaluation);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Track advanced event
+     * Trigger an advanced event.  Advanced events are idempotent, uniquely identifiable events. They can also reference a previously closed session to add more context for rule evaluation.  To use this endpoint:  1. [Create a custom event](https://docs.talon.one/docs/dev/concepts/entities/events#creating-a-custom-event) in the Campaign Manager. 1. In a rule, add the **Check for event types** [condition](https://docs.talon.one/docs/dev/concepts/entities/events#use-an-event-in-a-rule) and select the event you created. 1. Trigger the event with this endpoint.  You can [list](https://docs.talon.one/docs/product/applications/display-events#list-events) the received events in the **Events** view of the Campaign Manager.  For example, you can use this endpoint to trigger an event when a customer shares a link to a product. See our [tutorial](https://docs.talon.one/docs/product/tutorials/referrals/incentivizing-product-link-sharing).  &gt; [!note] **Note** &gt; - If the customer profile does not exist, it will be created. However, the &#x60;customer_profile_created&#x60; [built-in event](https://docs.talon.one/docs/dev/concepts/entities/events) is **not** triggered. &gt; - We recommend sending requests sequentially. See [Managing parallel requests](https://docs.talon.one/docs/dev/getting-started/integration-tutorial#managing-parallel-requests). &gt; - [Archived campaigns](https://docs.talon.one/docs/product/campaigns/managing-campaigns#archiving-a-campaign) are not considered in rule evaluation. 
+     * @param integrationEventV3Request body (required)
+     * @param silent Possible values: &#x60;yes&#x60; or &#x60;no&#x60;. - &#x60;yes&#x60;: Increases the performance of the API call by returning a 204 response. - &#x60;no&#x60;: Returns a 200 response that contains the updated customer profiles.  (optional, default to yes)
+     * @param dry Indicates whether to persist the changes. Changes are ignored when &#x60;dry&#x3D;true&#x60;.  (optional)
+     * @param forceCompleteEvaluation Forces evaluation for all matching campaigns regardless of the [campaign evaluation mode](https://docs.talon.one/docs/product/applications/managing-campaign-evaluation#setting-campaign-evaluation-mode). Requires &#x60;dry&#x3D;true&#x60;.  (optional, default to false)
+     * @return ApiResponse&lt;IntegrationEventV3Response&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized - Invalid API key </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> An advanced event already exists, too many requests, or limit reached. Avoid parallel requests. See the [docs](https://docs.talon.one/docs/dev/tutorials/integrating-talon-one#managing-parallel-requests). </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<IntegrationEventV3Response> trackEventV3WithHttpInfo(@javax.annotation.Nonnull IntegrationEventV3Request integrationEventV3Request, @javax.annotation.Nullable String silent, @javax.annotation.Nullable Boolean dry, @javax.annotation.Nullable Boolean forceCompleteEvaluation) throws ApiException {
+        okhttp3.Call localVarCall = trackEventV3ValidateBeforeCall(integrationEventV3Request, silent, dry, forceCompleteEvaluation, null);
+        Type localVarReturnType = new TypeToken<IntegrationEventV3Response>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Track advanced event (asynchronously)
+     * Trigger an advanced event.  Advanced events are idempotent, uniquely identifiable events. They can also reference a previously closed session to add more context for rule evaluation.  To use this endpoint:  1. [Create a custom event](https://docs.talon.one/docs/dev/concepts/entities/events#creating-a-custom-event) in the Campaign Manager. 1. In a rule, add the **Check for event types** [condition](https://docs.talon.one/docs/dev/concepts/entities/events#use-an-event-in-a-rule) and select the event you created. 1. Trigger the event with this endpoint.  You can [list](https://docs.talon.one/docs/product/applications/display-events#list-events) the received events in the **Events** view of the Campaign Manager.  For example, you can use this endpoint to trigger an event when a customer shares a link to a product. See our [tutorial](https://docs.talon.one/docs/product/tutorials/referrals/incentivizing-product-link-sharing).  &gt; [!note] **Note** &gt; - If the customer profile does not exist, it will be created. However, the &#x60;customer_profile_created&#x60; [built-in event](https://docs.talon.one/docs/dev/concepts/entities/events) is **not** triggered. &gt; - We recommend sending requests sequentially. See [Managing parallel requests](https://docs.talon.one/docs/dev/getting-started/integration-tutorial#managing-parallel-requests). &gt; - [Archived campaigns](https://docs.talon.one/docs/product/campaigns/managing-campaigns#archiving-a-campaign) are not considered in rule evaluation. 
+     * @param integrationEventV3Request body (required)
+     * @param silent Possible values: &#x60;yes&#x60; or &#x60;no&#x60;. - &#x60;yes&#x60;: Increases the performance of the API call by returning a 204 response. - &#x60;no&#x60;: Returns a 200 response that contains the updated customer profiles.  (optional, default to yes)
+     * @param dry Indicates whether to persist the changes. Changes are ignored when &#x60;dry&#x3D;true&#x60;.  (optional)
+     * @param forceCompleteEvaluation Forces evaluation for all matching campaigns regardless of the [campaign evaluation mode](https://docs.talon.one/docs/product/applications/managing-campaign-evaluation#setting-campaign-evaluation-mode). Requires &#x60;dry&#x3D;true&#x60;.  (optional, default to false)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized - Invalid API key </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> An advanced event already exists, too many requests, or limit reached. Avoid parallel requests. See the [docs](https://docs.talon.one/docs/dev/tutorials/integrating-talon-one#managing-parallel-requests). </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call trackEventV3Async(@javax.annotation.Nonnull IntegrationEventV3Request integrationEventV3Request, @javax.annotation.Nullable String silent, @javax.annotation.Nullable Boolean dry, @javax.annotation.Nullable Boolean forceCompleteEvaluation, final ApiCallback<IntegrationEventV3Response> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = trackEventV3ValidateBeforeCall(integrationEventV3Request, silent, dry, forceCompleteEvaluation, _callback);
+        Type localVarReturnType = new TypeToken<IntegrationEventV3Response>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }

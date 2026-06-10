@@ -20,6 +20,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.util.Arrays;
+import one.talon.model.IntegrationHubEventType;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
@@ -43,6 +44,14 @@ public class IntegrationHubFlowTest {
     @Test
     public void applicationIDTest() {
         // TODO: test applicationID
+    }
+
+    /**
+     * Test the property 'loyaltyProgramID'
+     */
+    @Test
+    public void loyaltyProgramIDTest() {
+        // TODO: test loyaltyProgramID
     }
 
     /**

@@ -48,8 +48,13 @@ import one.talon.JSON;
 /**
  * RolesV2Thresholds
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.22.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.23.0")
 public class RolesV2Thresholds {
+  public static final String SERIALIZED_NAME_LOYALTY_PROGRAM_ID = "loyaltyProgramId";
+  @SerializedName(SERIALIZED_NAME_LOYALTY_PROGRAM_ID)
+  @javax.annotation.Nullable
+  private Long loyaltyProgramId;
+
   public static final String SERIALIZED_NAME_LOYALTY_POINTS_LIMIT = "loyaltyPointsLimit";
   @SerializedName(SERIALIZED_NAME_LOYALTY_POINTS_LIMIT)
   @javax.annotation.Nullable
@@ -57,6 +62,25 @@ public class RolesV2Thresholds {
 
   public RolesV2Thresholds() {
   }
+
+  public RolesV2Thresholds loyaltyProgramId(@javax.annotation.Nullable Long loyaltyProgramId) {
+    this.loyaltyProgramId = loyaltyProgramId;
+    return this;
+  }
+
+  /**
+   * Identifier of the loyalty program. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint.
+   * @return loyaltyProgramId
+   */
+  @javax.annotation.Nullable
+  public Long getLoyaltyProgramId() {
+    return loyaltyProgramId;
+  }
+
+  public void setLoyaltyProgramId(@javax.annotation.Nullable Long loyaltyProgramId) {
+    this.loyaltyProgramId = loyaltyProgramId;
+  }
+
 
   public RolesV2Thresholds loyaltyPointsLimit(@javax.annotation.Nullable Long loyaltyPointsLimit) {
     this.loyaltyPointsLimit = loyaltyPointsLimit;
@@ -131,19 +155,21 @@ public class RolesV2Thresholds {
       return false;
     }
     RolesV2Thresholds rolesV2Thresholds = (RolesV2Thresholds) o;
-    return Objects.equals(this.loyaltyPointsLimit, rolesV2Thresholds.loyaltyPointsLimit)&&
+    return Objects.equals(this.loyaltyProgramId, rolesV2Thresholds.loyaltyProgramId) &&
+        Objects.equals(this.loyaltyPointsLimit, rolesV2Thresholds.loyaltyPointsLimit)&&
         Objects.equals(this.additionalProperties, rolesV2Thresholds.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(loyaltyPointsLimit, additionalProperties);
+    return Objects.hash(loyaltyProgramId, loyaltyPointsLimit, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class RolesV2Thresholds {\n");
+    sb.append("    loyaltyProgramId: ").append(toIndentedString(loyaltyProgramId)).append("\n");
     sb.append("    loyaltyPointsLimit: ").append(toIndentedString(loyaltyPointsLimit)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
@@ -164,7 +190,7 @@ public class RolesV2Thresholds {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("loyaltyPointsLimit"));
+    openapiFields = new HashSet<String>(Arrays.asList("loyaltyProgramId", "loyaltyPointsLimit"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(0);

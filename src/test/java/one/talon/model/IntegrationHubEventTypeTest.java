@@ -13,36 +13,20 @@
 
 package one.talon.model;
 
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import java.io.IOException;
-import java.util.Arrays;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 /**
- * Model tests for ScimServiceProviderConfigResponseSort
+ * Model tests for IntegrationHubEventType
  */
-public class ScimServiceProviderConfigResponseSortTest {
-    private final ScimServiceProviderConfigResponseSort model = new ScimServiceProviderConfigResponseSort();
-
+public class IntegrationHubEventTypeTest {
     /**
-     * Model tests for ScimServiceProviderConfigResponseSort
+     * Model tests for IntegrationHubEventType
      */
     @Test
-    public void testScimServiceProviderConfigResponseSort() {
-        // TODO: test ScimServiceProviderConfigResponseSort
-    }
-
-    /**
-     * Test the property 'supported'
-     */
-    @Test
-    public void supportedTest() {
-        // TODO: test supported
+    public void testIntegrationHubEventType() {
+        // TODO: test IntegrationHubEventType
     }
 
 }

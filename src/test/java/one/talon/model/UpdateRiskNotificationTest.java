@@ -24,25 +24,49 @@ import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 /**
- * Model tests for ScimServiceProviderConfigResponsePatch
+ * Model tests for UpdateRiskNotification
  */
-public class ScimServiceProviderConfigResponsePatchTest {
-    private final ScimServiceProviderConfigResponsePatch model = new ScimServiceProviderConfigResponsePatch();
+public class UpdateRiskNotificationTest {
+    private final UpdateRiskNotification model = new UpdateRiskNotification();
 
     /**
-     * Model tests for ScimServiceProviderConfigResponsePatch
+     * Model tests for UpdateRiskNotification
      */
     @Test
-    public void testScimServiceProviderConfigResponsePatch() {
-        // TODO: test ScimServiceProviderConfigResponsePatch
+    public void testUpdateRiskNotification() {
+        // TODO: test UpdateRiskNotification
     }
 
     /**
-     * Test the property 'supported'
+     * Test the property 'entity'
      */
     @Test
-    public void supportedTest() {
-        // TODO: test supported
+    public void entityTest() {
+        // TODO: test entity
+    }
+
+    /**
+     * Test the property 'activity'
+     */
+    @Test
+    public void activityTest() {
+        // TODO: test activity
+    }
+
+    /**
+     * Test the property 'timeFrame'
+     */
+    @Test
+    public void timeFrameTest() {
+        // TODO: test timeFrame
+    }
+
+    /**
+     * Test the property 'active'
+     */
+    @Test
+    public void activeTest() {
+        // TODO: test active
     }
 
 }
