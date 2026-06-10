@@ -46,9 +46,9 @@ import java.util.Set;
 import one.talon.JSON;
 
 /**
- * This effect is **deprecated**. The properties specific to the \&quot;redeemReferral\&quot; effect. This gets triggered whenever the referral code is valid, and a rule was triggered that contains a \&quot;redeem referral\&quot; effect. 
+ * This effect is **deprecated**. It has been replaced by the &#x60;acceptReferral&#x60; effect. This effect indicates that the referral code is valid and has been redeemed. 
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.22.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.23.0")
 public class RedeemReferralEffectProps {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)

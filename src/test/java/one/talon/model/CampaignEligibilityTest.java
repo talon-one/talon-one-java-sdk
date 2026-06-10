@@ -24,6 +24,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import one.talon.model.CampaignEligibilityDetails;
+import one.talon.model.CampaignEligibilityExperiment;
 import one.talon.model.RuleMetadataEligibility;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
@@ -136,6 +137,14 @@ public class CampaignEligibilityTest {
     @Test
     public void rulesTest() {
         // TODO: test rules
+    }
+
+    /**
+     * Test the property 'experiment'
+     */
+    @Test
+    public void experimentTest() {
+        // TODO: test experiment
     }
 
 }

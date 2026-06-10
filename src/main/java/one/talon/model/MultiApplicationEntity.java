@@ -50,7 +50,7 @@ import one.talon.JSON;
 /**
  * MultiApplicationEntity
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.22.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.23.0")
 public class MultiApplicationEntity {
   public static final String SERIALIZED_NAME_APPLICATION_IDS = "applicationIds";
   @SerializedName(SERIALIZED_NAME_APPLICATION_IDS)

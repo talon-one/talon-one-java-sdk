@@ -47,9 +47,9 @@ import java.util.Set;
 import one.talon.JSON;
 
 /**
- * The properties specific to the \&quot;rollbackDiscount\&quot; effect. This gets triggered whenever previously closed session is now cancelled or partially returned and a setDiscount effect was cancelled on our internal discount limit counters.
+ * This effect indicates that a discounted session, cart item, or additional cost has been cancelled or partially returned. This effect can only happen when you set the status of a session to &#x60;cancel&#x60; or the status changes to &#x60;partially_returned&#x60;.  If the session contains some cart items with _quantity &gt; 1_, use the &#x60;cartItemSubPosition&#x60; property to identify the specific item unit in its line item. See the example below.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.22.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.23.0")
 public class RollbackDiscountEffectProps {
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
@@ -95,7 +95,7 @@ public class RollbackDiscountEffectProps {
   }
 
   /**
-   * The name of the \&quot;setDiscount\&quot; effect that was rolled back.
+   * The name of the discount effect that was rolled back.
    * @return name
    */
   @javax.annotation.Nonnull
@@ -114,7 +114,7 @@ public class RollbackDiscountEffectProps {
   }
 
   /**
-   * The value of the discount that was rolled back.
+   * The monetary value of the discount that was rolled back.
    * @return value
    */
   @javax.annotation.Nonnull
@@ -133,7 +133,7 @@ public class RollbackDiscountEffectProps {
   }
 
   /**
-   * The index of the item in the cart items for which the discount was rolled back.
+   * The index of the item in the &#x60;cartItem&#x60; object whose discount was rolled back, or the unit containing the additional cost whose discount was rolled back.
    * @return cartItemPosition
    */
   @javax.annotation.Nullable
@@ -152,7 +152,7 @@ public class RollbackDiscountEffectProps {
   }
 
   /**
-   * For cart items with &#x60;quantity&#x60; &gt; 1, the subposition returns the index of the item unit in its line item. 
+   * The index of the item unit in its line item for which the discount was rolled back.
    * @return cartItemSubPosition
    */
   @javax.annotation.Nullable
@@ -171,7 +171,7 @@ public class RollbackDiscountEffectProps {
   }
 
   /**
-   * The ID of the additional cost that was rolled back.
+   * _Only when rolling back [setDiscountPerAdditionalCost](https://docs.talon.one/docs/dev/integration-api/api-effects#setdiscountperadditionalcost) and [setDiscountPerAdditionalCostPerItem](https://docs.talon.one/docs/dev/integration-api/api-effects#setdiscountperadditionalcostperitem)_ The ID of the additional cost to be discounted.
    * @return additionalCostId
    */
   @javax.annotation.Nullable
@@ -190,7 +190,7 @@ public class RollbackDiscountEffectProps {
   }
 
   /**
-   * The name of the additional cost that was rolled back.
+   * The API name of the additional cost whose discount was rolled back.
    * @return additionalCost
    */
   @javax.annotation.Nullable
@@ -209,7 +209,7 @@ public class RollbackDiscountEffectProps {
   }
 
   /**
-   * The scope of the rolled back discount - For a discount per session, it can be one of &#x60;cartItems&#x60;, &#x60;additionalCosts&#x60; or &#x60;sessionTotal&#x60; - For a discount per item, it can be one of &#x60;price&#x60;, &#x60;additionalCosts&#x60; or &#x60;itemTotal&#x60; 
+   * The scope of the rolled back discount.  - For a discount per session, it can be one of &#x60;cartItems&#x60;, &#x60;additionalCosts&#x60; or &#x60;sessionTotal&#x60; - For a discount per item, it can be one of &#x60;price&#x60;, &#x60;additionalCosts&#x60; or &#x60;itemTotal&#x60;
    * @return scope
    */
   @javax.annotation.Nullable

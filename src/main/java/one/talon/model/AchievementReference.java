@@ -48,7 +48,7 @@ import one.talon.JSON;
 /**
  * AchievementReference
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.22.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.23.0")
 public class AchievementReference {
   public static final String SERIALIZED_NAME_ACHIEVEMENT_ID = "achievementId";
   @SerializedName(SERIALIZED_NAME_ACHIEVEMENT_ID)
@@ -69,6 +69,11 @@ public class AchievementReference {
   @SerializedName(SERIALIZED_NAME_CAMPAIGN_ID)
   @javax.annotation.Nonnull
   private Long campaignId;
+
+  public static final String SERIALIZED_NAME_CAMPAIGN_NAME = "campaignName";
+  @SerializedName(SERIALIZED_NAME_CAMPAIGN_NAME)
+  @javax.annotation.Nonnull
+  private String campaignName;
 
   public AchievementReference() {
   }
@@ -148,6 +153,25 @@ public class AchievementReference {
     this.campaignId = campaignId;
   }
 
+
+  public AchievementReference campaignName(@javax.annotation.Nonnull String campaignName) {
+    this.campaignName = campaignName;
+    return this;
+  }
+
+  /**
+   * The name of the campaign that references this achievement.
+   * @return campaignName
+   */
+  @javax.annotation.Nonnull
+  public String getCampaignName() {
+    return campaignName;
+  }
+
+  public void setCampaignName(@javax.annotation.Nonnull String campaignName) {
+    this.campaignName = campaignName;
+  }
+
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -206,13 +230,14 @@ public class AchievementReference {
     return Objects.equals(this.achievementId, achievementReference.achievementId) &&
         Objects.equals(this.applicationId, achievementReference.applicationId) &&
         Objects.equals(this.applicationName, achievementReference.applicationName) &&
-        Objects.equals(this.campaignId, achievementReference.campaignId)&&
+        Objects.equals(this.campaignId, achievementReference.campaignId) &&
+        Objects.equals(this.campaignName, achievementReference.campaignName)&&
         Objects.equals(this.additionalProperties, achievementReference.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(achievementId, applicationId, applicationName, campaignId, additionalProperties);
+    return Objects.hash(achievementId, applicationId, applicationName, campaignId, campaignName, additionalProperties);
   }
 
   @Override
@@ -223,6 +248,7 @@ public class AchievementReference {
     sb.append("    applicationId: ").append(toIndentedString(applicationId)).append("\n");
     sb.append("    applicationName: ").append(toIndentedString(applicationName)).append("\n");
     sb.append("    campaignId: ").append(toIndentedString(campaignId)).append("\n");
+    sb.append("    campaignName: ").append(toIndentedString(campaignName)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -242,10 +268,10 @@ public class AchievementReference {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("achievementId", "applicationId", "applicationName", "campaignId"));
+    openapiFields = new HashSet<String>(Arrays.asList("achievementId", "applicationId", "applicationName", "campaignId", "campaignName"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("achievementId", "applicationId", "applicationName", "campaignId"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("achievementId", "applicationId", "applicationName", "campaignId", "campaignName"));
   }
 
   /**
@@ -270,6 +296,9 @@ public class AchievementReference {
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if (!jsonObj.get("applicationName").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `applicationName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("applicationName").toString()));
+      }
+      if (!jsonObj.get("campaignName").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `campaignName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("campaignName").toString()));
       }
   }
 

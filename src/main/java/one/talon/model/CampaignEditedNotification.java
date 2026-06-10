@@ -51,7 +51,7 @@ import one.talon.JSON;
 /**
  * CampaignEditedNotification
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.22.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.23.0")
 public class CampaignEditedNotification {
   /**
    * The type of the notification

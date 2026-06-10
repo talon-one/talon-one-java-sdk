@@ -12,7 +12,7 @@
 |**accountId** | **Long** | The ID of the account that owns this entity. |  |
 |**userId** | **Long** | The ID of the user associated with this entity. |  |
 |**entity** | [**EntityEnum**](#EntityEnum) | The name of the entity that was exported. |  |
-|**filter** | **Object** | Map of keys and values that were used to filter the exported rows. |  |
+|**filter** | **Object** | Arbitrary properties associated with this campaign. |  |
 
 
 

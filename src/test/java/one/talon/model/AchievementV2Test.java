@@ -24,6 +24,7 @@ import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import one.talon.model.TimePoint;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
@@ -159,6 +160,14 @@ public class AchievementV2Test {
     @Test
     public void createdByTest() {
         // TODO: test createdBy
+    }
+
+    /**
+     * Test the property 'periodEndOverride'
+     */
+    @Test
+    public void periodEndOverrideTest() {
+        // TODO: test periodEndOverride
     }
 
     /**

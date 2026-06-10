@@ -49,7 +49,7 @@ import one.talon.JSON;
 /**
  * GenerateUserSessionSummary
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.22.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.23.0")
 public class GenerateUserSessionSummary {
   public static final String SERIALIZED_NAME_SESSION_I_D = "sessionID";
   @SerializedName(SERIALIZED_NAME_SESSION_I_D)

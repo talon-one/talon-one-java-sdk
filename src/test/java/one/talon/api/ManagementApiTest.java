@@ -906,10 +906,12 @@ public class ManagementApiTest {
         Long applicationId = null;
         OffsetDateTime createdBefore = null;
         OffsetDateTime createdAfter = null;
+        OffsetDateTime updatedBefore = null;
+        OffsetDateTime updatedAfter = null;
         String profileIntegrationId = null;
         String dateFormat = null;
         String customerSessionState = null;
-        String response = api.exportCustomerSessions(applicationId, createdBefore, createdAfter, profileIntegrationId, dateFormat, customerSessionState);
+        String response = api.exportCustomerSessions(applicationId, createdBefore, createdAfter, updatedBefore, updatedAfter, profileIntegrationId, dateFormat, customerSessionState);
         // TODO: test validations
     }
 
@@ -1016,7 +1018,7 @@ public class ManagementApiTest {
     /**
      * Export loyalty cards
      *
-     * Download a CSV file containing the loyalty cards from a specified loyalty program.  &gt; [!tip] If the exported CSV file is too large to view, you can &gt; [split it into multiple files](https://www.google.com/search?q&#x3D;split+CSV+into+multiple+files).  The CSV file contains the following columns:  - &#x60;identifier&#x60;: The unique identifier of the loyalty card. - &#x60;created&#x60;: The date and time the loyalty card was created. - &#x60;status&#x60;: The status of the loyalty card. - &#x60;userpercardlimit&#x60;: The maximum number of customer profiles that can be linked to the card. - &#x60;customerprofileids&#x60;: Integration IDs of the customer profiles linked to the card. - &#x60;blockreason&#x60;: The reason for transferring and blocking the loyalty card. - &#x60;generated&#x60;: An indicator of whether the loyalty card was generated. - &#x60;batchid&#x60;: The ID of the batch the loyalty card is in. - &#x60;attributes&#x60;: The custom attributes of this loyalty card. Currently, this feature is only available upon request. 
+     * Download a CSV file containing the loyalty cards from a specified loyalty program.  &gt; [!tip] If the exported CSV file is too large to view, you can &gt; [split it into multiple files](https://www.google.com/search?q&#x3D;split+CSV+into+multiple+files).  The CSV file contains the following columns:  - &#x60;identifier&#x60;: The unique identifier of the loyalty card. - &#x60;created&#x60;: The date and time the loyalty card was created. - &#x60;status&#x60;: The status of the loyalty card. - &#x60;userpercardlimit&#x60;: The maximum number of customer profiles that can be linked to the card. - &#x60;customerprofileids&#x60;: Integration IDs of the customer profiles linked to the card. - &#x60;blockreason&#x60;: The reason for transferring and blocking the loyalty card. - &#x60;generated&#x60;: An indicator of whether the loyalty card was generated. - &#x60;batchid&#x60;: The ID of the batch the loyalty card is in. - &#x60;attributes&#x60;: The custom attributes of this loyalty card. 
      *
      * @throws ApiException if the Api call fails
      */
@@ -2417,7 +2419,7 @@ public class ManagementApiTest {
     /**
      * Import loyalty cards
      *
-     * Upload a CSV file containing the loyalty cards that you want to use in your card-based loyalty program.  Send the file as multipart data.  It contains the following columns for each card:  - &#x60;identifier&#x60; (required): The identifier of the loyalty card, which must match the regular expression &#x60;^[A-Za-z0-9._%+@-]+$&#x60;. - &#x60;state&#x60; (required): The state of the loyalty card. It can be &#x60;active&#x60; or &#x60;inactive&#x60;. - &#x60;customerprofileids&#x60; (optional): An array of strings representing the identifiers of the customer profiles linked to the loyalty card. The identifiers should be separated with a semicolon (;).  &gt; [!note] Your CSV file must contain less than 500,000 rows. Requests time out after 30 seconds.  ## Example  &#x60;&#x60;&#x60;csv identifier,state,customerprofileids 123-456-789AT,active,Alexa001;UserA &#x60;&#x60;&#x60; 
+     * Upload a CSV file containing the loyalty cards that you want to use in your card-based loyalty program.  Send the file as multipart data.  It contains the following columns for each card:  - &#x60;identifier&#x60; (required): The identifier of the loyalty card, which must match the regular expression &#x60;^[A-Za-z0-9._%+@-]+$&#x60;. - &#x60;state&#x60; (required): The state of the loyalty card. It can be &#x60;active&#x60; or &#x60;inactive&#x60;. - &#x60;customerprofileids&#x60; (optional): An array of strings representing the identifiers of the customer profiles linked to the loyalty card. The identifiers should be separated with a semicolon (;). - &#x60;attributes&#x60; (optional): A JSON object that contains the loyalty card&#39;s custom attributes and their values. These attributes must be created and connected to this loyalty program before they can be assigned to the cards through this endpoint.  &gt; [!note] Your CSV file must contain less than 500,000 rows. Requests time out after 30 seconds.  ## Example  &#x60;&#x60;&#x60;csv identifier,state,customerprofileids,attributes 123-456-789AT,active,Alexa001;UserA,&#39;{\&quot;\&quot;my_attributes\&quot;\&quot;: \&quot;\&quot;10_off\&quot;\&quot;}\&quot; &#x60;&#x60;&#x60; 
      *
      * @throws ApiException if the Api call fails
      */
@@ -2441,6 +2443,21 @@ public class ManagementApiTest {
         Long loyaltyProgramId = null;
         File upFile = null;
         ModelImport response = api.importLoyaltyCustomersTiers(loyaltyProgramId, upFile);
+        // TODO: test validations
+    }
+
+    /**
+     * Import join dates for a loyalty program
+     *
+     * Upload a CSV file containing customer profile IDs and their join dates for the specified loyalty program. Send the file as multipart data.  &gt; [!important] This endpoint only works with profile-based loyalty programs.  The CSV file **must** contain the following columns:  - &#x60;customerprofileid&#x60;: The integration ID of the customer profile whose join   date you want to update. - &#x60;newjoindate&#x60;: The new join date for the customer in RFC3339 format. You   can use the time zone of your choice. It is converted to UTC internally   by Talon.One.  **Note**: - Customer profiles must already exist. If a referenced profile does not exist, the import fails with a &#x60;400&#x60; error. - If a join date already exists for a profile, the uploaded date replaces it.  &gt; [!note] We recommend limiting your file size to 500 MB.  ## Example  &#x60;&#x60;&#x60;csv customerprofileid,newjoindate customer1,2024-03-21T07:32:14Z customer2,2025-04-16T21:12:37Z customer3,2026-05-03T11:47:01Z &#x60;&#x60;&#x60; 
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void importLoyaltyJoinDatesTest() throws ApiException {
+        Long loyaltyProgramId = null;
+        File upFile = null;
+        ModelImport response = api.importLoyaltyJoinDates(loyaltyProgramId, upFile);
         // TODO: test validations
     }
 
@@ -2566,8 +2583,8 @@ public class ManagementApiTest {
         Long applicationId = null;
         Long pageSize = null;
         Long skip = null;
-        String title = null;
-        ListApplicationCartItemFilters200Response response = api.listApplicationCartItemFilters(applicationId, pageSize, skip, title);
+        String name = null;
+        ListApplicationCartItemFilters200Response response = api.listApplicationCartItemFilters(applicationId, pageSize, skip, name);
         // TODO: test validations
     }
 

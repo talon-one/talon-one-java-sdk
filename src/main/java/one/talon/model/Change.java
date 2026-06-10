@@ -49,7 +49,7 @@ import one.talon.JSON;
 /**
  * Change
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.22.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.23.0")
 public class Change {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -195,7 +195,7 @@ public class Change {
   }
 
   /**
-   * Resource before the change occurred.
+   * Arbitrary properties associated with this campaign.
    * @return old
    */
   @javax.annotation.Nullable
@@ -214,7 +214,7 @@ public class Change {
   }
 
   /**
-   * Resource after the change occurred.
+   * Arbitrary properties associated with this campaign.
    * @return _new
    */
   @javax.annotation.Nullable

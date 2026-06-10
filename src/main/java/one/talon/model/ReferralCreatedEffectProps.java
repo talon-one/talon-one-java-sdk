@@ -46,9 +46,9 @@ import java.util.Set;
 import one.talon.JSON;
 
 /**
- * The properties specific to the \&quot;referralCreated\&quot; effect. This gets triggered whenever a validated rule contained a \&quot;create referral\&quot; effect, and a referral code was created for a customer. See \&quot;createdReferrals\&quot; on the response for all details of this referral code.
+ * The &#x60;referralCreated&#x60; effect behaves similarly to [couponCreated](https://docs.talon.one/docs/dev/integration-api/api-effects#couponcreated). If the &#x60;friendProfileIntegrationId&#x60; parameter is empty, the referral code can be redeemed by anyone.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.22.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.23.0")
 public class ReferralCreatedEffectProps {
   public static final String SERIALIZED_NAME_VALUE = "value";
   @SerializedName(SERIALIZED_NAME_VALUE)
@@ -64,7 +64,7 @@ public class ReferralCreatedEffectProps {
   }
 
   /**
-   * The referral code that was created.
+   * The referral code provided in the session.
    * @return value
    */
   @javax.annotation.Nonnull

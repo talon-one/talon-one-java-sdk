@@ -51,7 +51,7 @@ import one.talon.JSON;
 /**
  * NewReturn
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.22.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.23.0")
 public class NewReturn {
   public static final String SERIALIZED_NAME_RETURNED_CART_ITEMS = "returnedCartItems";
   @SerializedName(SERIALIZED_NAME_RETURNED_CART_ITEMS)

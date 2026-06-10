@@ -48,7 +48,7 @@ import one.talon.JSON;
 /**
  * SummaryCampaignStoreBudget
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.22.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.23.0")
 public class SummaryCampaignStoreBudget {
   /**
    * Gets or Sets action

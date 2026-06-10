@@ -47,9 +47,9 @@ import java.util.Set;
 import one.talon.JSON;
 
 /**
- * The properties specific to the \&quot;triggerWebhook\&quot; effect. This gets triggered whenever a validated rule contained a \&quot;trigger webhook\&quot; effect. This is communicated as an FYI and should usually not require action on your side.
+ * This effect is triggered when a rule containing a [webhook effect](https://docs.talon.one/docs/product/rules/effects/available-effects#webhooks) is validated. The details are shared with you for your information only. It usually doesn&#39;t require an action on your side.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.22.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.23.0")
 public class TriggerWebhookEffectProps {
   public static final String SERIALIZED_NAME_WEBHOOK_ID = "webhookId";
   @SerializedName(SERIALIZED_NAME_WEBHOOK_ID)
@@ -70,7 +70,7 @@ public class TriggerWebhookEffectProps {
   }
 
   /**
-   * The ID of the webhook that was triggered.
+   * The internal ID of the webhook.
    * @return webhookId
    */
   @javax.annotation.Nonnull
@@ -89,7 +89,7 @@ public class TriggerWebhookEffectProps {
   }
 
   /**
-   * The name of the webhook that was triggered.
+   * The name of the webhook.
    * @return webhookName
    */
   @javax.annotation.Nonnull

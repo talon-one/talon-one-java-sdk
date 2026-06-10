@@ -21,6 +21,7 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.time.OffsetDateTime;
 import java.util.Arrays;
+import one.talon.model.IntegrationHubEventType;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
@@ -55,19 +56,27 @@ public class IntegrationHubEventRecordTest {
     }
 
     /**
+     * Test the property 'integrationName'
+     */
+    @Test
+    public void integrationNameTest() {
+        // TODO: test integrationName
+    }
+
+    /**
+     * Test the property 'instanceName'
+     */
+    @Test
+    public void instanceNameTest() {
+        // TODO: test instanceName
+    }
+
+    /**
      * Test the property 'eventType'
      */
     @Test
     public void eventTypeTest() {
         // TODO: test eventType
-    }
-
-    /**
-     * Test the property 'eventData'
-     */
-    @Test
-    public void eventDataTest() {
-        // TODO: test eventData
     }
 
     /**
@@ -95,11 +104,11 @@ public class IntegrationHubEventRecordTest {
     }
 
     /**
-     * Test the property 'processAfter'
+     * Test the property 'scheduledTo'
      */
     @Test
-    public void processAfterTest() {
-        // TODO: test processAfter
+    public void scheduledToTest() {
+        // TODO: test scheduledTo
     }
 
     /**
@@ -108,6 +117,14 @@ public class IntegrationHubEventRecordTest {
     @Test
     public void retryTest() {
         // TODO: test retry
+    }
+
+    /**
+     * Test the property 'payload'
+     */
+    @Test
+    public void payloadTest() {
+        // TODO: test payload
     }
 
 }

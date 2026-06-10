@@ -48,7 +48,7 @@ import one.talon.JSON;
 /**
  * IntegrationEvent
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.22.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.23.0")
 public class IntegrationEvent {
   public static final String SERIALIZED_NAME_PROFILE_ID = "profileId";
   @SerializedName(SERIALIZED_NAME_PROFILE_ID)
@@ -136,7 +136,7 @@ public class IntegrationEvent {
   }
 
   /**
-   * Arbitrary additional JSON data associated with the event.
+   * Arbitrary properties associated with this campaign.
    * @return attributes
    */
   @javax.annotation.Nonnull

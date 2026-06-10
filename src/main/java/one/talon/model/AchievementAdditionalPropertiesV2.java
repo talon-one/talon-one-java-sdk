@@ -21,6 +21,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.util.Arrays;
+import one.talon.model.TimePoint;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -48,7 +49,7 @@ import one.talon.JSON;
 /**
  * AchievementAdditionalPropertiesV2
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.22.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.23.0")
 public class AchievementAdditionalPropertiesV2 {
   public static final String SERIALIZED_NAME_USER_ID = "userId";
   @SerializedName(SERIALIZED_NAME_USER_ID)
@@ -60,23 +61,27 @@ public class AchievementAdditionalPropertiesV2 {
   @javax.annotation.Nullable
   private String createdBy;
 
+  public static final String SERIALIZED_NAME_PERIOD_END_OVERRIDE = "periodEndOverride";
+  @Deprecated
+  @SerializedName(SERIALIZED_NAME_PERIOD_END_OVERRIDE)
+  @javax.annotation.Nullable
+  private TimePoint periodEndOverride;
+
   public static final String SERIALIZED_NAME_HAS_PROGRESS = "hasProgress";
   @SerializedName(SERIALIZED_NAME_HAS_PROGRESS)
   @javax.annotation.Nullable
   private Boolean hasProgress;
 
   /**
-   * The status of the achievement.
+   * The status of the achievement.                                                                                               - &#x60;active&#x60;: The achievement is available to customers. - &#x60;scheduled&#x60;: The achievement has a &#x60;fixedStartDate&#x60; set in the future. - &#x60;expired&#x60;: The achievement&#39;s &#x60;endDate&#x60; is in the past. 
    */
   @JsonAdapter(StatusEnum.Adapter.class)
   public enum StatusEnum {
-    INPROGRESS("inprogress"),
+    ACTIVE("active"),
     
-    EXPIRED("expired"),
+    SCHEDULED("scheduled"),
     
-    NOT_STARTED("not_started"),
-    
-    COMPLETED("completed");
+    EXPIRED("expired");
 
     private String value;
 
@@ -167,6 +172,29 @@ public class AchievementAdditionalPropertiesV2 {
   }
 
 
+  @Deprecated
+  public AchievementAdditionalPropertiesV2 periodEndOverride(@javax.annotation.Nullable TimePoint periodEndOverride) {
+    this.periodEndOverride = periodEndOverride;
+    return this;
+  }
+
+  /**
+   * Get periodEndOverride
+   * @return periodEndOverride
+   * @deprecated
+   */
+  @Deprecated
+  @javax.annotation.Nullable
+  public TimePoint getPeriodEndOverride() {
+    return periodEndOverride;
+  }
+
+  @Deprecated
+  public void setPeriodEndOverride(@javax.annotation.Nullable TimePoint periodEndOverride) {
+    this.periodEndOverride = periodEndOverride;
+  }
+
+
   public AchievementAdditionalPropertiesV2 hasProgress(@javax.annotation.Nullable Boolean hasProgress) {
     this.hasProgress = hasProgress;
     return this;
@@ -192,7 +220,7 @@ public class AchievementAdditionalPropertiesV2 {
   }
 
   /**
-   * The status of the achievement.
+   * The status of the achievement.                                                                                               - &#x60;active&#x60;: The achievement is available to customers. - &#x60;scheduled&#x60;: The achievement has a &#x60;fixedStartDate&#x60; set in the future. - &#x60;expired&#x60;: The achievement&#39;s &#x60;endDate&#x60; is in the past. 
    * @return status
    */
   @javax.annotation.Nullable
@@ -261,6 +289,7 @@ public class AchievementAdditionalPropertiesV2 {
     AchievementAdditionalPropertiesV2 achievementAdditionalPropertiesV2 = (AchievementAdditionalPropertiesV2) o;
     return Objects.equals(this.userId, achievementAdditionalPropertiesV2.userId) &&
         Objects.equals(this.createdBy, achievementAdditionalPropertiesV2.createdBy) &&
+        Objects.equals(this.periodEndOverride, achievementAdditionalPropertiesV2.periodEndOverride) &&
         Objects.equals(this.hasProgress, achievementAdditionalPropertiesV2.hasProgress) &&
         Objects.equals(this.status, achievementAdditionalPropertiesV2.status)&&
         Objects.equals(this.additionalProperties, achievementAdditionalPropertiesV2.additionalProperties);
@@ -268,7 +297,7 @@ public class AchievementAdditionalPropertiesV2 {
 
   @Override
   public int hashCode() {
-    return Objects.hash(userId, createdBy, hasProgress, status, additionalProperties);
+    return Objects.hash(userId, createdBy, periodEndOverride, hasProgress, status, additionalProperties);
   }
 
   @Override
@@ -277,6 +306,7 @@ public class AchievementAdditionalPropertiesV2 {
     sb.append("class AchievementAdditionalPropertiesV2 {\n");
     sb.append("    userId: ").append(toIndentedString(userId)).append("\n");
     sb.append("    createdBy: ").append(toIndentedString(createdBy)).append("\n");
+    sb.append("    periodEndOverride: ").append(toIndentedString(periodEndOverride)).append("\n");
     sb.append("    hasProgress: ").append(toIndentedString(hasProgress)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
@@ -298,7 +328,7 @@ public class AchievementAdditionalPropertiesV2 {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("userId", "createdBy", "hasProgress", "status"));
+    openapiFields = new HashSet<String>(Arrays.asList("userId", "createdBy", "periodEndOverride", "hasProgress", "status"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("userId"));
@@ -326,6 +356,10 @@ public class AchievementAdditionalPropertiesV2 {
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("createdBy") != null && !jsonObj.get("createdBy").isJsonNull()) && !jsonObj.get("createdBy").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `createdBy` to be a primitive type in the JSON string but got `%s`", jsonObj.get("createdBy").toString()));
+      }
+      // validate the optional field `periodEndOverride`
+      if (jsonObj.get("periodEndOverride") != null && !jsonObj.get("periodEndOverride").isJsonNull()) {
+        TimePoint.validateJsonElement(jsonObj.get("periodEndOverride"));
       }
       if ((jsonObj.get("status") != null && !jsonObj.get("status").isJsonNull()) && !jsonObj.get("status").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `status` to be a primitive type in the JSON string but got `%s`", jsonObj.get("status").toString()));

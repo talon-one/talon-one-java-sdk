@@ -20,7 +20,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.util.Arrays;
-import one.talon.model.RolesV2Thresholds;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
@@ -68,14 +67,6 @@ public class RoleV2ApplicationDetailsTest {
     @Test
     public void toolsTest() {
         // TODO: test tools
-    }
-
-    /**
-     * Test the property 'thresholds'
-     */
-    @Test
-    public void thresholdsTest() {
-        // TODO: test thresholds
     }
 
 }

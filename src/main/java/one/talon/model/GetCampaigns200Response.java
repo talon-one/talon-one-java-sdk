@@ -51,7 +51,7 @@ import one.talon.JSON;
 /**
  * GetCampaigns200Response
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.22.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.23.0")
 public class GetCampaigns200Response {
   public static final String SERIALIZED_NAME_TOTAL_RESULT_SIZE = "totalResultSize";
   @SerializedName(SERIALIZED_NAME_TOTAL_RESULT_SIZE)

@@ -47,9 +47,9 @@ import java.util.Set;
 import one.talon.JSON;
 
 /**
- * The properties specific to the \&quot;setDiscountPerAdditionalCostPerItem\&quot; effect. This gets triggered whenever a validated rule contained a \&quot;set discount per additional cost per item\&quot; effect. This is a discount that should be applied on a specific additional cost in a specific item.
+ * This effect indicates that a discount of a specific additional cost within a specific item should be applied. It gets triggered whenever a rule containing a **Discount additional cost per item** effect is validated.  Use this effect when **all** items in the cart have an additional cost. If one of more items do not have an additional cost, the rule will fail.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.22.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.23.0")
 public class SetDiscountPerAdditionalCostPerItemEffectProps {
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
@@ -95,7 +95,7 @@ public class SetDiscountPerAdditionalCostPerItemEffectProps {
   }
 
   /**
-   * The name / description of this discount
+   * The description of this discount. &#x60;#number&#x60; is appended to the name. It is equal to the &#x60;position&#x60; property.
    * @return name
    */
   @javax.annotation.Nonnull
@@ -114,7 +114,7 @@ public class SetDiscountPerAdditionalCostPerItemEffectProps {
   }
 
   /**
-   * The ID of the additional cost.
+   * The identifier of the additional cost to be discounted.
    * @return additionalCostId
    */
   @javax.annotation.Nonnull
@@ -133,7 +133,7 @@ public class SetDiscountPerAdditionalCostPerItemEffectProps {
   }
 
   /**
-   * The total monetary value of the discount.
+   * The monetary value of the effective discount applied to the item&#39;s additional cost.
    * @return value
    */
   @javax.annotation.Nonnull
@@ -152,7 +152,7 @@ public class SetDiscountPerAdditionalCostPerItemEffectProps {
   }
 
   /**
-   * The index of the item in the cart item list containing the additional cost to be discounted.
+   * The index of the item in the &#x60;cartItem&#x60; object containing the additional cost that this discount applies to.
    * @return position
    */
   @javax.annotation.Nonnull
@@ -171,7 +171,7 @@ public class SetDiscountPerAdditionalCostPerItemEffectProps {
   }
 
   /**
-   * For cart items with &#x60;quantity&#x60; &gt; 1, the sub position indicates which item the discount applies to. 
+   * The index of the item unit in its line item.
    * @return subPosition
    */
   @javax.annotation.Nullable
@@ -190,7 +190,7 @@ public class SetDiscountPerAdditionalCostPerItemEffectProps {
   }
 
   /**
-   * The name of the additional cost.
+   * The API name of the additional cost to be discounted.
    * @return additionalCost
    */
   @javax.annotation.Nonnull
@@ -209,7 +209,7 @@ public class SetDiscountPerAdditionalCostPerItemEffectProps {
   }
 
   /**
-   * Only with [partial discounts enabled](https://docs.talon.one/docs/product/campaigns/campaign-evaluation/#partial-discounts). Represents the monetary value of the discount to be applied to additional discount without considering budget limitations. 
+   * _[(Partial discounts enabled only)](https://docs.talon.one/docs/product/applications/manage-general-settings#partial-discounts)_. The monetary value of the discount to be applied to the additional cost without considering budget limitations.
    * @return desiredValue
    */
   @javax.annotation.Nullable

@@ -59,7 +59,7 @@ import one.talon.JSON;
 /**
  * Contains entities that might be valuable in Talon.One integrations. 
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.22.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.23.0")
 public class IntegrationResponse {
   public static final String SERIALIZED_NAME_CUSTOMER_PROFILE = "customerProfile";
   @SerializedName(SERIALIZED_NAME_CUSTOMER_PROFILE)

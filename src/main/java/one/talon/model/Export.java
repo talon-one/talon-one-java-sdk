@@ -49,7 +49,7 @@ import one.talon.JSON;
 /**
  * Export
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.22.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.23.0")
 public class Export {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -247,7 +247,7 @@ public class Export {
   }
 
   /**
-   * Map of keys and values that were used to filter the exported rows.
+   * Arbitrary properties associated with this campaign.
    * @return filter
    */
   @javax.annotation.Nonnull

@@ -46,9 +46,9 @@ import java.util.Set;
 import one.talon.JSON;
 
 /**
- * The properties specific to the \&quot;reserveCoupon\&quot; effect. This gets triggered whenever a validated rule contained a \&quot;reserve coupon\&quot; effect. This reserves the coupon currently on scope to the profile on scope.
+ * This effect indicates that the given coupon code was reserved for the given customer.  Talon.One provides soft and hard reservations. For more information, see [Reserve a coupon code](https://docs.talon.one/docs/product/rules/effects/use-effects#reserve-a-coupon-code).
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.22.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.23.0")
 public class ReserveCouponEffectProps {
   public static final String SERIALIZED_NAME_COUPON_VALUE = "couponValue";
   @SerializedName(SERIALIZED_NAME_COUPON_VALUE)
@@ -74,7 +74,7 @@ public class ReserveCouponEffectProps {
   }
 
   /**
-   * The value of the coupon currently on scope.
+   * The coupon code that was created.
    * @return couponValue
    */
   @javax.annotation.Nonnull
@@ -93,7 +93,7 @@ public class ReserveCouponEffectProps {
   }
 
   /**
-   * The ID of this customer profile in the third-party integration.
+   * The integration identifier of the customer for whom this coupon was reserved.
    * @return profileIntegrationId
    */
   @javax.annotation.Nonnull

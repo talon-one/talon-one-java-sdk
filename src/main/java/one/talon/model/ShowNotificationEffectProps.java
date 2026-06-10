@@ -46,9 +46,9 @@ import java.util.Set;
 import one.talon.JSON;
 
 /**
- * The properties specific to the \&quot;showNotification\&quot; effect. This gets triggered whenever a validated rule contained a \&quot;show notification\&quot; effect.
+ * You can use notifications to inform customers of certain events. There are four types of notification messages:  - &#x60;Info&#x60; - &#x60;Offer&#x60; - &#x60;Error&#x60; - &#x60;Misc&#x60;  It is up to you to use the Rule Builder to decide why and when to show notifications. Notifications can be used as both rule effects and failure effects.  A common use case is to display the notification at the top of the cart view in your web app. You can use the notification type to vary the styling of the notification message.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.22.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.23.0")
 public class ShowNotificationEffectProps {
   public static final String SERIALIZED_NAME_NOTIFICATION_TYPE = "notificationType";
   @SerializedName(SERIALIZED_NAME_NOTIFICATION_TYPE)
@@ -74,7 +74,7 @@ public class ShowNotificationEffectProps {
   }
 
   /**
-   * The type of notification that should be shown (e.g. error/warning/info).
+   * The type of notification.
    * @return notificationType
    */
   @javax.annotation.Nonnull
@@ -93,7 +93,7 @@ public class ShowNotificationEffectProps {
   }
 
   /**
-   * Title of the notification.
+   * The title of the notification.
    * @return title
    */
   @javax.annotation.Nonnull
@@ -112,7 +112,7 @@ public class ShowNotificationEffectProps {
   }
 
   /**
-   * Body of the notification.
+   * The body of the notification.
    * @return body
    */
   @javax.annotation.Nonnull

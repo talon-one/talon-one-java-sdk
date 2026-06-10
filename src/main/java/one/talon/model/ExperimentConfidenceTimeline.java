@@ -23,6 +23,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import one.talon.model.ExperimentConfidenceTimelineDataPoint;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -48,90 +49,42 @@ import java.util.Set;
 import one.talon.JSON;
 
 /**
- * UpdateCustomerProfileV2409Response
+ * ExperimentConfidenceTimeline
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.22.0")
-public class UpdateCustomerProfileV2409Response {
-  public static final String SERIALIZED_NAME_MESSAGE = "message";
-  @SerializedName(SERIALIZED_NAME_MESSAGE)
-  @javax.annotation.Nullable
-  private String message;
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.23.0")
+public class ExperimentConfidenceTimeline {
+  public static final String SERIALIZED_NAME_DATA = "data";
+  @SerializedName(SERIALIZED_NAME_DATA)
+  @javax.annotation.Nonnull
+  private List<ExperimentConfidenceTimelineDataPoint> data = new ArrayList<>();
 
-  public static final String SERIALIZED_NAME_ERRORS = "errors";
-  @SerializedName(SERIALIZED_NAME_ERRORS)
-  @javax.annotation.Nullable
-  private List<Object> errors;
-
-  public static final String SERIALIZED_NAME_STATUS_CODE = "StatusCode";
-  @SerializedName(SERIALIZED_NAME_STATUS_CODE)
-  @javax.annotation.Nullable
-  private Long statusCode;
-
-  public UpdateCustomerProfileV2409Response() {
+  public ExperimentConfidenceTimeline() {
   }
 
-  public UpdateCustomerProfileV2409Response message(@javax.annotation.Nullable String message) {
-    this.message = message;
+  public ExperimentConfidenceTimeline data(@javax.annotation.Nonnull List<ExperimentConfidenceTimelineDataPoint> data) {
+    this.data = data;
     return this;
   }
 
-  /**
-   * Get message
-   * @return message
-   */
-  @javax.annotation.Nullable
-  public String getMessage() {
-    return message;
-  }
-
-  public void setMessage(@javax.annotation.Nullable String message) {
-    this.message = message;
-  }
-
-
-  public UpdateCustomerProfileV2409Response errors(@javax.annotation.Nullable List<Object> errors) {
-    this.errors = errors;
-    return this;
-  }
-
-  public UpdateCustomerProfileV2409Response addErrorsItem(Object errorsItem) {
-    if (this.errors == null) {
-      this.errors = new ArrayList<>();
+  public ExperimentConfidenceTimeline addDataItem(ExperimentConfidenceTimelineDataPoint dataItem) {
+    if (this.data == null) {
+      this.data = new ArrayList<>();
     }
-    this.errors.add(errorsItem);
+    this.data.add(dataItem);
     return this;
   }
 
   /**
-   * Get errors
-   * @return errors
+   * Daily cumulative confidence values ordered chronologically from experiment start to end, or to today if the experiment is still running. Empty if the experiment has no data yet. 
+   * @return data
    */
-  @javax.annotation.Nullable
-  public List<Object> getErrors() {
-    return errors;
+  @javax.annotation.Nonnull
+  public List<ExperimentConfidenceTimelineDataPoint> getData() {
+    return data;
   }
 
-  public void setErrors(@javax.annotation.Nullable List<Object> errors) {
-    this.errors = errors;
-  }
-
-
-  public UpdateCustomerProfileV2409Response statusCode(@javax.annotation.Nullable Long statusCode) {
-    this.statusCode = statusCode;
-    return this;
-  }
-
-  /**
-   * Get statusCode
-   * @return statusCode
-   */
-  @javax.annotation.Nullable
-  public Long getStatusCode() {
-    return statusCode;
-  }
-
-  public void setStatusCode(@javax.annotation.Nullable Long statusCode) {
-    this.statusCode = statusCode;
+  public void setData(@javax.annotation.Nonnull List<ExperimentConfidenceTimelineDataPoint> data) {
+    this.data = data;
   }
 
   /**
@@ -147,9 +100,9 @@ public class UpdateCustomerProfileV2409Response {
    *
    * @param key name of the property
    * @param value value of the property
-   * @return the UpdateCustomerProfileV2409Response instance itself
+   * @return the ExperimentConfidenceTimeline instance itself
    */
-  public UpdateCustomerProfileV2409Response putAdditionalProperty(String key, Object value) {
+  public ExperimentConfidenceTimeline putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
         this.additionalProperties = new HashMap<String, Object>();
     }
@@ -188,25 +141,21 @@ public class UpdateCustomerProfileV2409Response {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    UpdateCustomerProfileV2409Response updateCustomerProfileV2409Response = (UpdateCustomerProfileV2409Response) o;
-    return Objects.equals(this.message, updateCustomerProfileV2409Response.message) &&
-        Objects.equals(this.errors, updateCustomerProfileV2409Response.errors) &&
-        Objects.equals(this.statusCode, updateCustomerProfileV2409Response.statusCode)&&
-        Objects.equals(this.additionalProperties, updateCustomerProfileV2409Response.additionalProperties);
+    ExperimentConfidenceTimeline experimentConfidenceTimeline = (ExperimentConfidenceTimeline) o;
+    return Objects.equals(this.data, experimentConfidenceTimeline.data)&&
+        Objects.equals(this.additionalProperties, experimentConfidenceTimeline.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(message, errors, statusCode, additionalProperties);
+    return Objects.hash(data, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class UpdateCustomerProfileV2409Response {\n");
-    sb.append("    message: ").append(toIndentedString(message)).append("\n");
-    sb.append("    errors: ").append(toIndentedString(errors)).append("\n");
-    sb.append("    statusCode: ").append(toIndentedString(statusCode)).append("\n");
+    sb.append("class ExperimentConfidenceTimeline {\n");
+    sb.append("    data: ").append(toIndentedString(data)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -226,31 +175,41 @@ public class UpdateCustomerProfileV2409Response {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("message", "errors", "StatusCode"));
+    openapiFields = new HashSet<String>(Arrays.asList("data"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(0);
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("data"));
   }
 
   /**
    * Validates the JSON Element and throws an exception if issues found
    *
    * @param jsonElement JSON Element
-   * @throws IOException if the JSON Element is invalid with respect to UpdateCustomerProfileV2409Response
+   * @throws IOException if the JSON Element is invalid with respect to ExperimentConfidenceTimeline
    */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
-        if (!UpdateCustomerProfileV2409Response.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in UpdateCustomerProfileV2409Response is not found in the empty JSON string", UpdateCustomerProfileV2409Response.openapiRequiredFields.toString()));
+        if (!ExperimentConfidenceTimeline.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in ExperimentConfidenceTimeline is not found in the empty JSON string", ExperimentConfidenceTimeline.openapiRequiredFields.toString()));
+        }
+      }
+
+      // check to make sure all required properties/fields are present in the JSON string
+      for (String requiredField : ExperimentConfidenceTimeline.openapiRequiredFields) {
+        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if ((jsonObj.get("message") != null && !jsonObj.get("message").isJsonNull()) && !jsonObj.get("message").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `message` to be a primitive type in the JSON string but got `%s`", jsonObj.get("message").toString()));
-      }
-      // ensure the optional json data is an array if present
-      if (jsonObj.get("errors") != null && !jsonObj.get("errors").isJsonNull() && !jsonObj.get("errors").isJsonArray()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `errors` to be an array in the JSON string but got `%s`", jsonObj.get("errors").toString()));
+      if (jsonObj.get("data") != null) {
+        if (!jsonObj.get("data").isJsonArray()) {
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `data` to be an array in the JSON string but got `%s`", jsonObj.get("data").toString()));
+        }
+        JsonArray jsonArraydata = jsonObj.getAsJsonArray("data");
+        // validate the required field `data` (array)
+        for (int i = 0; i < jsonArraydata.size(); i++) {
+          ExperimentConfidenceTimelineDataPoint.validateJsonElement(jsonArraydata.get(i));
+        }
       }
   }
 
@@ -258,16 +217,16 @@ public class UpdateCustomerProfileV2409Response {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!UpdateCustomerProfileV2409Response.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'UpdateCustomerProfileV2409Response' and its subtypes
+       if (!ExperimentConfidenceTimeline.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'ExperimentConfidenceTimeline' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<UpdateCustomerProfileV2409Response> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(UpdateCustomerProfileV2409Response.class));
+       final TypeAdapter<ExperimentConfidenceTimeline> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(ExperimentConfidenceTimeline.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<UpdateCustomerProfileV2409Response>() {
+       return (TypeAdapter<T>) new TypeAdapter<ExperimentConfidenceTimeline>() {
            @Override
-           public void write(JsonWriter out, UpdateCustomerProfileV2409Response value) throws IOException {
+           public void write(JsonWriter out, ExperimentConfidenceTimeline value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              obj.remove("additionalProperties");
              // serialize additional properties
@@ -295,12 +254,12 @@ public class UpdateCustomerProfileV2409Response {
            }
 
            @Override
-           public UpdateCustomerProfileV2409Response read(JsonReader in) throws IOException {
+           public ExperimentConfidenceTimeline read(JsonReader in) throws IOException {
              JsonElement jsonElement = elementAdapter.read(in);
              validateJsonElement(jsonElement);
              JsonObject jsonObj = jsonElement.getAsJsonObject();
              // store additional fields in the deserialized instance
-             UpdateCustomerProfileV2409Response instance = thisAdapter.fromJsonTree(jsonObj);
+             ExperimentConfidenceTimeline instance = thisAdapter.fromJsonTree(jsonObj);
              for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
                if (!openapiFields.contains(entry.getKey())) {
                  if (entry.getValue().isJsonPrimitive()) { // primitive type
@@ -327,18 +286,18 @@ public class UpdateCustomerProfileV2409Response {
   }
 
   /**
-   * Create an instance of UpdateCustomerProfileV2409Response given an JSON string
+   * Create an instance of ExperimentConfidenceTimeline given an JSON string
    *
    * @param jsonString JSON string
-   * @return An instance of UpdateCustomerProfileV2409Response
-   * @throws IOException if the JSON string is invalid with respect to UpdateCustomerProfileV2409Response
+   * @return An instance of ExperimentConfidenceTimeline
+   * @throws IOException if the JSON string is invalid with respect to ExperimentConfidenceTimeline
    */
-  public static UpdateCustomerProfileV2409Response fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, UpdateCustomerProfileV2409Response.class);
+  public static ExperimentConfidenceTimeline fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, ExperimentConfidenceTimeline.class);
   }
 
   /**
-   * Convert an instance of UpdateCustomerProfileV2409Response to an JSON string
+   * Convert an instance of ExperimentConfidenceTimeline to an JSON string
    *
    * @return JSON string
    */

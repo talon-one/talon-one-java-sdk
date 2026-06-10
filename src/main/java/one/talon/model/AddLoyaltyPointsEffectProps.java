@@ -48,9 +48,9 @@ import java.util.Set;
 import one.talon.JSON;
 
 /**
- * The properties specific to the \&quot;addLoyaltyPoints\&quot; effect. This gets triggered whenever a validated rule contained an \&quot;add loyalty\&quot; effect. These points are automatically stored and managed inside Talon.One. 
+ * This effect indicates that a defined amount of loyalty points was successfully added to the customer&#39;s profile or to a loyalty card.  If you use the [Add loyalty points per item effect](https://docs.talon.one/docs/product/rules/effects/available-effects#reward-effects), use the &#x60;cartItemPosition&#x60; property to identify which item to add the loyalty points for.  Enabling [partial rewards](https://docs.talon.one/docs/product/applications/manage-general-settings#partial-rewards) allows a rule that would fail because of insufficient budget to pass. The rule still fails when the budget reaches 0. Use the &#x60;desiredValue&#x60; property to identify the original amount of loyalty points.  If you use **Add loyalty points per item** and if the session contains some cart items with _quantity &gt; 1_, use the &#x60;cartItemSubPosition&#x60; property to identify the item unit in its line item. See the example below for more information.  If your list of cart items is a [bundle definition](https://docs.talon.one/docs/product/rules/create-and-manage-bundles), use the &#x60;bundleIndex&#x60; and &#x60;bundleName&#x60; properties to identify the bundle containing the items for which loyalty points are added.  If you have set custom activation and expiration dates for the loyalty points, use the &#x60;startDate&#x60; and &#x60;expiryDate&#x60; properties to identify when the reward will be active and when will expire.  If the loyalty program is [profile-based](https://docs.talon.one/docs/product/loyalty-programs/overview#loyalty-program-types), use the &#x60;recipientIntegrationId&#x60; property to identify the user who receives the loyalty points. If the loyalty program is [card-based](https://docs.talon.one/docs/product/loyalty-programs/overview#loyalty-program-types), use the &#x60;cardIdentifier&#x60; property to identify the loyalty card on which these points are added.  The points only persist when the session is closed.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.22.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.23.0")
 public class AddLoyaltyPointsEffectProps {
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
@@ -141,7 +141,7 @@ public class AddLoyaltyPointsEffectProps {
   }
 
   /**
-   * The name / description of this loyalty point addition.
+   * The reason of this loyalty point addition.
    * @return name
    */
   @javax.annotation.Nonnull
@@ -217,7 +217,7 @@ public class AddLoyaltyPointsEffectProps {
   }
 
   /**
-   * The original amount of loyalty points to be awarded.
+   * (Partial rewards enabled only) The amount of loyalty points to be awarded without considering budget limitations.
    * @return desiredValue
    */
   @javax.annotation.Nullable
@@ -255,7 +255,7 @@ public class AddLoyaltyPointsEffectProps {
   }
 
   /**
-   * Date after which points will be valid.
+   * The date after which the added points will be valid.
    * @return startDate
    */
   @javax.annotation.Nullable
@@ -274,7 +274,7 @@ public class AddLoyaltyPointsEffectProps {
   }
 
   /**
-   * Date after which points will expire.
+   * The date after which the added points will expire.
    * @return expiryDate
    */
   @javax.annotation.Nullable
@@ -293,7 +293,7 @@ public class AddLoyaltyPointsEffectProps {
   }
 
   /**
-   * The identifier of this addition in the loyalty ledger.
+   * The identifier of this loyalty point transaction.
    * @return transactionUUID
    */
   @javax.annotation.Nonnull
@@ -312,7 +312,7 @@ public class AddLoyaltyPointsEffectProps {
   }
 
   /**
-   * The index of the item in the cart items list on which the loyal points addition should be applied.
+   * (_Add points per cart item_ only.) The index of the item in the &#x60;cartItem&#x60; object for which these points were added.
    * @return cartItemPosition
    */
   @javax.annotation.Nullable
@@ -331,7 +331,7 @@ public class AddLoyaltyPointsEffectProps {
   }
 
   /**
-   * For cart items with &#x60;quantity&#x60; &gt; 1, the sub position indicates to which item the loyalty points addition is applied. 
+   * (_Add points per cart item_ ) The index of the item unit in its line item.
    * @return cartItemSubPosition
    */
   @javax.annotation.Nullable
@@ -350,7 +350,7 @@ public class AddLoyaltyPointsEffectProps {
   }
 
   /**
-   * The card on which these points were added.
+   * The identifier of the card on which these points were added.
    * @return cardIdentifier
    */
   @javax.annotation.Nullable
@@ -369,7 +369,7 @@ public class AddLoyaltyPointsEffectProps {
   }
 
   /**
-   * The position of the bundle in a list of item bundles created from the same bundle definition.
+   * _(With bundles only)_ The position of the specific bundle in the list of bundles created from the same bundle definition.
    * @return bundleIndex
    */
   @javax.annotation.Nullable
@@ -388,7 +388,7 @@ public class AddLoyaltyPointsEffectProps {
   }
 
   /**
-   * The name of the bundle definition.
+   * _(With bundles only)_ The name of the bundle definition.
    * @return bundleName
    */
   @javax.annotation.Nullable
@@ -407,7 +407,7 @@ public class AddLoyaltyPointsEffectProps {
   }
 
   /**
-   * If &#x60;true&#x60;, the loyalty points remain pending until a specific action is complete. The &#x60;startDate&#x60; parameter automatically sets to &#x60;on_action&#x60;. 
+   * Indicates whether the points have an action-based start date. This property is returned only for point transactions with an action-based start date.
    * @return awaitsActivation
    */
   @javax.annotation.Nullable
@@ -426,7 +426,7 @@ public class AddLoyaltyPointsEffectProps {
   }
 
   /**
-   * The duration for which the points remain active, calculated relative to the  activation date.    **Note**: This value is returned only if &#x60;awaitsActivation&#x60; is &#x60;true&#x60;  and &#x60;expiryDate&#x60; is not set. 
+   * The duration for which the points remain active, calculated relative to their start date.
    * @return validityDuration
    */
   @javax.annotation.Nullable

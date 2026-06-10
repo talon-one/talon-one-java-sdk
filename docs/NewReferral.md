@@ -13,7 +13,7 @@
 |**campaignId** | **Long** | ID of the campaign from which the referral received the referral code. |  |
 |**advocateProfileIntegrationId** | **String** | The Integration ID of the Advocate&#39;s Profile. |  |
 |**friendProfileIntegrationId** | **String** | An optional Integration ID of the Friend&#39;s Profile. |  [optional] |
-|**attributes** | **Object** | Arbitrary properties associated with this item. |  [optional] |
+|**attributes** | **Object** | Arbitrary properties associated with this campaign. |  [optional] |
 
 
 

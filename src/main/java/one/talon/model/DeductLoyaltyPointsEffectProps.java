@@ -47,9 +47,9 @@ import java.util.Set;
 import one.talon.JSON;
 
 /**
- * The properties specific to the \&quot;deductLoyaltyPoints\&quot; effect. This gets triggered whenever a validated rule contained a condition to only trigger when the given number of loyalty points could be deduced. These points are automatically stored and managed inside Talon.One.
+ * This effect is triggered when a customer redeems loyalty points. The points are deducted from their active point balance.  If the loyalty program is card-based, use the &#x60;cardIdentifier&#x60; property to identify the loyalty card from which these points are deducted.  The Rule Engine deducts points in this order:  - Points with the earliest expiry date are deducted first, regardless of when they were added. - Points with an unlimited expiry date are deducted last. - For points with an unlimited expiry date, the points awarded first are deducted first.  The points only persist when the session is closed.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.22.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.23.0")
 public class DeductLoyaltyPointsEffectProps {
   public static final String SERIALIZED_NAME_RULE_TITLE = "ruleTitle";
   @SerializedName(SERIALIZED_NAME_RULE_TITLE)
@@ -114,7 +114,7 @@ public class DeductLoyaltyPointsEffectProps {
   }
 
   /**
-   * The ID of the loyalty program where these points were added.
+   * The ID of the loyalty program from which these points were deducted.
    * @return programId
    */
   @javax.annotation.Nonnull
@@ -133,7 +133,7 @@ public class DeductLoyaltyPointsEffectProps {
   }
 
   /**
-   * The ID of the subledger within the loyalty program where these points were added.
+   * The ID of the subledger within the loyalty program from which these points were deducted.
    * @return subLedgerId
    */
   @javax.annotation.Nonnull
@@ -171,7 +171,7 @@ public class DeductLoyaltyPointsEffectProps {
   }
 
   /**
-   * The identifier of this deduction in the loyalty ledger.
+   * The identifier of this loyalty point transaction.
    * @return transactionUUID
    */
   @javax.annotation.Nonnull
@@ -190,7 +190,7 @@ public class DeductLoyaltyPointsEffectProps {
   }
 
   /**
-   * The name property gets one of the following two values. It can be the loyalty program name or it can represent a reason for the respective deduction of loyalty points. The latter is an optional value defined in a deduction rule. 
+   * The reason of this loyalty points deduction.
    * @return name
    */
   @javax.annotation.Nonnull
@@ -209,7 +209,7 @@ public class DeductLoyaltyPointsEffectProps {
   }
 
   /**
-   * The card on which these points were added.
+   * The identifier of the card from which these points were deducted.
    * @return cardIdentifier
    */
   @javax.annotation.Nullable

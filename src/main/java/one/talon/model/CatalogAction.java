@@ -48,7 +48,7 @@ import one.talon.JSON;
 /**
  * Definition of all the properties that are needed for a single catalog sync action.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.22.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.23.0")
 public class CatalogAction {
   /**
    * The type of sync action.

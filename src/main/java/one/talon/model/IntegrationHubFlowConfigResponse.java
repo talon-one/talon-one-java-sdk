@@ -48,7 +48,7 @@ import one.talon.JSON;
 /**
  * IntegrationHubFlowConfigResponse
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.22.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.23.0")
 public class IntegrationHubFlowConfigResponse {
   public static final String SERIALIZED_NAME_WORKER_COUNT = "WorkerCount";
   @SerializedName(SERIALIZED_NAME_WORKER_COUNT)

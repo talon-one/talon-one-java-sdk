@@ -26,8 +26,6 @@ import java.util.List;
 import one.talon.model.ScimServiceProviderConfigResponseBulk;
 import one.talon.model.ScimServiceProviderConfigResponseChangePassword;
 import one.talon.model.ScimServiceProviderConfigResponseFilter;
-import one.talon.model.ScimServiceProviderConfigResponsePatch;
-import one.talon.model.ScimServiceProviderConfigResponseSort;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -55,7 +53,7 @@ import one.talon.JSON;
 /**
  * Service provider configuration details.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.22.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.23.0")
 public class ScimServiceProviderConfigResponse {
   public static final String SERIALIZED_NAME_BULK = "bulk";
   @SerializedName(SERIALIZED_NAME_BULK)
@@ -80,7 +78,7 @@ public class ScimServiceProviderConfigResponse {
   public static final String SERIALIZED_NAME_PATCH = "patch";
   @SerializedName(SERIALIZED_NAME_PATCH)
   @javax.annotation.Nullable
-  private ScimServiceProviderConfigResponsePatch patch;
+  private ScimServiceProviderConfigResponseChangePassword patch;
 
   public static final String SERIALIZED_NAME_SCHEMAS = "schemas";
   @SerializedName(SERIALIZED_NAME_SCHEMAS)
@@ -90,7 +88,7 @@ public class ScimServiceProviderConfigResponse {
   public static final String SERIALIZED_NAME_SORT = "sort";
   @SerializedName(SERIALIZED_NAME_SORT)
   @javax.annotation.Nullable
-  private ScimServiceProviderConfigResponseSort sort;
+  private ScimServiceProviderConfigResponseChangePassword sort;
 
   public ScimServiceProviderConfigResponse() {
   }
@@ -171,7 +169,7 @@ public class ScimServiceProviderConfigResponse {
   }
 
 
-  public ScimServiceProviderConfigResponse patch(@javax.annotation.Nullable ScimServiceProviderConfigResponsePatch patch) {
+  public ScimServiceProviderConfigResponse patch(@javax.annotation.Nullable ScimServiceProviderConfigResponseChangePassword patch) {
     this.patch = patch;
     return this;
   }
@@ -181,11 +179,11 @@ public class ScimServiceProviderConfigResponse {
    * @return patch
    */
   @javax.annotation.Nullable
-  public ScimServiceProviderConfigResponsePatch getPatch() {
+  public ScimServiceProviderConfigResponseChangePassword getPatch() {
     return patch;
   }
 
-  public void setPatch(@javax.annotation.Nullable ScimServiceProviderConfigResponsePatch patch) {
+  public void setPatch(@javax.annotation.Nullable ScimServiceProviderConfigResponseChangePassword patch) {
     this.patch = patch;
   }
 
@@ -217,7 +215,7 @@ public class ScimServiceProviderConfigResponse {
   }
 
 
-  public ScimServiceProviderConfigResponse sort(@javax.annotation.Nullable ScimServiceProviderConfigResponseSort sort) {
+  public ScimServiceProviderConfigResponse sort(@javax.annotation.Nullable ScimServiceProviderConfigResponseChangePassword sort) {
     this.sort = sort;
     return this;
   }
@@ -227,11 +225,11 @@ public class ScimServiceProviderConfigResponse {
    * @return sort
    */
   @javax.annotation.Nullable
-  public ScimServiceProviderConfigResponseSort getSort() {
+  public ScimServiceProviderConfigResponseChangePassword getSort() {
     return sort;
   }
 
-  public void setSort(@javax.annotation.Nullable ScimServiceProviderConfigResponseSort sort) {
+  public void setSort(@javax.annotation.Nullable ScimServiceProviderConfigResponseChangePassword sort) {
     this.sort = sort;
   }
 
@@ -371,7 +369,7 @@ public class ScimServiceProviderConfigResponse {
       }
       // validate the optional field `patch`
       if (jsonObj.get("patch") != null && !jsonObj.get("patch").isJsonNull()) {
-        ScimServiceProviderConfigResponsePatch.validateJsonElement(jsonObj.get("patch"));
+        ScimServiceProviderConfigResponseChangePassword.validateJsonElement(jsonObj.get("patch"));
       }
       // ensure the optional json data is an array if present
       if (jsonObj.get("schemas") != null && !jsonObj.get("schemas").isJsonNull() && !jsonObj.get("schemas").isJsonArray()) {
@@ -379,7 +377,7 @@ public class ScimServiceProviderConfigResponse {
       }
       // validate the optional field `sort`
       if (jsonObj.get("sort") != null && !jsonObj.get("sort").isJsonNull()) {
-        ScimServiceProviderConfigResponseSort.validateJsonElement(jsonObj.get("sort"));
+        ScimServiceProviderConfigResponseChangePassword.validateJsonElement(jsonObj.get("sort"));
       }
   }
 

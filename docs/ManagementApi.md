@@ -138,6 +138,7 @@ All URIs are relative to *https://yourbaseurl.talon.one*
 | [**importCoupons**](ManagementApi.md#importCoupons) | **POST** /v1/applications/{applicationId}/campaigns/{campaignId}/import_coupons | Import coupons |
 | [**importLoyaltyCards**](ManagementApi.md#importLoyaltyCards) | **POST** /v1/loyalty_programs/{loyaltyProgramId}/import_cards | Import loyalty cards |
 | [**importLoyaltyCustomersTiers**](ManagementApi.md#importLoyaltyCustomersTiers) | **POST** /v1/loyalty_programs/{loyaltyProgramId}/import_customers_tiers | Import customers into loyalty tiers |
+| [**importLoyaltyJoinDates**](ManagementApi.md#importLoyaltyJoinDates) | **POST** /v1/loyalty_programs/{loyaltyProgramId}/import_join_dates | Import join dates for a loyalty program |
 | [**importLoyaltyPoints**](ManagementApi.md#importLoyaltyPoints) | **POST** /v1/loyalty_programs/{loyaltyProgramId}/import_points | Import loyalty points |
 | [**importPoolGiveaways**](ManagementApi.md#importPoolGiveaways) | **POST** /v1/giveaways/pools/{poolId}/import | Import giveaway codes into a giveaway pool |
 | [**importReferrals**](ManagementApi.md#importReferrals) | **POST** /v1/applications/{applicationId}/campaigns/{campaignId}/import_referrals | Import referrals |
@@ -3562,7 +3563,7 @@ public class Example {
 
 <a id="exportCustomerSessions"></a>
 # **exportCustomerSessions**
-> String exportCustomerSessions(applicationId, createdBefore, createdAfter, profileIntegrationId, dateFormat, customerSessionState)
+> String exportCustomerSessions(applicationId, createdBefore, createdAfter, updatedBefore, updatedAfter, profileIntegrationId, dateFormat, customerSessionState)
 
 Export customer sessions
 
@@ -3593,11 +3594,13 @@ public class Example {
     Long applicationId = 56L; // Long | The ID of the Application. It is displayed in your Talon.One deployment URL.
     OffsetDateTime createdBefore = OffsetDateTime.now(); // OffsetDateTime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string.
     OffsetDateTime createdAfter = OffsetDateTime.now(); // OffsetDateTime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string.
+    OffsetDateTime updatedBefore = OffsetDateTime.now(); // OffsetDateTime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string.
+    OffsetDateTime updatedAfter = OffsetDateTime.now(); // OffsetDateTime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string.
     String profileIntegrationId = "profileIntegrationId_example"; // String | Only return sessions for the customer that matches this customer integration ID.
     String dateFormat = "excel"; // String | Determines the format of dates in the export document.
     String customerSessionState = "open"; // String | Filter results by state.
     try {
-      String result = apiInstance.exportCustomerSessions(applicationId, createdBefore, createdAfter, profileIntegrationId, dateFormat, customerSessionState);
+      String result = apiInstance.exportCustomerSessions(applicationId, createdBefore, createdAfter, updatedBefore, updatedAfter, profileIntegrationId, dateFormat, customerSessionState);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ManagementApi#exportCustomerSessions");
@@ -3617,6 +3620,8 @@ public class Example {
 | **applicationId** | **Long**| The ID of the Application. It is displayed in your Talon.One deployment URL. | |
 | **createdBefore** | **OffsetDateTime**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string. | [optional] |
 | **createdAfter** | **OffsetDateTime**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string. | [optional] |
+| **updatedBefore** | **OffsetDateTime**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string. | [optional] |
+| **updatedAfter** | **OffsetDateTime**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string. | [optional] |
 | **profileIntegrationId** | **String**| Only return sessions for the customer that matches this customer integration ID. | [optional] |
 | **dateFormat** | **String**| Determines the format of dates in the export document. | [optional] [enum: excel, ISO8601] |
 | **customerSessionState** | **String**| Filter results by state. | [optional] [enum: open, closed, partially_returned, cancelled] |
@@ -4099,7 +4104,7 @@ public class Example {
 
 Export loyalty cards
 
-Download a CSV file containing the loyalty cards from a specified loyalty program.  &gt; [!tip] If the exported CSV file is too large to view, you can &gt; [split it into multiple files](https://www.google.com/search?q&#x3D;split+CSV+into+multiple+files).  The CSV file contains the following columns:  - &#x60;identifier&#x60;: The unique identifier of the loyalty card. - &#x60;created&#x60;: The date and time the loyalty card was created. - &#x60;status&#x60;: The status of the loyalty card. - &#x60;userpercardlimit&#x60;: The maximum number of customer profiles that can be linked to the card. - &#x60;customerprofileids&#x60;: Integration IDs of the customer profiles linked to the card. - &#x60;blockreason&#x60;: The reason for transferring and blocking the loyalty card. - &#x60;generated&#x60;: An indicator of whether the loyalty card was generated. - &#x60;batchid&#x60;: The ID of the batch the loyalty card is in. - &#x60;attributes&#x60;: The custom attributes of this loyalty card. Currently, this feature is only available upon request. 
+Download a CSV file containing the loyalty cards from a specified loyalty program.  &gt; [!tip] If the exported CSV file is too large to view, you can &gt; [split it into multiple files](https://www.google.com/search?q&#x3D;split+CSV+into+multiple+files).  The CSV file contains the following columns:  - &#x60;identifier&#x60;: The unique identifier of the loyalty card. - &#x60;created&#x60;: The date and time the loyalty card was created. - &#x60;status&#x60;: The status of the loyalty card. - &#x60;userpercardlimit&#x60;: The maximum number of customer profiles that can be linked to the card. - &#x60;customerprofileids&#x60;: Integration IDs of the customer profiles linked to the card. - &#x60;blockreason&#x60;: The reason for transferring and blocking the loyalty card. - &#x60;generated&#x60;: An indicator of whether the loyalty card was generated. - &#x60;batchid&#x60;: The ID of the batch the loyalty card is in. - &#x60;attributes&#x60;: The custom attributes of this loyalty card. 
 
 ### Example
 ```java
@@ -6323,7 +6328,7 @@ public class Example {
     //api_key_v1.setApiKeyPrefix("Token");
 
     ManagementApi apiInstance = new ManagementApi(defaultClient);
-    String audienceIds = "audienceIds_example"; // String | The IDs of one or more audiences, separated by commas, by which to filter results.
+    String audienceIds = "audienceIds_example"; // String | The IDs of one or more audiences, separated by commas, by which to filter results. Do not provide more than 1000 audience IDs.
     String sort = "sort_example"; // String | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations. 
     try {
       GetAudiencesAnalytics200Response result = apiInstance.getAudiencesAnalytics(audienceIds, sort);
@@ -6343,7 +6348,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **audienceIds** | **String**| The IDs of one or more audiences, separated by commas, by which to filter results. | |
+| **audienceIds** | **String**| The IDs of one or more audiences, separated by commas, by which to filter results. Do not provide more than 1000 audience IDs. | |
 | **sort** | **String**| The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.  | [optional] |
 
 ### Return type
@@ -10182,7 +10187,7 @@ public class Example {
 
 Import loyalty cards
 
-Upload a CSV file containing the loyalty cards that you want to use in your card-based loyalty program.  Send the file as multipart data.  It contains the following columns for each card:  - &#x60;identifier&#x60; (required): The identifier of the loyalty card, which must match the regular expression &#x60;^[A-Za-z0-9._%+@-]+$&#x60;. - &#x60;state&#x60; (required): The state of the loyalty card. It can be &#x60;active&#x60; or &#x60;inactive&#x60;. - &#x60;customerprofileids&#x60; (optional): An array of strings representing the identifiers of the customer profiles linked to the loyalty card. The identifiers should be separated with a semicolon (;).  &gt; [!note] Your CSV file must contain less than 500,000 rows. Requests time out after 30 seconds.  ## Example  &#x60;&#x60;&#x60;csv identifier,state,customerprofileids 123-456-789AT,active,Alexa001;UserA &#x60;&#x60;&#x60; 
+Upload a CSV file containing the loyalty cards that you want to use in your card-based loyalty program.  Send the file as multipart data.  It contains the following columns for each card:  - &#x60;identifier&#x60; (required): The identifier of the loyalty card, which must match the regular expression &#x60;^[A-Za-z0-9._%+@-]+$&#x60;. - &#x60;state&#x60; (required): The state of the loyalty card. It can be &#x60;active&#x60; or &#x60;inactive&#x60;. - &#x60;customerprofileids&#x60; (optional): An array of strings representing the identifiers of the customer profiles linked to the loyalty card. The identifiers should be separated with a semicolon (;). - &#x60;attributes&#x60; (optional): A JSON object that contains the loyalty card&#39;s custom attributes and their values. These attributes must be created and connected to this loyalty program before they can be assigned to the cards through this endpoint.  &gt; [!note] Your CSV file must contain less than 500,000 rows. Requests time out after 30 seconds.  ## Example  &#x60;&#x60;&#x60;csv identifier,state,customerprofileids,attributes 123-456-789AT,active,Alexa001;UserA,&#39;{\&quot;\&quot;my_attributes\&quot;\&quot;: \&quot;\&quot;10_off\&quot;\&quot;}\&quot; &#x60;&#x60;&#x60; 
 
 ### Example
 ```java
@@ -10300,6 +10305,80 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **loyaltyProgramId** | **Long**| Identifier of the loyalty program. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint.  | |
+| **upFile** | **File**| The CSV file containing the data that is being imported. | [optional] |
+
+### Return type
+
+[**ModelImport**](ModelImport.md)
+
+### Authorization
+
+[api_key_v1](../README.md#api_key_v1)
+
+### HTTP request headers
+
+ - **Content-Type**: multipart/form-data
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **400** | Bad request |  -  |
+| **401** | Unauthorized |  -  |
+| **404** | Not found |  -  |
+
+<a id="importLoyaltyJoinDates"></a>
+# **importLoyaltyJoinDates**
+> ModelImport importLoyaltyJoinDates(loyaltyProgramId, upFile)
+
+Import join dates for a loyalty program
+
+Upload a CSV file containing customer profile IDs and their join dates for the specified loyalty program. Send the file as multipart data.  &gt; [!important] This endpoint only works with profile-based loyalty programs.  The CSV file **must** contain the following columns:  - &#x60;customerprofileid&#x60;: The integration ID of the customer profile whose join   date you want to update. - &#x60;newjoindate&#x60;: The new join date for the customer in RFC3339 format. You   can use the time zone of your choice. It is converted to UTC internally   by Talon.One.  **Note**: - Customer profiles must already exist. If a referenced profile does not exist, the import fails with a &#x60;400&#x60; error. - If a join date already exists for a profile, the uploaded date replaces it.  &gt; [!note] We recommend limiting your file size to 500 MB.  ## Example  &#x60;&#x60;&#x60;csv customerprofileid,newjoindate customer1,2024-03-21T07:32:14Z customer2,2025-04-16T21:12:37Z customer3,2026-05-03T11:47:01Z &#x60;&#x60;&#x60; 
+
+### Example
+```java
+// Import classes:
+import one.talon.ApiClient;
+import one.talon.ApiException;
+import one.talon.Configuration;
+import one.talon.auth.*;
+import one.talon.models.*;
+import one.talon.api.ManagementApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://yourbaseurl.talon.one");
+    
+    // Configure API key authorization: api_key_v1
+    ApiKeyAuth api_key_v1 = (ApiKeyAuth) defaultClient.getAuthentication("api_key_v1");
+    api_key_v1.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //api_key_v1.setApiKeyPrefix("Token");
+
+    ManagementApi apiInstance = new ManagementApi(defaultClient);
+    Long loyaltyProgramId = 56L; // Long | Identifier of the profile-based loyalty program. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. 
+    File upFile = new File("/path/to/file"); // File | The CSV file containing the data that is being imported.
+    try {
+      ModelImport result = apiInstance.importLoyaltyJoinDates(loyaltyProgramId, upFile);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling ManagementApi#importLoyaltyJoinDates");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **loyaltyProgramId** | **Long**| Identifier of the profile-based loyalty program. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint.  | |
 | **upFile** | **File**| The CSV file containing the data that is being imported. | [optional] |
 
 ### Return type
@@ -10832,7 +10911,7 @@ This endpoint does not need any parameter.
 
 <a id="listApplicationCartItemFilters"></a>
 # **listApplicationCartItemFilters**
-> ListApplicationCartItemFilters200Response listApplicationCartItemFilters(applicationId, pageSize, skip, title)
+> ListApplicationCartItemFilters200Response listApplicationCartItemFilters(applicationId, pageSize, skip, name)
 
 List Application cart item filters
 
@@ -10863,9 +10942,9 @@ public class Example {
     Long applicationId = 56L; // Long | The ID of the Application. It is displayed in your Talon.One deployment URL.
     Long pageSize = 50L; // Long | The number of items in the response.
     Long skip = 56L; // Long | The number of items to skip when paging through large result sets.
-    String title = "title_example"; // String | Filter by the display name of the Application cart item filter in the Application.  **Note**: If no `title` is provided, all the Application cart item filters in the Application are returned. 
+    String name = "name_example"; // String | Filter by the display name of the Application cart item filter in the Application.  **Note**: If no `name` is provided, all the Application cart item filters in the Application are returned. 
     try {
-      ListApplicationCartItemFilters200Response result = apiInstance.listApplicationCartItemFilters(applicationId, pageSize, skip, title);
+      ListApplicationCartItemFilters200Response result = apiInstance.listApplicationCartItemFilters(applicationId, pageSize, skip, name);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ManagementApi#listApplicationCartItemFilters");
@@ -10885,7 +10964,7 @@ public class Example {
 | **applicationId** | **Long**| The ID of the Application. It is displayed in your Talon.One deployment URL. | |
 | **pageSize** | **Long**| The number of items in the response. | [optional] [default to 50] |
 | **skip** | **Long**| The number of items to skip when paging through large result sets. | [optional] |
-| **title** | **String**| Filter by the display name of the Application cart item filter in the Application.  **Note**: If no &#x60;title&#x60; is provided, all the Application cart item filters in the Application are returned.  | [optional] |
+| **name** | **String**| Filter by the display name of the Application cart item filter in the Application.  **Note**: If no &#x60;name&#x60; is provided, all the Application cart item filters in the Application are returned.  | [optional] |
 
 ### Return type
 

@@ -47,9 +47,9 @@ import java.util.Set;
 import one.talon.JSON;
 
 /**
- * The properties specific to the \&quot;rollbackIncreasedAchievementProgress\&quot; effect. This gets triggered whenever a closed session where the &#x60;increaseAchievementProgress&#x60; effect was triggered is cancelled. This is applicable only when the customer has not completed the achievement.
+ * This effect indicates that the customer&#39;s progress in an achievement was rolled back.  The Rule Engine triggers this effect when you cancel or [reopen a customer session](https://docs.talon.one/integration-api#tag/Customer-sessions/operation/reopenCustomerSession) that previously validated the [Update customer progress](https://docs.talon.one/docs/product/rules/effects/use-effects#update-customer-progress) effect and triggered the [increaseAchievementProgress](https://docs.talon.one/docs/dev/integration-api/api-effects#increaseachievementprogress) API effect.  The effect is also triggered for completed achievements if the **Allow progress rollback for completed achievements** setting is enabled. You can enable this through the [Campaign Manager](https://docs.talon.one/docs/product/campaigns/achievements/manage-achievements) or the [Management API](https://docs.talon.one/management-api#tag/Achievements/operation/createAchievement) by setting the &#x60;achievementAllowRollbackAfterCompletion&#x60; property to &#x60;true&#x60;. This setting only applies to one-time and recurring on expiration achievements.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.22.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.23.0")
 public class RollbackIncreasedAchievementProgressEffectProps {
   public static final String SERIALIZED_NAME_ACHIEVEMENT_ID = "achievementId";
   @SerializedName(SERIALIZED_NAME_ACHIEVEMENT_ID)
@@ -147,7 +147,7 @@ public class RollbackIncreasedAchievementProgressEffectProps {
   }
 
   /**
-   * The value by which the customer&#39;s current progress in the achievement is decreased.
+   * The value by which the customer&#39;s current progress in the achievement has decreased.
    * @return decreaseProgressBy
    */
   @javax.annotation.Nonnull

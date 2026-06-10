@@ -125,6 +125,7 @@ docs/CampaignEditedNotification.md
 docs/CampaignEditedNotificationItem.md
 docs/CampaignEligibility.md
 docs/CampaignEligibilityDetails.md
+docs/CampaignEligibilityExperiment.md
 docs/CampaignEligibilityFailureDetails.md
 docs/CampaignEntity.md
 docs/CampaignEvaluationGroup.md
@@ -251,6 +252,8 @@ docs/EventV3Entity.md
 docs/EventV3RequestEntity.md
 docs/Experiment.md
 docs/ExperimentCampaignCopy.md
+docs/ExperimentConfidenceTimeline.md
+docs/ExperimentConfidenceTimelineDataPoint.md
 docs/ExperimentCopy.md
 docs/ExperimentCopyExperiment.md
 docs/ExperimentListResults.md
@@ -367,13 +370,13 @@ docs/IntegrationGetAllCampaigns200Response.md
 docs/IntegrationHubConfig.md
 docs/IntegrationHubEventPayloadCouponBasedNotifications.md
 docs/IntegrationHubEventPayloadCouponBasedNotificationsLimits.md
-docs/IntegrationHubEventPayloadLoyaltyProfileBasedNotification.md
 docs/IntegrationHubEventPayloadLoyaltyProfileBasedPointsChangedNotification.md
 docs/IntegrationHubEventPayloadLoyaltyProfileBasedPointsChangedNotificationAction.md
 docs/IntegrationHubEventPayloadLoyaltyProfileBasedTierDowngradeNotification.md
 docs/IntegrationHubEventPayloadLoyaltyProfileBasedTierUpgradeNotification.md
 docs/IntegrationHubEventRecord.md
 docs/IntegrationHubEventStatusUpdate.md
+docs/IntegrationHubEventType.md
 docs/IntegrationHubFlow.md
 docs/IntegrationHubFlowConfig.md
 docs/IntegrationHubFlowConfigResponse.md
@@ -634,8 +637,6 @@ docs/ScimServiceProviderConfigResponse.md
 docs/ScimServiceProviderConfigResponseBulk.md
 docs/ScimServiceProviderConfigResponseChangePassword.md
 docs/ScimServiceProviderConfigResponseFilter.md
-docs/ScimServiceProviderConfigResponsePatch.md
-docs/ScimServiceProviderConfigResponseSort.md
 docs/ScimUser.md
 docs/ScimUsersListResponse.md
 docs/SecondaryDeployment.md
@@ -703,7 +704,6 @@ docs/UpdateCoupon.md
 docs/UpdateCouponBatch.md
 docs/UpdateCouponsData.md
 docs/UpdateCustomEffect.md
-docs/UpdateCustomerProfileV2409Response.md
 docs/UpdateCustomerSessionV2409Response.md
 docs/UpdateExperiment.md
 docs/UpdateExperimentVariant.md
@@ -718,6 +718,7 @@ docs/UpdatePriceType.md
 docs/UpdateReferral.md
 docs/UpdateReferralBatch.md
 docs/UpdateReward.md
+docs/UpdateRiskNotification.md
 docs/UpdateRole.md
 docs/UpdateStore.md
 docs/UpdateSupportRequest.md
@@ -874,6 +875,7 @@ src/main/java/one/talon/model/CampaignEditedNotification.java
 src/main/java/one/talon/model/CampaignEditedNotificationItem.java
 src/main/java/one/talon/model/CampaignEligibility.java
 src/main/java/one/talon/model/CampaignEligibilityDetails.java
+src/main/java/one/talon/model/CampaignEligibilityExperiment.java
 src/main/java/one/talon/model/CampaignEligibilityFailureDetails.java
 src/main/java/one/talon/model/CampaignEntity.java
 src/main/java/one/talon/model/CampaignEvaluationGroup.java
@@ -1000,6 +1002,8 @@ src/main/java/one/talon/model/EventV3Entity.java
 src/main/java/one/talon/model/EventV3RequestEntity.java
 src/main/java/one/talon/model/Experiment.java
 src/main/java/one/talon/model/ExperimentCampaignCopy.java
+src/main/java/one/talon/model/ExperimentConfidenceTimeline.java
+src/main/java/one/talon/model/ExperimentConfidenceTimelineDataPoint.java
 src/main/java/one/talon/model/ExperimentCopy.java
 src/main/java/one/talon/model/ExperimentCopyExperiment.java
 src/main/java/one/talon/model/ExperimentListResults.java
@@ -1115,13 +1119,13 @@ src/main/java/one/talon/model/IntegrationGetAllCampaigns200Response.java
 src/main/java/one/talon/model/IntegrationHubConfig.java
 src/main/java/one/talon/model/IntegrationHubEventPayloadCouponBasedNotifications.java
 src/main/java/one/talon/model/IntegrationHubEventPayloadCouponBasedNotificationsLimits.java
-src/main/java/one/talon/model/IntegrationHubEventPayloadLoyaltyProfileBasedNotification.java
 src/main/java/one/talon/model/IntegrationHubEventPayloadLoyaltyProfileBasedPointsChangedNotification.java
 src/main/java/one/talon/model/IntegrationHubEventPayloadLoyaltyProfileBasedPointsChangedNotificationAction.java
 src/main/java/one/talon/model/IntegrationHubEventPayloadLoyaltyProfileBasedTierDowngradeNotification.java
 src/main/java/one/talon/model/IntegrationHubEventPayloadLoyaltyProfileBasedTierUpgradeNotification.java
 src/main/java/one/talon/model/IntegrationHubEventRecord.java
 src/main/java/one/talon/model/IntegrationHubEventStatusUpdate.java
+src/main/java/one/talon/model/IntegrationHubEventType.java
 src/main/java/one/talon/model/IntegrationHubFlow.java
 src/main/java/one/talon/model/IntegrationHubFlowConfig.java
 src/main/java/one/talon/model/IntegrationHubFlowConfigResponse.java
@@ -1381,8 +1385,6 @@ src/main/java/one/talon/model/ScimServiceProviderConfigResponse.java
 src/main/java/one/talon/model/ScimServiceProviderConfigResponseBulk.java
 src/main/java/one/talon/model/ScimServiceProviderConfigResponseChangePassword.java
 src/main/java/one/talon/model/ScimServiceProviderConfigResponseFilter.java
-src/main/java/one/talon/model/ScimServiceProviderConfigResponsePatch.java
-src/main/java/one/talon/model/ScimServiceProviderConfigResponseSort.java
 src/main/java/one/talon/model/ScimUser.java
 src/main/java/one/talon/model/ScimUsersListResponse.java
 src/main/java/one/talon/model/SecondaryDeployment.java
@@ -1450,7 +1452,6 @@ src/main/java/one/talon/model/UpdateCoupon.java
 src/main/java/one/talon/model/UpdateCouponBatch.java
 src/main/java/one/talon/model/UpdateCouponsData.java
 src/main/java/one/talon/model/UpdateCustomEffect.java
-src/main/java/one/talon/model/UpdateCustomerProfileV2409Response.java
 src/main/java/one/talon/model/UpdateCustomerSessionV2409Response.java
 src/main/java/one/talon/model/UpdateExperiment.java
 src/main/java/one/talon/model/UpdateExperimentVariant.java
@@ -1465,6 +1466,7 @@ src/main/java/one/talon/model/UpdatePriceType.java
 src/main/java/one/talon/model/UpdateReferral.java
 src/main/java/one/talon/model/UpdateReferralBatch.java
 src/main/java/one/talon/model/UpdateReward.java
+src/main/java/one/talon/model/UpdateRiskNotification.java
 src/main/java/one/talon/model/UpdateRole.java
 src/main/java/one/talon/model/UpdateStore.java
 src/main/java/one/talon/model/UpdateSupportRequest.java
@@ -1592,6 +1594,7 @@ src/test/java/one/talon/model/CampaignDetailTest.java
 src/test/java/one/talon/model/CampaignEditedNotificationItemTest.java
 src/test/java/one/talon/model/CampaignEditedNotificationTest.java
 src/test/java/one/talon/model/CampaignEligibilityDetailsTest.java
+src/test/java/one/talon/model/CampaignEligibilityExperimentTest.java
 src/test/java/one/talon/model/CampaignEligibilityFailureDetailsTest.java
 src/test/java/one/talon/model/CampaignEligibilityTest.java
 src/test/java/one/talon/model/CampaignEntityTest.java
@@ -1719,6 +1722,8 @@ src/test/java/one/talon/model/EventV3EntityTest.java
 src/test/java/one/talon/model/EventV3RequestEntityTest.java
 src/test/java/one/talon/model/EventV3Test.java
 src/test/java/one/talon/model/ExperimentCampaignCopyTest.java
+src/test/java/one/talon/model/ExperimentConfidenceTimelineDataPointTest.java
+src/test/java/one/talon/model/ExperimentConfidenceTimelineTest.java
 src/test/java/one/talon/model/ExperimentCopyExperimentTest.java
 src/test/java/one/talon/model/ExperimentCopyTest.java
 src/test/java/one/talon/model/ExperimentListResultsRequestTest.java
@@ -1835,13 +1840,13 @@ src/test/java/one/talon/model/IntegrationGetAllCampaigns200ResponseTest.java
 src/test/java/one/talon/model/IntegrationHubConfigTest.java
 src/test/java/one/talon/model/IntegrationHubEventPayloadCouponBasedNotificationsLimitsTest.java
 src/test/java/one/talon/model/IntegrationHubEventPayloadCouponBasedNotificationsTest.java
-src/test/java/one/talon/model/IntegrationHubEventPayloadLoyaltyProfileBasedNotificationTest.java
 src/test/java/one/talon/model/IntegrationHubEventPayloadLoyaltyProfileBasedPointsChangedNotificationActionTest.java
 src/test/java/one/talon/model/IntegrationHubEventPayloadLoyaltyProfileBasedPointsChangedNotificationTest.java
 src/test/java/one/talon/model/IntegrationHubEventPayloadLoyaltyProfileBasedTierDowngradeNotificationTest.java
 src/test/java/one/talon/model/IntegrationHubEventPayloadLoyaltyProfileBasedTierUpgradeNotificationTest.java
 src/test/java/one/talon/model/IntegrationHubEventRecordTest.java
 src/test/java/one/talon/model/IntegrationHubEventStatusUpdateTest.java
+src/test/java/one/talon/model/IntegrationHubEventTypeTest.java
 src/test/java/one/talon/model/IntegrationHubFlowConfigResponseTest.java
 src/test/java/one/talon/model/IntegrationHubFlowConfigTest.java
 src/test/java/one/talon/model/IntegrationHubFlowResponseTest.java
@@ -2100,8 +2105,6 @@ src/test/java/one/talon/model/ScimSchemasListResponseTest.java
 src/test/java/one/talon/model/ScimServiceProviderConfigResponseBulkTest.java
 src/test/java/one/talon/model/ScimServiceProviderConfigResponseChangePasswordTest.java
 src/test/java/one/talon/model/ScimServiceProviderConfigResponseFilterTest.java
-src/test/java/one/talon/model/ScimServiceProviderConfigResponsePatchTest.java
-src/test/java/one/talon/model/ScimServiceProviderConfigResponseSortTest.java
 src/test/java/one/talon/model/ScimServiceProviderConfigResponseTest.java
 src/test/java/one/talon/model/ScimUserTest.java
 src/test/java/one/talon/model/ScimUsersListResponseTest.java
@@ -2170,7 +2173,6 @@ src/test/java/one/talon/model/UpdateCouponBatchTest.java
 src/test/java/one/talon/model/UpdateCouponTest.java
 src/test/java/one/talon/model/UpdateCouponsDataTest.java
 src/test/java/one/talon/model/UpdateCustomEffectTest.java
-src/test/java/one/talon/model/UpdateCustomerProfileV2409ResponseTest.java
 src/test/java/one/talon/model/UpdateCustomerSessionV2409ResponseTest.java
 src/test/java/one/talon/model/UpdateExperimentTest.java
 src/test/java/one/talon/model/UpdateExperimentVariantArrayTest.java
@@ -2185,6 +2187,7 @@ src/test/java/one/talon/model/UpdatePriceTypeTest.java
 src/test/java/one/talon/model/UpdateReferralBatchTest.java
 src/test/java/one/talon/model/UpdateReferralTest.java
 src/test/java/one/talon/model/UpdateRewardTest.java
+src/test/java/one/talon/model/UpdateRiskNotificationTest.java
 src/test/java/one/talon/model/UpdateRoleTest.java
 src/test/java/one/talon/model/UpdateStoreTest.java
 src/test/java/one/talon/model/UpdateSupportRequestTest.java

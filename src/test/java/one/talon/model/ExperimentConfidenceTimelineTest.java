@@ -22,45 +22,30 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import one.talon.model.ExperimentConfidenceTimelineDataPoint;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 /**
- * Model tests for UpdateCustomerProfileV2409Response
+ * Model tests for ExperimentConfidenceTimeline
  */
-public class UpdateCustomerProfileV2409ResponseTest {
-    private final UpdateCustomerProfileV2409Response model = new UpdateCustomerProfileV2409Response();
+public class ExperimentConfidenceTimelineTest {
+    private final ExperimentConfidenceTimeline model = new ExperimentConfidenceTimeline();
 
     /**
-     * Model tests for UpdateCustomerProfileV2409Response
+     * Model tests for ExperimentConfidenceTimeline
      */
     @Test
-    public void testUpdateCustomerProfileV2409Response() {
-        // TODO: test UpdateCustomerProfileV2409Response
+    public void testExperimentConfidenceTimeline() {
+        // TODO: test ExperimentConfidenceTimeline
     }
 
     /**
-     * Test the property 'message'
+     * Test the property 'data'
      */
     @Test
-    public void messageTest() {
-        // TODO: test message
-    }
-
-    /**
-     * Test the property 'errors'
-     */
-    @Test
-    public void errorsTest() {
-        // TODO: test errors
-    }
-
-    /**
-     * Test the property 'statusCode'
-     */
-    @Test
-    public void statusCodeTest() {
-        // TODO: test statusCode
+    public void dataTest() {
+        // TODO: test data
     }
 
 }
