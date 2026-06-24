@@ -25,6 +25,7 @@ import java.util.List;
 import one.talon.model.Campaign;
 import one.talon.model.CampaignEligibility;
 import one.talon.model.Coupon;
+import one.talon.model.CustomerAchievement;
 import one.talon.model.CustomerProfile;
 import one.talon.model.Effect;
 import one.talon.model.EventV3;
@@ -119,6 +120,14 @@ public class IntegrationEventV3ResponseTest {
     @Test
     public void awardedGiveawaysTest() {
         // TODO: test awardedGiveaways
+    }
+
+    /**
+     * Test the property 'achievements'
+     */
+    @Test
+    public void achievementsTest() {
+        // TODO: test achievements
     }
 
     /**

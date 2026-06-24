@@ -42,7 +42,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>one.talon</groupId>
   <artifactId>talon-one-client</artifactId>
-  <version>26.12.0</version>
+  <version>26.13.0</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -52,7 +52,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "one.talon:talon-one-client:26.12.0"
+compile "one.talon:talon-one-client:26.13.0"
 ```
 
 ### Others
@@ -232,6 +232,7 @@ Class | Method | HTTP request | Description
 *IntegrationApi* | [**getLoyaltyProgramProfileTransactions**](docs/IntegrationApi.md#getLoyaltyProgramProfileTransactions) | **GET** /v1/loyalty_programs/{loyaltyProgramId}/profile/{integrationId}/transactions | List customer&#39;s loyalty transactions
 *IntegrationApi* | [**getReservedCustomers**](docs/IntegrationApi.md#getReservedCustomers) | **GET** /v1/coupon_reservations/customerprofiles/{couponValue} | List customers that have this coupon reserved
 *IntegrationApi* | [**integrationGetAllCampaigns**](docs/IntegrationApi.md#integrationGetAllCampaigns) | **GET** /v1/integration/campaigns | List all running campaigns
+*IntegrationApi* | [**joinLoyaltyProgram**](docs/IntegrationApi.md#joinLoyaltyProgram) | **POST** /v1/loyalty_programs/{loyaltyProgramId}/profile/{integrationId}/join | Join customer profile to loyalty program
 *IntegrationApi* | [**linkLoyaltyCardToProfile**](docs/IntegrationApi.md#linkLoyaltyCardToProfile) | **POST** /v2/loyalty_programs/{loyaltyProgramId}/cards/{loyaltyCardId}/link_profile | Link customer profile to card
 *IntegrationApi* | [**reopenCustomerSession**](docs/IntegrationApi.md#reopenCustomerSession) | **PUT** /v2/customer_sessions/{customerSessionId}/reopen | Reopen customer session
 *IntegrationApi* | [**returnCartItems**](docs/IntegrationApi.md#returnCartItems) | **POST** /v2/customer_sessions/{customerSessionId}/returns | Return cart items
@@ -364,6 +365,7 @@ Class | Method | HTTP request | Description
 *ManagementApi* | [**getReferralsWithoutTotalCount**](docs/ManagementApi.md#getReferralsWithoutTotalCount) | **GET** /v1/applications/{applicationId}/campaigns/{campaignId}/referrals/no_total | List referrals
 *ManagementApi* | [**getRoleV2**](docs/ManagementApi.md#getRoleV2) | **GET** /v2/roles/{roleId} | Get role
 *ManagementApi* | [**getRuleset**](docs/ManagementApi.md#getRuleset) | **GET** /v1/applications/{applicationId}/campaigns/{campaignId}/rulesets/{rulesetId} | Get ruleset
+*ManagementApi* | [**getRulesetV2**](docs/ManagementApi.md#getRulesetV2) | **GET** /v2/applications/{applicationId}/campaigns/{campaignId}/rulesets/{rulesetId} | Get ruleset (V2)
 *ManagementApi* | [**getRulesets**](docs/ManagementApi.md#getRulesets) | **GET** /v1/applications/{applicationId}/campaigns/{campaignId}/rulesets | List campaign rulesets
 *ManagementApi* | [**getStore**](docs/ManagementApi.md#getStore) | **GET** /v1/applications/{applicationId}/stores/{storeId} | Get store
 *ManagementApi* | [**getUser**](docs/ManagementApi.md#getUser) | **GET** /v1/users/{userId} | Get user
@@ -512,6 +514,7 @@ Class | Method | HTTP request | Description
 - [AudienceMembership](docs/AudienceMembership.md)
 - [AudienceReference](docs/AudienceReference.md)
 - [AwardGiveawayEffectProps](docs/AwardGiveawayEffectProps.md)
+- [BaseBlock](docs/BaseBlock.md)
 - [BaseCampaign](docs/BaseCampaign.md)
 - [BaseLoyaltyProgram](docs/BaseLoyaltyProgram.md)
 - [BaseNotification](docs/BaseNotification.md)
@@ -629,6 +632,7 @@ Class | Method | HTTP request | Description
 - [CreateTemplateCampaignResponse](docs/CreateTemplateCampaignResponse.md)
 - [CustomEffect](docs/CustomEffect.md)
 - [CustomEffectProps](docs/CustomEffectProps.md)
+- [CustomerAchievement](docs/CustomerAchievement.md)
 - [CustomerActivityReport](docs/CustomerActivityReport.md)
 - [CustomerAnalytics](docs/CustomerAnalytics.md)
 - [CustomerInventory](docs/CustomerInventory.md)
@@ -967,6 +971,7 @@ Class | Method | HTTP request | Description
 - [OutgoingIntegrationTemplates](docs/OutgoingIntegrationTemplates.md)
 - [OutgoingIntegrationType](docs/OutgoingIntegrationType.md)
 - [OutgoingIntegrationTypes](docs/OutgoingIntegrationTypes.md)
+- [PassthroughBlock](docs/PassthroughBlock.md)
 - [PatchItemCatalogAction](docs/PatchItemCatalogAction.md)
 - [PatchManyItemsCatalogAction](docs/PatchManyItemsCatalogAction.md)
 - [PendingActivePointsData](docs/PendingActivePointsData.md)
@@ -988,6 +993,8 @@ Class | Method | HTTP request | Description
 - [ProfileAudiencesChanges](docs/ProfileAudiencesChanges.md)
 - [ProjectedTier](docs/ProjectedTier.md)
 - [PromoteExperiment](docs/PromoteExperiment.md)
+- [PromotionGroupBlock](docs/PromotionGroupBlock.md)
+- [PromotionRuleV2](docs/PromotionRuleV2.md)
 - [RedeemReferralEffectProps](docs/RedeemReferralEffectProps.md)
 - [Referral](docs/Referral.md)
 - [ReferralConstraints](docs/ReferralConstraints.md)
@@ -1009,6 +1016,9 @@ Class | Method | HTTP request | Description
 - [RevisionVersion](docs/RevisionVersion.md)
 - [Reward](docs/Reward.md)
 - [RewardPointsRequired](docs/RewardPointsRequired.md)
+- [Risk](docs/Risk.md)
+- [RiskAffectedEntityItem](docs/RiskAffectedEntityItem.md)
+- [RiskDetail](docs/RiskDetail.md)
 - [RiskNotification](docs/RiskNotification.md)
 - [Role](docs/Role.md)
 - [RoleAssign](docs/RoleAssign.md)
@@ -1033,7 +1043,9 @@ Class | Method | HTTP request | Description
 - [RuleFailureReason](docs/RuleFailureReason.md)
 - [RuleMetadata](docs/RuleMetadata.md)
 - [RuleMetadataEligibility](docs/RuleMetadataEligibility.md)
+- [RuleV2](docs/RuleV2.md)
 - [Ruleset](docs/Ruleset.md)
+- [RulesetV2](docs/RulesetV2.md)
 - [SSOConfig](docs/SSOConfig.md)
 - [SamlConnection](docs/SamlConnection.md)
 - [SamlConnectionInternal](docs/SamlConnectionInternal.md)
@@ -1075,7 +1087,9 @@ Class | Method | HTTP request | Description
 - [StrikethroughCustomEffectPerItemProps](docs/StrikethroughCustomEffectPerItemProps.md)
 - [StrikethroughDebugResponse](docs/StrikethroughDebugResponse.md)
 - [StrikethroughEffect](docs/StrikethroughEffect.md)
+- [StrikethroughGroupBlock](docs/StrikethroughGroupBlock.md)
 - [StrikethroughLabelingNotification](docs/StrikethroughLabelingNotification.md)
+- [StrikethroughRuleV2](docs/StrikethroughRuleV2.md)
 - [StrikethroughSetDiscountPerItemEffectProps](docs/StrikethroughSetDiscountPerItemEffectProps.md)
 - [StrikethroughSetDiscountPerItemMemberEffectProps](docs/StrikethroughSetDiscountPerItemMemberEffectProps.md)
 - [StrikethroughTrigger](docs/StrikethroughTrigger.md)

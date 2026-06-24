@@ -67,11 +67,11 @@ public class UpdateRewardTest {
     }
 
     /**
-     * Test the property 'visibilityConditions'
+     * Test the property 'eligibilityConditions'
      */
     @Test
-    public void visibilityConditionsTest() {
-        // TODO: test visibilityConditions
+    public void eligibilityConditionsTest() {
+        // TODO: test eligibilityConditions
     }
 
     /**

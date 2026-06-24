@@ -18,6 +18,8 @@
 |**tags** | **List&lt;String&gt;** | A list of tags for the campaign. |  |
 |**features** | [**List&lt;FeaturesEnum&gt;**](#List&lt;FeaturesEnum&gt;) | The features enabled in this campaign. |  |
 |**rules** | [**List&lt;RuleMetadata&gt;**](RuleMetadata.md) | A list of rules containing customer-facing details of the rewards defined in the campaign. |  |
+|**linkedStoreIds** | **List&lt;Long&gt;** | A list of store IDs linked to this campaign. |  [optional] |
+|**linkedAudienceIds** | **List&lt;Long&gt;** | A list of audience IDs linked to this campaign. |  [optional] |
 
 
 

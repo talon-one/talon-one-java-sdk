@@ -129,4 +129,20 @@ public class IntegrationCampaignTest {
         // TODO: test rules
     }
 
+    /**
+     * Test the property 'linkedStoreIds'
+     */
+    @Test
+    public void linkedStoreIdsTest() {
+        // TODO: test linkedStoreIds
+    }
+
+    /**
+     * Test the property 'linkedAudienceIds'
+     */
+    @Test
+    public void linkedAudienceIdsTest() {
+        // TODO: test linkedAudienceIds
+    }
+
 }

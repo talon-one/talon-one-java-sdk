@@ -26,6 +26,7 @@ import java.util.List;
 import one.talon.model.Campaign;
 import one.talon.model.CampaignEligibility;
 import one.talon.model.Coupon;
+import one.talon.model.CustomerAchievement;
 import one.talon.model.CustomerProfile;
 import one.talon.model.Effect;
 import one.talon.model.Giveaway;
@@ -105,6 +106,11 @@ public class IntegrationResponse {
   @SerializedName(SERIALIZED_NAME_AWARDED_GIVEAWAYS)
   @javax.annotation.Nullable
   private List<Giveaway> awardedGiveaways;
+
+  public static final String SERIALIZED_NAME_ACHIEVEMENTS = "achievements";
+  @SerializedName(SERIALIZED_NAME_ACHIEVEMENTS)
+  @javax.annotation.Nullable
+  private List<CustomerAchievement> achievements;
 
   public IntegrationResponse() {
   }
@@ -335,6 +341,33 @@ public class IntegrationResponse {
     this.awardedGiveaways = awardedGiveaways;
   }
 
+
+  public IntegrationResponse achievements(@javax.annotation.Nullable List<CustomerAchievement> achievements) {
+    this.achievements = achievements;
+    return this;
+  }
+
+  public IntegrationResponse addAchievementsItem(CustomerAchievement achievementsItem) {
+    if (this.achievements == null) {
+      this.achievements = new ArrayList<>();
+    }
+    this.achievements.add(achievementsItem);
+    return this;
+  }
+
+  /**
+   * The achievements progress of the customer.
+   * @return achievements
+   */
+  @javax.annotation.Nullable
+  public List<CustomerAchievement> getAchievements() {
+    return achievements;
+  }
+
+  public void setAchievements(@javax.annotation.Nullable List<CustomerAchievement> achievements) {
+    this.achievements = achievements;
+  }
+
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -398,13 +431,14 @@ public class IntegrationResponse {
         Objects.equals(this.ruleFailureReasons, integrationResponse.ruleFailureReasons) &&
         Objects.equals(this.createdCoupons, integrationResponse.createdCoupons) &&
         Objects.equals(this.createdReferrals, integrationResponse.createdReferrals) &&
-        Objects.equals(this.awardedGiveaways, integrationResponse.awardedGiveaways)&&
+        Objects.equals(this.awardedGiveaways, integrationResponse.awardedGiveaways) &&
+        Objects.equals(this.achievements, integrationResponse.achievements)&&
         Objects.equals(this.additionalProperties, integrationResponse.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(customerProfile, loyalty, triggeredCampaigns, campaignEligibility, effects, ruleFailureReasons, createdCoupons, createdReferrals, awardedGiveaways, additionalProperties);
+    return Objects.hash(customerProfile, loyalty, triggeredCampaigns, campaignEligibility, effects, ruleFailureReasons, createdCoupons, createdReferrals, awardedGiveaways, achievements, additionalProperties);
   }
 
   @Override
@@ -420,6 +454,7 @@ public class IntegrationResponse {
     sb.append("    createdCoupons: ").append(toIndentedString(createdCoupons)).append("\n");
     sb.append("    createdReferrals: ").append(toIndentedString(createdReferrals)).append("\n");
     sb.append("    awardedGiveaways: ").append(toIndentedString(awardedGiveaways)).append("\n");
+    sb.append("    achievements: ").append(toIndentedString(achievements)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -439,7 +474,7 @@ public class IntegrationResponse {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("customerProfile", "loyalty", "triggeredCampaigns", "campaignEligibility", "effects", "ruleFailureReasons", "createdCoupons", "createdReferrals", "awardedGiveaways"));
+    openapiFields = new HashSet<String>(Arrays.asList("customerProfile", "loyalty", "triggeredCampaigns", "campaignEligibility", "effects", "ruleFailureReasons", "createdCoupons", "createdReferrals", "awardedGiveaways", "achievements"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("effects", "createdCoupons", "createdReferrals"));
@@ -556,6 +591,20 @@ public class IntegrationResponse {
           // validate the optional field `awardedGiveaways` (array)
           for (int i = 0; i < jsonArrayawardedGiveaways.size(); i++) {
             Giveaway.validateJsonElement(jsonArrayawardedGiveaways.get(i));
+          };
+        }
+      }
+      if (jsonObj.get("achievements") != null && !jsonObj.get("achievements").isJsonNull()) {
+        JsonArray jsonArrayachievements = jsonObj.getAsJsonArray("achievements");
+        if (jsonArrayachievements != null) {
+          // ensure the json data is an array
+          if (!jsonObj.get("achievements").isJsonArray()) {
+            throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `achievements` to be an array in the JSON string but got `%s`", jsonObj.get("achievements").toString()));
+          }
+
+          // validate the optional field `achievements` (array)
+          for (int i = 0; i < jsonArrayachievements.size(); i++) {
+            CustomerAchievement.validateJsonElement(jsonArrayachievements.get(i));
           };
         }
       }

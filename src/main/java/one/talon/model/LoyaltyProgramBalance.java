@@ -67,11 +67,13 @@ public class LoyaltyProgramBalance {
   private BigDecimal negativeBalance;
 
   public static final String SERIALIZED_NAME_EXPIRED_BALANCE = "expiredBalance";
+  @Deprecated
   @SerializedName(SERIALIZED_NAME_EXPIRED_BALANCE)
   @javax.annotation.Nonnull
   private BigDecimal expiredBalance;
 
   public static final String SERIALIZED_NAME_SPENT_BALANCE = "spentBalance";
+  @Deprecated
   @SerializedName(SERIALIZED_NAME_SPENT_BALANCE)
   @javax.annotation.Nonnull
   private BigDecimal spentBalance;
@@ -151,6 +153,7 @@ public class LoyaltyProgramBalance {
   }
 
 
+  @Deprecated
   public LoyaltyProgramBalance expiredBalance(@javax.annotation.Nonnull BigDecimal expiredBalance) {
     this.expiredBalance = expiredBalance;
     return this;
@@ -159,17 +162,21 @@ public class LoyaltyProgramBalance {
   /**
    * **DEPRECATED** Value is shown as 0. 
    * @return expiredBalance
+   * @deprecated
    */
+  @Deprecated
   @javax.annotation.Nonnull
   public BigDecimal getExpiredBalance() {
     return expiredBalance;
   }
 
+  @Deprecated
   public void setExpiredBalance(@javax.annotation.Nonnull BigDecimal expiredBalance) {
     this.expiredBalance = expiredBalance;
   }
 
 
+  @Deprecated
   public LoyaltyProgramBalance spentBalance(@javax.annotation.Nonnull BigDecimal spentBalance) {
     this.spentBalance = spentBalance;
     return this;
@@ -178,12 +185,15 @@ public class LoyaltyProgramBalance {
   /**
    * **DEPRECATED** Value is shown as 0. 
    * @return spentBalance
+   * @deprecated
    */
+  @Deprecated
   @javax.annotation.Nonnull
   public BigDecimal getSpentBalance() {
     return spentBalance;
   }
 
+  @Deprecated
   public void setSpentBalance(@javax.annotation.Nonnull BigDecimal spentBalance) {
     this.spentBalance = spentBalance;
   }

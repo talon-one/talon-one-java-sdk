@@ -26,6 +26,7 @@ import java.util.List;
 import one.talon.model.Campaign;
 import one.talon.model.CampaignEligibility;
 import one.talon.model.Coupon;
+import one.talon.model.CustomerAchievement;
 import one.talon.model.CustomerProfile;
 import one.talon.model.Effect;
 import one.talon.model.EventV3;
@@ -106,6 +107,11 @@ public class IntegrationEventV3Response {
   @SerializedName(SERIALIZED_NAME_AWARDED_GIVEAWAYS)
   @javax.annotation.Nullable
   private List<Giveaway> awardedGiveaways;
+
+  public static final String SERIALIZED_NAME_ACHIEVEMENTS = "achievements";
+  @SerializedName(SERIALIZED_NAME_ACHIEVEMENTS)
+  @javax.annotation.Nullable
+  private List<CustomerAchievement> achievements;
 
   public static final String SERIALIZED_NAME_ADVANCED_EVENT = "advancedEvent";
   @SerializedName(SERIALIZED_NAME_ADVANCED_EVENT)
@@ -342,6 +348,33 @@ public class IntegrationEventV3Response {
   }
 
 
+  public IntegrationEventV3Response achievements(@javax.annotation.Nullable List<CustomerAchievement> achievements) {
+    this.achievements = achievements;
+    return this;
+  }
+
+  public IntegrationEventV3Response addAchievementsItem(CustomerAchievement achievementsItem) {
+    if (this.achievements == null) {
+      this.achievements = new ArrayList<>();
+    }
+    this.achievements.add(achievementsItem);
+    return this;
+  }
+
+  /**
+   * The achievements progress of the customer.
+   * @return achievements
+   */
+  @javax.annotation.Nullable
+  public List<CustomerAchievement> getAchievements() {
+    return achievements;
+  }
+
+  public void setAchievements(@javax.annotation.Nullable List<CustomerAchievement> achievements) {
+    this.achievements = achievements;
+  }
+
+
   public IntegrationEventV3Response advancedEvent(@javax.annotation.Nullable EventV3 advancedEvent) {
     this.advancedEvent = advancedEvent;
     return this;
@@ -424,13 +457,14 @@ public class IntegrationEventV3Response {
         Objects.equals(this.createdCoupons, integrationEventV3Response.createdCoupons) &&
         Objects.equals(this.createdReferrals, integrationEventV3Response.createdReferrals) &&
         Objects.equals(this.awardedGiveaways, integrationEventV3Response.awardedGiveaways) &&
+        Objects.equals(this.achievements, integrationEventV3Response.achievements) &&
         Objects.equals(this.advancedEvent, integrationEventV3Response.advancedEvent)&&
         Objects.equals(this.additionalProperties, integrationEventV3Response.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(customerProfile, loyalty, triggeredCampaigns, campaignEligibility, effects, ruleFailureReasons, createdCoupons, createdReferrals, awardedGiveaways, advancedEvent, additionalProperties);
+    return Objects.hash(customerProfile, loyalty, triggeredCampaigns, campaignEligibility, effects, ruleFailureReasons, createdCoupons, createdReferrals, awardedGiveaways, achievements, advancedEvent, additionalProperties);
   }
 
   @Override
@@ -446,6 +480,7 @@ public class IntegrationEventV3Response {
     sb.append("    createdCoupons: ").append(toIndentedString(createdCoupons)).append("\n");
     sb.append("    createdReferrals: ").append(toIndentedString(createdReferrals)).append("\n");
     sb.append("    awardedGiveaways: ").append(toIndentedString(awardedGiveaways)).append("\n");
+    sb.append("    achievements: ").append(toIndentedString(achievements)).append("\n");
     sb.append("    advancedEvent: ").append(toIndentedString(advancedEvent)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
@@ -466,7 +501,7 @@ public class IntegrationEventV3Response {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("customerProfile", "loyalty", "triggeredCampaigns", "campaignEligibility", "effects", "ruleFailureReasons", "createdCoupons", "createdReferrals", "awardedGiveaways", "advancedEvent"));
+    openapiFields = new HashSet<String>(Arrays.asList("customerProfile", "loyalty", "triggeredCampaigns", "campaignEligibility", "effects", "ruleFailureReasons", "createdCoupons", "createdReferrals", "awardedGiveaways", "achievements", "advancedEvent"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("effects", "createdCoupons", "createdReferrals"));
@@ -583,6 +618,20 @@ public class IntegrationEventV3Response {
           // validate the optional field `awardedGiveaways` (array)
           for (int i = 0; i < jsonArrayawardedGiveaways.size(); i++) {
             Giveaway.validateJsonElement(jsonArrayawardedGiveaways.get(i));
+          };
+        }
+      }
+      if (jsonObj.get("achievements") != null && !jsonObj.get("achievements").isJsonNull()) {
+        JsonArray jsonArrayachievements = jsonObj.getAsJsonArray("achievements");
+        if (jsonArrayachievements != null) {
+          // ensure the json data is an array
+          if (!jsonObj.get("achievements").isJsonArray()) {
+            throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `achievements` to be an array in the JSON string but got `%s`", jsonObj.get("achievements").toString()));
+          }
+
+          // validate the optional field `achievements` (array)
+          for (int i = 0; i < jsonArrayachievements.size(); i++) {
+            CustomerAchievement.validateJsonElement(jsonArrayachievements.get(i));
           };
         }
       }

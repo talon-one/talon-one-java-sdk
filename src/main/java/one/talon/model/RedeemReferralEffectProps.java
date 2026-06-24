@@ -47,7 +47,9 @@ import one.talon.JSON;
 
 /**
  * This effect is **deprecated**. It has been replaced by the &#x60;acceptReferral&#x60; effect. This effect indicates that the referral code is valid and has been redeemed. 
+ * @deprecated
  */
+@Deprecated
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.23.0")
 public class RedeemReferralEffectProps {
   public static final String SERIALIZED_NAME_ID = "id";

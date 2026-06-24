@@ -71,6 +71,7 @@ public class History {
   private List<String> contextIds = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_CONTEXT_ID = "contextId";
+  @Deprecated
   @SerializedName(SERIALIZED_NAME_CONTEXT_ID)
   @javax.annotation.Nullable
   private String contextId = "";
@@ -158,6 +159,7 @@ public class History {
   }
 
 
+  @Deprecated
   public History contextId(@javax.annotation.Nullable String contextId) {
     this.contextId = contextId;
     return this;
@@ -166,12 +168,15 @@ public class History {
   /**
    * This property is **deprecated**. Use &#x60;contextIds&#x60; instead. Defaults to an empty string. 
    * @return contextId
+   * @deprecated
    */
+  @Deprecated
   @javax.annotation.Nullable
   public String getContextId() {
     return contextId;
   }
 
+  @Deprecated
   public void setContextId(@javax.annotation.Nullable String contextId) {
     this.contextId = contextId;
   }

@@ -90,6 +90,14 @@ public class IntegrationHubEventPayloadLoyaltyProfileBasedPointsChangedNotificat
     }
 
     /**
+     * Test the property 'sessionIntegrationID'
+     */
+    @Test
+    public void sessionIntegrationIDTest() {
+        // TODO: test sessionIntegrationID
+    }
+
+    /**
      * Test the property 'employeeName'
      */
     @Test

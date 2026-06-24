@@ -69,7 +69,9 @@ public class ResponseContentObject {
     
     RULE_FAILURE_REASONS("ruleFailureReasons"),
     
-    CAMPAIGN_ELIGIBILITY("campaignEligibility");
+    CAMPAIGN_ELIGIBILITY("campaignEligibility"),
+    
+    ACHIEVEMENTS("achievements");
 
     private String value;
 

@@ -336,76 +336,91 @@ public class Campaign {
   private List<CampaignBudget> budgets;
 
   public static final String SERIALIZED_NAME_COUPON_REDEMPTION_COUNT = "couponRedemptionCount";
+  @Deprecated
   @SerializedName(SERIALIZED_NAME_COUPON_REDEMPTION_COUNT)
   @javax.annotation.Nullable
   private Long couponRedemptionCount;
 
   public static final String SERIALIZED_NAME_REFERRAL_REDEMPTION_COUNT = "referralRedemptionCount";
+  @Deprecated
   @SerializedName(SERIALIZED_NAME_REFERRAL_REDEMPTION_COUNT)
   @javax.annotation.Nullable
   private Long referralRedemptionCount;
 
   public static final String SERIALIZED_NAME_DISCOUNT_COUNT = "discountCount";
+  @Deprecated
   @SerializedName(SERIALIZED_NAME_DISCOUNT_COUNT)
   @javax.annotation.Nullable
   private BigDecimal discountCount;
 
   public static final String SERIALIZED_NAME_DISCOUNT_EFFECT_COUNT = "discountEffectCount";
+  @Deprecated
   @SerializedName(SERIALIZED_NAME_DISCOUNT_EFFECT_COUNT)
   @javax.annotation.Nullable
   private Long discountEffectCount;
 
   public static final String SERIALIZED_NAME_COUPON_CREATION_COUNT = "couponCreationCount";
+  @Deprecated
   @SerializedName(SERIALIZED_NAME_COUPON_CREATION_COUNT)
   @javax.annotation.Nullable
   private Long couponCreationCount;
 
   public static final String SERIALIZED_NAME_CUSTOM_EFFECT_COUNT = "customEffectCount";
+  @Deprecated
   @SerializedName(SERIALIZED_NAME_CUSTOM_EFFECT_COUNT)
   @javax.annotation.Nullable
   private Long customEffectCount;
 
   public static final String SERIALIZED_NAME_REFERRAL_CREATION_COUNT = "referralCreationCount";
+  @Deprecated
   @SerializedName(SERIALIZED_NAME_REFERRAL_CREATION_COUNT)
   @javax.annotation.Nullable
   private Long referralCreationCount;
 
   public static final String SERIALIZED_NAME_ADD_FREE_ITEM_EFFECT_COUNT = "addFreeItemEffectCount";
+  @Deprecated
   @SerializedName(SERIALIZED_NAME_ADD_FREE_ITEM_EFFECT_COUNT)
   @javax.annotation.Nullable
   private Long addFreeItemEffectCount;
 
   public static final String SERIALIZED_NAME_AWARDED_GIVEAWAYS_COUNT = "awardedGiveawaysCount";
+  @Deprecated
   @SerializedName(SERIALIZED_NAME_AWARDED_GIVEAWAYS_COUNT)
   @javax.annotation.Nullable
   private Long awardedGiveawaysCount;
 
   public static final String SERIALIZED_NAME_CREATED_LOYALTY_POINTS_COUNT = "createdLoyaltyPointsCount";
+  @Deprecated
   @SerializedName(SERIALIZED_NAME_CREATED_LOYALTY_POINTS_COUNT)
   @javax.annotation.Nullable
   private BigDecimal createdLoyaltyPointsCount;
 
   public static final String SERIALIZED_NAME_CREATED_LOYALTY_POINTS_EFFECT_COUNT = "createdLoyaltyPointsEffectCount";
+  @Deprecated
   @SerializedName(SERIALIZED_NAME_CREATED_LOYALTY_POINTS_EFFECT_COUNT)
   @javax.annotation.Nullable
   private Long createdLoyaltyPointsEffectCount;
 
   public static final String SERIALIZED_NAME_REDEEMED_LOYALTY_POINTS_COUNT = "redeemedLoyaltyPointsCount";
+  @Deprecated
   @SerializedName(SERIALIZED_NAME_REDEEMED_LOYALTY_POINTS_COUNT)
   @javax.annotation.Nullable
   private BigDecimal redeemedLoyaltyPointsCount;
 
   public static final String SERIALIZED_NAME_REDEEMED_LOYALTY_POINTS_EFFECT_COUNT = "redeemedLoyaltyPointsEffectCount";
+  @Deprecated
   @SerializedName(SERIALIZED_NAME_REDEEMED_LOYALTY_POINTS_EFFECT_COUNT)
   @javax.annotation.Nullable
   private Long redeemedLoyaltyPointsEffectCount;
 
   public static final String SERIALIZED_NAME_CALL_API_EFFECT_COUNT = "callApiEffectCount";
+  @Deprecated
   @SerializedName(SERIALIZED_NAME_CALL_API_EFFECT_COUNT)
   @javax.annotation.Nullable
   private Long callApiEffectCount;
 
   public static final String SERIALIZED_NAME_RESERVECOUPON_EFFECT_COUNT = "reservecouponEffectCount";
+  @Deprecated
   @SerializedName(SERIALIZED_NAME_RESERVECOUPON_EFFECT_COUNT)
   @javax.annotation.Nullable
   private Long reservecouponEffectCount;
@@ -1071,6 +1086,7 @@ public class Campaign {
   }
 
 
+  @Deprecated
   public Campaign couponRedemptionCount(@javax.annotation.Nullable Long couponRedemptionCount) {
     this.couponRedemptionCount = couponRedemptionCount;
     return this;
@@ -1079,17 +1095,21 @@ public class Campaign {
   /**
    * This property is **deprecated**. The count should be available under *budgets* property. Number of coupons redeemed in the campaign. 
    * @return couponRedemptionCount
+   * @deprecated
    */
+  @Deprecated
   @javax.annotation.Nullable
   public Long getCouponRedemptionCount() {
     return couponRedemptionCount;
   }
 
+  @Deprecated
   public void setCouponRedemptionCount(@javax.annotation.Nullable Long couponRedemptionCount) {
     this.couponRedemptionCount = couponRedemptionCount;
   }
 
 
+  @Deprecated
   public Campaign referralRedemptionCount(@javax.annotation.Nullable Long referralRedemptionCount) {
     this.referralRedemptionCount = referralRedemptionCount;
     return this;
@@ -1098,17 +1118,21 @@ public class Campaign {
   /**
    * This property is **deprecated**. The count should be available under *budgets* property. Number of referral codes redeemed in the campaign. 
    * @return referralRedemptionCount
+   * @deprecated
    */
+  @Deprecated
   @javax.annotation.Nullable
   public Long getReferralRedemptionCount() {
     return referralRedemptionCount;
   }
 
+  @Deprecated
   public void setReferralRedemptionCount(@javax.annotation.Nullable Long referralRedemptionCount) {
     this.referralRedemptionCount = referralRedemptionCount;
   }
 
 
+  @Deprecated
   public Campaign discountCount(@javax.annotation.Nullable BigDecimal discountCount) {
     this.discountCount = discountCount;
     return this;
@@ -1117,17 +1141,21 @@ public class Campaign {
   /**
    * This property is **deprecated**. The count should be available under *budgets* property. Total amount of discounts redeemed in the campaign. 
    * @return discountCount
+   * @deprecated
    */
+  @Deprecated
   @javax.annotation.Nullable
   public BigDecimal getDiscountCount() {
     return discountCount;
   }
 
+  @Deprecated
   public void setDiscountCount(@javax.annotation.Nullable BigDecimal discountCount) {
     this.discountCount = discountCount;
   }
 
 
+  @Deprecated
   public Campaign discountEffectCount(@javax.annotation.Nullable Long discountEffectCount) {
     this.discountEffectCount = discountEffectCount;
     return this;
@@ -1136,17 +1164,21 @@ public class Campaign {
   /**
    * This property is **deprecated**. The count should be available under *budgets* property. Total number of times discounts were redeemed in this campaign. 
    * @return discountEffectCount
+   * @deprecated
    */
+  @Deprecated
   @javax.annotation.Nullable
   public Long getDiscountEffectCount() {
     return discountEffectCount;
   }
 
+  @Deprecated
   public void setDiscountEffectCount(@javax.annotation.Nullable Long discountEffectCount) {
     this.discountEffectCount = discountEffectCount;
   }
 
 
+  @Deprecated
   public Campaign couponCreationCount(@javax.annotation.Nullable Long couponCreationCount) {
     this.couponCreationCount = couponCreationCount;
     return this;
@@ -1155,17 +1187,21 @@ public class Campaign {
   /**
    * This property is **deprecated**. The count should be available under *budgets* property. Total number of coupons created by rules in this campaign. 
    * @return couponCreationCount
+   * @deprecated
    */
+  @Deprecated
   @javax.annotation.Nullable
   public Long getCouponCreationCount() {
     return couponCreationCount;
   }
 
+  @Deprecated
   public void setCouponCreationCount(@javax.annotation.Nullable Long couponCreationCount) {
     this.couponCreationCount = couponCreationCount;
   }
 
 
+  @Deprecated
   public Campaign customEffectCount(@javax.annotation.Nullable Long customEffectCount) {
     this.customEffectCount = customEffectCount;
     return this;
@@ -1174,17 +1210,21 @@ public class Campaign {
   /**
    * This property is **deprecated**. The count should be available under *budgets* property. Total number of custom effects triggered by rules in this campaign. 
    * @return customEffectCount
+   * @deprecated
    */
+  @Deprecated
   @javax.annotation.Nullable
   public Long getCustomEffectCount() {
     return customEffectCount;
   }
 
+  @Deprecated
   public void setCustomEffectCount(@javax.annotation.Nullable Long customEffectCount) {
     this.customEffectCount = customEffectCount;
   }
 
 
+  @Deprecated
   public Campaign referralCreationCount(@javax.annotation.Nullable Long referralCreationCount) {
     this.referralCreationCount = referralCreationCount;
     return this;
@@ -1193,17 +1233,21 @@ public class Campaign {
   /**
    * This property is **deprecated**. The count should be available under *budgets* property. Total number of referrals created by rules in this campaign. 
    * @return referralCreationCount
+   * @deprecated
    */
+  @Deprecated
   @javax.annotation.Nullable
   public Long getReferralCreationCount() {
     return referralCreationCount;
   }
 
+  @Deprecated
   public void setReferralCreationCount(@javax.annotation.Nullable Long referralCreationCount) {
     this.referralCreationCount = referralCreationCount;
   }
 
 
+  @Deprecated
   public Campaign addFreeItemEffectCount(@javax.annotation.Nullable Long addFreeItemEffectCount) {
     this.addFreeItemEffectCount = addFreeItemEffectCount;
     return this;
@@ -1212,17 +1256,21 @@ public class Campaign {
   /**
    * This property is **deprecated**. The count should be available under *budgets* property. Total number of times the [add free item effect](https://docs.talon.one/docs/dev/integration-api/api-effects#addfreeitem) can be triggered in this campaign. 
    * @return addFreeItemEffectCount
+   * @deprecated
    */
+  @Deprecated
   @javax.annotation.Nullable
   public Long getAddFreeItemEffectCount() {
     return addFreeItemEffectCount;
   }
 
+  @Deprecated
   public void setAddFreeItemEffectCount(@javax.annotation.Nullable Long addFreeItemEffectCount) {
     this.addFreeItemEffectCount = addFreeItemEffectCount;
   }
 
 
+  @Deprecated
   public Campaign awardedGiveawaysCount(@javax.annotation.Nullable Long awardedGiveawaysCount) {
     this.awardedGiveawaysCount = awardedGiveawaysCount;
     return this;
@@ -1231,17 +1279,21 @@ public class Campaign {
   /**
    * This property is **deprecated**. The count should be available under *budgets* property. Total number of giveaways awarded by rules in this campaign. 
    * @return awardedGiveawaysCount
+   * @deprecated
    */
+  @Deprecated
   @javax.annotation.Nullable
   public Long getAwardedGiveawaysCount() {
     return awardedGiveawaysCount;
   }
 
+  @Deprecated
   public void setAwardedGiveawaysCount(@javax.annotation.Nullable Long awardedGiveawaysCount) {
     this.awardedGiveawaysCount = awardedGiveawaysCount;
   }
 
 
+  @Deprecated
   public Campaign createdLoyaltyPointsCount(@javax.annotation.Nullable BigDecimal createdLoyaltyPointsCount) {
     this.createdLoyaltyPointsCount = createdLoyaltyPointsCount;
     return this;
@@ -1250,17 +1302,21 @@ public class Campaign {
   /**
    * This property is **deprecated**. The count should be available under *budgets* property. Total number of loyalty points created by rules in this campaign. 
    * @return createdLoyaltyPointsCount
+   * @deprecated
    */
+  @Deprecated
   @javax.annotation.Nullable
   public BigDecimal getCreatedLoyaltyPointsCount() {
     return createdLoyaltyPointsCount;
   }
 
+  @Deprecated
   public void setCreatedLoyaltyPointsCount(@javax.annotation.Nullable BigDecimal createdLoyaltyPointsCount) {
     this.createdLoyaltyPointsCount = createdLoyaltyPointsCount;
   }
 
 
+  @Deprecated
   public Campaign createdLoyaltyPointsEffectCount(@javax.annotation.Nullable Long createdLoyaltyPointsEffectCount) {
     this.createdLoyaltyPointsEffectCount = createdLoyaltyPointsEffectCount;
     return this;
@@ -1269,17 +1325,21 @@ public class Campaign {
   /**
    * This property is **deprecated**. The count should be available under *budgets* property. Total number of loyalty point creation effects triggered by rules in this campaign. 
    * @return createdLoyaltyPointsEffectCount
+   * @deprecated
    */
+  @Deprecated
   @javax.annotation.Nullable
   public Long getCreatedLoyaltyPointsEffectCount() {
     return createdLoyaltyPointsEffectCount;
   }
 
+  @Deprecated
   public void setCreatedLoyaltyPointsEffectCount(@javax.annotation.Nullable Long createdLoyaltyPointsEffectCount) {
     this.createdLoyaltyPointsEffectCount = createdLoyaltyPointsEffectCount;
   }
 
 
+  @Deprecated
   public Campaign redeemedLoyaltyPointsCount(@javax.annotation.Nullable BigDecimal redeemedLoyaltyPointsCount) {
     this.redeemedLoyaltyPointsCount = redeemedLoyaltyPointsCount;
     return this;
@@ -1288,17 +1348,21 @@ public class Campaign {
   /**
    * This property is **deprecated**. The count should be available under *budgets* property. Total number of loyalty points redeemed by rules in this campaign. 
    * @return redeemedLoyaltyPointsCount
+   * @deprecated
    */
+  @Deprecated
   @javax.annotation.Nullable
   public BigDecimal getRedeemedLoyaltyPointsCount() {
     return redeemedLoyaltyPointsCount;
   }
 
+  @Deprecated
   public void setRedeemedLoyaltyPointsCount(@javax.annotation.Nullable BigDecimal redeemedLoyaltyPointsCount) {
     this.redeemedLoyaltyPointsCount = redeemedLoyaltyPointsCount;
   }
 
 
+  @Deprecated
   public Campaign redeemedLoyaltyPointsEffectCount(@javax.annotation.Nullable Long redeemedLoyaltyPointsEffectCount) {
     this.redeemedLoyaltyPointsEffectCount = redeemedLoyaltyPointsEffectCount;
     return this;
@@ -1307,17 +1371,21 @@ public class Campaign {
   /**
    * This property is **deprecated**. The count should be available under *budgets* property. Total number of loyalty point redemption effects triggered by rules in this campaign. 
    * @return redeemedLoyaltyPointsEffectCount
+   * @deprecated
    */
+  @Deprecated
   @javax.annotation.Nullable
   public Long getRedeemedLoyaltyPointsEffectCount() {
     return redeemedLoyaltyPointsEffectCount;
   }
 
+  @Deprecated
   public void setRedeemedLoyaltyPointsEffectCount(@javax.annotation.Nullable Long redeemedLoyaltyPointsEffectCount) {
     this.redeemedLoyaltyPointsEffectCount = redeemedLoyaltyPointsEffectCount;
   }
 
 
+  @Deprecated
   public Campaign callApiEffectCount(@javax.annotation.Nullable Long callApiEffectCount) {
     this.callApiEffectCount = callApiEffectCount;
     return this;
@@ -1326,17 +1394,21 @@ public class Campaign {
   /**
    * This property is **deprecated**. The count should be available under *budgets* property. Total number of webhooks triggered by rules in this campaign. 
    * @return callApiEffectCount
+   * @deprecated
    */
+  @Deprecated
   @javax.annotation.Nullable
   public Long getCallApiEffectCount() {
     return callApiEffectCount;
   }
 
+  @Deprecated
   public void setCallApiEffectCount(@javax.annotation.Nullable Long callApiEffectCount) {
     this.callApiEffectCount = callApiEffectCount;
   }
 
 
+  @Deprecated
   public Campaign reservecouponEffectCount(@javax.annotation.Nullable Long reservecouponEffectCount) {
     this.reservecouponEffectCount = reservecouponEffectCount;
     return this;
@@ -1345,12 +1417,15 @@ public class Campaign {
   /**
    * This property is **deprecated**. The count should be available under *budgets* property. Total number of reserve coupon effects triggered by rules in this campaign. 
    * @return reservecouponEffectCount
+   * @deprecated
    */
+  @Deprecated
   @javax.annotation.Nullable
   public Long getReservecouponEffectCount() {
     return reservecouponEffectCount;
   }
 
+  @Deprecated
   public void setReservecouponEffectCount(@javax.annotation.Nullable Long reservecouponEffectCount) {
     this.reservecouponEffectCount = reservecouponEffectCount;
   }
