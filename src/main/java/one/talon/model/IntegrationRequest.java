@@ -83,7 +83,9 @@ public class IntegrationRequest {
     
     PREVIOUS_RETURNS("previousReturns"),
     
-    CAMPAIGN_ELIGIBILITY("campaignEligibility");
+    CAMPAIGN_ELIGIBILITY("campaignEligibility"),
+    
+    ACHIEVEMENTS("achievements");
 
     private String value;
 

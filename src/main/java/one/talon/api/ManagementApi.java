@@ -140,6 +140,7 @@ import one.talon.model.Referral;
 import one.talon.model.RoleV2;
 import one.talon.model.RoleV2Base;
 import one.talon.model.Ruleset;
+import one.talon.model.RulesetV2;
 import one.talon.model.ScimBaseGroup;
 import one.talon.model.ScimGroup;
 import one.talon.model.ScimGroupsListResponse;
@@ -6715,6 +6716,8 @@ public class ManagementApi {
      * @param dateFormat Determines the format of dates in the export document. (optional)
      * @param campaignState Filter results by the state of the campaign.  - &#x60;enabled&#x60;: Campaigns that are scheduled, running (activated), or expired. - &#x60;running&#x60;: Campaigns that are running (activated). - &#x60;disabled&#x60;: Campaigns that are disabled. - &#x60;expired&#x60;: Campaigns that are expired. - &#x60;archived&#x60;: Campaigns that are archived.  (optional)
      * @param valuesOnly Filter results to only return the coupon codes (&#x60;value&#x60; column) without the associated coupon data. (optional, default to false)
+     * @param deletedBefore Timestamp that filters the results to only contain coupons deleted before this date. Must be an RFC3339 timestamp string. You can use any time zone setting. Talon.One will convert to UTC internally.  **Note:** Only coupons deleted in the last 7 days will appear in the results. (optional)
+     * @param deletedAfter Timestamp that filters the results to only contain coupons deleted after this date. Must be an RFC3339 timestamp string. You can use any time zone setting. Talon.One will convert to UTC internally.  **Note:** Only coupons deleted in the last 7 days will appear in the results. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -6725,7 +6728,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call exportCouponsCall(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nullable BigDecimal campaignId, @javax.annotation.Nullable String sort, @javax.annotation.Nullable String value, @javax.annotation.Nullable OffsetDateTime createdBefore, @javax.annotation.Nullable OffsetDateTime createdAfter, @javax.annotation.Nullable String valid, @javax.annotation.Nullable String usable, @javax.annotation.Nullable Long referralId, @javax.annotation.Nullable String recipientIntegrationId, @javax.annotation.Nullable String batchId, @javax.annotation.Nullable Boolean exactMatch, @javax.annotation.Nullable String dateFormat, @javax.annotation.Nullable String campaignState, @javax.annotation.Nullable Boolean valuesOnly, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call exportCouponsCall(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nullable BigDecimal campaignId, @javax.annotation.Nullable String sort, @javax.annotation.Nullable String value, @javax.annotation.Nullable OffsetDateTime createdBefore, @javax.annotation.Nullable OffsetDateTime createdAfter, @javax.annotation.Nullable String valid, @javax.annotation.Nullable String usable, @javax.annotation.Nullable Long referralId, @javax.annotation.Nullable String recipientIntegrationId, @javax.annotation.Nullable String batchId, @javax.annotation.Nullable Boolean exactMatch, @javax.annotation.Nullable String dateFormat, @javax.annotation.Nullable String campaignState, @javax.annotation.Nullable Boolean valuesOnly, @javax.annotation.Nullable OffsetDateTime deletedBefore, @javax.annotation.Nullable OffsetDateTime deletedAfter, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -6807,6 +6810,14 @@ public class ManagementApi {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("valuesOnly", valuesOnly));
         }
 
+        if (deletedBefore != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("deletedBefore", deletedBefore));
+        }
+
+        if (deletedAfter != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("deletedAfter", deletedAfter));
+        }
+
         final String[] localVarAccepts = {
             "application/csv"
         };
@@ -6827,13 +6838,13 @@ public class ManagementApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call exportCouponsValidateBeforeCall(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nullable BigDecimal campaignId, @javax.annotation.Nullable String sort, @javax.annotation.Nullable String value, @javax.annotation.Nullable OffsetDateTime createdBefore, @javax.annotation.Nullable OffsetDateTime createdAfter, @javax.annotation.Nullable String valid, @javax.annotation.Nullable String usable, @javax.annotation.Nullable Long referralId, @javax.annotation.Nullable String recipientIntegrationId, @javax.annotation.Nullable String batchId, @javax.annotation.Nullable Boolean exactMatch, @javax.annotation.Nullable String dateFormat, @javax.annotation.Nullable String campaignState, @javax.annotation.Nullable Boolean valuesOnly, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call exportCouponsValidateBeforeCall(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nullable BigDecimal campaignId, @javax.annotation.Nullable String sort, @javax.annotation.Nullable String value, @javax.annotation.Nullable OffsetDateTime createdBefore, @javax.annotation.Nullable OffsetDateTime createdAfter, @javax.annotation.Nullable String valid, @javax.annotation.Nullable String usable, @javax.annotation.Nullable Long referralId, @javax.annotation.Nullable String recipientIntegrationId, @javax.annotation.Nullable String batchId, @javax.annotation.Nullable Boolean exactMatch, @javax.annotation.Nullable String dateFormat, @javax.annotation.Nullable String campaignState, @javax.annotation.Nullable Boolean valuesOnly, @javax.annotation.Nullable OffsetDateTime deletedBefore, @javax.annotation.Nullable OffsetDateTime deletedAfter, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'applicationId' is set
         if (applicationId == null) {
             throw new ApiException("Missing the required parameter 'applicationId' when calling exportCoupons(Async)");
         }
 
-        return exportCouponsCall(applicationId, campaignId, sort, value, createdBefore, createdAfter, valid, usable, referralId, recipientIntegrationId, batchId, exactMatch, dateFormat, campaignState, valuesOnly, _callback);
+        return exportCouponsCall(applicationId, campaignId, sort, value, createdBefore, createdAfter, valid, usable, referralId, recipientIntegrationId, batchId, exactMatch, dateFormat, campaignState, valuesOnly, deletedBefore, deletedAfter, _callback);
 
     }
 
@@ -6855,6 +6866,8 @@ public class ManagementApi {
      * @param dateFormat Determines the format of dates in the export document. (optional)
      * @param campaignState Filter results by the state of the campaign.  - &#x60;enabled&#x60;: Campaigns that are scheduled, running (activated), or expired. - &#x60;running&#x60;: Campaigns that are running (activated). - &#x60;disabled&#x60;: Campaigns that are disabled. - &#x60;expired&#x60;: Campaigns that are expired. - &#x60;archived&#x60;: Campaigns that are archived.  (optional)
      * @param valuesOnly Filter results to only return the coupon codes (&#x60;value&#x60; column) without the associated coupon data. (optional, default to false)
+     * @param deletedBefore Timestamp that filters the results to only contain coupons deleted before this date. Must be an RFC3339 timestamp string. You can use any time zone setting. Talon.One will convert to UTC internally.  **Note:** Only coupons deleted in the last 7 days will appear in the results. (optional)
+     * @param deletedAfter Timestamp that filters the results to only contain coupons deleted after this date. Must be an RFC3339 timestamp string. You can use any time zone setting. Talon.One will convert to UTC internally.  **Note:** Only coupons deleted in the last 7 days will appear in the results. (optional)
      * @return String
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -6864,8 +6877,8 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public String exportCoupons(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nullable BigDecimal campaignId, @javax.annotation.Nullable String sort, @javax.annotation.Nullable String value, @javax.annotation.Nullable OffsetDateTime createdBefore, @javax.annotation.Nullable OffsetDateTime createdAfter, @javax.annotation.Nullable String valid, @javax.annotation.Nullable String usable, @javax.annotation.Nullable Long referralId, @javax.annotation.Nullable String recipientIntegrationId, @javax.annotation.Nullable String batchId, @javax.annotation.Nullable Boolean exactMatch, @javax.annotation.Nullable String dateFormat, @javax.annotation.Nullable String campaignState, @javax.annotation.Nullable Boolean valuesOnly) throws ApiException {
-        ApiResponse<String> localVarResp = exportCouponsWithHttpInfo(applicationId, campaignId, sort, value, createdBefore, createdAfter, valid, usable, referralId, recipientIntegrationId, batchId, exactMatch, dateFormat, campaignState, valuesOnly);
+    public String exportCoupons(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nullable BigDecimal campaignId, @javax.annotation.Nullable String sort, @javax.annotation.Nullable String value, @javax.annotation.Nullable OffsetDateTime createdBefore, @javax.annotation.Nullable OffsetDateTime createdAfter, @javax.annotation.Nullable String valid, @javax.annotation.Nullable String usable, @javax.annotation.Nullable Long referralId, @javax.annotation.Nullable String recipientIntegrationId, @javax.annotation.Nullable String batchId, @javax.annotation.Nullable Boolean exactMatch, @javax.annotation.Nullable String dateFormat, @javax.annotation.Nullable String campaignState, @javax.annotation.Nullable Boolean valuesOnly, @javax.annotation.Nullable OffsetDateTime deletedBefore, @javax.annotation.Nullable OffsetDateTime deletedAfter) throws ApiException {
+        ApiResponse<String> localVarResp = exportCouponsWithHttpInfo(applicationId, campaignId, sort, value, createdBefore, createdAfter, valid, usable, referralId, recipientIntegrationId, batchId, exactMatch, dateFormat, campaignState, valuesOnly, deletedBefore, deletedAfter);
         return localVarResp.getData();
     }
 
@@ -6887,6 +6900,8 @@ public class ManagementApi {
      * @param dateFormat Determines the format of dates in the export document. (optional)
      * @param campaignState Filter results by the state of the campaign.  - &#x60;enabled&#x60;: Campaigns that are scheduled, running (activated), or expired. - &#x60;running&#x60;: Campaigns that are running (activated). - &#x60;disabled&#x60;: Campaigns that are disabled. - &#x60;expired&#x60;: Campaigns that are expired. - &#x60;archived&#x60;: Campaigns that are archived.  (optional)
      * @param valuesOnly Filter results to only return the coupon codes (&#x60;value&#x60; column) without the associated coupon data. (optional, default to false)
+     * @param deletedBefore Timestamp that filters the results to only contain coupons deleted before this date. Must be an RFC3339 timestamp string. You can use any time zone setting. Talon.One will convert to UTC internally.  **Note:** Only coupons deleted in the last 7 days will appear in the results. (optional)
+     * @param deletedAfter Timestamp that filters the results to only contain coupons deleted after this date. Must be an RFC3339 timestamp string. You can use any time zone setting. Talon.One will convert to UTC internally.  **Note:** Only coupons deleted in the last 7 days will appear in the results. (optional)
      * @return ApiResponse&lt;String&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -6896,8 +6911,8 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<String> exportCouponsWithHttpInfo(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nullable BigDecimal campaignId, @javax.annotation.Nullable String sort, @javax.annotation.Nullable String value, @javax.annotation.Nullable OffsetDateTime createdBefore, @javax.annotation.Nullable OffsetDateTime createdAfter, @javax.annotation.Nullable String valid, @javax.annotation.Nullable String usable, @javax.annotation.Nullable Long referralId, @javax.annotation.Nullable String recipientIntegrationId, @javax.annotation.Nullable String batchId, @javax.annotation.Nullable Boolean exactMatch, @javax.annotation.Nullable String dateFormat, @javax.annotation.Nullable String campaignState, @javax.annotation.Nullable Boolean valuesOnly) throws ApiException {
-        okhttp3.Call localVarCall = exportCouponsValidateBeforeCall(applicationId, campaignId, sort, value, createdBefore, createdAfter, valid, usable, referralId, recipientIntegrationId, batchId, exactMatch, dateFormat, campaignState, valuesOnly, null);
+    public ApiResponse<String> exportCouponsWithHttpInfo(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nullable BigDecimal campaignId, @javax.annotation.Nullable String sort, @javax.annotation.Nullable String value, @javax.annotation.Nullable OffsetDateTime createdBefore, @javax.annotation.Nullable OffsetDateTime createdAfter, @javax.annotation.Nullable String valid, @javax.annotation.Nullable String usable, @javax.annotation.Nullable Long referralId, @javax.annotation.Nullable String recipientIntegrationId, @javax.annotation.Nullable String batchId, @javax.annotation.Nullable Boolean exactMatch, @javax.annotation.Nullable String dateFormat, @javax.annotation.Nullable String campaignState, @javax.annotation.Nullable Boolean valuesOnly, @javax.annotation.Nullable OffsetDateTime deletedBefore, @javax.annotation.Nullable OffsetDateTime deletedAfter) throws ApiException {
+        okhttp3.Call localVarCall = exportCouponsValidateBeforeCall(applicationId, campaignId, sort, value, createdBefore, createdAfter, valid, usable, referralId, recipientIntegrationId, batchId, exactMatch, dateFormat, campaignState, valuesOnly, deletedBefore, deletedAfter, null);
         Type localVarReturnType = new TypeToken<String>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -6920,6 +6935,8 @@ public class ManagementApi {
      * @param dateFormat Determines the format of dates in the export document. (optional)
      * @param campaignState Filter results by the state of the campaign.  - &#x60;enabled&#x60;: Campaigns that are scheduled, running (activated), or expired. - &#x60;running&#x60;: Campaigns that are running (activated). - &#x60;disabled&#x60;: Campaigns that are disabled. - &#x60;expired&#x60;: Campaigns that are expired. - &#x60;archived&#x60;: Campaigns that are archived.  (optional)
      * @param valuesOnly Filter results to only return the coupon codes (&#x60;value&#x60; column) without the associated coupon data. (optional, default to false)
+     * @param deletedBefore Timestamp that filters the results to only contain coupons deleted before this date. Must be an RFC3339 timestamp string. You can use any time zone setting. Talon.One will convert to UTC internally.  **Note:** Only coupons deleted in the last 7 days will appear in the results. (optional)
+     * @param deletedAfter Timestamp that filters the results to only contain coupons deleted after this date. Must be an RFC3339 timestamp string. You can use any time zone setting. Talon.One will convert to UTC internally.  **Note:** Only coupons deleted in the last 7 days will appear in the results. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -6930,9 +6947,9 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call exportCouponsAsync(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nullable BigDecimal campaignId, @javax.annotation.Nullable String sort, @javax.annotation.Nullable String value, @javax.annotation.Nullable OffsetDateTime createdBefore, @javax.annotation.Nullable OffsetDateTime createdAfter, @javax.annotation.Nullable String valid, @javax.annotation.Nullable String usable, @javax.annotation.Nullable Long referralId, @javax.annotation.Nullable String recipientIntegrationId, @javax.annotation.Nullable String batchId, @javax.annotation.Nullable Boolean exactMatch, @javax.annotation.Nullable String dateFormat, @javax.annotation.Nullable String campaignState, @javax.annotation.Nullable Boolean valuesOnly, final ApiCallback<String> _callback) throws ApiException {
+    public okhttp3.Call exportCouponsAsync(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nullable BigDecimal campaignId, @javax.annotation.Nullable String sort, @javax.annotation.Nullable String value, @javax.annotation.Nullable OffsetDateTime createdBefore, @javax.annotation.Nullable OffsetDateTime createdAfter, @javax.annotation.Nullable String valid, @javax.annotation.Nullable String usable, @javax.annotation.Nullable Long referralId, @javax.annotation.Nullable String recipientIntegrationId, @javax.annotation.Nullable String batchId, @javax.annotation.Nullable Boolean exactMatch, @javax.annotation.Nullable String dateFormat, @javax.annotation.Nullable String campaignState, @javax.annotation.Nullable Boolean valuesOnly, @javax.annotation.Nullable OffsetDateTime deletedBefore, @javax.annotation.Nullable OffsetDateTime deletedAfter, final ApiCallback<String> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = exportCouponsValidateBeforeCall(applicationId, campaignId, sort, value, createdBefore, createdAfter, valid, usable, referralId, recipientIntegrationId, batchId, exactMatch, dateFormat, campaignState, valuesOnly, _callback);
+        okhttp3.Call localVarCall = exportCouponsValidateBeforeCall(applicationId, campaignId, sort, value, createdBefore, createdAfter, valid, usable, referralId, recipientIntegrationId, batchId, exactMatch, dateFormat, campaignState, valuesOnly, deletedBefore, deletedAfter, _callback);
         Type localVarReturnType = new TypeToken<String>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -12089,6 +12106,7 @@ public class ManagementApi {
      * @param sort The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.  (optional)
      * @param entity Returned attributes will be filtered by supplied entity. (optional)
      * @param applicationIds Returned attributes will be filtered by supplied application ids (optional)
+     * @param loyaltyProgramIds Returned attributes will be filtered by the specified loyalty program ids, separated by commas. You can only use this parameter when &#x60;entity&#x60; is &#x60;LoyaltyCard&#x60;. (optional)
      * @param type Returned attributes will be filtered by supplied type (optional)
      * @param kind Returned attributes will be filtered by supplied kind (builtin or custom) (optional)
      * @param search Returned attributes will be filtered by searching case insensitive through Attribute name, description and type (optional)
@@ -12102,7 +12120,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getAttributesCall(@javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable String sort, @javax.annotation.Nullable String entity, @javax.annotation.Nullable String applicationIds, @javax.annotation.Nullable String type, @javax.annotation.Nullable String kind, @javax.annotation.Nullable String search, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getAttributesCall(@javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable String sort, @javax.annotation.Nullable String entity, @javax.annotation.Nullable String applicationIds, @javax.annotation.Nullable String loyaltyProgramIds, @javax.annotation.Nullable String type, @javax.annotation.Nullable String kind, @javax.annotation.Nullable String search, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -12147,6 +12165,10 @@ public class ManagementApi {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("applicationIds", applicationIds));
         }
 
+        if (loyaltyProgramIds != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("loyaltyProgramIds", loyaltyProgramIds));
+        }
+
         if (type != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("type", type));
         }
@@ -12179,8 +12201,8 @@ public class ManagementApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getAttributesValidateBeforeCall(@javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable String sort, @javax.annotation.Nullable String entity, @javax.annotation.Nullable String applicationIds, @javax.annotation.Nullable String type, @javax.annotation.Nullable String kind, @javax.annotation.Nullable String search, final ApiCallback _callback) throws ApiException {
-        return getAttributesCall(pageSize, skip, sort, entity, applicationIds, type, kind, search, _callback);
+    private okhttp3.Call getAttributesValidateBeforeCall(@javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable String sort, @javax.annotation.Nullable String entity, @javax.annotation.Nullable String applicationIds, @javax.annotation.Nullable String loyaltyProgramIds, @javax.annotation.Nullable String type, @javax.annotation.Nullable String kind, @javax.annotation.Nullable String search, final ApiCallback _callback) throws ApiException {
+        return getAttributesCall(pageSize, skip, sort, entity, applicationIds, loyaltyProgramIds, type, kind, search, _callback);
 
     }
 
@@ -12192,6 +12214,7 @@ public class ManagementApi {
      * @param sort The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.  (optional)
      * @param entity Returned attributes will be filtered by supplied entity. (optional)
      * @param applicationIds Returned attributes will be filtered by supplied application ids (optional)
+     * @param loyaltyProgramIds Returned attributes will be filtered by the specified loyalty program ids, separated by commas. You can only use this parameter when &#x60;entity&#x60; is &#x60;LoyaltyCard&#x60;. (optional)
      * @param type Returned attributes will be filtered by supplied type (optional)
      * @param kind Returned attributes will be filtered by supplied kind (builtin or custom) (optional)
      * @param search Returned attributes will be filtered by searching case insensitive through Attribute name, description and type (optional)
@@ -12204,8 +12227,8 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public GetAttributes200Response getAttributes(@javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable String sort, @javax.annotation.Nullable String entity, @javax.annotation.Nullable String applicationIds, @javax.annotation.Nullable String type, @javax.annotation.Nullable String kind, @javax.annotation.Nullable String search) throws ApiException {
-        ApiResponse<GetAttributes200Response> localVarResp = getAttributesWithHttpInfo(pageSize, skip, sort, entity, applicationIds, type, kind, search);
+    public GetAttributes200Response getAttributes(@javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable String sort, @javax.annotation.Nullable String entity, @javax.annotation.Nullable String applicationIds, @javax.annotation.Nullable String loyaltyProgramIds, @javax.annotation.Nullable String type, @javax.annotation.Nullable String kind, @javax.annotation.Nullable String search) throws ApiException {
+        ApiResponse<GetAttributes200Response> localVarResp = getAttributesWithHttpInfo(pageSize, skip, sort, entity, applicationIds, loyaltyProgramIds, type, kind, search);
         return localVarResp.getData();
     }
 
@@ -12217,6 +12240,7 @@ public class ManagementApi {
      * @param sort The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.  (optional)
      * @param entity Returned attributes will be filtered by supplied entity. (optional)
      * @param applicationIds Returned attributes will be filtered by supplied application ids (optional)
+     * @param loyaltyProgramIds Returned attributes will be filtered by the specified loyalty program ids, separated by commas. You can only use this parameter when &#x60;entity&#x60; is &#x60;LoyaltyCard&#x60;. (optional)
      * @param type Returned attributes will be filtered by supplied type (optional)
      * @param kind Returned attributes will be filtered by supplied kind (builtin or custom) (optional)
      * @param search Returned attributes will be filtered by searching case insensitive through Attribute name, description and type (optional)
@@ -12229,8 +12253,8 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<GetAttributes200Response> getAttributesWithHttpInfo(@javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable String sort, @javax.annotation.Nullable String entity, @javax.annotation.Nullable String applicationIds, @javax.annotation.Nullable String type, @javax.annotation.Nullable String kind, @javax.annotation.Nullable String search) throws ApiException {
-        okhttp3.Call localVarCall = getAttributesValidateBeforeCall(pageSize, skip, sort, entity, applicationIds, type, kind, search, null);
+    public ApiResponse<GetAttributes200Response> getAttributesWithHttpInfo(@javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable String sort, @javax.annotation.Nullable String entity, @javax.annotation.Nullable String applicationIds, @javax.annotation.Nullable String loyaltyProgramIds, @javax.annotation.Nullable String type, @javax.annotation.Nullable String kind, @javax.annotation.Nullable String search) throws ApiException {
+        okhttp3.Call localVarCall = getAttributesValidateBeforeCall(pageSize, skip, sort, entity, applicationIds, loyaltyProgramIds, type, kind, search, null);
         Type localVarReturnType = new TypeToken<GetAttributes200Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -12243,6 +12267,7 @@ public class ManagementApi {
      * @param sort The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.  (optional)
      * @param entity Returned attributes will be filtered by supplied entity. (optional)
      * @param applicationIds Returned attributes will be filtered by supplied application ids (optional)
+     * @param loyaltyProgramIds Returned attributes will be filtered by the specified loyalty program ids, separated by commas. You can only use this parameter when &#x60;entity&#x60; is &#x60;LoyaltyCard&#x60;. (optional)
      * @param type Returned attributes will be filtered by supplied type (optional)
      * @param kind Returned attributes will be filtered by supplied kind (builtin or custom) (optional)
      * @param search Returned attributes will be filtered by searching case insensitive through Attribute name, description and type (optional)
@@ -12256,9 +12281,9 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getAttributesAsync(@javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable String sort, @javax.annotation.Nullable String entity, @javax.annotation.Nullable String applicationIds, @javax.annotation.Nullable String type, @javax.annotation.Nullable String kind, @javax.annotation.Nullable String search, final ApiCallback<GetAttributes200Response> _callback) throws ApiException {
+    public okhttp3.Call getAttributesAsync(@javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable String sort, @javax.annotation.Nullable String entity, @javax.annotation.Nullable String applicationIds, @javax.annotation.Nullable String loyaltyProgramIds, @javax.annotation.Nullable String type, @javax.annotation.Nullable String kind, @javax.annotation.Nullable String search, final ApiCallback<GetAttributes200Response> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getAttributesValidateBeforeCall(pageSize, skip, sort, entity, applicationIds, type, kind, search, _callback);
+        okhttp3.Call localVarCall = getAttributesValidateBeforeCall(pageSize, skip, sort, entity, applicationIds, loyaltyProgramIds, type, kind, search, _callback);
         Type localVarReturnType = new TypeToken<GetAttributes200Response>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -18809,6 +18834,153 @@ public class ManagementApi {
 
         okhttp3.Call localVarCall = getRulesetValidateBeforeCall(applicationId, campaignId, rulesetId, _callback);
         Type localVarReturnType = new TypeToken<Ruleset>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for getRulesetV2
+     * @param applicationId The ID of the Application. It is displayed in your Talon.One deployment URL. (required)
+     * @param campaignId The ID of the campaign. It is displayed in your Talon.One deployment URL. (required)
+     * @param rulesetId The ID of the ruleset. (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getRulesetV2Call(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, @javax.annotation.Nonnull Long rulesetId, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/v2/applications/{applicationId}/campaigns/{campaignId}/rulesets/{rulesetId}"
+            .replace("{" + "applicationId" + "}", localVarApiClient.escapeString(applicationId.toString()))
+            .replace("{" + "campaignId" + "}", localVarApiClient.escapeString(campaignId.toString()))
+            .replace("{" + "rulesetId" + "}", localVarApiClient.escapeString(rulesetId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "api_key_v1" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call getRulesetV2ValidateBeforeCall(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, @javax.annotation.Nonnull Long rulesetId, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'applicationId' is set
+        if (applicationId == null) {
+            throw new ApiException("Missing the required parameter 'applicationId' when calling getRulesetV2(Async)");
+        }
+
+        // verify the required parameter 'campaignId' is set
+        if (campaignId == null) {
+            throw new ApiException("Missing the required parameter 'campaignId' when calling getRulesetV2(Async)");
+        }
+
+        // verify the required parameter 'rulesetId' is set
+        if (rulesetId == null) {
+            throw new ApiException("Missing the required parameter 'rulesetId' when calling getRulesetV2(Async)");
+        }
+
+        return getRulesetV2Call(applicationId, campaignId, rulesetId, _callback);
+
+    }
+
+    /**
+     * Get ruleset (V2)
+     * Retrieve the specified ruleset as a JSON object.
+     * @param applicationId The ID of the Application. It is displayed in your Talon.One deployment URL. (required)
+     * @param campaignId The ID of the campaign. It is displayed in your Talon.One deployment URL. (required)
+     * @param rulesetId The ID of the ruleset. (required)
+     * @return RulesetV2
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public RulesetV2 getRulesetV2(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, @javax.annotation.Nonnull Long rulesetId) throws ApiException {
+        ApiResponse<RulesetV2> localVarResp = getRulesetV2WithHttpInfo(applicationId, campaignId, rulesetId);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Get ruleset (V2)
+     * Retrieve the specified ruleset as a JSON object.
+     * @param applicationId The ID of the Application. It is displayed in your Talon.One deployment URL. (required)
+     * @param campaignId The ID of the campaign. It is displayed in your Talon.One deployment URL. (required)
+     * @param rulesetId The ID of the ruleset. (required)
+     * @return ApiResponse&lt;RulesetV2&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<RulesetV2> getRulesetV2WithHttpInfo(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, @javax.annotation.Nonnull Long rulesetId) throws ApiException {
+        okhttp3.Call localVarCall = getRulesetV2ValidateBeforeCall(applicationId, campaignId, rulesetId, null);
+        Type localVarReturnType = new TypeToken<RulesetV2>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Get ruleset (V2) (asynchronously)
+     * Retrieve the specified ruleset as a JSON object.
+     * @param applicationId The ID of the Application. It is displayed in your Talon.One deployment URL. (required)
+     * @param campaignId The ID of the campaign. It is displayed in your Talon.One deployment URL. (required)
+     * @param rulesetId The ID of the ruleset. (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getRulesetV2Async(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, @javax.annotation.Nonnull Long rulesetId, final ApiCallback<RulesetV2> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = getRulesetV2ValidateBeforeCall(applicationId, campaignId, rulesetId, _callback);
+        Type localVarReturnType = new TypeToken<RulesetV2>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }

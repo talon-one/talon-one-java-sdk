@@ -94,7 +94,9 @@ public class IntegrationEventV2Request {
     
     RULE_FAILURE_REASONS("ruleFailureReasons"),
     
-    CAMPAIGN_ELIGIBILITY("campaignEligibility");
+    CAMPAIGN_ELIGIBILITY("campaignEligibility"),
+    
+    ACHIEVEMENTS("achievements");
 
     private String value;
 

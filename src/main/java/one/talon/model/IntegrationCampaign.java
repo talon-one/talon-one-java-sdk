@@ -219,6 +219,16 @@ public class IntegrationCampaign {
   @javax.annotation.Nonnull
   private List<RuleMetadata> rules = new ArrayList<>();
 
+  public static final String SERIALIZED_NAME_LINKED_STORE_IDS = "linkedStoreIds";
+  @SerializedName(SERIALIZED_NAME_LINKED_STORE_IDS)
+  @javax.annotation.Nullable
+  private List<Long> linkedStoreIds;
+
+  public static final String SERIALIZED_NAME_LINKED_AUDIENCE_IDS = "linkedAudienceIds";
+  @SerializedName(SERIALIZED_NAME_LINKED_AUDIENCE_IDS)
+  @javax.annotation.Nullable
+  private List<Long> linkedAudienceIds;
+
   public IntegrationCampaign() {
   }
 
@@ -454,6 +464,60 @@ public class IntegrationCampaign {
     this.rules = rules;
   }
 
+
+  public IntegrationCampaign linkedStoreIds(@javax.annotation.Nullable List<Long> linkedStoreIds) {
+    this.linkedStoreIds = linkedStoreIds;
+    return this;
+  }
+
+  public IntegrationCampaign addLinkedStoreIdsItem(Long linkedStoreIdsItem) {
+    if (this.linkedStoreIds == null) {
+      this.linkedStoreIds = new ArrayList<>();
+    }
+    this.linkedStoreIds.add(linkedStoreIdsItem);
+    return this;
+  }
+
+  /**
+   * A list of store IDs linked to this campaign.
+   * @return linkedStoreIds
+   */
+  @javax.annotation.Nullable
+  public List<Long> getLinkedStoreIds() {
+    return linkedStoreIds;
+  }
+
+  public void setLinkedStoreIds(@javax.annotation.Nullable List<Long> linkedStoreIds) {
+    this.linkedStoreIds = linkedStoreIds;
+  }
+
+
+  public IntegrationCampaign linkedAudienceIds(@javax.annotation.Nullable List<Long> linkedAudienceIds) {
+    this.linkedAudienceIds = linkedAudienceIds;
+    return this;
+  }
+
+  public IntegrationCampaign addLinkedAudienceIdsItem(Long linkedAudienceIdsItem) {
+    if (this.linkedAudienceIds == null) {
+      this.linkedAudienceIds = new ArrayList<>();
+    }
+    this.linkedAudienceIds.add(linkedAudienceIdsItem);
+    return this;
+  }
+
+  /**
+   * A list of audience IDs linked to this campaign.
+   * @return linkedAudienceIds
+   */
+  @javax.annotation.Nullable
+  public List<Long> getLinkedAudienceIds() {
+    return linkedAudienceIds;
+  }
+
+  public void setLinkedAudienceIds(@javax.annotation.Nullable List<Long> linkedAudienceIds) {
+    this.linkedAudienceIds = linkedAudienceIds;
+  }
+
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -519,13 +583,15 @@ public class IntegrationCampaign {
         Objects.equals(this.state, integrationCampaign.state) &&
         Objects.equals(this.tags, integrationCampaign.tags) &&
         Objects.equals(this.features, integrationCampaign.features) &&
-        Objects.equals(this.rules, integrationCampaign.rules)&&
+        Objects.equals(this.rules, integrationCampaign.rules) &&
+        Objects.equals(this.linkedStoreIds, integrationCampaign.linkedStoreIds) &&
+        Objects.equals(this.linkedAudienceIds, integrationCampaign.linkedAudienceIds)&&
         Objects.equals(this.additionalProperties, integrationCampaign.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(applicationId, id, name, description, startTime, endTime, attributes, state, tags, features, rules, additionalProperties);
+    return Objects.hash(applicationId, id, name, description, startTime, endTime, attributes, state, tags, features, rules, linkedStoreIds, linkedAudienceIds, additionalProperties);
   }
 
   @Override
@@ -543,6 +609,8 @@ public class IntegrationCampaign {
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    features: ").append(toIndentedString(features)).append("\n");
     sb.append("    rules: ").append(toIndentedString(rules)).append("\n");
+    sb.append("    linkedStoreIds: ").append(toIndentedString(linkedStoreIds)).append("\n");
+    sb.append("    linkedAudienceIds: ").append(toIndentedString(linkedAudienceIds)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -562,7 +630,7 @@ public class IntegrationCampaign {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("applicationId", "id", "name", "description", "startTime", "endTime", "attributes", "state", "tags", "features", "rules"));
+    openapiFields = new HashSet<String>(Arrays.asList("applicationId", "id", "name", "description", "startTime", "endTime", "attributes", "state", "tags", "features", "rules", "linkedStoreIds", "linkedAudienceIds"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("applicationId", "id", "name", "state", "tags", "features", "rules"));
@@ -620,6 +688,14 @@ public class IntegrationCampaign {
         for (int i = 0; i < jsonArrayrules.size(); i++) {
           RuleMetadata.validateJsonElement(jsonArrayrules.get(i));
         }
+      }
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("linkedStoreIds") != null && !jsonObj.get("linkedStoreIds").isJsonNull() && !jsonObj.get("linkedStoreIds").isJsonArray()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `linkedStoreIds` to be an array in the JSON string but got `%s`", jsonObj.get("linkedStoreIds").toString()));
+      }
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("linkedAudienceIds") != null && !jsonObj.get("linkedAudienceIds").isJsonNull() && !jsonObj.get("linkedAudienceIds").isJsonArray()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `linkedAudienceIds` to be an array in the JSON string but got `%s`", jsonObj.get("linkedAudienceIds").toString()));
       }
   }
 

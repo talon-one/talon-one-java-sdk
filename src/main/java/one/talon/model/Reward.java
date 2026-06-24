@@ -96,10 +96,10 @@ public class Reward {
   @javax.annotation.Nonnull
   private Boolean sandbox;
 
-  public static final String SERIALIZED_NAME_VISIBILITY_CONDITIONS = "visibilityConditions";
-  @SerializedName(SERIALIZED_NAME_VISIBILITY_CONDITIONS)
+  public static final String SERIALIZED_NAME_ELIGIBILITY_CONDITIONS = "eligibilityConditions";
+  @SerializedName(SERIALIZED_NAME_ELIGIBILITY_CONDITIONS)
   @javax.annotation.Nullable
-  private Rule visibilityConditions;
+  private Rule eligibilityConditions;
 
   public static final String SERIALIZED_NAME_RULE = "rule";
   @SerializedName(SERIALIZED_NAME_RULE)
@@ -341,22 +341,22 @@ public class Reward {
   }
 
 
-  public Reward visibilityConditions(@javax.annotation.Nullable Rule visibilityConditions) {
-    this.visibilityConditions = visibilityConditions;
+  public Reward eligibilityConditions(@javax.annotation.Nullable Rule eligibilityConditions) {
+    this.eligibilityConditions = eligibilityConditions;
     return this;
   }
 
   /**
    * An optional rule that manages who can see this reward. If not specified, the reward is visible to all customers.  **Note:** Only the &#x60;condition&#x60; field is evaluated within this rule. The &#x60;effects&#x60; field must be an empty array, and &#x60;bindings&#x60; are not supported. 
-   * @return visibilityConditions
+   * @return eligibilityConditions
    */
   @javax.annotation.Nullable
-  public Rule getVisibilityConditions() {
-    return visibilityConditions;
+  public Rule getEligibilityConditions() {
+    return eligibilityConditions;
   }
 
-  public void setVisibilityConditions(@javax.annotation.Nullable Rule visibilityConditions) {
-    this.visibilityConditions = visibilityConditions;
+  public void setEligibilityConditions(@javax.annotation.Nullable Rule eligibilityConditions) {
+    this.eligibilityConditions = eligibilityConditions;
   }
 
 
@@ -533,7 +533,7 @@ public class Reward {
         Objects.equals(this.description, reward.description) &&
         Objects.equals(this.applicationIds, reward.applicationIds) &&
         Objects.equals(this.sandbox, reward.sandbox) &&
-        Objects.equals(this.visibilityConditions, reward.visibilityConditions) &&
+        Objects.equals(this.eligibilityConditions, reward.eligibilityConditions) &&
         Objects.equals(this.rule, reward.rule) &&
         Objects.equals(this.bindings, reward.bindings) &&
         Objects.equals(this.modified, reward.modified) &&
@@ -544,7 +544,7 @@ public class Reward {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, created, accountId, name, apiName, description, applicationIds, sandbox, visibilityConditions, rule, bindings, modified, status, pointsRequired, additionalProperties);
+    return Objects.hash(id, created, accountId, name, apiName, description, applicationIds, sandbox, eligibilityConditions, rule, bindings, modified, status, pointsRequired, additionalProperties);
   }
 
   @Override
@@ -559,7 +559,7 @@ public class Reward {
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    applicationIds: ").append(toIndentedString(applicationIds)).append("\n");
     sb.append("    sandbox: ").append(toIndentedString(sandbox)).append("\n");
-    sb.append("    visibilityConditions: ").append(toIndentedString(visibilityConditions)).append("\n");
+    sb.append("    eligibilityConditions: ").append(toIndentedString(eligibilityConditions)).append("\n");
     sb.append("    rule: ").append(toIndentedString(rule)).append("\n");
     sb.append("    bindings: ").append(toIndentedString(bindings)).append("\n");
     sb.append("    modified: ").append(toIndentedString(modified)).append("\n");
@@ -584,7 +584,7 @@ public class Reward {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("id", "created", "accountId", "name", "apiName", "description", "applicationIds", "sandbox", "visibilityConditions", "rule", "bindings", "modified", "status", "pointsRequired"));
+    openapiFields = new HashSet<String>(Arrays.asList("id", "created", "accountId", "name", "apiName", "description", "applicationIds", "sandbox", "eligibilityConditions", "rule", "bindings", "modified", "status", "pointsRequired"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("id", "created", "accountId", "name", "apiName", "applicationIds", "sandbox", "status"));
@@ -625,9 +625,9 @@ public class Reward {
       } else if (!jsonObj.get("applicationIds").isJsonArray()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `applicationIds` to be an array in the JSON string but got `%s`", jsonObj.get("applicationIds").toString()));
       }
-      // validate the optional field `visibilityConditions`
-      if (jsonObj.get("visibilityConditions") != null && !jsonObj.get("visibilityConditions").isJsonNull()) {
-        Rule.validateJsonElement(jsonObj.get("visibilityConditions"));
+      // validate the optional field `eligibilityConditions`
+      if (jsonObj.get("eligibilityConditions") != null && !jsonObj.get("eligibilityConditions").isJsonNull()) {
+        Rule.validateJsonElement(jsonObj.get("eligibilityConditions"));
       }
       // validate the optional field `rule`
       if (jsonObj.get("rule") != null && !jsonObj.get("rule").isJsonNull()) {

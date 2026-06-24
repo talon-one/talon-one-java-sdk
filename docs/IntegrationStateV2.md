@@ -16,6 +16,7 @@
 |**createdCoupons** | [**List&lt;Coupon&gt;**](Coupon.md) | The coupons that were created during the event processing. |  |
 |**createdReferrals** | [**List&lt;Referral&gt;**](Referral.md) | The referrals that were created during the event processing. |  |
 |**awardedGiveaways** | [**List&lt;Giveaway&gt;**](Giveaway.md) | The giveaways that were awarded during the event processing. |  [optional] |
+|**achievements** | [**List&lt;CustomerAchievement&gt;**](CustomerAchievement.md) | The achievements progress of the customer. |  [optional] |
 |**referral** | [**InventoryReferral**](InventoryReferral.md) | The referral that was processed. |  [optional] |
 |**coupons** | [**List&lt;IntegrationCoupon&gt;**](IntegrationCoupon.md) | The coupons that were processed. |  [optional] |
 |**event** | [**Event**](Event.md) | The event that was processed. |  [optional] |

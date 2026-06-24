@@ -91,6 +91,7 @@ public class NewCoupons {
   private Long numberOfCoupons;
 
   public static final String SERIALIZED_NAME_UNIQUE_PREFIX = "uniquePrefix";
+  @Deprecated
   @SerializedName(SERIALIZED_NAME_UNIQUE_PREFIX)
   @javax.annotation.Nullable
   private String uniquePrefix;
@@ -275,6 +276,7 @@ public class NewCoupons {
   }
 
 
+  @Deprecated
   public NewCoupons uniquePrefix(@javax.annotation.Nullable String uniquePrefix) {
     this.uniquePrefix = uniquePrefix;
     return this;
@@ -283,12 +285,15 @@ public class NewCoupons {
   /**
    * **DEPRECATED** To create more than 20,000 coupons in one request, use [Create coupons asynchronously](https://docs.talon.one/management-api#tag/Coupons/operation/createCouponsAsync) endpoint. 
    * @return uniquePrefix
+   * @deprecated
    */
+  @Deprecated
   @javax.annotation.Nullable
   public String getUniquePrefix() {
     return uniquePrefix;
   }
 
+  @Deprecated
   public void setUniquePrefix(@javax.annotation.Nullable String uniquePrefix) {
     this.uniquePrefix = uniquePrefix;
   }

@@ -123,6 +123,7 @@ All URIs are relative to *https://yourbaseurl.talon.one*
 | [**getReferralsWithoutTotalCount**](ManagementApi.md#getReferralsWithoutTotalCount) | **GET** /v1/applications/{applicationId}/campaigns/{campaignId}/referrals/no_total | List referrals |
 | [**getRoleV2**](ManagementApi.md#getRoleV2) | **GET** /v2/roles/{roleId} | Get role |
 | [**getRuleset**](ManagementApi.md#getRuleset) | **GET** /v1/applications/{applicationId}/campaigns/{campaignId}/rulesets/{rulesetId} | Get ruleset |
+| [**getRulesetV2**](ManagementApi.md#getRulesetV2) | **GET** /v2/applications/{applicationId}/campaigns/{campaignId}/rulesets/{rulesetId} | Get ruleset (V2) |
 | [**getRulesets**](ManagementApi.md#getRulesets) | **GET** /v1/applications/{applicationId}/campaigns/{campaignId}/rulesets | List campaign rulesets |
 | [**getStore**](ManagementApi.md#getStore) | **GET** /v1/applications/{applicationId}/stores/{storeId} | Get store |
 | [**getUser**](ManagementApi.md#getUser) | **GET** /v1/users/{userId} | Get user |
@@ -3466,7 +3467,7 @@ public class Example {
 
 <a id="exportCoupons"></a>
 # **exportCoupons**
-> String exportCoupons(applicationId, campaignId, sort, value, createdBefore, createdAfter, valid, usable, referralId, recipientIntegrationId, batchId, exactMatch, dateFormat, campaignState, valuesOnly)
+> String exportCoupons(applicationId, campaignId, sort, value, createdBefore, createdAfter, valid, usable, referralId, recipientIntegrationId, batchId, exactMatch, dateFormat, campaignState, valuesOnly, deletedBefore, deletedAfter)
 
 Export coupons
 
@@ -3509,8 +3510,10 @@ public class Example {
     String dateFormat = "excel"; // String | Determines the format of dates in the export document.
     String campaignState = "enabled"; // String | Filter results by the state of the campaign.  - `enabled`: Campaigns that are scheduled, running (activated), or expired. - `running`: Campaigns that are running (activated). - `disabled`: Campaigns that are disabled. - `expired`: Campaigns that are expired. - `archived`: Campaigns that are archived. 
     Boolean valuesOnly = false; // Boolean | Filter results to only return the coupon codes (`value` column) without the associated coupon data.
+    OffsetDateTime deletedBefore = OffsetDateTime.now(); // OffsetDateTime | Timestamp that filters the results to only contain coupons deleted before this date. Must be an RFC3339 timestamp string. You can use any time zone setting. Talon.One will convert to UTC internally.  **Note:** Only coupons deleted in the last 7 days will appear in the results.
+    OffsetDateTime deletedAfter = OffsetDateTime.now(); // OffsetDateTime | Timestamp that filters the results to only contain coupons deleted after this date. Must be an RFC3339 timestamp string. You can use any time zone setting. Talon.One will convert to UTC internally.  **Note:** Only coupons deleted in the last 7 days will appear in the results.
     try {
-      String result = apiInstance.exportCoupons(applicationId, campaignId, sort, value, createdBefore, createdAfter, valid, usable, referralId, recipientIntegrationId, batchId, exactMatch, dateFormat, campaignState, valuesOnly);
+      String result = apiInstance.exportCoupons(applicationId, campaignId, sort, value, createdBefore, createdAfter, valid, usable, referralId, recipientIntegrationId, batchId, exactMatch, dateFormat, campaignState, valuesOnly, deletedBefore, deletedAfter);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ManagementApi#exportCoupons");
@@ -3542,6 +3545,8 @@ public class Example {
 | **dateFormat** | **String**| Determines the format of dates in the export document. | [optional] [enum: excel, ISO8601] |
 | **campaignState** | **String**| Filter results by the state of the campaign.  - &#x60;enabled&#x60;: Campaigns that are scheduled, running (activated), or expired. - &#x60;running&#x60;: Campaigns that are running (activated). - &#x60;disabled&#x60;: Campaigns that are disabled. - &#x60;expired&#x60;: Campaigns that are expired. - &#x60;archived&#x60;: Campaigns that are archived.  | [optional] [enum: enabled, disabled, archived, scheduled, running, expired, staged] |
 | **valuesOnly** | **Boolean**| Filter results to only return the coupon codes (&#x60;value&#x60; column) without the associated coupon data. | [optional] [default to false] |
+| **deletedBefore** | **OffsetDateTime**| Timestamp that filters the results to only contain coupons deleted before this date. Must be an RFC3339 timestamp string. You can use any time zone setting. Talon.One will convert to UTC internally.  **Note:** Only coupons deleted in the last 7 days will appear in the results. | [optional] |
+| **deletedAfter** | **OffsetDateTime**| Timestamp that filters the results to only contain coupons deleted after this date. Must be an RFC3339 timestamp string. You can use any time zone setting. Talon.One will convert to UTC internally.  **Note:** Only coupons deleted in the last 7 days will appear in the results. | [optional] |
 
 ### Return type
 
@@ -6064,7 +6069,7 @@ public class Example {
 
 <a id="getAttributes"></a>
 # **getAttributes**
-> GetAttributes200Response getAttributes(pageSize, skip, sort, entity, applicationIds, type, kind, search)
+> GetAttributes200Response getAttributes(pageSize, skip, sort, entity, applicationIds, loyaltyProgramIds, type, kind, search)
 
 List custom attributes
 
@@ -6097,11 +6102,12 @@ public class Example {
     String sort = "sort_example"; // String | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations. 
     String entity = "entity_example"; // String | Returned attributes will be filtered by supplied entity.
     String applicationIds = "applicationIds_example"; // String | Returned attributes will be filtered by supplied application ids
+    String loyaltyProgramIds = "loyaltyProgramIds_example"; // String | Returned attributes will be filtered by the specified loyalty program ids, separated by commas. You can only use this parameter when `entity` is `LoyaltyCard`.
     String type = "type_example"; // String | Returned attributes will be filtered by supplied type
     String kind = "builtin"; // String | Returned attributes will be filtered by supplied kind (builtin or custom)
     String search = "search_example"; // String | Returned attributes will be filtered by searching case insensitive through Attribute name, description and type
     try {
-      GetAttributes200Response result = apiInstance.getAttributes(pageSize, skip, sort, entity, applicationIds, type, kind, search);
+      GetAttributes200Response result = apiInstance.getAttributes(pageSize, skip, sort, entity, applicationIds, loyaltyProgramIds, type, kind, search);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ManagementApi#getAttributes");
@@ -6123,6 +6129,7 @@ public class Example {
 | **sort** | **String**| The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.  | [optional] |
 | **entity** | **String**| Returned attributes will be filtered by supplied entity. | [optional] |
 | **applicationIds** | **String**| Returned attributes will be filtered by supplied application ids | [optional] |
+| **loyaltyProgramIds** | **String**| Returned attributes will be filtered by the specified loyalty program ids, separated by commas. You can only use this parameter when &#x60;entity&#x60; is &#x60;LoyaltyCard&#x60;. | [optional] |
 | **type** | **String**| Returned attributes will be filtered by supplied type | [optional] |
 | **kind** | **String**| Returned attributes will be filtered by supplied kind (builtin or custom) | [optional] [enum: builtin, custom] |
 | **search** | **String**| Returned attributes will be filtered by searching case insensitive through Attribute name, description and type | [optional] |
@@ -9197,6 +9204,79 @@ public class Example {
 ### Return type
 
 [**Ruleset**](Ruleset.md)
+
+### Authorization
+
+[api_key_v1](../README.md#api_key_v1)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+
+<a id="getRulesetV2"></a>
+# **getRulesetV2**
+> RulesetV2 getRulesetV2(applicationId, campaignId, rulesetId)
+
+Get ruleset (V2)
+
+Retrieve the specified ruleset as a JSON object.
+
+### Example
+```java
+// Import classes:
+import one.talon.ApiClient;
+import one.talon.ApiException;
+import one.talon.Configuration;
+import one.talon.auth.*;
+import one.talon.models.*;
+import one.talon.api.ManagementApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://yourbaseurl.talon.one");
+    
+    // Configure API key authorization: api_key_v1
+    ApiKeyAuth api_key_v1 = (ApiKeyAuth) defaultClient.getAuthentication("api_key_v1");
+    api_key_v1.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //api_key_v1.setApiKeyPrefix("Token");
+
+    ManagementApi apiInstance = new ManagementApi(defaultClient);
+    Long applicationId = 56L; // Long | The ID of the Application. It is displayed in your Talon.One deployment URL.
+    Long campaignId = 56L; // Long | The ID of the campaign. It is displayed in your Talon.One deployment URL.
+    Long rulesetId = 56L; // Long | The ID of the ruleset.
+    try {
+      RulesetV2 result = apiInstance.getRulesetV2(applicationId, campaignId, rulesetId);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling ManagementApi#getRulesetV2");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **applicationId** | **Long**| The ID of the Application. It is displayed in your Talon.One deployment URL. | |
+| **campaignId** | **Long**| The ID of the campaign. It is displayed in your Talon.One deployment URL. | |
+| **rulesetId** | **Long**| The ID of the ruleset. | |
+
+### Return type
+
+[**RulesetV2**](RulesetV2.md)
 
 ### Authorization
 

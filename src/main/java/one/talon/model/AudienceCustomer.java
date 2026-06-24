@@ -94,6 +94,7 @@ public class AudienceCustomer {
   private BigDecimal totalSales;
 
   public static final String SERIALIZED_NAME_LOYALTY_MEMBERSHIPS = "loyaltyMemberships";
+  @Deprecated
   @SerializedName(SERIALIZED_NAME_LOYALTY_MEMBERSHIPS)
   @javax.annotation.Nullable
   private List<LoyaltyMembership> loyaltyMemberships;
@@ -267,6 +268,7 @@ public class AudienceCustomer {
   }
 
 
+  @Deprecated
   public AudienceCustomer loyaltyMemberships(@javax.annotation.Nullable List<LoyaltyMembership> loyaltyMemberships) {
     this.loyaltyMemberships = loyaltyMemberships;
     return this;
@@ -283,12 +285,15 @@ public class AudienceCustomer {
   /**
    * **DEPRECATED. Always returns &#x60;null&#x60;.** A list of loyalty programs joined by the customer. 
    * @return loyaltyMemberships
+   * @deprecated
    */
+  @Deprecated
   @javax.annotation.Nullable
   public List<LoyaltyMembership> getLoyaltyMemberships() {
     return loyaltyMemberships;
   }
 
+  @Deprecated
   public void setLoyaltyMemberships(@javax.annotation.Nullable List<LoyaltyMembership> loyaltyMemberships) {
     this.loyaltyMemberships = loyaltyMemberships;
   }

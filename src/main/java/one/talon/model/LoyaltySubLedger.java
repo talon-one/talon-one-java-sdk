@@ -56,6 +56,7 @@ import one.talon.JSON;
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.23.0")
 public class LoyaltySubLedger {
   public static final String SERIALIZED_NAME_TOTAL = "total";
+  @Deprecated
   @SerializedName(SERIALIZED_NAME_TOTAL)
   @javax.annotation.Nonnull
   private BigDecimal total;
@@ -118,6 +119,7 @@ public class LoyaltySubLedger {
   public LoyaltySubLedger() {
   }
 
+  @Deprecated
   public LoyaltySubLedger total(@javax.annotation.Nonnull BigDecimal total) {
     this.total = total;
     return this;
@@ -126,12 +128,15 @@ public class LoyaltySubLedger {
   /**
    * **DEPRECATED** Use &#x60;totalActivePoints&#x60; property instead. Total amount of currently active and available points in the customer&#39;s balance. 
    * @return total
+   * @deprecated
    */
+  @Deprecated
   @javax.annotation.Nonnull
   public BigDecimal getTotal() {
     return total;
   }
 
+  @Deprecated
   public void setTotal(@javax.annotation.Nonnull BigDecimal total) {
     this.total = total;
   }

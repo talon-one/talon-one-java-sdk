@@ -91,6 +91,7 @@ docs/AudienceIntegrationID.md
 docs/AudienceMembership.md
 docs/AudienceReference.md
 docs/AwardGiveawayEffectProps.md
+docs/BaseBlock.md
 docs/BaseCampaign.md
 docs/BaseLoyaltyProgram.md
 docs/BaseNotification.md
@@ -208,6 +209,7 @@ docs/CreateTemplateCampaign.md
 docs/CreateTemplateCampaignResponse.md
 docs/CustomEffect.md
 docs/CustomEffectProps.md
+docs/CustomerAchievement.md
 docs/CustomerActivityReport.md
 docs/CustomerAnalytics.md
 docs/CustomerInventory.md
@@ -548,6 +550,7 @@ docs/OutgoingIntegrationTemplateWithConfigurationDetails.md
 docs/OutgoingIntegrationTemplates.md
 docs/OutgoingIntegrationType.md
 docs/OutgoingIntegrationTypes.md
+docs/PassthroughBlock.md
 docs/PatchItemCatalogAction.md
 docs/PatchManyItemsCatalogAction.md
 docs/PendingActivePointsData.md
@@ -569,6 +572,8 @@ docs/ProductUnitAnalyticsTotals.md
 docs/ProfileAudiencesChanges.md
 docs/ProjectedTier.md
 docs/PromoteExperiment.md
+docs/PromotionGroupBlock.md
+docs/PromotionRuleV2.md
 docs/RedeemReferralEffectProps.md
 docs/Referral.md
 docs/ReferralConstraints.md
@@ -590,6 +595,9 @@ docs/RevisionActivationRequest.md
 docs/RevisionVersion.md
 docs/Reward.md
 docs/RewardPointsRequired.md
+docs/Risk.md
+docs/RiskAffectedEntityItem.md
+docs/RiskDetail.md
 docs/RiskNotification.md
 docs/Role.md
 docs/RoleAssign.md
@@ -614,7 +622,9 @@ docs/RuleEligibilityFailureDetails.md
 docs/RuleFailureReason.md
 docs/RuleMetadata.md
 docs/RuleMetadataEligibility.md
+docs/RuleV2.md
 docs/Ruleset.md
+docs/RulesetV2.md
 docs/SSOConfig.md
 docs/SamlConnection.md
 docs/SamlConnectionInternal.md
@@ -656,7 +666,9 @@ docs/StrikethroughChangedItem.md
 docs/StrikethroughCustomEffectPerItemProps.md
 docs/StrikethroughDebugResponse.md
 docs/StrikethroughEffect.md
+docs/StrikethroughGroupBlock.md
 docs/StrikethroughLabelingNotification.md
+docs/StrikethroughRuleV2.md
 docs/StrikethroughSetDiscountPerItemEffectProps.md
 docs/StrikethroughSetDiscountPerItemMemberEffectProps.md
 docs/StrikethroughTrigger.md
@@ -841,6 +853,7 @@ src/main/java/one/talon/model/AudienceIntegrationID.java
 src/main/java/one/talon/model/AudienceMembership.java
 src/main/java/one/talon/model/AudienceReference.java
 src/main/java/one/talon/model/AwardGiveawayEffectProps.java
+src/main/java/one/talon/model/BaseBlock.java
 src/main/java/one/talon/model/BaseCampaign.java
 src/main/java/one/talon/model/BaseLoyaltyProgram.java
 src/main/java/one/talon/model/BaseNotification.java
@@ -958,6 +971,7 @@ src/main/java/one/talon/model/CreateTemplateCampaign.java
 src/main/java/one/talon/model/CreateTemplateCampaignResponse.java
 src/main/java/one/talon/model/CustomEffect.java
 src/main/java/one/talon/model/CustomEffectProps.java
+src/main/java/one/talon/model/CustomerAchievement.java
 src/main/java/one/talon/model/CustomerActivityReport.java
 src/main/java/one/talon/model/CustomerAnalytics.java
 src/main/java/one/talon/model/CustomerInventory.java
@@ -1296,6 +1310,7 @@ src/main/java/one/talon/model/OutgoingIntegrationTemplateWithConfigurationDetail
 src/main/java/one/talon/model/OutgoingIntegrationTemplates.java
 src/main/java/one/talon/model/OutgoingIntegrationType.java
 src/main/java/one/talon/model/OutgoingIntegrationTypes.java
+src/main/java/one/talon/model/PassthroughBlock.java
 src/main/java/one/talon/model/PatchItemCatalogAction.java
 src/main/java/one/talon/model/PatchManyItemsCatalogAction.java
 src/main/java/one/talon/model/PendingActivePointsData.java
@@ -1317,6 +1332,8 @@ src/main/java/one/talon/model/ProductUnitAnalyticsTotals.java
 src/main/java/one/talon/model/ProfileAudiencesChanges.java
 src/main/java/one/talon/model/ProjectedTier.java
 src/main/java/one/talon/model/PromoteExperiment.java
+src/main/java/one/talon/model/PromotionGroupBlock.java
+src/main/java/one/talon/model/PromotionRuleV2.java
 src/main/java/one/talon/model/RedeemReferralEffectProps.java
 src/main/java/one/talon/model/Referral.java
 src/main/java/one/talon/model/ReferralConstraints.java
@@ -1338,6 +1355,9 @@ src/main/java/one/talon/model/RevisionActivationRequest.java
 src/main/java/one/talon/model/RevisionVersion.java
 src/main/java/one/talon/model/Reward.java
 src/main/java/one/talon/model/RewardPointsRequired.java
+src/main/java/one/talon/model/Risk.java
+src/main/java/one/talon/model/RiskAffectedEntityItem.java
+src/main/java/one/talon/model/RiskDetail.java
 src/main/java/one/talon/model/RiskNotification.java
 src/main/java/one/talon/model/Role.java
 src/main/java/one/talon/model/RoleAssign.java
@@ -1362,7 +1382,9 @@ src/main/java/one/talon/model/RuleEligibilityFailureDetails.java
 src/main/java/one/talon/model/RuleFailureReason.java
 src/main/java/one/talon/model/RuleMetadata.java
 src/main/java/one/talon/model/RuleMetadataEligibility.java
+src/main/java/one/talon/model/RuleV2.java
 src/main/java/one/talon/model/Ruleset.java
+src/main/java/one/talon/model/RulesetV2.java
 src/main/java/one/talon/model/SSOConfig.java
 src/main/java/one/talon/model/SamlConnection.java
 src/main/java/one/talon/model/SamlConnectionInternal.java
@@ -1404,7 +1426,9 @@ src/main/java/one/talon/model/StrikethroughChangedItem.java
 src/main/java/one/talon/model/StrikethroughCustomEffectPerItemProps.java
 src/main/java/one/talon/model/StrikethroughDebugResponse.java
 src/main/java/one/talon/model/StrikethroughEffect.java
+src/main/java/one/talon/model/StrikethroughGroupBlock.java
 src/main/java/one/talon/model/StrikethroughLabelingNotification.java
+src/main/java/one/talon/model/StrikethroughRuleV2.java
 src/main/java/one/talon/model/StrikethroughSetDiscountPerItemEffectProps.java
 src/main/java/one/talon/model/StrikethroughSetDiscountPerItemMemberEffectProps.java
 src/main/java/one/talon/model/StrikethroughTrigger.java
@@ -1562,6 +1586,7 @@ src/test/java/one/talon/model/AudienceMembershipTest.java
 src/test/java/one/talon/model/AudienceReferenceTest.java
 src/test/java/one/talon/model/AudienceTest.java
 src/test/java/one/talon/model/AwardGiveawayEffectPropsTest.java
+src/test/java/one/talon/model/BaseBlockTest.java
 src/test/java/one/talon/model/BaseCampaignTest.java
 src/test/java/one/talon/model/BaseLoyaltyProgramTest.java
 src/test/java/one/talon/model/BaseNotificationEntityTest.java
@@ -1679,6 +1704,7 @@ src/test/java/one/talon/model/CreateTemplateCampaignResponseTest.java
 src/test/java/one/talon/model/CreateTemplateCampaignTest.java
 src/test/java/one/talon/model/CustomEffectPropsTest.java
 src/test/java/one/talon/model/CustomEffectTest.java
+src/test/java/one/talon/model/CustomerAchievementTest.java
 src/test/java/one/talon/model/CustomerActivityReportTest.java
 src/test/java/one/talon/model/CustomerAnalyticsTest.java
 src/test/java/one/talon/model/CustomerInventoryTest.java
@@ -2017,6 +2043,7 @@ src/test/java/one/talon/model/OutgoingIntegrationTemplateWithConfigurationDetail
 src/test/java/one/talon/model/OutgoingIntegrationTemplatesTest.java
 src/test/java/one/talon/model/OutgoingIntegrationTypeTest.java
 src/test/java/one/talon/model/OutgoingIntegrationTypesTest.java
+src/test/java/one/talon/model/PassthroughBlockTest.java
 src/test/java/one/talon/model/PatchItemCatalogActionTest.java
 src/test/java/one/talon/model/PatchManyItemsCatalogActionTest.java
 src/test/java/one/talon/model/PendingActivePointsDataTest.java
@@ -2038,6 +2065,8 @@ src/test/java/one/talon/model/ProductUnitAnalyticsTotalsTest.java
 src/test/java/one/talon/model/ProfileAudiencesChangesTest.java
 src/test/java/one/talon/model/ProjectedTierTest.java
 src/test/java/one/talon/model/PromoteExperimentTest.java
+src/test/java/one/talon/model/PromotionGroupBlockTest.java
+src/test/java/one/talon/model/PromotionRuleV2Test.java
 src/test/java/one/talon/model/RedeemReferralEffectPropsTest.java
 src/test/java/one/talon/model/ReferralConstraintsTest.java
 src/test/java/one/talon/model/ReferralCreatedEffectPropsTest.java
@@ -2059,7 +2088,10 @@ src/test/java/one/talon/model/RevisionTest.java
 src/test/java/one/talon/model/RevisionVersionTest.java
 src/test/java/one/talon/model/RewardPointsRequiredTest.java
 src/test/java/one/talon/model/RewardTest.java
+src/test/java/one/talon/model/RiskAffectedEntityItemTest.java
+src/test/java/one/talon/model/RiskDetailTest.java
 src/test/java/one/talon/model/RiskNotificationTest.java
+src/test/java/one/talon/model/RiskTest.java
 src/test/java/one/talon/model/RoleAssignTest.java
 src/test/java/one/talon/model/RoleMembershipTest.java
 src/test/java/one/talon/model/RoleTest.java
@@ -2083,7 +2115,9 @@ src/test/java/one/talon/model/RuleFailureReasonTest.java
 src/test/java/one/talon/model/RuleMetadataEligibilityTest.java
 src/test/java/one/talon/model/RuleMetadataTest.java
 src/test/java/one/talon/model/RuleTest.java
+src/test/java/one/talon/model/RuleV2Test.java
 src/test/java/one/talon/model/RulesetTest.java
+src/test/java/one/talon/model/RulesetV2Test.java
 src/test/java/one/talon/model/SSOConfigTest.java
 src/test/java/one/talon/model/SamlConnectionInternalTest.java
 src/test/java/one/talon/model/SamlConnectionMetadataTest.java
@@ -2125,7 +2159,9 @@ src/test/java/one/talon/model/StrikethroughChangedItemTest.java
 src/test/java/one/talon/model/StrikethroughCustomEffectPerItemPropsTest.java
 src/test/java/one/talon/model/StrikethroughDebugResponseTest.java
 src/test/java/one/talon/model/StrikethroughEffectTest.java
+src/test/java/one/talon/model/StrikethroughGroupBlockTest.java
 src/test/java/one/talon/model/StrikethroughLabelingNotificationTest.java
+src/test/java/one/talon/model/StrikethroughRuleV2Test.java
 src/test/java/one/talon/model/StrikethroughSetDiscountPerItemEffectPropsTest.java
 src/test/java/one/talon/model/StrikethroughSetDiscountPerItemMemberEffectPropsTest.java
 src/test/java/one/talon/model/StrikethroughTriggerTest.java

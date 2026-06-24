@@ -500,7 +500,24 @@ public class IntegrationApiTest {
         OffsetDateTime startBefore = null;
         OffsetDateTime endAfter = null;
         OffsetDateTime endBefore = null;
-        IntegrationGetAllCampaigns200Response response = api.integrationGetAllCampaigns(pageSize, skip, campaignIds, startAfter, startBefore, endAfter, endBefore);
+        Long storeId = null;
+        Long audienceId = null;
+        IntegrationGetAllCampaigns200Response response = api.integrationGetAllCampaigns(pageSize, skip, campaignIds, startAfter, startBefore, endAfter, endBefore, storeId, audienceId);
+        // TODO: test validations
+    }
+
+    /**
+     * Join customer profile to loyalty program
+     *
+     * Join a customer profile to the specified loyalty program.  If the customer profile does not exist, it will be created first using the provided &#x60;integrationId&#x60;, then joined to the loyalty program.  &gt; [!note] This endpoint only works with profile-based loyalty programs.  **Behavior**: - If the loyalty program does not exist, the request fails. - If the customer profile is already joined to the loyalty program, the request fails. - If the customer profile does not exist, it is created and then joined to the loyalty program. 
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void joinLoyaltyProgramTest() throws ApiException {
+        Long loyaltyProgramId = null;
+        String integrationId = null;
+        api.joinLoyaltyProgram(loyaltyProgramId, integrationId);
         // TODO: test validations
     }
 

@@ -28,6 +28,7 @@ The body of a V2 integration API request (customer session update). Next to the 
 | RULE_FAILURE_REASONS | &quot;ruleFailureReasons&quot; |
 | PREVIOUS_RETURNS | &quot;previousReturns&quot; |
 | CAMPAIGN_ELIGIBILITY | &quot;campaignEligibility&quot; |
+| ACHIEVEMENTS | &quot;achievements&quot; |
 
 
 

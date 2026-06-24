@@ -127,6 +127,7 @@ import one.talon.model.Referral;
 import one.talon.model.RoleV2;
 import one.talon.model.RoleV2Base;
 import one.talon.model.Ruleset;
+import one.talon.model.RulesetV2;
 import one.talon.model.ScimBaseGroup;
 import one.talon.model.ScimGroup;
 import one.talon.model.ScimGroupsListResponse;
@@ -890,7 +891,9 @@ public class ManagementApiTest {
         String dateFormat = null;
         String campaignState = null;
         Boolean valuesOnly = null;
-        String response = api.exportCoupons(applicationId, campaignId, sort, value, createdBefore, createdAfter, valid, usable, referralId, recipientIntegrationId, batchId, exactMatch, dateFormat, campaignState, valuesOnly);
+        OffsetDateTime deletedBefore = null;
+        OffsetDateTime deletedAfter = null;
+        String response = api.exportCoupons(applicationId, campaignId, sort, value, createdBefore, createdAfter, valid, usable, referralId, recipientIntegrationId, batchId, exactMatch, dateFormat, campaignState, valuesOnly, deletedBefore, deletedAfter);
         // TODO: test validations
     }
 
@@ -1474,10 +1477,11 @@ public class ManagementApiTest {
         String sort = null;
         String entity = null;
         String applicationIds = null;
+        String loyaltyProgramIds = null;
         String type = null;
         String kind = null;
         String search = null;
-        GetAttributes200Response response = api.getAttributes(pageSize, skip, sort, entity, applicationIds, type, kind, search);
+        GetAttributes200Response response = api.getAttributes(pageSize, skip, sort, entity, applicationIds, loyaltyProgramIds, type, kind, search);
         // TODO: test validations
     }
 
@@ -2202,6 +2206,22 @@ public class ManagementApiTest {
         Long campaignId = null;
         Long rulesetId = null;
         Ruleset response = api.getRuleset(applicationId, campaignId, rulesetId);
+        // TODO: test validations
+    }
+
+    /**
+     * Get ruleset (V2)
+     *
+     * Retrieve the specified ruleset as a JSON object.
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void getRulesetV2Test() throws ApiException {
+        Long applicationId = null;
+        Long campaignId = null;
+        Long rulesetId = null;
+        RulesetV2 response = api.getRulesetV2(applicationId, campaignId, rulesetId);
         // TODO: test validations
     }
 

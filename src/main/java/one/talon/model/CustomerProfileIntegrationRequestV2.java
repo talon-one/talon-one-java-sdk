@@ -82,7 +82,9 @@ public class CustomerProfileIntegrationRequestV2 {
     
     RULE_FAILURE_REASONS("ruleFailureReasons"),
     
-    CAMPAIGN_ELIGIBILITY("campaignEligibility");
+    CAMPAIGN_ELIGIBILITY("campaignEligibility"),
+    
+    ACHIEVEMENTS("achievements");
 
     private String value;
 
