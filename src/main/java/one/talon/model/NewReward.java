@@ -23,6 +23,9 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import one.talon.model.Binding;
+import one.talon.model.RewardPointsRequired;
+import one.talon.model.Rule;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -76,6 +79,26 @@ public class NewReward {
   @SerializedName(SERIALIZED_NAME_SANDBOX)
   @javax.annotation.Nonnull
   private Boolean sandbox;
+
+  public static final String SERIALIZED_NAME_ELIGIBILITY_CONDITIONS = "eligibilityConditions";
+  @SerializedName(SERIALIZED_NAME_ELIGIBILITY_CONDITIONS)
+  @javax.annotation.Nullable
+  private Rule eligibilityConditions;
+
+  public static final String SERIALIZED_NAME_RULE = "rule";
+  @SerializedName(SERIALIZED_NAME_RULE)
+  @javax.annotation.Nullable
+  private Rule rule;
+
+  public static final String SERIALIZED_NAME_BINDINGS = "bindings";
+  @SerializedName(SERIALIZED_NAME_BINDINGS)
+  @javax.annotation.Nullable
+  private List<Binding> bindings;
+
+  public static final String SERIALIZED_NAME_POINTS_REQUIRED = "pointsRequired";
+  @SerializedName(SERIALIZED_NAME_POINTS_REQUIRED)
+  @javax.annotation.Nullable
+  private List<RewardPointsRequired> pointsRequired;
 
   public NewReward() {
   }
@@ -182,6 +205,98 @@ public class NewReward {
     this.sandbox = sandbox;
   }
 
+
+  public NewReward eligibilityConditions(@javax.annotation.Nullable Rule eligibilityConditions) {
+    this.eligibilityConditions = eligibilityConditions;
+    return this;
+  }
+
+  /**
+   * An optional rule that manages who can see this reward. If not specified, the reward is visible to all customers.  **Note:** Only the &#x60;condition&#x60; field is evaluated within this rule. The &#x60;effects&#x60; field must be an empty array, and &#x60;bindings&#x60; are not supported. 
+   * @return eligibilityConditions
+   */
+  @javax.annotation.Nullable
+  public Rule getEligibilityConditions() {
+    return eligibilityConditions;
+  }
+
+  public void setEligibilityConditions(@javax.annotation.Nullable Rule eligibilityConditions) {
+    this.eligibilityConditions = eligibilityConditions;
+  }
+
+
+  public NewReward rule(@javax.annotation.Nullable Rule rule) {
+    this.rule = rule;
+    return this;
+  }
+
+  /**
+   * Rule to apply.  **Note**: The &#x60;bindings&#x60; field inside the rule must not be used in this endpoint. All bindings should be defined at the reward level via the top-level &#x60;bindings&#x60; field. 
+   * @return rule
+   */
+  @javax.annotation.Nullable
+  public Rule getRule() {
+    return rule;
+  }
+
+  public void setRule(@javax.annotation.Nullable Rule rule) {
+    this.rule = rule;
+  }
+
+
+  public NewReward bindings(@javax.annotation.Nullable List<Binding> bindings) {
+    this.bindings = bindings;
+    return this;
+  }
+
+  public NewReward addBindingsItem(Binding bindingsItem) {
+    if (this.bindings == null) {
+      this.bindings = new ArrayList<>();
+    }
+    this.bindings.add(bindingsItem);
+    return this;
+  }
+
+  /**
+   * A list of named variables created before the reward&#39;s rules are evaluated. Each binding pairs a name with a talang expression. The expression is evaluated once and its result is available by name in any rule condition or effect. Bindings must be defined outside of individual rules.
+   * @return bindings
+   */
+  @javax.annotation.Nullable
+  public List<Binding> getBindings() {
+    return bindings;
+  }
+
+  public void setBindings(@javax.annotation.Nullable List<Binding> bindings) {
+    this.bindings = bindings;
+  }
+
+
+  public NewReward pointsRequired(@javax.annotation.Nullable List<RewardPointsRequired> pointsRequired) {
+    this.pointsRequired = pointsRequired;
+    return this;
+  }
+
+  public NewReward addPointsRequiredItem(RewardPointsRequired pointsRequiredItem) {
+    if (this.pointsRequired == null) {
+      this.pointsRequired = new ArrayList<>();
+    }
+    this.pointsRequired.add(pointsRequiredItem);
+    return this;
+  }
+
+  /**
+   * The loyalty points required to activate the reward. Each object defines the specific loyalty program and subledger from which points are deducted when activating the reward.  **Note:** When creating a reward, the &#x60;id&#x60; of each entry is ignored and a new entry is always created. 
+   * @return pointsRequired
+   */
+  @javax.annotation.Nullable
+  public List<RewardPointsRequired> getPointsRequired() {
+    return pointsRequired;
+  }
+
+  public void setPointsRequired(@javax.annotation.Nullable List<RewardPointsRequired> pointsRequired) {
+    this.pointsRequired = pointsRequired;
+  }
+
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -241,13 +356,17 @@ public class NewReward {
         Objects.equals(this.apiName, newReward.apiName) &&
         Objects.equals(this.description, newReward.description) &&
         Objects.equals(this.applicationIds, newReward.applicationIds) &&
-        Objects.equals(this.sandbox, newReward.sandbox)&&
+        Objects.equals(this.sandbox, newReward.sandbox) &&
+        Objects.equals(this.eligibilityConditions, newReward.eligibilityConditions) &&
+        Objects.equals(this.rule, newReward.rule) &&
+        Objects.equals(this.bindings, newReward.bindings) &&
+        Objects.equals(this.pointsRequired, newReward.pointsRequired)&&
         Objects.equals(this.additionalProperties, newReward.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, apiName, description, applicationIds, sandbox, additionalProperties);
+    return Objects.hash(name, apiName, description, applicationIds, sandbox, eligibilityConditions, rule, bindings, pointsRequired, additionalProperties);
   }
 
   @Override
@@ -259,6 +378,10 @@ public class NewReward {
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    applicationIds: ").append(toIndentedString(applicationIds)).append("\n");
     sb.append("    sandbox: ").append(toIndentedString(sandbox)).append("\n");
+    sb.append("    eligibilityConditions: ").append(toIndentedString(eligibilityConditions)).append("\n");
+    sb.append("    rule: ").append(toIndentedString(rule)).append("\n");
+    sb.append("    bindings: ").append(toIndentedString(bindings)).append("\n");
+    sb.append("    pointsRequired: ").append(toIndentedString(pointsRequired)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -278,7 +401,7 @@ public class NewReward {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("name", "apiName", "description", "applicationIds", "sandbox"));
+    openapiFields = new HashSet<String>(Arrays.asList("name", "apiName", "description", "applicationIds", "sandbox", "eligibilityConditions", "rule", "bindings", "pointsRequired"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("name", "apiName", "applicationIds", "sandbox"));
@@ -318,6 +441,42 @@ public class NewReward {
         throw new IllegalArgumentException("Expected the field `linkedContent` to be an array in the JSON string but got `null`");
       } else if (!jsonObj.get("applicationIds").isJsonArray()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `applicationIds` to be an array in the JSON string but got `%s`", jsonObj.get("applicationIds").toString()));
+      }
+      // validate the optional field `eligibilityConditions`
+      if (jsonObj.get("eligibilityConditions") != null && !jsonObj.get("eligibilityConditions").isJsonNull()) {
+        Rule.validateJsonElement(jsonObj.get("eligibilityConditions"));
+      }
+      // validate the optional field `rule`
+      if (jsonObj.get("rule") != null && !jsonObj.get("rule").isJsonNull()) {
+        Rule.validateJsonElement(jsonObj.get("rule"));
+      }
+      if (jsonObj.get("bindings") != null && !jsonObj.get("bindings").isJsonNull()) {
+        JsonArray jsonArraybindings = jsonObj.getAsJsonArray("bindings");
+        if (jsonArraybindings != null) {
+          // ensure the json data is an array
+          if (!jsonObj.get("bindings").isJsonArray()) {
+            throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `bindings` to be an array in the JSON string but got `%s`", jsonObj.get("bindings").toString()));
+          }
+
+          // validate the optional field `bindings` (array)
+          for (int i = 0; i < jsonArraybindings.size(); i++) {
+            Binding.validateJsonElement(jsonArraybindings.get(i));
+          };
+        }
+      }
+      if (jsonObj.get("pointsRequired") != null && !jsonObj.get("pointsRequired").isJsonNull()) {
+        JsonArray jsonArraypointsRequired = jsonObj.getAsJsonArray("pointsRequired");
+        if (jsonArraypointsRequired != null) {
+          // ensure the json data is an array
+          if (!jsonObj.get("pointsRequired").isJsonArray()) {
+            throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `pointsRequired` to be an array in the JSON string but got `%s`", jsonObj.get("pointsRequired").toString()));
+          }
+
+          // validate the optional field `pointsRequired` (array)
+          for (int i = 0; i < jsonArraypointsRequired.size(); i++) {
+            RewardPointsRequired.validateJsonElement(jsonArraypointsRequired.get(i));
+          };
+        }
       }
   }
 

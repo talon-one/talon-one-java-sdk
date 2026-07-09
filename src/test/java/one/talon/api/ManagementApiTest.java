@@ -59,6 +59,7 @@ import one.talon.model.GetApplicationCustomersByAttributes200Response;
 import one.talon.model.GetApplicationEventTypes200Response;
 import one.talon.model.GetApplicationEventsWithoutTotalCount200Response;
 import one.talon.model.GetApplicationSessions200Response;
+import one.talon.model.GetApplicationSessionsByCustomerAttributes200Response;
 import one.talon.model.GetApplications200Response;
 import one.talon.model.GetAttributes200Response;
 import one.talon.model.GetAudienceMemberships200Response;
@@ -1434,6 +1435,24 @@ public class ManagementApiTest {
     }
 
     /**
+     * List Application sessions matching the given customer attributes
+     *
+     * Get a list of the Application sessions matching the provided customer profile attributes.  The match is successful if all the attributes of the request are found in a profile, even if the profile has more attributes that are not present on the request. 
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void getApplicationSessionsByCustomerAttributesTest() throws ApiException {
+        Long applicationId = null;
+        CustomerProfileSearchQuery customerProfileSearchQuery = null;
+        Long pageSize = null;
+        Long skip = null;
+        Boolean withTotalResultSize = null;
+        GetApplicationSessionsByCustomerAttributes200Response response = api.getApplicationSessionsByCustomerAttributes(applicationId, customerProfileSearchQuery, pageSize, skip, withTotalResultSize);
+        // TODO: test validations
+    }
+
+    /**
      * List Applications
      *
      * List all the Applications in the current account.
@@ -1652,7 +1671,7 @@ public class ManagementApiTest {
         String sort = null;
         String campaignState = null;
         String name = null;
-        String tags = null;
+        List<String> tags = null;
         OffsetDateTime createdBefore = null;
         OffsetDateTime createdAfter = null;
         OffsetDateTime startBefore = null;

@@ -12,6 +12,7 @@ Log entry for a given loyalty profile transaction.
 |**created** | **OffsetDateTime** | Date and time the loyalty transaction occurred. |  |
 |**programId** | **Long** | ID of the loyalty program. |  |
 |**customerSessionId** | **String** | ID of the customer session where the transaction occurred. |  [optional] |
+|**storeIntegrationId** | **String** | The integration ID of the store where the transaction occurred. Only set for transactions created by a customer session or event that referenced a store. |  [optional] |
 |**type** | [**TypeEnum**](#TypeEnum) | Type of transaction. Possible values:   - &#x60;addition&#x60;: Signifies added points.   - &#x60;subtraction&#x60;: Signifies deducted points.  |  |
 |**name** | **String** | Name or reason of the loyalty ledger transaction. |  |
 |**startDate** | **String** | When points become active. Possible values:   - &#x60;immediate&#x60;: Points are immediately active.   - &#x60;on_action&#x60;: Points become active based on the customer&#39;s action.   - a timestamp value: Points become active at a given date and time.  |  |

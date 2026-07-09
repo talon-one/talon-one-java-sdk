@@ -24,6 +24,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import one.talon.model.AttributesSettings;
+import one.talon.model.BestPriorPriceSettings;
 import one.talon.model.LimitConfig;
 import one.talon.model.LoyaltyProgram;
 import org.junit.jupiter.api.Disabled;
@@ -209,6 +210,14 @@ public class ApplicationTest {
     @Test
     public void enableCampaignStateManagementTest() {
         // TODO: test enableCampaignStateManagement
+    }
+
+    /**
+     * Test the property 'bestPriorPriceSettings'
+     */
+    @Test
+    public void bestPriorPriceSettingsTest() {
+        // TODO: test bestPriorPriceSettings
     }
 
     /**

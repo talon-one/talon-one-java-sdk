@@ -126,4 +126,12 @@ public class SamlConnectionTest {
         // TODO: test assertionConsumerServiceURL
     }
 
+    /**
+     * Test the property 'certificateExpiry'
+     */
+    @Test
+    public void certificateExpiryTest() {
+        // TODO: test certificateExpiry
+    }
+
 }

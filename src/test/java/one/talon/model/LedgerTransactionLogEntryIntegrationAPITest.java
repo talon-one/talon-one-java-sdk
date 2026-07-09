@@ -73,6 +73,14 @@ public class LedgerTransactionLogEntryIntegrationAPITest {
     }
 
     /**
+     * Test the property 'storeIntegrationId'
+     */
+    @Test
+    public void storeIntegrationIdTest() {
+        // TODO: test storeIntegrationId
+    }
+
+    /**
      * Test the property 'type'
      */
     @Test

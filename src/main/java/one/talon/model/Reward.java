@@ -111,6 +111,11 @@ public class Reward {
   @javax.annotation.Nullable
   private List<Binding> bindings;
 
+  public static final String SERIALIZED_NAME_POINTS_REQUIRED = "pointsRequired";
+  @SerializedName(SERIALIZED_NAME_POINTS_REQUIRED)
+  @javax.annotation.Nullable
+  private List<RewardPointsRequired> pointsRequired;
+
   public static final String SERIALIZED_NAME_MODIFIED = "modified";
   @SerializedName(SERIALIZED_NAME_MODIFIED)
   @javax.annotation.Nullable
@@ -172,11 +177,6 @@ public class Reward {
   @SerializedName(SERIALIZED_NAME_STATUS)
   @javax.annotation.Nonnull
   private StatusEnum status;
-
-  public static final String SERIALIZED_NAME_POINTS_REQUIRED = "pointsRequired";
-  @SerializedName(SERIALIZED_NAME_POINTS_REQUIRED)
-  @javax.annotation.Nullable
-  private List<RewardPointsRequired> pointsRequired;
 
   public Reward() {
   }
@@ -393,7 +393,7 @@ public class Reward {
   }
 
   /**
-   * A list of named variables created before the reward&#39;s rules are evaluated.  Each binding pairs a name with a talang expression. The expression is evaluated once  and its result is available by name in any rule condition or effect. Bindings must be defined outside of individual rules.
+   * A list of named variables created before the reward&#39;s rules are evaluated. Each binding pairs a name with a talang expression. The expression is evaluated once and its result is available by name in any rule condition or effect. Bindings must be defined outside of individual rules.
    * @return bindings
    */
   @javax.annotation.Nullable
@@ -403,6 +403,33 @@ public class Reward {
 
   public void setBindings(@javax.annotation.Nullable List<Binding> bindings) {
     this.bindings = bindings;
+  }
+
+
+  public Reward pointsRequired(@javax.annotation.Nullable List<RewardPointsRequired> pointsRequired) {
+    this.pointsRequired = pointsRequired;
+    return this;
+  }
+
+  public Reward addPointsRequiredItem(RewardPointsRequired pointsRequiredItem) {
+    if (this.pointsRequired == null) {
+      this.pointsRequired = new ArrayList<>();
+    }
+    this.pointsRequired.add(pointsRequiredItem);
+    return this;
+  }
+
+  /**
+   * The loyalty points required to activate the reward. Each object defines the specific loyalty program and subledger from which points are deducted when activating the reward.  **Note:** When creating a reward, the &#x60;id&#x60; of each entry is ignored and a new entry is always created. 
+   * @return pointsRequired
+   */
+  @javax.annotation.Nullable
+  public List<RewardPointsRequired> getPointsRequired() {
+    return pointsRequired;
+  }
+
+  public void setPointsRequired(@javax.annotation.Nullable List<RewardPointsRequired> pointsRequired) {
+    this.pointsRequired = pointsRequired;
   }
 
 
@@ -441,33 +468,6 @@ public class Reward {
 
   public void setStatus(@javax.annotation.Nonnull StatusEnum status) {
     this.status = status;
-  }
-
-
-  public Reward pointsRequired(@javax.annotation.Nullable List<RewardPointsRequired> pointsRequired) {
-    this.pointsRequired = pointsRequired;
-    return this;
-  }
-
-  public Reward addPointsRequiredItem(RewardPointsRequired pointsRequiredItem) {
-    if (this.pointsRequired == null) {
-      this.pointsRequired = new ArrayList<>();
-    }
-    this.pointsRequired.add(pointsRequiredItem);
-    return this;
-  }
-
-  /**
-   * The loyalty points required to activate a reward.
-   * @return pointsRequired
-   */
-  @javax.annotation.Nullable
-  public List<RewardPointsRequired> getPointsRequired() {
-    return pointsRequired;
-  }
-
-  public void setPointsRequired(@javax.annotation.Nullable List<RewardPointsRequired> pointsRequired) {
-    this.pointsRequired = pointsRequired;
   }
 
   /**
@@ -536,15 +536,15 @@ public class Reward {
         Objects.equals(this.eligibilityConditions, reward.eligibilityConditions) &&
         Objects.equals(this.rule, reward.rule) &&
         Objects.equals(this.bindings, reward.bindings) &&
+        Objects.equals(this.pointsRequired, reward.pointsRequired) &&
         Objects.equals(this.modified, reward.modified) &&
-        Objects.equals(this.status, reward.status) &&
-        Objects.equals(this.pointsRequired, reward.pointsRequired)&&
+        Objects.equals(this.status, reward.status)&&
         Objects.equals(this.additionalProperties, reward.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, created, accountId, name, apiName, description, applicationIds, sandbox, eligibilityConditions, rule, bindings, modified, status, pointsRequired, additionalProperties);
+    return Objects.hash(id, created, accountId, name, apiName, description, applicationIds, sandbox, eligibilityConditions, rule, bindings, pointsRequired, modified, status, additionalProperties);
   }
 
   @Override
@@ -562,9 +562,9 @@ public class Reward {
     sb.append("    eligibilityConditions: ").append(toIndentedString(eligibilityConditions)).append("\n");
     sb.append("    rule: ").append(toIndentedString(rule)).append("\n");
     sb.append("    bindings: ").append(toIndentedString(bindings)).append("\n");
+    sb.append("    pointsRequired: ").append(toIndentedString(pointsRequired)).append("\n");
     sb.append("    modified: ").append(toIndentedString(modified)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
-    sb.append("    pointsRequired: ").append(toIndentedString(pointsRequired)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -584,7 +584,7 @@ public class Reward {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("id", "created", "accountId", "name", "apiName", "description", "applicationIds", "sandbox", "eligibilityConditions", "rule", "bindings", "modified", "status", "pointsRequired"));
+    openapiFields = new HashSet<String>(Arrays.asList("id", "created", "accountId", "name", "apiName", "description", "applicationIds", "sandbox", "eligibilityConditions", "rule", "bindings", "pointsRequired", "modified", "status"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("id", "created", "accountId", "name", "apiName", "applicationIds", "sandbox", "status"));
@@ -647,11 +647,6 @@ public class Reward {
           };
         }
       }
-      if (!jsonObj.get("status").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `status` to be a primitive type in the JSON string but got `%s`", jsonObj.get("status").toString()));
-      }
-      // validate the required field `status`
-      StatusEnum.validateJsonElement(jsonObj.get("status"));
       if (jsonObj.get("pointsRequired") != null && !jsonObj.get("pointsRequired").isJsonNull()) {
         JsonArray jsonArraypointsRequired = jsonObj.getAsJsonArray("pointsRequired");
         if (jsonArraypointsRequired != null) {
@@ -666,6 +661,11 @@ public class Reward {
           };
         }
       }
+      if (!jsonObj.get("status").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `status` to be a primitive type in the JSON string but got `%s`", jsonObj.get("status").toString()));
+      }
+      // validate the required field `status`
+      StatusEnum.validateJsonElement(jsonObj.get("status"));
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {

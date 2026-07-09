@@ -81,6 +81,7 @@ All URIs are relative to *https://yourbaseurl.talon.one*
 | [**getApplicationEventsWithoutTotalCount**](ManagementApi.md#getApplicationEventsWithoutTotalCount) | **GET** /v1/applications/{applicationId}/events/no_total | List Applications events |
 | [**getApplicationSession**](ManagementApi.md#getApplicationSession) | **GET** /v1/applications/{applicationId}/sessions/{sessionId} | Get Application session |
 | [**getApplicationSessions**](ManagementApi.md#getApplicationSessions) | **GET** /v1/applications/{applicationId}/sessions | List Application sessions |
+| [**getApplicationSessionsByCustomerAttributes**](ManagementApi.md#getApplicationSessionsByCustomerAttributes) | **POST** /v1/applications/{applicationId}/sessions_search | List Application sessions matching the given customer attributes |
 | [**getApplications**](ManagementApi.md#getApplications) | **GET** /v1/applications | List Applications |
 | [**getAttribute**](ManagementApi.md#getAttribute) | **GET** /v1/attributes/{attributeId} | Get custom attribute |
 | [**getAttributes**](ManagementApi.md#getAttributes) | **GET** /v1/attributes | List custom attributes |
@@ -5925,6 +5926,83 @@ public class Example {
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
 
+<a id="getApplicationSessionsByCustomerAttributes"></a>
+# **getApplicationSessionsByCustomerAttributes**
+> GetApplicationSessionsByCustomerAttributes200Response getApplicationSessionsByCustomerAttributes(applicationId, customerProfileSearchQuery, pageSize, skip, withTotalResultSize)
+
+List Application sessions matching the given customer attributes
+
+Get a list of the Application sessions matching the provided customer profile attributes.  The match is successful if all the attributes of the request are found in a profile, even if the profile has more attributes that are not present on the request. 
+
+### Example
+```java
+// Import classes:
+import one.talon.ApiClient;
+import one.talon.ApiException;
+import one.talon.Configuration;
+import one.talon.auth.*;
+import one.talon.models.*;
+import one.talon.api.ManagementApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://yourbaseurl.talon.one");
+    
+    // Configure API key authorization: api_key_v1
+    ApiKeyAuth api_key_v1 = (ApiKeyAuth) defaultClient.getAuthentication("api_key_v1");
+    api_key_v1.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //api_key_v1.setApiKeyPrefix("Token");
+
+    ManagementApi apiInstance = new ManagementApi(defaultClient);
+    Long applicationId = 56L; // Long | The ID of the Application. It is displayed in your Talon.One deployment URL.
+    CustomerProfileSearchQuery customerProfileSearchQuery = new CustomerProfileSearchQuery(); // CustomerProfileSearchQuery | body
+    Long pageSize = 1000L; // Long | The number of items in the response.
+    Long skip = 56L; // Long | The number of items to skip when paging through large result sets.
+    Boolean withTotalResultSize = true; // Boolean | When this flag is set, the result includes the total number of results for this query. This might decrease performance on large data sets. - When `true`: `totalResultSize` contains the total number of results for this query. - When `false`: Only `hasMore` is returned, and it is set to `true` when there are more results than shown on the page. 
+    try {
+      GetApplicationSessionsByCustomerAttributes200Response result = apiInstance.getApplicationSessionsByCustomerAttributes(applicationId, customerProfileSearchQuery, pageSize, skip, withTotalResultSize);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling ManagementApi#getApplicationSessionsByCustomerAttributes");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **applicationId** | **Long**| The ID of the Application. It is displayed in your Talon.One deployment URL. | |
+| **customerProfileSearchQuery** | [**CustomerProfileSearchQuery**](CustomerProfileSearchQuery.md)| body | |
+| **pageSize** | **Long**| The number of items in the response. | [optional] [default to 1000] |
+| **skip** | **Long**| The number of items to skip when paging through large result sets. | [optional] |
+| **withTotalResultSize** | **Boolean**| When this flag is set, the result includes the total number of results for this query. This might decrease performance on large data sets. - When &#x60;true&#x60;: &#x60;totalResultSize&#x60; contains the total number of results for this query. - When &#x60;false&#x60;: Only &#x60;hasMore&#x60; is returned, and it is set to &#x60;true&#x60; when there are more results than shown on the page.  | [optional] |
+
+### Return type
+
+[**GetApplicationSessionsByCustomerAttributes200Response**](GetApplicationSessionsByCustomerAttributes200Response.md)
+
+### Authorization
+
+[api_key_v1](../README.md#api_key_v1)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+
 <a id="getApplications"></a>
 # **getApplications**
 > GetApplications200Response getApplications(pageSize, skip, sort)
@@ -6862,7 +6940,7 @@ public class Example {
     String sort = "sort_example"; // String | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations. 
     String campaignState = "enabled"; // String | Filter results by the state of the campaign.  - `enabled`: Campaigns that are scheduled, running (activated), or expired. - `running`: Campaigns that are running (activated). - `disabled`: Campaigns that are disabled. - `expired`: Campaigns that are expired. - `archived`: Campaigns that are archived. 
     String name = "name_example"; // String | Filter results performing case-insensitive matching against the name of the campaign.
-    String tags = "tags_example"; // String | Filter results performing case-insensitive matching against the tags of the campaign. When used in conjunction with the \"name\" query parameter, a logical OR will be performed to search both tags and name for the provided values 
+    List<String> tags = Arrays.asList(); // List<String> | Filter results performing case-insensitive matching against the tags of the campaign. 
     OffsetDateTime createdBefore = OffsetDateTime.now(); // OffsetDateTime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the campaign creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally.
     OffsetDateTime createdAfter = OffsetDateTime.now(); // OffsetDateTime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the campaign creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally.
     OffsetDateTime startBefore = OffsetDateTime.now(); // OffsetDateTime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the campaign start time timestamp. You can use any time zone setting. Talon.One will convert to UTC internally.
@@ -6896,7 +6974,7 @@ public class Example {
 | **sort** | **String**| The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.  | [optional] |
 | **campaignState** | **String**| Filter results by the state of the campaign.  - &#x60;enabled&#x60;: Campaigns that are scheduled, running (activated), or expired. - &#x60;running&#x60;: Campaigns that are running (activated). - &#x60;disabled&#x60;: Campaigns that are disabled. - &#x60;expired&#x60;: Campaigns that are expired. - &#x60;archived&#x60;: Campaigns that are archived.  | [optional] [enum: enabled, disabled, archived, scheduled, running, expired, staged] |
 | **name** | **String**| Filter results performing case-insensitive matching against the name of the campaign. | [optional] |
-| **tags** | **String**| Filter results performing case-insensitive matching against the tags of the campaign. When used in conjunction with the \&quot;name\&quot; query parameter, a logical OR will be performed to search both tags and name for the provided values  | [optional] |
+| **tags** | [**List&lt;String&gt;**](String.md)| Filter results performing case-insensitive matching against the tags of the campaign.  | [optional] |
 | **createdBefore** | **OffsetDateTime**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the campaign creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. | [optional] |
 | **createdAfter** | **OffsetDateTime**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the campaign creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. | [optional] |
 | **startBefore** | **OffsetDateTime**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the campaign start time timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. | [optional] |

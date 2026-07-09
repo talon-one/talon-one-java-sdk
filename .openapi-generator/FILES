@@ -90,7 +90,10 @@ docs/AudienceCustomer.md
 docs/AudienceIntegrationID.md
 docs/AudienceMembership.md
 docs/AudienceReference.md
+docs/AwardGiveawayBlock.md
+docs/AwardGiveawayBlock1GiveawayPool.md
 docs/AwardGiveawayEffectProps.md
+docs/AwardItemBlock.md
 docs/BaseBlock.md
 docs/BaseCampaign.md
 docs/BaseLoyaltyProgram.md
@@ -102,7 +105,9 @@ docs/BaseSamlConnection.md
 docs/BestPriorPrice.md
 docs/BestPriorPriceMetadata.md
 docs/BestPriorPriceRequest.md
+docs/BestPriorPriceSettings.md
 docs/BestPriorTarget.md
+docs/BetweenCheckAttributeBlock.md
 docs/Binding.md
 docs/Blueprint.md
 docs/BulkApplicationNotification.md
@@ -177,6 +182,11 @@ docs/CatalogsStrikethroughNotificationPolicy.md
 docs/Change.md
 docs/ChangeLoyaltyTierLevelEffectProps.md
 docs/ChangeProfilePassword.md
+docs/CheckAttributeBlock.md
+docs/CheckAudienceBlock.md
+docs/CheckAudienceBlock1Audience.md
+docs/CheckCouponBlock.md
+docs/CheckReferralBlock.md
 docs/CodeGeneratorSettings.md
 docs/Collection.md
 docs/CollectionItem.md
@@ -310,6 +320,7 @@ docs/GetApplicationCustomersByAttributes200Response.md
 docs/GetApplicationEventTypes200Response.md
 docs/GetApplicationEventsWithoutTotalCount200Response.md
 docs/GetApplicationSessions200Response.md
+docs/GetApplicationSessionsByCustomerAttributes200Response.md
 docs/GetApplications200Response.md
 docs/GetAttributes200Response.md
 docs/GetAudienceMemberships200Response.md
@@ -412,8 +423,10 @@ docs/ListCampaignStoreBudgetLimits200Response.md
 docs/ListCampaignStoreBudgets.md
 docs/ListCampaignStoreBudgetsStore.md
 docs/ListCatalogItems200Response.md
+docs/ListCheckAttributeBlock.md
 docs/ListExperiments200Response.md
 docs/ListStores200Response.md
+docs/ListWithCountCheckAttributeBlock.md
 docs/LoginParams.md
 docs/Loyalty.md
 docs/LoyaltyBalance.md
@@ -572,6 +585,7 @@ docs/ProductUnitAnalyticsTotals.md
 docs/ProfileAudiencesChanges.md
 docs/ProjectedTier.md
 docs/PromoteExperiment.md
+docs/PromotionCheckAttributeBlock.md
 docs/PromotionGroupBlock.md
 docs/PromotionRuleV2.md
 docs/RedeemReferralEffectProps.md
@@ -630,6 +644,7 @@ docs/SamlConnection.md
 docs/SamlConnectionInternal.md
 docs/SamlConnectionMetadata.md
 docs/SamlLoginEndpoint.md
+docs/ScalarCheckAttributeBlock.md
 docs/ScimBaseGroup.md
 docs/ScimBaseUser.md
 docs/ScimBaseUserName.md
@@ -657,12 +672,14 @@ docs/SetDiscountPerAdditionalCostPerItemEffectProps.md
 docs/SetDiscountPerItemEffectProps.md
 docs/SetLoyaltyPointsExpiryDateEffectProps.md
 docs/ShowBundleMetadataEffectProps.md
+docs/ShowNotificationBlock.md
 docs/ShowNotificationEffectProps.md
 docs/SkuUnitAnalytics.md
 docs/SkuUnitAnalyticsDataPoint.md
 docs/SlotDef.md
 docs/Store.md
 docs/StrikethroughChangedItem.md
+docs/StrikethroughCheckAttributeBlock.md
 docs/StrikethroughCustomEffectPerItemProps.md
 docs/StrikethroughDebugResponse.md
 docs/StrikethroughEffect.md
@@ -696,6 +713,7 @@ docs/TimePoint.md
 docs/TransferLoyaltyCard.md
 docs/TriggerWebhookEffectProps.md
 docs/TwoFAConfig.md
+docs/UnaryCheckAttributeBlock.md
 docs/UpdateAccount.md
 docs/UpdateAchievement.md
 docs/UpdateAchievementV2.md
@@ -852,7 +870,10 @@ src/main/java/one/talon/model/AudienceCustomer.java
 src/main/java/one/talon/model/AudienceIntegrationID.java
 src/main/java/one/talon/model/AudienceMembership.java
 src/main/java/one/talon/model/AudienceReference.java
+src/main/java/one/talon/model/AwardGiveawayBlock.java
+src/main/java/one/talon/model/AwardGiveawayBlock1GiveawayPool.java
 src/main/java/one/talon/model/AwardGiveawayEffectProps.java
+src/main/java/one/talon/model/AwardItemBlock.java
 src/main/java/one/talon/model/BaseBlock.java
 src/main/java/one/talon/model/BaseCampaign.java
 src/main/java/one/talon/model/BaseLoyaltyProgram.java
@@ -864,7 +885,9 @@ src/main/java/one/talon/model/BaseSamlConnection.java
 src/main/java/one/talon/model/BestPriorPrice.java
 src/main/java/one/talon/model/BestPriorPriceMetadata.java
 src/main/java/one/talon/model/BestPriorPriceRequest.java
+src/main/java/one/talon/model/BestPriorPriceSettings.java
 src/main/java/one/talon/model/BestPriorTarget.java
+src/main/java/one/talon/model/BetweenCheckAttributeBlock.java
 src/main/java/one/talon/model/Binding.java
 src/main/java/one/talon/model/Blueprint.java
 src/main/java/one/talon/model/BulkApplicationNotification.java
@@ -939,6 +962,11 @@ src/main/java/one/talon/model/CatalogsStrikethroughNotificationPolicy.java
 src/main/java/one/talon/model/Change.java
 src/main/java/one/talon/model/ChangeLoyaltyTierLevelEffectProps.java
 src/main/java/one/talon/model/ChangeProfilePassword.java
+src/main/java/one/talon/model/CheckAttributeBlock.java
+src/main/java/one/talon/model/CheckAudienceBlock.java
+src/main/java/one/talon/model/CheckAudienceBlock1Audience.java
+src/main/java/one/talon/model/CheckCouponBlock.java
+src/main/java/one/talon/model/CheckReferralBlock.java
 src/main/java/one/talon/model/CodeGeneratorSettings.java
 src/main/java/one/talon/model/Collection.java
 src/main/java/one/talon/model/CollectionItem.java
@@ -1072,6 +1100,7 @@ src/main/java/one/talon/model/GetApplicationCustomersByAttributes200Response.jav
 src/main/java/one/talon/model/GetApplicationEventTypes200Response.java
 src/main/java/one/talon/model/GetApplicationEventsWithoutTotalCount200Response.java
 src/main/java/one/talon/model/GetApplicationSessions200Response.java
+src/main/java/one/talon/model/GetApplicationSessionsByCustomerAttributes200Response.java
 src/main/java/one/talon/model/GetApplications200Response.java
 src/main/java/one/talon/model/GetAttributes200Response.java
 src/main/java/one/talon/model/GetAudienceMemberships200Response.java
@@ -1173,8 +1202,10 @@ src/main/java/one/talon/model/ListCampaignStoreBudgetLimits200Response.java
 src/main/java/one/talon/model/ListCampaignStoreBudgets.java
 src/main/java/one/talon/model/ListCampaignStoreBudgetsStore.java
 src/main/java/one/talon/model/ListCatalogItems200Response.java
+src/main/java/one/talon/model/ListCheckAttributeBlock.java
 src/main/java/one/talon/model/ListExperiments200Response.java
 src/main/java/one/talon/model/ListStores200Response.java
+src/main/java/one/talon/model/ListWithCountCheckAttributeBlock.java
 src/main/java/one/talon/model/LoginParams.java
 src/main/java/one/talon/model/Loyalty.java
 src/main/java/one/talon/model/LoyaltyBalance.java
@@ -1332,6 +1363,7 @@ src/main/java/one/talon/model/ProductUnitAnalyticsTotals.java
 src/main/java/one/talon/model/ProfileAudiencesChanges.java
 src/main/java/one/talon/model/ProjectedTier.java
 src/main/java/one/talon/model/PromoteExperiment.java
+src/main/java/one/talon/model/PromotionCheckAttributeBlock.java
 src/main/java/one/talon/model/PromotionGroupBlock.java
 src/main/java/one/talon/model/PromotionRuleV2.java
 src/main/java/one/talon/model/RedeemReferralEffectProps.java
@@ -1390,6 +1422,7 @@ src/main/java/one/talon/model/SamlConnection.java
 src/main/java/one/talon/model/SamlConnectionInternal.java
 src/main/java/one/talon/model/SamlConnectionMetadata.java
 src/main/java/one/talon/model/SamlLoginEndpoint.java
+src/main/java/one/talon/model/ScalarCheckAttributeBlock.java
 src/main/java/one/talon/model/ScimBaseGroup.java
 src/main/java/one/talon/model/ScimBaseUser.java
 src/main/java/one/talon/model/ScimBaseUserName.java
@@ -1417,12 +1450,14 @@ src/main/java/one/talon/model/SetDiscountPerAdditionalCostPerItemEffectProps.jav
 src/main/java/one/talon/model/SetDiscountPerItemEffectProps.java
 src/main/java/one/talon/model/SetLoyaltyPointsExpiryDateEffectProps.java
 src/main/java/one/talon/model/ShowBundleMetadataEffectProps.java
+src/main/java/one/talon/model/ShowNotificationBlock.java
 src/main/java/one/talon/model/ShowNotificationEffectProps.java
 src/main/java/one/talon/model/SkuUnitAnalytics.java
 src/main/java/one/talon/model/SkuUnitAnalyticsDataPoint.java
 src/main/java/one/talon/model/SlotDef.java
 src/main/java/one/talon/model/Store.java
 src/main/java/one/talon/model/StrikethroughChangedItem.java
+src/main/java/one/talon/model/StrikethroughCheckAttributeBlock.java
 src/main/java/one/talon/model/StrikethroughCustomEffectPerItemProps.java
 src/main/java/one/talon/model/StrikethroughDebugResponse.java
 src/main/java/one/talon/model/StrikethroughEffect.java
@@ -1456,6 +1491,7 @@ src/main/java/one/talon/model/TimePoint.java
 src/main/java/one/talon/model/TransferLoyaltyCard.java
 src/main/java/one/talon/model/TriggerWebhookEffectProps.java
 src/main/java/one/talon/model/TwoFAConfig.java
+src/main/java/one/talon/model/UnaryCheckAttributeBlock.java
 src/main/java/one/talon/model/UpdateAccount.java
 src/main/java/one/talon/model/UpdateAchievement.java
 src/main/java/one/talon/model/UpdateAchievementV2.java
@@ -1585,7 +1621,10 @@ src/test/java/one/talon/model/AudienceIntegrationIDTest.java
 src/test/java/one/talon/model/AudienceMembershipTest.java
 src/test/java/one/talon/model/AudienceReferenceTest.java
 src/test/java/one/talon/model/AudienceTest.java
+src/test/java/one/talon/model/AwardGiveawayBlock1GiveawayPoolTest.java
+src/test/java/one/talon/model/AwardGiveawayBlockTest.java
 src/test/java/one/talon/model/AwardGiveawayEffectPropsTest.java
+src/test/java/one/talon/model/AwardItemBlockTest.java
 src/test/java/one/talon/model/BaseBlockTest.java
 src/test/java/one/talon/model/BaseCampaignTest.java
 src/test/java/one/talon/model/BaseLoyaltyProgramTest.java
@@ -1596,8 +1635,10 @@ src/test/java/one/talon/model/BaseNotificationsTest.java
 src/test/java/one/talon/model/BaseSamlConnectionTest.java
 src/test/java/one/talon/model/BestPriorPriceMetadataTest.java
 src/test/java/one/talon/model/BestPriorPriceRequestTest.java
+src/test/java/one/talon/model/BestPriorPriceSettingsTest.java
 src/test/java/one/talon/model/BestPriorPriceTest.java
 src/test/java/one/talon/model/BestPriorTargetTest.java
+src/test/java/one/talon/model/BetweenCheckAttributeBlockTest.java
 src/test/java/one/talon/model/BindingTest.java
 src/test/java/one/talon/model/BlueprintTest.java
 src/test/java/one/talon/model/BulkApplicationNotificationTest.java
@@ -1672,6 +1713,11 @@ src/test/java/one/talon/model/CatalogsStrikethroughNotificationPolicyTest.java
 src/test/java/one/talon/model/ChangeLoyaltyTierLevelEffectPropsTest.java
 src/test/java/one/talon/model/ChangeProfilePasswordTest.java
 src/test/java/one/talon/model/ChangeTest.java
+src/test/java/one/talon/model/CheckAttributeBlockTest.java
+src/test/java/one/talon/model/CheckAudienceBlock1AudienceTest.java
+src/test/java/one/talon/model/CheckAudienceBlockTest.java
+src/test/java/one/talon/model/CheckCouponBlockTest.java
+src/test/java/one/talon/model/CheckReferralBlockTest.java
 src/test/java/one/talon/model/CodeGeneratorSettingsTest.java
 src/test/java/one/talon/model/CollectionItemTest.java
 src/test/java/one/talon/model/CollectionTest.java
@@ -1805,6 +1851,7 @@ src/test/java/one/talon/model/GetApplicationCustomersByAttributes200ResponseTest
 src/test/java/one/talon/model/GetApplicationEventTypes200ResponseTest.java
 src/test/java/one/talon/model/GetApplicationEventsWithoutTotalCount200ResponseTest.java
 src/test/java/one/talon/model/GetApplicationSessions200ResponseTest.java
+src/test/java/one/talon/model/GetApplicationSessionsByCustomerAttributes200ResponseTest.java
 src/test/java/one/talon/model/GetApplications200ResponseTest.java
 src/test/java/one/talon/model/GetAttributes200ResponseTest.java
 src/test/java/one/talon/model/GetAudienceMemberships200ResponseTest.java
@@ -1906,8 +1953,10 @@ src/test/java/one/talon/model/ListCampaignStoreBudgetLimits200ResponseTest.java
 src/test/java/one/talon/model/ListCampaignStoreBudgetsStoreTest.java
 src/test/java/one/talon/model/ListCampaignStoreBudgetsTest.java
 src/test/java/one/talon/model/ListCatalogItems200ResponseTest.java
+src/test/java/one/talon/model/ListCheckAttributeBlockTest.java
 src/test/java/one/talon/model/ListExperiments200ResponseTest.java
 src/test/java/one/talon/model/ListStores200ResponseTest.java
+src/test/java/one/talon/model/ListWithCountCheckAttributeBlockTest.java
 src/test/java/one/talon/model/LoginParamsTest.java
 src/test/java/one/talon/model/LoyaltyBalanceTest.java
 src/test/java/one/talon/model/LoyaltyBalanceWithTierTest.java
@@ -2065,6 +2114,7 @@ src/test/java/one/talon/model/ProductUnitAnalyticsTotalsTest.java
 src/test/java/one/talon/model/ProfileAudiencesChangesTest.java
 src/test/java/one/talon/model/ProjectedTierTest.java
 src/test/java/one/talon/model/PromoteExperimentTest.java
+src/test/java/one/talon/model/PromotionCheckAttributeBlockTest.java
 src/test/java/one/talon/model/PromotionGroupBlockTest.java
 src/test/java/one/talon/model/PromotionRuleV2Test.java
 src/test/java/one/talon/model/RedeemReferralEffectPropsTest.java
@@ -2123,6 +2173,7 @@ src/test/java/one/talon/model/SamlConnectionInternalTest.java
 src/test/java/one/talon/model/SamlConnectionMetadataTest.java
 src/test/java/one/talon/model/SamlConnectionTest.java
 src/test/java/one/talon/model/SamlLoginEndpointTest.java
+src/test/java/one/talon/model/ScalarCheckAttributeBlockTest.java
 src/test/java/one/talon/model/ScimBaseGroupTest.java
 src/test/java/one/talon/model/ScimBaseUserNameTest.java
 src/test/java/one/talon/model/ScimBaseUserTest.java
@@ -2150,12 +2201,14 @@ src/test/java/one/talon/model/SetDiscountPerAdditionalCostPerItemEffectPropsTest
 src/test/java/one/talon/model/SetDiscountPerItemEffectPropsTest.java
 src/test/java/one/talon/model/SetLoyaltyPointsExpiryDateEffectPropsTest.java
 src/test/java/one/talon/model/ShowBundleMetadataEffectPropsTest.java
+src/test/java/one/talon/model/ShowNotificationBlockTest.java
 src/test/java/one/talon/model/ShowNotificationEffectPropsTest.java
 src/test/java/one/talon/model/SkuUnitAnalyticsDataPointTest.java
 src/test/java/one/talon/model/SkuUnitAnalyticsTest.java
 src/test/java/one/talon/model/SlotDefTest.java
 src/test/java/one/talon/model/StoreTest.java
 src/test/java/one/talon/model/StrikethroughChangedItemTest.java
+src/test/java/one/talon/model/StrikethroughCheckAttributeBlockTest.java
 src/test/java/one/talon/model/StrikethroughCustomEffectPerItemPropsTest.java
 src/test/java/one/talon/model/StrikethroughDebugResponseTest.java
 src/test/java/one/talon/model/StrikethroughEffectTest.java
@@ -2189,6 +2242,7 @@ src/test/java/one/talon/model/TimePointTest.java
 src/test/java/one/talon/model/TransferLoyaltyCardTest.java
 src/test/java/one/talon/model/TriggerWebhookEffectPropsTest.java
 src/test/java/one/talon/model/TwoFAConfigTest.java
+src/test/java/one/talon/model/UnaryCheckAttributeBlockTest.java
 src/test/java/one/talon/model/UpdateAccountTest.java
 src/test/java/one/talon/model/UpdateAchievementTest.java
 src/test/java/one/talon/model/UpdateAchievementV2Test.java

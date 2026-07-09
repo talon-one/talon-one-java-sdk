@@ -18,6 +18,7 @@
 |**id** | **Long** | The internal ID of this entity. |  |
 |**created** | **OffsetDateTime** | The time this entity was created. |  |
 |**assertionConsumerServiceURL** | **String** | The location where the SAML assertion is sent with a HTTP POST. |  |
+|**certificateExpiry** | **OffsetDateTime** | The expiry date of the X.509 certificate. |  [optional] |
 
 
 

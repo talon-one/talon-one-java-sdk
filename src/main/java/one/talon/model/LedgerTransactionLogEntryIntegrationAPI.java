@@ -73,6 +73,11 @@ public class LedgerTransactionLogEntryIntegrationAPI {
   @javax.annotation.Nullable
   private String customerSessionId;
 
+  public static final String SERIALIZED_NAME_STORE_INTEGRATION_ID = "storeIntegrationId";
+  @SerializedName(SERIALIZED_NAME_STORE_INTEGRATION_ID)
+  @javax.annotation.Nullable
+  private String storeIntegrationId;
+
   /**
    * Type of transaction. Possible values:   - &#x60;addition&#x60;: Signifies added points.   - &#x60;subtraction&#x60;: Signifies deducted points. 
    */
@@ -256,6 +261,25 @@ public class LedgerTransactionLogEntryIntegrationAPI {
 
   public void setCustomerSessionId(@javax.annotation.Nullable String customerSessionId) {
     this.customerSessionId = customerSessionId;
+  }
+
+
+  public LedgerTransactionLogEntryIntegrationAPI storeIntegrationId(@javax.annotation.Nullable String storeIntegrationId) {
+    this.storeIntegrationId = storeIntegrationId;
+    return this;
+  }
+
+  /**
+   * The integration ID of the store where the transaction occurred. Only set for transactions created by a customer session or event that referenced a store.
+   * @return storeIntegrationId
+   */
+  @javax.annotation.Nullable
+  public String getStoreIntegrationId() {
+    return storeIntegrationId;
+  }
+
+  public void setStoreIntegrationId(@javax.annotation.Nullable String storeIntegrationId) {
+    this.storeIntegrationId = storeIntegrationId;
   }
 
 
@@ -526,6 +550,7 @@ public class LedgerTransactionLogEntryIntegrationAPI {
         Objects.equals(this.created, ledgerTransactionLogEntryIntegrationAPI.created) &&
         Objects.equals(this.programId, ledgerTransactionLogEntryIntegrationAPI.programId) &&
         Objects.equals(this.customerSessionId, ledgerTransactionLogEntryIntegrationAPI.customerSessionId) &&
+        Objects.equals(this.storeIntegrationId, ledgerTransactionLogEntryIntegrationAPI.storeIntegrationId) &&
         Objects.equals(this.type, ledgerTransactionLogEntryIntegrationAPI.type) &&
         Objects.equals(this.name, ledgerTransactionLogEntryIntegrationAPI.name) &&
         Objects.equals(this.startDate, ledgerTransactionLogEntryIntegrationAPI.startDate) &&
@@ -542,7 +567,7 @@ public class LedgerTransactionLogEntryIntegrationAPI {
 
   @Override
   public int hashCode() {
-    return Objects.hash(transactionUUID, created, programId, customerSessionId, type, name, startDate, expiryDate, subledgerId, amount, id, rulesetId, ruleName, flags, validityDuration, additionalProperties);
+    return Objects.hash(transactionUUID, created, programId, customerSessionId, storeIntegrationId, type, name, startDate, expiryDate, subledgerId, amount, id, rulesetId, ruleName, flags, validityDuration, additionalProperties);
   }
 
   @Override
@@ -553,6 +578,7 @@ public class LedgerTransactionLogEntryIntegrationAPI {
     sb.append("    created: ").append(toIndentedString(created)).append("\n");
     sb.append("    programId: ").append(toIndentedString(programId)).append("\n");
     sb.append("    customerSessionId: ").append(toIndentedString(customerSessionId)).append("\n");
+    sb.append("    storeIntegrationId: ").append(toIndentedString(storeIntegrationId)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    startDate: ").append(toIndentedString(startDate)).append("\n");
@@ -583,7 +609,7 @@ public class LedgerTransactionLogEntryIntegrationAPI {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("transactionUUID", "created", "programId", "customerSessionId", "type", "name", "startDate", "expiryDate", "subledgerId", "amount", "id", "rulesetId", "ruleName", "flags", "validityDuration"));
+    openapiFields = new HashSet<String>(Arrays.asList("transactionUUID", "created", "programId", "customerSessionId", "storeIntegrationId", "type", "name", "startDate", "expiryDate", "subledgerId", "amount", "id", "rulesetId", "ruleName", "flags", "validityDuration"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("transactionUUID", "created", "programId", "type", "name", "startDate", "expiryDate", "subledgerId", "amount", "id"));
@@ -614,6 +640,9 @@ public class LedgerTransactionLogEntryIntegrationAPI {
       }
       if ((jsonObj.get("customerSessionId") != null && !jsonObj.get("customerSessionId").isJsonNull()) && !jsonObj.get("customerSessionId").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `customerSessionId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("customerSessionId").toString()));
+      }
+      if ((jsonObj.get("storeIntegrationId") != null && !jsonObj.get("storeIntegrationId").isJsonNull()) && !jsonObj.get("storeIntegrationId").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `storeIntegrationId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("storeIntegrationId").toString()));
       }
       if (!jsonObj.get("type").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("type").toString()));
