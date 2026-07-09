@@ -72,6 +72,7 @@ import one.talon.model.GetApplicationCustomersByAttributes200Response;
 import one.talon.model.GetApplicationEventTypes200Response;
 import one.talon.model.GetApplicationEventsWithoutTotalCount200Response;
 import one.talon.model.GetApplicationSessions200Response;
+import one.talon.model.GetApplicationSessionsByCustomerAttributes200Response;
 import one.talon.model.GetApplications200Response;
 import one.talon.model.GetAttributes200Response;
 import one.talon.model.GetAudienceMemberships200Response;
@@ -11832,6 +11833,167 @@ public class ManagementApi {
         return localVarCall;
     }
     /**
+     * Build call for getApplicationSessionsByCustomerAttributes
+     * @param applicationId The ID of the Application. It is displayed in your Talon.One deployment URL. (required)
+     * @param customerProfileSearchQuery body (required)
+     * @param pageSize The number of items in the response. (optional, default to 1000)
+     * @param skip The number of items to skip when paging through large result sets. (optional)
+     * @param withTotalResultSize When this flag is set, the result includes the total number of results for this query. This might decrease performance on large data sets. - When &#x60;true&#x60;: &#x60;totalResultSize&#x60; contains the total number of results for this query. - When &#x60;false&#x60;: Only &#x60;hasMore&#x60; is returned, and it is set to &#x60;true&#x60; when there are more results than shown on the page.  (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getApplicationSessionsByCustomerAttributesCall(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull CustomerProfileSearchQuery customerProfileSearchQuery, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable Boolean withTotalResultSize, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = customerProfileSearchQuery;
+
+        // create path and map variables
+        String localVarPath = "/v1/applications/{applicationId}/sessions_search"
+            .replace("{" + "applicationId" + "}", localVarApiClient.escapeString(applicationId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (pageSize != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("pageSize", pageSize));
+        }
+
+        if (skip != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("skip", skip));
+        }
+
+        if (withTotalResultSize != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("withTotalResultSize", withTotalResultSize));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "api_key_v1" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call getApplicationSessionsByCustomerAttributesValidateBeforeCall(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull CustomerProfileSearchQuery customerProfileSearchQuery, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable Boolean withTotalResultSize, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'applicationId' is set
+        if (applicationId == null) {
+            throw new ApiException("Missing the required parameter 'applicationId' when calling getApplicationSessionsByCustomerAttributes(Async)");
+        }
+
+        // verify the required parameter 'customerProfileSearchQuery' is set
+        if (customerProfileSearchQuery == null) {
+            throw new ApiException("Missing the required parameter 'customerProfileSearchQuery' when calling getApplicationSessionsByCustomerAttributes(Async)");
+        }
+
+        return getApplicationSessionsByCustomerAttributesCall(applicationId, customerProfileSearchQuery, pageSize, skip, withTotalResultSize, _callback);
+
+    }
+
+    /**
+     * List Application sessions matching the given customer attributes
+     * Get a list of the Application sessions matching the provided customer profile attributes.  The match is successful if all the attributes of the request are found in a profile, even if the profile has more attributes that are not present on the request. 
+     * @param applicationId The ID of the Application. It is displayed in your Talon.One deployment URL. (required)
+     * @param customerProfileSearchQuery body (required)
+     * @param pageSize The number of items in the response. (optional, default to 1000)
+     * @param skip The number of items to skip when paging through large result sets. (optional)
+     * @param withTotalResultSize When this flag is set, the result includes the total number of results for this query. This might decrease performance on large data sets. - When &#x60;true&#x60;: &#x60;totalResultSize&#x60; contains the total number of results for this query. - When &#x60;false&#x60;: Only &#x60;hasMore&#x60; is returned, and it is set to &#x60;true&#x60; when there are more results than shown on the page.  (optional)
+     * @return GetApplicationSessionsByCustomerAttributes200Response
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public GetApplicationSessionsByCustomerAttributes200Response getApplicationSessionsByCustomerAttributes(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull CustomerProfileSearchQuery customerProfileSearchQuery, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable Boolean withTotalResultSize) throws ApiException {
+        ApiResponse<GetApplicationSessionsByCustomerAttributes200Response> localVarResp = getApplicationSessionsByCustomerAttributesWithHttpInfo(applicationId, customerProfileSearchQuery, pageSize, skip, withTotalResultSize);
+        return localVarResp.getData();
+    }
+
+    /**
+     * List Application sessions matching the given customer attributes
+     * Get a list of the Application sessions matching the provided customer profile attributes.  The match is successful if all the attributes of the request are found in a profile, even if the profile has more attributes that are not present on the request. 
+     * @param applicationId The ID of the Application. It is displayed in your Talon.One deployment URL. (required)
+     * @param customerProfileSearchQuery body (required)
+     * @param pageSize The number of items in the response. (optional, default to 1000)
+     * @param skip The number of items to skip when paging through large result sets. (optional)
+     * @param withTotalResultSize When this flag is set, the result includes the total number of results for this query. This might decrease performance on large data sets. - When &#x60;true&#x60;: &#x60;totalResultSize&#x60; contains the total number of results for this query. - When &#x60;false&#x60;: Only &#x60;hasMore&#x60; is returned, and it is set to &#x60;true&#x60; when there are more results than shown on the page.  (optional)
+     * @return ApiResponse&lt;GetApplicationSessionsByCustomerAttributes200Response&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<GetApplicationSessionsByCustomerAttributes200Response> getApplicationSessionsByCustomerAttributesWithHttpInfo(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull CustomerProfileSearchQuery customerProfileSearchQuery, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable Boolean withTotalResultSize) throws ApiException {
+        okhttp3.Call localVarCall = getApplicationSessionsByCustomerAttributesValidateBeforeCall(applicationId, customerProfileSearchQuery, pageSize, skip, withTotalResultSize, null);
+        Type localVarReturnType = new TypeToken<GetApplicationSessionsByCustomerAttributes200Response>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * List Application sessions matching the given customer attributes (asynchronously)
+     * Get a list of the Application sessions matching the provided customer profile attributes.  The match is successful if all the attributes of the request are found in a profile, even if the profile has more attributes that are not present on the request. 
+     * @param applicationId The ID of the Application. It is displayed in your Talon.One deployment URL. (required)
+     * @param customerProfileSearchQuery body (required)
+     * @param pageSize The number of items in the response. (optional, default to 1000)
+     * @param skip The number of items to skip when paging through large result sets. (optional)
+     * @param withTotalResultSize When this flag is set, the result includes the total number of results for this query. This might decrease performance on large data sets. - When &#x60;true&#x60;: &#x60;totalResultSize&#x60; contains the total number of results for this query. - When &#x60;false&#x60;: Only &#x60;hasMore&#x60; is returned, and it is set to &#x60;true&#x60; when there are more results than shown on the page.  (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getApplicationSessionsByCustomerAttributesAsync(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull CustomerProfileSearchQuery customerProfileSearchQuery, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable Boolean withTotalResultSize, final ApiCallback<GetApplicationSessionsByCustomerAttributes200Response> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = getApplicationSessionsByCustomerAttributesValidateBeforeCall(applicationId, customerProfileSearchQuery, pageSize, skip, withTotalResultSize, _callback);
+        Type localVarReturnType = new TypeToken<GetApplicationSessionsByCustomerAttributes200Response>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
      * Build call for getApplications
      * @param pageSize The number of items in the response. (optional, default to 1000)
      * @param skip The number of items to skip when paging through large result sets. (optional)
@@ -13664,7 +13826,7 @@ public class ManagementApi {
      * @param sort The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.  (optional)
      * @param campaignState Filter results by the state of the campaign.  - &#x60;enabled&#x60;: Campaigns that are scheduled, running (activated), or expired. - &#x60;running&#x60;: Campaigns that are running (activated). - &#x60;disabled&#x60;: Campaigns that are disabled. - &#x60;expired&#x60;: Campaigns that are expired. - &#x60;archived&#x60;: Campaigns that are archived.  (optional)
      * @param name Filter results performing case-insensitive matching against the name of the campaign. (optional)
-     * @param tags Filter results performing case-insensitive matching against the tags of the campaign. When used in conjunction with the \&quot;name\&quot; query parameter, a logical OR will be performed to search both tags and name for the provided values  (optional)
+     * @param tags Filter results performing case-insensitive matching against the tags of the campaign.  (optional)
      * @param createdBefore Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the campaign creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
      * @param createdAfter Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the campaign creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
      * @param startBefore Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the campaign start time timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
@@ -13685,7 +13847,7 @@ public class ManagementApi {
         <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getCampaignsCall(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable String sort, @javax.annotation.Nullable String campaignState, @javax.annotation.Nullable String name, @javax.annotation.Nullable String tags, @javax.annotation.Nullable OffsetDateTime createdBefore, @javax.annotation.Nullable OffsetDateTime createdAfter, @javax.annotation.Nullable OffsetDateTime startBefore, @javax.annotation.Nullable OffsetDateTime startAfter, @javax.annotation.Nullable OffsetDateTime endBefore, @javax.annotation.Nullable OffsetDateTime endAfter, @javax.annotation.Nullable Long campaignGroupId, @javax.annotation.Nullable Long templateId, @javax.annotation.Nullable Long storeId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getCampaignsCall(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable String sort, @javax.annotation.Nullable String campaignState, @javax.annotation.Nullable String name, @javax.annotation.Nullable List<String> tags, @javax.annotation.Nullable OffsetDateTime createdBefore, @javax.annotation.Nullable OffsetDateTime createdAfter, @javax.annotation.Nullable OffsetDateTime startBefore, @javax.annotation.Nullable OffsetDateTime startAfter, @javax.annotation.Nullable OffsetDateTime endBefore, @javax.annotation.Nullable OffsetDateTime endAfter, @javax.annotation.Nullable Long campaignGroupId, @javax.annotation.Nullable Long templateId, @javax.annotation.Nullable Long storeId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -13732,7 +13894,7 @@ public class ManagementApi {
         }
 
         if (tags != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("tags", tags));
+            localVarCollectionQueryParams.addAll(localVarApiClient.parameterToPairs("multi", "tags", tags));
         }
 
         if (createdBefore != null) {
@@ -13791,7 +13953,7 @@ public class ManagementApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getCampaignsValidateBeforeCall(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable String sort, @javax.annotation.Nullable String campaignState, @javax.annotation.Nullable String name, @javax.annotation.Nullable String tags, @javax.annotation.Nullable OffsetDateTime createdBefore, @javax.annotation.Nullable OffsetDateTime createdAfter, @javax.annotation.Nullable OffsetDateTime startBefore, @javax.annotation.Nullable OffsetDateTime startAfter, @javax.annotation.Nullable OffsetDateTime endBefore, @javax.annotation.Nullable OffsetDateTime endAfter, @javax.annotation.Nullable Long campaignGroupId, @javax.annotation.Nullable Long templateId, @javax.annotation.Nullable Long storeId, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getCampaignsValidateBeforeCall(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable String sort, @javax.annotation.Nullable String campaignState, @javax.annotation.Nullable String name, @javax.annotation.Nullable List<String> tags, @javax.annotation.Nullable OffsetDateTime createdBefore, @javax.annotation.Nullable OffsetDateTime createdAfter, @javax.annotation.Nullable OffsetDateTime startBefore, @javax.annotation.Nullable OffsetDateTime startAfter, @javax.annotation.Nullable OffsetDateTime endBefore, @javax.annotation.Nullable OffsetDateTime endAfter, @javax.annotation.Nullable Long campaignGroupId, @javax.annotation.Nullable Long templateId, @javax.annotation.Nullable Long storeId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'applicationId' is set
         if (applicationId == null) {
             throw new ApiException("Missing the required parameter 'applicationId' when calling getCampaigns(Async)");
@@ -13810,7 +13972,7 @@ public class ManagementApi {
      * @param sort The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.  (optional)
      * @param campaignState Filter results by the state of the campaign.  - &#x60;enabled&#x60;: Campaigns that are scheduled, running (activated), or expired. - &#x60;running&#x60;: Campaigns that are running (activated). - &#x60;disabled&#x60;: Campaigns that are disabled. - &#x60;expired&#x60;: Campaigns that are expired. - &#x60;archived&#x60;: Campaigns that are archived.  (optional)
      * @param name Filter results performing case-insensitive matching against the name of the campaign. (optional)
-     * @param tags Filter results performing case-insensitive matching against the tags of the campaign. When used in conjunction with the \&quot;name\&quot; query parameter, a logical OR will be performed to search both tags and name for the provided values  (optional)
+     * @param tags Filter results performing case-insensitive matching against the tags of the campaign.  (optional)
      * @param createdBefore Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the campaign creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
      * @param createdAfter Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the campaign creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
      * @param startBefore Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the campaign start time timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
@@ -13830,7 +13992,7 @@ public class ManagementApi {
         <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
      </table>
      */
-    public GetCampaigns200Response getCampaigns(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable String sort, @javax.annotation.Nullable String campaignState, @javax.annotation.Nullable String name, @javax.annotation.Nullable String tags, @javax.annotation.Nullable OffsetDateTime createdBefore, @javax.annotation.Nullable OffsetDateTime createdAfter, @javax.annotation.Nullable OffsetDateTime startBefore, @javax.annotation.Nullable OffsetDateTime startAfter, @javax.annotation.Nullable OffsetDateTime endBefore, @javax.annotation.Nullable OffsetDateTime endAfter, @javax.annotation.Nullable Long campaignGroupId, @javax.annotation.Nullable Long templateId, @javax.annotation.Nullable Long storeId) throws ApiException {
+    public GetCampaigns200Response getCampaigns(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable String sort, @javax.annotation.Nullable String campaignState, @javax.annotation.Nullable String name, @javax.annotation.Nullable List<String> tags, @javax.annotation.Nullable OffsetDateTime createdBefore, @javax.annotation.Nullable OffsetDateTime createdAfter, @javax.annotation.Nullable OffsetDateTime startBefore, @javax.annotation.Nullable OffsetDateTime startAfter, @javax.annotation.Nullable OffsetDateTime endBefore, @javax.annotation.Nullable OffsetDateTime endAfter, @javax.annotation.Nullable Long campaignGroupId, @javax.annotation.Nullable Long templateId, @javax.annotation.Nullable Long storeId) throws ApiException {
         ApiResponse<GetCampaigns200Response> localVarResp = getCampaignsWithHttpInfo(applicationId, pageSize, skip, sort, campaignState, name, tags, createdBefore, createdAfter, startBefore, startAfter, endBefore, endAfter, campaignGroupId, templateId, storeId);
         return localVarResp.getData();
     }
@@ -13844,7 +14006,7 @@ public class ManagementApi {
      * @param sort The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.  (optional)
      * @param campaignState Filter results by the state of the campaign.  - &#x60;enabled&#x60;: Campaigns that are scheduled, running (activated), or expired. - &#x60;running&#x60;: Campaigns that are running (activated). - &#x60;disabled&#x60;: Campaigns that are disabled. - &#x60;expired&#x60;: Campaigns that are expired. - &#x60;archived&#x60;: Campaigns that are archived.  (optional)
      * @param name Filter results performing case-insensitive matching against the name of the campaign. (optional)
-     * @param tags Filter results performing case-insensitive matching against the tags of the campaign. When used in conjunction with the \&quot;name\&quot; query parameter, a logical OR will be performed to search both tags and name for the provided values  (optional)
+     * @param tags Filter results performing case-insensitive matching against the tags of the campaign.  (optional)
      * @param createdBefore Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the campaign creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
      * @param createdAfter Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the campaign creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
      * @param startBefore Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the campaign start time timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
@@ -13864,7 +14026,7 @@ public class ManagementApi {
         <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<GetCampaigns200Response> getCampaignsWithHttpInfo(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable String sort, @javax.annotation.Nullable String campaignState, @javax.annotation.Nullable String name, @javax.annotation.Nullable String tags, @javax.annotation.Nullable OffsetDateTime createdBefore, @javax.annotation.Nullable OffsetDateTime createdAfter, @javax.annotation.Nullable OffsetDateTime startBefore, @javax.annotation.Nullable OffsetDateTime startAfter, @javax.annotation.Nullable OffsetDateTime endBefore, @javax.annotation.Nullable OffsetDateTime endAfter, @javax.annotation.Nullable Long campaignGroupId, @javax.annotation.Nullable Long templateId, @javax.annotation.Nullable Long storeId) throws ApiException {
+    public ApiResponse<GetCampaigns200Response> getCampaignsWithHttpInfo(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable String sort, @javax.annotation.Nullable String campaignState, @javax.annotation.Nullable String name, @javax.annotation.Nullable List<String> tags, @javax.annotation.Nullable OffsetDateTime createdBefore, @javax.annotation.Nullable OffsetDateTime createdAfter, @javax.annotation.Nullable OffsetDateTime startBefore, @javax.annotation.Nullable OffsetDateTime startAfter, @javax.annotation.Nullable OffsetDateTime endBefore, @javax.annotation.Nullable OffsetDateTime endAfter, @javax.annotation.Nullable Long campaignGroupId, @javax.annotation.Nullable Long templateId, @javax.annotation.Nullable Long storeId) throws ApiException {
         okhttp3.Call localVarCall = getCampaignsValidateBeforeCall(applicationId, pageSize, skip, sort, campaignState, name, tags, createdBefore, createdAfter, startBefore, startAfter, endBefore, endAfter, campaignGroupId, templateId, storeId, null);
         Type localVarReturnType = new TypeToken<GetCampaigns200Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -13879,7 +14041,7 @@ public class ManagementApi {
      * @param sort The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.  (optional)
      * @param campaignState Filter results by the state of the campaign.  - &#x60;enabled&#x60;: Campaigns that are scheduled, running (activated), or expired. - &#x60;running&#x60;: Campaigns that are running (activated). - &#x60;disabled&#x60;: Campaigns that are disabled. - &#x60;expired&#x60;: Campaigns that are expired. - &#x60;archived&#x60;: Campaigns that are archived.  (optional)
      * @param name Filter results performing case-insensitive matching against the name of the campaign. (optional)
-     * @param tags Filter results performing case-insensitive matching against the tags of the campaign. When used in conjunction with the \&quot;name\&quot; query parameter, a logical OR will be performed to search both tags and name for the provided values  (optional)
+     * @param tags Filter results performing case-insensitive matching against the tags of the campaign.  (optional)
      * @param createdBefore Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the campaign creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
      * @param createdAfter Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the campaign creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
      * @param startBefore Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the campaign start time timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
@@ -13900,7 +14062,7 @@ public class ManagementApi {
         <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getCampaignsAsync(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable String sort, @javax.annotation.Nullable String campaignState, @javax.annotation.Nullable String name, @javax.annotation.Nullable String tags, @javax.annotation.Nullable OffsetDateTime createdBefore, @javax.annotation.Nullable OffsetDateTime createdAfter, @javax.annotation.Nullable OffsetDateTime startBefore, @javax.annotation.Nullable OffsetDateTime startAfter, @javax.annotation.Nullable OffsetDateTime endBefore, @javax.annotation.Nullable OffsetDateTime endAfter, @javax.annotation.Nullable Long campaignGroupId, @javax.annotation.Nullable Long templateId, @javax.annotation.Nullable Long storeId, final ApiCallback<GetCampaigns200Response> _callback) throws ApiException {
+    public okhttp3.Call getCampaignsAsync(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable String sort, @javax.annotation.Nullable String campaignState, @javax.annotation.Nullable String name, @javax.annotation.Nullable List<String> tags, @javax.annotation.Nullable OffsetDateTime createdBefore, @javax.annotation.Nullable OffsetDateTime createdAfter, @javax.annotation.Nullable OffsetDateTime startBefore, @javax.annotation.Nullable OffsetDateTime startAfter, @javax.annotation.Nullable OffsetDateTime endBefore, @javax.annotation.Nullable OffsetDateTime endAfter, @javax.annotation.Nullable Long campaignGroupId, @javax.annotation.Nullable Long templateId, @javax.annotation.Nullable Long storeId, final ApiCallback<GetCampaigns200Response> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getCampaignsValidateBeforeCall(applicationId, pageSize, skip, sort, campaignState, name, tags, createdBefore, createdAfter, startBefore, startAfter, endBefore, endAfter, campaignGroupId, templateId, storeId, _callback);
         Type localVarReturnType = new TypeToken<GetCampaigns200Response>(){}.getType();

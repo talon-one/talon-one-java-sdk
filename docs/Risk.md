@@ -11,7 +11,7 @@ A risk detected by the anomaly detection service for one Application group.
 |**id** | **Long** | The internal ID of this entity. |  |
 |**created** | **OffsetDateTime** | The time this entity was created. |  |
 |**notificationId** | **Long** | The ID of the risk notification rule that flagged this risk. |  |
-|**runDate** | **LocalDate** | The date of the ML pipeline run that detected this risk. |  |
+|**featureDate** | **LocalDate** | The date of the activity data in which this risk was detected. The anomaly detection pipeline scores complete 24-hour cycles, so this is always the day before the risk was reported, not the reporting date itself.  |  |
 |**groupKey** | **String** | The Application group this risk was detected in. Contains the Application ID, or &#x60;__GLOBAL__&#x60; for metrics that are not grouped by Application.  |  |
 |**applicationId** | **Long** | The ID of the Application this risk belongs to. Absent for global metrics. |  [optional] |
 |**status** | [**StatusEnum**](#StatusEnum) | The triage lifecycle status of this risk. |  |
@@ -70,9 +70,9 @@ A risk detected by the anomaly detection service for one Application group.
 
 | Name | Value |
 |---- | -----|
-| _1_DAY | &quot;1_day&quot; |
-| _1_WEEK | &quot;1_week&quot; |
-| _1_MONTH | &quot;1_month&quot; |
+| _1_D | &quot;1D&quot; |
+| _7_D | &quot;7D&quot; |
+| _30_D | &quot;30D&quot; |
 
 
 

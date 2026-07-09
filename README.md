@@ -42,7 +42,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>one.talon</groupId>
   <artifactId>talon-one-client</artifactId>
-  <version>26.13.0</version>
+  <version>26.14.0</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -52,7 +52,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "one.talon:talon-one-client:26.13.0"
+compile "one.talon:talon-one-client:26.14.0"
 ```
 
 ### Others
@@ -323,6 +323,7 @@ Class | Method | HTTP request | Description
 *ManagementApi* | [**getApplicationEventsWithoutTotalCount**](docs/ManagementApi.md#getApplicationEventsWithoutTotalCount) | **GET** /v1/applications/{applicationId}/events/no_total | List Applications events
 *ManagementApi* | [**getApplicationSession**](docs/ManagementApi.md#getApplicationSession) | **GET** /v1/applications/{applicationId}/sessions/{sessionId} | Get Application session
 *ManagementApi* | [**getApplicationSessions**](docs/ManagementApi.md#getApplicationSessions) | **GET** /v1/applications/{applicationId}/sessions | List Application sessions
+*ManagementApi* | [**getApplicationSessionsByCustomerAttributes**](docs/ManagementApi.md#getApplicationSessionsByCustomerAttributes) | **POST** /v1/applications/{applicationId}/sessions_search | List Application sessions matching the given customer attributes
 *ManagementApi* | [**getApplications**](docs/ManagementApi.md#getApplications) | **GET** /v1/applications | List Applications
 *ManagementApi* | [**getAttribute**](docs/ManagementApi.md#getAttribute) | **GET** /v1/attributes/{attributeId} | Get custom attribute
 *ManagementApi* | [**getAttributes**](docs/ManagementApi.md#getAttributes) | **GET** /v1/attributes | List custom attributes
@@ -513,7 +514,10 @@ Class | Method | HTTP request | Description
 - [AudienceIntegrationID](docs/AudienceIntegrationID.md)
 - [AudienceMembership](docs/AudienceMembership.md)
 - [AudienceReference](docs/AudienceReference.md)
+- [AwardGiveawayBlock](docs/AwardGiveawayBlock.md)
+- [AwardGiveawayBlock1GiveawayPool](docs/AwardGiveawayBlock1GiveawayPool.md)
 - [AwardGiveawayEffectProps](docs/AwardGiveawayEffectProps.md)
+- [AwardItemBlock](docs/AwardItemBlock.md)
 - [BaseBlock](docs/BaseBlock.md)
 - [BaseCampaign](docs/BaseCampaign.md)
 - [BaseLoyaltyProgram](docs/BaseLoyaltyProgram.md)
@@ -525,7 +529,9 @@ Class | Method | HTTP request | Description
 - [BestPriorPrice](docs/BestPriorPrice.md)
 - [BestPriorPriceMetadata](docs/BestPriorPriceMetadata.md)
 - [BestPriorPriceRequest](docs/BestPriorPriceRequest.md)
+- [BestPriorPriceSettings](docs/BestPriorPriceSettings.md)
 - [BestPriorTarget](docs/BestPriorTarget.md)
+- [BetweenCheckAttributeBlock](docs/BetweenCheckAttributeBlock.md)
 - [Binding](docs/Binding.md)
 - [Blueprint](docs/Blueprint.md)
 - [BulkApplicationNotification](docs/BulkApplicationNotification.md)
@@ -600,6 +606,11 @@ Class | Method | HTTP request | Description
 - [Change](docs/Change.md)
 - [ChangeLoyaltyTierLevelEffectProps](docs/ChangeLoyaltyTierLevelEffectProps.md)
 - [ChangeProfilePassword](docs/ChangeProfilePassword.md)
+- [CheckAttributeBlock](docs/CheckAttributeBlock.md)
+- [CheckAudienceBlock](docs/CheckAudienceBlock.md)
+- [CheckAudienceBlock1Audience](docs/CheckAudienceBlock1Audience.md)
+- [CheckCouponBlock](docs/CheckCouponBlock.md)
+- [CheckReferralBlock](docs/CheckReferralBlock.md)
 - [CodeGeneratorSettings](docs/CodeGeneratorSettings.md)
 - [Collection](docs/Collection.md)
 - [CollectionItem](docs/CollectionItem.md)
@@ -733,6 +744,7 @@ Class | Method | HTTP request | Description
 - [GetApplicationEventTypes200Response](docs/GetApplicationEventTypes200Response.md)
 - [GetApplicationEventsWithoutTotalCount200Response](docs/GetApplicationEventsWithoutTotalCount200Response.md)
 - [GetApplicationSessions200Response](docs/GetApplicationSessions200Response.md)
+- [GetApplicationSessionsByCustomerAttributes200Response](docs/GetApplicationSessionsByCustomerAttributes200Response.md)
 - [GetApplications200Response](docs/GetApplications200Response.md)
 - [GetAttributes200Response](docs/GetAttributes200Response.md)
 - [GetAudienceMemberships200Response](docs/GetAudienceMemberships200Response.md)
@@ -834,8 +846,10 @@ Class | Method | HTTP request | Description
 - [ListCampaignStoreBudgets](docs/ListCampaignStoreBudgets.md)
 - [ListCampaignStoreBudgetsStore](docs/ListCampaignStoreBudgetsStore.md)
 - [ListCatalogItems200Response](docs/ListCatalogItems200Response.md)
+- [ListCheckAttributeBlock](docs/ListCheckAttributeBlock.md)
 - [ListExperiments200Response](docs/ListExperiments200Response.md)
 - [ListStores200Response](docs/ListStores200Response.md)
+- [ListWithCountCheckAttributeBlock](docs/ListWithCountCheckAttributeBlock.md)
 - [LoginParams](docs/LoginParams.md)
 - [Loyalty](docs/Loyalty.md)
 - [LoyaltyBalance](docs/LoyaltyBalance.md)
@@ -993,6 +1007,7 @@ Class | Method | HTTP request | Description
 - [ProfileAudiencesChanges](docs/ProfileAudiencesChanges.md)
 - [ProjectedTier](docs/ProjectedTier.md)
 - [PromoteExperiment](docs/PromoteExperiment.md)
+- [PromotionCheckAttributeBlock](docs/PromotionCheckAttributeBlock.md)
 - [PromotionGroupBlock](docs/PromotionGroupBlock.md)
 - [PromotionRuleV2](docs/PromotionRuleV2.md)
 - [RedeemReferralEffectProps](docs/RedeemReferralEffectProps.md)
@@ -1051,6 +1066,7 @@ Class | Method | HTTP request | Description
 - [SamlConnectionInternal](docs/SamlConnectionInternal.md)
 - [SamlConnectionMetadata](docs/SamlConnectionMetadata.md)
 - [SamlLoginEndpoint](docs/SamlLoginEndpoint.md)
+- [ScalarCheckAttributeBlock](docs/ScalarCheckAttributeBlock.md)
 - [ScimBaseGroup](docs/ScimBaseGroup.md)
 - [ScimBaseUser](docs/ScimBaseUser.md)
 - [ScimBaseUserName](docs/ScimBaseUserName.md)
@@ -1078,12 +1094,14 @@ Class | Method | HTTP request | Description
 - [SetDiscountPerItemEffectProps](docs/SetDiscountPerItemEffectProps.md)
 - [SetLoyaltyPointsExpiryDateEffectProps](docs/SetLoyaltyPointsExpiryDateEffectProps.md)
 - [ShowBundleMetadataEffectProps](docs/ShowBundleMetadataEffectProps.md)
+- [ShowNotificationBlock](docs/ShowNotificationBlock.md)
 - [ShowNotificationEffectProps](docs/ShowNotificationEffectProps.md)
 - [SkuUnitAnalytics](docs/SkuUnitAnalytics.md)
 - [SkuUnitAnalyticsDataPoint](docs/SkuUnitAnalyticsDataPoint.md)
 - [SlotDef](docs/SlotDef.md)
 - [Store](docs/Store.md)
 - [StrikethroughChangedItem](docs/StrikethroughChangedItem.md)
+- [StrikethroughCheckAttributeBlock](docs/StrikethroughCheckAttributeBlock.md)
 - [StrikethroughCustomEffectPerItemProps](docs/StrikethroughCustomEffectPerItemProps.md)
 - [StrikethroughDebugResponse](docs/StrikethroughDebugResponse.md)
 - [StrikethroughEffect](docs/StrikethroughEffect.md)
@@ -1117,6 +1135,7 @@ Class | Method | HTTP request | Description
 - [TransferLoyaltyCard](docs/TransferLoyaltyCard.md)
 - [TriggerWebhookEffectProps](docs/TriggerWebhookEffectProps.md)
 - [TwoFAConfig](docs/TwoFAConfig.md)
+- [UnaryCheckAttributeBlock](docs/UnaryCheckAttributeBlock.md)
 - [UpdateAccount](docs/UpdateAccount.md)
 - [UpdateAchievement](docs/UpdateAchievement.md)
 - [UpdateAchievementV2](docs/UpdateAchievementV2.md)

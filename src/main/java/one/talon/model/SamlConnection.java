@@ -106,6 +106,11 @@ public class SamlConnection {
   @javax.annotation.Nonnull
   private String assertionConsumerServiceURL;
 
+  public static final String SERIALIZED_NAME_CERTIFICATE_EXPIRY = "certificateExpiry";
+  @SerializedName(SERIALIZED_NAME_CERTIFICATE_EXPIRY)
+  @javax.annotation.Nullable
+  private OffsetDateTime certificateExpiry;
+
   public SamlConnection() {
   }
 
@@ -317,6 +322,25 @@ public class SamlConnection {
     this.assertionConsumerServiceURL = assertionConsumerServiceURL;
   }
 
+
+  public SamlConnection certificateExpiry(@javax.annotation.Nullable OffsetDateTime certificateExpiry) {
+    this.certificateExpiry = certificateExpiry;
+    return this;
+  }
+
+  /**
+   * The expiry date of the X.509 certificate.
+   * @return certificateExpiry
+   */
+  @javax.annotation.Nullable
+  public OffsetDateTime getCertificateExpiry() {
+    return certificateExpiry;
+  }
+
+  public void setCertificateExpiry(@javax.annotation.Nullable OffsetDateTime certificateExpiry) {
+    this.certificateExpiry = certificateExpiry;
+  }
+
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -382,13 +406,14 @@ public class SamlConnection {
         Objects.equals(this.audienceURI, samlConnection.audienceURI) &&
         Objects.equals(this.id, samlConnection.id) &&
         Objects.equals(this.created, samlConnection.created) &&
-        Objects.equals(this.assertionConsumerServiceURL, samlConnection.assertionConsumerServiceURL)&&
+        Objects.equals(this.assertionConsumerServiceURL, samlConnection.assertionConsumerServiceURL) &&
+        Objects.equals(this.certificateExpiry, samlConnection.certificateExpiry)&&
         Objects.equals(this.additionalProperties, samlConnection.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountId, name, enabled, issuer, signOnURL, signOutURL, metadataURL, audienceURI, id, created, assertionConsumerServiceURL, additionalProperties);
+    return Objects.hash(accountId, name, enabled, issuer, signOnURL, signOutURL, metadataURL, audienceURI, id, created, assertionConsumerServiceURL, certificateExpiry, additionalProperties);
   }
 
   @Override
@@ -406,6 +431,7 @@ public class SamlConnection {
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    created: ").append(toIndentedString(created)).append("\n");
     sb.append("    assertionConsumerServiceURL: ").append(toIndentedString(assertionConsumerServiceURL)).append("\n");
+    sb.append("    certificateExpiry: ").append(toIndentedString(certificateExpiry)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -425,7 +451,7 @@ public class SamlConnection {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("accountId", "name", "enabled", "issuer", "signOnURL", "signOutURL", "metadataURL", "audienceURI", "id", "created", "assertionConsumerServiceURL"));
+    openapiFields = new HashSet<String>(Arrays.asList("accountId", "name", "enabled", "issuer", "signOnURL", "signOutURL", "metadataURL", "audienceURI", "id", "created", "assertionConsumerServiceURL", "certificateExpiry"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("accountId", "name", "enabled", "issuer", "signOnURL", "audienceURI", "id", "created", "assertionConsumerServiceURL"));

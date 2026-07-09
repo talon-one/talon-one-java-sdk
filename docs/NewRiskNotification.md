@@ -38,9 +38,9 @@ Data for creating a new risk notification.
 
 | Name | Value |
 |---- | -----|
-| _1_DAY | &quot;1_day&quot; |
-| _1_WEEK | &quot;1_week&quot; |
-| _1_MONTH | &quot;1_month&quot; |
+| _1_D | &quot;1D&quot; |
+| _7_D | &quot;7D&quot; |
+| _30_D | &quot;30D&quot; |
 
 
 

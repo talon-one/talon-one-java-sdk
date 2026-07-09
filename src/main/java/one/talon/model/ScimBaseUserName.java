@@ -46,7 +46,7 @@ import java.util.Set;
 import one.talon.JSON;
 
 /**
- * The components of the user’s real name.
+ * The components of the user&#39;s real name.
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.23.0")
 public class ScimBaseUserName {

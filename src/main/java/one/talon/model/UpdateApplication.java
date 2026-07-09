@@ -24,6 +24,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import one.talon.model.AttributesSettings;
+import one.talon.model.BestPriorPriceSettings;
 import one.talon.model.LimitConfig;
 
 import com.google.gson.Gson;
@@ -300,6 +301,11 @@ public class UpdateApplication {
   @SerializedName(SERIALIZED_NAME_ENABLE_CAMPAIGN_STATE_MANAGEMENT)
   @javax.annotation.Nullable
   private Boolean enableCampaignStateManagement;
+
+  public static final String SERIALIZED_NAME_BEST_PRIOR_PRICE_SETTINGS = "bestPriorPriceSettings";
+  @SerializedName(SERIALIZED_NAME_BEST_PRIOR_PRICE_SETTINGS)
+  @javax.annotation.Nullable
+  private BestPriorPriceSettings bestPriorPriceSettings;
 
   public UpdateApplication() {
   }
@@ -634,6 +640,25 @@ public class UpdateApplication {
     this.enableCampaignStateManagement = enableCampaignStateManagement;
   }
 
+
+  public UpdateApplication bestPriorPriceSettings(@javax.annotation.Nullable BestPriorPriceSettings bestPriorPriceSettings) {
+    this.bestPriorPriceSettings = bestPriorPriceSettings;
+    return this;
+  }
+
+  /**
+   * Get bestPriorPriceSettings
+   * @return bestPriorPriceSettings
+   */
+  @javax.annotation.Nullable
+  public BestPriorPriceSettings getBestPriorPriceSettings() {
+    return bestPriorPriceSettings;
+  }
+
+  public void setBestPriorPriceSettings(@javax.annotation.Nullable BestPriorPriceSettings bestPriorPriceSettings) {
+    this.bestPriorPriceSettings = bestPriorPriceSettings;
+  }
+
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -705,13 +730,14 @@ public class UpdateApplication {
         Objects.equals(this.defaultDiscountAdditionalCostPerItemScope, updateApplication.defaultDiscountAdditionalCostPerItemScope) &&
         Objects.equals(this.defaultEvaluationGroupId, updateApplication.defaultEvaluationGroupId) &&
         Objects.equals(this.defaultCartItemFilterId, updateApplication.defaultCartItemFilterId) &&
-        Objects.equals(this.enableCampaignStateManagement, updateApplication.enableCampaignStateManagement)&&
+        Objects.equals(this.enableCampaignStateManagement, updateApplication.enableCampaignStateManagement) &&
+        Objects.equals(this.bestPriorPriceSettings, updateApplication.bestPriorPriceSettings)&&
         Objects.equals(this.additionalProperties, updateApplication.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, description, timezone, currency, caseSensitivity, attributes, limits, defaultDiscountScope, enableCascadingDiscounts, enableFlattenedCartItems, attributesSettings, sandbox, enablePartialDiscounts, defaultDiscountAdditionalCostPerItemScope, defaultEvaluationGroupId, defaultCartItemFilterId, enableCampaignStateManagement, additionalProperties);
+    return Objects.hash(name, description, timezone, currency, caseSensitivity, attributes, limits, defaultDiscountScope, enableCascadingDiscounts, enableFlattenedCartItems, attributesSettings, sandbox, enablePartialDiscounts, defaultDiscountAdditionalCostPerItemScope, defaultEvaluationGroupId, defaultCartItemFilterId, enableCampaignStateManagement, bestPriorPriceSettings, additionalProperties);
   }
 
   @Override
@@ -735,6 +761,7 @@ public class UpdateApplication {
     sb.append("    defaultEvaluationGroupId: ").append(toIndentedString(defaultEvaluationGroupId)).append("\n");
     sb.append("    defaultCartItemFilterId: ").append(toIndentedString(defaultCartItemFilterId)).append("\n");
     sb.append("    enableCampaignStateManagement: ").append(toIndentedString(enableCampaignStateManagement)).append("\n");
+    sb.append("    bestPriorPriceSettings: ").append(toIndentedString(bestPriorPriceSettings)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -754,7 +781,7 @@ public class UpdateApplication {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("name", "description", "timezone", "currency", "caseSensitivity", "attributes", "limits", "defaultDiscountScope", "enableCascadingDiscounts", "enableFlattenedCartItems", "attributesSettings", "sandbox", "enablePartialDiscounts", "defaultDiscountAdditionalCostPerItemScope", "defaultEvaluationGroupId", "defaultCartItemFilterId", "enableCampaignStateManagement"));
+    openapiFields = new HashSet<String>(Arrays.asList("name", "description", "timezone", "currency", "caseSensitivity", "attributes", "limits", "defaultDiscountScope", "enableCascadingDiscounts", "enableFlattenedCartItems", "attributesSettings", "sandbox", "enablePartialDiscounts", "defaultDiscountAdditionalCostPerItemScope", "defaultEvaluationGroupId", "defaultCartItemFilterId", "enableCampaignStateManagement", "bestPriorPriceSettings"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("name", "timezone", "currency"));
@@ -830,6 +857,10 @@ public class UpdateApplication {
       // validate the optional field `defaultDiscountAdditionalCostPerItemScope`
       if (jsonObj.get("defaultDiscountAdditionalCostPerItemScope") != null && !jsonObj.get("defaultDiscountAdditionalCostPerItemScope").isJsonNull()) {
         DefaultDiscountAdditionalCostPerItemScopeEnum.validateJsonElement(jsonObj.get("defaultDiscountAdditionalCostPerItemScope"));
+      }
+      // validate the optional field `bestPriorPriceSettings`
+      if (jsonObj.get("bestPriorPriceSettings") != null && !jsonObj.get("bestPriorPriceSettings").isJsonNull()) {
+        BestPriorPriceSettings.validateJsonElement(jsonObj.get("bestPriorPriceSettings"));
       }
   }
 

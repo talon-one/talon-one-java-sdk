@@ -70,10 +70,10 @@ public class RiskDetail {
   @javax.annotation.Nonnull
   private Long notificationId;
 
-  public static final String SERIALIZED_NAME_RUN_DATE = "runDate";
-  @SerializedName(SERIALIZED_NAME_RUN_DATE)
+  public static final String SERIALIZED_NAME_FEATURE_DATE = "featureDate";
+  @SerializedName(SERIALIZED_NAME_FEATURE_DATE)
   @javax.annotation.Nonnull
-  private LocalDate runDate;
+  private LocalDate featureDate;
 
   public static final String SERIALIZED_NAME_GROUP_KEY = "groupKey";
   @SerializedName(SERIALIZED_NAME_GROUP_KEY)
@@ -326,11 +326,11 @@ public class RiskDetail {
    */
   @JsonAdapter(TimeFrameEnum.Adapter.class)
   public enum TimeFrameEnum {
-    _1_DAY("1_day"),
+    _1_D("1D"),
     
-    _1_WEEK("1_week"),
+    _7_D("7D"),
     
-    _1_MONTH("1_month");
+    _30_D("30D");
 
     private String value;
 
@@ -465,22 +465,22 @@ public class RiskDetail {
   }
 
 
-  public RiskDetail runDate(@javax.annotation.Nonnull LocalDate runDate) {
-    this.runDate = runDate;
+  public RiskDetail featureDate(@javax.annotation.Nonnull LocalDate featureDate) {
+    this.featureDate = featureDate;
     return this;
   }
 
   /**
-   * The date of the ML pipeline run that detected this risk.
-   * @return runDate
+   * The date of the activity data in which this risk was detected. The anomaly detection pipeline scores complete 24-hour cycles, so this is always the day before the risk was reported, not the reporting date itself. 
+   * @return featureDate
    */
   @javax.annotation.Nonnull
-  public LocalDate getRunDate() {
-    return runDate;
+  public LocalDate getFeatureDate() {
+    return featureDate;
   }
 
-  public void setRunDate(@javax.annotation.Nonnull LocalDate runDate) {
-    this.runDate = runDate;
+  public void setFeatureDate(@javax.annotation.Nonnull LocalDate featureDate) {
+    this.featureDate = featureDate;
   }
 
 
@@ -777,7 +777,7 @@ public class RiskDetail {
     return Objects.equals(this.id, riskDetail.id) &&
         Objects.equals(this.created, riskDetail.created) &&
         Objects.equals(this.notificationId, riskDetail.notificationId) &&
-        Objects.equals(this.runDate, riskDetail.runDate) &&
+        Objects.equals(this.featureDate, riskDetail.featureDate) &&
         Objects.equals(this.groupKey, riskDetail.groupKey) &&
         Objects.equals(this.applicationId, riskDetail.applicationId) &&
         Objects.equals(this.status, riskDetail.status) &&
@@ -795,7 +795,7 @@ public class RiskDetail {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, created, notificationId, runDate, groupKey, applicationId, status, criticality, entity, activity, timeFrame, reportedDate, affectedEntityCount, description, modified, affectedEntities, additionalProperties);
+    return Objects.hash(id, created, notificationId, featureDate, groupKey, applicationId, status, criticality, entity, activity, timeFrame, reportedDate, affectedEntityCount, description, modified, affectedEntities, additionalProperties);
   }
 
   @Override
@@ -805,7 +805,7 @@ public class RiskDetail {
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    created: ").append(toIndentedString(created)).append("\n");
     sb.append("    notificationId: ").append(toIndentedString(notificationId)).append("\n");
-    sb.append("    runDate: ").append(toIndentedString(runDate)).append("\n");
+    sb.append("    featureDate: ").append(toIndentedString(featureDate)).append("\n");
     sb.append("    groupKey: ").append(toIndentedString(groupKey)).append("\n");
     sb.append("    applicationId: ").append(toIndentedString(applicationId)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
@@ -837,10 +837,10 @@ public class RiskDetail {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("id", "created", "notificationId", "runDate", "groupKey", "applicationId", "status", "criticality", "entity", "activity", "timeFrame", "reportedDate", "affectedEntityCount", "description", "modified", "affectedEntities"));
+    openapiFields = new HashSet<String>(Arrays.asList("id", "created", "notificationId", "featureDate", "groupKey", "applicationId", "status", "criticality", "entity", "activity", "timeFrame", "reportedDate", "affectedEntityCount", "description", "modified", "affectedEntities"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("id", "created", "notificationId", "runDate", "groupKey", "status", "criticality", "entity", "activity", "timeFrame", "reportedDate", "affectedEntityCount", "modified", "affectedEntities"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("id", "created", "notificationId", "featureDate", "groupKey", "status", "criticality", "entity", "activity", "timeFrame", "reportedDate", "affectedEntityCount", "modified", "affectedEntities"));
   }
 
   /**

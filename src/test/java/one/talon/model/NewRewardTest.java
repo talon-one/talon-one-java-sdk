@@ -22,6 +22,9 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import one.talon.model.Binding;
+import one.talon.model.RewardPointsRequired;
+import one.talon.model.Rule;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
@@ -77,6 +80,38 @@ public class NewRewardTest {
     @Test
     public void sandboxTest() {
         // TODO: test sandbox
+    }
+
+    /**
+     * Test the property 'eligibilityConditions'
+     */
+    @Test
+    public void eligibilityConditionsTest() {
+        // TODO: test eligibilityConditions
+    }
+
+    /**
+     * Test the property 'rule'
+     */
+    @Test
+    public void ruleTest() {
+        // TODO: test rule
+    }
+
+    /**
+     * Test the property 'bindings'
+     */
+    @Test
+    public void bindingsTest() {
+        // TODO: test bindings
+    }
+
+    /**
+     * Test the property 'pointsRequired'
+     */
+    @Test
+    public void pointsRequiredTest() {
+        // TODO: test pointsRequired
     }
 
 }

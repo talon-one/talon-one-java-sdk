@@ -70,6 +70,16 @@ public class IntegrationHubFlowConfig {
   @javax.annotation.Nullable
   private Long maxRetries = 10l;
 
+  public static final String SERIALIZED_NAME_INSTANCE_NAME = "InstanceName";
+  @SerializedName(SERIALIZED_NAME_INSTANCE_NAME)
+  @javax.annotation.Nullable
+  private String instanceName;
+
+  public static final String SERIALIZED_NAME_INTEGRATION_NAME = "IntegrationName";
+  @SerializedName(SERIALIZED_NAME_INTEGRATION_NAME)
+  @javax.annotation.Nullable
+  private String integrationName;
+
   public IntegrationHubFlowConfig() {
   }
 
@@ -152,6 +162,44 @@ public class IntegrationHubFlowConfig {
     this.maxRetries = maxRetries;
   }
 
+
+  public IntegrationHubFlowConfig instanceName(@javax.annotation.Nullable String instanceName) {
+    this.instanceName = instanceName;
+    return this;
+  }
+
+  /**
+   * Name of the Prismatic instance that registered this flow.
+   * @return instanceName
+   */
+  @javax.annotation.Nullable
+  public String getInstanceName() {
+    return instanceName;
+  }
+
+  public void setInstanceName(@javax.annotation.Nullable String instanceName) {
+    this.instanceName = instanceName;
+  }
+
+
+  public IntegrationHubFlowConfig integrationName(@javax.annotation.Nullable String integrationName) {
+    this.integrationName = integrationName;
+    return this;
+  }
+
+  /**
+   * Name of the Prismatic integration that registered this flow.
+   * @return integrationName
+   */
+  @javax.annotation.Nullable
+  public String getIntegrationName() {
+    return integrationName;
+  }
+
+  public void setIntegrationName(@javax.annotation.Nullable String integrationName) {
+    this.integrationName = integrationName;
+  }
+
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -210,13 +258,15 @@ public class IntegrationHubFlowConfig {
     return Objects.equals(this.apiKey, integrationHubFlowConfig.apiKey) &&
         Objects.equals(this.workerCount, integrationHubFlowConfig.workerCount) &&
         Objects.equals(this.maxEventsPerMessage, integrationHubFlowConfig.maxEventsPerMessage) &&
-        Objects.equals(this.maxRetries, integrationHubFlowConfig.maxRetries)&&
+        Objects.equals(this.maxRetries, integrationHubFlowConfig.maxRetries) &&
+        Objects.equals(this.instanceName, integrationHubFlowConfig.instanceName) &&
+        Objects.equals(this.integrationName, integrationHubFlowConfig.integrationName)&&
         Objects.equals(this.additionalProperties, integrationHubFlowConfig.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(apiKey, workerCount, maxEventsPerMessage, maxRetries, additionalProperties);
+    return Objects.hash(apiKey, workerCount, maxEventsPerMessage, maxRetries, instanceName, integrationName, additionalProperties);
   }
 
   @Override
@@ -227,6 +277,8 @@ public class IntegrationHubFlowConfig {
     sb.append("    workerCount: ").append(toIndentedString(workerCount)).append("\n");
     sb.append("    maxEventsPerMessage: ").append(toIndentedString(maxEventsPerMessage)).append("\n");
     sb.append("    maxRetries: ").append(toIndentedString(maxRetries)).append("\n");
+    sb.append("    instanceName: ").append(toIndentedString(instanceName)).append("\n");
+    sb.append("    integrationName: ").append(toIndentedString(integrationName)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -246,7 +298,7 @@ public class IntegrationHubFlowConfig {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("ApiKey", "WorkerCount", "MaxEventsPerMessage", "MaxRetries"));
+    openapiFields = new HashSet<String>(Arrays.asList("ApiKey", "WorkerCount", "MaxEventsPerMessage", "MaxRetries", "InstanceName", "IntegrationName"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("ApiKey"));
@@ -274,6 +326,12 @@ public class IntegrationHubFlowConfig {
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if (!jsonObj.get("ApiKey").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `ApiKey` to be a primitive type in the JSON string but got `%s`", jsonObj.get("ApiKey").toString()));
+      }
+      if ((jsonObj.get("InstanceName") != null && !jsonObj.get("InstanceName").isJsonNull()) && !jsonObj.get("InstanceName").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `InstanceName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("InstanceName").toString()));
+      }
+      if ((jsonObj.get("IntegrationName") != null && !jsonObj.get("IntegrationName").isJsonNull()) && !jsonObj.get("IntegrationName").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `IntegrationName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("IntegrationName").toString()));
       }
   }
 

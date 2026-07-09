@@ -132,6 +132,14 @@ public class RewardTest {
     }
 
     /**
+     * Test the property 'pointsRequired'
+     */
+    @Test
+    public void pointsRequiredTest() {
+        // TODO: test pointsRequired
+    }
+
+    /**
      * Test the property 'modified'
      */
     @Test
@@ -145,14 +153,6 @@ public class RewardTest {
     @Test
     public void statusTest() {
         // TODO: test status
-    }
-
-    /**
-     * Test the property 'pointsRequired'
-     */
-    @Test
-    public void pointsRequiredTest() {
-        // TODO: test pointsRequired
     }
 
 }

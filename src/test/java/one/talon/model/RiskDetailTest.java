@@ -67,11 +67,11 @@ public class RiskDetailTest {
     }
 
     /**
-     * Test the property 'runDate'
+     * Test the property 'featureDate'
      */
     @Test
-    public void runDateTest() {
-        // TODO: test runDate
+    public void featureDateTest() {
+        // TODO: test featureDate
     }
 
     /**

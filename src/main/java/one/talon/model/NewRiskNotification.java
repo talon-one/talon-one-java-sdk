@@ -173,11 +173,11 @@ public class NewRiskNotification {
    */
   @JsonAdapter(TimeFrameEnum.Adapter.class)
   public enum TimeFrameEnum {
-    _1_DAY("1_day"),
+    _1_D("1D"),
     
-    _1_WEEK("1_week"),
+    _7_D("7D"),
     
-    _1_MONTH("1_month");
+    _30_D("30D");
 
     private String value;
 
