@@ -23,7 +23,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import one.talon.model.ApplicationNotification;
+import one.talon.model.CampaignEvaluationTreeChangedNotification;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -51,7 +51,7 @@ import one.talon.JSON;
 /**
  * BulkApplicationNotification
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.23.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.24.0")
 public class BulkApplicationNotification {
   public static final String SERIALIZED_NAME_TOTAL_RESULT_SIZE = "totalResultSize";
   @SerializedName(SERIALIZED_NAME_TOTAL_RESULT_SIZE)
@@ -61,7 +61,7 @@ public class BulkApplicationNotification {
   public static final String SERIALIZED_NAME_DATA = "data";
   @SerializedName(SERIALIZED_NAME_DATA)
   @javax.annotation.Nonnull
-  private List<ApplicationNotification> data = new ArrayList<>();
+  private List<CampaignEvaluationTreeChangedNotification> data = new ArrayList<>();
 
   public BulkApplicationNotification() {
   }
@@ -85,12 +85,12 @@ public class BulkApplicationNotification {
   }
 
 
-  public BulkApplicationNotification data(@javax.annotation.Nonnull List<ApplicationNotification> data) {
+  public BulkApplicationNotification data(@javax.annotation.Nonnull List<CampaignEvaluationTreeChangedNotification> data) {
     this.data = data;
     return this;
   }
 
-  public BulkApplicationNotification addDataItem(ApplicationNotification dataItem) {
+  public BulkApplicationNotification addDataItem(CampaignEvaluationTreeChangedNotification dataItem) {
     if (this.data == null) {
       this.data = new ArrayList<>();
     }
@@ -103,11 +103,11 @@ public class BulkApplicationNotification {
    * @return data
    */
   @javax.annotation.Nonnull
-  public List<ApplicationNotification> getData() {
+  public List<CampaignEvaluationTreeChangedNotification> getData() {
     return data;
   }
 
-  public void setData(@javax.annotation.Nonnull List<ApplicationNotification> data) {
+  public void setData(@javax.annotation.Nonnull List<CampaignEvaluationTreeChangedNotification> data) {
     this.data = data;
   }
 
@@ -234,7 +234,7 @@ public class BulkApplicationNotification {
         JsonArray jsonArraydata = jsonObj.getAsJsonArray("data");
         // validate the required field `data` (array)
         for (int i = 0; i < jsonArraydata.size(); i++) {
-          ApplicationNotification.validateJsonElement(jsonArraydata.get(i));
+          CampaignEvaluationTreeChangedNotification.validateJsonElement(jsonArraydata.get(i));
         }
       }
   }

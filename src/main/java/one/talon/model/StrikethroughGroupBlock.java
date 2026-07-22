@@ -25,6 +25,7 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import one.talon.model.StrikethroughBlock;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -52,7 +53,7 @@ import one.talon.JSON;
 /**
  * StrikethroughGroupBlock
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.23.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.24.0")
 public class StrikethroughGroupBlock {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -131,17 +132,17 @@ public class StrikethroughGroupBlock {
   public static final String SERIALIZED_NAME_BLOCKS = "blocks";
   @SerializedName(SERIALIZED_NAME_BLOCKS)
   @javax.annotation.Nonnull
-  private List<Object> blocks = new ArrayList<>();
+  private List<StrikethroughBlock> blocks = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_ON_FAILURE = "onFailure";
   @SerializedName(SERIALIZED_NAME_ON_FAILURE)
   @javax.annotation.Nullable
-  private List<Object> onFailure;
+  private List<StrikethroughBlock> onFailure;
 
   public static final String SERIALIZED_NAME_ON_ERROR = "onError";
   @SerializedName(SERIALIZED_NAME_ON_ERROR)
   @javax.annotation.Nullable
-  private Map<String, List<Object>> onError;
+  private Map<String, List<StrikethroughBlock>> onError;
 
   public StrikethroughGroupBlock() {
   }
@@ -230,12 +231,12 @@ public class StrikethroughGroupBlock {
   }
 
 
-  public StrikethroughGroupBlock blocks(@javax.annotation.Nonnull List<Object> blocks) {
+  public StrikethroughGroupBlock blocks(@javax.annotation.Nonnull List<StrikethroughBlock> blocks) {
     this.blocks = blocks;
     return this;
   }
 
-  public StrikethroughGroupBlock addBlocksItem(Object blocksItem) {
+  public StrikethroughGroupBlock addBlocksItem(StrikethroughBlock blocksItem) {
     if (this.blocks == null) {
       this.blocks = new ArrayList<>();
     }
@@ -248,21 +249,21 @@ public class StrikethroughGroupBlock {
    * @return blocks
    */
   @javax.annotation.Nonnull
-  public List<Object> getBlocks() {
+  public List<StrikethroughBlock> getBlocks() {
     return blocks;
   }
 
-  public void setBlocks(@javax.annotation.Nonnull List<Object> blocks) {
+  public void setBlocks(@javax.annotation.Nonnull List<StrikethroughBlock> blocks) {
     this.blocks = blocks;
   }
 
 
-  public StrikethroughGroupBlock onFailure(@javax.annotation.Nullable List<Object> onFailure) {
+  public StrikethroughGroupBlock onFailure(@javax.annotation.Nullable List<StrikethroughBlock> onFailure) {
     this.onFailure = onFailure;
     return this;
   }
 
-  public StrikethroughGroupBlock addOnFailureItem(Object onFailureItem) {
+  public StrikethroughGroupBlock addOnFailureItem(StrikethroughBlock onFailureItem) {
     if (this.onFailure == null) {
       this.onFailure = new ArrayList<>();
     }
@@ -275,21 +276,21 @@ public class StrikethroughGroupBlock {
    * @return onFailure
    */
   @javax.annotation.Nullable
-  public List<Object> getOnFailure() {
+  public List<StrikethroughBlock> getOnFailure() {
     return onFailure;
   }
 
-  public void setOnFailure(@javax.annotation.Nullable List<Object> onFailure) {
+  public void setOnFailure(@javax.annotation.Nullable List<StrikethroughBlock> onFailure) {
     this.onFailure = onFailure;
   }
 
 
-  public StrikethroughGroupBlock onError(@javax.annotation.Nullable Map<String, List<Object>> onError) {
+  public StrikethroughGroupBlock onError(@javax.annotation.Nullable Map<String, List<StrikethroughBlock>> onError) {
     this.onError = onError;
     return this;
   }
 
-  public StrikethroughGroupBlock putOnErrorItem(String key, List<Object> onErrorItem) {
+  public StrikethroughGroupBlock putOnErrorItem(String key, List<StrikethroughBlock> onErrorItem) {
     if (this.onError == null) {
       this.onError = new HashMap<>();
     }
@@ -302,11 +303,11 @@ public class StrikethroughGroupBlock {
    * @return onError
    */
   @javax.annotation.Nullable
-  public Map<String, List<Object>> getOnError() {
+  public Map<String, List<StrikethroughBlock>> getOnError() {
     return onError;
   }
 
-  public void setOnError(@javax.annotation.Nullable Map<String, List<Object>> onError) {
+  public void setOnError(@javax.annotation.Nullable Map<String, List<StrikethroughBlock>> onError) {
     this.onError = onError;
   }
 
@@ -451,15 +452,29 @@ public class StrikethroughGroupBlock {
       }
       // validate the required field `operator`
       OperatorEnum.validateJsonElement(jsonObj.get("operator"));
-      // ensure the required json array is present
-      if (jsonObj.get("blocks") == null) {
-        throw new IllegalArgumentException("Expected the field `linkedContent` to be an array in the JSON string but got `null`");
-      } else if (!jsonObj.get("blocks").isJsonArray()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `blocks` to be an array in the JSON string but got `%s`", jsonObj.get("blocks").toString()));
+      if (jsonObj.get("blocks") != null) {
+        if (!jsonObj.get("blocks").isJsonArray()) {
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `blocks` to be an array in the JSON string but got `%s`", jsonObj.get("blocks").toString()));
+        }
+        JsonArray jsonArrayblocks = jsonObj.getAsJsonArray("blocks");
+        // validate the required field `blocks` (array)
+        for (int i = 0; i < jsonArrayblocks.size(); i++) {
+          StrikethroughBlock.validateJsonElement(jsonArrayblocks.get(i));
+        }
       }
-      // ensure the optional json data is an array if present
-      if (jsonObj.get("onFailure") != null && !jsonObj.get("onFailure").isJsonNull() && !jsonObj.get("onFailure").isJsonArray()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `onFailure` to be an array in the JSON string but got `%s`", jsonObj.get("onFailure").toString()));
+      if (jsonObj.get("onFailure") != null && !jsonObj.get("onFailure").isJsonNull()) {
+        JsonArray jsonArrayonFailure = jsonObj.getAsJsonArray("onFailure");
+        if (jsonArrayonFailure != null) {
+          // ensure the json data is an array
+          if (!jsonObj.get("onFailure").isJsonArray()) {
+            throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `onFailure` to be an array in the JSON string but got `%s`", jsonObj.get("onFailure").toString()));
+          }
+
+          // validate the optional field `onFailure` (array)
+          for (int i = 0; i < jsonArrayonFailure.size(); i++) {
+            StrikethroughBlock.validateJsonElement(jsonArrayonFailure.get(i));
+          };
+        }
       }
   }
 

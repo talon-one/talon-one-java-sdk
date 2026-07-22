@@ -52,7 +52,7 @@ import one.talon.JSON;
 /**
  * ExperimentResults
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.23.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.24.0")
 public class ExperimentResults {
   public static final String SERIALIZED_NAME_VARIANTS = "variants";
   @SerializedName(SERIALIZED_NAME_VARIANTS)

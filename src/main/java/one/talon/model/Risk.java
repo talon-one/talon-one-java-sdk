@@ -50,7 +50,7 @@ import one.talon.JSON;
 /**
  * A risk detected by the anomaly detection service for one Application group.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.23.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.24.0")
 public class Risk {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -392,6 +392,78 @@ public class Risk {
   @javax.annotation.Nullable
   private String description;
 
+  /**
+   * The reason this risk was discarded. Only present on discarded risks.
+   */
+  @JsonAdapter(DiscardReasonEnum.Adapter.class)
+  public enum DiscardReasonEnum {
+    EXPECTED_BEHAVIOR("expected_behavior"),
+    
+    OTHER("other");
+
+    private String value;
+
+    DiscardReasonEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static DiscardReasonEnum fromValue(String value) {
+      for (DiscardReasonEnum b : DiscardReasonEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    }
+
+    public static class Adapter extends TypeAdapter<DiscardReasonEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final DiscardReasonEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public DiscardReasonEnum read(final JsonReader jsonReader) throws IOException {
+        String value =  jsonReader.nextString();
+        return DiscardReasonEnum.fromValue(value);
+      }
+    }
+
+    public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      String value = jsonElement.getAsString();
+      DiscardReasonEnum.fromValue(value);
+    }
+  }
+
+  public static final String SERIALIZED_NAME_DISCARD_REASON = "discardReason";
+  @SerializedName(SERIALIZED_NAME_DISCARD_REASON)
+  @javax.annotation.Nullable
+  private DiscardReasonEnum discardReason;
+
+  public static final String SERIALIZED_NAME_STATUS_COMMENT = "statusComment";
+  @SerializedName(SERIALIZED_NAME_STATUS_COMMENT)
+  @javax.annotation.Nullable
+  private String statusComment;
+
+  public static final String SERIALIZED_NAME_STATUS_CHANGED_BY = "statusChangedBy";
+  @SerializedName(SERIALIZED_NAME_STATUS_CHANGED_BY)
+  @javax.annotation.Nullable
+  private Long statusChangedBy;
+
+  public static final String SERIALIZED_NAME_STATUS_CHANGED_AT = "statusChangedAt";
+  @SerializedName(SERIALIZED_NAME_STATUS_CHANGED_AT)
+  @javax.annotation.Nullable
+  private OffsetDateTime statusChangedAt;
+
   public static final String SERIALIZED_NAME_MODIFIED = "modified";
   @SerializedName(SERIALIZED_NAME_MODIFIED)
   @javax.annotation.Nonnull
@@ -666,6 +738,82 @@ public class Risk {
   }
 
 
+  public Risk discardReason(@javax.annotation.Nullable DiscardReasonEnum discardReason) {
+    this.discardReason = discardReason;
+    return this;
+  }
+
+  /**
+   * The reason this risk was discarded. Only present on discarded risks.
+   * @return discardReason
+   */
+  @javax.annotation.Nullable
+  public DiscardReasonEnum getDiscardReason() {
+    return discardReason;
+  }
+
+  public void setDiscardReason(@javax.annotation.Nullable DiscardReasonEnum discardReason) {
+    this.discardReason = discardReason;
+  }
+
+
+  public Risk statusComment(@javax.annotation.Nullable String statusComment) {
+    this.statusComment = statusComment;
+    return this;
+  }
+
+  /**
+   * The free-text details of the latest reclassification action: the description for resolving confirmed risks, or the details for discarding risks. 
+   * @return statusComment
+   */
+  @javax.annotation.Nullable
+  public String getStatusComment() {
+    return statusComment;
+  }
+
+  public void setStatusComment(@javax.annotation.Nullable String statusComment) {
+    this.statusComment = statusComment;
+  }
+
+
+  public Risk statusChangedBy(@javax.annotation.Nullable Long statusChangedBy) {
+    this.statusChangedBy = statusChangedBy;
+    return this;
+  }
+
+  /**
+   * The ID of the user who performed the latest reclassification action.
+   * @return statusChangedBy
+   */
+  @javax.annotation.Nullable
+  public Long getStatusChangedBy() {
+    return statusChangedBy;
+  }
+
+  public void setStatusChangedBy(@javax.annotation.Nullable Long statusChangedBy) {
+    this.statusChangedBy = statusChangedBy;
+  }
+
+
+  public Risk statusChangedAt(@javax.annotation.Nullable OffsetDateTime statusChangedAt) {
+    this.statusChangedAt = statusChangedAt;
+    return this;
+  }
+
+  /**
+   * The time of the latest reclassification action.
+   * @return statusChangedAt
+   */
+  @javax.annotation.Nullable
+  public OffsetDateTime getStatusChangedAt() {
+    return statusChangedAt;
+  }
+
+  public void setStatusChangedAt(@javax.annotation.Nullable OffsetDateTime statusChangedAt) {
+    this.statusChangedAt = statusChangedAt;
+  }
+
+
   public Risk modified(@javax.annotation.Nonnull OffsetDateTime modified) {
     this.modified = modified;
     return this;
@@ -753,13 +901,17 @@ public class Risk {
         Objects.equals(this.reportedDate, risk.reportedDate) &&
         Objects.equals(this.affectedEntityCount, risk.affectedEntityCount) &&
         Objects.equals(this.description, risk.description) &&
+        Objects.equals(this.discardReason, risk.discardReason) &&
+        Objects.equals(this.statusComment, risk.statusComment) &&
+        Objects.equals(this.statusChangedBy, risk.statusChangedBy) &&
+        Objects.equals(this.statusChangedAt, risk.statusChangedAt) &&
         Objects.equals(this.modified, risk.modified)&&
         Objects.equals(this.additionalProperties, risk.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, created, notificationId, featureDate, groupKey, applicationId, status, criticality, entity, activity, timeFrame, reportedDate, affectedEntityCount, description, modified, additionalProperties);
+    return Objects.hash(id, created, notificationId, featureDate, groupKey, applicationId, status, criticality, entity, activity, timeFrame, reportedDate, affectedEntityCount, description, discardReason, statusComment, statusChangedBy, statusChangedAt, modified, additionalProperties);
   }
 
   @Override
@@ -780,6 +932,10 @@ public class Risk {
     sb.append("    reportedDate: ").append(toIndentedString(reportedDate)).append("\n");
     sb.append("    affectedEntityCount: ").append(toIndentedString(affectedEntityCount)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    discardReason: ").append(toIndentedString(discardReason)).append("\n");
+    sb.append("    statusComment: ").append(toIndentedString(statusComment)).append("\n");
+    sb.append("    statusChangedBy: ").append(toIndentedString(statusChangedBy)).append("\n");
+    sb.append("    statusChangedAt: ").append(toIndentedString(statusChangedAt)).append("\n");
     sb.append("    modified: ").append(toIndentedString(modified)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
@@ -800,7 +956,7 @@ public class Risk {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("id", "created", "notificationId", "featureDate", "groupKey", "applicationId", "status", "criticality", "entity", "activity", "timeFrame", "reportedDate", "affectedEntityCount", "description", "modified"));
+    openapiFields = new HashSet<String>(Arrays.asList("id", "created", "notificationId", "featureDate", "groupKey", "applicationId", "status", "criticality", "entity", "activity", "timeFrame", "reportedDate", "affectedEntityCount", "description", "discardReason", "statusComment", "statusChangedBy", "statusChangedAt", "modified"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("id", "created", "notificationId", "featureDate", "groupKey", "status", "criticality", "entity", "activity", "timeFrame", "reportedDate", "affectedEntityCount", "modified"));
@@ -856,6 +1012,16 @@ public class Risk {
       TimeFrameEnum.validateJsonElement(jsonObj.get("timeFrame"));
       if ((jsonObj.get("description") != null && !jsonObj.get("description").isJsonNull()) && !jsonObj.get("description").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `description` to be a primitive type in the JSON string but got `%s`", jsonObj.get("description").toString()));
+      }
+      if ((jsonObj.get("discardReason") != null && !jsonObj.get("discardReason").isJsonNull()) && !jsonObj.get("discardReason").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `discardReason` to be a primitive type in the JSON string but got `%s`", jsonObj.get("discardReason").toString()));
+      }
+      // validate the optional field `discardReason`
+      if (jsonObj.get("discardReason") != null && !jsonObj.get("discardReason").isJsonNull()) {
+        DiscardReasonEnum.validateJsonElement(jsonObj.get("discardReason"));
+      }
+      if ((jsonObj.get("statusComment") != null && !jsonObj.get("statusComment").isJsonNull()) && !jsonObj.get("statusComment").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `statusComment` to be a primitive type in the JSON string but got `%s`", jsonObj.get("statusComment").toString()));
       }
   }
 

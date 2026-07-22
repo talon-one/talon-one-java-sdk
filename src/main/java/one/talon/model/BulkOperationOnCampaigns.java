@@ -51,7 +51,7 @@ import one.talon.JSON;
 /**
  * BulkOperationOnCampaigns
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.23.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.24.0")
 public class BulkOperationOnCampaigns {
   /**
    * The operation to perform on the specified campaign IDs. 

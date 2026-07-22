@@ -52,7 +52,7 @@ import one.talon.JSON;
 /**
  * NewCustomerSession
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.23.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.24.0")
 public class NewCustomerSession {
   public static final String SERIALIZED_NAME_PROFILE_ID = "profileId";
   @SerializedName(SERIALIZED_NAME_PROFILE_ID)
@@ -308,7 +308,7 @@ public class NewCustomerSession {
   }
 
   /**
-   * Arbitrary properties associated with this campaign.
+   * A key-value map of the sessions attributes. The potentially valid attributes are configured in your accounts developer settings. 
    * @return attributes
    */
   @javax.annotation.Nullable

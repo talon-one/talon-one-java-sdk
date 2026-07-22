@@ -49,7 +49,7 @@ import one.talon.JSON;
 /**
  * CouponDeletionFilters
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.23.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.24.0")
 public class CouponDeletionFilters {
   public static final String SERIALIZED_NAME_CREATED_BEFORE = "createdBefore";
   @SerializedName(SERIALIZED_NAME_CREATED_BEFORE)

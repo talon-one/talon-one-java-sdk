@@ -50,7 +50,7 @@ import one.talon.JSON;
 /**
  * PendingActivePointsData
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.23.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.24.0")
 public class PendingActivePointsData {
   public static final String SERIALIZED_NAME_LOYALTY_PROGRAM_I_D = "LoyaltyProgramID";
   @SerializedName(SERIALIZED_NAME_LOYALTY_PROGRAM_I_D)

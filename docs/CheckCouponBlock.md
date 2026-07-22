@@ -11,7 +11,7 @@
 |**type** | **String** | Identifies the block variant and determines which additional properties are present in it. |  |
 |**tags** | **List&lt;String&gt;** | Semantic labels attached to this block. |  [optional] |
 |**redeem** | **Boolean** | When &#x60;true&#x60;, the coupon code is redeemed. |  |
-|**onFailure** | **List&lt;Object&gt;** | Promotion blocks evaluated when this block fails or returns false. |  [optional] |
+|**onFailure** | [**List&lt;PromotionBlock&gt;**](PromotionBlock.md) | Promotion blocks evaluated when this block fails or returns false. |  [optional] |
 
 
 

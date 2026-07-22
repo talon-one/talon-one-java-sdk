@@ -15,7 +15,7 @@
 |**webhooks** | [**List&lt;WebhookAuthenticationWebhookRef&gt;**](WebhookAuthenticationWebhookRef.md) |  |  |
 |**name** | **String** | The name of the webhook authentication. |  |
 |**type** | [**TypeEnum**](#TypeEnum) |  |  |
-|**data** | **Object** |  |  |
+|**data** | [**WebhookAuthenticationAllOfData**](WebhookAuthenticationAllOfData.md) |  |  |
 
 
 

@@ -48,7 +48,7 @@ import one.talon.JSON;
 /**
  * Data for creating a new risk notification.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.23.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.24.0")
 public class NewRiskNotification {
   /**
    * The entity type to analyze within the given time frame.

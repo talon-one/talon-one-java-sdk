@@ -48,7 +48,7 @@ import one.talon.JSON;
 /**
  * UpdateSupportRequest
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.23.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.24.0")
 public class UpdateSupportRequest {
   /**
    * Current status of the support request.
@@ -57,7 +57,9 @@ public class UpdateSupportRequest {
   public enum RequestStatusEnum {
     APPROVED("approved"),
     
-    REJECTED("rejected");
+    REJECTED("rejected"),
+    
+    EXPIRED("expired");
 
     private String value;
 

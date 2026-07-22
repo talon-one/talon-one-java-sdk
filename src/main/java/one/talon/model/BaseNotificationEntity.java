@@ -21,6 +21,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.util.Arrays;
+import one.talon.model.BaseNotificationPolicy;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -48,12 +49,12 @@ import one.talon.JSON;
 /**
  * BaseNotificationEntity
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.23.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.24.0")
 public class BaseNotificationEntity {
   public static final String SERIALIZED_NAME_POLICY = "policy";
   @SerializedName(SERIALIZED_NAME_POLICY)
   @javax.annotation.Nonnull
-  private Object policy;
+  private BaseNotificationPolicy policy;
 
   public static final String SERIALIZED_NAME_ENABLED = "enabled";
   @SerializedName(SERIALIZED_NAME_ENABLED)
@@ -63,21 +64,21 @@ public class BaseNotificationEntity {
   public BaseNotificationEntity() {
   }
 
-  public BaseNotificationEntity policy(@javax.annotation.Nonnull Object policy) {
+  public BaseNotificationEntity policy(@javax.annotation.Nonnull BaseNotificationPolicy policy) {
     this.policy = policy;
     return this;
   }
 
   /**
-   * Indicates which notification properties to apply.
+   * Get policy
    * @return policy
    */
   @javax.annotation.Nonnull
-  public Object getPolicy() {
+  public BaseNotificationPolicy getPolicy() {
     return policy;
   }
 
-  public void setPolicy(@javax.annotation.Nonnull Object policy) {
+  public void setPolicy(@javax.annotation.Nonnull BaseNotificationPolicy policy) {
     this.policy = policy;
   }
 
@@ -216,6 +217,8 @@ public class BaseNotificationEntity {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
+      // validate the required field `policy`
+      BaseNotificationPolicy.validateJsonElement(jsonObj.get("policy"));
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {

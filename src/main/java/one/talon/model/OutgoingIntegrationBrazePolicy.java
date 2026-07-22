@@ -48,7 +48,7 @@ import one.talon.JSON;
 /**
  * OutgoingIntegrationBrazePolicy
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.23.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.24.0")
 public class OutgoingIntegrationBrazePolicy {
   public static final String SERIALIZED_NAME_BASE_URL = "baseUrl";
   @SerializedName(SERIALIZED_NAME_BASE_URL)

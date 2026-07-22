@@ -21,358 +21,442 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.util.Arrays;
+import one.talon.model.AddPriceAdjustmentCatalogAction;
+import one.talon.model.CatalogActionOneOf;
+import one.talon.model.CatalogActionOneOf1;
+import one.talon.model.CatalogActionOneOf2;
+import one.talon.model.CatalogActionOneOf3;
+import one.talon.model.CatalogActionOneOf4;
+import one.talon.model.CatalogActionOneOf5;
+
+
+
+import java.io.IOException;
+import java.lang.reflect.Type;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashSet;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapter;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
-import com.google.gson.TypeAdapter;
+import com.google.gson.JsonPrimitive;
+import com.google.gson.annotations.JsonAdapter;
+import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import java.io.IOException;
-
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
+import com.google.gson.JsonDeserializationContext;
+import com.google.gson.JsonDeserializer;
+import com.google.gson.JsonSerializationContext;
+import com.google.gson.JsonSerializer;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonParseException;
 
 import one.talon.JSON;
 
-/**
- * Definition of all the properties that are needed for a single catalog sync action.
- */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.23.0")
-public class CatalogAction {
-  /**
-   * The type of sync action.
-   */
-  @JsonAdapter(TypeEnum.Adapter.class)
-  public enum TypeEnum {
-    ADD("ADD"),
-    
-    PATCH("PATCH"),
-    
-    PATCH_MANY("PATCH_MANY"),
-    
-    REMOVE("REMOVE"),
-    
-    REMOVE_MANY("REMOVE_MANY"),
-    
-    ADD_PRICE_ADJUSTMENT("ADD_PRICE_ADJUSTMENT");
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.24.0")
+public class CatalogAction extends AbstractOpenApiSchema {
+    private static final Logger log = Logger.getLogger(CatalogAction.class.getName());
 
-    private String value;
+    public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
+        @SuppressWarnings("unchecked")
+        @Override
+        public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
+            if (!CatalogAction.class.isAssignableFrom(type.getRawType())) {
+                return null; // this class only serializes 'CatalogAction' and its subtypes
+            }
+            final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
+            final TypeAdapter<CatalogActionOneOf> adapterCatalogActionOneOf = gson.getDelegateAdapter(this, TypeToken.get(CatalogActionOneOf.class));
+            final TypeAdapter<CatalogActionOneOf1> adapterCatalogActionOneOf1 = gson.getDelegateAdapter(this, TypeToken.get(CatalogActionOneOf1.class));
+            final TypeAdapter<CatalogActionOneOf2> adapterCatalogActionOneOf2 = gson.getDelegateAdapter(this, TypeToken.get(CatalogActionOneOf2.class));
+            final TypeAdapter<CatalogActionOneOf3> adapterCatalogActionOneOf3 = gson.getDelegateAdapter(this, TypeToken.get(CatalogActionOneOf3.class));
+            final TypeAdapter<CatalogActionOneOf4> adapterCatalogActionOneOf4 = gson.getDelegateAdapter(this, TypeToken.get(CatalogActionOneOf4.class));
+            final TypeAdapter<CatalogActionOneOf5> adapterCatalogActionOneOf5 = gson.getDelegateAdapter(this, TypeToken.get(CatalogActionOneOf5.class));
 
-    TypeEnum(String value) {
-      this.value = value;
+            return (TypeAdapter<T>) new TypeAdapter<CatalogAction>() {
+                @Override
+                public void write(JsonWriter out, CatalogAction value) throws IOException {
+                    if (value == null || value.getActualInstance() == null) {
+                        elementAdapter.write(out, null);
+                        return;
+                    }
+
+                    // check if the actual instance is of the type `CatalogActionOneOf`
+                    if (value.getActualInstance() instanceof CatalogActionOneOf) {
+                        JsonElement element = adapterCatalogActionOneOf.toJsonTree((CatalogActionOneOf)value.getActualInstance());
+                        elementAdapter.write(out, element);
+                        return;
+                    }
+                    // check if the actual instance is of the type `CatalogActionOneOf1`
+                    if (value.getActualInstance() instanceof CatalogActionOneOf1) {
+                        JsonElement element = adapterCatalogActionOneOf1.toJsonTree((CatalogActionOneOf1)value.getActualInstance());
+                        elementAdapter.write(out, element);
+                        return;
+                    }
+                    // check if the actual instance is of the type `CatalogActionOneOf2`
+                    if (value.getActualInstance() instanceof CatalogActionOneOf2) {
+                        JsonElement element = adapterCatalogActionOneOf2.toJsonTree((CatalogActionOneOf2)value.getActualInstance());
+                        elementAdapter.write(out, element);
+                        return;
+                    }
+                    // check if the actual instance is of the type `CatalogActionOneOf3`
+                    if (value.getActualInstance() instanceof CatalogActionOneOf3) {
+                        JsonElement element = adapterCatalogActionOneOf3.toJsonTree((CatalogActionOneOf3)value.getActualInstance());
+                        elementAdapter.write(out, element);
+                        return;
+                    }
+                    // check if the actual instance is of the type `CatalogActionOneOf4`
+                    if (value.getActualInstance() instanceof CatalogActionOneOf4) {
+                        JsonElement element = adapterCatalogActionOneOf4.toJsonTree((CatalogActionOneOf4)value.getActualInstance());
+                        elementAdapter.write(out, element);
+                        return;
+                    }
+                    // check if the actual instance is of the type `CatalogActionOneOf5`
+                    if (value.getActualInstance() instanceof CatalogActionOneOf5) {
+                        JsonElement element = adapterCatalogActionOneOf5.toJsonTree((CatalogActionOneOf5)value.getActualInstance());
+                        elementAdapter.write(out, element);
+                        return;
+                    }
+                    throw new IOException("Failed to serialize as the type doesn't match oneOf schemas: CatalogActionOneOf, CatalogActionOneOf1, CatalogActionOneOf2, CatalogActionOneOf3, CatalogActionOneOf4, CatalogActionOneOf5");
+                }
+
+                @Override
+                public CatalogAction read(JsonReader in) throws IOException {
+                    Object deserialized = null;
+                    JsonElement jsonElement = elementAdapter.read(in);
+
+                    int match = 0;
+                    ArrayList<String> errorMessages = new ArrayList<>();
+                    TypeAdapter actualAdapter = elementAdapter;
+
+                    // deserialize CatalogActionOneOf
+                    try {
+                        // validate the JSON object to see if any exception is thrown
+                        CatalogActionOneOf.validateJsonElement(jsonElement);
+                        actualAdapter = adapterCatalogActionOneOf;
+                        match++;
+                        log.log(Level.FINER, "Input data matches schema 'CatalogActionOneOf'");
+                    } catch (Exception e) {
+                        // deserialization failed, continue
+                        errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for CatalogActionOneOf failed with `%s`.", e.getMessage()));
+                        log.log(Level.FINER, "Input data does not match schema 'CatalogActionOneOf'", e);
+                    }
+                    // deserialize CatalogActionOneOf1
+                    try {
+                        // validate the JSON object to see if any exception is thrown
+                        CatalogActionOneOf1.validateJsonElement(jsonElement);
+                        actualAdapter = adapterCatalogActionOneOf1;
+                        match++;
+                        log.log(Level.FINER, "Input data matches schema 'CatalogActionOneOf1'");
+                    } catch (Exception e) {
+                        // deserialization failed, continue
+                        errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for CatalogActionOneOf1 failed with `%s`.", e.getMessage()));
+                        log.log(Level.FINER, "Input data does not match schema 'CatalogActionOneOf1'", e);
+                    }
+                    // deserialize CatalogActionOneOf2
+                    try {
+                        // validate the JSON object to see if any exception is thrown
+                        CatalogActionOneOf2.validateJsonElement(jsonElement);
+                        actualAdapter = adapterCatalogActionOneOf2;
+                        match++;
+                        log.log(Level.FINER, "Input data matches schema 'CatalogActionOneOf2'");
+                    } catch (Exception e) {
+                        // deserialization failed, continue
+                        errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for CatalogActionOneOf2 failed with `%s`.", e.getMessage()));
+                        log.log(Level.FINER, "Input data does not match schema 'CatalogActionOneOf2'", e);
+                    }
+                    // deserialize CatalogActionOneOf3
+                    try {
+                        // validate the JSON object to see if any exception is thrown
+                        CatalogActionOneOf3.validateJsonElement(jsonElement);
+                        actualAdapter = adapterCatalogActionOneOf3;
+                        match++;
+                        log.log(Level.FINER, "Input data matches schema 'CatalogActionOneOf3'");
+                    } catch (Exception e) {
+                        // deserialization failed, continue
+                        errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for CatalogActionOneOf3 failed with `%s`.", e.getMessage()));
+                        log.log(Level.FINER, "Input data does not match schema 'CatalogActionOneOf3'", e);
+                    }
+                    // deserialize CatalogActionOneOf4
+                    try {
+                        // validate the JSON object to see if any exception is thrown
+                        CatalogActionOneOf4.validateJsonElement(jsonElement);
+                        actualAdapter = adapterCatalogActionOneOf4;
+                        match++;
+                        log.log(Level.FINER, "Input data matches schema 'CatalogActionOneOf4'");
+                    } catch (Exception e) {
+                        // deserialization failed, continue
+                        errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for CatalogActionOneOf4 failed with `%s`.", e.getMessage()));
+                        log.log(Level.FINER, "Input data does not match schema 'CatalogActionOneOf4'", e);
+                    }
+                    // deserialize CatalogActionOneOf5
+                    try {
+                        // validate the JSON object to see if any exception is thrown
+                        CatalogActionOneOf5.validateJsonElement(jsonElement);
+                        actualAdapter = adapterCatalogActionOneOf5;
+                        match++;
+                        log.log(Level.FINER, "Input data matches schema 'CatalogActionOneOf5'");
+                    } catch (Exception e) {
+                        // deserialization failed, continue
+                        errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for CatalogActionOneOf5 failed with `%s`.", e.getMessage()));
+                        log.log(Level.FINER, "Input data does not match schema 'CatalogActionOneOf5'", e);
+                    }
+
+                    if (match == 1) {
+                        CatalogAction ret = new CatalogAction();
+                        ret.setActualInstance(actualAdapter.fromJsonTree(jsonElement));
+                        return ret;
+                    }
+
+                    throw new IOException(String.format(java.util.Locale.ROOT, "Failed deserialization for CatalogAction: %d classes match result, expected 1. Detailed failure message for oneOf schemas: %s. JSON: %s", match, errorMessages, jsonElement.toString()));
+                }
+            }.nullSafe();
+        }
     }
 
-    public String getValue() {
-      return value;
+    // store a list of schema names defined in oneOf
+    public static final Map<String, Class<?>> schemas = new HashMap<String, Class<?>>();
+
+    public CatalogAction() {
+        super("oneOf", Boolean.FALSE);
+    }
+
+    public CatalogAction(Object o) {
+        super("oneOf", Boolean.FALSE);
+        setActualInstance(o);
+    }
+
+    static {
+        schemas.put("CatalogActionOneOf", CatalogActionOneOf.class);
+        schemas.put("CatalogActionOneOf1", CatalogActionOneOf1.class);
+        schemas.put("CatalogActionOneOf2", CatalogActionOneOf2.class);
+        schemas.put("CatalogActionOneOf3", CatalogActionOneOf3.class);
+        schemas.put("CatalogActionOneOf4", CatalogActionOneOf4.class);
+        schemas.put("CatalogActionOneOf5", CatalogActionOneOf5.class);
     }
 
     @Override
-    public String toString() {
-      return String.valueOf(value);
+    public Map<String, Class<?>> getSchemas() {
+        return CatalogAction.schemas;
     }
 
-    public static TypeEnum fromValue(String value) {
-      for (TypeEnum b : TypeEnum.values()) {
-        if (b.value.equals(value)) {
-          return b;
+    /**
+     * Set the instance that matches the oneOf child schema, check
+     * the instance parameter is valid against the oneOf child schemas:
+     * CatalogActionOneOf, CatalogActionOneOf1, CatalogActionOneOf2, CatalogActionOneOf3, CatalogActionOneOf4, CatalogActionOneOf5
+     *
+     * It could be an instance of the 'oneOf' schemas.
+     */
+    @Override
+    public void setActualInstance(Object instance) {
+        if (instance instanceof CatalogActionOneOf) {
+            super.setActualInstance(instance);
+            return;
         }
-      }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
-    }
 
-    public static class Adapter extends TypeAdapter<TypeEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final TypeEnum enumeration) throws IOException {
-        jsonWriter.value(enumeration.getValue());
-      }
-
-      @Override
-      public TypeEnum read(final JsonReader jsonReader) throws IOException {
-        String value =  jsonReader.nextString();
-        return TypeEnum.fromValue(value);
-      }
-    }
-
-    public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-      String value = jsonElement.getAsString();
-      TypeEnum.fromValue(value);
-    }
-  }
-
-  public static final String SERIALIZED_NAME_TYPE = "type";
-  @SerializedName(SERIALIZED_NAME_TYPE)
-  @javax.annotation.Nonnull
-  private TypeEnum type;
-
-  public static final String SERIALIZED_NAME_PAYLOAD = "payload";
-  @SerializedName(SERIALIZED_NAME_PAYLOAD)
-  @javax.annotation.Nonnull
-  private Object payload;
-
-  public CatalogAction() {
-  }
-
-  public CatalogAction type(@javax.annotation.Nonnull TypeEnum type) {
-    this.type = type;
-    return this;
-  }
-
-  /**
-   * The type of sync action.
-   * @return type
-   */
-  @javax.annotation.Nonnull
-  public TypeEnum getType() {
-    return type;
-  }
-
-  public void setType(@javax.annotation.Nonnull TypeEnum type) {
-    this.type = type;
-  }
-
-
-  public CatalogAction payload(@javax.annotation.Nonnull Object payload) {
-    this.payload = payload;
-    return this;
-  }
-
-  /**
-   * Get payload
-   * @return payload
-   */
-  @javax.annotation.Nonnull
-  public Object getPayload() {
-    return payload;
-  }
-
-  public void setPayload(@javax.annotation.Nonnull Object payload) {
-    this.payload = payload;
-  }
-
-  /**
-   * A container for additional, undeclared properties.
-   * This is a holder for any undeclared properties as specified with
-   * the 'additionalProperties' keyword in the OAS document.
-   */
-  private Map<String, Object> additionalProperties;
-
-  /**
-   * Set the additional (undeclared) property with the specified name and value.
-   * If the property does not already exist, create it otherwise replace it.
-   *
-   * @param key name of the property
-   * @param value value of the property
-   * @return the CatalogAction instance itself
-   */
-  public CatalogAction putAdditionalProperty(String key, Object value) {
-    if (this.additionalProperties == null) {
-        this.additionalProperties = new HashMap<String, Object>();
-    }
-    this.additionalProperties.put(key, value);
-    return this;
-  }
-
-  /**
-   * Return the additional (undeclared) property.
-   *
-   * @return a map of objects
-   */
-  public Map<String, Object> getAdditionalProperties() {
-    return additionalProperties;
-  }
-
-  /**
-   * Return the additional (undeclared) property with the specified name.
-   *
-   * @param key name of the property
-   * @return an object
-   */
-  public Object getAdditionalProperty(String key) {
-    if (this.additionalProperties == null) {
-        return null;
-    }
-    return this.additionalProperties.get(key);
-  }
-
-
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
-    }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
-    }
-    CatalogAction catalogAction = (CatalogAction) o;
-    return Objects.equals(this.type, catalogAction.type) &&
-        Objects.equals(this.payload, catalogAction.payload)&&
-        Objects.equals(this.additionalProperties, catalogAction.additionalProperties);
-  }
-
-  @Override
-  public int hashCode() {
-    return Objects.hash(type, payload, additionalProperties);
-  }
-
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class CatalogAction {\n");
-    sb.append("    type: ").append(toIndentedString(type)).append("\n");
-    sb.append("    payload: ").append(toIndentedString(payload)).append("\n");
-    sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(Object o) {
-    return o == null ? "null" : o.toString().replace("\n", "\n    ");
-  }
-
-
-  public static HashSet<String> openapiFields;
-  public static HashSet<String> openapiRequiredFields;
-
-  static {
-    // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("type", "payload"));
-
-    // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("type", "payload"));
-  }
-
-  /**
-   * Validates the JSON Element and throws an exception if issues found
-   *
-   * @param jsonElement JSON Element
-   * @throws IOException if the JSON Element is invalid with respect to CatalogAction
-   */
-  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-      if (jsonElement == null) {
-        if (!CatalogAction.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in CatalogAction is not found in the empty JSON string", CatalogAction.openapiRequiredFields.toString()));
+        if (instance instanceof CatalogActionOneOf1) {
+            super.setActualInstance(instance);
+            return;
         }
-      }
 
-      // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : CatalogAction.openapiRequiredFields) {
-        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
+        if (instance instanceof CatalogActionOneOf2) {
+            super.setActualInstance(instance);
+            return;
         }
-      }
-        JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if (!jsonObj.get("type").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("type").toString()));
-      }
-      // validate the required field `type`
-      TypeEnum.validateJsonElement(jsonObj.get("type"));
-  }
 
-  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
+        if (instance instanceof CatalogActionOneOf3) {
+            super.setActualInstance(instance);
+            return;
+        }
+
+        if (instance instanceof CatalogActionOneOf4) {
+            super.setActualInstance(instance);
+            return;
+        }
+
+        if (instance instanceof CatalogActionOneOf5) {
+            super.setActualInstance(instance);
+            return;
+        }
+
+        throw new RuntimeException("Invalid instance type. Must be CatalogActionOneOf, CatalogActionOneOf1, CatalogActionOneOf2, CatalogActionOneOf3, CatalogActionOneOf4, CatalogActionOneOf5");
+    }
+
+    /**
+     * Get the actual instance, which can be the following:
+     * CatalogActionOneOf, CatalogActionOneOf1, CatalogActionOneOf2, CatalogActionOneOf3, CatalogActionOneOf4, CatalogActionOneOf5
+     *
+     * @return The actual instance (CatalogActionOneOf, CatalogActionOneOf1, CatalogActionOneOf2, CatalogActionOneOf3, CatalogActionOneOf4, CatalogActionOneOf5)
+     */
     @SuppressWarnings("unchecked")
     @Override
-    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!CatalogAction.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'CatalogAction' and its subtypes
-       }
-       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<CatalogAction> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(CatalogAction.class));
-
-       return (TypeAdapter<T>) new TypeAdapter<CatalogAction>() {
-           @Override
-           public void write(JsonWriter out, CatalogAction value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
-             obj.remove("additionalProperties");
-             // serialize additional properties
-             if (value.getAdditionalProperties() != null) {
-               for (Map.Entry<String, Object> entry : value.getAdditionalProperties().entrySet()) {
-                 if (entry.getValue() instanceof String)
-                   obj.addProperty(entry.getKey(), (String) entry.getValue());
-                 else if (entry.getValue() instanceof Number)
-                   obj.addProperty(entry.getKey(), (Number) entry.getValue());
-                 else if (entry.getValue() instanceof Boolean)
-                   obj.addProperty(entry.getKey(), (Boolean) entry.getValue());
-                 else if (entry.getValue() instanceof Character)
-                   obj.addProperty(entry.getKey(), (Character) entry.getValue());
-                 else {
-                   JsonElement jsonElement = gson.toJsonTree(entry.getValue());
-                   if (jsonElement.isJsonArray()) {
-                     obj.add(entry.getKey(), jsonElement.getAsJsonArray());
-                   } else {
-                     obj.add(entry.getKey(), jsonElement.getAsJsonObject());
-                   }
-                 }
-               }
-             }
-             elementAdapter.write(out, obj);
-           }
-
-           @Override
-           public CatalogAction read(JsonReader in) throws IOException {
-             JsonElement jsonElement = elementAdapter.read(in);
-             validateJsonElement(jsonElement);
-             JsonObject jsonObj = jsonElement.getAsJsonObject();
-             // store additional fields in the deserialized instance
-             CatalogAction instance = thisAdapter.fromJsonTree(jsonObj);
-             for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
-               if (!openapiFields.contains(entry.getKey())) {
-                 if (entry.getValue().isJsonPrimitive()) { // primitive type
-                   if (entry.getValue().getAsJsonPrimitive().isString())
-                     instance.putAdditionalProperty(entry.getKey(), entry.getValue().getAsString());
-                   else if (entry.getValue().getAsJsonPrimitive().isNumber())
-                     instance.putAdditionalProperty(entry.getKey(), entry.getValue().getAsNumber());
-                   else if (entry.getValue().getAsJsonPrimitive().isBoolean())
-                     instance.putAdditionalProperty(entry.getKey(), entry.getValue().getAsBoolean());
-                   else
-                     throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` has unknown primitive type. Value: %s", entry.getKey(), entry.getValue().toString()));
-                 } else if (entry.getValue().isJsonArray()) {
-                     instance.putAdditionalProperty(entry.getKey(), gson.fromJson(entry.getValue(), List.class));
-                 } else { // JSON object
-                     instance.putAdditionalProperty(entry.getKey(), gson.fromJson(entry.getValue(), HashMap.class));
-                 }
-               }
-             }
-             return instance;
-           }
-
-       }.nullSafe();
+    public Object getActualInstance() {
+        return super.getActualInstance();
     }
-  }
 
-  /**
-   * Create an instance of CatalogAction given an JSON string
-   *
-   * @param jsonString JSON string
-   * @return An instance of CatalogAction
-   * @throws IOException if the JSON string is invalid with respect to CatalogAction
-   */
-  public static CatalogAction fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, CatalogAction.class);
-  }
+    /**
+     * Get the actual instance of `CatalogActionOneOf`. If the actual instance is not `CatalogActionOneOf`,
+     * the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `CatalogActionOneOf`
+     * @throws ClassCastException if the instance is not `CatalogActionOneOf`
+     */
+    @SuppressWarnings("unchecked")
+    public CatalogActionOneOf getCatalogActionOneOf() throws ClassCastException {
+        return (CatalogActionOneOf)super.getActualInstance();
+    }
 
-  /**
-   * Convert an instance of CatalogAction to an JSON string
-   *
-   * @return JSON string
-   */
-  public String toJson() {
-    return JSON.getGson().toJson(this);
-  }
+    /**
+     * Get the actual instance of `CatalogActionOneOf1`. If the actual instance is not `CatalogActionOneOf1`,
+     * the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `CatalogActionOneOf1`
+     * @throws ClassCastException if the instance is not `CatalogActionOneOf1`
+     */
+    @SuppressWarnings("unchecked")
+    public CatalogActionOneOf1 getCatalogActionOneOf1() throws ClassCastException {
+        return (CatalogActionOneOf1)super.getActualInstance();
+    }
+
+    /**
+     * Get the actual instance of `CatalogActionOneOf2`. If the actual instance is not `CatalogActionOneOf2`,
+     * the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `CatalogActionOneOf2`
+     * @throws ClassCastException if the instance is not `CatalogActionOneOf2`
+     */
+    @SuppressWarnings("unchecked")
+    public CatalogActionOneOf2 getCatalogActionOneOf2() throws ClassCastException {
+        return (CatalogActionOneOf2)super.getActualInstance();
+    }
+
+    /**
+     * Get the actual instance of `CatalogActionOneOf3`. If the actual instance is not `CatalogActionOneOf3`,
+     * the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `CatalogActionOneOf3`
+     * @throws ClassCastException if the instance is not `CatalogActionOneOf3`
+     */
+    @SuppressWarnings("unchecked")
+    public CatalogActionOneOf3 getCatalogActionOneOf3() throws ClassCastException {
+        return (CatalogActionOneOf3)super.getActualInstance();
+    }
+
+    /**
+     * Get the actual instance of `CatalogActionOneOf4`. If the actual instance is not `CatalogActionOneOf4`,
+     * the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `CatalogActionOneOf4`
+     * @throws ClassCastException if the instance is not `CatalogActionOneOf4`
+     */
+    @SuppressWarnings("unchecked")
+    public CatalogActionOneOf4 getCatalogActionOneOf4() throws ClassCastException {
+        return (CatalogActionOneOf4)super.getActualInstance();
+    }
+
+    /**
+     * Get the actual instance of `CatalogActionOneOf5`. If the actual instance is not `CatalogActionOneOf5`,
+     * the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `CatalogActionOneOf5`
+     * @throws ClassCastException if the instance is not `CatalogActionOneOf5`
+     */
+    @SuppressWarnings("unchecked")
+    public CatalogActionOneOf5 getCatalogActionOneOf5() throws ClassCastException {
+        return (CatalogActionOneOf5)super.getActualInstance();
+    }
+
+    /**
+     * Validates the JSON Element and throws an exception if issues found
+     *
+     * @param jsonElement JSON Element
+     * @throws IOException if the JSON Element is invalid with respect to CatalogAction
+     */
+    public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+        // validate oneOf schemas one by one
+        int validCount = 0;
+        ArrayList<String> errorMessages = new ArrayList<>();
+        // validate the json string with CatalogActionOneOf
+        try {
+            CatalogActionOneOf.validateJsonElement(jsonElement);
+            validCount++;
+        } catch (Exception e) {
+            errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for CatalogActionOneOf failed with `%s`.", e.getMessage()));
+            // continue to the next one
+        }
+        // validate the json string with CatalogActionOneOf1
+        try {
+            CatalogActionOneOf1.validateJsonElement(jsonElement);
+            validCount++;
+        } catch (Exception e) {
+            errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for CatalogActionOneOf1 failed with `%s`.", e.getMessage()));
+            // continue to the next one
+        }
+        // validate the json string with CatalogActionOneOf2
+        try {
+            CatalogActionOneOf2.validateJsonElement(jsonElement);
+            validCount++;
+        } catch (Exception e) {
+            errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for CatalogActionOneOf2 failed with `%s`.", e.getMessage()));
+            // continue to the next one
+        }
+        // validate the json string with CatalogActionOneOf3
+        try {
+            CatalogActionOneOf3.validateJsonElement(jsonElement);
+            validCount++;
+        } catch (Exception e) {
+            errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for CatalogActionOneOf3 failed with `%s`.", e.getMessage()));
+            // continue to the next one
+        }
+        // validate the json string with CatalogActionOneOf4
+        try {
+            CatalogActionOneOf4.validateJsonElement(jsonElement);
+            validCount++;
+        } catch (Exception e) {
+            errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for CatalogActionOneOf4 failed with `%s`.", e.getMessage()));
+            // continue to the next one
+        }
+        // validate the json string with CatalogActionOneOf5
+        try {
+            CatalogActionOneOf5.validateJsonElement(jsonElement);
+            validCount++;
+        } catch (Exception e) {
+            errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for CatalogActionOneOf5 failed with `%s`.", e.getMessage()));
+            // continue to the next one
+        }
+        if (validCount != 1) {
+            throw new IOException(String.format(java.util.Locale.ROOT, "The JSON string is invalid for CatalogAction with oneOf schemas: CatalogActionOneOf, CatalogActionOneOf1, CatalogActionOneOf2, CatalogActionOneOf3, CatalogActionOneOf4, CatalogActionOneOf5. %d class(es) match the result, expected 1. Detailed failure message for oneOf schemas: %s. JSON: %s", validCount, errorMessages, jsonElement.toString()));
+        }
+    }
+
+    /**
+     * Create an instance of CatalogAction given an JSON string
+     *
+     * @param jsonString JSON string
+     * @return An instance of CatalogAction
+     * @throws IOException if the JSON string is invalid with respect to CatalogAction
+     */
+    public static CatalogAction fromJson(String jsonString) throws IOException {
+        return JSON.getGson().fromJson(jsonString, CatalogAction.class);
+    }
+
+    /**
+     * Convert an instance of CatalogAction to an JSON string
+     *
+     * @return JSON string
+     */
+    public String toJson() {
+        return JSON.getGson().toJson(this);
+    }
 }
 

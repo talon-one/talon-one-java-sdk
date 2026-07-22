@@ -51,7 +51,7 @@ import one.talon.JSON;
 /**
  * NewCouponCreationJob
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.23.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.24.0")
 public class NewCouponCreationJob {
   public static final String SERIALIZED_NAME_USAGE_LIMIT = "usageLimit";
   @SerializedName(SERIALIZED_NAME_USAGE_LIMIT)
@@ -248,7 +248,7 @@ public class NewCouponCreationJob {
   }
 
   /**
-   * Arbitrary properties associated with this campaign.
+   * Arbitrary properties associated with coupons.
    * @return attributes
    */
   @javax.annotation.Nonnull

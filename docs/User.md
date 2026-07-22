@@ -19,11 +19,11 @@
 |**policy** | **Object** | Access level of the user. |  |
 |**roles** | **List&lt;Long&gt;** | A list of the IDs of the roles assigned to the user. |  [optional] |
 |**authMethod** | **String** | Authentication method for this user. |  [optional] |
-|**applicationNotificationSubscriptions** | **Object** | Arbitrary properties associated with this campaign. |  [optional] |
+|**applicationNotificationSubscriptions** | **Object** | Application notifications that the user is subscribed to. |  [optional] |
 |**lastSignedIn** | **OffsetDateTime** | Timestamp when the user last signed in to Talon.One. |  [optional] |
 |**lastAccessed** | **OffsetDateTime** | Timestamp of the user&#39;s last activity after signing in to Talon.One. |  [optional] |
 |**latestFeedTimestamp** | **OffsetDateTime** | Timestamp when the user was notified for feed. |  [optional] |
-|**additionalAttributes** | **Object** | Arbitrary properties associated with this campaign. |  [optional] |
+|**additionalAttributes** | **Object** | Additional user attributes, created and used by external identity providers. |  [optional] |
 
 
 

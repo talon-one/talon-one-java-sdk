@@ -51,7 +51,7 @@ import one.talon.JSON;
 /**
  * MultipleCustomerProfileIntegrationRequest
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.23.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.24.0")
 public class MultipleCustomerProfileIntegrationRequest {
   public static final String SERIALIZED_NAME_CUSTOMER_PROFILES = "customerProfiles";
   @SerializedName(SERIALIZED_NAME_CUSTOMER_PROFILES)

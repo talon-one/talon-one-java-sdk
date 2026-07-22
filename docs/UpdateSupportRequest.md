@@ -18,6 +18,7 @@
 |---- | -----|
 | APPROVED | &quot;approved&quot; |
 | REJECTED | &quot;rejected&quot; |
+| EXPIRED | &quot;expired&quot; |
 
 
 

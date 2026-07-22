@@ -22,6 +22,10 @@ A risk detected by the anomaly detection service for one Application group.
 |**reportedDate** | **OffsetDateTime** | The time the ML service reported this risk. |  |
 |**affectedEntityCount** | **Long** | The total number of entities affected by this risk. |  |
 |**description** | **String** | Human-readable description of the detected anomaly. |  [optional] |
+|**discardReason** | [**DiscardReasonEnum**](#DiscardReasonEnum) | The reason this risk was discarded. Only present on discarded risks. |  [optional] |
+|**statusComment** | **String** | The free-text details of the latest reclassification action: the description for resolving confirmed risks, or the details for discarding risks.  |  [optional] |
+|**statusChangedBy** | **Long** | The ID of the user who performed the latest reclassification action. |  [optional] |
+|**statusChangedAt** | **OffsetDateTime** | The time of the latest reclassification action. |  [optional] |
 |**modified** | **OffsetDateTime** | Timestamp of the most recent update. |  |
 
 
@@ -73,6 +77,15 @@ A risk detected by the anomaly detection service for one Application group.
 | _1_D | &quot;1D&quot; |
 | _7_D | &quot;7D&quot; |
 | _30_D | &quot;30D&quot; |
+
+
+
+## Enum: DiscardReasonEnum
+
+| Name | Value |
+|---- | -----|
+| EXPECTED_BEHAVIOR | &quot;expected_behavior&quot; |
+| OTHER | &quot;other&quot; |
 
 
 

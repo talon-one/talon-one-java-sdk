@@ -17,7 +17,7 @@
 |**cartItems** | [**List&lt;CartItem&gt;**](CartItem.md) | Serialized JSON representation. |  [optional] |
 |**identifiers** | **List&lt;String&gt;** | Session custom identifiers that you can set limits on or use inside your rules.  For example, you can use IP addresses as identifiers to potentially identify devices and limit discounts abuse in case of customers creating multiple accounts. See the [tutorial](https://docs.talon.one/docs/dev/tutorials/using-identifiers).  |  [optional] |
 |**total** | **BigDecimal** | The total sum of the cart in one session. |  [optional] |
-|**attributes** | **Object** | Arbitrary properties associated with this campaign. |  [optional] |
+|**attributes** | **Object** | A key-value map of the sessions attributes. The potentially valid attributes are configured in your accounts developer settings.  |  [optional] |
 |**firstSession** | **Boolean** | Indicates whether this is the first session for the customer&#39;s profile. Will always be true for anonymous sessions. |  |
 |**updateCount** | **Long** | The number of times the session was updated. When the session is created, this value is initialized to &#x60;1&#x60;. |  |
 |**discounts** | **Map&lt;String, BigDecimal&gt;** | A map of labelled discount values, values will be in the same currency as the application associated with the session. |  |

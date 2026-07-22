@@ -23,6 +23,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import one.talon.model.OutgoingIntegrationConfigurationPolicy;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -50,7 +51,7 @@ import one.talon.JSON;
 /**
  * OutgoingIntegrationTemplateWithConfigurationDetails
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.23.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.24.0")
 public class OutgoingIntegrationTemplateWithConfigurationDetails {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -153,7 +154,7 @@ public class OutgoingIntegrationTemplateWithConfigurationDetails {
   public static final String SERIALIZED_NAME_POLICY = "policy";
   @SerializedName(SERIALIZED_NAME_POLICY)
   @javax.annotation.Nonnull
-  private Object policy;
+  private OutgoingIntegrationConfigurationPolicy policy;
 
   public OutgoingIntegrationTemplateWithConfigurationDetails() {
   }
@@ -318,21 +319,21 @@ public class OutgoingIntegrationTemplateWithConfigurationDetails {
   }
 
 
-  public OutgoingIntegrationTemplateWithConfigurationDetails policy(@javax.annotation.Nonnull Object policy) {
+  public OutgoingIntegrationTemplateWithConfigurationDetails policy(@javax.annotation.Nonnull OutgoingIntegrationConfigurationPolicy policy) {
     this.policy = policy;
     return this;
   }
 
   /**
-   * The outgoing integration policy specific to each integration type.
+   * Get policy
    * @return policy
    */
   @javax.annotation.Nonnull
-  public Object getPolicy() {
+  public OutgoingIntegrationConfigurationPolicy getPolicy() {
     return policy;
   }
 
-  public void setPolicy(@javax.annotation.Nonnull Object policy) {
+  public void setPolicy(@javax.annotation.Nonnull OutgoingIntegrationConfigurationPolicy policy) {
     this.policy = policy;
   }
 
@@ -489,6 +490,8 @@ public class OutgoingIntegrationTemplateWithConfigurationDetails {
       } else if (!jsonObj.get("headers").isJsonArray()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `headers` to be an array in the JSON string but got `%s`", jsonObj.get("headers").toString()));
       }
+      // validate the required field `policy`
+      OutgoingIntegrationConfigurationPolicy.validateJsonElement(jsonObj.get("policy"));
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {

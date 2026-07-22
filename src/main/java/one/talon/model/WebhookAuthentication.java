@@ -24,6 +24,7 @@ import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import one.talon.model.WebhookAuthenticationAllOfData;
 import one.talon.model.WebhookAuthenticationWebhookRef;
 
 import com.google.gson.Gson;
@@ -52,7 +53,7 @@ import one.talon.JSON;
 /**
  * WebhookAuthentication
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.23.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.24.0")
 public class WebhookAuthentication {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -148,8 +149,8 @@ public class WebhookAuthentication {
 
   public static final String SERIALIZED_NAME_DATA = "data";
   @SerializedName(SERIALIZED_NAME_DATA)
-  @javax.annotation.Nullable
-  private Object data = null;
+  @javax.annotation.Nonnull
+  private WebhookAuthenticationAllOfData data;
 
   public WebhookAuthentication() {
   }
@@ -314,7 +315,7 @@ public class WebhookAuthentication {
   }
 
 
-  public WebhookAuthentication data(@javax.annotation.Nullable Object data) {
+  public WebhookAuthentication data(@javax.annotation.Nonnull WebhookAuthenticationAllOfData data) {
     this.data = data;
     return this;
   }
@@ -323,12 +324,12 @@ public class WebhookAuthentication {
    * Get data
    * @return data
    */
-  @javax.annotation.Nullable
-  public Object getData() {
+  @javax.annotation.Nonnull
+  public WebhookAuthenticationAllOfData getData() {
     return data;
   }
 
-  public void setData(@javax.annotation.Nullable Object data) {
+  public void setData(@javax.annotation.Nonnull WebhookAuthenticationAllOfData data) {
     this.data = data;
   }
 
@@ -486,6 +487,8 @@ public class WebhookAuthentication {
       }
       // validate the required field `type`
       TypeEnum.validateJsonElement(jsonObj.get("type"));
+      // validate the required field `data`
+      WebhookAuthenticationAllOfData.validateJsonElement(jsonObj.get("data"));
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {

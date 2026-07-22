@@ -15,12 +15,14 @@
 |**limits** | [**List&lt;LimitConfig&gt;**](LimitConfig.md) | Limits configuration for a coupon. These limits will override the limits set from the campaign.  **Note:** Only usable when creating a single coupon which is not tied to a specific recipient. Only per-profile limits are allowed to be configured.  |  [optional] |
 |**numberOfCoupons** | **Long** | The number of new coupon codes to generate for the campaign. Must be at least 1. |  |
 |**uniquePrefix** | **String** | **DEPRECATED** To create more than 20,000 coupons in one request, use [Create coupons asynchronously](https://docs.talon.one/management-api#tag/Coupons/operation/createCouponsAsync) endpoint.  |  [optional] |
-|**attributes** | **Object** | Arbitrary properties associated with this campaign. |  [optional] |
+|**attributes** | **Object** | Arbitrary properties associated with this item. |  [optional] |
 |**recipientIntegrationId** | **String** | The integration ID for this coupon&#39;s beneficiary&#39;s profile. |  [optional] |
 |**validCharacters** | **List&lt;String&gt;** | List of characters used to generate the random parts of a code. By default, the list of characters is equivalent to the &#x60;[A-Z, 0-9]&#x60; regular expression.  |  [optional] |
 |**couponPattern** | **String** | The pattern used to generate coupon codes. The character &#x60;#&#x60; is a placeholder and is replaced by a random character from the &#x60;validCharacters&#x60; set.  |  [optional] |
 |**isReservationMandatory** | **Boolean** | An indication of whether the code can be redeemed only if it has been reserved first. |  [optional] |
 |**implicitlyReserved** | **Boolean** | An indication of whether the coupon is implicitly reserved for all customers. |  [optional] |
+|**supportRequestId** | **Long** | The identifier of the support request to link to the coupon creation. The request must exist and not yet be processed. |  [optional] |
+|**supportRequestNote** | **String** | A note recorded when the linked support request is approved or rejected. Applied when &#x60;supportRequestId&#x60; is provided. |  [optional] |
 
 
 

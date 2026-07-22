@@ -158,4 +158,12 @@ public class SupportRequestTest {
         // TODO: test processedByUser
     }
 
+    /**
+     * Test the property 'couponCode'
+     */
+    @Test
+    public void couponCodeTest() {
+        // TODO: test couponCode
+    }
+
 }

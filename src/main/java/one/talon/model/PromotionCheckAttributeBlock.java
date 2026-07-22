@@ -23,7 +23,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import one.talon.model.CheckAttributeBlock;
+import one.talon.model.PromotionBlock;
 import org.openapitools.jackson.nullable.JsonNullable;
 
 import com.google.gson.Gson;
@@ -52,23 +52,372 @@ import one.talon.JSON;
 /**
  * PromotionCheckAttributeBlock
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.23.0")
-public class PromotionCheckAttributeBlock extends CheckAttributeBlock {
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.24.0")
+public class PromotionCheckAttributeBlock {
+  public static final String SERIALIZED_NAME_ID = "id";
+  @SerializedName(SERIALIZED_NAME_ID)
+  @javax.annotation.Nonnull
+  private String id;
+
+  public static final String SERIALIZED_NAME_TYPE = "type";
+  @SerializedName(SERIALIZED_NAME_TYPE)
+  @javax.annotation.Nonnull
+  private String type;
+
+  public static final String SERIALIZED_NAME_TAGS = "tags";
+  @SerializedName(SERIALIZED_NAME_TAGS)
+  @javax.annotation.Nullable
+  private List<String> tags;
+
+  /**
+   * The comparison operator applied to the attribute.
+   */
+  @JsonAdapter(OperatorEnum.Adapter.class)
+  public enum OperatorEnum {
+    EQUALS("equals"),
+    
+    NOT_EQUALS_("not(equals)"),
+    
+    LESS_THAN("lessThan"),
+    
+    LESS_THAN_OR_EQUAL("lessThanOrEqual"),
+    
+    GREATER_THAN("greaterThan"),
+    
+    GREATER_THAN_OR_EQUAL("greaterThanOrEqual"),
+    
+    BETWEEN("between"),
+    
+    CONTAINS("contains"),
+    
+    NOT_CONTAINS_("not(contains)"),
+    
+    MATCHES_REGEXP("matchesRegexp"),
+    
+    STARTS_WITH("startsWith"),
+    
+    ENDS_WITH("endsWith"),
+    
+    ONE_OF("oneOf"),
+    
+    NOT_ONE_OF_("not(oneOf)"),
+    
+    IN_COLLECTION("inCollection"),
+    
+    NOT_IN_COLLECTION_("not(inCollection)"),
+    
+    EMPTY("empty"),
+    
+    NOT_EMPTY_("not(empty)"),
+    
+    EXISTS("exists"),
+    
+    NOT_EXISTS_("not(exists)"),
+    
+    IS_TRUE("isTrue"),
+    
+    IS_FALSE("isFalse"),
+    
+    CONTAINS_AT_LEAST("containsAtLeast"),
+    
+    CONTAINS_EXACTLY("containsExactly"),
+    
+    CONTAINS_ONE_OF("containsOneOf"),
+    
+    CONTAINS_NONE_OF("containsNoneOf"),
+    
+    CONTAINS_ALL_OF("containsAllOf");
+
+    private String value;
+
+    OperatorEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static OperatorEnum fromValue(String value) {
+      for (OperatorEnum b : OperatorEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    }
+
+    public static class Adapter extends TypeAdapter<OperatorEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final OperatorEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public OperatorEnum read(final JsonReader jsonReader) throws IOException {
+        String value =  jsonReader.nextString();
+        return OperatorEnum.fromValue(value);
+      }
+    }
+
+    public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      String value = jsonElement.getAsString();
+      OperatorEnum.fromValue(value);
+    }
+  }
+
+  public static final String SERIALIZED_NAME_OPERATOR = "operator";
+  @SerializedName(SERIALIZED_NAME_OPERATOR)
+  @javax.annotation.Nonnull
+  private OperatorEnum operator;
+
+  public static final String SERIALIZED_NAME_ATTRIBUTE = "attribute";
+  @SerializedName(SERIALIZED_NAME_ATTRIBUTE)
+  @javax.annotation.Nonnull
+  private String attribute;
+
+  public static final String SERIALIZED_NAME_VALUE = "value";
+  @SerializedName(SERIALIZED_NAME_VALUE)
+  @javax.annotation.Nullable
+  private Object value = null;
+
+  public static final String SERIALIZED_NAME_MIN = "min";
+  @SerializedName(SERIALIZED_NAME_MIN)
+  @javax.annotation.Nullable
+  private Object min = null;
+
+  public static final String SERIALIZED_NAME_MAX = "max";
+  @SerializedName(SERIALIZED_NAME_MAX)
+  @javax.annotation.Nullable
+  private Object max = null;
+
+  public static final String SERIALIZED_NAME_VALUES = "values";
+  @SerializedName(SERIALIZED_NAME_VALUES)
+  @javax.annotation.Nullable
+  private Object values = null;
+
+  public static final String SERIALIZED_NAME_COUNT = "count";
+  @SerializedName(SERIALIZED_NAME_COUNT)
+  @javax.annotation.Nullable
+  private Object count = null;
+
   public static final String SERIALIZED_NAME_ON_FAILURE = "onFailure";
   @SerializedName(SERIALIZED_NAME_ON_FAILURE)
   @javax.annotation.Nullable
-  private List<Object> onFailure;
+  private List<PromotionBlock> onFailure;
 
   public PromotionCheckAttributeBlock() {
-
   }
 
-  public PromotionCheckAttributeBlock onFailure(@javax.annotation.Nullable List<Object> onFailure) {
+  public PromotionCheckAttributeBlock id(@javax.annotation.Nonnull String id) {
+    this.id = id;
+    return this;
+  }
+
+  /**
+   * Unique identifier for this block.
+   * @return id
+   */
+  @javax.annotation.Nonnull
+  public String getId() {
+    return id;
+  }
+
+  public void setId(@javax.annotation.Nonnull String id) {
+    this.id = id;
+  }
+
+
+  public PromotionCheckAttributeBlock type(@javax.annotation.Nonnull String type) {
+    this.type = type;
+    return this;
+  }
+
+  /**
+   * Identifies the block variant and determines which additional properties are present in it.
+   * @return type
+   */
+  @javax.annotation.Nonnull
+  public String getType() {
+    return type;
+  }
+
+  public void setType(@javax.annotation.Nonnull String type) {
+    this.type = type;
+  }
+
+
+  public PromotionCheckAttributeBlock tags(@javax.annotation.Nullable List<String> tags) {
+    this.tags = tags;
+    return this;
+  }
+
+  public PromotionCheckAttributeBlock addTagsItem(String tagsItem) {
+    if (this.tags == null) {
+      this.tags = new ArrayList<>();
+    }
+    this.tags.add(tagsItem);
+    return this;
+  }
+
+  /**
+   * Semantic labels attached to this block.
+   * @return tags
+   */
+  @javax.annotation.Nullable
+  public List<String> getTags() {
+    return tags;
+  }
+
+  public void setTags(@javax.annotation.Nullable List<String> tags) {
+    this.tags = tags;
+  }
+
+
+  public PromotionCheckAttributeBlock operator(@javax.annotation.Nonnull OperatorEnum operator) {
+    this.operator = operator;
+    return this;
+  }
+
+  /**
+   * The comparison operator applied to the attribute.
+   * @return operator
+   */
+  @javax.annotation.Nonnull
+  public OperatorEnum getOperator() {
+    return operator;
+  }
+
+  public void setOperator(@javax.annotation.Nonnull OperatorEnum operator) {
+    this.operator = operator;
+  }
+
+
+  public PromotionCheckAttributeBlock attribute(@javax.annotation.Nonnull String attribute) {
+    this.attribute = attribute;
+    return this;
+  }
+
+  /**
+   * The attribute path identifier (e.g. \&quot;$Session.Total\&quot;).
+   * @return attribute
+   */
+  @javax.annotation.Nonnull
+  public String getAttribute() {
+    return attribute;
+  }
+
+  public void setAttribute(@javax.annotation.Nonnull String attribute) {
+    this.attribute = attribute;
+  }
+
+
+  public PromotionCheckAttributeBlock value(@javax.annotation.Nullable Object value) {
+    this.value = value;
+    return this;
+  }
+
+  /**
+   * Get value
+   * @return value
+   */
+  @javax.annotation.Nullable
+  public Object getValue() {
+    return value;
+  }
+
+  public void setValue(@javax.annotation.Nullable Object value) {
+    this.value = value;
+  }
+
+
+  public PromotionCheckAttributeBlock min(@javax.annotation.Nullable Object min) {
+    this.min = min;
+    return this;
+  }
+
+  /**
+   * Get min
+   * @return min
+   */
+  @javax.annotation.Nullable
+  public Object getMin() {
+    return min;
+  }
+
+  public void setMin(@javax.annotation.Nullable Object min) {
+    this.min = min;
+  }
+
+
+  public PromotionCheckAttributeBlock max(@javax.annotation.Nullable Object max) {
+    this.max = max;
+    return this;
+  }
+
+  /**
+   * Get max
+   * @return max
+   */
+  @javax.annotation.Nullable
+  public Object getMax() {
+    return max;
+  }
+
+  public void setMax(@javax.annotation.Nullable Object max) {
+    this.max = max;
+  }
+
+
+  public PromotionCheckAttributeBlock values(@javax.annotation.Nullable Object values) {
+    this.values = values;
+    return this;
+  }
+
+  /**
+   * Get values
+   * @return values
+   */
+  @javax.annotation.Nullable
+  public Object getValues() {
+    return values;
+  }
+
+  public void setValues(@javax.annotation.Nullable Object values) {
+    this.values = values;
+  }
+
+
+  public PromotionCheckAttributeBlock count(@javax.annotation.Nullable Object count) {
+    this.count = count;
+    return this;
+  }
+
+  /**
+   * Get count
+   * @return count
+   */
+  @javax.annotation.Nullable
+  public Object getCount() {
+    return count;
+  }
+
+  public void setCount(@javax.annotation.Nullable Object count) {
+    this.count = count;
+  }
+
+
+  public PromotionCheckAttributeBlock onFailure(@javax.annotation.Nullable List<PromotionBlock> onFailure) {
     this.onFailure = onFailure;
     return this;
   }
 
-  public PromotionCheckAttributeBlock addOnFailureItem(Object onFailureItem) {
+  public PromotionCheckAttributeBlock addOnFailureItem(PromotionBlock onFailureItem) {
     if (this.onFailure == null) {
       this.onFailure = new ArrayList<>();
     }
@@ -81,11 +430,11 @@ public class PromotionCheckAttributeBlock extends CheckAttributeBlock {
    * @return onFailure
    */
   @javax.annotation.Nullable
-  public List<Object> getOnFailure() {
+  public List<PromotionBlock> getOnFailure() {
     return onFailure;
   }
 
-  public void setOnFailure(@javax.annotation.Nullable List<Object> onFailure) {
+  public void setOnFailure(@javax.annotation.Nullable List<PromotionBlock> onFailure) {
     this.onFailure = onFailure;
   }
 
@@ -144,9 +493,18 @@ public class PromotionCheckAttributeBlock extends CheckAttributeBlock {
       return false;
     }
     PromotionCheckAttributeBlock promotionCheckAttributeBlock = (PromotionCheckAttributeBlock) o;
-    return Objects.equals(this.onFailure, promotionCheckAttributeBlock.onFailure)&&
-        Objects.equals(this.additionalProperties, promotionCheckAttributeBlock.additionalProperties) &&
-        super.equals(o);
+    return Objects.equals(this.id, promotionCheckAttributeBlock.id) &&
+        Objects.equals(this.type, promotionCheckAttributeBlock.type) &&
+        Objects.equals(this.tags, promotionCheckAttributeBlock.tags) &&
+        Objects.equals(this.operator, promotionCheckAttributeBlock.operator) &&
+        Objects.equals(this.attribute, promotionCheckAttributeBlock.attribute) &&
+        Objects.equals(this.value, promotionCheckAttributeBlock.value) &&
+        Objects.equals(this.min, promotionCheckAttributeBlock.min) &&
+        Objects.equals(this.max, promotionCheckAttributeBlock.max) &&
+        Objects.equals(this.values, promotionCheckAttributeBlock.values) &&
+        Objects.equals(this.count, promotionCheckAttributeBlock.count) &&
+        Objects.equals(this.onFailure, promotionCheckAttributeBlock.onFailure)&&
+        Objects.equals(this.additionalProperties, promotionCheckAttributeBlock.additionalProperties);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -155,7 +513,7 @@ public class PromotionCheckAttributeBlock extends CheckAttributeBlock {
 
   @Override
   public int hashCode() {
-    return Objects.hash(onFailure, super.hashCode(), additionalProperties);
+    return Objects.hash(id, type, tags, operator, attribute, value, min, max, values, count, onFailure, additionalProperties);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -169,7 +527,16 @@ public class PromotionCheckAttributeBlock extends CheckAttributeBlock {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class PromotionCheckAttributeBlock {\n");
-    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    type: ").append(toIndentedString(type)).append("\n");
+    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
+    sb.append("    operator: ").append(toIndentedString(operator)).append("\n");
+    sb.append("    attribute: ").append(toIndentedString(attribute)).append("\n");
+    sb.append("    value: ").append(toIndentedString(value)).append("\n");
+    sb.append("    min: ").append(toIndentedString(min)).append("\n");
+    sb.append("    max: ").append(toIndentedString(max)).append("\n");
+    sb.append("    values: ").append(toIndentedString(values)).append("\n");
+    sb.append("    count: ").append(toIndentedString(count)).append("\n");
     sb.append("    onFailure: ").append(toIndentedString(onFailure)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
@@ -213,6 +580,39 @@ public class PromotionCheckAttributeBlock extends CheckAttributeBlock {
       for (String requiredField : PromotionCheckAttributeBlock.openapiRequiredFields) {
         if (jsonElement.getAsJsonObject().get(requiredField) == null) {
           throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
+        }
+      }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
+      if (!jsonObj.get("id").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("id").toString()));
+      }
+      if (!jsonObj.get("type").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("type").toString()));
+      }
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("tags") != null && !jsonObj.get("tags").isJsonNull() && !jsonObj.get("tags").isJsonArray()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `tags` to be an array in the JSON string but got `%s`", jsonObj.get("tags").toString()));
+      }
+      if (!jsonObj.get("operator").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `operator` to be a primitive type in the JSON string but got `%s`", jsonObj.get("operator").toString()));
+      }
+      // validate the required field `operator`
+      OperatorEnum.validateJsonElement(jsonObj.get("operator"));
+      if (!jsonObj.get("attribute").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `attribute` to be a primitive type in the JSON string but got `%s`", jsonObj.get("attribute").toString()));
+      }
+      if (jsonObj.get("onFailure") != null && !jsonObj.get("onFailure").isJsonNull()) {
+        JsonArray jsonArrayonFailure = jsonObj.getAsJsonArray("onFailure");
+        if (jsonArrayonFailure != null) {
+          // ensure the json data is an array
+          if (!jsonObj.get("onFailure").isJsonArray()) {
+            throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `onFailure` to be an array in the JSON string but got `%s`", jsonObj.get("onFailure").toString()));
+          }
+
+          // validate the optional field `onFailure` (array)
+          for (int i = 0; i < jsonArrayonFailure.size(); i++) {
+            PromotionBlock.validateJsonElement(jsonArrayonFailure.get(i));
+          };
         }
       }
   }
