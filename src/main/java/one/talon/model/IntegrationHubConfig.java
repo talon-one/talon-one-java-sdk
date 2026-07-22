@@ -48,7 +48,7 @@ import one.talon.JSON;
 /**
  * Config used for accessing integrations in IntegrationHub
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.23.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.24.0")
 public class IntegrationHubConfig {
   public static final String SERIALIZED_NAME_INTEGRATION_HUB_URL = "integrationHubUrl";
   @SerializedName(SERIALIZED_NAME_INTEGRATION_HUB_URL)

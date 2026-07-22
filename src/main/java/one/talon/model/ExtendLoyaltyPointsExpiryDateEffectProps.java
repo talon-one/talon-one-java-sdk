@@ -51,7 +51,7 @@ import one.talon.JSON;
 /**
  * If loyalty points have an expiry date, this effect extends the expiry of all active and pending point transactions by a selected duration. 
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.23.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.24.0")
 public class ExtendLoyaltyPointsExpiryDateEffectProps {
   public static final String SERIALIZED_NAME_PROGRAM_ID = "programId";
   @SerializedName(SERIALIZED_NAME_PROGRAM_ID)

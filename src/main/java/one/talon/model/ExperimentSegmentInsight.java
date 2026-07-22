@@ -51,7 +51,7 @@ import one.talon.JSON;
 /**
  * ExperimentSegmentInsight
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.23.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.24.0")
 public class ExperimentSegmentInsight {
   /**
    * The segmentation dimension used to group customers or purchases for analysis.

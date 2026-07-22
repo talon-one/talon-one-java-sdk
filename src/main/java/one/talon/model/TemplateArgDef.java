@@ -48,7 +48,7 @@ import one.talon.JSON;
 /**
  * TemplateArgDef
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.23.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.24.0")
 public class TemplateArgDef {
   /**
    * The type of value this argument expects.
@@ -211,7 +211,7 @@ public class TemplateArgDef {
   }
 
   /**
-   * Arbitrary properties associated with this campaign.
+   * Arbitrary metadata that may be used to render an input for this argument.
    * @return ui
    */
   @javax.annotation.Nonnull

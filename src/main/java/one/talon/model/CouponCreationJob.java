@@ -53,7 +53,7 @@ import one.talon.JSON;
 /**
  * CouponCreationJob
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.23.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.24.0")
 public class CouponCreationJob {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -415,7 +415,7 @@ public class CouponCreationJob {
   }
 
   /**
-   * Arbitrary properties associated with this campaign.
+   * Arbitrary properties associated with coupons.
    * @return attributes
    */
   @javax.annotation.Nonnull

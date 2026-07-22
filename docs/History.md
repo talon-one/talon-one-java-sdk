@@ -13,7 +13,7 @@
 |**contextId** | **String** | This property is **deprecated**. Use &#x60;contextIds&#x60; instead. Defaults to an empty string.  |  [optional] |
 |**price** | **BigDecimal** | Price of the item. |  |
 |**metadata** | [**BestPriorPriceMetadata**](BestPriorPriceMetadata.md) |  |  |
-|**target** | **Object** |  |  |
+|**target** | [**LabelTarget**](LabelTarget.md) |  |  |
 
 
 

@@ -48,7 +48,7 @@ import one.talon.JSON;
 /**
  * This effect indicates that the referral code supplied is valid.  You should handle this effect by informing the user that the referral code is valid.  The code is automatically redeemed when you close the session.  Other effects will provide more information about the actual reward.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.23.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.24.0")
 public class AcceptReferralEffectProps {
   public static final String SERIALIZED_NAME_VALUE = "value";
   @SerializedName(SERIALIZED_NAME_VALUE)

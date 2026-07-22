@@ -49,7 +49,7 @@ import one.talon.JSON;
 /**
  * Summary of a support request created by a customer support agent.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.23.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.24.0")
 public class SupportRequest {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -171,7 +171,9 @@ public class SupportRequest {
     
     APPROVED("approved"),
     
-    REJECTED("rejected");
+    REJECTED("rejected"),
+    
+    EXPIRED("expired");
 
     private String value;
 
@@ -235,6 +237,11 @@ public class SupportRequest {
   @SerializedName(SERIALIZED_NAME_PROCESSED_BY_USER)
   @javax.annotation.Nullable
   private String processedByUser;
+
+  public static final String SERIALIZED_NAME_COUPON_CODE = "couponCode";
+  @SerializedName(SERIALIZED_NAME_COUPON_CODE)
+  @javax.annotation.Nullable
+  private String couponCode;
 
   public SupportRequest() {
   }
@@ -524,6 +531,25 @@ public class SupportRequest {
     this.processedByUser = processedByUser;
   }
 
+
+  public SupportRequest couponCode(@javax.annotation.Nullable String couponCode) {
+    this.couponCode = couponCode;
+    return this;
+  }
+
+  /**
+   * Coupon code associated with the approved support request.
+   * @return couponCode
+   */
+  @javax.annotation.Nullable
+  public String getCouponCode() {
+    return couponCode;
+  }
+
+  public void setCouponCode(@javax.annotation.Nullable String couponCode) {
+    this.couponCode = couponCode;
+  }
+
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -593,13 +619,14 @@ public class SupportRequest {
         Objects.equals(this.requestStatus, supportRequest.requestStatus) &&
         Objects.equals(this.processedAt, supportRequest.processedAt) &&
         Objects.equals(this.processingNote, supportRequest.processingNote) &&
-        Objects.equals(this.processedByUser, supportRequest.processedByUser)&&
+        Objects.equals(this.processedByUser, supportRequest.processedByUser) &&
+        Objects.equals(this.couponCode, supportRequest.couponCode)&&
         Objects.equals(this.additionalProperties, supportRequest.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, applicationId, campaignId, loyaltyProgramId, subledgerId, createdByUser, createdAt, customerProfileId, requestType, requestValue, requestNote, requestStatus, processedAt, processingNote, processedByUser, additionalProperties);
+    return Objects.hash(id, applicationId, campaignId, loyaltyProgramId, subledgerId, createdByUser, createdAt, customerProfileId, requestType, requestValue, requestNote, requestStatus, processedAt, processingNote, processedByUser, couponCode, additionalProperties);
   }
 
   @Override
@@ -621,6 +648,7 @@ public class SupportRequest {
     sb.append("    processedAt: ").append(toIndentedString(processedAt)).append("\n");
     sb.append("    processingNote: ").append(toIndentedString(processingNote)).append("\n");
     sb.append("    processedByUser: ").append(toIndentedString(processedByUser)).append("\n");
+    sb.append("    couponCode: ").append(toIndentedString(couponCode)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -640,7 +668,7 @@ public class SupportRequest {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("id", "applicationId", "campaignId", "loyaltyProgramId", "subledgerId", "createdByUser", "createdAt", "customerProfileId", "requestType", "requestValue", "requestNote", "requestStatus", "processedAt", "processingNote", "processedByUser"));
+    openapiFields = new HashSet<String>(Arrays.asList("id", "applicationId", "campaignId", "loyaltyProgramId", "subledgerId", "createdByUser", "createdAt", "customerProfileId", "requestType", "requestValue", "requestNote", "requestStatus", "processedAt", "processingNote", "processedByUser", "couponCode"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("id", "applicationId", "createdByUser", "createdAt", "customerProfileId", "requestType", "requestNote", "requestStatus"));
@@ -690,6 +718,9 @@ public class SupportRequest {
       }
       if ((jsonObj.get("processedByUser") != null && !jsonObj.get("processedByUser").isJsonNull()) && !jsonObj.get("processedByUser").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `processedByUser` to be a primitive type in the JSON string but got `%s`", jsonObj.get("processedByUser").toString()));
+      }
+      if ((jsonObj.get("couponCode") != null && !jsonObj.get("couponCode").isJsonNull()) && !jsonObj.get("couponCode").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `couponCode` to be a primitive type in the JSON string but got `%s`", jsonObj.get("couponCode").toString()));
       }
   }
 

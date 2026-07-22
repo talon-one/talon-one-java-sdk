@@ -22,6 +22,7 @@ import java.io.IOException;
 import java.math.BigDecimal;
 import java.util.Arrays;
 import java.util.UUID;
+import one.talon.model.EffectAllOfProps;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 

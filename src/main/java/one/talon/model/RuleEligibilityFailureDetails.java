@@ -48,7 +48,7 @@ import one.talon.JSON;
 /**
  * The details about why the customer was not eligible for the rule in the current session.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.23.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.24.0")
 public class RuleEligibilityFailureDetails {
   /**
    * A code identifying why the customer was not eligible for the rule in the current session.

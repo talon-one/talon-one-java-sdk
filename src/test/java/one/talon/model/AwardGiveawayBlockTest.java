@@ -25,6 +25,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import one.talon.model.AwardGiveawayBlock1GiveawayPool;
+import one.talon.model.PromotionBlock;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 

@@ -23,7 +23,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import one.talon.model.ApplicationNotification;
+import one.talon.model.CampaignEvaluationTreeChangedNotification;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -51,7 +51,7 @@ import one.talon.JSON;
 /**
  * CampaignEvaluationTreeChangedMessage
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.23.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.24.0")
 public class CampaignEvaluationTreeChangedMessage {
   /**
    * The type of the notification
@@ -116,7 +116,7 @@ public class CampaignEvaluationTreeChangedMessage {
   public static final String SERIALIZED_NAME_DATA = "Data";
   @SerializedName(SERIALIZED_NAME_DATA)
   @javax.annotation.Nullable
-  private List<ApplicationNotification> data;
+  private List<CampaignEvaluationTreeChangedNotification> data;
 
   public CampaignEvaluationTreeChangedMessage() {
   }
@@ -159,12 +159,12 @@ public class CampaignEvaluationTreeChangedMessage {
   }
 
 
-  public CampaignEvaluationTreeChangedMessage data(@javax.annotation.Nullable List<ApplicationNotification> data) {
+  public CampaignEvaluationTreeChangedMessage data(@javax.annotation.Nullable List<CampaignEvaluationTreeChangedNotification> data) {
     this.data = data;
     return this;
   }
 
-  public CampaignEvaluationTreeChangedMessage addDataItem(ApplicationNotification dataItem) {
+  public CampaignEvaluationTreeChangedMessage addDataItem(CampaignEvaluationTreeChangedNotification dataItem) {
     if (this.data == null) {
       this.data = new ArrayList<>();
     }
@@ -177,11 +177,11 @@ public class CampaignEvaluationTreeChangedMessage {
    * @return data
    */
   @javax.annotation.Nullable
-  public List<ApplicationNotification> getData() {
+  public List<CampaignEvaluationTreeChangedNotification> getData() {
     return data;
   }
 
-  public void setData(@javax.annotation.Nullable List<ApplicationNotification> data) {
+  public void setData(@javax.annotation.Nullable List<CampaignEvaluationTreeChangedNotification> data) {
     this.data = data;
   }
 
@@ -318,7 +318,7 @@ public class CampaignEvaluationTreeChangedMessage {
 
           // validate the optional field `Data` (array)
           for (int i = 0; i < jsonArraydata.size(); i++) {
-            ApplicationNotification.validateJsonElement(jsonArraydata.get(i));
+            CampaignEvaluationTreeChangedNotification.validateJsonElement(jsonArraydata.get(i));
           };
         }
       }

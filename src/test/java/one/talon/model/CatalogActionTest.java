@@ -20,6 +20,13 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.util.Arrays;
+import one.talon.model.AddPriceAdjustmentCatalogAction;
+import one.talon.model.CatalogActionOneOf;
+import one.talon.model.CatalogActionOneOf1;
+import one.talon.model.CatalogActionOneOf2;
+import one.talon.model.CatalogActionOneOf3;
+import one.talon.model.CatalogActionOneOf4;
+import one.talon.model.CatalogActionOneOf5;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 

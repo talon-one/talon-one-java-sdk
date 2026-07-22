@@ -25,6 +25,8 @@ import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import one.talon.model.LabelTarget;
+import one.talon.model.StrikethroughEffectProps;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -52,7 +54,7 @@ import one.talon.JSON;
 /**
  * The effect produced for the catalog item.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.23.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.24.0")
 public class StrikethroughEffect {
   public static final String SERIALIZED_NAME_CAMPAIGN_ID = "campaignId";
   @SerializedName(SERIALIZED_NAME_CAMPAIGN_ID)
@@ -82,7 +84,7 @@ public class StrikethroughEffect {
   public static final String SERIALIZED_NAME_PROPS = "props";
   @SerializedName(SERIALIZED_NAME_PROPS)
   @javax.annotation.Nonnull
-  private Object props;
+  private StrikethroughEffectProps props;
 
   public static final String SERIALIZED_NAME_START_TIME = "startTime";
   @SerializedName(SERIALIZED_NAME_START_TIME)
@@ -112,7 +114,7 @@ public class StrikethroughEffect {
   public static final String SERIALIZED_NAME_TARGETS = "targets";
   @SerializedName(SERIALIZED_NAME_TARGETS)
   @javax.annotation.Nullable
-  private List<Object> targets;
+  private List<LabelTarget> targets;
 
   public StrikethroughEffect() {
   }
@@ -212,7 +214,7 @@ public class StrikethroughEffect {
   }
 
 
-  public StrikethroughEffect props(@javax.annotation.Nonnull Object props) {
+  public StrikethroughEffect props(@javax.annotation.Nonnull StrikethroughEffectProps props) {
     this.props = props;
     return this;
   }
@@ -222,11 +224,11 @@ public class StrikethroughEffect {
    * @return props
    */
   @javax.annotation.Nonnull
-  public Object getProps() {
+  public StrikethroughEffectProps getProps() {
     return props;
   }
 
-  public void setProps(@javax.annotation.Nonnull Object props) {
+  public void setProps(@javax.annotation.Nonnull StrikethroughEffectProps props) {
     this.props = props;
   }
 
@@ -326,12 +328,12 @@ public class StrikethroughEffect {
   }
 
 
-  public StrikethroughEffect targets(@javax.annotation.Nullable List<Object> targets) {
+  public StrikethroughEffect targets(@javax.annotation.Nullable List<LabelTarget> targets) {
     this.targets = targets;
     return this;
   }
 
-  public StrikethroughEffect addTargetsItem(Object targetsItem) {
+  public StrikethroughEffect addTargetsItem(LabelTarget targetsItem) {
     if (this.targets == null) {
       this.targets = new ArrayList<>();
     }
@@ -344,11 +346,11 @@ public class StrikethroughEffect {
    * @return targets
    */
   @javax.annotation.Nullable
-  public List<Object> getTargets() {
+  public List<LabelTarget> getTargets() {
     return targets;
   }
 
-  public void setTargets(@javax.annotation.Nullable List<Object> targets) {
+  public void setTargets(@javax.annotation.Nullable List<LabelTarget> targets) {
     this.targets = targets;
   }
 
@@ -494,15 +496,27 @@ public class StrikethroughEffect {
       if (!jsonObj.get("type").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("type").toString()));
       }
+      // validate the required field `props`
+      StrikethroughEffectProps.validateJsonElement(jsonObj.get("props"));
       if ((jsonObj.get("selectedPriceType") != null && !jsonObj.get("selectedPriceType").isJsonNull()) && !jsonObj.get("selectedPriceType").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `selectedPriceType` to be a primitive type in the JSON string but got `%s`", jsonObj.get("selectedPriceType").toString()));
       }
       if ((jsonObj.get("adjustmentReferenceId") != null && !jsonObj.get("adjustmentReferenceId").isJsonNull()) && !jsonObj.get("adjustmentReferenceId").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `adjustmentReferenceId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("adjustmentReferenceId").toString()));
       }
-      // ensure the optional json data is an array if present
-      if (jsonObj.get("targets") != null && !jsonObj.get("targets").isJsonNull() && !jsonObj.get("targets").isJsonArray()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `targets` to be an array in the JSON string but got `%s`", jsonObj.get("targets").toString()));
+      if (jsonObj.get("targets") != null && !jsonObj.get("targets").isJsonNull()) {
+        JsonArray jsonArraytargets = jsonObj.getAsJsonArray("targets");
+        if (jsonArraytargets != null) {
+          // ensure the json data is an array
+          if (!jsonObj.get("targets").isJsonArray()) {
+            throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `targets` to be an array in the JSON string but got `%s`", jsonObj.get("targets").toString()));
+          }
+
+          // validate the optional field `targets` (array)
+          for (int i = 0; i < jsonArraytargets.size(); i++) {
+            LabelTarget.validateJsonElement(jsonArraytargets.get(i));
+          };
+        }
       }
   }
 

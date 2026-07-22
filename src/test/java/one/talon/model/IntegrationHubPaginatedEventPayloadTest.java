@@ -24,6 +24,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import one.talon.model.IntegrationHubEventType;
+import one.talon.model.IntegrationHubPaginatedEventPayloadDataInner;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 

@@ -10,7 +10,7 @@
 |**totalResultSize** | **Long** |  |  |
 |**batchedAt** | **OffsetDateTime** | Timestamp when the batch was created. |  [optional] |
 |**eventType** | **IntegrationHubEventType** |  |  |
-|**data** | **List&lt;Object&gt;** |  |  |
+|**data** | [**List&lt;IntegrationHubPaginatedEventPayloadDataInner&gt;**](IntegrationHubPaginatedEventPayloadDataInner.md) |  |  |
 
 
 

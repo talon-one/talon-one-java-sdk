@@ -26,6 +26,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import one.talon.model.BestPriorPriceMetadata;
+import one.talon.model.LabelTarget;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -53,7 +54,7 @@ import one.talon.JSON;
 /**
  * History
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.23.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.24.0")
 public class History {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -89,7 +90,7 @@ public class History {
   public static final String SERIALIZED_NAME_TARGET = "target";
   @SerializedName(SERIALIZED_NAME_TARGET)
   @javax.annotation.Nonnull
-  private Object target;
+  private LabelTarget target;
 
   public History() {
   }
@@ -220,7 +221,7 @@ public class History {
   }
 
 
-  public History target(@javax.annotation.Nonnull Object target) {
+  public History target(@javax.annotation.Nonnull LabelTarget target) {
     this.target = target;
     return this;
   }
@@ -230,11 +231,11 @@ public class History {
    * @return target
    */
   @javax.annotation.Nonnull
-  public Object getTarget() {
+  public LabelTarget getTarget() {
     return target;
   }
 
-  public void setTarget(@javax.annotation.Nonnull Object target) {
+  public void setTarget(@javax.annotation.Nonnull LabelTarget target) {
     this.target = target;
   }
 
@@ -375,6 +376,8 @@ public class History {
       }
       // validate the required field `metadata`
       BestPriorPriceMetadata.validateJsonElement(jsonObj.get("metadata"));
+      // validate the required field `target`
+      LabelTarget.validateJsonElement(jsonObj.get("target"));
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {

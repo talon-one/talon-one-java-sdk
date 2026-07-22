@@ -51,7 +51,7 @@ import one.talon.JSON;
 /**
  * TierWillDowngradeNotification
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.23.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.24.0")
 public class TierWillDowngradeNotification {
   public static final String SERIALIZED_NAME_TOTAL_RESULT_SIZE = "TotalResultSize";
   @SerializedName(SERIALIZED_NAME_TOTAL_RESULT_SIZE)

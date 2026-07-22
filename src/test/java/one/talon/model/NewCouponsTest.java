@@ -154,4 +154,20 @@ public class NewCouponsTest {
         // TODO: test implicitlyReserved
     }
 
+    /**
+     * Test the property 'supportRequestId'
+     */
+    @Test
+    public void supportRequestIdTest() {
+        // TODO: test supportRequestId
+    }
+
+    /**
+     * Test the property 'supportRequestNote'
+     */
+    @Test
+    public void supportRequestNoteTest() {
+        // TODO: test supportRequestNote
+    }
+
 }

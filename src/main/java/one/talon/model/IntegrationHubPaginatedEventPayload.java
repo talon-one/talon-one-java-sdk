@@ -25,6 +25,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import one.talon.model.IntegrationHubEventType;
+import one.talon.model.IntegrationHubPaginatedEventPayloadDataInner;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -52,7 +53,7 @@ import one.talon.JSON;
 /**
  * IntegrationHubPaginatedEventPayload
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.23.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.24.0")
 public class IntegrationHubPaginatedEventPayload {
   public static final String SERIALIZED_NAME_TOTAL_RESULT_SIZE = "TotalResultSize";
   @SerializedName(SERIALIZED_NAME_TOTAL_RESULT_SIZE)
@@ -72,7 +73,7 @@ public class IntegrationHubPaginatedEventPayload {
   public static final String SERIALIZED_NAME_DATA = "Data";
   @SerializedName(SERIALIZED_NAME_DATA)
   @javax.annotation.Nonnull
-  private List<Object> data = new ArrayList<>();
+  private List<IntegrationHubPaginatedEventPayloadDataInner> data = new ArrayList<>();
 
   public IntegrationHubPaginatedEventPayload() {
   }
@@ -134,12 +135,12 @@ public class IntegrationHubPaginatedEventPayload {
   }
 
 
-  public IntegrationHubPaginatedEventPayload data(@javax.annotation.Nonnull List<Object> data) {
+  public IntegrationHubPaginatedEventPayload data(@javax.annotation.Nonnull List<IntegrationHubPaginatedEventPayloadDataInner> data) {
     this.data = data;
     return this;
   }
 
-  public IntegrationHubPaginatedEventPayload addDataItem(Object dataItem) {
+  public IntegrationHubPaginatedEventPayload addDataItem(IntegrationHubPaginatedEventPayloadDataInner dataItem) {
     if (this.data == null) {
       this.data = new ArrayList<>();
     }
@@ -152,11 +153,11 @@ public class IntegrationHubPaginatedEventPayload {
    * @return data
    */
   @javax.annotation.Nonnull
-  public List<Object> getData() {
+  public List<IntegrationHubPaginatedEventPayloadDataInner> getData() {
     return data;
   }
 
-  public void setData(@javax.annotation.Nonnull List<Object> data) {
+  public void setData(@javax.annotation.Nonnull List<IntegrationHubPaginatedEventPayloadDataInner> data) {
     this.data = data;
   }
 
@@ -282,11 +283,15 @@ public class IntegrationHubPaginatedEventPayload {
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       // validate the required field `EventType`
       IntegrationHubEventType.validateJsonElement(jsonObj.get("EventType"));
-      // ensure the required json array is present
-      if (jsonObj.get("Data") == null) {
-        throw new IllegalArgumentException("Expected the field `linkedContent` to be an array in the JSON string but got `null`");
-      } else if (!jsonObj.get("Data").isJsonArray()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `Data` to be an array in the JSON string but got `%s`", jsonObj.get("Data").toString()));
+      if (jsonObj.get("Data") != null) {
+        if (!jsonObj.get("Data").isJsonArray()) {
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `Data` to be an array in the JSON string but got `%s`", jsonObj.get("Data").toString()));
+        }
+        JsonArray jsonArraydata = jsonObj.getAsJsonArray("Data");
+        // validate the required field `Data` (array)
+        for (int i = 0; i < jsonArraydata.size(); i++) {
+          IntegrationHubPaginatedEventPayloadDataInner.validateJsonElement(jsonArraydata.get(i));
+        }
       }
   }
 

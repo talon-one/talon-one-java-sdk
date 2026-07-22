@@ -23,6 +23,7 @@ Summary of a support request created by a customer support agent.
 |**processedAt** | **OffsetDateTime** | Timestamp when the request was approved or rejected. |  [optional] |
 |**processingNote** | **String** | Notes attached by the admin when rejecting or approving a request. |  [optional] |
 |**processedByUser** | **String** | Email address of the admin who approved or rejected the support request. |  [optional] |
+|**couponCode** | **String** | Coupon code associated with the approved support request. |  [optional] |
 
 
 
@@ -44,6 +45,7 @@ Summary of a support request created by a customer support agent.
 | PENDING_APPROVAL | &quot;pending_approval&quot; |
 | APPROVED | &quot;approved&quot; |
 | REJECTED | &quot;rejected&quot; |
+| EXPIRED | &quot;expired&quot; |
 
 
 

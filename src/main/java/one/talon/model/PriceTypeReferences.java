@@ -51,7 +51,7 @@ import one.talon.JSON;
 /**
  * PriceTypeReferences
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.23.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.24.0")
 public class PriceTypeReferences {
   public static final String SERIALIZED_NAME_PRICE_TYPE_ID = "priceTypeId";
   @SerializedName(SERIALIZED_NAME_PRICE_TYPE_ID)

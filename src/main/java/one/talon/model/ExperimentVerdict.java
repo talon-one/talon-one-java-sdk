@@ -50,7 +50,7 @@ import one.talon.JSON;
 /**
  * ExperimentVerdict
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.23.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.24.0")
 public class ExperimentVerdict {
   public static final String SERIALIZED_NAME_WINNER_VARIANT_NAME = "winnerVariantName";
   @SerializedName(SERIALIZED_NAME_WINNER_VARIANT_NAME)

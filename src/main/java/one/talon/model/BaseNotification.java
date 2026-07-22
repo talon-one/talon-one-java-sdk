@@ -21,6 +21,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.util.Arrays;
+import one.talon.model.BaseNotificationPolicy;
 import one.talon.model.BaseNotificationWebhook;
 
 import com.google.gson.Gson;
@@ -49,12 +50,12 @@ import one.talon.JSON;
 /**
  * BaseNotification
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.23.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.24.0")
 public class BaseNotification {
   public static final String SERIALIZED_NAME_POLICY = "policy";
   @SerializedName(SERIALIZED_NAME_POLICY)
   @javax.annotation.Nonnull
-  private Object policy;
+  private BaseNotificationPolicy policy;
 
   public static final String SERIALIZED_NAME_ENABLED = "enabled";
   @SerializedName(SERIALIZED_NAME_ENABLED)
@@ -155,21 +156,21 @@ public class BaseNotification {
   public BaseNotification() {
   }
 
-  public BaseNotification policy(@javax.annotation.Nonnull Object policy) {
+  public BaseNotification policy(@javax.annotation.Nonnull BaseNotificationPolicy policy) {
     this.policy = policy;
     return this;
   }
 
   /**
-   * Indicates which notification properties to apply.
+   * Get policy
    * @return policy
    */
   @javax.annotation.Nonnull
-  public Object getPolicy() {
+  public BaseNotificationPolicy getPolicy() {
     return policy;
   }
 
-  public void setPolicy(@javax.annotation.Nonnull Object policy) {
+  public void setPolicy(@javax.annotation.Nonnull BaseNotificationPolicy policy) {
     this.policy = policy;
   }
 
@@ -372,6 +373,8 @@ public class BaseNotification {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
+      // validate the required field `policy`
+      BaseNotificationPolicy.validateJsonElement(jsonObj.get("policy"));
       // validate the required field `webhook`
       BaseNotificationWebhook.validateJsonElement(jsonObj.get("webhook"));
       if (!jsonObj.get("type").isJsonPrimitive()) {

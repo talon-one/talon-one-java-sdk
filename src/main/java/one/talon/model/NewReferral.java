@@ -49,7 +49,7 @@ import one.talon.JSON;
 /**
  * NewReferral
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.23.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.24.0")
 public class NewReferral {
   public static final String SERIALIZED_NAME_START_DATE = "startDate";
   @SerializedName(SERIALIZED_NAME_START_DATE)
@@ -211,7 +211,7 @@ public class NewReferral {
   }
 
   /**
-   * Arbitrary properties associated with this campaign.
+   * Arbitrary properties associated with this item.
    * @return attributes
    */
   @javax.annotation.Nullable

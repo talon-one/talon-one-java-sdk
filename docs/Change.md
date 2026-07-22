@@ -12,8 +12,8 @@
 |**userId** | **Long** | The ID of the user associated with this entity. |  |
 |**applicationId** | **Long** | ID of application associated with change. |  [optional] |
 |**entity** | **String** | API endpoint on which the change was initiated. |  |
-|**old** | **Object** | Arbitrary properties associated with this campaign. |  [optional] |
-|**_new** | **Object** | Arbitrary properties associated with this campaign. |  [optional] |
+|**old** | **Object** | Resource before the change occurred. |  [optional] |
+|**_new** | **Object** | Resource after the change occurred. |  [optional] |
 |**managementKeyId** | **Long** | ID of management key used to perform changes. |  [optional] |
 
 

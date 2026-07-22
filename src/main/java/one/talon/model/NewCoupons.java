@@ -53,7 +53,7 @@ import one.talon.JSON;
 /**
  * NewCoupons
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.23.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.24.0")
 public class NewCoupons {
   public static final String SERIALIZED_NAME_USAGE_LIMIT = "usageLimit";
   @SerializedName(SERIALIZED_NAME_USAGE_LIMIT)
@@ -125,6 +125,16 @@ public class NewCoupons {
   @SerializedName(SERIALIZED_NAME_IMPLICITLY_RESERVED)
   @javax.annotation.Nullable
   private Boolean implicitlyReserved;
+
+  public static final String SERIALIZED_NAME_SUPPORT_REQUEST_ID = "supportRequestId";
+  @SerializedName(SERIALIZED_NAME_SUPPORT_REQUEST_ID)
+  @javax.annotation.Nullable
+  private Long supportRequestId;
+
+  public static final String SERIALIZED_NAME_SUPPORT_REQUEST_NOTE = "supportRequestNote";
+  @SerializedName(SERIALIZED_NAME_SUPPORT_REQUEST_NOTE)
+  @javax.annotation.Nullable
+  private String supportRequestNote;
 
   public NewCoupons() {
   }
@@ -305,7 +315,7 @@ public class NewCoupons {
   }
 
   /**
-   * Arbitrary properties associated with this campaign.
+   * Arbitrary properties associated with this item.
    * @return attributes
    */
   @javax.annotation.Nullable
@@ -420,6 +430,44 @@ public class NewCoupons {
     this.implicitlyReserved = implicitlyReserved;
   }
 
+
+  public NewCoupons supportRequestId(@javax.annotation.Nullable Long supportRequestId) {
+    this.supportRequestId = supportRequestId;
+    return this;
+  }
+
+  /**
+   * The identifier of the support request to link to the coupon creation. The request must exist and not yet be processed.
+   * @return supportRequestId
+   */
+  @javax.annotation.Nullable
+  public Long getSupportRequestId() {
+    return supportRequestId;
+  }
+
+  public void setSupportRequestId(@javax.annotation.Nullable Long supportRequestId) {
+    this.supportRequestId = supportRequestId;
+  }
+
+
+  public NewCoupons supportRequestNote(@javax.annotation.Nullable String supportRequestNote) {
+    this.supportRequestNote = supportRequestNote;
+    return this;
+  }
+
+  /**
+   * A note recorded when the linked support request is approved or rejected. Applied when &#x60;supportRequestId&#x60; is provided.
+   * @return supportRequestNote
+   */
+  @javax.annotation.Nullable
+  public String getSupportRequestNote() {
+    return supportRequestNote;
+  }
+
+  public void setSupportRequestNote(@javax.annotation.Nullable String supportRequestNote) {
+    this.supportRequestNote = supportRequestNote;
+  }
+
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -488,13 +536,15 @@ public class NewCoupons {
         Objects.equals(this.validCharacters, newCoupons.validCharacters) &&
         Objects.equals(this.couponPattern, newCoupons.couponPattern) &&
         Objects.equals(this.isReservationMandatory, newCoupons.isReservationMandatory) &&
-        Objects.equals(this.implicitlyReserved, newCoupons.implicitlyReserved)&&
+        Objects.equals(this.implicitlyReserved, newCoupons.implicitlyReserved) &&
+        Objects.equals(this.supportRequestId, newCoupons.supportRequestId) &&
+        Objects.equals(this.supportRequestNote, newCoupons.supportRequestNote)&&
         Objects.equals(this.additionalProperties, newCoupons.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(usageLimit, discountLimit, reservationLimit, startDate, expiryDate, limits, numberOfCoupons, uniquePrefix, attributes, recipientIntegrationId, validCharacters, couponPattern, isReservationMandatory, implicitlyReserved, additionalProperties);
+    return Objects.hash(usageLimit, discountLimit, reservationLimit, startDate, expiryDate, limits, numberOfCoupons, uniquePrefix, attributes, recipientIntegrationId, validCharacters, couponPattern, isReservationMandatory, implicitlyReserved, supportRequestId, supportRequestNote, additionalProperties);
   }
 
   @Override
@@ -515,6 +565,8 @@ public class NewCoupons {
     sb.append("    couponPattern: ").append(toIndentedString(couponPattern)).append("\n");
     sb.append("    isReservationMandatory: ").append(toIndentedString(isReservationMandatory)).append("\n");
     sb.append("    implicitlyReserved: ").append(toIndentedString(implicitlyReserved)).append("\n");
+    sb.append("    supportRequestId: ").append(toIndentedString(supportRequestId)).append("\n");
+    sb.append("    supportRequestNote: ").append(toIndentedString(supportRequestNote)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -534,7 +586,7 @@ public class NewCoupons {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("usageLimit", "discountLimit", "reservationLimit", "startDate", "expiryDate", "limits", "numberOfCoupons", "uniquePrefix", "attributes", "recipientIntegrationId", "validCharacters", "couponPattern", "isReservationMandatory", "implicitlyReserved"));
+    openapiFields = new HashSet<String>(Arrays.asList("usageLimit", "discountLimit", "reservationLimit", "startDate", "expiryDate", "limits", "numberOfCoupons", "uniquePrefix", "attributes", "recipientIntegrationId", "validCharacters", "couponPattern", "isReservationMandatory", "implicitlyReserved", "supportRequestId", "supportRequestNote"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("numberOfCoupons"));
@@ -586,6 +638,9 @@ public class NewCoupons {
       }
       if ((jsonObj.get("couponPattern") != null && !jsonObj.get("couponPattern").isJsonNull()) && !jsonObj.get("couponPattern").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `couponPattern` to be a primitive type in the JSON string but got `%s`", jsonObj.get("couponPattern").toString()));
+      }
+      if ((jsonObj.get("supportRequestNote") != null && !jsonObj.get("supportRequestNote").isJsonNull()) && !jsonObj.get("supportRequestNote").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `supportRequestNote` to be a primitive type in the JSON string but got `%s`", jsonObj.get("supportRequestNote").toString()));
       }
   }
 

@@ -15,7 +15,7 @@
 |**method** | [**MethodEnum**](#MethodEnum) | API method for this webhook. |  |
 |**relativeUrl** | **String** | The relative URL corresponding to each integration template. |  |
 |**headers** | **List&lt;String&gt;** | The list of HTTP headers for this integration template. |  |
-|**policy** | **Object** | The outgoing integration policy specific to each integration type. |  |
+|**policy** | [**OutgoingIntegrationConfigurationPolicy**](OutgoingIntegrationConfigurationPolicy.md) |  |  |
 
 
 

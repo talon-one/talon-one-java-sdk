@@ -25,6 +25,7 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import one.talon.model.PromotionBlock;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -52,7 +53,7 @@ import one.talon.JSON;
 /**
  * AwardItemBlock
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.23.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.24.0")
 public class AwardItemBlock {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -92,12 +93,12 @@ public class AwardItemBlock {
   public static final String SERIALIZED_NAME_ON_FAILURE = "onFailure";
   @SerializedName(SERIALIZED_NAME_ON_FAILURE)
   @javax.annotation.Nullable
-  private List<Object> onFailure;
+  private List<PromotionBlock> onFailure;
 
   public static final String SERIALIZED_NAME_ON_ERROR = "onError";
   @SerializedName(SERIALIZED_NAME_ON_ERROR)
   @javax.annotation.Nullable
-  private Map<String, List<Object>> onError;
+  private Map<String, List<PromotionBlock>> onError;
 
   public AwardItemBlock() {
   }
@@ -243,12 +244,12 @@ public class AwardItemBlock {
   }
 
 
-  public AwardItemBlock onFailure(@javax.annotation.Nullable List<Object> onFailure) {
+  public AwardItemBlock onFailure(@javax.annotation.Nullable List<PromotionBlock> onFailure) {
     this.onFailure = onFailure;
     return this;
   }
 
-  public AwardItemBlock addOnFailureItem(Object onFailureItem) {
+  public AwardItemBlock addOnFailureItem(PromotionBlock onFailureItem) {
     if (this.onFailure == null) {
       this.onFailure = new ArrayList<>();
     }
@@ -261,21 +262,21 @@ public class AwardItemBlock {
    * @return onFailure
    */
   @javax.annotation.Nullable
-  public List<Object> getOnFailure() {
+  public List<PromotionBlock> getOnFailure() {
     return onFailure;
   }
 
-  public void setOnFailure(@javax.annotation.Nullable List<Object> onFailure) {
+  public void setOnFailure(@javax.annotation.Nullable List<PromotionBlock> onFailure) {
     this.onFailure = onFailure;
   }
 
 
-  public AwardItemBlock onError(@javax.annotation.Nullable Map<String, List<Object>> onError) {
+  public AwardItemBlock onError(@javax.annotation.Nullable Map<String, List<PromotionBlock>> onError) {
     this.onError = onError;
     return this;
   }
 
-  public AwardItemBlock putOnErrorItem(String key, List<Object> onErrorItem) {
+  public AwardItemBlock putOnErrorItem(String key, List<PromotionBlock> onErrorItem) {
     if (this.onError == null) {
       this.onError = new HashMap<>();
     }
@@ -288,11 +289,11 @@ public class AwardItemBlock {
    * @return onError
    */
   @javax.annotation.Nullable
-  public Map<String, List<Object>> getOnError() {
+  public Map<String, List<PromotionBlock>> getOnError() {
     return onError;
   }
 
-  public void setOnError(@javax.annotation.Nullable Map<String, List<Object>> onError) {
+  public void setOnError(@javax.annotation.Nullable Map<String, List<PromotionBlock>> onError) {
     this.onError = onError;
   }
 
@@ -445,9 +446,19 @@ public class AwardItemBlock {
       if (!jsonObj.get("quantity").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `quantity` to be a primitive type in the JSON string but got `%s`", jsonObj.get("quantity").toString()));
       }
-      // ensure the optional json data is an array if present
-      if (jsonObj.get("onFailure") != null && !jsonObj.get("onFailure").isJsonNull() && !jsonObj.get("onFailure").isJsonArray()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `onFailure` to be an array in the JSON string but got `%s`", jsonObj.get("onFailure").toString()));
+      if (jsonObj.get("onFailure") != null && !jsonObj.get("onFailure").isJsonNull()) {
+        JsonArray jsonArrayonFailure = jsonObj.getAsJsonArray("onFailure");
+        if (jsonArrayonFailure != null) {
+          // ensure the json data is an array
+          if (!jsonObj.get("onFailure").isJsonArray()) {
+            throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `onFailure` to be an array in the JSON string but got `%s`", jsonObj.get("onFailure").toString()));
+          }
+
+          // validate the optional field `onFailure` (array)
+          for (int i = 0; i < jsonArrayonFailure.size(); i++) {
+            PromotionBlock.validateJsonElement(jsonArrayonFailure.get(i));
+          };
+        }
       }
   }
 

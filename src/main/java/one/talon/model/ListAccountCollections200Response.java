@@ -51,7 +51,7 @@ import one.talon.JSON;
 /**
  * ListAccountCollections200Response
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.23.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.24.0")
 public class ListAccountCollections200Response {
   public static final String SERIALIZED_NAME_HAS_MORE = "hasMore";
   @SerializedName(SERIALIZED_NAME_HAS_MORE)

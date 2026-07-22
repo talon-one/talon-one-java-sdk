@@ -51,7 +51,7 @@ import one.talon.JSON;
 /**
  * EventV3
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.23.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.24.0")
 public class EventV3 {
   public static final String SERIALIZED_NAME_CONNECTED_SESSION_ID = "connectedSessionId";
   @SerializedName(SERIALIZED_NAME_CONNECTED_SESSION_ID)
@@ -245,7 +245,7 @@ public class EventV3 {
   }
 
   /**
-   * Arbitrary properties associated with this campaign.
+   * Arbitrary additional JSON data associated with the event.
    * @return attributes
    */
   @javax.annotation.Nonnull

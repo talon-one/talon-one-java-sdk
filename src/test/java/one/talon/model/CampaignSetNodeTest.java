@@ -19,7 +19,11 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
+import one.talon.model.CampaignSetBranchNode;
+import one.talon.model.CampaignSetLeafNode;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
@@ -43,6 +47,78 @@ public class CampaignSetNodeTest {
     @Test
     public void typeTest() {
         // TODO: test type
+    }
+
+    /**
+     * Test the property 'name'
+     */
+    @Test
+    public void nameTest() {
+        // TODO: test name
+    }
+
+    /**
+     * Test the property 'operator'
+     */
+    @Test
+    public void operatorTest() {
+        // TODO: test operator
+    }
+
+    /**
+     * Test the property 'elements'
+     */
+    @Test
+    public void elementsTest() {
+        // TODO: test elements
+    }
+
+    /**
+     * Test the property 'groupId'
+     */
+    @Test
+    public void groupIdTest() {
+        // TODO: test groupId
+    }
+
+    /**
+     * Test the property 'locked'
+     */
+    @Test
+    public void lockedTest() {
+        // TODO: test locked
+    }
+
+    /**
+     * Test the property 'description'
+     */
+    @Test
+    public void descriptionTest() {
+        // TODO: test description
+    }
+
+    /**
+     * Test the property 'evaluationMode'
+     */
+    @Test
+    public void evaluationModeTest() {
+        // TODO: test evaluationMode
+    }
+
+    /**
+     * Test the property 'evaluationScope'
+     */
+    @Test
+    public void evaluationScopeTest() {
+        // TODO: test evaluationScope
+    }
+
+    /**
+     * Test the property 'campaignId'
+     */
+    @Test
+    public void campaignIdTest() {
+        // TODO: test campaignId
     }
 
 }

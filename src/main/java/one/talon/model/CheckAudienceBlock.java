@@ -24,6 +24,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import one.talon.model.CheckAudienceBlock1Audience;
+import one.talon.model.PromotionBlock;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -51,7 +52,7 @@ import one.talon.JSON;
 /**
  * CheckAudienceBlock
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.23.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.24.0")
 public class CheckAudienceBlock {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -194,7 +195,7 @@ public class CheckAudienceBlock {
   public static final String SERIALIZED_NAME_ON_FAILURE = "onFailure";
   @SerializedName(SERIALIZED_NAME_ON_FAILURE)
   @javax.annotation.Nullable
-  private List<Object> onFailure;
+  private List<PromotionBlock> onFailure;
 
   public CheckAudienceBlock() {
   }
@@ -321,12 +322,12 @@ public class CheckAudienceBlock {
   }
 
 
-  public CheckAudienceBlock onFailure(@javax.annotation.Nullable List<Object> onFailure) {
+  public CheckAudienceBlock onFailure(@javax.annotation.Nullable List<PromotionBlock> onFailure) {
     this.onFailure = onFailure;
     return this;
   }
 
-  public CheckAudienceBlock addOnFailureItem(Object onFailureItem) {
+  public CheckAudienceBlock addOnFailureItem(PromotionBlock onFailureItem) {
     if (this.onFailure == null) {
       this.onFailure = new ArrayList<>();
     }
@@ -339,11 +340,11 @@ public class CheckAudienceBlock {
    * @return onFailure
    */
   @javax.annotation.Nullable
-  public List<Object> getOnFailure() {
+  public List<PromotionBlock> getOnFailure() {
     return onFailure;
   }
 
-  public void setOnFailure(@javax.annotation.Nullable List<Object> onFailure) {
+  public void setOnFailure(@javax.annotation.Nullable List<PromotionBlock> onFailure) {
     this.onFailure = onFailure;
   }
 
@@ -495,9 +496,19 @@ public class CheckAudienceBlock {
       ProfileEnum.validateJsonElement(jsonObj.get("profile"));
       // validate the required field `audience`
       CheckAudienceBlock1Audience.validateJsonElement(jsonObj.get("audience"));
-      // ensure the optional json data is an array if present
-      if (jsonObj.get("onFailure") != null && !jsonObj.get("onFailure").isJsonNull() && !jsonObj.get("onFailure").isJsonArray()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `onFailure` to be an array in the JSON string but got `%s`", jsonObj.get("onFailure").toString()));
+      if (jsonObj.get("onFailure") != null && !jsonObj.get("onFailure").isJsonNull()) {
+        JsonArray jsonArrayonFailure = jsonObj.getAsJsonArray("onFailure");
+        if (jsonArrayonFailure != null) {
+          // ensure the json data is an array
+          if (!jsonObj.get("onFailure").isJsonArray()) {
+            throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `onFailure` to be an array in the JSON string but got `%s`", jsonObj.get("onFailure").toString()));
+          }
+
+          // validate the optional field `onFailure` (array)
+          for (int i = 0; i < jsonArrayonFailure.size(); i++) {
+            PromotionBlock.validateJsonElement(jsonArrayonFailure.get(i));
+          };
+        }
       }
   }
 

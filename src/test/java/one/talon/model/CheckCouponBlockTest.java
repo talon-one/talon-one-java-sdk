@@ -22,6 +22,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import one.talon.model.PromotionBlock;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 

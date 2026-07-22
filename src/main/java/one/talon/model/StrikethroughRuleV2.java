@@ -23,6 +23,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import one.talon.model.StrikethroughBlock;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -50,7 +51,7 @@ import one.talon.JSON;
 /**
  * StrikethroughRuleV2
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.23.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.24.0")
 public class StrikethroughRuleV2 {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -75,7 +76,7 @@ public class StrikethroughRuleV2 {
   public static final String SERIALIZED_NAME_BLOCKS = "blocks";
   @SerializedName(SERIALIZED_NAME_BLOCKS)
   @javax.annotation.Nonnull
-  private List<Object> blocks = new ArrayList<>();
+  private List<StrikethroughBlock> blocks = new ArrayList<>();
 
   public StrikethroughRuleV2() {
   }
@@ -156,12 +157,12 @@ public class StrikethroughRuleV2 {
   }
 
 
-  public StrikethroughRuleV2 blocks(@javax.annotation.Nonnull List<Object> blocks) {
+  public StrikethroughRuleV2 blocks(@javax.annotation.Nonnull List<StrikethroughBlock> blocks) {
     this.blocks = blocks;
     return this;
   }
 
-  public StrikethroughRuleV2 addBlocksItem(Object blocksItem) {
+  public StrikethroughRuleV2 addBlocksItem(StrikethroughBlock blocksItem) {
     if (this.blocks == null) {
       this.blocks = new ArrayList<>();
     }
@@ -174,11 +175,11 @@ public class StrikethroughRuleV2 {
    * @return blocks
    */
   @javax.annotation.Nonnull
-  public List<Object> getBlocks() {
+  public List<StrikethroughBlock> getBlocks() {
     return blocks;
   }
 
-  public void setBlocks(@javax.annotation.Nonnull List<Object> blocks) {
+  public void setBlocks(@javax.annotation.Nonnull List<StrikethroughBlock> blocks) {
     this.blocks = blocks;
   }
 
@@ -316,11 +317,15 @@ public class StrikethroughRuleV2 {
       if ((jsonObj.get("description") != null && !jsonObj.get("description").isJsonNull()) && !jsonObj.get("description").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `description` to be a primitive type in the JSON string but got `%s`", jsonObj.get("description").toString()));
       }
-      // ensure the required json array is present
-      if (jsonObj.get("blocks") == null) {
-        throw new IllegalArgumentException("Expected the field `linkedContent` to be an array in the JSON string but got `null`");
-      } else if (!jsonObj.get("blocks").isJsonArray()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `blocks` to be an array in the JSON string but got `%s`", jsonObj.get("blocks").toString()));
+      if (jsonObj.get("blocks") != null) {
+        if (!jsonObj.get("blocks").isJsonArray()) {
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `blocks` to be an array in the JSON string but got `%s`", jsonObj.get("blocks").toString()));
+        }
+        JsonArray jsonArrayblocks = jsonObj.getAsJsonArray("blocks");
+        // validate the required field `blocks` (array)
+        for (int i = 0; i < jsonArrayblocks.size(); i++) {
+          StrikethroughBlock.validateJsonElement(jsonArrayblocks.get(i));
+        }
       }
   }
 

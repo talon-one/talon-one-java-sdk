@@ -155,6 +155,38 @@ public class RiskDetailTest {
     }
 
     /**
+     * Test the property 'discardReason'
+     */
+    @Test
+    public void discardReasonTest() {
+        // TODO: test discardReason
+    }
+
+    /**
+     * Test the property 'statusComment'
+     */
+    @Test
+    public void statusCommentTest() {
+        // TODO: test statusComment
+    }
+
+    /**
+     * Test the property 'statusChangedBy'
+     */
+    @Test
+    public void statusChangedByTest() {
+        // TODO: test statusChangedBy
+    }
+
+    /**
+     * Test the property 'statusChangedAt'
+     */
+    @Test
+    public void statusChangedAtTest() {
+        // TODO: test statusChangedAt
+    }
+
+    /**
      * Test the property 'modified'
      */
     @Test
