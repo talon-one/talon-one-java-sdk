@@ -45,4 +45,12 @@ public class UpdateAttributeValueBlock1TargetTest {
         // TODO: test type
     }
 
+    /**
+     * Test the property 'name'
+     */
+    @Test
+    public void nameTest() {
+        // TODO: test name
+    }
+
 }

@@ -113,6 +113,14 @@ public class EventV3Test {
     }
 
     /**
+     * Test the property 'referralCode'
+     */
+    @Test
+    public void referralCodeTest() {
+        // TODO: test referralCode
+    }
+
+    /**
      * Test the property 'effects'
      */
     @Test

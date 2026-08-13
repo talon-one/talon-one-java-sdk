@@ -18,6 +18,7 @@ import one.talon.model.Account;
 import one.talon.model.AccountAdditionalCost;
 import one.talon.model.AccountAnalytics;
 import one.talon.model.Achievement;
+import one.talon.model.AchievementV2;
 import one.talon.model.ActivateUserRequest;
 import one.talon.model.AddLoyaltyPoints;
 import one.talon.model.Application;
@@ -36,6 +37,7 @@ import one.talon.model.CampaignSearch;
 import one.talon.model.Collection;
 import one.talon.model.Coupon;
 import one.talon.model.CreateAchievement;
+import one.talon.model.CreateAchievementV2;
 import one.talon.model.CreateCoupons200Response;
 import one.talon.model.CreateTemplateCampaign;
 import one.talon.model.CreateTemplateCampaignResponse;
@@ -48,6 +50,7 @@ import one.talon.model.DeductLoyaltyPoints;
 import one.talon.model.DeleteUserRequest;
 import one.talon.model.ErrorResponse;
 import one.talon.model.ErrorResponseWithStatus;
+import one.talon.model.ExcludePriceObservationsRequest;
 import one.talon.model.Experiment;
 import java.io.File;
 import one.talon.model.GenerateCouponRejections200Response;
@@ -90,6 +93,7 @@ import one.talon.model.GetUsers200Response;
 import one.talon.model.GetWebhooks200Response;
 import one.talon.model.ListAccountCollections200Response;
 import one.talon.model.ListAchievements200Response;
+import one.talon.model.ListAchievementsV2200Response;
 import one.talon.model.ListAllRolesV2200Response;
 import one.talon.model.ListApplicationCartItemFilters200Response;
 import one.talon.model.ListCampaignStoreBudgetLimits200Response;
@@ -144,6 +148,7 @@ import one.talon.model.Store;
 import one.talon.model.SummarizeCampaignStoreBudget200Response;
 import one.talon.model.TransferLoyaltyCard;
 import one.talon.model.UpdateAchievement;
+import one.talon.model.UpdateAchievementV2;
 import one.talon.model.UpdateCampaign;
 import one.talon.model.UpdateCampaignCollection;
 import one.talon.model.UpdateCollection;
@@ -259,6 +264,20 @@ public class ManagementApiTest {
         Long campaignId = null;
         CreateAchievement createAchievement = null;
         Achievement response = api.createAchievement(applicationId, campaignId, createAchievement);
+        // TODO: test validations
+    }
+
+    /**
+     * Create achievement
+     *
+     * Create a new account-level achievement.
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void createAchievementV2Test() throws ApiException {
+        CreateAchievementV2 createAchievementV2 = null;
+        AchievementV2 response = api.createAchievementV2(createAchievementV2);
         // TODO: test validations
     }
 
@@ -550,6 +569,20 @@ public class ManagementApiTest {
     }
 
     /**
+     * Delete achievement
+     *
+     * Delete a specific achievement.
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void deleteAchievementV2Test() throws ApiException {
+        Long achievementId = null;
+        api.deleteAchievementV2(achievementId);
+        // TODO: test validations
+    }
+
+    /**
      * Delete campaign
      *
      * Delete the given campaign.
@@ -744,6 +777,21 @@ public class ManagementApiTest {
     }
 
     /**
+     * Exclude price records from price history
+     *
+     * Select a batch of historical price IDs to exclude from [best prior price calculation](https://docs.talon.one/integration-api#tag/Catalogs/operation/bestPriorPrice). All IDs in the batch must be valid &#x60;id&#x60; values obtained from the [Get summary of price history](https://docs.talon.one/management-api#tag/Catalogs/operation/priceHistory.responses.200.history) endpoint, must belong to the specified Application, must not already be excluded from best prior price calculation, and must not be associated with a scheduled strikethrough pricing notification. 
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void excludePriceHistoryTest() throws ApiException {
+        Long applicationId = null;
+        ExcludePriceObservationsRequest excludePriceObservationsRequest = null;
+        api.excludePriceHistory(applicationId, excludePriceObservationsRequest);
+        // TODO: test validations
+    }
+
+    /**
      * Export account-level collection&#39;s items
      *
      * Download a CSV file containing items from a given account-level collection.  &gt; [!tip] If the exported CSV file is too large to view, you can &gt; [split it into multiple files](https://www.google.com/search?q&#x3D;split+CSV+into+multiple+files). 
@@ -754,6 +802,20 @@ public class ManagementApiTest {
     public void exportAccountCollectionItemsTest() throws ApiException {
         Long collectionId = null;
         String response = api.exportAccountCollectionItems(collectionId);
+        // TODO: test validations
+    }
+
+    /**
+     * Export achievement customer data
+     *
+     * Download a CSV file containing a list of all the customers who have participated in and are currently participating in the given achievement.  The CSV file contains the following columns: - &#x60;profileIntegrationID&#x60;: The integration ID of the customer profile participating in the achievement. - &#x60;title&#x60;: The display name of the achievement in the Campaign Manager. - &#x60;target&#x60;: The required number of actions or the transactional milestone to complete the achievement. - &#x60;progress&#x60;: The current progress of the customer in the achievement. - &#x60;status&#x60;: The status of the achievement. Can be one of: [&#39;inprogress&#39;, &#39;completed&#39;, &#39;expired&#39;]. - &#x60;startDate&#x60;: The date on which the customer profile started the achievement in RFC3339. - &#x60;endDate&#x60;: The date on which the achievement ends and resets for the customer profile in RFC3339. - &#x60;completionDate&#x60;: The date on which the customer profile completed the achievement in RFC3339. 
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void exportAchievementV2Test() throws ApiException {
+        Long achievementId = null;
+        String response = api.exportAchievementV2(achievementId);
         // TODO: test validations
     }
 
@@ -1200,6 +1262,20 @@ public class ManagementApiTest {
         Long campaignId = null;
         Long achievementId = null;
         Achievement response = api.getAchievement(applicationId, campaignId, achievementId);
+        // TODO: test validations
+    }
+
+    /**
+     * Get achievement
+     *
+     * Retrieve the details of a specific achievement.
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void getAchievementV2Test() throws ApiException {
+        Long achievementId = null;
+        AchievementV2 response = api.getAchievementV2(achievementId);
         // TODO: test validations
     }
 
@@ -2598,6 +2674,24 @@ public class ManagementApiTest {
     }
 
     /**
+     * List achievements
+     *
+     * List all achievements. 
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void listAchievementsV2Test() throws ApiException {
+        Long pageSize = null;
+        Long skip = null;
+        String sort = null;
+        String title = null;
+        Long applicationId = null;
+        ListAchievementsV2200Response response = api.listAchievementsV2(pageSize, skip, sort, title, applicationId);
+        // TODO: test validations
+    }
+
+    /**
      * List roles
      *
      * List all roles.
@@ -3124,6 +3218,21 @@ public class ManagementApiTest {
         Long achievementId = null;
         UpdateAchievement updateAchievement = null;
         Achievement response = api.updateAchievement(applicationId, campaignId, achievementId, updateAchievement);
+        // TODO: test validations
+    }
+
+    /**
+     * Update achievement
+     *
+     * Update the details of a specific achievement.
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void updateAchievementV2Test() throws ApiException {
+        Long achievementId = null;
+        UpdateAchievementV2 updateAchievementV2 = null;
+        AchievementV2 response = api.updateAchievementV2(achievementId, updateAchievementV2);
         // TODO: test validations
     }
 

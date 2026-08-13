@@ -61,6 +61,11 @@ public class ApplicationReferee {
   @javax.annotation.Nonnull
   private String sessionId;
 
+  public static final String SERIALIZED_NAME_ADVANCED_EVENT_INTEGRATION_ID = "advancedEventIntegrationId";
+  @SerializedName(SERIALIZED_NAME_ADVANCED_EVENT_INTEGRATION_ID)
+  @javax.annotation.Nullable
+  private String advancedEventIntegrationId;
+
   public static final String SERIALIZED_NAME_ADVOCATE_INTEGRATION_ID = "advocateIntegrationId";
   @SerializedName(SERIALIZED_NAME_ADVOCATE_INTEGRATION_ID)
   @javax.annotation.Nonnull
@@ -119,6 +124,25 @@ public class ApplicationReferee {
 
   public void setSessionId(@javax.annotation.Nonnull String sessionId) {
     this.sessionId = sessionId;
+  }
+
+
+  public ApplicationReferee advancedEventIntegrationId(@javax.annotation.Nullable String advancedEventIntegrationId) {
+    this.advancedEventIntegrationId = advancedEventIntegrationId;
+    return this;
+  }
+
+  /**
+   * The unique ID of the advanced event in which the customer redeemed the referral. Omitted when the referral was redeemed through a customer session rather than an advanced event.
+   * @return advancedEventIntegrationId
+   */
+  @javax.annotation.Nullable
+  public String getAdvancedEventIntegrationId() {
+    return advancedEventIntegrationId;
+  }
+
+  public void setAdvancedEventIntegrationId(@javax.annotation.Nullable String advancedEventIntegrationId) {
+    this.advancedEventIntegrationId = advancedEventIntegrationId;
   }
 
 
@@ -254,6 +278,7 @@ public class ApplicationReferee {
     ApplicationReferee applicationReferee = (ApplicationReferee) o;
     return Objects.equals(this.applicationId, applicationReferee.applicationId) &&
         Objects.equals(this.sessionId, applicationReferee.sessionId) &&
+        Objects.equals(this.advancedEventIntegrationId, applicationReferee.advancedEventIntegrationId) &&
         Objects.equals(this.advocateIntegrationId, applicationReferee.advocateIntegrationId) &&
         Objects.equals(this.friendIntegrationId, applicationReferee.friendIntegrationId) &&
         Objects.equals(this.code, applicationReferee.code) &&
@@ -263,7 +288,7 @@ public class ApplicationReferee {
 
   @Override
   public int hashCode() {
-    return Objects.hash(applicationId, sessionId, advocateIntegrationId, friendIntegrationId, code, created, additionalProperties);
+    return Objects.hash(applicationId, sessionId, advancedEventIntegrationId, advocateIntegrationId, friendIntegrationId, code, created, additionalProperties);
   }
 
   @Override
@@ -272,6 +297,7 @@ public class ApplicationReferee {
     sb.append("class ApplicationReferee {\n");
     sb.append("    applicationId: ").append(toIndentedString(applicationId)).append("\n");
     sb.append("    sessionId: ").append(toIndentedString(sessionId)).append("\n");
+    sb.append("    advancedEventIntegrationId: ").append(toIndentedString(advancedEventIntegrationId)).append("\n");
     sb.append("    advocateIntegrationId: ").append(toIndentedString(advocateIntegrationId)).append("\n");
     sb.append("    friendIntegrationId: ").append(toIndentedString(friendIntegrationId)).append("\n");
     sb.append("    code: ").append(toIndentedString(code)).append("\n");
@@ -295,7 +321,7 @@ public class ApplicationReferee {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("applicationId", "sessionId", "advocateIntegrationId", "friendIntegrationId", "code", "created"));
+    openapiFields = new HashSet<String>(Arrays.asList("applicationId", "sessionId", "advancedEventIntegrationId", "advocateIntegrationId", "friendIntegrationId", "code", "created"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("applicationId", "sessionId", "advocateIntegrationId", "friendIntegrationId", "code", "created"));
@@ -323,6 +349,9 @@ public class ApplicationReferee {
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if (!jsonObj.get("sessionId").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `sessionId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("sessionId").toString()));
+      }
+      if ((jsonObj.get("advancedEventIntegrationId") != null && !jsonObj.get("advancedEventIntegrationId").isJsonNull()) && !jsonObj.get("advancedEventIntegrationId").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `advancedEventIntegrationId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("advancedEventIntegrationId").toString()));
       }
       if (!jsonObj.get("advocateIntegrationId").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `advocateIntegrationId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("advocateIntegrationId").toString()));

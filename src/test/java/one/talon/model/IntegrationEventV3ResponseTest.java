@@ -30,6 +30,7 @@ import one.talon.model.CustomerProfile;
 import one.talon.model.Effect;
 import one.talon.model.EventV3;
 import one.talon.model.Giveaway;
+import one.talon.model.InventoryReferral;
 import one.talon.model.Loyalty;
 import one.talon.model.Referral;
 import one.talon.model.RuleFailureReason;
@@ -136,6 +137,14 @@ public class IntegrationEventV3ResponseTest {
     @Test
     public void advancedEventTest() {
         // TODO: test advancedEvent
+    }
+
+    /**
+     * Test the property 'referral'
+     */
+    @Test
+    public void referralTest() {
+        // TODO: test referral
     }
 
 }

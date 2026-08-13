@@ -35,7 +35,7 @@ The properties of the effect. See [API effects](https://docs.talon.one/docs/dev/
 |**programId** | **Long** | ID of the loyalty program that contains these points. |  |
 |**subLedgerId** | **String** | API name of the loyalty program subledger that contains these points. |  |
 |**recipientIntegrationId** | **String** | The integration ID of the customer that receives the giveaway. |  |
-|**startDate** | **OffsetDateTime** | The date after which the reimbursed points will be valid. |  [optional] |
+|**startDate** | **OffsetDateTime** | Timestamp at which the customer&#39;s progress started. |  |
 |**expiryDate** | **OffsetDateTime** | The date after which the reimbursed points will expire. |  [optional] |
 |**transactionUUID** | **String** | The identifier of this loyalty point transaction. |  |
 |**cartItemPosition** | **BigDecimal** | The index of the item in the cart item list to which the custom effect is applied. |  [optional] |
@@ -67,9 +67,9 @@ The properties of the effect. See [API effects](https://docs.talon.one/docs/dev/
 |**isNewReservation** | **Boolean** | Indicates whether this is a new coupon reservation or not. |  |
 |**audienceId** | **Long** | The internal ID of the audience. |  [optional] |
 |**audienceName** | **String** | The name of the audience. |  [optional] |
-|**achievementId** | **Long** | The internal ID of the achievement. |  |
+|**achievementId** | **Long** | The ID of the achievement. |  |
 |**achievementName** | **String** | The name of the achievement. |  |
-|**progressTrackerId** | **Long** | The internal ID of the achievement progress tracker. |  |
+|**progressTrackerId** | **Long** | The ID of the customer&#39;s progress tracker for this achievement.  For [on-completion achievements](https://docs.talon.one/docs/product/campaigns/achievements/achievements-overview#recurring-on-completion-achievements), this effect generates a unique ID for each iteration. |  |
 |**delta** | **BigDecimal** | The value by which the customer&#39;s current progress in the achievement has increased. |  |
 |**target** | **BigDecimal** | The target value to complete the achievement. |  |
 |**isJustCompleted** | **Boolean** | Indicates if the customer has completed the achievement in the current session. |  |
@@ -78,6 +78,7 @@ The properties of the effect. See [API effects](https://docs.talon.one/docs/dev/
 |**extensionDuration** | **String** | Time frame by which the expiry date extends.  The time format is either: - immediate, or - an **integer** followed by a letter indicating the time unit.  Examples: &#x60;immediate&#x60;, &#x60;30s&#x60;, &#x60;40m&#x60;, &#x60;1h&#x60;, &#x60;5D&#x60;, &#x60;7W&#x60;, &#x60;10M&#x60;, &#x60;15Y&#x60;.  Available units:  - &#x60;s&#x60;: seconds - &#x60;m&#x60;: minutes - &#x60;h&#x60;: hours - &#x60;D&#x60;: days - &#x60;W&#x60;: weeks - &#x60;M&#x60;: months - &#x60;Y&#x60;: years  You can round certain units up or down: - &#x60;_D&#x60; for rounding down days only. Signifies the start of the day. - &#x60;_U&#x60; for rounding up days, weeks, months and years. Signifies the end of the day, week, month or year.  |  |
 |**affectedTransactions** | [**List&lt;LoyaltyLedgerEntryExpiryDateChange&gt;**](LoyaltyLedgerEntryExpiryDateChange.md) | List of transactions affected by the expiry date update. |  [optional] |
 |**newExpiryDate** | **OffsetDateTime** | The specified expiry date and time for all active and pending point transactions in the loyalty program subledger. |  |
+|**endDate** | **OffsetDateTime** | Timestamp at which this progress period ends.  Only returned for achievements that have a fixed end date. [On-completion achievements](https://docs.talon.one/docs/product/campaigns/achievements/achievements-overview#recurring-on-completion-achievements) have no end date. |  [optional] |
 
 
 

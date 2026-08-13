@@ -96,6 +96,14 @@ public class IntegrationEventV3RequestTest {
     }
 
     /**
+     * Test the property 'referralCode'
+     */
+    @Test
+    public void referralCodeTest() {
+        // TODO: test referralCode
+    }
+
+    /**
      * Test the property 'loyaltyCards'
      */
     @Test

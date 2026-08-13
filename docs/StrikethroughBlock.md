@@ -15,11 +15,19 @@ A block valid in a strikethrough rule. The `type` field identifies the concrete 
 |**blocks** | [**List&lt;StrikethroughBlock&gt;**](StrikethroughBlock.md) | Child blocks evaluated according to the operator. |  |
 |**onFailure** | [**List&lt;StrikethroughBlock&gt;**](StrikethroughBlock.md) | Strikethrough blocks evaluated when this block fails or returns false. |  [optional] |
 |**onError** | **Map&lt;String, List&lt;StrikethroughBlock&gt;&gt;** | Named error handlers evaluated when a specific error occurs. |  [optional] |
+|**name** | **String** | The human-readable label attached to the discount. |  |
+|**value** | **Object** |  |  |
+|**partial** | **Boolean** | Whether to apply a partial discount when the requested value exceeds the configured budget. |  |
+|**target** | [**AwardDiscountTarget**](AwardDiscountTarget.md) |  |  |
 |**expression** | **List&lt;Object&gt;** | The raw Talang expression as an array. For a function call, the first element is the function name and subsequent elements are its arguments. For any other expression (for example a bare attribute path or a literal value), this is a single-element array containing that value. |  |
-|**attribute** | **String** | The attribute path identifier (e.g. \&quot;$Session.Total\&quot;). |  |
-|**value** | **Object** |  |  [optional] |
+|**attribute** | **Object** |  |  |
 |**min** | **Object** |  |  [optional] |
 |**max** | **Object** |  |  [optional] |
+|**start** | **Object** |  |  [optional] |
+|**end** | **Object** |  |  [optional] |
+|**startInclusive** | **Boolean** | When &#x60;true&#x60;, the &#x60;start&#x60; value is included in the range for the &#x60;within&#x60; operator. |  [optional] |
+|**endInclusive** | **Boolean** | When &#x60;true&#x60;, the &#x60;end&#x60; value is included in the range for the &#x60;within&#x60; operator. |  [optional] |
+|**timezoneInsensitive** | **Boolean** | Indicates whether the &#x60;within&#x60; operator ignores time zones and compares the wall-clock time only. When &#x60;false&#x60;, time zones are taken into account. |  [optional] |
 |**values** | **Object** |  |  [optional] |
 |**count** | **Object** |  |  [optional] |
 
@@ -56,6 +64,10 @@ A block valid in a strikethrough rule. The `type` field identifies the concrete 
 | CONTAINS_ONE_OF | &quot;containsOneOf&quot; |
 | CONTAINS_NONE_OF | &quot;containsNoneOf&quot; |
 | CONTAINS_ALL_OF | &quot;containsAllOf&quot; |
+| AFTER | &quot;after&quot; |
+| BEFORE | &quot;before&quot; |
+| WITHIN | &quot;within&quot; |
+| NOT_WITHIN_ | &quot;not(within)&quot; |
 
 
 

@@ -119,6 +119,11 @@ public class UpdateAttributeValueBlock1Target {
   @javax.annotation.Nonnull
   private TypeEnum type;
 
+  public static final String SERIALIZED_NAME_NAME = "name";
+  @SerializedName(SERIALIZED_NAME_NAME)
+  @javax.annotation.Nullable
+  private String name;
+
   public UpdateAttributeValueBlock1Target() {
   }
 
@@ -138,6 +143,25 @@ public class UpdateAttributeValueBlock1Target {
 
   public void setType(@javax.annotation.Nonnull TypeEnum type) {
     this.type = type;
+  }
+
+
+  public UpdateAttributeValueBlock1Target name(@javax.annotation.Nullable String name) {
+    this.name = name;
+    return this;
+  }
+
+  /**
+   * Identifies the name of the target when its type is set to &#x60;selector&#x60; or &#x60;globalFilter&#x60;.
+   * @return name
+   */
+  @javax.annotation.Nullable
+  public String getName() {
+    return name;
+  }
+
+  public void setName(@javax.annotation.Nullable String name) {
+    this.name = name;
   }
 
   /**
@@ -195,13 +219,14 @@ public class UpdateAttributeValueBlock1Target {
       return false;
     }
     UpdateAttributeValueBlock1Target updateAttributeValueBlock1Target = (UpdateAttributeValueBlock1Target) o;
-    return Objects.equals(this.type, updateAttributeValueBlock1Target.type)&&
+    return Objects.equals(this.type, updateAttributeValueBlock1Target.type) &&
+        Objects.equals(this.name, updateAttributeValueBlock1Target.name)&&
         Objects.equals(this.additionalProperties, updateAttributeValueBlock1Target.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(type, additionalProperties);
+    return Objects.hash(type, name, additionalProperties);
   }
 
   @Override
@@ -209,6 +234,7 @@ public class UpdateAttributeValueBlock1Target {
     StringBuilder sb = new StringBuilder();
     sb.append("class UpdateAttributeValueBlock1Target {\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -228,7 +254,7 @@ public class UpdateAttributeValueBlock1Target {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("type"));
+    openapiFields = new HashSet<String>(Arrays.asList("type", "name"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("type"));
@@ -259,6 +285,9 @@ public class UpdateAttributeValueBlock1Target {
       }
       // validate the required field `type`
       TypeEnum.validateJsonElement(jsonObj.get("type"));
+      if ((jsonObj.get("name") != null && !jsonObj.get("name").isJsonNull()) && !jsonObj.get("name").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
+      }
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {

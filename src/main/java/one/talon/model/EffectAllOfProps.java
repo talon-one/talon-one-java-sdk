@@ -58,6 +58,7 @@ import one.talon.model.SetDiscountPerItemEffectProps;
 import one.talon.model.SetLoyaltyPointsExpiryDateEffectProps;
 import one.talon.model.ShowBundleMetadataEffectProps;
 import one.talon.model.ShowNotificationEffectProps;
+import one.talon.model.StartAchievementProgressEffectProps;
 import one.talon.model.TriggerWebhookEffectProps;
 import one.talon.model.UpdateAttributeEffectProps;
 import one.talon.model.WillAwardGiveawayEffectProps;
@@ -144,6 +145,7 @@ public class EffectAllOfProps extends AbstractOpenApiSchema {
             final TypeAdapter<RollbackIncreasedAchievementProgressEffectProps> adapterRollbackIncreasedAchievementProgressEffectProps = gson.getDelegateAdapter(this, TypeToken.get(RollbackIncreasedAchievementProgressEffectProps.class));
             final TypeAdapter<ExtendLoyaltyPointsExpiryDateEffectProps> adapterExtendLoyaltyPointsExpiryDateEffectProps = gson.getDelegateAdapter(this, TypeToken.get(ExtendLoyaltyPointsExpiryDateEffectProps.class));
             final TypeAdapter<SetLoyaltyPointsExpiryDateEffectProps> adapterSetLoyaltyPointsExpiryDateEffectProps = gson.getDelegateAdapter(this, TypeToken.get(SetLoyaltyPointsExpiryDateEffectProps.class));
+            final TypeAdapter<StartAchievementProgressEffectProps> adapterStartAchievementProgressEffectProps = gson.getDelegateAdapter(this, TypeToken.get(StartAchievementProgressEffectProps.class));
 
             return (TypeAdapter<T>) new TypeAdapter<EffectAllOfProps>() {
                 @Override
@@ -363,7 +365,13 @@ public class EffectAllOfProps extends AbstractOpenApiSchema {
                         elementAdapter.write(out, element);
                         return;
                     }
-                    throw new IOException("Failed to serialize as the type doesn't match oneOf schemas: AcceptCouponEffectProps, AcceptReferralEffectProps, AddFreeItemEffectProps, AddLoyaltyPointsEffectProps, AddToAudienceEffectProps, AwardGiveawayEffectProps, ChangeLoyaltyTierLevelEffectProps, CouponCreatedEffectProps, CustomEffectProps, DeductLoyaltyPointsEffectProps, ErrorEffectProps, ExtendLoyaltyPointsExpiryDateEffectProps, IncreaseAchievementProgressEffectProps, RedeemReferralEffectProps, ReferralCreatedEffectProps, RejectCouponEffectProps, RejectReferralEffectProps, RemoveFromAudienceEffectProps, ReserveCouponEffectProps, RollbackAddedLoyaltyPointsEffectProps, RollbackCouponEffectProps, RollbackDeductedLoyaltyPointsEffectProps, RollbackDiscountEffectProps, RollbackIncreasedAchievementProgressEffectProps, RollbackReferralEffectProps, SetDiscountEffectProps, SetDiscountPerAdditionalCostEffectProps, SetDiscountPerAdditionalCostPerItemEffectProps, SetDiscountPerItemEffectProps, SetLoyaltyPointsExpiryDateEffectProps, ShowBundleMetadataEffectProps, ShowNotificationEffectProps, TriggerWebhookEffectProps, UpdateAttributeEffectProps, WillAwardGiveawayEffectProps");
+                    // check if the actual instance is of the type `StartAchievementProgressEffectProps`
+                    if (value.getActualInstance() instanceof StartAchievementProgressEffectProps) {
+                        JsonElement element = adapterStartAchievementProgressEffectProps.toJsonTree((StartAchievementProgressEffectProps)value.getActualInstance());
+                        elementAdapter.write(out, element);
+                        return;
+                    }
+                    throw new IOException("Failed to serialize as the type doesn't match oneOf schemas: AcceptCouponEffectProps, AcceptReferralEffectProps, AddFreeItemEffectProps, AddLoyaltyPointsEffectProps, AddToAudienceEffectProps, AwardGiveawayEffectProps, ChangeLoyaltyTierLevelEffectProps, CouponCreatedEffectProps, CustomEffectProps, DeductLoyaltyPointsEffectProps, ErrorEffectProps, ExtendLoyaltyPointsExpiryDateEffectProps, IncreaseAchievementProgressEffectProps, RedeemReferralEffectProps, ReferralCreatedEffectProps, RejectCouponEffectProps, RejectReferralEffectProps, RemoveFromAudienceEffectProps, ReserveCouponEffectProps, RollbackAddedLoyaltyPointsEffectProps, RollbackCouponEffectProps, RollbackDeductedLoyaltyPointsEffectProps, RollbackDiscountEffectProps, RollbackIncreasedAchievementProgressEffectProps, RollbackReferralEffectProps, SetDiscountEffectProps, SetDiscountPerAdditionalCostEffectProps, SetDiscountPerAdditionalCostPerItemEffectProps, SetDiscountPerItemEffectProps, SetLoyaltyPointsExpiryDateEffectProps, ShowBundleMetadataEffectProps, ShowNotificationEffectProps, StartAchievementProgressEffectProps, TriggerWebhookEffectProps, UpdateAttributeEffectProps, WillAwardGiveawayEffectProps");
                 }
 
                 @Override
@@ -795,6 +803,18 @@ public class EffectAllOfProps extends AbstractOpenApiSchema {
                         errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for SetLoyaltyPointsExpiryDateEffectProps failed with `%s`.", e.getMessage()));
                         log.log(Level.FINER, "Input data does not match schema 'SetLoyaltyPointsExpiryDateEffectProps'", e);
                     }
+                    // deserialize StartAchievementProgressEffectProps
+                    try {
+                        // validate the JSON object to see if any exception is thrown
+                        StartAchievementProgressEffectProps.validateJsonElement(jsonElement);
+                        actualAdapter = adapterStartAchievementProgressEffectProps;
+                        match++;
+                        log.log(Level.FINER, "Input data matches schema 'StartAchievementProgressEffectProps'");
+                    } catch (Exception e) {
+                        // deserialization failed, continue
+                        errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for StartAchievementProgressEffectProps failed with `%s`.", e.getMessage()));
+                        log.log(Level.FINER, "Input data does not match schema 'StartAchievementProgressEffectProps'", e);
+                    }
 
                     if (match == 1) {
                         EffectAllOfProps ret = new EffectAllOfProps();
@@ -856,6 +876,7 @@ public class EffectAllOfProps extends AbstractOpenApiSchema {
         schemas.put("RollbackIncreasedAchievementProgressEffectProps", RollbackIncreasedAchievementProgressEffectProps.class);
         schemas.put("ExtendLoyaltyPointsExpiryDateEffectProps", ExtendLoyaltyPointsExpiryDateEffectProps.class);
         schemas.put("SetLoyaltyPointsExpiryDateEffectProps", SetLoyaltyPointsExpiryDateEffectProps.class);
+        schemas.put("StartAchievementProgressEffectProps", StartAchievementProgressEffectProps.class);
     }
 
     @Override
@@ -866,7 +887,7 @@ public class EffectAllOfProps extends AbstractOpenApiSchema {
     /**
      * Set the instance that matches the oneOf child schema, check
      * the instance parameter is valid against the oneOf child schemas:
-     * AcceptCouponEffectProps, AcceptReferralEffectProps, AddFreeItemEffectProps, AddLoyaltyPointsEffectProps, AddToAudienceEffectProps, AwardGiveawayEffectProps, ChangeLoyaltyTierLevelEffectProps, CouponCreatedEffectProps, CustomEffectProps, DeductLoyaltyPointsEffectProps, ErrorEffectProps, ExtendLoyaltyPointsExpiryDateEffectProps, IncreaseAchievementProgressEffectProps, RedeemReferralEffectProps, ReferralCreatedEffectProps, RejectCouponEffectProps, RejectReferralEffectProps, RemoveFromAudienceEffectProps, ReserveCouponEffectProps, RollbackAddedLoyaltyPointsEffectProps, RollbackCouponEffectProps, RollbackDeductedLoyaltyPointsEffectProps, RollbackDiscountEffectProps, RollbackIncreasedAchievementProgressEffectProps, RollbackReferralEffectProps, SetDiscountEffectProps, SetDiscountPerAdditionalCostEffectProps, SetDiscountPerAdditionalCostPerItemEffectProps, SetDiscountPerItemEffectProps, SetLoyaltyPointsExpiryDateEffectProps, ShowBundleMetadataEffectProps, ShowNotificationEffectProps, TriggerWebhookEffectProps, UpdateAttributeEffectProps, WillAwardGiveawayEffectProps
+     * AcceptCouponEffectProps, AcceptReferralEffectProps, AddFreeItemEffectProps, AddLoyaltyPointsEffectProps, AddToAudienceEffectProps, AwardGiveawayEffectProps, ChangeLoyaltyTierLevelEffectProps, CouponCreatedEffectProps, CustomEffectProps, DeductLoyaltyPointsEffectProps, ErrorEffectProps, ExtendLoyaltyPointsExpiryDateEffectProps, IncreaseAchievementProgressEffectProps, RedeemReferralEffectProps, ReferralCreatedEffectProps, RejectCouponEffectProps, RejectReferralEffectProps, RemoveFromAudienceEffectProps, ReserveCouponEffectProps, RollbackAddedLoyaltyPointsEffectProps, RollbackCouponEffectProps, RollbackDeductedLoyaltyPointsEffectProps, RollbackDiscountEffectProps, RollbackIncreasedAchievementProgressEffectProps, RollbackReferralEffectProps, SetDiscountEffectProps, SetDiscountPerAdditionalCostEffectProps, SetDiscountPerAdditionalCostPerItemEffectProps, SetDiscountPerItemEffectProps, SetLoyaltyPointsExpiryDateEffectProps, ShowBundleMetadataEffectProps, ShowNotificationEffectProps, StartAchievementProgressEffectProps, TriggerWebhookEffectProps, UpdateAttributeEffectProps, WillAwardGiveawayEffectProps
      *
      * It could be an instance of the 'oneOf' schemas.
      */
@@ -1047,14 +1068,19 @@ public class EffectAllOfProps extends AbstractOpenApiSchema {
             return;
         }
 
-        throw new RuntimeException("Invalid instance type. Must be AcceptCouponEffectProps, AcceptReferralEffectProps, AddFreeItemEffectProps, AddLoyaltyPointsEffectProps, AddToAudienceEffectProps, AwardGiveawayEffectProps, ChangeLoyaltyTierLevelEffectProps, CouponCreatedEffectProps, CustomEffectProps, DeductLoyaltyPointsEffectProps, ErrorEffectProps, ExtendLoyaltyPointsExpiryDateEffectProps, IncreaseAchievementProgressEffectProps, RedeemReferralEffectProps, ReferralCreatedEffectProps, RejectCouponEffectProps, RejectReferralEffectProps, RemoveFromAudienceEffectProps, ReserveCouponEffectProps, RollbackAddedLoyaltyPointsEffectProps, RollbackCouponEffectProps, RollbackDeductedLoyaltyPointsEffectProps, RollbackDiscountEffectProps, RollbackIncreasedAchievementProgressEffectProps, RollbackReferralEffectProps, SetDiscountEffectProps, SetDiscountPerAdditionalCostEffectProps, SetDiscountPerAdditionalCostPerItemEffectProps, SetDiscountPerItemEffectProps, SetLoyaltyPointsExpiryDateEffectProps, ShowBundleMetadataEffectProps, ShowNotificationEffectProps, TriggerWebhookEffectProps, UpdateAttributeEffectProps, WillAwardGiveawayEffectProps");
+        if (instance instanceof StartAchievementProgressEffectProps) {
+            super.setActualInstance(instance);
+            return;
+        }
+
+        throw new RuntimeException("Invalid instance type. Must be AcceptCouponEffectProps, AcceptReferralEffectProps, AddFreeItemEffectProps, AddLoyaltyPointsEffectProps, AddToAudienceEffectProps, AwardGiveawayEffectProps, ChangeLoyaltyTierLevelEffectProps, CouponCreatedEffectProps, CustomEffectProps, DeductLoyaltyPointsEffectProps, ErrorEffectProps, ExtendLoyaltyPointsExpiryDateEffectProps, IncreaseAchievementProgressEffectProps, RedeemReferralEffectProps, ReferralCreatedEffectProps, RejectCouponEffectProps, RejectReferralEffectProps, RemoveFromAudienceEffectProps, ReserveCouponEffectProps, RollbackAddedLoyaltyPointsEffectProps, RollbackCouponEffectProps, RollbackDeductedLoyaltyPointsEffectProps, RollbackDiscountEffectProps, RollbackIncreasedAchievementProgressEffectProps, RollbackReferralEffectProps, SetDiscountEffectProps, SetDiscountPerAdditionalCostEffectProps, SetDiscountPerAdditionalCostPerItemEffectProps, SetDiscountPerItemEffectProps, SetLoyaltyPointsExpiryDateEffectProps, ShowBundleMetadataEffectProps, ShowNotificationEffectProps, StartAchievementProgressEffectProps, TriggerWebhookEffectProps, UpdateAttributeEffectProps, WillAwardGiveawayEffectProps");
     }
 
     /**
      * Get the actual instance, which can be the following:
-     * AcceptCouponEffectProps, AcceptReferralEffectProps, AddFreeItemEffectProps, AddLoyaltyPointsEffectProps, AddToAudienceEffectProps, AwardGiveawayEffectProps, ChangeLoyaltyTierLevelEffectProps, CouponCreatedEffectProps, CustomEffectProps, DeductLoyaltyPointsEffectProps, ErrorEffectProps, ExtendLoyaltyPointsExpiryDateEffectProps, IncreaseAchievementProgressEffectProps, RedeemReferralEffectProps, ReferralCreatedEffectProps, RejectCouponEffectProps, RejectReferralEffectProps, RemoveFromAudienceEffectProps, ReserveCouponEffectProps, RollbackAddedLoyaltyPointsEffectProps, RollbackCouponEffectProps, RollbackDeductedLoyaltyPointsEffectProps, RollbackDiscountEffectProps, RollbackIncreasedAchievementProgressEffectProps, RollbackReferralEffectProps, SetDiscountEffectProps, SetDiscountPerAdditionalCostEffectProps, SetDiscountPerAdditionalCostPerItemEffectProps, SetDiscountPerItemEffectProps, SetLoyaltyPointsExpiryDateEffectProps, ShowBundleMetadataEffectProps, ShowNotificationEffectProps, TriggerWebhookEffectProps, UpdateAttributeEffectProps, WillAwardGiveawayEffectProps
+     * AcceptCouponEffectProps, AcceptReferralEffectProps, AddFreeItemEffectProps, AddLoyaltyPointsEffectProps, AddToAudienceEffectProps, AwardGiveawayEffectProps, ChangeLoyaltyTierLevelEffectProps, CouponCreatedEffectProps, CustomEffectProps, DeductLoyaltyPointsEffectProps, ErrorEffectProps, ExtendLoyaltyPointsExpiryDateEffectProps, IncreaseAchievementProgressEffectProps, RedeemReferralEffectProps, ReferralCreatedEffectProps, RejectCouponEffectProps, RejectReferralEffectProps, RemoveFromAudienceEffectProps, ReserveCouponEffectProps, RollbackAddedLoyaltyPointsEffectProps, RollbackCouponEffectProps, RollbackDeductedLoyaltyPointsEffectProps, RollbackDiscountEffectProps, RollbackIncreasedAchievementProgressEffectProps, RollbackReferralEffectProps, SetDiscountEffectProps, SetDiscountPerAdditionalCostEffectProps, SetDiscountPerAdditionalCostPerItemEffectProps, SetDiscountPerItemEffectProps, SetLoyaltyPointsExpiryDateEffectProps, ShowBundleMetadataEffectProps, ShowNotificationEffectProps, StartAchievementProgressEffectProps, TriggerWebhookEffectProps, UpdateAttributeEffectProps, WillAwardGiveawayEffectProps
      *
-     * @return The actual instance (AcceptCouponEffectProps, AcceptReferralEffectProps, AddFreeItemEffectProps, AddLoyaltyPointsEffectProps, AddToAudienceEffectProps, AwardGiveawayEffectProps, ChangeLoyaltyTierLevelEffectProps, CouponCreatedEffectProps, CustomEffectProps, DeductLoyaltyPointsEffectProps, ErrorEffectProps, ExtendLoyaltyPointsExpiryDateEffectProps, IncreaseAchievementProgressEffectProps, RedeemReferralEffectProps, ReferralCreatedEffectProps, RejectCouponEffectProps, RejectReferralEffectProps, RemoveFromAudienceEffectProps, ReserveCouponEffectProps, RollbackAddedLoyaltyPointsEffectProps, RollbackCouponEffectProps, RollbackDeductedLoyaltyPointsEffectProps, RollbackDiscountEffectProps, RollbackIncreasedAchievementProgressEffectProps, RollbackReferralEffectProps, SetDiscountEffectProps, SetDiscountPerAdditionalCostEffectProps, SetDiscountPerAdditionalCostPerItemEffectProps, SetDiscountPerItemEffectProps, SetLoyaltyPointsExpiryDateEffectProps, ShowBundleMetadataEffectProps, ShowNotificationEffectProps, TriggerWebhookEffectProps, UpdateAttributeEffectProps, WillAwardGiveawayEffectProps)
+     * @return The actual instance (AcceptCouponEffectProps, AcceptReferralEffectProps, AddFreeItemEffectProps, AddLoyaltyPointsEffectProps, AddToAudienceEffectProps, AwardGiveawayEffectProps, ChangeLoyaltyTierLevelEffectProps, CouponCreatedEffectProps, CustomEffectProps, DeductLoyaltyPointsEffectProps, ErrorEffectProps, ExtendLoyaltyPointsExpiryDateEffectProps, IncreaseAchievementProgressEffectProps, RedeemReferralEffectProps, ReferralCreatedEffectProps, RejectCouponEffectProps, RejectReferralEffectProps, RemoveFromAudienceEffectProps, ReserveCouponEffectProps, RollbackAddedLoyaltyPointsEffectProps, RollbackCouponEffectProps, RollbackDeductedLoyaltyPointsEffectProps, RollbackDiscountEffectProps, RollbackIncreasedAchievementProgressEffectProps, RollbackReferralEffectProps, SetDiscountEffectProps, SetDiscountPerAdditionalCostEffectProps, SetDiscountPerAdditionalCostPerItemEffectProps, SetDiscountPerItemEffectProps, SetLoyaltyPointsExpiryDateEffectProps, ShowBundleMetadataEffectProps, ShowNotificationEffectProps, StartAchievementProgressEffectProps, TriggerWebhookEffectProps, UpdateAttributeEffectProps, WillAwardGiveawayEffectProps)
      */
     @SuppressWarnings("unchecked")
     @Override
@@ -1483,6 +1509,18 @@ public class EffectAllOfProps extends AbstractOpenApiSchema {
     }
 
     /**
+     * Get the actual instance of `StartAchievementProgressEffectProps`. If the actual instance is not `StartAchievementProgressEffectProps`,
+     * the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `StartAchievementProgressEffectProps`
+     * @throws ClassCastException if the instance is not `StartAchievementProgressEffectProps`
+     */
+    @SuppressWarnings("unchecked")
+    public StartAchievementProgressEffectProps getStartAchievementProgressEffectProps() throws ClassCastException {
+        return (StartAchievementProgressEffectProps)super.getActualInstance();
+    }
+
+    /**
      * Validates the JSON Element and throws an exception if issues found
      *
      * @param jsonElement JSON Element
@@ -1772,8 +1810,16 @@ public class EffectAllOfProps extends AbstractOpenApiSchema {
             errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for SetLoyaltyPointsExpiryDateEffectProps failed with `%s`.", e.getMessage()));
             // continue to the next one
         }
+        // validate the json string with StartAchievementProgressEffectProps
+        try {
+            StartAchievementProgressEffectProps.validateJsonElement(jsonElement);
+            validCount++;
+        } catch (Exception e) {
+            errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for StartAchievementProgressEffectProps failed with `%s`.", e.getMessage()));
+            // continue to the next one
+        }
         if (validCount != 1) {
-            throw new IOException(String.format(java.util.Locale.ROOT, "The JSON string is invalid for EffectAllOfProps with oneOf schemas: AcceptCouponEffectProps, AcceptReferralEffectProps, AddFreeItemEffectProps, AddLoyaltyPointsEffectProps, AddToAudienceEffectProps, AwardGiveawayEffectProps, ChangeLoyaltyTierLevelEffectProps, CouponCreatedEffectProps, CustomEffectProps, DeductLoyaltyPointsEffectProps, ErrorEffectProps, ExtendLoyaltyPointsExpiryDateEffectProps, IncreaseAchievementProgressEffectProps, RedeemReferralEffectProps, ReferralCreatedEffectProps, RejectCouponEffectProps, RejectReferralEffectProps, RemoveFromAudienceEffectProps, ReserveCouponEffectProps, RollbackAddedLoyaltyPointsEffectProps, RollbackCouponEffectProps, RollbackDeductedLoyaltyPointsEffectProps, RollbackDiscountEffectProps, RollbackIncreasedAchievementProgressEffectProps, RollbackReferralEffectProps, SetDiscountEffectProps, SetDiscountPerAdditionalCostEffectProps, SetDiscountPerAdditionalCostPerItemEffectProps, SetDiscountPerItemEffectProps, SetLoyaltyPointsExpiryDateEffectProps, ShowBundleMetadataEffectProps, ShowNotificationEffectProps, TriggerWebhookEffectProps, UpdateAttributeEffectProps, WillAwardGiveawayEffectProps. %d class(es) match the result, expected 1. Detailed failure message for oneOf schemas: %s. JSON: %s", validCount, errorMessages, jsonElement.toString()));
+            throw new IOException(String.format(java.util.Locale.ROOT, "The JSON string is invalid for EffectAllOfProps with oneOf schemas: AcceptCouponEffectProps, AcceptReferralEffectProps, AddFreeItemEffectProps, AddLoyaltyPointsEffectProps, AddToAudienceEffectProps, AwardGiveawayEffectProps, ChangeLoyaltyTierLevelEffectProps, CouponCreatedEffectProps, CustomEffectProps, DeductLoyaltyPointsEffectProps, ErrorEffectProps, ExtendLoyaltyPointsExpiryDateEffectProps, IncreaseAchievementProgressEffectProps, RedeemReferralEffectProps, ReferralCreatedEffectProps, RejectCouponEffectProps, RejectReferralEffectProps, RemoveFromAudienceEffectProps, ReserveCouponEffectProps, RollbackAddedLoyaltyPointsEffectProps, RollbackCouponEffectProps, RollbackDeductedLoyaltyPointsEffectProps, RollbackDiscountEffectProps, RollbackIncreasedAchievementProgressEffectProps, RollbackReferralEffectProps, SetDiscountEffectProps, SetDiscountPerAdditionalCostEffectProps, SetDiscountPerAdditionalCostPerItemEffectProps, SetDiscountPerItemEffectProps, SetLoyaltyPointsExpiryDateEffectProps, ShowBundleMetadataEffectProps, ShowNotificationEffectProps, StartAchievementProgressEffectProps, TriggerWebhookEffectProps, UpdateAttributeEffectProps, WillAwardGiveawayEffectProps. %d class(es) match the result, expected 1. Detailed failure message for oneOf schemas: %s. JSON: %s", validCount, errorMessages, jsonElement.toString()));
         }
     }
 

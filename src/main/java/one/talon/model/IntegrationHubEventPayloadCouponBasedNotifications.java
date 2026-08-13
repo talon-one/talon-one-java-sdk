@@ -54,6 +54,11 @@ import one.talon.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.24.0")
 public class IntegrationHubEventPayloadCouponBasedNotifications {
+  public static final String SERIALIZED_NAME_EVENT_ID = "EventId";
+  @SerializedName(SERIALIZED_NAME_EVENT_ID)
+  @javax.annotation.Nonnull
+  private Long eventId;
+
   public static final String SERIALIZED_NAME_ID = "Id";
   @SerializedName(SERIALIZED_NAME_ID)
   @javax.annotation.Nonnull
@@ -161,6 +166,25 @@ public class IntegrationHubEventPayloadCouponBasedNotifications {
 
   public IntegrationHubEventPayloadCouponBasedNotifications() {
   }
+
+  public IntegrationHubEventPayloadCouponBasedNotifications eventId(@javax.annotation.Nonnull Long eventId) {
+    this.eventId = eventId;
+    return this;
+  }
+
+  /**
+   * The ID of the integration hub event. Return this value in the delivery-status callback to mark the event delivered or failed.
+   * @return eventId
+   */
+  @javax.annotation.Nonnull
+  public Long getEventId() {
+    return eventId;
+  }
+
+  public void setEventId(@javax.annotation.Nonnull Long eventId) {
+    this.eventId = eventId;
+  }
+
 
   public IntegrationHubEventPayloadCouponBasedNotifications id(@javax.annotation.Nonnull Long id) {
     this.id = id;
@@ -623,7 +647,8 @@ public class IntegrationHubEventPayloadCouponBasedNotifications {
       return false;
     }
     IntegrationHubEventPayloadCouponBasedNotifications integrationHubEventPayloadCouponBasedNotifications = (IntegrationHubEventPayloadCouponBasedNotifications) o;
-    return Objects.equals(this.id, integrationHubEventPayloadCouponBasedNotifications.id) &&
+    return Objects.equals(this.eventId, integrationHubEventPayloadCouponBasedNotifications.eventId) &&
+        Objects.equals(this.id, integrationHubEventPayloadCouponBasedNotifications.id) &&
         Objects.equals(this.created, integrationHubEventPayloadCouponBasedNotifications.created) &&
         Objects.equals(this.campaignId, integrationHubEventPayloadCouponBasedNotifications.campaignId) &&
         Objects.equals(this.value, integrationHubEventPayloadCouponBasedNotifications.value) &&
@@ -649,13 +674,14 @@ public class IntegrationHubEventPayloadCouponBasedNotifications {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, created, campaignId, value, usageLimit, discountLimit, reservationLimit, startDate, expiryDate, usageCounter, discountCounter, discountRemainder, referralId, recipientIntegrationId, importId, batchId, attributes, limits, publishedAt, sourceOfEvent, employeeName, additionalProperties);
+    return Objects.hash(eventId, id, created, campaignId, value, usageLimit, discountLimit, reservationLimit, startDate, expiryDate, usageCounter, discountCounter, discountRemainder, referralId, recipientIntegrationId, importId, batchId, attributes, limits, publishedAt, sourceOfEvent, employeeName, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class IntegrationHubEventPayloadCouponBasedNotifications {\n");
+    sb.append("    eventId: ").append(toIndentedString(eventId)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    created: ").append(toIndentedString(created)).append("\n");
     sb.append("    campaignId: ").append(toIndentedString(campaignId)).append("\n");
@@ -696,10 +722,10 @@ public class IntegrationHubEventPayloadCouponBasedNotifications {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("Id", "Created", "CampaignId", "Value", "UsageLimit", "DiscountLimit", "ReservationLimit", "StartDate", "ExpiryDate", "UsageCounter", "DiscountCounter", "DiscountRemainder", "ReferralId", "RecipientIntegrationId", "ImportId", "BatchId", "Attributes", "Limits", "PublishedAt", "SourceOfEvent", "EmployeeName"));
+    openapiFields = new HashSet<String>(Arrays.asList("EventId", "Id", "Created", "CampaignId", "Value", "UsageLimit", "DiscountLimit", "ReservationLimit", "StartDate", "ExpiryDate", "UsageCounter", "DiscountCounter", "DiscountRemainder", "ReferralId", "RecipientIntegrationId", "ImportId", "BatchId", "Attributes", "Limits", "PublishedAt", "SourceOfEvent", "EmployeeName"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("Id", "Created", "CampaignId", "Value", "UsageLimit", "UsageCounter", "PublishedAt", "SourceOfEvent", "EmployeeName"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("EventId", "Id", "Created", "CampaignId", "Value", "UsageLimit", "UsageCounter", "PublishedAt", "SourceOfEvent", "EmployeeName"));
   }
 
   /**

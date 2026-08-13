@@ -39,6 +39,14 @@ public class IntegrationHubEventPayloadLoyaltyProfileBasedTierDowngradeNotificat
     }
 
     /**
+     * Test the property 'eventId'
+     */
+    @Test
+    public void eventIdTest() {
+        // TODO: test eventId
+    }
+
+    /**
      * Test the property 'profileIntegrationID'
      */
     @Test

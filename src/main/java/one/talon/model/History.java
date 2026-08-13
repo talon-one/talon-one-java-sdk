@@ -92,6 +92,16 @@ public class History {
   @javax.annotation.Nonnull
   private LabelTarget target;
 
+  public static final String SERIALIZED_NAME_EXCLUDED_AT = "excludedAt";
+  @SerializedName(SERIALIZED_NAME_EXCLUDED_AT)
+  @javax.annotation.Nullable
+  private OffsetDateTime excludedAt;
+
+  public static final String SERIALIZED_NAME_EXCLUSION_REASON = "exclusionReason";
+  @SerializedName(SERIALIZED_NAME_EXCLUSION_REASON)
+  @javax.annotation.Nullable
+  private String exclusionReason;
+
   public History() {
   }
 
@@ -239,6 +249,44 @@ public class History {
     this.target = target;
   }
 
+
+  public History excludedAt(@javax.annotation.Nullable OffsetDateTime excludedAt) {
+    this.excludedAt = excludedAt;
+    return this;
+  }
+
+  /**
+   * The date and time when the historical price ID was excluded.
+   * @return excludedAt
+   */
+  @javax.annotation.Nullable
+  public OffsetDateTime getExcludedAt() {
+    return excludedAt;
+  }
+
+  public void setExcludedAt(@javax.annotation.Nullable OffsetDateTime excludedAt) {
+    this.excludedAt = excludedAt;
+  }
+
+
+  public History exclusionReason(@javax.annotation.Nullable String exclusionReason) {
+    this.exclusionReason = exclusionReason;
+    return this;
+  }
+
+  /**
+   * The reason for excluding this historical price ID.
+   * @return exclusionReason
+   */
+  @javax.annotation.Nullable
+  public String getExclusionReason() {
+    return exclusionReason;
+  }
+
+  public void setExclusionReason(@javax.annotation.Nullable String exclusionReason) {
+    this.exclusionReason = exclusionReason;
+  }
+
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -300,13 +348,15 @@ public class History {
         Objects.equals(this.contextId, history.contextId) &&
         Objects.equals(this.price, history.price) &&
         Objects.equals(this.metadata, history.metadata) &&
-        Objects.equals(this.target, history.target)&&
+        Objects.equals(this.target, history.target) &&
+        Objects.equals(this.excludedAt, history.excludedAt) &&
+        Objects.equals(this.exclusionReason, history.exclusionReason)&&
         Objects.equals(this.additionalProperties, history.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, observedAt, contextIds, contextId, price, metadata, target, additionalProperties);
+    return Objects.hash(id, observedAt, contextIds, contextId, price, metadata, target, excludedAt, exclusionReason, additionalProperties);
   }
 
   @Override
@@ -320,6 +370,8 @@ public class History {
     sb.append("    price: ").append(toIndentedString(price)).append("\n");
     sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
     sb.append("    target: ").append(toIndentedString(target)).append("\n");
+    sb.append("    excludedAt: ").append(toIndentedString(excludedAt)).append("\n");
+    sb.append("    exclusionReason: ").append(toIndentedString(exclusionReason)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -339,7 +391,7 @@ public class History {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("id", "observedAt", "contextIds", "contextId", "price", "metadata", "target"));
+    openapiFields = new HashSet<String>(Arrays.asList("id", "observedAt", "contextIds", "contextId", "price", "metadata", "target", "excludedAt", "exclusionReason"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("id", "observedAt", "contextIds", "price", "metadata", "target"));
@@ -378,6 +430,9 @@ public class History {
       BestPriorPriceMetadata.validateJsonElement(jsonObj.get("metadata"));
       // validate the required field `target`
       LabelTarget.validateJsonElement(jsonObj.get("target"));
+      if ((jsonObj.get("exclusionReason") != null && !jsonObj.get("exclusionReason").isJsonNull()) && !jsonObj.get("exclusionReason").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `exclusionReason` to be a primitive type in the JSON string but got `%s`", jsonObj.get("exclusionReason").toString()));
+      }
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {

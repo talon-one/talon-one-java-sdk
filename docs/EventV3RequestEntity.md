@@ -14,6 +14,7 @@
 |**attributes** | **Object** | Arbitrary additional JSON properties associated with the event. They must be created in the Campaign Manager before setting them with this property. See [creating custom attributes](https://docs.talon.one/docs/product/account/dev-tools/managing-attributes#creating-a-custom-attribute). |  [optional] |
 |**integrationId** | **String** | The unique ID of the event. Only one event with this ID can be registered.  |  |
 |**connectedSessionId** | **String** | The ID of the session to reference. The session must be in &#x60;closed&#x60; state. Otherwise, the API call will fail. |  [optional] |
+|**referralCode** | **String** | The referral code submitted with the event. The endpoint does not validate the code, and submitting a code does not redeem it. Use the \&quot;Referral code is valid\&quot; condition in the Rule Builder to validate and redeem the code, or \&quot;Referral code is valid (without redemption)\&quot; to validate without redeeming.  |  [optional] |
 
 
 

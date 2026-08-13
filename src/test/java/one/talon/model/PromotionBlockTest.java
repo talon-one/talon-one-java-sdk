@@ -19,26 +19,43 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import one.talon.model.AwardDiscountBlock;
 import one.talon.model.AwardGiveawayBlock;
 import one.talon.model.AwardGiveawayBlock1GiveawayPool;
 import one.talon.model.AwardItemBlock;
+import one.talon.model.CheckAchievementBlock;
+import one.talon.model.CheckAchievementBlock1Achievement;
 import one.talon.model.CheckAudienceBlock;
+import one.talon.model.CheckBudgetBlock;
 import one.talon.model.CheckCouponBlock;
+import one.talon.model.CheckEventBlock;
+import one.talon.model.CheckLoyaltyBalanceBlock;
+import one.talon.model.CheckLoyaltyBalanceBlock1Program;
 import one.talon.model.CheckReferralBlock;
+import one.talon.model.CreateCouponBlock;
+import one.talon.model.CreateCouponBlock1DiscountLimit;
+import one.talon.model.CreateReferralBlock;
+import one.talon.model.CreateReferralBlock1CampaignId;
+import one.talon.model.CreateReferralBlock1UsageLimit;
 import one.talon.model.PassthroughBlock;
 import one.talon.model.PromotionCheckAttributeBlock;
 import one.talon.model.PromotionGroupBlock;
+import one.talon.model.ReserveCouponBlock;
 import one.talon.model.ShowNotificationBlock;
+import one.talon.model.TriggerCustomEffectBlock;
+import one.talon.model.TriggerCustomEffectBlock1CustomEffect;
+import one.talon.model.TriggerCustomEffectBlock1Target;
+import one.talon.model.TriggerWebhookBlock;
+import one.talon.model.TriggerWebhookBlock1Webhook;
 import one.talon.model.UpdateAchievementProgressBlock;
-import one.talon.model.UpdateAchievementProgressBlock1Achievement;
 import one.talon.model.UpdateAttributeValueBlock;
 import one.talon.model.UpdateAttributeValueBlock1Attribute;
-import one.talon.model.UpdateAttributeValueBlock1Target;
 import one.talon.model.UpdateAudienceMembershipBlock;
 import one.talon.model.UpdateAudienceMembershipBlock1Audience;
 import org.openapitools.jackson.nullable.JsonNullable;
@@ -116,6 +133,38 @@ public class PromotionBlockTest {
     }
 
     /**
+     * Test the property 'name'
+     */
+    @Test
+    public void nameTest() {
+        // TODO: test name
+    }
+
+    /**
+     * Test the property 'value'
+     */
+    @Test
+    public void valueTest() {
+        // TODO: test value
+    }
+
+    /**
+     * Test the property 'partial'
+     */
+    @Test
+    public void partialTest() {
+        // TODO: test partial
+    }
+
+    /**
+     * Test the property 'target'
+     */
+    @Test
+    public void targetTest() {
+        // TODO: test target
+    }
+
+    /**
      * Test the property 'expression'
      */
     @Test
@@ -156,27 +205,11 @@ public class PromotionBlockTest {
     }
 
     /**
-     * Test the property 'name'
-     */
-    @Test
-    public void nameTest() {
-        // TODO: test name
-    }
-
-    /**
      * Test the property 'quantity'
      */
     @Test
     public void quantityTest() {
         // TODO: test quantity
-    }
-
-    /**
-     * Test the property 'partial'
-     */
-    @Test
-    public void partialTest() {
-        // TODO: test partial
     }
 
     /**
@@ -204,14 +237,6 @@ public class PromotionBlockTest {
     }
 
     /**
-     * Test the property 'value'
-     */
-    @Test
-    public void valueTest() {
-        // TODO: test value
-    }
-
-    /**
      * Test the property 'min'
      */
     @Test
@@ -225,6 +250,46 @@ public class PromotionBlockTest {
     @Test
     public void maxTest() {
         // TODO: test max
+    }
+
+    /**
+     * Test the property 'start'
+     */
+    @Test
+    public void startTest() {
+        // TODO: test start
+    }
+
+    /**
+     * Test the property 'end'
+     */
+    @Test
+    public void endTest() {
+        // TODO: test end
+    }
+
+    /**
+     * Test the property 'startInclusive'
+     */
+    @Test
+    public void startInclusiveTest() {
+        // TODO: test startInclusive
+    }
+
+    /**
+     * Test the property 'endInclusive'
+     */
+    @Test
+    public void endInclusiveTest() {
+        // TODO: test endInclusive
+    }
+
+    /**
+     * Test the property 'timezoneInsensitive'
+     */
+    @Test
+    public void timezoneInsensitiveTest() {
+        // TODO: test timezoneInsensitive
     }
 
     /**
@@ -252,6 +317,30 @@ public class PromotionBlockTest {
     }
 
     /**
+     * Test the property 'program'
+     */
+    @Test
+    public void programTest() {
+        // TODO: test program
+    }
+
+    /**
+     * Test the property 'subledger'
+     */
+    @Test
+    public void subledgerTest() {
+        // TODO: test subledger
+    }
+
+    /**
+     * Test the property 'balance'
+     */
+    @Test
+    public void balanceTest() {
+        // TODO: test balance
+    }
+
+    /**
      * Test the property 'redeem'
      */
     @Test
@@ -268,11 +357,139 @@ public class PromotionBlockTest {
     }
 
     /**
-     * Test the property 'target'
+     * Test the property 'webhook'
      */
     @Test
-    public void targetTest() {
-        // TODO: test target
+    public void webhookTest() {
+        // TODO: test webhook
+    }
+
+    /**
+     * Test the property 'params'
+     */
+    @Test
+    public void paramsTest() {
+        // TODO: test params
+    }
+
+    /**
+     * Test the property 'customEffect'
+     */
+    @Test
+    public void customEffectTest() {
+        // TODO: test customEffect
+    }
+
+    /**
+     * Test the property 'eventType'
+     */
+    @Test
+    public void eventTypeTest() {
+        // TODO: test eventType
+    }
+
+    /**
+     * Test the property 'matchers'
+     */
+    @Test
+    public void matchersTest() {
+        // TODO: test matchers
+    }
+
+    /**
+     * Test the property 'action'
+     */
+    @Test
+    public void actionTest() {
+        // TODO: test action
+    }
+
+    /**
+     * Test the property 'campaignId'
+     */
+    @Test
+    public void campaignIdTest() {
+        // TODO: test campaignId
+    }
+
+    /**
+     * Test the property 'recipientId'
+     */
+    @Test
+    public void recipientIdTest() {
+        // TODO: test recipientId
+    }
+
+    /**
+     * Test the property 'storeInSession'
+     */
+    @Test
+    public void storeInSessionTest() {
+        // TODO: test storeInSession
+    }
+
+    /**
+     * Test the property 'usageLimit'
+     */
+    @Test
+    public void usageLimitTest() {
+        // TODO: test usageLimit
+    }
+
+    /**
+     * Test the property 'discountLimit'
+     */
+    @Test
+    public void discountLimitTest() {
+        // TODO: test discountLimit
+    }
+
+    /**
+     * Test the property 'startDate'
+     */
+    @Test
+    public void startDateTest() {
+        // TODO: test startDate
+    }
+
+    /**
+     * Test the property 'expiryDate'
+     */
+    @Test
+    public void expiryDateTest() {
+        // TODO: test expiryDate
+    }
+
+    /**
+     * Test the property 'attributes'
+     */
+    @Test
+    public void attributesTest() {
+        // TODO: test attributes
+    }
+
+    /**
+     * Test the property 'validCharacters'
+     */
+    @Test
+    public void validCharactersTest() {
+        // TODO: test validCharacters
+    }
+
+    /**
+     * Test the property 'pattern'
+     */
+    @Test
+    public void patternTest() {
+        // TODO: test pattern
+    }
+
+    /**
+     * Test the property 'friendId'
+     */
+    @Test
+    public void friendIdTest() {
+        // TODO: test friendId
     }
 
 }

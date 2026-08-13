@@ -42,6 +42,14 @@ public class IntegrationHubEventPayloadCouponBasedNotificationsTest {
     }
 
     /**
+     * Test the property 'eventId'
+     */
+    @Test
+    public void eventIdTest() {
+        // TODO: test eventId
+    }
+
+    /**
      * Test the property 'id'
      */
     @Test

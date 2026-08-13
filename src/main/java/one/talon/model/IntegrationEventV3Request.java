@@ -87,6 +87,11 @@ public class IntegrationEventV3Request {
   @javax.annotation.Nullable
   private String connectedSessionId;
 
+  public static final String SERIALIZED_NAME_REFERRAL_CODE = "referralCode";
+  @SerializedName(SERIALIZED_NAME_REFERRAL_CODE)
+  @javax.annotation.Nullable
+  private String referralCode;
+
   public static final String SERIALIZED_NAME_LOYALTY_CARDS = "loyaltyCards";
   @SerializedName(SERIALIZED_NAME_LOYALTY_CARDS)
   @javax.annotation.Nullable
@@ -97,17 +102,19 @@ public class IntegrationEventV3Request {
    */
   @JsonAdapter(ResponseContentEnum.Adapter.class)
   public enum ResponseContentEnum {
-    CUSTOMER_PROFILE("customerProfile"),
-    
-    TRIGGERED_CAMPAIGNS("triggeredCampaigns"),
-    
-    LOYALTY("loyalty"),
-    
     ADVANCED_EVENT("advancedEvent"),
     
     AWARDED_GIVEAWAYS("awardedGiveaways"),
     
-    RULE_FAILURE_REASONS("ruleFailureReasons");
+    CUSTOMER_PROFILE("customerProfile"),
+    
+    LOYALTY("loyalty"),
+    
+    REFERRAL("referral"),
+    
+    RULE_FAILURE_REASONS("ruleFailureReasons"),
+    
+    TRIGGERED_CAMPAIGNS("triggeredCampaigns");
 
     private String value;
 
@@ -301,6 +308,25 @@ public class IntegrationEventV3Request {
   }
 
 
+  public IntegrationEventV3Request referralCode(@javax.annotation.Nullable String referralCode) {
+    this.referralCode = referralCode;
+    return this;
+  }
+
+  /**
+   * The referral code submitted with the event. The endpoint does not validate the code, and submitting a code does not redeem it. Use the \&quot;Referral code is valid\&quot; condition in the Rule Builder to validate and redeem the code, or \&quot;Referral code is valid (without redemption)\&quot; to validate without redeeming. 
+   * @return referralCode
+   */
+  @javax.annotation.Nullable
+  public String getReferralCode() {
+    return referralCode;
+  }
+
+  public void setReferralCode(@javax.annotation.Nullable String referralCode) {
+    this.referralCode = referralCode;
+  }
+
+
   public IntegrationEventV3Request loyaltyCards(@javax.annotation.Nullable List<String> loyaltyCards) {
     this.loyaltyCards = loyaltyCards;
     return this;
@@ -416,6 +442,7 @@ public class IntegrationEventV3Request {
         Objects.equals(this.attributes, integrationEventV3Request.attributes) &&
         Objects.equals(this.integrationId, integrationEventV3Request.integrationId) &&
         Objects.equals(this.connectedSessionId, integrationEventV3Request.connectedSessionId) &&
+        Objects.equals(this.referralCode, integrationEventV3Request.referralCode) &&
         Objects.equals(this.loyaltyCards, integrationEventV3Request.loyaltyCards) &&
         Objects.equals(this.responseContent, integrationEventV3Request.responseContent)&&
         Objects.equals(this.additionalProperties, integrationEventV3Request.additionalProperties);
@@ -423,7 +450,7 @@ public class IntegrationEventV3Request {
 
   @Override
   public int hashCode() {
-    return Objects.hash(profileId, storeIntegrationId, evaluableCampaignIds, type, attributes, integrationId, connectedSessionId, loyaltyCards, responseContent, additionalProperties);
+    return Objects.hash(profileId, storeIntegrationId, evaluableCampaignIds, type, attributes, integrationId, connectedSessionId, referralCode, loyaltyCards, responseContent, additionalProperties);
   }
 
   @Override
@@ -437,6 +464,7 @@ public class IntegrationEventV3Request {
     sb.append("    attributes: ").append(toIndentedString(attributes)).append("\n");
     sb.append("    integrationId: ").append(toIndentedString(integrationId)).append("\n");
     sb.append("    connectedSessionId: ").append(toIndentedString(connectedSessionId)).append("\n");
+    sb.append("    referralCode: ").append(toIndentedString(referralCode)).append("\n");
     sb.append("    loyaltyCards: ").append(toIndentedString(loyaltyCards)).append("\n");
     sb.append("    responseContent: ").append(toIndentedString(responseContent)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
@@ -458,7 +486,7 @@ public class IntegrationEventV3Request {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("profileId", "storeIntegrationId", "evaluableCampaignIds", "type", "attributes", "integrationId", "connectedSessionId", "loyaltyCards", "responseContent"));
+    openapiFields = new HashSet<String>(Arrays.asList("profileId", "storeIntegrationId", "evaluableCampaignIds", "type", "attributes", "integrationId", "connectedSessionId", "referralCode", "loyaltyCards", "responseContent"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("profileId", "type", "integrationId"));
@@ -502,6 +530,9 @@ public class IntegrationEventV3Request {
       }
       if ((jsonObj.get("connectedSessionId") != null && !jsonObj.get("connectedSessionId").isJsonNull()) && !jsonObj.get("connectedSessionId").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `connectedSessionId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("connectedSessionId").toString()));
+      }
+      if ((jsonObj.get("referralCode") != null && !jsonObj.get("referralCode").isJsonNull()) && !jsonObj.get("referralCode").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `referralCode` to be a primitive type in the JSON string but got `%s`", jsonObj.get("referralCode").toString()));
       }
       // ensure the optional json data is an array if present
       if (jsonObj.get("loyaltyCards") != null && !jsonObj.get("loyaltyCards").isJsonNull() && !jsonObj.get("loyaltyCards").isJsonArray()) {

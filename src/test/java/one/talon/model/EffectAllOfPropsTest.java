@@ -57,6 +57,7 @@ import one.talon.model.SetDiscountPerItemEffectProps;
 import one.talon.model.SetLoyaltyPointsExpiryDateEffectProps;
 import one.talon.model.ShowBundleMetadataEffectProps;
 import one.talon.model.ShowNotificationEffectProps;
+import one.talon.model.StartAchievementProgressEffectProps;
 import one.talon.model.TriggerWebhookEffectProps;
 import one.talon.model.UpdateAttributeEffectProps;
 import one.talon.model.WillAwardGiveawayEffectProps;
@@ -635,6 +636,14 @@ public class EffectAllOfPropsTest {
     @Test
     public void newExpiryDateTest() {
         // TODO: test newExpiryDate
+    }
+
+    /**
+     * Test the property 'endDate'
+     */
+    @Test
+    public void endDateTest() {
+        // TODO: test endDate
     }
 
 }

@@ -95,4 +95,12 @@ public class EventV3RequestEntityTest {
         // TODO: test connectedSessionId
     }
 
+    /**
+     * Test the property 'referralCode'
+     */
+    @Test
+    public void referralCodeTest() {
+        // TODO: test referralCode
+    }
+
 }

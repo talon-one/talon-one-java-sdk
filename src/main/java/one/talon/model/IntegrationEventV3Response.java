@@ -31,6 +31,7 @@ import one.talon.model.CustomerProfile;
 import one.talon.model.Effect;
 import one.talon.model.EventV3;
 import one.talon.model.Giveaway;
+import one.talon.model.InventoryReferral;
 import one.talon.model.Loyalty;
 import one.talon.model.Referral;
 import one.talon.model.RuleFailureReason;
@@ -117,6 +118,11 @@ public class IntegrationEventV3Response {
   @SerializedName(SERIALIZED_NAME_ADVANCED_EVENT)
   @javax.annotation.Nullable
   private EventV3 advancedEvent;
+
+  public static final String SERIALIZED_NAME_REFERRAL = "referral";
+  @SerializedName(SERIALIZED_NAME_REFERRAL)
+  @javax.annotation.Nullable
+  private InventoryReferral referral;
 
   public IntegrationEventV3Response() {
   }
@@ -393,6 +399,25 @@ public class IntegrationEventV3Response {
     this.advancedEvent = advancedEvent;
   }
 
+
+  public IntegrationEventV3Response referral(@javax.annotation.Nullable InventoryReferral referral) {
+    this.referral = referral;
+    return this;
+  }
+
+  /**
+   * The referral that was processed.
+   * @return referral
+   */
+  @javax.annotation.Nullable
+  public InventoryReferral getReferral() {
+    return referral;
+  }
+
+  public void setReferral(@javax.annotation.Nullable InventoryReferral referral) {
+    this.referral = referral;
+  }
+
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -458,13 +483,14 @@ public class IntegrationEventV3Response {
         Objects.equals(this.createdReferrals, integrationEventV3Response.createdReferrals) &&
         Objects.equals(this.awardedGiveaways, integrationEventV3Response.awardedGiveaways) &&
         Objects.equals(this.achievements, integrationEventV3Response.achievements) &&
-        Objects.equals(this.advancedEvent, integrationEventV3Response.advancedEvent)&&
+        Objects.equals(this.advancedEvent, integrationEventV3Response.advancedEvent) &&
+        Objects.equals(this.referral, integrationEventV3Response.referral)&&
         Objects.equals(this.additionalProperties, integrationEventV3Response.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(customerProfile, loyalty, triggeredCampaigns, campaignEligibility, effects, ruleFailureReasons, createdCoupons, createdReferrals, awardedGiveaways, achievements, advancedEvent, additionalProperties);
+    return Objects.hash(customerProfile, loyalty, triggeredCampaigns, campaignEligibility, effects, ruleFailureReasons, createdCoupons, createdReferrals, awardedGiveaways, achievements, advancedEvent, referral, additionalProperties);
   }
 
   @Override
@@ -482,6 +508,7 @@ public class IntegrationEventV3Response {
     sb.append("    awardedGiveaways: ").append(toIndentedString(awardedGiveaways)).append("\n");
     sb.append("    achievements: ").append(toIndentedString(achievements)).append("\n");
     sb.append("    advancedEvent: ").append(toIndentedString(advancedEvent)).append("\n");
+    sb.append("    referral: ").append(toIndentedString(referral)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -501,7 +528,7 @@ public class IntegrationEventV3Response {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("customerProfile", "loyalty", "triggeredCampaigns", "campaignEligibility", "effects", "ruleFailureReasons", "createdCoupons", "createdReferrals", "awardedGiveaways", "achievements", "advancedEvent"));
+    openapiFields = new HashSet<String>(Arrays.asList("customerProfile", "loyalty", "triggeredCampaigns", "campaignEligibility", "effects", "ruleFailureReasons", "createdCoupons", "createdReferrals", "awardedGiveaways", "achievements", "advancedEvent", "referral"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("effects", "createdCoupons", "createdReferrals"));
@@ -638,6 +665,10 @@ public class IntegrationEventV3Response {
       // validate the optional field `advancedEvent`
       if (jsonObj.get("advancedEvent") != null && !jsonObj.get("advancedEvent").isJsonNull()) {
         EventV3.validateJsonElement(jsonObj.get("advancedEvent"));
+      }
+      // validate the optional field `referral`
+      if (jsonObj.get("referral") != null && !jsonObj.get("referral").isJsonNull()) {
+        InventoryReferral.validateJsonElement(jsonObj.get("referral"));
       }
   }
 
