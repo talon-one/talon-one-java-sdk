@@ -31,6 +31,7 @@ import one.talon.model.Account;
 import one.talon.model.AccountAdditionalCost;
 import one.talon.model.AccountAnalytics;
 import one.talon.model.Achievement;
+import one.talon.model.AchievementV2;
 import one.talon.model.ActivateUserRequest;
 import one.talon.model.AddLoyaltyPoints;
 import one.talon.model.Application;
@@ -49,6 +50,7 @@ import one.talon.model.CampaignSearch;
 import one.talon.model.Collection;
 import one.talon.model.Coupon;
 import one.talon.model.CreateAchievement;
+import one.talon.model.CreateAchievementV2;
 import one.talon.model.CreateCoupons200Response;
 import one.talon.model.CreateTemplateCampaign;
 import one.talon.model.CreateTemplateCampaignResponse;
@@ -61,6 +63,7 @@ import one.talon.model.DeductLoyaltyPoints;
 import one.talon.model.DeleteUserRequest;
 import one.talon.model.ErrorResponse;
 import one.talon.model.ErrorResponseWithStatus;
+import one.talon.model.ExcludePriceObservationsRequest;
 import one.talon.model.Experiment;
 import java.io.File;
 import one.talon.model.GenerateCouponRejections200Response;
@@ -103,6 +106,7 @@ import one.talon.model.GetUsers200Response;
 import one.talon.model.GetWebhooks200Response;
 import one.talon.model.ListAccountCollections200Response;
 import one.talon.model.ListAchievements200Response;
+import one.talon.model.ListAchievementsV2200Response;
 import one.talon.model.ListAllRolesV2200Response;
 import one.talon.model.ListApplicationCartItemFilters200Response;
 import one.talon.model.ListCampaignStoreBudgetLimits200Response;
@@ -157,6 +161,7 @@ import one.talon.model.Store;
 import one.talon.model.SummarizeCampaignStoreBudget200Response;
 import one.talon.model.TransferLoyaltyCard;
 import one.talon.model.UpdateAchievement;
+import one.talon.model.UpdateAchievementV2;
 import one.talon.model.UpdateCampaign;
 import one.talon.model.UpdateCampaignCollection;
 import one.talon.model.UpdateCollection;
@@ -946,7 +951,9 @@ public class ManagementApi {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 409 </td><td> Conflict. An achievement with this name or title already exists. </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public okhttp3.Call createAchievementCall(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, @javax.annotation.Nonnull CreateAchievement createAchievement, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
@@ -994,6 +1001,7 @@ public class ManagementApi {
         return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
+    @Deprecated
     @SuppressWarnings("rawtypes")
     private okhttp3.Call createAchievementValidateBeforeCall(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, @javax.annotation.Nonnull CreateAchievement createAchievement, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'applicationId' is set
@@ -1032,7 +1040,9 @@ public class ManagementApi {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 409 </td><td> Conflict. An achievement with this name or title already exists. </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public Achievement createAchievement(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, @javax.annotation.Nonnull CreateAchievement createAchievement) throws ApiException {
         ApiResponse<Achievement> localVarResp = createAchievementWithHttpInfo(applicationId, campaignId, createAchievement);
         return localVarResp.getData();
@@ -1055,7 +1065,9 @@ public class ManagementApi {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 409 </td><td> Conflict. An achievement with this name or title already exists. </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public ApiResponse<Achievement> createAchievementWithHttpInfo(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, @javax.annotation.Nonnull CreateAchievement createAchievement) throws ApiException {
         okhttp3.Call localVarCall = createAchievementValidateBeforeCall(applicationId, campaignId, createAchievement, null);
         Type localVarReturnType = new TypeToken<Achievement>(){}.getType();
@@ -1080,11 +1092,152 @@ public class ManagementApi {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 409 </td><td> Conflict. An achievement with this name or title already exists. </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public okhttp3.Call createAchievementAsync(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, @javax.annotation.Nonnull CreateAchievement createAchievement, final ApiCallback<Achievement> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = createAchievementValidateBeforeCall(applicationId, campaignId, createAchievement, _callback);
         Type localVarReturnType = new TypeToken<Achievement>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for createAchievementV2
+     * @param createAchievementV2 body (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict. An achievement with this name already exists. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call createAchievementV2Call(@javax.annotation.Nonnull CreateAchievementV2 createAchievementV2, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = createAchievementV2;
+
+        // create path and map variables
+        String localVarPath = "/v2/achievements";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "api_key_v1" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call createAchievementV2ValidateBeforeCall(@javax.annotation.Nonnull CreateAchievementV2 createAchievementV2, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'createAchievementV2' is set
+        if (createAchievementV2 == null) {
+            throw new ApiException("Missing the required parameter 'createAchievementV2' when calling createAchievementV2(Async)");
+        }
+
+        return createAchievementV2Call(createAchievementV2, _callback);
+
+    }
+
+    /**
+     * Create achievement
+     * Create a new account-level achievement.
+     * @param createAchievementV2 body (required)
+     * @return AchievementV2
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict. An achievement with this name already exists. </td><td>  -  </td></tr>
+     </table>
+     */
+    public AchievementV2 createAchievementV2(@javax.annotation.Nonnull CreateAchievementV2 createAchievementV2) throws ApiException {
+        ApiResponse<AchievementV2> localVarResp = createAchievementV2WithHttpInfo(createAchievementV2);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Create achievement
+     * Create a new account-level achievement.
+     * @param createAchievementV2 body (required)
+     * @return ApiResponse&lt;AchievementV2&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict. An achievement with this name already exists. </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<AchievementV2> createAchievementV2WithHttpInfo(@javax.annotation.Nonnull CreateAchievementV2 createAchievementV2) throws ApiException {
+        okhttp3.Call localVarCall = createAchievementV2ValidateBeforeCall(createAchievementV2, null);
+        Type localVarReturnType = new TypeToken<AchievementV2>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Create achievement (asynchronously)
+     * Create a new account-level achievement.
+     * @param createAchievementV2 body (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict. An achievement with this name already exists. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call createAchievementV2Async(@javax.annotation.Nonnull CreateAchievementV2 createAchievementV2, final ApiCallback<AchievementV2> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = createAchievementV2ValidateBeforeCall(createAchievementV2, _callback);
+        Type localVarReturnType = new TypeToken<AchievementV2>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -3611,7 +3764,9 @@ public class ManagementApi {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public okhttp3.Call deleteAchievementCall(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, @javax.annotation.Nonnull Long achievementId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
@@ -3659,6 +3814,7 @@ public class ManagementApi {
         return localVarApiClient.buildCall(basePath, localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
+    @Deprecated
     @SuppressWarnings("rawtypes")
     private okhttp3.Call deleteAchievementValidateBeforeCall(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, @javax.annotation.Nonnull Long achievementId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'applicationId' is set
@@ -3695,7 +3851,9 @@ public class ManagementApi {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public void deleteAchievement(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, @javax.annotation.Nonnull Long achievementId) throws ApiException {
         deleteAchievementWithHttpInfo(applicationId, campaignId, achievementId);
     }
@@ -3716,7 +3874,9 @@ public class ManagementApi {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public ApiResponse<Void> deleteAchievementWithHttpInfo(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, @javax.annotation.Nonnull Long achievementId) throws ApiException {
         okhttp3.Call localVarCall = deleteAchievementValidateBeforeCall(applicationId, campaignId, achievementId, null);
         return localVarApiClient.execute(localVarCall);
@@ -3739,10 +3899,143 @@ public class ManagementApi {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public okhttp3.Call deleteAchievementAsync(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, @javax.annotation.Nonnull Long achievementId, final ApiCallback<Void> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = deleteAchievementValidateBeforeCall(applicationId, campaignId, achievementId, _callback);
+        localVarApiClient.executeAsync(localVarCall, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for deleteAchievementV2
+     * @param achievementId The ID of the achievement. You can get this ID with the [List achievement](https://docs.talon.one/management-api#tag/Achievements/operation/listAchievementsV2) endpoint. (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call deleteAchievementV2Call(@javax.annotation.Nonnull Long achievementId, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/v2/achievements/{achievementId}"
+            .replace("{" + "achievementId" + "}", localVarApiClient.escapeString(achievementId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "api_key_v1" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call deleteAchievementV2ValidateBeforeCall(@javax.annotation.Nonnull Long achievementId, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'achievementId' is set
+        if (achievementId == null) {
+            throw new ApiException("Missing the required parameter 'achievementId' when calling deleteAchievementV2(Async)");
+        }
+
+        return deleteAchievementV2Call(achievementId, _callback);
+
+    }
+
+    /**
+     * Delete achievement
+     * Delete a specific achievement.
+     * @param achievementId The ID of the achievement. You can get this ID with the [List achievement](https://docs.talon.one/management-api#tag/Achievements/operation/listAchievementsV2) endpoint. (required)
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
+     </table>
+     */
+    public void deleteAchievementV2(@javax.annotation.Nonnull Long achievementId) throws ApiException {
+        deleteAchievementV2WithHttpInfo(achievementId);
+    }
+
+    /**
+     * Delete achievement
+     * Delete a specific achievement.
+     * @param achievementId The ID of the achievement. You can get this ID with the [List achievement](https://docs.talon.one/management-api#tag/Achievements/operation/listAchievementsV2) endpoint. (required)
+     * @return ApiResponse&lt;Void&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<Void> deleteAchievementV2WithHttpInfo(@javax.annotation.Nonnull Long achievementId) throws ApiException {
+        okhttp3.Call localVarCall = deleteAchievementV2ValidateBeforeCall(achievementId, null);
+        return localVarApiClient.execute(localVarCall);
+    }
+
+    /**
+     * Delete achievement (asynchronously)
+     * Delete a specific achievement.
+     * @param achievementId The ID of the achievement. You can get this ID with the [List achievement](https://docs.talon.one/management-api#tag/Achievements/operation/listAchievementsV2) endpoint. (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call deleteAchievementV2Async(@javax.annotation.Nonnull Long achievementId, final ApiCallback<Void> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = deleteAchievementV2ValidateBeforeCall(achievementId, _callback);
         localVarApiClient.executeAsync(localVarCall, _callback);
         return localVarCall;
     }
@@ -5478,6 +5771,138 @@ public class ManagementApi {
         return localVarCall;
     }
     /**
+     * Build call for excludePriceHistory
+     * @param applicationId The ID of the Application. It is displayed in your Talon.One deployment URL. (required)
+     * @param excludePriceObservationsRequest body (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call excludePriceHistoryCall(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull ExcludePriceObservationsRequest excludePriceObservationsRequest, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = excludePriceObservationsRequest;
+
+        // create path and map variables
+        String localVarPath = "/v1/applications/{applicationId}/price_history/exclusions"
+            .replace("{" + "applicationId" + "}", localVarApiClient.escapeString(applicationId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "api_key_v1" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call excludePriceHistoryValidateBeforeCall(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull ExcludePriceObservationsRequest excludePriceObservationsRequest, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'applicationId' is set
+        if (applicationId == null) {
+            throw new ApiException("Missing the required parameter 'applicationId' when calling excludePriceHistory(Async)");
+        }
+
+        // verify the required parameter 'excludePriceObservationsRequest' is set
+        if (excludePriceObservationsRequest == null) {
+            throw new ApiException("Missing the required parameter 'excludePriceObservationsRequest' when calling excludePriceHistory(Async)");
+        }
+
+        return excludePriceHistoryCall(applicationId, excludePriceObservationsRequest, _callback);
+
+    }
+
+    /**
+     * Exclude price records from price history
+     * Select a batch of historical price IDs to exclude from [best prior price calculation](https://docs.talon.one/integration-api#tag/Catalogs/operation/bestPriorPrice). All IDs in the batch must be valid &#x60;id&#x60; values obtained from the [Get summary of price history](https://docs.talon.one/management-api#tag/Catalogs/operation/priceHistory.responses.200.history) endpoint, must belong to the specified Application, must not already be excluded from best prior price calculation, and must not be associated with a scheduled strikethrough pricing notification. 
+     * @param applicationId The ID of the Application. It is displayed in your Talon.One deployment URL. (required)
+     * @param excludePriceObservationsRequest body (required)
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+     </table>
+     */
+    public void excludePriceHistory(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull ExcludePriceObservationsRequest excludePriceObservationsRequest) throws ApiException {
+        excludePriceHistoryWithHttpInfo(applicationId, excludePriceObservationsRequest);
+    }
+
+    /**
+     * Exclude price records from price history
+     * Select a batch of historical price IDs to exclude from [best prior price calculation](https://docs.talon.one/integration-api#tag/Catalogs/operation/bestPriorPrice). All IDs in the batch must be valid &#x60;id&#x60; values obtained from the [Get summary of price history](https://docs.talon.one/management-api#tag/Catalogs/operation/priceHistory.responses.200.history) endpoint, must belong to the specified Application, must not already be excluded from best prior price calculation, and must not be associated with a scheduled strikethrough pricing notification. 
+     * @param applicationId The ID of the Application. It is displayed in your Talon.One deployment URL. (required)
+     * @param excludePriceObservationsRequest body (required)
+     * @return ApiResponse&lt;Void&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<Void> excludePriceHistoryWithHttpInfo(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull ExcludePriceObservationsRequest excludePriceObservationsRequest) throws ApiException {
+        okhttp3.Call localVarCall = excludePriceHistoryValidateBeforeCall(applicationId, excludePriceObservationsRequest, null);
+        return localVarApiClient.execute(localVarCall);
+    }
+
+    /**
+     * Exclude price records from price history (asynchronously)
+     * Select a batch of historical price IDs to exclude from [best prior price calculation](https://docs.talon.one/integration-api#tag/Catalogs/operation/bestPriorPrice). All IDs in the batch must be valid &#x60;id&#x60; values obtained from the [Get summary of price history](https://docs.talon.one/management-api#tag/Catalogs/operation/priceHistory.responses.200.history) endpoint, must belong to the specified Application, must not already be excluded from best prior price calculation, and must not be associated with a scheduled strikethrough pricing notification. 
+     * @param applicationId The ID of the Application. It is displayed in your Talon.One deployment URL. (required)
+     * @param excludePriceObservationsRequest body (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call excludePriceHistoryAsync(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull ExcludePriceObservationsRequest excludePriceObservationsRequest, final ApiCallback<Void> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = excludePriceHistoryValidateBeforeCall(applicationId, excludePriceObservationsRequest, _callback);
+        localVarApiClient.executeAsync(localVarCall, _callback);
+        return localVarCall;
+    }
+    /**
      * Build call for exportAccountCollectionItems
      * @param collectionId The ID of the collection. You can get it with the [List collections in account](#tag/Collections/operation/listAccountCollections) endpoint. (required)
      * @param _callback Callback for upload/download progress
@@ -5613,6 +6038,145 @@ public class ManagementApi {
         return localVarCall;
     }
     /**
+     * Build call for exportAchievementV2
+     * @param achievementId The ID of the achievement. You can get this ID with the [List achievements](https://docs.talon.one/management-api#tag/Achievements/operation/listAchievementsV2) endpoint. (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call exportAchievementV2Call(@javax.annotation.Nonnull Long achievementId, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/v2/achievements/{achievementId}/export"
+            .replace("{" + "achievementId" + "}", localVarApiClient.escapeString(achievementId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/csv"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "api_key_v1" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call exportAchievementV2ValidateBeforeCall(@javax.annotation.Nonnull Long achievementId, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'achievementId' is set
+        if (achievementId == null) {
+            throw new ApiException("Missing the required parameter 'achievementId' when calling exportAchievementV2(Async)");
+        }
+
+        return exportAchievementV2Call(achievementId, _callback);
+
+    }
+
+    /**
+     * Export achievement customer data
+     * Download a CSV file containing a list of all the customers who have participated in and are currently participating in the given achievement.  The CSV file contains the following columns: - &#x60;profileIntegrationID&#x60;: The integration ID of the customer profile participating in the achievement. - &#x60;title&#x60;: The display name of the achievement in the Campaign Manager. - &#x60;target&#x60;: The required number of actions or the transactional milestone to complete the achievement. - &#x60;progress&#x60;: The current progress of the customer in the achievement. - &#x60;status&#x60;: The status of the achievement. Can be one of: [&#39;inprogress&#39;, &#39;completed&#39;, &#39;expired&#39;]. - &#x60;startDate&#x60;: The date on which the customer profile started the achievement in RFC3339. - &#x60;endDate&#x60;: The date on which the achievement ends and resets for the customer profile in RFC3339. - &#x60;completionDate&#x60;: The date on which the customer profile completed the achievement in RFC3339. 
+     * @param achievementId The ID of the achievement. You can get this ID with the [List achievements](https://docs.talon.one/management-api#tag/Achievements/operation/listAchievementsV2) endpoint. (required)
+     * @return String
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
+     </table>
+     */
+    public String exportAchievementV2(@javax.annotation.Nonnull Long achievementId) throws ApiException {
+        ApiResponse<String> localVarResp = exportAchievementV2WithHttpInfo(achievementId);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Export achievement customer data
+     * Download a CSV file containing a list of all the customers who have participated in and are currently participating in the given achievement.  The CSV file contains the following columns: - &#x60;profileIntegrationID&#x60;: The integration ID of the customer profile participating in the achievement. - &#x60;title&#x60;: The display name of the achievement in the Campaign Manager. - &#x60;target&#x60;: The required number of actions or the transactional milestone to complete the achievement. - &#x60;progress&#x60;: The current progress of the customer in the achievement. - &#x60;status&#x60;: The status of the achievement. Can be one of: [&#39;inprogress&#39;, &#39;completed&#39;, &#39;expired&#39;]. - &#x60;startDate&#x60;: The date on which the customer profile started the achievement in RFC3339. - &#x60;endDate&#x60;: The date on which the achievement ends and resets for the customer profile in RFC3339. - &#x60;completionDate&#x60;: The date on which the customer profile completed the achievement in RFC3339. 
+     * @param achievementId The ID of the achievement. You can get this ID with the [List achievements](https://docs.talon.one/management-api#tag/Achievements/operation/listAchievementsV2) endpoint. (required)
+     * @return ApiResponse&lt;String&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<String> exportAchievementV2WithHttpInfo(@javax.annotation.Nonnull Long achievementId) throws ApiException {
+        okhttp3.Call localVarCall = exportAchievementV2ValidateBeforeCall(achievementId, null);
+        Type localVarReturnType = new TypeToken<String>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Export achievement customer data (asynchronously)
+     * Download a CSV file containing a list of all the customers who have participated in and are currently participating in the given achievement.  The CSV file contains the following columns: - &#x60;profileIntegrationID&#x60;: The integration ID of the customer profile participating in the achievement. - &#x60;title&#x60;: The display name of the achievement in the Campaign Manager. - &#x60;target&#x60;: The required number of actions or the transactional milestone to complete the achievement. - &#x60;progress&#x60;: The current progress of the customer in the achievement. - &#x60;status&#x60;: The status of the achievement. Can be one of: [&#39;inprogress&#39;, &#39;completed&#39;, &#39;expired&#39;]. - &#x60;startDate&#x60;: The date on which the customer profile started the achievement in RFC3339. - &#x60;endDate&#x60;: The date on which the achievement ends and resets for the customer profile in RFC3339. - &#x60;completionDate&#x60;: The date on which the customer profile completed the achievement in RFC3339. 
+     * @param achievementId The ID of the achievement. You can get this ID with the [List achievements](https://docs.talon.one/management-api#tag/Achievements/operation/listAchievementsV2) endpoint. (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call exportAchievementV2Async(@javax.annotation.Nonnull Long achievementId, final ApiCallback<String> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = exportAchievementV2ValidateBeforeCall(achievementId, _callback);
+        Type localVarReturnType = new TypeToken<String>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
      * Build call for exportAchievements
      * @param applicationId The ID of the Application. It is displayed in your Talon.One deployment URL. (required)
      * @param campaignId The ID of the campaign. It is displayed in your Talon.One deployment URL. (required)
@@ -5629,7 +6193,9 @@ public class ManagementApi {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public okhttp3.Call exportAchievementsCall(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, @javax.annotation.Nonnull Long achievementId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
@@ -5677,6 +6243,7 @@ public class ManagementApi {
         return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
+    @Deprecated
     @SuppressWarnings("rawtypes")
     private okhttp3.Call exportAchievementsValidateBeforeCall(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, @javax.annotation.Nonnull Long achievementId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'applicationId' is set
@@ -5715,7 +6282,9 @@ public class ManagementApi {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public String exportAchievements(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, @javax.annotation.Nonnull Long achievementId) throws ApiException {
         ApiResponse<String> localVarResp = exportAchievementsWithHttpInfo(applicationId, campaignId, achievementId);
         return localVarResp.getData();
@@ -5738,7 +6307,9 @@ public class ManagementApi {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public ApiResponse<String> exportAchievementsWithHttpInfo(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, @javax.annotation.Nonnull Long achievementId) throws ApiException {
         okhttp3.Call localVarCall = exportAchievementsValidateBeforeCall(applicationId, campaignId, achievementId, null);
         Type localVarReturnType = new TypeToken<String>(){}.getType();
@@ -5763,7 +6334,9 @@ public class ManagementApi {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public okhttp3.Call exportAchievementsAsync(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, @javax.annotation.Nonnull Long achievementId, final ApiCallback<String> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = exportAchievementsValidateBeforeCall(applicationId, campaignId, achievementId, _callback);
@@ -9640,7 +10213,9 @@ public class ManagementApi {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public okhttp3.Call getAchievementCall(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, @javax.annotation.Nonnull Long achievementId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
@@ -9688,6 +10263,7 @@ public class ManagementApi {
         return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
+    @Deprecated
     @SuppressWarnings("rawtypes")
     private okhttp3.Call getAchievementValidateBeforeCall(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, @javax.annotation.Nonnull Long achievementId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'applicationId' is set
@@ -9725,7 +10301,9 @@ public class ManagementApi {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public Achievement getAchievement(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, @javax.annotation.Nonnull Long achievementId) throws ApiException {
         ApiResponse<Achievement> localVarResp = getAchievementWithHttpInfo(applicationId, campaignId, achievementId);
         return localVarResp.getData();
@@ -9747,7 +10325,9 @@ public class ManagementApi {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public ApiResponse<Achievement> getAchievementWithHttpInfo(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, @javax.annotation.Nonnull Long achievementId) throws ApiException {
         okhttp3.Call localVarCall = getAchievementValidateBeforeCall(applicationId, campaignId, achievementId, null);
         Type localVarReturnType = new TypeToken<Achievement>(){}.getType();
@@ -9771,11 +10351,148 @@ public class ManagementApi {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public okhttp3.Call getAchievementAsync(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, @javax.annotation.Nonnull Long achievementId, final ApiCallback<Achievement> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getAchievementValidateBeforeCall(applicationId, campaignId, achievementId, _callback);
         Type localVarReturnType = new TypeToken<Achievement>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for getAchievementV2
+     * @param achievementId The ID of the achievement.  You can get this ID with the [List achievement](https://docs.talon.one/management-api#tag/Achievements/operation/listAchievementsV2) endpoint.  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getAchievementV2Call(@javax.annotation.Nonnull Long achievementId, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/v2/achievements/{achievementId}"
+            .replace("{" + "achievementId" + "}", localVarApiClient.escapeString(achievementId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "api_key_v1" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call getAchievementV2ValidateBeforeCall(@javax.annotation.Nonnull Long achievementId, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'achievementId' is set
+        if (achievementId == null) {
+            throw new ApiException("Missing the required parameter 'achievementId' when calling getAchievementV2(Async)");
+        }
+
+        return getAchievementV2Call(achievementId, _callback);
+
+    }
+
+    /**
+     * Get achievement
+     * Retrieve the details of a specific achievement.
+     * @param achievementId The ID of the achievement.  You can get this ID with the [List achievement](https://docs.talon.one/management-api#tag/Achievements/operation/listAchievementsV2) endpoint.  (required)
+     * @return AchievementV2
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
+     </table>
+     */
+    public AchievementV2 getAchievementV2(@javax.annotation.Nonnull Long achievementId) throws ApiException {
+        ApiResponse<AchievementV2> localVarResp = getAchievementV2WithHttpInfo(achievementId);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Get achievement
+     * Retrieve the details of a specific achievement.
+     * @param achievementId The ID of the achievement.  You can get this ID with the [List achievement](https://docs.talon.one/management-api#tag/Achievements/operation/listAchievementsV2) endpoint.  (required)
+     * @return ApiResponse&lt;AchievementV2&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<AchievementV2> getAchievementV2WithHttpInfo(@javax.annotation.Nonnull Long achievementId) throws ApiException {
+        okhttp3.Call localVarCall = getAchievementV2ValidateBeforeCall(achievementId, null);
+        Type localVarReturnType = new TypeToken<AchievementV2>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Get achievement (asynchronously)
+     * Retrieve the details of a specific achievement.
+     * @param achievementId The ID of the achievement.  You can get this ID with the [List achievement](https://docs.talon.one/management-api#tag/Achievements/operation/listAchievementsV2) endpoint.  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getAchievementV2Async(@javax.annotation.Nonnull Long achievementId, final ApiCallback<AchievementV2> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = getAchievementV2ValidateBeforeCall(achievementId, _callback);
+        Type localVarReturnType = new TypeToken<AchievementV2>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -22275,7 +22992,9 @@ public class ManagementApi {
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public okhttp3.Call listAchievementsCall(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable String title, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
@@ -22334,6 +23053,7 @@ public class ManagementApi {
         return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
+    @Deprecated
     @SuppressWarnings("rawtypes")
     private okhttp3.Call listAchievementsValidateBeforeCall(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable String title, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'applicationId' is set
@@ -22366,7 +23086,9 @@ public class ManagementApi {
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public ListAchievements200Response listAchievements(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable String title) throws ApiException {
         ApiResponse<ListAchievements200Response> localVarResp = listAchievementsWithHttpInfo(applicationId, campaignId, pageSize, skip, title);
         return localVarResp.getData();
@@ -22388,7 +23110,9 @@ public class ManagementApi {
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public ApiResponse<ListAchievements200Response> listAchievementsWithHttpInfo(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable String title) throws ApiException {
         okhttp3.Call localVarCall = listAchievementsValidateBeforeCall(applicationId, campaignId, pageSize, skip, title, null);
         Type localVarReturnType = new TypeToken<ListAchievements200Response>(){}.getType();
@@ -22412,11 +23136,178 @@ public class ManagementApi {
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public okhttp3.Call listAchievementsAsync(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable String title, final ApiCallback<ListAchievements200Response> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = listAchievementsValidateBeforeCall(applicationId, campaignId, pageSize, skip, title, _callback);
         Type localVarReturnType = new TypeToken<ListAchievements200Response>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for listAchievementsV2
+     * @param pageSize The number of items in the response. (optional, default to 50)
+     * @param skip The number of items to skip when paging through large result sets. (optional)
+     * @param sort The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.  (optional)
+     * @param title Filter by the display name of the achievement. (optional)
+     * @param applicationId Filter by the ID of an Application connected to the achievement. (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call listAchievementsV2Call(@javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable String sort, @javax.annotation.Nullable String title, @javax.annotation.Nullable Long applicationId, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/v2/achievements";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (pageSize != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("pageSize", pageSize));
+        }
+
+        if (skip != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("skip", skip));
+        }
+
+        if (sort != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("sort", sort));
+        }
+
+        if (title != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("title", title));
+        }
+
+        if (applicationId != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("applicationId", applicationId));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "api_key_v1" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call listAchievementsV2ValidateBeforeCall(@javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable String sort, @javax.annotation.Nullable String title, @javax.annotation.Nullable Long applicationId, final ApiCallback _callback) throws ApiException {
+        return listAchievementsV2Call(pageSize, skip, sort, title, applicationId, _callback);
+
+    }
+
+    /**
+     * List achievements
+     * List all achievements. 
+     * @param pageSize The number of items in the response. (optional, default to 50)
+     * @param skip The number of items to skip when paging through large result sets. (optional)
+     * @param sort The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.  (optional)
+     * @param title Filter by the display name of the achievement. (optional)
+     * @param applicationId Filter by the ID of an Application connected to the achievement. (optional)
+     * @return ListAchievementsV2200Response
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+     </table>
+     */
+    public ListAchievementsV2200Response listAchievementsV2(@javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable String sort, @javax.annotation.Nullable String title, @javax.annotation.Nullable Long applicationId) throws ApiException {
+        ApiResponse<ListAchievementsV2200Response> localVarResp = listAchievementsV2WithHttpInfo(pageSize, skip, sort, title, applicationId);
+        return localVarResp.getData();
+    }
+
+    /**
+     * List achievements
+     * List all achievements. 
+     * @param pageSize The number of items in the response. (optional, default to 50)
+     * @param skip The number of items to skip when paging through large result sets. (optional)
+     * @param sort The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.  (optional)
+     * @param title Filter by the display name of the achievement. (optional)
+     * @param applicationId Filter by the ID of an Application connected to the achievement. (optional)
+     * @return ApiResponse&lt;ListAchievementsV2200Response&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<ListAchievementsV2200Response> listAchievementsV2WithHttpInfo(@javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable String sort, @javax.annotation.Nullable String title, @javax.annotation.Nullable Long applicationId) throws ApiException {
+        okhttp3.Call localVarCall = listAchievementsV2ValidateBeforeCall(pageSize, skip, sort, title, applicationId, null);
+        Type localVarReturnType = new TypeToken<ListAchievementsV2200Response>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * List achievements (asynchronously)
+     * List all achievements. 
+     * @param pageSize The number of items in the response. (optional, default to 50)
+     * @param skip The number of items to skip when paging through large result sets. (optional)
+     * @param sort The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.  (optional)
+     * @param title Filter by the display name of the achievement. (optional)
+     * @param applicationId Filter by the ID of an Application connected to the achievement. (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call listAchievementsV2Async(@javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable String sort, @javax.annotation.Nullable String title, @javax.annotation.Nullable Long applicationId, final ApiCallback<ListAchievementsV2200Response> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = listAchievementsV2ValidateBeforeCall(pageSize, skip, sort, title, applicationId, _callback);
+        Type localVarReturnType = new TypeToken<ListAchievementsV2200Response>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -27085,7 +27976,9 @@ public class ManagementApi {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public okhttp3.Call updateAchievementCall(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, @javax.annotation.Nonnull Long achievementId, @javax.annotation.Nonnull UpdateAchievement updateAchievement, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
@@ -27134,6 +28027,7 @@ public class ManagementApi {
         return localVarApiClient.buildCall(basePath, localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
+    @Deprecated
     @SuppressWarnings("rawtypes")
     private okhttp3.Call updateAchievementValidateBeforeCall(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, @javax.annotation.Nonnull Long achievementId, @javax.annotation.Nonnull UpdateAchievement updateAchievement, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'applicationId' is set
@@ -27178,7 +28072,9 @@ public class ManagementApi {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public Achievement updateAchievement(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, @javax.annotation.Nonnull Long achievementId, @javax.annotation.Nonnull UpdateAchievement updateAchievement) throws ApiException {
         ApiResponse<Achievement> localVarResp = updateAchievementWithHttpInfo(applicationId, campaignId, achievementId, updateAchievement);
         return localVarResp.getData();
@@ -27202,7 +28098,9 @@ public class ManagementApi {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public ApiResponse<Achievement> updateAchievementWithHttpInfo(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, @javax.annotation.Nonnull Long achievementId, @javax.annotation.Nonnull UpdateAchievement updateAchievement) throws ApiException {
         okhttp3.Call localVarCall = updateAchievementValidateBeforeCall(applicationId, campaignId, achievementId, updateAchievement, null);
         Type localVarReturnType = new TypeToken<Achievement>(){}.getType();
@@ -27228,11 +28126,162 @@ public class ManagementApi {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public okhttp3.Call updateAchievementAsync(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, @javax.annotation.Nonnull Long achievementId, @javax.annotation.Nonnull UpdateAchievement updateAchievement, final ApiCallback<Achievement> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = updateAchievementValidateBeforeCall(applicationId, campaignId, achievementId, updateAchievement, _callback);
         Type localVarReturnType = new TypeToken<Achievement>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for updateAchievementV2
+     * @param achievementId The ID of the achievement. You can get this ID with the [List achievement](https://docs.talon.one/management-api#tag/Achievements/operation/listAchievementsV2) endpoint. (required)
+     * @param updateAchievementV2 body (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call updateAchievementV2Call(@javax.annotation.Nonnull Long achievementId, @javax.annotation.Nonnull UpdateAchievementV2 updateAchievementV2, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = updateAchievementV2;
+
+        // create path and map variables
+        String localVarPath = "/v2/achievements/{achievementId}"
+            .replace("{" + "achievementId" + "}", localVarApiClient.escapeString(achievementId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "api_key_v1" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call updateAchievementV2ValidateBeforeCall(@javax.annotation.Nonnull Long achievementId, @javax.annotation.Nonnull UpdateAchievementV2 updateAchievementV2, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'achievementId' is set
+        if (achievementId == null) {
+            throw new ApiException("Missing the required parameter 'achievementId' when calling updateAchievementV2(Async)");
+        }
+
+        // verify the required parameter 'updateAchievementV2' is set
+        if (updateAchievementV2 == null) {
+            throw new ApiException("Missing the required parameter 'updateAchievementV2' when calling updateAchievementV2(Async)");
+        }
+
+        return updateAchievementV2Call(achievementId, updateAchievementV2, _callback);
+
+    }
+
+    /**
+     * Update achievement
+     * Update the details of a specific achievement.
+     * @param achievementId The ID of the achievement. You can get this ID with the [List achievement](https://docs.talon.one/management-api#tag/Achievements/operation/listAchievementsV2) endpoint. (required)
+     * @param updateAchievementV2 body (required)
+     * @return AchievementV2
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
+     </table>
+     */
+    public AchievementV2 updateAchievementV2(@javax.annotation.Nonnull Long achievementId, @javax.annotation.Nonnull UpdateAchievementV2 updateAchievementV2) throws ApiException {
+        ApiResponse<AchievementV2> localVarResp = updateAchievementV2WithHttpInfo(achievementId, updateAchievementV2);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Update achievement
+     * Update the details of a specific achievement.
+     * @param achievementId The ID of the achievement. You can get this ID with the [List achievement](https://docs.talon.one/management-api#tag/Achievements/operation/listAchievementsV2) endpoint. (required)
+     * @param updateAchievementV2 body (required)
+     * @return ApiResponse&lt;AchievementV2&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<AchievementV2> updateAchievementV2WithHttpInfo(@javax.annotation.Nonnull Long achievementId, @javax.annotation.Nonnull UpdateAchievementV2 updateAchievementV2) throws ApiException {
+        okhttp3.Call localVarCall = updateAchievementV2ValidateBeforeCall(achievementId, updateAchievementV2, null);
+        Type localVarReturnType = new TypeToken<AchievementV2>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Update achievement (asynchronously)
+     * Update the details of a specific achievement.
+     * @param achievementId The ID of the achievement. You can get this ID with the [List achievement](https://docs.talon.one/management-api#tag/Achievements/operation/listAchievementsV2) endpoint. (required)
+     * @param updateAchievementV2 body (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call updateAchievementV2Async(@javax.annotation.Nonnull Long achievementId, @javax.annotation.Nonnull UpdateAchievementV2 updateAchievementV2, final ApiCallback<AchievementV2> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = updateAchievementV2ValidateBeforeCall(achievementId, updateAchievementV2, _callback);
+        Type localVarReturnType = new TypeToken<AchievementV2>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }

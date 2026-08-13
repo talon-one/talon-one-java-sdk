@@ -126,7 +126,15 @@ public class PromotionCheckAttributeBlock {
     
     CONTAINS_NONE_OF("containsNoneOf"),
     
-    CONTAINS_ALL_OF("containsAllOf");
+    CONTAINS_ALL_OF("containsAllOf"),
+    
+    AFTER("after"),
+    
+    BEFORE("before"),
+    
+    WITHIN("within"),
+    
+    NOT_WITHIN_("not(within)");
 
     private String value;
 
@@ -178,8 +186,8 @@ public class PromotionCheckAttributeBlock {
 
   public static final String SERIALIZED_NAME_ATTRIBUTE = "attribute";
   @SerializedName(SERIALIZED_NAME_ATTRIBUTE)
-  @javax.annotation.Nonnull
-  private String attribute;
+  @javax.annotation.Nullable
+  private Object attribute = null;
 
   public static final String SERIALIZED_NAME_VALUE = "value";
   @SerializedName(SERIALIZED_NAME_VALUE)
@@ -195,6 +203,31 @@ public class PromotionCheckAttributeBlock {
   @SerializedName(SERIALIZED_NAME_MAX)
   @javax.annotation.Nullable
   private Object max = null;
+
+  public static final String SERIALIZED_NAME_START = "start";
+  @SerializedName(SERIALIZED_NAME_START)
+  @javax.annotation.Nullable
+  private Object start = null;
+
+  public static final String SERIALIZED_NAME_END = "end";
+  @SerializedName(SERIALIZED_NAME_END)
+  @javax.annotation.Nullable
+  private Object end = null;
+
+  public static final String SERIALIZED_NAME_START_INCLUSIVE = "startInclusive";
+  @SerializedName(SERIALIZED_NAME_START_INCLUSIVE)
+  @javax.annotation.Nullable
+  private Boolean startInclusive;
+
+  public static final String SERIALIZED_NAME_END_INCLUSIVE = "endInclusive";
+  @SerializedName(SERIALIZED_NAME_END_INCLUSIVE)
+  @javax.annotation.Nullable
+  private Boolean endInclusive;
+
+  public static final String SERIALIZED_NAME_TIMEZONE_INSENSITIVE = "timezoneInsensitive";
+  @SerializedName(SERIALIZED_NAME_TIMEZONE_INSENSITIVE)
+  @javax.annotation.Nullable
+  private Boolean timezoneInsensitive;
 
   public static final String SERIALIZED_NAME_VALUES = "values";
   @SerializedName(SERIALIZED_NAME_VALUES)
@@ -298,21 +331,21 @@ public class PromotionCheckAttributeBlock {
   }
 
 
-  public PromotionCheckAttributeBlock attribute(@javax.annotation.Nonnull String attribute) {
+  public PromotionCheckAttributeBlock attribute(@javax.annotation.Nullable Object attribute) {
     this.attribute = attribute;
     return this;
   }
 
   /**
-   * The attribute path identifier (e.g. \&quot;$Session.Total\&quot;).
+   * Get attribute
    * @return attribute
    */
-  @javax.annotation.Nonnull
-  public String getAttribute() {
+  @javax.annotation.Nullable
+  public Object getAttribute() {
     return attribute;
   }
 
-  public void setAttribute(@javax.annotation.Nonnull String attribute) {
+  public void setAttribute(@javax.annotation.Nullable Object attribute) {
     this.attribute = attribute;
   }
 
@@ -371,6 +404,101 @@ public class PromotionCheckAttributeBlock {
 
   public void setMax(@javax.annotation.Nullable Object max) {
     this.max = max;
+  }
+
+
+  public PromotionCheckAttributeBlock start(@javax.annotation.Nullable Object start) {
+    this.start = start;
+    return this;
+  }
+
+  /**
+   * Get start
+   * @return start
+   */
+  @javax.annotation.Nullable
+  public Object getStart() {
+    return start;
+  }
+
+  public void setStart(@javax.annotation.Nullable Object start) {
+    this.start = start;
+  }
+
+
+  public PromotionCheckAttributeBlock end(@javax.annotation.Nullable Object end) {
+    this.end = end;
+    return this;
+  }
+
+  /**
+   * Get end
+   * @return end
+   */
+  @javax.annotation.Nullable
+  public Object getEnd() {
+    return end;
+  }
+
+  public void setEnd(@javax.annotation.Nullable Object end) {
+    this.end = end;
+  }
+
+
+  public PromotionCheckAttributeBlock startInclusive(@javax.annotation.Nullable Boolean startInclusive) {
+    this.startInclusive = startInclusive;
+    return this;
+  }
+
+  /**
+   * When &#x60;true&#x60;, the &#x60;start&#x60; value is included in the range for the &#x60;within&#x60; operator.
+   * @return startInclusive
+   */
+  @javax.annotation.Nullable
+  public Boolean getStartInclusive() {
+    return startInclusive;
+  }
+
+  public void setStartInclusive(@javax.annotation.Nullable Boolean startInclusive) {
+    this.startInclusive = startInclusive;
+  }
+
+
+  public PromotionCheckAttributeBlock endInclusive(@javax.annotation.Nullable Boolean endInclusive) {
+    this.endInclusive = endInclusive;
+    return this;
+  }
+
+  /**
+   * When &#x60;true&#x60;, the &#x60;end&#x60; value is included in the range for the &#x60;within&#x60; operator.
+   * @return endInclusive
+   */
+  @javax.annotation.Nullable
+  public Boolean getEndInclusive() {
+    return endInclusive;
+  }
+
+  public void setEndInclusive(@javax.annotation.Nullable Boolean endInclusive) {
+    this.endInclusive = endInclusive;
+  }
+
+
+  public PromotionCheckAttributeBlock timezoneInsensitive(@javax.annotation.Nullable Boolean timezoneInsensitive) {
+    this.timezoneInsensitive = timezoneInsensitive;
+    return this;
+  }
+
+  /**
+   * Indicates whether the &#x60;within&#x60; operator ignores time zones and compares the wall-clock time only. When &#x60;false&#x60;, time zones are taken into account.
+   * @return timezoneInsensitive
+   */
+  @javax.annotation.Nullable
+  public Boolean getTimezoneInsensitive() {
+    return timezoneInsensitive;
+  }
+
+  public void setTimezoneInsensitive(@javax.annotation.Nullable Boolean timezoneInsensitive) {
+    this.timezoneInsensitive = timezoneInsensitive;
   }
 
 
@@ -501,6 +629,11 @@ public class PromotionCheckAttributeBlock {
         Objects.equals(this.value, promotionCheckAttributeBlock.value) &&
         Objects.equals(this.min, promotionCheckAttributeBlock.min) &&
         Objects.equals(this.max, promotionCheckAttributeBlock.max) &&
+        Objects.equals(this.start, promotionCheckAttributeBlock.start) &&
+        Objects.equals(this.end, promotionCheckAttributeBlock.end) &&
+        Objects.equals(this.startInclusive, promotionCheckAttributeBlock.startInclusive) &&
+        Objects.equals(this.endInclusive, promotionCheckAttributeBlock.endInclusive) &&
+        Objects.equals(this.timezoneInsensitive, promotionCheckAttributeBlock.timezoneInsensitive) &&
         Objects.equals(this.values, promotionCheckAttributeBlock.values) &&
         Objects.equals(this.count, promotionCheckAttributeBlock.count) &&
         Objects.equals(this.onFailure, promotionCheckAttributeBlock.onFailure)&&
@@ -513,7 +646,7 @@ public class PromotionCheckAttributeBlock {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, type, tags, operator, attribute, value, min, max, values, count, onFailure, additionalProperties);
+    return Objects.hash(id, type, tags, operator, attribute, value, min, max, start, end, startInclusive, endInclusive, timezoneInsensitive, values, count, onFailure, additionalProperties);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -535,6 +668,11 @@ public class PromotionCheckAttributeBlock {
     sb.append("    value: ").append(toIndentedString(value)).append("\n");
     sb.append("    min: ").append(toIndentedString(min)).append("\n");
     sb.append("    max: ").append(toIndentedString(max)).append("\n");
+    sb.append("    start: ").append(toIndentedString(start)).append("\n");
+    sb.append("    end: ").append(toIndentedString(end)).append("\n");
+    sb.append("    startInclusive: ").append(toIndentedString(startInclusive)).append("\n");
+    sb.append("    endInclusive: ").append(toIndentedString(endInclusive)).append("\n");
+    sb.append("    timezoneInsensitive: ").append(toIndentedString(timezoneInsensitive)).append("\n");
     sb.append("    values: ").append(toIndentedString(values)).append("\n");
     sb.append("    count: ").append(toIndentedString(count)).append("\n");
     sb.append("    onFailure: ").append(toIndentedString(onFailure)).append("\n");
@@ -557,7 +695,7 @@ public class PromotionCheckAttributeBlock {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("id", "type", "tags", "operator", "attribute", "value", "min", "max", "values", "count", "onFailure"));
+    openapiFields = new HashSet<String>(Arrays.asList("id", "type", "tags", "operator", "attribute", "value", "min", "max", "start", "end", "startInclusive", "endInclusive", "timezoneInsensitive", "values", "count", "onFailure"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("id", "type", "operator", "attribute"));
@@ -598,9 +736,6 @@ public class PromotionCheckAttributeBlock {
       }
       // validate the required field `operator`
       OperatorEnum.validateJsonElement(jsonObj.get("operator"));
-      if (!jsonObj.get("attribute").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `attribute` to be a primitive type in the JSON string but got `%s`", jsonObj.get("attribute").toString()));
-      }
       if (jsonObj.get("onFailure") != null && !jsonObj.get("onFailure").isJsonNull()) {
         JsonArray jsonArrayonFailure = jsonObj.getAsJsonArray("onFailure");
         if (jsonArrayonFailure != null) {

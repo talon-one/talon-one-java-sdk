@@ -9,6 +9,7 @@ The entity or item scope that this effect operates on.
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
 |**type** | [**TypeEnum**](#TypeEnum) | Identifies the target scope of the attribute update. |  |
+|**name** | **String** | Identifies the name of the target when its type is set to &#x60;selector&#x60; or &#x60;globalFilter&#x60;. |  [optional] |
 
 
 

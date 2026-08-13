@@ -99,4 +99,20 @@ public class HistoryTest {
         // TODO: test target
     }
 
+    /**
+     * Test the property 'excludedAt'
+     */
+    @Test
+    public void excludedAtTest() {
+        // TODO: test excludedAt
+    }
+
+    /**
+     * Test the property 'exclusionReason'
+     */
+    @Test
+    public void exclusionReasonTest() {
+        // TODO: test exclusionReason
+    }
+
 }

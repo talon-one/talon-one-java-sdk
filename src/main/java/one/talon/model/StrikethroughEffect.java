@@ -26,7 +26,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import one.talon.model.LabelTarget;
-import one.talon.model.StrikethroughEffectProps;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -84,7 +83,7 @@ public class StrikethroughEffect {
   public static final String SERIALIZED_NAME_PROPS = "props";
   @SerializedName(SERIALIZED_NAME_PROPS)
   @javax.annotation.Nonnull
-  private StrikethroughEffectProps props;
+  private Object props;
 
   public static final String SERIALIZED_NAME_START_TIME = "startTime";
   @SerializedName(SERIALIZED_NAME_START_TIME)
@@ -214,7 +213,7 @@ public class StrikethroughEffect {
   }
 
 
-  public StrikethroughEffect props(@javax.annotation.Nonnull StrikethroughEffectProps props) {
+  public StrikethroughEffect props(@javax.annotation.Nonnull Object props) {
     this.props = props;
     return this;
   }
@@ -224,11 +223,11 @@ public class StrikethroughEffect {
    * @return props
    */
   @javax.annotation.Nonnull
-  public StrikethroughEffectProps getProps() {
+  public Object getProps() {
     return props;
   }
 
-  public void setProps(@javax.annotation.Nonnull StrikethroughEffectProps props) {
+  public void setProps(@javax.annotation.Nonnull Object props) {
     this.props = props;
   }
 
@@ -496,8 +495,6 @@ public class StrikethroughEffect {
       if (!jsonObj.get("type").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("type").toString()));
       }
-      // validate the required field `props`
-      StrikethroughEffectProps.validateJsonElement(jsonObj.get("props"));
       if ((jsonObj.get("selectedPriceType") != null && !jsonObj.get("selectedPriceType").isJsonNull()) && !jsonObj.get("selectedPriceType").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `selectedPriceType` to be a primitive type in the JSON string but got `%s`", jsonObj.get("selectedPriceType").toString()));
       }

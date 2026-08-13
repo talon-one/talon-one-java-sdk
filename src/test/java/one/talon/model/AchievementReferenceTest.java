@@ -77,4 +77,12 @@ public class AchievementReferenceTest {
         // TODO: test campaignName
     }
 
+    /**
+     * Test the property 'campaignState'
+     */
+    @Test
+    public void campaignStateTest() {
+        // TODO: test campaignState
+    }
+
 }

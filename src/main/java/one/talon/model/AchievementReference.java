@@ -75,6 +75,65 @@ public class AchievementReference {
   @javax.annotation.Nonnull
   private String campaignName;
 
+  /**
+   * The state of the campaign that references this achievement.
+   */
+  @JsonAdapter(CampaignStateEnum.Adapter.class)
+  public enum CampaignStateEnum {
+    ENABLED("enabled"),
+    
+    DISABLED("disabled"),
+    
+    ARCHIVED("archived");
+
+    private String value;
+
+    CampaignStateEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static CampaignStateEnum fromValue(String value) {
+      for (CampaignStateEnum b : CampaignStateEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    }
+
+    public static class Adapter extends TypeAdapter<CampaignStateEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final CampaignStateEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public CampaignStateEnum read(final JsonReader jsonReader) throws IOException {
+        String value =  jsonReader.nextString();
+        return CampaignStateEnum.fromValue(value);
+      }
+    }
+
+    public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      String value = jsonElement.getAsString();
+      CampaignStateEnum.fromValue(value);
+    }
+  }
+
+  public static final String SERIALIZED_NAME_CAMPAIGN_STATE = "campaignState";
+  @SerializedName(SERIALIZED_NAME_CAMPAIGN_STATE)
+  @javax.annotation.Nonnull
+  private CampaignStateEnum campaignState;
+
   public AchievementReference() {
   }
 
@@ -172,6 +231,25 @@ public class AchievementReference {
     this.campaignName = campaignName;
   }
 
+
+  public AchievementReference campaignState(@javax.annotation.Nonnull CampaignStateEnum campaignState) {
+    this.campaignState = campaignState;
+    return this;
+  }
+
+  /**
+   * The state of the campaign that references this achievement.
+   * @return campaignState
+   */
+  @javax.annotation.Nonnull
+  public CampaignStateEnum getCampaignState() {
+    return campaignState;
+  }
+
+  public void setCampaignState(@javax.annotation.Nonnull CampaignStateEnum campaignState) {
+    this.campaignState = campaignState;
+  }
+
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -231,13 +309,14 @@ public class AchievementReference {
         Objects.equals(this.applicationId, achievementReference.applicationId) &&
         Objects.equals(this.applicationName, achievementReference.applicationName) &&
         Objects.equals(this.campaignId, achievementReference.campaignId) &&
-        Objects.equals(this.campaignName, achievementReference.campaignName)&&
+        Objects.equals(this.campaignName, achievementReference.campaignName) &&
+        Objects.equals(this.campaignState, achievementReference.campaignState)&&
         Objects.equals(this.additionalProperties, achievementReference.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(achievementId, applicationId, applicationName, campaignId, campaignName, additionalProperties);
+    return Objects.hash(achievementId, applicationId, applicationName, campaignId, campaignName, campaignState, additionalProperties);
   }
 
   @Override
@@ -249,6 +328,7 @@ public class AchievementReference {
     sb.append("    applicationName: ").append(toIndentedString(applicationName)).append("\n");
     sb.append("    campaignId: ").append(toIndentedString(campaignId)).append("\n");
     sb.append("    campaignName: ").append(toIndentedString(campaignName)).append("\n");
+    sb.append("    campaignState: ").append(toIndentedString(campaignState)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -268,10 +348,10 @@ public class AchievementReference {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("achievementId", "applicationId", "applicationName", "campaignId", "campaignName"));
+    openapiFields = new HashSet<String>(Arrays.asList("achievementId", "applicationId", "applicationName", "campaignId", "campaignName", "campaignState"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("achievementId", "applicationId", "applicationName", "campaignId", "campaignName"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("achievementId", "applicationId", "applicationName", "campaignId", "campaignName", "campaignState"));
   }
 
   /**
@@ -300,6 +380,11 @@ public class AchievementReference {
       if (!jsonObj.get("campaignName").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `campaignName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("campaignName").toString()));
       }
+      if (!jsonObj.get("campaignState").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `campaignState` to be a primitive type in the JSON string but got `%s`", jsonObj.get("campaignState").toString()));
+      }
+      // validate the required field `campaignState`
+      CampaignStateEnum.validateJsonElement(jsonObj.get("campaignState"));
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {

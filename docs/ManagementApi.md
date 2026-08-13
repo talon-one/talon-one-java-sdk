@@ -10,6 +10,7 @@ All URIs are relative to *https://yourbaseurl.talon.one*
 | [**copyCampaignToApplications**](ManagementApi.md#copyCampaignToApplications) | **POST** /v1/applications/{applicationId}/campaigns/{campaignId}/copy | Copy the campaign into the specified Application |
 | [**createAccountCollection**](ManagementApi.md#createAccountCollection) | **POST** /v1/collections | Create account-level collection |
 | [**createAchievement**](ManagementApi.md#createAchievement) | **POST** /v1/applications/{applicationId}/campaigns/{campaignId}/achievements | Create achievement |
+| [**createAchievementV2**](ManagementApi.md#createAchievementV2) | **POST** /v2/achievements | Create achievement |
 | [**createAdditionalCost**](ManagementApi.md#createAdditionalCost) | **POST** /v1/additional_costs | Create additional cost |
 | [**createAttribute**](ManagementApi.md#createAttribute) | **POST** /v1/attributes | Create custom attribute |
 | [**createBatchLoyaltyCards**](ManagementApi.md#createBatchLoyaltyCards) | **POST** /v1/loyalty_programs/{loyaltyProgramId}/cards/batch | Create loyalty cards |
@@ -29,6 +30,7 @@ All URIs are relative to *https://yourbaseurl.talon.one*
 | [**deductLoyaltyCardPoints**](ManagementApi.md#deductLoyaltyCardPoints) | **PUT** /v1/loyalty_programs/{loyaltyProgramId}/cards/{loyaltyCardId}/deduct_points | Deduct points from card |
 | [**deleteAccountCollection**](ManagementApi.md#deleteAccountCollection) | **DELETE** /v1/collections/{collectionId} | Delete account-level collection |
 | [**deleteAchievement**](ManagementApi.md#deleteAchievement) | **DELETE** /v1/applications/{applicationId}/campaigns/{campaignId}/achievements/{achievementId} | Delete achievement |
+| [**deleteAchievementV2**](ManagementApi.md#deleteAchievementV2) | **DELETE** /v2/achievements/{achievementId} | Delete achievement |
 | [**deleteCampaign**](ManagementApi.md#deleteCampaign) | **DELETE** /v1/applications/{applicationId}/campaigns/{campaignId} | Delete campaign |
 | [**deleteCampaignStoreBudgets**](ManagementApi.md#deleteCampaignStoreBudgets) | **DELETE** /v1/applications/{applicationId}/campaigns/{campaignId}/stores/budgets | Delete campaign store budgets |
 | [**deleteCollection**](ManagementApi.md#deleteCollection) | **DELETE** /v1/applications/{applicationId}/campaigns/{campaignId}/collections/{collectionId} | Delete campaign-level collection |
@@ -41,7 +43,9 @@ All URIs are relative to *https://yourbaseurl.talon.one*
 | [**deleteUserByEmail**](ManagementApi.md#deleteUserByEmail) | **POST** /v1/users/delete | Delete user by email address |
 | [**destroySession**](ManagementApi.md#destroySession) | **DELETE** /v1/sessions | Destroy session |
 | [**disconnectCampaignStores**](ManagementApi.md#disconnectCampaignStores) | **DELETE** /v1/applications/{applicationId}/campaigns/{campaignId}/stores | Disconnect stores |
+| [**excludePriceHistory**](ManagementApi.md#excludePriceHistory) | **POST** /v1/applications/{applicationId}/price_history/exclusions | Exclude price records from price history |
 | [**exportAccountCollectionItems**](ManagementApi.md#exportAccountCollectionItems) | **GET** /v1/collections/{collectionId}/export | Export account-level collection&#39;s items |
+| [**exportAchievementV2**](ManagementApi.md#exportAchievementV2) | **GET** /v2/achievements/{achievementId}/export | Export achievement customer data |
 | [**exportAchievements**](ManagementApi.md#exportAchievements) | **GET** /v1/applications/{applicationId}/campaigns/{campaignId}/achievements/{achievementId}/export | Export achievement customer data |
 | [**exportApplicationCampaignAnalytics**](ManagementApi.md#exportApplicationCampaignAnalytics) | **GET** /v1/applications/{applicationId}/campaign_analytics/export | Export Application analytics aggregated by campaign |
 | [**exportAudiencesMemberships**](ManagementApi.md#exportAudiencesMemberships) | **GET** /v1/audiences/{audienceId}/memberships/export | Export audience members |
@@ -68,6 +72,7 @@ All URIs are relative to *https://yourbaseurl.talon.one*
 | [**getAccountAnalytics**](ManagementApi.md#getAccountAnalytics) | **GET** /v1/accounts/{accountId}/analytics | Get account analytics |
 | [**getAccountCollection**](ManagementApi.md#getAccountCollection) | **GET** /v1/collections/{collectionId} | Get account-level collection |
 | [**getAchievement**](ManagementApi.md#getAchievement) | **GET** /v1/applications/{applicationId}/campaigns/{campaignId}/achievements/{achievementId} | Get achievement |
+| [**getAchievementV2**](ManagementApi.md#getAchievementV2) | **GET** /v2/achievements/{achievementId} | Get achievement |
 | [**getAdditionalCost**](ManagementApi.md#getAdditionalCost) | **GET** /v1/additional_costs/{additionalCostId} | Get additional cost |
 | [**getAdditionalCosts**](ManagementApi.md#getAdditionalCosts) | **GET** /v1/additional_costs | List additional costs |
 | [**getApplication**](ManagementApi.md#getApplication) | **GET** /v1/applications/{applicationId} | Get Application |
@@ -147,6 +152,7 @@ All URIs are relative to *https://yourbaseurl.talon.one*
 | [**inviteUserExternal**](ManagementApi.md#inviteUserExternal) | **POST** /v1/users/invite | Invite user from identity provider |
 | [**listAccountCollections**](ManagementApi.md#listAccountCollections) | **GET** /v1/collections | List collections in account |
 | [**listAchievements**](ManagementApi.md#listAchievements) | **GET** /v1/applications/{applicationId}/campaigns/{campaignId}/achievements | List achievements |
+| [**listAchievementsV2**](ManagementApi.md#listAchievementsV2) | **GET** /v2/achievements | List achievements |
 | [**listAllRolesV2**](ManagementApi.md#listAllRolesV2) | **GET** /v2/roles | List roles |
 | [**listApplicationCartItemFilters**](ManagementApi.md#listApplicationCartItemFilters) | **GET** /v1/applications/{applicationId}/cart_item_filters | List Application cart item filters |
 | [**listCampaignStoreBudgetLimits**](ManagementApi.md#listCampaignStoreBudgetLimits) | **GET** /v1/applications/{applicationId}/campaigns/{campaignId}/stores/budgets | List campaign store budget limits |
@@ -180,6 +186,7 @@ All URIs are relative to *https://yourbaseurl.talon.one*
 | [**transferLoyaltyCard**](ManagementApi.md#transferLoyaltyCard) | **PUT** /v1/loyalty_programs/{loyaltyProgramId}/cards/{loyaltyCardId}/transfer | Transfer card data |
 | [**updateAccountCollection**](ManagementApi.md#updateAccountCollection) | **PUT** /v1/collections/{collectionId} | Update account-level collection |
 | [**updateAchievement**](ManagementApi.md#updateAchievement) | **PUT** /v1/applications/{applicationId}/campaigns/{campaignId}/achievements/{achievementId} | Update achievement |
+| [**updateAchievementV2**](ManagementApi.md#updateAchievementV2) | **PUT** /v2/achievements/{achievementId} | Update achievement |
 | [**updateAdditionalCost**](ManagementApi.md#updateAdditionalCost) | **PUT** /v1/additional_costs/{additionalCostId} | Update additional cost |
 | [**updateAttribute**](ManagementApi.md#updateAttribute) | **PUT** /v1/attributes/{attributeId} | Update custom attribute |
 | [**updateCampaign**](ManagementApi.md#updateCampaign) | **PUT** /v1/applications/{applicationId}/campaigns/{campaignId} | Update campaign |
@@ -631,6 +638,78 @@ public class Example {
 | **400** | Bad request |  -  |
 | **401** | Unauthorized |  -  |
 | **409** | Conflict. An achievement with this name or title already exists. |  -  |
+
+<a id="createAchievementV2"></a>
+# **createAchievementV2**
+> AchievementV2 createAchievementV2(createAchievementV2)
+
+Create achievement
+
+Create a new account-level achievement.
+
+### Example
+```java
+// Import classes:
+import one.talon.ApiClient;
+import one.talon.ApiException;
+import one.talon.Configuration;
+import one.talon.auth.*;
+import one.talon.models.*;
+import one.talon.api.ManagementApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://yourbaseurl.talon.one");
+    
+    // Configure API key authorization: api_key_v1
+    ApiKeyAuth api_key_v1 = (ApiKeyAuth) defaultClient.getAuthentication("api_key_v1");
+    api_key_v1.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //api_key_v1.setApiKeyPrefix("Token");
+
+    ManagementApi apiInstance = new ManagementApi(defaultClient);
+    CreateAchievementV2 createAchievementV2 = new CreateAchievementV2(); // CreateAchievementV2 | body
+    try {
+      AchievementV2 result = apiInstance.createAchievementV2(createAchievementV2);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling ManagementApi#createAchievementV2");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **createAchievementV2** | [**CreateAchievementV2**](CreateAchievementV2.md)| body | |
+
+### Return type
+
+[**AchievementV2**](AchievementV2.md)
+
+### Authorization
+
+[api_key_v1](../README.md#api_key_v1)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **201** | Created |  -  |
+| **400** | Bad request |  -  |
+| **401** | Unauthorized |  -  |
+| **409** | Conflict. An achievement with this name already exists. |  -  |
 
 <a id="createAdditionalCost"></a>
 # **createAdditionalCost**
@@ -1995,6 +2074,76 @@ null (empty response body)
 | **401** | Unauthorized |  -  |
 | **404** | Not found |  -  |
 
+<a id="deleteAchievementV2"></a>
+# **deleteAchievementV2**
+> deleteAchievementV2(achievementId)
+
+Delete achievement
+
+Delete a specific achievement.
+
+### Example
+```java
+// Import classes:
+import one.talon.ApiClient;
+import one.talon.ApiException;
+import one.talon.Configuration;
+import one.talon.auth.*;
+import one.talon.models.*;
+import one.talon.api.ManagementApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://yourbaseurl.talon.one");
+    
+    // Configure API key authorization: api_key_v1
+    ApiKeyAuth api_key_v1 = (ApiKeyAuth) defaultClient.getAuthentication("api_key_v1");
+    api_key_v1.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //api_key_v1.setApiKeyPrefix("Token");
+
+    ManagementApi apiInstance = new ManagementApi(defaultClient);
+    Long achievementId = 56L; // Long | The ID of the achievement. You can get this ID with the [List achievement](https://docs.talon.one/management-api#tag/Achievements/operation/listAchievementsV2) endpoint.
+    try {
+      apiInstance.deleteAchievementV2(achievementId);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling ManagementApi#deleteAchievementV2");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **achievementId** | **Long**| The ID of the achievement. You can get this ID with the [List achievement](https://docs.talon.one/management-api#tag/Achievements/operation/listAchievementsV2) endpoint. | |
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+[api_key_v1](../README.md#api_key_v1)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **204** | No Content |  -  |
+| **401** | Unauthorized |  -  |
+| **404** | Not found |  -  |
+
 <a id="deleteCampaign"></a>
 # **deleteCampaign**
 > deleteCampaign(applicationId, campaignId)
@@ -2869,6 +3018,76 @@ null (empty response body)
 | **401** | Unauthorized - Invalid API key |  -  |
 | **404** | Not found |  -  |
 
+<a id="excludePriceHistory"></a>
+# **excludePriceHistory**
+> excludePriceHistory(applicationId, excludePriceObservationsRequest)
+
+Exclude price records from price history
+
+Select a batch of historical price IDs to exclude from [best prior price calculation](https://docs.talon.one/integration-api#tag/Catalogs/operation/bestPriorPrice). All IDs in the batch must be valid &#x60;id&#x60; values obtained from the [Get summary of price history](https://docs.talon.one/management-api#tag/Catalogs/operation/priceHistory.responses.200.history) endpoint, must belong to the specified Application, must not already be excluded from best prior price calculation, and must not be associated with a scheduled strikethrough pricing notification. 
+
+### Example
+```java
+// Import classes:
+import one.talon.ApiClient;
+import one.talon.ApiException;
+import one.talon.Configuration;
+import one.talon.auth.*;
+import one.talon.models.*;
+import one.talon.api.ManagementApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://yourbaseurl.talon.one");
+    
+    // Configure API key authorization: api_key_v1
+    ApiKeyAuth api_key_v1 = (ApiKeyAuth) defaultClient.getAuthentication("api_key_v1");
+    api_key_v1.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //api_key_v1.setApiKeyPrefix("Token");
+
+    ManagementApi apiInstance = new ManagementApi(defaultClient);
+    Long applicationId = 56L; // Long | The ID of the Application. It is displayed in your Talon.One deployment URL.
+    ExcludePriceObservationsRequest excludePriceObservationsRequest = new ExcludePriceObservationsRequest(); // ExcludePriceObservationsRequest | body
+    try {
+      apiInstance.excludePriceHistory(applicationId, excludePriceObservationsRequest);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling ManagementApi#excludePriceHistory");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **applicationId** | **Long**| The ID of the Application. It is displayed in your Talon.One deployment URL. | |
+| **excludePriceObservationsRequest** | [**ExcludePriceObservationsRequest**](ExcludePriceObservationsRequest.md)| body | |
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+[api_key_v1](../README.md#api_key_v1)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: Not defined
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Ok |  -  |
+
 <a id="exportAccountCollectionItems"></a>
 # **exportAccountCollectionItems**
 > String exportAccountCollectionItems(collectionId)
@@ -2938,6 +3157,78 @@ public class Example {
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
 | **401** | Unauthorized - Invalid API key |  -  |
+| **404** | Not found |  -  |
+
+<a id="exportAchievementV2"></a>
+# **exportAchievementV2**
+> String exportAchievementV2(achievementId)
+
+Export achievement customer data
+
+Download a CSV file containing a list of all the customers who have participated in and are currently participating in the given achievement.  The CSV file contains the following columns: - &#x60;profileIntegrationID&#x60;: The integration ID of the customer profile participating in the achievement. - &#x60;title&#x60;: The display name of the achievement in the Campaign Manager. - &#x60;target&#x60;: The required number of actions or the transactional milestone to complete the achievement. - &#x60;progress&#x60;: The current progress of the customer in the achievement. - &#x60;status&#x60;: The status of the achievement. Can be one of: [&#39;inprogress&#39;, &#39;completed&#39;, &#39;expired&#39;]. - &#x60;startDate&#x60;: The date on which the customer profile started the achievement in RFC3339. - &#x60;endDate&#x60;: The date on which the achievement ends and resets for the customer profile in RFC3339. - &#x60;completionDate&#x60;: The date on which the customer profile completed the achievement in RFC3339. 
+
+### Example
+```java
+// Import classes:
+import one.talon.ApiClient;
+import one.talon.ApiException;
+import one.talon.Configuration;
+import one.talon.auth.*;
+import one.talon.models.*;
+import one.talon.api.ManagementApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://yourbaseurl.talon.one");
+    
+    // Configure API key authorization: api_key_v1
+    ApiKeyAuth api_key_v1 = (ApiKeyAuth) defaultClient.getAuthentication("api_key_v1");
+    api_key_v1.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //api_key_v1.setApiKeyPrefix("Token");
+
+    ManagementApi apiInstance = new ManagementApi(defaultClient);
+    Long achievementId = 56L; // Long | The ID of the achievement. You can get this ID with the [List achievements](https://docs.talon.one/management-api#tag/Achievements/operation/listAchievementsV2) endpoint.
+    try {
+      String result = apiInstance.exportAchievementV2(achievementId);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling ManagementApi#exportAchievementV2");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **achievementId** | **Long**| The ID of the achievement. You can get this ID with the [List achievements](https://docs.talon.one/management-api#tag/Achievements/operation/listAchievementsV2) endpoint. | |
+
+### Return type
+
+**String**
+
+### Authorization
+
+[api_key_v1](../README.md#api_key_v1)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/csv
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **400** | Bad request |  -  |
+| **401** | Unauthorized |  -  |
 | **404** | Not found |  -  |
 
 <a id="exportAchievements"></a>
@@ -4914,6 +5205,77 @@ public class Example {
 ### Return type
 
 [**Achievement**](Achievement.md)
+
+### Authorization
+
+[api_key_v1](../README.md#api_key_v1)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **401** | Unauthorized |  -  |
+| **404** | Not found |  -  |
+
+<a id="getAchievementV2"></a>
+# **getAchievementV2**
+> AchievementV2 getAchievementV2(achievementId)
+
+Get achievement
+
+Retrieve the details of a specific achievement.
+
+### Example
+```java
+// Import classes:
+import one.talon.ApiClient;
+import one.talon.ApiException;
+import one.talon.Configuration;
+import one.talon.auth.*;
+import one.talon.models.*;
+import one.talon.api.ManagementApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://yourbaseurl.talon.one");
+    
+    // Configure API key authorization: api_key_v1
+    ApiKeyAuth api_key_v1 = (ApiKeyAuth) defaultClient.getAuthentication("api_key_v1");
+    api_key_v1.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //api_key_v1.setApiKeyPrefix("Token");
+
+    ManagementApi apiInstance = new ManagementApi(defaultClient);
+    Long achievementId = 56L; // Long | The ID of the achievement.  You can get this ID with the [List achievement](https://docs.talon.one/management-api#tag/Achievements/operation/listAchievementsV2) endpoint. 
+    try {
+      AchievementV2 result = apiInstance.getAchievementV2(achievementId);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling ManagementApi#getAchievementV2");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **achievementId** | **Long**| The ID of the achievement.  You can get this ID with the [List achievement](https://docs.talon.one/management-api#tag/Achievements/operation/listAchievementsV2) endpoint.  | |
+
+### Return type
+
+[**AchievementV2**](AchievementV2.md)
 
 ### Authorization
 
@@ -11002,6 +11364,85 @@ public class Example {
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
 
+<a id="listAchievementsV2"></a>
+# **listAchievementsV2**
+> ListAchievementsV2200Response listAchievementsV2(pageSize, skip, sort, title, applicationId)
+
+List achievements
+
+List all achievements. 
+
+### Example
+```java
+// Import classes:
+import one.talon.ApiClient;
+import one.talon.ApiException;
+import one.talon.Configuration;
+import one.talon.auth.*;
+import one.talon.models.*;
+import one.talon.api.ManagementApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://yourbaseurl.talon.one");
+    
+    // Configure API key authorization: api_key_v1
+    ApiKeyAuth api_key_v1 = (ApiKeyAuth) defaultClient.getAuthentication("api_key_v1");
+    api_key_v1.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //api_key_v1.setApiKeyPrefix("Token");
+
+    ManagementApi apiInstance = new ManagementApi(defaultClient);
+    Long pageSize = 50L; // Long | The number of items in the response.
+    Long skip = 56L; // Long | The number of items to skip when paging through large result sets.
+    String sort = "sort_example"; // String | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations. 
+    String title = "title_example"; // String | Filter by the display name of the achievement.
+    Long applicationId = 56L; // Long | Filter by the ID of an Application connected to the achievement.
+    try {
+      ListAchievementsV2200Response result = apiInstance.listAchievementsV2(pageSize, skip, sort, title, applicationId);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling ManagementApi#listAchievementsV2");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **pageSize** | **Long**| The number of items in the response. | [optional] [default to 50] |
+| **skip** | **Long**| The number of items to skip when paging through large result sets. | [optional] |
+| **sort** | **String**| The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.  | [optional] |
+| **title** | **String**| Filter by the display name of the achievement. | [optional] |
+| **applicationId** | **Long**| Filter by the ID of an Application connected to the achievement. | [optional] |
+
+### Return type
+
+[**ListAchievementsV2200Response**](ListAchievementsV2200Response.md)
+
+### Authorization
+
+[api_key_v1](../README.md#api_key_v1)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **400** | Bad request |  -  |
+| **401** | Unauthorized |  -  |
+
 <a id="listAllRolesV2"></a>
 # **listAllRolesV2**
 > ListAllRolesV2200Response listAllRolesV2()
@@ -13398,6 +13839,80 @@ public class Example {
 ### Return type
 
 [**Achievement**](Achievement.md)
+
+### Authorization
+
+[api_key_v1](../README.md#api_key_v1)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **400** | Bad request |  -  |
+| **401** | Unauthorized |  -  |
+| **404** | Not found |  -  |
+
+<a id="updateAchievementV2"></a>
+# **updateAchievementV2**
+> AchievementV2 updateAchievementV2(achievementId, updateAchievementV2)
+
+Update achievement
+
+Update the details of a specific achievement.
+
+### Example
+```java
+// Import classes:
+import one.talon.ApiClient;
+import one.talon.ApiException;
+import one.talon.Configuration;
+import one.talon.auth.*;
+import one.talon.models.*;
+import one.talon.api.ManagementApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://yourbaseurl.talon.one");
+    
+    // Configure API key authorization: api_key_v1
+    ApiKeyAuth api_key_v1 = (ApiKeyAuth) defaultClient.getAuthentication("api_key_v1");
+    api_key_v1.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //api_key_v1.setApiKeyPrefix("Token");
+
+    ManagementApi apiInstance = new ManagementApi(defaultClient);
+    Long achievementId = 56L; // Long | The ID of the achievement. You can get this ID with the [List achievement](https://docs.talon.one/management-api#tag/Achievements/operation/listAchievementsV2) endpoint.
+    UpdateAchievementV2 updateAchievementV2 = new UpdateAchievementV2(); // UpdateAchievementV2 | body
+    try {
+      AchievementV2 result = apiInstance.updateAchievementV2(achievementId, updateAchievementV2);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling ManagementApi#updateAchievementV2");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **achievementId** | **Long**| The ID of the achievement. You can get this ID with the [List achievement](https://docs.talon.one/management-api#tag/Achievements/operation/listAchievementsV2) endpoint. | |
+| **updateAchievementV2** | [**UpdateAchievementV2**](UpdateAchievementV2.md)| body | |
+
+### Return type
+
+[**AchievementV2**](AchievementV2.md)
 
 ### Authorization
 

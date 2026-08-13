@@ -106,6 +106,46 @@ public class PromotionCheckAttributeBlockTest {
     }
 
     /**
+     * Test the property 'start'
+     */
+    @Test
+    public void startTest() {
+        // TODO: test start
+    }
+
+    /**
+     * Test the property 'end'
+     */
+    @Test
+    public void endTest() {
+        // TODO: test end
+    }
+
+    /**
+     * Test the property 'startInclusive'
+     */
+    @Test
+    public void startInclusiveTest() {
+        // TODO: test startInclusive
+    }
+
+    /**
+     * Test the property 'endInclusive'
+     */
+    @Test
+    public void endInclusiveTest() {
+        // TODO: test endInclusive
+    }
+
+    /**
+     * Test the property 'timezoneInsensitive'
+     */
+    @Test
+    public void timezoneInsensitiveTest() {
+        // TODO: test timezoneInsensitive
+    }
+
+    /**
      * Test the property 'values'
      */
     @Test

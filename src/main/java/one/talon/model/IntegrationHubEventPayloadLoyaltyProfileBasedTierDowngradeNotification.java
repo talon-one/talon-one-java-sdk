@@ -51,6 +51,11 @@ import one.talon.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.24.0")
 public class IntegrationHubEventPayloadLoyaltyProfileBasedTierDowngradeNotification {
+  public static final String SERIALIZED_NAME_EVENT_ID = "EventId";
+  @SerializedName(SERIALIZED_NAME_EVENT_ID)
+  @javax.annotation.Nonnull
+  private Long eventId;
+
   public static final String SERIALIZED_NAME_PROFILE_INTEGRATION_I_D = "ProfileIntegrationID";
   @SerializedName(SERIALIZED_NAME_PROFILE_INTEGRATION_I_D)
   @javax.annotation.Nonnull
@@ -108,6 +113,25 @@ public class IntegrationHubEventPayloadLoyaltyProfileBasedTierDowngradeNotificat
 
   public IntegrationHubEventPayloadLoyaltyProfileBasedTierDowngradeNotification() {
   }
+
+  public IntegrationHubEventPayloadLoyaltyProfileBasedTierDowngradeNotification eventId(@javax.annotation.Nonnull Long eventId) {
+    this.eventId = eventId;
+    return this;
+  }
+
+  /**
+   * The ID of the integration hub event. Return this value in the delivery-status callback to mark the event delivered or failed.
+   * @return eventId
+   */
+  @javax.annotation.Nonnull
+  public Long getEventId() {
+    return eventId;
+  }
+
+  public void setEventId(@javax.annotation.Nonnull Long eventId) {
+    this.eventId = eventId;
+  }
+
 
   public IntegrationHubEventPayloadLoyaltyProfileBasedTierDowngradeNotification profileIntegrationID(@javax.annotation.Nonnull String profileIntegrationID) {
     this.profileIntegrationID = profileIntegrationID;
@@ -372,7 +396,8 @@ public class IntegrationHubEventPayloadLoyaltyProfileBasedTierDowngradeNotificat
       return false;
     }
     IntegrationHubEventPayloadLoyaltyProfileBasedTierDowngradeNotification integrationHubEventPayloadLoyaltyProfileBasedTierDowngradeNotification = (IntegrationHubEventPayloadLoyaltyProfileBasedTierDowngradeNotification) o;
-    return Objects.equals(this.profileIntegrationID, integrationHubEventPayloadLoyaltyProfileBasedTierDowngradeNotification.profileIntegrationID) &&
+    return Objects.equals(this.eventId, integrationHubEventPayloadLoyaltyProfileBasedTierDowngradeNotification.eventId) &&
+        Objects.equals(this.profileIntegrationID, integrationHubEventPayloadLoyaltyProfileBasedTierDowngradeNotification.profileIntegrationID) &&
         Objects.equals(this.loyaltyProgramID, integrationHubEventPayloadLoyaltyProfileBasedTierDowngradeNotification.loyaltyProgramID) &&
         Objects.equals(this.loyaltyProgramName, integrationHubEventPayloadLoyaltyProfileBasedTierDowngradeNotification.loyaltyProgramName) &&
         Objects.equals(this.subledgerID, integrationHubEventPayloadLoyaltyProfileBasedTierDowngradeNotification.subledgerID) &&
@@ -388,13 +413,14 @@ public class IntegrationHubEventPayloadLoyaltyProfileBasedTierDowngradeNotificat
 
   @Override
   public int hashCode() {
-    return Objects.hash(profileIntegrationID, loyaltyProgramID, loyaltyProgramName, subledgerID, sourceOfEvent, currentTier, currentPoints, oldTier, tierExpirationDate, timestampOfTierChange, publishedAt, additionalProperties);
+    return Objects.hash(eventId, profileIntegrationID, loyaltyProgramID, loyaltyProgramName, subledgerID, sourceOfEvent, currentTier, currentPoints, oldTier, tierExpirationDate, timestampOfTierChange, publishedAt, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class IntegrationHubEventPayloadLoyaltyProfileBasedTierDowngradeNotification {\n");
+    sb.append("    eventId: ").append(toIndentedString(eventId)).append("\n");
     sb.append("    profileIntegrationID: ").append(toIndentedString(profileIntegrationID)).append("\n");
     sb.append("    loyaltyProgramID: ").append(toIndentedString(loyaltyProgramID)).append("\n");
     sb.append("    loyaltyProgramName: ").append(toIndentedString(loyaltyProgramName)).append("\n");
@@ -425,10 +451,10 @@ public class IntegrationHubEventPayloadLoyaltyProfileBasedTierDowngradeNotificat
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("ProfileIntegrationID", "LoyaltyProgramID", "LoyaltyProgramName", "SubledgerID", "SourceOfEvent", "CurrentTier", "CurrentPoints", "OldTier", "TierExpirationDate", "TimestampOfTierChange", "PublishedAt"));
+    openapiFields = new HashSet<String>(Arrays.asList("EventId", "ProfileIntegrationID", "LoyaltyProgramID", "LoyaltyProgramName", "SubledgerID", "SourceOfEvent", "CurrentTier", "CurrentPoints", "OldTier", "TierExpirationDate", "TimestampOfTierChange", "PublishedAt"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("ProfileIntegrationID", "LoyaltyProgramID", "LoyaltyProgramName", "SubledgerID", "SourceOfEvent", "CurrentPoints", "PublishedAt"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("EventId", "ProfileIntegrationID", "LoyaltyProgramID", "LoyaltyProgramName", "SubledgerID", "SourceOfEvent", "CurrentPoints", "PublishedAt"));
   }
 
   /**

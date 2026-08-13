@@ -11,10 +11,15 @@
 |**type** | **String** | Identifies the block variant and determines which additional properties are present in it. |  |
 |**tags** | **List&lt;String&gt;** | Semantic labels attached to this block. |  [optional] |
 |**operator** | [**OperatorEnum**](#OperatorEnum) | The comparison operator applied to the attribute. |  |
-|**attribute** | **String** | The attribute path identifier (e.g. \&quot;$Session.Total\&quot;). |  |
+|**attribute** | **Object** |  |  |
 |**value** | **Object** |  |  [optional] |
 |**min** | **Object** |  |  [optional] |
 |**max** | **Object** |  |  [optional] |
+|**start** | **Object** |  |  [optional] |
+|**end** | **Object** |  |  [optional] |
+|**startInclusive** | **Boolean** | When &#x60;true&#x60;, the &#x60;start&#x60; value is included in the range for the &#x60;within&#x60; operator. |  [optional] |
+|**endInclusive** | **Boolean** | When &#x60;true&#x60;, the &#x60;end&#x60; value is included in the range for the &#x60;within&#x60; operator. |  [optional] |
+|**timezoneInsensitive** | **Boolean** | Indicates whether the &#x60;within&#x60; operator ignores time zones and compares the wall-clock time only. When &#x60;false&#x60;, time zones are taken into account. |  [optional] |
 |**values** | **Object** |  |  [optional] |
 |**count** | **Object** |  |  [optional] |
 
@@ -51,6 +56,10 @@
 | CONTAINS_ONE_OF | &quot;containsOneOf&quot; |
 | CONTAINS_NONE_OF | &quot;containsNoneOf&quot; |
 | CONTAINS_ALL_OF | &quot;containsAllOf&quot; |
+| AFTER | &quot;after&quot; |
+| BEFORE | &quot;before&quot; |
+| WITHIN | &quot;within&quot; |
+| NOT_WITHIN_ | &quot;not(within)&quot; |
 
 
 

@@ -25,6 +25,8 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import one.talon.model.AwardDiscountBlock;
+import one.talon.model.AwardDiscountTarget;
 import one.talon.model.PassthroughBlock;
 import one.talon.model.StrikethroughCheckAttributeBlock;
 import one.talon.model.StrikethroughGroupBlock;
@@ -78,6 +80,7 @@ public class StrikethroughBlock extends AbstractOpenApiSchema {
             }
             final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
             final TypeAdapter<StrikethroughGroupBlock> adapterStrikethroughGroupBlock = gson.getDelegateAdapter(this, TypeToken.get(StrikethroughGroupBlock.class));
+            final TypeAdapter<AwardDiscountBlock> adapterAwardDiscountBlock = gson.getDelegateAdapter(this, TypeToken.get(AwardDiscountBlock.class));
             final TypeAdapter<PassthroughBlock> adapterPassthroughBlock = gson.getDelegateAdapter(this, TypeToken.get(PassthroughBlock.class));
             final TypeAdapter<StrikethroughCheckAttributeBlock> adapterStrikethroughCheckAttributeBlock = gson.getDelegateAdapter(this, TypeToken.get(StrikethroughCheckAttributeBlock.class));
 
@@ -95,6 +98,12 @@ public class StrikethroughBlock extends AbstractOpenApiSchema {
                         elementAdapter.write(out, element);
                         return;
                     }
+                    // check if the actual instance is of the type `AwardDiscountBlock`
+                    if (value.getActualInstance() instanceof AwardDiscountBlock) {
+                        JsonElement element = adapterAwardDiscountBlock.toJsonTree((AwardDiscountBlock)value.getActualInstance());
+                        elementAdapter.write(out, element);
+                        return;
+                    }
                     // check if the actual instance is of the type `PassthroughBlock`
                     if (value.getActualInstance() instanceof PassthroughBlock) {
                         JsonElement element = adapterPassthroughBlock.toJsonTree((PassthroughBlock)value.getActualInstance());
@@ -107,7 +116,7 @@ public class StrikethroughBlock extends AbstractOpenApiSchema {
                         elementAdapter.write(out, element);
                         return;
                     }
-                    throw new IOException("Failed to serialize as the type doesn't match oneOf schemas: PassthroughBlock, StrikethroughCheckAttributeBlock, StrikethroughGroupBlock");
+                    throw new IOException("Failed to serialize as the type doesn't match oneOf schemas: AwardDiscountBlock, PassthroughBlock, StrikethroughCheckAttributeBlock, StrikethroughGroupBlock");
                 }
 
                 @Override
@@ -130,6 +139,18 @@ public class StrikethroughBlock extends AbstractOpenApiSchema {
                         // deserialization failed, continue
                         errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for StrikethroughGroupBlock failed with `%s`.", e.getMessage()));
                         log.log(Level.FINER, "Input data does not match schema 'StrikethroughGroupBlock'", e);
+                    }
+                    // deserialize AwardDiscountBlock
+                    try {
+                        // validate the JSON object to see if any exception is thrown
+                        AwardDiscountBlock.validateJsonElement(jsonElement);
+                        actualAdapter = adapterAwardDiscountBlock;
+                        match++;
+                        log.log(Level.FINER, "Input data matches schema 'AwardDiscountBlock'");
+                    } catch (Exception e) {
+                        // deserialization failed, continue
+                        errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for AwardDiscountBlock failed with `%s`.", e.getMessage()));
+                        log.log(Level.FINER, "Input data does not match schema 'AwardDiscountBlock'", e);
                     }
                     // deserialize PassthroughBlock
                     try {
@@ -182,6 +203,7 @@ public class StrikethroughBlock extends AbstractOpenApiSchema {
 
     static {
         schemas.put("StrikethroughGroupBlock", StrikethroughGroupBlock.class);
+        schemas.put("AwardDiscountBlock", AwardDiscountBlock.class);
         schemas.put("PassthroughBlock", PassthroughBlock.class);
         schemas.put("StrikethroughCheckAttributeBlock", StrikethroughCheckAttributeBlock.class);
     }
@@ -194,13 +216,18 @@ public class StrikethroughBlock extends AbstractOpenApiSchema {
     /**
      * Set the instance that matches the oneOf child schema, check
      * the instance parameter is valid against the oneOf child schemas:
-     * PassthroughBlock, StrikethroughCheckAttributeBlock, StrikethroughGroupBlock
+     * AwardDiscountBlock, PassthroughBlock, StrikethroughCheckAttributeBlock, StrikethroughGroupBlock
      *
      * It could be an instance of the 'oneOf' schemas.
      */
     @Override
     public void setActualInstance(Object instance) {
         if (instance instanceof StrikethroughGroupBlock) {
+            super.setActualInstance(instance);
+            return;
+        }
+
+        if (instance instanceof AwardDiscountBlock) {
             super.setActualInstance(instance);
             return;
         }
@@ -215,14 +242,14 @@ public class StrikethroughBlock extends AbstractOpenApiSchema {
             return;
         }
 
-        throw new RuntimeException("Invalid instance type. Must be PassthroughBlock, StrikethroughCheckAttributeBlock, StrikethroughGroupBlock");
+        throw new RuntimeException("Invalid instance type. Must be AwardDiscountBlock, PassthroughBlock, StrikethroughCheckAttributeBlock, StrikethroughGroupBlock");
     }
 
     /**
      * Get the actual instance, which can be the following:
-     * PassthroughBlock, StrikethroughCheckAttributeBlock, StrikethroughGroupBlock
+     * AwardDiscountBlock, PassthroughBlock, StrikethroughCheckAttributeBlock, StrikethroughGroupBlock
      *
-     * @return The actual instance (PassthroughBlock, StrikethroughCheckAttributeBlock, StrikethroughGroupBlock)
+     * @return The actual instance (AwardDiscountBlock, PassthroughBlock, StrikethroughCheckAttributeBlock, StrikethroughGroupBlock)
      */
     @SuppressWarnings("unchecked")
     @Override
@@ -240,6 +267,18 @@ public class StrikethroughBlock extends AbstractOpenApiSchema {
     @SuppressWarnings("unchecked")
     public StrikethroughGroupBlock getStrikethroughGroupBlock() throws ClassCastException {
         return (StrikethroughGroupBlock)super.getActualInstance();
+    }
+
+    /**
+     * Get the actual instance of `AwardDiscountBlock`. If the actual instance is not `AwardDiscountBlock`,
+     * the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `AwardDiscountBlock`
+     * @throws ClassCastException if the instance is not `AwardDiscountBlock`
+     */
+    @SuppressWarnings("unchecked")
+    public AwardDiscountBlock getAwardDiscountBlock() throws ClassCastException {
+        return (AwardDiscountBlock)super.getActualInstance();
     }
 
     /**
@@ -284,6 +323,14 @@ public class StrikethroughBlock extends AbstractOpenApiSchema {
             errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for StrikethroughGroupBlock failed with `%s`.", e.getMessage()));
             // continue to the next one
         }
+        // validate the json string with AwardDiscountBlock
+        try {
+            AwardDiscountBlock.validateJsonElement(jsonElement);
+            validCount++;
+        } catch (Exception e) {
+            errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for AwardDiscountBlock failed with `%s`.", e.getMessage()));
+            // continue to the next one
+        }
         // validate the json string with PassthroughBlock
         try {
             PassthroughBlock.validateJsonElement(jsonElement);
@@ -301,7 +348,7 @@ public class StrikethroughBlock extends AbstractOpenApiSchema {
             // continue to the next one
         }
         if (validCount != 1) {
-            throw new IOException(String.format(java.util.Locale.ROOT, "The JSON string is invalid for StrikethroughBlock with oneOf schemas: PassthroughBlock, StrikethroughCheckAttributeBlock, StrikethroughGroupBlock. %d class(es) match the result, expected 1. Detailed failure message for oneOf schemas: %s. JSON: %s", validCount, errorMessages, jsonElement.toString()));
+            throw new IOException(String.format(java.util.Locale.ROOT, "The JSON string is invalid for StrikethroughBlock with oneOf schemas: AwardDiscountBlock, PassthroughBlock, StrikethroughCheckAttributeBlock, StrikethroughGroupBlock. %d class(es) match the result, expected 1. Detailed failure message for oneOf schemas: %s. JSON: %s", validCount, errorMessages, jsonElement.toString()));
         }
     }
 

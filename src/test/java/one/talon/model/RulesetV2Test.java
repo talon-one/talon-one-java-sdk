@@ -25,6 +25,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 import one.talon.model.PromotionRuleV2;
+import one.talon.model.Selector;
 import one.talon.model.StrikethroughRuleV2;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;

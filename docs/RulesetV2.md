@@ -16,7 +16,7 @@ Ruleset in the V2 JSON block format.
 |**activatedAt** | **OffsetDateTime** | Timestamp indicating when this ruleset was activated. |  [optional] |
 |**promotionRules** | [**List&lt;PromotionRuleV2&gt;**](PromotionRuleV2.md) | Set of promotion rules. |  |
 |**strikethroughRules** | [**List&lt;StrikethroughRuleV2&gt;**](StrikethroughRuleV2.md) | Set of strikethrough rules. |  |
-|**selectors** | **List&lt;Map&lt;String, Object&gt;&gt;** | Variable bindings of type selector. |  [optional] |
+|**selectors** | [**List&lt;Selector&gt;**](Selector.md) | Variable bindings of type selector. |  [optional] |
 |**bundles** | **List&lt;Map&lt;String, Object&gt;&gt;** | Variable bindings of type bundle. |  [optional] |
 |**parameters** | **List&lt;Map&lt;String, Object&gt;&gt;** | Variable bindings of type template parameter. |  [optional] |
 

@@ -14,6 +14,8 @@
 |**price** | **BigDecimal** | Price of the item. |  |
 |**metadata** | [**BestPriorPriceMetadata**](BestPriorPriceMetadata.md) |  |  |
 |**target** | [**LabelTarget**](LabelTarget.md) |  |  |
+|**excludedAt** | **OffsetDateTime** | The date and time when the historical price ID was excluded. |  [optional] |
+|**exclusionReason** | **String** | The reason for excluding this historical price ID. |  [optional] |
 
 
 

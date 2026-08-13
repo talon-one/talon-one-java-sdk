@@ -18,6 +18,7 @@
 |**awardedGiveaways** | [**List&lt;Giveaway&gt;**](Giveaway.md) | The giveaways that were awarded during the event processing. |  [optional] |
 |**achievements** | [**List&lt;CustomerAchievement&gt;**](CustomerAchievement.md) | The achievements progress of the customer. |  [optional] |
 |**advancedEvent** | [**EventV3**](EventV3.md) | The advanced event that was processed. |  [optional] |
+|**referral** | [**InventoryReferral**](InventoryReferral.md) | The referral that was processed. |  [optional] |
 
 
 
