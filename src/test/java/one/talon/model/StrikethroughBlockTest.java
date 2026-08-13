@@ -24,6 +24,8 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import one.talon.model.AwardDiscountBlock;
+import one.talon.model.AwardDiscountTarget;
 import one.talon.model.PassthroughBlock;
 import one.talon.model.StrikethroughCheckAttributeBlock;
 import one.talon.model.StrikethroughGroupBlock;
@@ -102,6 +104,38 @@ public class StrikethroughBlockTest {
     }
 
     /**
+     * Test the property 'name'
+     */
+    @Test
+    public void nameTest() {
+        // TODO: test name
+    }
+
+    /**
+     * Test the property 'value'
+     */
+    @Test
+    public void valueTest() {
+        // TODO: test value
+    }
+
+    /**
+     * Test the property 'partial'
+     */
+    @Test
+    public void partialTest() {
+        // TODO: test partial
+    }
+
+    /**
+     * Test the property 'target'
+     */
+    @Test
+    public void targetTest() {
+        // TODO: test target
+    }
+
+    /**
      * Test the property 'expression'
      */
     @Test
@@ -118,14 +152,6 @@ public class StrikethroughBlockTest {
     }
 
     /**
-     * Test the property 'value'
-     */
-    @Test
-    public void valueTest() {
-        // TODO: test value
-    }
-
-    /**
      * Test the property 'min'
      */
     @Test
@@ -139,6 +165,46 @@ public class StrikethroughBlockTest {
     @Test
     public void maxTest() {
         // TODO: test max
+    }
+
+    /**
+     * Test the property 'start'
+     */
+    @Test
+    public void startTest() {
+        // TODO: test start
+    }
+
+    /**
+     * Test the property 'end'
+     */
+    @Test
+    public void endTest() {
+        // TODO: test end
+    }
+
+    /**
+     * Test the property 'startInclusive'
+     */
+    @Test
+    public void startInclusiveTest() {
+        // TODO: test startInclusive
+    }
+
+    /**
+     * Test the property 'endInclusive'
+     */
+    @Test
+    public void endInclusiveTest() {
+        // TODO: test endInclusive
+    }
+
+    /**
+     * Test the property 'timezoneInsensitive'
+     */
+    @Test
+    public void timezoneInsensitiveTest() {
+        // TODO: test timezoneInsensitive
     }
 
     /**

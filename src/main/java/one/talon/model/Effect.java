@@ -23,7 +23,6 @@ import java.io.IOException;
 import java.math.BigDecimal;
 import java.util.Arrays;
 import java.util.UUID;
-import one.talon.model.EffectAllOfProps;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -135,8 +134,8 @@ public class Effect {
 
   public static final String SERIALIZED_NAME_PROPS = "props";
   @SerializedName(SERIALIZED_NAME_PROPS)
-  @javax.annotation.Nonnull
-  private EffectAllOfProps props;
+  @javax.annotation.Nullable
+  private Object props = null;
 
   public Effect() {
   }
@@ -445,7 +444,7 @@ public class Effect {
   }
 
 
-  public Effect props(@javax.annotation.Nonnull EffectAllOfProps props) {
+  public Effect props(@javax.annotation.Nullable Object props) {
     this.props = props;
     return this;
   }
@@ -454,12 +453,12 @@ public class Effect {
    * Get props
    * @return props
    */
-  @javax.annotation.Nonnull
-  public EffectAllOfProps getProps() {
+  @javax.annotation.Nullable
+  public Object getProps() {
     return props;
   }
 
-  public void setProps(@javax.annotation.Nonnull EffectAllOfProps props) {
+  public void setProps(@javax.annotation.Nullable Object props) {
     this.props = props;
   }
 
@@ -624,8 +623,6 @@ public class Effect {
       if ((jsonObj.get("adjustmentReferenceId") != null && !jsonObj.get("adjustmentReferenceId").isJsonNull()) && !jsonObj.get("adjustmentReferenceId").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `adjustmentReferenceId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("adjustmentReferenceId").toString()));
       }
-      // validate the required field `props`
-      EffectAllOfProps.validateJsonElement(jsonObj.get("props"));
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {

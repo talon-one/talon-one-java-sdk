@@ -26,6 +26,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 import one.talon.model.PromotionRuleV2;
+import one.talon.model.Selector;
 import one.talon.model.StrikethroughRuleV2;
 
 import com.google.gson.Gson;
@@ -99,7 +100,7 @@ public class RulesetV2 {
   public static final String SERIALIZED_NAME_SELECTORS = "selectors";
   @SerializedName(SERIALIZED_NAME_SELECTORS)
   @javax.annotation.Nullable
-  private List<Map<String, Object>> selectors;
+  private List<Selector> selectors;
 
   public static final String SERIALIZED_NAME_BUNDLES = "bundles";
   @SerializedName(SERIALIZED_NAME_BUNDLES)
@@ -282,12 +283,12 @@ public class RulesetV2 {
   }
 
 
-  public RulesetV2 selectors(@javax.annotation.Nullable List<Map<String, Object>> selectors) {
+  public RulesetV2 selectors(@javax.annotation.Nullable List<Selector> selectors) {
     this.selectors = selectors;
     return this;
   }
 
-  public RulesetV2 addSelectorsItem(Map<String, Object> selectorsItem) {
+  public RulesetV2 addSelectorsItem(Selector selectorsItem) {
     if (this.selectors == null) {
       this.selectors = new ArrayList<>();
     }
@@ -300,11 +301,11 @@ public class RulesetV2 {
    * @return selectors
    */
   @javax.annotation.Nullable
-  public List<Map<String, Object>> getSelectors() {
+  public List<Selector> getSelectors() {
     return selectors;
   }
 
-  public void setSelectors(@javax.annotation.Nullable List<Map<String, Object>> selectors) {
+  public void setSelectors(@javax.annotation.Nullable List<Selector> selectors) {
     this.selectors = selectors;
   }
 
@@ -516,9 +517,19 @@ public class RulesetV2 {
           StrikethroughRuleV2.validateJsonElement(jsonArraystrikethroughRules.get(i));
         }
       }
-      // ensure the optional json data is an array if present
-      if (jsonObj.get("selectors") != null && !jsonObj.get("selectors").isJsonNull() && !jsonObj.get("selectors").isJsonArray()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `selectors` to be an array in the JSON string but got `%s`", jsonObj.get("selectors").toString()));
+      if (jsonObj.get("selectors") != null && !jsonObj.get("selectors").isJsonNull()) {
+        JsonArray jsonArrayselectors = jsonObj.getAsJsonArray("selectors");
+        if (jsonArrayselectors != null) {
+          // ensure the json data is an array
+          if (!jsonObj.get("selectors").isJsonArray()) {
+            throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `selectors` to be an array in the JSON string but got `%s`", jsonObj.get("selectors").toString()));
+          }
+
+          // validate the optional field `selectors` (array)
+          for (int i = 0; i < jsonArrayselectors.size(); i++) {
+            Selector.validateJsonElement(jsonArrayselectors.get(i));
+          };
+        }
       }
       // ensure the optional json data is an array if present
       if (jsonObj.get("bundles") != null && !jsonObj.get("bundles").isJsonNull() && !jsonObj.get("bundles").isJsonArray()) {

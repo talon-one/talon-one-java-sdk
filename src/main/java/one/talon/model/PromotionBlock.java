@@ -20,26 +20,43 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import one.talon.model.AwardDiscountBlock;
 import one.talon.model.AwardGiveawayBlock;
 import one.talon.model.AwardGiveawayBlock1GiveawayPool;
 import one.talon.model.AwardItemBlock;
+import one.talon.model.CheckAchievementBlock;
+import one.talon.model.CheckAchievementBlock1Achievement;
 import one.talon.model.CheckAudienceBlock;
+import one.talon.model.CheckBudgetBlock;
 import one.talon.model.CheckCouponBlock;
+import one.talon.model.CheckEventBlock;
+import one.talon.model.CheckLoyaltyBalanceBlock;
+import one.talon.model.CheckLoyaltyBalanceBlock1Program;
 import one.talon.model.CheckReferralBlock;
+import one.talon.model.CreateCouponBlock;
+import one.talon.model.CreateCouponBlock1DiscountLimit;
+import one.talon.model.CreateReferralBlock;
+import one.talon.model.CreateReferralBlock1CampaignId;
+import one.talon.model.CreateReferralBlock1UsageLimit;
 import one.talon.model.PassthroughBlock;
 import one.talon.model.PromotionCheckAttributeBlock;
 import one.talon.model.PromotionGroupBlock;
+import one.talon.model.ReserveCouponBlock;
 import one.talon.model.ShowNotificationBlock;
+import one.talon.model.TriggerCustomEffectBlock;
+import one.talon.model.TriggerCustomEffectBlock1CustomEffect;
+import one.talon.model.TriggerCustomEffectBlock1Target;
+import one.talon.model.TriggerWebhookBlock;
+import one.talon.model.TriggerWebhookBlock1Webhook;
 import one.talon.model.UpdateAchievementProgressBlock;
-import one.talon.model.UpdateAchievementProgressBlock1Achievement;
 import one.talon.model.UpdateAttributeValueBlock;
 import one.talon.model.UpdateAttributeValueBlock1Attribute;
-import one.talon.model.UpdateAttributeValueBlock1Target;
 import one.talon.model.UpdateAudienceMembershipBlock;
 import one.talon.model.UpdateAudienceMembershipBlock1Audience;
 import org.openapitools.jackson.nullable.JsonNullable;
@@ -92,17 +109,27 @@ public class PromotionBlock extends AbstractOpenApiSchema {
             }
             final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
             final TypeAdapter<PromotionGroupBlock> adapterPromotionGroupBlock = gson.getDelegateAdapter(this, TypeToken.get(PromotionGroupBlock.class));
+            final TypeAdapter<AwardDiscountBlock> adapterAwardDiscountBlock = gson.getDelegateAdapter(this, TypeToken.get(AwardDiscountBlock.class));
             final TypeAdapter<PassthroughBlock> adapterPassthroughBlock = gson.getDelegateAdapter(this, TypeToken.get(PassthroughBlock.class));
             final TypeAdapter<ShowNotificationBlock> adapterShowNotificationBlock = gson.getDelegateAdapter(this, TypeToken.get(ShowNotificationBlock.class));
             final TypeAdapter<AwardItemBlock> adapterAwardItemBlock = gson.getDelegateAdapter(this, TypeToken.get(AwardItemBlock.class));
             final TypeAdapter<AwardGiveawayBlock> adapterAwardGiveawayBlock = gson.getDelegateAdapter(this, TypeToken.get(AwardGiveawayBlock.class));
             final TypeAdapter<PromotionCheckAttributeBlock> adapterPromotionCheckAttributeBlock = gson.getDelegateAdapter(this, TypeToken.get(PromotionCheckAttributeBlock.class));
             final TypeAdapter<CheckAudienceBlock> adapterCheckAudienceBlock = gson.getDelegateAdapter(this, TypeToken.get(CheckAudienceBlock.class));
+            final TypeAdapter<CheckLoyaltyBalanceBlock> adapterCheckLoyaltyBalanceBlock = gson.getDelegateAdapter(this, TypeToken.get(CheckLoyaltyBalanceBlock.class));
             final TypeAdapter<CheckCouponBlock> adapterCheckCouponBlock = gson.getDelegateAdapter(this, TypeToken.get(CheckCouponBlock.class));
             final TypeAdapter<CheckReferralBlock> adapterCheckReferralBlock = gson.getDelegateAdapter(this, TypeToken.get(CheckReferralBlock.class));
             final TypeAdapter<UpdateAudienceMembershipBlock> adapterUpdateAudienceMembershipBlock = gson.getDelegateAdapter(this, TypeToken.get(UpdateAudienceMembershipBlock.class));
             final TypeAdapter<UpdateAchievementProgressBlock> adapterUpdateAchievementProgressBlock = gson.getDelegateAdapter(this, TypeToken.get(UpdateAchievementProgressBlock.class));
             final TypeAdapter<UpdateAttributeValueBlock> adapterUpdateAttributeValueBlock = gson.getDelegateAdapter(this, TypeToken.get(UpdateAttributeValueBlock.class));
+            final TypeAdapter<TriggerWebhookBlock> adapterTriggerWebhookBlock = gson.getDelegateAdapter(this, TypeToken.get(TriggerWebhookBlock.class));
+            final TypeAdapter<TriggerCustomEffectBlock> adapterTriggerCustomEffectBlock = gson.getDelegateAdapter(this, TypeToken.get(TriggerCustomEffectBlock.class));
+            final TypeAdapter<CheckEventBlock> adapterCheckEventBlock = gson.getDelegateAdapter(this, TypeToken.get(CheckEventBlock.class));
+            final TypeAdapter<CheckAchievementBlock> adapterCheckAchievementBlock = gson.getDelegateAdapter(this, TypeToken.get(CheckAchievementBlock.class));
+            final TypeAdapter<CheckBudgetBlock> adapterCheckBudgetBlock = gson.getDelegateAdapter(this, TypeToken.get(CheckBudgetBlock.class));
+            final TypeAdapter<CreateCouponBlock> adapterCreateCouponBlock = gson.getDelegateAdapter(this, TypeToken.get(CreateCouponBlock.class));
+            final TypeAdapter<CreateReferralBlock> adapterCreateReferralBlock = gson.getDelegateAdapter(this, TypeToken.get(CreateReferralBlock.class));
+            final TypeAdapter<ReserveCouponBlock> adapterReserveCouponBlock = gson.getDelegateAdapter(this, TypeToken.get(ReserveCouponBlock.class));
 
             return (TypeAdapter<T>) new TypeAdapter<PromotionBlock>() {
                 @Override
@@ -115,6 +142,12 @@ public class PromotionBlock extends AbstractOpenApiSchema {
                     // check if the actual instance is of the type `PromotionGroupBlock`
                     if (value.getActualInstance() instanceof PromotionGroupBlock) {
                         JsonElement element = adapterPromotionGroupBlock.toJsonTree((PromotionGroupBlock)value.getActualInstance());
+                        elementAdapter.write(out, element);
+                        return;
+                    }
+                    // check if the actual instance is of the type `AwardDiscountBlock`
+                    if (value.getActualInstance() instanceof AwardDiscountBlock) {
+                        JsonElement element = adapterAwardDiscountBlock.toJsonTree((AwardDiscountBlock)value.getActualInstance());
                         elementAdapter.write(out, element);
                         return;
                     }
@@ -154,6 +187,12 @@ public class PromotionBlock extends AbstractOpenApiSchema {
                         elementAdapter.write(out, element);
                         return;
                     }
+                    // check if the actual instance is of the type `CheckLoyaltyBalanceBlock`
+                    if (value.getActualInstance() instanceof CheckLoyaltyBalanceBlock) {
+                        JsonElement element = adapterCheckLoyaltyBalanceBlock.toJsonTree((CheckLoyaltyBalanceBlock)value.getActualInstance());
+                        elementAdapter.write(out, element);
+                        return;
+                    }
                     // check if the actual instance is of the type `CheckCouponBlock`
                     if (value.getActualInstance() instanceof CheckCouponBlock) {
                         JsonElement element = adapterCheckCouponBlock.toJsonTree((CheckCouponBlock)value.getActualInstance());
@@ -184,7 +223,55 @@ public class PromotionBlock extends AbstractOpenApiSchema {
                         elementAdapter.write(out, element);
                         return;
                     }
-                    throw new IOException("Failed to serialize as the type doesn't match oneOf schemas: AwardGiveawayBlock, AwardItemBlock, CheckAudienceBlock, CheckCouponBlock, CheckReferralBlock, PassthroughBlock, PromotionCheckAttributeBlock, PromotionGroupBlock, ShowNotificationBlock, UpdateAchievementProgressBlock, UpdateAttributeValueBlock, UpdateAudienceMembershipBlock");
+                    // check if the actual instance is of the type `TriggerWebhookBlock`
+                    if (value.getActualInstance() instanceof TriggerWebhookBlock) {
+                        JsonElement element = adapterTriggerWebhookBlock.toJsonTree((TriggerWebhookBlock)value.getActualInstance());
+                        elementAdapter.write(out, element);
+                        return;
+                    }
+                    // check if the actual instance is of the type `TriggerCustomEffectBlock`
+                    if (value.getActualInstance() instanceof TriggerCustomEffectBlock) {
+                        JsonElement element = adapterTriggerCustomEffectBlock.toJsonTree((TriggerCustomEffectBlock)value.getActualInstance());
+                        elementAdapter.write(out, element);
+                        return;
+                    }
+                    // check if the actual instance is of the type `CheckEventBlock`
+                    if (value.getActualInstance() instanceof CheckEventBlock) {
+                        JsonElement element = adapterCheckEventBlock.toJsonTree((CheckEventBlock)value.getActualInstance());
+                        elementAdapter.write(out, element);
+                        return;
+                    }
+                    // check if the actual instance is of the type `CheckAchievementBlock`
+                    if (value.getActualInstance() instanceof CheckAchievementBlock) {
+                        JsonElement element = adapterCheckAchievementBlock.toJsonTree((CheckAchievementBlock)value.getActualInstance());
+                        elementAdapter.write(out, element);
+                        return;
+                    }
+                    // check if the actual instance is of the type `CheckBudgetBlock`
+                    if (value.getActualInstance() instanceof CheckBudgetBlock) {
+                        JsonElement element = adapterCheckBudgetBlock.toJsonTree((CheckBudgetBlock)value.getActualInstance());
+                        elementAdapter.write(out, element);
+                        return;
+                    }
+                    // check if the actual instance is of the type `CreateCouponBlock`
+                    if (value.getActualInstance() instanceof CreateCouponBlock) {
+                        JsonElement element = adapterCreateCouponBlock.toJsonTree((CreateCouponBlock)value.getActualInstance());
+                        elementAdapter.write(out, element);
+                        return;
+                    }
+                    // check if the actual instance is of the type `CreateReferralBlock`
+                    if (value.getActualInstance() instanceof CreateReferralBlock) {
+                        JsonElement element = adapterCreateReferralBlock.toJsonTree((CreateReferralBlock)value.getActualInstance());
+                        elementAdapter.write(out, element);
+                        return;
+                    }
+                    // check if the actual instance is of the type `ReserveCouponBlock`
+                    if (value.getActualInstance() instanceof ReserveCouponBlock) {
+                        JsonElement element = adapterReserveCouponBlock.toJsonTree((ReserveCouponBlock)value.getActualInstance());
+                        elementAdapter.write(out, element);
+                        return;
+                    }
+                    throw new IOException("Failed to serialize as the type doesn't match oneOf schemas: AwardDiscountBlock, AwardGiveawayBlock, AwardItemBlock, CheckAchievementBlock, CheckAudienceBlock, CheckBudgetBlock, CheckCouponBlock, CheckEventBlock, CheckLoyaltyBalanceBlock, CheckReferralBlock, CreateCouponBlock, CreateReferralBlock, PassthroughBlock, PromotionCheckAttributeBlock, PromotionGroupBlock, ReserveCouponBlock, ShowNotificationBlock, TriggerCustomEffectBlock, TriggerWebhookBlock, UpdateAchievementProgressBlock, UpdateAttributeValueBlock, UpdateAudienceMembershipBlock");
                 }
 
                 @Override
@@ -207,6 +294,18 @@ public class PromotionBlock extends AbstractOpenApiSchema {
                         // deserialization failed, continue
                         errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for PromotionGroupBlock failed with `%s`.", e.getMessage()));
                         log.log(Level.FINER, "Input data does not match schema 'PromotionGroupBlock'", e);
+                    }
+                    // deserialize AwardDiscountBlock
+                    try {
+                        // validate the JSON object to see if any exception is thrown
+                        AwardDiscountBlock.validateJsonElement(jsonElement);
+                        actualAdapter = adapterAwardDiscountBlock;
+                        match++;
+                        log.log(Level.FINER, "Input data matches schema 'AwardDiscountBlock'");
+                    } catch (Exception e) {
+                        // deserialization failed, continue
+                        errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for AwardDiscountBlock failed with `%s`.", e.getMessage()));
+                        log.log(Level.FINER, "Input data does not match schema 'AwardDiscountBlock'", e);
                     }
                     // deserialize PassthroughBlock
                     try {
@@ -280,6 +379,18 @@ public class PromotionBlock extends AbstractOpenApiSchema {
                         errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for CheckAudienceBlock failed with `%s`.", e.getMessage()));
                         log.log(Level.FINER, "Input data does not match schema 'CheckAudienceBlock'", e);
                     }
+                    // deserialize CheckLoyaltyBalanceBlock
+                    try {
+                        // validate the JSON object to see if any exception is thrown
+                        CheckLoyaltyBalanceBlock.validateJsonElement(jsonElement);
+                        actualAdapter = adapterCheckLoyaltyBalanceBlock;
+                        match++;
+                        log.log(Level.FINER, "Input data matches schema 'CheckLoyaltyBalanceBlock'");
+                    } catch (Exception e) {
+                        // deserialization failed, continue
+                        errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for CheckLoyaltyBalanceBlock failed with `%s`.", e.getMessage()));
+                        log.log(Level.FINER, "Input data does not match schema 'CheckLoyaltyBalanceBlock'", e);
+                    }
                     // deserialize CheckCouponBlock
                     try {
                         // validate the JSON object to see if any exception is thrown
@@ -340,6 +451,102 @@ public class PromotionBlock extends AbstractOpenApiSchema {
                         errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for UpdateAttributeValueBlock failed with `%s`.", e.getMessage()));
                         log.log(Level.FINER, "Input data does not match schema 'UpdateAttributeValueBlock'", e);
                     }
+                    // deserialize TriggerWebhookBlock
+                    try {
+                        // validate the JSON object to see if any exception is thrown
+                        TriggerWebhookBlock.validateJsonElement(jsonElement);
+                        actualAdapter = adapterTriggerWebhookBlock;
+                        match++;
+                        log.log(Level.FINER, "Input data matches schema 'TriggerWebhookBlock'");
+                    } catch (Exception e) {
+                        // deserialization failed, continue
+                        errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for TriggerWebhookBlock failed with `%s`.", e.getMessage()));
+                        log.log(Level.FINER, "Input data does not match schema 'TriggerWebhookBlock'", e);
+                    }
+                    // deserialize TriggerCustomEffectBlock
+                    try {
+                        // validate the JSON object to see if any exception is thrown
+                        TriggerCustomEffectBlock.validateJsonElement(jsonElement);
+                        actualAdapter = adapterTriggerCustomEffectBlock;
+                        match++;
+                        log.log(Level.FINER, "Input data matches schema 'TriggerCustomEffectBlock'");
+                    } catch (Exception e) {
+                        // deserialization failed, continue
+                        errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for TriggerCustomEffectBlock failed with `%s`.", e.getMessage()));
+                        log.log(Level.FINER, "Input data does not match schema 'TriggerCustomEffectBlock'", e);
+                    }
+                    // deserialize CheckEventBlock
+                    try {
+                        // validate the JSON object to see if any exception is thrown
+                        CheckEventBlock.validateJsonElement(jsonElement);
+                        actualAdapter = adapterCheckEventBlock;
+                        match++;
+                        log.log(Level.FINER, "Input data matches schema 'CheckEventBlock'");
+                    } catch (Exception e) {
+                        // deserialization failed, continue
+                        errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for CheckEventBlock failed with `%s`.", e.getMessage()));
+                        log.log(Level.FINER, "Input data does not match schema 'CheckEventBlock'", e);
+                    }
+                    // deserialize CheckAchievementBlock
+                    try {
+                        // validate the JSON object to see if any exception is thrown
+                        CheckAchievementBlock.validateJsonElement(jsonElement);
+                        actualAdapter = adapterCheckAchievementBlock;
+                        match++;
+                        log.log(Level.FINER, "Input data matches schema 'CheckAchievementBlock'");
+                    } catch (Exception e) {
+                        // deserialization failed, continue
+                        errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for CheckAchievementBlock failed with `%s`.", e.getMessage()));
+                        log.log(Level.FINER, "Input data does not match schema 'CheckAchievementBlock'", e);
+                    }
+                    // deserialize CheckBudgetBlock
+                    try {
+                        // validate the JSON object to see if any exception is thrown
+                        CheckBudgetBlock.validateJsonElement(jsonElement);
+                        actualAdapter = adapterCheckBudgetBlock;
+                        match++;
+                        log.log(Level.FINER, "Input data matches schema 'CheckBudgetBlock'");
+                    } catch (Exception e) {
+                        // deserialization failed, continue
+                        errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for CheckBudgetBlock failed with `%s`.", e.getMessage()));
+                        log.log(Level.FINER, "Input data does not match schema 'CheckBudgetBlock'", e);
+                    }
+                    // deserialize CreateCouponBlock
+                    try {
+                        // validate the JSON object to see if any exception is thrown
+                        CreateCouponBlock.validateJsonElement(jsonElement);
+                        actualAdapter = adapterCreateCouponBlock;
+                        match++;
+                        log.log(Level.FINER, "Input data matches schema 'CreateCouponBlock'");
+                    } catch (Exception e) {
+                        // deserialization failed, continue
+                        errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for CreateCouponBlock failed with `%s`.", e.getMessage()));
+                        log.log(Level.FINER, "Input data does not match schema 'CreateCouponBlock'", e);
+                    }
+                    // deserialize CreateReferralBlock
+                    try {
+                        // validate the JSON object to see if any exception is thrown
+                        CreateReferralBlock.validateJsonElement(jsonElement);
+                        actualAdapter = adapterCreateReferralBlock;
+                        match++;
+                        log.log(Level.FINER, "Input data matches schema 'CreateReferralBlock'");
+                    } catch (Exception e) {
+                        // deserialization failed, continue
+                        errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for CreateReferralBlock failed with `%s`.", e.getMessage()));
+                        log.log(Level.FINER, "Input data does not match schema 'CreateReferralBlock'", e);
+                    }
+                    // deserialize ReserveCouponBlock
+                    try {
+                        // validate the JSON object to see if any exception is thrown
+                        ReserveCouponBlock.validateJsonElement(jsonElement);
+                        actualAdapter = adapterReserveCouponBlock;
+                        match++;
+                        log.log(Level.FINER, "Input data matches schema 'ReserveCouponBlock'");
+                    } catch (Exception e) {
+                        // deserialization failed, continue
+                        errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for ReserveCouponBlock failed with `%s`.", e.getMessage()));
+                        log.log(Level.FINER, "Input data does not match schema 'ReserveCouponBlock'", e);
+                    }
 
                     if (match == 1) {
                         PromotionBlock ret = new PromotionBlock();
@@ -367,17 +574,27 @@ public class PromotionBlock extends AbstractOpenApiSchema {
 
     static {
         schemas.put("PromotionGroupBlock", PromotionGroupBlock.class);
+        schemas.put("AwardDiscountBlock", AwardDiscountBlock.class);
         schemas.put("PassthroughBlock", PassthroughBlock.class);
         schemas.put("ShowNotificationBlock", ShowNotificationBlock.class);
         schemas.put("AwardItemBlock", AwardItemBlock.class);
         schemas.put("AwardGiveawayBlock", AwardGiveawayBlock.class);
         schemas.put("PromotionCheckAttributeBlock", PromotionCheckAttributeBlock.class);
         schemas.put("CheckAudienceBlock", CheckAudienceBlock.class);
+        schemas.put("CheckLoyaltyBalanceBlock", CheckLoyaltyBalanceBlock.class);
         schemas.put("CheckCouponBlock", CheckCouponBlock.class);
         schemas.put("CheckReferralBlock", CheckReferralBlock.class);
         schemas.put("UpdateAudienceMembershipBlock", UpdateAudienceMembershipBlock.class);
         schemas.put("UpdateAchievementProgressBlock", UpdateAchievementProgressBlock.class);
         schemas.put("UpdateAttributeValueBlock", UpdateAttributeValueBlock.class);
+        schemas.put("TriggerWebhookBlock", TriggerWebhookBlock.class);
+        schemas.put("TriggerCustomEffectBlock", TriggerCustomEffectBlock.class);
+        schemas.put("CheckEventBlock", CheckEventBlock.class);
+        schemas.put("CheckAchievementBlock", CheckAchievementBlock.class);
+        schemas.put("CheckBudgetBlock", CheckBudgetBlock.class);
+        schemas.put("CreateCouponBlock", CreateCouponBlock.class);
+        schemas.put("CreateReferralBlock", CreateReferralBlock.class);
+        schemas.put("ReserveCouponBlock", ReserveCouponBlock.class);
     }
 
     @Override
@@ -388,13 +605,18 @@ public class PromotionBlock extends AbstractOpenApiSchema {
     /**
      * Set the instance that matches the oneOf child schema, check
      * the instance parameter is valid against the oneOf child schemas:
-     * AwardGiveawayBlock, AwardItemBlock, CheckAudienceBlock, CheckCouponBlock, CheckReferralBlock, PassthroughBlock, PromotionCheckAttributeBlock, PromotionGroupBlock, ShowNotificationBlock, UpdateAchievementProgressBlock, UpdateAttributeValueBlock, UpdateAudienceMembershipBlock
+     * AwardDiscountBlock, AwardGiveawayBlock, AwardItemBlock, CheckAchievementBlock, CheckAudienceBlock, CheckBudgetBlock, CheckCouponBlock, CheckEventBlock, CheckLoyaltyBalanceBlock, CheckReferralBlock, CreateCouponBlock, CreateReferralBlock, PassthroughBlock, PromotionCheckAttributeBlock, PromotionGroupBlock, ReserveCouponBlock, ShowNotificationBlock, TriggerCustomEffectBlock, TriggerWebhookBlock, UpdateAchievementProgressBlock, UpdateAttributeValueBlock, UpdateAudienceMembershipBlock
      *
      * It could be an instance of the 'oneOf' schemas.
      */
     @Override
     public void setActualInstance(Object instance) {
         if (instance instanceof PromotionGroupBlock) {
+            super.setActualInstance(instance);
+            return;
+        }
+
+        if (instance instanceof AwardDiscountBlock) {
             super.setActualInstance(instance);
             return;
         }
@@ -429,6 +651,11 @@ public class PromotionBlock extends AbstractOpenApiSchema {
             return;
         }
 
+        if (instance instanceof CheckLoyaltyBalanceBlock) {
+            super.setActualInstance(instance);
+            return;
+        }
+
         if (instance instanceof CheckCouponBlock) {
             super.setActualInstance(instance);
             return;
@@ -454,14 +681,54 @@ public class PromotionBlock extends AbstractOpenApiSchema {
             return;
         }
 
-        throw new RuntimeException("Invalid instance type. Must be AwardGiveawayBlock, AwardItemBlock, CheckAudienceBlock, CheckCouponBlock, CheckReferralBlock, PassthroughBlock, PromotionCheckAttributeBlock, PromotionGroupBlock, ShowNotificationBlock, UpdateAchievementProgressBlock, UpdateAttributeValueBlock, UpdateAudienceMembershipBlock");
+        if (instance instanceof TriggerWebhookBlock) {
+            super.setActualInstance(instance);
+            return;
+        }
+
+        if (instance instanceof TriggerCustomEffectBlock) {
+            super.setActualInstance(instance);
+            return;
+        }
+
+        if (instance instanceof CheckEventBlock) {
+            super.setActualInstance(instance);
+            return;
+        }
+
+        if (instance instanceof CheckAchievementBlock) {
+            super.setActualInstance(instance);
+            return;
+        }
+
+        if (instance instanceof CheckBudgetBlock) {
+            super.setActualInstance(instance);
+            return;
+        }
+
+        if (instance instanceof CreateCouponBlock) {
+            super.setActualInstance(instance);
+            return;
+        }
+
+        if (instance instanceof CreateReferralBlock) {
+            super.setActualInstance(instance);
+            return;
+        }
+
+        if (instance instanceof ReserveCouponBlock) {
+            super.setActualInstance(instance);
+            return;
+        }
+
+        throw new RuntimeException("Invalid instance type. Must be AwardDiscountBlock, AwardGiveawayBlock, AwardItemBlock, CheckAchievementBlock, CheckAudienceBlock, CheckBudgetBlock, CheckCouponBlock, CheckEventBlock, CheckLoyaltyBalanceBlock, CheckReferralBlock, CreateCouponBlock, CreateReferralBlock, PassthroughBlock, PromotionCheckAttributeBlock, PromotionGroupBlock, ReserveCouponBlock, ShowNotificationBlock, TriggerCustomEffectBlock, TriggerWebhookBlock, UpdateAchievementProgressBlock, UpdateAttributeValueBlock, UpdateAudienceMembershipBlock");
     }
 
     /**
      * Get the actual instance, which can be the following:
-     * AwardGiveawayBlock, AwardItemBlock, CheckAudienceBlock, CheckCouponBlock, CheckReferralBlock, PassthroughBlock, PromotionCheckAttributeBlock, PromotionGroupBlock, ShowNotificationBlock, UpdateAchievementProgressBlock, UpdateAttributeValueBlock, UpdateAudienceMembershipBlock
+     * AwardDiscountBlock, AwardGiveawayBlock, AwardItemBlock, CheckAchievementBlock, CheckAudienceBlock, CheckBudgetBlock, CheckCouponBlock, CheckEventBlock, CheckLoyaltyBalanceBlock, CheckReferralBlock, CreateCouponBlock, CreateReferralBlock, PassthroughBlock, PromotionCheckAttributeBlock, PromotionGroupBlock, ReserveCouponBlock, ShowNotificationBlock, TriggerCustomEffectBlock, TriggerWebhookBlock, UpdateAchievementProgressBlock, UpdateAttributeValueBlock, UpdateAudienceMembershipBlock
      *
-     * @return The actual instance (AwardGiveawayBlock, AwardItemBlock, CheckAudienceBlock, CheckCouponBlock, CheckReferralBlock, PassthroughBlock, PromotionCheckAttributeBlock, PromotionGroupBlock, ShowNotificationBlock, UpdateAchievementProgressBlock, UpdateAttributeValueBlock, UpdateAudienceMembershipBlock)
+     * @return The actual instance (AwardDiscountBlock, AwardGiveawayBlock, AwardItemBlock, CheckAchievementBlock, CheckAudienceBlock, CheckBudgetBlock, CheckCouponBlock, CheckEventBlock, CheckLoyaltyBalanceBlock, CheckReferralBlock, CreateCouponBlock, CreateReferralBlock, PassthroughBlock, PromotionCheckAttributeBlock, PromotionGroupBlock, ReserveCouponBlock, ShowNotificationBlock, TriggerCustomEffectBlock, TriggerWebhookBlock, UpdateAchievementProgressBlock, UpdateAttributeValueBlock, UpdateAudienceMembershipBlock)
      */
     @SuppressWarnings("unchecked")
     @Override
@@ -479,6 +746,18 @@ public class PromotionBlock extends AbstractOpenApiSchema {
     @SuppressWarnings("unchecked")
     public PromotionGroupBlock getPromotionGroupBlock() throws ClassCastException {
         return (PromotionGroupBlock)super.getActualInstance();
+    }
+
+    /**
+     * Get the actual instance of `AwardDiscountBlock`. If the actual instance is not `AwardDiscountBlock`,
+     * the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `AwardDiscountBlock`
+     * @throws ClassCastException if the instance is not `AwardDiscountBlock`
+     */
+    @SuppressWarnings("unchecked")
+    public AwardDiscountBlock getAwardDiscountBlock() throws ClassCastException {
+        return (AwardDiscountBlock)super.getActualInstance();
     }
 
     /**
@@ -554,6 +833,18 @@ public class PromotionBlock extends AbstractOpenApiSchema {
     }
 
     /**
+     * Get the actual instance of `CheckLoyaltyBalanceBlock`. If the actual instance is not `CheckLoyaltyBalanceBlock`,
+     * the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `CheckLoyaltyBalanceBlock`
+     * @throws ClassCastException if the instance is not `CheckLoyaltyBalanceBlock`
+     */
+    @SuppressWarnings("unchecked")
+    public CheckLoyaltyBalanceBlock getCheckLoyaltyBalanceBlock() throws ClassCastException {
+        return (CheckLoyaltyBalanceBlock)super.getActualInstance();
+    }
+
+    /**
      * Get the actual instance of `CheckCouponBlock`. If the actual instance is not `CheckCouponBlock`,
      * the ClassCastException will be thrown.
      *
@@ -614,6 +905,102 @@ public class PromotionBlock extends AbstractOpenApiSchema {
     }
 
     /**
+     * Get the actual instance of `TriggerWebhookBlock`. If the actual instance is not `TriggerWebhookBlock`,
+     * the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `TriggerWebhookBlock`
+     * @throws ClassCastException if the instance is not `TriggerWebhookBlock`
+     */
+    @SuppressWarnings("unchecked")
+    public TriggerWebhookBlock getTriggerWebhookBlock() throws ClassCastException {
+        return (TriggerWebhookBlock)super.getActualInstance();
+    }
+
+    /**
+     * Get the actual instance of `TriggerCustomEffectBlock`. If the actual instance is not `TriggerCustomEffectBlock`,
+     * the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `TriggerCustomEffectBlock`
+     * @throws ClassCastException if the instance is not `TriggerCustomEffectBlock`
+     */
+    @SuppressWarnings("unchecked")
+    public TriggerCustomEffectBlock getTriggerCustomEffectBlock() throws ClassCastException {
+        return (TriggerCustomEffectBlock)super.getActualInstance();
+    }
+
+    /**
+     * Get the actual instance of `CheckEventBlock`. If the actual instance is not `CheckEventBlock`,
+     * the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `CheckEventBlock`
+     * @throws ClassCastException if the instance is not `CheckEventBlock`
+     */
+    @SuppressWarnings("unchecked")
+    public CheckEventBlock getCheckEventBlock() throws ClassCastException {
+        return (CheckEventBlock)super.getActualInstance();
+    }
+
+    /**
+     * Get the actual instance of `CheckAchievementBlock`. If the actual instance is not `CheckAchievementBlock`,
+     * the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `CheckAchievementBlock`
+     * @throws ClassCastException if the instance is not `CheckAchievementBlock`
+     */
+    @SuppressWarnings("unchecked")
+    public CheckAchievementBlock getCheckAchievementBlock() throws ClassCastException {
+        return (CheckAchievementBlock)super.getActualInstance();
+    }
+
+    /**
+     * Get the actual instance of `CheckBudgetBlock`. If the actual instance is not `CheckBudgetBlock`,
+     * the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `CheckBudgetBlock`
+     * @throws ClassCastException if the instance is not `CheckBudgetBlock`
+     */
+    @SuppressWarnings("unchecked")
+    public CheckBudgetBlock getCheckBudgetBlock() throws ClassCastException {
+        return (CheckBudgetBlock)super.getActualInstance();
+    }
+
+    /**
+     * Get the actual instance of `CreateCouponBlock`. If the actual instance is not `CreateCouponBlock`,
+     * the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `CreateCouponBlock`
+     * @throws ClassCastException if the instance is not `CreateCouponBlock`
+     */
+    @SuppressWarnings("unchecked")
+    public CreateCouponBlock getCreateCouponBlock() throws ClassCastException {
+        return (CreateCouponBlock)super.getActualInstance();
+    }
+
+    /**
+     * Get the actual instance of `CreateReferralBlock`. If the actual instance is not `CreateReferralBlock`,
+     * the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `CreateReferralBlock`
+     * @throws ClassCastException if the instance is not `CreateReferralBlock`
+     */
+    @SuppressWarnings("unchecked")
+    public CreateReferralBlock getCreateReferralBlock() throws ClassCastException {
+        return (CreateReferralBlock)super.getActualInstance();
+    }
+
+    /**
+     * Get the actual instance of `ReserveCouponBlock`. If the actual instance is not `ReserveCouponBlock`,
+     * the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `ReserveCouponBlock`
+     * @throws ClassCastException if the instance is not `ReserveCouponBlock`
+     */
+    @SuppressWarnings("unchecked")
+    public ReserveCouponBlock getReserveCouponBlock() throws ClassCastException {
+        return (ReserveCouponBlock)super.getActualInstance();
+    }
+
+    /**
      * Validates the JSON Element and throws an exception if issues found
      *
      * @param jsonElement JSON Element
@@ -629,6 +1016,14 @@ public class PromotionBlock extends AbstractOpenApiSchema {
             validCount++;
         } catch (Exception e) {
             errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for PromotionGroupBlock failed with `%s`.", e.getMessage()));
+            // continue to the next one
+        }
+        // validate the json string with AwardDiscountBlock
+        try {
+            AwardDiscountBlock.validateJsonElement(jsonElement);
+            validCount++;
+        } catch (Exception e) {
+            errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for AwardDiscountBlock failed with `%s`.", e.getMessage()));
             // continue to the next one
         }
         // validate the json string with PassthroughBlock
@@ -679,6 +1074,14 @@ public class PromotionBlock extends AbstractOpenApiSchema {
             errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for CheckAudienceBlock failed with `%s`.", e.getMessage()));
             // continue to the next one
         }
+        // validate the json string with CheckLoyaltyBalanceBlock
+        try {
+            CheckLoyaltyBalanceBlock.validateJsonElement(jsonElement);
+            validCount++;
+        } catch (Exception e) {
+            errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for CheckLoyaltyBalanceBlock failed with `%s`.", e.getMessage()));
+            // continue to the next one
+        }
         // validate the json string with CheckCouponBlock
         try {
             CheckCouponBlock.validateJsonElement(jsonElement);
@@ -719,8 +1122,72 @@ public class PromotionBlock extends AbstractOpenApiSchema {
             errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for UpdateAttributeValueBlock failed with `%s`.", e.getMessage()));
             // continue to the next one
         }
+        // validate the json string with TriggerWebhookBlock
+        try {
+            TriggerWebhookBlock.validateJsonElement(jsonElement);
+            validCount++;
+        } catch (Exception e) {
+            errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for TriggerWebhookBlock failed with `%s`.", e.getMessage()));
+            // continue to the next one
+        }
+        // validate the json string with TriggerCustomEffectBlock
+        try {
+            TriggerCustomEffectBlock.validateJsonElement(jsonElement);
+            validCount++;
+        } catch (Exception e) {
+            errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for TriggerCustomEffectBlock failed with `%s`.", e.getMessage()));
+            // continue to the next one
+        }
+        // validate the json string with CheckEventBlock
+        try {
+            CheckEventBlock.validateJsonElement(jsonElement);
+            validCount++;
+        } catch (Exception e) {
+            errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for CheckEventBlock failed with `%s`.", e.getMessage()));
+            // continue to the next one
+        }
+        // validate the json string with CheckAchievementBlock
+        try {
+            CheckAchievementBlock.validateJsonElement(jsonElement);
+            validCount++;
+        } catch (Exception e) {
+            errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for CheckAchievementBlock failed with `%s`.", e.getMessage()));
+            // continue to the next one
+        }
+        // validate the json string with CheckBudgetBlock
+        try {
+            CheckBudgetBlock.validateJsonElement(jsonElement);
+            validCount++;
+        } catch (Exception e) {
+            errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for CheckBudgetBlock failed with `%s`.", e.getMessage()));
+            // continue to the next one
+        }
+        // validate the json string with CreateCouponBlock
+        try {
+            CreateCouponBlock.validateJsonElement(jsonElement);
+            validCount++;
+        } catch (Exception e) {
+            errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for CreateCouponBlock failed with `%s`.", e.getMessage()));
+            // continue to the next one
+        }
+        // validate the json string with CreateReferralBlock
+        try {
+            CreateReferralBlock.validateJsonElement(jsonElement);
+            validCount++;
+        } catch (Exception e) {
+            errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for CreateReferralBlock failed with `%s`.", e.getMessage()));
+            // continue to the next one
+        }
+        // validate the json string with ReserveCouponBlock
+        try {
+            ReserveCouponBlock.validateJsonElement(jsonElement);
+            validCount++;
+        } catch (Exception e) {
+            errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for ReserveCouponBlock failed with `%s`.", e.getMessage()));
+            // continue to the next one
+        }
         if (validCount != 1) {
-            throw new IOException(String.format(java.util.Locale.ROOT, "The JSON string is invalid for PromotionBlock with oneOf schemas: AwardGiveawayBlock, AwardItemBlock, CheckAudienceBlock, CheckCouponBlock, CheckReferralBlock, PassthroughBlock, PromotionCheckAttributeBlock, PromotionGroupBlock, ShowNotificationBlock, UpdateAchievementProgressBlock, UpdateAttributeValueBlock, UpdateAudienceMembershipBlock. %d class(es) match the result, expected 1. Detailed failure message for oneOf schemas: %s. JSON: %s", validCount, errorMessages, jsonElement.toString()));
+            throw new IOException(String.format(java.util.Locale.ROOT, "The JSON string is invalid for PromotionBlock with oneOf schemas: AwardDiscountBlock, AwardGiveawayBlock, AwardItemBlock, CheckAchievementBlock, CheckAudienceBlock, CheckBudgetBlock, CheckCouponBlock, CheckEventBlock, CheckLoyaltyBalanceBlock, CheckReferralBlock, CreateCouponBlock, CreateReferralBlock, PassthroughBlock, PromotionCheckAttributeBlock, PromotionGroupBlock, ReserveCouponBlock, ShowNotificationBlock, TriggerCustomEffectBlock, TriggerWebhookBlock, UpdateAchievementProgressBlock, UpdateAttributeValueBlock, UpdateAudienceMembershipBlock. %d class(es) match the result, expected 1. Detailed failure message for oneOf schemas: %s. JSON: %s", validCount, errorMessages, jsonElement.toString()));
         }
     }
 

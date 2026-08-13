@@ -87,6 +87,11 @@ public class EventV3RequestEntity {
   @javax.annotation.Nullable
   private String connectedSessionId;
 
+  public static final String SERIALIZED_NAME_REFERRAL_CODE = "referralCode";
+  @SerializedName(SERIALIZED_NAME_REFERRAL_CODE)
+  @javax.annotation.Nullable
+  private String referralCode;
+
   public EventV3RequestEntity() {
   }
 
@@ -230,6 +235,25 @@ public class EventV3RequestEntity {
     this.connectedSessionId = connectedSessionId;
   }
 
+
+  public EventV3RequestEntity referralCode(@javax.annotation.Nullable String referralCode) {
+    this.referralCode = referralCode;
+    return this;
+  }
+
+  /**
+   * The referral code submitted with the event. The endpoint does not validate the code, and submitting a code does not redeem it. Use the \&quot;Referral code is valid\&quot; condition in the Rule Builder to validate and redeem the code, or \&quot;Referral code is valid (without redemption)\&quot; to validate without redeeming. 
+   * @return referralCode
+   */
+  @javax.annotation.Nullable
+  public String getReferralCode() {
+    return referralCode;
+  }
+
+  public void setReferralCode(@javax.annotation.Nullable String referralCode) {
+    this.referralCode = referralCode;
+  }
+
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -291,13 +315,14 @@ public class EventV3RequestEntity {
         Objects.equals(this.type, eventV3RequestEntity.type) &&
         Objects.equals(this.attributes, eventV3RequestEntity.attributes) &&
         Objects.equals(this.integrationId, eventV3RequestEntity.integrationId) &&
-        Objects.equals(this.connectedSessionId, eventV3RequestEntity.connectedSessionId)&&
+        Objects.equals(this.connectedSessionId, eventV3RequestEntity.connectedSessionId) &&
+        Objects.equals(this.referralCode, eventV3RequestEntity.referralCode)&&
         Objects.equals(this.additionalProperties, eventV3RequestEntity.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(profileId, storeIntegrationId, evaluableCampaignIds, type, attributes, integrationId, connectedSessionId, additionalProperties);
+    return Objects.hash(profileId, storeIntegrationId, evaluableCampaignIds, type, attributes, integrationId, connectedSessionId, referralCode, additionalProperties);
   }
 
   @Override
@@ -311,6 +336,7 @@ public class EventV3RequestEntity {
     sb.append("    attributes: ").append(toIndentedString(attributes)).append("\n");
     sb.append("    integrationId: ").append(toIndentedString(integrationId)).append("\n");
     sb.append("    connectedSessionId: ").append(toIndentedString(connectedSessionId)).append("\n");
+    sb.append("    referralCode: ").append(toIndentedString(referralCode)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -330,7 +356,7 @@ public class EventV3RequestEntity {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("profileId", "storeIntegrationId", "evaluableCampaignIds", "type", "attributes", "integrationId", "connectedSessionId"));
+    openapiFields = new HashSet<String>(Arrays.asList("profileId", "storeIntegrationId", "evaluableCampaignIds", "type", "attributes", "integrationId", "connectedSessionId", "referralCode"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("profileId", "type", "integrationId"));
@@ -374,6 +400,9 @@ public class EventV3RequestEntity {
       }
       if ((jsonObj.get("connectedSessionId") != null && !jsonObj.get("connectedSessionId").isJsonNull()) && !jsonObj.get("connectedSessionId").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `connectedSessionId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("connectedSessionId").toString()));
+      }
+      if ((jsonObj.get("referralCode") != null && !jsonObj.get("referralCode").isJsonNull()) && !jsonObj.get("referralCode").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `referralCode` to be a primitive type in the JSON string but got `%s`", jsonObj.get("referralCode").toString()));
       }
   }
 
