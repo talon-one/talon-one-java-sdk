@@ -15,7 +15,6 @@
 |**applicationId** | **Long** | ID of the application the flow is registered for. |  [optional] |
 |**loyaltyProgramId** | **Long** | ID of the loyalty program the flow is registered for. |  [optional] |
 |**eventType** | **String** | The event type we want to register a flow for. |  |
-|**integrationHubFlowUrl** | **String** | The URL of the integration hub flow that we want to trigger for the event. |  |
 |**config** | [**IntegrationHubFlowConfigResponse**](IntegrationHubFlowConfigResponse.md) |  |  |
 
 

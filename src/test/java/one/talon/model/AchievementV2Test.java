@@ -24,6 +24,7 @@ import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import one.talon.model.CampaignReference;
 import one.talon.model.TimePoint;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
@@ -200,6 +201,22 @@ public class AchievementV2Test {
     @Test
     public void timezoneTest() {
         // TODO: test timezone
+    }
+
+    /**
+     * Test the property 'campaignId'
+     */
+    @Test
+    public void campaignIdTest() {
+        // TODO: test campaignId
+    }
+
+    /**
+     * Test the property 'referencedByCampaigns'
+     */
+    @Test
+    public void referencedByCampaignsTest() {
+        // TODO: test referencedByCampaigns
     }
 
 }

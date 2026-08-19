@@ -22,12 +22,12 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.util.Arrays;
 import one.talon.model.AddPriceAdjustmentCatalogAction;
-import one.talon.model.CatalogActionOneOf;
-import one.talon.model.CatalogActionOneOf1;
-import one.talon.model.CatalogActionOneOf2;
-import one.talon.model.CatalogActionOneOf3;
-import one.talon.model.CatalogActionOneOf4;
-import one.talon.model.CatalogActionOneOf5;
+import one.talon.model.CatalogActionAdd;
+import one.talon.model.CatalogActionAddPriceAdjustment;
+import one.talon.model.CatalogActionPatch;
+import one.talon.model.CatalogActionPatchMany;
+import one.talon.model.CatalogActionRemove;
+import one.talon.model.CatalogActionRemoveMany;
 
 
 
@@ -76,12 +76,12 @@ public class CatalogAction extends AbstractOpenApiSchema {
                 return null; // this class only serializes 'CatalogAction' and its subtypes
             }
             final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-            final TypeAdapter<CatalogActionOneOf> adapterCatalogActionOneOf = gson.getDelegateAdapter(this, TypeToken.get(CatalogActionOneOf.class));
-            final TypeAdapter<CatalogActionOneOf1> adapterCatalogActionOneOf1 = gson.getDelegateAdapter(this, TypeToken.get(CatalogActionOneOf1.class));
-            final TypeAdapter<CatalogActionOneOf2> adapterCatalogActionOneOf2 = gson.getDelegateAdapter(this, TypeToken.get(CatalogActionOneOf2.class));
-            final TypeAdapter<CatalogActionOneOf3> adapterCatalogActionOneOf3 = gson.getDelegateAdapter(this, TypeToken.get(CatalogActionOneOf3.class));
-            final TypeAdapter<CatalogActionOneOf4> adapterCatalogActionOneOf4 = gson.getDelegateAdapter(this, TypeToken.get(CatalogActionOneOf4.class));
-            final TypeAdapter<CatalogActionOneOf5> adapterCatalogActionOneOf5 = gson.getDelegateAdapter(this, TypeToken.get(CatalogActionOneOf5.class));
+            final TypeAdapter<CatalogActionAdd> adapterCatalogActionAdd = gson.getDelegateAdapter(this, TypeToken.get(CatalogActionAdd.class));
+            final TypeAdapter<CatalogActionPatch> adapterCatalogActionPatch = gson.getDelegateAdapter(this, TypeToken.get(CatalogActionPatch.class));
+            final TypeAdapter<CatalogActionPatchMany> adapterCatalogActionPatchMany = gson.getDelegateAdapter(this, TypeToken.get(CatalogActionPatchMany.class));
+            final TypeAdapter<CatalogActionRemove> adapterCatalogActionRemove = gson.getDelegateAdapter(this, TypeToken.get(CatalogActionRemove.class));
+            final TypeAdapter<CatalogActionRemoveMany> adapterCatalogActionRemoveMany = gson.getDelegateAdapter(this, TypeToken.get(CatalogActionRemoveMany.class));
+            final TypeAdapter<CatalogActionAddPriceAdjustment> adapterCatalogActionAddPriceAdjustment = gson.getDelegateAdapter(this, TypeToken.get(CatalogActionAddPriceAdjustment.class));
 
             return (TypeAdapter<T>) new TypeAdapter<CatalogAction>() {
                 @Override
@@ -91,43 +91,43 @@ public class CatalogAction extends AbstractOpenApiSchema {
                         return;
                     }
 
-                    // check if the actual instance is of the type `CatalogActionOneOf`
-                    if (value.getActualInstance() instanceof CatalogActionOneOf) {
-                        JsonElement element = adapterCatalogActionOneOf.toJsonTree((CatalogActionOneOf)value.getActualInstance());
+                    // check if the actual instance is of the type `CatalogActionAdd`
+                    if (value.getActualInstance() instanceof CatalogActionAdd) {
+                        JsonElement element = adapterCatalogActionAdd.toJsonTree((CatalogActionAdd)value.getActualInstance());
                         elementAdapter.write(out, element);
                         return;
                     }
-                    // check if the actual instance is of the type `CatalogActionOneOf1`
-                    if (value.getActualInstance() instanceof CatalogActionOneOf1) {
-                        JsonElement element = adapterCatalogActionOneOf1.toJsonTree((CatalogActionOneOf1)value.getActualInstance());
+                    // check if the actual instance is of the type `CatalogActionPatch`
+                    if (value.getActualInstance() instanceof CatalogActionPatch) {
+                        JsonElement element = adapterCatalogActionPatch.toJsonTree((CatalogActionPatch)value.getActualInstance());
                         elementAdapter.write(out, element);
                         return;
                     }
-                    // check if the actual instance is of the type `CatalogActionOneOf2`
-                    if (value.getActualInstance() instanceof CatalogActionOneOf2) {
-                        JsonElement element = adapterCatalogActionOneOf2.toJsonTree((CatalogActionOneOf2)value.getActualInstance());
+                    // check if the actual instance is of the type `CatalogActionPatchMany`
+                    if (value.getActualInstance() instanceof CatalogActionPatchMany) {
+                        JsonElement element = adapterCatalogActionPatchMany.toJsonTree((CatalogActionPatchMany)value.getActualInstance());
                         elementAdapter.write(out, element);
                         return;
                     }
-                    // check if the actual instance is of the type `CatalogActionOneOf3`
-                    if (value.getActualInstance() instanceof CatalogActionOneOf3) {
-                        JsonElement element = adapterCatalogActionOneOf3.toJsonTree((CatalogActionOneOf3)value.getActualInstance());
+                    // check if the actual instance is of the type `CatalogActionRemove`
+                    if (value.getActualInstance() instanceof CatalogActionRemove) {
+                        JsonElement element = adapterCatalogActionRemove.toJsonTree((CatalogActionRemove)value.getActualInstance());
                         elementAdapter.write(out, element);
                         return;
                     }
-                    // check if the actual instance is of the type `CatalogActionOneOf4`
-                    if (value.getActualInstance() instanceof CatalogActionOneOf4) {
-                        JsonElement element = adapterCatalogActionOneOf4.toJsonTree((CatalogActionOneOf4)value.getActualInstance());
+                    // check if the actual instance is of the type `CatalogActionRemoveMany`
+                    if (value.getActualInstance() instanceof CatalogActionRemoveMany) {
+                        JsonElement element = adapterCatalogActionRemoveMany.toJsonTree((CatalogActionRemoveMany)value.getActualInstance());
                         elementAdapter.write(out, element);
                         return;
                     }
-                    // check if the actual instance is of the type `CatalogActionOneOf5`
-                    if (value.getActualInstance() instanceof CatalogActionOneOf5) {
-                        JsonElement element = adapterCatalogActionOneOf5.toJsonTree((CatalogActionOneOf5)value.getActualInstance());
+                    // check if the actual instance is of the type `CatalogActionAddPriceAdjustment`
+                    if (value.getActualInstance() instanceof CatalogActionAddPriceAdjustment) {
+                        JsonElement element = adapterCatalogActionAddPriceAdjustment.toJsonTree((CatalogActionAddPriceAdjustment)value.getActualInstance());
                         elementAdapter.write(out, element);
                         return;
                     }
-                    throw new IOException("Failed to serialize as the type doesn't match oneOf schemas: CatalogActionOneOf, CatalogActionOneOf1, CatalogActionOneOf2, CatalogActionOneOf3, CatalogActionOneOf4, CatalogActionOneOf5");
+                    throw new IOException("Failed to serialize as the type doesn't match oneOf schemas: CatalogActionAdd, CatalogActionAddPriceAdjustment, CatalogActionPatch, CatalogActionPatchMany, CatalogActionRemove, CatalogActionRemoveMany");
                 }
 
                 @Override
@@ -139,77 +139,77 @@ public class CatalogAction extends AbstractOpenApiSchema {
                     ArrayList<String> errorMessages = new ArrayList<>();
                     TypeAdapter actualAdapter = elementAdapter;
 
-                    // deserialize CatalogActionOneOf
+                    // deserialize CatalogActionAdd
                     try {
                         // validate the JSON object to see if any exception is thrown
-                        CatalogActionOneOf.validateJsonElement(jsonElement);
-                        actualAdapter = adapterCatalogActionOneOf;
+                        CatalogActionAdd.validateJsonElement(jsonElement);
+                        actualAdapter = adapterCatalogActionAdd;
                         match++;
-                        log.log(Level.FINER, "Input data matches schema 'CatalogActionOneOf'");
+                        log.log(Level.FINER, "Input data matches schema 'CatalogActionAdd'");
                     } catch (Exception e) {
                         // deserialization failed, continue
-                        errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for CatalogActionOneOf failed with `%s`.", e.getMessage()));
-                        log.log(Level.FINER, "Input data does not match schema 'CatalogActionOneOf'", e);
+                        errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for CatalogActionAdd failed with `%s`.", e.getMessage()));
+                        log.log(Level.FINER, "Input data does not match schema 'CatalogActionAdd'", e);
                     }
-                    // deserialize CatalogActionOneOf1
+                    // deserialize CatalogActionPatch
                     try {
                         // validate the JSON object to see if any exception is thrown
-                        CatalogActionOneOf1.validateJsonElement(jsonElement);
-                        actualAdapter = adapterCatalogActionOneOf1;
+                        CatalogActionPatch.validateJsonElement(jsonElement);
+                        actualAdapter = adapterCatalogActionPatch;
                         match++;
-                        log.log(Level.FINER, "Input data matches schema 'CatalogActionOneOf1'");
+                        log.log(Level.FINER, "Input data matches schema 'CatalogActionPatch'");
                     } catch (Exception e) {
                         // deserialization failed, continue
-                        errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for CatalogActionOneOf1 failed with `%s`.", e.getMessage()));
-                        log.log(Level.FINER, "Input data does not match schema 'CatalogActionOneOf1'", e);
+                        errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for CatalogActionPatch failed with `%s`.", e.getMessage()));
+                        log.log(Level.FINER, "Input data does not match schema 'CatalogActionPatch'", e);
                     }
-                    // deserialize CatalogActionOneOf2
+                    // deserialize CatalogActionPatchMany
                     try {
                         // validate the JSON object to see if any exception is thrown
-                        CatalogActionOneOf2.validateJsonElement(jsonElement);
-                        actualAdapter = adapterCatalogActionOneOf2;
+                        CatalogActionPatchMany.validateJsonElement(jsonElement);
+                        actualAdapter = adapterCatalogActionPatchMany;
                         match++;
-                        log.log(Level.FINER, "Input data matches schema 'CatalogActionOneOf2'");
+                        log.log(Level.FINER, "Input data matches schema 'CatalogActionPatchMany'");
                     } catch (Exception e) {
                         // deserialization failed, continue
-                        errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for CatalogActionOneOf2 failed with `%s`.", e.getMessage()));
-                        log.log(Level.FINER, "Input data does not match schema 'CatalogActionOneOf2'", e);
+                        errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for CatalogActionPatchMany failed with `%s`.", e.getMessage()));
+                        log.log(Level.FINER, "Input data does not match schema 'CatalogActionPatchMany'", e);
                     }
-                    // deserialize CatalogActionOneOf3
+                    // deserialize CatalogActionRemove
                     try {
                         // validate the JSON object to see if any exception is thrown
-                        CatalogActionOneOf3.validateJsonElement(jsonElement);
-                        actualAdapter = adapterCatalogActionOneOf3;
+                        CatalogActionRemove.validateJsonElement(jsonElement);
+                        actualAdapter = adapterCatalogActionRemove;
                         match++;
-                        log.log(Level.FINER, "Input data matches schema 'CatalogActionOneOf3'");
+                        log.log(Level.FINER, "Input data matches schema 'CatalogActionRemove'");
                     } catch (Exception e) {
                         // deserialization failed, continue
-                        errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for CatalogActionOneOf3 failed with `%s`.", e.getMessage()));
-                        log.log(Level.FINER, "Input data does not match schema 'CatalogActionOneOf3'", e);
+                        errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for CatalogActionRemove failed with `%s`.", e.getMessage()));
+                        log.log(Level.FINER, "Input data does not match schema 'CatalogActionRemove'", e);
                     }
-                    // deserialize CatalogActionOneOf4
+                    // deserialize CatalogActionRemoveMany
                     try {
                         // validate the JSON object to see if any exception is thrown
-                        CatalogActionOneOf4.validateJsonElement(jsonElement);
-                        actualAdapter = adapterCatalogActionOneOf4;
+                        CatalogActionRemoveMany.validateJsonElement(jsonElement);
+                        actualAdapter = adapterCatalogActionRemoveMany;
                         match++;
-                        log.log(Level.FINER, "Input data matches schema 'CatalogActionOneOf4'");
+                        log.log(Level.FINER, "Input data matches schema 'CatalogActionRemoveMany'");
                     } catch (Exception e) {
                         // deserialization failed, continue
-                        errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for CatalogActionOneOf4 failed with `%s`.", e.getMessage()));
-                        log.log(Level.FINER, "Input data does not match schema 'CatalogActionOneOf4'", e);
+                        errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for CatalogActionRemoveMany failed with `%s`.", e.getMessage()));
+                        log.log(Level.FINER, "Input data does not match schema 'CatalogActionRemoveMany'", e);
                     }
-                    // deserialize CatalogActionOneOf5
+                    // deserialize CatalogActionAddPriceAdjustment
                     try {
                         // validate the JSON object to see if any exception is thrown
-                        CatalogActionOneOf5.validateJsonElement(jsonElement);
-                        actualAdapter = adapterCatalogActionOneOf5;
+                        CatalogActionAddPriceAdjustment.validateJsonElement(jsonElement);
+                        actualAdapter = adapterCatalogActionAddPriceAdjustment;
                         match++;
-                        log.log(Level.FINER, "Input data matches schema 'CatalogActionOneOf5'");
+                        log.log(Level.FINER, "Input data matches schema 'CatalogActionAddPriceAdjustment'");
                     } catch (Exception e) {
                         // deserialization failed, continue
-                        errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for CatalogActionOneOf5 failed with `%s`.", e.getMessage()));
-                        log.log(Level.FINER, "Input data does not match schema 'CatalogActionOneOf5'", e);
+                        errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for CatalogActionAddPriceAdjustment failed with `%s`.", e.getMessage()));
+                        log.log(Level.FINER, "Input data does not match schema 'CatalogActionAddPriceAdjustment'", e);
                     }
 
                     if (match == 1) {
@@ -237,12 +237,12 @@ public class CatalogAction extends AbstractOpenApiSchema {
     }
 
     static {
-        schemas.put("CatalogActionOneOf", CatalogActionOneOf.class);
-        schemas.put("CatalogActionOneOf1", CatalogActionOneOf1.class);
-        schemas.put("CatalogActionOneOf2", CatalogActionOneOf2.class);
-        schemas.put("CatalogActionOneOf3", CatalogActionOneOf3.class);
-        schemas.put("CatalogActionOneOf4", CatalogActionOneOf4.class);
-        schemas.put("CatalogActionOneOf5", CatalogActionOneOf5.class);
+        schemas.put("CatalogActionAdd", CatalogActionAdd.class);
+        schemas.put("CatalogActionPatch", CatalogActionPatch.class);
+        schemas.put("CatalogActionPatchMany", CatalogActionPatchMany.class);
+        schemas.put("CatalogActionRemove", CatalogActionRemove.class);
+        schemas.put("CatalogActionRemoveMany", CatalogActionRemoveMany.class);
+        schemas.put("CatalogActionAddPriceAdjustment", CatalogActionAddPriceAdjustment.class);
     }
 
     @Override
@@ -253,50 +253,50 @@ public class CatalogAction extends AbstractOpenApiSchema {
     /**
      * Set the instance that matches the oneOf child schema, check
      * the instance parameter is valid against the oneOf child schemas:
-     * CatalogActionOneOf, CatalogActionOneOf1, CatalogActionOneOf2, CatalogActionOneOf3, CatalogActionOneOf4, CatalogActionOneOf5
+     * CatalogActionAdd, CatalogActionAddPriceAdjustment, CatalogActionPatch, CatalogActionPatchMany, CatalogActionRemove, CatalogActionRemoveMany
      *
      * It could be an instance of the 'oneOf' schemas.
      */
     @Override
     public void setActualInstance(Object instance) {
-        if (instance instanceof CatalogActionOneOf) {
+        if (instance instanceof CatalogActionAdd) {
             super.setActualInstance(instance);
             return;
         }
 
-        if (instance instanceof CatalogActionOneOf1) {
+        if (instance instanceof CatalogActionPatch) {
             super.setActualInstance(instance);
             return;
         }
 
-        if (instance instanceof CatalogActionOneOf2) {
+        if (instance instanceof CatalogActionPatchMany) {
             super.setActualInstance(instance);
             return;
         }
 
-        if (instance instanceof CatalogActionOneOf3) {
+        if (instance instanceof CatalogActionRemove) {
             super.setActualInstance(instance);
             return;
         }
 
-        if (instance instanceof CatalogActionOneOf4) {
+        if (instance instanceof CatalogActionRemoveMany) {
             super.setActualInstance(instance);
             return;
         }
 
-        if (instance instanceof CatalogActionOneOf5) {
+        if (instance instanceof CatalogActionAddPriceAdjustment) {
             super.setActualInstance(instance);
             return;
         }
 
-        throw new RuntimeException("Invalid instance type. Must be CatalogActionOneOf, CatalogActionOneOf1, CatalogActionOneOf2, CatalogActionOneOf3, CatalogActionOneOf4, CatalogActionOneOf5");
+        throw new RuntimeException("Invalid instance type. Must be CatalogActionAdd, CatalogActionAddPriceAdjustment, CatalogActionPatch, CatalogActionPatchMany, CatalogActionRemove, CatalogActionRemoveMany");
     }
 
     /**
      * Get the actual instance, which can be the following:
-     * CatalogActionOneOf, CatalogActionOneOf1, CatalogActionOneOf2, CatalogActionOneOf3, CatalogActionOneOf4, CatalogActionOneOf5
+     * CatalogActionAdd, CatalogActionAddPriceAdjustment, CatalogActionPatch, CatalogActionPatchMany, CatalogActionRemove, CatalogActionRemoveMany
      *
-     * @return The actual instance (CatalogActionOneOf, CatalogActionOneOf1, CatalogActionOneOf2, CatalogActionOneOf3, CatalogActionOneOf4, CatalogActionOneOf5)
+     * @return The actual instance (CatalogActionAdd, CatalogActionAddPriceAdjustment, CatalogActionPatch, CatalogActionPatchMany, CatalogActionRemove, CatalogActionRemoveMany)
      */
     @SuppressWarnings("unchecked")
     @Override
@@ -305,75 +305,75 @@ public class CatalogAction extends AbstractOpenApiSchema {
     }
 
     /**
-     * Get the actual instance of `CatalogActionOneOf`. If the actual instance is not `CatalogActionOneOf`,
+     * Get the actual instance of `CatalogActionAdd`. If the actual instance is not `CatalogActionAdd`,
      * the ClassCastException will be thrown.
      *
-     * @return The actual instance of `CatalogActionOneOf`
-     * @throws ClassCastException if the instance is not `CatalogActionOneOf`
+     * @return The actual instance of `CatalogActionAdd`
+     * @throws ClassCastException if the instance is not `CatalogActionAdd`
      */
     @SuppressWarnings("unchecked")
-    public CatalogActionOneOf getCatalogActionOneOf() throws ClassCastException {
-        return (CatalogActionOneOf)super.getActualInstance();
+    public CatalogActionAdd getCatalogActionAdd() throws ClassCastException {
+        return (CatalogActionAdd)super.getActualInstance();
     }
 
     /**
-     * Get the actual instance of `CatalogActionOneOf1`. If the actual instance is not `CatalogActionOneOf1`,
+     * Get the actual instance of `CatalogActionPatch`. If the actual instance is not `CatalogActionPatch`,
      * the ClassCastException will be thrown.
      *
-     * @return The actual instance of `CatalogActionOneOf1`
-     * @throws ClassCastException if the instance is not `CatalogActionOneOf1`
+     * @return The actual instance of `CatalogActionPatch`
+     * @throws ClassCastException if the instance is not `CatalogActionPatch`
      */
     @SuppressWarnings("unchecked")
-    public CatalogActionOneOf1 getCatalogActionOneOf1() throws ClassCastException {
-        return (CatalogActionOneOf1)super.getActualInstance();
+    public CatalogActionPatch getCatalogActionPatch() throws ClassCastException {
+        return (CatalogActionPatch)super.getActualInstance();
     }
 
     /**
-     * Get the actual instance of `CatalogActionOneOf2`. If the actual instance is not `CatalogActionOneOf2`,
+     * Get the actual instance of `CatalogActionPatchMany`. If the actual instance is not `CatalogActionPatchMany`,
      * the ClassCastException will be thrown.
      *
-     * @return The actual instance of `CatalogActionOneOf2`
-     * @throws ClassCastException if the instance is not `CatalogActionOneOf2`
+     * @return The actual instance of `CatalogActionPatchMany`
+     * @throws ClassCastException if the instance is not `CatalogActionPatchMany`
      */
     @SuppressWarnings("unchecked")
-    public CatalogActionOneOf2 getCatalogActionOneOf2() throws ClassCastException {
-        return (CatalogActionOneOf2)super.getActualInstance();
+    public CatalogActionPatchMany getCatalogActionPatchMany() throws ClassCastException {
+        return (CatalogActionPatchMany)super.getActualInstance();
     }
 
     /**
-     * Get the actual instance of `CatalogActionOneOf3`. If the actual instance is not `CatalogActionOneOf3`,
+     * Get the actual instance of `CatalogActionRemove`. If the actual instance is not `CatalogActionRemove`,
      * the ClassCastException will be thrown.
      *
-     * @return The actual instance of `CatalogActionOneOf3`
-     * @throws ClassCastException if the instance is not `CatalogActionOneOf3`
+     * @return The actual instance of `CatalogActionRemove`
+     * @throws ClassCastException if the instance is not `CatalogActionRemove`
      */
     @SuppressWarnings("unchecked")
-    public CatalogActionOneOf3 getCatalogActionOneOf3() throws ClassCastException {
-        return (CatalogActionOneOf3)super.getActualInstance();
+    public CatalogActionRemove getCatalogActionRemove() throws ClassCastException {
+        return (CatalogActionRemove)super.getActualInstance();
     }
 
     /**
-     * Get the actual instance of `CatalogActionOneOf4`. If the actual instance is not `CatalogActionOneOf4`,
+     * Get the actual instance of `CatalogActionRemoveMany`. If the actual instance is not `CatalogActionRemoveMany`,
      * the ClassCastException will be thrown.
      *
-     * @return The actual instance of `CatalogActionOneOf4`
-     * @throws ClassCastException if the instance is not `CatalogActionOneOf4`
+     * @return The actual instance of `CatalogActionRemoveMany`
+     * @throws ClassCastException if the instance is not `CatalogActionRemoveMany`
      */
     @SuppressWarnings("unchecked")
-    public CatalogActionOneOf4 getCatalogActionOneOf4() throws ClassCastException {
-        return (CatalogActionOneOf4)super.getActualInstance();
+    public CatalogActionRemoveMany getCatalogActionRemoveMany() throws ClassCastException {
+        return (CatalogActionRemoveMany)super.getActualInstance();
     }
 
     /**
-     * Get the actual instance of `CatalogActionOneOf5`. If the actual instance is not `CatalogActionOneOf5`,
+     * Get the actual instance of `CatalogActionAddPriceAdjustment`. If the actual instance is not `CatalogActionAddPriceAdjustment`,
      * the ClassCastException will be thrown.
      *
-     * @return The actual instance of `CatalogActionOneOf5`
-     * @throws ClassCastException if the instance is not `CatalogActionOneOf5`
+     * @return The actual instance of `CatalogActionAddPriceAdjustment`
+     * @throws ClassCastException if the instance is not `CatalogActionAddPriceAdjustment`
      */
     @SuppressWarnings("unchecked")
-    public CatalogActionOneOf5 getCatalogActionOneOf5() throws ClassCastException {
-        return (CatalogActionOneOf5)super.getActualInstance();
+    public CatalogActionAddPriceAdjustment getCatalogActionAddPriceAdjustment() throws ClassCastException {
+        return (CatalogActionAddPriceAdjustment)super.getActualInstance();
     }
 
     /**
@@ -386,56 +386,56 @@ public class CatalogAction extends AbstractOpenApiSchema {
         // validate oneOf schemas one by one
         int validCount = 0;
         ArrayList<String> errorMessages = new ArrayList<>();
-        // validate the json string with CatalogActionOneOf
+        // validate the json string with CatalogActionAdd
         try {
-            CatalogActionOneOf.validateJsonElement(jsonElement);
+            CatalogActionAdd.validateJsonElement(jsonElement);
             validCount++;
         } catch (Exception e) {
-            errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for CatalogActionOneOf failed with `%s`.", e.getMessage()));
+            errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for CatalogActionAdd failed with `%s`.", e.getMessage()));
             // continue to the next one
         }
-        // validate the json string with CatalogActionOneOf1
+        // validate the json string with CatalogActionPatch
         try {
-            CatalogActionOneOf1.validateJsonElement(jsonElement);
+            CatalogActionPatch.validateJsonElement(jsonElement);
             validCount++;
         } catch (Exception e) {
-            errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for CatalogActionOneOf1 failed with `%s`.", e.getMessage()));
+            errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for CatalogActionPatch failed with `%s`.", e.getMessage()));
             // continue to the next one
         }
-        // validate the json string with CatalogActionOneOf2
+        // validate the json string with CatalogActionPatchMany
         try {
-            CatalogActionOneOf2.validateJsonElement(jsonElement);
+            CatalogActionPatchMany.validateJsonElement(jsonElement);
             validCount++;
         } catch (Exception e) {
-            errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for CatalogActionOneOf2 failed with `%s`.", e.getMessage()));
+            errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for CatalogActionPatchMany failed with `%s`.", e.getMessage()));
             // continue to the next one
         }
-        // validate the json string with CatalogActionOneOf3
+        // validate the json string with CatalogActionRemove
         try {
-            CatalogActionOneOf3.validateJsonElement(jsonElement);
+            CatalogActionRemove.validateJsonElement(jsonElement);
             validCount++;
         } catch (Exception e) {
-            errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for CatalogActionOneOf3 failed with `%s`.", e.getMessage()));
+            errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for CatalogActionRemove failed with `%s`.", e.getMessage()));
             // continue to the next one
         }
-        // validate the json string with CatalogActionOneOf4
+        // validate the json string with CatalogActionRemoveMany
         try {
-            CatalogActionOneOf4.validateJsonElement(jsonElement);
+            CatalogActionRemoveMany.validateJsonElement(jsonElement);
             validCount++;
         } catch (Exception e) {
-            errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for CatalogActionOneOf4 failed with `%s`.", e.getMessage()));
+            errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for CatalogActionRemoveMany failed with `%s`.", e.getMessage()));
             // continue to the next one
         }
-        // validate the json string with CatalogActionOneOf5
+        // validate the json string with CatalogActionAddPriceAdjustment
         try {
-            CatalogActionOneOf5.validateJsonElement(jsonElement);
+            CatalogActionAddPriceAdjustment.validateJsonElement(jsonElement);
             validCount++;
         } catch (Exception e) {
-            errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for CatalogActionOneOf5 failed with `%s`.", e.getMessage()));
+            errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for CatalogActionAddPriceAdjustment failed with `%s`.", e.getMessage()));
             // continue to the next one
         }
         if (validCount != 1) {
-            throw new IOException(String.format(java.util.Locale.ROOT, "The JSON string is invalid for CatalogAction with oneOf schemas: CatalogActionOneOf, CatalogActionOneOf1, CatalogActionOneOf2, CatalogActionOneOf3, CatalogActionOneOf4, CatalogActionOneOf5. %d class(es) match the result, expected 1. Detailed failure message for oneOf schemas: %s. JSON: %s", validCount, errorMessages, jsonElement.toString()));
+            throw new IOException(String.format(java.util.Locale.ROOT, "The JSON string is invalid for CatalogAction with oneOf schemas: CatalogActionAdd, CatalogActionAddPriceAdjustment, CatalogActionPatch, CatalogActionPatchMany, CatalogActionRemove, CatalogActionRemoveMany. %d class(es) match the result, expected 1. Detailed failure message for oneOf schemas: %s. JSON: %s", validCount, errorMessages, jsonElement.toString()));
         }
     }
 

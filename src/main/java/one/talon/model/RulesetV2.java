@@ -24,10 +24,11 @@ import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.Map;
+import one.talon.model.Bundle;
 import one.talon.model.PromotionRuleV2;
 import one.talon.model.Selector;
 import one.talon.model.StrikethroughRuleV2;
+import one.talon.model.TemplateParameter;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -105,12 +106,12 @@ public class RulesetV2 {
   public static final String SERIALIZED_NAME_BUNDLES = "bundles";
   @SerializedName(SERIALIZED_NAME_BUNDLES)
   @javax.annotation.Nullable
-  private List<Map<String, Object>> bundles;
+  private List<Bundle> bundles;
 
   public static final String SERIALIZED_NAME_PARAMETERS = "parameters";
   @SerializedName(SERIALIZED_NAME_PARAMETERS)
   @javax.annotation.Nullable
-  private List<Map<String, Object>> parameters;
+  private List<TemplateParameter> parameters;
 
   public RulesetV2() {
   }
@@ -310,12 +311,12 @@ public class RulesetV2 {
   }
 
 
-  public RulesetV2 bundles(@javax.annotation.Nullable List<Map<String, Object>> bundles) {
+  public RulesetV2 bundles(@javax.annotation.Nullable List<Bundle> bundles) {
     this.bundles = bundles;
     return this;
   }
 
-  public RulesetV2 addBundlesItem(Map<String, Object> bundlesItem) {
+  public RulesetV2 addBundlesItem(Bundle bundlesItem) {
     if (this.bundles == null) {
       this.bundles = new ArrayList<>();
     }
@@ -328,21 +329,21 @@ public class RulesetV2 {
    * @return bundles
    */
   @javax.annotation.Nullable
-  public List<Map<String, Object>> getBundles() {
+  public List<Bundle> getBundles() {
     return bundles;
   }
 
-  public void setBundles(@javax.annotation.Nullable List<Map<String, Object>> bundles) {
+  public void setBundles(@javax.annotation.Nullable List<Bundle> bundles) {
     this.bundles = bundles;
   }
 
 
-  public RulesetV2 parameters(@javax.annotation.Nullable List<Map<String, Object>> parameters) {
+  public RulesetV2 parameters(@javax.annotation.Nullable List<TemplateParameter> parameters) {
     this.parameters = parameters;
     return this;
   }
 
-  public RulesetV2 addParametersItem(Map<String, Object> parametersItem) {
+  public RulesetV2 addParametersItem(TemplateParameter parametersItem) {
     if (this.parameters == null) {
       this.parameters = new ArrayList<>();
     }
@@ -355,11 +356,11 @@ public class RulesetV2 {
    * @return parameters
    */
   @javax.annotation.Nullable
-  public List<Map<String, Object>> getParameters() {
+  public List<TemplateParameter> getParameters() {
     return parameters;
   }
 
-  public void setParameters(@javax.annotation.Nullable List<Map<String, Object>> parameters) {
+  public void setParameters(@javax.annotation.Nullable List<TemplateParameter> parameters) {
     this.parameters = parameters;
   }
 
@@ -531,13 +532,33 @@ public class RulesetV2 {
           };
         }
       }
-      // ensure the optional json data is an array if present
-      if (jsonObj.get("bundles") != null && !jsonObj.get("bundles").isJsonNull() && !jsonObj.get("bundles").isJsonArray()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `bundles` to be an array in the JSON string but got `%s`", jsonObj.get("bundles").toString()));
+      if (jsonObj.get("bundles") != null && !jsonObj.get("bundles").isJsonNull()) {
+        JsonArray jsonArraybundles = jsonObj.getAsJsonArray("bundles");
+        if (jsonArraybundles != null) {
+          // ensure the json data is an array
+          if (!jsonObj.get("bundles").isJsonArray()) {
+            throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `bundles` to be an array in the JSON string but got `%s`", jsonObj.get("bundles").toString()));
+          }
+
+          // validate the optional field `bundles` (array)
+          for (int i = 0; i < jsonArraybundles.size(); i++) {
+            Bundle.validateJsonElement(jsonArraybundles.get(i));
+          };
+        }
       }
-      // ensure the optional json data is an array if present
-      if (jsonObj.get("parameters") != null && !jsonObj.get("parameters").isJsonNull() && !jsonObj.get("parameters").isJsonArray()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `parameters` to be an array in the JSON string but got `%s`", jsonObj.get("parameters").toString()));
+      if (jsonObj.get("parameters") != null && !jsonObj.get("parameters").isJsonNull()) {
+        JsonArray jsonArrayparameters = jsonObj.getAsJsonArray("parameters");
+        if (jsonArrayparameters != null) {
+          // ensure the json data is an array
+          if (!jsonObj.get("parameters").isJsonArray()) {
+            throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `parameters` to be an array in the JSON string but got `%s`", jsonObj.get("parameters").toString()));
+          }
+
+          // validate the optional field `parameters` (array)
+          for (int i = 0; i < jsonArrayparameters.size(); i++) {
+            TemplateParameter.validateJsonElement(jsonArrayparameters.get(i));
+          };
+        }
       }
   }
 

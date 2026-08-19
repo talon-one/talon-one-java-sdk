@@ -22,7 +22,10 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.math.BigDecimal;
 import java.time.OffsetDateTime;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
+import one.talon.model.CampaignReference;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -154,9 +157,20 @@ public class AchievementProgressWithDefinition {
   private String description;
 
   public static final String SERIALIZED_NAME_CAMPAIGN_ID = "campaignId";
+  @Deprecated
   @SerializedName(SERIALIZED_NAME_CAMPAIGN_ID)
   @javax.annotation.Nonnull
   private Long campaignId;
+
+  public static final String SERIALIZED_NAME_CAMPAIGN_IDS = "campaignIds";
+  @SerializedName(SERIALIZED_NAME_CAMPAIGN_IDS)
+  @javax.annotation.Nonnull
+  private List<Long> campaignIds = new ArrayList<>();
+
+  public static final String SERIALIZED_NAME_REFERENCED_BY_CAMPAIGNS = "referencedByCampaigns";
+  @SerializedName(SERIALIZED_NAME_REFERENCED_BY_CAMPAIGNS)
+  @javax.annotation.Nonnull
+  private List<CampaignReference> referencedByCampaigns = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_TARGET = "target";
   @SerializedName(SERIALIZED_NAME_TARGET)
@@ -468,22 +482,80 @@ public class AchievementProgressWithDefinition {
   }
 
 
+  @Deprecated
   public AchievementProgressWithDefinition campaignId(@javax.annotation.Nonnull Long campaignId) {
     this.campaignId = campaignId;
     return this;
   }
 
   /**
-   * The ID of the campaign the achievement belongs to.
+   * This property is **deprecated**. Use &#x60;campaignIds&#x60; (Integration API) or &#x60;referencedByCampaigns&#x60; (Management API) instead. The first campaign ID in &#x60;campaignIds&#x60;. Only returned when &#x60;campaignIds&#x60; is not empty.
    * @return campaignId
+   * @deprecated
    */
+  @Deprecated
   @javax.annotation.Nonnull
   public Long getCampaignId() {
     return campaignId;
   }
 
+  @Deprecated
   public void setCampaignId(@javax.annotation.Nonnull Long campaignId) {
     this.campaignId = campaignId;
+  }
+
+
+  public AchievementProgressWithDefinition campaignIds(@javax.annotation.Nonnull List<Long> campaignIds) {
+    this.campaignIds = campaignIds;
+    return this;
+  }
+
+  public AchievementProgressWithDefinition addCampaignIdsItem(Long campaignIdsItem) {
+    if (this.campaignIds == null) {
+      this.campaignIds = new ArrayList<>();
+    }
+    this.campaignIds.add(campaignIdsItem);
+    return this;
+  }
+
+  /**
+   * The IDs of the campaigns that reference this achievement, in ascending order.
+   * @return campaignIds
+   */
+  @javax.annotation.Nonnull
+  public List<Long> getCampaignIds() {
+    return campaignIds;
+  }
+
+  public void setCampaignIds(@javax.annotation.Nonnull List<Long> campaignIds) {
+    this.campaignIds = campaignIds;
+  }
+
+
+  public AchievementProgressWithDefinition referencedByCampaigns(@javax.annotation.Nonnull List<CampaignReference> referencedByCampaigns) {
+    this.referencedByCampaigns = referencedByCampaigns;
+    return this;
+  }
+
+  public AchievementProgressWithDefinition addReferencedByCampaignsItem(CampaignReference referencedByCampaignsItem) {
+    if (this.referencedByCampaigns == null) {
+      this.referencedByCampaigns = new ArrayList<>();
+    }
+    this.referencedByCampaigns.add(referencedByCampaignsItem);
+    return this;
+  }
+
+  /**
+   * The campaigns that reference this achievement, in ascending order of their &#x60;id&#x60;.
+   * @return referencedByCampaigns
+   */
+  @javax.annotation.Nonnull
+  public List<CampaignReference> getReferencedByCampaigns() {
+    return referencedByCampaigns;
+  }
+
+  public void setReferencedByCampaigns(@javax.annotation.Nonnull List<CampaignReference> referencedByCampaigns) {
+    this.referencedByCampaigns = referencedByCampaigns;
   }
 
 
@@ -665,6 +737,8 @@ public class AchievementProgressWithDefinition {
         Objects.equals(this.title, achievementProgressWithDefinition.title) &&
         Objects.equals(this.description, achievementProgressWithDefinition.description) &&
         Objects.equals(this.campaignId, achievementProgressWithDefinition.campaignId) &&
+        Objects.equals(this.campaignIds, achievementProgressWithDefinition.campaignIds) &&
+        Objects.equals(this.referencedByCampaigns, achievementProgressWithDefinition.referencedByCampaigns) &&
         Objects.equals(this.target, achievementProgressWithDefinition.target) &&
         Objects.equals(this.achievementRecurrencePolicy, achievementProgressWithDefinition.achievementRecurrencePolicy) &&
         Objects.equals(this.achievementActivationPolicy, achievementProgressWithDefinition.achievementActivationPolicy) &&
@@ -676,7 +750,7 @@ public class AchievementProgressWithDefinition {
 
   @Override
   public int hashCode() {
-    return Objects.hash(status, progress, startDate, completionDate, endDate, achievementId, name, title, description, campaignId, target, achievementRecurrencePolicy, achievementActivationPolicy, achievementFixedStartDate, achievementEndDate, achievementAllowRollbackAfterCompletion, additionalProperties);
+    return Objects.hash(status, progress, startDate, completionDate, endDate, achievementId, name, title, description, campaignId, campaignIds, referencedByCampaigns, target, achievementRecurrencePolicy, achievementActivationPolicy, achievementFixedStartDate, achievementEndDate, achievementAllowRollbackAfterCompletion, additionalProperties);
   }
 
   @Override
@@ -693,6 +767,8 @@ public class AchievementProgressWithDefinition {
     sb.append("    title: ").append(toIndentedString(title)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    campaignId: ").append(toIndentedString(campaignId)).append("\n");
+    sb.append("    campaignIds: ").append(toIndentedString(campaignIds)).append("\n");
+    sb.append("    referencedByCampaigns: ").append(toIndentedString(referencedByCampaigns)).append("\n");
     sb.append("    target: ").append(toIndentedString(target)).append("\n");
     sb.append("    achievementRecurrencePolicy: ").append(toIndentedString(achievementRecurrencePolicy)).append("\n");
     sb.append("    achievementActivationPolicy: ").append(toIndentedString(achievementActivationPolicy)).append("\n");
@@ -718,10 +794,10 @@ public class AchievementProgressWithDefinition {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("status", "progress", "startDate", "completionDate", "endDate", "achievementId", "name", "title", "description", "campaignId", "target", "achievementRecurrencePolicy", "achievementActivationPolicy", "achievementFixedStartDate", "achievementEndDate", "achievementAllowRollbackAfterCompletion"));
+    openapiFields = new HashSet<String>(Arrays.asList("status", "progress", "startDate", "completionDate", "endDate", "achievementId", "name", "title", "description", "campaignId", "campaignIds", "referencedByCampaigns", "target", "achievementRecurrencePolicy", "achievementActivationPolicy", "achievementFixedStartDate", "achievementEndDate", "achievementAllowRollbackAfterCompletion"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("status", "progress", "achievementId", "name", "title", "description", "campaignId", "achievementRecurrencePolicy", "achievementActivationPolicy"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("status", "progress", "achievementId", "name", "title", "description", "campaignId", "campaignIds", "referencedByCampaigns", "achievementRecurrencePolicy", "achievementActivationPolicy"));
   }
 
   /**
@@ -757,6 +833,22 @@ public class AchievementProgressWithDefinition {
       }
       if (!jsonObj.get("description").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `description` to be a primitive type in the JSON string but got `%s`", jsonObj.get("description").toString()));
+      }
+      // ensure the required json array is present
+      if (jsonObj.get("campaignIds") == null) {
+        throw new IllegalArgumentException("Expected the field `linkedContent` to be an array in the JSON string but got `null`");
+      } else if (!jsonObj.get("campaignIds").isJsonArray()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `campaignIds` to be an array in the JSON string but got `%s`", jsonObj.get("campaignIds").toString()));
+      }
+      if (jsonObj.get("referencedByCampaigns") != null) {
+        if (!jsonObj.get("referencedByCampaigns").isJsonArray()) {
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `referencedByCampaigns` to be an array in the JSON string but got `%s`", jsonObj.get("referencedByCampaigns").toString()));
+        }
+        JsonArray jsonArrayreferencedByCampaigns = jsonObj.getAsJsonArray("referencedByCampaigns");
+        // validate the required field `referencedByCampaigns` (array)
+        for (int i = 0; i < jsonArrayreferencedByCampaigns.size(); i++) {
+          CampaignReference.validateJsonElement(jsonArrayreferencedByCampaigns.get(i));
+        }
       }
       if (!jsonObj.get("achievementRecurrencePolicy").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `achievementRecurrencePolicy` to be a primitive type in the JSON string but got `%s`", jsonObj.get("achievementRecurrencePolicy").toString()));

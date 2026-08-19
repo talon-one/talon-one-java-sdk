@@ -22,7 +22,9 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.math.BigDecimal;
 import java.time.OffsetDateTime;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import one.talon.model.AchievementProgress;
 import one.talon.model.TimePoint;
 
@@ -227,9 +229,15 @@ public class AchievementStatusEntry {
   private Boolean allowRollbackAfterCompletion;
 
   public static final String SERIALIZED_NAME_CAMPAIGN_ID = "campaignId";
+  @Deprecated
   @SerializedName(SERIALIZED_NAME_CAMPAIGN_ID)
   @javax.annotation.Nullable
   private Long campaignId;
+
+  public static final String SERIALIZED_NAME_CAMPAIGN_IDS = "campaignIds";
+  @SerializedName(SERIALIZED_NAME_CAMPAIGN_IDS)
+  @javax.annotation.Nonnull
+  private List<Long> campaignIds = new ArrayList<>();
 
   /**
    * The status of the achievement.
@@ -547,22 +555,53 @@ public class AchievementStatusEntry {
   }
 
 
+  @Deprecated
   public AchievementStatusEntry campaignId(@javax.annotation.Nullable Long campaignId) {
     this.campaignId = campaignId;
     return this;
   }
 
   /**
-   * The ID of the campaign the achievement belongs to.
+   * This property is **deprecated**. Use &#x60;campaignIds&#x60; instead. The first campaign ID in &#x60;campaignIds&#x60;. Only returned when &#x60;campaignIds&#x60; is not empty.
    * @return campaignId
+   * @deprecated
    */
+  @Deprecated
   @javax.annotation.Nullable
   public Long getCampaignId() {
     return campaignId;
   }
 
+  @Deprecated
   public void setCampaignId(@javax.annotation.Nullable Long campaignId) {
     this.campaignId = campaignId;
+  }
+
+
+  public AchievementStatusEntry campaignIds(@javax.annotation.Nonnull List<Long> campaignIds) {
+    this.campaignIds = campaignIds;
+    return this;
+  }
+
+  public AchievementStatusEntry addCampaignIdsItem(Long campaignIdsItem) {
+    if (this.campaignIds == null) {
+      this.campaignIds = new ArrayList<>();
+    }
+    this.campaignIds.add(campaignIdsItem);
+    return this;
+  }
+
+  /**
+   * The IDs of the campaigns that reference this achievement, in ascending order.
+   * @return campaignIds
+   */
+  @javax.annotation.Nonnull
+  public List<Long> getCampaignIds() {
+    return campaignIds;
+  }
+
+  public void setCampaignIds(@javax.annotation.Nonnull List<Long> campaignIds) {
+    this.campaignIds = campaignIds;
   }
 
 
@@ -672,6 +711,7 @@ public class AchievementStatusEntry {
         Objects.equals(this.endDate, achievementStatusEntry.endDate) &&
         Objects.equals(this.allowRollbackAfterCompletion, achievementStatusEntry.allowRollbackAfterCompletion) &&
         Objects.equals(this.campaignId, achievementStatusEntry.campaignId) &&
+        Objects.equals(this.campaignIds, achievementStatusEntry.campaignIds) &&
         Objects.equals(this.status, achievementStatusEntry.status) &&
         Objects.equals(this.currentProgress, achievementStatusEntry.currentProgress)&&
         Objects.equals(this.additionalProperties, achievementStatusEntry.additionalProperties);
@@ -679,7 +719,7 @@ public class AchievementStatusEntry {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, created, name, title, description, target, period, periodEndOverride, recurrencePolicy, activationPolicy, fixedStartDate, endDate, allowRollbackAfterCompletion, campaignId, status, currentProgress, additionalProperties);
+    return Objects.hash(id, created, name, title, description, target, period, periodEndOverride, recurrencePolicy, activationPolicy, fixedStartDate, endDate, allowRollbackAfterCompletion, campaignId, campaignIds, status, currentProgress, additionalProperties);
   }
 
   @Override
@@ -700,6 +740,7 @@ public class AchievementStatusEntry {
     sb.append("    endDate: ").append(toIndentedString(endDate)).append("\n");
     sb.append("    allowRollbackAfterCompletion: ").append(toIndentedString(allowRollbackAfterCompletion)).append("\n");
     sb.append("    campaignId: ").append(toIndentedString(campaignId)).append("\n");
+    sb.append("    campaignIds: ").append(toIndentedString(campaignIds)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    currentProgress: ").append(toIndentedString(currentProgress)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
@@ -721,10 +762,10 @@ public class AchievementStatusEntry {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("id", "created", "name", "title", "description", "target", "period", "periodEndOverride", "recurrencePolicy", "activationPolicy", "fixedStartDate", "endDate", "allowRollbackAfterCompletion", "campaignId", "status", "currentProgress"));
+    openapiFields = new HashSet<String>(Arrays.asList("id", "created", "name", "title", "description", "target", "period", "periodEndOverride", "recurrencePolicy", "activationPolicy", "fixedStartDate", "endDate", "allowRollbackAfterCompletion", "campaignId", "campaignIds", "status", "currentProgress"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("id", "created", "name", "title", "description", "target"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("id", "created", "name", "title", "description", "target", "campaignIds"));
   }
 
   /**
@@ -776,6 +817,12 @@ public class AchievementStatusEntry {
       // validate the optional field `activationPolicy`
       if (jsonObj.get("activationPolicy") != null && !jsonObj.get("activationPolicy").isJsonNull()) {
         ActivationPolicyEnum.validateJsonElement(jsonObj.get("activationPolicy"));
+      }
+      // ensure the required json array is present
+      if (jsonObj.get("campaignIds") == null) {
+        throw new IllegalArgumentException("Expected the field `linkedContent` to be an array in the JSON string but got `null`");
+      } else if (!jsonObj.get("campaignIds").isJsonArray()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `campaignIds` to be an array in the JSON string but got `%s`", jsonObj.get("campaignIds").toString()));
       }
       if ((jsonObj.get("status") != null && !jsonObj.get("status").isJsonNull()) && !jsonObj.get("status").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `status` to be a primitive type in the JSON string but got `%s`", jsonObj.get("status").toString()));

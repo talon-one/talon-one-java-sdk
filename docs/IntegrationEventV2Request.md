@@ -29,6 +29,7 @@
 | RULE_FAILURE_REASONS | &quot;ruleFailureReasons&quot; |
 | CAMPAIGN_ELIGIBILITY | &quot;campaignEligibility&quot; |
 | ACHIEVEMENTS | &quot;achievements&quot; |
+| UNLOCKED_REWARDS | &quot;unlockedRewards&quot; |
 
 
 

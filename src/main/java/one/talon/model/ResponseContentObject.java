@@ -71,7 +71,9 @@ public class ResponseContentObject {
     
     CAMPAIGN_ELIGIBILITY("campaignEligibility"),
     
-    ACHIEVEMENTS("achievements");
+    ACHIEVEMENTS("achievements"),
+    
+    UNLOCKED_REWARDS("unlockedRewards");
 
     private String value;
 
