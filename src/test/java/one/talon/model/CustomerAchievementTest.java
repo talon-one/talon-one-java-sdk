@@ -21,8 +21,11 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.math.BigDecimal;
 import java.time.OffsetDateTime;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import one.talon.model.AchievementProgress;
+import one.talon.model.CampaignReference;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
@@ -118,6 +121,30 @@ public class CustomerAchievementTest {
     @Test
     public void allowRollbackAfterCompletionTest() {
         // TODO: test allowRollbackAfterCompletion
+    }
+
+    /**
+     * Test the property 'campaignId'
+     */
+    @Test
+    public void campaignIdTest() {
+        // TODO: test campaignId
+    }
+
+    /**
+     * Test the property 'campaignIds'
+     */
+    @Test
+    public void campaignIdsTest() {
+        // TODO: test campaignIds
+    }
+
+    /**
+     * Test the property 'referencedByCampaigns'
+     */
+    @Test
+    public void referencedByCampaignsTest() {
+        // TODO: test referencedByCampaigns
     }
 
     /**

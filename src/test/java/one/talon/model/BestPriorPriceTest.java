@@ -76,14 +76,6 @@ public class BestPriorPriceTest {
     }
 
     /**
-     * Test the property 'contextId'
-     */
-    @Test
-    public void contextIdTest() {
-        // TODO: test contextId
-    }
-
-    /**
      * Test the property 'price'
      */
     @Test

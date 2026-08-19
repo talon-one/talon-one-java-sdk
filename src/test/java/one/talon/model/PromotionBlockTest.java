@@ -19,7 +19,6 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
-import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -36,8 +35,10 @@ import one.talon.model.CheckBudgetBlock;
 import one.talon.model.CheckCouponBlock;
 import one.talon.model.CheckEventBlock;
 import one.talon.model.CheckLoyaltyBalanceBlock;
-import one.talon.model.CheckLoyaltyBalanceBlock1Program;
+import one.talon.model.CheckLoyaltyCardBlock;
 import one.talon.model.CheckReferralBlock;
+import one.talon.model.CheckTierBlock;
+import one.talon.model.CheckTierBlock1Tier;
 import one.talon.model.CreateCouponBlock;
 import one.talon.model.CreateCouponBlock1DiscountLimit;
 import one.talon.model.CreateReferralBlock;
@@ -46,6 +47,9 @@ import one.talon.model.CreateReferralBlock1UsageLimit;
 import one.talon.model.PassthroughBlock;
 import one.talon.model.PromotionCheckAttributeBlock;
 import one.talon.model.PromotionGroupBlock;
+import one.talon.model.RedeemLoyaltyPointsBlock;
+import one.talon.model.RedeemLoyaltyPointsBlock1Program;
+import one.talon.model.RedeemLoyaltyPointsBlock1Value;
 import one.talon.model.ReserveCouponBlock;
 import one.talon.model.ShowNotificationBlock;
 import one.talon.model.TriggerCustomEffectBlock;
@@ -490,6 +494,14 @@ public class PromotionBlockTest {
     @Test
     public void friendIdTest() {
         // TODO: test friendId
+    }
+
+    /**
+     * Test the property 'tier'
+     */
+    @Test
+    public void tierTest() {
+        // TODO: test tier
     }
 
 }

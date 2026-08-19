@@ -25,6 +25,7 @@ import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import one.talon.model.CampaignReference;
 import one.talon.model.TimePoint;
 
 import com.google.gson.Gson;
@@ -315,6 +316,17 @@ public class AchievementV2 {
   @SerializedName(SERIALIZED_NAME_TIMEZONE)
   @javax.annotation.Nonnull
   private String timezone;
+
+  public static final String SERIALIZED_NAME_CAMPAIGN_ID = "campaignId";
+  @Deprecated
+  @SerializedName(SERIALIZED_NAME_CAMPAIGN_ID)
+  @javax.annotation.Nullable
+  private Long campaignId;
+
+  public static final String SERIALIZED_NAME_REFERENCED_BY_CAMPAIGNS = "referencedByCampaigns";
+  @SerializedName(SERIALIZED_NAME_REFERENCED_BY_CAMPAIGNS)
+  @javax.annotation.Nonnull
+  private List<CampaignReference> referencedByCampaigns = new ArrayList<>();
 
   public AchievementV2() {
   }
@@ -710,6 +722,56 @@ public class AchievementV2 {
     this.timezone = timezone;
   }
 
+
+  @Deprecated
+  public AchievementV2 campaignId(@javax.annotation.Nullable Long campaignId) {
+    this.campaignId = campaignId;
+    return this;
+  }
+
+  /**
+   * This property is **deprecated**. Use &#x60;referencedByCampaigns&#x60; instead. The ID of the first campaign in &#x60;referencedByCampaigns&#x60;. Only returned when &#x60;referencedByCampaigns&#x60; is not empty.
+   * @return campaignId
+   * @deprecated
+   */
+  @Deprecated
+  @javax.annotation.Nullable
+  public Long getCampaignId() {
+    return campaignId;
+  }
+
+  @Deprecated
+  public void setCampaignId(@javax.annotation.Nullable Long campaignId) {
+    this.campaignId = campaignId;
+  }
+
+
+  public AchievementV2 referencedByCampaigns(@javax.annotation.Nonnull List<CampaignReference> referencedByCampaigns) {
+    this.referencedByCampaigns = referencedByCampaigns;
+    return this;
+  }
+
+  public AchievementV2 addReferencedByCampaignsItem(CampaignReference referencedByCampaignsItem) {
+    if (this.referencedByCampaigns == null) {
+      this.referencedByCampaigns = new ArrayList<>();
+    }
+    this.referencedByCampaigns.add(referencedByCampaignsItem);
+    return this;
+  }
+
+  /**
+   * The campaigns that reference this achievement. They are sorted in ascending order by their id.
+   * @return referencedByCampaigns
+   */
+  @javax.annotation.Nonnull
+  public List<CampaignReference> getReferencedByCampaigns() {
+    return referencedByCampaigns;
+  }
+
+  public void setReferencedByCampaigns(@javax.annotation.Nonnull List<CampaignReference> referencedByCampaigns) {
+    this.referencedByCampaigns = referencedByCampaigns;
+  }
+
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -784,13 +846,15 @@ public class AchievementV2 {
         Objects.equals(this.hasProgress, achievementV2.hasProgress) &&
         Objects.equals(this.status, achievementV2.status) &&
         Objects.equals(this.sandbox, achievementV2.sandbox) &&
-        Objects.equals(this.timezone, achievementV2.timezone)&&
+        Objects.equals(this.timezone, achievementV2.timezone) &&
+        Objects.equals(this.campaignId, achievementV2.campaignId) &&
+        Objects.equals(this.referencedByCampaigns, achievementV2.referencedByCampaigns)&&
         Objects.equals(this.additionalProperties, achievementV2.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, created, name, title, description, target, period, recurrencePolicy, activationPolicy, fixedStartDate, endDate, allowRollbackAfterCompletion, subscribedApplications, userId, createdBy, periodEndOverride, hasProgress, status, sandbox, timezone, additionalProperties);
+    return Objects.hash(id, created, name, title, description, target, period, recurrencePolicy, activationPolicy, fixedStartDate, endDate, allowRollbackAfterCompletion, subscribedApplications, userId, createdBy, periodEndOverride, hasProgress, status, sandbox, timezone, campaignId, referencedByCampaigns, additionalProperties);
   }
 
   @Override
@@ -817,6 +881,8 @@ public class AchievementV2 {
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    sandbox: ").append(toIndentedString(sandbox)).append("\n");
     sb.append("    timezone: ").append(toIndentedString(timezone)).append("\n");
+    sb.append("    campaignId: ").append(toIndentedString(campaignId)).append("\n");
+    sb.append("    referencedByCampaigns: ").append(toIndentedString(referencedByCampaigns)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -836,10 +902,10 @@ public class AchievementV2 {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("id", "created", "name", "title", "description", "target", "period", "recurrencePolicy", "activationPolicy", "fixedStartDate", "endDate", "allowRollbackAfterCompletion", "subscribedApplications", "userId", "createdBy", "periodEndOverride", "hasProgress", "status", "sandbox", "timezone"));
+    openapiFields = new HashSet<String>(Arrays.asList("id", "created", "name", "title", "description", "target", "period", "recurrencePolicy", "activationPolicy", "fixedStartDate", "endDate", "allowRollbackAfterCompletion", "subscribedApplications", "userId", "createdBy", "periodEndOverride", "hasProgress", "status", "sandbox", "timezone", "campaignId", "referencedByCampaigns"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("id", "created", "userId", "sandbox", "timezone"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("id", "created", "userId", "sandbox", "timezone", "referencedByCampaigns"));
   }
 
   /**
@@ -908,6 +974,16 @@ public class AchievementV2 {
       }
       if (!jsonObj.get("timezone").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `timezone` to be a primitive type in the JSON string but got `%s`", jsonObj.get("timezone").toString()));
+      }
+      if (jsonObj.get("referencedByCampaigns") != null) {
+        if (!jsonObj.get("referencedByCampaigns").isJsonArray()) {
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `referencedByCampaigns` to be an array in the JSON string but got `%s`", jsonObj.get("referencedByCampaigns").toString()));
+        }
+        JsonArray jsonArrayreferencedByCampaigns = jsonObj.getAsJsonArray("referencedByCampaigns");
+        // validate the required field `referencedByCampaigns` (array)
+        for (int i = 0; i < jsonArrayreferencedByCampaigns.size(); i++) {
+          CampaignReference.validateJsonElement(jsonArrayreferencedByCampaigns.get(i));
+        }
       }
   }
 

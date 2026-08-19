@@ -237,10 +237,7 @@ paths:
         > - The currency for the session and the cart items in it is the currency set for the Application linked to this session.
         > - [Archived campaigns](https://docs.talon.one/docs/product/campaigns/managing-campaigns#archiving-a-campaign) are not considered for rule evaluation.
 
-        > [!note] To make request processing idempotent for this endpoint, include the `Idempotency-Key` header with an idempotency key in requests. Also:
-        > - Requests with the `Idempotency-Key` header are logged in the Talon.One access logs.
-        > - Responses for idempotent requests are stored in the database and expire 24 hours after the request is sent.
-        > - Idempotency keys are typically UUID keys and should not exceed 255 characters in length.
+        > [!note] To make request processing idempotent for this endpoint, include the `Idempotency-Key` header with an idempotency key in requests. Learn more about [idempotency](https://docs.talon.one/integration-api#description/idempotency).
 
         ### Session management
 
@@ -476,10 +473,7 @@ paths:
         > states](https://docs.talon.one/docs/dev/concepts/entities/customer-sessions#customer-session-states)
         > and [this tutorial](https://docs.talon.one/docs/dev/tutorials/partially-returning-a-session).
 
-        > [!note] To make request processing idempotent for this endpoint, include the `Idempotency-Key` header with an idempotency key in requests. Also:
-        > - Requests with the `Idempotency-Key` header are logged in the Talon.One access logs.
-        > - Responses for idempotent requests are stored in the database and expire 24 hours after the request is sent.
-        > - Idempotency keys are typically UUID keys and should not exceed 255 characters in length.
+        > [!note] To make request processing idempotent for this endpoint, include the `Idempotency-Key` header with an idempotency key in requests. Learn more about [idempotency](https://docs.talon.one/integration-api#description/idempotency).
       operationId: returnCartItems
       parameters:
       - description: |
@@ -588,10 +582,7 @@ paths:
         > [Update customer session](https://docs.talon.one/integration-api#tag/Customer-sessions/operation/updateCustomerSessionV2)
         > endpoint to cancel a closed session and create a new one.
 
-        > [!note] To make request processing idempotent for this endpoint, include the `Idempotency-Key` header with an idempotency key in requests. Also:
-        > - Requests with the `Idempotency-Key` header are logged in the Talon.One access logs.
-        > - Responses for idempotent requests are stored in the database and expire 24 hours after the request is sent.
-        > - Idempotency keys are typically UUID keys and should not exceed 255 characters in length.
+        > [!note] To make request processing idempotent for this endpoint, include the `Idempotency-Key` header with an idempotency key in requests. Learn more about [idempotency](https://docs.talon.one/integration-api#description/idempotency).
       operationId: reopenCustomerSession
       parameters:
       - description: |
@@ -654,10 +645,7 @@ paths:
         >   See [Managing parallel requests](https://docs.talon.one/docs/dev/getting-started/integration-tutorial#managing-parallel-requests).
         > - [Archived campaigns](https://docs.talon.one/docs/product/campaigns/managing-campaigns#archiving-a-campaign) are not considered in rule evaluation when `runRuleEngine` is `true`.
 
-        > [!note] To make request processing idempotent for this endpoint, include the `Idempotency-Key` header with an idempotency key in requests. Also:
-        > - Requests with the `Idempotency-Key` header are logged in the Talon.One access logs.
-        > - Responses for idempotent requests are stored in the database and expire 24 hours after the request is sent.
-        > - Idempotency keys are typically UUID keys and should not exceed 255 characters in length.
+        > [!note] To make request processing idempotent for this endpoint, include the `Idempotency-Key` header with an idempotency key in requests. Learn more about [idempotency](https://docs.talon.one/integration-api#description/idempotency).
       operationId: updateCustomerProfileV2
       parameters:
       - description: |
@@ -808,10 +796,7 @@ paths:
         > To trigger the Rule Engine for customer profile updates,
         > use the [Update customer profile](#tag/Customer-profiles/operation/updateCustomerProfileV2) endpoint.
 
-        > [!note] To make request processing idempotent for this endpoint, include the `Idempotency-Key` header with an idempotency key in requests. Also:
-        > - Requests with the `Idempotency-Key` header are logged in the Talon.One access logs.
-        > - Responses for idempotent requests are stored in the database and expire 24 hours after the request is sent.
-        > - Idempotency keys are typically UUID keys and should not exceed 255 characters in length.
+        > [!note] To make request processing idempotent for this endpoint, include the `Idempotency-Key` header with an idempotency key in requests. Learn more about [idempotency](https://docs.talon.one/integration-api#description/idempotency).
       operationId: updateCustomerProfilesV2
       parameters:
       - description: |
@@ -1536,10 +1521,7 @@ paths:
         > - We recommend sending requests sequentially. See [Manage parallel requests](https://docs.talon.one/docs/dev/getting-started/integration-tutorial#manage-parallel-requests).
         > - [Archived campaigns](https://docs.talon.one/docs/product/campaigns/managing-campaigns#archive-a-campaign) are not considered in rule evaluation.
 
-        > [!note] To make request processing idempotent for this endpoint, include the `Idempotency-Key` header with an idempotency key in requests. Also:
-        > - Requests with the `Idempotency-Key` header are logged in the Talon.One access logs.
-        > - Responses for idempotent requests are stored in the database and expire 24 hours after the request is sent.
-        > - Idempotency keys are typically UUID keys and should not exceed 255 characters in length.
+        > [!note] To make request processing idempotent for this endpoint, include the `Idempotency-Key` header with an idempotency key in requests. Learn more about [idempotency](https://docs.talon.one/integration-api#description/idempotency).
       operationId: trackEventV2
       parameters:
       - description: |
@@ -6175,7 +6157,7 @@ paths:
     get:
       deprecated: true
       description: |
-        > [warning] This endpoint is deprecated.
+        > [!warning] This endpoint is deprecated.
 
         To retrieve statistics for a loyalty program, use the
         [Get statistics for loyalty dashboard](/management-api#tag/Loyalty/operation/getDashboardStatistics)
@@ -10166,211 +10148,7 @@ paths:
           **Note:** `GE`, `LE`, `GT`, `LT` are for numeric values only.
         - `value`: The value of the attribute selected in `attr`.
 
-        ### Payload examples
-
-        Synchronization actions are sent as `PUT` requests. See the structure for
-        each action:
-
-        <details>
-          <summary><strong>Adding an item to the catalog</strong></summary>
-          <div>
-
-          ```json
-          {
-            "actions": [
-              {
-                "payload": {
-                  "attributes": {
-                    "color": "Navy blue",
-                    "type": "shoes"
-                  },
-                  "replaceIfExists": true,
-                  "sku": "SKU1241028",
-                  "price": 100,
-                  "product": {
-                    "name": "sneakers"
-                  }
-                },
-                "type": "ADD"
-              }
-            ]
-          }
-          ```
-          </div>
-        </details>
-
-        <details>
-          <summary><strong>Adding multiple items to the catalog</strong></summary>
-          <div>
-
-          ```json
-          {
-            "actions": [
-              {
-                "payload": {
-                  "attributes": {
-                    "color": "Navy blue",
-                    "type": "shoes"
-                  },
-                  "replaceIfExists": true,
-                  "sku": "SKU1241027",
-                  "price": 100,
-                  "product": {
-                    "name": "sneakers"
-                  }
-                },
-                "type": "ADD"
-              },
-              {
-                "payload": {
-                  "attributes": {
-                    "color": "Navy blue",
-                    "type": "shoes"
-                  },
-                  "replaceIfExists": true,
-                  "sku": "SKU1241028",
-                  "price": 100,
-                  "product": {
-                    "name": "sneakers"
-                  }
-                },
-                "type": "ADD"
-              }
-            ]
-          }
-          ```
-          </div>
-        </details>
-
-        <details>
-          <summary><strong>Updating the attributes of an item in the catalog</strong></summary>
-          <div>
-
-          ```json
-          {
-            "actions": [
-              {
-                "payload": {
-                  "attributes": {
-                    "age": 11,
-                    "origin": "germany"
-                  },
-                  "createIfNotExists": false,
-                  "sku": "SKU1241028",
-                  "product": {
-                    "name": "sneakers"
-                  }
-                },
-                "type": "PATCH"
-              }
-            ]
-          }
-          ```
-          </div>
-        </details>
-
-        <details>
-          <summary><strong>Updating the attributes of multiple items in the catalog</strong></summary>
-          <div>
-
-          ```json
-          {
-            "actions": [
-              {
-                "payload": {
-                  "attributes": {
-                    "color": "red"
-                  },
-                  "filters": [
-                    {
-                      "attr": "color",
-                      "op": "EQ",
-                      "value": "blue"
-                    }
-                  ]
-                },
-                "type": "PATCH_MANY"
-              }
-            ]
-          }
-          ```
-
-          </div>
-        </details>
-
-        <details>
-          <summary><strong>Removing an item from the catalog</strong></summary>
-          <div>
-
-          ```json
-          {
-            "actions": [
-              {
-                "payload": {
-                  "sku": "SKU1241028"
-                },
-                "type": "REMOVE"
-              }
-            ]
-          }
-          ```
-
-          </div>
-        </details>
-
-        <details>
-          <summary><strong>Removing multiple items from the catalog</strong></summary>
-          <div>
-
-          ```json
-          {
-            "actions": [
-              {
-                "payload": {
-                  "filters": [
-                    {
-                      "attr": "color",
-                      "op": "EQ",
-                      "value": "blue"
-                    }
-                  ]
-                },
-                "type": "REMOVE_MANY"
-              }
-            ]
-          }
-          ```
-          </div>
-        </details>
-
-        <details>
-          <summary><strong>Removing shoes of sizes above 45 from the catalog</strong></summary>
-          <div>
-          <p>
-          Let's imagine that we have a shoe store and we have decided to stop selling
-          shoes larger than size 45. We can remove from the catalog all the shoes of sizes above 45
-          with a single action:</p>
-
-          ```json
-          {
-            "actions": [
-              {
-                "payload": {
-                  "filters": [
-                    {
-                      "attr": "size",
-                      "op": "GT",
-                      "value": "45"
-                    }
-                  ]
-                },
-                "type": "REMOVE_MANY"
-              }
-            ]
-          }
-          ```
-          </div>
-        </details>
+        For request examples of each action, see the **Request Body** examples.
       operationId: syncCatalog
       parameters:
       - description: The ID of the catalog. You can find the ID in the Campaign Manager
@@ -10386,6 +10164,100 @@ paths:
       requestBody:
         content:
           application/json:
+            examples:
+              addItem:
+                summary: Add an item to the catalog
+                value:
+                  actions:
+                  - type: ADD
+                    payload:
+                      sku: SKU1241028
+                      attributes:
+                        color: Navy blue
+                        type: shoes
+                      replaceIfExists: true
+                      price: 100
+                      product:
+                        name: sneakers
+              addMultipleItems:
+                summary: Add multiple items to the catalog
+                value:
+                  actions:
+                  - type: ADD
+                    payload:
+                      sku: SKU1241027
+                      attributes:
+                        color: Navy blue
+                        type: shoes
+                      replaceIfExists: true
+                      price: 100
+                      product:
+                        name: sneakers
+                  - type: ADD
+                    payload:
+                      sku: SKU1241028
+                      attributes:
+                        color: Navy blue
+                        type: shoes
+                      replaceIfExists: true
+                      price: 100
+                      product:
+                        name: sneakers
+              updateItem:
+                summary: Update the attributes of an item in the catalog
+                value:
+                  actions:
+                  - type: PATCH
+                    payload:
+                      sku: SKU1241028
+                      attributes:
+                        age: 11
+                        origin: germany
+                      createIfNotExists: false
+                      product:
+                        name: sneakers
+              updateMultipleItems:
+                summary: Update the attributes of multiple items in the catalog
+                value:
+                  actions:
+                  - type: PATCH_MANY
+                    payload:
+                      attributes:
+                        color: red
+                      filters:
+                      - attr: color
+                        op: EQ
+                        value: blue
+              removeItem:
+                summary: Remove an item from the catalog
+                value:
+                  actions:
+                  - type: REMOVE
+                    payload:
+                      sku: SKU1241028
+              removeMultipleItems:
+                summary: Remove multiple items from the catalog
+                value:
+                  actions:
+                  - type: REMOVE_MANY
+                    payload:
+                      filters:
+                      - attr: color
+                        op: EQ
+                        value: blue
+              removeShoesAboveSize45:
+                description: Imagine a shoe store that decided to stop selling shoes
+                  larger than size 45. Remove all shoes of sizes above 45 from the
+                  catalog with a single action.
+                summary: Remove shoes of sizes above 45 from the catalog
+                value:
+                  actions:
+                  - type: REMOVE_MANY
+                    payload:
+                      filters:
+                      - attr: size
+                        op: GT
+                        value: "45"
             schema:
               $ref: "#/components/schemas/CatalogSyncRequest"
         description: body
@@ -14703,6 +14575,13 @@ components:
             $ref: "#/components/schemas/UpdateSupportRequest"
       description: body
       required: true
+    AddLoyaltyPointsSupport:
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/AddLoyaltyPointsSupport"
+      description: body
+      required: true
     NewReward:
       content:
         application/json:
@@ -17342,6 +17221,87 @@ components:
       - startDate
       - target
       title: startAchievementProgress
+    UnlockRewardEffectProps:
+      description: The properties specific to the "unlockReward" effect. This gets
+        triggered whenever a validated rule unlocks a reward for a customer profile.
+      properties:
+        integrationId:
+          description: The integration ID assigned to the customer reward unlock.
+          example: reward-unlock-123
+          type: string
+        rewardId:
+          description: The internal ID of the reward that was unlocked.
+          example: 5
+          format: int64
+          type: integer
+        applicationId:
+          description: The internal ID of the application the reward belongs to.
+          example: 1
+          format: int64
+          type: integer
+        profileIntegrationId:
+          description: The integration ID of the customer profile that unlocked the
+            reward.
+          example: customer1
+          type: string
+        unlockedAt:
+          description: The time the reward was unlocked.
+          example: 2024-05-29T15:04:05Z
+          format: date-time
+          type: string
+      required:
+      - applicationId
+      - integrationId
+      - profileIntegrationId
+      - rewardId
+      - unlockedAt
+      title: unlockReward
+    UseRewardEffectProps:
+      description: This effect is triggered when a rule that uses a customer's unlocked
+        reward is validated during session evaluation.
+      properties:
+        integrationId:
+          description: The integration ID of the customer reward that was used.
+          example: 5c0b5e6d-3f8a-4c2b-9f1e-2a7d6b4c8e90
+          type: string
+        rewardId:
+          description: The ID of the reward that was used.
+          example: 5
+          format: int64
+          type: integer
+        applicationId:
+          description: The ID of the Application the reward belongs to.
+          example: 1
+          format: int64
+          type: integer
+      required:
+      - applicationId
+      - integrationId
+      - rewardId
+      title: useReward
+    RollbackUseRewardEffectProps:
+      description: This effect is triggered when a reward usage has been rolled back
+        by a session cancellation.
+      properties:
+        integrationId:
+          description: The integration ID of the customer reward that was rolled back.
+          example: 5c0b5e6d-3f8a-4c2b-9f1e-2a7d6b4c8e90
+          type: string
+        rewardId:
+          description: The ID of the reward that was rolled back.
+          example: 5
+          format: int64
+          type: integer
+        applicationId:
+          description: The ID of the Application the reward belongs to.
+          example: 1
+          format: int64
+          type: integer
+      required:
+      - applicationId
+      - integrationId
+      - rewardId
+      title: RollbackUseReward
     Effect:
       allOf:
       - $ref: "#/components/schemas/EffectEntity"
@@ -17660,6 +17620,7 @@ components:
             - previousReturns
             - campaignEligibility
             - achievements
+            - unlockedRewards
             type: string
           type: array
           default: null
@@ -19759,6 +19720,24 @@ components:
         importId: 4
         profileIntegrationId: R195412
         profileId: 1
+    CampaignReference:
+      example:
+        id: 1
+        applicationId: 2
+      properties:
+        id:
+          description: The ID of the campaign that references this achievement.
+          example: 1
+          format: int64
+          type: integer
+        applicationId:
+          description: The ID of the Application the campaign belongs to.
+          example: 2
+          format: int64
+          type: integer
+      required:
+      - applicationId
+      - id
     AchievementProgress:
       description: The current progress of the customer in the achievement.
       example:
@@ -19814,6 +19793,16 @@ components:
         fixedStartDate: 2024-01-15T15:04:05Z07:00
         endDate: 2024-02-15T15:04:05Z07:00
         allowRollbackAfterCompletion: false
+        campaignId: 3
+        campaignIds:
+        - 1
+        - 14
+        - 27
+        referencedByCampaigns:
+        - id: 1
+          applicationId: 2
+        - id: 1
+          applicationId: 2
         currentProgress:
           status: completed
           progress: 10
@@ -19891,17 +19880,83 @@ components:
             \ achievements."
           example: false
           type: boolean
+        campaignId:
+          deprecated: true
+          description: This property is **deprecated**. Use `campaignIds` (Integration
+            API) or `referencedByCampaigns` (Management API) instead. The first campaign
+            ID in `campaignIds`. Only returned when `campaignIds` is not empty.
+          example: 3
+          format: int64
+          type: integer
+        campaignIds:
+          description: "The IDs of the campaigns that reference this achievement,\
+            \ in ascending order."
+          example:
+          - 1
+          - 14
+          - 27
+          items:
+            format: int64
+            type: integer
+          type: array
+          default: null
+        referencedByCampaigns:
+          description: The campaigns that reference this achievement. They are sorted
+            in ascending order by their `id`.
+          items:
+            $ref: "#/components/schemas/CampaignReference"
+          type: array
+          default: null
         currentProgress:
           $ref: "#/components/schemas/AchievementProgress"
       required:
       - activationPolicy
       - allowRollbackAfterCompletion
+      - campaignIds
       - description
       - id
       - name
       - recurrencePolicy
+      - referencedByCampaigns
       - target
       - title
+    CustomerReward:
+      description: A reward unlocked by a customer profile.
+      properties:
+        applicationId:
+          description: The ID of the Application in which the reward was unlocked.
+          example: 3
+          format: int64
+          type: integer
+        profileIntegrationId:
+          description: The integration ID of the customer profile that unlocked this
+            reward.
+          example: customer1
+          type: string
+        integrationId:
+          description: The integration ID assigned to this reward unlock.
+          example: reward-unlock-123
+          type: string
+        unlockedAt:
+          description: The date and time when the reward was unlocked.
+          example: 2024-01-01T00:00:00Z
+          format: date-time
+          type: string
+        usedAt:
+          description: The date and time when the reward was used.
+          example: 2024-01-02T00:00:00Z
+          format: date-time
+          type: string
+      required:
+      - applicationId
+      - integrationId
+      - profileIntegrationId
+      - unlockedAt
+    Rewards:
+      description: The rewards for the customer profile.
+      items: {}
+      type: array
+      default: null
     IntegrationResponse:
       description: |
         Contains entities that might be valuable in Talon.One integrations.
@@ -21076,6 +21131,16 @@ components:
           fixedStartDate: 2024-01-15T15:04:05Z07:00
           endDate: 2024-02-15T15:04:05Z07:00
           allowRollbackAfterCompletion: false
+          campaignId: 3
+          campaignIds:
+          - 1
+          - 14
+          - 27
+          referencedByCampaigns:
+          - id: 1
+            applicationId: 2
+          - id: 1
+            applicationId: 2
           currentProgress:
             status: completed
             progress: 10
@@ -21092,6 +21157,16 @@ components:
           fixedStartDate: 2024-01-15T15:04:05Z07:00
           endDate: 2024-02-15T15:04:05Z07:00
           allowRollbackAfterCompletion: false
+          campaignId: 3
+          campaignIds:
+          - 1
+          - 14
+          - 27
+          referencedByCampaigns:
+          - id: 1
+            applicationId: 2
+          - id: 1
+            applicationId: 2
           currentProgress:
             status: completed
             progress: 10
@@ -21244,6 +21319,7 @@ components:
             - ruleFailureReasons
             - campaignEligibility
             - achievements
+            - unlockedRewards
             type: string
           type: array
           default: null
@@ -24518,6 +24594,16 @@ components:
           fixedStartDate: 2024-01-15T15:04:05Z07:00
           endDate: 2024-02-15T15:04:05Z07:00
           allowRollbackAfterCompletion: false
+          campaignId: 3
+          campaignIds:
+          - 1
+          - 14
+          - 27
+          referencedByCampaigns:
+          - id: 1
+            applicationId: 2
+          - id: 1
+            applicationId: 2
           currentProgress:
             status: completed
             progress: 10
@@ -24534,6 +24620,16 @@ components:
           fixedStartDate: 2024-01-15T15:04:05Z07:00
           endDate: 2024-02-15T15:04:05Z07:00
           allowRollbackAfterCompletion: false
+          campaignId: 3
+          campaignIds:
+          - 1
+          - 14
+          - 27
+          referencedByCampaigns:
+          - id: 1
+            applicationId: 2
+          - id: 1
+            applicationId: 2
           currentProgress:
             status: completed
             progress: 10
@@ -24693,10 +24789,33 @@ components:
             format: string
             type: string
           campaignId:
-            description: The ID of the campaign the achievement belongs to.
+            deprecated: true
+            description: This property is **deprecated**. Use `campaignIds` (Integration
+              API) or `referencedByCampaigns` (Management API) instead. The first
+              campaign ID in `campaignIds`. Only returned when `campaignIds` is not
+              empty.
             example: 3
             format: int64
             type: integer
+          campaignIds:
+            description: "The IDs of the campaigns that reference this achievement,\
+              \ in ascending order."
+            example:
+            - 1
+            - 14
+            - 27
+            items:
+              format: int64
+              type: integer
+            type: array
+            default: null
+          referencedByCampaigns:
+            description: "The campaigns that reference this achievement, in ascending\
+              \ order of their `id`."
+            items:
+              $ref: "#/components/schemas/CampaignReference"
+            type: array
+            default: null
           target:
             description: The required number of actions or the transactional milestone
               to complete the achievement.
@@ -24750,8 +24869,10 @@ components:
         - achievementId
         - achievementRecurrencePolicy
         - campaignId
+        - campaignIds
         - description
         - name
+        - referencedByCampaigns
         - title
       example:
         status: completed
@@ -24764,6 +24885,15 @@ components:
         title: 50% off on 50th purchase.
         description: 50% off for every 50th purchase in a year.
         campaignId: 3
+        campaignIds:
+        - 1
+        - 14
+        - 27
+        referencedByCampaigns:
+        - id: 1
+          applicationId: 2
+        - id: 1
+          applicationId: 2
         target: 10
         achievementRecurrencePolicy: no_recurrence
         achievementActivationPolicy: fixed_schedule
@@ -25016,6 +25146,15 @@ components:
           title: 50% off on 50th purchase.
           description: 50% off for every 50th purchase in a year.
           campaignId: 3
+          campaignIds:
+          - 1
+          - 14
+          - 27
+          referencedByCampaigns:
+          - id: 1
+            applicationId: 2
+          - id: 1
+            applicationId: 2
           target: 10
           achievementRecurrencePolicy: no_recurrence
           achievementActivationPolicy: fixed_schedule
@@ -25032,12 +25171,24 @@ components:
           title: 50% off on 50th purchase.
           description: 50% off for every 50th purchase in a year.
           campaignId: 3
+          campaignIds:
+          - 1
+          - 14
+          - 27
+          referencedByCampaigns:
+          - id: 1
+            applicationId: 2
+          - id: 1
+            applicationId: 2
           target: 10
           achievementRecurrencePolicy: no_recurrence
           achievementActivationPolicy: fixed_schedule
           achievementFixedStartDate: 2024-01-15T15:04:05Z07:00
           achievementEndDate: 2024-02-15T15:04:05Z07:00
           achievementAllowRollbackAfterCompletion: false
+        rewards:
+        - ""
+        - ""
       properties:
         profile:
           $ref: "#/components/schemas/CustomerProfile"
@@ -25063,6 +25214,11 @@ components:
         achievements:
           items:
             $ref: "#/components/schemas/AchievementProgressWithDefinition"
+          type: array
+          default: null
+        rewards:
+          description: The customer rewards that are `unlocked` and not yet `used`.
+          items: {}
           type: array
           default: null
     TimePoint:
@@ -25254,10 +25410,25 @@ components:
       - $ref: "#/components/schemas/CreateAchievement"
       - properties:
           campaignId:
-            description: The ID of the campaign the achievement belongs to.
+            deprecated: true
+            description: This property is **deprecated**. Use `campaignIds` instead.
+              The first campaign ID in `campaignIds`. Only returned when `campaignIds`
+              is not empty.
             example: 1
             format: int64
             type: integer
+          campaignIds:
+            description: "The IDs of the campaigns that reference this achievement,\
+              \ in ascending order."
+            example:
+            - 1
+            - 14
+            - 27
+            items:
+              format: int64
+              type: integer
+            type: array
+            default: null
           status:
             description: The status of the achievement.
             enum:
@@ -25267,6 +25438,8 @@ components:
             type: string
           currentProgress:
             $ref: "#/components/schemas/AchievementProgress"
+        required:
+        - campaignIds
       example:
         id: 6
         created: 2020-06-10T09:05:27.993483Z
@@ -25282,6 +25455,10 @@ components:
         endDate: 2024-02-15T15:04:05Z07:00
         allowRollbackAfterCompletion: false
         campaignId: 1
+        campaignIds:
+        - 1
+        - 14
+        - 27
         status: active
         currentProgress:
           status: completed
@@ -25539,7 +25716,7 @@ components:
           type: string
         validityDuration:
           description: |
-            The duration for which the points remain active, relative to the  activation date.
+            The duration for which the points remain active, relative to the activation date.
 
             **Note**: This only applies to points for which `awaitsActivation` is `true` and `expiryDate` is not set.
           example: 30D
@@ -25681,7 +25858,7 @@ components:
             \  flag indicates whether the transaction results in a negative balance."
         validityDuration:
           description: |
-            The duration for which the points remain active, relative to the  activation date.
+            The duration for which the points remain active, relative to the activation date.
 
             **Note**: This only applies to points for which `awaitsActivation` is `true` and `expiryDate` is not set.
           example: 30D
@@ -28530,6 +28707,9 @@ components:
           createCoupon: "#/components/schemas/CreateCouponBlock"
           createReferral: "#/components/schemas/CreateReferralBlock"
           reserveCoupon: "#/components/schemas/ReserveCouponBlock"
+          checkLoyaltyCard: "#/components/schemas/CheckLoyaltyCardBlock"
+          checkTier: "#/components/schemas/CheckTierBlock"
+          redeemLoyaltyPoints: "#/components/schemas/RedeemLoyaltyPointsBlock"
         propertyName: type
       oneOf:
       - $ref: "#/components/schemas/PromotionGroupBlock"
@@ -28554,6 +28734,9 @@ components:
       - $ref: "#/components/schemas/CreateCouponBlock"
       - $ref: "#/components/schemas/CreateReferralBlock"
       - $ref: "#/components/schemas/ReserveCouponBlock"
+      - $ref: "#/components/schemas/CheckLoyaltyCardBlock"
+      - $ref: "#/components/schemas/CheckTierBlock"
+      - $ref: "#/components/schemas/RedeemLoyaltyPointsBlock"
     PromotionGroupBlock:
       allOf:
       - $ref: "#/components/schemas/BaseBlock"
@@ -29534,6 +29717,94 @@ components:
       - description: A block that reserve a coupon during a customer session.
         title: ReserveCouponBlock
         type: object
+    CheckLoyaltyCardBlock:
+      allOf:
+      - $ref: "#/components/schemas/BaseBlock"
+      - description: A block that verifies whether a loyalty card is linked to the
+          user's profile.
+        properties:
+          operator:
+            description: An indicator of how the block compares its elements.
+            enum:
+            - linked
+            - not(linked)
+            type: string
+          onFailure:
+            description: Promotion blocks evaluated when this block fails or returns
+              false.
+            items:
+              $ref: "#/components/schemas/PromotionBlock"
+            type: array
+            default: null
+        required:
+        - operator
+        title: CheckLoyaltyCardBlock
+    CheckTierBlock:
+      allOf:
+      - $ref: "#/components/schemas/BaseBlock"
+      - description: A block that checks whether a user profile is a member of a specific
+          tier within a loyalty program.
+        properties:
+          operator:
+            description: An indicator of how the block compares its elements.
+            enum:
+            - member
+            - not(member)
+            example: member
+            type: string
+          subledger:
+            description: The name of the subledger to check the balance of. Can be
+              empty if this block checks the loyalty program's main ledger balance
+              instead of a subledger.
+            example: ""
+            type: string
+          tier:
+            $ref: "#/components/schemas/CheckTierBlock_1_tier"
+          onFailure:
+            description: Promotion blocks evaluated when this block fails or returns
+              false.
+            items:
+              $ref: "#/components/schemas/PromotionBlock"
+            type: array
+            default: null
+        required:
+        - operator
+        - subledger
+        - tier
+        title: CheckTierBlock
+    RedeemLoyaltyPointsBlock:
+      allOf:
+      - $ref: "#/components/schemas/BaseBlock"
+      - description: "A block that deducts a specified amount of points from a customer's\
+          \ loyalty program balance, optionally from a named subledger."
+        properties:
+          program:
+            $ref: "#/components/schemas/RedeemLoyaltyPointsBlock_1_program"
+          subledger:
+            description: The name of the subledger to deduct points from. Can be empty
+              if this block deducts from the loyalty program's main ledger instead
+              of a subledger.
+            example: main
+            type: string
+          value:
+            $ref: "#/components/schemas/RedeemLoyaltyPointsBlock_1_value"
+          name:
+            description: A custom description recorded as the reason for the point
+              deduction.
+            example: Purchase Deduction
+            type: string
+          onFailure:
+            description: Promotion blocks evaluated when this block fails or returns
+              false.
+            items:
+              $ref: "#/components/schemas/PromotionBlock"
+            type: array
+            default: null
+        required:
+        - program
+        - subledger
+        - value
+        title: RedeemLoyaltyPointsBlock
     PromotionRuleV2:
       allOf:
       - $ref: "#/components/schemas/RuleV2"
@@ -30199,6 +30470,122 @@ components:
       - steps
       - type
       title: Selector
+    Bundle:
+      description: "A named bundle definition consisting of selector sources with\
+        \ matching constraints. Replaces `bundle` [bindings](https://docs.talon.one/management-api#tag/Campaigns/operation/getRuleset.responses.200.bindings)\
+        \ in V1 rulesets."
+      example:
+        id: 1b671a64-40d5-491e-99b0-da01ff1f3341
+        name: meal_deal
+        type: bundle
+        sources:
+        - "{{$mains}}"
+        - "{{$drinks}}"
+        counts:
+        - 1
+        - 2
+        matchers:
+        - color
+      properties:
+        id:
+          description: An identifier derived from the bundle content.
+          example: 1b671a64-40d5-491e-99b0-da01ff1f3341
+          type: string
+        name:
+          description: The name of the bundle.
+          example: meal_deal
+          type: string
+        type:
+          description: A binding of type `bundle`.
+          enum:
+          - bundle
+          example: bundle
+          type: string
+        sources:
+          description: "The selector sources of bundle items. Each source is expressed\
+            \ as a `{{$selectorName}}` reference."
+          example:
+          - "{{$mains}}"
+          - "{{$drinks}}"
+          items:
+            type: string
+          type: array
+          default: null
+        counts:
+          description: The number of items to retrieve from each corresponding source
+            in `sources`.
+          example:
+          - 1
+          - 2
+          items:
+            format: int64
+            type: integer
+          type: array
+          default: null
+        matchers:
+          description: Attribute names that the bundled items must share.
+          example:
+          - color
+          items:
+            type: string
+          type: array
+          default: null
+      required:
+      - counts
+      - id
+      - name
+      - sources
+      - type
+      title: Bundle
+    TemplateParameter:
+      description: "A named parameter definition that exposes a configurable value\
+        \ in a campaign template. Replaces `templateParameter` [bindings](https://docs.talon.one/management-api#tag/Campaigns/operation/getRuleset.responses.200.bindings)\
+        \ in V1 rulesets."
+      example:
+        name: minCartTotal
+        value: ""
+        valueType: number
+        minValue: 0
+        maxValue: 10000
+        description: Minimum cart total to trigger the campaign.
+        attribute: 42
+      properties:
+        name:
+          description: The name of the template parameter.
+          example: minCartTotal
+          type: string
+        value: {}
+        valueType:
+          description: "The data type of the value, derived from the bound expression\
+            \ (for example `number`, `string`, `boolean`, `percent`, `time`, `(list\
+            \ string)`, or `(list number)`)."
+          example: number
+          type: string
+        minValue:
+          description: The minimum value allowed for this parameter.
+          example: 0
+          type: number
+        maxValue:
+          description: The maximum value allowed for this parameter.
+          example: 10000
+          type: number
+        description:
+          description: A human-readable description of the parameter shown when creating
+            campaigns from the template.
+          example: Minimum cart total to trigger the campaign.
+          type: string
+        attribute:
+          description: The ID of the attribute linked to this parameter. Omitted when
+            the parameter is not linked to an attribute.
+          example: 42
+          format: int64
+          type: integer
+      required:
+      - description
+      - name
+      - value
+      - valueType
+      title: TemplateParameter
     RulesetV2:
       description: Ruleset in the V2 JSON block format.
       example:
@@ -30376,11 +30763,43 @@ components:
           - type: filter
             predicate: null
         bundles:
-        - key: ""
-        - key: ""
+        - id: 1b671a64-40d5-491e-99b0-da01ff1f3341
+          name: meal_deal
+          type: bundle
+          sources:
+          - "{{$mains}}"
+          - "{{$drinks}}"
+          counts:
+          - 1
+          - 2
+          matchers:
+          - color
+        - id: 1b671a64-40d5-491e-99b0-da01ff1f3341
+          name: meal_deal
+          type: bundle
+          sources:
+          - "{{$mains}}"
+          - "{{$drinks}}"
+          counts:
+          - 1
+          - 2
+          matchers:
+          - color
         parameters:
-        - key: ""
-        - key: ""
+        - name: minCartTotal
+          value: ""
+          valueType: number
+          minValue: 0
+          maxValue: 10000
+          description: Minimum cart total to trigger the campaign.
+          attribute: 42
+        - name: minCartTotal
+          value: ""
+          valueType: number
+          minValue: 0
+          maxValue: 10000
+          description: Minimum cart total to trigger the campaign.
+          attribute: 42
       properties:
         id:
           description: Internal ID of this entity.
@@ -30431,15 +30850,13 @@ components:
         bundles:
           description: Variable bindings of type bundle.
           items:
-            additionalProperties: true
-            type: object
+            $ref: "#/components/schemas/Bundle"
           type: array
           default: null
         parameters:
           description: Variable bindings of type template parameter.
           items:
-            additionalProperties: true
-            type: object
+            $ref: "#/components/schemas/TemplateParameter"
           type: array
           default: null
       required:
@@ -34190,7 +34607,7 @@ components:
             \  flag indicates whether the transaction results in a negative balance."
         validityDuration:
           description: |
-            The duration for which the points remain active, relative to the  activation date.
+            The duration for which the points remain active, relative to the activation date.
 
             **Note**: This only applies to points for which `awaitsActivation` is `true` and `expiryDate` is not set.
           example: 30D
@@ -35531,6 +35948,10 @@ components:
           example: 6
           format: int64
           type: integer
+        integrationId:
+          description: The integration ID of the reward.
+          example: reward-unlock-123
+          type: string
         rewardId:
           description: The ID of the reward this instance belongs to.
           example: 12
@@ -35555,7 +35976,7 @@ components:
           example: 2026-07-01T09:00:00Z
           format: date-time
           type: string
-        unlockedByIntegrationId:
+        unlockedByProfileIntegrationId:
           description: "The integration ID of the customer profile that unlocked the\
             \ reward. \n\nFor rewards unlocked with a loyalty card, this can be any\
             \ customer profile \nlinked to that loyalty card.\n"
@@ -35566,7 +35987,7 @@ components:
           example: 2026-07-02T10:30:00Z
           format: date-time
           type: string
-        usedByIntegrationId:
+        usedByProfileIntegrationId:
           description: "The integration ID of the customer profile that used the reward.\
             \ \n\nFor rewards unlocked with a loyalty card, this can be any customer\
             \ profile \nlinked to that loyalty card. \n\nOnly returned when the reward\
@@ -35586,6 +36007,7 @@ components:
             with. Only returned for rewards unlocked with a loyalty card.
       required:
       - id
+      - integrationId
       - rewardId
       - rewardName
       - status
@@ -36538,7 +36960,6 @@ components:
         contextIds:
         - SpringSale
         - SummerSale2025
-        contextId: ""
         price: 99.99
         metadata:
           influencingCampaignDetails:
@@ -36574,13 +36995,6 @@ components:
             type: string
           type: array
           default: null
-        contextId:
-          default: ""
-          deprecated: true
-          description: |
-            This property is **deprecated**. Use `contextIds` instead. Defaults to an empty string.
-          example: ""
-          type: string
         price:
           description: Price of the item.
           example: 99.99
@@ -36636,7 +37050,6 @@ components:
         contextIds:
         - SpringSale
         - SummerSale2025
-        contextId: ""
         price: 99.99
         metadata:
           influencingCampaignDetails:
@@ -36670,13 +37083,6 @@ components:
             type: string
           type: array
           default: null
-        contextId:
-          default: ""
-          deprecated: true
-          description: |
-            This property is **deprecated**. Use `contextIds` instead. Defaults to an empty string.
-          example: ""
-          type: string
         price:
           description: Price of the item.
           example: 99.99
@@ -36710,7 +37116,6 @@ components:
           contextIds:
           - SpringSale
           - SummerSale2025
-          contextId: ""
           price: 99.99
           metadata:
             influencingCampaignDetails:
@@ -36728,7 +37133,6 @@ components:
           contextIds:
           - SpringSale
           - SummerSale2025
-          contextId: ""
           price: 99.99
           metadata:
             influencingCampaignDetails:
@@ -37030,6 +37434,30 @@ components:
           type: boolean
       required:
       - sku
+    CatalogActionAdd:
+      description: Adds an item to the catalog.
+      example:
+        type: ADD
+        payload:
+          sku: T123
+          attributes:
+            type: shoes
+            color: blue
+          replaceIfExists: true
+      properties:
+        type:
+          description: A catalog sync action discriminator of type `ADD`.
+          enum:
+          - ADD
+          type: string
+        payload:
+          allOf:
+          - $ref: "#/components/schemas/AddItemCatalogAction"
+          description: The payload of sync action.
+      required:
+      - payload
+      - type
+      title: Add
     PatchItemCatalogAction:
       description: |
         The specific properties of the "PATCH" catalog sync action.
@@ -37056,6 +37484,22 @@ components:
           type: boolean
       required:
       - sku
+    CatalogActionPatch:
+      description: Updates an item in the catalog.
+      properties:
+        type:
+          description: A catalog sync action discriminator of type `PATCH`.
+          enum:
+          - PATCH
+          type: string
+        payload:
+          allOf:
+          - $ref: "#/components/schemas/PatchItemCatalogAction"
+          description: The payload of sync action.
+      required:
+      - payload
+      - type
+      title: Patch
     CatalogActionFilter:
       description: The properties for a single filtering condition in a catalog sync
         action.
@@ -37097,6 +37541,22 @@ components:
         attributes:
           description: The attributes of the items to patch.
           type: object
+    CatalogActionPatchMany:
+      description: Updates the items of the catalog that match the given filters.
+      properties:
+        type:
+          description: A catalog sync action discriminator of type `PATCH_MANY`.
+          enum:
+          - PATCH_MANY
+          type: string
+        payload:
+          allOf:
+          - $ref: "#/components/schemas/PatchManyItemsCatalogAction"
+          description: The payload of sync action.
+      required:
+      - payload
+      - type
+      title: PatchMany
     RemoveItemCatalogAction:
       description: The specific properties of the "REMOVE" catalog sync action.
       properties:
@@ -37105,6 +37565,22 @@ components:
           type: string
       required:
       - sku
+    CatalogActionRemove:
+      description: Removes an item from the catalog.
+      properties:
+        type:
+          description: A catalog sync action discriminator of type `REMOVE`.
+          enum:
+          - REMOVE
+          type: string
+        payload:
+          allOf:
+          - $ref: "#/components/schemas/RemoveItemCatalogAction"
+          description: The payload of sync action.
+      required:
+      - payload
+      - type
+      title: Remove
     RemoveManyItemsCatalogAction:
       description: The specific properties of the "REMOVE_MANY" catalog sync action.
       properties:
@@ -37117,6 +37593,22 @@ components:
             $ref: "#/components/schemas/CatalogActionFilter"
           type: array
           default: null
+    CatalogActionRemoveMany:
+      description: Removes the items of the catalog that match the given filters.
+      properties:
+        type:
+          description: A catalog sync action discriminator of type `REMOVE_MANY`.
+          enum:
+          - REMOVE_MANY
+          type: string
+        payload:
+          allOf:
+          - $ref: "#/components/schemas/RemoveManyItemsCatalogAction"
+          description: The payload of sync action.
+      required:
+      - payload
+      - type
+      title: RemoveMany
     NewPriceAdjustment:
       properties:
         priceType:
@@ -37180,19 +37672,45 @@ components:
       required:
       - adjustments
       - sku
-    CatalogAction:
-      description: Definition of all the properties that are needed for a single catalog
-        sync action.
-      oneOf:
-      - $ref: "#/components/schemas/CatalogAction_oneOf"
-      - $ref: "#/components/schemas/CatalogAction_oneOf_1"
-      - $ref: "#/components/schemas/CatalogAction_oneOf_2"
-      - $ref: "#/components/schemas/CatalogAction_oneOf_3"
-      - $ref: "#/components/schemas/CatalogAction_oneOf_4"
-      - $ref: "#/components/schemas/CatalogAction_oneOf_5"
+    CatalogActionAddPriceAdjustment:
+      description: Adds price adjustments to an item of the catalog.
+      properties:
+        type:
+          description: A catalog sync action discriminator of type `ADD_PRICE_ADJUSTMENT`.
+          enum:
+          - ADD_PRICE_ADJUSTMENT
+          type: string
+        payload:
+          allOf:
+          - $ref: "#/components/schemas/AddPriceAdjustmentCatalogAction"
+          description: The payload of sync action.
       required:
       - payload
       - type
+      title: AddPriceAdjustment
+    CatalogAction:
+      description: Definition of all the properties that are needed for a single catalog
+        sync action. The `type` field selects the concrete action variant.
+      discriminator:
+        mapping:
+          ADD: "#/components/schemas/CatalogActionAdd"
+          PATCH: "#/components/schemas/CatalogActionPatch"
+          PATCH_MANY: "#/components/schemas/CatalogActionPatchMany"
+          REMOVE: "#/components/schemas/CatalogActionRemove"
+          REMOVE_MANY: "#/components/schemas/CatalogActionRemoveMany"
+          ADD_PRICE_ADJUSTMENT: "#/components/schemas/CatalogActionAddPriceAdjustment"
+        propertyName: type
+      oneOf:
+      - $ref: "#/components/schemas/CatalogActionAdd"
+      - $ref: "#/components/schemas/CatalogActionPatch"
+      - $ref: "#/components/schemas/CatalogActionPatchMany"
+      - $ref: "#/components/schemas/CatalogActionRemove"
+      - $ref: "#/components/schemas/CatalogActionRemoveMany"
+      - $ref: "#/components/schemas/CatalogActionAddPriceAdjustment"
+      x-go-merge-oneof:
+        properties:
+          type:
+            description: The type of sync action.
     CatalogSyncRequest:
       example:
         actions:
@@ -40801,7 +41319,23 @@ components:
             example: Europe/Berlin
             minLength: 1
             type: string
+          campaignId:
+            deprecated: true
+            description: This property is **deprecated**. Use `referencedByCampaigns`
+              instead. The ID of the first campaign in `referencedByCampaigns`. Only
+              returned when `referencedByCampaigns` is not empty.
+            example: 3
+            format: int64
+            type: integer
+          referencedByCampaigns:
+            description: The campaigns that reference this achievement. They are sorted
+              in ascending order by their id.
+            items:
+              $ref: "#/components/schemas/CampaignReference"
+            type: array
+            default: null
         required:
+        - referencedByCampaigns
         - sandbox
         - timezone
       example:
@@ -40827,6 +41361,12 @@ components:
         status: active
         sandbox: true
         timezone: Europe/Berlin
+        campaignId: 3
+        referencedByCampaigns:
+        - id: 1
+          applicationId: 2
+        - id: 1
+          applicationId: 2
     CreateAchievementV2:
       allOf:
       - $ref: "#/components/schemas/AchievementBaseV2"
@@ -41568,10 +42108,6 @@ components:
           description: The event type we want to register a flow for.
           type: string
           x-fieldType: IntegrationHubEventType
-        integrationHubFlowUrl:
-          description: The URL of the integration hub flow that we want to trigger
-            for the event.
-          type: string
         config:
           $ref: "#/components/schemas/IntegrationHubFlowConfigResponse"
       required:
@@ -41579,7 +42115,6 @@ components:
       - createdAt
       - eventType
       - id
-      - integrationHubFlowUrl
     IntegrationHubFlowConfig:
       properties:
         ApiKey:
@@ -41941,6 +42476,72 @@ components:
           type: string
       required:
       - requestStatus
+    AddLoyaltyPointsSupport:
+      allOf:
+      - $ref: "#/components/schemas/AddLoyaltyPoints"
+      - properties:
+          supportRequestId:
+            description: "ID of the support request to approve. When provided by an\
+              \ admin, the points are added on behalf of the support user who created\
+              \ the request."
+            example: 42
+            format: int64
+            type: integer
+          processingNote:
+            description: Note from the admin approving the support request. Stored
+              as the processing note on the support request record. This is only used
+              when a supportRequestId is passed.
+            example: Approved after manual review.
+            type: string
+      description: Points to add via the support portal.
+    ApplicationMembership:
+      properties:
+        applicationId:
+          description: The ID of the Application the customer belongs to.
+          example: 1
+          format: int64
+          type: integer
+        applicationName:
+          description: The name of the Application the customer belongs to.
+          example: My Application
+          type: string
+      required:
+      - applicationId
+      - applicationName
+    SupportCustomerProfile:
+      properties:
+        id:
+          description: The internal ID of the customer profile.
+          example: 6
+          format: int64
+          type: integer
+        created:
+          description: The time the customer profile was created.
+          example: 2020-06-10T09:05:27.993483Z
+          format: date-time
+          type: string
+        integrationId:
+          description: The integration ID set by your integration layer.
+          example: URNGV8294NV
+          type: string
+        attributes:
+          description: Arbitrary properties associated with this item.
+          example:
+            Language: english
+            ShippingCountry: DE
+          type: object
+        applicationMemberships:
+          description: The applications the customer belongs to.
+          items:
+            $ref: "#/components/schemas/ApplicationMembership"
+          type: array
+          default: null
+      required:
+      - applicationMemberships
+      - attributes
+      - created
+      - id
+      - integrationId
     RewardPointsRequired:
       description: The loyalty points required to activate a reward.
       properties:
@@ -42071,6 +42672,77 @@ components:
             type: string
         required:
         - status
+    RewardEligibilityFailureDetails:
+      description: The details about why the customer is not eligible for the reward.
+      properties:
+        failureCode:
+          description: A code identifying why the customer is not eligible for the
+            reward.
+          enum:
+          - CONDITION_NOT_MET
+          example: CONDITION_NOT_MET
+          type: string
+        conditionIndex:
+          description: The index of the eligibility condition that the customer did
+            not meet.
+          example: 0
+          format: int64
+          type: integer
+      required:
+      - failureCode
+    RewardEligibility:
+      description: The customer's eligibility for the reward based on the specified
+        customer profile or loyalty card.
+      properties:
+        passed:
+          description: Indicates whether the customer is eligible for the reward.
+          example: true
+          type: boolean
+        details:
+          description: The reasons the customer is not eligible for the reward. Empty
+            when `passed` is `true`.
+          items:
+            $ref: "#/components/schemas/RewardEligibilityFailureDetails"
+          type: array
+          default: null
+      required:
+      - passed
+    RewardCatalogItem:
+      description: A reward returned by the rewards catalog Integration API endpoint.
+      properties:
+        id:
+          description: The unique ID of the reward.
+          example: 42
+          format: int64
+          type: integer
+        name:
+          description: The customer-facing name of the reward.
+          example: 10% Off Coupon
+          type: string
+        description:
+          description: The customer-facing description of the reward.
+          example: Applies to next order
+          type: string
+        pointsRequired:
+          description: The loyalty points required to activate the reward.
+          items:
+            $ref: "#/components/schemas/RewardPointsRequired"
+          type: array
+          default: null
+        rule:
+          allOf:
+          - $ref: "#/components/schemas/RuleMetadata"
+          description: Customer-facing rule metadata for the reward.
+        eligibility:
+          allOf:
+          - $ref: "#/components/schemas/RewardEligibility"
+          description: |
+            The customer's eligibility for the reward. Returned only when the request
+            includes a `profileIntegrationId` or `loyaltyCardId`.
+      required:
+      - id
+      - name
+      - rule
     UpdateReward:
       properties:
         name:
@@ -42134,6 +42806,46 @@ components:
       required:
       - name
       - status
+    IntegrationUnlockRewardRequest:
+      description: The request body for unlocking a reward for a customer profile.
+      properties:
+        integrationId:
+          description: The integration ID to assign to the created customer reward
+            unlock.
+          example: reward-unlock-123
+          type: string
+        profileIntegrationId:
+          description: The integration ID of the customer profile unlocking the reward.
+          example: customer1
+          type: string
+        loyaltyProgramId:
+          description: The ID of the loyalty program from which points will be deducted.
+            Required when the reward has `pointsRequired` configured.
+          example: 2
+          format: int64
+          type: integer
+        subledgerId:
+          description: |
+            The ID of the subledger from which points will be deducted.
+            Required when the reward has `pointsRequired` configured.
+
+            To specify the main ledger, provide an empty string ("").
+          example: sub1
+          type: string
+        responseContent:
+          description: "Determines which data is included in the response. Add any\
+            \ of the following optional values to the array to get that data in the\
+            \ response: `customerProfile`, `effects`, `ruleFailureReasons`, `loyalty`."
+          example:
+          - customerProfile
+          - effects
+          items:
+            type: string
+          type: array
+          default: null
+      required:
+      - integrationId
+      - profileIntegrationId
     IntegrationProfileEntityV3:
       properties:
         profileId:
@@ -42827,6 +43539,16 @@ components:
           fixedStartDate: 2024-01-15T15:04:05Z07:00
           endDate: 2024-02-15T15:04:05Z07:00
           allowRollbackAfterCompletion: false
+          campaignId: 3
+          campaignIds:
+          - 1
+          - 14
+          - 27
+          referencedByCampaigns:
+          - id: 1
+            applicationId: 2
+          - id: 1
+            applicationId: 2
           currentProgress:
             status: completed
             progress: 10
@@ -42843,6 +43565,16 @@ components:
           fixedStartDate: 2024-01-15T15:04:05Z07:00
           endDate: 2024-02-15T15:04:05Z07:00
           allowRollbackAfterCompletion: false
+          campaignId: 3
+          campaignIds:
+          - 1
+          - 14
+          - 27
+          referencedByCampaigns:
+          - id: 1
+            applicationId: 2
+          - id: 1
+            applicationId: 2
           currentProgress:
             status: completed
             progress: 10
@@ -44996,6 +45728,10 @@ components:
           endDate: 2024-02-15T15:04:05Z07:00
           allowRollbackAfterCompletion: false
           campaignId: 1
+          campaignIds:
+          - 1
+          - 14
+          - 27
           status: active
           currentProgress:
             status: completed
@@ -45017,6 +45753,10 @@ components:
           endDate: 2024-02-15T15:04:05Z07:00
           allowRollbackAfterCompletion: false
           campaignId: 1
+          campaignIds:
+          - 1
+          - 14
+          - 27
           status: active
           currentProgress:
             status: completed
@@ -50103,6 +50843,12 @@ components:
           status: active
           sandbox: true
           timezone: Europe/Berlin
+          campaignId: 3
+          referencedByCampaigns:
+          - id: 1
+            applicationId: 2
+          - id: 1
+            applicationId: 2
         - id: 6
           created: 2020-06-10T09:05:27.993483Z
           name: Order50Discount
@@ -50125,6 +50871,12 @@ components:
           status: active
           sandbox: true
           timezone: Europe/Berlin
+          campaignId: 3
+          referencedByCampaigns:
+          - id: 1
+            applicationId: 2
+          - id: 1
+            applicationId: 2
       properties:
         hasMore:
           type: boolean
@@ -50149,6 +50901,15 @@ components:
           title: 50% off on 50th purchase.
           description: 50% off for every 50th purchase in a year.
           campaignId: 3
+          campaignIds:
+          - 1
+          - 14
+          - 27
+          referencedByCampaigns:
+          - id: 1
+            applicationId: 2
+          - id: 1
+            applicationId: 2
           target: 10
           achievementRecurrencePolicy: no_recurrence
           achievementActivationPolicy: fixed_schedule
@@ -50165,6 +50926,15 @@ components:
           title: 50% off on 50th purchase.
           description: 50% off for every 50th purchase in a year.
           campaignId: 3
+          campaignIds:
+          - 1
+          - 14
+          - 27
+          referencedByCampaigns:
+          - id: 1
+            applicationId: 2
+          - id: 1
+            applicationId: 2
           target: 10
           achievementRecurrencePolicy: no_recurrence
           achievementActivationPolicy: fixed_schedule
@@ -50616,6 +51386,55 @@ components:
         type: number
       - example: "{{$Session.CartTotal * 0.1}}"
         type: string
+    CheckTierBlock_1_tier:
+      properties:
+        id:
+          description: The ID of the tier.
+          example: 42
+          format: int64
+          type: integer
+        name:
+          description: The display name of the tier.
+          example: Bronze
+          type: string
+        minPoints:
+          description: The minimum amount of points required to enter the tier.
+          example: 150
+          type: number
+        upperLimit:
+          type: number
+      required:
+      - id
+      - minPoints
+      - name
+    RedeemLoyaltyPointsBlock_1_program:
+      description: The loyalty program whose balance points are deducted from.
+      properties:
+        id:
+          description: The ID of the loyalty program.
+          example: 10
+          format: int64
+          type: integer
+        name:
+          description: The internal name of the loyalty program.
+          example: MainProgram
+          type: string
+        title:
+          description: The display name of the loyalty program.
+          example: Main Loyalty Program
+          type: string
+      required:
+      - id
+      - name
+      - title
+    RedeemLoyaltyPointsBlock_1_value:
+      description: "Number of points to deduct. Either a numeric scalar or a `{{expression}}`\
+        \ string that resolves to a number at evaluation time."
+      oneOf:
+      - example: 50
+        type: number
+      - example: "{{$Session.CartTotal * 0.1}}"
+        type: string
     SelectSelectorStep_from:
       description: The starting value of the selection. For the `many` operator this
         is the string `start` or `end`; for the `between` operator this is an integer
@@ -50681,64 +51500,6 @@ components:
     ApplicationEvent_allOf_attributes:
       description: Additional JSON serialized data associated with the event.
       type: object
-    CatalogAction_oneOf:
-      example:
-        type: ADD
-        payload:
-          sku: T123
-          attributes:
-            type: shoes
-            color: blue
-          replaceIfExists: true
-      properties:
-        type: {}
-        payload:
-          allOf:
-          - $ref: "#/components/schemas/AddItemCatalogAction"
-          description: The payload of sync action.
-      required:
-      - payload
-      - type
-    CatalogAction_oneOf_1:
-      properties:
-        type: {}
-        payload:
-          $ref: "#/components/schemas/PatchItemCatalogAction"
-      required:
-      - payload
-      - type
-    CatalogAction_oneOf_2:
-      properties:
-        type: {}
-        payload:
-          $ref: "#/components/schemas/PatchManyItemsCatalogAction"
-      required:
-      - payload
-      - type
-    CatalogAction_oneOf_3:
-      properties:
-        type: {}
-        payload:
-          $ref: "#/components/schemas/RemoveItemCatalogAction"
-      required:
-      - payload
-      - type
-    CatalogAction_oneOf_4:
-      properties:
-        type: {}
-        payload:
-          $ref: "#/components/schemas/RemoveManyItemsCatalogAction"
-      required:
-      - payload
-      - type
-    CatalogAction_oneOf_5:
-      properties:
-        type: {}
-        payload:
-          $ref: "#/components/schemas/AddPriceAdjustmentCatalogAction"
-      required:
-      - payload
-      - type
     WebhookAuthentication_allOf_data:
       oneOf:
       - $ref: "#/components/schemas/WebhookAuthenticationDataBasic"

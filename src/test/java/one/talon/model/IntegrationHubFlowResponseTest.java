@@ -105,14 +105,6 @@ public class IntegrationHubFlowResponseTest {
     }
 
     /**
-     * Test the property 'integrationHubFlowUrl'
-     */
-    @Test
-    public void integrationHubFlowUrlTest() {
-        // TODO: test integrationHubFlowUrl
-    }
-
-    /**
      * Test the property 'config'
      */
     @Test

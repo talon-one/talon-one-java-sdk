@@ -21,12 +21,12 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.util.Arrays;
 import one.talon.model.AddPriceAdjustmentCatalogAction;
-import one.talon.model.CatalogActionOneOf;
-import one.talon.model.CatalogActionOneOf1;
-import one.talon.model.CatalogActionOneOf2;
-import one.talon.model.CatalogActionOneOf3;
-import one.talon.model.CatalogActionOneOf4;
-import one.talon.model.CatalogActionOneOf5;
+import one.talon.model.CatalogActionAdd;
+import one.talon.model.CatalogActionAddPriceAdjustment;
+import one.talon.model.CatalogActionPatch;
+import one.talon.model.CatalogActionPatchMany;
+import one.talon.model.CatalogActionRemove;
+import one.talon.model.CatalogActionRemoveMany;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 

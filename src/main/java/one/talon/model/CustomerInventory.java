@@ -88,6 +88,11 @@ public class CustomerInventory {
   @javax.annotation.Nullable
   private List<AchievementProgressWithDefinition> achievements;
 
+  public static final String SERIALIZED_NAME_REWARDS = "rewards";
+  @SerializedName(SERIALIZED_NAME_REWARDS)
+  @javax.annotation.Nullable
+  private List<Object> rewards;
+
   public CustomerInventory() {
   }
 
@@ -236,6 +241,33 @@ public class CustomerInventory {
     this.achievements = achievements;
   }
 
+
+  public CustomerInventory rewards(@javax.annotation.Nullable List<Object> rewards) {
+    this.rewards = rewards;
+    return this;
+  }
+
+  public CustomerInventory addRewardsItem(Object rewardsItem) {
+    if (this.rewards == null) {
+      this.rewards = new ArrayList<>();
+    }
+    this.rewards.add(rewardsItem);
+    return this;
+  }
+
+  /**
+   * The customer rewards that are &#x60;unlocked&#x60; and not yet &#x60;used&#x60;.
+   * @return rewards
+   */
+  @javax.annotation.Nullable
+  public List<Object> getRewards() {
+    return rewards;
+  }
+
+  public void setRewards(@javax.annotation.Nullable List<Object> rewards) {
+    this.rewards = rewards;
+  }
+
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -296,13 +328,14 @@ public class CustomerInventory {
         Objects.equals(this.referrals, customerInventory.referrals) &&
         Objects.equals(this.coupons, customerInventory.coupons) &&
         Objects.equals(this.giveaways, customerInventory.giveaways) &&
-        Objects.equals(this.achievements, customerInventory.achievements)&&
+        Objects.equals(this.achievements, customerInventory.achievements) &&
+        Objects.equals(this.rewards, customerInventory.rewards)&&
         Objects.equals(this.additionalProperties, customerInventory.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(profile, loyalty, referrals, coupons, giveaways, achievements, additionalProperties);
+    return Objects.hash(profile, loyalty, referrals, coupons, giveaways, achievements, rewards, additionalProperties);
   }
 
   @Override
@@ -315,6 +348,7 @@ public class CustomerInventory {
     sb.append("    coupons: ").append(toIndentedString(coupons)).append("\n");
     sb.append("    giveaways: ").append(toIndentedString(giveaways)).append("\n");
     sb.append("    achievements: ").append(toIndentedString(achievements)).append("\n");
+    sb.append("    rewards: ").append(toIndentedString(rewards)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -334,7 +368,7 @@ public class CustomerInventory {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("profile", "loyalty", "referrals", "coupons", "giveaways", "achievements"));
+    openapiFields = new HashSet<String>(Arrays.asList("profile", "loyalty", "referrals", "coupons", "giveaways", "achievements", "rewards"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(0);
@@ -416,6 +450,10 @@ public class CustomerInventory {
             AchievementProgressWithDefinition.validateJsonElement(jsonArrayachievements.get(i));
           };
         }
+      }
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("rewards") != null && !jsonObj.get("rewards").isJsonNull() && !jsonObj.get("rewards").isJsonArray()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `rewards` to be an array in the JSON string but got `%s`", jsonObj.get("rewards").toString()));
       }
   }
 

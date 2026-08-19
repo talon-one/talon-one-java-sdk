@@ -42,7 +42,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>one.talon</groupId>
   <artifactId>talon-one-client</artifactId>
-  <version>26.16.1</version>
+  <version>26.17.0</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -52,7 +52,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "one.talon:talon-one-client:26.16.1"
+compile "one.talon:talon-one-client:26.17.0"
 ```
 
 ### Others
@@ -475,6 +475,7 @@ Class | Method | HTTP request | Description
 - [AddItemCatalogAction](docs/AddItemCatalogAction.md)
 - [AddLoyaltyPoints](docs/AddLoyaltyPoints.md)
 - [AddLoyaltyPointsEffectProps](docs/AddLoyaltyPointsEffectProps.md)
+- [AddLoyaltyPointsSupport](docs/AddLoyaltyPointsSupport.md)
 - [AddPriceAdjustmentCatalogAction](docs/AddPriceAdjustmentCatalogAction.md)
 - [AddToAudienceEffectProps](docs/AddToAudienceEffectProps.md)
 - [AddedDeductedPointsBalancesAction](docs/AddedDeductedPointsBalancesAction.md)
@@ -505,6 +506,7 @@ Class | Method | HTTP request | Description
 - [ApplicationCustomerEntity](docs/ApplicationCustomerEntity.md)
 - [ApplicationEntity](docs/ApplicationEntity.md)
 - [ApplicationEvent](docs/ApplicationEvent.md)
+- [ApplicationMembership](docs/ApplicationMembership.md)
 - [ApplicationReferee](docs/ApplicationReferee.md)
 - [ApplicationSession](docs/ApplicationSession.md)
 - [ApplicationSessionEntity](docs/ApplicationSessionEntity.md)
@@ -557,6 +559,7 @@ Class | Method | HTTP request | Description
 - [Blueprint](docs/Blueprint.md)
 - [BulkApplicationNotification](docs/BulkApplicationNotification.md)
 - [BulkOperationOnCampaigns](docs/BulkOperationOnCampaigns.md)
+- [Bundle](docs/Bundle.md)
 - [Campaign](docs/Campaign.md)
 - [CampaignActivationRequest](docs/CampaignActivationRequest.md)
 - [CampaignAnalytics](docs/CampaignAnalytics.md)
@@ -590,6 +593,7 @@ Class | Method | HTTP request | Description
 - [CampaignNotificationGeneric](docs/CampaignNotificationGeneric.md)
 - [CampaignNotificationItemBase](docs/CampaignNotificationItemBase.md)
 - [CampaignNotificationPolicy](docs/CampaignNotificationPolicy.md)
+- [CampaignReference](docs/CampaignReference.md)
 - [CampaignRulesetChangedNotification](docs/CampaignRulesetChangedNotification.md)
 - [CampaignRulesetChangedNotificationItem](docs/CampaignRulesetChangedNotificationItem.md)
 - [CampaignSearch](docs/CampaignSearch.md)
@@ -619,13 +623,13 @@ Class | Method | HTTP request | Description
 - [CartItemFilterTemplate](docs/CartItemFilterTemplate.md)
 - [Catalog](docs/Catalog.md)
 - [CatalogAction](docs/CatalogAction.md)
+- [CatalogActionAdd](docs/CatalogActionAdd.md)
+- [CatalogActionAddPriceAdjustment](docs/CatalogActionAddPriceAdjustment.md)
 - [CatalogActionFilter](docs/CatalogActionFilter.md)
-- [CatalogActionOneOf](docs/CatalogActionOneOf.md)
-- [CatalogActionOneOf1](docs/CatalogActionOneOf1.md)
-- [CatalogActionOneOf2](docs/CatalogActionOneOf2.md)
-- [CatalogActionOneOf3](docs/CatalogActionOneOf3.md)
-- [CatalogActionOneOf4](docs/CatalogActionOneOf4.md)
-- [CatalogActionOneOf5](docs/CatalogActionOneOf5.md)
+- [CatalogActionPatch](docs/CatalogActionPatch.md)
+- [CatalogActionPatchMany](docs/CatalogActionPatchMany.md)
+- [CatalogActionRemove](docs/CatalogActionRemove.md)
+- [CatalogActionRemoveMany](docs/CatalogActionRemoveMany.md)
 - [CatalogItem](docs/CatalogItem.md)
 - [CatalogRule](docs/CatalogRule.md)
 - [CatalogSyncRequest](docs/CatalogSyncRequest.md)
@@ -644,7 +648,10 @@ Class | Method | HTTP request | Description
 - [CheckEventBlock](docs/CheckEventBlock.md)
 - [CheckLoyaltyBalanceBlock](docs/CheckLoyaltyBalanceBlock.md)
 - [CheckLoyaltyBalanceBlock1Program](docs/CheckLoyaltyBalanceBlock1Program.md)
+- [CheckLoyaltyCardBlock](docs/CheckLoyaltyCardBlock.md)
 - [CheckReferralBlock](docs/CheckReferralBlock.md)
+- [CheckTierBlock](docs/CheckTierBlock.md)
+- [CheckTierBlock1Tier](docs/CheckTierBlock1Tier.md)
 - [CodeGeneratorSettings](docs/CodeGeneratorSettings.md)
 - [Collection](docs/Collection.md)
 - [CollectionItem](docs/CollectionItem.md)
@@ -698,6 +705,7 @@ Class | Method | HTTP request | Description
 - [CustomerProfileReward](docs/CustomerProfileReward.md)
 - [CustomerProfileSearchQuery](docs/CustomerProfileSearchQuery.md)
 - [CustomerProfileUpdateV2Response](docs/CustomerProfileUpdateV2Response.md)
+- [CustomerReward](docs/CustomerReward.md)
 - [CustomerSession](docs/CustomerSession.md)
 - [CustomerSessionV2](docs/CustomerSessionV2.md)
 - [DeactivateUserRequest](docs/DeactivateUserRequest.md)
@@ -876,6 +884,7 @@ Class | Method | HTTP request | Description
 - [IntegrationState](docs/IntegrationState.md)
 - [IntegrationStateV2](docs/IntegrationStateV2.md)
 - [IntegrationStoreEntity](docs/IntegrationStoreEntity.md)
+- [IntegrationUnlockRewardRequest](docs/IntegrationUnlockRewardRequest.md)
 - [InventoryCoupon](docs/InventoryCoupon.md)
 - [InventoryReferral](docs/InventoryReferral.md)
 - [ItemAttribute](docs/ItemAttribute.md)
@@ -1076,6 +1085,9 @@ Class | Method | HTTP request | Description
 - [PromotionCheckAttributeBlock](docs/PromotionCheckAttributeBlock.md)
 - [PromotionGroupBlock](docs/PromotionGroupBlock.md)
 - [PromotionRuleV2](docs/PromotionRuleV2.md)
+- [RedeemLoyaltyPointsBlock](docs/RedeemLoyaltyPointsBlock.md)
+- [RedeemLoyaltyPointsBlock1Program](docs/RedeemLoyaltyPointsBlock1Program.md)
+- [RedeemLoyaltyPointsBlock1Value](docs/RedeemLoyaltyPointsBlock1Value.md)
 - [RedeemReferralEffectProps](docs/RedeemReferralEffectProps.md)
 - [ReduceSelectorStep](docs/ReduceSelectorStep.md)
 - [Referral](docs/Referral.md)
@@ -1100,6 +1112,9 @@ Class | Method | HTTP request | Description
 - [RevisionActivationRequest](docs/RevisionActivationRequest.md)
 - [RevisionVersion](docs/RevisionVersion.md)
 - [Reward](docs/Reward.md)
+- [RewardCatalogItem](docs/RewardCatalogItem.md)
+- [RewardEligibility](docs/RewardEligibility.md)
+- [RewardEligibilityFailureDetails](docs/RewardEligibilityFailureDetails.md)
 - [RewardPointsRequired](docs/RewardPointsRequired.md)
 - [Risk](docs/Risk.md)
 - [RiskAffectedEntityItem](docs/RiskAffectedEntityItem.md)
@@ -1123,6 +1138,7 @@ Class | Method | HTTP request | Description
 - [RollbackDiscountEffectProps](docs/RollbackDiscountEffectProps.md)
 - [RollbackIncreasedAchievementProgressEffectProps](docs/RollbackIncreasedAchievementProgressEffectProps.md)
 - [RollbackReferralEffectProps](docs/RollbackReferralEffectProps.md)
+- [RollbackUseRewardEffectProps](docs/RollbackUseRewardEffectProps.md)
 - [Rule](docs/Rule.md)
 - [RuleEligibility](docs/RuleEligibility.md)
 - [RuleEligibilityFailureDetails](docs/RuleEligibilityFailureDetails.md)
@@ -1197,6 +1213,7 @@ Class | Method | HTTP request | Description
 - [StrikethroughTrigger](docs/StrikethroughTrigger.md)
 - [SummarizeCampaignStoreBudget200Response](docs/SummarizeCampaignStoreBudget200Response.md)
 - [SummaryCampaignStoreBudget](docs/SummaryCampaignStoreBudget.md)
+- [SupportCustomerProfile](docs/SupportCustomerProfile.md)
 - [SupportRequest](docs/SupportRequest.md)
 - [SupportRequestInput](docs/SupportRequestInput.md)
 - [TalangAttribute](docs/TalangAttribute.md)
@@ -1204,6 +1221,7 @@ Class | Method | HTTP request | Description
 - [TemplateArgDef](docs/TemplateArgDef.md)
 - [TemplateDef](docs/TemplateDef.md)
 - [TemplateLimitConfig](docs/TemplateLimitConfig.md)
+- [TemplateParameter](docs/TemplateParameter.md)
 - [Tier](docs/Tier.md)
 - [TierDowngradeData](docs/TierDowngradeData.md)
 - [TierDowngradeNotification](docs/TierDowngradeNotification.md)
@@ -1225,6 +1243,7 @@ Class | Method | HTTP request | Description
 - [TriggerWebhookEffectProps](docs/TriggerWebhookEffectProps.md)
 - [TwoFAConfig](docs/TwoFAConfig.md)
 - [UnaryCheckAttributeBlock](docs/UnaryCheckAttributeBlock.md)
+- [UnlockRewardEffectProps](docs/UnlockRewardEffectProps.md)
 - [UpdateAccount](docs/UpdateAccount.md)
 - [UpdateAchievement](docs/UpdateAchievement.md)
 - [UpdateAchievementProgressBlock](docs/UpdateAchievementProgressBlock.md)
@@ -1272,6 +1291,7 @@ Class | Method | HTTP request | Description
 - [UpdateStore](docs/UpdateStore.md)
 - [UpdateSupportRequest](docs/UpdateSupportRequest.md)
 - [UpdateUser](docs/UpdateUser.md)
+- [UseRewardEffectProps](docs/UseRewardEffectProps.md)
 - [User](docs/User.md)
 - [UserEntity](docs/UserEntity.md)
 - [ValueMap](docs/ValueMap.md)

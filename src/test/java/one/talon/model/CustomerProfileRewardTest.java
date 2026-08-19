@@ -47,6 +47,14 @@ public class CustomerProfileRewardTest {
     }
 
     /**
+     * Test the property 'integrationId'
+     */
+    @Test
+    public void integrationIdTest() {
+        // TODO: test integrationId
+    }
+
+    /**
      * Test the property 'rewardId'
      */
     @Test
@@ -79,11 +87,11 @@ public class CustomerProfileRewardTest {
     }
 
     /**
-     * Test the property 'unlockedByIntegrationId'
+     * Test the property 'unlockedByProfileIntegrationId'
      */
     @Test
-    public void unlockedByIntegrationIdTest() {
-        // TODO: test unlockedByIntegrationId
+    public void unlockedByProfileIntegrationIdTest() {
+        // TODO: test unlockedByProfileIntegrationId
     }
 
     /**
@@ -95,11 +103,11 @@ public class CustomerProfileRewardTest {
     }
 
     /**
-     * Test the property 'usedByIntegrationId'
+     * Test the property 'usedByProfileIntegrationId'
      */
     @Test
-    public void usedByIntegrationIdTest() {
-        // TODO: test usedByIntegrationId
+    public void usedByProfileIntegrationIdTest() {
+        // TODO: test usedByProfileIntegrationId
     }
 
     /**

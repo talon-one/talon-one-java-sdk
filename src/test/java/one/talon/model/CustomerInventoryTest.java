@@ -93,4 +93,12 @@ public class CustomerInventoryTest {
         // TODO: test achievements
     }
 
+    /**
+     * Test the property 'rewards'
+     */
+    @Test
+    public void rewardsTest() {
+        // TODO: test rewards
+    }
+
 }

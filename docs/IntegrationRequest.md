@@ -29,6 +29,7 @@ The body of a V2 integration API request (customer session update). Next to the 
 | PREVIOUS_RETURNS | &quot;previousReturns&quot; |
 | CAMPAIGN_ELIGIBILITY | &quot;campaignEligibility&quot; |
 | ACHIEVEMENTS | &quot;achievements&quot; |
+| UNLOCKED_REWARDS | &quot;unlockedRewards&quot; |
 
 
 

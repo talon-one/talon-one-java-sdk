@@ -93,11 +93,6 @@ public class IntegrationHubFlowResponse {
   @javax.annotation.Nonnull
   private String eventType;
 
-  public static final String SERIALIZED_NAME_INTEGRATION_HUB_FLOW_URL = "integrationHubFlowUrl";
-  @SerializedName(SERIALIZED_NAME_INTEGRATION_HUB_FLOW_URL)
-  @javax.annotation.Nonnull
-  private String integrationHubFlowUrl;
-
   public static final String SERIALIZED_NAME_CONFIG = "config";
   @SerializedName(SERIALIZED_NAME_CONFIG)
   @javax.annotation.Nonnull
@@ -258,25 +253,6 @@ public class IntegrationHubFlowResponse {
   }
 
 
-  public IntegrationHubFlowResponse integrationHubFlowUrl(@javax.annotation.Nonnull String integrationHubFlowUrl) {
-    this.integrationHubFlowUrl = integrationHubFlowUrl;
-    return this;
-  }
-
-  /**
-   * The URL of the integration hub flow that we want to trigger for the event.
-   * @return integrationHubFlowUrl
-   */
-  @javax.annotation.Nonnull
-  public String getIntegrationHubFlowUrl() {
-    return integrationHubFlowUrl;
-  }
-
-  public void setIntegrationHubFlowUrl(@javax.annotation.Nonnull String integrationHubFlowUrl) {
-    this.integrationHubFlowUrl = integrationHubFlowUrl;
-  }
-
-
   public IntegrationHubFlowResponse config(@javax.annotation.Nonnull IntegrationHubFlowConfigResponse config) {
     this.config = config;
     return this;
@@ -358,7 +334,6 @@ public class IntegrationHubFlowResponse {
         Objects.equals(this.applicationId, integrationHubFlowResponse.applicationId) &&
         Objects.equals(this.loyaltyProgramId, integrationHubFlowResponse.loyaltyProgramId) &&
         Objects.equals(this.eventType, integrationHubFlowResponse.eventType) &&
-        Objects.equals(this.integrationHubFlowUrl, integrationHubFlowResponse.integrationHubFlowUrl) &&
         Objects.equals(this.config, integrationHubFlowResponse.config)&&
         Objects.equals(this.additionalProperties, integrationHubFlowResponse.additionalProperties);
   }
@@ -369,7 +344,7 @@ public class IntegrationHubFlowResponse {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, integrationName, instanceName, createdAt, disabledUntil, applicationId, loyaltyProgramId, eventType, integrationHubFlowUrl, config, additionalProperties);
+    return Objects.hash(id, integrationName, instanceName, createdAt, disabledUntil, applicationId, loyaltyProgramId, eventType, config, additionalProperties);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -391,7 +366,6 @@ public class IntegrationHubFlowResponse {
     sb.append("    applicationId: ").append(toIndentedString(applicationId)).append("\n");
     sb.append("    loyaltyProgramId: ").append(toIndentedString(loyaltyProgramId)).append("\n");
     sb.append("    eventType: ").append(toIndentedString(eventType)).append("\n");
-    sb.append("    integrationHubFlowUrl: ").append(toIndentedString(integrationHubFlowUrl)).append("\n");
     sb.append("    config: ").append(toIndentedString(config)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
@@ -412,10 +386,10 @@ public class IntegrationHubFlowResponse {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("id", "integrationName", "instanceName", "createdAt", "disabledUntil", "applicationId", "loyaltyProgramId", "eventType", "integrationHubFlowUrl", "config"));
+    openapiFields = new HashSet<String>(Arrays.asList("id", "integrationName", "instanceName", "createdAt", "disabledUntil", "applicationId", "loyaltyProgramId", "eventType", "config"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("id", "createdAt", "eventType", "integrationHubFlowUrl", "config"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("id", "createdAt", "eventType", "config"));
   }
 
   /**
@@ -446,9 +420,6 @@ public class IntegrationHubFlowResponse {
       }
       if (!jsonObj.get("eventType").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `eventType` to be a primitive type in the JSON string but got `%s`", jsonObj.get("eventType").toString()));
-      }
-      if (!jsonObj.get("integrationHubFlowUrl").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `integrationHubFlowUrl` to be a primitive type in the JSON string but got `%s`", jsonObj.get("integrationHubFlowUrl").toString()));
       }
       // validate the required field `config`
       IntegrationHubFlowConfigResponse.validateJsonElement(jsonObj.get("config"));

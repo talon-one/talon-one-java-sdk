@@ -56,6 +56,11 @@ public class CustomerProfileReward {
   @javax.annotation.Nonnull
   private Long id;
 
+  public static final String SERIALIZED_NAME_INTEGRATION_ID = "integrationId";
+  @SerializedName(SERIALIZED_NAME_INTEGRATION_ID)
+  @javax.annotation.Nonnull
+  private String integrationId;
+
   public static final String SERIALIZED_NAME_REWARD_ID = "rewardId";
   @SerializedName(SERIALIZED_NAME_REWARD_ID)
   @javax.annotation.Nonnull
@@ -128,20 +133,20 @@ public class CustomerProfileReward {
   @javax.annotation.Nonnull
   private OffsetDateTime unlockedAt;
 
-  public static final String SERIALIZED_NAME_UNLOCKED_BY_INTEGRATION_ID = "unlockedByIntegrationId";
-  @SerializedName(SERIALIZED_NAME_UNLOCKED_BY_INTEGRATION_ID)
+  public static final String SERIALIZED_NAME_UNLOCKED_BY_PROFILE_INTEGRATION_ID = "unlockedByProfileIntegrationId";
+  @SerializedName(SERIALIZED_NAME_UNLOCKED_BY_PROFILE_INTEGRATION_ID)
   @javax.annotation.Nullable
-  private String unlockedByIntegrationId;
+  private String unlockedByProfileIntegrationId;
 
   public static final String SERIALIZED_NAME_USED_AT = "usedAt";
   @SerializedName(SERIALIZED_NAME_USED_AT)
   @javax.annotation.Nullable
   private OffsetDateTime usedAt;
 
-  public static final String SERIALIZED_NAME_USED_BY_INTEGRATION_ID = "usedByIntegrationId";
-  @SerializedName(SERIALIZED_NAME_USED_BY_INTEGRATION_ID)
+  public static final String SERIALIZED_NAME_USED_BY_PROFILE_INTEGRATION_ID = "usedByProfileIntegrationId";
+  @SerializedName(SERIALIZED_NAME_USED_BY_PROFILE_INTEGRATION_ID)
   @javax.annotation.Nullable
-  private String usedByIntegrationId;
+  private String usedByProfileIntegrationId;
 
   public static final String SERIALIZED_NAME_LOYALTY_PROGRAM_ID = "loyaltyProgramId";
   @SerializedName(SERIALIZED_NAME_LOYALTY_PROGRAM_ID)
@@ -172,6 +177,25 @@ public class CustomerProfileReward {
 
   public void setId(@javax.annotation.Nonnull Long id) {
     this.id = id;
+  }
+
+
+  public CustomerProfileReward integrationId(@javax.annotation.Nonnull String integrationId) {
+    this.integrationId = integrationId;
+    return this;
+  }
+
+  /**
+   * The integration ID of the reward.
+   * @return integrationId
+   */
+  @javax.annotation.Nonnull
+  public String getIntegrationId() {
+    return integrationId;
+  }
+
+  public void setIntegrationId(@javax.annotation.Nonnull String integrationId) {
+    this.integrationId = integrationId;
   }
 
 
@@ -251,22 +275,22 @@ public class CustomerProfileReward {
   }
 
 
-  public CustomerProfileReward unlockedByIntegrationId(@javax.annotation.Nullable String unlockedByIntegrationId) {
-    this.unlockedByIntegrationId = unlockedByIntegrationId;
+  public CustomerProfileReward unlockedByProfileIntegrationId(@javax.annotation.Nullable String unlockedByProfileIntegrationId) {
+    this.unlockedByProfileIntegrationId = unlockedByProfileIntegrationId;
     return this;
   }
 
   /**
    * The integration ID of the customer profile that unlocked the reward.   For rewards unlocked with a loyalty card, this can be any customer profile  linked to that loyalty card. 
-   * @return unlockedByIntegrationId
+   * @return unlockedByProfileIntegrationId
    */
   @javax.annotation.Nullable
-  public String getUnlockedByIntegrationId() {
-    return unlockedByIntegrationId;
+  public String getUnlockedByProfileIntegrationId() {
+    return unlockedByProfileIntegrationId;
   }
 
-  public void setUnlockedByIntegrationId(@javax.annotation.Nullable String unlockedByIntegrationId) {
-    this.unlockedByIntegrationId = unlockedByIntegrationId;
+  public void setUnlockedByProfileIntegrationId(@javax.annotation.Nullable String unlockedByProfileIntegrationId) {
+    this.unlockedByProfileIntegrationId = unlockedByProfileIntegrationId;
   }
 
 
@@ -289,22 +313,22 @@ public class CustomerProfileReward {
   }
 
 
-  public CustomerProfileReward usedByIntegrationId(@javax.annotation.Nullable String usedByIntegrationId) {
-    this.usedByIntegrationId = usedByIntegrationId;
+  public CustomerProfileReward usedByProfileIntegrationId(@javax.annotation.Nullable String usedByProfileIntegrationId) {
+    this.usedByProfileIntegrationId = usedByProfileIntegrationId;
     return this;
   }
 
   /**
    * The integration ID of the customer profile that used the reward.   For rewards unlocked with a loyalty card, this can be any customer profile  linked to that loyalty card.   Only returned when the reward has been used. 
-   * @return usedByIntegrationId
+   * @return usedByProfileIntegrationId
    */
   @javax.annotation.Nullable
-  public String getUsedByIntegrationId() {
-    return usedByIntegrationId;
+  public String getUsedByProfileIntegrationId() {
+    return usedByProfileIntegrationId;
   }
 
-  public void setUsedByIntegrationId(@javax.annotation.Nullable String usedByIntegrationId) {
-    this.usedByIntegrationId = usedByIntegrationId;
+  public void setUsedByProfileIntegrationId(@javax.annotation.Nullable String usedByProfileIntegrationId) {
+    this.usedByProfileIntegrationId = usedByProfileIntegrationId;
   }
 
 
@@ -401,13 +425,14 @@ public class CustomerProfileReward {
     }
     CustomerProfileReward customerProfileReward = (CustomerProfileReward) o;
     return Objects.equals(this.id, customerProfileReward.id) &&
+        Objects.equals(this.integrationId, customerProfileReward.integrationId) &&
         Objects.equals(this.rewardId, customerProfileReward.rewardId) &&
         Objects.equals(this.rewardName, customerProfileReward.rewardName) &&
         Objects.equals(this.status, customerProfileReward.status) &&
         Objects.equals(this.unlockedAt, customerProfileReward.unlockedAt) &&
-        Objects.equals(this.unlockedByIntegrationId, customerProfileReward.unlockedByIntegrationId) &&
+        Objects.equals(this.unlockedByProfileIntegrationId, customerProfileReward.unlockedByProfileIntegrationId) &&
         Objects.equals(this.usedAt, customerProfileReward.usedAt) &&
-        Objects.equals(this.usedByIntegrationId, customerProfileReward.usedByIntegrationId) &&
+        Objects.equals(this.usedByProfileIntegrationId, customerProfileReward.usedByProfileIntegrationId) &&
         Objects.equals(this.loyaltyProgramId, customerProfileReward.loyaltyProgramId) &&
         Objects.equals(this.loyaltyCardIdentifier, customerProfileReward.loyaltyCardIdentifier)&&
         Objects.equals(this.additionalProperties, customerProfileReward.additionalProperties);
@@ -415,7 +440,7 @@ public class CustomerProfileReward {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, rewardId, rewardName, status, unlockedAt, unlockedByIntegrationId, usedAt, usedByIntegrationId, loyaltyProgramId, loyaltyCardIdentifier, additionalProperties);
+    return Objects.hash(id, integrationId, rewardId, rewardName, status, unlockedAt, unlockedByProfileIntegrationId, usedAt, usedByProfileIntegrationId, loyaltyProgramId, loyaltyCardIdentifier, additionalProperties);
   }
 
   @Override
@@ -423,13 +448,14 @@ public class CustomerProfileReward {
     StringBuilder sb = new StringBuilder();
     sb.append("class CustomerProfileReward {\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    integrationId: ").append(toIndentedString(integrationId)).append("\n");
     sb.append("    rewardId: ").append(toIndentedString(rewardId)).append("\n");
     sb.append("    rewardName: ").append(toIndentedString(rewardName)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    unlockedAt: ").append(toIndentedString(unlockedAt)).append("\n");
-    sb.append("    unlockedByIntegrationId: ").append(toIndentedString(unlockedByIntegrationId)).append("\n");
+    sb.append("    unlockedByProfileIntegrationId: ").append(toIndentedString(unlockedByProfileIntegrationId)).append("\n");
     sb.append("    usedAt: ").append(toIndentedString(usedAt)).append("\n");
-    sb.append("    usedByIntegrationId: ").append(toIndentedString(usedByIntegrationId)).append("\n");
+    sb.append("    usedByProfileIntegrationId: ").append(toIndentedString(usedByProfileIntegrationId)).append("\n");
     sb.append("    loyaltyProgramId: ").append(toIndentedString(loyaltyProgramId)).append("\n");
     sb.append("    loyaltyCardIdentifier: ").append(toIndentedString(loyaltyCardIdentifier)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
@@ -451,10 +477,10 @@ public class CustomerProfileReward {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("id", "rewardId", "rewardName", "status", "unlockedAt", "unlockedByIntegrationId", "usedAt", "usedByIntegrationId", "loyaltyProgramId", "loyaltyCardIdentifier"));
+    openapiFields = new HashSet<String>(Arrays.asList("id", "integrationId", "rewardId", "rewardName", "status", "unlockedAt", "unlockedByProfileIntegrationId", "usedAt", "usedByProfileIntegrationId", "loyaltyProgramId", "loyaltyCardIdentifier"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("id", "rewardId", "rewardName", "status", "unlockedAt"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("id", "integrationId", "rewardId", "rewardName", "status", "unlockedAt"));
   }
 
   /**
@@ -477,6 +503,9 @@ public class CustomerProfileReward {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
+      if (!jsonObj.get("integrationId").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `integrationId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("integrationId").toString()));
+      }
       if (!jsonObj.get("rewardName").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `rewardName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("rewardName").toString()));
       }
@@ -485,11 +514,11 @@ public class CustomerProfileReward {
       }
       // validate the required field `status`
       StatusEnum.validateJsonElement(jsonObj.get("status"));
-      if ((jsonObj.get("unlockedByIntegrationId") != null && !jsonObj.get("unlockedByIntegrationId").isJsonNull()) && !jsonObj.get("unlockedByIntegrationId").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `unlockedByIntegrationId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("unlockedByIntegrationId").toString()));
+      if ((jsonObj.get("unlockedByProfileIntegrationId") != null && !jsonObj.get("unlockedByProfileIntegrationId").isJsonNull()) && !jsonObj.get("unlockedByProfileIntegrationId").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `unlockedByProfileIntegrationId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("unlockedByProfileIntegrationId").toString()));
       }
-      if ((jsonObj.get("usedByIntegrationId") != null && !jsonObj.get("usedByIntegrationId").isJsonNull()) && !jsonObj.get("usedByIntegrationId").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `usedByIntegrationId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("usedByIntegrationId").toString()));
+      if ((jsonObj.get("usedByProfileIntegrationId") != null && !jsonObj.get("usedByProfileIntegrationId").isJsonNull()) && !jsonObj.get("usedByProfileIntegrationId").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `usedByProfileIntegrationId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("usedByProfileIntegrationId").toString()));
       }
       if ((jsonObj.get("loyaltyCardIdentifier") != null && !jsonObj.get("loyaltyCardIdentifier").isJsonNull()) && !jsonObj.get("loyaltyCardIdentifier").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `loyaltyCardIdentifier` to be a primitive type in the JSON string but got `%s`", jsonObj.get("loyaltyCardIdentifier").toString()));

@@ -21,7 +21,9 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.math.BigDecimal;
 import java.time.OffsetDateTime;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import one.talon.model.AchievementProgress;
 import one.talon.model.TimePoint;
 import org.junit.jupiter.api.Disabled;
@@ -151,6 +153,14 @@ public class AchievementStatusEntryTest {
     @Test
     public void campaignIdTest() {
         // TODO: test campaignId
+    }
+
+    /**
+     * Test the property 'campaignIds'
+     */
+    @Test
+    public void campaignIdsTest() {
+        // TODO: test campaignIds
     }
 
     /**

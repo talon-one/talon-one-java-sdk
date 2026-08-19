@@ -44,6 +44,7 @@ docs/AddFreeItemEffectProps.md
 docs/AddItemCatalogAction.md
 docs/AddLoyaltyPoints.md
 docs/AddLoyaltyPointsEffectProps.md
+docs/AddLoyaltyPointsSupport.md
 docs/AddPriceAdjustmentCatalogAction.md
 docs/AddToAudienceEffectProps.md
 docs/AddedDeductedPointsBalancesAction.md
@@ -74,6 +75,7 @@ docs/ApplicationCustomer.md
 docs/ApplicationCustomerEntity.md
 docs/ApplicationEntity.md
 docs/ApplicationEvent.md
+docs/ApplicationMembership.md
 docs/ApplicationReferee.md
 docs/ApplicationSession.md
 docs/ApplicationSessionEntity.md
@@ -126,6 +128,7 @@ docs/Binding.md
 docs/Blueprint.md
 docs/BulkApplicationNotification.md
 docs/BulkOperationOnCampaigns.md
+docs/Bundle.md
 docs/Campaign.md
 docs/CampaignActivationRequest.md
 docs/CampaignAnalytics.md
@@ -159,6 +162,7 @@ docs/CampaignNotificationBase.md
 docs/CampaignNotificationGeneric.md
 docs/CampaignNotificationItemBase.md
 docs/CampaignNotificationPolicy.md
+docs/CampaignReference.md
 docs/CampaignRulesetChangedNotification.md
 docs/CampaignRulesetChangedNotificationItem.md
 docs/CampaignSearch.md
@@ -188,13 +192,13 @@ docs/CartItem.md
 docs/CartItemFilterTemplate.md
 docs/Catalog.md
 docs/CatalogAction.md
+docs/CatalogActionAdd.md
+docs/CatalogActionAddPriceAdjustment.md
 docs/CatalogActionFilter.md
-docs/CatalogActionOneOf.md
-docs/CatalogActionOneOf1.md
-docs/CatalogActionOneOf2.md
-docs/CatalogActionOneOf3.md
-docs/CatalogActionOneOf4.md
-docs/CatalogActionOneOf5.md
+docs/CatalogActionPatch.md
+docs/CatalogActionPatchMany.md
+docs/CatalogActionRemove.md
+docs/CatalogActionRemoveMany.md
 docs/CatalogItem.md
 docs/CatalogRule.md
 docs/CatalogSyncRequest.md
@@ -213,7 +217,10 @@ docs/CheckCouponBlock.md
 docs/CheckEventBlock.md
 docs/CheckLoyaltyBalanceBlock.md
 docs/CheckLoyaltyBalanceBlock1Program.md
+docs/CheckLoyaltyCardBlock.md
 docs/CheckReferralBlock.md
+docs/CheckTierBlock.md
+docs/CheckTierBlock1Tier.md
 docs/CodeGeneratorSettings.md
 docs/Collection.md
 docs/CollectionItem.md
@@ -267,6 +274,7 @@ docs/CustomerProfileIntegrationResponseV2.md
 docs/CustomerProfileReward.md
 docs/CustomerProfileSearchQuery.md
 docs/CustomerProfileUpdateV2Response.md
+docs/CustomerReward.md
 docs/CustomerSession.md
 docs/CustomerSessionV2.md
 docs/DeactivateUserRequest.md
@@ -446,6 +454,7 @@ docs/IntegrationResponse.md
 docs/IntegrationState.md
 docs/IntegrationStateV2.md
 docs/IntegrationStoreEntity.md
+docs/IntegrationUnlockRewardRequest.md
 docs/InventoryCoupon.md
 docs/InventoryReferral.md
 docs/ItemAttribute.md
@@ -647,6 +656,9 @@ docs/PromotionBlock.md
 docs/PromotionCheckAttributeBlock.md
 docs/PromotionGroupBlock.md
 docs/PromotionRuleV2.md
+docs/RedeemLoyaltyPointsBlock.md
+docs/RedeemLoyaltyPointsBlock1Program.md
+docs/RedeemLoyaltyPointsBlock1Value.md
 docs/RedeemReferralEffectProps.md
 docs/ReduceSelectorStep.md
 docs/Referral.md
@@ -671,6 +683,9 @@ docs/RevisionActivation.md
 docs/RevisionActivationRequest.md
 docs/RevisionVersion.md
 docs/Reward.md
+docs/RewardCatalogItem.md
+docs/RewardEligibility.md
+docs/RewardEligibilityFailureDetails.md
 docs/RewardPointsRequired.md
 docs/Risk.md
 docs/RiskAffectedEntityItem.md
@@ -694,6 +709,7 @@ docs/RollbackDeductedLoyaltyPointsEffectProps.md
 docs/RollbackDiscountEffectProps.md
 docs/RollbackIncreasedAchievementProgressEffectProps.md
 docs/RollbackReferralEffectProps.md
+docs/RollbackUseRewardEffectProps.md
 docs/Rule.md
 docs/RuleEligibility.md
 docs/RuleEligibilityFailureDetails.md
@@ -768,6 +784,7 @@ docs/StrikethroughSetDiscountPerItemMemberEffectProps.md
 docs/StrikethroughTrigger.md
 docs/SummarizeCampaignStoreBudget200Response.md
 docs/SummaryCampaignStoreBudget.md
+docs/SupportCustomerProfile.md
 docs/SupportRequest.md
 docs/SupportRequestInput.md
 docs/TalangAttribute.md
@@ -775,6 +792,7 @@ docs/TalangAttributeVisibility.md
 docs/TemplateArgDef.md
 docs/TemplateDef.md
 docs/TemplateLimitConfig.md
+docs/TemplateParameter.md
 docs/Tier.md
 docs/TierDowngradeData.md
 docs/TierDowngradeNotification.md
@@ -796,6 +814,7 @@ docs/TriggerWebhookBlock1Webhook.md
 docs/TriggerWebhookEffectProps.md
 docs/TwoFAConfig.md
 docs/UnaryCheckAttributeBlock.md
+docs/UnlockRewardEffectProps.md
 docs/UpdateAccount.md
 docs/UpdateAchievement.md
 docs/UpdateAchievementProgressBlock.md
@@ -843,6 +862,7 @@ docs/UpdateRole.md
 docs/UpdateStore.md
 docs/UpdateSupportRequest.md
 docs/UpdateUser.md
+docs/UseRewardEffectProps.md
 docs/User.md
 docs/UserEntity.md
 docs/ValueMap.md
@@ -919,6 +939,7 @@ src/main/java/one/talon/model/AddFreeItemEffectProps.java
 src/main/java/one/talon/model/AddItemCatalogAction.java
 src/main/java/one/talon/model/AddLoyaltyPoints.java
 src/main/java/one/talon/model/AddLoyaltyPointsEffectProps.java
+src/main/java/one/talon/model/AddLoyaltyPointsSupport.java
 src/main/java/one/talon/model/AddPriceAdjustmentCatalogAction.java
 src/main/java/one/talon/model/AddToAudienceEffectProps.java
 src/main/java/one/talon/model/AddedDeductedPointsBalancesAction.java
@@ -949,6 +970,7 @@ src/main/java/one/talon/model/ApplicationCustomer.java
 src/main/java/one/talon/model/ApplicationCustomerEntity.java
 src/main/java/one/talon/model/ApplicationEntity.java
 src/main/java/one/talon/model/ApplicationEvent.java
+src/main/java/one/talon/model/ApplicationMembership.java
 src/main/java/one/talon/model/ApplicationReferee.java
 src/main/java/one/talon/model/ApplicationSession.java
 src/main/java/one/talon/model/ApplicationSessionEntity.java
@@ -1001,6 +1023,7 @@ src/main/java/one/talon/model/Binding.java
 src/main/java/one/talon/model/Blueprint.java
 src/main/java/one/talon/model/BulkApplicationNotification.java
 src/main/java/one/talon/model/BulkOperationOnCampaigns.java
+src/main/java/one/talon/model/Bundle.java
 src/main/java/one/talon/model/Campaign.java
 src/main/java/one/talon/model/CampaignActivationRequest.java
 src/main/java/one/talon/model/CampaignAnalytics.java
@@ -1034,6 +1057,7 @@ src/main/java/one/talon/model/CampaignNotificationBase.java
 src/main/java/one/talon/model/CampaignNotificationGeneric.java
 src/main/java/one/talon/model/CampaignNotificationItemBase.java
 src/main/java/one/talon/model/CampaignNotificationPolicy.java
+src/main/java/one/talon/model/CampaignReference.java
 src/main/java/one/talon/model/CampaignRulesetChangedNotification.java
 src/main/java/one/talon/model/CampaignRulesetChangedNotificationItem.java
 src/main/java/one/talon/model/CampaignSearch.java
@@ -1063,13 +1087,13 @@ src/main/java/one/talon/model/CartItem.java
 src/main/java/one/talon/model/CartItemFilterTemplate.java
 src/main/java/one/talon/model/Catalog.java
 src/main/java/one/talon/model/CatalogAction.java
+src/main/java/one/talon/model/CatalogActionAdd.java
+src/main/java/one/talon/model/CatalogActionAddPriceAdjustment.java
 src/main/java/one/talon/model/CatalogActionFilter.java
-src/main/java/one/talon/model/CatalogActionOneOf.java
-src/main/java/one/talon/model/CatalogActionOneOf1.java
-src/main/java/one/talon/model/CatalogActionOneOf2.java
-src/main/java/one/talon/model/CatalogActionOneOf3.java
-src/main/java/one/talon/model/CatalogActionOneOf4.java
-src/main/java/one/talon/model/CatalogActionOneOf5.java
+src/main/java/one/talon/model/CatalogActionPatch.java
+src/main/java/one/talon/model/CatalogActionPatchMany.java
+src/main/java/one/talon/model/CatalogActionRemove.java
+src/main/java/one/talon/model/CatalogActionRemoveMany.java
 src/main/java/one/talon/model/CatalogItem.java
 src/main/java/one/talon/model/CatalogRule.java
 src/main/java/one/talon/model/CatalogSyncRequest.java
@@ -1088,7 +1112,10 @@ src/main/java/one/talon/model/CheckCouponBlock.java
 src/main/java/one/talon/model/CheckEventBlock.java
 src/main/java/one/talon/model/CheckLoyaltyBalanceBlock.java
 src/main/java/one/talon/model/CheckLoyaltyBalanceBlock1Program.java
+src/main/java/one/talon/model/CheckLoyaltyCardBlock.java
 src/main/java/one/talon/model/CheckReferralBlock.java
+src/main/java/one/talon/model/CheckTierBlock.java
+src/main/java/one/talon/model/CheckTierBlock1Tier.java
 src/main/java/one/talon/model/CodeGeneratorSettings.java
 src/main/java/one/talon/model/Collection.java
 src/main/java/one/talon/model/CollectionItem.java
@@ -1142,6 +1169,7 @@ src/main/java/one/talon/model/CustomerProfileIntegrationResponseV2.java
 src/main/java/one/talon/model/CustomerProfileReward.java
 src/main/java/one/talon/model/CustomerProfileSearchQuery.java
 src/main/java/one/talon/model/CustomerProfileUpdateV2Response.java
+src/main/java/one/talon/model/CustomerReward.java
 src/main/java/one/talon/model/CustomerSession.java
 src/main/java/one/talon/model/CustomerSessionV2.java
 src/main/java/one/talon/model/DeactivateUserRequest.java
@@ -1320,6 +1348,7 @@ src/main/java/one/talon/model/IntegrationResponse.java
 src/main/java/one/talon/model/IntegrationState.java
 src/main/java/one/talon/model/IntegrationStateV2.java
 src/main/java/one/talon/model/IntegrationStoreEntity.java
+src/main/java/one/talon/model/IntegrationUnlockRewardRequest.java
 src/main/java/one/talon/model/InventoryCoupon.java
 src/main/java/one/talon/model/InventoryReferral.java
 src/main/java/one/talon/model/ItemAttribute.java
@@ -1520,6 +1549,9 @@ src/main/java/one/talon/model/PromotionBlock.java
 src/main/java/one/talon/model/PromotionCheckAttributeBlock.java
 src/main/java/one/talon/model/PromotionGroupBlock.java
 src/main/java/one/talon/model/PromotionRuleV2.java
+src/main/java/one/talon/model/RedeemLoyaltyPointsBlock.java
+src/main/java/one/talon/model/RedeemLoyaltyPointsBlock1Program.java
+src/main/java/one/talon/model/RedeemLoyaltyPointsBlock1Value.java
 src/main/java/one/talon/model/RedeemReferralEffectProps.java
 src/main/java/one/talon/model/ReduceSelectorStep.java
 src/main/java/one/talon/model/Referral.java
@@ -1544,6 +1576,9 @@ src/main/java/one/talon/model/RevisionActivation.java
 src/main/java/one/talon/model/RevisionActivationRequest.java
 src/main/java/one/talon/model/RevisionVersion.java
 src/main/java/one/talon/model/Reward.java
+src/main/java/one/talon/model/RewardCatalogItem.java
+src/main/java/one/talon/model/RewardEligibility.java
+src/main/java/one/talon/model/RewardEligibilityFailureDetails.java
 src/main/java/one/talon/model/RewardPointsRequired.java
 src/main/java/one/talon/model/Risk.java
 src/main/java/one/talon/model/RiskAffectedEntityItem.java
@@ -1567,6 +1602,7 @@ src/main/java/one/talon/model/RollbackDeductedLoyaltyPointsEffectProps.java
 src/main/java/one/talon/model/RollbackDiscountEffectProps.java
 src/main/java/one/talon/model/RollbackIncreasedAchievementProgressEffectProps.java
 src/main/java/one/talon/model/RollbackReferralEffectProps.java
+src/main/java/one/talon/model/RollbackUseRewardEffectProps.java
 src/main/java/one/talon/model/Rule.java
 src/main/java/one/talon/model/RuleEligibility.java
 src/main/java/one/talon/model/RuleEligibilityFailureDetails.java
@@ -1641,6 +1677,7 @@ src/main/java/one/talon/model/StrikethroughSetDiscountPerItemMemberEffectProps.j
 src/main/java/one/talon/model/StrikethroughTrigger.java
 src/main/java/one/talon/model/SummarizeCampaignStoreBudget200Response.java
 src/main/java/one/talon/model/SummaryCampaignStoreBudget.java
+src/main/java/one/talon/model/SupportCustomerProfile.java
 src/main/java/one/talon/model/SupportRequest.java
 src/main/java/one/talon/model/SupportRequestInput.java
 src/main/java/one/talon/model/TalangAttribute.java
@@ -1648,6 +1685,7 @@ src/main/java/one/talon/model/TalangAttributeVisibility.java
 src/main/java/one/talon/model/TemplateArgDef.java
 src/main/java/one/talon/model/TemplateDef.java
 src/main/java/one/talon/model/TemplateLimitConfig.java
+src/main/java/one/talon/model/TemplateParameter.java
 src/main/java/one/talon/model/Tier.java
 src/main/java/one/talon/model/TierDowngradeData.java
 src/main/java/one/talon/model/TierDowngradeNotification.java
@@ -1669,6 +1707,7 @@ src/main/java/one/talon/model/TriggerWebhookBlock1Webhook.java
 src/main/java/one/talon/model/TriggerWebhookEffectProps.java
 src/main/java/one/talon/model/TwoFAConfig.java
 src/main/java/one/talon/model/UnaryCheckAttributeBlock.java
+src/main/java/one/talon/model/UnlockRewardEffectProps.java
 src/main/java/one/talon/model/UpdateAccount.java
 src/main/java/one/talon/model/UpdateAchievement.java
 src/main/java/one/talon/model/UpdateAchievementProgressBlock.java
@@ -1716,6 +1755,7 @@ src/main/java/one/talon/model/UpdateRole.java
 src/main/java/one/talon/model/UpdateStore.java
 src/main/java/one/talon/model/UpdateSupportRequest.java
 src/main/java/one/talon/model/UpdateUser.java
+src/main/java/one/talon/model/UseRewardEffectProps.java
 src/main/java/one/talon/model/User.java
 src/main/java/one/talon/model/UserEntity.java
 src/main/java/one/talon/model/ValueMap.java
@@ -1764,6 +1804,7 @@ src/test/java/one/talon/model/ActivateUserRequestTest.java
 src/test/java/one/talon/model/AddFreeItemEffectPropsTest.java
 src/test/java/one/talon/model/AddItemCatalogActionTest.java
 src/test/java/one/talon/model/AddLoyaltyPointsEffectPropsTest.java
+src/test/java/one/talon/model/AddLoyaltyPointsSupportTest.java
 src/test/java/one/talon/model/AddLoyaltyPointsTest.java
 src/test/java/one/talon/model/AddPriceAdjustmentCatalogActionTest.java
 src/test/java/one/talon/model/AddToAudienceEffectPropsTest.java
@@ -1794,6 +1835,7 @@ src/test/java/one/talon/model/ApplicationCustomerEntityTest.java
 src/test/java/one/talon/model/ApplicationCustomerTest.java
 src/test/java/one/talon/model/ApplicationEntityTest.java
 src/test/java/one/talon/model/ApplicationEventTest.java
+src/test/java/one/talon/model/ApplicationMembershipTest.java
 src/test/java/one/talon/model/ApplicationRefereeTest.java
 src/test/java/one/talon/model/ApplicationSessionEntityTest.java
 src/test/java/one/talon/model/ApplicationSessionTest.java
@@ -1847,6 +1889,7 @@ src/test/java/one/talon/model/BindingTest.java
 src/test/java/one/talon/model/BlueprintTest.java
 src/test/java/one/talon/model/BulkApplicationNotificationTest.java
 src/test/java/one/talon/model/BulkOperationOnCampaignsTest.java
+src/test/java/one/talon/model/BundleTest.java
 src/test/java/one/talon/model/CampaignActivationRequestTest.java
 src/test/java/one/talon/model/CampaignAnalyticsTest.java
 src/test/java/one/talon/model/CampaignBudgetTest.java
@@ -1879,6 +1922,7 @@ src/test/java/one/talon/model/CampaignNotificationBaseTest.java
 src/test/java/one/talon/model/CampaignNotificationGenericTest.java
 src/test/java/one/talon/model/CampaignNotificationItemBaseTest.java
 src/test/java/one/talon/model/CampaignNotificationPolicyTest.java
+src/test/java/one/talon/model/CampaignReferenceTest.java
 src/test/java/one/talon/model/CampaignRulesetChangedNotificationItemTest.java
 src/test/java/one/talon/model/CampaignRulesetChangedNotificationTest.java
 src/test/java/one/talon/model/CampaignSearchTest.java
@@ -1907,13 +1951,13 @@ src/test/java/one/talon/model/CardLedgerTransactionLogEntryIntegrationAPITest.ja
 src/test/java/one/talon/model/CardLedgerTransactionLogEntryTest.java
 src/test/java/one/talon/model/CartItemFilterTemplateTest.java
 src/test/java/one/talon/model/CartItemTest.java
+src/test/java/one/talon/model/CatalogActionAddPriceAdjustmentTest.java
+src/test/java/one/talon/model/CatalogActionAddTest.java
 src/test/java/one/talon/model/CatalogActionFilterTest.java
-src/test/java/one/talon/model/CatalogActionOneOf1Test.java
-src/test/java/one/talon/model/CatalogActionOneOf2Test.java
-src/test/java/one/talon/model/CatalogActionOneOf3Test.java
-src/test/java/one/talon/model/CatalogActionOneOf4Test.java
-src/test/java/one/talon/model/CatalogActionOneOf5Test.java
-src/test/java/one/talon/model/CatalogActionOneOfTest.java
+src/test/java/one/talon/model/CatalogActionPatchManyTest.java
+src/test/java/one/talon/model/CatalogActionPatchTest.java
+src/test/java/one/talon/model/CatalogActionRemoveManyTest.java
+src/test/java/one/talon/model/CatalogActionRemoveTest.java
 src/test/java/one/talon/model/CatalogActionTest.java
 src/test/java/one/talon/model/CatalogItemTest.java
 src/test/java/one/talon/model/CatalogRuleTest.java
@@ -1934,7 +1978,10 @@ src/test/java/one/talon/model/CheckCouponBlockTest.java
 src/test/java/one/talon/model/CheckEventBlockTest.java
 src/test/java/one/talon/model/CheckLoyaltyBalanceBlock1ProgramTest.java
 src/test/java/one/talon/model/CheckLoyaltyBalanceBlockTest.java
+src/test/java/one/talon/model/CheckLoyaltyCardBlockTest.java
 src/test/java/one/talon/model/CheckReferralBlockTest.java
+src/test/java/one/talon/model/CheckTierBlock1TierTest.java
+src/test/java/one/talon/model/CheckTierBlockTest.java
 src/test/java/one/talon/model/CodeGeneratorSettingsTest.java
 src/test/java/one/talon/model/CollectionItemTest.java
 src/test/java/one/talon/model/CollectionTest.java
@@ -1988,6 +2035,7 @@ src/test/java/one/talon/model/CustomerProfileRewardTest.java
 src/test/java/one/talon/model/CustomerProfileSearchQueryTest.java
 src/test/java/one/talon/model/CustomerProfileTest.java
 src/test/java/one/talon/model/CustomerProfileUpdateV2ResponseTest.java
+src/test/java/one/talon/model/CustomerRewardTest.java
 src/test/java/one/talon/model/CustomerSessionTest.java
 src/test/java/one/talon/model/CustomerSessionV2Test.java
 src/test/java/one/talon/model/DeactivateUserRequestTest.java
@@ -2166,6 +2214,7 @@ src/test/java/one/talon/model/IntegrationResponseTest.java
 src/test/java/one/talon/model/IntegrationStateTest.java
 src/test/java/one/talon/model/IntegrationStateV2Test.java
 src/test/java/one/talon/model/IntegrationStoreEntityTest.java
+src/test/java/one/talon/model/IntegrationUnlockRewardRequestTest.java
 src/test/java/one/talon/model/InventoryCouponTest.java
 src/test/java/one/talon/model/InventoryReferralTest.java
 src/test/java/one/talon/model/ItemAttributeTest.java
@@ -2366,6 +2415,9 @@ src/test/java/one/talon/model/PromotionBlockTest.java
 src/test/java/one/talon/model/PromotionCheckAttributeBlockTest.java
 src/test/java/one/talon/model/PromotionGroupBlockTest.java
 src/test/java/one/talon/model/PromotionRuleV2Test.java
+src/test/java/one/talon/model/RedeemLoyaltyPointsBlock1ProgramTest.java
+src/test/java/one/talon/model/RedeemLoyaltyPointsBlock1ValueTest.java
+src/test/java/one/talon/model/RedeemLoyaltyPointsBlockTest.java
 src/test/java/one/talon/model/RedeemReferralEffectPropsTest.java
 src/test/java/one/talon/model/ReduceSelectorStepTest.java
 src/test/java/one/talon/model/ReferralConstraintsTest.java
@@ -2389,6 +2441,9 @@ src/test/java/one/talon/model/RevisionActivationRequestTest.java
 src/test/java/one/talon/model/RevisionActivationTest.java
 src/test/java/one/talon/model/RevisionTest.java
 src/test/java/one/talon/model/RevisionVersionTest.java
+src/test/java/one/talon/model/RewardCatalogItemTest.java
+src/test/java/one/talon/model/RewardEligibilityFailureDetailsTest.java
+src/test/java/one/talon/model/RewardEligibilityTest.java
 src/test/java/one/talon/model/RewardPointsRequiredTest.java
 src/test/java/one/talon/model/RewardTest.java
 src/test/java/one/talon/model/RiskAffectedEntityItemTest.java
@@ -2413,6 +2468,7 @@ src/test/java/one/talon/model/RollbackDeductedLoyaltyPointsEffectPropsTest.java
 src/test/java/one/talon/model/RollbackDiscountEffectPropsTest.java
 src/test/java/one/talon/model/RollbackIncreasedAchievementProgressEffectPropsTest.java
 src/test/java/one/talon/model/RollbackReferralEffectPropsTest.java
+src/test/java/one/talon/model/RollbackUseRewardEffectPropsTest.java
 src/test/java/one/talon/model/RuleEligibilityFailureDetailsTest.java
 src/test/java/one/talon/model/RuleEligibilityTest.java
 src/test/java/one/talon/model/RuleFailureReasonTest.java
@@ -2487,6 +2543,7 @@ src/test/java/one/talon/model/StrikethroughSetDiscountPerItemMemberEffectPropsTe
 src/test/java/one/talon/model/StrikethroughTriggerTest.java
 src/test/java/one/talon/model/SummarizeCampaignStoreBudget200ResponseTest.java
 src/test/java/one/talon/model/SummaryCampaignStoreBudgetTest.java
+src/test/java/one/talon/model/SupportCustomerProfileTest.java
 src/test/java/one/talon/model/SupportRequestInputTest.java
 src/test/java/one/talon/model/SupportRequestTest.java
 src/test/java/one/talon/model/TalangAttributeTest.java
@@ -2494,6 +2551,7 @@ src/test/java/one/talon/model/TalangAttributeVisibilityTest.java
 src/test/java/one/talon/model/TemplateArgDefTest.java
 src/test/java/one/talon/model/TemplateDefTest.java
 src/test/java/one/talon/model/TemplateLimitConfigTest.java
+src/test/java/one/talon/model/TemplateParameterTest.java
 src/test/java/one/talon/model/TierDowngradeDataTest.java
 src/test/java/one/talon/model/TierDowngradeNotificationPolicyTest.java
 src/test/java/one/talon/model/TierDowngradeNotificationTest.java
@@ -2515,6 +2573,7 @@ src/test/java/one/talon/model/TriggerWebhookBlockTest.java
 src/test/java/one/talon/model/TriggerWebhookEffectPropsTest.java
 src/test/java/one/talon/model/TwoFAConfigTest.java
 src/test/java/one/talon/model/UnaryCheckAttributeBlockTest.java
+src/test/java/one/talon/model/UnlockRewardEffectPropsTest.java
 src/test/java/one/talon/model/UpdateAccountTest.java
 src/test/java/one/talon/model/UpdateAchievementProgressBlock1AchievementTest.java
 src/test/java/one/talon/model/UpdateAchievementProgressBlockTest.java
@@ -2562,6 +2621,7 @@ src/test/java/one/talon/model/UpdateRoleTest.java
 src/test/java/one/talon/model/UpdateStoreTest.java
 src/test/java/one/talon/model/UpdateSupportRequestTest.java
 src/test/java/one/talon/model/UpdateUserTest.java
+src/test/java/one/talon/model/UseRewardEffectPropsTest.java
 src/test/java/one/talon/model/UserEntityTest.java
 src/test/java/one/talon/model/UserTest.java
 src/test/java/one/talon/model/ValueMapTest.java

@@ -479,7 +479,7 @@ public class LedgerTransactionLogEntryIntegrationAPI {
   }
 
   /**
-   * The duration for which the points remain active, relative to the  activation date.  **Note**: This only applies to points for which &#x60;awaitsActivation&#x60; is &#x60;true&#x60; and &#x60;expiryDate&#x60; is not set. 
+   * The duration for which the points remain active, relative to the activation date.  **Note**: This only applies to points for which &#x60;awaitsActivation&#x60; is &#x60;true&#x60; and &#x60;expiryDate&#x60; is not set. 
    * @return validityDuration
    */
   @javax.annotation.Nullable
