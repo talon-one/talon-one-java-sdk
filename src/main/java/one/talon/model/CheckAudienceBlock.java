@@ -23,8 +23,8 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import one.talon.model.Block;
 import one.talon.model.CheckAudienceBlock1Audience;
-import one.talon.model.PromotionBlock;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -33,6 +33,7 @@ import com.google.gson.JsonDeserializationContext;
 import com.google.gson.JsonDeserializer;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
+import com.google.gson.JsonNull;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
@@ -52,11 +53,11 @@ import one.talon.JSON;
 /**
  * CheckAudienceBlock
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.24.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.25.0")
 public class CheckAudienceBlock {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   private String id;
 
   public static final String SERIALIZED_NAME_TYPE = "type";
@@ -195,28 +196,29 @@ public class CheckAudienceBlock {
   public static final String SERIALIZED_NAME_ON_FAILURE = "onFailure";
   @SerializedName(SERIALIZED_NAME_ON_FAILURE)
   @javax.annotation.Nullable
-  private List<PromotionBlock> onFailure;
+  private List<Block> onFailure;
 
   public CheckAudienceBlock() {
   }
 
-  public CheckAudienceBlock id(@javax.annotation.Nonnull String id) {
+  public CheckAudienceBlock(
+     String id, 
+     List<String> tags
+  ) {
+    this();
     this.id = id;
-    return this;
+    this.tags = tags;
   }
 
   /**
    * Unique identifier for this block.
    * @return id
    */
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   public String getId() {
     return id;
   }
 
-  public void setId(@javax.annotation.Nonnull String id) {
-    this.id = id;
-  }
 
 
   public CheckAudienceBlock type(@javax.annotation.Nonnull String type) {
@@ -238,19 +240,6 @@ public class CheckAudienceBlock {
   }
 
 
-  public CheckAudienceBlock tags(@javax.annotation.Nullable List<String> tags) {
-    this.tags = tags;
-    return this;
-  }
-
-  public CheckAudienceBlock addTagsItem(String tagsItem) {
-    if (this.tags == null) {
-      this.tags = new ArrayList<>();
-    }
-    this.tags.add(tagsItem);
-    return this;
-  }
-
   /**
    * Semantic labels attached to this block.
    * @return tags
@@ -260,9 +249,6 @@ public class CheckAudienceBlock {
     return tags;
   }
 
-  public void setTags(@javax.annotation.Nullable List<String> tags) {
-    this.tags = tags;
-  }
 
 
   public CheckAudienceBlock operator(@javax.annotation.Nonnull OperatorEnum operator) {
@@ -322,12 +308,12 @@ public class CheckAudienceBlock {
   }
 
 
-  public CheckAudienceBlock onFailure(@javax.annotation.Nullable List<PromotionBlock> onFailure) {
+  public CheckAudienceBlock onFailure(@javax.annotation.Nullable List<Block> onFailure) {
     this.onFailure = onFailure;
     return this;
   }
 
-  public CheckAudienceBlock addOnFailureItem(PromotionBlock onFailureItem) {
+  public CheckAudienceBlock addOnFailureItem(Block onFailureItem) {
     if (this.onFailure == null) {
       this.onFailure = new ArrayList<>();
     }
@@ -340,11 +326,11 @@ public class CheckAudienceBlock {
    * @return onFailure
    */
   @javax.annotation.Nullable
-  public List<PromotionBlock> getOnFailure() {
+  public List<Block> getOnFailure() {
     return onFailure;
   }
 
-  public void setOnFailure(@javax.annotation.Nullable List<PromotionBlock> onFailure) {
+  public void setOnFailure(@javax.annotation.Nullable List<Block> onFailure) {
     this.onFailure = onFailure;
   }
 
@@ -451,7 +437,7 @@ public class CheckAudienceBlock {
     openapiFields = new HashSet<String>(Arrays.asList("id", "type", "tags", "operator", "profile", "audience", "onFailure"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("id", "type", "operator", "profile", "audience"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("type", "operator", "profile", "audience"));
   }
 
   /**
@@ -474,7 +460,7 @@ public class CheckAudienceBlock {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if (!jsonObj.get("id").isJsonPrimitive()) {
+      if ((jsonObj.get("id") != null && !jsonObj.get("id").isJsonNull()) && !jsonObj.get("id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("id").toString()));
       }
       if (!jsonObj.get("type").isJsonPrimitive()) {
@@ -506,7 +492,7 @@ public class CheckAudienceBlock {
 
           // validate the optional field `onFailure` (array)
           for (int i = 0; i < jsonArrayonFailure.size(); i++) {
-            PromotionBlock.validateJsonElement(jsonArrayonFailure.get(i));
+            Block.validateJsonElement(jsonArrayonFailure.get(i));
           };
         }
       }
@@ -541,7 +527,9 @@ public class CheckAudienceBlock {
                    obj.addProperty(entry.getKey(), (Character) entry.getValue());
                  else {
                    JsonElement jsonElement = gson.toJsonTree(entry.getValue());
-                   if (jsonElement.isJsonArray()) {
+                   if (jsonElement.isJsonNull()) {
+                     obj.add(entry.getKey(), JsonNull.INSTANCE);
+                   } else if (jsonElement.isJsonArray()) {
                      obj.add(entry.getKey(), jsonElement.getAsJsonArray());
                    } else {
                      obj.add(entry.getKey(), jsonElement.getAsJsonObject());

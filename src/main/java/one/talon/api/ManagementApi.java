@@ -3073,6 +3073,157 @@ public class ManagementApi {
         return localVarCall;
     }
     /**
+     * Build call for createRulesetV2
+     * @param applicationId The ID of the Application. It is displayed in your Talon.One deployment URL. (required)
+     * @param campaignId The ID of the campaign. It is displayed in your Talon.One deployment URL. (required)
+     * @param rulesetV2 body (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call createRulesetV2Call(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, @javax.annotation.Nonnull RulesetV2 rulesetV2, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = rulesetV2;
+
+        // create path and map variables
+        String localVarPath = "/v2/applications/{applicationId}/campaigns/{campaignId}/rulesets"
+            .replace("{" + "applicationId" + "}", localVarApiClient.escapeString(applicationId.toString()))
+            .replace("{" + "campaignId" + "}", localVarApiClient.escapeString(campaignId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "api_key_v1" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call createRulesetV2ValidateBeforeCall(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, @javax.annotation.Nonnull RulesetV2 rulesetV2, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'applicationId' is set
+        if (applicationId == null) {
+            throw new ApiException("Missing the required parameter 'applicationId' when calling createRulesetV2(Async)");
+        }
+
+        // verify the required parameter 'campaignId' is set
+        if (campaignId == null) {
+            throw new ApiException("Missing the required parameter 'campaignId' when calling createRulesetV2(Async)");
+        }
+
+        // verify the required parameter 'rulesetV2' is set
+        if (rulesetV2 == null) {
+            throw new ApiException("Missing the required parameter 'rulesetV2' when calling createRulesetV2(Async)");
+        }
+
+        return createRulesetV2Call(applicationId, campaignId, rulesetV2, _callback);
+
+    }
+
+    /**
+     * Create ruleset (V2)
+     * Create a ruleset from promotion and strikethrough rules in the V2 JSON block format. A ruleset is a revision of all the rules of a campaign.  Only &#x60;group&#x60; and &#x60;passthrough&#x60; blocks are currently writable, with optional &#x60;onFailure&#x60; blocks. A payload containing any other block type is rejected. Each rule&#39;s &#x60;blocks&#x60; array may contain at most one block.
+     * @param applicationId The ID of the Application. It is displayed in your Talon.One deployment URL. (required)
+     * @param campaignId The ID of the campaign. It is displayed in your Talon.One deployment URL. (required)
+     * @param rulesetV2 body (required)
+     * @return RulesetV2
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
+     </table>
+     */
+    public RulesetV2 createRulesetV2(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, @javax.annotation.Nonnull RulesetV2 rulesetV2) throws ApiException {
+        ApiResponse<RulesetV2> localVarResp = createRulesetV2WithHttpInfo(applicationId, campaignId, rulesetV2);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Create ruleset (V2)
+     * Create a ruleset from promotion and strikethrough rules in the V2 JSON block format. A ruleset is a revision of all the rules of a campaign.  Only &#x60;group&#x60; and &#x60;passthrough&#x60; blocks are currently writable, with optional &#x60;onFailure&#x60; blocks. A payload containing any other block type is rejected. Each rule&#39;s &#x60;blocks&#x60; array may contain at most one block.
+     * @param applicationId The ID of the Application. It is displayed in your Talon.One deployment URL. (required)
+     * @param campaignId The ID of the campaign. It is displayed in your Talon.One deployment URL. (required)
+     * @param rulesetV2 body (required)
+     * @return ApiResponse&lt;RulesetV2&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<RulesetV2> createRulesetV2WithHttpInfo(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, @javax.annotation.Nonnull RulesetV2 rulesetV2) throws ApiException {
+        okhttp3.Call localVarCall = createRulesetV2ValidateBeforeCall(applicationId, campaignId, rulesetV2, null);
+        Type localVarReturnType = new TypeToken<RulesetV2>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Create ruleset (V2) (asynchronously)
+     * Create a ruleset from promotion and strikethrough rules in the V2 JSON block format. A ruleset is a revision of all the rules of a campaign.  Only &#x60;group&#x60; and &#x60;passthrough&#x60; blocks are currently writable, with optional &#x60;onFailure&#x60; blocks. A payload containing any other block type is rejected. Each rule&#39;s &#x60;blocks&#x60; array may contain at most one block.
+     * @param applicationId The ID of the Application. It is displayed in your Talon.One deployment URL. (required)
+     * @param campaignId The ID of the campaign. It is displayed in your Talon.One deployment URL. (required)
+     * @param rulesetV2 body (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call createRulesetV2Async(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, @javax.annotation.Nonnull RulesetV2 rulesetV2, final ApiCallback<RulesetV2> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = createRulesetV2ValidateBeforeCall(applicationId, campaignId, rulesetV2, _callback);
+        Type localVarReturnType = new TypeToken<RulesetV2>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
      * Build call for createSession
      * @param loginParams body (required)
      * @param _callback Callback for upload/download progress
@@ -19008,6 +19159,7 @@ public class ManagementApi {
      * @param createdBefore Filter results where request and response times to return entries before parameter value, expected to be an RFC3339 timestamp string. Use UTC time. (optional)
      * @param createdAfter Filter results where request and response times to return entries after parameter value, expected to be an RFC3339 timestamp string. Use UTC time. (optional)
      * @param cursor A specific unique value in the database. If this value is not given, the server fetches results starting with the first record.  (optional)
+     * @param pageSize The maximum number of message log entries to return. (optional, default to 50)
      * @param period Filter results by time period. Choose between the available relative time frames.  (optional)
      * @param isSuccessful Indicates whether to return log entries with either successful or unsuccessful HTTP response codes. When set to&#x60;true&#x60;, only log entries with &#x60;2xx&#x60; response codes are returned. When set to &#x60;false&#x60;, only log entries with &#x60;4xx&#x60; and &#x60;5xx&#x60; response codes are returned.  (optional)
      * @param applicationId Filter results by Application ID. (optional)
@@ -19025,7 +19177,7 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getMessageLogsCall(@javax.annotation.Nonnull String entityType, @javax.annotation.Nullable String messageID, @javax.annotation.Nullable String changeType, @javax.annotation.Nullable String notificationIDs, @javax.annotation.Nullable OffsetDateTime createdBefore, @javax.annotation.Nullable OffsetDateTime createdAfter, @javax.annotation.Nullable byte[] cursor, @javax.annotation.Nullable String period, @javax.annotation.Nullable Boolean isSuccessful, @javax.annotation.Nullable BigDecimal applicationId, @javax.annotation.Nullable BigDecimal campaignId, @javax.annotation.Nullable Long loyaltyProgramId, @javax.annotation.Nullable Long responseCode, @javax.annotation.Nullable String webhookIDs, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getMessageLogsCall(@javax.annotation.Nonnull String entityType, @javax.annotation.Nullable String messageID, @javax.annotation.Nullable String changeType, @javax.annotation.Nullable String notificationIDs, @javax.annotation.Nullable OffsetDateTime createdBefore, @javax.annotation.Nullable OffsetDateTime createdAfter, @javax.annotation.Nullable byte[] cursor, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable String period, @javax.annotation.Nullable Boolean isSuccessful, @javax.annotation.Nullable BigDecimal applicationId, @javax.annotation.Nullable BigDecimal campaignId, @javax.annotation.Nullable Long loyaltyProgramId, @javax.annotation.Nullable Long responseCode, @javax.annotation.Nullable String webhookIDs, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -19072,6 +19224,10 @@ public class ManagementApi {
 
         if (cursor != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("cursor", cursor));
+        }
+
+        if (pageSize != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("pageSize", pageSize));
         }
 
         if (period != null) {
@@ -19126,13 +19282,13 @@ public class ManagementApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getMessageLogsValidateBeforeCall(@javax.annotation.Nonnull String entityType, @javax.annotation.Nullable String messageID, @javax.annotation.Nullable String changeType, @javax.annotation.Nullable String notificationIDs, @javax.annotation.Nullable OffsetDateTime createdBefore, @javax.annotation.Nullable OffsetDateTime createdAfter, @javax.annotation.Nullable byte[] cursor, @javax.annotation.Nullable String period, @javax.annotation.Nullable Boolean isSuccessful, @javax.annotation.Nullable BigDecimal applicationId, @javax.annotation.Nullable BigDecimal campaignId, @javax.annotation.Nullable Long loyaltyProgramId, @javax.annotation.Nullable Long responseCode, @javax.annotation.Nullable String webhookIDs, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getMessageLogsValidateBeforeCall(@javax.annotation.Nonnull String entityType, @javax.annotation.Nullable String messageID, @javax.annotation.Nullable String changeType, @javax.annotation.Nullable String notificationIDs, @javax.annotation.Nullable OffsetDateTime createdBefore, @javax.annotation.Nullable OffsetDateTime createdAfter, @javax.annotation.Nullable byte[] cursor, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable String period, @javax.annotation.Nullable Boolean isSuccessful, @javax.annotation.Nullable BigDecimal applicationId, @javax.annotation.Nullable BigDecimal campaignId, @javax.annotation.Nullable Long loyaltyProgramId, @javax.annotation.Nullable Long responseCode, @javax.annotation.Nullable String webhookIDs, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'entityType' is set
         if (entityType == null) {
             throw new ApiException("Missing the required parameter 'entityType' when calling getMessageLogs(Async)");
         }
 
-        return getMessageLogsCall(entityType, messageID, changeType, notificationIDs, createdBefore, createdAfter, cursor, period, isSuccessful, applicationId, campaignId, loyaltyProgramId, responseCode, webhookIDs, _callback);
+        return getMessageLogsCall(entityType, messageID, changeType, notificationIDs, createdBefore, createdAfter, cursor, pageSize, period, isSuccessful, applicationId, campaignId, loyaltyProgramId, responseCode, webhookIDs, _callback);
 
     }
 
@@ -19146,6 +19302,7 @@ public class ManagementApi {
      * @param createdBefore Filter results where request and response times to return entries before parameter value, expected to be an RFC3339 timestamp string. Use UTC time. (optional)
      * @param createdAfter Filter results where request and response times to return entries after parameter value, expected to be an RFC3339 timestamp string. Use UTC time. (optional)
      * @param cursor A specific unique value in the database. If this value is not given, the server fetches results starting with the first record.  (optional)
+     * @param pageSize The maximum number of message log entries to return. (optional, default to 50)
      * @param period Filter results by time period. Choose between the available relative time frames.  (optional)
      * @param isSuccessful Indicates whether to return log entries with either successful or unsuccessful HTTP response codes. When set to&#x60;true&#x60;, only log entries with &#x60;2xx&#x60; response codes are returned. When set to &#x60;false&#x60;, only log entries with &#x60;4xx&#x60; and &#x60;5xx&#x60; response codes are returned.  (optional)
      * @param applicationId Filter results by Application ID. (optional)
@@ -19162,8 +19319,8 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public MessageLogEntries getMessageLogs(@javax.annotation.Nonnull String entityType, @javax.annotation.Nullable String messageID, @javax.annotation.Nullable String changeType, @javax.annotation.Nullable String notificationIDs, @javax.annotation.Nullable OffsetDateTime createdBefore, @javax.annotation.Nullable OffsetDateTime createdAfter, @javax.annotation.Nullable byte[] cursor, @javax.annotation.Nullable String period, @javax.annotation.Nullable Boolean isSuccessful, @javax.annotation.Nullable BigDecimal applicationId, @javax.annotation.Nullable BigDecimal campaignId, @javax.annotation.Nullable Long loyaltyProgramId, @javax.annotation.Nullable Long responseCode, @javax.annotation.Nullable String webhookIDs) throws ApiException {
-        ApiResponse<MessageLogEntries> localVarResp = getMessageLogsWithHttpInfo(entityType, messageID, changeType, notificationIDs, createdBefore, createdAfter, cursor, period, isSuccessful, applicationId, campaignId, loyaltyProgramId, responseCode, webhookIDs);
+    public MessageLogEntries getMessageLogs(@javax.annotation.Nonnull String entityType, @javax.annotation.Nullable String messageID, @javax.annotation.Nullable String changeType, @javax.annotation.Nullable String notificationIDs, @javax.annotation.Nullable OffsetDateTime createdBefore, @javax.annotation.Nullable OffsetDateTime createdAfter, @javax.annotation.Nullable byte[] cursor, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable String period, @javax.annotation.Nullable Boolean isSuccessful, @javax.annotation.Nullable BigDecimal applicationId, @javax.annotation.Nullable BigDecimal campaignId, @javax.annotation.Nullable Long loyaltyProgramId, @javax.annotation.Nullable Long responseCode, @javax.annotation.Nullable String webhookIDs) throws ApiException {
+        ApiResponse<MessageLogEntries> localVarResp = getMessageLogsWithHttpInfo(entityType, messageID, changeType, notificationIDs, createdBefore, createdAfter, cursor, pageSize, period, isSuccessful, applicationId, campaignId, loyaltyProgramId, responseCode, webhookIDs);
         return localVarResp.getData();
     }
 
@@ -19177,6 +19334,7 @@ public class ManagementApi {
      * @param createdBefore Filter results where request and response times to return entries before parameter value, expected to be an RFC3339 timestamp string. Use UTC time. (optional)
      * @param createdAfter Filter results where request and response times to return entries after parameter value, expected to be an RFC3339 timestamp string. Use UTC time. (optional)
      * @param cursor A specific unique value in the database. If this value is not given, the server fetches results starting with the first record.  (optional)
+     * @param pageSize The maximum number of message log entries to return. (optional, default to 50)
      * @param period Filter results by time period. Choose between the available relative time frames.  (optional)
      * @param isSuccessful Indicates whether to return log entries with either successful or unsuccessful HTTP response codes. When set to&#x60;true&#x60;, only log entries with &#x60;2xx&#x60; response codes are returned. When set to &#x60;false&#x60;, only log entries with &#x60;4xx&#x60; and &#x60;5xx&#x60; response codes are returned.  (optional)
      * @param applicationId Filter results by Application ID. (optional)
@@ -19193,8 +19351,8 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<MessageLogEntries> getMessageLogsWithHttpInfo(@javax.annotation.Nonnull String entityType, @javax.annotation.Nullable String messageID, @javax.annotation.Nullable String changeType, @javax.annotation.Nullable String notificationIDs, @javax.annotation.Nullable OffsetDateTime createdBefore, @javax.annotation.Nullable OffsetDateTime createdAfter, @javax.annotation.Nullable byte[] cursor, @javax.annotation.Nullable String period, @javax.annotation.Nullable Boolean isSuccessful, @javax.annotation.Nullable BigDecimal applicationId, @javax.annotation.Nullable BigDecimal campaignId, @javax.annotation.Nullable Long loyaltyProgramId, @javax.annotation.Nullable Long responseCode, @javax.annotation.Nullable String webhookIDs) throws ApiException {
-        okhttp3.Call localVarCall = getMessageLogsValidateBeforeCall(entityType, messageID, changeType, notificationIDs, createdBefore, createdAfter, cursor, period, isSuccessful, applicationId, campaignId, loyaltyProgramId, responseCode, webhookIDs, null);
+    public ApiResponse<MessageLogEntries> getMessageLogsWithHttpInfo(@javax.annotation.Nonnull String entityType, @javax.annotation.Nullable String messageID, @javax.annotation.Nullable String changeType, @javax.annotation.Nullable String notificationIDs, @javax.annotation.Nullable OffsetDateTime createdBefore, @javax.annotation.Nullable OffsetDateTime createdAfter, @javax.annotation.Nullable byte[] cursor, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable String period, @javax.annotation.Nullable Boolean isSuccessful, @javax.annotation.Nullable BigDecimal applicationId, @javax.annotation.Nullable BigDecimal campaignId, @javax.annotation.Nullable Long loyaltyProgramId, @javax.annotation.Nullable Long responseCode, @javax.annotation.Nullable String webhookIDs) throws ApiException {
+        okhttp3.Call localVarCall = getMessageLogsValidateBeforeCall(entityType, messageID, changeType, notificationIDs, createdBefore, createdAfter, cursor, pageSize, period, isSuccessful, applicationId, campaignId, loyaltyProgramId, responseCode, webhookIDs, null);
         Type localVarReturnType = new TypeToken<MessageLogEntries>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -19209,6 +19367,7 @@ public class ManagementApi {
      * @param createdBefore Filter results where request and response times to return entries before parameter value, expected to be an RFC3339 timestamp string. Use UTC time. (optional)
      * @param createdAfter Filter results where request and response times to return entries after parameter value, expected to be an RFC3339 timestamp string. Use UTC time. (optional)
      * @param cursor A specific unique value in the database. If this value is not given, the server fetches results starting with the first record.  (optional)
+     * @param pageSize The maximum number of message log entries to return. (optional, default to 50)
      * @param period Filter results by time period. Choose between the available relative time frames.  (optional)
      * @param isSuccessful Indicates whether to return log entries with either successful or unsuccessful HTTP response codes. When set to&#x60;true&#x60;, only log entries with &#x60;2xx&#x60; response codes are returned. When set to &#x60;false&#x60;, only log entries with &#x60;4xx&#x60; and &#x60;5xx&#x60; response codes are returned.  (optional)
      * @param applicationId Filter results by Application ID. (optional)
@@ -19226,9 +19385,9 @@ public class ManagementApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getMessageLogsAsync(@javax.annotation.Nonnull String entityType, @javax.annotation.Nullable String messageID, @javax.annotation.Nullable String changeType, @javax.annotation.Nullable String notificationIDs, @javax.annotation.Nullable OffsetDateTime createdBefore, @javax.annotation.Nullable OffsetDateTime createdAfter, @javax.annotation.Nullable byte[] cursor, @javax.annotation.Nullable String period, @javax.annotation.Nullable Boolean isSuccessful, @javax.annotation.Nullable BigDecimal applicationId, @javax.annotation.Nullable BigDecimal campaignId, @javax.annotation.Nullable Long loyaltyProgramId, @javax.annotation.Nullable Long responseCode, @javax.annotation.Nullable String webhookIDs, final ApiCallback<MessageLogEntries> _callback) throws ApiException {
+    public okhttp3.Call getMessageLogsAsync(@javax.annotation.Nonnull String entityType, @javax.annotation.Nullable String messageID, @javax.annotation.Nullable String changeType, @javax.annotation.Nullable String notificationIDs, @javax.annotation.Nullable OffsetDateTime createdBefore, @javax.annotation.Nullable OffsetDateTime createdAfter, @javax.annotation.Nullable byte[] cursor, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable String period, @javax.annotation.Nullable Boolean isSuccessful, @javax.annotation.Nullable BigDecimal applicationId, @javax.annotation.Nullable BigDecimal campaignId, @javax.annotation.Nullable Long loyaltyProgramId, @javax.annotation.Nullable Long responseCode, @javax.annotation.Nullable String webhookIDs, final ApiCallback<MessageLogEntries> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getMessageLogsValidateBeforeCall(entityType, messageID, changeType, notificationIDs, createdBefore, createdAfter, cursor, period, isSuccessful, applicationId, campaignId, loyaltyProgramId, responseCode, webhookIDs, _callback);
+        okhttp3.Call localVarCall = getMessageLogsValidateBeforeCall(entityType, messageID, changeType, notificationIDs, createdBefore, createdAfter, cursor, pageSize, period, isSuccessful, applicationId, campaignId, loyaltyProgramId, responseCode, webhookIDs, _callback);
         Type localVarReturnType = new TypeToken<MessageLogEntries>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

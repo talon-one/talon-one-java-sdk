@@ -23,7 +23,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import one.talon.model.PromotionBlock;
+import one.talon.model.Block;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -32,6 +32,7 @@ import com.google.gson.JsonDeserializationContext;
 import com.google.gson.JsonDeserializer;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
+import com.google.gson.JsonNull;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
@@ -51,11 +52,11 @@ import one.talon.JSON;
 /**
  * CheckCouponBlock
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.24.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.25.0")
 public class CheckCouponBlock {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   private String id;
 
   public static final String SERIALIZED_NAME_TYPE = "type";
@@ -76,28 +77,29 @@ public class CheckCouponBlock {
   public static final String SERIALIZED_NAME_ON_FAILURE = "onFailure";
   @SerializedName(SERIALIZED_NAME_ON_FAILURE)
   @javax.annotation.Nullable
-  private List<PromotionBlock> onFailure;
+  private List<Block> onFailure;
 
   public CheckCouponBlock() {
   }
 
-  public CheckCouponBlock id(@javax.annotation.Nonnull String id) {
+  public CheckCouponBlock(
+     String id, 
+     List<String> tags
+  ) {
+    this();
     this.id = id;
-    return this;
+    this.tags = tags;
   }
 
   /**
    * Unique identifier for this block.
    * @return id
    */
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   public String getId() {
     return id;
   }
 
-  public void setId(@javax.annotation.Nonnull String id) {
-    this.id = id;
-  }
 
 
   public CheckCouponBlock type(@javax.annotation.Nonnull String type) {
@@ -119,19 +121,6 @@ public class CheckCouponBlock {
   }
 
 
-  public CheckCouponBlock tags(@javax.annotation.Nullable List<String> tags) {
-    this.tags = tags;
-    return this;
-  }
-
-  public CheckCouponBlock addTagsItem(String tagsItem) {
-    if (this.tags == null) {
-      this.tags = new ArrayList<>();
-    }
-    this.tags.add(tagsItem);
-    return this;
-  }
-
   /**
    * Semantic labels attached to this block.
    * @return tags
@@ -141,9 +130,6 @@ public class CheckCouponBlock {
     return tags;
   }
 
-  public void setTags(@javax.annotation.Nullable List<String> tags) {
-    this.tags = tags;
-  }
 
 
   public CheckCouponBlock redeem(@javax.annotation.Nonnull Boolean redeem) {
@@ -165,12 +151,12 @@ public class CheckCouponBlock {
   }
 
 
-  public CheckCouponBlock onFailure(@javax.annotation.Nullable List<PromotionBlock> onFailure) {
+  public CheckCouponBlock onFailure(@javax.annotation.Nullable List<Block> onFailure) {
     this.onFailure = onFailure;
     return this;
   }
 
-  public CheckCouponBlock addOnFailureItem(PromotionBlock onFailureItem) {
+  public CheckCouponBlock addOnFailureItem(Block onFailureItem) {
     if (this.onFailure == null) {
       this.onFailure = new ArrayList<>();
     }
@@ -183,11 +169,11 @@ public class CheckCouponBlock {
    * @return onFailure
    */
   @javax.annotation.Nullable
-  public List<PromotionBlock> getOnFailure() {
+  public List<Block> getOnFailure() {
     return onFailure;
   }
 
-  public void setOnFailure(@javax.annotation.Nullable List<PromotionBlock> onFailure) {
+  public void setOnFailure(@javax.annotation.Nullable List<Block> onFailure) {
     this.onFailure = onFailure;
   }
 
@@ -290,7 +276,7 @@ public class CheckCouponBlock {
     openapiFields = new HashSet<String>(Arrays.asList("id", "type", "tags", "redeem", "onFailure"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("id", "type", "redeem"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("type", "redeem"));
   }
 
   /**
@@ -313,7 +299,7 @@ public class CheckCouponBlock {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if (!jsonObj.get("id").isJsonPrimitive()) {
+      if ((jsonObj.get("id") != null && !jsonObj.get("id").isJsonNull()) && !jsonObj.get("id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("id").toString()));
       }
       if (!jsonObj.get("type").isJsonPrimitive()) {
@@ -333,7 +319,7 @@ public class CheckCouponBlock {
 
           // validate the optional field `onFailure` (array)
           for (int i = 0; i < jsonArrayonFailure.size(); i++) {
-            PromotionBlock.validateJsonElement(jsonArrayonFailure.get(i));
+            Block.validateJsonElement(jsonArrayonFailure.get(i));
           };
         }
       }
@@ -368,7 +354,9 @@ public class CheckCouponBlock {
                    obj.addProperty(entry.getKey(), (Character) entry.getValue());
                  else {
                    JsonElement jsonElement = gson.toJsonTree(entry.getValue());
-                   if (jsonElement.isJsonArray()) {
+                   if (jsonElement.isJsonNull()) {
+                     obj.add(entry.getKey(), JsonNull.INSTANCE);
+                   } else if (jsonElement.isJsonArray()) {
                      obj.add(entry.getKey(), jsonElement.getAsJsonArray());
                    } else {
                      obj.add(entry.getKey(), jsonElement.getAsJsonObject());

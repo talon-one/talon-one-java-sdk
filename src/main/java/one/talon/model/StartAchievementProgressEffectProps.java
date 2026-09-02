@@ -31,6 +31,7 @@ import com.google.gson.JsonDeserializationContext;
 import com.google.gson.JsonDeserializer;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
+import com.google.gson.JsonNull;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
@@ -48,9 +49,9 @@ import java.util.Set;
 import one.talon.JSON;
 
 /**
- * This effect indicates that the customer&#39;s progress in an achievement was started during the current session. The progress value is set to 0. It is triggered when a rule using the [Start achievement progress](https://docs.talon.one/docs/product/rules/effects/use-effects#start-achievement-progress) effect is successfully validated.  This effect only marks the start of progress tracking. It can fire together with &#x60;increaseAchievementProgress&#x60; when progress starts and increases at the same time. In that case, both effects share the same &#x60;progressTrackerId&#x60;, &#x60;startDate&#x60;, and &#x60;endDate&#x60;.  For [on-completion achievements](https://docs.talon.one/docs/product/campaigns/achievements/achievements-overview#recurring-on-completion-achievements), each iteration also gets its own &#x60;startDate&#x60; and &#x60;endDate&#x60;. 
+ * This effect indicates that the customer&#39;s progress in an achievement was started during the current session. The progress value is set to 0. It is triggered when a rule using the [Start achievement progress](https://docs.talon.one/docs/product/rules/effects/use-effects#start-achievement-progress) effect is successfully validated.  This effect only marks the start of progress tracking. It can fire together with &#x60;increaseAchievementProgress&#x60; when progress starts and increases at the same time. In that case, both effects share the same &#x60;progressTrackerId&#x60;, &#x60;startDate&#x60;, and &#x60;endDate&#x60;.  For [on-completion achievements](https://docs.talon.one/docs/product/campaigns/achievements/overview#recurring-on-completion-achievements), each iteration also gets its own &#x60;startDate&#x60; and &#x60;endDate&#x60;. 
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.24.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.25.0")
 public class StartAchievementProgressEffectProps {
   public static final String SERIALIZED_NAME_ACHIEVEMENT_ID = "achievementId";
   @SerializedName(SERIALIZED_NAME_ACHIEVEMENT_ID)
@@ -64,7 +65,7 @@ public class StartAchievementProgressEffectProps {
 
   public static final String SERIALIZED_NAME_PROGRESS_TRACKER_ID = "progressTrackerId";
   @SerializedName(SERIALIZED_NAME_PROGRESS_TRACKER_ID)
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   private Long progressTrackerId;
 
   public static final String SERIALIZED_NAME_TARGET = "target";
@@ -123,21 +124,21 @@ public class StartAchievementProgressEffectProps {
   }
 
 
-  public StartAchievementProgressEffectProps progressTrackerId(@javax.annotation.Nonnull Long progressTrackerId) {
+  public StartAchievementProgressEffectProps progressTrackerId(@javax.annotation.Nullable Long progressTrackerId) {
     this.progressTrackerId = progressTrackerId;
     return this;
   }
 
   /**
-   * The ID of the customer&#39;s progress tracker for this achievement.  For [on-completion achievements](https://docs.talon.one/docs/product/campaigns/achievements/achievements-overview#recurring-on-completion-achievements), this effect generates a unique ID for each iteration.
+   * The ID of the customer&#39;s progress tracker for this achievement.  For [on-completion achievements](https://docs.talon.one/docs/product/campaigns/achievements/overview#recurring-on-completion-achievements), this effect generates a unique ID for each iteration.
    * @return progressTrackerId
    */
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   public Long getProgressTrackerId() {
     return progressTrackerId;
   }
 
-  public void setProgressTrackerId(@javax.annotation.Nonnull Long progressTrackerId) {
+  public void setProgressTrackerId(@javax.annotation.Nullable Long progressTrackerId) {
     this.progressTrackerId = progressTrackerId;
   }
 
@@ -186,7 +187,7 @@ public class StartAchievementProgressEffectProps {
   }
 
   /**
-   * Timestamp at which this progress period ends.  Only returned for achievements that have a fixed end date. [On-completion achievements](https://docs.talon.one/docs/product/campaigns/achievements/achievements-overview#recurring-on-completion-achievements) have no end date.
+   * Timestamp at which this progress period ends.  Only returned for achievements that have a fixed end date. [On-completion achievements](https://docs.talon.one/docs/product/campaigns/achievements/overview#recurring-on-completion-achievements) have no end date.
    * @return endDate
    */
   @javax.annotation.Nullable
@@ -299,7 +300,7 @@ public class StartAchievementProgressEffectProps {
     openapiFields = new HashSet<String>(Arrays.asList("achievementId", "achievementName", "progressTrackerId", "target", "startDate", "endDate"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("achievementId", "achievementName", "progressTrackerId", "target", "startDate"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("achievementId", "achievementName", "target", "startDate"));
   }
 
   /**
@@ -356,7 +357,9 @@ public class StartAchievementProgressEffectProps {
                    obj.addProperty(entry.getKey(), (Character) entry.getValue());
                  else {
                    JsonElement jsonElement = gson.toJsonTree(entry.getValue());
-                   if (jsonElement.isJsonArray()) {
+                   if (jsonElement.isJsonNull()) {
+                     obj.add(entry.getKey(), JsonNull.INSTANCE);
+                   } else if (jsonElement.isJsonArray()) {
                      obj.add(entry.getKey(), jsonElement.getAsJsonArray());
                    } else {
                      obj.add(entry.getKey(), jsonElement.getAsJsonObject());

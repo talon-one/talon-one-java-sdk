@@ -20,7 +20,10 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
+import one.talon.model.Block;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -29,6 +32,7 @@ import com.google.gson.JsonDeserializationContext;
 import com.google.gson.JsonDeserializer;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
+import com.google.gson.JsonNull;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
@@ -48,7 +52,7 @@ import one.talon.JSON;
 /**
  * Shared fields common to all V2 rule types.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.24.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.25.0")
 public class RuleV2 {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -69,6 +73,11 @@ public class RuleV2 {
   @SerializedName(SERIALIZED_NAME_DESCRIPTION)
   @javax.annotation.Nullable
   private String description;
+
+  public static final String SERIALIZED_NAME_BLOCKS = "blocks";
+  @SerializedName(SERIALIZED_NAME_BLOCKS)
+  @javax.annotation.Nonnull
+  private List<Block> blocks = new ArrayList<>();
 
   public RuleV2() {
   }
@@ -148,6 +157,33 @@ public class RuleV2 {
     this.description = description;
   }
 
+
+  public RuleV2 blocks(@javax.annotation.Nonnull List<Block> blocks) {
+    this.blocks = blocks;
+    return this;
+  }
+
+  public RuleV2 addBlocksItem(Block blocksItem) {
+    if (this.blocks == null) {
+      this.blocks = new ArrayList<>();
+    }
+    this.blocks.add(blocksItem);
+    return this;
+  }
+
+  /**
+   * The condition and effect blocks that make up this rule.
+   * @return blocks
+   */
+  @javax.annotation.Nonnull
+  public List<Block> getBlocks() {
+    return blocks;
+  }
+
+  public void setBlocks(@javax.annotation.Nonnull List<Block> blocks) {
+    this.blocks = blocks;
+  }
+
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -206,13 +242,14 @@ public class RuleV2 {
     return Objects.equals(this.id, ruleV2.id) &&
         Objects.equals(this.parentId, ruleV2.parentId) &&
         Objects.equals(this.title, ruleV2.title) &&
-        Objects.equals(this.description, ruleV2.description)&&
+        Objects.equals(this.description, ruleV2.description) &&
+        Objects.equals(this.blocks, ruleV2.blocks)&&
         Objects.equals(this.additionalProperties, ruleV2.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, parentId, title, description, additionalProperties);
+    return Objects.hash(id, parentId, title, description, blocks, additionalProperties);
   }
 
   @Override
@@ -223,6 +260,7 @@ public class RuleV2 {
     sb.append("    parentId: ").append(toIndentedString(parentId)).append("\n");
     sb.append("    title: ").append(toIndentedString(title)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    blocks: ").append(toIndentedString(blocks)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -242,10 +280,10 @@ public class RuleV2 {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("id", "parentId", "title", "description"));
+    openapiFields = new HashSet<String>(Arrays.asList("id", "parentId", "title", "description", "blocks"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("title"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("title", "blocks"));
   }
 
   /**
@@ -280,6 +318,16 @@ public class RuleV2 {
       if ((jsonObj.get("description") != null && !jsonObj.get("description").isJsonNull()) && !jsonObj.get("description").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `description` to be a primitive type in the JSON string but got `%s`", jsonObj.get("description").toString()));
       }
+      if (jsonObj.get("blocks") != null) {
+        if (!jsonObj.get("blocks").isJsonArray()) {
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `blocks` to be an array in the JSON string but got `%s`", jsonObj.get("blocks").toString()));
+        }
+        JsonArray jsonArrayblocks = jsonObj.getAsJsonArray("blocks");
+        // validate the required field `blocks` (array)
+        for (int i = 0; i < jsonArrayblocks.size(); i++) {
+          Block.validateJsonElement(jsonArrayblocks.get(i));
+        }
+      }
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
@@ -311,7 +359,9 @@ public class RuleV2 {
                    obj.addProperty(entry.getKey(), (Character) entry.getValue());
                  else {
                    JsonElement jsonElement = gson.toJsonTree(entry.getValue());
-                   if (jsonElement.isJsonArray()) {
+                   if (jsonElement.isJsonNull()) {
+                     obj.add(entry.getKey(), JsonNull.INSTANCE);
+                   } else if (jsonElement.isJsonArray()) {
                      obj.add(entry.getKey(), jsonElement.getAsJsonArray());
                    } else {
                      obj.add(entry.getKey(), jsonElement.getAsJsonObject());

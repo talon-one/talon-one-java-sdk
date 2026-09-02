@@ -32,6 +32,7 @@ import one.talon.model.Event;
 import one.talon.model.Giveaway;
 import one.talon.model.Loyalty;
 import one.talon.model.Referral;
+import one.talon.model.RewardWithUnlocks;
 import one.talon.model.RuleFailureReason;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
@@ -128,6 +129,14 @@ public class IntegrationEventV2ResponseTest {
     @Test
     public void achievementsTest() {
         // TODO: test achievements
+    }
+
+    /**
+     * Test the property 'rewards'
+     */
+    @Test
+    public void rewardsTest() {
+        // TODO: test rewards
     }
 
     /**

@@ -34,6 +34,7 @@ import com.google.gson.JsonDeserializationContext;
 import com.google.gson.JsonDeserializer;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
+import com.google.gson.JsonNull;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
@@ -53,7 +54,7 @@ import one.talon.JSON;
 /**
  * NewCoupons
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.24.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.25.0")
 public class NewCoupons {
   public static final String SERIALIZED_NAME_USAGE_LIMIT = "usageLimit";
   @SerializedName(SERIALIZED_NAME_USAGE_LIMIT)
@@ -89,6 +90,11 @@ public class NewCoupons {
   @SerializedName(SERIALIZED_NAME_NUMBER_OF_COUPONS)
   @javax.annotation.Nonnull
   private Long numberOfCoupons;
+
+  public static final String SERIALIZED_NAME_BATCH_ID = "batchId";
+  @SerializedName(SERIALIZED_NAME_BATCH_ID)
+  @javax.annotation.Nullable
+  private String batchId;
 
   public static final String SERIALIZED_NAME_UNIQUE_PREFIX = "uniquePrefix";
   @Deprecated
@@ -283,6 +289,25 @@ public class NewCoupons {
 
   public void setNumberOfCoupons(@javax.annotation.Nonnull Long numberOfCoupons) {
     this.numberOfCoupons = numberOfCoupons;
+  }
+
+
+  public NewCoupons batchId(@javax.annotation.Nullable String batchId) {
+    this.batchId = batchId;
+    return this;
+  }
+
+  /**
+   * The batch ID that all coupons created by the request will bear. If omitted, a batch ID is generated automatically.
+   * @return batchId
+   */
+  @javax.annotation.Nullable
+  public String getBatchId() {
+    return batchId;
+  }
+
+  public void setBatchId(@javax.annotation.Nullable String batchId) {
+    this.batchId = batchId;
   }
 
 
@@ -530,6 +555,7 @@ public class NewCoupons {
         Objects.equals(this.expiryDate, newCoupons.expiryDate) &&
         Objects.equals(this.limits, newCoupons.limits) &&
         Objects.equals(this.numberOfCoupons, newCoupons.numberOfCoupons) &&
+        Objects.equals(this.batchId, newCoupons.batchId) &&
         Objects.equals(this.uniquePrefix, newCoupons.uniquePrefix) &&
         Objects.equals(this.attributes, newCoupons.attributes) &&
         Objects.equals(this.recipientIntegrationId, newCoupons.recipientIntegrationId) &&
@@ -544,7 +570,7 @@ public class NewCoupons {
 
   @Override
   public int hashCode() {
-    return Objects.hash(usageLimit, discountLimit, reservationLimit, startDate, expiryDate, limits, numberOfCoupons, uniquePrefix, attributes, recipientIntegrationId, validCharacters, couponPattern, isReservationMandatory, implicitlyReserved, supportRequestId, supportRequestNote, additionalProperties);
+    return Objects.hash(usageLimit, discountLimit, reservationLimit, startDate, expiryDate, limits, numberOfCoupons, batchId, uniquePrefix, attributes, recipientIntegrationId, validCharacters, couponPattern, isReservationMandatory, implicitlyReserved, supportRequestId, supportRequestNote, additionalProperties);
   }
 
   @Override
@@ -558,6 +584,7 @@ public class NewCoupons {
     sb.append("    expiryDate: ").append(toIndentedString(expiryDate)).append("\n");
     sb.append("    limits: ").append(toIndentedString(limits)).append("\n");
     sb.append("    numberOfCoupons: ").append(toIndentedString(numberOfCoupons)).append("\n");
+    sb.append("    batchId: ").append(toIndentedString(batchId)).append("\n");
     sb.append("    uniquePrefix: ").append(toIndentedString(uniquePrefix)).append("\n");
     sb.append("    attributes: ").append(toIndentedString(attributes)).append("\n");
     sb.append("    recipientIntegrationId: ").append(toIndentedString(recipientIntegrationId)).append("\n");
@@ -586,7 +613,7 @@ public class NewCoupons {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("usageLimit", "discountLimit", "reservationLimit", "startDate", "expiryDate", "limits", "numberOfCoupons", "uniquePrefix", "attributes", "recipientIntegrationId", "validCharacters", "couponPattern", "isReservationMandatory", "implicitlyReserved", "supportRequestId", "supportRequestNote"));
+    openapiFields = new HashSet<String>(Arrays.asList("usageLimit", "discountLimit", "reservationLimit", "startDate", "expiryDate", "limits", "numberOfCoupons", "batchId", "uniquePrefix", "attributes", "recipientIntegrationId", "validCharacters", "couponPattern", "isReservationMandatory", "implicitlyReserved", "supportRequestId", "supportRequestNote"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("numberOfCoupons"));
@@ -625,6 +652,9 @@ public class NewCoupons {
             LimitConfig.validateJsonElement(jsonArraylimits.get(i));
           };
         }
+      }
+      if ((jsonObj.get("batchId") != null && !jsonObj.get("batchId").isJsonNull()) && !jsonObj.get("batchId").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `batchId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("batchId").toString()));
       }
       if ((jsonObj.get("uniquePrefix") != null && !jsonObj.get("uniquePrefix").isJsonNull()) && !jsonObj.get("uniquePrefix").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `uniquePrefix` to be a primitive type in the JSON string but got `%s`", jsonObj.get("uniquePrefix").toString()));
@@ -673,7 +703,9 @@ public class NewCoupons {
                    obj.addProperty(entry.getKey(), (Character) entry.getValue());
                  else {
                    JsonElement jsonElement = gson.toJsonTree(entry.getValue());
-                   if (jsonElement.isJsonArray()) {
+                   if (jsonElement.isJsonNull()) {
+                     obj.add(entry.getKey(), JsonNull.INSTANCE);
+                   } else if (jsonElement.isJsonArray()) {
                      obj.add(entry.getKey(), jsonElement.getAsJsonArray());
                    } else {
                      obj.add(entry.getKey(), jsonElement.getAsJsonObject());

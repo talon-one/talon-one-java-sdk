@@ -36,6 +36,7 @@ import com.google.gson.JsonDeserializationContext;
 import com.google.gson.JsonDeserializer;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
+import com.google.gson.JsonNull;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
@@ -55,7 +56,7 @@ import one.talon.JSON;
 /**
  * The representation of the customer session.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.24.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.25.0")
 public class NewCustomerSessionV2 {
   public static final String SERIALIZED_NAME_PROFILE_ID = "profileId";
   @SerializedName(SERIALIZED_NAME_PROFILE_ID)
@@ -86,6 +87,11 @@ public class NewCustomerSessionV2 {
   @SerializedName(SERIALIZED_NAME_LOYALTY_CARDS)
   @javax.annotation.Nullable
   private List<String> loyaltyCards;
+
+  public static final String SERIALIZED_NAME_REWARD_INTEGRATION_IDS = "rewardIntegrationIds";
+  @SerializedName(SERIALIZED_NAME_REWARD_INTEGRATION_IDS)
+  @javax.annotation.Nullable
+  private List<String> rewardIntegrationIds;
 
   /**
    * Indicates the current state of the session. Sessions can be created as &#x60;open&#x60; or &#x60;closed&#x60;. The state transitions are:  1. &#x60;open&#x60; -&gt; &#x60;closed&#x60; 2. &#x60;open&#x60; -&gt; &#x60;cancelled&#x60; 3. Either:    - &#x60;closed&#x60; -&gt; &#x60;cancelled&#x60; (**only** via [Update customer session](https://docs.talon.one/integration-api#tag/Customer-sessions/operation/updateCustomerSessionV2)) or    - &#x60;closed&#x60; -&gt; &#x60;partially_returned&#x60; (**only** via [Return cart items](https://docs.talon.one/integration-api#tag/Customer-sessions/operation/returnCartItems))    - &#x60;closed&#x60; -&gt; &#x60;open&#x60; (**only** via [Reopen customer session](https://docs.talon.one/integration-api#tag/Customer-sessions/operation/reopenCustomerSession)) 4. &#x60;partially_returned&#x60; -&gt; &#x60;cancelled&#x60;  For more information, see [Customer session states](https://docs.talon.one/docs/dev/concepts/entities/customer-sessions). 
@@ -314,6 +320,33 @@ public class NewCustomerSessionV2 {
   }
 
 
+  public NewCustomerSessionV2 rewardIntegrationIds(@javax.annotation.Nullable List<String> rewardIntegrationIds) {
+    this.rewardIntegrationIds = rewardIntegrationIds;
+    return this;
+  }
+
+  public NewCustomerSessionV2 addRewardIntegrationIdsItem(String rewardIntegrationIdsItem) {
+    if (this.rewardIntegrationIds == null) {
+      this.rewardIntegrationIds = new ArrayList<>();
+    }
+    this.rewardIntegrationIds.add(rewardIntegrationIdsItem);
+    return this;
+  }
+
+  /**
+   * The integration IDs of the unlocked rewards that can be used in this session. 
+   * @return rewardIntegrationIds
+   */
+  @javax.annotation.Nullable
+  public List<String> getRewardIntegrationIds() {
+    return rewardIntegrationIds;
+  }
+
+  public void setRewardIntegrationIds(@javax.annotation.Nullable List<String> rewardIntegrationIds) {
+    this.rewardIntegrationIds = rewardIntegrationIds;
+  }
+
+
   public NewCustomerSessionV2 state(@javax.annotation.Nullable StateEnum state) {
     this.state = state;
     return this;
@@ -528,6 +561,7 @@ public class NewCustomerSessionV2 {
         Objects.equals(this.couponCodes, newCustomerSessionV2.couponCodes) &&
         Objects.equals(this.referralCode, newCustomerSessionV2.referralCode) &&
         Objects.equals(this.loyaltyCards, newCustomerSessionV2.loyaltyCards) &&
+        Objects.equals(this.rewardIntegrationIds, newCustomerSessionV2.rewardIntegrationIds) &&
         Objects.equals(this.state, newCustomerSessionV2.state) &&
         Objects.equals(this.cartItems, newCustomerSessionV2.cartItems) &&
         Objects.equals(this.experimentVariantAllocations, newCustomerSessionV2.experimentVariantAllocations) &&
@@ -539,7 +573,7 @@ public class NewCustomerSessionV2 {
 
   @Override
   public int hashCode() {
-    return Objects.hash(profileId, storeIntegrationId, evaluableCampaignIds, couponCodes, referralCode, loyaltyCards, state, cartItems, experimentVariantAllocations, additionalCosts, identifiers, attributes, additionalProperties);
+    return Objects.hash(profileId, storeIntegrationId, evaluableCampaignIds, couponCodes, referralCode, loyaltyCards, rewardIntegrationIds, state, cartItems, experimentVariantAllocations, additionalCosts, identifiers, attributes, additionalProperties);
   }
 
   @Override
@@ -552,6 +586,7 @@ public class NewCustomerSessionV2 {
     sb.append("    couponCodes: ").append(toIndentedString(couponCodes)).append("\n");
     sb.append("    referralCode: ").append(toIndentedString(referralCode)).append("\n");
     sb.append("    loyaltyCards: ").append(toIndentedString(loyaltyCards)).append("\n");
+    sb.append("    rewardIntegrationIds: ").append(toIndentedString(rewardIntegrationIds)).append("\n");
     sb.append("    state: ").append(toIndentedString(state)).append("\n");
     sb.append("    cartItems: ").append(toIndentedString(cartItems)).append("\n");
     sb.append("    experimentVariantAllocations: ").append(toIndentedString(experimentVariantAllocations)).append("\n");
@@ -577,7 +612,7 @@ public class NewCustomerSessionV2 {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("profileId", "storeIntegrationId", "evaluableCampaignIds", "couponCodes", "referralCode", "loyaltyCards", "state", "cartItems", "experimentVariantAllocations", "additionalCosts", "identifiers", "attributes"));
+    openapiFields = new HashSet<String>(Arrays.asList("profileId", "storeIntegrationId", "evaluableCampaignIds", "couponCodes", "referralCode", "loyaltyCards", "rewardIntegrationIds", "state", "cartItems", "experimentVariantAllocations", "additionalCosts", "identifiers", "attributes"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(0);
@@ -616,6 +651,10 @@ public class NewCustomerSessionV2 {
       // ensure the optional json data is an array if present
       if (jsonObj.get("loyaltyCards") != null && !jsonObj.get("loyaltyCards").isJsonNull() && !jsonObj.get("loyaltyCards").isJsonArray()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `loyaltyCards` to be an array in the JSON string but got `%s`", jsonObj.get("loyaltyCards").toString()));
+      }
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("rewardIntegrationIds") != null && !jsonObj.get("rewardIntegrationIds").isJsonNull() && !jsonObj.get("rewardIntegrationIds").isJsonArray()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `rewardIntegrationIds` to be an array in the JSON string but got `%s`", jsonObj.get("rewardIntegrationIds").toString()));
       }
       if ((jsonObj.get("state") != null && !jsonObj.get("state").isJsonNull()) && !jsonObj.get("state").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `state` to be a primitive type in the JSON string but got `%s`", jsonObj.get("state").toString()));
@@ -687,7 +726,9 @@ public class NewCustomerSessionV2 {
                    obj.addProperty(entry.getKey(), (Character) entry.getValue());
                  else {
                    JsonElement jsonElement = gson.toJsonTree(entry.getValue());
-                   if (jsonElement.isJsonArray()) {
+                   if (jsonElement.isJsonNull()) {
+                     obj.add(entry.getKey(), JsonNull.INSTANCE);
+                   } else if (jsonElement.isJsonArray()) {
                      obj.add(entry.getKey(), jsonElement.getAsJsonArray());
                    } else {
                      obj.add(entry.getKey(), jsonElement.getAsJsonObject());

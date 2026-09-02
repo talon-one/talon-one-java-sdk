@@ -56,6 +56,14 @@ public class IntegrationUnlockRewardRequestTest {
     }
 
     /**
+     * Test the property 'cardIdentifier'
+     */
+    @Test
+    public void cardIdentifierTest() {
+        // TODO: test cardIdentifier
+    }
+
+    /**
      * Test the property 'loyaltyProgramId'
      */
     @Test

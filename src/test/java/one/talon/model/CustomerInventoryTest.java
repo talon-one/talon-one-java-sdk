@@ -28,6 +28,7 @@ import one.talon.model.Giveaway;
 import one.talon.model.InventoryCoupon;
 import one.talon.model.InventoryReferral;
 import one.talon.model.Loyalty;
+import one.talon.model.RewardWithUnlocks;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 

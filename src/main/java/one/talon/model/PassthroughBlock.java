@@ -31,6 +31,7 @@ import com.google.gson.JsonDeserializationContext;
 import com.google.gson.JsonDeserializer;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
+import com.google.gson.JsonNull;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
@@ -50,11 +51,11 @@ import one.talon.JSON;
 /**
  * A block representing a Talang expression that could not be mapped to a typed block. The expression is preserved in its raw Talang array form for diagnostic and round-trip purposes.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.24.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.25.0")
 public class PassthroughBlock {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   private String id;
 
   /**
@@ -120,23 +121,22 @@ public class PassthroughBlock {
   public PassthroughBlock() {
   }
 
-  public PassthroughBlock id(@javax.annotation.Nonnull String id) {
+  public PassthroughBlock(
+     String id
+  ) {
+    this();
     this.id = id;
-    return this;
   }
 
   /**
    * Unique identifier for this block.
    * @return id
    */
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   public String getId() {
     return id;
   }
 
-  public void setId(@javax.annotation.Nonnull String id) {
-    this.id = id;
-  }
 
 
   public PassthroughBlock type(@javax.annotation.Nonnull TypeEnum type) {
@@ -279,7 +279,7 @@ public class PassthroughBlock {
     openapiFields = new HashSet<String>(Arrays.asList("id", "type", "expression"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("id", "type", "expression"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("type", "expression"));
   }
 
   /**
@@ -302,7 +302,7 @@ public class PassthroughBlock {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if (!jsonObj.get("id").isJsonPrimitive()) {
+      if ((jsonObj.get("id") != null && !jsonObj.get("id").isJsonNull()) && !jsonObj.get("id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("id").toString()));
       }
       if (!jsonObj.get("type").isJsonPrimitive()) {
@@ -347,7 +347,9 @@ public class PassthroughBlock {
                    obj.addProperty(entry.getKey(), (Character) entry.getValue());
                  else {
                    JsonElement jsonElement = gson.toJsonTree(entry.getValue());
-                   if (jsonElement.isJsonArray()) {
+                   if (jsonElement.isJsonNull()) {
+                     obj.add(entry.getKey(), JsonNull.INSTANCE);
+                   } else if (jsonElement.isJsonArray()) {
                      obj.add(entry.getKey(), jsonElement.getAsJsonArray());
                    } else {
                      obj.add(entry.getKey(), jsonElement.getAsJsonObject());

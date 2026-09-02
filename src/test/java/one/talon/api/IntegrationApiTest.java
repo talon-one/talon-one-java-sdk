@@ -19,6 +19,7 @@ import one.talon.model.ActivateLoyaltyPointsResponse;
 import one.talon.model.Audience;
 import one.talon.model.BestPriorPrice;
 import one.talon.model.BestPriorPriceRequest;
+import java.math.BigDecimal;
 import one.talon.model.Catalog;
 import one.talon.model.CatalogSyncRequest;
 import one.talon.model.Coupon;
@@ -47,7 +48,9 @@ import one.talon.model.IntegrationEventV3Request;
 import one.talon.model.IntegrationEventV3Response;
 import one.talon.model.IntegrationGetAllCampaigns200Response;
 import one.talon.model.IntegrationRequest;
+import one.talon.model.IntegrationRewardsCatalog200Response;
 import one.talon.model.IntegrationStateV2;
+import one.talon.model.IntegrationUnlockRewardRequest;
 import one.talon.model.LoyaltyBalancesWithTiers;
 import one.talon.model.LoyaltyCard;
 import one.talon.model.LoyaltyCardBalances;
@@ -61,6 +64,7 @@ import java.time.OffsetDateTime;
 import one.talon.model.Referral;
 import one.talon.model.ReopenSessionResponse;
 import one.talon.model.ReturnIntegrationRequest;
+import one.talon.model.RewardUnlockRejection;
 import one.talon.model.UpdateAudience;
 import one.talon.model.UpdateCustomerProfileV2409Response;
 import one.talon.model.UpdateCustomerSessionV2409Response;
@@ -184,7 +188,7 @@ public class IntegrationApiTest {
     /**
      * Delete audience
      *
-     * Delete an audience.  &gt; [!warning] This endpoint also removes any associations recorded between a customer profile and this audience.  &gt; [!note] Audiences can also be deleted via the Campaign Manager. See the [docs](https://docs.talon.one/docs/product/audiences/managing-audiences#deleting-an-audience). 
+     * Delete an audience.  &gt; [!warning] This endpoint also removes any associations recorded between a customer profile and this audience.  &gt; [!note] Audiences can also be deleted via the Campaign Manager. See the [docs](https://docs.talon.one/docs/product/audiences/managing-audiences#deleting-an-audience).  The audience isn&#39;t deleted if any experiment variant uses it. The response identifies each blocking experiment by its Campaign Manager path. 
      *
      * @throws ApiException if the Api call fails
      */
@@ -311,7 +315,8 @@ public class IntegrationApiTest {
         Boolean loyalty = null;
         Boolean giveaways = null;
         Boolean achievements = null;
-        CustomerInventory response = api.getCustomerInventory(integrationId, profile, referrals, coupons, loyalty, giveaways, achievements);
+        Boolean unlockedRewards = null;
+        CustomerInventory response = api.getCustomerInventory(integrationId, profile, referrals, coupons, loyalty, giveaways, achievements, unlockedRewards);
         // TODO: test validations
     }
 
@@ -460,7 +465,7 @@ public class IntegrationApiTest {
         String integrationId = null;
         List<String> customerSessionIDs = null;
         List<String> transactionUUIDs = null;
-        String subledgerId = null;
+        List<String> subledgerId = null;
         String loyaltyTransactionType = null;
         OffsetDateTime startDate = null;
         OffsetDateTime endDate = null;
@@ -508,6 +513,28 @@ public class IntegrationApiTest {
     }
 
     /**
+     * List rewards in the catalog
+     *
+     * Retrieve the rewards catalog for the Application. Returns a paginated list of rewards. 
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void integrationRewardsCatalogTest() throws ApiException {
+        Long pageSize = null;
+        Long skip = null;
+        BigDecimal pointsFrom = null;
+        BigDecimal pointsTo = null;
+        Boolean includeFree = null;
+        Long loyaltyProgramId = null;
+        String subledgerId = null;
+        String profileIntegrationId = null;
+        String loyaltyCardId = null;
+        IntegrationRewardsCatalog200Response response = api.integrationRewardsCatalog(pageSize, skip, pointsFrom, pointsTo, includeFree, loyaltyProgramId, subledgerId, profileIntegrationId, loyaltyCardId);
+        // TODO: test validations
+    }
+
+    /**
      * Join customer profile to loyalty program
      *
      * Join a customer profile to the specified loyalty program.  If the customer profile does not exist, it will be created first using the provided &#x60;integrationId&#x60;, then joined to the loyalty program.  &gt; [!note] This endpoint only works with profile-based loyalty programs.  **Behavior**: - If the loyalty program does not exist, the request fails. - If the customer profile is already joined to the loyalty program, the request fails. - If the customer profile does not exist, it is created and then joined to the loyalty program. 
@@ -541,21 +568,22 @@ public class IntegrationApiTest {
     /**
      * Reopen customer session
      *
-     * Reopen a closed [customer session](https://docs.talon.one/docs/dev/concepts/entities/customer-sessions).  For example, if a session has been completed but still needs to be edited, you can reopen it with this endpoint.  A reopen session is treated like a standard open session.  When reopening a session:  - The &#x60;talon_session_reopened&#x60; event is triggered. You can see it in the **Events** view in the Campaign Manager. - The session state is updated to &#x60;open&#x60;. - Any modified budgets and triggered effects are rolled back when the session closes. - Depending on the [return policy](https://docs.talon.one/docs/product/loyalty-programs/managing-loyalty-programs#return-policy)  in your loyalty programs, points are rolled back in the following ways:   - Pending points are rolled back automatically.   - If **Active points deduction** setting is enabled, any points that were earned and activated when the session closed   are rolled back.   - If **Negative balance** is enabled, the rollback can create a negative points balance.  &lt;details&gt;   &lt;summary&gt;&lt;strong&gt;Effects and budgets unimpacted by a session reopening&lt;/strong&gt;&lt;/summary&gt;   &lt;div&gt;     &lt;p&gt;The following effects and budgets remain in the state they were in when the session closed:&lt;/p&gt;     &lt;ul&gt;       &lt;li&gt;Add free item effect&lt;/li&gt;       &lt;li&gt;Award giveaway&lt;/li&gt;       &lt;li&gt;Coupon and referral creation&lt;/li&gt;       &lt;li&gt;Coupon reservation&lt;/li&gt;       &lt;li&gt;Custom effect&lt;/li&gt;       &lt;li&gt;Update attribute value&lt;/li&gt;       &lt;li&gt;Update cart item attribute value&lt;/li&gt;     &lt;/ul&gt;   &lt;/div&gt; &lt;/details&gt;  To see an example of a rollback, see the [Cancelling a session with campaign budgets](https://docs.talon.one/docs/dev/tutorials/rolling-back-effects) tutorial.  &gt; [!note] If your order workflow requires you to create a new session &gt; instead of reopening a session, use the &gt; [Update customer session](https://docs.talon.one/integration-api#tag/Customer-sessions/operation/updateCustomerSessionV2) &gt; endpoint to cancel a closed session and create a new one.  &gt; [!note] To make request processing idempotent for this endpoint, include the &#x60;Idempotency-Key&#x60; header with an idempotency key in requests. Learn more about [idempotency](https://docs.talon.one/integration-api#description/idempotency). 
+     * Reopen a closed [customer session](https://docs.talon.one/docs/dev/concepts/entities/customer-sessions).  For example, if a session has been completed but still needs to be edited, you can reopen it with this endpoint.  A reopen session is treated like a standard open session.  When reopening a session:  - The &#x60;talon_session_reopened&#x60; event is triggered. You can see it in the **Events** view in the Campaign Manager. - The session state is updated to &#x60;open&#x60;. - Any modified budgets and triggered effects are rolled back when the session closes. - Depending on the [return policy](https://docs.talon.one/docs/product/loyalty-programs/managing-loyalty-programs#return-policy)  in your loyalty programs, points are rolled back in the following ways:   - Pending points are rolled back automatically.   - If **Active points deduction** setting is enabled, any points that were earned and activated when the session closed   are rolled back.   - If **Negative balance** is enabled, the rollback can create a negative points balance.  &lt;details&gt;   &lt;summary&gt;&lt;strong&gt;Effects and budgets unimpacted by a session reopening&lt;/strong&gt;&lt;/summary&gt;   &lt;div&gt;     &lt;p&gt;The following effects and budgets remain in the state they were in when the session closed:&lt;/p&gt;     &lt;ul&gt;       &lt;li&gt;Add free item effect&lt;/li&gt;       &lt;li&gt;Award giveaway&lt;/li&gt;       &lt;li&gt;Coupon and referral creation&lt;/li&gt;       &lt;li&gt;Coupon reservation&lt;/li&gt;       &lt;li&gt;Custom effect&lt;/li&gt;       &lt;li&gt;Update attribute value&lt;/li&gt;       &lt;li&gt;Update cart item attribute value&lt;/li&gt;     &lt;/ul&gt;   &lt;/div&gt; &lt;/details&gt;  To see an example of a rollback, see the [Cancelling a session with campaign budgets](https://docs.talon.one/docs/dev/tutorials/rolling-back-effects) tutorial.  &gt; [!note] If your order workflow requires you to create a new session &gt; instead of reopening a session, use the &gt; [Update customer session](https://docs.talon.one/integration-api#tag/Customer-sessions/operation/updateCustomerSessionV2) &gt; endpoint to cancel a closed session and create a new one.  &gt; [!note] To make request processing idempotent for this endpoint, include the &#x60;Idempotency-Key&#x60; header with an idempotency key in requests. Learn more about [idempotency](https://docs.talon.one/integration-api#description/idempotency).
      *
      * @throws ApiException if the Api call fails
      */
     @Test
     public void reopenCustomerSessionTest() throws ApiException {
         String customerSessionId = null;
-        ReopenSessionResponse response = api.reopenCustomerSession(customerSessionId);
+        String idempotencyKey = null;
+        ReopenSessionResponse response = api.reopenCustomerSession(customerSessionId, idempotencyKey);
         // TODO: test validations
     }
 
     /**
      * Return cart items
      *
-     * Create a new return request for the specified cart items.  This endpoint automatically changes the session state from &#x60;closed&#x60; to &#x60;partially_returned&#x60;.  &gt; [!note] This will roll back any effects associated with these cart items. &gt; For more information, see [our documentation on session &gt; states](https://docs.talon.one/docs/dev/concepts/entities/customer-sessions#customer-session-states) &gt; and [this tutorial](https://docs.talon.one/docs/dev/tutorials/partially-returning-a-session).  &gt; [!note] To make request processing idempotent for this endpoint, include the &#x60;Idempotency-Key&#x60; header with an idempotency key in requests. Learn more about [idempotency](https://docs.talon.one/integration-api#description/idempotency). 
+     * Create a new return request for the specified cart items.  This endpoint automatically changes the session state from &#x60;closed&#x60; to &#x60;partially_returned&#x60;.  &gt; [!note] This will roll back any effects associated with these cart items. &gt; For more information, see [our documentation on session &gt; states](https://docs.talon.one/docs/dev/concepts/entities/customer-sessions#customer-session-states) &gt; and [this tutorial](https://docs.talon.one/docs/dev/tutorials/partially-returning-a-session).  &gt; [!note] To make request processing idempotent for this endpoint, include the &#x60;Idempotency-Key&#x60; header with an idempotency key in requests. Learn more about [idempotency](https://docs.talon.one/integration-api#description/idempotency).
      *
      * @throws ApiException if the Api call fails
      */
@@ -565,7 +593,8 @@ public class IntegrationApiTest {
         ReturnIntegrationRequest returnIntegrationRequest = null;
         Boolean dry = null;
         Boolean runRuleEngine = null;
-        IntegrationStateV2 response = api.returnCartItems(customerSessionId, returnIntegrationRequest, dry, runRuleEngine);
+        String idempotencyKey = null;
+        IntegrationStateV2 response = api.returnCartItems(customerSessionId, returnIntegrationRequest, dry, runRuleEngine, idempotencyKey);
         // TODO: test validations
     }
 
@@ -587,7 +616,7 @@ public class IntegrationApiTest {
     /**
      * Track event
      *
-     * Trigger a [custom event](https://docs.talon.one/docs/dev/concepts/entities/events#custom-events).  To use this endpoint:  1. [Create](https://docs.talon.one/docs/dev/concepts/entities/events#create-an-event) an event in the Campaign Manager. 1. In a rule, add the **Check for event types** [condition](https://docs.talon.one/docs/dev/concepts/entities/events#use-an-event-in-a-rule) and select the event you created. 1. Trigger the event with this endpoint.  You can [list](https://docs.talon.one/docs/product/applications/display-events#list-events) the received events in the **Events** view of the Campaign Manager.  For example, you can use this endpoint to trigger an event when a customer shares a link to a product. See our [tutorial](https://docs.talon.one/docs/product/tutorials/referrals/incentivizing-product-link-sharing).  &gt; [!note] **Note** &gt; - &#x60;profileId&#x60; is required even though the schema does not specify it. &gt; - If the customer profile ID is new, a new profile is automatically created but the &#x60;customer_profile_created&#x60; [built-in event ](https://docs.talon.one/docs/dev/concepts/entities/events) is **not** triggered. &gt; - We recommend sending requests sequentially. See [Manage parallel requests](https://docs.talon.one/docs/dev/getting-started/integration-tutorial#manage-parallel-requests). &gt; - [Archived campaigns](https://docs.talon.one/docs/product/campaigns/managing-campaigns#archive-a-campaign) are not considered in rule evaluation.  &gt; [!note] To make request processing idempotent for this endpoint, include the &#x60;Idempotency-Key&#x60; header with an idempotency key in requests. Learn more about [idempotency](https://docs.talon.one/integration-api#description/idempotency). 
+     * Trigger a [custom event](https://docs.talon.one/docs/dev/concepts/entities/events#custom-events).  To use this endpoint:  1. [Create](https://docs.talon.one/docs/dev/concepts/entities/events#create-an-event) an event in the Campaign Manager. 1. In a rule, add the **Check for event types** [condition](https://docs.talon.one/docs/dev/concepts/entities/events#use-an-event-in-a-rule) and select the event you created. 1. Trigger the event with this endpoint.  You can [list](https://docs.talon.one/docs/product/applications/display-events#list-events) the received events in the **Events** view of the Campaign Manager.  For example, you can use this endpoint to trigger an event when a customer shares a link to a product. See our [tutorial](https://docs.talon.one/docs/product/tutorials/referrals/incentivizing-product-link-sharing).  &gt; [!note] **Note** &gt; - &#x60;profileId&#x60; is required even though the schema does not specify it. &gt; - If the customer profile ID is new, a new profile is automatically created but the &#x60;customer_profile_created&#x60; [built-in event ](https://docs.talon.one/docs/dev/concepts/entities/events) is **not** triggered. &gt; - We recommend sending requests sequentially. See [Manage parallel requests](https://docs.talon.one/docs/dev/getting-started/integration-tutorial#manage-parallel-requests). &gt; - [Archived campaigns](https://docs.talon.one/docs/product/campaigns/managing-campaigns#archive-a-campaign) are not considered in rule evaluation.  &gt; [!note] To make request processing idempotent for this endpoint, include the &#x60;Idempotency-Key&#x60; header with an idempotency key in requests. Learn more about [idempotency](https://docs.talon.one/integration-api#description/idempotency).
      *
      * @throws ApiException if the Api call fails
      */
@@ -597,7 +626,8 @@ public class IntegrationApiTest {
         String silent = null;
         Boolean dry = null;
         Boolean forceCompleteEvaluation = null;
-        IntegrationEventV2Response response = api.trackEventV2(integrationEventV2Request, silent, dry, forceCompleteEvaluation);
+        String idempotencyKey = null;
+        IntegrationEventV2Response response = api.trackEventV2(integrationEventV2Request, silent, dry, forceCompleteEvaluation, idempotencyKey);
         // TODO: test validations
     }
 
@@ -631,6 +661,22 @@ public class IntegrationApiTest {
         String loyaltyCardId = null;
         LoyaltyCardRegistration loyaltyCardRegistration = null;
         LoyaltyCard response = api.unlinkLoyaltyCardFromProfile(loyaltyProgramId, loyaltyCardId, loyaltyCardRegistration);
+        // TODO: test validations
+    }
+
+    /**
+     * Unlock a reward
+     *
+     * Unlock a reward for a customer. If the reward has &#x60;pointsRequired&#x60; configured, the corresponding loyalty points are deducted from the customer&#39;s balance.  To unlock a reward with the points of a loyalty card, provide the card in &#x60;cardIdentifier&#x60;. The points are then deducted from the card, and the unlocked reward belongs to the card, which makes it available to all customer profiles linked to that card. 
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void unlockRewardTest() throws ApiException {
+        Long rewardId = null;
+        IntegrationUnlockRewardRequest integrationUnlockRewardRequest = null;
+        Boolean dry = null;
+        IntegrationStateV2 response = api.unlockReward(rewardId, integrationUnlockRewardRequest, dry);
         // TODO: test validations
     }
 
@@ -681,7 +727,7 @@ public class IntegrationApiTest {
     /**
      * Update customer profile
      *
-     * Update or create a [Customer Profile](https://docs.talon.one/docs/dev/concepts/entities/customer-profiles). This endpoint triggers the Rule Builder.  You can use this endpoint to: - Set attributes on the given customer profile. Ensure you create the attributes in the Campaign Manager, first. - Modify the audience the customer profile is a member of.  &gt; [!note] **Note** &gt; - Updating a customer profile returns a response with the requested integration state. &gt; - The [Has joined an audience](https://docs.talon.one/docs/product/rules/conditions/available-conditions#audience-conditions) and &gt;   [Has left an audience](https://docs.talon.one/docs/product/rules/conditions/available-conditions#audience-conditions) conditions &gt;   only trigger through this endpoint. &gt; - You can use the &#x60;responseContent&#x60; property to save yourself extra API calls. For example, you can get &gt;   the customer profile details directly without extra requests. &gt; - We recommend sending requests sequentially. &gt;   See [Managing parallel requests](https://docs.talon.one/docs/dev/getting-started/integration-tutorial#managing-parallel-requests). &gt; - [Archived campaigns](https://docs.talon.one/docs/product/campaigns/managing-campaigns#archiving-a-campaign) are not considered in rule evaluation when &#x60;runRuleEngine&#x60; is &#x60;true&#x60;.  &gt; [!note] To make request processing idempotent for this endpoint, include the &#x60;Idempotency-Key&#x60; header with an idempotency key in requests. Learn more about [idempotency](https://docs.talon.one/integration-api#description/idempotency). 
+     * Update or create a [Customer Profile](https://docs.talon.one/docs/dev/concepts/entities/customer-profiles). This endpoint triggers the Rule Builder.  You can use this endpoint to: - Set attributes on the given customer profile. Ensure you create the attributes in the Campaign Manager, first. - Modify the audience the customer profile is a member of.  &gt; [!note] **Note** &gt; - Updating a customer profile returns a response with the requested integration state. &gt; - The [Has joined an audience](https://docs.talon.one/docs/product/rules/conditions/available-conditions#audience-conditions) and &gt;   [Has left an audience](https://docs.talon.one/docs/product/rules/conditions/available-conditions#audience-conditions) conditions &gt;   only trigger through this endpoint. &gt; - You can use the &#x60;responseContent&#x60; property to save yourself extra API calls. For example, you can get &gt;   the customer profile details directly without extra requests. &gt; - We recommend sending requests sequentially. &gt;   See [Managing parallel requests](https://docs.talon.one/docs/dev/getting-started/integration-tutorial#managing-parallel-requests). &gt; - [Archived campaigns](https://docs.talon.one/docs/product/campaigns/managing-campaigns#archiving-a-campaign) are not considered in rule evaluation when &#x60;runRuleEngine&#x60; is &#x60;true&#x60;.  &gt; [!note] To make request processing idempotent for this endpoint, include the &#x60;Idempotency-Key&#x60; header with an idempotency key in requests. Learn more about [idempotency](https://docs.talon.one/integration-api#description/idempotency).
      *
      * @throws ApiException if the Api call fails
      */
@@ -691,14 +737,15 @@ public class IntegrationApiTest {
         CustomerProfileIntegrationRequestV2 customerProfileIntegrationRequestV2 = null;
         Boolean runRuleEngine = null;
         Boolean dry = null;
-        CustomerProfileIntegrationResponseV2 response = api.updateCustomerProfileV2(integrationId, customerProfileIntegrationRequestV2, runRuleEngine, dry);
+        String idempotencyKey = null;
+        CustomerProfileIntegrationResponseV2 response = api.updateCustomerProfileV2(integrationId, customerProfileIntegrationRequestV2, runRuleEngine, dry, idempotencyKey);
         // TODO: test validations
     }
 
     /**
      * Update multiple customer profiles
      *
-     * Update (or create) up to 1000 [customer profiles](https://docs.talon.one/docs/dev/concepts/entities/customer-profiles) in 1 request.  The &#x60;integrationId&#x60; must be any identifier that remains stable for the customer. Do not use an ID that the customer can update themselves. For example, you can use a database ID.  A customer profile [can be linked to one or more sessions](https://docs.talon.one/integration-api#tag/Customer-sessions).  &gt; [!note] This endpoint does not trigger the Rule Engine. &gt; To trigger the Rule Engine for customer profile updates, &gt; use the [Update customer profile](#tag/Customer-profiles/operation/updateCustomerProfileV2) endpoint.  &gt; [!note] To make request processing idempotent for this endpoint, include the &#x60;Idempotency-Key&#x60; header with an idempotency key in requests. Learn more about [idempotency](https://docs.talon.one/integration-api#description/idempotency). 
+     * Update (or create) up to 1000 [customer profiles](https://docs.talon.one/docs/dev/concepts/entities/customer-profiles) in 1 request.  The &#x60;integrationId&#x60; must be any identifier that remains stable for the customer. Do not use an ID that the customer can update themselves. For example, you can use a database ID.  A customer profile [can be linked to one or more sessions](https://docs.talon.one/integration-api#tag/Customer-sessions).  &gt; [!note] This endpoint does not trigger the Rule Engine. &gt; To trigger the Rule Engine for customer profile updates, &gt; use the [Update customer profile](#tag/Customer-profiles/operation/updateCustomerProfileV2) endpoint.  &gt; [!note] To make request processing idempotent for this endpoint, include the &#x60;Idempotency-Key&#x60; header with an idempotency key in requests. Learn more about [idempotency](https://docs.talon.one/integration-api#description/idempotency).
      *
      * @throws ApiException if the Api call fails
      */
@@ -706,14 +753,15 @@ public class IntegrationApiTest {
     public void updateCustomerProfilesV2Test() throws ApiException {
         MultipleCustomerProfileIntegrationRequest multipleCustomerProfileIntegrationRequest = null;
         String silent = null;
-        MultipleCustomerProfileIntegrationResponseV2 response = api.updateCustomerProfilesV2(multipleCustomerProfileIntegrationRequest, silent);
+        String idempotencyKey = null;
+        MultipleCustomerProfileIntegrationResponseV2 response = api.updateCustomerProfilesV2(multipleCustomerProfileIntegrationRequest, silent, idempotencyKey);
         // TODO: test validations
     }
 
     /**
      * Update customer session
      *
-     * Update or create a [customer session](https://docs.talon.one/docs/dev/concepts/entities/customer-sessions).  The endpoint responds with the potential promotion rule [effects](https://docs.talon.one/docs/dev/integration-api/api-effects) that match the current cart.  For example, use this endpoint to share the contents of a customer&#39;s cart with Talon.One.  &gt; [!note] **Note** &gt; - The currency for the session and the cart items in it is the currency set for the Application linked to this session. &gt; - [Archived campaigns](https://docs.talon.one/docs/product/campaigns/managing-campaigns#archiving-a-campaign) are not considered for rule evaluation.  &gt; [!note] To make request processing idempotent for this endpoint, include the &#x60;Idempotency-Key&#x60; header with an idempotency key in requests. Learn more about [idempotency](https://docs.talon.one/integration-api#description/idempotency).  ### Session management  To use this endpoint, start by learning about [customer sessions](https://docs.talon.one/docs/dev/concepts/entities/customer-sessions) and their states and refer to the &#x60;state&#x60; parameter documentation the request body schema docs below.  ### Sessions and customer profiles  - To link a session to a customer profile, set the &#x60;profileId&#x60; parameter in the request body to a customer profile&#39;s &#x60;integrationId&#x60;.  - While you can create an anonymous session with &#x60;profileId&#x3D;\&quot;\&quot;&#x60;, we recommend you use a guest ID instead.  - A profile can be linked to simultaneous sessions in different Applications. Either:   - Use unique session integration IDs or,   - Use the same session integration ID across all of the Applications.  &gt; [!note] **Note** &gt; - If the specified profile does not exist, an empty profile is **created automatically**. &gt;   You can update it with [Update customer profile](https://docs.talon.one/integration-api#tag/Customer-profiles/operation/updateCustomerProfileV2). &gt; - Updating a customer session returns a response with the new integration state. Use the &#x60;responseContent&#x60; property to save yourself extra API calls. &gt;   For example, you can get the customer profile details directly without extra requests. &gt; - We recommend sending requests sequentially. See [Managing parallel requests](https://docs.talon.one/docs/dev/getting-started/integration-tutorial#managing-parallel-requests).  For more information, see:  - The introductory video in [Getting started](https://docs.talon.one/docs/dev/getting-started/overview). - The [integration tutorial](https://docs.talon.one/docs/dev/tutorials/integrating-talon-one). 
+     * Update or create a [customer session](https://docs.talon.one/docs/dev/concepts/entities/customer-sessions).  The endpoint responds with the potential promotion rule [effects](https://docs.talon.one/docs/dev/integration-api/api-effects) that match the current cart.  For example, use this endpoint to share the contents of a customer&#39;s cart with Talon.One.  &gt; [!note] **Note** &gt; - The currency for the session and the cart items in it is the currency set for the Application linked to this session. &gt; - [Archived campaigns](https://docs.talon.one/docs/product/campaigns/managing-campaigns#archiving-a-campaign) are not considered for rule evaluation.  ### Session management  To use this endpoint, start by learning about [customer sessions](https://docs.talon.one/docs/dev/concepts/entities/customer-sessions) and their states and refer to the &#x60;state&#x60; parameter documentation the request body schema docs below.  ### Sessions and customer profiles  - To link a session to a customer profile, set the &#x60;profileId&#x60; parameter in the request body to a customer profile&#39;s &#x60;integrationId&#x60;.  - While you can create an anonymous session with &#x60;profileId&#x3D;\&quot;\&quot;&#x60;, we recommend you use a guest ID instead.  - A profile can be linked to simultaneous sessions in different Applications. Either:   - Use unique session integration IDs or,   - Use the same session integration ID across all of the Applications.  &gt; [!note] **Note** &gt; - If the specified profile does not exist, an empty profile is **created automatically**. &gt;   You can update it with [Update customer profile](https://docs.talon.one/integration-api#tag/Customer-profiles/operation/updateCustomerProfileV2). &gt; - Updating a customer session returns a response with the new integration state. Use the &#x60;responseContent&#x60; property to save yourself extra API calls. &gt;   For example, you can get the customer profile details directly without extra requests. &gt; - We recommend sending requests sequentially. See [Managing parallel requests](https://docs.talon.one/docs/dev/getting-started/integration-tutorial#managing-parallel-requests).  For more information, see:  - The introductory video in [Getting started](https://docs.talon.one/docs/dev/getting-started/overview). - The [integration tutorial](https://docs.talon.one/docs/dev/tutorials/integrating-talon-one).  &gt; [!note] To make request processing idempotent for this endpoint, include the &#x60;Idempotency-Key&#x60; header with an idempotency key in requests. Learn more about [idempotency](https://docs.talon.one/integration-api#description/idempotency).
      *
      * @throws ApiException if the Api call fails
      */
@@ -723,7 +771,8 @@ public class IntegrationApiTest {
         IntegrationRequest integrationRequest = null;
         Boolean dry = null;
         OffsetDateTime now = null;
-        IntegrationStateV2 response = api.updateCustomerSessionV2(customerSessionId, integrationRequest, dry, now);
+        String idempotencyKey = null;
+        IntegrationStateV2 response = api.updateCustomerSessionV2(customerSessionId, integrationRequest, dry, now, idempotencyKey);
         // TODO: test validations
     }
 

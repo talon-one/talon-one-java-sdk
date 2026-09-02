@@ -24,7 +24,7 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import one.talon.model.PromotionBlock;
+import one.talon.model.Block;
 import one.talon.model.TriggerCustomEffectBlock1CustomEffect;
 import one.talon.model.TriggerCustomEffectBlock1Target;
 import org.junit.jupiter.api.Disabled;

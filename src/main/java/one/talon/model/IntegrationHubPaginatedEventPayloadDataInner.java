@@ -66,7 +66,7 @@ import com.google.gson.JsonParseException;
 
 import one.talon.JSON;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.24.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.25.0")
 public class IntegrationHubPaginatedEventPayloadDataInner extends AbstractOpenApiSchema {
     private static final Logger log = Logger.getLogger(IntegrationHubPaginatedEventPayloadDataInner.class.getName());
 
@@ -122,6 +122,44 @@ public class IntegrationHubPaginatedEventPayloadDataInner extends AbstractOpenAp
                 public IntegrationHubPaginatedEventPayloadDataInner read(JsonReader in) throws IOException {
                     Object deserialized = null;
                     JsonElement jsonElement = elementAdapter.read(in);
+
+                    JsonObject jsonObject = jsonElement.getAsJsonObject();
+
+                    // use discriminator value for faster oneOf lookup
+                    IntegrationHubPaginatedEventPayloadDataInner newIntegrationHubPaginatedEventPayloadDataInner = new IntegrationHubPaginatedEventPayloadDataInner();
+                    if (jsonObject.get("EventType") == null) {
+                        log.log(Level.WARNING, "Failed to lookup discriminator value for IntegrationHubPaginatedEventPayloadDataInner as `EventType` was not found in the payload or the payload is empty.");
+                    } else  {
+                        // look up the discriminator value in the field `EventType`
+                        switch (jsonObject.get("EventType").getAsString()) {
+                            case "CouponCreated":
+                                deserialized = adapterIntegrationHubEventPayloadCouponBasedNotifications.fromJsonTree(jsonObject);
+                                newIntegrationHubPaginatedEventPayloadDataInner.setActualInstance(deserialized);
+                                return newIntegrationHubPaginatedEventPayloadDataInner;
+                            case "CouponDeleted":
+                                deserialized = adapterIntegrationHubEventPayloadCouponBasedNotifications.fromJsonTree(jsonObject);
+                                newIntegrationHubPaginatedEventPayloadDataInner.setActualInstance(deserialized);
+                                return newIntegrationHubPaginatedEventPayloadDataInner;
+                            case "CouponUpdated":
+                                deserialized = adapterIntegrationHubEventPayloadCouponBasedNotifications.fromJsonTree(jsonObject);
+                                newIntegrationHubPaginatedEventPayloadDataInner.setActualInstance(deserialized);
+                                return newIntegrationHubPaginatedEventPayloadDataInner;
+                            case "LoyaltyPointsChanged":
+                                deserialized = adapterIntegrationHubEventPayloadLoyaltyProfileBasedPointsChangedNotification.fromJsonTree(jsonObject);
+                                newIntegrationHubPaginatedEventPayloadDataInner.setActualInstance(deserialized);
+                                return newIntegrationHubPaginatedEventPayloadDataInner;
+                            case "LoyaltyTierDowngrade":
+                                deserialized = adapterIntegrationHubEventPayloadLoyaltyProfileBasedTierDowngradeNotification.fromJsonTree(jsonObject);
+                                newIntegrationHubPaginatedEventPayloadDataInner.setActualInstance(deserialized);
+                                return newIntegrationHubPaginatedEventPayloadDataInner;
+                            case "LoyaltyTierUpgrade":
+                                deserialized = adapterIntegrationHubEventPayloadLoyaltyProfileBasedTierUpgradeNotification.fromJsonTree(jsonObject);
+                                newIntegrationHubPaginatedEventPayloadDataInner.setActualInstance(deserialized);
+                                return newIntegrationHubPaginatedEventPayloadDataInner;
+                            default:
+                                log.log(Level.WARNING, String.format(java.util.Locale.ROOT, "Failed to lookup discriminator value `%s` for IntegrationHubPaginatedEventPayloadDataInner. Possible values: CouponCreated CouponDeleted CouponUpdated LoyaltyPointsChanged LoyaltyTierDowngrade LoyaltyTierUpgrade", jsonObject.get("EventType").getAsString()));
+                        }
+                    }
 
                     int match = 0;
                     ArrayList<String> errorMessages = new ArrayList<>();

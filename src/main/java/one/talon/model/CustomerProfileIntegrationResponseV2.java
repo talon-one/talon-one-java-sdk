@@ -32,6 +32,7 @@ import one.talon.model.Event;
 import one.talon.model.Giveaway;
 import one.talon.model.Loyalty;
 import one.talon.model.Referral;
+import one.talon.model.RewardWithUnlocks;
 import one.talon.model.RuleFailureReason;
 
 import com.google.gson.Gson;
@@ -41,6 +42,7 @@ import com.google.gson.JsonDeserializationContext;
 import com.google.gson.JsonDeserializer;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
+import com.google.gson.JsonNull;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
@@ -60,7 +62,7 @@ import one.talon.JSON;
 /**
  * This is the response type returned by the updateCustomerProfileV2 endpoint. 
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.24.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.25.0")
 public class CustomerProfileIntegrationResponseV2 {
   public static final String SERIALIZED_NAME_CUSTOMER_PROFILE = "customerProfile";
   @SerializedName(SERIALIZED_NAME_CUSTOMER_PROFILE)
@@ -96,6 +98,11 @@ public class CustomerProfileIntegrationResponseV2 {
   @SerializedName(SERIALIZED_NAME_AWARDED_GIVEAWAYS)
   @javax.annotation.Nullable
   private List<Giveaway> awardedGiveaways;
+
+  public static final String SERIALIZED_NAME_REWARDS = "rewards";
+  @SerializedName(SERIALIZED_NAME_REWARDS)
+  @javax.annotation.Nullable
+  private List<RewardWithUnlocks> rewards;
 
   public static final String SERIALIZED_NAME_EFFECTS = "effects";
   @SerializedName(SERIALIZED_NAME_EFFECTS)
@@ -280,6 +287,33 @@ public class CustomerProfileIntegrationResponseV2 {
   }
 
 
+  public CustomerProfileIntegrationResponseV2 rewards(@javax.annotation.Nullable List<RewardWithUnlocks> rewards) {
+    this.rewards = rewards;
+    return this;
+  }
+
+  public CustomerProfileIntegrationResponseV2 addRewardsItem(RewardWithUnlocks rewardsItem) {
+    if (this.rewards == null) {
+      this.rewards = new ArrayList<>();
+    }
+    this.rewards.add(rewardsItem);
+    return this;
+  }
+
+  /**
+   * The unlocked rewards for the customer profile.
+   * @return rewards
+   */
+  @javax.annotation.Nullable
+  public List<RewardWithUnlocks> getRewards() {
+    return rewards;
+  }
+
+  public void setRewards(@javax.annotation.Nullable List<RewardWithUnlocks> rewards) {
+    this.rewards = rewards;
+  }
+
+
   public CustomerProfileIntegrationResponseV2 effects(@javax.annotation.Nonnull List<Effect> effects) {
     this.effects = effects;
     return this;
@@ -422,6 +456,7 @@ public class CustomerProfileIntegrationResponseV2 {
         Objects.equals(this.ruleFailureReasons, customerProfileIntegrationResponseV2.ruleFailureReasons) &&
         Objects.equals(this.campaignEligibility, customerProfileIntegrationResponseV2.campaignEligibility) &&
         Objects.equals(this.awardedGiveaways, customerProfileIntegrationResponseV2.awardedGiveaways) &&
+        Objects.equals(this.rewards, customerProfileIntegrationResponseV2.rewards) &&
         Objects.equals(this.effects, customerProfileIntegrationResponseV2.effects) &&
         Objects.equals(this.createdCoupons, customerProfileIntegrationResponseV2.createdCoupons) &&
         Objects.equals(this.createdReferrals, customerProfileIntegrationResponseV2.createdReferrals)&&
@@ -430,7 +465,7 @@ public class CustomerProfileIntegrationResponseV2 {
 
   @Override
   public int hashCode() {
-    return Objects.hash(customerProfile, event, loyalty, triggeredCampaigns, ruleFailureReasons, campaignEligibility, awardedGiveaways, effects, createdCoupons, createdReferrals, additionalProperties);
+    return Objects.hash(customerProfile, event, loyalty, triggeredCampaigns, ruleFailureReasons, campaignEligibility, awardedGiveaways, rewards, effects, createdCoupons, createdReferrals, additionalProperties);
   }
 
   @Override
@@ -444,6 +479,7 @@ public class CustomerProfileIntegrationResponseV2 {
     sb.append("    ruleFailureReasons: ").append(toIndentedString(ruleFailureReasons)).append("\n");
     sb.append("    campaignEligibility: ").append(toIndentedString(campaignEligibility)).append("\n");
     sb.append("    awardedGiveaways: ").append(toIndentedString(awardedGiveaways)).append("\n");
+    sb.append("    rewards: ").append(toIndentedString(rewards)).append("\n");
     sb.append("    effects: ").append(toIndentedString(effects)).append("\n");
     sb.append("    createdCoupons: ").append(toIndentedString(createdCoupons)).append("\n");
     sb.append("    createdReferrals: ").append(toIndentedString(createdReferrals)).append("\n");
@@ -466,7 +502,7 @@ public class CustomerProfileIntegrationResponseV2 {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("customerProfile", "event", "loyalty", "triggeredCampaigns", "ruleFailureReasons", "campaignEligibility", "awardedGiveaways", "effects", "createdCoupons", "createdReferrals"));
+    openapiFields = new HashSet<String>(Arrays.asList("customerProfile", "event", "loyalty", "triggeredCampaigns", "ruleFailureReasons", "campaignEligibility", "awardedGiveaways", "rewards", "effects", "createdCoupons", "createdReferrals"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("effects", "createdCoupons", "createdReferrals"));
@@ -560,6 +596,20 @@ public class CustomerProfileIntegrationResponseV2 {
           };
         }
       }
+      if (jsonObj.get("rewards") != null && !jsonObj.get("rewards").isJsonNull()) {
+        JsonArray jsonArrayrewards = jsonObj.getAsJsonArray("rewards");
+        if (jsonArrayrewards != null) {
+          // ensure the json data is an array
+          if (!jsonObj.get("rewards").isJsonArray()) {
+            throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `rewards` to be an array in the JSON string but got `%s`", jsonObj.get("rewards").toString()));
+          }
+
+          // validate the optional field `rewards` (array)
+          for (int i = 0; i < jsonArrayrewards.size(); i++) {
+            RewardWithUnlocks.validateJsonElement(jsonArrayrewards.get(i));
+          };
+        }
+      }
       if (jsonObj.get("effects") != null) {
         if (!jsonObj.get("effects").isJsonArray()) {
           throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `effects` to be an array in the JSON string but got `%s`", jsonObj.get("effects").toString()));
@@ -621,7 +671,9 @@ public class CustomerProfileIntegrationResponseV2 {
                    obj.addProperty(entry.getKey(), (Character) entry.getValue());
                  else {
                    JsonElement jsonElement = gson.toJsonTree(entry.getValue());
-                   if (jsonElement.isJsonArray()) {
+                   if (jsonElement.isJsonNull()) {
+                     obj.add(entry.getKey(), JsonNull.INSTANCE);
+                   } else if (jsonElement.isJsonArray()) {
                      obj.add(entry.getKey(), jsonElement.getAsJsonArray());
                    } else {
                      obj.add(entry.getKey(), jsonElement.getAsJsonObject());

@@ -33,6 +33,7 @@ import com.google.gson.JsonDeserializationContext;
 import com.google.gson.JsonDeserializer;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
+import com.google.gson.JsonNull;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
@@ -52,7 +53,7 @@ import one.talon.JSON;
 /**
  * NewCouponsForMultipleRecipients
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.24.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.25.0")
 public class NewCouponsForMultipleRecipients {
   public static final String SERIALIZED_NAME_USAGE_LIMIT = "usageLimit";
   @SerializedName(SERIALIZED_NAME_USAGE_LIMIT)
@@ -78,6 +79,11 @@ public class NewCouponsForMultipleRecipients {
   @SerializedName(SERIALIZED_NAME_EXPIRY_DATE)
   @javax.annotation.Nullable
   private OffsetDateTime expiryDate;
+
+  public static final String SERIALIZED_NAME_BATCH_ID = "batchId";
+  @SerializedName(SERIALIZED_NAME_BATCH_ID)
+  @javax.annotation.Nullable
+  private String batchId;
 
   public static final String SERIALIZED_NAME_ATTRIBUTES = "attributes";
   @SerializedName(SERIALIZED_NAME_ATTRIBUTES)
@@ -200,6 +206,25 @@ public class NewCouponsForMultipleRecipients {
 
   public void setExpiryDate(@javax.annotation.Nullable OffsetDateTime expiryDate) {
     this.expiryDate = expiryDate;
+  }
+
+
+  public NewCouponsForMultipleRecipients batchId(@javax.annotation.Nullable String batchId) {
+    this.batchId = batchId;
+    return this;
+  }
+
+  /**
+   * The batch ID that all coupons created by the request will bear. If omitted, a batch ID is generated automatically.
+   * @return batchId
+   */
+  @javax.annotation.Nullable
+  public String getBatchId() {
+    return batchId;
+  }
+
+  public void setBatchId(@javax.annotation.Nullable String batchId) {
+    this.batchId = batchId;
   }
 
 
@@ -354,6 +379,7 @@ public class NewCouponsForMultipleRecipients {
         Objects.equals(this.reservationLimit, newCouponsForMultipleRecipients.reservationLimit) &&
         Objects.equals(this.startDate, newCouponsForMultipleRecipients.startDate) &&
         Objects.equals(this.expiryDate, newCouponsForMultipleRecipients.expiryDate) &&
+        Objects.equals(this.batchId, newCouponsForMultipleRecipients.batchId) &&
         Objects.equals(this.attributes, newCouponsForMultipleRecipients.attributes) &&
         Objects.equals(this.recipientsIntegrationIds, newCouponsForMultipleRecipients.recipientsIntegrationIds) &&
         Objects.equals(this.validCharacters, newCouponsForMultipleRecipients.validCharacters) &&
@@ -363,7 +389,7 @@ public class NewCouponsForMultipleRecipients {
 
   @Override
   public int hashCode() {
-    return Objects.hash(usageLimit, discountLimit, reservationLimit, startDate, expiryDate, attributes, recipientsIntegrationIds, validCharacters, couponPattern, additionalProperties);
+    return Objects.hash(usageLimit, discountLimit, reservationLimit, startDate, expiryDate, batchId, attributes, recipientsIntegrationIds, validCharacters, couponPattern, additionalProperties);
   }
 
   @Override
@@ -375,6 +401,7 @@ public class NewCouponsForMultipleRecipients {
     sb.append("    reservationLimit: ").append(toIndentedString(reservationLimit)).append("\n");
     sb.append("    startDate: ").append(toIndentedString(startDate)).append("\n");
     sb.append("    expiryDate: ").append(toIndentedString(expiryDate)).append("\n");
+    sb.append("    batchId: ").append(toIndentedString(batchId)).append("\n");
     sb.append("    attributes: ").append(toIndentedString(attributes)).append("\n");
     sb.append("    recipientsIntegrationIds: ").append(toIndentedString(recipientsIntegrationIds)).append("\n");
     sb.append("    validCharacters: ").append(toIndentedString(validCharacters)).append("\n");
@@ -398,7 +425,7 @@ public class NewCouponsForMultipleRecipients {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("usageLimit", "discountLimit", "reservationLimit", "startDate", "expiryDate", "attributes", "recipientsIntegrationIds", "validCharacters", "couponPattern"));
+    openapiFields = new HashSet<String>(Arrays.asList("usageLimit", "discountLimit", "reservationLimit", "startDate", "expiryDate", "batchId", "attributes", "recipientsIntegrationIds", "validCharacters", "couponPattern"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("recipientsIntegrationIds"));
@@ -424,6 +451,9 @@ public class NewCouponsForMultipleRecipients {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
+      if ((jsonObj.get("batchId") != null && !jsonObj.get("batchId").isJsonNull()) && !jsonObj.get("batchId").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `batchId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("batchId").toString()));
+      }
       // ensure the required json array is present
       if (jsonObj.get("recipientsIntegrationIds") == null) {
         throw new IllegalArgumentException("Expected the field `linkedContent` to be an array in the JSON string but got `null`");
@@ -468,7 +498,9 @@ public class NewCouponsForMultipleRecipients {
                    obj.addProperty(entry.getKey(), (Character) entry.getValue());
                  else {
                    JsonElement jsonElement = gson.toJsonTree(entry.getValue());
-                   if (jsonElement.isJsonArray()) {
+                   if (jsonElement.isJsonNull()) {
+                     obj.add(entry.getKey(), JsonNull.INSTANCE);
+                   } else if (jsonElement.isJsonArray()) {
                      obj.add(entry.getKey(), jsonElement.getAsJsonArray());
                    } else {
                      obj.add(entry.getKey(), jsonElement.getAsJsonObject());

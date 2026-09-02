@@ -66,7 +66,7 @@ import com.google.gson.JsonParseException;
 
 import one.talon.JSON;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.24.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.25.0")
 public class AwardDiscountTarget extends AbstractOpenApiSchema {
     private static final Logger log = Logger.getLogger(AwardDiscountTarget.class.getName());
 
@@ -136,6 +136,44 @@ public class AwardDiscountTarget extends AbstractOpenApiSchema {
                 public AwardDiscountTarget read(JsonReader in) throws IOException {
                     Object deserialized = null;
                     JsonElement jsonElement = elementAdapter.read(in);
+
+                    JsonObject jsonObject = jsonElement.getAsJsonObject();
+
+                    // use discriminator value for faster oneOf lookup
+                    AwardDiscountTarget newAwardDiscountTarget = new AwardDiscountTarget();
+                    if (jsonObject.get("type") == null) {
+                        log.log(Level.WARNING, "Failed to lookup discriminator value for AwardDiscountTarget as `type` was not found in the payload or the payload is empty.");
+                    } else  {
+                        // look up the discriminator value in the field `type`
+                        switch (jsonObject.get("type").getAsString()) {
+                            case "additionalCost":
+                                deserialized = adapterAwardDiscountAdditionalCostTarget.fromJsonTree(jsonObject);
+                                newAwardDiscountTarget.setActualInstance(deserialized);
+                                return newAwardDiscountTarget;
+                            case "allItems":
+                                deserialized = adapterAwardDiscountAllItemsTarget.fromJsonTree(jsonObject);
+                                newAwardDiscountTarget.setActualInstance(deserialized);
+                                return newAwardDiscountTarget;
+                            case "bundle":
+                                deserialized = adapterAwardDiscountBundleTarget.fromJsonTree(jsonObject);
+                                newAwardDiscountTarget.setActualInstance(deserialized);
+                                return newAwardDiscountTarget;
+                            case "cart":
+                                deserialized = adapterAwardDiscountCartTarget.fromJsonTree(jsonObject);
+                                newAwardDiscountTarget.setActualInstance(deserialized);
+                                return newAwardDiscountTarget;
+                            case "globalFilter":
+                                deserialized = adapterAwardDiscountGlobalFilterTarget.fromJsonTree(jsonObject);
+                                newAwardDiscountTarget.setActualInstance(deserialized);
+                                return newAwardDiscountTarget;
+                            case "selector":
+                                deserialized = adapterAwardDiscountSelectorTarget.fromJsonTree(jsonObject);
+                                newAwardDiscountTarget.setActualInstance(deserialized);
+                                return newAwardDiscountTarget;
+                            default:
+                                log.log(Level.WARNING, String.format(java.util.Locale.ROOT, "Failed to lookup discriminator value `%s` for AwardDiscountTarget. Possible values: additionalCost allItems bundle cart globalFilter selector", jsonObject.get("type").getAsString()));
+                        }
+                    }
 
                     int match = 0;
                     ArrayList<String> errorMessages = new ArrayList<>();

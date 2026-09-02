@@ -9,7 +9,7 @@ Variant of `CheckAttributeBlock` for operators that test list membership against
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
 |**operator** | [**OperatorEnum**](#OperatorEnum) | The list membership operator applied to the attribute. |  [optional] |
-|**values** | **Object** |  |  |
+|**values** | **Object** | The set of values to match against. |  |
 
 
 

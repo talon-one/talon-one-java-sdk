@@ -12,6 +12,7 @@
 |**reservationLimit** | **Long** | The number of reservations that can be made with this coupon code.  |  [optional] |
 |**startDate** | **OffsetDateTime** | Timestamp at which point the coupon becomes valid. |  [optional] |
 |**expiryDate** | **OffsetDateTime** | Expiration date of the coupon. Coupon never expires if this is omitted. |  [optional] |
+|**batchId** | **String** | The batch ID that all coupons created by the request will bear. If omitted, a batch ID is generated automatically. |  [optional] |
 |**attributes** | **Object** | Arbitrary properties associated with this item. |  [optional] |
 |**recipientsIntegrationIds** | **List&lt;String&gt;** | The integration IDs for recipients. |  |
 |**validCharacters** | **List&lt;String&gt;** | List of characters used to generate the random parts of a code. By default, the list of characters is equivalent to the &#x60;[A-Z, 0-9]&#x60; regular expression.  |  [optional] |

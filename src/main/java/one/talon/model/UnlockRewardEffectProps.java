@@ -30,6 +30,7 @@ import com.google.gson.JsonDeserializationContext;
 import com.google.gson.JsonDeserializer;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
+import com.google.gson.JsonNull;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
@@ -49,7 +50,7 @@ import one.talon.JSON;
 /**
  * The properties specific to the \&quot;unlockReward\&quot; effect. This gets triggered whenever a validated rule unlocks a reward for a customer profile.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.24.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.25.0")
 public class UnlockRewardEffectProps {
   public static final String SERIALIZED_NAME_INTEGRATION_ID = "integrationId";
   @SerializedName(SERIALIZED_NAME_INTEGRATION_ID)
@@ -75,6 +76,11 @@ public class UnlockRewardEffectProps {
   @SerializedName(SERIALIZED_NAME_UNLOCKED_AT)
   @javax.annotation.Nonnull
   private OffsetDateTime unlockedAt;
+
+  public static final String SERIALIZED_NAME_CARD_IDENTIFIER = "cardIdentifier";
+  @SerializedName(SERIALIZED_NAME_CARD_IDENTIFIER)
+  @javax.annotation.Nullable
+  private String cardIdentifier;
 
   public UnlockRewardEffectProps() {
   }
@@ -173,6 +179,25 @@ public class UnlockRewardEffectProps {
     this.unlockedAt = unlockedAt;
   }
 
+
+  public UnlockRewardEffectProps cardIdentifier(@javax.annotation.Nullable String cardIdentifier) {
+    this.cardIdentifier = cardIdentifier;
+    return this;
+  }
+
+  /**
+   * The identifier of the loyalty card that unlocked the reward. Only returned when the reward was unlocked with a loyalty card, in which case the reward belongs to the card and is available to all customer profiles linked to it. 
+   * @return cardIdentifier
+   */
+  @javax.annotation.Nullable
+  public String getCardIdentifier() {
+    return cardIdentifier;
+  }
+
+  public void setCardIdentifier(@javax.annotation.Nullable String cardIdentifier) {
+    this.cardIdentifier = cardIdentifier;
+  }
+
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -232,13 +257,14 @@ public class UnlockRewardEffectProps {
         Objects.equals(this.rewardId, unlockRewardEffectProps.rewardId) &&
         Objects.equals(this.applicationId, unlockRewardEffectProps.applicationId) &&
         Objects.equals(this.profileIntegrationId, unlockRewardEffectProps.profileIntegrationId) &&
-        Objects.equals(this.unlockedAt, unlockRewardEffectProps.unlockedAt)&&
+        Objects.equals(this.unlockedAt, unlockRewardEffectProps.unlockedAt) &&
+        Objects.equals(this.cardIdentifier, unlockRewardEffectProps.cardIdentifier)&&
         Objects.equals(this.additionalProperties, unlockRewardEffectProps.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(integrationId, rewardId, applicationId, profileIntegrationId, unlockedAt, additionalProperties);
+    return Objects.hash(integrationId, rewardId, applicationId, profileIntegrationId, unlockedAt, cardIdentifier, additionalProperties);
   }
 
   @Override
@@ -250,6 +276,7 @@ public class UnlockRewardEffectProps {
     sb.append("    applicationId: ").append(toIndentedString(applicationId)).append("\n");
     sb.append("    profileIntegrationId: ").append(toIndentedString(profileIntegrationId)).append("\n");
     sb.append("    unlockedAt: ").append(toIndentedString(unlockedAt)).append("\n");
+    sb.append("    cardIdentifier: ").append(toIndentedString(cardIdentifier)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -269,7 +296,7 @@ public class UnlockRewardEffectProps {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("integrationId", "rewardId", "applicationId", "profileIntegrationId", "unlockedAt"));
+    openapiFields = new HashSet<String>(Arrays.asList("integrationId", "rewardId", "applicationId", "profileIntegrationId", "unlockedAt", "cardIdentifier"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("integrationId", "rewardId", "applicationId", "profileIntegrationId", "unlockedAt"));
@@ -300,6 +327,9 @@ public class UnlockRewardEffectProps {
       }
       if (!jsonObj.get("profileIntegrationId").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `profileIntegrationId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("profileIntegrationId").toString()));
+      }
+      if ((jsonObj.get("cardIdentifier") != null && !jsonObj.get("cardIdentifier").isJsonNull()) && !jsonObj.get("cardIdentifier").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `cardIdentifier` to be a primitive type in the JSON string but got `%s`", jsonObj.get("cardIdentifier").toString()));
       }
   }
 
@@ -332,7 +362,9 @@ public class UnlockRewardEffectProps {
                    obj.addProperty(entry.getKey(), (Character) entry.getValue());
                  else {
                    JsonElement jsonElement = gson.toJsonTree(entry.getValue());
-                   if (jsonElement.isJsonArray()) {
+                   if (jsonElement.isJsonNull()) {
+                     obj.add(entry.getKey(), JsonNull.INSTANCE);
+                   } else if (jsonElement.isJsonArray()) {
                      obj.add(entry.getKey(), jsonElement.getAsJsonArray());
                    } else {
                      obj.add(entry.getKey(), jsonElement.getAsJsonObject());

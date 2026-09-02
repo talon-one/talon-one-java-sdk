@@ -37,6 +37,7 @@ import one.talon.model.InventoryReferral;
 import one.talon.model.Loyalty;
 import one.talon.model.ModelReturn;
 import one.talon.model.Referral;
+import one.talon.model.RewardWithUnlocks;
 import one.talon.model.RuleFailureReason;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
@@ -133,6 +134,14 @@ public class IntegrationStateV2Test {
     @Test
     public void achievementsTest() {
         // TODO: test achievements
+    }
+
+    /**
+     * Test the property 'rewards'
+     */
+    @Test
+    public void rewardsTest() {
+        // TODO: test rewards
     }
 
     /**

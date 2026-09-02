@@ -22,6 +22,7 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.time.OffsetDateTime;
 import java.util.Arrays;
+import one.talon.model.RuleMetadata;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -30,6 +31,7 @@ import com.google.gson.JsonDeserializationContext;
 import com.google.gson.JsonDeserializer;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
+import com.google.gson.JsonNull;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
@@ -49,7 +51,7 @@ import one.talon.JSON;
 /**
  * A reward instance held by a customer profile.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.24.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.25.0")
 public class CustomerProfileReward {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -66,10 +68,25 @@ public class CustomerProfileReward {
   @javax.annotation.Nonnull
   private Long rewardId;
 
+  public static final String SERIALIZED_NAME_REWARD_INTEGRATION_ID = "rewardIntegrationId";
+  @SerializedName(SERIALIZED_NAME_REWARD_INTEGRATION_ID)
+  @javax.annotation.Nonnull
+  private String rewardIntegrationId;
+
   public static final String SERIALIZED_NAME_REWARD_NAME = "rewardName";
   @SerializedName(SERIALIZED_NAME_REWARD_NAME)
   @javax.annotation.Nonnull
   private String rewardName;
+
+  public static final String SERIALIZED_NAME_DESCRIPTION = "description";
+  @SerializedName(SERIALIZED_NAME_DESCRIPTION)
+  @javax.annotation.Nullable
+  private String description;
+
+  public static final String SERIALIZED_NAME_RULE = "rule";
+  @SerializedName(SERIALIZED_NAME_RULE)
+  @javax.annotation.Nullable
+  private RuleMetadata rule;
 
   /**
    * The status of the customer reward: - &#x60;unlocked&#x60;: The reward is available for use. - &#x60;used&#x60;: The reward has been used. 
@@ -186,7 +203,7 @@ public class CustomerProfileReward {
   }
 
   /**
-   * The integration ID of the reward.
+   * The integration ID of the customer reward instance.
    * @return integrationId
    */
   @javax.annotation.Nonnull
@@ -218,6 +235,25 @@ public class CustomerProfileReward {
   }
 
 
+  public CustomerProfileReward rewardIntegrationId(@javax.annotation.Nonnull String rewardIntegrationId) {
+    this.rewardIntegrationId = rewardIntegrationId;
+    return this;
+  }
+
+  /**
+   * The integration ID of the reward this instance belongs to.
+   * @return rewardIntegrationId
+   */
+  @javax.annotation.Nonnull
+  public String getRewardIntegrationId() {
+    return rewardIntegrationId;
+  }
+
+  public void setRewardIntegrationId(@javax.annotation.Nonnull String rewardIntegrationId) {
+    this.rewardIntegrationId = rewardIntegrationId;
+  }
+
+
   public CustomerProfileReward rewardName(@javax.annotation.Nonnull String rewardName) {
     this.rewardName = rewardName;
     return this;
@@ -234,6 +270,44 @@ public class CustomerProfileReward {
 
   public void setRewardName(@javax.annotation.Nonnull String rewardName) {
     this.rewardName = rewardName;
+  }
+
+
+  public CustomerProfileReward description(@javax.annotation.Nullable String description) {
+    this.description = description;
+    return this;
+  }
+
+  /**
+   * The customer-facing description of the reward.
+   * @return description
+   */
+  @javax.annotation.Nullable
+  public String getDescription() {
+    return description;
+  }
+
+  public void setDescription(@javax.annotation.Nullable String description) {
+    this.description = description;
+  }
+
+
+  public CustomerProfileReward rule(@javax.annotation.Nullable RuleMetadata rule) {
+    this.rule = rule;
+    return this;
+  }
+
+  /**
+   * Customer-facing rule metadata for the reward. Only returned when the reward defines a rule.
+   * @return rule
+   */
+  @javax.annotation.Nullable
+  public RuleMetadata getRule() {
+    return rule;
+  }
+
+  public void setRule(@javax.annotation.Nullable RuleMetadata rule) {
+    this.rule = rule;
   }
 
 
@@ -427,7 +501,10 @@ public class CustomerProfileReward {
     return Objects.equals(this.id, customerProfileReward.id) &&
         Objects.equals(this.integrationId, customerProfileReward.integrationId) &&
         Objects.equals(this.rewardId, customerProfileReward.rewardId) &&
+        Objects.equals(this.rewardIntegrationId, customerProfileReward.rewardIntegrationId) &&
         Objects.equals(this.rewardName, customerProfileReward.rewardName) &&
+        Objects.equals(this.description, customerProfileReward.description) &&
+        Objects.equals(this.rule, customerProfileReward.rule) &&
         Objects.equals(this.status, customerProfileReward.status) &&
         Objects.equals(this.unlockedAt, customerProfileReward.unlockedAt) &&
         Objects.equals(this.unlockedByProfileIntegrationId, customerProfileReward.unlockedByProfileIntegrationId) &&
@@ -440,7 +517,7 @@ public class CustomerProfileReward {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, integrationId, rewardId, rewardName, status, unlockedAt, unlockedByProfileIntegrationId, usedAt, usedByProfileIntegrationId, loyaltyProgramId, loyaltyCardIdentifier, additionalProperties);
+    return Objects.hash(id, integrationId, rewardId, rewardIntegrationId, rewardName, description, rule, status, unlockedAt, unlockedByProfileIntegrationId, usedAt, usedByProfileIntegrationId, loyaltyProgramId, loyaltyCardIdentifier, additionalProperties);
   }
 
   @Override
@@ -450,7 +527,10 @@ public class CustomerProfileReward {
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    integrationId: ").append(toIndentedString(integrationId)).append("\n");
     sb.append("    rewardId: ").append(toIndentedString(rewardId)).append("\n");
+    sb.append("    rewardIntegrationId: ").append(toIndentedString(rewardIntegrationId)).append("\n");
     sb.append("    rewardName: ").append(toIndentedString(rewardName)).append("\n");
+    sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    rule: ").append(toIndentedString(rule)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    unlockedAt: ").append(toIndentedString(unlockedAt)).append("\n");
     sb.append("    unlockedByProfileIntegrationId: ").append(toIndentedString(unlockedByProfileIntegrationId)).append("\n");
@@ -477,10 +557,10 @@ public class CustomerProfileReward {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("id", "integrationId", "rewardId", "rewardName", "status", "unlockedAt", "unlockedByProfileIntegrationId", "usedAt", "usedByProfileIntegrationId", "loyaltyProgramId", "loyaltyCardIdentifier"));
+    openapiFields = new HashSet<String>(Arrays.asList("id", "integrationId", "rewardId", "rewardIntegrationId", "rewardName", "description", "rule", "status", "unlockedAt", "unlockedByProfileIntegrationId", "usedAt", "usedByProfileIntegrationId", "loyaltyProgramId", "loyaltyCardIdentifier"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("id", "integrationId", "rewardId", "rewardName", "status", "unlockedAt"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("id", "integrationId", "rewardId", "rewardIntegrationId", "rewardName", "status", "unlockedAt"));
   }
 
   /**
@@ -506,8 +586,18 @@ public class CustomerProfileReward {
       if (!jsonObj.get("integrationId").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `integrationId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("integrationId").toString()));
       }
+      if (!jsonObj.get("rewardIntegrationId").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `rewardIntegrationId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("rewardIntegrationId").toString()));
+      }
       if (!jsonObj.get("rewardName").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `rewardName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("rewardName").toString()));
+      }
+      if ((jsonObj.get("description") != null && !jsonObj.get("description").isJsonNull()) && !jsonObj.get("description").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `description` to be a primitive type in the JSON string but got `%s`", jsonObj.get("description").toString()));
+      }
+      // validate the optional field `rule`
+      if (jsonObj.get("rule") != null && !jsonObj.get("rule").isJsonNull()) {
+        RuleMetadata.validateJsonElement(jsonObj.get("rule"));
       }
       if (!jsonObj.get("status").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `status` to be a primitive type in the JSON string but got `%s`", jsonObj.get("status").toString()));
@@ -554,7 +644,9 @@ public class CustomerProfileReward {
                    obj.addProperty(entry.getKey(), (Character) entry.getValue());
                  else {
                    JsonElement jsonElement = gson.toJsonTree(entry.getValue());
-                   if (jsonElement.isJsonArray()) {
+                   if (jsonElement.isJsonNull()) {
+                     obj.add(entry.getKey(), JsonNull.INSTANCE);
+                   } else if (jsonElement.isJsonArray()) {
                      obj.add(entry.getKey(), jsonElement.getAsJsonArray());
                    } else {
                      obj.add(entry.getKey(), jsonElement.getAsJsonObject());

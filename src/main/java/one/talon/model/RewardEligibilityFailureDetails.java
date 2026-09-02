@@ -29,6 +29,7 @@ import com.google.gson.JsonDeserializationContext;
 import com.google.gson.JsonDeserializer;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
+import com.google.gson.JsonNull;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
@@ -48,14 +49,20 @@ import one.talon.JSON;
 /**
  * The details about why the customer is not eligible for the reward.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.24.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.25.0")
 public class RewardEligibilityFailureDetails {
   /**
    * A code identifying why the customer is not eligible for the reward.
    */
   @JsonAdapter(FailureCodeEnum.Adapter.class)
   public enum FailureCodeEnum {
-    CONDITION_NOT_MET("CONDITION_NOT_MET");
+    CONDITION_NOT_MET("CONDITION_NOT_MET"),
+    
+    INSUFFICIENT_BALANCE("INSUFFICIENT_BALANCE"),
+    
+    CARD_REQUIRED("CARD_REQUIRED"),
+    
+    PROFILE_REQUIRED("PROFILE_REQUIRED");
 
     private String value;
 
@@ -138,7 +145,7 @@ public class RewardEligibilityFailureDetails {
   }
 
   /**
-   * The index of the eligibility condition that the customer did not meet.
+   * The index of the eligibility condition that the customer did not meet. Only applicable when &#x60;failureCode&#x60; is &#x60;CONDITION_NOT_MET&#x60;.
    * @return conditionIndex
    */
   @javax.annotation.Nullable
@@ -302,7 +309,9 @@ public class RewardEligibilityFailureDetails {
                    obj.addProperty(entry.getKey(), (Character) entry.getValue());
                  else {
                    JsonElement jsonElement = gson.toJsonTree(entry.getValue());
-                   if (jsonElement.isJsonArray()) {
+                   if (jsonElement.isJsonNull()) {
+                     obj.add(entry.getKey(), JsonNull.INSTANCE);
+                   } else if (jsonElement.isJsonArray()) {
                      obj.add(entry.getKey(), jsonElement.getAsJsonArray());
                    } else {
                      obj.add(entry.getKey(), jsonElement.getAsJsonObject());

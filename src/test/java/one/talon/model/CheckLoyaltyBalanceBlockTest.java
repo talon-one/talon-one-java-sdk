@@ -23,8 +23,8 @@ import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import one.talon.model.Block;
 import one.talon.model.CheckLoyaltyBalanceBlock1Program;
-import one.talon.model.PromotionBlock;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 

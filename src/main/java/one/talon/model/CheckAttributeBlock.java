@@ -23,6 +23,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import one.talon.model.Block;
 import org.openapitools.jackson.nullable.JsonNullable;
 
 
@@ -60,7 +61,7 @@ import com.google.gson.JsonParseException;
 
 import one.talon.JSON;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.24.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.25.0")
 public class CheckAttributeBlock extends AbstractOpenApiSchema {
     private static final Logger log = Logger.getLogger(CheckAttributeBlock.class.getName());
 
@@ -78,6 +79,7 @@ public class CheckAttributeBlock extends AbstractOpenApiSchema {
             final TypeAdapter<ListWithCountCheckAttributeBlock> adapterListWithCountCheckAttributeBlock = gson.getDelegateAdapter(this, TypeToken.get(ListWithCountCheckAttributeBlock.class));
             final TypeAdapter<UnaryCheckAttributeBlock> adapterUnaryCheckAttributeBlock = gson.getDelegateAdapter(this, TypeToken.get(UnaryCheckAttributeBlock.class));
             final TypeAdapter<WithinCheckAttributeBlock> adapterWithinCheckAttributeBlock = gson.getDelegateAdapter(this, TypeToken.get(WithinCheckAttributeBlock.class));
+            final TypeAdapter<LocationCheckAttributeBlock> adapterLocationCheckAttributeBlock = gson.getDelegateAdapter(this, TypeToken.get(LocationCheckAttributeBlock.class));
 
             return (TypeAdapter<T>) new TypeAdapter<CheckAttributeBlock>() {
                 @Override
@@ -123,6 +125,12 @@ public class CheckAttributeBlock extends AbstractOpenApiSchema {
                         elementAdapter.write(out, element);
                         return;
                     }
+                    // check if the actual instance is of the type `LocationCheckAttributeBlock`
+                    if (value.getActualInstance() instanceof LocationCheckAttributeBlock) {
+                        JsonElement element = adapterLocationCheckAttributeBlock.toJsonTree((LocationCheckAttributeBlock)value.getActualInstance());
+                        elementAdapter.write(out, element);
+                        return;
+                    }
                     throw new IOException("Failed to serialize as the type doesn't match oneOf schemas: CheckAttributeBlockBase, Object");
                 }
 
@@ -130,6 +138,152 @@ public class CheckAttributeBlock extends AbstractOpenApiSchema {
                 public CheckAttributeBlock read(JsonReader in) throws IOException {
                     Object deserialized = null;
                     JsonElement jsonElement = elementAdapter.read(in);
+
+                    JsonObject jsonObject = jsonElement.getAsJsonObject();
+
+                    // use discriminator value for faster oneOf lookup
+                    CheckAttributeBlock newCheckAttributeBlock = new CheckAttributeBlock();
+                    if (jsonObject.get("operator") == null) {
+                        log.log(Level.WARNING, "Failed to lookup discriminator value for CheckAttributeBlock as `operator` was not found in the payload or the payload is empty.");
+                    } else  {
+                        // look up the discriminator value in the field `operator`
+                        switch (jsonObject.get("operator").getAsString()) {
+                            case "after":
+                                deserialized = adapterScalarCheckAttributeBlock.fromJsonTree(jsonObject);
+                                newCheckAttributeBlock.setActualInstance(deserialized);
+                                return newCheckAttributeBlock;
+                            case "before":
+                                deserialized = adapterScalarCheckAttributeBlock.fromJsonTree(jsonObject);
+                                newCheckAttributeBlock.setActualInstance(deserialized);
+                                return newCheckAttributeBlock;
+                            case "between":
+                                deserialized = adapterBetweenCheckAttributeBlock.fromJsonTree(jsonObject);
+                                newCheckAttributeBlock.setActualInstance(deserialized);
+                                return newCheckAttributeBlock;
+                            case "contains":
+                                deserialized = adapterScalarCheckAttributeBlock.fromJsonTree(jsonObject);
+                                newCheckAttributeBlock.setActualInstance(deserialized);
+                                return newCheckAttributeBlock;
+                            case "containsAllOf":
+                                deserialized = adapterListCheckAttributeBlock.fromJsonTree(jsonObject);
+                                newCheckAttributeBlock.setActualInstance(deserialized);
+                                return newCheckAttributeBlock;
+                            case "containsAtLeast":
+                                deserialized = adapterListWithCountCheckAttributeBlock.fromJsonTree(jsonObject);
+                                newCheckAttributeBlock.setActualInstance(deserialized);
+                                return newCheckAttributeBlock;
+                            case "containsExactly":
+                                deserialized = adapterListWithCountCheckAttributeBlock.fromJsonTree(jsonObject);
+                                newCheckAttributeBlock.setActualInstance(deserialized);
+                                return newCheckAttributeBlock;
+                            case "containsNoneOf":
+                                deserialized = adapterListCheckAttributeBlock.fromJsonTree(jsonObject);
+                                newCheckAttributeBlock.setActualInstance(deserialized);
+                                return newCheckAttributeBlock;
+                            case "containsOneOf":
+                                deserialized = adapterListCheckAttributeBlock.fromJsonTree(jsonObject);
+                                newCheckAttributeBlock.setActualInstance(deserialized);
+                                return newCheckAttributeBlock;
+                            case "empty":
+                                deserialized = adapterUnaryCheckAttributeBlock.fromJsonTree(jsonObject);
+                                newCheckAttributeBlock.setActualInstance(deserialized);
+                                return newCheckAttributeBlock;
+                            case "endsWith":
+                                deserialized = adapterScalarCheckAttributeBlock.fromJsonTree(jsonObject);
+                                newCheckAttributeBlock.setActualInstance(deserialized);
+                                return newCheckAttributeBlock;
+                            case "equals":
+                                deserialized = adapterScalarCheckAttributeBlock.fromJsonTree(jsonObject);
+                                newCheckAttributeBlock.setActualInstance(deserialized);
+                                return newCheckAttributeBlock;
+                            case "exists":
+                                deserialized = adapterUnaryCheckAttributeBlock.fromJsonTree(jsonObject);
+                                newCheckAttributeBlock.setActualInstance(deserialized);
+                                return newCheckAttributeBlock;
+                            case "greaterThan":
+                                deserialized = adapterScalarCheckAttributeBlock.fromJsonTree(jsonObject);
+                                newCheckAttributeBlock.setActualInstance(deserialized);
+                                return newCheckAttributeBlock;
+                            case "greaterThanOrEqual":
+                                deserialized = adapterScalarCheckAttributeBlock.fromJsonTree(jsonObject);
+                                newCheckAttributeBlock.setActualInstance(deserialized);
+                                return newCheckAttributeBlock;
+                            case "in":
+                                deserialized = adapterLocationCheckAttributeBlock.fromJsonTree(jsonObject);
+                                newCheckAttributeBlock.setActualInstance(deserialized);
+                                return newCheckAttributeBlock;
+                            case "inCollection":
+                                deserialized = adapterScalarCheckAttributeBlock.fromJsonTree(jsonObject);
+                                newCheckAttributeBlock.setActualInstance(deserialized);
+                                return newCheckAttributeBlock;
+                            case "isFalse":
+                                deserialized = adapterUnaryCheckAttributeBlock.fromJsonTree(jsonObject);
+                                newCheckAttributeBlock.setActualInstance(deserialized);
+                                return newCheckAttributeBlock;
+                            case "isTrue":
+                                deserialized = adapterUnaryCheckAttributeBlock.fromJsonTree(jsonObject);
+                                newCheckAttributeBlock.setActualInstance(deserialized);
+                                return newCheckAttributeBlock;
+                            case "lessThan":
+                                deserialized = adapterScalarCheckAttributeBlock.fromJsonTree(jsonObject);
+                                newCheckAttributeBlock.setActualInstance(deserialized);
+                                return newCheckAttributeBlock;
+                            case "lessThanOrEqual":
+                                deserialized = adapterScalarCheckAttributeBlock.fromJsonTree(jsonObject);
+                                newCheckAttributeBlock.setActualInstance(deserialized);
+                                return newCheckAttributeBlock;
+                            case "matchesRegexp":
+                                deserialized = adapterScalarCheckAttributeBlock.fromJsonTree(jsonObject);
+                                newCheckAttributeBlock.setActualInstance(deserialized);
+                                return newCheckAttributeBlock;
+                            case "not(contains)":
+                                deserialized = adapterScalarCheckAttributeBlock.fromJsonTree(jsonObject);
+                                newCheckAttributeBlock.setActualInstance(deserialized);
+                                return newCheckAttributeBlock;
+                            case "not(empty)":
+                                deserialized = adapterUnaryCheckAttributeBlock.fromJsonTree(jsonObject);
+                                newCheckAttributeBlock.setActualInstance(deserialized);
+                                return newCheckAttributeBlock;
+                            case "not(equals)":
+                                deserialized = adapterScalarCheckAttributeBlock.fromJsonTree(jsonObject);
+                                newCheckAttributeBlock.setActualInstance(deserialized);
+                                return newCheckAttributeBlock;
+                            case "not(exists)":
+                                deserialized = adapterUnaryCheckAttributeBlock.fromJsonTree(jsonObject);
+                                newCheckAttributeBlock.setActualInstance(deserialized);
+                                return newCheckAttributeBlock;
+                            case "not(in)":
+                                deserialized = adapterLocationCheckAttributeBlock.fromJsonTree(jsonObject);
+                                newCheckAttributeBlock.setActualInstance(deserialized);
+                                return newCheckAttributeBlock;
+                            case "not(inCollection)":
+                                deserialized = adapterScalarCheckAttributeBlock.fromJsonTree(jsonObject);
+                                newCheckAttributeBlock.setActualInstance(deserialized);
+                                return newCheckAttributeBlock;
+                            case "not(oneOf)":
+                                deserialized = adapterScalarCheckAttributeBlock.fromJsonTree(jsonObject);
+                                newCheckAttributeBlock.setActualInstance(deserialized);
+                                return newCheckAttributeBlock;
+                            case "not(within)":
+                                deserialized = adapterWithinCheckAttributeBlock.fromJsonTree(jsonObject);
+                                newCheckAttributeBlock.setActualInstance(deserialized);
+                                return newCheckAttributeBlock;
+                            case "oneOf":
+                                deserialized = adapterScalarCheckAttributeBlock.fromJsonTree(jsonObject);
+                                newCheckAttributeBlock.setActualInstance(deserialized);
+                                return newCheckAttributeBlock;
+                            case "startsWith":
+                                deserialized = adapterScalarCheckAttributeBlock.fromJsonTree(jsonObject);
+                                newCheckAttributeBlock.setActualInstance(deserialized);
+                                return newCheckAttributeBlock;
+                            case "within":
+                                deserialized = adapterWithinCheckAttributeBlock.fromJsonTree(jsonObject);
+                                newCheckAttributeBlock.setActualInstance(deserialized);
+                                return newCheckAttributeBlock;
+                            default:
+                                log.log(Level.WARNING, String.format(java.util.Locale.ROOT, "Failed to lookup discriminator value `%s` for CheckAttributeBlock. Possible values: after before between contains containsAllOf containsAtLeast containsExactly containsNoneOf containsOneOf empty endsWith equals exists greaterThan greaterThanOrEqual in inCollection isFalse isTrue lessThan lessThanOrEqual matchesRegexp not(contains) not(empty) not(equals) not(exists) not(in) not(inCollection) not(oneOf) not(within) oneOf startsWith within", jsonObject.get("operator").getAsString()));
+                        }
+                    }
 
                     int match = 0;
                     ArrayList<String> errorMessages = new ArrayList<>();
@@ -207,6 +361,18 @@ public class CheckAttributeBlock extends AbstractOpenApiSchema {
                         errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for WithinCheckAttributeBlock failed with `%s`.", e.getMessage()));
                         log.log(Level.FINER, "Input data does not match schema 'WithinCheckAttributeBlock'", e);
                     }
+                    // deserialize LocationCheckAttributeBlock
+                    try {
+                        // validate the JSON object to see if any exception is thrown
+                        LocationCheckAttributeBlock.validateJsonElement(jsonElement);
+                        actualAdapter = adapterLocationCheckAttributeBlock;
+                        match++;
+                        log.log(Level.FINER, "Input data matches schema 'LocationCheckAttributeBlock'");
+                    } catch (Exception e) {
+                        // deserialization failed, continue
+                        errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for LocationCheckAttributeBlock failed with `%s`.", e.getMessage()));
+                        log.log(Level.FINER, "Input data does not match schema 'LocationCheckAttributeBlock'", e);
+                    }
 
                     if (match == 1) {
                         CheckAttributeBlock ret = new CheckAttributeBlock();
@@ -239,6 +405,7 @@ public class CheckAttributeBlock extends AbstractOpenApiSchema {
         schemas.put("ListWithCountCheckAttributeBlock", ListWithCountCheckAttributeBlock.class);
         schemas.put("UnaryCheckAttributeBlock", UnaryCheckAttributeBlock.class);
         schemas.put("WithinCheckAttributeBlock", WithinCheckAttributeBlock.class);
+        schemas.put("LocationCheckAttributeBlock", LocationCheckAttributeBlock.class);
     }
 
     @Override
@@ -281,6 +448,11 @@ public class CheckAttributeBlock extends AbstractOpenApiSchema {
         }
 
         if (instance instanceof WithinCheckAttributeBlock) {
+            super.setActualInstance(instance);
+            return;
+        }
+
+        if (instance instanceof LocationCheckAttributeBlock) {
             super.setActualInstance(instance);
             return;
         }
@@ -373,6 +545,18 @@ public class CheckAttributeBlock extends AbstractOpenApiSchema {
     }
 
     /**
+     * Get the actual instance of `LocationCheckAttributeBlock`. If the actual instance is not `LocationCheckAttributeBlock`,
+     * the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `LocationCheckAttributeBlock`
+     * @throws ClassCastException if the instance is not `LocationCheckAttributeBlock`
+     */
+    @SuppressWarnings("unchecked")
+    public LocationCheckAttributeBlock getLocationCheckAttributeBlock() throws ClassCastException {
+        return (LocationCheckAttributeBlock)super.getActualInstance();
+    }
+
+    /**
      * Validates the JSON Element and throws an exception if issues found
      *
      * @param jsonElement JSON Element
@@ -428,6 +612,14 @@ public class CheckAttributeBlock extends AbstractOpenApiSchema {
             validCount++;
         } catch (Exception e) {
             errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for WithinCheckAttributeBlock failed with `%s`.", e.getMessage()));
+            // continue to the next one
+        }
+        // validate the json string with LocationCheckAttributeBlock
+        try {
+            LocationCheckAttributeBlock.validateJsonElement(jsonElement);
+            validCount++;
+        } catch (Exception e) {
+            errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for LocationCheckAttributeBlock failed with `%s`.", e.getMessage()));
             // continue to the next one
         }
         if (validCount != 1) {

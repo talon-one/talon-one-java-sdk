@@ -21,7 +21,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.util.Arrays;
-import one.talon.model.SelectorBlock;
+import one.talon.model.Block;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -30,6 +30,7 @@ import com.google.gson.JsonDeserializationContext;
 import com.google.gson.JsonDeserializer;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
+import com.google.gson.JsonNull;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
@@ -49,7 +50,7 @@ import one.talon.JSON;
 /**
  * Filters only items that match a predicate block.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.24.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.25.0")
 public class FilterSelectorStep {
   /**
    * A step discriminator of type &#x60;filter&#x60;.
@@ -109,7 +110,7 @@ public class FilterSelectorStep {
   public static final String SERIALIZED_NAME_PREDICATE = "predicate";
   @SerializedName(SERIALIZED_NAME_PREDICATE)
   @javax.annotation.Nonnull
-  private SelectorBlock predicate;
+  private Block predicate;
 
   public FilterSelectorStep() {
   }
@@ -133,7 +134,7 @@ public class FilterSelectorStep {
   }
 
 
-  public FilterSelectorStep predicate(@javax.annotation.Nonnull SelectorBlock predicate) {
+  public FilterSelectorStep predicate(@javax.annotation.Nonnull Block predicate) {
     this.predicate = predicate;
     return this;
   }
@@ -143,11 +144,11 @@ public class FilterSelectorStep {
    * @return predicate
    */
   @javax.annotation.Nonnull
-  public SelectorBlock getPredicate() {
+  public Block getPredicate() {
     return predicate;
   }
 
-  public void setPredicate(@javax.annotation.Nonnull SelectorBlock predicate) {
+  public void setPredicate(@javax.annotation.Nonnull Block predicate) {
     this.predicate = predicate;
   }
 
@@ -273,7 +274,7 @@ public class FilterSelectorStep {
       // validate the required field `type`
       TypeEnum.validateJsonElement(jsonObj.get("type"));
       // validate the required field `predicate`
-      SelectorBlock.validateJsonElement(jsonObj.get("predicate"));
+      Block.validateJsonElement(jsonObj.get("predicate"));
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
@@ -305,7 +306,9 @@ public class FilterSelectorStep {
                    obj.addProperty(entry.getKey(), (Character) entry.getValue());
                  else {
                    JsonElement jsonElement = gson.toJsonTree(entry.getValue());
-                   if (jsonElement.isJsonArray()) {
+                   if (jsonElement.isJsonNull()) {
+                     obj.add(entry.getKey(), JsonNull.INSTANCE);
+                   } else if (jsonElement.isJsonArray()) {
                      obj.add(entry.getKey(), jsonElement.getAsJsonArray());
                    } else {
                      obj.add(entry.getKey(), jsonElement.getAsJsonObject());

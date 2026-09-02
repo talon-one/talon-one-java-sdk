@@ -9,8 +9,8 @@ Variant of `CheckAttributeBlock` for the `between` operator, which requires both
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
 |**operator** | [**OperatorEnum**](#OperatorEnum) | The range comparison operator. Must be &#x60;between&#x60;. |  [optional] |
-|**min** | **Object** |  |  |
-|**max** | **Object** |  |  |
+|**min** | **Object** | The minimum value allowed for the &#x60;between&#x60; operator. |  |
+|**max** | **Object** | The maximum value allowed for the &#x60;between&#x60; operator. |  |
 
 
 

@@ -29,6 +29,7 @@ import com.google.gson.JsonDeserializationContext;
 import com.google.gson.JsonDeserializer;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
+import com.google.gson.JsonNull;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
@@ -48,7 +49,7 @@ import one.talon.JSON;
 /**
  * Details about why a rule failed.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.24.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.25.0")
 public class RuleFailureReason {
   public static final String SERIALIZED_NAME_CAMPAIGN_I_D = "campaignID";
   @SerializedName(SERIALIZED_NAME_CAMPAIGN_I_D)
@@ -84,6 +85,16 @@ public class RuleFailureReason {
   @SerializedName(SERIALIZED_NAME_REFERRAL_VALUE)
   @javax.annotation.Nullable
   private String referralValue;
+
+  public static final String SERIALIZED_NAME_REWARD_ID = "rewardId";
+  @SerializedName(SERIALIZED_NAME_REWARD_ID)
+  @javax.annotation.Nullable
+  private Long rewardId;
+
+  public static final String SERIALIZED_NAME_REWARD_INTEGRATION_ID = "rewardIntegrationId";
+  @SerializedName(SERIALIZED_NAME_REWARD_INTEGRATION_ID)
+  @javax.annotation.Nullable
+  private String rewardIntegrationId;
 
   public static final String SERIALIZED_NAME_RULE_INDEX = "ruleIndex";
   @SerializedName(SERIALIZED_NAME_RULE_INDEX)
@@ -253,6 +264,44 @@ public class RuleFailureReason {
 
   public void setReferralValue(@javax.annotation.Nullable String referralValue) {
     this.referralValue = referralValue;
+  }
+
+
+  public RuleFailureReason rewardId(@javax.annotation.Nullable Long rewardId) {
+    this.rewardId = rewardId;
+    return this;
+  }
+
+  /**
+   * The ID of the reward that was being evaluated at the time of the rule failure.
+   * @return rewardId
+   */
+  @javax.annotation.Nullable
+  public Long getRewardId() {
+    return rewardId;
+  }
+
+  public void setRewardId(@javax.annotation.Nullable Long rewardId) {
+    this.rewardId = rewardId;
+  }
+
+
+  public RuleFailureReason rewardIntegrationId(@javax.annotation.Nullable String rewardIntegrationId) {
+    this.rewardIntegrationId = rewardIntegrationId;
+    return this;
+  }
+
+  /**
+   * The integration ID of the reward that was being evaluated at the time of the rule failure.
+   * @return rewardIntegrationId
+   */
+  @javax.annotation.Nullable
+  public String getRewardIntegrationId() {
+    return rewardIntegrationId;
+  }
+
+  public void setRewardIntegrationId(@javax.annotation.Nullable String rewardIntegrationId) {
+    this.rewardIntegrationId = rewardIntegrationId;
   }
 
 
@@ -450,6 +499,8 @@ public class RuleFailureReason {
         Objects.equals(this.couponValue, ruleFailureReason.couponValue) &&
         Objects.equals(this.referralID, ruleFailureReason.referralID) &&
         Objects.equals(this.referralValue, ruleFailureReason.referralValue) &&
+        Objects.equals(this.rewardId, ruleFailureReason.rewardId) &&
+        Objects.equals(this.rewardIntegrationId, ruleFailureReason.rewardIntegrationId) &&
         Objects.equals(this.ruleIndex, ruleFailureReason.ruleIndex) &&
         Objects.equals(this.ruleName, ruleFailureReason.ruleName) &&
         Objects.equals(this.conditionIndex, ruleFailureReason.conditionIndex) &&
@@ -462,7 +513,7 @@ public class RuleFailureReason {
 
   @Override
   public int hashCode() {
-    return Objects.hash(campaignID, campaignName, rulesetID, couponID, couponValue, referralID, referralValue, ruleIndex, ruleName, conditionIndex, effectIndex, details, evaluationGroupID, evaluationGroupMode, additionalProperties);
+    return Objects.hash(campaignID, campaignName, rulesetID, couponID, couponValue, referralID, referralValue, rewardId, rewardIntegrationId, ruleIndex, ruleName, conditionIndex, effectIndex, details, evaluationGroupID, evaluationGroupMode, additionalProperties);
   }
 
   @Override
@@ -476,6 +527,8 @@ public class RuleFailureReason {
     sb.append("    couponValue: ").append(toIndentedString(couponValue)).append("\n");
     sb.append("    referralID: ").append(toIndentedString(referralID)).append("\n");
     sb.append("    referralValue: ").append(toIndentedString(referralValue)).append("\n");
+    sb.append("    rewardId: ").append(toIndentedString(rewardId)).append("\n");
+    sb.append("    rewardIntegrationId: ").append(toIndentedString(rewardIntegrationId)).append("\n");
     sb.append("    ruleIndex: ").append(toIndentedString(ruleIndex)).append("\n");
     sb.append("    ruleName: ").append(toIndentedString(ruleName)).append("\n");
     sb.append("    conditionIndex: ").append(toIndentedString(conditionIndex)).append("\n");
@@ -502,7 +555,7 @@ public class RuleFailureReason {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("campaignID", "campaignName", "rulesetID", "couponID", "couponValue", "referralID", "referralValue", "ruleIndex", "ruleName", "conditionIndex", "effectIndex", "details", "evaluationGroupID", "evaluationGroupMode"));
+    openapiFields = new HashSet<String>(Arrays.asList("campaignID", "campaignName", "rulesetID", "couponID", "couponValue", "referralID", "referralValue", "rewardId", "rewardIntegrationId", "ruleIndex", "ruleName", "conditionIndex", "effectIndex", "details", "evaluationGroupID", "evaluationGroupMode"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("campaignID", "campaignName", "rulesetID", "ruleIndex", "ruleName"));
@@ -536,6 +589,9 @@ public class RuleFailureReason {
       }
       if ((jsonObj.get("referralValue") != null && !jsonObj.get("referralValue").isJsonNull()) && !jsonObj.get("referralValue").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `referralValue` to be a primitive type in the JSON string but got `%s`", jsonObj.get("referralValue").toString()));
+      }
+      if ((jsonObj.get("rewardIntegrationId") != null && !jsonObj.get("rewardIntegrationId").isJsonNull()) && !jsonObj.get("rewardIntegrationId").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `rewardIntegrationId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("rewardIntegrationId").toString()));
       }
       if (!jsonObj.get("ruleName").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `ruleName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("ruleName").toString()));
@@ -577,7 +633,9 @@ public class RuleFailureReason {
                    obj.addProperty(entry.getKey(), (Character) entry.getValue());
                  else {
                    JsonElement jsonElement = gson.toJsonTree(entry.getValue());
-                   if (jsonElement.isJsonArray()) {
+                   if (jsonElement.isJsonNull()) {
+                     obj.add(entry.getKey(), JsonNull.INSTANCE);
+                   } else if (jsonElement.isJsonArray()) {
                      obj.add(entry.getKey(), jsonElement.getAsJsonArray());
                    } else {
                      obj.add(entry.getKey(), jsonElement.getAsJsonObject());

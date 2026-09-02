@@ -99,6 +99,14 @@ public class NewCouponsTest {
     }
 
     /**
+     * Test the property 'batchId'
+     */
+    @Test
+    public void batchIdTest() {
+        // TODO: test batchId
+    }
+
+    /**
      * Test the property 'uniquePrefix'
      */
     @Test

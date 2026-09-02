@@ -21,8 +21,8 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.util.Arrays;
-import one.talon.model.WebhookAuthenticationBaseOneOf;
-import one.talon.model.WebhookAuthenticationBaseOneOf1;
+import one.talon.model.WebhookAuthenticationBaseBasic;
+import one.talon.model.WebhookAuthenticationBaseCustom;
 import one.talon.model.WebhookAuthenticationDataCustom;
 
 
@@ -60,7 +60,7 @@ import com.google.gson.JsonParseException;
 
 import one.talon.JSON;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.24.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.25.0")
 public class WebhookAuthenticationBase extends AbstractOpenApiSchema {
     private static final Logger log = Logger.getLogger(WebhookAuthenticationBase.class.getName());
 
@@ -72,8 +72,8 @@ public class WebhookAuthenticationBase extends AbstractOpenApiSchema {
                 return null; // this class only serializes 'WebhookAuthenticationBase' and its subtypes
             }
             final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-            final TypeAdapter<WebhookAuthenticationBaseOneOf> adapterWebhookAuthenticationBaseOneOf = gson.getDelegateAdapter(this, TypeToken.get(WebhookAuthenticationBaseOneOf.class));
-            final TypeAdapter<WebhookAuthenticationBaseOneOf1> adapterWebhookAuthenticationBaseOneOf1 = gson.getDelegateAdapter(this, TypeToken.get(WebhookAuthenticationBaseOneOf1.class));
+            final TypeAdapter<WebhookAuthenticationBaseBasic> adapterWebhookAuthenticationBaseBasic = gson.getDelegateAdapter(this, TypeToken.get(WebhookAuthenticationBaseBasic.class));
+            final TypeAdapter<WebhookAuthenticationBaseCustom> adapterWebhookAuthenticationBaseCustom = gson.getDelegateAdapter(this, TypeToken.get(WebhookAuthenticationBaseCustom.class));
 
             return (TypeAdapter<T>) new TypeAdapter<WebhookAuthenticationBase>() {
                 @Override
@@ -83,19 +83,19 @@ public class WebhookAuthenticationBase extends AbstractOpenApiSchema {
                         return;
                     }
 
-                    // check if the actual instance is of the type `WebhookAuthenticationBaseOneOf`
-                    if (value.getActualInstance() instanceof WebhookAuthenticationBaseOneOf) {
-                        JsonElement element = adapterWebhookAuthenticationBaseOneOf.toJsonTree((WebhookAuthenticationBaseOneOf)value.getActualInstance());
+                    // check if the actual instance is of the type `WebhookAuthenticationBaseBasic`
+                    if (value.getActualInstance() instanceof WebhookAuthenticationBaseBasic) {
+                        JsonElement element = adapterWebhookAuthenticationBaseBasic.toJsonTree((WebhookAuthenticationBaseBasic)value.getActualInstance());
                         elementAdapter.write(out, element);
                         return;
                     }
-                    // check if the actual instance is of the type `WebhookAuthenticationBaseOneOf1`
-                    if (value.getActualInstance() instanceof WebhookAuthenticationBaseOneOf1) {
-                        JsonElement element = adapterWebhookAuthenticationBaseOneOf1.toJsonTree((WebhookAuthenticationBaseOneOf1)value.getActualInstance());
+                    // check if the actual instance is of the type `WebhookAuthenticationBaseCustom`
+                    if (value.getActualInstance() instanceof WebhookAuthenticationBaseCustom) {
+                        JsonElement element = adapterWebhookAuthenticationBaseCustom.toJsonTree((WebhookAuthenticationBaseCustom)value.getActualInstance());
                         elementAdapter.write(out, element);
                         return;
                     }
-                    throw new IOException("Failed to serialize as the type doesn't match oneOf schemas: WebhookAuthenticationBaseOneOf, WebhookAuthenticationBaseOneOf1");
+                    throw new IOException("Failed to serialize as the type doesn't match oneOf schemas: WebhookAuthenticationBaseBasic, WebhookAuthenticationBaseCustom");
                 }
 
                 @Override
@@ -103,33 +103,55 @@ public class WebhookAuthenticationBase extends AbstractOpenApiSchema {
                     Object deserialized = null;
                     JsonElement jsonElement = elementAdapter.read(in);
 
+                    JsonObject jsonObject = jsonElement.getAsJsonObject();
+
+                    // use discriminator value for faster oneOf lookup
+                    WebhookAuthenticationBase newWebhookAuthenticationBase = new WebhookAuthenticationBase();
+                    if (jsonObject.get("type") == null) {
+                        log.log(Level.WARNING, "Failed to lookup discriminator value for WebhookAuthenticationBase as `type` was not found in the payload or the payload is empty.");
+                    } else  {
+                        // look up the discriminator value in the field `type`
+                        switch (jsonObject.get("type").getAsString()) {
+                            case "basic":
+                                deserialized = adapterWebhookAuthenticationBaseBasic.fromJsonTree(jsonObject);
+                                newWebhookAuthenticationBase.setActualInstance(deserialized);
+                                return newWebhookAuthenticationBase;
+                            case "custom":
+                                deserialized = adapterWebhookAuthenticationBaseCustom.fromJsonTree(jsonObject);
+                                newWebhookAuthenticationBase.setActualInstance(deserialized);
+                                return newWebhookAuthenticationBase;
+                            default:
+                                log.log(Level.WARNING, String.format(java.util.Locale.ROOT, "Failed to lookup discriminator value `%s` for WebhookAuthenticationBase. Possible values: basic custom", jsonObject.get("type").getAsString()));
+                        }
+                    }
+
                     int match = 0;
                     ArrayList<String> errorMessages = new ArrayList<>();
                     TypeAdapter actualAdapter = elementAdapter;
 
-                    // deserialize WebhookAuthenticationBaseOneOf
+                    // deserialize WebhookAuthenticationBaseBasic
                     try {
                         // validate the JSON object to see if any exception is thrown
-                        WebhookAuthenticationBaseOneOf.validateJsonElement(jsonElement);
-                        actualAdapter = adapterWebhookAuthenticationBaseOneOf;
+                        WebhookAuthenticationBaseBasic.validateJsonElement(jsonElement);
+                        actualAdapter = adapterWebhookAuthenticationBaseBasic;
                         match++;
-                        log.log(Level.FINER, "Input data matches schema 'WebhookAuthenticationBaseOneOf'");
+                        log.log(Level.FINER, "Input data matches schema 'WebhookAuthenticationBaseBasic'");
                     } catch (Exception e) {
                         // deserialization failed, continue
-                        errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for WebhookAuthenticationBaseOneOf failed with `%s`.", e.getMessage()));
-                        log.log(Level.FINER, "Input data does not match schema 'WebhookAuthenticationBaseOneOf'", e);
+                        errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for WebhookAuthenticationBaseBasic failed with `%s`.", e.getMessage()));
+                        log.log(Level.FINER, "Input data does not match schema 'WebhookAuthenticationBaseBasic'", e);
                     }
-                    // deserialize WebhookAuthenticationBaseOneOf1
+                    // deserialize WebhookAuthenticationBaseCustom
                     try {
                         // validate the JSON object to see if any exception is thrown
-                        WebhookAuthenticationBaseOneOf1.validateJsonElement(jsonElement);
-                        actualAdapter = adapterWebhookAuthenticationBaseOneOf1;
+                        WebhookAuthenticationBaseCustom.validateJsonElement(jsonElement);
+                        actualAdapter = adapterWebhookAuthenticationBaseCustom;
                         match++;
-                        log.log(Level.FINER, "Input data matches schema 'WebhookAuthenticationBaseOneOf1'");
+                        log.log(Level.FINER, "Input data matches schema 'WebhookAuthenticationBaseCustom'");
                     } catch (Exception e) {
                         // deserialization failed, continue
-                        errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for WebhookAuthenticationBaseOneOf1 failed with `%s`.", e.getMessage()));
-                        log.log(Level.FINER, "Input data does not match schema 'WebhookAuthenticationBaseOneOf1'", e);
+                        errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for WebhookAuthenticationBaseCustom failed with `%s`.", e.getMessage()));
+                        log.log(Level.FINER, "Input data does not match schema 'WebhookAuthenticationBaseCustom'", e);
                     }
 
                     if (match == 1) {
@@ -157,8 +179,8 @@ public class WebhookAuthenticationBase extends AbstractOpenApiSchema {
     }
 
     static {
-        schemas.put("WebhookAuthenticationBaseOneOf", WebhookAuthenticationBaseOneOf.class);
-        schemas.put("WebhookAuthenticationBaseOneOf1", WebhookAuthenticationBaseOneOf1.class);
+        schemas.put("WebhookAuthenticationBaseBasic", WebhookAuthenticationBaseBasic.class);
+        schemas.put("WebhookAuthenticationBaseCustom", WebhookAuthenticationBaseCustom.class);
     }
 
     @Override
@@ -169,30 +191,30 @@ public class WebhookAuthenticationBase extends AbstractOpenApiSchema {
     /**
      * Set the instance that matches the oneOf child schema, check
      * the instance parameter is valid against the oneOf child schemas:
-     * WebhookAuthenticationBaseOneOf, WebhookAuthenticationBaseOneOf1
+     * WebhookAuthenticationBaseBasic, WebhookAuthenticationBaseCustom
      *
      * It could be an instance of the 'oneOf' schemas.
      */
     @Override
     public void setActualInstance(Object instance) {
-        if (instance instanceof WebhookAuthenticationBaseOneOf) {
+        if (instance instanceof WebhookAuthenticationBaseBasic) {
             super.setActualInstance(instance);
             return;
         }
 
-        if (instance instanceof WebhookAuthenticationBaseOneOf1) {
+        if (instance instanceof WebhookAuthenticationBaseCustom) {
             super.setActualInstance(instance);
             return;
         }
 
-        throw new RuntimeException("Invalid instance type. Must be WebhookAuthenticationBaseOneOf, WebhookAuthenticationBaseOneOf1");
+        throw new RuntimeException("Invalid instance type. Must be WebhookAuthenticationBaseBasic, WebhookAuthenticationBaseCustom");
     }
 
     /**
      * Get the actual instance, which can be the following:
-     * WebhookAuthenticationBaseOneOf, WebhookAuthenticationBaseOneOf1
+     * WebhookAuthenticationBaseBasic, WebhookAuthenticationBaseCustom
      *
-     * @return The actual instance (WebhookAuthenticationBaseOneOf, WebhookAuthenticationBaseOneOf1)
+     * @return The actual instance (WebhookAuthenticationBaseBasic, WebhookAuthenticationBaseCustom)
      */
     @SuppressWarnings("unchecked")
     @Override
@@ -201,27 +223,27 @@ public class WebhookAuthenticationBase extends AbstractOpenApiSchema {
     }
 
     /**
-     * Get the actual instance of `WebhookAuthenticationBaseOneOf`. If the actual instance is not `WebhookAuthenticationBaseOneOf`,
+     * Get the actual instance of `WebhookAuthenticationBaseBasic`. If the actual instance is not `WebhookAuthenticationBaseBasic`,
      * the ClassCastException will be thrown.
      *
-     * @return The actual instance of `WebhookAuthenticationBaseOneOf`
-     * @throws ClassCastException if the instance is not `WebhookAuthenticationBaseOneOf`
+     * @return The actual instance of `WebhookAuthenticationBaseBasic`
+     * @throws ClassCastException if the instance is not `WebhookAuthenticationBaseBasic`
      */
     @SuppressWarnings("unchecked")
-    public WebhookAuthenticationBaseOneOf getWebhookAuthenticationBaseOneOf() throws ClassCastException {
-        return (WebhookAuthenticationBaseOneOf)super.getActualInstance();
+    public WebhookAuthenticationBaseBasic getWebhookAuthenticationBaseBasic() throws ClassCastException {
+        return (WebhookAuthenticationBaseBasic)super.getActualInstance();
     }
 
     /**
-     * Get the actual instance of `WebhookAuthenticationBaseOneOf1`. If the actual instance is not `WebhookAuthenticationBaseOneOf1`,
+     * Get the actual instance of `WebhookAuthenticationBaseCustom`. If the actual instance is not `WebhookAuthenticationBaseCustom`,
      * the ClassCastException will be thrown.
      *
-     * @return The actual instance of `WebhookAuthenticationBaseOneOf1`
-     * @throws ClassCastException if the instance is not `WebhookAuthenticationBaseOneOf1`
+     * @return The actual instance of `WebhookAuthenticationBaseCustom`
+     * @throws ClassCastException if the instance is not `WebhookAuthenticationBaseCustom`
      */
     @SuppressWarnings("unchecked")
-    public WebhookAuthenticationBaseOneOf1 getWebhookAuthenticationBaseOneOf1() throws ClassCastException {
-        return (WebhookAuthenticationBaseOneOf1)super.getActualInstance();
+    public WebhookAuthenticationBaseCustom getWebhookAuthenticationBaseCustom() throws ClassCastException {
+        return (WebhookAuthenticationBaseCustom)super.getActualInstance();
     }
 
     /**
@@ -234,24 +256,24 @@ public class WebhookAuthenticationBase extends AbstractOpenApiSchema {
         // validate oneOf schemas one by one
         int validCount = 0;
         ArrayList<String> errorMessages = new ArrayList<>();
-        // validate the json string with WebhookAuthenticationBaseOneOf
+        // validate the json string with WebhookAuthenticationBaseBasic
         try {
-            WebhookAuthenticationBaseOneOf.validateJsonElement(jsonElement);
+            WebhookAuthenticationBaseBasic.validateJsonElement(jsonElement);
             validCount++;
         } catch (Exception e) {
-            errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for WebhookAuthenticationBaseOneOf failed with `%s`.", e.getMessage()));
+            errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for WebhookAuthenticationBaseBasic failed with `%s`.", e.getMessage()));
             // continue to the next one
         }
-        // validate the json string with WebhookAuthenticationBaseOneOf1
+        // validate the json string with WebhookAuthenticationBaseCustom
         try {
-            WebhookAuthenticationBaseOneOf1.validateJsonElement(jsonElement);
+            WebhookAuthenticationBaseCustom.validateJsonElement(jsonElement);
             validCount++;
         } catch (Exception e) {
-            errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for WebhookAuthenticationBaseOneOf1 failed with `%s`.", e.getMessage()));
+            errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for WebhookAuthenticationBaseCustom failed with `%s`.", e.getMessage()));
             // continue to the next one
         }
         if (validCount != 1) {
-            throw new IOException(String.format(java.util.Locale.ROOT, "The JSON string is invalid for WebhookAuthenticationBase with oneOf schemas: WebhookAuthenticationBaseOneOf, WebhookAuthenticationBaseOneOf1. %d class(es) match the result, expected 1. Detailed failure message for oneOf schemas: %s. JSON: %s", validCount, errorMessages, jsonElement.toString()));
+            throw new IOException(String.format(java.util.Locale.ROOT, "The JSON string is invalid for WebhookAuthenticationBase with oneOf schemas: WebhookAuthenticationBaseBasic, WebhookAuthenticationBaseCustom. %d class(es) match the result, expected 1. Detailed failure message for oneOf schemas: %s. JSON: %s", validCount, errorMessages, jsonElement.toString()));
         }
     }
 

@@ -25,7 +25,7 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import one.talon.model.PromotionBlock;
+import one.talon.model.Block;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -34,6 +34,7 @@ import com.google.gson.JsonDeserializationContext;
 import com.google.gson.JsonDeserializer;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
+import com.google.gson.JsonNull;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
@@ -53,11 +54,11 @@ import one.talon.JSON;
 /**
  * AwardItemBlock
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.24.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.25.0")
 public class AwardItemBlock {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   private String id;
 
   public static final String SERIALIZED_NAME_TYPE = "type";
@@ -93,33 +94,34 @@ public class AwardItemBlock {
   public static final String SERIALIZED_NAME_ON_FAILURE = "onFailure";
   @SerializedName(SERIALIZED_NAME_ON_FAILURE)
   @javax.annotation.Nullable
-  private List<PromotionBlock> onFailure;
+  private List<Block> onFailure;
 
   public static final String SERIALIZED_NAME_ON_ERROR = "onError";
   @SerializedName(SERIALIZED_NAME_ON_ERROR)
   @javax.annotation.Nullable
-  private Map<String, List<PromotionBlock>> onError;
+  private Map<String, List<Block>> onError;
 
   public AwardItemBlock() {
   }
 
-  public AwardItemBlock id(@javax.annotation.Nonnull String id) {
+  public AwardItemBlock(
+     String id, 
+     List<String> tags
+  ) {
+    this();
     this.id = id;
-    return this;
+    this.tags = tags;
   }
 
   /**
    * Unique identifier for this block.
    * @return id
    */
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   public String getId() {
     return id;
   }
 
-  public void setId(@javax.annotation.Nonnull String id) {
-    this.id = id;
-  }
 
 
   public AwardItemBlock type(@javax.annotation.Nonnull String type) {
@@ -141,19 +143,6 @@ public class AwardItemBlock {
   }
 
 
-  public AwardItemBlock tags(@javax.annotation.Nullable List<String> tags) {
-    this.tags = tags;
-    return this;
-  }
-
-  public AwardItemBlock addTagsItem(String tagsItem) {
-    if (this.tags == null) {
-      this.tags = new ArrayList<>();
-    }
-    this.tags.add(tagsItem);
-    return this;
-  }
-
   /**
    * Semantic labels attached to this block.
    * @return tags
@@ -163,9 +152,6 @@ public class AwardItemBlock {
     return tags;
   }
 
-  public void setTags(@javax.annotation.Nullable List<String> tags) {
-    this.tags = tags;
-  }
 
 
   public AwardItemBlock sku(@javax.annotation.Nonnull String sku) {
@@ -244,12 +230,12 @@ public class AwardItemBlock {
   }
 
 
-  public AwardItemBlock onFailure(@javax.annotation.Nullable List<PromotionBlock> onFailure) {
+  public AwardItemBlock onFailure(@javax.annotation.Nullable List<Block> onFailure) {
     this.onFailure = onFailure;
     return this;
   }
 
-  public AwardItemBlock addOnFailureItem(PromotionBlock onFailureItem) {
+  public AwardItemBlock addOnFailureItem(Block onFailureItem) {
     if (this.onFailure == null) {
       this.onFailure = new ArrayList<>();
     }
@@ -262,21 +248,21 @@ public class AwardItemBlock {
    * @return onFailure
    */
   @javax.annotation.Nullable
-  public List<PromotionBlock> getOnFailure() {
+  public List<Block> getOnFailure() {
     return onFailure;
   }
 
-  public void setOnFailure(@javax.annotation.Nullable List<PromotionBlock> onFailure) {
+  public void setOnFailure(@javax.annotation.Nullable List<Block> onFailure) {
     this.onFailure = onFailure;
   }
 
 
-  public AwardItemBlock onError(@javax.annotation.Nullable Map<String, List<PromotionBlock>> onError) {
+  public AwardItemBlock onError(@javax.annotation.Nullable Map<String, List<Block>> onError) {
     this.onError = onError;
     return this;
   }
 
-  public AwardItemBlock putOnErrorItem(String key, List<PromotionBlock> onErrorItem) {
+  public AwardItemBlock putOnErrorItem(String key, List<Block> onErrorItem) {
     if (this.onError == null) {
       this.onError = new HashMap<>();
     }
@@ -289,11 +275,11 @@ public class AwardItemBlock {
    * @return onError
    */
   @javax.annotation.Nullable
-  public Map<String, List<PromotionBlock>> getOnError() {
+  public Map<String, List<Block>> getOnError() {
     return onError;
   }
 
-  public void setOnError(@javax.annotation.Nullable Map<String, List<PromotionBlock>> onError) {
+  public void setOnError(@javax.annotation.Nullable Map<String, List<Block>> onError) {
     this.onError = onError;
   }
 
@@ -404,7 +390,7 @@ public class AwardItemBlock {
     openapiFields = new HashSet<String>(Arrays.asList("id", "type", "tags", "sku", "name", "quantity", "partial", "onFailure", "onError"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("id", "type", "sku", "name", "quantity"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("type", "sku", "name", "quantity"));
   }
 
   /**
@@ -427,7 +413,7 @@ public class AwardItemBlock {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if (!jsonObj.get("id").isJsonPrimitive()) {
+      if ((jsonObj.get("id") != null && !jsonObj.get("id").isJsonNull()) && !jsonObj.get("id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("id").toString()));
       }
       if (!jsonObj.get("type").isJsonPrimitive()) {
@@ -456,7 +442,7 @@ public class AwardItemBlock {
 
           // validate the optional field `onFailure` (array)
           for (int i = 0; i < jsonArrayonFailure.size(); i++) {
-            PromotionBlock.validateJsonElement(jsonArrayonFailure.get(i));
+            Block.validateJsonElement(jsonArrayonFailure.get(i));
           };
         }
       }
@@ -491,7 +477,9 @@ public class AwardItemBlock {
                    obj.addProperty(entry.getKey(), (Character) entry.getValue());
                  else {
                    JsonElement jsonElement = gson.toJsonTree(entry.getValue());
-                   if (jsonElement.isJsonArray()) {
+                   if (jsonElement.isJsonNull()) {
+                     obj.add(entry.getKey(), JsonNull.INSTANCE);
+                   } else if (jsonElement.isJsonArray()) {
                      obj.add(entry.getKey(), jsonElement.getAsJsonArray());
                    } else {
                      obj.add(entry.getKey(), jsonElement.getAsJsonObject());

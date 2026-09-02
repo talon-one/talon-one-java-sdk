@@ -64,7 +64,7 @@ import com.google.gson.JsonParseException;
 
 import one.talon.JSON;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.24.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.25.0")
 public class CatalogAction extends AbstractOpenApiSchema {
     private static final Logger log = Logger.getLogger(CatalogAction.class.getName());
 
@@ -134,6 +134,44 @@ public class CatalogAction extends AbstractOpenApiSchema {
                 public CatalogAction read(JsonReader in) throws IOException {
                     Object deserialized = null;
                     JsonElement jsonElement = elementAdapter.read(in);
+
+                    JsonObject jsonObject = jsonElement.getAsJsonObject();
+
+                    // use discriminator value for faster oneOf lookup
+                    CatalogAction newCatalogAction = new CatalogAction();
+                    if (jsonObject.get("type") == null) {
+                        log.log(Level.WARNING, "Failed to lookup discriminator value for CatalogAction as `type` was not found in the payload or the payload is empty.");
+                    } else  {
+                        // look up the discriminator value in the field `type`
+                        switch (jsonObject.get("type").getAsString()) {
+                            case "ADD":
+                                deserialized = adapterCatalogActionAdd.fromJsonTree(jsonObject);
+                                newCatalogAction.setActualInstance(deserialized);
+                                return newCatalogAction;
+                            case "ADD_PRICE_ADJUSTMENT":
+                                deserialized = adapterCatalogActionAddPriceAdjustment.fromJsonTree(jsonObject);
+                                newCatalogAction.setActualInstance(deserialized);
+                                return newCatalogAction;
+                            case "PATCH":
+                                deserialized = adapterCatalogActionPatch.fromJsonTree(jsonObject);
+                                newCatalogAction.setActualInstance(deserialized);
+                                return newCatalogAction;
+                            case "PATCH_MANY":
+                                deserialized = adapterCatalogActionPatchMany.fromJsonTree(jsonObject);
+                                newCatalogAction.setActualInstance(deserialized);
+                                return newCatalogAction;
+                            case "REMOVE":
+                                deserialized = adapterCatalogActionRemove.fromJsonTree(jsonObject);
+                                newCatalogAction.setActualInstance(deserialized);
+                                return newCatalogAction;
+                            case "REMOVE_MANY":
+                                deserialized = adapterCatalogActionRemoveMany.fromJsonTree(jsonObject);
+                                newCatalogAction.setActualInstance(deserialized);
+                                return newCatalogAction;
+                            default:
+                                log.log(Level.WARNING, String.format(java.util.Locale.ROOT, "Failed to lookup discriminator value `%s` for CatalogAction. Possible values: ADD ADD_PRICE_ADJUSTMENT PATCH PATCH_MANY REMOVE REMOVE_MANY", jsonObject.get("type").getAsString()));
+                        }
+                    }
 
                     int match = 0;
                     ArrayList<String> errorMessages = new ArrayList<>();

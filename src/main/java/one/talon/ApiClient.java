@@ -142,7 +142,7 @@ public class ApiClient {
         json = new JSON();
 
         // Set default User-Agent.
-        setUserAgent("OpenAPI-Generator/26.17.0/java");
+        setUserAgent("OpenAPI-Generator/26.18.0/java");
 
         authentications = new HashMap<String, Authentication>();
     }
@@ -376,6 +376,17 @@ public class ApiClient {
      */
     public ApiClient setLocalDateFormat(DateTimeFormatter dateFormat) {
         JSON.setLocalDateFormat(dateFormat);
+        return this;
+    }
+
+    /**
+     * <p>Set LocalDateTimeFormat.</p>
+     *
+     * @param dateFormat a {@link java.time.format.DateTimeFormatter} object
+     * @return a {@link one.talon.ApiClient} object
+     */
+    public ApiClient setLocalDateTimeFormat(DateTimeFormatter dateFormat) {
+        JSON.setLocalDateTimeFormat(dateFormat);
         return this;
     }
 

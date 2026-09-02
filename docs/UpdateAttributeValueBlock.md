@@ -7,12 +7,12 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**id** | **String** | Unique identifier for this block. |  |
+|**id** | **String** | Unique identifier for this block. |  [optional] [readonly] |
 |**type** | **String** | Identifies the block variant and determines which additional properties are present in it. |  |
 |**tags** | **List&lt;String&gt;** | Semantic labels attached to this block. |  [optional] |
 |**operator** | [**OperatorEnum**](#OperatorEnum) | The update operation applied to the attribute. |  |
 |**attribute** | [**UpdateAttributeValueBlock1Attribute**](UpdateAttributeValueBlock1Attribute.md) |  |  |
-|**value** | **Object** |  |  [optional] |
+|**value** | **Object** | The value of the attribute. Omitted when operator is set to &#x60;toggle&#x60;. |  [optional] |
 |**target** | [**UpdateAttributeValueBlock1Target**](UpdateAttributeValueBlock1Target.md) |  |  |
 
 

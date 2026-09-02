@@ -32,6 +32,7 @@ import com.google.gson.JsonDeserializationContext;
 import com.google.gson.JsonDeserializer;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
+import com.google.gson.JsonNull;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
@@ -51,11 +52,11 @@ import one.talon.JSON;
 /**
  * UpdateAchievementProgressBlock
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.24.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.25.0")
 public class UpdateAchievementProgressBlock {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   private String id;
 
   public static final String SERIALIZED_NAME_TYPE = "type";
@@ -136,23 +137,24 @@ public class UpdateAchievementProgressBlock {
   public UpdateAchievementProgressBlock() {
   }
 
-  public UpdateAchievementProgressBlock id(@javax.annotation.Nonnull String id) {
+  public UpdateAchievementProgressBlock(
+     String id, 
+     List<String> tags
+  ) {
+    this();
     this.id = id;
-    return this;
+    this.tags = tags;
   }
 
   /**
    * Unique identifier for this block.
    * @return id
    */
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   public String getId() {
     return id;
   }
 
-  public void setId(@javax.annotation.Nonnull String id) {
-    this.id = id;
-  }
 
 
   public UpdateAchievementProgressBlock type(@javax.annotation.Nonnull String type) {
@@ -174,19 +176,6 @@ public class UpdateAchievementProgressBlock {
   }
 
 
-  public UpdateAchievementProgressBlock tags(@javax.annotation.Nullable List<String> tags) {
-    this.tags = tags;
-    return this;
-  }
-
-  public UpdateAchievementProgressBlock addTagsItem(String tagsItem) {
-    if (this.tags == null) {
-      this.tags = new ArrayList<>();
-    }
-    this.tags.add(tagsItem);
-    return this;
-  }
-
   /**
    * Semantic labels attached to this block.
    * @return tags
@@ -196,9 +185,6 @@ public class UpdateAchievementProgressBlock {
     return tags;
   }
 
-  public void setTags(@javax.annotation.Nullable List<String> tags) {
-    this.tags = tags;
-  }
 
 
   public UpdateAchievementProgressBlock operator(@javax.annotation.Nonnull OperatorEnum operator) {
@@ -358,7 +344,7 @@ public class UpdateAchievementProgressBlock {
     openapiFields = new HashSet<String>(Arrays.asList("id", "type", "tags", "operator", "value", "achievement"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("id", "type", "operator", "value", "achievement"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("type", "operator", "value", "achievement"));
   }
 
   /**
@@ -381,7 +367,7 @@ public class UpdateAchievementProgressBlock {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if (!jsonObj.get("id").isJsonPrimitive()) {
+      if ((jsonObj.get("id") != null && !jsonObj.get("id").isJsonNull()) && !jsonObj.get("id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("id").toString()));
       }
       if (!jsonObj.get("type").isJsonPrimitive()) {
@@ -432,7 +418,9 @@ public class UpdateAchievementProgressBlock {
                    obj.addProperty(entry.getKey(), (Character) entry.getValue());
                  else {
                    JsonElement jsonElement = gson.toJsonTree(entry.getValue());
-                   if (jsonElement.isJsonArray()) {
+                   if (jsonElement.isJsonNull()) {
+                     obj.add(entry.getKey(), JsonNull.INSTANCE);
+                   } else if (jsonElement.isJsonArray()) {
                      obj.add(entry.getKey(), jsonElement.getAsJsonArray());
                    } else {
                      obj.add(entry.getKey(), jsonElement.getAsJsonObject());
