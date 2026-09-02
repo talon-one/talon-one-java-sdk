@@ -127,6 +127,14 @@ public class CustomerSessionV2Test {
     }
 
     /**
+     * Test the property 'rewardIntegrationIds'
+     */
+    @Test
+    public void rewardIntegrationIdsTest() {
+        // TODO: test rewardIntegrationIds
+    }
+
+    /**
      * Test the property 'state'
      */
     @Test

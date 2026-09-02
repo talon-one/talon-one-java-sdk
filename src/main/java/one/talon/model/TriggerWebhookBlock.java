@@ -25,7 +25,7 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import one.talon.model.PromotionBlock;
+import one.talon.model.Block;
 import one.talon.model.TriggerWebhookBlock1Webhook;
 
 import com.google.gson.Gson;
@@ -35,6 +35,7 @@ import com.google.gson.JsonDeserializationContext;
 import com.google.gson.JsonDeserializer;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
+import com.google.gson.JsonNull;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
@@ -54,11 +55,11 @@ import one.talon.JSON;
 /**
  * TriggerWebhookBlock
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.24.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.25.0")
 public class TriggerWebhookBlock {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   private String id;
 
   public static final String SERIALIZED_NAME_TYPE = "type";
@@ -84,28 +85,29 @@ public class TriggerWebhookBlock {
   public static final String SERIALIZED_NAME_ON_ERROR = "onError";
   @SerializedName(SERIALIZED_NAME_ON_ERROR)
   @javax.annotation.Nullable
-  private Map<String, List<PromotionBlock>> onError;
+  private Map<String, List<Block>> onError;
 
   public TriggerWebhookBlock() {
   }
 
-  public TriggerWebhookBlock id(@javax.annotation.Nonnull String id) {
+  public TriggerWebhookBlock(
+     String id, 
+     List<String> tags
+  ) {
+    this();
     this.id = id;
-    return this;
+    this.tags = tags;
   }
 
   /**
    * Unique identifier for this block.
    * @return id
    */
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   public String getId() {
     return id;
   }
 
-  public void setId(@javax.annotation.Nonnull String id) {
-    this.id = id;
-  }
 
 
   public TriggerWebhookBlock type(@javax.annotation.Nonnull String type) {
@@ -127,19 +129,6 @@ public class TriggerWebhookBlock {
   }
 
 
-  public TriggerWebhookBlock tags(@javax.annotation.Nullable List<String> tags) {
-    this.tags = tags;
-    return this;
-  }
-
-  public TriggerWebhookBlock addTagsItem(String tagsItem) {
-    if (this.tags == null) {
-      this.tags = new ArrayList<>();
-    }
-    this.tags.add(tagsItem);
-    return this;
-  }
-
   /**
    * Semantic labels attached to this block.
    * @return tags
@@ -149,9 +138,6 @@ public class TriggerWebhookBlock {
     return tags;
   }
 
-  public void setTags(@javax.annotation.Nullable List<String> tags) {
-    this.tags = tags;
-  }
 
 
   public TriggerWebhookBlock webhook(@javax.annotation.Nonnull TriggerWebhookBlock1Webhook webhook) {
@@ -200,12 +186,12 @@ public class TriggerWebhookBlock {
   }
 
 
-  public TriggerWebhookBlock onError(@javax.annotation.Nullable Map<String, List<PromotionBlock>> onError) {
+  public TriggerWebhookBlock onError(@javax.annotation.Nullable Map<String, List<Block>> onError) {
     this.onError = onError;
     return this;
   }
 
-  public TriggerWebhookBlock putOnErrorItem(String key, List<PromotionBlock> onErrorItem) {
+  public TriggerWebhookBlock putOnErrorItem(String key, List<Block> onErrorItem) {
     if (this.onError == null) {
       this.onError = new HashMap<>();
     }
@@ -218,11 +204,11 @@ public class TriggerWebhookBlock {
    * @return onError
    */
   @javax.annotation.Nullable
-  public Map<String, List<PromotionBlock>> getOnError() {
+  public Map<String, List<Block>> getOnError() {
     return onError;
   }
 
-  public void setOnError(@javax.annotation.Nullable Map<String, List<PromotionBlock>> onError) {
+  public void setOnError(@javax.annotation.Nullable Map<String, List<Block>> onError) {
     this.onError = onError;
   }
 
@@ -327,7 +313,7 @@ public class TriggerWebhookBlock {
     openapiFields = new HashSet<String>(Arrays.asList("id", "type", "tags", "webhook", "params", "onError"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("id", "type", "webhook"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("type", "webhook"));
   }
 
   /**
@@ -350,7 +336,7 @@ public class TriggerWebhookBlock {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if (!jsonObj.get("id").isJsonPrimitive()) {
+      if ((jsonObj.get("id") != null && !jsonObj.get("id").isJsonNull()) && !jsonObj.get("id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("id").toString()));
       }
       if (!jsonObj.get("type").isJsonPrimitive()) {
@@ -393,7 +379,9 @@ public class TriggerWebhookBlock {
                    obj.addProperty(entry.getKey(), (Character) entry.getValue());
                  else {
                    JsonElement jsonElement = gson.toJsonTree(entry.getValue());
-                   if (jsonElement.isJsonArray()) {
+                   if (jsonElement.isJsonNull()) {
+                     obj.add(entry.getKey(), JsonNull.INSTANCE);
+                   } else if (jsonElement.isJsonArray()) {
                      obj.add(entry.getKey(), jsonElement.getAsJsonArray());
                    } else {
                      obj.add(entry.getKey(), jsonElement.getAsJsonObject());

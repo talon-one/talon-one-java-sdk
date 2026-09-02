@@ -23,6 +23,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import one.talon.model.Block;
 import one.talon.model.FilterAndMapValuesSelectorStep;
 import one.talon.model.FilterSelectorStep;
 import one.talon.model.MapSelectorStep;
@@ -30,7 +31,6 @@ import one.talon.model.ReduceSelectorStep;
 import one.talon.model.ReverseSelectorStep;
 import one.talon.model.SelectSelectorStep;
 import one.talon.model.SelectSelectorStepFrom;
-import one.talon.model.SelectorBlock;
 import one.talon.model.SelectorValueMapRef;
 import one.talon.model.SortSelectorStep;
 import one.talon.model.SortSelectorStepField;
@@ -70,7 +70,7 @@ import com.google.gson.JsonParseException;
 
 import one.talon.JSON;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.24.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.25.0")
 public class SelectorStep extends AbstractOpenApiSchema {
     private static final Logger log = Logger.getLogger(SelectorStep.class.getName());
 
@@ -147,6 +147,48 @@ public class SelectorStep extends AbstractOpenApiSchema {
                 public SelectorStep read(JsonReader in) throws IOException {
                     Object deserialized = null;
                     JsonElement jsonElement = elementAdapter.read(in);
+
+                    JsonObject jsonObject = jsonElement.getAsJsonObject();
+
+                    // use discriminator value for faster oneOf lookup
+                    SelectorStep newSelectorStep = new SelectorStep();
+                    if (jsonObject.get("type") == null) {
+                        log.log(Level.WARNING, "Failed to lookup discriminator value for SelectorStep as `type` was not found in the payload or the payload is empty.");
+                    } else  {
+                        // look up the discriminator value in the field `type`
+                        switch (jsonObject.get("type").getAsString()) {
+                            case "filter":
+                                deserialized = adapterFilterSelectorStep.fromJsonTree(jsonObject);
+                                newSelectorStep.setActualInstance(deserialized);
+                                return newSelectorStep;
+                            case "filterAndMapValues":
+                                deserialized = adapterFilterAndMapValuesSelectorStep.fromJsonTree(jsonObject);
+                                newSelectorStep.setActualInstance(deserialized);
+                                return newSelectorStep;
+                            case "map":
+                                deserialized = adapterMapSelectorStep.fromJsonTree(jsonObject);
+                                newSelectorStep.setActualInstance(deserialized);
+                                return newSelectorStep;
+                            case "reduce":
+                                deserialized = adapterReduceSelectorStep.fromJsonTree(jsonObject);
+                                newSelectorStep.setActualInstance(deserialized);
+                                return newSelectorStep;
+                            case "reverse":
+                                deserialized = adapterReverseSelectorStep.fromJsonTree(jsonObject);
+                                newSelectorStep.setActualInstance(deserialized);
+                                return newSelectorStep;
+                            case "select":
+                                deserialized = adapterSelectSelectorStep.fromJsonTree(jsonObject);
+                                newSelectorStep.setActualInstance(deserialized);
+                                return newSelectorStep;
+                            case "sort":
+                                deserialized = adapterSortSelectorStep.fromJsonTree(jsonObject);
+                                newSelectorStep.setActualInstance(deserialized);
+                                return newSelectorStep;
+                            default:
+                                log.log(Level.WARNING, String.format(java.util.Locale.ROOT, "Failed to lookup discriminator value `%s` for SelectorStep. Possible values: filter filterAndMapValues map reduce reverse select sort", jsonObject.get("type").getAsString()));
+                        }
+                    }
 
                     int match = 0;
                     ArrayList<String> errorMessages = new ArrayList<>();

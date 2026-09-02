@@ -480,6 +480,22 @@ public class ManagementApiTest {
     }
 
     /**
+     * Create ruleset (V2)
+     *
+     * Create a ruleset from promotion and strikethrough rules in the V2 JSON block format. A ruleset is a revision of all the rules of a campaign.  Only &#x60;group&#x60; and &#x60;passthrough&#x60; blocks are currently writable, with optional &#x60;onFailure&#x60; blocks. A payload containing any other block type is rejected. Each rule&#39;s &#x60;blocks&#x60; array may contain at most one block.
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void createRulesetV2Test() throws ApiException {
+        Long applicationId = null;
+        Long campaignId = null;
+        RulesetV2 rulesetV2 = null;
+        RulesetV2 response = api.createRulesetV2(applicationId, campaignId, rulesetV2);
+        // TODO: test validations
+    }
+
+    /**
      * Create session
      *
      * Create a session to use the Management API endpoints.  Use the value of the &#x60;token&#x60; property provided in the response as bearer token in other API calls.  A token is valid for 3 months. In accordance with best pratices, use your generated token for all your API requests. Do **not** regenerate a token for each request.  This endpoint has a rate limit of 3 to 6 requests per second per account, depending on your setup.  &gt; [!note] &gt; Instead of using a session, you can also use the &lt;a href&#x3D;\&quot;https://docs.talon.one/docs/product/account/dev-tools/managing-mapi-keys\&quot;&gt;Management API key feature&lt;/a&gt; &gt; in the Campaign Manager to decide which endpoints can be used with a given key. 
@@ -2239,6 +2255,7 @@ public class ManagementApiTest {
         OffsetDateTime createdBefore = null;
         OffsetDateTime createdAfter = null;
         byte[] cursor = null;
+        Long pageSize = null;
         String period = null;
         Boolean isSuccessful = null;
         BigDecimal applicationId = null;
@@ -2246,7 +2263,7 @@ public class ManagementApiTest {
         Long loyaltyProgramId = null;
         Long responseCode = null;
         String webhookIDs = null;
-        MessageLogEntries response = api.getMessageLogs(entityType, messageID, changeType, notificationIDs, createdBefore, createdAfter, cursor, period, isSuccessful, applicationId, campaignId, loyaltyProgramId, responseCode, webhookIDs);
+        MessageLogEntries response = api.getMessageLogs(entityType, messageID, changeType, notificationIDs, createdBefore, createdAfter, cursor, pageSize, period, isSuccessful, applicationId, campaignId, loyaltyProgramId, responseCode, webhookIDs);
         // TODO: test validations
     }
 

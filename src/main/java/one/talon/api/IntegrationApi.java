@@ -32,6 +32,7 @@ import one.talon.model.ActivateLoyaltyPointsResponse;
 import one.talon.model.Audience;
 import one.talon.model.BestPriorPrice;
 import one.talon.model.BestPriorPriceRequest;
+import java.math.BigDecimal;
 import one.talon.model.Catalog;
 import one.talon.model.CatalogSyncRequest;
 import one.talon.model.Coupon;
@@ -60,7 +61,9 @@ import one.talon.model.IntegrationEventV3Request;
 import one.talon.model.IntegrationEventV3Response;
 import one.talon.model.IntegrationGetAllCampaigns200Response;
 import one.talon.model.IntegrationRequest;
+import one.talon.model.IntegrationRewardsCatalog200Response;
 import one.talon.model.IntegrationStateV2;
+import one.talon.model.IntegrationUnlockRewardRequest;
 import one.talon.model.LoyaltyBalancesWithTiers;
 import one.talon.model.LoyaltyCard;
 import one.talon.model.LoyaltyCardBalances;
@@ -74,6 +77,7 @@ import java.time.OffsetDateTime;
 import one.talon.model.Referral;
 import one.talon.model.ReopenSessionResponse;
 import one.talon.model.ReturnIntegrationRequest;
+import one.talon.model.RewardUnlockRejection;
 import one.talon.model.UpdateAudience;
 import one.talon.model.UpdateCustomerProfileV2409Response;
 import one.talon.model.UpdateCustomerSessionV2409Response;
@@ -1112,6 +1116,7 @@ public class IntegrationApi {
         <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict. The audience is used by one or more experiments. Each &#x60;errors[].source.resource&#x60; value contains the Campaign Manager path of a blocking experiment.  </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call deleteAudienceV2Call(@javax.annotation.Nonnull Long audienceId, final ApiCallback _callback) throws ApiException {
@@ -1172,7 +1177,7 @@ public class IntegrationApi {
 
     /**
      * Delete audience
-     * Delete an audience.  &gt; [!warning] This endpoint also removes any associations recorded between a customer profile and this audience.  &gt; [!note] Audiences can also be deleted via the Campaign Manager. See the [docs](https://docs.talon.one/docs/product/audiences/managing-audiences#deleting-an-audience). 
+     * Delete an audience.  &gt; [!warning] This endpoint also removes any associations recorded between a customer profile and this audience.  &gt; [!note] Audiences can also be deleted via the Campaign Manager. See the [docs](https://docs.talon.one/docs/product/audiences/managing-audiences#deleting-an-audience).  The audience isn&#39;t deleted if any experiment variant uses it. The response identifies each blocking experiment by its Campaign Manager path. 
      * @param audienceId The ID of the audience. (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1183,6 +1188,7 @@ public class IntegrationApi {
         <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict. The audience is used by one or more experiments. Each &#x60;errors[].source.resource&#x60; value contains the Campaign Manager path of a blocking experiment.  </td><td>  -  </td></tr>
      </table>
      */
     public void deleteAudienceV2(@javax.annotation.Nonnull Long audienceId) throws ApiException {
@@ -1191,7 +1197,7 @@ public class IntegrationApi {
 
     /**
      * Delete audience
-     * Delete an audience.  &gt; [!warning] This endpoint also removes any associations recorded between a customer profile and this audience.  &gt; [!note] Audiences can also be deleted via the Campaign Manager. See the [docs](https://docs.talon.one/docs/product/audiences/managing-audiences#deleting-an-audience). 
+     * Delete an audience.  &gt; [!warning] This endpoint also removes any associations recorded between a customer profile and this audience.  &gt; [!note] Audiences can also be deleted via the Campaign Manager. See the [docs](https://docs.talon.one/docs/product/audiences/managing-audiences#deleting-an-audience).  The audience isn&#39;t deleted if any experiment variant uses it. The response identifies each blocking experiment by its Campaign Manager path. 
      * @param audienceId The ID of the audience. (required)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1203,6 +1209,7 @@ public class IntegrationApi {
         <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict. The audience is used by one or more experiments. Each &#x60;errors[].source.resource&#x60; value contains the Campaign Manager path of a blocking experiment.  </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<Void> deleteAudienceV2WithHttpInfo(@javax.annotation.Nonnull Long audienceId) throws ApiException {
@@ -1212,7 +1219,7 @@ public class IntegrationApi {
 
     /**
      * Delete audience (asynchronously)
-     * Delete an audience.  &gt; [!warning] This endpoint also removes any associations recorded between a customer profile and this audience.  &gt; [!note] Audiences can also be deleted via the Campaign Manager. See the [docs](https://docs.talon.one/docs/product/audiences/managing-audiences#deleting-an-audience). 
+     * Delete an audience.  &gt; [!warning] This endpoint also removes any associations recorded between a customer profile and this audience.  &gt; [!note] Audiences can also be deleted via the Campaign Manager. See the [docs](https://docs.talon.one/docs/product/audiences/managing-audiences#deleting-an-audience).  The audience isn&#39;t deleted if any experiment variant uses it. The response identifies each blocking experiment by its Campaign Manager path. 
      * @param audienceId The ID of the audience. (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -1225,6 +1232,7 @@ public class IntegrationApi {
         <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict. The audience is used by one or more experiments. Each &#x60;errors[].source.resource&#x60; value contains the Campaign Manager path of a blocking experiment.  </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call deleteAudienceV2Async(@javax.annotation.Nonnull Long audienceId, final ApiCallback<Void> _callback) throws ApiException {
@@ -2194,6 +2202,7 @@ public class IntegrationApi {
      * @param loyalty Set to &#x60;true&#x60; to include loyalty information in the response. (optional)
      * @param giveaways Set to &#x60;true&#x60; to include giveaways information in the response. (optional)
      * @param achievements Set to &#x60;true&#x60; to include achievement information in the response. (optional)
+     * @param unlockedRewards Set to &#x60;true&#x60; to include &#x60;unlocked&#x60; rewards that have not been &#x60;used&#x60; in the response. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -2206,7 +2215,7 @@ public class IntegrationApi {
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getCustomerInventoryCall(@javax.annotation.Nonnull String integrationId, @javax.annotation.Nullable Boolean profile, @javax.annotation.Nullable Boolean referrals, @javax.annotation.Nullable Boolean coupons, @javax.annotation.Nullable Boolean loyalty, @javax.annotation.Nullable Boolean giveaways, @javax.annotation.Nullable Boolean achievements, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getCustomerInventoryCall(@javax.annotation.Nonnull String integrationId, @javax.annotation.Nullable Boolean profile, @javax.annotation.Nullable Boolean referrals, @javax.annotation.Nullable Boolean coupons, @javax.annotation.Nullable Boolean loyalty, @javax.annotation.Nullable Boolean giveaways, @javax.annotation.Nullable Boolean achievements, @javax.annotation.Nullable Boolean unlockedRewards, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -2256,6 +2265,10 @@ public class IntegrationApi {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("achievements", achievements));
         }
 
+        if (unlockedRewards != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("unlockedRewards", unlockedRewards));
+        }
+
         final String[] localVarAccepts = {
             "application/json"
         };
@@ -2276,13 +2289,13 @@ public class IntegrationApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getCustomerInventoryValidateBeforeCall(@javax.annotation.Nonnull String integrationId, @javax.annotation.Nullable Boolean profile, @javax.annotation.Nullable Boolean referrals, @javax.annotation.Nullable Boolean coupons, @javax.annotation.Nullable Boolean loyalty, @javax.annotation.Nullable Boolean giveaways, @javax.annotation.Nullable Boolean achievements, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getCustomerInventoryValidateBeforeCall(@javax.annotation.Nonnull String integrationId, @javax.annotation.Nullable Boolean profile, @javax.annotation.Nullable Boolean referrals, @javax.annotation.Nullable Boolean coupons, @javax.annotation.Nullable Boolean loyalty, @javax.annotation.Nullable Boolean giveaways, @javax.annotation.Nullable Boolean achievements, @javax.annotation.Nullable Boolean unlockedRewards, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'integrationId' is set
         if (integrationId == null) {
             throw new ApiException("Missing the required parameter 'integrationId' when calling getCustomerInventory(Async)");
         }
 
-        return getCustomerInventoryCall(integrationId, profile, referrals, coupons, loyalty, giveaways, achievements, _callback);
+        return getCustomerInventoryCall(integrationId, profile, referrals, coupons, loyalty, giveaways, achievements, unlockedRewards, _callback);
 
     }
 
@@ -2296,6 +2309,7 @@ public class IntegrationApi {
      * @param loyalty Set to &#x60;true&#x60; to include loyalty information in the response. (optional)
      * @param giveaways Set to &#x60;true&#x60; to include giveaways information in the response. (optional)
      * @param achievements Set to &#x60;true&#x60; to include achievement information in the response. (optional)
+     * @param unlockedRewards Set to &#x60;true&#x60; to include &#x60;unlocked&#x60; rewards that have not been &#x60;used&#x60; in the response. (optional)
      * @return CustomerInventory
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2307,8 +2321,8 @@ public class IntegrationApi {
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
      */
-    public CustomerInventory getCustomerInventory(@javax.annotation.Nonnull String integrationId, @javax.annotation.Nullable Boolean profile, @javax.annotation.Nullable Boolean referrals, @javax.annotation.Nullable Boolean coupons, @javax.annotation.Nullable Boolean loyalty, @javax.annotation.Nullable Boolean giveaways, @javax.annotation.Nullable Boolean achievements) throws ApiException {
-        ApiResponse<CustomerInventory> localVarResp = getCustomerInventoryWithHttpInfo(integrationId, profile, referrals, coupons, loyalty, giveaways, achievements);
+    public CustomerInventory getCustomerInventory(@javax.annotation.Nonnull String integrationId, @javax.annotation.Nullable Boolean profile, @javax.annotation.Nullable Boolean referrals, @javax.annotation.Nullable Boolean coupons, @javax.annotation.Nullable Boolean loyalty, @javax.annotation.Nullable Boolean giveaways, @javax.annotation.Nullable Boolean achievements, @javax.annotation.Nullable Boolean unlockedRewards) throws ApiException {
+        ApiResponse<CustomerInventory> localVarResp = getCustomerInventoryWithHttpInfo(integrationId, profile, referrals, coupons, loyalty, giveaways, achievements, unlockedRewards);
         return localVarResp.getData();
     }
 
@@ -2322,6 +2336,7 @@ public class IntegrationApi {
      * @param loyalty Set to &#x60;true&#x60; to include loyalty information in the response. (optional)
      * @param giveaways Set to &#x60;true&#x60; to include giveaways information in the response. (optional)
      * @param achievements Set to &#x60;true&#x60; to include achievement information in the response. (optional)
+     * @param unlockedRewards Set to &#x60;true&#x60; to include &#x60;unlocked&#x60; rewards that have not been &#x60;used&#x60; in the response. (optional)
      * @return ApiResponse&lt;CustomerInventory&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2333,8 +2348,8 @@ public class IntegrationApi {
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<CustomerInventory> getCustomerInventoryWithHttpInfo(@javax.annotation.Nonnull String integrationId, @javax.annotation.Nullable Boolean profile, @javax.annotation.Nullable Boolean referrals, @javax.annotation.Nullable Boolean coupons, @javax.annotation.Nullable Boolean loyalty, @javax.annotation.Nullable Boolean giveaways, @javax.annotation.Nullable Boolean achievements) throws ApiException {
-        okhttp3.Call localVarCall = getCustomerInventoryValidateBeforeCall(integrationId, profile, referrals, coupons, loyalty, giveaways, achievements, null);
+    public ApiResponse<CustomerInventory> getCustomerInventoryWithHttpInfo(@javax.annotation.Nonnull String integrationId, @javax.annotation.Nullable Boolean profile, @javax.annotation.Nullable Boolean referrals, @javax.annotation.Nullable Boolean coupons, @javax.annotation.Nullable Boolean loyalty, @javax.annotation.Nullable Boolean giveaways, @javax.annotation.Nullable Boolean achievements, @javax.annotation.Nullable Boolean unlockedRewards) throws ApiException {
+        okhttp3.Call localVarCall = getCustomerInventoryValidateBeforeCall(integrationId, profile, referrals, coupons, loyalty, giveaways, achievements, unlockedRewards, null);
         Type localVarReturnType = new TypeToken<CustomerInventory>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -2349,6 +2364,7 @@ public class IntegrationApi {
      * @param loyalty Set to &#x60;true&#x60; to include loyalty information in the response. (optional)
      * @param giveaways Set to &#x60;true&#x60; to include giveaways information in the response. (optional)
      * @param achievements Set to &#x60;true&#x60; to include achievement information in the response. (optional)
+     * @param unlockedRewards Set to &#x60;true&#x60; to include &#x60;unlocked&#x60; rewards that have not been &#x60;used&#x60; in the response. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -2361,9 +2377,9 @@ public class IntegrationApi {
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getCustomerInventoryAsync(@javax.annotation.Nonnull String integrationId, @javax.annotation.Nullable Boolean profile, @javax.annotation.Nullable Boolean referrals, @javax.annotation.Nullable Boolean coupons, @javax.annotation.Nullable Boolean loyalty, @javax.annotation.Nullable Boolean giveaways, @javax.annotation.Nullable Boolean achievements, final ApiCallback<CustomerInventory> _callback) throws ApiException {
+    public okhttp3.Call getCustomerInventoryAsync(@javax.annotation.Nonnull String integrationId, @javax.annotation.Nullable Boolean profile, @javax.annotation.Nullable Boolean referrals, @javax.annotation.Nullable Boolean coupons, @javax.annotation.Nullable Boolean loyalty, @javax.annotation.Nullable Boolean giveaways, @javax.annotation.Nullable Boolean achievements, @javax.annotation.Nullable Boolean unlockedRewards, final ApiCallback<CustomerInventory> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getCustomerInventoryValidateBeforeCall(integrationId, profile, referrals, coupons, loyalty, giveaways, achievements, _callback);
+        okhttp3.Call localVarCall = getCustomerInventoryValidateBeforeCall(integrationId, profile, referrals, coupons, loyalty, giveaways, achievements, unlockedRewards, _callback);
         Type localVarReturnType = new TypeToken<CustomerInventory>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -3412,11 +3428,11 @@ public class IntegrationApi {
      * @param integrationId The integration identifier for this customer profile. Must be: - Unique within the deployment. - Stable for the customer. Do not use an ID that the customer can update themselves. For example, you can use a database ID.  Once set, you cannot update this identifier.  (required)
      * @param status Filter points based on their status. (optional, default to active)
      * @param subledgerId Filter the results by a list of subledger IDs.  To include multiple IDs, repeat the parameter for each one, for example, &#x60;?subledgerId&#x3D;id1&amp;subledgerId&#x3D;id2&#x60;.  The response contains only data associated with the specified subledgers.  (optional)
-     * @param customerSessionIDs Filter the results by a list of customer session IDs.   To include multiple IDs, repeat the parameter for each one, for example,  &#x60;?customerSessionIDs&#x3D;id1&amp;customerSessionIDs&#x3D;id2&#x60;.  The response contains only data associated with the specified sessions.  (optional)
-     * @param transactionUUIDs Filter the results by a list of transaction UUIDs.  To include multiple IDs, repeat the parameter for each one, for example,  &#x60;?transactionUUIDs&#x3D;uuid1&amp;transactionUUIDs&#x3D;uuid2&#x60;.  The response contains only data associated with the specified transactions.  (optional)
+     * @param customerSessionIDs Filter the results by a list of customer session IDs.  To include multiple IDs, repeat the parameter for each one, for example, &#x60;?customerSessionIDs&#x3D;id1&amp;customerSessionIDs&#x3D;id2&#x60;.  The response contains only data associated with the specified sessions.  (optional)
+     * @param transactionUUIDs Filter the results by a list of transaction UUIDs.  To include multiple IDs, repeat the parameter for each one, for example, &#x60;?transactionUUIDs&#x3D;uuid1&amp;transactionUUIDs&#x3D;uuid2&#x60;.  The response contains only data associated with the specified transactions.  (optional)
      * @param pageSize The number of items in the response. (optional, default to 50)
      * @param skip The number of items to skip when paging through large result sets. (optional)
-     * @param sort The field by which results should be sorted. You can enter one of the following values:  - &#x60;startDate&#x60;: Sorts the results by the start date of the points. - &#x60;expiryDate&#x60;: Sorts the results by the expiry date of the points.  By default, results are sorted in ascending order.  To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** You can only sort by one field at a time.  (optional)
+     * @param sort The field by which results should be sorted. You can enter one of the following values:  - &#x60;startDate&#x60;: Sorts the results by the start date of the points. - &#x60;expiryDate&#x60;: Sorts the results by the expiry date of the points.  By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** You can only sort by one field at a time.  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -3527,11 +3543,11 @@ public class IntegrationApi {
      * @param integrationId The integration identifier for this customer profile. Must be: - Unique within the deployment. - Stable for the customer. Do not use an ID that the customer can update themselves. For example, you can use a database ID.  Once set, you cannot update this identifier.  (required)
      * @param status Filter points based on their status. (optional, default to active)
      * @param subledgerId Filter the results by a list of subledger IDs.  To include multiple IDs, repeat the parameter for each one, for example, &#x60;?subledgerId&#x3D;id1&amp;subledgerId&#x3D;id2&#x60;.  The response contains only data associated with the specified subledgers.  (optional)
-     * @param customerSessionIDs Filter the results by a list of customer session IDs.   To include multiple IDs, repeat the parameter for each one, for example,  &#x60;?customerSessionIDs&#x3D;id1&amp;customerSessionIDs&#x3D;id2&#x60;.  The response contains only data associated with the specified sessions.  (optional)
-     * @param transactionUUIDs Filter the results by a list of transaction UUIDs.  To include multiple IDs, repeat the parameter for each one, for example,  &#x60;?transactionUUIDs&#x3D;uuid1&amp;transactionUUIDs&#x3D;uuid2&#x60;.  The response contains only data associated with the specified transactions.  (optional)
+     * @param customerSessionIDs Filter the results by a list of customer session IDs.  To include multiple IDs, repeat the parameter for each one, for example, &#x60;?customerSessionIDs&#x3D;id1&amp;customerSessionIDs&#x3D;id2&#x60;.  The response contains only data associated with the specified sessions.  (optional)
+     * @param transactionUUIDs Filter the results by a list of transaction UUIDs.  To include multiple IDs, repeat the parameter for each one, for example, &#x60;?transactionUUIDs&#x3D;uuid1&amp;transactionUUIDs&#x3D;uuid2&#x60;.  The response contains only data associated with the specified transactions.  (optional)
      * @param pageSize The number of items in the response. (optional, default to 50)
      * @param skip The number of items to skip when paging through large result sets. (optional)
-     * @param sort The field by which results should be sorted. You can enter one of the following values:  - &#x60;startDate&#x60;: Sorts the results by the start date of the points. - &#x60;expiryDate&#x60;: Sorts the results by the expiry date of the points.  By default, results are sorted in ascending order.  To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** You can only sort by one field at a time.  (optional)
+     * @param sort The field by which results should be sorted. You can enter one of the following values:  - &#x60;startDate&#x60;: Sorts the results by the start date of the points. - &#x60;expiryDate&#x60;: Sorts the results by the expiry date of the points.  By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** You can only sort by one field at a time.  (optional)
      * @return GetLoyaltyProgramProfilePoints200Response
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -3556,11 +3572,11 @@ public class IntegrationApi {
      * @param integrationId The integration identifier for this customer profile. Must be: - Unique within the deployment. - Stable for the customer. Do not use an ID that the customer can update themselves. For example, you can use a database ID.  Once set, you cannot update this identifier.  (required)
      * @param status Filter points based on their status. (optional, default to active)
      * @param subledgerId Filter the results by a list of subledger IDs.  To include multiple IDs, repeat the parameter for each one, for example, &#x60;?subledgerId&#x3D;id1&amp;subledgerId&#x3D;id2&#x60;.  The response contains only data associated with the specified subledgers.  (optional)
-     * @param customerSessionIDs Filter the results by a list of customer session IDs.   To include multiple IDs, repeat the parameter for each one, for example,  &#x60;?customerSessionIDs&#x3D;id1&amp;customerSessionIDs&#x3D;id2&#x60;.  The response contains only data associated with the specified sessions.  (optional)
-     * @param transactionUUIDs Filter the results by a list of transaction UUIDs.  To include multiple IDs, repeat the parameter for each one, for example,  &#x60;?transactionUUIDs&#x3D;uuid1&amp;transactionUUIDs&#x3D;uuid2&#x60;.  The response contains only data associated with the specified transactions.  (optional)
+     * @param customerSessionIDs Filter the results by a list of customer session IDs.  To include multiple IDs, repeat the parameter for each one, for example, &#x60;?customerSessionIDs&#x3D;id1&amp;customerSessionIDs&#x3D;id2&#x60;.  The response contains only data associated with the specified sessions.  (optional)
+     * @param transactionUUIDs Filter the results by a list of transaction UUIDs.  To include multiple IDs, repeat the parameter for each one, for example, &#x60;?transactionUUIDs&#x3D;uuid1&amp;transactionUUIDs&#x3D;uuid2&#x60;.  The response contains only data associated with the specified transactions.  (optional)
      * @param pageSize The number of items in the response. (optional, default to 50)
      * @param skip The number of items to skip when paging through large result sets. (optional)
-     * @param sort The field by which results should be sorted. You can enter one of the following values:  - &#x60;startDate&#x60;: Sorts the results by the start date of the points. - &#x60;expiryDate&#x60;: Sorts the results by the expiry date of the points.  By default, results are sorted in ascending order.  To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** You can only sort by one field at a time.  (optional)
+     * @param sort The field by which results should be sorted. You can enter one of the following values:  - &#x60;startDate&#x60;: Sorts the results by the start date of the points. - &#x60;expiryDate&#x60;: Sorts the results by the expiry date of the points.  By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** You can only sort by one field at a time.  (optional)
      * @return ApiResponse&lt;GetLoyaltyProgramProfilePoints200Response&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -3586,11 +3602,11 @@ public class IntegrationApi {
      * @param integrationId The integration identifier for this customer profile. Must be: - Unique within the deployment. - Stable for the customer. Do not use an ID that the customer can update themselves. For example, you can use a database ID.  Once set, you cannot update this identifier.  (required)
      * @param status Filter points based on their status. (optional, default to active)
      * @param subledgerId Filter the results by a list of subledger IDs.  To include multiple IDs, repeat the parameter for each one, for example, &#x60;?subledgerId&#x3D;id1&amp;subledgerId&#x3D;id2&#x60;.  The response contains only data associated with the specified subledgers.  (optional)
-     * @param customerSessionIDs Filter the results by a list of customer session IDs.   To include multiple IDs, repeat the parameter for each one, for example,  &#x60;?customerSessionIDs&#x3D;id1&amp;customerSessionIDs&#x3D;id2&#x60;.  The response contains only data associated with the specified sessions.  (optional)
-     * @param transactionUUIDs Filter the results by a list of transaction UUIDs.  To include multiple IDs, repeat the parameter for each one, for example,  &#x60;?transactionUUIDs&#x3D;uuid1&amp;transactionUUIDs&#x3D;uuid2&#x60;.  The response contains only data associated with the specified transactions.  (optional)
+     * @param customerSessionIDs Filter the results by a list of customer session IDs.  To include multiple IDs, repeat the parameter for each one, for example, &#x60;?customerSessionIDs&#x3D;id1&amp;customerSessionIDs&#x3D;id2&#x60;.  The response contains only data associated with the specified sessions.  (optional)
+     * @param transactionUUIDs Filter the results by a list of transaction UUIDs.  To include multiple IDs, repeat the parameter for each one, for example, &#x60;?transactionUUIDs&#x3D;uuid1&amp;transactionUUIDs&#x3D;uuid2&#x60;.  The response contains only data associated with the specified transactions.  (optional)
      * @param pageSize The number of items in the response. (optional, default to 50)
      * @param skip The number of items to skip when paging through large result sets. (optional)
-     * @param sort The field by which results should be sorted. You can enter one of the following values:  - &#x60;startDate&#x60;: Sorts the results by the start date of the points. - &#x60;expiryDate&#x60;: Sorts the results by the expiry date of the points.  By default, results are sorted in ascending order.  To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** You can only sort by one field at a time.  (optional)
+     * @param sort The field by which results should be sorted. You can enter one of the following values:  - &#x60;startDate&#x60;: Sorts the results by the start date of the points. - &#x60;expiryDate&#x60;: Sorts the results by the expiry date of the points.  By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** You can only sort by one field at a time.  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -3617,7 +3633,7 @@ public class IntegrationApi {
      * @param integrationId The integration identifier for this customer profile. Must be: - Unique within the deployment. - Stable for the customer. Do not use an ID that the customer can update themselves. For example, you can use a database ID.  Once set, you cannot update this identifier.  (required)
      * @param customerSessionIDs Filter the results by a list of customer session IDs.  To include multiple IDs, repeat the parameter for each one, for example, &#x60;?customerSessionIDs&#x3D;id1&amp;customerSessionIDs&#x3D;id2&#x60;.  The response contains only data associated with the specified sessions.  (optional)
      * @param transactionUUIDs Filter the results by a list of transaction UUIDs.  To include multiple IDs, repeat the parameter for each one, for example, &#x60;?transactionUUIDs&#x3D;uuid1&amp;transactionUUIDs&#x3D;uuid2&#x60;.  The response contains only data associated with the specified transactions.  (optional)
-     * @param subledgerId The ID of the subledger by which we filter the data. (optional)
+     * @param subledgerId Filter the results by a list of subledger IDs.  To include multiple IDs, repeat the parameter for each one, for example, &#x60;?subledgerId&#x3D;id1&amp;subledgerId&#x3D;id2&#x60;.  The response contains only data associated with the specified subledgers.  (optional)
      * @param loyaltyTransactionType Filter results by loyalty transaction type: - &#x60;manual&#x60;: Loyalty transaction that was done manually. - &#x60;session&#x60;: Loyalty transaction that resulted from a customer session. - &#x60;import&#x60;: Loyalty transaction that was imported from a CSV file.  (optional)
      * @param startDate Date and time from which results are returned. Results are filtered by transaction creation date.  &gt; [!note] **Note** &gt; - This must be an RFC3339 timestamp string. &gt; - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting &gt;   considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered.  (optional)
      * @param endDate Date and time by which results are returned. Results are filtered by transaction creation date.  &gt; [!note] **Note** &gt; - This must be an RFC3339 timestamp string. &gt; - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting &gt;   considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered.  (optional)
@@ -3637,7 +3653,7 @@ public class IntegrationApi {
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getLoyaltyProgramProfileTransactionsCall(@javax.annotation.Nonnull Long loyaltyProgramId, @javax.annotation.Nonnull String integrationId, @javax.annotation.Nullable List<String> customerSessionIDs, @javax.annotation.Nullable List<String> transactionUUIDs, @javax.annotation.Nullable String subledgerId, @javax.annotation.Nullable String loyaltyTransactionType, @javax.annotation.Nullable OffsetDateTime startDate, @javax.annotation.Nullable OffsetDateTime endDate, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable Boolean awaitsActivation, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getLoyaltyProgramProfileTransactionsCall(@javax.annotation.Nonnull Long loyaltyProgramId, @javax.annotation.Nonnull String integrationId, @javax.annotation.Nullable List<String> customerSessionIDs, @javax.annotation.Nullable List<String> transactionUUIDs, @javax.annotation.Nullable List<String> subledgerId, @javax.annotation.Nullable String loyaltyTransactionType, @javax.annotation.Nullable OffsetDateTime startDate, @javax.annotation.Nullable OffsetDateTime endDate, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable Boolean awaitsActivation, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -3673,7 +3689,7 @@ public class IntegrationApi {
         }
 
         if (subledgerId != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("subledgerId", subledgerId));
+            localVarCollectionQueryParams.addAll(localVarApiClient.parameterToPairs("multi", "subledgerId", subledgerId));
         }
 
         if (loyaltyTransactionType != null) {
@@ -3720,7 +3736,7 @@ public class IntegrationApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getLoyaltyProgramProfileTransactionsValidateBeforeCall(@javax.annotation.Nonnull Long loyaltyProgramId, @javax.annotation.Nonnull String integrationId, @javax.annotation.Nullable List<String> customerSessionIDs, @javax.annotation.Nullable List<String> transactionUUIDs, @javax.annotation.Nullable String subledgerId, @javax.annotation.Nullable String loyaltyTransactionType, @javax.annotation.Nullable OffsetDateTime startDate, @javax.annotation.Nullable OffsetDateTime endDate, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable Boolean awaitsActivation, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getLoyaltyProgramProfileTransactionsValidateBeforeCall(@javax.annotation.Nonnull Long loyaltyProgramId, @javax.annotation.Nonnull String integrationId, @javax.annotation.Nullable List<String> customerSessionIDs, @javax.annotation.Nullable List<String> transactionUUIDs, @javax.annotation.Nullable List<String> subledgerId, @javax.annotation.Nullable String loyaltyTransactionType, @javax.annotation.Nullable OffsetDateTime startDate, @javax.annotation.Nullable OffsetDateTime endDate, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable Boolean awaitsActivation, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'loyaltyProgramId' is set
         if (loyaltyProgramId == null) {
             throw new ApiException("Missing the required parameter 'loyaltyProgramId' when calling getLoyaltyProgramProfileTransactions(Async)");
@@ -3742,7 +3758,7 @@ public class IntegrationApi {
      * @param integrationId The integration identifier for this customer profile. Must be: - Unique within the deployment. - Stable for the customer. Do not use an ID that the customer can update themselves. For example, you can use a database ID.  Once set, you cannot update this identifier.  (required)
      * @param customerSessionIDs Filter the results by a list of customer session IDs.  To include multiple IDs, repeat the parameter for each one, for example, &#x60;?customerSessionIDs&#x3D;id1&amp;customerSessionIDs&#x3D;id2&#x60;.  The response contains only data associated with the specified sessions.  (optional)
      * @param transactionUUIDs Filter the results by a list of transaction UUIDs.  To include multiple IDs, repeat the parameter for each one, for example, &#x60;?transactionUUIDs&#x3D;uuid1&amp;transactionUUIDs&#x3D;uuid2&#x60;.  The response contains only data associated with the specified transactions.  (optional)
-     * @param subledgerId The ID of the subledger by which we filter the data. (optional)
+     * @param subledgerId Filter the results by a list of subledger IDs.  To include multiple IDs, repeat the parameter for each one, for example, &#x60;?subledgerId&#x3D;id1&amp;subledgerId&#x3D;id2&#x60;.  The response contains only data associated with the specified subledgers.  (optional)
      * @param loyaltyTransactionType Filter results by loyalty transaction type: - &#x60;manual&#x60;: Loyalty transaction that was done manually. - &#x60;session&#x60;: Loyalty transaction that resulted from a customer session. - &#x60;import&#x60;: Loyalty transaction that was imported from a CSV file.  (optional)
      * @param startDate Date and time from which results are returned. Results are filtered by transaction creation date.  &gt; [!note] **Note** &gt; - This must be an RFC3339 timestamp string. &gt; - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting &gt;   considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered.  (optional)
      * @param endDate Date and time by which results are returned. Results are filtered by transaction creation date.  &gt; [!note] **Note** &gt; - This must be an RFC3339 timestamp string. &gt; - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting &gt;   considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered.  (optional)
@@ -3761,7 +3777,7 @@ public class IntegrationApi {
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
      */
-    public GetLoyaltyProgramProfileTransactions200Response getLoyaltyProgramProfileTransactions(@javax.annotation.Nonnull Long loyaltyProgramId, @javax.annotation.Nonnull String integrationId, @javax.annotation.Nullable List<String> customerSessionIDs, @javax.annotation.Nullable List<String> transactionUUIDs, @javax.annotation.Nullable String subledgerId, @javax.annotation.Nullable String loyaltyTransactionType, @javax.annotation.Nullable OffsetDateTime startDate, @javax.annotation.Nullable OffsetDateTime endDate, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable Boolean awaitsActivation) throws ApiException {
+    public GetLoyaltyProgramProfileTransactions200Response getLoyaltyProgramProfileTransactions(@javax.annotation.Nonnull Long loyaltyProgramId, @javax.annotation.Nonnull String integrationId, @javax.annotation.Nullable List<String> customerSessionIDs, @javax.annotation.Nullable List<String> transactionUUIDs, @javax.annotation.Nullable List<String> subledgerId, @javax.annotation.Nullable String loyaltyTransactionType, @javax.annotation.Nullable OffsetDateTime startDate, @javax.annotation.Nullable OffsetDateTime endDate, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable Boolean awaitsActivation) throws ApiException {
         ApiResponse<GetLoyaltyProgramProfileTransactions200Response> localVarResp = getLoyaltyProgramProfileTransactionsWithHttpInfo(loyaltyProgramId, integrationId, customerSessionIDs, transactionUUIDs, subledgerId, loyaltyTransactionType, startDate, endDate, pageSize, skip, awaitsActivation);
         return localVarResp.getData();
     }
@@ -3773,7 +3789,7 @@ public class IntegrationApi {
      * @param integrationId The integration identifier for this customer profile. Must be: - Unique within the deployment. - Stable for the customer. Do not use an ID that the customer can update themselves. For example, you can use a database ID.  Once set, you cannot update this identifier.  (required)
      * @param customerSessionIDs Filter the results by a list of customer session IDs.  To include multiple IDs, repeat the parameter for each one, for example, &#x60;?customerSessionIDs&#x3D;id1&amp;customerSessionIDs&#x3D;id2&#x60;.  The response contains only data associated with the specified sessions.  (optional)
      * @param transactionUUIDs Filter the results by a list of transaction UUIDs.  To include multiple IDs, repeat the parameter for each one, for example, &#x60;?transactionUUIDs&#x3D;uuid1&amp;transactionUUIDs&#x3D;uuid2&#x60;.  The response contains only data associated with the specified transactions.  (optional)
-     * @param subledgerId The ID of the subledger by which we filter the data. (optional)
+     * @param subledgerId Filter the results by a list of subledger IDs.  To include multiple IDs, repeat the parameter for each one, for example, &#x60;?subledgerId&#x3D;id1&amp;subledgerId&#x3D;id2&#x60;.  The response contains only data associated with the specified subledgers.  (optional)
      * @param loyaltyTransactionType Filter results by loyalty transaction type: - &#x60;manual&#x60;: Loyalty transaction that was done manually. - &#x60;session&#x60;: Loyalty transaction that resulted from a customer session. - &#x60;import&#x60;: Loyalty transaction that was imported from a CSV file.  (optional)
      * @param startDate Date and time from which results are returned. Results are filtered by transaction creation date.  &gt; [!note] **Note** &gt; - This must be an RFC3339 timestamp string. &gt; - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting &gt;   considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered.  (optional)
      * @param endDate Date and time by which results are returned. Results are filtered by transaction creation date.  &gt; [!note] **Note** &gt; - This must be an RFC3339 timestamp string. &gt; - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting &gt;   considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered.  (optional)
@@ -3792,7 +3808,7 @@ public class IntegrationApi {
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<GetLoyaltyProgramProfileTransactions200Response> getLoyaltyProgramProfileTransactionsWithHttpInfo(@javax.annotation.Nonnull Long loyaltyProgramId, @javax.annotation.Nonnull String integrationId, @javax.annotation.Nullable List<String> customerSessionIDs, @javax.annotation.Nullable List<String> transactionUUIDs, @javax.annotation.Nullable String subledgerId, @javax.annotation.Nullable String loyaltyTransactionType, @javax.annotation.Nullable OffsetDateTime startDate, @javax.annotation.Nullable OffsetDateTime endDate, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable Boolean awaitsActivation) throws ApiException {
+    public ApiResponse<GetLoyaltyProgramProfileTransactions200Response> getLoyaltyProgramProfileTransactionsWithHttpInfo(@javax.annotation.Nonnull Long loyaltyProgramId, @javax.annotation.Nonnull String integrationId, @javax.annotation.Nullable List<String> customerSessionIDs, @javax.annotation.Nullable List<String> transactionUUIDs, @javax.annotation.Nullable List<String> subledgerId, @javax.annotation.Nullable String loyaltyTransactionType, @javax.annotation.Nullable OffsetDateTime startDate, @javax.annotation.Nullable OffsetDateTime endDate, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable Boolean awaitsActivation) throws ApiException {
         okhttp3.Call localVarCall = getLoyaltyProgramProfileTransactionsValidateBeforeCall(loyaltyProgramId, integrationId, customerSessionIDs, transactionUUIDs, subledgerId, loyaltyTransactionType, startDate, endDate, pageSize, skip, awaitsActivation, null);
         Type localVarReturnType = new TypeToken<GetLoyaltyProgramProfileTransactions200Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -3805,7 +3821,7 @@ public class IntegrationApi {
      * @param integrationId The integration identifier for this customer profile. Must be: - Unique within the deployment. - Stable for the customer. Do not use an ID that the customer can update themselves. For example, you can use a database ID.  Once set, you cannot update this identifier.  (required)
      * @param customerSessionIDs Filter the results by a list of customer session IDs.  To include multiple IDs, repeat the parameter for each one, for example, &#x60;?customerSessionIDs&#x3D;id1&amp;customerSessionIDs&#x3D;id2&#x60;.  The response contains only data associated with the specified sessions.  (optional)
      * @param transactionUUIDs Filter the results by a list of transaction UUIDs.  To include multiple IDs, repeat the parameter for each one, for example, &#x60;?transactionUUIDs&#x3D;uuid1&amp;transactionUUIDs&#x3D;uuid2&#x60;.  The response contains only data associated with the specified transactions.  (optional)
-     * @param subledgerId The ID of the subledger by which we filter the data. (optional)
+     * @param subledgerId Filter the results by a list of subledger IDs.  To include multiple IDs, repeat the parameter for each one, for example, &#x60;?subledgerId&#x3D;id1&amp;subledgerId&#x3D;id2&#x60;.  The response contains only data associated with the specified subledgers.  (optional)
      * @param loyaltyTransactionType Filter results by loyalty transaction type: - &#x60;manual&#x60;: Loyalty transaction that was done manually. - &#x60;session&#x60;: Loyalty transaction that resulted from a customer session. - &#x60;import&#x60;: Loyalty transaction that was imported from a CSV file.  (optional)
      * @param startDate Date and time from which results are returned. Results are filtered by transaction creation date.  &gt; [!note] **Note** &gt; - This must be an RFC3339 timestamp string. &gt; - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting &gt;   considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered.  (optional)
      * @param endDate Date and time by which results are returned. Results are filtered by transaction creation date.  &gt; [!note] **Note** &gt; - This must be an RFC3339 timestamp string. &gt; - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting &gt;   considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered.  (optional)
@@ -3825,7 +3841,7 @@ public class IntegrationApi {
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getLoyaltyProgramProfileTransactionsAsync(@javax.annotation.Nonnull Long loyaltyProgramId, @javax.annotation.Nonnull String integrationId, @javax.annotation.Nullable List<String> customerSessionIDs, @javax.annotation.Nullable List<String> transactionUUIDs, @javax.annotation.Nullable String subledgerId, @javax.annotation.Nullable String loyaltyTransactionType, @javax.annotation.Nullable OffsetDateTime startDate, @javax.annotation.Nullable OffsetDateTime endDate, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable Boolean awaitsActivation, final ApiCallback<GetLoyaltyProgramProfileTransactions200Response> _callback) throws ApiException {
+    public okhttp3.Call getLoyaltyProgramProfileTransactionsAsync(@javax.annotation.Nonnull Long loyaltyProgramId, @javax.annotation.Nonnull String integrationId, @javax.annotation.Nullable List<String> customerSessionIDs, @javax.annotation.Nullable List<String> transactionUUIDs, @javax.annotation.Nullable List<String> subledgerId, @javax.annotation.Nullable String loyaltyTransactionType, @javax.annotation.Nullable OffsetDateTime startDate, @javax.annotation.Nullable OffsetDateTime endDate, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable Boolean awaitsActivation, final ApiCallback<GetLoyaltyProgramProfileTransactions200Response> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getLoyaltyProgramProfileTransactionsValidateBeforeCall(loyaltyProgramId, integrationId, customerSessionIDs, transactionUUIDs, subledgerId, loyaltyTransactionType, startDate, endDate, pageSize, skip, awaitsActivation, _callback);
         Type localVarReturnType = new TypeToken<GetLoyaltyProgramProfileTransactions200Response>(){}.getType();
@@ -3834,7 +3850,7 @@ public class IntegrationApi {
     }
     /**
      * Build call for getReservedCustomers
-     * @param couponValue The code of the coupon.  **Important:** The coupon code requires [URL encoding](https://www.w3schools.com/tags//ref_urlencode.asp)  if it contains special characters. For example, you must encode &#x60;SUMMER25%OFF&#x60; as &#x60;SUMMER25%25OFF&#x60;.  (required)
+     * @param couponValue The code of the coupon.  **Important:** The coupon code requires [URL encoding](https://www.w3schools.com/tags//ref_urlencode.asp) if it contains special characters. For example, you must encode &#x60;SUMMER25%OFF&#x60; as &#x60;SUMMER25%25OFF&#x60;.  (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -3907,7 +3923,7 @@ public class IntegrationApi {
     /**
      * List customers that have this coupon reserved
      * Return all customers that have this coupon marked as reserved. This includes hard and soft reservations. 
-     * @param couponValue The code of the coupon.  **Important:** The coupon code requires [URL encoding](https://www.w3schools.com/tags//ref_urlencode.asp)  if it contains special characters. For example, you must encode &#x60;SUMMER25%OFF&#x60; as &#x60;SUMMER25%25OFF&#x60;.  (required)
+     * @param couponValue The code of the coupon.  **Important:** The coupon code requires [URL encoding](https://www.w3schools.com/tags//ref_urlencode.asp) if it contains special characters. For example, you must encode &#x60;SUMMER25%OFF&#x60; as &#x60;SUMMER25%25OFF&#x60;.  (required)
      * @return GetReservedCustomers200Response
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -3928,7 +3944,7 @@ public class IntegrationApi {
     /**
      * List customers that have this coupon reserved
      * Return all customers that have this coupon marked as reserved. This includes hard and soft reservations. 
-     * @param couponValue The code of the coupon.  **Important:** The coupon code requires [URL encoding](https://www.w3schools.com/tags//ref_urlencode.asp)  if it contains special characters. For example, you must encode &#x60;SUMMER25%OFF&#x60; as &#x60;SUMMER25%25OFF&#x60;.  (required)
+     * @param couponValue The code of the coupon.  **Important:** The coupon code requires [URL encoding](https://www.w3schools.com/tags//ref_urlencode.asp) if it contains special characters. For example, you must encode &#x60;SUMMER25%OFF&#x60; as &#x60;SUMMER25%25OFF&#x60;.  (required)
      * @return ApiResponse&lt;GetReservedCustomers200Response&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -3950,7 +3966,7 @@ public class IntegrationApi {
     /**
      * List customers that have this coupon reserved (asynchronously)
      * Return all customers that have this coupon marked as reserved. This includes hard and soft reservations. 
-     * @param couponValue The code of the coupon.  **Important:** The coupon code requires [URL encoding](https://www.w3schools.com/tags//ref_urlencode.asp)  if it contains special characters. For example, you must encode &#x60;SUMMER25%OFF&#x60; as &#x60;SUMMER25%25OFF&#x60;.  (required)
+     * @param couponValue The code of the coupon.  **Important:** The coupon code requires [URL encoding](https://www.w3schools.com/tags//ref_urlencode.asp) if it contains special characters. For example, you must encode &#x60;SUMMER25%OFF&#x60; as &#x60;SUMMER25%25OFF&#x60;.  (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -4169,6 +4185,207 @@ public class IntegrationApi {
 
         okhttp3.Call localVarCall = integrationGetAllCampaignsValidateBeforeCall(pageSize, skip, campaignIds, startAfter, startBefore, endAfter, endBefore, storeId, audienceId, _callback);
         Type localVarReturnType = new TypeToken<IntegrationGetAllCampaigns200Response>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for integrationRewardsCatalog
+     * @param pageSize The number of items in the response. (optional, default to 1000)
+     * @param skip The number of items to skip when paging through large result sets. (optional)
+     * @param pointsFrom Return only rewards whose points required is greater than or equal to this value. (optional)
+     * @param pointsTo Return only rewards whose points required is less than or equal to this value. (optional)
+     * @param includeFree Whether to include rewards that have no &#x60;pointsRequired&#x60;. These rewards are treated as free and available to all customers.  (optional, default to true)
+     * @param loyaltyProgramId Return only rewards available in this loyalty program.  (optional)
+     * @param subledgerId Return only rewards available in this subledger. Must be combined with &#x60;loyaltyProgramId&#x60;. To specify the main ledger, provide an empty string (\&quot;\&quot;).  (optional)
+     * @param profileIntegrationId The integration ID of the customer profile whose loyalty balances to include in the response. Balances are returned only when &#x60;loyaltyProgramId&#x60; is also provided.  **Note:** &#x60;profileIntegrationId&#x60; and &#x60;loyaltyCardId&#x60; are mutually exclusive. Do not send both in the same request.  (optional)
+     * @param loyaltyCardId The identifier of the loyalty card whose loyalty balances to include in the response. Balances are returned only when &#x60;loyaltyProgramId&#x60; is also provided.  **Note:** &#x60;profileIntegrationId&#x60; and &#x60;loyaltyCardId&#x60; are mutually exclusive. Do not send both in the same request.  (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call integrationRewardsCatalogCall(@javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable BigDecimal pointsFrom, @javax.annotation.Nullable BigDecimal pointsTo, @javax.annotation.Nullable Boolean includeFree, @javax.annotation.Nullable Long loyaltyProgramId, @javax.annotation.Nullable String subledgerId, @javax.annotation.Nullable String profileIntegrationId, @javax.annotation.Nullable String loyaltyCardId, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/v1/rewards/catalog";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (pageSize != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("pageSize", pageSize));
+        }
+
+        if (skip != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("skip", skip));
+        }
+
+        if (pointsFrom != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("pointsFrom", pointsFrom));
+        }
+
+        if (pointsTo != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("pointsTo", pointsTo));
+        }
+
+        if (includeFree != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("includeFree", includeFree));
+        }
+
+        if (loyaltyProgramId != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("loyaltyProgramId", loyaltyProgramId));
+        }
+
+        if (subledgerId != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("subledgerId", subledgerId));
+        }
+
+        if (profileIntegrationId != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("profileIntegrationId", profileIntegrationId));
+        }
+
+        if (loyaltyCardId != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("loyaltyCardId", loyaltyCardId));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "api_key_v1" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call integrationRewardsCatalogValidateBeforeCall(@javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable BigDecimal pointsFrom, @javax.annotation.Nullable BigDecimal pointsTo, @javax.annotation.Nullable Boolean includeFree, @javax.annotation.Nullable Long loyaltyProgramId, @javax.annotation.Nullable String subledgerId, @javax.annotation.Nullable String profileIntegrationId, @javax.annotation.Nullable String loyaltyCardId, final ApiCallback _callback) throws ApiException {
+        return integrationRewardsCatalogCall(pageSize, skip, pointsFrom, pointsTo, includeFree, loyaltyProgramId, subledgerId, profileIntegrationId, loyaltyCardId, _callback);
+
+    }
+
+    /**
+     * List rewards in the catalog
+     * Retrieve the rewards catalog for the Application. Returns a paginated list of rewards. 
+     * @param pageSize The number of items in the response. (optional, default to 1000)
+     * @param skip The number of items to skip when paging through large result sets. (optional)
+     * @param pointsFrom Return only rewards whose points required is greater than or equal to this value. (optional)
+     * @param pointsTo Return only rewards whose points required is less than or equal to this value. (optional)
+     * @param includeFree Whether to include rewards that have no &#x60;pointsRequired&#x60;. These rewards are treated as free and available to all customers.  (optional, default to true)
+     * @param loyaltyProgramId Return only rewards available in this loyalty program.  (optional)
+     * @param subledgerId Return only rewards available in this subledger. Must be combined with &#x60;loyaltyProgramId&#x60;. To specify the main ledger, provide an empty string (\&quot;\&quot;).  (optional)
+     * @param profileIntegrationId The integration ID of the customer profile whose loyalty balances to include in the response. Balances are returned only when &#x60;loyaltyProgramId&#x60; is also provided.  **Note:** &#x60;profileIntegrationId&#x60; and &#x60;loyaltyCardId&#x60; are mutually exclusive. Do not send both in the same request.  (optional)
+     * @param loyaltyCardId The identifier of the loyalty card whose loyalty balances to include in the response. Balances are returned only when &#x60;loyaltyProgramId&#x60; is also provided.  **Note:** &#x60;profileIntegrationId&#x60; and &#x60;loyaltyCardId&#x60; are mutually exclusive. Do not send both in the same request.  (optional)
+     * @return IntegrationRewardsCatalog200Response
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
+     </table>
+     */
+    public IntegrationRewardsCatalog200Response integrationRewardsCatalog(@javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable BigDecimal pointsFrom, @javax.annotation.Nullable BigDecimal pointsTo, @javax.annotation.Nullable Boolean includeFree, @javax.annotation.Nullable Long loyaltyProgramId, @javax.annotation.Nullable String subledgerId, @javax.annotation.Nullable String profileIntegrationId, @javax.annotation.Nullable String loyaltyCardId) throws ApiException {
+        ApiResponse<IntegrationRewardsCatalog200Response> localVarResp = integrationRewardsCatalogWithHttpInfo(pageSize, skip, pointsFrom, pointsTo, includeFree, loyaltyProgramId, subledgerId, profileIntegrationId, loyaltyCardId);
+        return localVarResp.getData();
+    }
+
+    /**
+     * List rewards in the catalog
+     * Retrieve the rewards catalog for the Application. Returns a paginated list of rewards. 
+     * @param pageSize The number of items in the response. (optional, default to 1000)
+     * @param skip The number of items to skip when paging through large result sets. (optional)
+     * @param pointsFrom Return only rewards whose points required is greater than or equal to this value. (optional)
+     * @param pointsTo Return only rewards whose points required is less than or equal to this value. (optional)
+     * @param includeFree Whether to include rewards that have no &#x60;pointsRequired&#x60;. These rewards are treated as free and available to all customers.  (optional, default to true)
+     * @param loyaltyProgramId Return only rewards available in this loyalty program.  (optional)
+     * @param subledgerId Return only rewards available in this subledger. Must be combined with &#x60;loyaltyProgramId&#x60;. To specify the main ledger, provide an empty string (\&quot;\&quot;).  (optional)
+     * @param profileIntegrationId The integration ID of the customer profile whose loyalty balances to include in the response. Balances are returned only when &#x60;loyaltyProgramId&#x60; is also provided.  **Note:** &#x60;profileIntegrationId&#x60; and &#x60;loyaltyCardId&#x60; are mutually exclusive. Do not send both in the same request.  (optional)
+     * @param loyaltyCardId The identifier of the loyalty card whose loyalty balances to include in the response. Balances are returned only when &#x60;loyaltyProgramId&#x60; is also provided.  **Note:** &#x60;profileIntegrationId&#x60; and &#x60;loyaltyCardId&#x60; are mutually exclusive. Do not send both in the same request.  (optional)
+     * @return ApiResponse&lt;IntegrationRewardsCatalog200Response&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<IntegrationRewardsCatalog200Response> integrationRewardsCatalogWithHttpInfo(@javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable BigDecimal pointsFrom, @javax.annotation.Nullable BigDecimal pointsTo, @javax.annotation.Nullable Boolean includeFree, @javax.annotation.Nullable Long loyaltyProgramId, @javax.annotation.Nullable String subledgerId, @javax.annotation.Nullable String profileIntegrationId, @javax.annotation.Nullable String loyaltyCardId) throws ApiException {
+        okhttp3.Call localVarCall = integrationRewardsCatalogValidateBeforeCall(pageSize, skip, pointsFrom, pointsTo, includeFree, loyaltyProgramId, subledgerId, profileIntegrationId, loyaltyCardId, null);
+        Type localVarReturnType = new TypeToken<IntegrationRewardsCatalog200Response>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * List rewards in the catalog (asynchronously)
+     * Retrieve the rewards catalog for the Application. Returns a paginated list of rewards. 
+     * @param pageSize The number of items in the response. (optional, default to 1000)
+     * @param skip The number of items to skip when paging through large result sets. (optional)
+     * @param pointsFrom Return only rewards whose points required is greater than or equal to this value. (optional)
+     * @param pointsTo Return only rewards whose points required is less than or equal to this value. (optional)
+     * @param includeFree Whether to include rewards that have no &#x60;pointsRequired&#x60;. These rewards are treated as free and available to all customers.  (optional, default to true)
+     * @param loyaltyProgramId Return only rewards available in this loyalty program.  (optional)
+     * @param subledgerId Return only rewards available in this subledger. Must be combined with &#x60;loyaltyProgramId&#x60;. To specify the main ledger, provide an empty string (\&quot;\&quot;).  (optional)
+     * @param profileIntegrationId The integration ID of the customer profile whose loyalty balances to include in the response. Balances are returned only when &#x60;loyaltyProgramId&#x60; is also provided.  **Note:** &#x60;profileIntegrationId&#x60; and &#x60;loyaltyCardId&#x60; are mutually exclusive. Do not send both in the same request.  (optional)
+     * @param loyaltyCardId The identifier of the loyalty card whose loyalty balances to include in the response. Balances are returned only when &#x60;loyaltyProgramId&#x60; is also provided.  **Note:** &#x60;profileIntegrationId&#x60; and &#x60;loyaltyCardId&#x60; are mutually exclusive. Do not send both in the same request.  (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call integrationRewardsCatalogAsync(@javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable BigDecimal pointsFrom, @javax.annotation.Nullable BigDecimal pointsTo, @javax.annotation.Nullable Boolean includeFree, @javax.annotation.Nullable Long loyaltyProgramId, @javax.annotation.Nullable String subledgerId, @javax.annotation.Nullable String profileIntegrationId, @javax.annotation.Nullable String loyaltyCardId, final ApiCallback<IntegrationRewardsCatalog200Response> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = integrationRewardsCatalogValidateBeforeCall(pageSize, skip, pointsFrom, pointsTo, includeFree, loyaltyProgramId, subledgerId, profileIntegrationId, loyaltyCardId, _callback);
+        Type localVarReturnType = new TypeToken<IntegrationRewardsCatalog200Response>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -4479,6 +4696,7 @@ public class IntegrationApi {
     /**
      * Build call for reopenCustomerSession
      * @param customerSessionId The &#x60;integration ID&#x60; of the customer session. You set this ID when you create a customer session.  You can see existing customer session integration IDs in the Campaign Manager&#39;s **Sessions** menu, or via the [List Application session](https://docs.talon.one/management-api#tag/Customer-data/operation/getApplicationSessions) endpoint.  (required)
+     * @param idempotencyKey A unique identifier that enables idempotent processing. Include it to ensure that the request is processed only once, even if you send it several times. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -4486,12 +4704,12 @@ public class IntegrationApi {
      <table border="1">
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  * Idempotency-Key - The idempotency key used for the request. <br>  * Idempotent-Replayed - Indicates whether the response was replayed from a previously cached request. <br>  * X-Idempotency-Created-At - The date and time when the idempotency record was created. <br>  * X-Idempotency-Expires-At - The date and time when the idempotency record expires. <br>  * X-Idempotency-Fingerprint - The SHA-256 fingerprint of the request payload and metadata. <br>  </td></tr>
         <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized - Invalid API key </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call reopenCustomerSessionCall(@javax.annotation.Nonnull String customerSessionId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call reopenCustomerSessionCall(@javax.annotation.Nonnull String customerSessionId, @javax.annotation.Nullable String idempotencyKey, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -4532,66 +4750,74 @@ public class IntegrationApi {
             localVarHeaderParams.put("Content-Type", localVarContentType);
         }
 
+        if (idempotencyKey != null) {
+            localVarHeaderParams.put("Idempotency-Key", localVarApiClient.parameterToString(idempotencyKey));
+        }
+
+
         String[] localVarAuthNames = new String[] { "api_key_v1" };
         return localVarApiClient.buildCall(basePath, localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call reopenCustomerSessionValidateBeforeCall(@javax.annotation.Nonnull String customerSessionId, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call reopenCustomerSessionValidateBeforeCall(@javax.annotation.Nonnull String customerSessionId, @javax.annotation.Nullable String idempotencyKey, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'customerSessionId' is set
         if (customerSessionId == null) {
             throw new ApiException("Missing the required parameter 'customerSessionId' when calling reopenCustomerSession(Async)");
         }
 
-        return reopenCustomerSessionCall(customerSessionId, _callback);
+        return reopenCustomerSessionCall(customerSessionId, idempotencyKey, _callback);
 
     }
 
     /**
      * Reopen customer session
-     * Reopen a closed [customer session](https://docs.talon.one/docs/dev/concepts/entities/customer-sessions).  For example, if a session has been completed but still needs to be edited, you can reopen it with this endpoint.  A reopen session is treated like a standard open session.  When reopening a session:  - The &#x60;talon_session_reopened&#x60; event is triggered. You can see it in the **Events** view in the Campaign Manager. - The session state is updated to &#x60;open&#x60;. - Any modified budgets and triggered effects are rolled back when the session closes. - Depending on the [return policy](https://docs.talon.one/docs/product/loyalty-programs/managing-loyalty-programs#return-policy)  in your loyalty programs, points are rolled back in the following ways:   - Pending points are rolled back automatically.   - If **Active points deduction** setting is enabled, any points that were earned and activated when the session closed   are rolled back.   - If **Negative balance** is enabled, the rollback can create a negative points balance.  &lt;details&gt;   &lt;summary&gt;&lt;strong&gt;Effects and budgets unimpacted by a session reopening&lt;/strong&gt;&lt;/summary&gt;   &lt;div&gt;     &lt;p&gt;The following effects and budgets remain in the state they were in when the session closed:&lt;/p&gt;     &lt;ul&gt;       &lt;li&gt;Add free item effect&lt;/li&gt;       &lt;li&gt;Award giveaway&lt;/li&gt;       &lt;li&gt;Coupon and referral creation&lt;/li&gt;       &lt;li&gt;Coupon reservation&lt;/li&gt;       &lt;li&gt;Custom effect&lt;/li&gt;       &lt;li&gt;Update attribute value&lt;/li&gt;       &lt;li&gt;Update cart item attribute value&lt;/li&gt;     &lt;/ul&gt;   &lt;/div&gt; &lt;/details&gt;  To see an example of a rollback, see the [Cancelling a session with campaign budgets](https://docs.talon.one/docs/dev/tutorials/rolling-back-effects) tutorial.  &gt; [!note] If your order workflow requires you to create a new session &gt; instead of reopening a session, use the &gt; [Update customer session](https://docs.talon.one/integration-api#tag/Customer-sessions/operation/updateCustomerSessionV2) &gt; endpoint to cancel a closed session and create a new one.  &gt; [!note] To make request processing idempotent for this endpoint, include the &#x60;Idempotency-Key&#x60; header with an idempotency key in requests. Learn more about [idempotency](https://docs.talon.one/integration-api#description/idempotency). 
+     * Reopen a closed [customer session](https://docs.talon.one/docs/dev/concepts/entities/customer-sessions).  For example, if a session has been completed but still needs to be edited, you can reopen it with this endpoint.  A reopen session is treated like a standard open session.  When reopening a session:  - The &#x60;talon_session_reopened&#x60; event is triggered. You can see it in the **Events** view in the Campaign Manager. - The session state is updated to &#x60;open&#x60;. - Any modified budgets and triggered effects are rolled back when the session closes. - Depending on the [return policy](https://docs.talon.one/docs/product/loyalty-programs/managing-loyalty-programs#return-policy)  in your loyalty programs, points are rolled back in the following ways:   - Pending points are rolled back automatically.   - If **Active points deduction** setting is enabled, any points that were earned and activated when the session closed   are rolled back.   - If **Negative balance** is enabled, the rollback can create a negative points balance.  &lt;details&gt;   &lt;summary&gt;&lt;strong&gt;Effects and budgets unimpacted by a session reopening&lt;/strong&gt;&lt;/summary&gt;   &lt;div&gt;     &lt;p&gt;The following effects and budgets remain in the state they were in when the session closed:&lt;/p&gt;     &lt;ul&gt;       &lt;li&gt;Add free item effect&lt;/li&gt;       &lt;li&gt;Award giveaway&lt;/li&gt;       &lt;li&gt;Coupon and referral creation&lt;/li&gt;       &lt;li&gt;Coupon reservation&lt;/li&gt;       &lt;li&gt;Custom effect&lt;/li&gt;       &lt;li&gt;Update attribute value&lt;/li&gt;       &lt;li&gt;Update cart item attribute value&lt;/li&gt;     &lt;/ul&gt;   &lt;/div&gt; &lt;/details&gt;  To see an example of a rollback, see the [Cancelling a session with campaign budgets](https://docs.talon.one/docs/dev/tutorials/rolling-back-effects) tutorial.  &gt; [!note] If your order workflow requires you to create a new session &gt; instead of reopening a session, use the &gt; [Update customer session](https://docs.talon.one/integration-api#tag/Customer-sessions/operation/updateCustomerSessionV2) &gt; endpoint to cancel a closed session and create a new one.  &gt; [!note] To make request processing idempotent for this endpoint, include the &#x60;Idempotency-Key&#x60; header with an idempotency key in requests. Learn more about [idempotency](https://docs.talon.one/integration-api#description/idempotency).
      * @param customerSessionId The &#x60;integration ID&#x60; of the customer session. You set this ID when you create a customer session.  You can see existing customer session integration IDs in the Campaign Manager&#39;s **Sessions** menu, or via the [List Application session](https://docs.talon.one/management-api#tag/Customer-data/operation/getApplicationSessions) endpoint.  (required)
+     * @param idempotencyKey A unique identifier that enables idempotent processing. Include it to ensure that the request is processed only once, even if you send it several times. (optional)
      * @return ReopenSessionResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table border="1">
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  * Idempotency-Key - The idempotency key used for the request. <br>  * Idempotent-Replayed - Indicates whether the response was replayed from a previously cached request. <br>  * X-Idempotency-Created-At - The date and time when the idempotency record was created. <br>  * X-Idempotency-Expires-At - The date and time when the idempotency record expires. <br>  * X-Idempotency-Fingerprint - The SHA-256 fingerprint of the request payload and metadata. <br>  </td></tr>
         <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized - Invalid API key </td><td>  -  </td></tr>
      </table>
      */
-    public ReopenSessionResponse reopenCustomerSession(@javax.annotation.Nonnull String customerSessionId) throws ApiException {
-        ApiResponse<ReopenSessionResponse> localVarResp = reopenCustomerSessionWithHttpInfo(customerSessionId);
+    public ReopenSessionResponse reopenCustomerSession(@javax.annotation.Nonnull String customerSessionId, @javax.annotation.Nullable String idempotencyKey) throws ApiException {
+        ApiResponse<ReopenSessionResponse> localVarResp = reopenCustomerSessionWithHttpInfo(customerSessionId, idempotencyKey);
         return localVarResp.getData();
     }
 
     /**
      * Reopen customer session
-     * Reopen a closed [customer session](https://docs.talon.one/docs/dev/concepts/entities/customer-sessions).  For example, if a session has been completed but still needs to be edited, you can reopen it with this endpoint.  A reopen session is treated like a standard open session.  When reopening a session:  - The &#x60;talon_session_reopened&#x60; event is triggered. You can see it in the **Events** view in the Campaign Manager. - The session state is updated to &#x60;open&#x60;. - Any modified budgets and triggered effects are rolled back when the session closes. - Depending on the [return policy](https://docs.talon.one/docs/product/loyalty-programs/managing-loyalty-programs#return-policy)  in your loyalty programs, points are rolled back in the following ways:   - Pending points are rolled back automatically.   - If **Active points deduction** setting is enabled, any points that were earned and activated when the session closed   are rolled back.   - If **Negative balance** is enabled, the rollback can create a negative points balance.  &lt;details&gt;   &lt;summary&gt;&lt;strong&gt;Effects and budgets unimpacted by a session reopening&lt;/strong&gt;&lt;/summary&gt;   &lt;div&gt;     &lt;p&gt;The following effects and budgets remain in the state they were in when the session closed:&lt;/p&gt;     &lt;ul&gt;       &lt;li&gt;Add free item effect&lt;/li&gt;       &lt;li&gt;Award giveaway&lt;/li&gt;       &lt;li&gt;Coupon and referral creation&lt;/li&gt;       &lt;li&gt;Coupon reservation&lt;/li&gt;       &lt;li&gt;Custom effect&lt;/li&gt;       &lt;li&gt;Update attribute value&lt;/li&gt;       &lt;li&gt;Update cart item attribute value&lt;/li&gt;     &lt;/ul&gt;   &lt;/div&gt; &lt;/details&gt;  To see an example of a rollback, see the [Cancelling a session with campaign budgets](https://docs.talon.one/docs/dev/tutorials/rolling-back-effects) tutorial.  &gt; [!note] If your order workflow requires you to create a new session &gt; instead of reopening a session, use the &gt; [Update customer session](https://docs.talon.one/integration-api#tag/Customer-sessions/operation/updateCustomerSessionV2) &gt; endpoint to cancel a closed session and create a new one.  &gt; [!note] To make request processing idempotent for this endpoint, include the &#x60;Idempotency-Key&#x60; header with an idempotency key in requests. Learn more about [idempotency](https://docs.talon.one/integration-api#description/idempotency). 
+     * Reopen a closed [customer session](https://docs.talon.one/docs/dev/concepts/entities/customer-sessions).  For example, if a session has been completed but still needs to be edited, you can reopen it with this endpoint.  A reopen session is treated like a standard open session.  When reopening a session:  - The &#x60;talon_session_reopened&#x60; event is triggered. You can see it in the **Events** view in the Campaign Manager. - The session state is updated to &#x60;open&#x60;. - Any modified budgets and triggered effects are rolled back when the session closes. - Depending on the [return policy](https://docs.talon.one/docs/product/loyalty-programs/managing-loyalty-programs#return-policy)  in your loyalty programs, points are rolled back in the following ways:   - Pending points are rolled back automatically.   - If **Active points deduction** setting is enabled, any points that were earned and activated when the session closed   are rolled back.   - If **Negative balance** is enabled, the rollback can create a negative points balance.  &lt;details&gt;   &lt;summary&gt;&lt;strong&gt;Effects and budgets unimpacted by a session reopening&lt;/strong&gt;&lt;/summary&gt;   &lt;div&gt;     &lt;p&gt;The following effects and budgets remain in the state they were in when the session closed:&lt;/p&gt;     &lt;ul&gt;       &lt;li&gt;Add free item effect&lt;/li&gt;       &lt;li&gt;Award giveaway&lt;/li&gt;       &lt;li&gt;Coupon and referral creation&lt;/li&gt;       &lt;li&gt;Coupon reservation&lt;/li&gt;       &lt;li&gt;Custom effect&lt;/li&gt;       &lt;li&gt;Update attribute value&lt;/li&gt;       &lt;li&gt;Update cart item attribute value&lt;/li&gt;     &lt;/ul&gt;   &lt;/div&gt; &lt;/details&gt;  To see an example of a rollback, see the [Cancelling a session with campaign budgets](https://docs.talon.one/docs/dev/tutorials/rolling-back-effects) tutorial.  &gt; [!note] If your order workflow requires you to create a new session &gt; instead of reopening a session, use the &gt; [Update customer session](https://docs.talon.one/integration-api#tag/Customer-sessions/operation/updateCustomerSessionV2) &gt; endpoint to cancel a closed session and create a new one.  &gt; [!note] To make request processing idempotent for this endpoint, include the &#x60;Idempotency-Key&#x60; header with an idempotency key in requests. Learn more about [idempotency](https://docs.talon.one/integration-api#description/idempotency).
      * @param customerSessionId The &#x60;integration ID&#x60; of the customer session. You set this ID when you create a customer session.  You can see existing customer session integration IDs in the Campaign Manager&#39;s **Sessions** menu, or via the [List Application session](https://docs.talon.one/management-api#tag/Customer-data/operation/getApplicationSessions) endpoint.  (required)
+     * @param idempotencyKey A unique identifier that enables idempotent processing. Include it to ensure that the request is processed only once, even if you send it several times. (optional)
      * @return ApiResponse&lt;ReopenSessionResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table border="1">
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  * Idempotency-Key - The idempotency key used for the request. <br>  * Idempotent-Replayed - Indicates whether the response was replayed from a previously cached request. <br>  * X-Idempotency-Created-At - The date and time when the idempotency record was created. <br>  * X-Idempotency-Expires-At - The date and time when the idempotency record expires. <br>  * X-Idempotency-Fingerprint - The SHA-256 fingerprint of the request payload and metadata. <br>  </td></tr>
         <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized - Invalid API key </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<ReopenSessionResponse> reopenCustomerSessionWithHttpInfo(@javax.annotation.Nonnull String customerSessionId) throws ApiException {
-        okhttp3.Call localVarCall = reopenCustomerSessionValidateBeforeCall(customerSessionId, null);
+    public ApiResponse<ReopenSessionResponse> reopenCustomerSessionWithHttpInfo(@javax.annotation.Nonnull String customerSessionId, @javax.annotation.Nullable String idempotencyKey) throws ApiException {
+        okhttp3.Call localVarCall = reopenCustomerSessionValidateBeforeCall(customerSessionId, idempotencyKey, null);
         Type localVarReturnType = new TypeToken<ReopenSessionResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
      * Reopen customer session (asynchronously)
-     * Reopen a closed [customer session](https://docs.talon.one/docs/dev/concepts/entities/customer-sessions).  For example, if a session has been completed but still needs to be edited, you can reopen it with this endpoint.  A reopen session is treated like a standard open session.  When reopening a session:  - The &#x60;talon_session_reopened&#x60; event is triggered. You can see it in the **Events** view in the Campaign Manager. - The session state is updated to &#x60;open&#x60;. - Any modified budgets and triggered effects are rolled back when the session closes. - Depending on the [return policy](https://docs.talon.one/docs/product/loyalty-programs/managing-loyalty-programs#return-policy)  in your loyalty programs, points are rolled back in the following ways:   - Pending points are rolled back automatically.   - If **Active points deduction** setting is enabled, any points that were earned and activated when the session closed   are rolled back.   - If **Negative balance** is enabled, the rollback can create a negative points balance.  &lt;details&gt;   &lt;summary&gt;&lt;strong&gt;Effects and budgets unimpacted by a session reopening&lt;/strong&gt;&lt;/summary&gt;   &lt;div&gt;     &lt;p&gt;The following effects and budgets remain in the state they were in when the session closed:&lt;/p&gt;     &lt;ul&gt;       &lt;li&gt;Add free item effect&lt;/li&gt;       &lt;li&gt;Award giveaway&lt;/li&gt;       &lt;li&gt;Coupon and referral creation&lt;/li&gt;       &lt;li&gt;Coupon reservation&lt;/li&gt;       &lt;li&gt;Custom effect&lt;/li&gt;       &lt;li&gt;Update attribute value&lt;/li&gt;       &lt;li&gt;Update cart item attribute value&lt;/li&gt;     &lt;/ul&gt;   &lt;/div&gt; &lt;/details&gt;  To see an example of a rollback, see the [Cancelling a session with campaign budgets](https://docs.talon.one/docs/dev/tutorials/rolling-back-effects) tutorial.  &gt; [!note] If your order workflow requires you to create a new session &gt; instead of reopening a session, use the &gt; [Update customer session](https://docs.talon.one/integration-api#tag/Customer-sessions/operation/updateCustomerSessionV2) &gt; endpoint to cancel a closed session and create a new one.  &gt; [!note] To make request processing idempotent for this endpoint, include the &#x60;Idempotency-Key&#x60; header with an idempotency key in requests. Learn more about [idempotency](https://docs.talon.one/integration-api#description/idempotency). 
+     * Reopen a closed [customer session](https://docs.talon.one/docs/dev/concepts/entities/customer-sessions).  For example, if a session has been completed but still needs to be edited, you can reopen it with this endpoint.  A reopen session is treated like a standard open session.  When reopening a session:  - The &#x60;talon_session_reopened&#x60; event is triggered. You can see it in the **Events** view in the Campaign Manager. - The session state is updated to &#x60;open&#x60;. - Any modified budgets and triggered effects are rolled back when the session closes. - Depending on the [return policy](https://docs.talon.one/docs/product/loyalty-programs/managing-loyalty-programs#return-policy)  in your loyalty programs, points are rolled back in the following ways:   - Pending points are rolled back automatically.   - If **Active points deduction** setting is enabled, any points that were earned and activated when the session closed   are rolled back.   - If **Negative balance** is enabled, the rollback can create a negative points balance.  &lt;details&gt;   &lt;summary&gt;&lt;strong&gt;Effects and budgets unimpacted by a session reopening&lt;/strong&gt;&lt;/summary&gt;   &lt;div&gt;     &lt;p&gt;The following effects and budgets remain in the state they were in when the session closed:&lt;/p&gt;     &lt;ul&gt;       &lt;li&gt;Add free item effect&lt;/li&gt;       &lt;li&gt;Award giveaway&lt;/li&gt;       &lt;li&gt;Coupon and referral creation&lt;/li&gt;       &lt;li&gt;Coupon reservation&lt;/li&gt;       &lt;li&gt;Custom effect&lt;/li&gt;       &lt;li&gt;Update attribute value&lt;/li&gt;       &lt;li&gt;Update cart item attribute value&lt;/li&gt;     &lt;/ul&gt;   &lt;/div&gt; &lt;/details&gt;  To see an example of a rollback, see the [Cancelling a session with campaign budgets](https://docs.talon.one/docs/dev/tutorials/rolling-back-effects) tutorial.  &gt; [!note] If your order workflow requires you to create a new session &gt; instead of reopening a session, use the &gt; [Update customer session](https://docs.talon.one/integration-api#tag/Customer-sessions/operation/updateCustomerSessionV2) &gt; endpoint to cancel a closed session and create a new one.  &gt; [!note] To make request processing idempotent for this endpoint, include the &#x60;Idempotency-Key&#x60; header with an idempotency key in requests. Learn more about [idempotency](https://docs.talon.one/integration-api#description/idempotency).
      * @param customerSessionId The &#x60;integration ID&#x60; of the customer session. You set this ID when you create a customer session.  You can see existing customer session integration IDs in the Campaign Manager&#39;s **Sessions** menu, or via the [List Application session](https://docs.talon.one/management-api#tag/Customer-data/operation/getApplicationSessions) endpoint.  (required)
+     * @param idempotencyKey A unique identifier that enables idempotent processing. Include it to ensure that the request is processed only once, even if you send it several times. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -4599,14 +4825,14 @@ public class IntegrationApi {
      <table border="1">
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  * Idempotency-Key - The idempotency key used for the request. <br>  * Idempotent-Replayed - Indicates whether the response was replayed from a previously cached request. <br>  * X-Idempotency-Created-At - The date and time when the idempotency record was created. <br>  * X-Idempotency-Expires-At - The date and time when the idempotency record expires. <br>  * X-Idempotency-Fingerprint - The SHA-256 fingerprint of the request payload and metadata. <br>  </td></tr>
         <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized - Invalid API key </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call reopenCustomerSessionAsync(@javax.annotation.Nonnull String customerSessionId, final ApiCallback<ReopenSessionResponse> _callback) throws ApiException {
+    public okhttp3.Call reopenCustomerSessionAsync(@javax.annotation.Nonnull String customerSessionId, @javax.annotation.Nullable String idempotencyKey, final ApiCallback<ReopenSessionResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = reopenCustomerSessionValidateBeforeCall(customerSessionId, _callback);
+        okhttp3.Call localVarCall = reopenCustomerSessionValidateBeforeCall(customerSessionId, idempotencyKey, _callback);
         Type localVarReturnType = new TypeToken<ReopenSessionResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -4617,6 +4843,7 @@ public class IntegrationApi {
      * @param returnIntegrationRequest body (required)
      * @param dry Indicates whether to persist the changes. Changes are ignored when &#x60;dry&#x3D;true&#x60;.  (optional)
      * @param runRuleEngine When set to &#x60;true&#x60;, reevaluates the updated session after items are returned. Only reevaluates campaigns where &#x60;reevaluateOnReturn&#x60; is set to &#x60;true&#x60; and which produced an effect when the session was closed.  (optional)
+     * @param idempotencyKey A unique identifier that enables idempotent processing. Include it to ensure that the request is processed only once, even if you send it several times. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -4624,12 +4851,12 @@ public class IntegrationApi {
      <table border="1">
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  * Idempotency-Key - The idempotency key used for the request. <br>  * Idempotent-Replayed - Indicates whether the response was replayed from a previously cached request. <br>  * X-Idempotency-Created-At - The date and time when the idempotency record was created. <br>  * X-Idempotency-Expires-At - The date and time when the idempotency record expires. <br>  * X-Idempotency-Fingerprint - The SHA-256 fingerprint of the request payload and metadata. <br>  </td></tr>
         <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized - Invalid API key </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call returnCartItemsCall(@javax.annotation.Nonnull String customerSessionId, @javax.annotation.Nonnull ReturnIntegrationRequest returnIntegrationRequest, @javax.annotation.Nullable Boolean dry, @javax.annotation.Nullable Boolean runRuleEngine, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call returnCartItemsCall(@javax.annotation.Nonnull String customerSessionId, @javax.annotation.Nonnull ReturnIntegrationRequest returnIntegrationRequest, @javax.annotation.Nullable Boolean dry, @javax.annotation.Nullable Boolean runRuleEngine, @javax.annotation.Nullable String idempotencyKey, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -4679,12 +4906,17 @@ public class IntegrationApi {
             localVarHeaderParams.put("Content-Type", localVarContentType);
         }
 
+        if (idempotencyKey != null) {
+            localVarHeaderParams.put("Idempotency-Key", localVarApiClient.parameterToString(idempotencyKey));
+        }
+
+
         String[] localVarAuthNames = new String[] { "api_key_v1" };
         return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call returnCartItemsValidateBeforeCall(@javax.annotation.Nonnull String customerSessionId, @javax.annotation.Nonnull ReturnIntegrationRequest returnIntegrationRequest, @javax.annotation.Nullable Boolean dry, @javax.annotation.Nullable Boolean runRuleEngine, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call returnCartItemsValidateBeforeCall(@javax.annotation.Nonnull String customerSessionId, @javax.annotation.Nonnull ReturnIntegrationRequest returnIntegrationRequest, @javax.annotation.Nullable Boolean dry, @javax.annotation.Nullable Boolean runRuleEngine, @javax.annotation.Nullable String idempotencyKey, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'customerSessionId' is set
         if (customerSessionId == null) {
             throw new ApiException("Missing the required parameter 'customerSessionId' when calling returnCartItems(Async)");
@@ -4695,64 +4927,67 @@ public class IntegrationApi {
             throw new ApiException("Missing the required parameter 'returnIntegrationRequest' when calling returnCartItems(Async)");
         }
 
-        return returnCartItemsCall(customerSessionId, returnIntegrationRequest, dry, runRuleEngine, _callback);
+        return returnCartItemsCall(customerSessionId, returnIntegrationRequest, dry, runRuleEngine, idempotencyKey, _callback);
 
     }
 
     /**
      * Return cart items
-     * Create a new return request for the specified cart items.  This endpoint automatically changes the session state from &#x60;closed&#x60; to &#x60;partially_returned&#x60;.  &gt; [!note] This will roll back any effects associated with these cart items. &gt; For more information, see [our documentation on session &gt; states](https://docs.talon.one/docs/dev/concepts/entities/customer-sessions#customer-session-states) &gt; and [this tutorial](https://docs.talon.one/docs/dev/tutorials/partially-returning-a-session).  &gt; [!note] To make request processing idempotent for this endpoint, include the &#x60;Idempotency-Key&#x60; header with an idempotency key in requests. Learn more about [idempotency](https://docs.talon.one/integration-api#description/idempotency). 
+     * Create a new return request for the specified cart items.  This endpoint automatically changes the session state from &#x60;closed&#x60; to &#x60;partially_returned&#x60;.  &gt; [!note] This will roll back any effects associated with these cart items. &gt; For more information, see [our documentation on session &gt; states](https://docs.talon.one/docs/dev/concepts/entities/customer-sessions#customer-session-states) &gt; and [this tutorial](https://docs.talon.one/docs/dev/tutorials/partially-returning-a-session).  &gt; [!note] To make request processing idempotent for this endpoint, include the &#x60;Idempotency-Key&#x60; header with an idempotency key in requests. Learn more about [idempotency](https://docs.talon.one/integration-api#description/idempotency).
      * @param customerSessionId The &#x60;integration ID&#x60; of the customer session. You set this ID when you create a customer session.  You can see existing customer session integration IDs in the Campaign Manager&#39;s **Sessions** menu, or via the [List Application session](https://docs.talon.one/management-api#tag/Customer-data/operation/getApplicationSessions) endpoint.  (required)
      * @param returnIntegrationRequest body (required)
      * @param dry Indicates whether to persist the changes. Changes are ignored when &#x60;dry&#x3D;true&#x60;.  (optional)
      * @param runRuleEngine When set to &#x60;true&#x60;, reevaluates the updated session after items are returned. Only reevaluates campaigns where &#x60;reevaluateOnReturn&#x60; is set to &#x60;true&#x60; and which produced an effect when the session was closed.  (optional)
+     * @param idempotencyKey A unique identifier that enables idempotent processing. Include it to ensure that the request is processed only once, even if you send it several times. (optional)
      * @return IntegrationStateV2
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table border="1">
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  * Idempotency-Key - The idempotency key used for the request. <br>  * Idempotent-Replayed - Indicates whether the response was replayed from a previously cached request. <br>  * X-Idempotency-Created-At - The date and time when the idempotency record was created. <br>  * X-Idempotency-Expires-At - The date and time when the idempotency record expires. <br>  * X-Idempotency-Fingerprint - The SHA-256 fingerprint of the request payload and metadata. <br>  </td></tr>
         <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized - Invalid API key </td><td>  -  </td></tr>
      </table>
      */
-    public IntegrationStateV2 returnCartItems(@javax.annotation.Nonnull String customerSessionId, @javax.annotation.Nonnull ReturnIntegrationRequest returnIntegrationRequest, @javax.annotation.Nullable Boolean dry, @javax.annotation.Nullable Boolean runRuleEngine) throws ApiException {
-        ApiResponse<IntegrationStateV2> localVarResp = returnCartItemsWithHttpInfo(customerSessionId, returnIntegrationRequest, dry, runRuleEngine);
+    public IntegrationStateV2 returnCartItems(@javax.annotation.Nonnull String customerSessionId, @javax.annotation.Nonnull ReturnIntegrationRequest returnIntegrationRequest, @javax.annotation.Nullable Boolean dry, @javax.annotation.Nullable Boolean runRuleEngine, @javax.annotation.Nullable String idempotencyKey) throws ApiException {
+        ApiResponse<IntegrationStateV2> localVarResp = returnCartItemsWithHttpInfo(customerSessionId, returnIntegrationRequest, dry, runRuleEngine, idempotencyKey);
         return localVarResp.getData();
     }
 
     /**
      * Return cart items
-     * Create a new return request for the specified cart items.  This endpoint automatically changes the session state from &#x60;closed&#x60; to &#x60;partially_returned&#x60;.  &gt; [!note] This will roll back any effects associated with these cart items. &gt; For more information, see [our documentation on session &gt; states](https://docs.talon.one/docs/dev/concepts/entities/customer-sessions#customer-session-states) &gt; and [this tutorial](https://docs.talon.one/docs/dev/tutorials/partially-returning-a-session).  &gt; [!note] To make request processing idempotent for this endpoint, include the &#x60;Idempotency-Key&#x60; header with an idempotency key in requests. Learn more about [idempotency](https://docs.talon.one/integration-api#description/idempotency). 
+     * Create a new return request for the specified cart items.  This endpoint automatically changes the session state from &#x60;closed&#x60; to &#x60;partially_returned&#x60;.  &gt; [!note] This will roll back any effects associated with these cart items. &gt; For more information, see [our documentation on session &gt; states](https://docs.talon.one/docs/dev/concepts/entities/customer-sessions#customer-session-states) &gt; and [this tutorial](https://docs.talon.one/docs/dev/tutorials/partially-returning-a-session).  &gt; [!note] To make request processing idempotent for this endpoint, include the &#x60;Idempotency-Key&#x60; header with an idempotency key in requests. Learn more about [idempotency](https://docs.talon.one/integration-api#description/idempotency).
      * @param customerSessionId The &#x60;integration ID&#x60; of the customer session. You set this ID when you create a customer session.  You can see existing customer session integration IDs in the Campaign Manager&#39;s **Sessions** menu, or via the [List Application session](https://docs.talon.one/management-api#tag/Customer-data/operation/getApplicationSessions) endpoint.  (required)
      * @param returnIntegrationRequest body (required)
      * @param dry Indicates whether to persist the changes. Changes are ignored when &#x60;dry&#x3D;true&#x60;.  (optional)
      * @param runRuleEngine When set to &#x60;true&#x60;, reevaluates the updated session after items are returned. Only reevaluates campaigns where &#x60;reevaluateOnReturn&#x60; is set to &#x60;true&#x60; and which produced an effect when the session was closed.  (optional)
+     * @param idempotencyKey A unique identifier that enables idempotent processing. Include it to ensure that the request is processed only once, even if you send it several times. (optional)
      * @return ApiResponse&lt;IntegrationStateV2&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table border="1">
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  * Idempotency-Key - The idempotency key used for the request. <br>  * Idempotent-Replayed - Indicates whether the response was replayed from a previously cached request. <br>  * X-Idempotency-Created-At - The date and time when the idempotency record was created. <br>  * X-Idempotency-Expires-At - The date and time when the idempotency record expires. <br>  * X-Idempotency-Fingerprint - The SHA-256 fingerprint of the request payload and metadata. <br>  </td></tr>
         <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized - Invalid API key </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<IntegrationStateV2> returnCartItemsWithHttpInfo(@javax.annotation.Nonnull String customerSessionId, @javax.annotation.Nonnull ReturnIntegrationRequest returnIntegrationRequest, @javax.annotation.Nullable Boolean dry, @javax.annotation.Nullable Boolean runRuleEngine) throws ApiException {
-        okhttp3.Call localVarCall = returnCartItemsValidateBeforeCall(customerSessionId, returnIntegrationRequest, dry, runRuleEngine, null);
+    public ApiResponse<IntegrationStateV2> returnCartItemsWithHttpInfo(@javax.annotation.Nonnull String customerSessionId, @javax.annotation.Nonnull ReturnIntegrationRequest returnIntegrationRequest, @javax.annotation.Nullable Boolean dry, @javax.annotation.Nullable Boolean runRuleEngine, @javax.annotation.Nullable String idempotencyKey) throws ApiException {
+        okhttp3.Call localVarCall = returnCartItemsValidateBeforeCall(customerSessionId, returnIntegrationRequest, dry, runRuleEngine, idempotencyKey, null);
         Type localVarReturnType = new TypeToken<IntegrationStateV2>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
      * Return cart items (asynchronously)
-     * Create a new return request for the specified cart items.  This endpoint automatically changes the session state from &#x60;closed&#x60; to &#x60;partially_returned&#x60;.  &gt; [!note] This will roll back any effects associated with these cart items. &gt; For more information, see [our documentation on session &gt; states](https://docs.talon.one/docs/dev/concepts/entities/customer-sessions#customer-session-states) &gt; and [this tutorial](https://docs.talon.one/docs/dev/tutorials/partially-returning-a-session).  &gt; [!note] To make request processing idempotent for this endpoint, include the &#x60;Idempotency-Key&#x60; header with an idempotency key in requests. Learn more about [idempotency](https://docs.talon.one/integration-api#description/idempotency). 
+     * Create a new return request for the specified cart items.  This endpoint automatically changes the session state from &#x60;closed&#x60; to &#x60;partially_returned&#x60;.  &gt; [!note] This will roll back any effects associated with these cart items. &gt; For more information, see [our documentation on session &gt; states](https://docs.talon.one/docs/dev/concepts/entities/customer-sessions#customer-session-states) &gt; and [this tutorial](https://docs.talon.one/docs/dev/tutorials/partially-returning-a-session).  &gt; [!note] To make request processing idempotent for this endpoint, include the &#x60;Idempotency-Key&#x60; header with an idempotency key in requests. Learn more about [idempotency](https://docs.talon.one/integration-api#description/idempotency).
      * @param customerSessionId The &#x60;integration ID&#x60; of the customer session. You set this ID when you create a customer session.  You can see existing customer session integration IDs in the Campaign Manager&#39;s **Sessions** menu, or via the [List Application session](https://docs.talon.one/management-api#tag/Customer-data/operation/getApplicationSessions) endpoint.  (required)
      * @param returnIntegrationRequest body (required)
      * @param dry Indicates whether to persist the changes. Changes are ignored when &#x60;dry&#x3D;true&#x60;.  (optional)
      * @param runRuleEngine When set to &#x60;true&#x60;, reevaluates the updated session after items are returned. Only reevaluates campaigns where &#x60;reevaluateOnReturn&#x60; is set to &#x60;true&#x60; and which produced an effect when the session was closed.  (optional)
+     * @param idempotencyKey A unique identifier that enables idempotent processing. Include it to ensure that the request is processed only once, even if you send it several times. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -4760,14 +4995,14 @@ public class IntegrationApi {
      <table border="1">
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  * Idempotency-Key - The idempotency key used for the request. <br>  * Idempotent-Replayed - Indicates whether the response was replayed from a previously cached request. <br>  * X-Idempotency-Created-At - The date and time when the idempotency record was created. <br>  * X-Idempotency-Expires-At - The date and time when the idempotency record expires. <br>  * X-Idempotency-Fingerprint - The SHA-256 fingerprint of the request payload and metadata. <br>  </td></tr>
         <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized - Invalid API key </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call returnCartItemsAsync(@javax.annotation.Nonnull String customerSessionId, @javax.annotation.Nonnull ReturnIntegrationRequest returnIntegrationRequest, @javax.annotation.Nullable Boolean dry, @javax.annotation.Nullable Boolean runRuleEngine, final ApiCallback<IntegrationStateV2> _callback) throws ApiException {
+    public okhttp3.Call returnCartItemsAsync(@javax.annotation.Nonnull String customerSessionId, @javax.annotation.Nonnull ReturnIntegrationRequest returnIntegrationRequest, @javax.annotation.Nullable Boolean dry, @javax.annotation.Nullable Boolean runRuleEngine, @javax.annotation.Nullable String idempotencyKey, final ApiCallback<IntegrationStateV2> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = returnCartItemsValidateBeforeCall(customerSessionId, returnIntegrationRequest, dry, runRuleEngine, _callback);
+        okhttp3.Call localVarCall = returnCartItemsValidateBeforeCall(customerSessionId, returnIntegrationRequest, dry, runRuleEngine, idempotencyKey, _callback);
         Type localVarReturnType = new TypeToken<IntegrationStateV2>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -4927,6 +5162,7 @@ public class IntegrationApi {
      * @param silent Possible values: &#x60;yes&#x60; or &#x60;no&#x60;. - &#x60;yes&#x60;: Increases the performance of the API call by returning a 204 response. - &#x60;no&#x60;: Returns a 200 response that contains the updated customer profiles.  (optional, default to yes)
      * @param dry Indicates whether to persist the changes. Changes are ignored when &#x60;dry&#x3D;true&#x60;.  (optional)
      * @param forceCompleteEvaluation Forces evaluation for all matching campaigns regardless of the [campaign evaluation mode](https://docs.talon.one/docs/product/applications/managing-campaign-evaluation#setting-campaign-evaluation-mode). Requires &#x60;dry&#x3D;true&#x60;.  (optional, default to false)
+     * @param idempotencyKey A unique identifier that enables idempotent processing. Include it to ensure that the request is processed only once, even if you send it several times. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -4934,14 +5170,14 @@ public class IntegrationApi {
      <table border="1">
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-        <tr><td> 204 </td><td> No content </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  * Idempotency-Key - The idempotency key used for the request. <br>  * Idempotent-Replayed - Indicates whether the response was replayed from a previously cached request. <br>  * X-Idempotency-Created-At - The date and time when the idempotency record was created. <br>  * X-Idempotency-Expires-At - The date and time when the idempotency record expires. <br>  * X-Idempotency-Fingerprint - The SHA-256 fingerprint of the request payload and metadata. <br>  </td></tr>
+        <tr><td> 204 </td><td> No content </td><td>  * Idempotency-Key - The idempotency key used for the request. <br>  * Idempotent-Replayed - Indicates whether the response was replayed from a previously cached request. <br>  * X-Idempotency-Created-At - The date and time when the idempotency record was created. <br>  * X-Idempotency-Expires-At - The date and time when the idempotency record expires. <br>  * X-Idempotency-Fingerprint - The SHA-256 fingerprint of the request payload and metadata. <br>  </td></tr>
         <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized - Invalid API key </td><td>  -  </td></tr>
         <tr><td> 409 </td><td> Too many requests or limit reached - Avoid parallel requests. See the [docs](https://docs.talon.one/docs/dev/tutorials/integrating-talon-one#manage-parallel-requests). </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call trackEventV2Call(@javax.annotation.Nonnull IntegrationEventV2Request integrationEventV2Request, @javax.annotation.Nullable String silent, @javax.annotation.Nullable Boolean dry, @javax.annotation.Nullable Boolean forceCompleteEvaluation, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call trackEventV2Call(@javax.annotation.Nonnull IntegrationEventV2Request integrationEventV2Request, @javax.annotation.Nullable String silent, @javax.annotation.Nullable Boolean dry, @javax.annotation.Nullable Boolean forceCompleteEvaluation, @javax.annotation.Nullable String idempotencyKey, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -4994,79 +5230,87 @@ public class IntegrationApi {
             localVarHeaderParams.put("Content-Type", localVarContentType);
         }
 
+        if (idempotencyKey != null) {
+            localVarHeaderParams.put("Idempotency-Key", localVarApiClient.parameterToString(idempotencyKey));
+        }
+
+
         String[] localVarAuthNames = new String[] { "api_key_v1" };
         return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call trackEventV2ValidateBeforeCall(@javax.annotation.Nonnull IntegrationEventV2Request integrationEventV2Request, @javax.annotation.Nullable String silent, @javax.annotation.Nullable Boolean dry, @javax.annotation.Nullable Boolean forceCompleteEvaluation, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call trackEventV2ValidateBeforeCall(@javax.annotation.Nonnull IntegrationEventV2Request integrationEventV2Request, @javax.annotation.Nullable String silent, @javax.annotation.Nullable Boolean dry, @javax.annotation.Nullable Boolean forceCompleteEvaluation, @javax.annotation.Nullable String idempotencyKey, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'integrationEventV2Request' is set
         if (integrationEventV2Request == null) {
             throw new ApiException("Missing the required parameter 'integrationEventV2Request' when calling trackEventV2(Async)");
         }
 
-        return trackEventV2Call(integrationEventV2Request, silent, dry, forceCompleteEvaluation, _callback);
+        return trackEventV2Call(integrationEventV2Request, silent, dry, forceCompleteEvaluation, idempotencyKey, _callback);
 
     }
 
     /**
      * Track event
-     * Trigger a [custom event](https://docs.talon.one/docs/dev/concepts/entities/events#custom-events).  To use this endpoint:  1. [Create](https://docs.talon.one/docs/dev/concepts/entities/events#create-an-event) an event in the Campaign Manager. 1. In a rule, add the **Check for event types** [condition](https://docs.talon.one/docs/dev/concepts/entities/events#use-an-event-in-a-rule) and select the event you created. 1. Trigger the event with this endpoint.  You can [list](https://docs.talon.one/docs/product/applications/display-events#list-events) the received events in the **Events** view of the Campaign Manager.  For example, you can use this endpoint to trigger an event when a customer shares a link to a product. See our [tutorial](https://docs.talon.one/docs/product/tutorials/referrals/incentivizing-product-link-sharing).  &gt; [!note] **Note** &gt; - &#x60;profileId&#x60; is required even though the schema does not specify it. &gt; - If the customer profile ID is new, a new profile is automatically created but the &#x60;customer_profile_created&#x60; [built-in event ](https://docs.talon.one/docs/dev/concepts/entities/events) is **not** triggered. &gt; - We recommend sending requests sequentially. See [Manage parallel requests](https://docs.talon.one/docs/dev/getting-started/integration-tutorial#manage-parallel-requests). &gt; - [Archived campaigns](https://docs.talon.one/docs/product/campaigns/managing-campaigns#archive-a-campaign) are not considered in rule evaluation.  &gt; [!note] To make request processing idempotent for this endpoint, include the &#x60;Idempotency-Key&#x60; header with an idempotency key in requests. Learn more about [idempotency](https://docs.talon.one/integration-api#description/idempotency). 
+     * Trigger a [custom event](https://docs.talon.one/docs/dev/concepts/entities/events#custom-events).  To use this endpoint:  1. [Create](https://docs.talon.one/docs/dev/concepts/entities/events#create-an-event) an event in the Campaign Manager. 1. In a rule, add the **Check for event types** [condition](https://docs.talon.one/docs/dev/concepts/entities/events#use-an-event-in-a-rule) and select the event you created. 1. Trigger the event with this endpoint.  You can [list](https://docs.talon.one/docs/product/applications/display-events#list-events) the received events in the **Events** view of the Campaign Manager.  For example, you can use this endpoint to trigger an event when a customer shares a link to a product. See our [tutorial](https://docs.talon.one/docs/product/tutorials/referrals/incentivizing-product-link-sharing).  &gt; [!note] **Note** &gt; - &#x60;profileId&#x60; is required even though the schema does not specify it. &gt; - If the customer profile ID is new, a new profile is automatically created but the &#x60;customer_profile_created&#x60; [built-in event ](https://docs.talon.one/docs/dev/concepts/entities/events) is **not** triggered. &gt; - We recommend sending requests sequentially. See [Manage parallel requests](https://docs.talon.one/docs/dev/getting-started/integration-tutorial#manage-parallel-requests). &gt; - [Archived campaigns](https://docs.talon.one/docs/product/campaigns/managing-campaigns#archive-a-campaign) are not considered in rule evaluation.  &gt; [!note] To make request processing idempotent for this endpoint, include the &#x60;Idempotency-Key&#x60; header with an idempotency key in requests. Learn more about [idempotency](https://docs.talon.one/integration-api#description/idempotency).
      * @param integrationEventV2Request body (required)
      * @param silent Possible values: &#x60;yes&#x60; or &#x60;no&#x60;. - &#x60;yes&#x60;: Increases the performance of the API call by returning a 204 response. - &#x60;no&#x60;: Returns a 200 response that contains the updated customer profiles.  (optional, default to yes)
      * @param dry Indicates whether to persist the changes. Changes are ignored when &#x60;dry&#x3D;true&#x60;.  (optional)
      * @param forceCompleteEvaluation Forces evaluation for all matching campaigns regardless of the [campaign evaluation mode](https://docs.talon.one/docs/product/applications/managing-campaign-evaluation#setting-campaign-evaluation-mode). Requires &#x60;dry&#x3D;true&#x60;.  (optional, default to false)
+     * @param idempotencyKey A unique identifier that enables idempotent processing. Include it to ensure that the request is processed only once, even if you send it several times. (optional)
      * @return IntegrationEventV2Response
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table border="1">
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-        <tr><td> 204 </td><td> No content </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  * Idempotency-Key - The idempotency key used for the request. <br>  * Idempotent-Replayed - Indicates whether the response was replayed from a previously cached request. <br>  * X-Idempotency-Created-At - The date and time when the idempotency record was created. <br>  * X-Idempotency-Expires-At - The date and time when the idempotency record expires. <br>  * X-Idempotency-Fingerprint - The SHA-256 fingerprint of the request payload and metadata. <br>  </td></tr>
+        <tr><td> 204 </td><td> No content </td><td>  * Idempotency-Key - The idempotency key used for the request. <br>  * Idempotent-Replayed - Indicates whether the response was replayed from a previously cached request. <br>  * X-Idempotency-Created-At - The date and time when the idempotency record was created. <br>  * X-Idempotency-Expires-At - The date and time when the idempotency record expires. <br>  * X-Idempotency-Fingerprint - The SHA-256 fingerprint of the request payload and metadata. <br>  </td></tr>
         <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized - Invalid API key </td><td>  -  </td></tr>
         <tr><td> 409 </td><td> Too many requests or limit reached - Avoid parallel requests. See the [docs](https://docs.talon.one/docs/dev/tutorials/integrating-talon-one#manage-parallel-requests). </td><td>  -  </td></tr>
      </table>
      */
-    public IntegrationEventV2Response trackEventV2(@javax.annotation.Nonnull IntegrationEventV2Request integrationEventV2Request, @javax.annotation.Nullable String silent, @javax.annotation.Nullable Boolean dry, @javax.annotation.Nullable Boolean forceCompleteEvaluation) throws ApiException {
-        ApiResponse<IntegrationEventV2Response> localVarResp = trackEventV2WithHttpInfo(integrationEventV2Request, silent, dry, forceCompleteEvaluation);
+    public IntegrationEventV2Response trackEventV2(@javax.annotation.Nonnull IntegrationEventV2Request integrationEventV2Request, @javax.annotation.Nullable String silent, @javax.annotation.Nullable Boolean dry, @javax.annotation.Nullable Boolean forceCompleteEvaluation, @javax.annotation.Nullable String idempotencyKey) throws ApiException {
+        ApiResponse<IntegrationEventV2Response> localVarResp = trackEventV2WithHttpInfo(integrationEventV2Request, silent, dry, forceCompleteEvaluation, idempotencyKey);
         return localVarResp.getData();
     }
 
     /**
      * Track event
-     * Trigger a [custom event](https://docs.talon.one/docs/dev/concepts/entities/events#custom-events).  To use this endpoint:  1. [Create](https://docs.talon.one/docs/dev/concepts/entities/events#create-an-event) an event in the Campaign Manager. 1. In a rule, add the **Check for event types** [condition](https://docs.talon.one/docs/dev/concepts/entities/events#use-an-event-in-a-rule) and select the event you created. 1. Trigger the event with this endpoint.  You can [list](https://docs.talon.one/docs/product/applications/display-events#list-events) the received events in the **Events** view of the Campaign Manager.  For example, you can use this endpoint to trigger an event when a customer shares a link to a product. See our [tutorial](https://docs.talon.one/docs/product/tutorials/referrals/incentivizing-product-link-sharing).  &gt; [!note] **Note** &gt; - &#x60;profileId&#x60; is required even though the schema does not specify it. &gt; - If the customer profile ID is new, a new profile is automatically created but the &#x60;customer_profile_created&#x60; [built-in event ](https://docs.talon.one/docs/dev/concepts/entities/events) is **not** triggered. &gt; - We recommend sending requests sequentially. See [Manage parallel requests](https://docs.talon.one/docs/dev/getting-started/integration-tutorial#manage-parallel-requests). &gt; - [Archived campaigns](https://docs.talon.one/docs/product/campaigns/managing-campaigns#archive-a-campaign) are not considered in rule evaluation.  &gt; [!note] To make request processing idempotent for this endpoint, include the &#x60;Idempotency-Key&#x60; header with an idempotency key in requests. Learn more about [idempotency](https://docs.talon.one/integration-api#description/idempotency). 
+     * Trigger a [custom event](https://docs.talon.one/docs/dev/concepts/entities/events#custom-events).  To use this endpoint:  1. [Create](https://docs.talon.one/docs/dev/concepts/entities/events#create-an-event) an event in the Campaign Manager. 1. In a rule, add the **Check for event types** [condition](https://docs.talon.one/docs/dev/concepts/entities/events#use-an-event-in-a-rule) and select the event you created. 1. Trigger the event with this endpoint.  You can [list](https://docs.talon.one/docs/product/applications/display-events#list-events) the received events in the **Events** view of the Campaign Manager.  For example, you can use this endpoint to trigger an event when a customer shares a link to a product. See our [tutorial](https://docs.talon.one/docs/product/tutorials/referrals/incentivizing-product-link-sharing).  &gt; [!note] **Note** &gt; - &#x60;profileId&#x60; is required even though the schema does not specify it. &gt; - If the customer profile ID is new, a new profile is automatically created but the &#x60;customer_profile_created&#x60; [built-in event ](https://docs.talon.one/docs/dev/concepts/entities/events) is **not** triggered. &gt; - We recommend sending requests sequentially. See [Manage parallel requests](https://docs.talon.one/docs/dev/getting-started/integration-tutorial#manage-parallel-requests). &gt; - [Archived campaigns](https://docs.talon.one/docs/product/campaigns/managing-campaigns#archive-a-campaign) are not considered in rule evaluation.  &gt; [!note] To make request processing idempotent for this endpoint, include the &#x60;Idempotency-Key&#x60; header with an idempotency key in requests. Learn more about [idempotency](https://docs.talon.one/integration-api#description/idempotency).
      * @param integrationEventV2Request body (required)
      * @param silent Possible values: &#x60;yes&#x60; or &#x60;no&#x60;. - &#x60;yes&#x60;: Increases the performance of the API call by returning a 204 response. - &#x60;no&#x60;: Returns a 200 response that contains the updated customer profiles.  (optional, default to yes)
      * @param dry Indicates whether to persist the changes. Changes are ignored when &#x60;dry&#x3D;true&#x60;.  (optional)
      * @param forceCompleteEvaluation Forces evaluation for all matching campaigns regardless of the [campaign evaluation mode](https://docs.talon.one/docs/product/applications/managing-campaign-evaluation#setting-campaign-evaluation-mode). Requires &#x60;dry&#x3D;true&#x60;.  (optional, default to false)
+     * @param idempotencyKey A unique identifier that enables idempotent processing. Include it to ensure that the request is processed only once, even if you send it several times. (optional)
      * @return ApiResponse&lt;IntegrationEventV2Response&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table border="1">
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-        <tr><td> 204 </td><td> No content </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  * Idempotency-Key - The idempotency key used for the request. <br>  * Idempotent-Replayed - Indicates whether the response was replayed from a previously cached request. <br>  * X-Idempotency-Created-At - The date and time when the idempotency record was created. <br>  * X-Idempotency-Expires-At - The date and time when the idempotency record expires. <br>  * X-Idempotency-Fingerprint - The SHA-256 fingerprint of the request payload and metadata. <br>  </td></tr>
+        <tr><td> 204 </td><td> No content </td><td>  * Idempotency-Key - The idempotency key used for the request. <br>  * Idempotent-Replayed - Indicates whether the response was replayed from a previously cached request. <br>  * X-Idempotency-Created-At - The date and time when the idempotency record was created. <br>  * X-Idempotency-Expires-At - The date and time when the idempotency record expires. <br>  * X-Idempotency-Fingerprint - The SHA-256 fingerprint of the request payload and metadata. <br>  </td></tr>
         <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized - Invalid API key </td><td>  -  </td></tr>
         <tr><td> 409 </td><td> Too many requests or limit reached - Avoid parallel requests. See the [docs](https://docs.talon.one/docs/dev/tutorials/integrating-talon-one#manage-parallel-requests). </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<IntegrationEventV2Response> trackEventV2WithHttpInfo(@javax.annotation.Nonnull IntegrationEventV2Request integrationEventV2Request, @javax.annotation.Nullable String silent, @javax.annotation.Nullable Boolean dry, @javax.annotation.Nullable Boolean forceCompleteEvaluation) throws ApiException {
-        okhttp3.Call localVarCall = trackEventV2ValidateBeforeCall(integrationEventV2Request, silent, dry, forceCompleteEvaluation, null);
+    public ApiResponse<IntegrationEventV2Response> trackEventV2WithHttpInfo(@javax.annotation.Nonnull IntegrationEventV2Request integrationEventV2Request, @javax.annotation.Nullable String silent, @javax.annotation.Nullable Boolean dry, @javax.annotation.Nullable Boolean forceCompleteEvaluation, @javax.annotation.Nullable String idempotencyKey) throws ApiException {
+        okhttp3.Call localVarCall = trackEventV2ValidateBeforeCall(integrationEventV2Request, silent, dry, forceCompleteEvaluation, idempotencyKey, null);
         Type localVarReturnType = new TypeToken<IntegrationEventV2Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
      * Track event (asynchronously)
-     * Trigger a [custom event](https://docs.talon.one/docs/dev/concepts/entities/events#custom-events).  To use this endpoint:  1. [Create](https://docs.talon.one/docs/dev/concepts/entities/events#create-an-event) an event in the Campaign Manager. 1. In a rule, add the **Check for event types** [condition](https://docs.talon.one/docs/dev/concepts/entities/events#use-an-event-in-a-rule) and select the event you created. 1. Trigger the event with this endpoint.  You can [list](https://docs.talon.one/docs/product/applications/display-events#list-events) the received events in the **Events** view of the Campaign Manager.  For example, you can use this endpoint to trigger an event when a customer shares a link to a product. See our [tutorial](https://docs.talon.one/docs/product/tutorials/referrals/incentivizing-product-link-sharing).  &gt; [!note] **Note** &gt; - &#x60;profileId&#x60; is required even though the schema does not specify it. &gt; - If the customer profile ID is new, a new profile is automatically created but the &#x60;customer_profile_created&#x60; [built-in event ](https://docs.talon.one/docs/dev/concepts/entities/events) is **not** triggered. &gt; - We recommend sending requests sequentially. See [Manage parallel requests](https://docs.talon.one/docs/dev/getting-started/integration-tutorial#manage-parallel-requests). &gt; - [Archived campaigns](https://docs.talon.one/docs/product/campaigns/managing-campaigns#archive-a-campaign) are not considered in rule evaluation.  &gt; [!note] To make request processing idempotent for this endpoint, include the &#x60;Idempotency-Key&#x60; header with an idempotency key in requests. Learn more about [idempotency](https://docs.talon.one/integration-api#description/idempotency). 
+     * Trigger a [custom event](https://docs.talon.one/docs/dev/concepts/entities/events#custom-events).  To use this endpoint:  1. [Create](https://docs.talon.one/docs/dev/concepts/entities/events#create-an-event) an event in the Campaign Manager. 1. In a rule, add the **Check for event types** [condition](https://docs.talon.one/docs/dev/concepts/entities/events#use-an-event-in-a-rule) and select the event you created. 1. Trigger the event with this endpoint.  You can [list](https://docs.talon.one/docs/product/applications/display-events#list-events) the received events in the **Events** view of the Campaign Manager.  For example, you can use this endpoint to trigger an event when a customer shares a link to a product. See our [tutorial](https://docs.talon.one/docs/product/tutorials/referrals/incentivizing-product-link-sharing).  &gt; [!note] **Note** &gt; - &#x60;profileId&#x60; is required even though the schema does not specify it. &gt; - If the customer profile ID is new, a new profile is automatically created but the &#x60;customer_profile_created&#x60; [built-in event ](https://docs.talon.one/docs/dev/concepts/entities/events) is **not** triggered. &gt; - We recommend sending requests sequentially. See [Manage parallel requests](https://docs.talon.one/docs/dev/getting-started/integration-tutorial#manage-parallel-requests). &gt; - [Archived campaigns](https://docs.talon.one/docs/product/campaigns/managing-campaigns#archive-a-campaign) are not considered in rule evaluation.  &gt; [!note] To make request processing idempotent for this endpoint, include the &#x60;Idempotency-Key&#x60; header with an idempotency key in requests. Learn more about [idempotency](https://docs.talon.one/integration-api#description/idempotency).
      * @param integrationEventV2Request body (required)
      * @param silent Possible values: &#x60;yes&#x60; or &#x60;no&#x60;. - &#x60;yes&#x60;: Increases the performance of the API call by returning a 204 response. - &#x60;no&#x60;: Returns a 200 response that contains the updated customer profiles.  (optional, default to yes)
      * @param dry Indicates whether to persist the changes. Changes are ignored when &#x60;dry&#x3D;true&#x60;.  (optional)
      * @param forceCompleteEvaluation Forces evaluation for all matching campaigns regardless of the [campaign evaluation mode](https://docs.talon.one/docs/product/applications/managing-campaign-evaluation#setting-campaign-evaluation-mode). Requires &#x60;dry&#x3D;true&#x60;.  (optional, default to false)
+     * @param idempotencyKey A unique identifier that enables idempotent processing. Include it to ensure that the request is processed only once, even if you send it several times. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -5074,16 +5318,16 @@ public class IntegrationApi {
      <table border="1">
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-        <tr><td> 204 </td><td> No content </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  * Idempotency-Key - The idempotency key used for the request. <br>  * Idempotent-Replayed - Indicates whether the response was replayed from a previously cached request. <br>  * X-Idempotency-Created-At - The date and time when the idempotency record was created. <br>  * X-Idempotency-Expires-At - The date and time when the idempotency record expires. <br>  * X-Idempotency-Fingerprint - The SHA-256 fingerprint of the request payload and metadata. <br>  </td></tr>
+        <tr><td> 204 </td><td> No content </td><td>  * Idempotency-Key - The idempotency key used for the request. <br>  * Idempotent-Replayed - Indicates whether the response was replayed from a previously cached request. <br>  * X-Idempotency-Created-At - The date and time when the idempotency record was created. <br>  * X-Idempotency-Expires-At - The date and time when the idempotency record expires. <br>  * X-Idempotency-Fingerprint - The SHA-256 fingerprint of the request payload and metadata. <br>  </td></tr>
         <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized - Invalid API key </td><td>  -  </td></tr>
         <tr><td> 409 </td><td> Too many requests or limit reached - Avoid parallel requests. See the [docs](https://docs.talon.one/docs/dev/tutorials/integrating-talon-one#manage-parallel-requests). </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call trackEventV2Async(@javax.annotation.Nonnull IntegrationEventV2Request integrationEventV2Request, @javax.annotation.Nullable String silent, @javax.annotation.Nullable Boolean dry, @javax.annotation.Nullable Boolean forceCompleteEvaluation, final ApiCallback<IntegrationEventV2Response> _callback) throws ApiException {
+    public okhttp3.Call trackEventV2Async(@javax.annotation.Nonnull IntegrationEventV2Request integrationEventV2Request, @javax.annotation.Nullable String silent, @javax.annotation.Nullable Boolean dry, @javax.annotation.Nullable Boolean forceCompleteEvaluation, @javax.annotation.Nullable String idempotencyKey, final ApiCallback<IntegrationEventV2Response> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = trackEventV2ValidateBeforeCall(integrationEventV2Request, silent, dry, forceCompleteEvaluation, _callback);
+        okhttp3.Call localVarCall = trackEventV2ValidateBeforeCall(integrationEventV2Request, silent, dry, forceCompleteEvaluation, idempotencyKey, _callback);
         Type localVarReturnType = new TypeToken<IntegrationEventV2Response>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -5407,6 +5651,175 @@ public class IntegrationApi {
 
         okhttp3.Call localVarCall = unlinkLoyaltyCardFromProfileValidateBeforeCall(loyaltyProgramId, loyaltyCardId, loyaltyCardRegistration, _callback);
         Type localVarReturnType = new TypeToken<LoyaltyCard>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for unlockReward
+     * @param rewardId The ID of the reward. You can get the ID with the [List rewards](#tag/Rewards/operation/listRewards) endpoint. (required)
+     * @param integrationUnlockRewardRequest  (required)
+     * @param dry When set to &#x60;true&#x60;, the rule evaluation is performed but no changes are persisted. Use this to preview the outcome of an unlocking. (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict. A reward unlock with this integration ID already exists. </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable entity. The reward unlock was rejected by the Rule Engine, for example because the customer already unlocked this reward, the customer has insufficient points, or the reward&#39;s eligibility conditions are not met.  </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call unlockRewardCall(@javax.annotation.Nonnull Long rewardId, @javax.annotation.Nonnull IntegrationUnlockRewardRequest integrationUnlockRewardRequest, @javax.annotation.Nullable Boolean dry, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = integrationUnlockRewardRequest;
+
+        // create path and map variables
+        String localVarPath = "/v1/rewards/{rewardId}/unlock"
+            .replace("{" + "rewardId" + "}", localVarApiClient.escapeString(rewardId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (dry != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("dry", dry));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "api_key_v1" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call unlockRewardValidateBeforeCall(@javax.annotation.Nonnull Long rewardId, @javax.annotation.Nonnull IntegrationUnlockRewardRequest integrationUnlockRewardRequest, @javax.annotation.Nullable Boolean dry, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'rewardId' is set
+        if (rewardId == null) {
+            throw new ApiException("Missing the required parameter 'rewardId' when calling unlockReward(Async)");
+        }
+
+        // verify the required parameter 'integrationUnlockRewardRequest' is set
+        if (integrationUnlockRewardRequest == null) {
+            throw new ApiException("Missing the required parameter 'integrationUnlockRewardRequest' when calling unlockReward(Async)");
+        }
+
+        return unlockRewardCall(rewardId, integrationUnlockRewardRequest, dry, _callback);
+
+    }
+
+    /**
+     * Unlock a reward
+     * Unlock a reward for a customer. If the reward has &#x60;pointsRequired&#x60; configured, the corresponding loyalty points are deducted from the customer&#39;s balance.  To unlock a reward with the points of a loyalty card, provide the card in &#x60;cardIdentifier&#x60;. The points are then deducted from the card, and the unlocked reward belongs to the card, which makes it available to all customer profiles linked to that card. 
+     * @param rewardId The ID of the reward. You can get the ID with the [List rewards](#tag/Rewards/operation/listRewards) endpoint. (required)
+     * @param integrationUnlockRewardRequest  (required)
+     * @param dry When set to &#x60;true&#x60;, the rule evaluation is performed but no changes are persisted. Use this to preview the outcome of an unlocking. (optional)
+     * @return IntegrationStateV2
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict. A reward unlock with this integration ID already exists. </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable entity. The reward unlock was rejected by the Rule Engine, for example because the customer already unlocked this reward, the customer has insufficient points, or the reward&#39;s eligibility conditions are not met.  </td><td>  -  </td></tr>
+     </table>
+     */
+    public IntegrationStateV2 unlockReward(@javax.annotation.Nonnull Long rewardId, @javax.annotation.Nonnull IntegrationUnlockRewardRequest integrationUnlockRewardRequest, @javax.annotation.Nullable Boolean dry) throws ApiException {
+        ApiResponse<IntegrationStateV2> localVarResp = unlockRewardWithHttpInfo(rewardId, integrationUnlockRewardRequest, dry);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Unlock a reward
+     * Unlock a reward for a customer. If the reward has &#x60;pointsRequired&#x60; configured, the corresponding loyalty points are deducted from the customer&#39;s balance.  To unlock a reward with the points of a loyalty card, provide the card in &#x60;cardIdentifier&#x60;. The points are then deducted from the card, and the unlocked reward belongs to the card, which makes it available to all customer profiles linked to that card. 
+     * @param rewardId The ID of the reward. You can get the ID with the [List rewards](#tag/Rewards/operation/listRewards) endpoint. (required)
+     * @param integrationUnlockRewardRequest  (required)
+     * @param dry When set to &#x60;true&#x60;, the rule evaluation is performed but no changes are persisted. Use this to preview the outcome of an unlocking. (optional)
+     * @return ApiResponse&lt;IntegrationStateV2&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict. A reward unlock with this integration ID already exists. </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable entity. The reward unlock was rejected by the Rule Engine, for example because the customer already unlocked this reward, the customer has insufficient points, or the reward&#39;s eligibility conditions are not met.  </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<IntegrationStateV2> unlockRewardWithHttpInfo(@javax.annotation.Nonnull Long rewardId, @javax.annotation.Nonnull IntegrationUnlockRewardRequest integrationUnlockRewardRequest, @javax.annotation.Nullable Boolean dry) throws ApiException {
+        okhttp3.Call localVarCall = unlockRewardValidateBeforeCall(rewardId, integrationUnlockRewardRequest, dry, null);
+        Type localVarReturnType = new TypeToken<IntegrationStateV2>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Unlock a reward (asynchronously)
+     * Unlock a reward for a customer. If the reward has &#x60;pointsRequired&#x60; configured, the corresponding loyalty points are deducted from the customer&#39;s balance.  To unlock a reward with the points of a loyalty card, provide the card in &#x60;cardIdentifier&#x60;. The points are then deducted from the card, and the unlocked reward belongs to the card, which makes it available to all customer profiles linked to that card. 
+     * @param rewardId The ID of the reward. You can get the ID with the [List rewards](#tag/Rewards/operation/listRewards) endpoint. (required)
+     * @param integrationUnlockRewardRequest  (required)
+     * @param dry When set to &#x60;true&#x60;, the rule evaluation is performed but no changes are persisted. Use this to preview the outcome of an unlocking. (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict. A reward unlock with this integration ID already exists. </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable entity. The reward unlock was rejected by the Rule Engine, for example because the customer already unlocked this reward, the customer has insufficient points, or the reward&#39;s eligibility conditions are not met.  </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call unlockRewardAsync(@javax.annotation.Nonnull Long rewardId, @javax.annotation.Nonnull IntegrationUnlockRewardRequest integrationUnlockRewardRequest, @javax.annotation.Nullable Boolean dry, final ApiCallback<IntegrationStateV2> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = unlockRewardValidateBeforeCall(rewardId, integrationUnlockRewardRequest, dry, _callback);
+        Type localVarReturnType = new TypeToken<IntegrationStateV2>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -5837,6 +6250,7 @@ public class IntegrationApi {
      * @param customerProfileIntegrationRequestV2 body (required)
      * @param runRuleEngine Indicates whether to run the Rule Engine.  If &#x60;true&#x60;, the response includes: - The effects generated by the triggered campaigns are returned in the &#x60;effects&#x60; property. - The created coupons and referral objects.  If &#x60;false&#x60;: - The rules are not executed and the &#x60;effects&#x60; property is always empty. - The response time improves. - You cannot use &#x60;responseContent&#x60; in the body.  (optional, default to false)
      * @param dry (Only works when &#x60;runRuleEngine&#x3D;true&#x60;) Indicates whether to persist the changes. Changes are ignored when &#x60;dry&#x3D;true&#x60;.  When set to &#x60;true&#x60;, you can use the &#x60;evaluableCampaignIds&#x60; body property to select specific campaigns to run.  (optional)
+     * @param idempotencyKey A unique identifier that enables idempotent processing. Include it to ensure that the request is processed only once, even if you send it several times. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -5844,13 +6258,13 @@ public class IntegrationApi {
      <table border="1">
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  * Idempotency-Key - The idempotency key used for the request. <br>  * Idempotent-Replayed - Indicates whether the response was replayed from a previously cached request. <br>  * X-Idempotency-Created-At - The date and time when the idempotency record was created. <br>  * X-Idempotency-Expires-At - The date and time when the idempotency record expires. <br>  * X-Idempotency-Fingerprint - The SHA-256 fingerprint of the request payload and metadata. <br>  </td></tr>
         <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized - Invalid API key </td><td>  -  </td></tr>
         <tr><td> 409 </td><td> Too many requests or limit reached - Avoid parallel requests. See the [docs](https://docs.talon.one/docs/dev/tutorials/integrating-talon-one#managing-parallel-requests). </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateCustomerProfileV2Call(@javax.annotation.Nonnull String integrationId, @javax.annotation.Nonnull CustomerProfileIntegrationRequestV2 customerProfileIntegrationRequestV2, @javax.annotation.Nullable Boolean runRuleEngine, @javax.annotation.Nullable Boolean dry, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call updateCustomerProfileV2Call(@javax.annotation.Nonnull String integrationId, @javax.annotation.Nonnull CustomerProfileIntegrationRequestV2 customerProfileIntegrationRequestV2, @javax.annotation.Nullable Boolean runRuleEngine, @javax.annotation.Nullable Boolean dry, @javax.annotation.Nullable String idempotencyKey, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -5900,12 +6314,17 @@ public class IntegrationApi {
             localVarHeaderParams.put("Content-Type", localVarContentType);
         }
 
+        if (idempotencyKey != null) {
+            localVarHeaderParams.put("Idempotency-Key", localVarApiClient.parameterToString(idempotencyKey));
+        }
+
+
         String[] localVarAuthNames = new String[] { "api_key_v1" };
         return localVarApiClient.buildCall(basePath, localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call updateCustomerProfileV2ValidateBeforeCall(@javax.annotation.Nonnull String integrationId, @javax.annotation.Nonnull CustomerProfileIntegrationRequestV2 customerProfileIntegrationRequestV2, @javax.annotation.Nullable Boolean runRuleEngine, @javax.annotation.Nullable Boolean dry, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call updateCustomerProfileV2ValidateBeforeCall(@javax.annotation.Nonnull String integrationId, @javax.annotation.Nonnull CustomerProfileIntegrationRequestV2 customerProfileIntegrationRequestV2, @javax.annotation.Nullable Boolean runRuleEngine, @javax.annotation.Nullable Boolean dry, @javax.annotation.Nullable String idempotencyKey, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'integrationId' is set
         if (integrationId == null) {
             throw new ApiException("Missing the required parameter 'integrationId' when calling updateCustomerProfileV2(Async)");
@@ -5916,66 +6335,69 @@ public class IntegrationApi {
             throw new ApiException("Missing the required parameter 'customerProfileIntegrationRequestV2' when calling updateCustomerProfileV2(Async)");
         }
 
-        return updateCustomerProfileV2Call(integrationId, customerProfileIntegrationRequestV2, runRuleEngine, dry, _callback);
+        return updateCustomerProfileV2Call(integrationId, customerProfileIntegrationRequestV2, runRuleEngine, dry, idempotencyKey, _callback);
 
     }
 
     /**
      * Update customer profile
-     * Update or create a [Customer Profile](https://docs.talon.one/docs/dev/concepts/entities/customer-profiles). This endpoint triggers the Rule Builder.  You can use this endpoint to: - Set attributes on the given customer profile. Ensure you create the attributes in the Campaign Manager, first. - Modify the audience the customer profile is a member of.  &gt; [!note] **Note** &gt; - Updating a customer profile returns a response with the requested integration state. &gt; - The [Has joined an audience](https://docs.talon.one/docs/product/rules/conditions/available-conditions#audience-conditions) and &gt;   [Has left an audience](https://docs.talon.one/docs/product/rules/conditions/available-conditions#audience-conditions) conditions &gt;   only trigger through this endpoint. &gt; - You can use the &#x60;responseContent&#x60; property to save yourself extra API calls. For example, you can get &gt;   the customer profile details directly without extra requests. &gt; - We recommend sending requests sequentially. &gt;   See [Managing parallel requests](https://docs.talon.one/docs/dev/getting-started/integration-tutorial#managing-parallel-requests). &gt; - [Archived campaigns](https://docs.talon.one/docs/product/campaigns/managing-campaigns#archiving-a-campaign) are not considered in rule evaluation when &#x60;runRuleEngine&#x60; is &#x60;true&#x60;.  &gt; [!note] To make request processing idempotent for this endpoint, include the &#x60;Idempotency-Key&#x60; header with an idempotency key in requests. Learn more about [idempotency](https://docs.talon.one/integration-api#description/idempotency). 
+     * Update or create a [Customer Profile](https://docs.talon.one/docs/dev/concepts/entities/customer-profiles). This endpoint triggers the Rule Builder.  You can use this endpoint to: - Set attributes on the given customer profile. Ensure you create the attributes in the Campaign Manager, first. - Modify the audience the customer profile is a member of.  &gt; [!note] **Note** &gt; - Updating a customer profile returns a response with the requested integration state. &gt; - The [Has joined an audience](https://docs.talon.one/docs/product/rules/conditions/available-conditions#audience-conditions) and &gt;   [Has left an audience](https://docs.talon.one/docs/product/rules/conditions/available-conditions#audience-conditions) conditions &gt;   only trigger through this endpoint. &gt; - You can use the &#x60;responseContent&#x60; property to save yourself extra API calls. For example, you can get &gt;   the customer profile details directly without extra requests. &gt; - We recommend sending requests sequentially. &gt;   See [Managing parallel requests](https://docs.talon.one/docs/dev/getting-started/integration-tutorial#managing-parallel-requests). &gt; - [Archived campaigns](https://docs.talon.one/docs/product/campaigns/managing-campaigns#archiving-a-campaign) are not considered in rule evaluation when &#x60;runRuleEngine&#x60; is &#x60;true&#x60;.  &gt; [!note] To make request processing idempotent for this endpoint, include the &#x60;Idempotency-Key&#x60; header with an idempotency key in requests. Learn more about [idempotency](https://docs.talon.one/integration-api#description/idempotency).
      * @param integrationId The integration identifier for this customer profile. Must be: - Unique within the deployment. - Stable for the customer. Do not use an ID that the customer can update themselves. For example, you can use a database ID.  Once set, you cannot update this identifier. **Note**: It must be URL-encoded. For example, replace spaces with &#x60;%20&#x60;. [Learn more](https://www.w3schools.com/tags/ref_urlencode.asp).  (required)
      * @param customerProfileIntegrationRequestV2 body (required)
      * @param runRuleEngine Indicates whether to run the Rule Engine.  If &#x60;true&#x60;, the response includes: - The effects generated by the triggered campaigns are returned in the &#x60;effects&#x60; property. - The created coupons and referral objects.  If &#x60;false&#x60;: - The rules are not executed and the &#x60;effects&#x60; property is always empty. - The response time improves. - You cannot use &#x60;responseContent&#x60; in the body.  (optional, default to false)
      * @param dry (Only works when &#x60;runRuleEngine&#x3D;true&#x60;) Indicates whether to persist the changes. Changes are ignored when &#x60;dry&#x3D;true&#x60;.  When set to &#x60;true&#x60;, you can use the &#x60;evaluableCampaignIds&#x60; body property to select specific campaigns to run.  (optional)
+     * @param idempotencyKey A unique identifier that enables idempotent processing. Include it to ensure that the request is processed only once, even if you send it several times. (optional)
      * @return CustomerProfileIntegrationResponseV2
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table border="1">
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  * Idempotency-Key - The idempotency key used for the request. <br>  * Idempotent-Replayed - Indicates whether the response was replayed from a previously cached request. <br>  * X-Idempotency-Created-At - The date and time when the idempotency record was created. <br>  * X-Idempotency-Expires-At - The date and time when the idempotency record expires. <br>  * X-Idempotency-Fingerprint - The SHA-256 fingerprint of the request payload and metadata. <br>  </td></tr>
         <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized - Invalid API key </td><td>  -  </td></tr>
         <tr><td> 409 </td><td> Too many requests or limit reached - Avoid parallel requests. See the [docs](https://docs.talon.one/docs/dev/tutorials/integrating-talon-one#managing-parallel-requests). </td><td>  -  </td></tr>
      </table>
      */
-    public CustomerProfileIntegrationResponseV2 updateCustomerProfileV2(@javax.annotation.Nonnull String integrationId, @javax.annotation.Nonnull CustomerProfileIntegrationRequestV2 customerProfileIntegrationRequestV2, @javax.annotation.Nullable Boolean runRuleEngine, @javax.annotation.Nullable Boolean dry) throws ApiException {
-        ApiResponse<CustomerProfileIntegrationResponseV2> localVarResp = updateCustomerProfileV2WithHttpInfo(integrationId, customerProfileIntegrationRequestV2, runRuleEngine, dry);
+    public CustomerProfileIntegrationResponseV2 updateCustomerProfileV2(@javax.annotation.Nonnull String integrationId, @javax.annotation.Nonnull CustomerProfileIntegrationRequestV2 customerProfileIntegrationRequestV2, @javax.annotation.Nullable Boolean runRuleEngine, @javax.annotation.Nullable Boolean dry, @javax.annotation.Nullable String idempotencyKey) throws ApiException {
+        ApiResponse<CustomerProfileIntegrationResponseV2> localVarResp = updateCustomerProfileV2WithHttpInfo(integrationId, customerProfileIntegrationRequestV2, runRuleEngine, dry, idempotencyKey);
         return localVarResp.getData();
     }
 
     /**
      * Update customer profile
-     * Update or create a [Customer Profile](https://docs.talon.one/docs/dev/concepts/entities/customer-profiles). This endpoint triggers the Rule Builder.  You can use this endpoint to: - Set attributes on the given customer profile. Ensure you create the attributes in the Campaign Manager, first. - Modify the audience the customer profile is a member of.  &gt; [!note] **Note** &gt; - Updating a customer profile returns a response with the requested integration state. &gt; - The [Has joined an audience](https://docs.talon.one/docs/product/rules/conditions/available-conditions#audience-conditions) and &gt;   [Has left an audience](https://docs.talon.one/docs/product/rules/conditions/available-conditions#audience-conditions) conditions &gt;   only trigger through this endpoint. &gt; - You can use the &#x60;responseContent&#x60; property to save yourself extra API calls. For example, you can get &gt;   the customer profile details directly without extra requests. &gt; - We recommend sending requests sequentially. &gt;   See [Managing parallel requests](https://docs.talon.one/docs/dev/getting-started/integration-tutorial#managing-parallel-requests). &gt; - [Archived campaigns](https://docs.talon.one/docs/product/campaigns/managing-campaigns#archiving-a-campaign) are not considered in rule evaluation when &#x60;runRuleEngine&#x60; is &#x60;true&#x60;.  &gt; [!note] To make request processing idempotent for this endpoint, include the &#x60;Idempotency-Key&#x60; header with an idempotency key in requests. Learn more about [idempotency](https://docs.talon.one/integration-api#description/idempotency). 
+     * Update or create a [Customer Profile](https://docs.talon.one/docs/dev/concepts/entities/customer-profiles). This endpoint triggers the Rule Builder.  You can use this endpoint to: - Set attributes on the given customer profile. Ensure you create the attributes in the Campaign Manager, first. - Modify the audience the customer profile is a member of.  &gt; [!note] **Note** &gt; - Updating a customer profile returns a response with the requested integration state. &gt; - The [Has joined an audience](https://docs.talon.one/docs/product/rules/conditions/available-conditions#audience-conditions) and &gt;   [Has left an audience](https://docs.talon.one/docs/product/rules/conditions/available-conditions#audience-conditions) conditions &gt;   only trigger through this endpoint. &gt; - You can use the &#x60;responseContent&#x60; property to save yourself extra API calls. For example, you can get &gt;   the customer profile details directly without extra requests. &gt; - We recommend sending requests sequentially. &gt;   See [Managing parallel requests](https://docs.talon.one/docs/dev/getting-started/integration-tutorial#managing-parallel-requests). &gt; - [Archived campaigns](https://docs.talon.one/docs/product/campaigns/managing-campaigns#archiving-a-campaign) are not considered in rule evaluation when &#x60;runRuleEngine&#x60; is &#x60;true&#x60;.  &gt; [!note] To make request processing idempotent for this endpoint, include the &#x60;Idempotency-Key&#x60; header with an idempotency key in requests. Learn more about [idempotency](https://docs.talon.one/integration-api#description/idempotency).
      * @param integrationId The integration identifier for this customer profile. Must be: - Unique within the deployment. - Stable for the customer. Do not use an ID that the customer can update themselves. For example, you can use a database ID.  Once set, you cannot update this identifier. **Note**: It must be URL-encoded. For example, replace spaces with &#x60;%20&#x60;. [Learn more](https://www.w3schools.com/tags/ref_urlencode.asp).  (required)
      * @param customerProfileIntegrationRequestV2 body (required)
      * @param runRuleEngine Indicates whether to run the Rule Engine.  If &#x60;true&#x60;, the response includes: - The effects generated by the triggered campaigns are returned in the &#x60;effects&#x60; property. - The created coupons and referral objects.  If &#x60;false&#x60;: - The rules are not executed and the &#x60;effects&#x60; property is always empty. - The response time improves. - You cannot use &#x60;responseContent&#x60; in the body.  (optional, default to false)
      * @param dry (Only works when &#x60;runRuleEngine&#x3D;true&#x60;) Indicates whether to persist the changes. Changes are ignored when &#x60;dry&#x3D;true&#x60;.  When set to &#x60;true&#x60;, you can use the &#x60;evaluableCampaignIds&#x60; body property to select specific campaigns to run.  (optional)
+     * @param idempotencyKey A unique identifier that enables idempotent processing. Include it to ensure that the request is processed only once, even if you send it several times. (optional)
      * @return ApiResponse&lt;CustomerProfileIntegrationResponseV2&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table border="1">
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  * Idempotency-Key - The idempotency key used for the request. <br>  * Idempotent-Replayed - Indicates whether the response was replayed from a previously cached request. <br>  * X-Idempotency-Created-At - The date and time when the idempotency record was created. <br>  * X-Idempotency-Expires-At - The date and time when the idempotency record expires. <br>  * X-Idempotency-Fingerprint - The SHA-256 fingerprint of the request payload and metadata. <br>  </td></tr>
         <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized - Invalid API key </td><td>  -  </td></tr>
         <tr><td> 409 </td><td> Too many requests or limit reached - Avoid parallel requests. See the [docs](https://docs.talon.one/docs/dev/tutorials/integrating-talon-one#managing-parallel-requests). </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<CustomerProfileIntegrationResponseV2> updateCustomerProfileV2WithHttpInfo(@javax.annotation.Nonnull String integrationId, @javax.annotation.Nonnull CustomerProfileIntegrationRequestV2 customerProfileIntegrationRequestV2, @javax.annotation.Nullable Boolean runRuleEngine, @javax.annotation.Nullable Boolean dry) throws ApiException {
-        okhttp3.Call localVarCall = updateCustomerProfileV2ValidateBeforeCall(integrationId, customerProfileIntegrationRequestV2, runRuleEngine, dry, null);
+    public ApiResponse<CustomerProfileIntegrationResponseV2> updateCustomerProfileV2WithHttpInfo(@javax.annotation.Nonnull String integrationId, @javax.annotation.Nonnull CustomerProfileIntegrationRequestV2 customerProfileIntegrationRequestV2, @javax.annotation.Nullable Boolean runRuleEngine, @javax.annotation.Nullable Boolean dry, @javax.annotation.Nullable String idempotencyKey) throws ApiException {
+        okhttp3.Call localVarCall = updateCustomerProfileV2ValidateBeforeCall(integrationId, customerProfileIntegrationRequestV2, runRuleEngine, dry, idempotencyKey, null);
         Type localVarReturnType = new TypeToken<CustomerProfileIntegrationResponseV2>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
      * Update customer profile (asynchronously)
-     * Update or create a [Customer Profile](https://docs.talon.one/docs/dev/concepts/entities/customer-profiles). This endpoint triggers the Rule Builder.  You can use this endpoint to: - Set attributes on the given customer profile. Ensure you create the attributes in the Campaign Manager, first. - Modify the audience the customer profile is a member of.  &gt; [!note] **Note** &gt; - Updating a customer profile returns a response with the requested integration state. &gt; - The [Has joined an audience](https://docs.talon.one/docs/product/rules/conditions/available-conditions#audience-conditions) and &gt;   [Has left an audience](https://docs.talon.one/docs/product/rules/conditions/available-conditions#audience-conditions) conditions &gt;   only trigger through this endpoint. &gt; - You can use the &#x60;responseContent&#x60; property to save yourself extra API calls. For example, you can get &gt;   the customer profile details directly without extra requests. &gt; - We recommend sending requests sequentially. &gt;   See [Managing parallel requests](https://docs.talon.one/docs/dev/getting-started/integration-tutorial#managing-parallel-requests). &gt; - [Archived campaigns](https://docs.talon.one/docs/product/campaigns/managing-campaigns#archiving-a-campaign) are not considered in rule evaluation when &#x60;runRuleEngine&#x60; is &#x60;true&#x60;.  &gt; [!note] To make request processing idempotent for this endpoint, include the &#x60;Idempotency-Key&#x60; header with an idempotency key in requests. Learn more about [idempotency](https://docs.talon.one/integration-api#description/idempotency). 
+     * Update or create a [Customer Profile](https://docs.talon.one/docs/dev/concepts/entities/customer-profiles). This endpoint triggers the Rule Builder.  You can use this endpoint to: - Set attributes on the given customer profile. Ensure you create the attributes in the Campaign Manager, first. - Modify the audience the customer profile is a member of.  &gt; [!note] **Note** &gt; - Updating a customer profile returns a response with the requested integration state. &gt; - The [Has joined an audience](https://docs.talon.one/docs/product/rules/conditions/available-conditions#audience-conditions) and &gt;   [Has left an audience](https://docs.talon.one/docs/product/rules/conditions/available-conditions#audience-conditions) conditions &gt;   only trigger through this endpoint. &gt; - You can use the &#x60;responseContent&#x60; property to save yourself extra API calls. For example, you can get &gt;   the customer profile details directly without extra requests. &gt; - We recommend sending requests sequentially. &gt;   See [Managing parallel requests](https://docs.talon.one/docs/dev/getting-started/integration-tutorial#managing-parallel-requests). &gt; - [Archived campaigns](https://docs.talon.one/docs/product/campaigns/managing-campaigns#archiving-a-campaign) are not considered in rule evaluation when &#x60;runRuleEngine&#x60; is &#x60;true&#x60;.  &gt; [!note] To make request processing idempotent for this endpoint, include the &#x60;Idempotency-Key&#x60; header with an idempotency key in requests. Learn more about [idempotency](https://docs.talon.one/integration-api#description/idempotency).
      * @param integrationId The integration identifier for this customer profile. Must be: - Unique within the deployment. - Stable for the customer. Do not use an ID that the customer can update themselves. For example, you can use a database ID.  Once set, you cannot update this identifier. **Note**: It must be URL-encoded. For example, replace spaces with &#x60;%20&#x60;. [Learn more](https://www.w3schools.com/tags/ref_urlencode.asp).  (required)
      * @param customerProfileIntegrationRequestV2 body (required)
      * @param runRuleEngine Indicates whether to run the Rule Engine.  If &#x60;true&#x60;, the response includes: - The effects generated by the triggered campaigns are returned in the &#x60;effects&#x60; property. - The created coupons and referral objects.  If &#x60;false&#x60;: - The rules are not executed and the &#x60;effects&#x60; property is always empty. - The response time improves. - You cannot use &#x60;responseContent&#x60; in the body.  (optional, default to false)
      * @param dry (Only works when &#x60;runRuleEngine&#x3D;true&#x60;) Indicates whether to persist the changes. Changes are ignored when &#x60;dry&#x3D;true&#x60;.  When set to &#x60;true&#x60;, you can use the &#x60;evaluableCampaignIds&#x60; body property to select specific campaigns to run.  (optional)
+     * @param idempotencyKey A unique identifier that enables idempotent processing. Include it to ensure that the request is processed only once, even if you send it several times. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -5983,15 +6405,15 @@ public class IntegrationApi {
      <table border="1">
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  * Idempotency-Key - The idempotency key used for the request. <br>  * Idempotent-Replayed - Indicates whether the response was replayed from a previously cached request. <br>  * X-Idempotency-Created-At - The date and time when the idempotency record was created. <br>  * X-Idempotency-Expires-At - The date and time when the idempotency record expires. <br>  * X-Idempotency-Fingerprint - The SHA-256 fingerprint of the request payload and metadata. <br>  </td></tr>
         <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized - Invalid API key </td><td>  -  </td></tr>
         <tr><td> 409 </td><td> Too many requests or limit reached - Avoid parallel requests. See the [docs](https://docs.talon.one/docs/dev/tutorials/integrating-talon-one#managing-parallel-requests). </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateCustomerProfileV2Async(@javax.annotation.Nonnull String integrationId, @javax.annotation.Nonnull CustomerProfileIntegrationRequestV2 customerProfileIntegrationRequestV2, @javax.annotation.Nullable Boolean runRuleEngine, @javax.annotation.Nullable Boolean dry, final ApiCallback<CustomerProfileIntegrationResponseV2> _callback) throws ApiException {
+    public okhttp3.Call updateCustomerProfileV2Async(@javax.annotation.Nonnull String integrationId, @javax.annotation.Nonnull CustomerProfileIntegrationRequestV2 customerProfileIntegrationRequestV2, @javax.annotation.Nullable Boolean runRuleEngine, @javax.annotation.Nullable Boolean dry, @javax.annotation.Nullable String idempotencyKey, final ApiCallback<CustomerProfileIntegrationResponseV2> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = updateCustomerProfileV2ValidateBeforeCall(integrationId, customerProfileIntegrationRequestV2, runRuleEngine, dry, _callback);
+        okhttp3.Call localVarCall = updateCustomerProfileV2ValidateBeforeCall(integrationId, customerProfileIntegrationRequestV2, runRuleEngine, dry, idempotencyKey, _callback);
         Type localVarReturnType = new TypeToken<CustomerProfileIntegrationResponseV2>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -6000,6 +6422,7 @@ public class IntegrationApi {
      * Build call for updateCustomerProfilesV2
      * @param multipleCustomerProfileIntegrationRequest body (required)
      * @param silent Possible values: &#x60;yes&#x60; or &#x60;no&#x60;. - &#x60;yes&#x60;: Increases the performance of the API call by returning a 204 response. - &#x60;no&#x60;: Returns a 200 response that contains the updated customer profiles.  (optional, default to yes)
+     * @param idempotencyKey A unique identifier that enables idempotent processing. Include it to ensure that the request is processed only once, even if you send it several times. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -6007,13 +6430,13 @@ public class IntegrationApi {
      <table border="1">
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-        <tr><td> 204 </td><td> No content </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  * Idempotency-Key - The idempotency key used for the request. <br>  * Idempotent-Replayed - Indicates whether the response was replayed from a previously cached request. <br>  * X-Idempotency-Created-At - The date and time when the idempotency record was created. <br>  * X-Idempotency-Expires-At - The date and time when the idempotency record expires. <br>  * X-Idempotency-Fingerprint - The SHA-256 fingerprint of the request payload and metadata. <br>  </td></tr>
+        <tr><td> 204 </td><td> No content </td><td>  * Idempotency-Key - The idempotency key used for the request. <br>  * Idempotent-Replayed - Indicates whether the response was replayed from a previously cached request. <br>  * X-Idempotency-Created-At - The date and time when the idempotency record was created. <br>  * X-Idempotency-Expires-At - The date and time when the idempotency record expires. <br>  * X-Idempotency-Fingerprint - The SHA-256 fingerprint of the request payload and metadata. <br>  </td></tr>
         <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized - Invalid API key </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateCustomerProfilesV2Call(@javax.annotation.Nonnull MultipleCustomerProfileIntegrationRequest multipleCustomerProfileIntegrationRequest, @javax.annotation.Nullable String silent, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call updateCustomerProfilesV2Call(@javax.annotation.Nonnull MultipleCustomerProfileIntegrationRequest multipleCustomerProfileIntegrationRequest, @javax.annotation.Nullable String silent, @javax.annotation.Nullable String idempotencyKey, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -6058,71 +6481,79 @@ public class IntegrationApi {
             localVarHeaderParams.put("Content-Type", localVarContentType);
         }
 
+        if (idempotencyKey != null) {
+            localVarHeaderParams.put("Idempotency-Key", localVarApiClient.parameterToString(idempotencyKey));
+        }
+
+
         String[] localVarAuthNames = new String[] { "api_key_v1" };
         return localVarApiClient.buildCall(basePath, localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call updateCustomerProfilesV2ValidateBeforeCall(@javax.annotation.Nonnull MultipleCustomerProfileIntegrationRequest multipleCustomerProfileIntegrationRequest, @javax.annotation.Nullable String silent, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call updateCustomerProfilesV2ValidateBeforeCall(@javax.annotation.Nonnull MultipleCustomerProfileIntegrationRequest multipleCustomerProfileIntegrationRequest, @javax.annotation.Nullable String silent, @javax.annotation.Nullable String idempotencyKey, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'multipleCustomerProfileIntegrationRequest' is set
         if (multipleCustomerProfileIntegrationRequest == null) {
             throw new ApiException("Missing the required parameter 'multipleCustomerProfileIntegrationRequest' when calling updateCustomerProfilesV2(Async)");
         }
 
-        return updateCustomerProfilesV2Call(multipleCustomerProfileIntegrationRequest, silent, _callback);
+        return updateCustomerProfilesV2Call(multipleCustomerProfileIntegrationRequest, silent, idempotencyKey, _callback);
 
     }
 
     /**
      * Update multiple customer profiles
-     * Update (or create) up to 1000 [customer profiles](https://docs.talon.one/docs/dev/concepts/entities/customer-profiles) in 1 request.  The &#x60;integrationId&#x60; must be any identifier that remains stable for the customer. Do not use an ID that the customer can update themselves. For example, you can use a database ID.  A customer profile [can be linked to one or more sessions](https://docs.talon.one/integration-api#tag/Customer-sessions).  &gt; [!note] This endpoint does not trigger the Rule Engine. &gt; To trigger the Rule Engine for customer profile updates, &gt; use the [Update customer profile](#tag/Customer-profiles/operation/updateCustomerProfileV2) endpoint.  &gt; [!note] To make request processing idempotent for this endpoint, include the &#x60;Idempotency-Key&#x60; header with an idempotency key in requests. Learn more about [idempotency](https://docs.talon.one/integration-api#description/idempotency). 
+     * Update (or create) up to 1000 [customer profiles](https://docs.talon.one/docs/dev/concepts/entities/customer-profiles) in 1 request.  The &#x60;integrationId&#x60; must be any identifier that remains stable for the customer. Do not use an ID that the customer can update themselves. For example, you can use a database ID.  A customer profile [can be linked to one or more sessions](https://docs.talon.one/integration-api#tag/Customer-sessions).  &gt; [!note] This endpoint does not trigger the Rule Engine. &gt; To trigger the Rule Engine for customer profile updates, &gt; use the [Update customer profile](#tag/Customer-profiles/operation/updateCustomerProfileV2) endpoint.  &gt; [!note] To make request processing idempotent for this endpoint, include the &#x60;Idempotency-Key&#x60; header with an idempotency key in requests. Learn more about [idempotency](https://docs.talon.one/integration-api#description/idempotency).
      * @param multipleCustomerProfileIntegrationRequest body (required)
      * @param silent Possible values: &#x60;yes&#x60; or &#x60;no&#x60;. - &#x60;yes&#x60;: Increases the performance of the API call by returning a 204 response. - &#x60;no&#x60;: Returns a 200 response that contains the updated customer profiles.  (optional, default to yes)
+     * @param idempotencyKey A unique identifier that enables idempotent processing. Include it to ensure that the request is processed only once, even if you send it several times. (optional)
      * @return MultipleCustomerProfileIntegrationResponseV2
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table border="1">
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-        <tr><td> 204 </td><td> No content </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  * Idempotency-Key - The idempotency key used for the request. <br>  * Idempotent-Replayed - Indicates whether the response was replayed from a previously cached request. <br>  * X-Idempotency-Created-At - The date and time when the idempotency record was created. <br>  * X-Idempotency-Expires-At - The date and time when the idempotency record expires. <br>  * X-Idempotency-Fingerprint - The SHA-256 fingerprint of the request payload and metadata. <br>  </td></tr>
+        <tr><td> 204 </td><td> No content </td><td>  * Idempotency-Key - The idempotency key used for the request. <br>  * Idempotent-Replayed - Indicates whether the response was replayed from a previously cached request. <br>  * X-Idempotency-Created-At - The date and time when the idempotency record was created. <br>  * X-Idempotency-Expires-At - The date and time when the idempotency record expires. <br>  * X-Idempotency-Fingerprint - The SHA-256 fingerprint of the request payload and metadata. <br>  </td></tr>
         <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized - Invalid API key </td><td>  -  </td></tr>
      </table>
      */
-    public MultipleCustomerProfileIntegrationResponseV2 updateCustomerProfilesV2(@javax.annotation.Nonnull MultipleCustomerProfileIntegrationRequest multipleCustomerProfileIntegrationRequest, @javax.annotation.Nullable String silent) throws ApiException {
-        ApiResponse<MultipleCustomerProfileIntegrationResponseV2> localVarResp = updateCustomerProfilesV2WithHttpInfo(multipleCustomerProfileIntegrationRequest, silent);
+    public MultipleCustomerProfileIntegrationResponseV2 updateCustomerProfilesV2(@javax.annotation.Nonnull MultipleCustomerProfileIntegrationRequest multipleCustomerProfileIntegrationRequest, @javax.annotation.Nullable String silent, @javax.annotation.Nullable String idempotencyKey) throws ApiException {
+        ApiResponse<MultipleCustomerProfileIntegrationResponseV2> localVarResp = updateCustomerProfilesV2WithHttpInfo(multipleCustomerProfileIntegrationRequest, silent, idempotencyKey);
         return localVarResp.getData();
     }
 
     /**
      * Update multiple customer profiles
-     * Update (or create) up to 1000 [customer profiles](https://docs.talon.one/docs/dev/concepts/entities/customer-profiles) in 1 request.  The &#x60;integrationId&#x60; must be any identifier that remains stable for the customer. Do not use an ID that the customer can update themselves. For example, you can use a database ID.  A customer profile [can be linked to one or more sessions](https://docs.talon.one/integration-api#tag/Customer-sessions).  &gt; [!note] This endpoint does not trigger the Rule Engine. &gt; To trigger the Rule Engine for customer profile updates, &gt; use the [Update customer profile](#tag/Customer-profiles/operation/updateCustomerProfileV2) endpoint.  &gt; [!note] To make request processing idempotent for this endpoint, include the &#x60;Idempotency-Key&#x60; header with an idempotency key in requests. Learn more about [idempotency](https://docs.talon.one/integration-api#description/idempotency). 
+     * Update (or create) up to 1000 [customer profiles](https://docs.talon.one/docs/dev/concepts/entities/customer-profiles) in 1 request.  The &#x60;integrationId&#x60; must be any identifier that remains stable for the customer. Do not use an ID that the customer can update themselves. For example, you can use a database ID.  A customer profile [can be linked to one or more sessions](https://docs.talon.one/integration-api#tag/Customer-sessions).  &gt; [!note] This endpoint does not trigger the Rule Engine. &gt; To trigger the Rule Engine for customer profile updates, &gt; use the [Update customer profile](#tag/Customer-profiles/operation/updateCustomerProfileV2) endpoint.  &gt; [!note] To make request processing idempotent for this endpoint, include the &#x60;Idempotency-Key&#x60; header with an idempotency key in requests. Learn more about [idempotency](https://docs.talon.one/integration-api#description/idempotency).
      * @param multipleCustomerProfileIntegrationRequest body (required)
      * @param silent Possible values: &#x60;yes&#x60; or &#x60;no&#x60;. - &#x60;yes&#x60;: Increases the performance of the API call by returning a 204 response. - &#x60;no&#x60;: Returns a 200 response that contains the updated customer profiles.  (optional, default to yes)
+     * @param idempotencyKey A unique identifier that enables idempotent processing. Include it to ensure that the request is processed only once, even if you send it several times. (optional)
      * @return ApiResponse&lt;MultipleCustomerProfileIntegrationResponseV2&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table border="1">
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-        <tr><td> 204 </td><td> No content </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  * Idempotency-Key - The idempotency key used for the request. <br>  * Idempotent-Replayed - Indicates whether the response was replayed from a previously cached request. <br>  * X-Idempotency-Created-At - The date and time when the idempotency record was created. <br>  * X-Idempotency-Expires-At - The date and time when the idempotency record expires. <br>  * X-Idempotency-Fingerprint - The SHA-256 fingerprint of the request payload and metadata. <br>  </td></tr>
+        <tr><td> 204 </td><td> No content </td><td>  * Idempotency-Key - The idempotency key used for the request. <br>  * Idempotent-Replayed - Indicates whether the response was replayed from a previously cached request. <br>  * X-Idempotency-Created-At - The date and time when the idempotency record was created. <br>  * X-Idempotency-Expires-At - The date and time when the idempotency record expires. <br>  * X-Idempotency-Fingerprint - The SHA-256 fingerprint of the request payload and metadata. <br>  </td></tr>
         <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized - Invalid API key </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<MultipleCustomerProfileIntegrationResponseV2> updateCustomerProfilesV2WithHttpInfo(@javax.annotation.Nonnull MultipleCustomerProfileIntegrationRequest multipleCustomerProfileIntegrationRequest, @javax.annotation.Nullable String silent) throws ApiException {
-        okhttp3.Call localVarCall = updateCustomerProfilesV2ValidateBeforeCall(multipleCustomerProfileIntegrationRequest, silent, null);
+    public ApiResponse<MultipleCustomerProfileIntegrationResponseV2> updateCustomerProfilesV2WithHttpInfo(@javax.annotation.Nonnull MultipleCustomerProfileIntegrationRequest multipleCustomerProfileIntegrationRequest, @javax.annotation.Nullable String silent, @javax.annotation.Nullable String idempotencyKey) throws ApiException {
+        okhttp3.Call localVarCall = updateCustomerProfilesV2ValidateBeforeCall(multipleCustomerProfileIntegrationRequest, silent, idempotencyKey, null);
         Type localVarReturnType = new TypeToken<MultipleCustomerProfileIntegrationResponseV2>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
      * Update multiple customer profiles (asynchronously)
-     * Update (or create) up to 1000 [customer profiles](https://docs.talon.one/docs/dev/concepts/entities/customer-profiles) in 1 request.  The &#x60;integrationId&#x60; must be any identifier that remains stable for the customer. Do not use an ID that the customer can update themselves. For example, you can use a database ID.  A customer profile [can be linked to one or more sessions](https://docs.talon.one/integration-api#tag/Customer-sessions).  &gt; [!note] This endpoint does not trigger the Rule Engine. &gt; To trigger the Rule Engine for customer profile updates, &gt; use the [Update customer profile](#tag/Customer-profiles/operation/updateCustomerProfileV2) endpoint.  &gt; [!note] To make request processing idempotent for this endpoint, include the &#x60;Idempotency-Key&#x60; header with an idempotency key in requests. Learn more about [idempotency](https://docs.talon.one/integration-api#description/idempotency). 
+     * Update (or create) up to 1000 [customer profiles](https://docs.talon.one/docs/dev/concepts/entities/customer-profiles) in 1 request.  The &#x60;integrationId&#x60; must be any identifier that remains stable for the customer. Do not use an ID that the customer can update themselves. For example, you can use a database ID.  A customer profile [can be linked to one or more sessions](https://docs.talon.one/integration-api#tag/Customer-sessions).  &gt; [!note] This endpoint does not trigger the Rule Engine. &gt; To trigger the Rule Engine for customer profile updates, &gt; use the [Update customer profile](#tag/Customer-profiles/operation/updateCustomerProfileV2) endpoint.  &gt; [!note] To make request processing idempotent for this endpoint, include the &#x60;Idempotency-Key&#x60; header with an idempotency key in requests. Learn more about [idempotency](https://docs.talon.one/integration-api#description/idempotency).
      * @param multipleCustomerProfileIntegrationRequest body (required)
      * @param silent Possible values: &#x60;yes&#x60; or &#x60;no&#x60;. - &#x60;yes&#x60;: Increases the performance of the API call by returning a 204 response. - &#x60;no&#x60;: Returns a 200 response that contains the updated customer profiles.  (optional, default to yes)
+     * @param idempotencyKey A unique identifier that enables idempotent processing. Include it to ensure that the request is processed only once, even if you send it several times. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -6130,15 +6561,15 @@ public class IntegrationApi {
      <table border="1">
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-        <tr><td> 204 </td><td> No content </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  * Idempotency-Key - The idempotency key used for the request. <br>  * Idempotent-Replayed - Indicates whether the response was replayed from a previously cached request. <br>  * X-Idempotency-Created-At - The date and time when the idempotency record was created. <br>  * X-Idempotency-Expires-At - The date and time when the idempotency record expires. <br>  * X-Idempotency-Fingerprint - The SHA-256 fingerprint of the request payload and metadata. <br>  </td></tr>
+        <tr><td> 204 </td><td> No content </td><td>  * Idempotency-Key - The idempotency key used for the request. <br>  * Idempotent-Replayed - Indicates whether the response was replayed from a previously cached request. <br>  * X-Idempotency-Created-At - The date and time when the idempotency record was created. <br>  * X-Idempotency-Expires-At - The date and time when the idempotency record expires. <br>  * X-Idempotency-Fingerprint - The SHA-256 fingerprint of the request payload and metadata. <br>  </td></tr>
         <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized - Invalid API key </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateCustomerProfilesV2Async(@javax.annotation.Nonnull MultipleCustomerProfileIntegrationRequest multipleCustomerProfileIntegrationRequest, @javax.annotation.Nullable String silent, final ApiCallback<MultipleCustomerProfileIntegrationResponseV2> _callback) throws ApiException {
+    public okhttp3.Call updateCustomerProfilesV2Async(@javax.annotation.Nonnull MultipleCustomerProfileIntegrationRequest multipleCustomerProfileIntegrationRequest, @javax.annotation.Nullable String silent, @javax.annotation.Nullable String idempotencyKey, final ApiCallback<MultipleCustomerProfileIntegrationResponseV2> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = updateCustomerProfilesV2ValidateBeforeCall(multipleCustomerProfileIntegrationRequest, silent, _callback);
+        okhttp3.Call localVarCall = updateCustomerProfilesV2ValidateBeforeCall(multipleCustomerProfileIntegrationRequest, silent, idempotencyKey, _callback);
         Type localVarReturnType = new TypeToken<MultipleCustomerProfileIntegrationResponseV2>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -6149,6 +6580,7 @@ public class IntegrationApi {
      * @param integrationRequest body (required)
      * @param dry Indicates whether to persist the changes. Changes are ignored when &#x60;dry&#x3D;true&#x60;.  When set to &#x60;true&#x60;: - The endpoint considers **only** the payload that you pass when **closing** the session.   When you do not use the &#x60;dry&#x60; parameter, the endpoint behaves as a typical PUT endpoint. Each update builds upon the previous ones. - You can use the &#x60;evaluableCampaignIds&#x60; body property to select specific campaigns to run.  [See the docs](https://docs.talon.one/docs/dev/integration-api/dry-requests).  (optional)
      * @param now A timestamp value of a future date that acts as a current date when included in the query.  Use this parameter, for example, to test campaigns that would be evaluated for this customer session in the future (say, [scheduled campaigns](https://docs.talon.one/docs/product/campaigns/settings/managing-campaign-schedule)).  &gt; [!note] **Note** &gt; - It must be an RFC3339 timestamp string. &gt; - It can **only** be a date in the future. &gt; - It can **only** be used if the &#x60;dry&#x60; parameter in the query is set to &#x60;true&#x60;.  (optional)
+     * @param idempotencyKey A unique identifier that enables idempotent processing. Include it to ensure that the request is processed only once, even if you send it several times. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -6156,13 +6588,13 @@ public class IntegrationApi {
      <table border="1">
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  * Idempotency-Key - The idempotency key used for the request. <br>  * Idempotent-Replayed - Indicates whether the response was replayed from a previously cached request. <br>  * X-Idempotency-Created-At - The date and time when the idempotency record was created. <br>  * X-Idempotency-Expires-At - The date and time when the idempotency record expires. <br>  * X-Idempotency-Fingerprint - The SHA-256 fingerprint of the request payload and metadata. <br>  </td></tr>
         <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized - Invalid API key </td><td>  -  </td></tr>
         <tr><td> 409 </td><td> Too many requests or limit reached - Avoid parallel requests. See the [docs](https://docs.talon.one/docs/dev/tutorials/integrating-talon-one#managing-parallel-requests). </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateCustomerSessionV2Call(@javax.annotation.Nonnull String customerSessionId, @javax.annotation.Nonnull IntegrationRequest integrationRequest, @javax.annotation.Nullable Boolean dry, @javax.annotation.Nullable OffsetDateTime now, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call updateCustomerSessionV2Call(@javax.annotation.Nonnull String customerSessionId, @javax.annotation.Nonnull IntegrationRequest integrationRequest, @javax.annotation.Nullable Boolean dry, @javax.annotation.Nullable OffsetDateTime now, @javax.annotation.Nullable String idempotencyKey, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -6212,12 +6644,17 @@ public class IntegrationApi {
             localVarHeaderParams.put("Content-Type", localVarContentType);
         }
 
+        if (idempotencyKey != null) {
+            localVarHeaderParams.put("Idempotency-Key", localVarApiClient.parameterToString(idempotencyKey));
+        }
+
+
         String[] localVarAuthNames = new String[] { "api_key_v1" };
         return localVarApiClient.buildCall(basePath, localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call updateCustomerSessionV2ValidateBeforeCall(@javax.annotation.Nonnull String customerSessionId, @javax.annotation.Nonnull IntegrationRequest integrationRequest, @javax.annotation.Nullable Boolean dry, @javax.annotation.Nullable OffsetDateTime now, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call updateCustomerSessionV2ValidateBeforeCall(@javax.annotation.Nonnull String customerSessionId, @javax.annotation.Nonnull IntegrationRequest integrationRequest, @javax.annotation.Nullable Boolean dry, @javax.annotation.Nullable OffsetDateTime now, @javax.annotation.Nullable String idempotencyKey, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'customerSessionId' is set
         if (customerSessionId == null) {
             throw new ApiException("Missing the required parameter 'customerSessionId' when calling updateCustomerSessionV2(Async)");
@@ -6228,66 +6665,69 @@ public class IntegrationApi {
             throw new ApiException("Missing the required parameter 'integrationRequest' when calling updateCustomerSessionV2(Async)");
         }
 
-        return updateCustomerSessionV2Call(customerSessionId, integrationRequest, dry, now, _callback);
+        return updateCustomerSessionV2Call(customerSessionId, integrationRequest, dry, now, idempotencyKey, _callback);
 
     }
 
     /**
      * Update customer session
-     * Update or create a [customer session](https://docs.talon.one/docs/dev/concepts/entities/customer-sessions).  The endpoint responds with the potential promotion rule [effects](https://docs.talon.one/docs/dev/integration-api/api-effects) that match the current cart.  For example, use this endpoint to share the contents of a customer&#39;s cart with Talon.One.  &gt; [!note] **Note** &gt; - The currency for the session and the cart items in it is the currency set for the Application linked to this session. &gt; - [Archived campaigns](https://docs.talon.one/docs/product/campaigns/managing-campaigns#archiving-a-campaign) are not considered for rule evaluation.  &gt; [!note] To make request processing idempotent for this endpoint, include the &#x60;Idempotency-Key&#x60; header with an idempotency key in requests. Learn more about [idempotency](https://docs.talon.one/integration-api#description/idempotency).  ### Session management  To use this endpoint, start by learning about [customer sessions](https://docs.talon.one/docs/dev/concepts/entities/customer-sessions) and their states and refer to the &#x60;state&#x60; parameter documentation the request body schema docs below.  ### Sessions and customer profiles  - To link a session to a customer profile, set the &#x60;profileId&#x60; parameter in the request body to a customer profile&#39;s &#x60;integrationId&#x60;.  - While you can create an anonymous session with &#x60;profileId&#x3D;\&quot;\&quot;&#x60;, we recommend you use a guest ID instead.  - A profile can be linked to simultaneous sessions in different Applications. Either:   - Use unique session integration IDs or,   - Use the same session integration ID across all of the Applications.  &gt; [!note] **Note** &gt; - If the specified profile does not exist, an empty profile is **created automatically**. &gt;   You can update it with [Update customer profile](https://docs.talon.one/integration-api#tag/Customer-profiles/operation/updateCustomerProfileV2). &gt; - Updating a customer session returns a response with the new integration state. Use the &#x60;responseContent&#x60; property to save yourself extra API calls. &gt;   For example, you can get the customer profile details directly without extra requests. &gt; - We recommend sending requests sequentially. See [Managing parallel requests](https://docs.talon.one/docs/dev/getting-started/integration-tutorial#managing-parallel-requests).  For more information, see:  - The introductory video in [Getting started](https://docs.talon.one/docs/dev/getting-started/overview). - The [integration tutorial](https://docs.talon.one/docs/dev/tutorials/integrating-talon-one). 
+     * Update or create a [customer session](https://docs.talon.one/docs/dev/concepts/entities/customer-sessions).  The endpoint responds with the potential promotion rule [effects](https://docs.talon.one/docs/dev/integration-api/api-effects) that match the current cart.  For example, use this endpoint to share the contents of a customer&#39;s cart with Talon.One.  &gt; [!note] **Note** &gt; - The currency for the session and the cart items in it is the currency set for the Application linked to this session. &gt; - [Archived campaigns](https://docs.talon.one/docs/product/campaigns/managing-campaigns#archiving-a-campaign) are not considered for rule evaluation.  ### Session management  To use this endpoint, start by learning about [customer sessions](https://docs.talon.one/docs/dev/concepts/entities/customer-sessions) and their states and refer to the &#x60;state&#x60; parameter documentation the request body schema docs below.  ### Sessions and customer profiles  - To link a session to a customer profile, set the &#x60;profileId&#x60; parameter in the request body to a customer profile&#39;s &#x60;integrationId&#x60;.  - While you can create an anonymous session with &#x60;profileId&#x3D;\&quot;\&quot;&#x60;, we recommend you use a guest ID instead.  - A profile can be linked to simultaneous sessions in different Applications. Either:   - Use unique session integration IDs or,   - Use the same session integration ID across all of the Applications.  &gt; [!note] **Note** &gt; - If the specified profile does not exist, an empty profile is **created automatically**. &gt;   You can update it with [Update customer profile](https://docs.talon.one/integration-api#tag/Customer-profiles/operation/updateCustomerProfileV2). &gt; - Updating a customer session returns a response with the new integration state. Use the &#x60;responseContent&#x60; property to save yourself extra API calls. &gt;   For example, you can get the customer profile details directly without extra requests. &gt; - We recommend sending requests sequentially. See [Managing parallel requests](https://docs.talon.one/docs/dev/getting-started/integration-tutorial#managing-parallel-requests).  For more information, see:  - The introductory video in [Getting started](https://docs.talon.one/docs/dev/getting-started/overview). - The [integration tutorial](https://docs.talon.one/docs/dev/tutorials/integrating-talon-one).  &gt; [!note] To make request processing idempotent for this endpoint, include the &#x60;Idempotency-Key&#x60; header with an idempotency key in requests. Learn more about [idempotency](https://docs.talon.one/integration-api#description/idempotency).
      * @param customerSessionId The &#x60;integration ID&#x60; of the customer session. You set this ID when you create a customer session.  You can see existing customer session integration IDs in the Campaign Manager&#39;s **Sessions** menu, or via the [List Application session](https://docs.talon.one/management-api#tag/Customer-data/operation/getApplicationSessions) endpoint. **Notes**: - There is no length limit for this ID. - It must be URL-encoded. For example, replace spaces with &#x60;%20&#x60;. [Learn more](https://www.w3schools.com/tags/ref_urlencode.asp).  (required)
      * @param integrationRequest body (required)
      * @param dry Indicates whether to persist the changes. Changes are ignored when &#x60;dry&#x3D;true&#x60;.  When set to &#x60;true&#x60;: - The endpoint considers **only** the payload that you pass when **closing** the session.   When you do not use the &#x60;dry&#x60; parameter, the endpoint behaves as a typical PUT endpoint. Each update builds upon the previous ones. - You can use the &#x60;evaluableCampaignIds&#x60; body property to select specific campaigns to run.  [See the docs](https://docs.talon.one/docs/dev/integration-api/dry-requests).  (optional)
      * @param now A timestamp value of a future date that acts as a current date when included in the query.  Use this parameter, for example, to test campaigns that would be evaluated for this customer session in the future (say, [scheduled campaigns](https://docs.talon.one/docs/product/campaigns/settings/managing-campaign-schedule)).  &gt; [!note] **Note** &gt; - It must be an RFC3339 timestamp string. &gt; - It can **only** be a date in the future. &gt; - It can **only** be used if the &#x60;dry&#x60; parameter in the query is set to &#x60;true&#x60;.  (optional)
+     * @param idempotencyKey A unique identifier that enables idempotent processing. Include it to ensure that the request is processed only once, even if you send it several times. (optional)
      * @return IntegrationStateV2
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table border="1">
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  * Idempotency-Key - The idempotency key used for the request. <br>  * Idempotent-Replayed - Indicates whether the response was replayed from a previously cached request. <br>  * X-Idempotency-Created-At - The date and time when the idempotency record was created. <br>  * X-Idempotency-Expires-At - The date and time when the idempotency record expires. <br>  * X-Idempotency-Fingerprint - The SHA-256 fingerprint of the request payload and metadata. <br>  </td></tr>
         <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized - Invalid API key </td><td>  -  </td></tr>
         <tr><td> 409 </td><td> Too many requests or limit reached - Avoid parallel requests. See the [docs](https://docs.talon.one/docs/dev/tutorials/integrating-talon-one#managing-parallel-requests). </td><td>  -  </td></tr>
      </table>
      */
-    public IntegrationStateV2 updateCustomerSessionV2(@javax.annotation.Nonnull String customerSessionId, @javax.annotation.Nonnull IntegrationRequest integrationRequest, @javax.annotation.Nullable Boolean dry, @javax.annotation.Nullable OffsetDateTime now) throws ApiException {
-        ApiResponse<IntegrationStateV2> localVarResp = updateCustomerSessionV2WithHttpInfo(customerSessionId, integrationRequest, dry, now);
+    public IntegrationStateV2 updateCustomerSessionV2(@javax.annotation.Nonnull String customerSessionId, @javax.annotation.Nonnull IntegrationRequest integrationRequest, @javax.annotation.Nullable Boolean dry, @javax.annotation.Nullable OffsetDateTime now, @javax.annotation.Nullable String idempotencyKey) throws ApiException {
+        ApiResponse<IntegrationStateV2> localVarResp = updateCustomerSessionV2WithHttpInfo(customerSessionId, integrationRequest, dry, now, idempotencyKey);
         return localVarResp.getData();
     }
 
     /**
      * Update customer session
-     * Update or create a [customer session](https://docs.talon.one/docs/dev/concepts/entities/customer-sessions).  The endpoint responds with the potential promotion rule [effects](https://docs.talon.one/docs/dev/integration-api/api-effects) that match the current cart.  For example, use this endpoint to share the contents of a customer&#39;s cart with Talon.One.  &gt; [!note] **Note** &gt; - The currency for the session and the cart items in it is the currency set for the Application linked to this session. &gt; - [Archived campaigns](https://docs.talon.one/docs/product/campaigns/managing-campaigns#archiving-a-campaign) are not considered for rule evaluation.  &gt; [!note] To make request processing idempotent for this endpoint, include the &#x60;Idempotency-Key&#x60; header with an idempotency key in requests. Learn more about [idempotency](https://docs.talon.one/integration-api#description/idempotency).  ### Session management  To use this endpoint, start by learning about [customer sessions](https://docs.talon.one/docs/dev/concepts/entities/customer-sessions) and their states and refer to the &#x60;state&#x60; parameter documentation the request body schema docs below.  ### Sessions and customer profiles  - To link a session to a customer profile, set the &#x60;profileId&#x60; parameter in the request body to a customer profile&#39;s &#x60;integrationId&#x60;.  - While you can create an anonymous session with &#x60;profileId&#x3D;\&quot;\&quot;&#x60;, we recommend you use a guest ID instead.  - A profile can be linked to simultaneous sessions in different Applications. Either:   - Use unique session integration IDs or,   - Use the same session integration ID across all of the Applications.  &gt; [!note] **Note** &gt; - If the specified profile does not exist, an empty profile is **created automatically**. &gt;   You can update it with [Update customer profile](https://docs.talon.one/integration-api#tag/Customer-profiles/operation/updateCustomerProfileV2). &gt; - Updating a customer session returns a response with the new integration state. Use the &#x60;responseContent&#x60; property to save yourself extra API calls. &gt;   For example, you can get the customer profile details directly without extra requests. &gt; - We recommend sending requests sequentially. See [Managing parallel requests](https://docs.talon.one/docs/dev/getting-started/integration-tutorial#managing-parallel-requests).  For more information, see:  - The introductory video in [Getting started](https://docs.talon.one/docs/dev/getting-started/overview). - The [integration tutorial](https://docs.talon.one/docs/dev/tutorials/integrating-talon-one). 
+     * Update or create a [customer session](https://docs.talon.one/docs/dev/concepts/entities/customer-sessions).  The endpoint responds with the potential promotion rule [effects](https://docs.talon.one/docs/dev/integration-api/api-effects) that match the current cart.  For example, use this endpoint to share the contents of a customer&#39;s cart with Talon.One.  &gt; [!note] **Note** &gt; - The currency for the session and the cart items in it is the currency set for the Application linked to this session. &gt; - [Archived campaigns](https://docs.talon.one/docs/product/campaigns/managing-campaigns#archiving-a-campaign) are not considered for rule evaluation.  ### Session management  To use this endpoint, start by learning about [customer sessions](https://docs.talon.one/docs/dev/concepts/entities/customer-sessions) and their states and refer to the &#x60;state&#x60; parameter documentation the request body schema docs below.  ### Sessions and customer profiles  - To link a session to a customer profile, set the &#x60;profileId&#x60; parameter in the request body to a customer profile&#39;s &#x60;integrationId&#x60;.  - While you can create an anonymous session with &#x60;profileId&#x3D;\&quot;\&quot;&#x60;, we recommend you use a guest ID instead.  - A profile can be linked to simultaneous sessions in different Applications. Either:   - Use unique session integration IDs or,   - Use the same session integration ID across all of the Applications.  &gt; [!note] **Note** &gt; - If the specified profile does not exist, an empty profile is **created automatically**. &gt;   You can update it with [Update customer profile](https://docs.talon.one/integration-api#tag/Customer-profiles/operation/updateCustomerProfileV2). &gt; - Updating a customer session returns a response with the new integration state. Use the &#x60;responseContent&#x60; property to save yourself extra API calls. &gt;   For example, you can get the customer profile details directly without extra requests. &gt; - We recommend sending requests sequentially. See [Managing parallel requests](https://docs.talon.one/docs/dev/getting-started/integration-tutorial#managing-parallel-requests).  For more information, see:  - The introductory video in [Getting started](https://docs.talon.one/docs/dev/getting-started/overview). - The [integration tutorial](https://docs.talon.one/docs/dev/tutorials/integrating-talon-one).  &gt; [!note] To make request processing idempotent for this endpoint, include the &#x60;Idempotency-Key&#x60; header with an idempotency key in requests. Learn more about [idempotency](https://docs.talon.one/integration-api#description/idempotency).
      * @param customerSessionId The &#x60;integration ID&#x60; of the customer session. You set this ID when you create a customer session.  You can see existing customer session integration IDs in the Campaign Manager&#39;s **Sessions** menu, or via the [List Application session](https://docs.talon.one/management-api#tag/Customer-data/operation/getApplicationSessions) endpoint. **Notes**: - There is no length limit for this ID. - It must be URL-encoded. For example, replace spaces with &#x60;%20&#x60;. [Learn more](https://www.w3schools.com/tags/ref_urlencode.asp).  (required)
      * @param integrationRequest body (required)
      * @param dry Indicates whether to persist the changes. Changes are ignored when &#x60;dry&#x3D;true&#x60;.  When set to &#x60;true&#x60;: - The endpoint considers **only** the payload that you pass when **closing** the session.   When you do not use the &#x60;dry&#x60; parameter, the endpoint behaves as a typical PUT endpoint. Each update builds upon the previous ones. - You can use the &#x60;evaluableCampaignIds&#x60; body property to select specific campaigns to run.  [See the docs](https://docs.talon.one/docs/dev/integration-api/dry-requests).  (optional)
      * @param now A timestamp value of a future date that acts as a current date when included in the query.  Use this parameter, for example, to test campaigns that would be evaluated for this customer session in the future (say, [scheduled campaigns](https://docs.talon.one/docs/product/campaigns/settings/managing-campaign-schedule)).  &gt; [!note] **Note** &gt; - It must be an RFC3339 timestamp string. &gt; - It can **only** be a date in the future. &gt; - It can **only** be used if the &#x60;dry&#x60; parameter in the query is set to &#x60;true&#x60;.  (optional)
+     * @param idempotencyKey A unique identifier that enables idempotent processing. Include it to ensure that the request is processed only once, even if you send it several times. (optional)
      * @return ApiResponse&lt;IntegrationStateV2&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table border="1">
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  * Idempotency-Key - The idempotency key used for the request. <br>  * Idempotent-Replayed - Indicates whether the response was replayed from a previously cached request. <br>  * X-Idempotency-Created-At - The date and time when the idempotency record was created. <br>  * X-Idempotency-Expires-At - The date and time when the idempotency record expires. <br>  * X-Idempotency-Fingerprint - The SHA-256 fingerprint of the request payload and metadata. <br>  </td></tr>
         <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized - Invalid API key </td><td>  -  </td></tr>
         <tr><td> 409 </td><td> Too many requests or limit reached - Avoid parallel requests. See the [docs](https://docs.talon.one/docs/dev/tutorials/integrating-talon-one#managing-parallel-requests). </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<IntegrationStateV2> updateCustomerSessionV2WithHttpInfo(@javax.annotation.Nonnull String customerSessionId, @javax.annotation.Nonnull IntegrationRequest integrationRequest, @javax.annotation.Nullable Boolean dry, @javax.annotation.Nullable OffsetDateTime now) throws ApiException {
-        okhttp3.Call localVarCall = updateCustomerSessionV2ValidateBeforeCall(customerSessionId, integrationRequest, dry, now, null);
+    public ApiResponse<IntegrationStateV2> updateCustomerSessionV2WithHttpInfo(@javax.annotation.Nonnull String customerSessionId, @javax.annotation.Nonnull IntegrationRequest integrationRequest, @javax.annotation.Nullable Boolean dry, @javax.annotation.Nullable OffsetDateTime now, @javax.annotation.Nullable String idempotencyKey) throws ApiException {
+        okhttp3.Call localVarCall = updateCustomerSessionV2ValidateBeforeCall(customerSessionId, integrationRequest, dry, now, idempotencyKey, null);
         Type localVarReturnType = new TypeToken<IntegrationStateV2>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
      * Update customer session (asynchronously)
-     * Update or create a [customer session](https://docs.talon.one/docs/dev/concepts/entities/customer-sessions).  The endpoint responds with the potential promotion rule [effects](https://docs.talon.one/docs/dev/integration-api/api-effects) that match the current cart.  For example, use this endpoint to share the contents of a customer&#39;s cart with Talon.One.  &gt; [!note] **Note** &gt; - The currency for the session and the cart items in it is the currency set for the Application linked to this session. &gt; - [Archived campaigns](https://docs.talon.one/docs/product/campaigns/managing-campaigns#archiving-a-campaign) are not considered for rule evaluation.  &gt; [!note] To make request processing idempotent for this endpoint, include the &#x60;Idempotency-Key&#x60; header with an idempotency key in requests. Learn more about [idempotency](https://docs.talon.one/integration-api#description/idempotency).  ### Session management  To use this endpoint, start by learning about [customer sessions](https://docs.talon.one/docs/dev/concepts/entities/customer-sessions) and their states and refer to the &#x60;state&#x60; parameter documentation the request body schema docs below.  ### Sessions and customer profiles  - To link a session to a customer profile, set the &#x60;profileId&#x60; parameter in the request body to a customer profile&#39;s &#x60;integrationId&#x60;.  - While you can create an anonymous session with &#x60;profileId&#x3D;\&quot;\&quot;&#x60;, we recommend you use a guest ID instead.  - A profile can be linked to simultaneous sessions in different Applications. Either:   - Use unique session integration IDs or,   - Use the same session integration ID across all of the Applications.  &gt; [!note] **Note** &gt; - If the specified profile does not exist, an empty profile is **created automatically**. &gt;   You can update it with [Update customer profile](https://docs.talon.one/integration-api#tag/Customer-profiles/operation/updateCustomerProfileV2). &gt; - Updating a customer session returns a response with the new integration state. Use the &#x60;responseContent&#x60; property to save yourself extra API calls. &gt;   For example, you can get the customer profile details directly without extra requests. &gt; - We recommend sending requests sequentially. See [Managing parallel requests](https://docs.talon.one/docs/dev/getting-started/integration-tutorial#managing-parallel-requests).  For more information, see:  - The introductory video in [Getting started](https://docs.talon.one/docs/dev/getting-started/overview). - The [integration tutorial](https://docs.talon.one/docs/dev/tutorials/integrating-talon-one). 
+     * Update or create a [customer session](https://docs.talon.one/docs/dev/concepts/entities/customer-sessions).  The endpoint responds with the potential promotion rule [effects](https://docs.talon.one/docs/dev/integration-api/api-effects) that match the current cart.  For example, use this endpoint to share the contents of a customer&#39;s cart with Talon.One.  &gt; [!note] **Note** &gt; - The currency for the session and the cart items in it is the currency set for the Application linked to this session. &gt; - [Archived campaigns](https://docs.talon.one/docs/product/campaigns/managing-campaigns#archiving-a-campaign) are not considered for rule evaluation.  ### Session management  To use this endpoint, start by learning about [customer sessions](https://docs.talon.one/docs/dev/concepts/entities/customer-sessions) and their states and refer to the &#x60;state&#x60; parameter documentation the request body schema docs below.  ### Sessions and customer profiles  - To link a session to a customer profile, set the &#x60;profileId&#x60; parameter in the request body to a customer profile&#39;s &#x60;integrationId&#x60;.  - While you can create an anonymous session with &#x60;profileId&#x3D;\&quot;\&quot;&#x60;, we recommend you use a guest ID instead.  - A profile can be linked to simultaneous sessions in different Applications. Either:   - Use unique session integration IDs or,   - Use the same session integration ID across all of the Applications.  &gt; [!note] **Note** &gt; - If the specified profile does not exist, an empty profile is **created automatically**. &gt;   You can update it with [Update customer profile](https://docs.talon.one/integration-api#tag/Customer-profiles/operation/updateCustomerProfileV2). &gt; - Updating a customer session returns a response with the new integration state. Use the &#x60;responseContent&#x60; property to save yourself extra API calls. &gt;   For example, you can get the customer profile details directly without extra requests. &gt; - We recommend sending requests sequentially. See [Managing parallel requests](https://docs.talon.one/docs/dev/getting-started/integration-tutorial#managing-parallel-requests).  For more information, see:  - The introductory video in [Getting started](https://docs.talon.one/docs/dev/getting-started/overview). - The [integration tutorial](https://docs.talon.one/docs/dev/tutorials/integrating-talon-one).  &gt; [!note] To make request processing idempotent for this endpoint, include the &#x60;Idempotency-Key&#x60; header with an idempotency key in requests. Learn more about [idempotency](https://docs.talon.one/integration-api#description/idempotency).
      * @param customerSessionId The &#x60;integration ID&#x60; of the customer session. You set this ID when you create a customer session.  You can see existing customer session integration IDs in the Campaign Manager&#39;s **Sessions** menu, or via the [List Application session](https://docs.talon.one/management-api#tag/Customer-data/operation/getApplicationSessions) endpoint. **Notes**: - There is no length limit for this ID. - It must be URL-encoded. For example, replace spaces with &#x60;%20&#x60;. [Learn more](https://www.w3schools.com/tags/ref_urlencode.asp).  (required)
      * @param integrationRequest body (required)
      * @param dry Indicates whether to persist the changes. Changes are ignored when &#x60;dry&#x3D;true&#x60;.  When set to &#x60;true&#x60;: - The endpoint considers **only** the payload that you pass when **closing** the session.   When you do not use the &#x60;dry&#x60; parameter, the endpoint behaves as a typical PUT endpoint. Each update builds upon the previous ones. - You can use the &#x60;evaluableCampaignIds&#x60; body property to select specific campaigns to run.  [See the docs](https://docs.talon.one/docs/dev/integration-api/dry-requests).  (optional)
      * @param now A timestamp value of a future date that acts as a current date when included in the query.  Use this parameter, for example, to test campaigns that would be evaluated for this customer session in the future (say, [scheduled campaigns](https://docs.talon.one/docs/product/campaigns/settings/managing-campaign-schedule)).  &gt; [!note] **Note** &gt; - It must be an RFC3339 timestamp string. &gt; - It can **only** be a date in the future. &gt; - It can **only** be used if the &#x60;dry&#x60; parameter in the query is set to &#x60;true&#x60;.  (optional)
+     * @param idempotencyKey A unique identifier that enables idempotent processing. Include it to ensure that the request is processed only once, even if you send it several times. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -6295,15 +6735,15 @@ public class IntegrationApi {
      <table border="1">
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  * Idempotency-Key - The idempotency key used for the request. <br>  * Idempotent-Replayed - Indicates whether the response was replayed from a previously cached request. <br>  * X-Idempotency-Created-At - The date and time when the idempotency record was created. <br>  * X-Idempotency-Expires-At - The date and time when the idempotency record expires. <br>  * X-Idempotency-Fingerprint - The SHA-256 fingerprint of the request payload and metadata. <br>  </td></tr>
         <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized - Invalid API key </td><td>  -  </td></tr>
         <tr><td> 409 </td><td> Too many requests or limit reached - Avoid parallel requests. See the [docs](https://docs.talon.one/docs/dev/tutorials/integrating-talon-one#managing-parallel-requests). </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateCustomerSessionV2Async(@javax.annotation.Nonnull String customerSessionId, @javax.annotation.Nonnull IntegrationRequest integrationRequest, @javax.annotation.Nullable Boolean dry, @javax.annotation.Nullable OffsetDateTime now, final ApiCallback<IntegrationStateV2> _callback) throws ApiException {
+    public okhttp3.Call updateCustomerSessionV2Async(@javax.annotation.Nonnull String customerSessionId, @javax.annotation.Nonnull IntegrationRequest integrationRequest, @javax.annotation.Nullable Boolean dry, @javax.annotation.Nullable OffsetDateTime now, @javax.annotation.Nullable String idempotencyKey, final ApiCallback<IntegrationStateV2> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = updateCustomerSessionV2ValidateBeforeCall(customerSessionId, integrationRequest, dry, now, _callback);
+        okhttp3.Call localVarCall = updateCustomerSessionV2ValidateBeforeCall(customerSessionId, integrationRequest, dry, now, idempotencyKey, _callback);
         Type localVarReturnType = new TypeToken<IntegrationStateV2>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

@@ -34,6 +34,7 @@ import com.google.gson.JsonDeserializationContext;
 import com.google.gson.JsonDeserializer;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
+import com.google.gson.JsonNull;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
@@ -53,7 +54,7 @@ import one.talon.JSON;
 /**
  * AchievementProgressWithDefinition
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.24.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.25.0")
 public class AchievementProgressWithDefinition {
   /**
    * The status of the achievement.
@@ -159,7 +160,7 @@ public class AchievementProgressWithDefinition {
   public static final String SERIALIZED_NAME_CAMPAIGN_ID = "campaignId";
   @Deprecated
   @SerializedName(SERIALIZED_NAME_CAMPAIGN_ID)
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   private Long campaignId;
 
   public static final String SERIALIZED_NAME_CAMPAIGN_IDS = "campaignIds";
@@ -483,24 +484,24 @@ public class AchievementProgressWithDefinition {
 
 
   @Deprecated
-  public AchievementProgressWithDefinition campaignId(@javax.annotation.Nonnull Long campaignId) {
+  public AchievementProgressWithDefinition campaignId(@javax.annotation.Nullable Long campaignId) {
     this.campaignId = campaignId;
     return this;
   }
 
   /**
-   * This property is **deprecated**. Use &#x60;campaignIds&#x60; (Integration API) or &#x60;referencedByCampaigns&#x60; (Management API) instead. The first campaign ID in &#x60;campaignIds&#x60;. Only returned when &#x60;campaignIds&#x60; is not empty.
+   * This property is **deprecated**. Use &#x60;campaignIds&#x60; (Integration API) or &#x60;referencedByCampaigns&#x60; (Management API) instead. This field contains the first campaign ID from the related &#x60;campaignIds&#x60;, and is omitted when &#x60;campaignIds&#x60; is empty.
    * @return campaignId
    * @deprecated
    */
   @Deprecated
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   public Long getCampaignId() {
     return campaignId;
   }
 
   @Deprecated
-  public void setCampaignId(@javax.annotation.Nonnull Long campaignId) {
+  public void setCampaignId(@javax.annotation.Nullable Long campaignId) {
     this.campaignId = campaignId;
   }
 
@@ -797,7 +798,7 @@ public class AchievementProgressWithDefinition {
     openapiFields = new HashSet<String>(Arrays.asList("status", "progress", "startDate", "completionDate", "endDate", "achievementId", "name", "title", "description", "campaignId", "campaignIds", "referencedByCampaigns", "target", "achievementRecurrencePolicy", "achievementActivationPolicy", "achievementFixedStartDate", "achievementEndDate", "achievementAllowRollbackAfterCompletion"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("status", "progress", "achievementId", "name", "title", "description", "campaignId", "campaignIds", "referencedByCampaigns", "achievementRecurrencePolicy", "achievementActivationPolicy"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("status", "progress", "achievementId", "name", "title", "description", "campaignIds", "referencedByCampaigns", "achievementRecurrencePolicy", "achievementActivationPolicy"));
   }
 
   /**
@@ -891,7 +892,9 @@ public class AchievementProgressWithDefinition {
                    obj.addProperty(entry.getKey(), (Character) entry.getValue());
                  else {
                    JsonElement jsonElement = gson.toJsonTree(entry.getValue());
-                   if (jsonElement.isJsonArray()) {
+                   if (jsonElement.isJsonNull()) {
+                     obj.add(entry.getKey(), JsonNull.INSTANCE);
+                   } else if (jsonElement.isJsonArray()) {
                      obj.add(entry.getKey(), jsonElement.getAsJsonArray());
                    } else {
                      obj.add(entry.getKey(), jsonElement.getAsJsonObject());

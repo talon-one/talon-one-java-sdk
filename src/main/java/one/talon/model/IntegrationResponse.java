@@ -32,6 +32,7 @@ import one.talon.model.Effect;
 import one.talon.model.Giveaway;
 import one.talon.model.Loyalty;
 import one.talon.model.Referral;
+import one.talon.model.RewardWithUnlocks;
 import one.talon.model.RuleFailureReason;
 
 import com.google.gson.Gson;
@@ -41,6 +42,7 @@ import com.google.gson.JsonDeserializationContext;
 import com.google.gson.JsonDeserializer;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
+import com.google.gson.JsonNull;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
@@ -60,7 +62,7 @@ import one.talon.JSON;
 /**
  * Contains entities that might be valuable in Talon.One integrations. 
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.24.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.25.0")
 public class IntegrationResponse {
   public static final String SERIALIZED_NAME_CUSTOMER_PROFILE = "customerProfile";
   @SerializedName(SERIALIZED_NAME_CUSTOMER_PROFILE)
@@ -111,6 +113,11 @@ public class IntegrationResponse {
   @SerializedName(SERIALIZED_NAME_ACHIEVEMENTS)
   @javax.annotation.Nullable
   private List<CustomerAchievement> achievements;
+
+  public static final String SERIALIZED_NAME_REWARDS = "rewards";
+  @SerializedName(SERIALIZED_NAME_REWARDS)
+  @javax.annotation.Nullable
+  private List<RewardWithUnlocks> rewards;
 
   public IntegrationResponse() {
   }
@@ -368,6 +375,33 @@ public class IntegrationResponse {
     this.achievements = achievements;
   }
 
+
+  public IntegrationResponse rewards(@javax.annotation.Nullable List<RewardWithUnlocks> rewards) {
+    this.rewards = rewards;
+    return this;
+  }
+
+  public IntegrationResponse addRewardsItem(RewardWithUnlocks rewardsItem) {
+    if (this.rewards == null) {
+      this.rewards = new ArrayList<>();
+    }
+    this.rewards.add(rewardsItem);
+    return this;
+  }
+
+  /**
+   * The unlocked rewards for the customer profile.
+   * @return rewards
+   */
+  @javax.annotation.Nullable
+  public List<RewardWithUnlocks> getRewards() {
+    return rewards;
+  }
+
+  public void setRewards(@javax.annotation.Nullable List<RewardWithUnlocks> rewards) {
+    this.rewards = rewards;
+  }
+
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -432,13 +466,14 @@ public class IntegrationResponse {
         Objects.equals(this.createdCoupons, integrationResponse.createdCoupons) &&
         Objects.equals(this.createdReferrals, integrationResponse.createdReferrals) &&
         Objects.equals(this.awardedGiveaways, integrationResponse.awardedGiveaways) &&
-        Objects.equals(this.achievements, integrationResponse.achievements)&&
+        Objects.equals(this.achievements, integrationResponse.achievements) &&
+        Objects.equals(this.rewards, integrationResponse.rewards)&&
         Objects.equals(this.additionalProperties, integrationResponse.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(customerProfile, loyalty, triggeredCampaigns, campaignEligibility, effects, ruleFailureReasons, createdCoupons, createdReferrals, awardedGiveaways, achievements, additionalProperties);
+    return Objects.hash(customerProfile, loyalty, triggeredCampaigns, campaignEligibility, effects, ruleFailureReasons, createdCoupons, createdReferrals, awardedGiveaways, achievements, rewards, additionalProperties);
   }
 
   @Override
@@ -455,6 +490,7 @@ public class IntegrationResponse {
     sb.append("    createdReferrals: ").append(toIndentedString(createdReferrals)).append("\n");
     sb.append("    awardedGiveaways: ").append(toIndentedString(awardedGiveaways)).append("\n");
     sb.append("    achievements: ").append(toIndentedString(achievements)).append("\n");
+    sb.append("    rewards: ").append(toIndentedString(rewards)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -474,7 +510,7 @@ public class IntegrationResponse {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("customerProfile", "loyalty", "triggeredCampaigns", "campaignEligibility", "effects", "ruleFailureReasons", "createdCoupons", "createdReferrals", "awardedGiveaways", "achievements"));
+    openapiFields = new HashSet<String>(Arrays.asList("customerProfile", "loyalty", "triggeredCampaigns", "campaignEligibility", "effects", "ruleFailureReasons", "createdCoupons", "createdReferrals", "awardedGiveaways", "achievements", "rewards"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("effects", "createdCoupons", "createdReferrals"));
@@ -608,6 +644,20 @@ public class IntegrationResponse {
           };
         }
       }
+      if (jsonObj.get("rewards") != null && !jsonObj.get("rewards").isJsonNull()) {
+        JsonArray jsonArrayrewards = jsonObj.getAsJsonArray("rewards");
+        if (jsonArrayrewards != null) {
+          // ensure the json data is an array
+          if (!jsonObj.get("rewards").isJsonArray()) {
+            throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `rewards` to be an array in the JSON string but got `%s`", jsonObj.get("rewards").toString()));
+          }
+
+          // validate the optional field `rewards` (array)
+          for (int i = 0; i < jsonArrayrewards.size(); i++) {
+            RewardWithUnlocks.validateJsonElement(jsonArrayrewards.get(i));
+          };
+        }
+      }
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
@@ -639,7 +689,9 @@ public class IntegrationResponse {
                    obj.addProperty(entry.getKey(), (Character) entry.getValue());
                  else {
                    JsonElement jsonElement = gson.toJsonTree(entry.getValue());
-                   if (jsonElement.isJsonArray()) {
+                   if (jsonElement.isJsonNull()) {
+                     obj.add(entry.getKey(), JsonNull.INSTANCE);
+                   } else if (jsonElement.isJsonArray()) {
                      obj.add(entry.getKey(), jsonElement.getAsJsonArray());
                    } else {
                      obj.add(entry.getKey(), jsonElement.getAsJsonObject());

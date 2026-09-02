@@ -35,6 +35,7 @@ import com.google.gson.JsonDeserializationContext;
 import com.google.gson.JsonDeserializer;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
+import com.google.gson.JsonNull;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
@@ -54,11 +55,11 @@ import one.talon.JSON;
 /**
  * CreateCouponBlock
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.24.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.25.0")
 public class CreateCouponBlock {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   private String id;
 
   public static final String SERIALIZED_NAME_TYPE = "type";
@@ -124,23 +125,24 @@ public class CreateCouponBlock {
   public CreateCouponBlock() {
   }
 
-  public CreateCouponBlock id(@javax.annotation.Nonnull String id) {
+  public CreateCouponBlock(
+     String id, 
+     List<String> tags
+  ) {
+    this();
     this.id = id;
-    return this;
+    this.tags = tags;
   }
 
   /**
    * Unique identifier for this block.
    * @return id
    */
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   public String getId() {
     return id;
   }
 
-  public void setId(@javax.annotation.Nonnull String id) {
-    this.id = id;
-  }
 
 
   public CreateCouponBlock type(@javax.annotation.Nonnull String type) {
@@ -162,19 +164,6 @@ public class CreateCouponBlock {
   }
 
 
-  public CreateCouponBlock tags(@javax.annotation.Nullable List<String> tags) {
-    this.tags = tags;
-    return this;
-  }
-
-  public CreateCouponBlock addTagsItem(String tagsItem) {
-    if (this.tags == null) {
-      this.tags = new ArrayList<>();
-    }
-    this.tags.add(tagsItem);
-    return this;
-  }
-
   /**
    * Semantic labels attached to this block.
    * @return tags
@@ -184,9 +173,6 @@ public class CreateCouponBlock {
     return tags;
   }
 
-  public void setTags(@javax.annotation.Nullable List<String> tags) {
-    this.tags = tags;
-  }
 
 
   public CreateCouponBlock campaignId(@javax.annotation.Nonnull CreateCouponBlock1CampaignId campaignId) {
@@ -290,7 +276,7 @@ public class CreateCouponBlock {
   }
 
   /**
-   * Get startDate
+   * Timestamp at which point the coupon becomes valid.
    * @return startDate
    */
   @javax.annotation.Nullable
@@ -309,7 +295,7 @@ public class CreateCouponBlock {
   }
 
   /**
-   * Get expiryDate
+   * Expiration date of the coupon. Coupon never expires if this is omitted.
    * @return expiryDate
    */
   @javax.annotation.Nullable
@@ -328,7 +314,7 @@ public class CreateCouponBlock {
   }
 
   /**
-   * Get attributes
+   * Custom attributes associated with this coupon code.
    * @return attributes
    */
   @javax.annotation.Nullable
@@ -504,7 +490,7 @@ public class CreateCouponBlock {
     openapiFields = new HashSet<String>(Arrays.asList("id", "type", "tags", "campaignId", "recipientId", "storeInSession", "usageLimit", "discountLimit", "startDate", "expiryDate", "attributes", "validCharacters", "pattern"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("id", "type", "campaignId", "recipientId", "storeInSession"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("type", "campaignId", "recipientId", "storeInSession"));
   }
 
   /**
@@ -527,7 +513,7 @@ public class CreateCouponBlock {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if (!jsonObj.get("id").isJsonPrimitive()) {
+      if ((jsonObj.get("id") != null && !jsonObj.get("id").isJsonNull()) && !jsonObj.get("id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("id").toString()));
       }
       if (!jsonObj.get("type").isJsonPrimitive()) {
@@ -587,7 +573,9 @@ public class CreateCouponBlock {
                    obj.addProperty(entry.getKey(), (Character) entry.getValue());
                  else {
                    JsonElement jsonElement = gson.toJsonTree(entry.getValue());
-                   if (jsonElement.isJsonArray()) {
+                   if (jsonElement.isJsonNull()) {
+                     obj.add(entry.getKey(), JsonNull.INSTANCE);
+                   } else if (jsonElement.isJsonArray()) {
                      obj.add(entry.getKey(), jsonElement.getAsJsonArray());
                    } else {
                      obj.add(entry.getKey(), jsonElement.getAsJsonObject());

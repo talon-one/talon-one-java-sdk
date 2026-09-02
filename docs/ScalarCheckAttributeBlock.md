@@ -9,7 +9,7 @@ Variant of `CheckAttributeBlock` for operators that compare an attribute against
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
 |**operator** | [**OperatorEnum**](#OperatorEnum) | The comparison operator applied to the attribute. |  [optional] |
-|**value** | **Object** |  |  |
+|**value** | **Object** | The comparison value for this operator. |  |
 
 
 

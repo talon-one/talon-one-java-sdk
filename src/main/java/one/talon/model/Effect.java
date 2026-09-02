@@ -31,6 +31,7 @@ import com.google.gson.JsonDeserializationContext;
 import com.google.gson.JsonDeserializer;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
+import com.google.gson.JsonNull;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
@@ -50,7 +51,7 @@ import one.talon.JSON;
 /**
  * Effect
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.24.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.25.0")
 public class Effect {
   public static final String SERIALIZED_NAME_EXPERIMENT_ID = "experimentId";
   @SerializedName(SERIALIZED_NAME_EXPERIMENT_ID)
@@ -131,6 +132,11 @@ public class Effect {
   @SerializedName(SERIALIZED_NAME_ADJUSTMENT_REFERENCE_ID)
   @javax.annotation.Nullable
   private UUID adjustmentReferenceId;
+
+  public static final String SERIALIZED_NAME_REWARD_ID = "rewardId";
+  @SerializedName(SERIALIZED_NAME_REWARD_ID)
+  @javax.annotation.Nullable
+  private Long rewardId;
 
   public static final String SERIALIZED_NAME_PROPS = "props";
   @SerializedName(SERIALIZED_NAME_PROPS)
@@ -444,6 +450,25 @@ public class Effect {
   }
 
 
+  public Effect rewardId(@javax.annotation.Nullable Long rewardId) {
+    this.rewardId = rewardId;
+    return this;
+  }
+
+  /**
+   * The ID of the reward that was being evaluated when this effect was triggered.
+   * @return rewardId
+   */
+  @javax.annotation.Nullable
+  public Long getRewardId() {
+    return rewardId;
+  }
+
+  public void setRewardId(@javax.annotation.Nullable Long rewardId) {
+    this.rewardId = rewardId;
+  }
+
+
   public Effect props(@javax.annotation.Nullable Object props) {
     this.props = props;
     return this;
@@ -533,13 +558,14 @@ public class Effect {
         Objects.equals(this.selectedPriceType, effect.selectedPriceType) &&
         Objects.equals(this.selectedPrice, effect.selectedPrice) &&
         Objects.equals(this.adjustmentReferenceId, effect.adjustmentReferenceId) &&
+        Objects.equals(this.rewardId, effect.rewardId) &&
         Objects.equals(this.props, effect.props)&&
         Objects.equals(this.additionalProperties, effect.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(experimentId, campaignId, rulesetId, ruleIndex, ruleName, effectType, triggeredByCoupon, triggeredForCatalogItem, conditionIndex, evaluationGroupID, evaluationGroupMode, campaignRevisionId, campaignRevisionVersionId, selectedPriceType, selectedPrice, adjustmentReferenceId, props, additionalProperties);
+    return Objects.hash(experimentId, campaignId, rulesetId, ruleIndex, ruleName, effectType, triggeredByCoupon, triggeredForCatalogItem, conditionIndex, evaluationGroupID, evaluationGroupMode, campaignRevisionId, campaignRevisionVersionId, selectedPriceType, selectedPrice, adjustmentReferenceId, rewardId, props, additionalProperties);
   }
 
   @Override
@@ -562,6 +588,7 @@ public class Effect {
     sb.append("    selectedPriceType: ").append(toIndentedString(selectedPriceType)).append("\n");
     sb.append("    selectedPrice: ").append(toIndentedString(selectedPrice)).append("\n");
     sb.append("    adjustmentReferenceId: ").append(toIndentedString(adjustmentReferenceId)).append("\n");
+    sb.append("    rewardId: ").append(toIndentedString(rewardId)).append("\n");
     sb.append("    props: ").append(toIndentedString(props)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
@@ -582,7 +609,7 @@ public class Effect {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("experimentId", "campaignId", "rulesetId", "ruleIndex", "ruleName", "effectType", "triggeredByCoupon", "triggeredForCatalogItem", "conditionIndex", "evaluationGroupID", "evaluationGroupMode", "campaignRevisionId", "campaignRevisionVersionId", "selectedPriceType", "selectedPrice", "adjustmentReferenceId", "props"));
+    openapiFields = new HashSet<String>(Arrays.asList("experimentId", "campaignId", "rulesetId", "ruleIndex", "ruleName", "effectType", "triggeredByCoupon", "triggeredForCatalogItem", "conditionIndex", "evaluationGroupID", "evaluationGroupMode", "campaignRevisionId", "campaignRevisionVersionId", "selectedPriceType", "selectedPrice", "adjustmentReferenceId", "rewardId", "props"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("campaignId", "rulesetId", "ruleIndex", "ruleName", "effectType", "props"));
@@ -654,7 +681,9 @@ public class Effect {
                    obj.addProperty(entry.getKey(), (Character) entry.getValue());
                  else {
                    JsonElement jsonElement = gson.toJsonTree(entry.getValue());
-                   if (jsonElement.isJsonArray()) {
+                   if (jsonElement.isJsonNull()) {
+                     obj.add(entry.getKey(), JsonNull.INSTANCE);
+                   } else if (jsonElement.isJsonArray()) {
                      obj.add(entry.getKey(), jsonElement.getAsJsonArray());
                    } else {
                      obj.add(entry.getKey(), jsonElement.getAsJsonObject());

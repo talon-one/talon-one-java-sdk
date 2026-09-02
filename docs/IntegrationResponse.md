@@ -18,6 +18,7 @@ Contains entities that might be valuable in Talon.One integrations.
 |**createdReferrals** | [**List&lt;Referral&gt;**](Referral.md) | The referrals that were created during the event processing. |  |
 |**awardedGiveaways** | [**List&lt;Giveaway&gt;**](Giveaway.md) | The giveaways that were awarded during the event processing. |  [optional] |
 |**achievements** | [**List&lt;CustomerAchievement&gt;**](CustomerAchievement.md) | The achievements progress of the customer. |  [optional] |
+|**rewards** | [**List&lt;RewardWithUnlocks&gt;**](RewardWithUnlocks.md) | The unlocked rewards for the customer profile. |  [optional] |
 
 
 

@@ -34,6 +34,7 @@ import com.google.gson.JsonDeserializationContext;
 import com.google.gson.JsonDeserializer;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
+import com.google.gson.JsonNull;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
@@ -53,11 +54,11 @@ import one.talon.JSON;
 /**
  * CreateReferralBlock
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.24.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.25.0")
 public class CreateReferralBlock {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   private String id;
 
   public static final String SERIALIZED_NAME_TYPE = "type";
@@ -118,23 +119,24 @@ public class CreateReferralBlock {
   public CreateReferralBlock() {
   }
 
-  public CreateReferralBlock id(@javax.annotation.Nonnull String id) {
+  public CreateReferralBlock(
+     String id, 
+     List<String> tags
+  ) {
+    this();
     this.id = id;
-    return this;
+    this.tags = tags;
   }
 
   /**
    * Unique identifier for this block.
    * @return id
    */
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   public String getId() {
     return id;
   }
 
-  public void setId(@javax.annotation.Nonnull String id) {
-    this.id = id;
-  }
 
 
   public CreateReferralBlock type(@javax.annotation.Nonnull String type) {
@@ -156,19 +158,6 @@ public class CreateReferralBlock {
   }
 
 
-  public CreateReferralBlock tags(@javax.annotation.Nullable List<String> tags) {
-    this.tags = tags;
-    return this;
-  }
-
-  public CreateReferralBlock addTagsItem(String tagsItem) {
-    if (this.tags == null) {
-      this.tags = new ArrayList<>();
-    }
-    this.tags.add(tagsItem);
-    return this;
-  }
-
   /**
    * Semantic labels attached to this block.
    * @return tags
@@ -178,9 +167,6 @@ public class CreateReferralBlock {
     return tags;
   }
 
-  public void setTags(@javax.annotation.Nullable List<String> tags) {
-    this.tags = tags;
-  }
 
 
   public CreateReferralBlock campaignId(@javax.annotation.Nonnull CreateReferralBlock1CampaignId campaignId) {
@@ -265,7 +251,7 @@ public class CreateReferralBlock {
   }
 
   /**
-   * Get startDate
+   * Timestamp at which point the referral code becomes valid.
    * @return startDate
    */
   @javax.annotation.Nullable
@@ -284,7 +270,7 @@ public class CreateReferralBlock {
   }
 
   /**
-   * Get expiryDate
+   * Expiration date of the referral code. Referral code never expires if this is omitted.
    * @return expiryDate
    */
   @javax.annotation.Nullable
@@ -303,7 +289,7 @@ public class CreateReferralBlock {
   }
 
   /**
-   * Get attributes
+   * Custom attributes associated with this referral code.
    * @return attributes
    */
   @javax.annotation.Nullable
@@ -477,7 +463,7 @@ public class CreateReferralBlock {
     openapiFields = new HashSet<String>(Arrays.asList("id", "type", "tags", "campaignId", "friendId", "storeInSession", "usageLimit", "startDate", "expiryDate", "attributes", "validCharacters", "pattern"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("id", "type", "campaignId", "friendId", "storeInSession"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("type", "campaignId", "friendId", "storeInSession"));
   }
 
   /**
@@ -500,7 +486,7 @@ public class CreateReferralBlock {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if (!jsonObj.get("id").isJsonPrimitive()) {
+      if ((jsonObj.get("id") != null && !jsonObj.get("id").isJsonNull()) && !jsonObj.get("id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("id").toString()));
       }
       if (!jsonObj.get("type").isJsonPrimitive()) {
@@ -556,7 +542,9 @@ public class CreateReferralBlock {
                    obj.addProperty(entry.getKey(), (Character) entry.getValue());
                  else {
                    JsonElement jsonElement = gson.toJsonTree(entry.getValue());
-                   if (jsonElement.isJsonArray()) {
+                   if (jsonElement.isJsonNull()) {
+                     obj.add(entry.getKey(), JsonNull.INSTANCE);
+                   } else if (jsonElement.isJsonArray()) {
                      obj.add(entry.getKey(), jsonElement.getAsJsonArray());
                    } else {
                      obj.add(entry.getKey(), jsonElement.getAsJsonObject());

@@ -12,6 +12,7 @@ Shared fields common to all V2 rule types.
 |**parentId** | **String** | ID of the parent rule, if any. |  [optional] |
 |**title** | **String** | A short description of the rule. |  |
 |**description** | **String** | A longer description of the rule. |  [optional] |
+|**blocks** | [**List&lt;Block&gt;**](Block.md) | The condition and effect blocks that make up this rule. |  |
 
 
 

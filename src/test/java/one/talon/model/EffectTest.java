@@ -168,6 +168,14 @@ public class EffectTest {
     }
 
     /**
+     * Test the property 'rewardId'
+     */
+    @Test
+    public void rewardIdTest() {
+        // TODO: test rewardId
+    }
+
+    /**
      * Test the property 'props'
      */
     @Test

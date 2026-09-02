@@ -23,6 +23,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import one.talon.model.Block;
 import org.openapitools.jackson.nullable.JsonNullable;
 
 import com.google.gson.Gson;
@@ -32,6 +33,7 @@ import com.google.gson.JsonDeserializationContext;
 import com.google.gson.JsonDeserializer;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
+import com.google.gson.JsonNull;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
@@ -51,11 +53,11 @@ import one.talon.JSON;
 /**
  * CheckAttributeBlockBase
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.24.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.25.0")
 public class CheckAttributeBlockBase {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   private String id;
 
   public static final String SERIALIZED_NAME_TYPE = "type";
@@ -133,7 +135,11 @@ public class CheckAttributeBlockBase {
     
     WITHIN("within"),
     
-    NOT_WITHIN_("not(within)");
+    NOT_WITHIN_("not(within)"),
+    
+    IN("in"),
+    
+    NOT_IN_("not(in)");
 
     private String value;
 
@@ -238,26 +244,32 @@ public class CheckAttributeBlockBase {
   @javax.annotation.Nullable
   private Object count = null;
 
+  public static final String SERIALIZED_NAME_ON_FAILURE = "onFailure";
+  @SerializedName(SERIALIZED_NAME_ON_FAILURE)
+  @javax.annotation.Nullable
+  private List<Block> onFailure;
+
   public CheckAttributeBlockBase() {
   }
 
-  public CheckAttributeBlockBase id(@javax.annotation.Nonnull String id) {
+  public CheckAttributeBlockBase(
+     String id, 
+     List<String> tags
+  ) {
+    this();
     this.id = id;
-    return this;
+    this.tags = tags;
   }
 
   /**
    * Unique identifier for this block.
    * @return id
    */
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   public String getId() {
     return id;
   }
 
-  public void setId(@javax.annotation.Nonnull String id) {
-    this.id = id;
-  }
 
 
   public CheckAttributeBlockBase type(@javax.annotation.Nonnull String type) {
@@ -279,19 +291,6 @@ public class CheckAttributeBlockBase {
   }
 
 
-  public CheckAttributeBlockBase tags(@javax.annotation.Nullable List<String> tags) {
-    this.tags = tags;
-    return this;
-  }
-
-  public CheckAttributeBlockBase addTagsItem(String tagsItem) {
-    if (this.tags == null) {
-      this.tags = new ArrayList<>();
-    }
-    this.tags.add(tagsItem);
-    return this;
-  }
-
   /**
    * Semantic labels attached to this block.
    * @return tags
@@ -301,9 +300,6 @@ public class CheckAttributeBlockBase {
     return tags;
   }
 
-  public void setTags(@javax.annotation.Nullable List<String> tags) {
-    this.tags = tags;
-  }
 
 
   public CheckAttributeBlockBase operator(@javax.annotation.Nonnull OperatorEnum operator) {
@@ -331,7 +327,7 @@ public class CheckAttributeBlockBase {
   }
 
   /**
-   * Get attribute
+   * The attribute path identifier (e.g. \&quot;$Session.Total\&quot;).
    * @return attribute
    */
   @javax.annotation.Nullable
@@ -350,7 +346,7 @@ public class CheckAttributeBlockBase {
   }
 
   /**
-   * Get value
+   * The comparison value for scalar operators.
    * @return value
    */
   @javax.annotation.Nullable
@@ -369,7 +365,7 @@ public class CheckAttributeBlockBase {
   }
 
   /**
-   * Get min
+   * The minimum value allowed for the &#x60;between&#x60; operator.
    * @return min
    */
   @javax.annotation.Nullable
@@ -388,7 +384,7 @@ public class CheckAttributeBlockBase {
   }
 
   /**
-   * Get max
+   * The maximum value allowed for the &#x60;between&#x60; operator.
    * @return max
    */
   @javax.annotation.Nullable
@@ -407,7 +403,7 @@ public class CheckAttributeBlockBase {
   }
 
   /**
-   * Get start
+   * The start value for the &#x60;within&#x60; operator.
    * @return start
    */
   @javax.annotation.Nullable
@@ -426,7 +422,7 @@ public class CheckAttributeBlockBase {
   }
 
   /**
-   * Get end
+   * The end value for the &#x60;within&#x60; operator.
    * @return end
    */
   @javax.annotation.Nullable
@@ -502,7 +498,7 @@ public class CheckAttributeBlockBase {
   }
 
   /**
-   * Get values
+   * The set of values to match against for list operators. For location operators (&#x60;in&#x60;, &#x60;not(in)&#x60;), an array of objects with a &#x60;geometry&#x60; (see &#x60;GeoJSONGeometry&#x60;) and an optional &#x60;name&#x60;, or a string reference to a list attribute.
    * @return values
    */
   @javax.annotation.Nullable
@@ -521,7 +517,7 @@ public class CheckAttributeBlockBase {
   }
 
   /**
-   * Get count
+   * The count threshold for &#x60;containsAtLeast&#x60; and &#x60;containsExactly&#x60; operators.
    * @return count
    */
   @javax.annotation.Nullable
@@ -531,6 +527,33 @@ public class CheckAttributeBlockBase {
 
   public void setCount(@javax.annotation.Nullable Object count) {
     this.count = count;
+  }
+
+
+  public CheckAttributeBlockBase onFailure(@javax.annotation.Nullable List<Block> onFailure) {
+    this.onFailure = onFailure;
+    return this;
+  }
+
+  public CheckAttributeBlockBase addOnFailureItem(Block onFailureItem) {
+    if (this.onFailure == null) {
+      this.onFailure = new ArrayList<>();
+    }
+    this.onFailure.add(onFailureItem);
+    return this;
+  }
+
+  /**
+   * Promotion blocks evaluated when this block fails or returns false.
+   * @return onFailure
+   */
+  @javax.annotation.Nullable
+  public List<Block> getOnFailure() {
+    return onFailure;
+  }
+
+  public void setOnFailure(@javax.annotation.Nullable List<Block> onFailure) {
+    this.onFailure = onFailure;
   }
 
   /**
@@ -602,7 +625,8 @@ public class CheckAttributeBlockBase {
         Objects.equals(this.endInclusive, checkAttributeBlockBase.endInclusive) &&
         Objects.equals(this.timezoneInsensitive, checkAttributeBlockBase.timezoneInsensitive) &&
         Objects.equals(this.values, checkAttributeBlockBase.values) &&
-        Objects.equals(this.count, checkAttributeBlockBase.count)&&
+        Objects.equals(this.count, checkAttributeBlockBase.count) &&
+        Objects.equals(this.onFailure, checkAttributeBlockBase.onFailure)&&
         Objects.equals(this.additionalProperties, checkAttributeBlockBase.additionalProperties);
   }
 
@@ -612,7 +636,7 @@ public class CheckAttributeBlockBase {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, type, tags, operator, attribute, value, min, max, start, end, startInclusive, endInclusive, timezoneInsensitive, values, count, additionalProperties);
+    return Objects.hash(id, type, tags, operator, attribute, value, min, max, start, end, startInclusive, endInclusive, timezoneInsensitive, values, count, onFailure, additionalProperties);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -641,6 +665,7 @@ public class CheckAttributeBlockBase {
     sb.append("    timezoneInsensitive: ").append(toIndentedString(timezoneInsensitive)).append("\n");
     sb.append("    values: ").append(toIndentedString(values)).append("\n");
     sb.append("    count: ").append(toIndentedString(count)).append("\n");
+    sb.append("    onFailure: ").append(toIndentedString(onFailure)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -660,10 +685,10 @@ public class CheckAttributeBlockBase {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("id", "type", "tags", "operator", "attribute", "value", "min", "max", "start", "end", "startInclusive", "endInclusive", "timezoneInsensitive", "values", "count"));
+    openapiFields = new HashSet<String>(Arrays.asList("id", "type", "tags", "operator", "attribute", "value", "min", "max", "start", "end", "startInclusive", "endInclusive", "timezoneInsensitive", "values", "count", "onFailure"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("id", "type", "operator", "attribute"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("type", "operator", "attribute"));
   }
 
   /**
@@ -686,7 +711,7 @@ public class CheckAttributeBlockBase {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if (!jsonObj.get("id").isJsonPrimitive()) {
+      if ((jsonObj.get("id") != null && !jsonObj.get("id").isJsonNull()) && !jsonObj.get("id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("id").toString()));
       }
       if (!jsonObj.get("type").isJsonPrimitive()) {
@@ -701,6 +726,20 @@ public class CheckAttributeBlockBase {
       }
       // validate the required field `operator`
       OperatorEnum.validateJsonElement(jsonObj.get("operator"));
+      if (jsonObj.get("onFailure") != null && !jsonObj.get("onFailure").isJsonNull()) {
+        JsonArray jsonArrayonFailure = jsonObj.getAsJsonArray("onFailure");
+        if (jsonArrayonFailure != null) {
+          // ensure the json data is an array
+          if (!jsonObj.get("onFailure").isJsonArray()) {
+            throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `onFailure` to be an array in the JSON string but got `%s`", jsonObj.get("onFailure").toString()));
+          }
+
+          // validate the optional field `onFailure` (array)
+          for (int i = 0; i < jsonArrayonFailure.size(); i++) {
+            Block.validateJsonElement(jsonArrayonFailure.get(i));
+          };
+        }
+      }
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
@@ -732,7 +771,9 @@ public class CheckAttributeBlockBase {
                    obj.addProperty(entry.getKey(), (Character) entry.getValue());
                  else {
                    JsonElement jsonElement = gson.toJsonTree(entry.getValue());
-                   if (jsonElement.isJsonArray()) {
+                   if (jsonElement.isJsonNull()) {
+                     obj.add(entry.getKey(), JsonNull.INSTANCE);
+                   } else if (jsonElement.isJsonArray()) {
                      obj.add(entry.getKey(), jsonElement.getAsJsonArray());
                    } else {
                      obj.add(entry.getKey(), jsonElement.getAsJsonObject());

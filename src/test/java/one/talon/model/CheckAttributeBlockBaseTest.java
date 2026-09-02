@@ -22,6 +22,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import one.talon.model.Block;
 import org.openapitools.jackson.nullable.JsonNullable;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
@@ -158,6 +159,14 @@ public class CheckAttributeBlockBaseTest {
     @Test
     public void countTest() {
         // TODO: test count
+    }
+
+    /**
+     * Test the property 'onFailure'
+     */
+    @Test
+    public void onFailureTest() {
+        // TODO: test onFailure
     }
 
 }

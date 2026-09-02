@@ -51,7 +51,7 @@ import com.google.gson.JsonParseException;
 
 import one.talon.JSON;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.24.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.25.0")
 public class AwardDiscountBlock1Value extends AbstractOpenApiSchema {
     private static final Logger log = Logger.getLogger(AwardDiscountBlock1Value.class.getName());
 

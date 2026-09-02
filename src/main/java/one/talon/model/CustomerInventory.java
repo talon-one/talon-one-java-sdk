@@ -29,6 +29,7 @@ import one.talon.model.Giveaway;
 import one.talon.model.InventoryCoupon;
 import one.talon.model.InventoryReferral;
 import one.talon.model.Loyalty;
+import one.talon.model.RewardWithUnlocks;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -37,6 +38,7 @@ import com.google.gson.JsonDeserializationContext;
 import com.google.gson.JsonDeserializer;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
+import com.google.gson.JsonNull;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
@@ -56,7 +58,7 @@ import one.talon.JSON;
 /**
  * CustomerInventory
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.24.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.25.0")
 public class CustomerInventory {
   public static final String SERIALIZED_NAME_PROFILE = "profile";
   @SerializedName(SERIALIZED_NAME_PROFILE)
@@ -91,7 +93,7 @@ public class CustomerInventory {
   public static final String SERIALIZED_NAME_REWARDS = "rewards";
   @SerializedName(SERIALIZED_NAME_REWARDS)
   @javax.annotation.Nullable
-  private List<Object> rewards;
+  private List<RewardWithUnlocks> rewards;
 
   public CustomerInventory() {
   }
@@ -242,12 +244,12 @@ public class CustomerInventory {
   }
 
 
-  public CustomerInventory rewards(@javax.annotation.Nullable List<Object> rewards) {
+  public CustomerInventory rewards(@javax.annotation.Nullable List<RewardWithUnlocks> rewards) {
     this.rewards = rewards;
     return this;
   }
 
-  public CustomerInventory addRewardsItem(Object rewardsItem) {
+  public CustomerInventory addRewardsItem(RewardWithUnlocks rewardsItem) {
     if (this.rewards == null) {
       this.rewards = new ArrayList<>();
     }
@@ -260,11 +262,11 @@ public class CustomerInventory {
    * @return rewards
    */
   @javax.annotation.Nullable
-  public List<Object> getRewards() {
+  public List<RewardWithUnlocks> getRewards() {
     return rewards;
   }
 
-  public void setRewards(@javax.annotation.Nullable List<Object> rewards) {
+  public void setRewards(@javax.annotation.Nullable List<RewardWithUnlocks> rewards) {
     this.rewards = rewards;
   }
 
@@ -451,9 +453,19 @@ public class CustomerInventory {
           };
         }
       }
-      // ensure the optional json data is an array if present
-      if (jsonObj.get("rewards") != null && !jsonObj.get("rewards").isJsonNull() && !jsonObj.get("rewards").isJsonArray()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `rewards` to be an array in the JSON string but got `%s`", jsonObj.get("rewards").toString()));
+      if (jsonObj.get("rewards") != null && !jsonObj.get("rewards").isJsonNull()) {
+        JsonArray jsonArrayrewards = jsonObj.getAsJsonArray("rewards");
+        if (jsonArrayrewards != null) {
+          // ensure the json data is an array
+          if (!jsonObj.get("rewards").isJsonArray()) {
+            throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `rewards` to be an array in the JSON string but got `%s`", jsonObj.get("rewards").toString()));
+          }
+
+          // validate the optional field `rewards` (array)
+          for (int i = 0; i < jsonArrayrewards.size(); i++) {
+            RewardWithUnlocks.validateJsonElement(jsonArrayrewards.get(i));
+          };
+        }
       }
   }
 
@@ -486,7 +498,9 @@ public class CustomerInventory {
                    obj.addProperty(entry.getKey(), (Character) entry.getValue());
                  else {
                    JsonElement jsonElement = gson.toJsonTree(entry.getValue());
-                   if (jsonElement.isJsonArray()) {
+                   if (jsonElement.isJsonNull()) {
+                     obj.add(entry.getKey(), JsonNull.INSTANCE);
+                   } else if (jsonElement.isJsonArray()) {
                      obj.add(entry.getKey(), jsonElement.getAsJsonArray());
                    } else {
                      obj.add(entry.getKey(), jsonElement.getAsJsonObject());

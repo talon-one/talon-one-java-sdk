@@ -25,9 +25,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import one.talon.model.Bundle;
-import one.talon.model.PromotionRuleV2;
+import one.talon.model.RuleV2;
 import one.talon.model.Selector;
-import one.talon.model.StrikethroughRuleV2;
 import one.talon.model.TemplateParameter;
 
 import com.google.gson.Gson;
@@ -37,6 +36,7 @@ import com.google.gson.JsonDeserializationContext;
 import com.google.gson.JsonDeserializer;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
+import com.google.gson.JsonNull;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
@@ -56,21 +56,21 @@ import one.talon.JSON;
 /**
  * Ruleset in the V2 JSON block format.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.24.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.25.0")
 public class RulesetV2 {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   private Long id;
 
   public static final String SERIALIZED_NAME_CREATED = "created";
   @SerializedName(SERIALIZED_NAME_CREATED)
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   private OffsetDateTime created;
 
   public static final String SERIALIZED_NAME_USER_ID = "userId";
   @SerializedName(SERIALIZED_NAME_USER_ID)
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   private Long userId;
 
   public static final String SERIALIZED_NAME_CAMPAIGN_ID = "campaignId";
@@ -91,12 +91,12 @@ public class RulesetV2 {
   public static final String SERIALIZED_NAME_PROMOTION_RULES = "promotionRules";
   @SerializedName(SERIALIZED_NAME_PROMOTION_RULES)
   @javax.annotation.Nonnull
-  private List<PromotionRuleV2> promotionRules = new ArrayList<>();
+  private List<RuleV2> promotionRules = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_STRIKETHROUGH_RULES = "strikethroughRules";
   @SerializedName(SERIALIZED_NAME_STRIKETHROUGH_RULES)
-  @javax.annotation.Nonnull
-  private List<StrikethroughRuleV2> strikethroughRules = new ArrayList<>();
+  @javax.annotation.Nullable
+  private List<RuleV2> strikethroughRules;
 
   public static final String SERIALIZED_NAME_SELECTORS = "selectors";
   @SerializedName(SERIALIZED_NAME_SELECTORS)
@@ -116,67 +116,61 @@ public class RulesetV2 {
   public RulesetV2() {
   }
 
-  public RulesetV2 id(@javax.annotation.Nonnull Long id) {
+  public RulesetV2(
+     Long id, 
+     OffsetDateTime created, 
+     Long userId, 
+     Long campaignId, 
+     Long templateId, 
+     OffsetDateTime activatedAt, 
+     List<Selector> selectors, 
+     List<Bundle> bundles, 
+     List<TemplateParameter> parameters
+  ) {
+    this();
     this.id = id;
-    return this;
+    this.created = created;
+    this.userId = userId;
+    this.campaignId = campaignId;
+    this.templateId = templateId;
+    this.activatedAt = activatedAt;
+    this.selectors = selectors;
+    this.bundles = bundles;
+    this.parameters = parameters;
   }
 
   /**
    * Internal ID of this entity.
    * @return id
    */
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   public Long getId() {
     return id;
   }
 
-  public void setId(@javax.annotation.Nonnull Long id) {
-    this.id = id;
-  }
 
-
-  public RulesetV2 created(@javax.annotation.Nonnull OffsetDateTime created) {
-    this.created = created;
-    return this;
-  }
 
   /**
    * The time this entity was created.
    * @return created
    */
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   public OffsetDateTime getCreated() {
     return created;
   }
 
-  public void setCreated(@javax.annotation.Nonnull OffsetDateTime created) {
-    this.created = created;
-  }
 
-
-  public RulesetV2 userId(@javax.annotation.Nonnull Long userId) {
-    this.userId = userId;
-    return this;
-  }
 
   /**
    * The ID of the user that created this ruleset.
    * @return userId
    */
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   public Long getUserId() {
     return userId;
   }
 
-  public void setUserId(@javax.annotation.Nonnull Long userId) {
-    this.userId = userId;
-  }
 
-
-  public RulesetV2 campaignId(@javax.annotation.Nullable Long campaignId) {
-    this.campaignId = campaignId;
-    return this;
-  }
 
   /**
    * The ID of the campaign that owns this entity.
@@ -187,15 +181,7 @@ public class RulesetV2 {
     return campaignId;
   }
 
-  public void setCampaignId(@javax.annotation.Nullable Long campaignId) {
-    this.campaignId = campaignId;
-  }
 
-
-  public RulesetV2 templateId(@javax.annotation.Nullable Long templateId) {
-    this.templateId = templateId;
-    return this;
-  }
 
   /**
    * The ID of the campaign template that owns this entity.
@@ -206,15 +192,7 @@ public class RulesetV2 {
     return templateId;
   }
 
-  public void setTemplateId(@javax.annotation.Nullable Long templateId) {
-    this.templateId = templateId;
-  }
 
-
-  public RulesetV2 activatedAt(@javax.annotation.Nullable OffsetDateTime activatedAt) {
-    this.activatedAt = activatedAt;
-    return this;
-  }
 
   /**
    * Timestamp indicating when this ruleset was activated.
@@ -225,17 +203,14 @@ public class RulesetV2 {
     return activatedAt;
   }
 
-  public void setActivatedAt(@javax.annotation.Nullable OffsetDateTime activatedAt) {
-    this.activatedAt = activatedAt;
-  }
 
 
-  public RulesetV2 promotionRules(@javax.annotation.Nonnull List<PromotionRuleV2> promotionRules) {
+  public RulesetV2 promotionRules(@javax.annotation.Nonnull List<RuleV2> promotionRules) {
     this.promotionRules = promotionRules;
     return this;
   }
 
-  public RulesetV2 addPromotionRulesItem(PromotionRuleV2 promotionRulesItem) {
+  public RulesetV2 addPromotionRulesItem(RuleV2 promotionRulesItem) {
     if (this.promotionRules == null) {
       this.promotionRules = new ArrayList<>();
     }
@@ -248,21 +223,21 @@ public class RulesetV2 {
    * @return promotionRules
    */
   @javax.annotation.Nonnull
-  public List<PromotionRuleV2> getPromotionRules() {
+  public List<RuleV2> getPromotionRules() {
     return promotionRules;
   }
 
-  public void setPromotionRules(@javax.annotation.Nonnull List<PromotionRuleV2> promotionRules) {
+  public void setPromotionRules(@javax.annotation.Nonnull List<RuleV2> promotionRules) {
     this.promotionRules = promotionRules;
   }
 
 
-  public RulesetV2 strikethroughRules(@javax.annotation.Nonnull List<StrikethroughRuleV2> strikethroughRules) {
+  public RulesetV2 strikethroughRules(@javax.annotation.Nullable List<RuleV2> strikethroughRules) {
     this.strikethroughRules = strikethroughRules;
     return this;
   }
 
-  public RulesetV2 addStrikethroughRulesItem(StrikethroughRuleV2 strikethroughRulesItem) {
+  public RulesetV2 addStrikethroughRulesItem(RuleV2 strikethroughRulesItem) {
     if (this.strikethroughRules == null) {
       this.strikethroughRules = new ArrayList<>();
     }
@@ -274,28 +249,15 @@ public class RulesetV2 {
    * Set of strikethrough rules.
    * @return strikethroughRules
    */
-  @javax.annotation.Nonnull
-  public List<StrikethroughRuleV2> getStrikethroughRules() {
+  @javax.annotation.Nullable
+  public List<RuleV2> getStrikethroughRules() {
     return strikethroughRules;
   }
 
-  public void setStrikethroughRules(@javax.annotation.Nonnull List<StrikethroughRuleV2> strikethroughRules) {
+  public void setStrikethroughRules(@javax.annotation.Nullable List<RuleV2> strikethroughRules) {
     this.strikethroughRules = strikethroughRules;
   }
 
-
-  public RulesetV2 selectors(@javax.annotation.Nullable List<Selector> selectors) {
-    this.selectors = selectors;
-    return this;
-  }
-
-  public RulesetV2 addSelectorsItem(Selector selectorsItem) {
-    if (this.selectors == null) {
-      this.selectors = new ArrayList<>();
-    }
-    this.selectors.add(selectorsItem);
-    return this;
-  }
 
   /**
    * Variable bindings of type selector.
@@ -306,23 +268,7 @@ public class RulesetV2 {
     return selectors;
   }
 
-  public void setSelectors(@javax.annotation.Nullable List<Selector> selectors) {
-    this.selectors = selectors;
-  }
 
-
-  public RulesetV2 bundles(@javax.annotation.Nullable List<Bundle> bundles) {
-    this.bundles = bundles;
-    return this;
-  }
-
-  public RulesetV2 addBundlesItem(Bundle bundlesItem) {
-    if (this.bundles == null) {
-      this.bundles = new ArrayList<>();
-    }
-    this.bundles.add(bundlesItem);
-    return this;
-  }
 
   /**
    * Variable bindings of type bundle.
@@ -333,23 +279,7 @@ public class RulesetV2 {
     return bundles;
   }
 
-  public void setBundles(@javax.annotation.Nullable List<Bundle> bundles) {
-    this.bundles = bundles;
-  }
 
-
-  public RulesetV2 parameters(@javax.annotation.Nullable List<TemplateParameter> parameters) {
-    this.parameters = parameters;
-    return this;
-  }
-
-  public RulesetV2 addParametersItem(TemplateParameter parametersItem) {
-    if (this.parameters == null) {
-      this.parameters = new ArrayList<>();
-    }
-    this.parameters.add(parametersItem);
-    return this;
-  }
 
   /**
    * Variable bindings of type template parameter.
@@ -360,9 +290,6 @@ public class RulesetV2 {
     return parameters;
   }
 
-  public void setParameters(@javax.annotation.Nullable List<TemplateParameter> parameters) {
-    this.parameters = parameters;
-  }
 
   /**
    * A container for additional, undeclared properties.
@@ -475,7 +402,7 @@ public class RulesetV2 {
     openapiFields = new HashSet<String>(Arrays.asList("id", "created", "userId", "campaignId", "templateId", "activatedAt", "promotionRules", "strikethroughRules", "selectors", "bundles", "parameters"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("id", "created", "userId", "promotionRules", "strikethroughRules"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("promotionRules"));
   }
 
   /**
@@ -505,17 +432,21 @@ public class RulesetV2 {
         JsonArray jsonArraypromotionRules = jsonObj.getAsJsonArray("promotionRules");
         // validate the required field `promotionRules` (array)
         for (int i = 0; i < jsonArraypromotionRules.size(); i++) {
-          PromotionRuleV2.validateJsonElement(jsonArraypromotionRules.get(i));
+          RuleV2.validateJsonElement(jsonArraypromotionRules.get(i));
         }
       }
-      if (jsonObj.get("strikethroughRules") != null) {
-        if (!jsonObj.get("strikethroughRules").isJsonArray()) {
-          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `strikethroughRules` to be an array in the JSON string but got `%s`", jsonObj.get("strikethroughRules").toString()));
-        }
+      if (jsonObj.get("strikethroughRules") != null && !jsonObj.get("strikethroughRules").isJsonNull()) {
         JsonArray jsonArraystrikethroughRules = jsonObj.getAsJsonArray("strikethroughRules");
-        // validate the required field `strikethroughRules` (array)
-        for (int i = 0; i < jsonArraystrikethroughRules.size(); i++) {
-          StrikethroughRuleV2.validateJsonElement(jsonArraystrikethroughRules.get(i));
+        if (jsonArraystrikethroughRules != null) {
+          // ensure the json data is an array
+          if (!jsonObj.get("strikethroughRules").isJsonArray()) {
+            throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `strikethroughRules` to be an array in the JSON string but got `%s`", jsonObj.get("strikethroughRules").toString()));
+          }
+
+          // validate the optional field `strikethroughRules` (array)
+          for (int i = 0; i < jsonArraystrikethroughRules.size(); i++) {
+            RuleV2.validateJsonElement(jsonArraystrikethroughRules.get(i));
+          };
         }
       }
       if (jsonObj.get("selectors") != null && !jsonObj.get("selectors").isJsonNull()) {
@@ -591,7 +522,9 @@ public class RulesetV2 {
                    obj.addProperty(entry.getKey(), (Character) entry.getValue());
                  else {
                    JsonElement jsonElement = gson.toJsonTree(entry.getValue());
-                   if (jsonElement.isJsonArray()) {
+                   if (jsonElement.isJsonNull()) {
+                     obj.add(entry.getKey(), JsonNull.INSTANCE);
+                   } else if (jsonElement.isJsonArray()) {
                      obj.add(entry.getKey(), jsonElement.getAsJsonArray());
                    } else {
                      obj.add(entry.getKey(), jsonElement.getAsJsonObject());

@@ -22,6 +22,8 @@ The entity or item scope that this effect operates on.
 | ADVOCATE_PROFILE | &quot;advocateProfile&quot; |
 | COUPON | &quot;coupon&quot; |
 | REFERRAL | &quot;referral&quot; |
+| EVENT | &quot;event&quot; |
+| LOYALTY_CARD | &quot;loyaltyCard&quot; |
 | ALL_ITEMS | &quot;allItems&quot; |
 | SELECTOR | &quot;selector&quot; |
 | GLOBAL_FILTER | &quot;globalFilter&quot; |

@@ -24,6 +24,7 @@ All URIs are relative to *https://yourbaseurl.talon.one*
 | [**createInviteEmail**](ManagementApi.md#createInviteEmail) | **POST** /v1/invite_emails | Resend invitation email |
 | [**createInviteV2**](ManagementApi.md#createInviteV2) | **POST** /v2/invites | Invite user |
 | [**createPasswordRecoveryEmail**](ManagementApi.md#createPasswordRecoveryEmail) | **POST** /v1/password_recovery_emails | Request a password reset |
+| [**createRulesetV2**](ManagementApi.md#createRulesetV2) | **POST** /v2/applications/{applicationId}/campaigns/{campaignId}/rulesets | Create ruleset (V2) |
 | [**createSession**](ManagementApi.md#createSession) | **POST** /v1/sessions | Create session |
 | [**createStore**](ManagementApi.md#createStore) | **POST** /v1/applications/{applicationId}/stores | Create store |
 | [**deactivateUserByEmail**](ManagementApi.md#deactivateUserByEmail) | **POST** /v1/users/deactivate | Disable user by email address |
@@ -1645,6 +1646,80 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **204** | Created |  -  |
+
+<a id="createRulesetV2"></a>
+# **createRulesetV2**
+> RulesetV2 createRulesetV2(applicationId, campaignId, rulesetV2)
+
+Create ruleset (V2)
+
+Create a ruleset from promotion and strikethrough rules in the V2 JSON block format. A ruleset is a revision of all the rules of a campaign.  Only &#x60;group&#x60; and &#x60;passthrough&#x60; blocks are currently writable, with optional &#x60;onFailure&#x60; blocks. A payload containing any other block type is rejected. Each rule&#39;s &#x60;blocks&#x60; array may contain at most one block.
+
+### Example
+```java
+// Import classes:
+import one.talon.ApiClient;
+import one.talon.ApiException;
+import one.talon.Configuration;
+import one.talon.auth.*;
+import one.talon.models.*;
+import one.talon.api.ManagementApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://yourbaseurl.talon.one");
+    
+    // Configure API key authorization: api_key_v1
+    ApiKeyAuth api_key_v1 = (ApiKeyAuth) defaultClient.getAuthentication("api_key_v1");
+    api_key_v1.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //api_key_v1.setApiKeyPrefix("Token");
+
+    ManagementApi apiInstance = new ManagementApi(defaultClient);
+    Long applicationId = 56L; // Long | The ID of the Application. It is displayed in your Talon.One deployment URL.
+    Long campaignId = 56L; // Long | The ID of the campaign. It is displayed in your Talon.One deployment URL.
+    RulesetV2 rulesetV2 = new RulesetV2(); // RulesetV2 | body
+    try {
+      RulesetV2 result = apiInstance.createRulesetV2(applicationId, campaignId, rulesetV2);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling ManagementApi#createRulesetV2");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **applicationId** | **Long**| The ID of the Application. It is displayed in your Talon.One deployment URL. | |
+| **campaignId** | **Long**| The ID of the campaign. It is displayed in your Talon.One deployment URL. | |
+| **rulesetV2** | [**RulesetV2**](RulesetV2.md)| body | |
+
+### Return type
+
+[**RulesetV2**](RulesetV2.md)
+
+### Authorization
+
+[api_key_v1](../README.md#api_key_v1)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **201** | Created |  -  |
+| **400** | Bad request |  -  |
 
 <a id="createSession"></a>
 # **createSession**
@@ -9335,7 +9410,7 @@ public class Example {
 
 <a id="getMessageLogs"></a>
 # **getMessageLogs**
-> MessageLogEntries getMessageLogs(entityType, messageID, changeType, notificationIDs, createdBefore, createdAfter, cursor, period, isSuccessful, applicationId, campaignId, loyaltyProgramId, responseCode, webhookIDs)
+> MessageLogEntries getMessageLogs(entityType, messageID, changeType, notificationIDs, createdBefore, createdAfter, cursor, pageSize, period, isSuccessful, applicationId, campaignId, loyaltyProgramId, responseCode, webhookIDs)
 
 List message log entries
 
@@ -9370,6 +9445,7 @@ public class Example {
     OffsetDateTime createdBefore = OffsetDateTime.now(); // OffsetDateTime | Filter results where request and response times to return entries before parameter value, expected to be an RFC3339 timestamp string. Use UTC time.
     OffsetDateTime createdAfter = OffsetDateTime.now(); // OffsetDateTime | Filter results where request and response times to return entries after parameter value, expected to be an RFC3339 timestamp string. Use UTC time.
     byte[] cursor = null; // byte[] | A specific unique value in the database. If this value is not given, the server fetches results starting with the first record. 
+    Long pageSize = 50L; // Long | The maximum number of message log entries to return.
     String period = "15m"; // String | Filter results by time period. Choose between the available relative time frames. 
     Boolean isSuccessful = true; // Boolean | Indicates whether to return log entries with either successful or unsuccessful HTTP response codes. When set to`true`, only log entries with `2xx` response codes are returned. When set to `false`, only log entries with `4xx` and `5xx` response codes are returned. 
     BigDecimal applicationId = new BigDecimal(78); // BigDecimal | Filter results by Application ID.
@@ -9378,7 +9454,7 @@ public class Example {
     Long responseCode = 56L; // Long | Filter results by response status code.
     String webhookIDs = "webhookIDs_example"; // String | Filter results by webhook ID (include up to 30 values, separated by a comma).
     try {
-      MessageLogEntries result = apiInstance.getMessageLogs(entityType, messageID, changeType, notificationIDs, createdBefore, createdAfter, cursor, period, isSuccessful, applicationId, campaignId, loyaltyProgramId, responseCode, webhookIDs);
+      MessageLogEntries result = apiInstance.getMessageLogs(entityType, messageID, changeType, notificationIDs, createdBefore, createdAfter, cursor, pageSize, period, isSuccessful, applicationId, campaignId, loyaltyProgramId, responseCode, webhookIDs);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ManagementApi#getMessageLogs");
@@ -9402,6 +9478,7 @@ public class Example {
 | **createdBefore** | **OffsetDateTime**| Filter results where request and response times to return entries before parameter value, expected to be an RFC3339 timestamp string. Use UTC time. | [optional] |
 | **createdAfter** | **OffsetDateTime**| Filter results where request and response times to return entries after parameter value, expected to be an RFC3339 timestamp string. Use UTC time. | [optional] |
 | **cursor** | **byte[]**| A specific unique value in the database. If this value is not given, the server fetches results starting with the first record.  | [optional] |
+| **pageSize** | **Long**| The maximum number of message log entries to return. | [optional] [default to 50] |
 | **period** | **String**| Filter results by time period. Choose between the available relative time frames.  | [optional] [enum: 15m, 30m, 1h, 4h, 1d, 2d] |
 | **isSuccessful** | **Boolean**| Indicates whether to return log entries with either successful or unsuccessful HTTP response codes. When set to&#x60;true&#x60;, only log entries with &#x60;2xx&#x60; response codes are returned. When set to &#x60;false&#x60;, only log entries with &#x60;4xx&#x60; and &#x60;5xx&#x60; response codes are returned.  | [optional] |
 | **applicationId** | **BigDecimal**| Filter results by Application ID. | [optional] |

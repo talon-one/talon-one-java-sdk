@@ -9,7 +9,7 @@ Filters only items that match a predicate block.
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
 |**type** | [**TypeEnum**](#TypeEnum) | A step discriminator of type &#x60;filter&#x60;. |  |
-|**predicate** | [**SelectorBlock**](SelectorBlock.md) |  |  |
+|**predicate** | [**Block**](Block.md) |  |  |
 
 
 

@@ -9,8 +9,8 @@ Variant of `CheckAttributeBlock` for operators that test list membership with a 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
 |**operator** | [**OperatorEnum**](#OperatorEnum) | The list membership operator with a count threshold applied to the attribute. |  [optional] |
-|**values** | **Object** |  |  |
-|**count** | **Object** |  |  |
+|**values** | **Object** | The set of values to match against. |  |
+|**count** | **Object** | The count threshold for this operator. |  |
 
 
 

@@ -20,8 +20,8 @@
 |**fixedStartDate** | **OffsetDateTime** | The achievement&#39;s start date when &#x60;activationPolicy&#x60; is set to &#x60;fixed_schedule&#x60;.  **Note:** It must be an RFC3339 timestamp string.  |  [optional] |
 |**endDate** | **OffsetDateTime** | The achievement&#39;s end date. If defined, customers cannot participate in the achievement after this date.  **Note:** It must be an RFC3339 timestamp string.  |  [optional] |
 |**allowRollbackAfterCompletion** | **Boolean** | When &#x60;true&#x60;, customer progress can be rolled back in completed achievements. |  [optional] |
-|**campaignId** | **Long** | This property is **deprecated**. Use &#x60;campaignIds&#x60; instead. The first campaign ID in &#x60;campaignIds&#x60;. Only returned when &#x60;campaignIds&#x60; is not empty. |  [optional] |
-|**campaignIds** | **List&lt;Long&gt;** | The IDs of the campaigns that reference this achievement, in ascending order. |  |
+|**campaignId** | **Long** | This property is **deprecated**. Use &#x60;referencedByCampaigns&#x60; instead. This field contains the first campaign ID from the related &#x60;referencedByCampaigns&#x60;, and is omitted when &#x60;referencedByCampaigns&#x60; is empty. |  [optional] |
+|**campaignIds** | **List&lt;Long&gt;** | The IDs of the campaigns that reference this achievement, in ascending order. |  [optional] |
 |**status** | [**StatusEnum**](#StatusEnum) | The status of the achievement. |  [optional] |
 |**currentProgress** | [**AchievementProgress**](AchievementProgress.md) |  |  [optional] |
 

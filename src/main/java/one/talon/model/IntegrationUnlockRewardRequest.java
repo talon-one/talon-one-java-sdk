@@ -31,6 +31,7 @@ import com.google.gson.JsonDeserializationContext;
 import com.google.gson.JsonDeserializer;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
+import com.google.gson.JsonNull;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
@@ -48,9 +49,9 @@ import java.util.Set;
 import one.talon.JSON;
 
 /**
- * The request body for unlocking a reward for a customer profile.
+ * The request body for unlocking a reward for a customer profile, optionally using the balance of one of the customer&#39;s loyalty cards. 
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.24.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.25.0")
 public class IntegrationUnlockRewardRequest {
   public static final String SERIALIZED_NAME_INTEGRATION_ID = "integrationId";
   @SerializedName(SERIALIZED_NAME_INTEGRATION_ID)
@@ -62,6 +63,11 @@ public class IntegrationUnlockRewardRequest {
   @javax.annotation.Nonnull
   private String profileIntegrationId;
 
+  public static final String SERIALIZED_NAME_CARD_IDENTIFIER = "cardIdentifier";
+  @SerializedName(SERIALIZED_NAME_CARD_IDENTIFIER)
+  @javax.annotation.Nullable
+  private String cardIdentifier;
+
   public static final String SERIALIZED_NAME_LOYALTY_PROGRAM_ID = "loyaltyProgramId";
   @SerializedName(SERIALIZED_NAME_LOYALTY_PROGRAM_ID)
   @javax.annotation.Nullable
@@ -72,10 +78,66 @@ public class IntegrationUnlockRewardRequest {
   @javax.annotation.Nullable
   private String subledgerId;
 
+  /**
+   * Gets or Sets responseContent
+   */
+  @JsonAdapter(ResponseContentEnum.Adapter.class)
+  public enum ResponseContentEnum {
+    CUSTOMER_PROFILE("customerProfile"),
+    
+    EFFECTS("effects"),
+    
+    RULE_FAILURE_REASONS("ruleFailureReasons"),
+    
+    LOYALTY("loyalty");
+
+    private String value;
+
+    ResponseContentEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static ResponseContentEnum fromValue(String value) {
+      for (ResponseContentEnum b : ResponseContentEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    }
+
+    public static class Adapter extends TypeAdapter<ResponseContentEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final ResponseContentEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public ResponseContentEnum read(final JsonReader jsonReader) throws IOException {
+        String value =  jsonReader.nextString();
+        return ResponseContentEnum.fromValue(value);
+      }
+    }
+
+    public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      String value = jsonElement.getAsString();
+      ResponseContentEnum.fromValue(value);
+    }
+  }
+
   public static final String SERIALIZED_NAME_RESPONSE_CONTENT = "responseContent";
   @SerializedName(SERIALIZED_NAME_RESPONSE_CONTENT)
   @javax.annotation.Nullable
-  private List<String> responseContent;
+  private List<ResponseContentEnum> responseContent;
 
   public IntegrationUnlockRewardRequest() {
   }
@@ -118,6 +180,25 @@ public class IntegrationUnlockRewardRequest {
   }
 
 
+  public IntegrationUnlockRewardRequest cardIdentifier(@javax.annotation.Nullable String cardIdentifier) {
+    this.cardIdentifier = cardIdentifier;
+    return this;
+  }
+
+  /**
+   * The identifier of the loyalty card unlocking the reward. When provided, the required points are deducted from the card&#39;s balance and the unlocked reward belongs to the card, which makes it available to all customer profiles linked to that card. The customer profile given in &#x60;profileIntegrationId&#x60; must be linked to the card, and the card must be active.
+   * @return cardIdentifier
+   */
+  @javax.annotation.Nullable
+  public String getCardIdentifier() {
+    return cardIdentifier;
+  }
+
+  public void setCardIdentifier(@javax.annotation.Nullable String cardIdentifier) {
+    this.cardIdentifier = cardIdentifier;
+  }
+
+
   public IntegrationUnlockRewardRequest loyaltyProgramId(@javax.annotation.Nullable Long loyaltyProgramId) {
     this.loyaltyProgramId = loyaltyProgramId;
     return this;
@@ -156,12 +237,12 @@ public class IntegrationUnlockRewardRequest {
   }
 
 
-  public IntegrationUnlockRewardRequest responseContent(@javax.annotation.Nullable List<String> responseContent) {
+  public IntegrationUnlockRewardRequest responseContent(@javax.annotation.Nullable List<ResponseContentEnum> responseContent) {
     this.responseContent = responseContent;
     return this;
   }
 
-  public IntegrationUnlockRewardRequest addResponseContentItem(String responseContentItem) {
+  public IntegrationUnlockRewardRequest addResponseContentItem(ResponseContentEnum responseContentItem) {
     if (this.responseContent == null) {
       this.responseContent = new ArrayList<>();
     }
@@ -170,15 +251,15 @@ public class IntegrationUnlockRewardRequest {
   }
 
   /**
-   * Determines which data is included in the response. Add any of the following optional values to the array to get that data in the response: &#x60;customerProfile&#x60;, &#x60;effects&#x60;, &#x60;ruleFailureReasons&#x60;, &#x60;loyalty&#x60;.
+   * Determines which data is included in the response. Add any of the following optional values to the array to get that data in the response: &#x60;customerProfile&#x60;, &#x60;ruleFailureReasons&#x60;, &#x60;loyalty&#x60;. &#x60;effects&#x60; is always returned regardless of whether it is included here.
    * @return responseContent
    */
   @javax.annotation.Nullable
-  public List<String> getResponseContent() {
+  public List<ResponseContentEnum> getResponseContent() {
     return responseContent;
   }
 
-  public void setResponseContent(@javax.annotation.Nullable List<String> responseContent) {
+  public void setResponseContent(@javax.annotation.Nullable List<ResponseContentEnum> responseContent) {
     this.responseContent = responseContent;
   }
 
@@ -239,6 +320,7 @@ public class IntegrationUnlockRewardRequest {
     IntegrationUnlockRewardRequest integrationUnlockRewardRequest = (IntegrationUnlockRewardRequest) o;
     return Objects.equals(this.integrationId, integrationUnlockRewardRequest.integrationId) &&
         Objects.equals(this.profileIntegrationId, integrationUnlockRewardRequest.profileIntegrationId) &&
+        Objects.equals(this.cardIdentifier, integrationUnlockRewardRequest.cardIdentifier) &&
         Objects.equals(this.loyaltyProgramId, integrationUnlockRewardRequest.loyaltyProgramId) &&
         Objects.equals(this.subledgerId, integrationUnlockRewardRequest.subledgerId) &&
         Objects.equals(this.responseContent, integrationUnlockRewardRequest.responseContent)&&
@@ -247,7 +329,7 @@ public class IntegrationUnlockRewardRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(integrationId, profileIntegrationId, loyaltyProgramId, subledgerId, responseContent, additionalProperties);
+    return Objects.hash(integrationId, profileIntegrationId, cardIdentifier, loyaltyProgramId, subledgerId, responseContent, additionalProperties);
   }
 
   @Override
@@ -256,6 +338,7 @@ public class IntegrationUnlockRewardRequest {
     sb.append("class IntegrationUnlockRewardRequest {\n");
     sb.append("    integrationId: ").append(toIndentedString(integrationId)).append("\n");
     sb.append("    profileIntegrationId: ").append(toIndentedString(profileIntegrationId)).append("\n");
+    sb.append("    cardIdentifier: ").append(toIndentedString(cardIdentifier)).append("\n");
     sb.append("    loyaltyProgramId: ").append(toIndentedString(loyaltyProgramId)).append("\n");
     sb.append("    subledgerId: ").append(toIndentedString(subledgerId)).append("\n");
     sb.append("    responseContent: ").append(toIndentedString(responseContent)).append("\n");
@@ -278,7 +361,7 @@ public class IntegrationUnlockRewardRequest {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("integrationId", "profileIntegrationId", "loyaltyProgramId", "subledgerId", "responseContent"));
+    openapiFields = new HashSet<String>(Arrays.asList("integrationId", "profileIntegrationId", "cardIdentifier", "loyaltyProgramId", "subledgerId", "responseContent"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("integrationId", "profileIntegrationId"));
@@ -309,6 +392,9 @@ public class IntegrationUnlockRewardRequest {
       }
       if (!jsonObj.get("profileIntegrationId").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `profileIntegrationId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("profileIntegrationId").toString()));
+      }
+      if ((jsonObj.get("cardIdentifier") != null && !jsonObj.get("cardIdentifier").isJsonNull()) && !jsonObj.get("cardIdentifier").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `cardIdentifier` to be a primitive type in the JSON string but got `%s`", jsonObj.get("cardIdentifier").toString()));
       }
       if ((jsonObj.get("subledgerId") != null && !jsonObj.get("subledgerId").isJsonNull()) && !jsonObj.get("subledgerId").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `subledgerId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("subledgerId").toString()));
@@ -348,7 +434,9 @@ public class IntegrationUnlockRewardRequest {
                    obj.addProperty(entry.getKey(), (Character) entry.getValue());
                  else {
                    JsonElement jsonElement = gson.toJsonTree(entry.getValue());
-                   if (jsonElement.isJsonArray()) {
+                   if (jsonElement.isJsonNull()) {
+                     obj.add(entry.getKey(), JsonNull.INSTANCE);
+                   } else if (jsonElement.isJsonArray()) {
                      obj.add(entry.getKey(), jsonElement.getAsJsonArray());
                    } else {
                      obj.add(entry.getKey(), jsonElement.getAsJsonObject());

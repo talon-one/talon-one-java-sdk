@@ -22,7 +22,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import one.talon.model.PromotionBlock;
+import one.talon.model.Block;
 import one.talon.model.RedeemLoyaltyPointsBlock1Program;
 import one.talon.model.RedeemLoyaltyPointsBlock1Value;
 import org.junit.jupiter.api.Disabled;

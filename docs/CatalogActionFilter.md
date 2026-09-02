@@ -10,7 +10,7 @@ The properties for a single filtering condition in a catalog sync action.
 |------------ | ------------- | ------------- | -------------|
 |**attr** | **String** | The name of the attribute to filter on. |  |
 |**op** | [**OpEnum**](#OpEnum) | The filtering operator. |  |
-|**value** | **Object** |  |  |
+|**value** | **Object** | The value to filter for. |  |
 
 
 

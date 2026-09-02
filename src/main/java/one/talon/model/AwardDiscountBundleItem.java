@@ -59,7 +59,7 @@ import com.google.gson.JsonParseException;
 
 import one.talon.JSON;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.24.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.25.0")
 public class AwardDiscountBundleItem extends AbstractOpenApiSchema {
     private static final Logger log = Logger.getLogger(AwardDiscountBundleItem.class.getName());
 
@@ -101,6 +101,28 @@ public class AwardDiscountBundleItem extends AbstractOpenApiSchema {
                 public AwardDiscountBundleItem read(JsonReader in) throws IOException {
                     Object deserialized = null;
                     JsonElement jsonElement = elementAdapter.read(in);
+
+                    JsonObject jsonObject = jsonElement.getAsJsonObject();
+
+                    // use discriminator value for faster oneOf lookup
+                    AwardDiscountBundleItem newAwardDiscountBundleItem = new AwardDiscountBundleItem();
+                    if (jsonObject.get("type") == null) {
+                        log.log(Level.WARNING, "Failed to lookup discriminator value for AwardDiscountBundleItem as `type` was not found in the payload or the payload is empty.");
+                    } else  {
+                        // look up the discriminator value in the field `type`
+                        switch (jsonObject.get("type").getAsString()) {
+                            case "byAttribute":
+                                deserialized = adapterAwardDiscountBundleItemByAttribute.fromJsonTree(jsonObject);
+                                newAwardDiscountBundleItem.setActualInstance(deserialized);
+                                return newAwardDiscountBundleItem;
+                            case "byIndex":
+                                deserialized = adapterAwardDiscountBundleItemByIndex.fromJsonTree(jsonObject);
+                                newAwardDiscountBundleItem.setActualInstance(deserialized);
+                                return newAwardDiscountBundleItem;
+                            default:
+                                log.log(Level.WARNING, String.format(java.util.Locale.ROOT, "Failed to lookup discriminator value `%s` for AwardDiscountBundleItem. Possible values: byAttribute byIndex", jsonObject.get("type").getAsString()));
+                        }
+                    }
 
                     int match = 0;
                     ArrayList<String> errorMessages = new ArrayList<>();

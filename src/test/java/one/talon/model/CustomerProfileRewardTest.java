@@ -21,6 +21,7 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.time.OffsetDateTime;
 import java.util.Arrays;
+import one.talon.model.RuleMetadata;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
@@ -63,11 +64,35 @@ public class CustomerProfileRewardTest {
     }
 
     /**
+     * Test the property 'rewardIntegrationId'
+     */
+    @Test
+    public void rewardIntegrationIdTest() {
+        // TODO: test rewardIntegrationId
+    }
+
+    /**
      * Test the property 'rewardName'
      */
     @Test
     public void rewardNameTest() {
         // TODO: test rewardName
+    }
+
+    /**
+     * Test the property 'description'
+     */
+    @Test
+    public void descriptionTest() {
+        // TODO: test description
+    }
+
+    /**
+     * Test the property 'rule'
+     */
+    @Test
+    public void ruleTest() {
+        // TODO: test rule
     }
 
     /**
