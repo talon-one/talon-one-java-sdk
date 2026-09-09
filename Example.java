@@ -8,6 +8,7 @@ import one.talon.api.ManagementApi;
 import one.talon.auth.ApiKeyAuth;
 import one.talon.model.*;
 
+import java.time.OffsetDateTime;
 import java.util.*;
 
 public class Example {
@@ -51,27 +52,32 @@ public class Example {
         Boolean dryRun = false;
 
         // Create/update a customer session using `updateCustomerSessionV2` function
-        IntegrationStateV2 is = iApi.updateCustomerSessionV2("deetdoot", request, dryRun, null);
+        IntegrationStateV2 is = iApi.updateCustomerSessionV2(
+                "deetdoot",
+                request,
+                dryRun,
+                null,
+                null);
         System.out.println(is.toString());
 
         // Parsing the returned effects list, please consult
         // https://developers.talon.one/Integration-API/handling-effects-v2 for the full
         // list of effects and their corresponding properties
         for (Effect eff : is.getEffects()) {
-            if (eff.getEffectType().equals("addLoyaltyPoints")) {
+            if (eff.getSchemaType().equals("addLoyaltyPoints")) {
                 // Typecasting according to the specific effect type
                 AddLoyaltyPointsEffectProps props = gson.fromJson(
-                        gson.toJson(eff.getProps()),
+                        gson.toJson(eff.getEffectAddLoyaltyPoints().getProps()),
                         AddLoyaltyPointsEffectProps.class);
                 // Access the specific effect's properties
                 System.out.println(props.getName());
                 System.out.println(props.getProgramId());
                 System.out.println(props.getValue());
             }
-            if (eff.getEffectType().equals("acceptCoupon")) {
+            if (eff.getSchemaType().equals("acceptCoupon")) {
                 // Typecasting according to the specific effect type
                 AcceptCouponEffectProps props = gson.fromJson(
-                        gson.toJson(eff.getProps()),
+                        gson.toJson(eff.getEffectAcceptCoupon().getProps()),
                         AcceptCouponEffectProps.class);
                 // work with AcceptCouponEffectProps' properties
                 // ...
