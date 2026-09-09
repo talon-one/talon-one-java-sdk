@@ -25,9 +25,9 @@ Describes a part of the logic of the rule.
 |**body** | **String** | The notification body text. Supports template placeholders (e.g. \&quot;{{$Session.Total}}\&quot;) evaluated at rule execution time. |  [optional] |
 |**sku** | **String** | The stock keeping unit of the item to award. |  |
 |**quantity** | **String** | The number of items to award. Supports template placeholders (e.g. \&quot;{{$Session.Total / 2}}\&quot;) for dynamic quantities. |  |
-|**giveawayPool** | [**GiveawayPoolReference**](GiveawayPoolReference.md) | The giveaway pool from which an item is awarded. |  |
+|**giveawayPool** | [**GiveawayPoolBlockReference**](GiveawayPoolBlockReference.md) | The giveaway pool from which an item is awarded. |  |
 |**profile** | [**ProfileEnum**](#ProfileEnum) | The customer profile to add or remove from the audience. &#x60;Current&#x60; targets the customer in the current session; &#x60;Advocate&#x60; targets the person who invited their friend via referral program. |  |
-|**audience** | [**UpdateAudienceMembershipBlock1Audience**](UpdateAudienceMembershipBlock1Audience.md) |  |  |
+|**audience** | [**AudienceBlockReference**](AudienceBlockReference.md) | The audience to add the customer to or remove them from. |  |
 |**program** | [**RedeemLoyaltyPointsBlock1Program**](RedeemLoyaltyPointsBlock1Program.md) |  |  |
 |**subledger** | **String** | The name of the subledger to deduct points from. Can be empty if this block deducts from the loyalty program&#39;s main ledger instead of a subledger. |  |
 |**balance** | [**BalanceEnum**](#BalanceEnum) | The type of balance to check:  - &#x60;current&#x60; is the sum of currently active points  - &#x60;pending&#x60; is the sum of pending points.  - &#x60;negative&#x60; is the sum of negative points.  - &#x60;tentativeCurrent&#x60; is the tentative points balance within the current open customer session. |  |
