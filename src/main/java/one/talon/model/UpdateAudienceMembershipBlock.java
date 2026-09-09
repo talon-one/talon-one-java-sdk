@@ -23,7 +23,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import one.talon.model.UpdateAudienceMembershipBlock1Audience;
+import one.talon.model.AudienceBlockReference;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -186,7 +186,7 @@ public class UpdateAudienceMembershipBlock {
   public static final String SERIALIZED_NAME_AUDIENCE = "audience";
   @SerializedName(SERIALIZED_NAME_AUDIENCE)
   @javax.annotation.Nonnull
-  private UpdateAudienceMembershipBlock1Audience audience;
+  private AudienceBlockReference audience;
 
   public UpdateAudienceMembershipBlock() {
   }
@@ -279,21 +279,21 @@ public class UpdateAudienceMembershipBlock {
   }
 
 
-  public UpdateAudienceMembershipBlock audience(@javax.annotation.Nonnull UpdateAudienceMembershipBlock1Audience audience) {
+  public UpdateAudienceMembershipBlock audience(@javax.annotation.Nonnull AudienceBlockReference audience) {
     this.audience = audience;
     return this;
   }
 
   /**
-   * Get audience
+   * The audience to add the customer to or remove them from.
    * @return audience
    */
   @javax.annotation.Nonnull
-  public UpdateAudienceMembershipBlock1Audience getAudience() {
+  public AudienceBlockReference getAudience() {
     return audience;
   }
 
-  public void setAudience(@javax.annotation.Nonnull UpdateAudienceMembershipBlock1Audience audience) {
+  public void setAudience(@javax.annotation.Nonnull AudienceBlockReference audience) {
     this.audience = audience;
   }
 
@@ -442,7 +442,7 @@ public class UpdateAudienceMembershipBlock {
       // validate the required field `profile`
       ProfileEnum.validateJsonElement(jsonObj.get("profile"));
       // validate the required field `audience`
-      UpdateAudienceMembershipBlock1Audience.validateJsonElement(jsonObj.get("audience"));
+      AudienceBlockReference.validateJsonElement(jsonObj.get("audience"));
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {

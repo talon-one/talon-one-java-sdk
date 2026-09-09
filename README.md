@@ -42,7 +42,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>one.talon</groupId>
   <artifactId>talon-one-client</artifactId>
-  <version>26.18.0</version>
+  <version>99.99.99</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -52,7 +52,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "one.talon:talon-one-client:26.18.0"
+compile "one.talon:talon-one-client:99.99.99"
 ```
 
 ### Others
@@ -522,6 +522,7 @@ Class | Method | HTTP request | Description
 - [AttributesSettings](docs/AttributesSettings.md)
 - [Audience](docs/Audience.md)
 - [AudienceAnalytics](docs/AudienceAnalytics.md)
+- [AudienceBlockReference](docs/AudienceBlockReference.md)
 - [AudienceCustomer](docs/AudienceCustomer.md)
 - [AudienceIntegrationID](docs/AudienceIntegrationID.md)
 - [AudienceMembership](docs/AudienceMembership.md)
@@ -646,7 +647,6 @@ Class | Method | HTTP request | Description
 - [CheckAttributeBlock](docs/CheckAttributeBlock.md)
 - [CheckAttributeBlockBase](docs/CheckAttributeBlockBase.md)
 - [CheckAudienceBlock](docs/CheckAudienceBlock.md)
-- [CheckAudienceBlock1Audience](docs/CheckAudienceBlock1Audience.md)
 - [CheckBudgetBlock](docs/CheckBudgetBlock.md)
 - [CheckCouponBlock](docs/CheckCouponBlock.md)
 - [CheckEventBlock](docs/CheckEventBlock.md)
@@ -722,7 +722,49 @@ Class | Method | HTTP request | Description
 - [DigitalPass](docs/DigitalPass.md)
 - [DiscardRisksRequest](docs/DiscardRisksRequest.md)
 - [Effect](docs/Effect.md)
+- [EffectAcceptCoupon](docs/EffectAcceptCoupon.md)
+- [EffectAcceptReferral](docs/EffectAcceptReferral.md)
+- [EffectAddFreeItem](docs/EffectAddFreeItem.md)
+- [EffectAddLoyaltyPoints](docs/EffectAddLoyaltyPoints.md)
+- [EffectAddNegativeLoyaltyPoints](docs/EffectAddNegativeLoyaltyPoints.md)
+- [EffectAddToAudience](docs/EffectAddToAudience.md)
+- [EffectAwardGiveaway](docs/EffectAwardGiveaway.md)
+- [EffectCallApi](docs/EffectCallApi.md)
+- [EffectChangeLoyaltyTierLevel](docs/EffectChangeLoyaltyTierLevel.md)
+- [EffectCouponCreated](docs/EffectCouponCreated.md)
+- [EffectCustomEffect](docs/EffectCustomEffect.md)
+- [EffectDeductLoyaltyPoints](docs/EffectDeductLoyaltyPoints.md)
 - [EffectEntity](docs/EffectEntity.md)
+- [EffectError](docs/EffectError.md)
+- [EffectExtendLoyaltyPointsExpiryDate](docs/EffectExtendLoyaltyPointsExpiryDate.md)
+- [EffectIncreaseAchievementProgress](docs/EffectIncreaseAchievementProgress.md)
+- [EffectJoinLoyaltyProgram](docs/EffectJoinLoyaltyProgram.md)
+- [EffectOffsetNegativeLoyaltyPoints](docs/EffectOffsetNegativeLoyaltyPoints.md)
+- [EffectRedeemReferral](docs/EffectRedeemReferral.md)
+- [EffectReferralCreated](docs/EffectReferralCreated.md)
+- [EffectRejectCoupon](docs/EffectRejectCoupon.md)
+- [EffectRejectReferral](docs/EffectRejectReferral.md)
+- [EffectRemoveFromAudience](docs/EffectRemoveFromAudience.md)
+- [EffectReserveCoupon](docs/EffectReserveCoupon.md)
+- [EffectRollbackAddedLoyaltyPoints](docs/EffectRollbackAddedLoyaltyPoints.md)
+- [EffectRollbackCoupon](docs/EffectRollbackCoupon.md)
+- [EffectRollbackDeductedLoyaltyPoints](docs/EffectRollbackDeductedLoyaltyPoints.md)
+- [EffectRollbackDiscount](docs/EffectRollbackDiscount.md)
+- [EffectRollbackIncreasedAchievementProgress](docs/EffectRollbackIncreasedAchievementProgress.md)
+- [EffectRollbackReferral](docs/EffectRollbackReferral.md)
+- [EffectRollbackUseReward](docs/EffectRollbackUseReward.md)
+- [EffectSet](docs/EffectSet.md)
+- [EffectSetDiscount](docs/EffectSetDiscount.md)
+- [EffectSetDiscountPerAdditionalCost](docs/EffectSetDiscountPerAdditionalCost.md)
+- [EffectSetDiscountPerAdditionalCostPerItem](docs/EffectSetDiscountPerAdditionalCostPerItem.md)
+- [EffectSetDiscountPerItem](docs/EffectSetDiscountPerItem.md)
+- [EffectSetLoyaltyPointsExpiryDate](docs/EffectSetLoyaltyPointsExpiryDate.md)
+- [EffectShowBundleMetadata](docs/EffectShowBundleMetadata.md)
+- [EffectShowNotification](docs/EffectShowNotification.md)
+- [EffectStartAchievementProgress](docs/EffectStartAchievementProgress.md)
+- [EffectUnlockReward](docs/EffectUnlockReward.md)
+- [EffectUseReward](docs/EffectUseReward.md)
+- [EffectWillAwardGiveaway](docs/EffectWillAwardGiveaway.md)
 - [EmailEntity](docs/EmailEntity.md)
 - [EmbeddedAnalyticsConfiguration](docs/EmbeddedAnalyticsConfiguration.md)
 - [EmbeddedAnalyticsConfigurationDashboards](docs/EmbeddedAnalyticsConfigurationDashboards.md)
@@ -848,9 +890,9 @@ Class | Method | HTTP request | Description
 - [GetUsers200Response](docs/GetUsers200Response.md)
 - [GetWebhooks200Response](docs/GetWebhooks200Response.md)
 - [Giveaway](docs/Giveaway.md)
+- [GiveawayPoolBlockReference](docs/GiveawayPoolBlockReference.md)
 - [GiveawayPoolNotification](docs/GiveawayPoolNotification.md)
 - [GiveawayPoolNotificationData](docs/GiveawayPoolNotificationData.md)
-- [GiveawayPoolReference](docs/GiveawayPoolReference.md)
 - [GiveawaysPool](docs/GiveawaysPool.md)
 - [GroupBlock](docs/GroupBlock.md)
 - [HiddenConditionsEffects](docs/HiddenConditionsEffects.md)
@@ -1271,7 +1313,6 @@ Class | Method | HTTP request | Description
 - [UpdateAttributeValueBlock1Target](docs/UpdateAttributeValueBlock1Target.md)
 - [UpdateAudience](docs/UpdateAudience.md)
 - [UpdateAudienceMembershipBlock](docs/UpdateAudienceMembershipBlock.md)
-- [UpdateAudienceMembershipBlock1Audience](docs/UpdateAudienceMembershipBlock1Audience.md)
 - [UpdateBlueprint](docs/UpdateBlueprint.md)
 - [UpdateCampaign](docs/UpdateCampaign.md)
 - [UpdateCampaignCollection](docs/UpdateCampaignCollection.md)

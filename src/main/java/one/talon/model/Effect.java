@@ -23,727 +23,2280 @@ import java.io.IOException;
 import java.math.BigDecimal;
 import java.util.Arrays;
 import java.util.UUID;
+import one.talon.model.EffectAcceptCoupon;
+import one.talon.model.EffectAcceptReferral;
+import one.talon.model.EffectAddFreeItem;
+import one.talon.model.EffectAddLoyaltyPoints;
+import one.talon.model.EffectAddNegativeLoyaltyPoints;
+import one.talon.model.EffectAddToAudience;
+import one.talon.model.EffectAwardGiveaway;
+import one.talon.model.EffectCallApi;
+import one.talon.model.EffectChangeLoyaltyTierLevel;
+import one.talon.model.EffectCouponCreated;
+import one.talon.model.EffectCustomEffect;
+import one.talon.model.EffectDeductLoyaltyPoints;
+import one.talon.model.EffectError;
+import one.talon.model.EffectExtendLoyaltyPointsExpiryDate;
+import one.talon.model.EffectIncreaseAchievementProgress;
+import one.talon.model.EffectJoinLoyaltyProgram;
+import one.talon.model.EffectOffsetNegativeLoyaltyPoints;
+import one.talon.model.EffectRedeemReferral;
+import one.talon.model.EffectReferralCreated;
+import one.talon.model.EffectRejectCoupon;
+import one.talon.model.EffectRejectReferral;
+import one.talon.model.EffectRemoveFromAudience;
+import one.talon.model.EffectReserveCoupon;
+import one.talon.model.EffectRollbackAddedLoyaltyPoints;
+import one.talon.model.EffectRollbackCoupon;
+import one.talon.model.EffectRollbackDeductedLoyaltyPoints;
+import one.talon.model.EffectRollbackDiscount;
+import one.talon.model.EffectRollbackIncreasedAchievementProgress;
+import one.talon.model.EffectRollbackReferral;
+import one.talon.model.EffectRollbackUseReward;
+import one.talon.model.EffectSet;
+import one.talon.model.EffectSetDiscount;
+import one.talon.model.EffectSetDiscountPerAdditionalCost;
+import one.talon.model.EffectSetDiscountPerAdditionalCostPerItem;
+import one.talon.model.EffectSetDiscountPerItem;
+import one.talon.model.EffectSetLoyaltyPointsExpiryDate;
+import one.talon.model.EffectShowBundleMetadata;
+import one.talon.model.EffectShowNotification;
+import one.talon.model.EffectStartAchievementProgress;
+import one.talon.model.EffectUnlockReward;
+import one.talon.model.EffectUseReward;
+import one.talon.model.EffectWillAwardGiveaway;
+import one.talon.model.WillAwardGiveawayEffectProps;
+
+
+
+import java.io.IOException;
+import java.lang.reflect.Type;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashSet;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonNull;
 import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapter;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
-import com.google.gson.TypeAdapter;
+import com.google.gson.JsonPrimitive;
+import com.google.gson.annotations.JsonAdapter;
+import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import java.io.IOException;
-
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
+import com.google.gson.JsonDeserializationContext;
+import com.google.gson.JsonDeserializer;
+import com.google.gson.JsonSerializationContext;
+import com.google.gson.JsonSerializer;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonParseException;
 
 import one.talon.JSON;
 
-/**
- * Effect
- */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.25.0")
-public class Effect {
-  public static final String SERIALIZED_NAME_EXPERIMENT_ID = "experimentId";
-  @SerializedName(SERIALIZED_NAME_EXPERIMENT_ID)
-  @javax.annotation.Nullable
-  private Long experimentId;
-
-  public static final String SERIALIZED_NAME_CAMPAIGN_ID = "campaignId";
-  @SerializedName(SERIALIZED_NAME_CAMPAIGN_ID)
-  @javax.annotation.Nonnull
-  private Long campaignId;
-
-  public static final String SERIALIZED_NAME_RULESET_ID = "rulesetId";
-  @SerializedName(SERIALIZED_NAME_RULESET_ID)
-  @javax.annotation.Nonnull
-  private Long rulesetId;
-
-  public static final String SERIALIZED_NAME_RULE_INDEX = "ruleIndex";
-  @SerializedName(SERIALIZED_NAME_RULE_INDEX)
-  @javax.annotation.Nonnull
-  private Long ruleIndex;
-
-  public static final String SERIALIZED_NAME_RULE_NAME = "ruleName";
-  @SerializedName(SERIALIZED_NAME_RULE_NAME)
-  @javax.annotation.Nonnull
-  private String ruleName;
-
-  public static final String SERIALIZED_NAME_EFFECT_TYPE = "effectType";
-  @SerializedName(SERIALIZED_NAME_EFFECT_TYPE)
-  @javax.annotation.Nonnull
-  private String effectType;
-
-  public static final String SERIALIZED_NAME_TRIGGERED_BY_COUPON = "triggeredByCoupon";
-  @SerializedName(SERIALIZED_NAME_TRIGGERED_BY_COUPON)
-  @javax.annotation.Nullable
-  private Long triggeredByCoupon;
-
-  public static final String SERIALIZED_NAME_TRIGGERED_FOR_CATALOG_ITEM = "triggeredForCatalogItem";
-  @SerializedName(SERIALIZED_NAME_TRIGGERED_FOR_CATALOG_ITEM)
-  @javax.annotation.Nullable
-  private Long triggeredForCatalogItem;
-
-  public static final String SERIALIZED_NAME_CONDITION_INDEX = "conditionIndex";
-  @SerializedName(SERIALIZED_NAME_CONDITION_INDEX)
-  @javax.annotation.Nullable
-  private Long conditionIndex;
-
-  public static final String SERIALIZED_NAME_EVALUATION_GROUP_I_D = "evaluationGroupID";
-  @SerializedName(SERIALIZED_NAME_EVALUATION_GROUP_I_D)
-  @javax.annotation.Nullable
-  private Long evaluationGroupID;
-
-  public static final String SERIALIZED_NAME_EVALUATION_GROUP_MODE = "evaluationGroupMode";
-  @SerializedName(SERIALIZED_NAME_EVALUATION_GROUP_MODE)
-  @javax.annotation.Nullable
-  private String evaluationGroupMode;
-
-  public static final String SERIALIZED_NAME_CAMPAIGN_REVISION_ID = "campaignRevisionId";
-  @SerializedName(SERIALIZED_NAME_CAMPAIGN_REVISION_ID)
-  @javax.annotation.Nullable
-  private Long campaignRevisionId;
-
-  public static final String SERIALIZED_NAME_CAMPAIGN_REVISION_VERSION_ID = "campaignRevisionVersionId";
-  @SerializedName(SERIALIZED_NAME_CAMPAIGN_REVISION_VERSION_ID)
-  @javax.annotation.Nullable
-  private Long campaignRevisionVersionId;
-
-  public static final String SERIALIZED_NAME_SELECTED_PRICE_TYPE = "selectedPriceType";
-  @SerializedName(SERIALIZED_NAME_SELECTED_PRICE_TYPE)
-  @javax.annotation.Nullable
-  private String selectedPriceType;
-
-  public static final String SERIALIZED_NAME_SELECTED_PRICE = "selectedPrice";
-  @SerializedName(SERIALIZED_NAME_SELECTED_PRICE)
-  @javax.annotation.Nullable
-  private BigDecimal selectedPrice;
-
-  public static final String SERIALIZED_NAME_ADJUSTMENT_REFERENCE_ID = "adjustmentReferenceId";
-  @SerializedName(SERIALIZED_NAME_ADJUSTMENT_REFERENCE_ID)
-  @javax.annotation.Nullable
-  private UUID adjustmentReferenceId;
-
-  public static final String SERIALIZED_NAME_REWARD_ID = "rewardId";
-  @SerializedName(SERIALIZED_NAME_REWARD_ID)
-  @javax.annotation.Nullable
-  private Long rewardId;
-
-  public static final String SERIALIZED_NAME_PROPS = "props";
-  @SerializedName(SERIALIZED_NAME_PROPS)
-  @javax.annotation.Nullable
-  private Object props = null;
-
-  public Effect() {
-  }
-
-  public Effect experimentId(@javax.annotation.Nullable Long experimentId) {
-    this.experimentId = experimentId;
-    return this;
-  }
-
-  /**
-   * The ID of the experiment that campaign belongs to.
-   * @return experimentId
-   */
-  @javax.annotation.Nullable
-  public Long getExperimentId() {
-    return experimentId;
-  }
-
-  public void setExperimentId(@javax.annotation.Nullable Long experimentId) {
-    this.experimentId = experimentId;
-  }
-
-
-  public Effect campaignId(@javax.annotation.Nonnull Long campaignId) {
-    this.campaignId = campaignId;
-    return this;
-  }
-
-  /**
-   * The ID of the campaign that triggered this effect.
-   * @return campaignId
-   */
-  @javax.annotation.Nonnull
-  public Long getCampaignId() {
-    return campaignId;
-  }
-
-  public void setCampaignId(@javax.annotation.Nonnull Long campaignId) {
-    this.campaignId = campaignId;
-  }
-
-
-  public Effect rulesetId(@javax.annotation.Nonnull Long rulesetId) {
-    this.rulesetId = rulesetId;
-    return this;
-  }
-
-  /**
-   * The ID of the ruleset that was active in the campaign when this effect was triggered.
-   * @return rulesetId
-   */
-  @javax.annotation.Nonnull
-  public Long getRulesetId() {
-    return rulesetId;
-  }
-
-  public void setRulesetId(@javax.annotation.Nonnull Long rulesetId) {
-    this.rulesetId = rulesetId;
-  }
-
-
-  public Effect ruleIndex(@javax.annotation.Nonnull Long ruleIndex) {
-    this.ruleIndex = ruleIndex;
-    return this;
-  }
-
-  /**
-   * The position of the rule that triggered this effect within the ruleset.
-   * @return ruleIndex
-   */
-  @javax.annotation.Nonnull
-  public Long getRuleIndex() {
-    return ruleIndex;
-  }
-
-  public void setRuleIndex(@javax.annotation.Nonnull Long ruleIndex) {
-    this.ruleIndex = ruleIndex;
-  }
-
-
-  public Effect ruleName(@javax.annotation.Nonnull String ruleName) {
-    this.ruleName = ruleName;
-    return this;
-  }
-
-  /**
-   * The name of the rule that triggered this effect.
-   * @return ruleName
-   */
-  @javax.annotation.Nonnull
-  public String getRuleName() {
-    return ruleName;
-  }
-
-  public void setRuleName(@javax.annotation.Nonnull String ruleName) {
-    this.ruleName = ruleName;
-  }
-
-
-  public Effect effectType(@javax.annotation.Nonnull String effectType) {
-    this.effectType = effectType;
-    return this;
-  }
-
-  /**
-   * The type of effect that was triggered. See [API effects](https://docs.talon.one/docs/dev/integration-api/api-effects).
-   * @return effectType
-   */
-  @javax.annotation.Nonnull
-  public String getEffectType() {
-    return effectType;
-  }
-
-  public void setEffectType(@javax.annotation.Nonnull String effectType) {
-    this.effectType = effectType;
-  }
-
-
-  public Effect triggeredByCoupon(@javax.annotation.Nullable Long triggeredByCoupon) {
-    this.triggeredByCoupon = triggeredByCoupon;
-    return this;
-  }
-
-  /**
-   * The ID of the coupon that was being evaluated when this effect was triggered.
-   * @return triggeredByCoupon
-   */
-  @javax.annotation.Nullable
-  public Long getTriggeredByCoupon() {
-    return triggeredByCoupon;
-  }
-
-  public void setTriggeredByCoupon(@javax.annotation.Nullable Long triggeredByCoupon) {
-    this.triggeredByCoupon = triggeredByCoupon;
-  }
-
-
-  public Effect triggeredForCatalogItem(@javax.annotation.Nullable Long triggeredForCatalogItem) {
-    this.triggeredForCatalogItem = triggeredForCatalogItem;
-    return this;
-  }
-
-  /**
-   * The ID of the catalog item that was being evaluated when this effect was triggered.
-   * @return triggeredForCatalogItem
-   */
-  @javax.annotation.Nullable
-  public Long getTriggeredForCatalogItem() {
-    return triggeredForCatalogItem;
-  }
-
-  public void setTriggeredForCatalogItem(@javax.annotation.Nullable Long triggeredForCatalogItem) {
-    this.triggeredForCatalogItem = triggeredForCatalogItem;
-  }
-
-
-  public Effect conditionIndex(@javax.annotation.Nullable Long conditionIndex) {
-    this.conditionIndex = conditionIndex;
-    return this;
-  }
-
-  /**
-   * The index of the condition that was triggered.
-   * @return conditionIndex
-   */
-  @javax.annotation.Nullable
-  public Long getConditionIndex() {
-    return conditionIndex;
-  }
-
-  public void setConditionIndex(@javax.annotation.Nullable Long conditionIndex) {
-    this.conditionIndex = conditionIndex;
-  }
-
-
-  public Effect evaluationGroupID(@javax.annotation.Nullable Long evaluationGroupID) {
-    this.evaluationGroupID = evaluationGroupID;
-    return this;
-  }
-
-  /**
-   * The ID of the evaluation group. For more information, see [Managing campaign evaluation](https://docs.talon.one/docs/product/applications/managing-campaign-evaluation).
-   * @return evaluationGroupID
-   */
-  @javax.annotation.Nullable
-  public Long getEvaluationGroupID() {
-    return evaluationGroupID;
-  }
-
-  public void setEvaluationGroupID(@javax.annotation.Nullable Long evaluationGroupID) {
-    this.evaluationGroupID = evaluationGroupID;
-  }
-
-
-  public Effect evaluationGroupMode(@javax.annotation.Nullable String evaluationGroupMode) {
-    this.evaluationGroupMode = evaluationGroupMode;
-    return this;
-  }
-
-  /**
-   * The evaluation mode of the evaluation group. For more information, see [Managing campaign evaluation](https://docs.talon.one/docs/product/applications/managing-campaign-evaluation).
-   * @return evaluationGroupMode
-   */
-  @javax.annotation.Nullable
-  public String getEvaluationGroupMode() {
-    return evaluationGroupMode;
-  }
-
-  public void setEvaluationGroupMode(@javax.annotation.Nullable String evaluationGroupMode) {
-    this.evaluationGroupMode = evaluationGroupMode;
-  }
-
-
-  public Effect campaignRevisionId(@javax.annotation.Nullable Long campaignRevisionId) {
-    this.campaignRevisionId = campaignRevisionId;
-    return this;
-  }
-
-  /**
-   * The revision ID of the campaign that was used when triggering the effect.
-   * @return campaignRevisionId
-   */
-  @javax.annotation.Nullable
-  public Long getCampaignRevisionId() {
-    return campaignRevisionId;
-  }
-
-  public void setCampaignRevisionId(@javax.annotation.Nullable Long campaignRevisionId) {
-    this.campaignRevisionId = campaignRevisionId;
-  }
-
-
-  public Effect campaignRevisionVersionId(@javax.annotation.Nullable Long campaignRevisionVersionId) {
-    this.campaignRevisionVersionId = campaignRevisionVersionId;
-    return this;
-  }
-
-  /**
-   * The revision version ID of the campaign that was used when triggering the effect.
-   * @return campaignRevisionVersionId
-   */
-  @javax.annotation.Nullable
-  public Long getCampaignRevisionVersionId() {
-    return campaignRevisionVersionId;
-  }
-
-  public void setCampaignRevisionVersionId(@javax.annotation.Nullable Long campaignRevisionVersionId) {
-    this.campaignRevisionVersionId = campaignRevisionVersionId;
-  }
-
-
-  public Effect selectedPriceType(@javax.annotation.Nullable String selectedPriceType) {
-    this.selectedPriceType = selectedPriceType;
-    return this;
-  }
-
-  /**
-   * The selected price type for the SKU targeted by this effect.
-   * @return selectedPriceType
-   */
-  @javax.annotation.Nullable
-  public String getSelectedPriceType() {
-    return selectedPriceType;
-  }
-
-  public void setSelectedPriceType(@javax.annotation.Nullable String selectedPriceType) {
-    this.selectedPriceType = selectedPriceType;
-  }
-
-
-  public Effect selectedPrice(@javax.annotation.Nullable BigDecimal selectedPrice) {
-    this.selectedPrice = selectedPrice;
-    return this;
-  }
-
-  /**
-   * The value of the selected price type to apply to the SKU targeted by this effect, before any discounts are applied.
-   * @return selectedPrice
-   */
-  @javax.annotation.Nullable
-  public BigDecimal getSelectedPrice() {
-    return selectedPrice;
-  }
-
-  public void setSelectedPrice(@javax.annotation.Nullable BigDecimal selectedPrice) {
-    this.selectedPrice = selectedPrice;
-  }
-
-
-  public Effect adjustmentReferenceId(@javax.annotation.Nullable UUID adjustmentReferenceId) {
-    this.adjustmentReferenceId = adjustmentReferenceId;
-    return this;
-  }
-
-  /**
-   * The reference identifier of the selected price adjustment for this SKU. This is only returned if the &#x60;selectedPrice&#x60; resulted from a price adjustment.
-   * @return adjustmentReferenceId
-   */
-  @javax.annotation.Nullable
-  public UUID getAdjustmentReferenceId() {
-    return adjustmentReferenceId;
-  }
-
-  public void setAdjustmentReferenceId(@javax.annotation.Nullable UUID adjustmentReferenceId) {
-    this.adjustmentReferenceId = adjustmentReferenceId;
-  }
-
-
-  public Effect rewardId(@javax.annotation.Nullable Long rewardId) {
-    this.rewardId = rewardId;
-    return this;
-  }
-
-  /**
-   * The ID of the reward that was being evaluated when this effect was triggered.
-   * @return rewardId
-   */
-  @javax.annotation.Nullable
-  public Long getRewardId() {
-    return rewardId;
-  }
-
-  public void setRewardId(@javax.annotation.Nullable Long rewardId) {
-    this.rewardId = rewardId;
-  }
-
-
-  public Effect props(@javax.annotation.Nullable Object props) {
-    this.props = props;
-    return this;
-  }
-
-  /**
-   * Get props
-   * @return props
-   */
-  @javax.annotation.Nullable
-  public Object getProps() {
-    return props;
-  }
-
-  public void setProps(@javax.annotation.Nullable Object props) {
-    this.props = props;
-  }
-
-  /**
-   * A container for additional, undeclared properties.
-   * This is a holder for any undeclared properties as specified with
-   * the 'additionalProperties' keyword in the OAS document.
-   */
-  private Map<String, Object> additionalProperties;
-
-  /**
-   * Set the additional (undeclared) property with the specified name and value.
-   * If the property does not already exist, create it otherwise replace it.
-   *
-   * @param key name of the property
-   * @param value value of the property
-   * @return the Effect instance itself
-   */
-  public Effect putAdditionalProperty(String key, Object value) {
-    if (this.additionalProperties == null) {
-        this.additionalProperties = new HashMap<String, Object>();
-    }
-    this.additionalProperties.put(key, value);
-    return this;
-  }
-
-  /**
-   * Return the additional (undeclared) property.
-   *
-   * @return a map of objects
-   */
-  public Map<String, Object> getAdditionalProperties() {
-    return additionalProperties;
-  }
-
-  /**
-   * Return the additional (undeclared) property with the specified name.
-   *
-   * @param key name of the property
-   * @return an object
-   */
-  public Object getAdditionalProperty(String key) {
-    if (this.additionalProperties == null) {
-        return null;
-    }
-    return this.additionalProperties.get(key);
-  }
-
-
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
-    }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
-    }
-    Effect effect = (Effect) o;
-    return Objects.equals(this.experimentId, effect.experimentId) &&
-        Objects.equals(this.campaignId, effect.campaignId) &&
-        Objects.equals(this.rulesetId, effect.rulesetId) &&
-        Objects.equals(this.ruleIndex, effect.ruleIndex) &&
-        Objects.equals(this.ruleName, effect.ruleName) &&
-        Objects.equals(this.effectType, effect.effectType) &&
-        Objects.equals(this.triggeredByCoupon, effect.triggeredByCoupon) &&
-        Objects.equals(this.triggeredForCatalogItem, effect.triggeredForCatalogItem) &&
-        Objects.equals(this.conditionIndex, effect.conditionIndex) &&
-        Objects.equals(this.evaluationGroupID, effect.evaluationGroupID) &&
-        Objects.equals(this.evaluationGroupMode, effect.evaluationGroupMode) &&
-        Objects.equals(this.campaignRevisionId, effect.campaignRevisionId) &&
-        Objects.equals(this.campaignRevisionVersionId, effect.campaignRevisionVersionId) &&
-        Objects.equals(this.selectedPriceType, effect.selectedPriceType) &&
-        Objects.equals(this.selectedPrice, effect.selectedPrice) &&
-        Objects.equals(this.adjustmentReferenceId, effect.adjustmentReferenceId) &&
-        Objects.equals(this.rewardId, effect.rewardId) &&
-        Objects.equals(this.props, effect.props)&&
-        Objects.equals(this.additionalProperties, effect.additionalProperties);
-  }
-
-  @Override
-  public int hashCode() {
-    return Objects.hash(experimentId, campaignId, rulesetId, ruleIndex, ruleName, effectType, triggeredByCoupon, triggeredForCatalogItem, conditionIndex, evaluationGroupID, evaluationGroupMode, campaignRevisionId, campaignRevisionVersionId, selectedPriceType, selectedPrice, adjustmentReferenceId, rewardId, props, additionalProperties);
-  }
-
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class Effect {\n");
-    sb.append("    experimentId: ").append(toIndentedString(experimentId)).append("\n");
-    sb.append("    campaignId: ").append(toIndentedString(campaignId)).append("\n");
-    sb.append("    rulesetId: ").append(toIndentedString(rulesetId)).append("\n");
-    sb.append("    ruleIndex: ").append(toIndentedString(ruleIndex)).append("\n");
-    sb.append("    ruleName: ").append(toIndentedString(ruleName)).append("\n");
-    sb.append("    effectType: ").append(toIndentedString(effectType)).append("\n");
-    sb.append("    triggeredByCoupon: ").append(toIndentedString(triggeredByCoupon)).append("\n");
-    sb.append("    triggeredForCatalogItem: ").append(toIndentedString(triggeredForCatalogItem)).append("\n");
-    sb.append("    conditionIndex: ").append(toIndentedString(conditionIndex)).append("\n");
-    sb.append("    evaluationGroupID: ").append(toIndentedString(evaluationGroupID)).append("\n");
-    sb.append("    evaluationGroupMode: ").append(toIndentedString(evaluationGroupMode)).append("\n");
-    sb.append("    campaignRevisionId: ").append(toIndentedString(campaignRevisionId)).append("\n");
-    sb.append("    campaignRevisionVersionId: ").append(toIndentedString(campaignRevisionVersionId)).append("\n");
-    sb.append("    selectedPriceType: ").append(toIndentedString(selectedPriceType)).append("\n");
-    sb.append("    selectedPrice: ").append(toIndentedString(selectedPrice)).append("\n");
-    sb.append("    adjustmentReferenceId: ").append(toIndentedString(adjustmentReferenceId)).append("\n");
-    sb.append("    rewardId: ").append(toIndentedString(rewardId)).append("\n");
-    sb.append("    props: ").append(toIndentedString(props)).append("\n");
-    sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(Object o) {
-    return o == null ? "null" : o.toString().replace("\n", "\n    ");
-  }
-
-
-  public static HashSet<String> openapiFields;
-  public static HashSet<String> openapiRequiredFields;
-
-  static {
-    // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("experimentId", "campaignId", "rulesetId", "ruleIndex", "ruleName", "effectType", "triggeredByCoupon", "triggeredForCatalogItem", "conditionIndex", "evaluationGroupID", "evaluationGroupMode", "campaignRevisionId", "campaignRevisionVersionId", "selectedPriceType", "selectedPrice", "adjustmentReferenceId", "rewardId", "props"));
-
-    // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("campaignId", "rulesetId", "ruleIndex", "ruleName", "effectType", "props"));
-  }
-
-  /**
-   * Validates the JSON Element and throws an exception if issues found
-   *
-   * @param jsonElement JSON Element
-   * @throws IOException if the JSON Element is invalid with respect to Effect
-   */
-  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-      if (jsonElement == null) {
-        if (!Effect.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in Effect is not found in the empty JSON string", Effect.openapiRequiredFields.toString()));
+public class Effect extends AbstractOpenApiSchema {
+    private static final Logger log = Logger.getLogger(Effect.class.getName());
+
+    public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
+        @SuppressWarnings("unchecked")
+        @Override
+        public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
+            if (!Effect.class.isAssignableFrom(type.getRawType())) {
+                return null; // this class only serializes 'Effect' and its subtypes
+            }
+            final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
+            final TypeAdapter<EffectAcceptCoupon> adapterEffectAcceptCoupon = gson.getDelegateAdapter(this, TypeToken.get(EffectAcceptCoupon.class));
+            final TypeAdapter<EffectAcceptReferral> adapterEffectAcceptReferral = gson.getDelegateAdapter(this, TypeToken.get(EffectAcceptReferral.class));
+            final TypeAdapter<EffectAddFreeItem> adapterEffectAddFreeItem = gson.getDelegateAdapter(this, TypeToken.get(EffectAddFreeItem.class));
+            final TypeAdapter<EffectAddLoyaltyPoints> adapterEffectAddLoyaltyPoints = gson.getDelegateAdapter(this, TypeToken.get(EffectAddLoyaltyPoints.class));
+            final TypeAdapter<EffectAddNegativeLoyaltyPoints> adapterEffectAddNegativeLoyaltyPoints = gson.getDelegateAdapter(this, TypeToken.get(EffectAddNegativeLoyaltyPoints.class));
+            final TypeAdapter<EffectAddToAudience> adapterEffectAddToAudience = gson.getDelegateAdapter(this, TypeToken.get(EffectAddToAudience.class));
+            final TypeAdapter<EffectAwardGiveaway> adapterEffectAwardGiveaway = gson.getDelegateAdapter(this, TypeToken.get(EffectAwardGiveaway.class));
+            final TypeAdapter<EffectCallApi> adapterEffectCallApi = gson.getDelegateAdapter(this, TypeToken.get(EffectCallApi.class));
+            final TypeAdapter<EffectChangeLoyaltyTierLevel> adapterEffectChangeLoyaltyTierLevel = gson.getDelegateAdapter(this, TypeToken.get(EffectChangeLoyaltyTierLevel.class));
+            final TypeAdapter<EffectCouponCreated> adapterEffectCouponCreated = gson.getDelegateAdapter(this, TypeToken.get(EffectCouponCreated.class));
+            final TypeAdapter<EffectCustomEffect> adapterEffectCustomEffect = gson.getDelegateAdapter(this, TypeToken.get(EffectCustomEffect.class));
+            final TypeAdapter<EffectDeductLoyaltyPoints> adapterEffectDeductLoyaltyPoints = gson.getDelegateAdapter(this, TypeToken.get(EffectDeductLoyaltyPoints.class));
+            final TypeAdapter<EffectError> adapterEffectError = gson.getDelegateAdapter(this, TypeToken.get(EffectError.class));
+            final TypeAdapter<EffectExtendLoyaltyPointsExpiryDate> adapterEffectExtendLoyaltyPointsExpiryDate = gson.getDelegateAdapter(this, TypeToken.get(EffectExtendLoyaltyPointsExpiryDate.class));
+            final TypeAdapter<EffectIncreaseAchievementProgress> adapterEffectIncreaseAchievementProgress = gson.getDelegateAdapter(this, TypeToken.get(EffectIncreaseAchievementProgress.class));
+            final TypeAdapter<EffectJoinLoyaltyProgram> adapterEffectJoinLoyaltyProgram = gson.getDelegateAdapter(this, TypeToken.get(EffectJoinLoyaltyProgram.class));
+            final TypeAdapter<EffectOffsetNegativeLoyaltyPoints> adapterEffectOffsetNegativeLoyaltyPoints = gson.getDelegateAdapter(this, TypeToken.get(EffectOffsetNegativeLoyaltyPoints.class));
+            final TypeAdapter<EffectRedeemReferral> adapterEffectRedeemReferral = gson.getDelegateAdapter(this, TypeToken.get(EffectRedeemReferral.class));
+            final TypeAdapter<EffectReferralCreated> adapterEffectReferralCreated = gson.getDelegateAdapter(this, TypeToken.get(EffectReferralCreated.class));
+            final TypeAdapter<EffectRejectCoupon> adapterEffectRejectCoupon = gson.getDelegateAdapter(this, TypeToken.get(EffectRejectCoupon.class));
+            final TypeAdapter<EffectRejectReferral> adapterEffectRejectReferral = gson.getDelegateAdapter(this, TypeToken.get(EffectRejectReferral.class));
+            final TypeAdapter<EffectRemoveFromAudience> adapterEffectRemoveFromAudience = gson.getDelegateAdapter(this, TypeToken.get(EffectRemoveFromAudience.class));
+            final TypeAdapter<EffectReserveCoupon> adapterEffectReserveCoupon = gson.getDelegateAdapter(this, TypeToken.get(EffectReserveCoupon.class));
+            final TypeAdapter<EffectRollbackAddedLoyaltyPoints> adapterEffectRollbackAddedLoyaltyPoints = gson.getDelegateAdapter(this, TypeToken.get(EffectRollbackAddedLoyaltyPoints.class));
+            final TypeAdapter<EffectRollbackCoupon> adapterEffectRollbackCoupon = gson.getDelegateAdapter(this, TypeToken.get(EffectRollbackCoupon.class));
+            final TypeAdapter<EffectRollbackDeductedLoyaltyPoints> adapterEffectRollbackDeductedLoyaltyPoints = gson.getDelegateAdapter(this, TypeToken.get(EffectRollbackDeductedLoyaltyPoints.class));
+            final TypeAdapter<EffectRollbackDiscount> adapterEffectRollbackDiscount = gson.getDelegateAdapter(this, TypeToken.get(EffectRollbackDiscount.class));
+            final TypeAdapter<EffectRollbackIncreasedAchievementProgress> adapterEffectRollbackIncreasedAchievementProgress = gson.getDelegateAdapter(this, TypeToken.get(EffectRollbackIncreasedAchievementProgress.class));
+            final TypeAdapter<EffectRollbackReferral> adapterEffectRollbackReferral = gson.getDelegateAdapter(this, TypeToken.get(EffectRollbackReferral.class));
+            final TypeAdapter<EffectRollbackUseReward> adapterEffectRollbackUseReward = gson.getDelegateAdapter(this, TypeToken.get(EffectRollbackUseReward.class));
+            final TypeAdapter<EffectSet> adapterEffectSet = gson.getDelegateAdapter(this, TypeToken.get(EffectSet.class));
+            final TypeAdapter<EffectSetDiscount> adapterEffectSetDiscount = gson.getDelegateAdapter(this, TypeToken.get(EffectSetDiscount.class));
+            final TypeAdapter<EffectSetDiscountPerAdditionalCost> adapterEffectSetDiscountPerAdditionalCost = gson.getDelegateAdapter(this, TypeToken.get(EffectSetDiscountPerAdditionalCost.class));
+            final TypeAdapter<EffectSetDiscountPerAdditionalCostPerItem> adapterEffectSetDiscountPerAdditionalCostPerItem = gson.getDelegateAdapter(this, TypeToken.get(EffectSetDiscountPerAdditionalCostPerItem.class));
+            final TypeAdapter<EffectSetDiscountPerItem> adapterEffectSetDiscountPerItem = gson.getDelegateAdapter(this, TypeToken.get(EffectSetDiscountPerItem.class));
+            final TypeAdapter<EffectSetLoyaltyPointsExpiryDate> adapterEffectSetLoyaltyPointsExpiryDate = gson.getDelegateAdapter(this, TypeToken.get(EffectSetLoyaltyPointsExpiryDate.class));
+            final TypeAdapter<EffectShowBundleMetadata> adapterEffectShowBundleMetadata = gson.getDelegateAdapter(this, TypeToken.get(EffectShowBundleMetadata.class));
+            final TypeAdapter<EffectShowNotification> adapterEffectShowNotification = gson.getDelegateAdapter(this, TypeToken.get(EffectShowNotification.class));
+            final TypeAdapter<EffectStartAchievementProgress> adapterEffectStartAchievementProgress = gson.getDelegateAdapter(this, TypeToken.get(EffectStartAchievementProgress.class));
+            final TypeAdapter<EffectUnlockReward> adapterEffectUnlockReward = gson.getDelegateAdapter(this, TypeToken.get(EffectUnlockReward.class));
+            final TypeAdapter<EffectUseReward> adapterEffectUseReward = gson.getDelegateAdapter(this, TypeToken.get(EffectUseReward.class));
+            final TypeAdapter<EffectWillAwardGiveaway> adapterEffectWillAwardGiveaway = gson.getDelegateAdapter(this, TypeToken.get(EffectWillAwardGiveaway.class));
+
+            return (TypeAdapter<T>) new TypeAdapter<Effect>() {
+                @Override
+                public void write(JsonWriter out, Effect value) throws IOException {
+                    if (value == null || value.getActualInstance() == null) {
+                        elementAdapter.write(out, null);
+                        return;
+                    }
+
+                    // check if the actual instance is of the type `EffectAcceptCoupon`
+                    if (value.getActualInstance() instanceof EffectAcceptCoupon) {
+                        JsonElement element = adapterEffectAcceptCoupon.toJsonTree((EffectAcceptCoupon)value.getActualInstance());
+                        elementAdapter.write(out, element);
+                        return;
+                    }
+                    // check if the actual instance is of the type `EffectAcceptReferral`
+                    if (value.getActualInstance() instanceof EffectAcceptReferral) {
+                        JsonElement element = adapterEffectAcceptReferral.toJsonTree((EffectAcceptReferral)value.getActualInstance());
+                        elementAdapter.write(out, element);
+                        return;
+                    }
+                    // check if the actual instance is of the type `EffectAddFreeItem`
+                    if (value.getActualInstance() instanceof EffectAddFreeItem) {
+                        JsonElement element = adapterEffectAddFreeItem.toJsonTree((EffectAddFreeItem)value.getActualInstance());
+                        elementAdapter.write(out, element);
+                        return;
+                    }
+                    // check if the actual instance is of the type `EffectAddLoyaltyPoints`
+                    if (value.getActualInstance() instanceof EffectAddLoyaltyPoints) {
+                        JsonElement element = adapterEffectAddLoyaltyPoints.toJsonTree((EffectAddLoyaltyPoints)value.getActualInstance());
+                        elementAdapter.write(out, element);
+                        return;
+                    }
+                    // check if the actual instance is of the type `EffectAddNegativeLoyaltyPoints`
+                    if (value.getActualInstance() instanceof EffectAddNegativeLoyaltyPoints) {
+                        JsonElement element = adapterEffectAddNegativeLoyaltyPoints.toJsonTree((EffectAddNegativeLoyaltyPoints)value.getActualInstance());
+                        elementAdapter.write(out, element);
+                        return;
+                    }
+                    // check if the actual instance is of the type `EffectAddToAudience`
+                    if (value.getActualInstance() instanceof EffectAddToAudience) {
+                        JsonElement element = adapterEffectAddToAudience.toJsonTree((EffectAddToAudience)value.getActualInstance());
+                        elementAdapter.write(out, element);
+                        return;
+                    }
+                    // check if the actual instance is of the type `EffectAwardGiveaway`
+                    if (value.getActualInstance() instanceof EffectAwardGiveaway) {
+                        JsonElement element = adapterEffectAwardGiveaway.toJsonTree((EffectAwardGiveaway)value.getActualInstance());
+                        elementAdapter.write(out, element);
+                        return;
+                    }
+                    // check if the actual instance is of the type `EffectCallApi`
+                    if (value.getActualInstance() instanceof EffectCallApi) {
+                        JsonElement element = adapterEffectCallApi.toJsonTree((EffectCallApi)value.getActualInstance());
+                        elementAdapter.write(out, element);
+                        return;
+                    }
+                    // check if the actual instance is of the type `EffectChangeLoyaltyTierLevel`
+                    if (value.getActualInstance() instanceof EffectChangeLoyaltyTierLevel) {
+                        JsonElement element = adapterEffectChangeLoyaltyTierLevel.toJsonTree((EffectChangeLoyaltyTierLevel)value.getActualInstance());
+                        elementAdapter.write(out, element);
+                        return;
+                    }
+                    // check if the actual instance is of the type `EffectCouponCreated`
+                    if (value.getActualInstance() instanceof EffectCouponCreated) {
+                        JsonElement element = adapterEffectCouponCreated.toJsonTree((EffectCouponCreated)value.getActualInstance());
+                        elementAdapter.write(out, element);
+                        return;
+                    }
+                    // check if the actual instance is of the type `EffectCustomEffect`
+                    if (value.getActualInstance() instanceof EffectCustomEffect) {
+                        JsonElement element = adapterEffectCustomEffect.toJsonTree((EffectCustomEffect)value.getActualInstance());
+                        elementAdapter.write(out, element);
+                        return;
+                    }
+                    // check if the actual instance is of the type `EffectDeductLoyaltyPoints`
+                    if (value.getActualInstance() instanceof EffectDeductLoyaltyPoints) {
+                        JsonElement element = adapterEffectDeductLoyaltyPoints.toJsonTree((EffectDeductLoyaltyPoints)value.getActualInstance());
+                        elementAdapter.write(out, element);
+                        return;
+                    }
+                    // check if the actual instance is of the type `EffectError`
+                    if (value.getActualInstance() instanceof EffectError) {
+                        JsonElement element = adapterEffectError.toJsonTree((EffectError)value.getActualInstance());
+                        elementAdapter.write(out, element);
+                        return;
+                    }
+                    // check if the actual instance is of the type `EffectExtendLoyaltyPointsExpiryDate`
+                    if (value.getActualInstance() instanceof EffectExtendLoyaltyPointsExpiryDate) {
+                        JsonElement element = adapterEffectExtendLoyaltyPointsExpiryDate.toJsonTree((EffectExtendLoyaltyPointsExpiryDate)value.getActualInstance());
+                        elementAdapter.write(out, element);
+                        return;
+                    }
+                    // check if the actual instance is of the type `EffectIncreaseAchievementProgress`
+                    if (value.getActualInstance() instanceof EffectIncreaseAchievementProgress) {
+                        JsonElement element = adapterEffectIncreaseAchievementProgress.toJsonTree((EffectIncreaseAchievementProgress)value.getActualInstance());
+                        elementAdapter.write(out, element);
+                        return;
+                    }
+                    // check if the actual instance is of the type `EffectJoinLoyaltyProgram`
+                    if (value.getActualInstance() instanceof EffectJoinLoyaltyProgram) {
+                        JsonElement element = adapterEffectJoinLoyaltyProgram.toJsonTree((EffectJoinLoyaltyProgram)value.getActualInstance());
+                        elementAdapter.write(out, element);
+                        return;
+                    }
+                    // check if the actual instance is of the type `EffectOffsetNegativeLoyaltyPoints`
+                    if (value.getActualInstance() instanceof EffectOffsetNegativeLoyaltyPoints) {
+                        JsonElement element = adapterEffectOffsetNegativeLoyaltyPoints.toJsonTree((EffectOffsetNegativeLoyaltyPoints)value.getActualInstance());
+                        elementAdapter.write(out, element);
+                        return;
+                    }
+                    // check if the actual instance is of the type `EffectRedeemReferral`
+                    if (value.getActualInstance() instanceof EffectRedeemReferral) {
+                        JsonElement element = adapterEffectRedeemReferral.toJsonTree((EffectRedeemReferral)value.getActualInstance());
+                        elementAdapter.write(out, element);
+                        return;
+                    }
+                    // check if the actual instance is of the type `EffectReferralCreated`
+                    if (value.getActualInstance() instanceof EffectReferralCreated) {
+                        JsonElement element = adapterEffectReferralCreated.toJsonTree((EffectReferralCreated)value.getActualInstance());
+                        elementAdapter.write(out, element);
+                        return;
+                    }
+                    // check if the actual instance is of the type `EffectRejectCoupon`
+                    if (value.getActualInstance() instanceof EffectRejectCoupon) {
+                        JsonElement element = adapterEffectRejectCoupon.toJsonTree((EffectRejectCoupon)value.getActualInstance());
+                        elementAdapter.write(out, element);
+                        return;
+                    }
+                    // check if the actual instance is of the type `EffectRejectReferral`
+                    if (value.getActualInstance() instanceof EffectRejectReferral) {
+                        JsonElement element = adapterEffectRejectReferral.toJsonTree((EffectRejectReferral)value.getActualInstance());
+                        elementAdapter.write(out, element);
+                        return;
+                    }
+                    // check if the actual instance is of the type `EffectRemoveFromAudience`
+                    if (value.getActualInstance() instanceof EffectRemoveFromAudience) {
+                        JsonElement element = adapterEffectRemoveFromAudience.toJsonTree((EffectRemoveFromAudience)value.getActualInstance());
+                        elementAdapter.write(out, element);
+                        return;
+                    }
+                    // check if the actual instance is of the type `EffectReserveCoupon`
+                    if (value.getActualInstance() instanceof EffectReserveCoupon) {
+                        JsonElement element = adapterEffectReserveCoupon.toJsonTree((EffectReserveCoupon)value.getActualInstance());
+                        elementAdapter.write(out, element);
+                        return;
+                    }
+                    // check if the actual instance is of the type `EffectRollbackAddedLoyaltyPoints`
+                    if (value.getActualInstance() instanceof EffectRollbackAddedLoyaltyPoints) {
+                        JsonElement element = adapterEffectRollbackAddedLoyaltyPoints.toJsonTree((EffectRollbackAddedLoyaltyPoints)value.getActualInstance());
+                        elementAdapter.write(out, element);
+                        return;
+                    }
+                    // check if the actual instance is of the type `EffectRollbackCoupon`
+                    if (value.getActualInstance() instanceof EffectRollbackCoupon) {
+                        JsonElement element = adapterEffectRollbackCoupon.toJsonTree((EffectRollbackCoupon)value.getActualInstance());
+                        elementAdapter.write(out, element);
+                        return;
+                    }
+                    // check if the actual instance is of the type `EffectRollbackDeductedLoyaltyPoints`
+                    if (value.getActualInstance() instanceof EffectRollbackDeductedLoyaltyPoints) {
+                        JsonElement element = adapterEffectRollbackDeductedLoyaltyPoints.toJsonTree((EffectRollbackDeductedLoyaltyPoints)value.getActualInstance());
+                        elementAdapter.write(out, element);
+                        return;
+                    }
+                    // check if the actual instance is of the type `EffectRollbackDiscount`
+                    if (value.getActualInstance() instanceof EffectRollbackDiscount) {
+                        JsonElement element = adapterEffectRollbackDiscount.toJsonTree((EffectRollbackDiscount)value.getActualInstance());
+                        elementAdapter.write(out, element);
+                        return;
+                    }
+                    // check if the actual instance is of the type `EffectRollbackIncreasedAchievementProgress`
+                    if (value.getActualInstance() instanceof EffectRollbackIncreasedAchievementProgress) {
+                        JsonElement element = adapterEffectRollbackIncreasedAchievementProgress.toJsonTree((EffectRollbackIncreasedAchievementProgress)value.getActualInstance());
+                        elementAdapter.write(out, element);
+                        return;
+                    }
+                    // check if the actual instance is of the type `EffectRollbackReferral`
+                    if (value.getActualInstance() instanceof EffectRollbackReferral) {
+                        JsonElement element = adapterEffectRollbackReferral.toJsonTree((EffectRollbackReferral)value.getActualInstance());
+                        elementAdapter.write(out, element);
+                        return;
+                    }
+                    // check if the actual instance is of the type `EffectRollbackUseReward`
+                    if (value.getActualInstance() instanceof EffectRollbackUseReward) {
+                        JsonElement element = adapterEffectRollbackUseReward.toJsonTree((EffectRollbackUseReward)value.getActualInstance());
+                        elementAdapter.write(out, element);
+                        return;
+                    }
+                    // check if the actual instance is of the type `EffectSet`
+                    if (value.getActualInstance() instanceof EffectSet) {
+                        JsonElement element = adapterEffectSet.toJsonTree((EffectSet)value.getActualInstance());
+                        elementAdapter.write(out, element);
+                        return;
+                    }
+                    // check if the actual instance is of the type `EffectSetDiscount`
+                    if (value.getActualInstance() instanceof EffectSetDiscount) {
+                        JsonElement element = adapterEffectSetDiscount.toJsonTree((EffectSetDiscount)value.getActualInstance());
+                        elementAdapter.write(out, element);
+                        return;
+                    }
+                    // check if the actual instance is of the type `EffectSetDiscountPerAdditionalCost`
+                    if (value.getActualInstance() instanceof EffectSetDiscountPerAdditionalCost) {
+                        JsonElement element = adapterEffectSetDiscountPerAdditionalCost.toJsonTree((EffectSetDiscountPerAdditionalCost)value.getActualInstance());
+                        elementAdapter.write(out, element);
+                        return;
+                    }
+                    // check if the actual instance is of the type `EffectSetDiscountPerAdditionalCostPerItem`
+                    if (value.getActualInstance() instanceof EffectSetDiscountPerAdditionalCostPerItem) {
+                        JsonElement element = adapterEffectSetDiscountPerAdditionalCostPerItem.toJsonTree((EffectSetDiscountPerAdditionalCostPerItem)value.getActualInstance());
+                        elementAdapter.write(out, element);
+                        return;
+                    }
+                    // check if the actual instance is of the type `EffectSetDiscountPerItem`
+                    if (value.getActualInstance() instanceof EffectSetDiscountPerItem) {
+                        JsonElement element = adapterEffectSetDiscountPerItem.toJsonTree((EffectSetDiscountPerItem)value.getActualInstance());
+                        elementAdapter.write(out, element);
+                        return;
+                    }
+                    // check if the actual instance is of the type `EffectSetLoyaltyPointsExpiryDate`
+                    if (value.getActualInstance() instanceof EffectSetLoyaltyPointsExpiryDate) {
+                        JsonElement element = adapterEffectSetLoyaltyPointsExpiryDate.toJsonTree((EffectSetLoyaltyPointsExpiryDate)value.getActualInstance());
+                        elementAdapter.write(out, element);
+                        return;
+                    }
+                    // check if the actual instance is of the type `EffectShowBundleMetadata`
+                    if (value.getActualInstance() instanceof EffectShowBundleMetadata) {
+                        JsonElement element = adapterEffectShowBundleMetadata.toJsonTree((EffectShowBundleMetadata)value.getActualInstance());
+                        elementAdapter.write(out, element);
+                        return;
+                    }
+                    // check if the actual instance is of the type `EffectShowNotification`
+                    if (value.getActualInstance() instanceof EffectShowNotification) {
+                        JsonElement element = adapterEffectShowNotification.toJsonTree((EffectShowNotification)value.getActualInstance());
+                        elementAdapter.write(out, element);
+                        return;
+                    }
+                    // check if the actual instance is of the type `EffectStartAchievementProgress`
+                    if (value.getActualInstance() instanceof EffectStartAchievementProgress) {
+                        JsonElement element = adapterEffectStartAchievementProgress.toJsonTree((EffectStartAchievementProgress)value.getActualInstance());
+                        elementAdapter.write(out, element);
+                        return;
+                    }
+                    // check if the actual instance is of the type `EffectUnlockReward`
+                    if (value.getActualInstance() instanceof EffectUnlockReward) {
+                        JsonElement element = adapterEffectUnlockReward.toJsonTree((EffectUnlockReward)value.getActualInstance());
+                        elementAdapter.write(out, element);
+                        return;
+                    }
+                    // check if the actual instance is of the type `EffectUseReward`
+                    if (value.getActualInstance() instanceof EffectUseReward) {
+                        JsonElement element = adapterEffectUseReward.toJsonTree((EffectUseReward)value.getActualInstance());
+                        elementAdapter.write(out, element);
+                        return;
+                    }
+                    // check if the actual instance is of the type `EffectWillAwardGiveaway`
+                    if (value.getActualInstance() instanceof EffectWillAwardGiveaway) {
+                        JsonElement element = adapterEffectWillAwardGiveaway.toJsonTree((EffectWillAwardGiveaway)value.getActualInstance());
+                        elementAdapter.write(out, element);
+                        return;
+                    }
+                    throw new IOException("Failed to serialize as the type doesn't match oneOf schemas: EffectAcceptCoupon, EffectAcceptReferral, EffectAddFreeItem, EffectAddLoyaltyPoints, EffectAddNegativeLoyaltyPoints, EffectAddToAudience, EffectAwardGiveaway, EffectCallApi, EffectChangeLoyaltyTierLevel, EffectCouponCreated, EffectCustomEffect, EffectDeductLoyaltyPoints, EffectError, EffectExtendLoyaltyPointsExpiryDate, EffectIncreaseAchievementProgress, EffectJoinLoyaltyProgram, EffectOffsetNegativeLoyaltyPoints, EffectRedeemReferral, EffectReferralCreated, EffectRejectCoupon, EffectRejectReferral, EffectRemoveFromAudience, EffectReserveCoupon, EffectRollbackAddedLoyaltyPoints, EffectRollbackCoupon, EffectRollbackDeductedLoyaltyPoints, EffectRollbackDiscount, EffectRollbackIncreasedAchievementProgress, EffectRollbackReferral, EffectRollbackUseReward, EffectSet, EffectSetDiscount, EffectSetDiscountPerAdditionalCost, EffectSetDiscountPerAdditionalCostPerItem, EffectSetDiscountPerItem, EffectSetLoyaltyPointsExpiryDate, EffectShowBundleMetadata, EffectShowNotification, EffectStartAchievementProgress, EffectUnlockReward, EffectUseReward, EffectWillAwardGiveaway");
+                }
+
+                @Override
+                public Effect read(JsonReader in) throws IOException {
+                    Object deserialized = null;
+                    JsonElement jsonElement = elementAdapter.read(in);
+
+                    JsonObject jsonObject = jsonElement.getAsJsonObject();
+
+                    // use discriminator value for faster oneOf lookup
+                    Effect newEffect = new Effect();
+                    if (jsonObject.get("effectType") == null) {
+                        log.log(Level.WARNING, "Failed to lookup discriminator value for Effect as `effectType` was not found in the payload or the payload is empty.");
+                    } else  {
+                        // look up the discriminator value in the field `effectType`
+                        switch (jsonObject.get("effectType").getAsString()) {
+                            case "acceptCoupon":
+                                deserialized = adapterEffectAcceptCoupon.fromJsonTree(jsonObject);
+                                newEffect.setActualInstance(deserialized);
+                                return newEffect;
+                            case "acceptReferral":
+                                deserialized = adapterEffectAcceptReferral.fromJsonTree(jsonObject);
+                                newEffect.setActualInstance(deserialized);
+                                return newEffect;
+                            case "addFreeItem":
+                                deserialized = adapterEffectAddFreeItem.fromJsonTree(jsonObject);
+                                newEffect.setActualInstance(deserialized);
+                                return newEffect;
+                            case "addLoyaltyPoints":
+                                deserialized = adapterEffectAddLoyaltyPoints.fromJsonTree(jsonObject);
+                                newEffect.setActualInstance(deserialized);
+                                return newEffect;
+                            case "addNegativeLoyaltyPoints":
+                                deserialized = adapterEffectAddNegativeLoyaltyPoints.fromJsonTree(jsonObject);
+                                newEffect.setActualInstance(deserialized);
+                                return newEffect;
+                            case "addToAudience":
+                                deserialized = adapterEffectAddToAudience.fromJsonTree(jsonObject);
+                                newEffect.setActualInstance(deserialized);
+                                return newEffect;
+                            case "awardGiveaway":
+                                deserialized = adapterEffectAwardGiveaway.fromJsonTree(jsonObject);
+                                newEffect.setActualInstance(deserialized);
+                                return newEffect;
+                            case "callApi":
+                                deserialized = adapterEffectCallApi.fromJsonTree(jsonObject);
+                                newEffect.setActualInstance(deserialized);
+                                return newEffect;
+                            case "changeLoyaltyTierLevel":
+                                deserialized = adapterEffectChangeLoyaltyTierLevel.fromJsonTree(jsonObject);
+                                newEffect.setActualInstance(deserialized);
+                                return newEffect;
+                            case "couponCreated":
+                                deserialized = adapterEffectCouponCreated.fromJsonTree(jsonObject);
+                                newEffect.setActualInstance(deserialized);
+                                return newEffect;
+                            case "customEffect":
+                                deserialized = adapterEffectCustomEffect.fromJsonTree(jsonObject);
+                                newEffect.setActualInstance(deserialized);
+                                return newEffect;
+                            case "deductLoyaltyPoints":
+                                deserialized = adapterEffectDeductLoyaltyPoints.fromJsonTree(jsonObject);
+                                newEffect.setActualInstance(deserialized);
+                                return newEffect;
+                            case "error":
+                                deserialized = adapterEffectError.fromJsonTree(jsonObject);
+                                newEffect.setActualInstance(deserialized);
+                                return newEffect;
+                            case "extendLoyaltyPointsExpiryDate":
+                                deserialized = adapterEffectExtendLoyaltyPointsExpiryDate.fromJsonTree(jsonObject);
+                                newEffect.setActualInstance(deserialized);
+                                return newEffect;
+                            case "increaseAchievementProgress":
+                                deserialized = adapterEffectIncreaseAchievementProgress.fromJsonTree(jsonObject);
+                                newEffect.setActualInstance(deserialized);
+                                return newEffect;
+                            case "joinLoyaltyProgram":
+                                deserialized = adapterEffectJoinLoyaltyProgram.fromJsonTree(jsonObject);
+                                newEffect.setActualInstance(deserialized);
+                                return newEffect;
+                            case "offsetNegativeLoyaltyPoints":
+                                deserialized = adapterEffectOffsetNegativeLoyaltyPoints.fromJsonTree(jsonObject);
+                                newEffect.setActualInstance(deserialized);
+                                return newEffect;
+                            case "redeemReferral":
+                                deserialized = adapterEffectRedeemReferral.fromJsonTree(jsonObject);
+                                newEffect.setActualInstance(deserialized);
+                                return newEffect;
+                            case "referralCreated":
+                                deserialized = adapterEffectReferralCreated.fromJsonTree(jsonObject);
+                                newEffect.setActualInstance(deserialized);
+                                return newEffect;
+                            case "rejectCoupon":
+                                deserialized = adapterEffectRejectCoupon.fromJsonTree(jsonObject);
+                                newEffect.setActualInstance(deserialized);
+                                return newEffect;
+                            case "rejectReferral":
+                                deserialized = adapterEffectRejectReferral.fromJsonTree(jsonObject);
+                                newEffect.setActualInstance(deserialized);
+                                return newEffect;
+                            case "removeFromAudience":
+                                deserialized = adapterEffectRemoveFromAudience.fromJsonTree(jsonObject);
+                                newEffect.setActualInstance(deserialized);
+                                return newEffect;
+                            case "reserveCoupon":
+                                deserialized = adapterEffectReserveCoupon.fromJsonTree(jsonObject);
+                                newEffect.setActualInstance(deserialized);
+                                return newEffect;
+                            case "rollbackAddedLoyaltyPoints":
+                                deserialized = adapterEffectRollbackAddedLoyaltyPoints.fromJsonTree(jsonObject);
+                                newEffect.setActualInstance(deserialized);
+                                return newEffect;
+                            case "rollbackCoupon":
+                                deserialized = adapterEffectRollbackCoupon.fromJsonTree(jsonObject);
+                                newEffect.setActualInstance(deserialized);
+                                return newEffect;
+                            case "rollbackDeductedLoyaltyPoints":
+                                deserialized = adapterEffectRollbackDeductedLoyaltyPoints.fromJsonTree(jsonObject);
+                                newEffect.setActualInstance(deserialized);
+                                return newEffect;
+                            case "rollbackDiscount":
+                                deserialized = adapterEffectRollbackDiscount.fromJsonTree(jsonObject);
+                                newEffect.setActualInstance(deserialized);
+                                return newEffect;
+                            case "rollbackIncreasedAchievementProgress":
+                                deserialized = adapterEffectRollbackIncreasedAchievementProgress.fromJsonTree(jsonObject);
+                                newEffect.setActualInstance(deserialized);
+                                return newEffect;
+                            case "rollbackReferral":
+                                deserialized = adapterEffectRollbackReferral.fromJsonTree(jsonObject);
+                                newEffect.setActualInstance(deserialized);
+                                return newEffect;
+                            case "rollbackUseReward":
+                                deserialized = adapterEffectRollbackUseReward.fromJsonTree(jsonObject);
+                                newEffect.setActualInstance(deserialized);
+                                return newEffect;
+                            case "set":
+                                deserialized = adapterEffectSet.fromJsonTree(jsonObject);
+                                newEffect.setActualInstance(deserialized);
+                                return newEffect;
+                            case "setDiscount":
+                                deserialized = adapterEffectSetDiscount.fromJsonTree(jsonObject);
+                                newEffect.setActualInstance(deserialized);
+                                return newEffect;
+                            case "setDiscountPerAdditionalCost":
+                                deserialized = adapterEffectSetDiscountPerAdditionalCost.fromJsonTree(jsonObject);
+                                newEffect.setActualInstance(deserialized);
+                                return newEffect;
+                            case "setDiscountPerAdditionalCostPerItem":
+                                deserialized = adapterEffectSetDiscountPerAdditionalCostPerItem.fromJsonTree(jsonObject);
+                                newEffect.setActualInstance(deserialized);
+                                return newEffect;
+                            case "setDiscountPerItem":
+                                deserialized = adapterEffectSetDiscountPerItem.fromJsonTree(jsonObject);
+                                newEffect.setActualInstance(deserialized);
+                                return newEffect;
+                            case "setLoyaltyPointsExpiryDate":
+                                deserialized = adapterEffectSetLoyaltyPointsExpiryDate.fromJsonTree(jsonObject);
+                                newEffect.setActualInstance(deserialized);
+                                return newEffect;
+                            case "showBundleMetadata":
+                                deserialized = adapterEffectShowBundleMetadata.fromJsonTree(jsonObject);
+                                newEffect.setActualInstance(deserialized);
+                                return newEffect;
+                            case "showNotification":
+                                deserialized = adapterEffectShowNotification.fromJsonTree(jsonObject);
+                                newEffect.setActualInstance(deserialized);
+                                return newEffect;
+                            case "startAchievementProgress":
+                                deserialized = adapterEffectStartAchievementProgress.fromJsonTree(jsonObject);
+                                newEffect.setActualInstance(deserialized);
+                                return newEffect;
+                            case "unlockReward":
+                                deserialized = adapterEffectUnlockReward.fromJsonTree(jsonObject);
+                                newEffect.setActualInstance(deserialized);
+                                return newEffect;
+                            case "useReward":
+                                deserialized = adapterEffectUseReward.fromJsonTree(jsonObject);
+                                newEffect.setActualInstance(deserialized);
+                                return newEffect;
+                            case "willAwardGiveaway":
+                                deserialized = adapterEffectWillAwardGiveaway.fromJsonTree(jsonObject);
+                                newEffect.setActualInstance(deserialized);
+                                return newEffect;
+                            default:
+                                log.log(Level.WARNING, String.format(java.util.Locale.ROOT, "Failed to lookup discriminator value `%s` for Effect. Possible values: acceptCoupon acceptReferral addFreeItem addLoyaltyPoints addNegativeLoyaltyPoints addToAudience awardGiveaway callApi changeLoyaltyTierLevel couponCreated customEffect deductLoyaltyPoints error extendLoyaltyPointsExpiryDate increaseAchievementProgress joinLoyaltyProgram offsetNegativeLoyaltyPoints redeemReferral referralCreated rejectCoupon rejectReferral removeFromAudience reserveCoupon rollbackAddedLoyaltyPoints rollbackCoupon rollbackDeductedLoyaltyPoints rollbackDiscount rollbackIncreasedAchievementProgress rollbackReferral rollbackUseReward set setDiscount setDiscountPerAdditionalCost setDiscountPerAdditionalCostPerItem setDiscountPerItem setLoyaltyPointsExpiryDate showBundleMetadata showNotification startAchievementProgress unlockReward useReward willAwardGiveaway", jsonObject.get("effectType").getAsString()));
+                        }
+                    }
+
+                    int match = 0;
+                    ArrayList<String> errorMessages = new ArrayList<>();
+                    TypeAdapter actualAdapter = elementAdapter;
+
+                    // deserialize EffectAcceptCoupon
+                    try {
+                        // validate the JSON object to see if any exception is thrown
+                        EffectAcceptCoupon.validateJsonElement(jsonElement);
+                        actualAdapter = adapterEffectAcceptCoupon;
+                        match++;
+                        log.log(Level.FINER, "Input data matches schema 'EffectAcceptCoupon'");
+                    } catch (Exception e) {
+                        // deserialization failed, continue
+                        errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for EffectAcceptCoupon failed with `%s`.", e.getMessage()));
+                        log.log(Level.FINER, "Input data does not match schema 'EffectAcceptCoupon'", e);
+                    }
+                    // deserialize EffectAcceptReferral
+                    try {
+                        // validate the JSON object to see if any exception is thrown
+                        EffectAcceptReferral.validateJsonElement(jsonElement);
+                        actualAdapter = adapterEffectAcceptReferral;
+                        match++;
+                        log.log(Level.FINER, "Input data matches schema 'EffectAcceptReferral'");
+                    } catch (Exception e) {
+                        // deserialization failed, continue
+                        errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for EffectAcceptReferral failed with `%s`.", e.getMessage()));
+                        log.log(Level.FINER, "Input data does not match schema 'EffectAcceptReferral'", e);
+                    }
+                    // deserialize EffectAddFreeItem
+                    try {
+                        // validate the JSON object to see if any exception is thrown
+                        EffectAddFreeItem.validateJsonElement(jsonElement);
+                        actualAdapter = adapterEffectAddFreeItem;
+                        match++;
+                        log.log(Level.FINER, "Input data matches schema 'EffectAddFreeItem'");
+                    } catch (Exception e) {
+                        // deserialization failed, continue
+                        errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for EffectAddFreeItem failed with `%s`.", e.getMessage()));
+                        log.log(Level.FINER, "Input data does not match schema 'EffectAddFreeItem'", e);
+                    }
+                    // deserialize EffectAddLoyaltyPoints
+                    try {
+                        // validate the JSON object to see if any exception is thrown
+                        EffectAddLoyaltyPoints.validateJsonElement(jsonElement);
+                        actualAdapter = adapterEffectAddLoyaltyPoints;
+                        match++;
+                        log.log(Level.FINER, "Input data matches schema 'EffectAddLoyaltyPoints'");
+                    } catch (Exception e) {
+                        // deserialization failed, continue
+                        errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for EffectAddLoyaltyPoints failed with `%s`.", e.getMessage()));
+                        log.log(Level.FINER, "Input data does not match schema 'EffectAddLoyaltyPoints'", e);
+                    }
+                    // deserialize EffectAddNegativeLoyaltyPoints
+                    try {
+                        // validate the JSON object to see if any exception is thrown
+                        EffectAddNegativeLoyaltyPoints.validateJsonElement(jsonElement);
+                        actualAdapter = adapterEffectAddNegativeLoyaltyPoints;
+                        match++;
+                        log.log(Level.FINER, "Input data matches schema 'EffectAddNegativeLoyaltyPoints'");
+                    } catch (Exception e) {
+                        // deserialization failed, continue
+                        errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for EffectAddNegativeLoyaltyPoints failed with `%s`.", e.getMessage()));
+                        log.log(Level.FINER, "Input data does not match schema 'EffectAddNegativeLoyaltyPoints'", e);
+                    }
+                    // deserialize EffectAddToAudience
+                    try {
+                        // validate the JSON object to see if any exception is thrown
+                        EffectAddToAudience.validateJsonElement(jsonElement);
+                        actualAdapter = adapterEffectAddToAudience;
+                        match++;
+                        log.log(Level.FINER, "Input data matches schema 'EffectAddToAudience'");
+                    } catch (Exception e) {
+                        // deserialization failed, continue
+                        errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for EffectAddToAudience failed with `%s`.", e.getMessage()));
+                        log.log(Level.FINER, "Input data does not match schema 'EffectAddToAudience'", e);
+                    }
+                    // deserialize EffectAwardGiveaway
+                    try {
+                        // validate the JSON object to see if any exception is thrown
+                        EffectAwardGiveaway.validateJsonElement(jsonElement);
+                        actualAdapter = adapterEffectAwardGiveaway;
+                        match++;
+                        log.log(Level.FINER, "Input data matches schema 'EffectAwardGiveaway'");
+                    } catch (Exception e) {
+                        // deserialization failed, continue
+                        errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for EffectAwardGiveaway failed with `%s`.", e.getMessage()));
+                        log.log(Level.FINER, "Input data does not match schema 'EffectAwardGiveaway'", e);
+                    }
+                    // deserialize EffectCallApi
+                    try {
+                        // validate the JSON object to see if any exception is thrown
+                        EffectCallApi.validateJsonElement(jsonElement);
+                        actualAdapter = adapterEffectCallApi;
+                        match++;
+                        log.log(Level.FINER, "Input data matches schema 'EffectCallApi'");
+                    } catch (Exception e) {
+                        // deserialization failed, continue
+                        errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for EffectCallApi failed with `%s`.", e.getMessage()));
+                        log.log(Level.FINER, "Input data does not match schema 'EffectCallApi'", e);
+                    }
+                    // deserialize EffectChangeLoyaltyTierLevel
+                    try {
+                        // validate the JSON object to see if any exception is thrown
+                        EffectChangeLoyaltyTierLevel.validateJsonElement(jsonElement);
+                        actualAdapter = adapterEffectChangeLoyaltyTierLevel;
+                        match++;
+                        log.log(Level.FINER, "Input data matches schema 'EffectChangeLoyaltyTierLevel'");
+                    } catch (Exception e) {
+                        // deserialization failed, continue
+                        errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for EffectChangeLoyaltyTierLevel failed with `%s`.", e.getMessage()));
+                        log.log(Level.FINER, "Input data does not match schema 'EffectChangeLoyaltyTierLevel'", e);
+                    }
+                    // deserialize EffectCouponCreated
+                    try {
+                        // validate the JSON object to see if any exception is thrown
+                        EffectCouponCreated.validateJsonElement(jsonElement);
+                        actualAdapter = adapterEffectCouponCreated;
+                        match++;
+                        log.log(Level.FINER, "Input data matches schema 'EffectCouponCreated'");
+                    } catch (Exception e) {
+                        // deserialization failed, continue
+                        errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for EffectCouponCreated failed with `%s`.", e.getMessage()));
+                        log.log(Level.FINER, "Input data does not match schema 'EffectCouponCreated'", e);
+                    }
+                    // deserialize EffectCustomEffect
+                    try {
+                        // validate the JSON object to see if any exception is thrown
+                        EffectCustomEffect.validateJsonElement(jsonElement);
+                        actualAdapter = adapterEffectCustomEffect;
+                        match++;
+                        log.log(Level.FINER, "Input data matches schema 'EffectCustomEffect'");
+                    } catch (Exception e) {
+                        // deserialization failed, continue
+                        errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for EffectCustomEffect failed with `%s`.", e.getMessage()));
+                        log.log(Level.FINER, "Input data does not match schema 'EffectCustomEffect'", e);
+                    }
+                    // deserialize EffectDeductLoyaltyPoints
+                    try {
+                        // validate the JSON object to see if any exception is thrown
+                        EffectDeductLoyaltyPoints.validateJsonElement(jsonElement);
+                        actualAdapter = adapterEffectDeductLoyaltyPoints;
+                        match++;
+                        log.log(Level.FINER, "Input data matches schema 'EffectDeductLoyaltyPoints'");
+                    } catch (Exception e) {
+                        // deserialization failed, continue
+                        errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for EffectDeductLoyaltyPoints failed with `%s`.", e.getMessage()));
+                        log.log(Level.FINER, "Input data does not match schema 'EffectDeductLoyaltyPoints'", e);
+                    }
+                    // deserialize EffectError
+                    try {
+                        // validate the JSON object to see if any exception is thrown
+                        EffectError.validateJsonElement(jsonElement);
+                        actualAdapter = adapterEffectError;
+                        match++;
+                        log.log(Level.FINER, "Input data matches schema 'EffectError'");
+                    } catch (Exception e) {
+                        // deserialization failed, continue
+                        errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for EffectError failed with `%s`.", e.getMessage()));
+                        log.log(Level.FINER, "Input data does not match schema 'EffectError'", e);
+                    }
+                    // deserialize EffectExtendLoyaltyPointsExpiryDate
+                    try {
+                        // validate the JSON object to see if any exception is thrown
+                        EffectExtendLoyaltyPointsExpiryDate.validateJsonElement(jsonElement);
+                        actualAdapter = adapterEffectExtendLoyaltyPointsExpiryDate;
+                        match++;
+                        log.log(Level.FINER, "Input data matches schema 'EffectExtendLoyaltyPointsExpiryDate'");
+                    } catch (Exception e) {
+                        // deserialization failed, continue
+                        errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for EffectExtendLoyaltyPointsExpiryDate failed with `%s`.", e.getMessage()));
+                        log.log(Level.FINER, "Input data does not match schema 'EffectExtendLoyaltyPointsExpiryDate'", e);
+                    }
+                    // deserialize EffectIncreaseAchievementProgress
+                    try {
+                        // validate the JSON object to see if any exception is thrown
+                        EffectIncreaseAchievementProgress.validateJsonElement(jsonElement);
+                        actualAdapter = adapterEffectIncreaseAchievementProgress;
+                        match++;
+                        log.log(Level.FINER, "Input data matches schema 'EffectIncreaseAchievementProgress'");
+                    } catch (Exception e) {
+                        // deserialization failed, continue
+                        errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for EffectIncreaseAchievementProgress failed with `%s`.", e.getMessage()));
+                        log.log(Level.FINER, "Input data does not match schema 'EffectIncreaseAchievementProgress'", e);
+                    }
+                    // deserialize EffectJoinLoyaltyProgram
+                    try {
+                        // validate the JSON object to see if any exception is thrown
+                        EffectJoinLoyaltyProgram.validateJsonElement(jsonElement);
+                        actualAdapter = adapterEffectJoinLoyaltyProgram;
+                        match++;
+                        log.log(Level.FINER, "Input data matches schema 'EffectJoinLoyaltyProgram'");
+                    } catch (Exception e) {
+                        // deserialization failed, continue
+                        errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for EffectJoinLoyaltyProgram failed with `%s`.", e.getMessage()));
+                        log.log(Level.FINER, "Input data does not match schema 'EffectJoinLoyaltyProgram'", e);
+                    }
+                    // deserialize EffectOffsetNegativeLoyaltyPoints
+                    try {
+                        // validate the JSON object to see if any exception is thrown
+                        EffectOffsetNegativeLoyaltyPoints.validateJsonElement(jsonElement);
+                        actualAdapter = adapterEffectOffsetNegativeLoyaltyPoints;
+                        match++;
+                        log.log(Level.FINER, "Input data matches schema 'EffectOffsetNegativeLoyaltyPoints'");
+                    } catch (Exception e) {
+                        // deserialization failed, continue
+                        errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for EffectOffsetNegativeLoyaltyPoints failed with `%s`.", e.getMessage()));
+                        log.log(Level.FINER, "Input data does not match schema 'EffectOffsetNegativeLoyaltyPoints'", e);
+                    }
+                    // deserialize EffectRedeemReferral
+                    try {
+                        // validate the JSON object to see if any exception is thrown
+                        EffectRedeemReferral.validateJsonElement(jsonElement);
+                        actualAdapter = adapterEffectRedeemReferral;
+                        match++;
+                        log.log(Level.FINER, "Input data matches schema 'EffectRedeemReferral'");
+                    } catch (Exception e) {
+                        // deserialization failed, continue
+                        errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for EffectRedeemReferral failed with `%s`.", e.getMessage()));
+                        log.log(Level.FINER, "Input data does not match schema 'EffectRedeemReferral'", e);
+                    }
+                    // deserialize EffectReferralCreated
+                    try {
+                        // validate the JSON object to see if any exception is thrown
+                        EffectReferralCreated.validateJsonElement(jsonElement);
+                        actualAdapter = adapterEffectReferralCreated;
+                        match++;
+                        log.log(Level.FINER, "Input data matches schema 'EffectReferralCreated'");
+                    } catch (Exception e) {
+                        // deserialization failed, continue
+                        errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for EffectReferralCreated failed with `%s`.", e.getMessage()));
+                        log.log(Level.FINER, "Input data does not match schema 'EffectReferralCreated'", e);
+                    }
+                    // deserialize EffectRejectCoupon
+                    try {
+                        // validate the JSON object to see if any exception is thrown
+                        EffectRejectCoupon.validateJsonElement(jsonElement);
+                        actualAdapter = adapterEffectRejectCoupon;
+                        match++;
+                        log.log(Level.FINER, "Input data matches schema 'EffectRejectCoupon'");
+                    } catch (Exception e) {
+                        // deserialization failed, continue
+                        errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for EffectRejectCoupon failed with `%s`.", e.getMessage()));
+                        log.log(Level.FINER, "Input data does not match schema 'EffectRejectCoupon'", e);
+                    }
+                    // deserialize EffectRejectReferral
+                    try {
+                        // validate the JSON object to see if any exception is thrown
+                        EffectRejectReferral.validateJsonElement(jsonElement);
+                        actualAdapter = adapterEffectRejectReferral;
+                        match++;
+                        log.log(Level.FINER, "Input data matches schema 'EffectRejectReferral'");
+                    } catch (Exception e) {
+                        // deserialization failed, continue
+                        errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for EffectRejectReferral failed with `%s`.", e.getMessage()));
+                        log.log(Level.FINER, "Input data does not match schema 'EffectRejectReferral'", e);
+                    }
+                    // deserialize EffectRemoveFromAudience
+                    try {
+                        // validate the JSON object to see if any exception is thrown
+                        EffectRemoveFromAudience.validateJsonElement(jsonElement);
+                        actualAdapter = adapterEffectRemoveFromAudience;
+                        match++;
+                        log.log(Level.FINER, "Input data matches schema 'EffectRemoveFromAudience'");
+                    } catch (Exception e) {
+                        // deserialization failed, continue
+                        errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for EffectRemoveFromAudience failed with `%s`.", e.getMessage()));
+                        log.log(Level.FINER, "Input data does not match schema 'EffectRemoveFromAudience'", e);
+                    }
+                    // deserialize EffectReserveCoupon
+                    try {
+                        // validate the JSON object to see if any exception is thrown
+                        EffectReserveCoupon.validateJsonElement(jsonElement);
+                        actualAdapter = adapterEffectReserveCoupon;
+                        match++;
+                        log.log(Level.FINER, "Input data matches schema 'EffectReserveCoupon'");
+                    } catch (Exception e) {
+                        // deserialization failed, continue
+                        errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for EffectReserveCoupon failed with `%s`.", e.getMessage()));
+                        log.log(Level.FINER, "Input data does not match schema 'EffectReserveCoupon'", e);
+                    }
+                    // deserialize EffectRollbackAddedLoyaltyPoints
+                    try {
+                        // validate the JSON object to see if any exception is thrown
+                        EffectRollbackAddedLoyaltyPoints.validateJsonElement(jsonElement);
+                        actualAdapter = adapterEffectRollbackAddedLoyaltyPoints;
+                        match++;
+                        log.log(Level.FINER, "Input data matches schema 'EffectRollbackAddedLoyaltyPoints'");
+                    } catch (Exception e) {
+                        // deserialization failed, continue
+                        errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for EffectRollbackAddedLoyaltyPoints failed with `%s`.", e.getMessage()));
+                        log.log(Level.FINER, "Input data does not match schema 'EffectRollbackAddedLoyaltyPoints'", e);
+                    }
+                    // deserialize EffectRollbackCoupon
+                    try {
+                        // validate the JSON object to see if any exception is thrown
+                        EffectRollbackCoupon.validateJsonElement(jsonElement);
+                        actualAdapter = adapterEffectRollbackCoupon;
+                        match++;
+                        log.log(Level.FINER, "Input data matches schema 'EffectRollbackCoupon'");
+                    } catch (Exception e) {
+                        // deserialization failed, continue
+                        errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for EffectRollbackCoupon failed with `%s`.", e.getMessage()));
+                        log.log(Level.FINER, "Input data does not match schema 'EffectRollbackCoupon'", e);
+                    }
+                    // deserialize EffectRollbackDeductedLoyaltyPoints
+                    try {
+                        // validate the JSON object to see if any exception is thrown
+                        EffectRollbackDeductedLoyaltyPoints.validateJsonElement(jsonElement);
+                        actualAdapter = adapterEffectRollbackDeductedLoyaltyPoints;
+                        match++;
+                        log.log(Level.FINER, "Input data matches schema 'EffectRollbackDeductedLoyaltyPoints'");
+                    } catch (Exception e) {
+                        // deserialization failed, continue
+                        errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for EffectRollbackDeductedLoyaltyPoints failed with `%s`.", e.getMessage()));
+                        log.log(Level.FINER, "Input data does not match schema 'EffectRollbackDeductedLoyaltyPoints'", e);
+                    }
+                    // deserialize EffectRollbackDiscount
+                    try {
+                        // validate the JSON object to see if any exception is thrown
+                        EffectRollbackDiscount.validateJsonElement(jsonElement);
+                        actualAdapter = adapterEffectRollbackDiscount;
+                        match++;
+                        log.log(Level.FINER, "Input data matches schema 'EffectRollbackDiscount'");
+                    } catch (Exception e) {
+                        // deserialization failed, continue
+                        errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for EffectRollbackDiscount failed with `%s`.", e.getMessage()));
+                        log.log(Level.FINER, "Input data does not match schema 'EffectRollbackDiscount'", e);
+                    }
+                    // deserialize EffectRollbackIncreasedAchievementProgress
+                    try {
+                        // validate the JSON object to see if any exception is thrown
+                        EffectRollbackIncreasedAchievementProgress.validateJsonElement(jsonElement);
+                        actualAdapter = adapterEffectRollbackIncreasedAchievementProgress;
+                        match++;
+                        log.log(Level.FINER, "Input data matches schema 'EffectRollbackIncreasedAchievementProgress'");
+                    } catch (Exception e) {
+                        // deserialization failed, continue
+                        errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for EffectRollbackIncreasedAchievementProgress failed with `%s`.", e.getMessage()));
+                        log.log(Level.FINER, "Input data does not match schema 'EffectRollbackIncreasedAchievementProgress'", e);
+                    }
+                    // deserialize EffectRollbackReferral
+                    try {
+                        // validate the JSON object to see if any exception is thrown
+                        EffectRollbackReferral.validateJsonElement(jsonElement);
+                        actualAdapter = adapterEffectRollbackReferral;
+                        match++;
+                        log.log(Level.FINER, "Input data matches schema 'EffectRollbackReferral'");
+                    } catch (Exception e) {
+                        // deserialization failed, continue
+                        errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for EffectRollbackReferral failed with `%s`.", e.getMessage()));
+                        log.log(Level.FINER, "Input data does not match schema 'EffectRollbackReferral'", e);
+                    }
+                    // deserialize EffectRollbackUseReward
+                    try {
+                        // validate the JSON object to see if any exception is thrown
+                        EffectRollbackUseReward.validateJsonElement(jsonElement);
+                        actualAdapter = adapterEffectRollbackUseReward;
+                        match++;
+                        log.log(Level.FINER, "Input data matches schema 'EffectRollbackUseReward'");
+                    } catch (Exception e) {
+                        // deserialization failed, continue
+                        errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for EffectRollbackUseReward failed with `%s`.", e.getMessage()));
+                        log.log(Level.FINER, "Input data does not match schema 'EffectRollbackUseReward'", e);
+                    }
+                    // deserialize EffectSet
+                    try {
+                        // validate the JSON object to see if any exception is thrown
+                        EffectSet.validateJsonElement(jsonElement);
+                        actualAdapter = adapterEffectSet;
+                        match++;
+                        log.log(Level.FINER, "Input data matches schema 'EffectSet'");
+                    } catch (Exception e) {
+                        // deserialization failed, continue
+                        errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for EffectSet failed with `%s`.", e.getMessage()));
+                        log.log(Level.FINER, "Input data does not match schema 'EffectSet'", e);
+                    }
+                    // deserialize EffectSetDiscount
+                    try {
+                        // validate the JSON object to see if any exception is thrown
+                        EffectSetDiscount.validateJsonElement(jsonElement);
+                        actualAdapter = adapterEffectSetDiscount;
+                        match++;
+                        log.log(Level.FINER, "Input data matches schema 'EffectSetDiscount'");
+                    } catch (Exception e) {
+                        // deserialization failed, continue
+                        errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for EffectSetDiscount failed with `%s`.", e.getMessage()));
+                        log.log(Level.FINER, "Input data does not match schema 'EffectSetDiscount'", e);
+                    }
+                    // deserialize EffectSetDiscountPerAdditionalCost
+                    try {
+                        // validate the JSON object to see if any exception is thrown
+                        EffectSetDiscountPerAdditionalCost.validateJsonElement(jsonElement);
+                        actualAdapter = adapterEffectSetDiscountPerAdditionalCost;
+                        match++;
+                        log.log(Level.FINER, "Input data matches schema 'EffectSetDiscountPerAdditionalCost'");
+                    } catch (Exception e) {
+                        // deserialization failed, continue
+                        errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for EffectSetDiscountPerAdditionalCost failed with `%s`.", e.getMessage()));
+                        log.log(Level.FINER, "Input data does not match schema 'EffectSetDiscountPerAdditionalCost'", e);
+                    }
+                    // deserialize EffectSetDiscountPerAdditionalCostPerItem
+                    try {
+                        // validate the JSON object to see if any exception is thrown
+                        EffectSetDiscountPerAdditionalCostPerItem.validateJsonElement(jsonElement);
+                        actualAdapter = adapterEffectSetDiscountPerAdditionalCostPerItem;
+                        match++;
+                        log.log(Level.FINER, "Input data matches schema 'EffectSetDiscountPerAdditionalCostPerItem'");
+                    } catch (Exception e) {
+                        // deserialization failed, continue
+                        errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for EffectSetDiscountPerAdditionalCostPerItem failed with `%s`.", e.getMessage()));
+                        log.log(Level.FINER, "Input data does not match schema 'EffectSetDiscountPerAdditionalCostPerItem'", e);
+                    }
+                    // deserialize EffectSetDiscountPerItem
+                    try {
+                        // validate the JSON object to see if any exception is thrown
+                        EffectSetDiscountPerItem.validateJsonElement(jsonElement);
+                        actualAdapter = adapterEffectSetDiscountPerItem;
+                        match++;
+                        log.log(Level.FINER, "Input data matches schema 'EffectSetDiscountPerItem'");
+                    } catch (Exception e) {
+                        // deserialization failed, continue
+                        errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for EffectSetDiscountPerItem failed with `%s`.", e.getMessage()));
+                        log.log(Level.FINER, "Input data does not match schema 'EffectSetDiscountPerItem'", e);
+                    }
+                    // deserialize EffectSetLoyaltyPointsExpiryDate
+                    try {
+                        // validate the JSON object to see if any exception is thrown
+                        EffectSetLoyaltyPointsExpiryDate.validateJsonElement(jsonElement);
+                        actualAdapter = adapterEffectSetLoyaltyPointsExpiryDate;
+                        match++;
+                        log.log(Level.FINER, "Input data matches schema 'EffectSetLoyaltyPointsExpiryDate'");
+                    } catch (Exception e) {
+                        // deserialization failed, continue
+                        errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for EffectSetLoyaltyPointsExpiryDate failed with `%s`.", e.getMessage()));
+                        log.log(Level.FINER, "Input data does not match schema 'EffectSetLoyaltyPointsExpiryDate'", e);
+                    }
+                    // deserialize EffectShowBundleMetadata
+                    try {
+                        // validate the JSON object to see if any exception is thrown
+                        EffectShowBundleMetadata.validateJsonElement(jsonElement);
+                        actualAdapter = adapterEffectShowBundleMetadata;
+                        match++;
+                        log.log(Level.FINER, "Input data matches schema 'EffectShowBundleMetadata'");
+                    } catch (Exception e) {
+                        // deserialization failed, continue
+                        errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for EffectShowBundleMetadata failed with `%s`.", e.getMessage()));
+                        log.log(Level.FINER, "Input data does not match schema 'EffectShowBundleMetadata'", e);
+                    }
+                    // deserialize EffectShowNotification
+                    try {
+                        // validate the JSON object to see if any exception is thrown
+                        EffectShowNotification.validateJsonElement(jsonElement);
+                        actualAdapter = adapterEffectShowNotification;
+                        match++;
+                        log.log(Level.FINER, "Input data matches schema 'EffectShowNotification'");
+                    } catch (Exception e) {
+                        // deserialization failed, continue
+                        errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for EffectShowNotification failed with `%s`.", e.getMessage()));
+                        log.log(Level.FINER, "Input data does not match schema 'EffectShowNotification'", e);
+                    }
+                    // deserialize EffectStartAchievementProgress
+                    try {
+                        // validate the JSON object to see if any exception is thrown
+                        EffectStartAchievementProgress.validateJsonElement(jsonElement);
+                        actualAdapter = adapterEffectStartAchievementProgress;
+                        match++;
+                        log.log(Level.FINER, "Input data matches schema 'EffectStartAchievementProgress'");
+                    } catch (Exception e) {
+                        // deserialization failed, continue
+                        errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for EffectStartAchievementProgress failed with `%s`.", e.getMessage()));
+                        log.log(Level.FINER, "Input data does not match schema 'EffectStartAchievementProgress'", e);
+                    }
+                    // deserialize EffectUnlockReward
+                    try {
+                        // validate the JSON object to see if any exception is thrown
+                        EffectUnlockReward.validateJsonElement(jsonElement);
+                        actualAdapter = adapterEffectUnlockReward;
+                        match++;
+                        log.log(Level.FINER, "Input data matches schema 'EffectUnlockReward'");
+                    } catch (Exception e) {
+                        // deserialization failed, continue
+                        errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for EffectUnlockReward failed with `%s`.", e.getMessage()));
+                        log.log(Level.FINER, "Input data does not match schema 'EffectUnlockReward'", e);
+                    }
+                    // deserialize EffectUseReward
+                    try {
+                        // validate the JSON object to see if any exception is thrown
+                        EffectUseReward.validateJsonElement(jsonElement);
+                        actualAdapter = adapterEffectUseReward;
+                        match++;
+                        log.log(Level.FINER, "Input data matches schema 'EffectUseReward'");
+                    } catch (Exception e) {
+                        // deserialization failed, continue
+                        errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for EffectUseReward failed with `%s`.", e.getMessage()));
+                        log.log(Level.FINER, "Input data does not match schema 'EffectUseReward'", e);
+                    }
+                    // deserialize EffectWillAwardGiveaway
+                    try {
+                        // validate the JSON object to see if any exception is thrown
+                        EffectWillAwardGiveaway.validateJsonElement(jsonElement);
+                        actualAdapter = adapterEffectWillAwardGiveaway;
+                        match++;
+                        log.log(Level.FINER, "Input data matches schema 'EffectWillAwardGiveaway'");
+                    } catch (Exception e) {
+                        // deserialization failed, continue
+                        errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for EffectWillAwardGiveaway failed with `%s`.", e.getMessage()));
+                        log.log(Level.FINER, "Input data does not match schema 'EffectWillAwardGiveaway'", e);
+                    }
+
+                    if (match == 1) {
+                        Effect ret = new Effect();
+                        ret.setActualInstance(actualAdapter.fromJsonTree(jsonElement));
+                        return ret;
+                    }
+
+                    throw new IOException(String.format(java.util.Locale.ROOT, "Failed deserialization for Effect: %d classes match result, expected 1. Detailed failure message for oneOf schemas: %s. JSON: %s", match, errorMessages, jsonElement.toString()));
+                }
+            }.nullSafe();
         }
-      }
+    }
 
-      // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : Effect.openapiRequiredFields) {
-        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
+    // store a list of schema names defined in oneOf
+    public static final Map<String, Class<?>> schemas = new HashMap<String, Class<?>>();
+
+    public Effect() {
+        super("oneOf", Boolean.FALSE);
+    }
+
+    public Effect(Object o) {
+        super("oneOf", Boolean.FALSE);
+        setActualInstance(o);
+    }
+
+    static {
+        schemas.put("EffectAcceptCoupon", EffectAcceptCoupon.class);
+        schemas.put("EffectAcceptReferral", EffectAcceptReferral.class);
+        schemas.put("EffectAddFreeItem", EffectAddFreeItem.class);
+        schemas.put("EffectAddLoyaltyPoints", EffectAddLoyaltyPoints.class);
+        schemas.put("EffectAddNegativeLoyaltyPoints", EffectAddNegativeLoyaltyPoints.class);
+        schemas.put("EffectAddToAudience", EffectAddToAudience.class);
+        schemas.put("EffectAwardGiveaway", EffectAwardGiveaway.class);
+        schemas.put("EffectCallApi", EffectCallApi.class);
+        schemas.put("EffectChangeLoyaltyTierLevel", EffectChangeLoyaltyTierLevel.class);
+        schemas.put("EffectCouponCreated", EffectCouponCreated.class);
+        schemas.put("EffectCustomEffect", EffectCustomEffect.class);
+        schemas.put("EffectDeductLoyaltyPoints", EffectDeductLoyaltyPoints.class);
+        schemas.put("EffectError", EffectError.class);
+        schemas.put("EffectExtendLoyaltyPointsExpiryDate", EffectExtendLoyaltyPointsExpiryDate.class);
+        schemas.put("EffectIncreaseAchievementProgress", EffectIncreaseAchievementProgress.class);
+        schemas.put("EffectJoinLoyaltyProgram", EffectJoinLoyaltyProgram.class);
+        schemas.put("EffectOffsetNegativeLoyaltyPoints", EffectOffsetNegativeLoyaltyPoints.class);
+        schemas.put("EffectRedeemReferral", EffectRedeemReferral.class);
+        schemas.put("EffectReferralCreated", EffectReferralCreated.class);
+        schemas.put("EffectRejectCoupon", EffectRejectCoupon.class);
+        schemas.put("EffectRejectReferral", EffectRejectReferral.class);
+        schemas.put("EffectRemoveFromAudience", EffectRemoveFromAudience.class);
+        schemas.put("EffectReserveCoupon", EffectReserveCoupon.class);
+        schemas.put("EffectRollbackAddedLoyaltyPoints", EffectRollbackAddedLoyaltyPoints.class);
+        schemas.put("EffectRollbackCoupon", EffectRollbackCoupon.class);
+        schemas.put("EffectRollbackDeductedLoyaltyPoints", EffectRollbackDeductedLoyaltyPoints.class);
+        schemas.put("EffectRollbackDiscount", EffectRollbackDiscount.class);
+        schemas.put("EffectRollbackIncreasedAchievementProgress", EffectRollbackIncreasedAchievementProgress.class);
+        schemas.put("EffectRollbackReferral", EffectRollbackReferral.class);
+        schemas.put("EffectRollbackUseReward", EffectRollbackUseReward.class);
+        schemas.put("EffectSet", EffectSet.class);
+        schemas.put("EffectSetDiscount", EffectSetDiscount.class);
+        schemas.put("EffectSetDiscountPerAdditionalCost", EffectSetDiscountPerAdditionalCost.class);
+        schemas.put("EffectSetDiscountPerAdditionalCostPerItem", EffectSetDiscountPerAdditionalCostPerItem.class);
+        schemas.put("EffectSetDiscountPerItem", EffectSetDiscountPerItem.class);
+        schemas.put("EffectSetLoyaltyPointsExpiryDate", EffectSetLoyaltyPointsExpiryDate.class);
+        schemas.put("EffectShowBundleMetadata", EffectShowBundleMetadata.class);
+        schemas.put("EffectShowNotification", EffectShowNotification.class);
+        schemas.put("EffectStartAchievementProgress", EffectStartAchievementProgress.class);
+        schemas.put("EffectUnlockReward", EffectUnlockReward.class);
+        schemas.put("EffectUseReward", EffectUseReward.class);
+        schemas.put("EffectWillAwardGiveaway", EffectWillAwardGiveaway.class);
+    }
+
+    @Override
+    public Map<String, Class<?>> getSchemas() {
+        return Effect.schemas;
+    }
+
+    /**
+     * Set the instance that matches the oneOf child schema, check
+     * the instance parameter is valid against the oneOf child schemas:
+     * EffectAcceptCoupon, EffectAcceptReferral, EffectAddFreeItem, EffectAddLoyaltyPoints, EffectAddNegativeLoyaltyPoints, EffectAddToAudience, EffectAwardGiveaway, EffectCallApi, EffectChangeLoyaltyTierLevel, EffectCouponCreated, EffectCustomEffect, EffectDeductLoyaltyPoints, EffectError, EffectExtendLoyaltyPointsExpiryDate, EffectIncreaseAchievementProgress, EffectJoinLoyaltyProgram, EffectOffsetNegativeLoyaltyPoints, EffectRedeemReferral, EffectReferralCreated, EffectRejectCoupon, EffectRejectReferral, EffectRemoveFromAudience, EffectReserveCoupon, EffectRollbackAddedLoyaltyPoints, EffectRollbackCoupon, EffectRollbackDeductedLoyaltyPoints, EffectRollbackDiscount, EffectRollbackIncreasedAchievementProgress, EffectRollbackReferral, EffectRollbackUseReward, EffectSet, EffectSetDiscount, EffectSetDiscountPerAdditionalCost, EffectSetDiscountPerAdditionalCostPerItem, EffectSetDiscountPerItem, EffectSetLoyaltyPointsExpiryDate, EffectShowBundleMetadata, EffectShowNotification, EffectStartAchievementProgress, EffectUnlockReward, EffectUseReward, EffectWillAwardGiveaway
+     *
+     * It could be an instance of the 'oneOf' schemas.
+     */
+    @Override
+    public void setActualInstance(Object instance) {
+        if (instance instanceof EffectAcceptCoupon) {
+            super.setActualInstance(instance);
+            return;
         }
-      }
-        JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if (!jsonObj.get("ruleName").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `ruleName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("ruleName").toString()));
-      }
-      if (!jsonObj.get("effectType").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `effectType` to be a primitive type in the JSON string but got `%s`", jsonObj.get("effectType").toString()));
-      }
-      if ((jsonObj.get("evaluationGroupMode") != null && !jsonObj.get("evaluationGroupMode").isJsonNull()) && !jsonObj.get("evaluationGroupMode").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `evaluationGroupMode` to be a primitive type in the JSON string but got `%s`", jsonObj.get("evaluationGroupMode").toString()));
-      }
-      if ((jsonObj.get("selectedPriceType") != null && !jsonObj.get("selectedPriceType").isJsonNull()) && !jsonObj.get("selectedPriceType").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `selectedPriceType` to be a primitive type in the JSON string but got `%s`", jsonObj.get("selectedPriceType").toString()));
-      }
-      if ((jsonObj.get("adjustmentReferenceId") != null && !jsonObj.get("adjustmentReferenceId").isJsonNull()) && !jsonObj.get("adjustmentReferenceId").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `adjustmentReferenceId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("adjustmentReferenceId").toString()));
-      }
-  }
 
-  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
+        if (instance instanceof EffectAcceptReferral) {
+            super.setActualInstance(instance);
+            return;
+        }
+
+        if (instance instanceof EffectAddFreeItem) {
+            super.setActualInstance(instance);
+            return;
+        }
+
+        if (instance instanceof EffectAddLoyaltyPoints) {
+            super.setActualInstance(instance);
+            return;
+        }
+
+        if (instance instanceof EffectAddNegativeLoyaltyPoints) {
+            super.setActualInstance(instance);
+            return;
+        }
+
+        if (instance instanceof EffectAddToAudience) {
+            super.setActualInstance(instance);
+            return;
+        }
+
+        if (instance instanceof EffectAwardGiveaway) {
+            super.setActualInstance(instance);
+            return;
+        }
+
+        if (instance instanceof EffectCallApi) {
+            super.setActualInstance(instance);
+            return;
+        }
+
+        if (instance instanceof EffectChangeLoyaltyTierLevel) {
+            super.setActualInstance(instance);
+            return;
+        }
+
+        if (instance instanceof EffectCouponCreated) {
+            super.setActualInstance(instance);
+            return;
+        }
+
+        if (instance instanceof EffectCustomEffect) {
+            super.setActualInstance(instance);
+            return;
+        }
+
+        if (instance instanceof EffectDeductLoyaltyPoints) {
+            super.setActualInstance(instance);
+            return;
+        }
+
+        if (instance instanceof EffectError) {
+            super.setActualInstance(instance);
+            return;
+        }
+
+        if (instance instanceof EffectExtendLoyaltyPointsExpiryDate) {
+            super.setActualInstance(instance);
+            return;
+        }
+
+        if (instance instanceof EffectIncreaseAchievementProgress) {
+            super.setActualInstance(instance);
+            return;
+        }
+
+        if (instance instanceof EffectJoinLoyaltyProgram) {
+            super.setActualInstance(instance);
+            return;
+        }
+
+        if (instance instanceof EffectOffsetNegativeLoyaltyPoints) {
+            super.setActualInstance(instance);
+            return;
+        }
+
+        if (instance instanceof EffectRedeemReferral) {
+            super.setActualInstance(instance);
+            return;
+        }
+
+        if (instance instanceof EffectReferralCreated) {
+            super.setActualInstance(instance);
+            return;
+        }
+
+        if (instance instanceof EffectRejectCoupon) {
+            super.setActualInstance(instance);
+            return;
+        }
+
+        if (instance instanceof EffectRejectReferral) {
+            super.setActualInstance(instance);
+            return;
+        }
+
+        if (instance instanceof EffectRemoveFromAudience) {
+            super.setActualInstance(instance);
+            return;
+        }
+
+        if (instance instanceof EffectReserveCoupon) {
+            super.setActualInstance(instance);
+            return;
+        }
+
+        if (instance instanceof EffectRollbackAddedLoyaltyPoints) {
+            super.setActualInstance(instance);
+            return;
+        }
+
+        if (instance instanceof EffectRollbackCoupon) {
+            super.setActualInstance(instance);
+            return;
+        }
+
+        if (instance instanceof EffectRollbackDeductedLoyaltyPoints) {
+            super.setActualInstance(instance);
+            return;
+        }
+
+        if (instance instanceof EffectRollbackDiscount) {
+            super.setActualInstance(instance);
+            return;
+        }
+
+        if (instance instanceof EffectRollbackIncreasedAchievementProgress) {
+            super.setActualInstance(instance);
+            return;
+        }
+
+        if (instance instanceof EffectRollbackReferral) {
+            super.setActualInstance(instance);
+            return;
+        }
+
+        if (instance instanceof EffectRollbackUseReward) {
+            super.setActualInstance(instance);
+            return;
+        }
+
+        if (instance instanceof EffectSet) {
+            super.setActualInstance(instance);
+            return;
+        }
+
+        if (instance instanceof EffectSetDiscount) {
+            super.setActualInstance(instance);
+            return;
+        }
+
+        if (instance instanceof EffectSetDiscountPerAdditionalCost) {
+            super.setActualInstance(instance);
+            return;
+        }
+
+        if (instance instanceof EffectSetDiscountPerAdditionalCostPerItem) {
+            super.setActualInstance(instance);
+            return;
+        }
+
+        if (instance instanceof EffectSetDiscountPerItem) {
+            super.setActualInstance(instance);
+            return;
+        }
+
+        if (instance instanceof EffectSetLoyaltyPointsExpiryDate) {
+            super.setActualInstance(instance);
+            return;
+        }
+
+        if (instance instanceof EffectShowBundleMetadata) {
+            super.setActualInstance(instance);
+            return;
+        }
+
+        if (instance instanceof EffectShowNotification) {
+            super.setActualInstance(instance);
+            return;
+        }
+
+        if (instance instanceof EffectStartAchievementProgress) {
+            super.setActualInstance(instance);
+            return;
+        }
+
+        if (instance instanceof EffectUnlockReward) {
+            super.setActualInstance(instance);
+            return;
+        }
+
+        if (instance instanceof EffectUseReward) {
+            super.setActualInstance(instance);
+            return;
+        }
+
+        if (instance instanceof EffectWillAwardGiveaway) {
+            super.setActualInstance(instance);
+            return;
+        }
+
+        throw new RuntimeException("Invalid instance type. Must be EffectAcceptCoupon, EffectAcceptReferral, EffectAddFreeItem, EffectAddLoyaltyPoints, EffectAddNegativeLoyaltyPoints, EffectAddToAudience, EffectAwardGiveaway, EffectCallApi, EffectChangeLoyaltyTierLevel, EffectCouponCreated, EffectCustomEffect, EffectDeductLoyaltyPoints, EffectError, EffectExtendLoyaltyPointsExpiryDate, EffectIncreaseAchievementProgress, EffectJoinLoyaltyProgram, EffectOffsetNegativeLoyaltyPoints, EffectRedeemReferral, EffectReferralCreated, EffectRejectCoupon, EffectRejectReferral, EffectRemoveFromAudience, EffectReserveCoupon, EffectRollbackAddedLoyaltyPoints, EffectRollbackCoupon, EffectRollbackDeductedLoyaltyPoints, EffectRollbackDiscount, EffectRollbackIncreasedAchievementProgress, EffectRollbackReferral, EffectRollbackUseReward, EffectSet, EffectSetDiscount, EffectSetDiscountPerAdditionalCost, EffectSetDiscountPerAdditionalCostPerItem, EffectSetDiscountPerItem, EffectSetLoyaltyPointsExpiryDate, EffectShowBundleMetadata, EffectShowNotification, EffectStartAchievementProgress, EffectUnlockReward, EffectUseReward, EffectWillAwardGiveaway");
+    }
+
+    /**
+     * Get the actual instance, which can be the following:
+     * EffectAcceptCoupon, EffectAcceptReferral, EffectAddFreeItem, EffectAddLoyaltyPoints, EffectAddNegativeLoyaltyPoints, EffectAddToAudience, EffectAwardGiveaway, EffectCallApi, EffectChangeLoyaltyTierLevel, EffectCouponCreated, EffectCustomEffect, EffectDeductLoyaltyPoints, EffectError, EffectExtendLoyaltyPointsExpiryDate, EffectIncreaseAchievementProgress, EffectJoinLoyaltyProgram, EffectOffsetNegativeLoyaltyPoints, EffectRedeemReferral, EffectReferralCreated, EffectRejectCoupon, EffectRejectReferral, EffectRemoveFromAudience, EffectReserveCoupon, EffectRollbackAddedLoyaltyPoints, EffectRollbackCoupon, EffectRollbackDeductedLoyaltyPoints, EffectRollbackDiscount, EffectRollbackIncreasedAchievementProgress, EffectRollbackReferral, EffectRollbackUseReward, EffectSet, EffectSetDiscount, EffectSetDiscountPerAdditionalCost, EffectSetDiscountPerAdditionalCostPerItem, EffectSetDiscountPerItem, EffectSetLoyaltyPointsExpiryDate, EffectShowBundleMetadata, EffectShowNotification, EffectStartAchievementProgress, EffectUnlockReward, EffectUseReward, EffectWillAwardGiveaway
+     *
+     * @return The actual instance (EffectAcceptCoupon, EffectAcceptReferral, EffectAddFreeItem, EffectAddLoyaltyPoints, EffectAddNegativeLoyaltyPoints, EffectAddToAudience, EffectAwardGiveaway, EffectCallApi, EffectChangeLoyaltyTierLevel, EffectCouponCreated, EffectCustomEffect, EffectDeductLoyaltyPoints, EffectError, EffectExtendLoyaltyPointsExpiryDate, EffectIncreaseAchievementProgress, EffectJoinLoyaltyProgram, EffectOffsetNegativeLoyaltyPoints, EffectRedeemReferral, EffectReferralCreated, EffectRejectCoupon, EffectRejectReferral, EffectRemoveFromAudience, EffectReserveCoupon, EffectRollbackAddedLoyaltyPoints, EffectRollbackCoupon, EffectRollbackDeductedLoyaltyPoints, EffectRollbackDiscount, EffectRollbackIncreasedAchievementProgress, EffectRollbackReferral, EffectRollbackUseReward, EffectSet, EffectSetDiscount, EffectSetDiscountPerAdditionalCost, EffectSetDiscountPerAdditionalCostPerItem, EffectSetDiscountPerItem, EffectSetLoyaltyPointsExpiryDate, EffectShowBundleMetadata, EffectShowNotification, EffectStartAchievementProgress, EffectUnlockReward, EffectUseReward, EffectWillAwardGiveaway)
+     */
     @SuppressWarnings("unchecked")
     @Override
-    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!Effect.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'Effect' and its subtypes
-       }
-       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<Effect> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(Effect.class));
-
-       return (TypeAdapter<T>) new TypeAdapter<Effect>() {
-           @Override
-           public void write(JsonWriter out, Effect value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
-             obj.remove("additionalProperties");
-             // serialize additional properties
-             if (value.getAdditionalProperties() != null) {
-               for (Map.Entry<String, Object> entry : value.getAdditionalProperties().entrySet()) {
-                 if (entry.getValue() instanceof String)
-                   obj.addProperty(entry.getKey(), (String) entry.getValue());
-                 else if (entry.getValue() instanceof Number)
-                   obj.addProperty(entry.getKey(), (Number) entry.getValue());
-                 else if (entry.getValue() instanceof Boolean)
-                   obj.addProperty(entry.getKey(), (Boolean) entry.getValue());
-                 else if (entry.getValue() instanceof Character)
-                   obj.addProperty(entry.getKey(), (Character) entry.getValue());
-                 else {
-                   JsonElement jsonElement = gson.toJsonTree(entry.getValue());
-                   if (jsonElement.isJsonNull()) {
-                     obj.add(entry.getKey(), JsonNull.INSTANCE);
-                   } else if (jsonElement.isJsonArray()) {
-                     obj.add(entry.getKey(), jsonElement.getAsJsonArray());
-                   } else {
-                     obj.add(entry.getKey(), jsonElement.getAsJsonObject());
-                   }
-                 }
-               }
-             }
-             elementAdapter.write(out, obj);
-           }
-
-           @Override
-           public Effect read(JsonReader in) throws IOException {
-             JsonElement jsonElement = elementAdapter.read(in);
-             validateJsonElement(jsonElement);
-             JsonObject jsonObj = jsonElement.getAsJsonObject();
-             // store additional fields in the deserialized instance
-             Effect instance = thisAdapter.fromJsonTree(jsonObj);
-             for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
-               if (!openapiFields.contains(entry.getKey())) {
-                 if (entry.getValue().isJsonPrimitive()) { // primitive type
-                   if (entry.getValue().getAsJsonPrimitive().isString())
-                     instance.putAdditionalProperty(entry.getKey(), entry.getValue().getAsString());
-                   else if (entry.getValue().getAsJsonPrimitive().isNumber())
-                     instance.putAdditionalProperty(entry.getKey(), entry.getValue().getAsNumber());
-                   else if (entry.getValue().getAsJsonPrimitive().isBoolean())
-                     instance.putAdditionalProperty(entry.getKey(), entry.getValue().getAsBoolean());
-                   else
-                     throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` has unknown primitive type. Value: %s", entry.getKey(), entry.getValue().toString()));
-                 } else if (entry.getValue().isJsonArray()) {
-                     instance.putAdditionalProperty(entry.getKey(), gson.fromJson(entry.getValue(), List.class));
-                 } else { // JSON object
-                     instance.putAdditionalProperty(entry.getKey(), gson.fromJson(entry.getValue(), HashMap.class));
-                 }
-               }
-             }
-             return instance;
-           }
-
-       }.nullSafe();
+    public Object getActualInstance() {
+        return super.getActualInstance();
     }
-  }
 
-  /**
-   * Create an instance of Effect given an JSON string
-   *
-   * @param jsonString JSON string
-   * @return An instance of Effect
-   * @throws IOException if the JSON string is invalid with respect to Effect
-   */
-  public static Effect fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, Effect.class);
-  }
+    /**
+     * Get the actual instance of `EffectAcceptCoupon`. If the actual instance is not `EffectAcceptCoupon`,
+     * the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `EffectAcceptCoupon`
+     * @throws ClassCastException if the instance is not `EffectAcceptCoupon`
+     */
+    @SuppressWarnings("unchecked")
+    public EffectAcceptCoupon getEffectAcceptCoupon() throws ClassCastException {
+        return (EffectAcceptCoupon)super.getActualInstance();
+    }
 
-  /**
-   * Convert an instance of Effect to an JSON string
-   *
-   * @return JSON string
-   */
-  public String toJson() {
-    return JSON.getGson().toJson(this);
-  }
+    /**
+     * Get the actual instance of `EffectAcceptReferral`. If the actual instance is not `EffectAcceptReferral`,
+     * the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `EffectAcceptReferral`
+     * @throws ClassCastException if the instance is not `EffectAcceptReferral`
+     */
+    @SuppressWarnings("unchecked")
+    public EffectAcceptReferral getEffectAcceptReferral() throws ClassCastException {
+        return (EffectAcceptReferral)super.getActualInstance();
+    }
+
+    /**
+     * Get the actual instance of `EffectAddFreeItem`. If the actual instance is not `EffectAddFreeItem`,
+     * the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `EffectAddFreeItem`
+     * @throws ClassCastException if the instance is not `EffectAddFreeItem`
+     */
+    @SuppressWarnings("unchecked")
+    public EffectAddFreeItem getEffectAddFreeItem() throws ClassCastException {
+        return (EffectAddFreeItem)super.getActualInstance();
+    }
+
+    /**
+     * Get the actual instance of `EffectAddLoyaltyPoints`. If the actual instance is not `EffectAddLoyaltyPoints`,
+     * the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `EffectAddLoyaltyPoints`
+     * @throws ClassCastException if the instance is not `EffectAddLoyaltyPoints`
+     */
+    @SuppressWarnings("unchecked")
+    public EffectAddLoyaltyPoints getEffectAddLoyaltyPoints() throws ClassCastException {
+        return (EffectAddLoyaltyPoints)super.getActualInstance();
+    }
+
+    /**
+     * Get the actual instance of `EffectAddNegativeLoyaltyPoints`. If the actual instance is not `EffectAddNegativeLoyaltyPoints`,
+     * the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `EffectAddNegativeLoyaltyPoints`
+     * @throws ClassCastException if the instance is not `EffectAddNegativeLoyaltyPoints`
+     */
+    @SuppressWarnings("unchecked")
+    public EffectAddNegativeLoyaltyPoints getEffectAddNegativeLoyaltyPoints() throws ClassCastException {
+        return (EffectAddNegativeLoyaltyPoints)super.getActualInstance();
+    }
+
+    /**
+     * Get the actual instance of `EffectAddToAudience`. If the actual instance is not `EffectAddToAudience`,
+     * the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `EffectAddToAudience`
+     * @throws ClassCastException if the instance is not `EffectAddToAudience`
+     */
+    @SuppressWarnings("unchecked")
+    public EffectAddToAudience getEffectAddToAudience() throws ClassCastException {
+        return (EffectAddToAudience)super.getActualInstance();
+    }
+
+    /**
+     * Get the actual instance of `EffectAwardGiveaway`. If the actual instance is not `EffectAwardGiveaway`,
+     * the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `EffectAwardGiveaway`
+     * @throws ClassCastException if the instance is not `EffectAwardGiveaway`
+     */
+    @SuppressWarnings("unchecked")
+    public EffectAwardGiveaway getEffectAwardGiveaway() throws ClassCastException {
+        return (EffectAwardGiveaway)super.getActualInstance();
+    }
+
+    /**
+     * Get the actual instance of `EffectCallApi`. If the actual instance is not `EffectCallApi`,
+     * the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `EffectCallApi`
+     * @throws ClassCastException if the instance is not `EffectCallApi`
+     */
+    @SuppressWarnings("unchecked")
+    public EffectCallApi getEffectCallApi() throws ClassCastException {
+        return (EffectCallApi)super.getActualInstance();
+    }
+
+    /**
+     * Get the actual instance of `EffectChangeLoyaltyTierLevel`. If the actual instance is not `EffectChangeLoyaltyTierLevel`,
+     * the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `EffectChangeLoyaltyTierLevel`
+     * @throws ClassCastException if the instance is not `EffectChangeLoyaltyTierLevel`
+     */
+    @SuppressWarnings("unchecked")
+    public EffectChangeLoyaltyTierLevel getEffectChangeLoyaltyTierLevel() throws ClassCastException {
+        return (EffectChangeLoyaltyTierLevel)super.getActualInstance();
+    }
+
+    /**
+     * Get the actual instance of `EffectCouponCreated`. If the actual instance is not `EffectCouponCreated`,
+     * the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `EffectCouponCreated`
+     * @throws ClassCastException if the instance is not `EffectCouponCreated`
+     */
+    @SuppressWarnings("unchecked")
+    public EffectCouponCreated getEffectCouponCreated() throws ClassCastException {
+        return (EffectCouponCreated)super.getActualInstance();
+    }
+
+    /**
+     * Get the actual instance of `EffectCustomEffect`. If the actual instance is not `EffectCustomEffect`,
+     * the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `EffectCustomEffect`
+     * @throws ClassCastException if the instance is not `EffectCustomEffect`
+     */
+    @SuppressWarnings("unchecked")
+    public EffectCustomEffect getEffectCustomEffect() throws ClassCastException {
+        return (EffectCustomEffect)super.getActualInstance();
+    }
+
+    /**
+     * Get the actual instance of `EffectDeductLoyaltyPoints`. If the actual instance is not `EffectDeductLoyaltyPoints`,
+     * the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `EffectDeductLoyaltyPoints`
+     * @throws ClassCastException if the instance is not `EffectDeductLoyaltyPoints`
+     */
+    @SuppressWarnings("unchecked")
+    public EffectDeductLoyaltyPoints getEffectDeductLoyaltyPoints() throws ClassCastException {
+        return (EffectDeductLoyaltyPoints)super.getActualInstance();
+    }
+
+    /**
+     * Get the actual instance of `EffectError`. If the actual instance is not `EffectError`,
+     * the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `EffectError`
+     * @throws ClassCastException if the instance is not `EffectError`
+     */
+    @SuppressWarnings("unchecked")
+    public EffectError getEffectError() throws ClassCastException {
+        return (EffectError)super.getActualInstance();
+    }
+
+    /**
+     * Get the actual instance of `EffectExtendLoyaltyPointsExpiryDate`. If the actual instance is not `EffectExtendLoyaltyPointsExpiryDate`,
+     * the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `EffectExtendLoyaltyPointsExpiryDate`
+     * @throws ClassCastException if the instance is not `EffectExtendLoyaltyPointsExpiryDate`
+     */
+    @SuppressWarnings("unchecked")
+    public EffectExtendLoyaltyPointsExpiryDate getEffectExtendLoyaltyPointsExpiryDate() throws ClassCastException {
+        return (EffectExtendLoyaltyPointsExpiryDate)super.getActualInstance();
+    }
+
+    /**
+     * Get the actual instance of `EffectIncreaseAchievementProgress`. If the actual instance is not `EffectIncreaseAchievementProgress`,
+     * the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `EffectIncreaseAchievementProgress`
+     * @throws ClassCastException if the instance is not `EffectIncreaseAchievementProgress`
+     */
+    @SuppressWarnings("unchecked")
+    public EffectIncreaseAchievementProgress getEffectIncreaseAchievementProgress() throws ClassCastException {
+        return (EffectIncreaseAchievementProgress)super.getActualInstance();
+    }
+
+    /**
+     * Get the actual instance of `EffectJoinLoyaltyProgram`. If the actual instance is not `EffectJoinLoyaltyProgram`,
+     * the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `EffectJoinLoyaltyProgram`
+     * @throws ClassCastException if the instance is not `EffectJoinLoyaltyProgram`
+     */
+    @SuppressWarnings("unchecked")
+    public EffectJoinLoyaltyProgram getEffectJoinLoyaltyProgram() throws ClassCastException {
+        return (EffectJoinLoyaltyProgram)super.getActualInstance();
+    }
+
+    /**
+     * Get the actual instance of `EffectOffsetNegativeLoyaltyPoints`. If the actual instance is not `EffectOffsetNegativeLoyaltyPoints`,
+     * the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `EffectOffsetNegativeLoyaltyPoints`
+     * @throws ClassCastException if the instance is not `EffectOffsetNegativeLoyaltyPoints`
+     */
+    @SuppressWarnings("unchecked")
+    public EffectOffsetNegativeLoyaltyPoints getEffectOffsetNegativeLoyaltyPoints() throws ClassCastException {
+        return (EffectOffsetNegativeLoyaltyPoints)super.getActualInstance();
+    }
+
+    /**
+     * Get the actual instance of `EffectRedeemReferral`. If the actual instance is not `EffectRedeemReferral`,
+     * the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `EffectRedeemReferral`
+     * @throws ClassCastException if the instance is not `EffectRedeemReferral`
+     */
+    @SuppressWarnings("unchecked")
+    public EffectRedeemReferral getEffectRedeemReferral() throws ClassCastException {
+        return (EffectRedeemReferral)super.getActualInstance();
+    }
+
+    /**
+     * Get the actual instance of `EffectReferralCreated`. If the actual instance is not `EffectReferralCreated`,
+     * the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `EffectReferralCreated`
+     * @throws ClassCastException if the instance is not `EffectReferralCreated`
+     */
+    @SuppressWarnings("unchecked")
+    public EffectReferralCreated getEffectReferralCreated() throws ClassCastException {
+        return (EffectReferralCreated)super.getActualInstance();
+    }
+
+    /**
+     * Get the actual instance of `EffectRejectCoupon`. If the actual instance is not `EffectRejectCoupon`,
+     * the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `EffectRejectCoupon`
+     * @throws ClassCastException if the instance is not `EffectRejectCoupon`
+     */
+    @SuppressWarnings("unchecked")
+    public EffectRejectCoupon getEffectRejectCoupon() throws ClassCastException {
+        return (EffectRejectCoupon)super.getActualInstance();
+    }
+
+    /**
+     * Get the actual instance of `EffectRejectReferral`. If the actual instance is not `EffectRejectReferral`,
+     * the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `EffectRejectReferral`
+     * @throws ClassCastException if the instance is not `EffectRejectReferral`
+     */
+    @SuppressWarnings("unchecked")
+    public EffectRejectReferral getEffectRejectReferral() throws ClassCastException {
+        return (EffectRejectReferral)super.getActualInstance();
+    }
+
+    /**
+     * Get the actual instance of `EffectRemoveFromAudience`. If the actual instance is not `EffectRemoveFromAudience`,
+     * the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `EffectRemoveFromAudience`
+     * @throws ClassCastException if the instance is not `EffectRemoveFromAudience`
+     */
+    @SuppressWarnings("unchecked")
+    public EffectRemoveFromAudience getEffectRemoveFromAudience() throws ClassCastException {
+        return (EffectRemoveFromAudience)super.getActualInstance();
+    }
+
+    /**
+     * Get the actual instance of `EffectReserveCoupon`. If the actual instance is not `EffectReserveCoupon`,
+     * the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `EffectReserveCoupon`
+     * @throws ClassCastException if the instance is not `EffectReserveCoupon`
+     */
+    @SuppressWarnings("unchecked")
+    public EffectReserveCoupon getEffectReserveCoupon() throws ClassCastException {
+        return (EffectReserveCoupon)super.getActualInstance();
+    }
+
+    /**
+     * Get the actual instance of `EffectRollbackAddedLoyaltyPoints`. If the actual instance is not `EffectRollbackAddedLoyaltyPoints`,
+     * the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `EffectRollbackAddedLoyaltyPoints`
+     * @throws ClassCastException if the instance is not `EffectRollbackAddedLoyaltyPoints`
+     */
+    @SuppressWarnings("unchecked")
+    public EffectRollbackAddedLoyaltyPoints getEffectRollbackAddedLoyaltyPoints() throws ClassCastException {
+        return (EffectRollbackAddedLoyaltyPoints)super.getActualInstance();
+    }
+
+    /**
+     * Get the actual instance of `EffectRollbackCoupon`. If the actual instance is not `EffectRollbackCoupon`,
+     * the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `EffectRollbackCoupon`
+     * @throws ClassCastException if the instance is not `EffectRollbackCoupon`
+     */
+    @SuppressWarnings("unchecked")
+    public EffectRollbackCoupon getEffectRollbackCoupon() throws ClassCastException {
+        return (EffectRollbackCoupon)super.getActualInstance();
+    }
+
+    /**
+     * Get the actual instance of `EffectRollbackDeductedLoyaltyPoints`. If the actual instance is not `EffectRollbackDeductedLoyaltyPoints`,
+     * the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `EffectRollbackDeductedLoyaltyPoints`
+     * @throws ClassCastException if the instance is not `EffectRollbackDeductedLoyaltyPoints`
+     */
+    @SuppressWarnings("unchecked")
+    public EffectRollbackDeductedLoyaltyPoints getEffectRollbackDeductedLoyaltyPoints() throws ClassCastException {
+        return (EffectRollbackDeductedLoyaltyPoints)super.getActualInstance();
+    }
+
+    /**
+     * Get the actual instance of `EffectRollbackDiscount`. If the actual instance is not `EffectRollbackDiscount`,
+     * the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `EffectRollbackDiscount`
+     * @throws ClassCastException if the instance is not `EffectRollbackDiscount`
+     */
+    @SuppressWarnings("unchecked")
+    public EffectRollbackDiscount getEffectRollbackDiscount() throws ClassCastException {
+        return (EffectRollbackDiscount)super.getActualInstance();
+    }
+
+    /**
+     * Get the actual instance of `EffectRollbackIncreasedAchievementProgress`. If the actual instance is not `EffectRollbackIncreasedAchievementProgress`,
+     * the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `EffectRollbackIncreasedAchievementProgress`
+     * @throws ClassCastException if the instance is not `EffectRollbackIncreasedAchievementProgress`
+     */
+    @SuppressWarnings("unchecked")
+    public EffectRollbackIncreasedAchievementProgress getEffectRollbackIncreasedAchievementProgress() throws ClassCastException {
+        return (EffectRollbackIncreasedAchievementProgress)super.getActualInstance();
+    }
+
+    /**
+     * Get the actual instance of `EffectRollbackReferral`. If the actual instance is not `EffectRollbackReferral`,
+     * the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `EffectRollbackReferral`
+     * @throws ClassCastException if the instance is not `EffectRollbackReferral`
+     */
+    @SuppressWarnings("unchecked")
+    public EffectRollbackReferral getEffectRollbackReferral() throws ClassCastException {
+        return (EffectRollbackReferral)super.getActualInstance();
+    }
+
+    /**
+     * Get the actual instance of `EffectRollbackUseReward`. If the actual instance is not `EffectRollbackUseReward`,
+     * the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `EffectRollbackUseReward`
+     * @throws ClassCastException if the instance is not `EffectRollbackUseReward`
+     */
+    @SuppressWarnings("unchecked")
+    public EffectRollbackUseReward getEffectRollbackUseReward() throws ClassCastException {
+        return (EffectRollbackUseReward)super.getActualInstance();
+    }
+
+    /**
+     * Get the actual instance of `EffectSet`. If the actual instance is not `EffectSet`,
+     * the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `EffectSet`
+     * @throws ClassCastException if the instance is not `EffectSet`
+     */
+    @SuppressWarnings("unchecked")
+    public EffectSet getEffectSet() throws ClassCastException {
+        return (EffectSet)super.getActualInstance();
+    }
+
+    /**
+     * Get the actual instance of `EffectSetDiscount`. If the actual instance is not `EffectSetDiscount`,
+     * the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `EffectSetDiscount`
+     * @throws ClassCastException if the instance is not `EffectSetDiscount`
+     */
+    @SuppressWarnings("unchecked")
+    public EffectSetDiscount getEffectSetDiscount() throws ClassCastException {
+        return (EffectSetDiscount)super.getActualInstance();
+    }
+
+    /**
+     * Get the actual instance of `EffectSetDiscountPerAdditionalCost`. If the actual instance is not `EffectSetDiscountPerAdditionalCost`,
+     * the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `EffectSetDiscountPerAdditionalCost`
+     * @throws ClassCastException if the instance is not `EffectSetDiscountPerAdditionalCost`
+     */
+    @SuppressWarnings("unchecked")
+    public EffectSetDiscountPerAdditionalCost getEffectSetDiscountPerAdditionalCost() throws ClassCastException {
+        return (EffectSetDiscountPerAdditionalCost)super.getActualInstance();
+    }
+
+    /**
+     * Get the actual instance of `EffectSetDiscountPerAdditionalCostPerItem`. If the actual instance is not `EffectSetDiscountPerAdditionalCostPerItem`,
+     * the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `EffectSetDiscountPerAdditionalCostPerItem`
+     * @throws ClassCastException if the instance is not `EffectSetDiscountPerAdditionalCostPerItem`
+     */
+    @SuppressWarnings("unchecked")
+    public EffectSetDiscountPerAdditionalCostPerItem getEffectSetDiscountPerAdditionalCostPerItem() throws ClassCastException {
+        return (EffectSetDiscountPerAdditionalCostPerItem)super.getActualInstance();
+    }
+
+    /**
+     * Get the actual instance of `EffectSetDiscountPerItem`. If the actual instance is not `EffectSetDiscountPerItem`,
+     * the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `EffectSetDiscountPerItem`
+     * @throws ClassCastException if the instance is not `EffectSetDiscountPerItem`
+     */
+    @SuppressWarnings("unchecked")
+    public EffectSetDiscountPerItem getEffectSetDiscountPerItem() throws ClassCastException {
+        return (EffectSetDiscountPerItem)super.getActualInstance();
+    }
+
+    /**
+     * Get the actual instance of `EffectSetLoyaltyPointsExpiryDate`. If the actual instance is not `EffectSetLoyaltyPointsExpiryDate`,
+     * the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `EffectSetLoyaltyPointsExpiryDate`
+     * @throws ClassCastException if the instance is not `EffectSetLoyaltyPointsExpiryDate`
+     */
+    @SuppressWarnings("unchecked")
+    public EffectSetLoyaltyPointsExpiryDate getEffectSetLoyaltyPointsExpiryDate() throws ClassCastException {
+        return (EffectSetLoyaltyPointsExpiryDate)super.getActualInstance();
+    }
+
+    /**
+     * Get the actual instance of `EffectShowBundleMetadata`. If the actual instance is not `EffectShowBundleMetadata`,
+     * the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `EffectShowBundleMetadata`
+     * @throws ClassCastException if the instance is not `EffectShowBundleMetadata`
+     */
+    @SuppressWarnings("unchecked")
+    public EffectShowBundleMetadata getEffectShowBundleMetadata() throws ClassCastException {
+        return (EffectShowBundleMetadata)super.getActualInstance();
+    }
+
+    /**
+     * Get the actual instance of `EffectShowNotification`. If the actual instance is not `EffectShowNotification`,
+     * the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `EffectShowNotification`
+     * @throws ClassCastException if the instance is not `EffectShowNotification`
+     */
+    @SuppressWarnings("unchecked")
+    public EffectShowNotification getEffectShowNotification() throws ClassCastException {
+        return (EffectShowNotification)super.getActualInstance();
+    }
+
+    /**
+     * Get the actual instance of `EffectStartAchievementProgress`. If the actual instance is not `EffectStartAchievementProgress`,
+     * the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `EffectStartAchievementProgress`
+     * @throws ClassCastException if the instance is not `EffectStartAchievementProgress`
+     */
+    @SuppressWarnings("unchecked")
+    public EffectStartAchievementProgress getEffectStartAchievementProgress() throws ClassCastException {
+        return (EffectStartAchievementProgress)super.getActualInstance();
+    }
+
+    /**
+     * Get the actual instance of `EffectUnlockReward`. If the actual instance is not `EffectUnlockReward`,
+     * the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `EffectUnlockReward`
+     * @throws ClassCastException if the instance is not `EffectUnlockReward`
+     */
+    @SuppressWarnings("unchecked")
+    public EffectUnlockReward getEffectUnlockReward() throws ClassCastException {
+        return (EffectUnlockReward)super.getActualInstance();
+    }
+
+    /**
+     * Get the actual instance of `EffectUseReward`. If the actual instance is not `EffectUseReward`,
+     * the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `EffectUseReward`
+     * @throws ClassCastException if the instance is not `EffectUseReward`
+     */
+    @SuppressWarnings("unchecked")
+    public EffectUseReward getEffectUseReward() throws ClassCastException {
+        return (EffectUseReward)super.getActualInstance();
+    }
+
+    /**
+     * Get the actual instance of `EffectWillAwardGiveaway`. If the actual instance is not `EffectWillAwardGiveaway`,
+     * the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `EffectWillAwardGiveaway`
+     * @throws ClassCastException if the instance is not `EffectWillAwardGiveaway`
+     */
+    @SuppressWarnings("unchecked")
+    public EffectWillAwardGiveaway getEffectWillAwardGiveaway() throws ClassCastException {
+        return (EffectWillAwardGiveaway)super.getActualInstance();
+    }
+
+    /**
+     * Validates the JSON Element and throws an exception if issues found
+     *
+     * @param jsonElement JSON Element
+     * @throws IOException if the JSON Element is invalid with respect to Effect
+     */
+    public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+        // validate oneOf schemas one by one
+        int validCount = 0;
+        ArrayList<String> errorMessages = new ArrayList<>();
+        // validate the json string with EffectAcceptCoupon
+        try {
+            EffectAcceptCoupon.validateJsonElement(jsonElement);
+            validCount++;
+        } catch (Exception e) {
+            errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for EffectAcceptCoupon failed with `%s`.", e.getMessage()));
+            // continue to the next one
+        }
+        // validate the json string with EffectAcceptReferral
+        try {
+            EffectAcceptReferral.validateJsonElement(jsonElement);
+            validCount++;
+        } catch (Exception e) {
+            errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for EffectAcceptReferral failed with `%s`.", e.getMessage()));
+            // continue to the next one
+        }
+        // validate the json string with EffectAddFreeItem
+        try {
+            EffectAddFreeItem.validateJsonElement(jsonElement);
+            validCount++;
+        } catch (Exception e) {
+            errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for EffectAddFreeItem failed with `%s`.", e.getMessage()));
+            // continue to the next one
+        }
+        // validate the json string with EffectAddLoyaltyPoints
+        try {
+            EffectAddLoyaltyPoints.validateJsonElement(jsonElement);
+            validCount++;
+        } catch (Exception e) {
+            errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for EffectAddLoyaltyPoints failed with `%s`.", e.getMessage()));
+            // continue to the next one
+        }
+        // validate the json string with EffectAddNegativeLoyaltyPoints
+        try {
+            EffectAddNegativeLoyaltyPoints.validateJsonElement(jsonElement);
+            validCount++;
+        } catch (Exception e) {
+            errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for EffectAddNegativeLoyaltyPoints failed with `%s`.", e.getMessage()));
+            // continue to the next one
+        }
+        // validate the json string with EffectAddToAudience
+        try {
+            EffectAddToAudience.validateJsonElement(jsonElement);
+            validCount++;
+        } catch (Exception e) {
+            errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for EffectAddToAudience failed with `%s`.", e.getMessage()));
+            // continue to the next one
+        }
+        // validate the json string with EffectAwardGiveaway
+        try {
+            EffectAwardGiveaway.validateJsonElement(jsonElement);
+            validCount++;
+        } catch (Exception e) {
+            errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for EffectAwardGiveaway failed with `%s`.", e.getMessage()));
+            // continue to the next one
+        }
+        // validate the json string with EffectCallApi
+        try {
+            EffectCallApi.validateJsonElement(jsonElement);
+            validCount++;
+        } catch (Exception e) {
+            errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for EffectCallApi failed with `%s`.", e.getMessage()));
+            // continue to the next one
+        }
+        // validate the json string with EffectChangeLoyaltyTierLevel
+        try {
+            EffectChangeLoyaltyTierLevel.validateJsonElement(jsonElement);
+            validCount++;
+        } catch (Exception e) {
+            errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for EffectChangeLoyaltyTierLevel failed with `%s`.", e.getMessage()));
+            // continue to the next one
+        }
+        // validate the json string with EffectCouponCreated
+        try {
+            EffectCouponCreated.validateJsonElement(jsonElement);
+            validCount++;
+        } catch (Exception e) {
+            errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for EffectCouponCreated failed with `%s`.", e.getMessage()));
+            // continue to the next one
+        }
+        // validate the json string with EffectCustomEffect
+        try {
+            EffectCustomEffect.validateJsonElement(jsonElement);
+            validCount++;
+        } catch (Exception e) {
+            errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for EffectCustomEffect failed with `%s`.", e.getMessage()));
+            // continue to the next one
+        }
+        // validate the json string with EffectDeductLoyaltyPoints
+        try {
+            EffectDeductLoyaltyPoints.validateJsonElement(jsonElement);
+            validCount++;
+        } catch (Exception e) {
+            errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for EffectDeductLoyaltyPoints failed with `%s`.", e.getMessage()));
+            // continue to the next one
+        }
+        // validate the json string with EffectError
+        try {
+            EffectError.validateJsonElement(jsonElement);
+            validCount++;
+        } catch (Exception e) {
+            errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for EffectError failed with `%s`.", e.getMessage()));
+            // continue to the next one
+        }
+        // validate the json string with EffectExtendLoyaltyPointsExpiryDate
+        try {
+            EffectExtendLoyaltyPointsExpiryDate.validateJsonElement(jsonElement);
+            validCount++;
+        } catch (Exception e) {
+            errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for EffectExtendLoyaltyPointsExpiryDate failed with `%s`.", e.getMessage()));
+            // continue to the next one
+        }
+        // validate the json string with EffectIncreaseAchievementProgress
+        try {
+            EffectIncreaseAchievementProgress.validateJsonElement(jsonElement);
+            validCount++;
+        } catch (Exception e) {
+            errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for EffectIncreaseAchievementProgress failed with `%s`.", e.getMessage()));
+            // continue to the next one
+        }
+        // validate the json string with EffectJoinLoyaltyProgram
+        try {
+            EffectJoinLoyaltyProgram.validateJsonElement(jsonElement);
+            validCount++;
+        } catch (Exception e) {
+            errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for EffectJoinLoyaltyProgram failed with `%s`.", e.getMessage()));
+            // continue to the next one
+        }
+        // validate the json string with EffectOffsetNegativeLoyaltyPoints
+        try {
+            EffectOffsetNegativeLoyaltyPoints.validateJsonElement(jsonElement);
+            validCount++;
+        } catch (Exception e) {
+            errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for EffectOffsetNegativeLoyaltyPoints failed with `%s`.", e.getMessage()));
+            // continue to the next one
+        }
+        // validate the json string with EffectRedeemReferral
+        try {
+            EffectRedeemReferral.validateJsonElement(jsonElement);
+            validCount++;
+        } catch (Exception e) {
+            errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for EffectRedeemReferral failed with `%s`.", e.getMessage()));
+            // continue to the next one
+        }
+        // validate the json string with EffectReferralCreated
+        try {
+            EffectReferralCreated.validateJsonElement(jsonElement);
+            validCount++;
+        } catch (Exception e) {
+            errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for EffectReferralCreated failed with `%s`.", e.getMessage()));
+            // continue to the next one
+        }
+        // validate the json string with EffectRejectCoupon
+        try {
+            EffectRejectCoupon.validateJsonElement(jsonElement);
+            validCount++;
+        } catch (Exception e) {
+            errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for EffectRejectCoupon failed with `%s`.", e.getMessage()));
+            // continue to the next one
+        }
+        // validate the json string with EffectRejectReferral
+        try {
+            EffectRejectReferral.validateJsonElement(jsonElement);
+            validCount++;
+        } catch (Exception e) {
+            errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for EffectRejectReferral failed with `%s`.", e.getMessage()));
+            // continue to the next one
+        }
+        // validate the json string with EffectRemoveFromAudience
+        try {
+            EffectRemoveFromAudience.validateJsonElement(jsonElement);
+            validCount++;
+        } catch (Exception e) {
+            errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for EffectRemoveFromAudience failed with `%s`.", e.getMessage()));
+            // continue to the next one
+        }
+        // validate the json string with EffectReserveCoupon
+        try {
+            EffectReserveCoupon.validateJsonElement(jsonElement);
+            validCount++;
+        } catch (Exception e) {
+            errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for EffectReserveCoupon failed with `%s`.", e.getMessage()));
+            // continue to the next one
+        }
+        // validate the json string with EffectRollbackAddedLoyaltyPoints
+        try {
+            EffectRollbackAddedLoyaltyPoints.validateJsonElement(jsonElement);
+            validCount++;
+        } catch (Exception e) {
+            errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for EffectRollbackAddedLoyaltyPoints failed with `%s`.", e.getMessage()));
+            // continue to the next one
+        }
+        // validate the json string with EffectRollbackCoupon
+        try {
+            EffectRollbackCoupon.validateJsonElement(jsonElement);
+            validCount++;
+        } catch (Exception e) {
+            errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for EffectRollbackCoupon failed with `%s`.", e.getMessage()));
+            // continue to the next one
+        }
+        // validate the json string with EffectRollbackDeductedLoyaltyPoints
+        try {
+            EffectRollbackDeductedLoyaltyPoints.validateJsonElement(jsonElement);
+            validCount++;
+        } catch (Exception e) {
+            errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for EffectRollbackDeductedLoyaltyPoints failed with `%s`.", e.getMessage()));
+            // continue to the next one
+        }
+        // validate the json string with EffectRollbackDiscount
+        try {
+            EffectRollbackDiscount.validateJsonElement(jsonElement);
+            validCount++;
+        } catch (Exception e) {
+            errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for EffectRollbackDiscount failed with `%s`.", e.getMessage()));
+            // continue to the next one
+        }
+        // validate the json string with EffectRollbackIncreasedAchievementProgress
+        try {
+            EffectRollbackIncreasedAchievementProgress.validateJsonElement(jsonElement);
+            validCount++;
+        } catch (Exception e) {
+            errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for EffectRollbackIncreasedAchievementProgress failed with `%s`.", e.getMessage()));
+            // continue to the next one
+        }
+        // validate the json string with EffectRollbackReferral
+        try {
+            EffectRollbackReferral.validateJsonElement(jsonElement);
+            validCount++;
+        } catch (Exception e) {
+            errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for EffectRollbackReferral failed with `%s`.", e.getMessage()));
+            // continue to the next one
+        }
+        // validate the json string with EffectRollbackUseReward
+        try {
+            EffectRollbackUseReward.validateJsonElement(jsonElement);
+            validCount++;
+        } catch (Exception e) {
+            errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for EffectRollbackUseReward failed with `%s`.", e.getMessage()));
+            // continue to the next one
+        }
+        // validate the json string with EffectSet
+        try {
+            EffectSet.validateJsonElement(jsonElement);
+            validCount++;
+        } catch (Exception e) {
+            errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for EffectSet failed with `%s`.", e.getMessage()));
+            // continue to the next one
+        }
+        // validate the json string with EffectSetDiscount
+        try {
+            EffectSetDiscount.validateJsonElement(jsonElement);
+            validCount++;
+        } catch (Exception e) {
+            errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for EffectSetDiscount failed with `%s`.", e.getMessage()));
+            // continue to the next one
+        }
+        // validate the json string with EffectSetDiscountPerAdditionalCost
+        try {
+            EffectSetDiscountPerAdditionalCost.validateJsonElement(jsonElement);
+            validCount++;
+        } catch (Exception e) {
+            errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for EffectSetDiscountPerAdditionalCost failed with `%s`.", e.getMessage()));
+            // continue to the next one
+        }
+        // validate the json string with EffectSetDiscountPerAdditionalCostPerItem
+        try {
+            EffectSetDiscountPerAdditionalCostPerItem.validateJsonElement(jsonElement);
+            validCount++;
+        } catch (Exception e) {
+            errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for EffectSetDiscountPerAdditionalCostPerItem failed with `%s`.", e.getMessage()));
+            // continue to the next one
+        }
+        // validate the json string with EffectSetDiscountPerItem
+        try {
+            EffectSetDiscountPerItem.validateJsonElement(jsonElement);
+            validCount++;
+        } catch (Exception e) {
+            errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for EffectSetDiscountPerItem failed with `%s`.", e.getMessage()));
+            // continue to the next one
+        }
+        // validate the json string with EffectSetLoyaltyPointsExpiryDate
+        try {
+            EffectSetLoyaltyPointsExpiryDate.validateJsonElement(jsonElement);
+            validCount++;
+        } catch (Exception e) {
+            errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for EffectSetLoyaltyPointsExpiryDate failed with `%s`.", e.getMessage()));
+            // continue to the next one
+        }
+        // validate the json string with EffectShowBundleMetadata
+        try {
+            EffectShowBundleMetadata.validateJsonElement(jsonElement);
+            validCount++;
+        } catch (Exception e) {
+            errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for EffectShowBundleMetadata failed with `%s`.", e.getMessage()));
+            // continue to the next one
+        }
+        // validate the json string with EffectShowNotification
+        try {
+            EffectShowNotification.validateJsonElement(jsonElement);
+            validCount++;
+        } catch (Exception e) {
+            errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for EffectShowNotification failed with `%s`.", e.getMessage()));
+            // continue to the next one
+        }
+        // validate the json string with EffectStartAchievementProgress
+        try {
+            EffectStartAchievementProgress.validateJsonElement(jsonElement);
+            validCount++;
+        } catch (Exception e) {
+            errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for EffectStartAchievementProgress failed with `%s`.", e.getMessage()));
+            // continue to the next one
+        }
+        // validate the json string with EffectUnlockReward
+        try {
+            EffectUnlockReward.validateJsonElement(jsonElement);
+            validCount++;
+        } catch (Exception e) {
+            errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for EffectUnlockReward failed with `%s`.", e.getMessage()));
+            // continue to the next one
+        }
+        // validate the json string with EffectUseReward
+        try {
+            EffectUseReward.validateJsonElement(jsonElement);
+            validCount++;
+        } catch (Exception e) {
+            errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for EffectUseReward failed with `%s`.", e.getMessage()));
+            // continue to the next one
+        }
+        // validate the json string with EffectWillAwardGiveaway
+        try {
+            EffectWillAwardGiveaway.validateJsonElement(jsonElement);
+            validCount++;
+        } catch (Exception e) {
+            errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for EffectWillAwardGiveaway failed with `%s`.", e.getMessage()));
+            // continue to the next one
+        }
+        if (validCount != 1) {
+            throw new IOException(String.format(java.util.Locale.ROOT, "The JSON string is invalid for Effect with oneOf schemas: EffectAcceptCoupon, EffectAcceptReferral, EffectAddFreeItem, EffectAddLoyaltyPoints, EffectAddNegativeLoyaltyPoints, EffectAddToAudience, EffectAwardGiveaway, EffectCallApi, EffectChangeLoyaltyTierLevel, EffectCouponCreated, EffectCustomEffect, EffectDeductLoyaltyPoints, EffectError, EffectExtendLoyaltyPointsExpiryDate, EffectIncreaseAchievementProgress, EffectJoinLoyaltyProgram, EffectOffsetNegativeLoyaltyPoints, EffectRedeemReferral, EffectReferralCreated, EffectRejectCoupon, EffectRejectReferral, EffectRemoveFromAudience, EffectReserveCoupon, EffectRollbackAddedLoyaltyPoints, EffectRollbackCoupon, EffectRollbackDeductedLoyaltyPoints, EffectRollbackDiscount, EffectRollbackIncreasedAchievementProgress, EffectRollbackReferral, EffectRollbackUseReward, EffectSet, EffectSetDiscount, EffectSetDiscountPerAdditionalCost, EffectSetDiscountPerAdditionalCostPerItem, EffectSetDiscountPerItem, EffectSetLoyaltyPointsExpiryDate, EffectShowBundleMetadata, EffectShowNotification, EffectStartAchievementProgress, EffectUnlockReward, EffectUseReward, EffectWillAwardGiveaway. %d class(es) match the result, expected 1. Detailed failure message for oneOf schemas: %s. JSON: %s", validCount, errorMessages, jsonElement.toString()));
+        }
+    }
+
+    /**
+     * Create an instance of Effect given an JSON string
+     *
+     * @param jsonString JSON string
+     * @return An instance of Effect
+     * @throws IOException if the JSON string is invalid with respect to Effect
+     */
+    public static Effect fromJson(String jsonString) throws IOException {
+        return JSON.getGson().fromJson(jsonString, Effect.class);
+    }
+
+    /**
+     * Convert an instance of Effect to an JSON string
+     *
+     * @return JSON string
+     */
+    public String toJson() {
+        return JSON.getGson().toJson(this);
+    }
 }
 
