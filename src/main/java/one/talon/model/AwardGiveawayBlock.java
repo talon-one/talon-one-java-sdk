@@ -26,7 +26,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import one.talon.model.Block;
-import one.talon.model.GiveawayPoolReference;
+import one.talon.model.GiveawayPoolBlockReference;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -75,7 +75,7 @@ public class AwardGiveawayBlock {
   public static final String SERIALIZED_NAME_GIVEAWAY_POOL = "giveawayPool";
   @SerializedName(SERIALIZED_NAME_GIVEAWAY_POOL)
   @javax.annotation.Nonnull
-  private GiveawayPoolReference giveawayPool;
+  private GiveawayPoolBlockReference giveawayPool;
 
   /**
    * The customer profile to award the giveaway to. &#x60;Current&#x60; targets the customer in the current session; &#x60;Advocate&#x60; targets the person who invited their friend via referral program.
@@ -197,7 +197,7 @@ public class AwardGiveawayBlock {
 
 
 
-  public AwardGiveawayBlock giveawayPool(@javax.annotation.Nonnull GiveawayPoolReference giveawayPool) {
+  public AwardGiveawayBlock giveawayPool(@javax.annotation.Nonnull GiveawayPoolBlockReference giveawayPool) {
     this.giveawayPool = giveawayPool;
     return this;
   }
@@ -207,11 +207,11 @@ public class AwardGiveawayBlock {
    * @return giveawayPool
    */
   @javax.annotation.Nonnull
-  public GiveawayPoolReference getGiveawayPool() {
+  public GiveawayPoolBlockReference getGiveawayPool() {
     return giveawayPool;
   }
 
-  public void setGiveawayPool(@javax.annotation.Nonnull GiveawayPoolReference giveawayPool) {
+  public void setGiveawayPool(@javax.annotation.Nonnull GiveawayPoolBlockReference giveawayPool) {
     this.giveawayPool = giveawayPool;
   }
 
@@ -425,7 +425,7 @@ public class AwardGiveawayBlock {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `tags` to be an array in the JSON string but got `%s`", jsonObj.get("tags").toString()));
       }
       // validate the required field `giveawayPool`
-      GiveawayPoolReference.validateJsonElement(jsonObj.get("giveawayPool"));
+      GiveawayPoolBlockReference.validateJsonElement(jsonObj.get("giveawayPool"));
       if (!jsonObj.get("profile").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `profile` to be a primitive type in the JSON string but got `%s`", jsonObj.get("profile").toString()));
       }
