@@ -24,17 +24,17 @@ import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 /**
- * Model tests for UpdateAttributeValueBlock1Attribute
+ * Model tests for CustomEffectBlockReference
  */
-public class UpdateAttributeValueBlock1AttributeTest {
-    private final UpdateAttributeValueBlock1Attribute model = new UpdateAttributeValueBlock1Attribute();
+public class CustomEffectBlockReferenceTest {
+    private final CustomEffectBlockReference model = new CustomEffectBlockReference();
 
     /**
-     * Model tests for UpdateAttributeValueBlock1Attribute
+     * Model tests for CustomEffectBlockReference
      */
     @Test
-    public void testUpdateAttributeValueBlock1Attribute() {
-        // TODO: test UpdateAttributeValueBlock1Attribute
+    public void testCustomEffectBlockReference() {
+        // TODO: test CustomEffectBlockReference
     }
 
     /**
@@ -43,14 +43,6 @@ public class UpdateAttributeValueBlock1AttributeTest {
     @Test
     public void idTest() {
         // TODO: test id
-    }
-
-    /**
-     * Test the property 'entity'
-     */
-    @Test
-    public void entityTest() {
-        // TODO: test entity
     }
 
     /**
@@ -67,14 +59,6 @@ public class UpdateAttributeValueBlock1AttributeTest {
     @Test
     public void titleTest() {
         // TODO: test title
-    }
-
-    /**
-     * Test the property 'type'
-     */
-    @Test
-    public void typeTest() {
-        // TODO: test type
     }
 
 }

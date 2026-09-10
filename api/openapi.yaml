@@ -13993,6 +13993,22 @@ paths:
           minimum: 1
           type: integer
         style: form
+      - description: |
+          Filter results by one or more campaign IDs.
+
+          To include multiple IDs, repeat the parameter for each one, for example,`?campaignId=123&campaignId=456`.
+          The response contains only achievements associated with the specified campaigns.
+        explode: true
+        in: query
+        name: campaignId
+        required: false
+        schema:
+          items:
+            format: int64
+            type: integer
+          type: array
+          default: null
+        style: form
       - $ref: "#/components/parameters/skip"
       - $ref: "#/components/parameters/sort"
       - description: Filter by the display name of the achievement.
@@ -24755,15 +24771,16 @@ components:
           example: summer-loyalty-0e2f
           type: string
         platform:
-          description: The wallet platform the pass is generated for.
+          description: |
+            The wallet platform the pass is generated for. Possible values:
+
+            - `apple`: The digital pass is generated for Apple Wallet.
+            - `google`: The digital pass is generated for Google Wallet.
           enum:
           - apple
           - google
           example: google
           type: string
-          x-enum-descriptions:
-            apple: The digital pass is generated for Apple Wallet.
-            google: The digital pass is generated for Google Wallet.
         attributes:
           additionalProperties:
             type: string
@@ -24789,13 +24806,14 @@ components:
           example: tmpl_summer_loyalty
           type: string
         status:
-          description: The status of the digital pass.
+          description: |
+            The status of the digital pass.
+
+            `created` indicates that the pass was generated and is ready to be added to a wallet.
           enum:
           - created
           example: created
           type: string
-          x-enum-descriptions:
-            created: The pass was generated and is ready to be added to a wallet.
         passUrl:
           description: The URL you can use to let the customer add the digital pass
             to their wallet.
@@ -30090,7 +30108,7 @@ components:
         - quantity
         - sku
         title: AwardItemBlock
-    GiveawayPoolReference:
+    GiveawayPoolBlockReference:
       allOf:
       - description: The giveaway pool from which a giveaway is awarded.
         properties:
@@ -30115,7 +30133,7 @@ components:
         properties:
           giveawayPool:
             allOf:
-            - $ref: "#/components/schemas/GiveawayPoolReference"
+            - $ref: "#/components/schemas/GiveawayPoolBlockReference"
             description: The giveaway pool from which an item is awarded.
           profile:
             description: The customer profile to award the giveaway to. `Current`
@@ -30144,6 +30162,22 @@ components:
         - giveawayPool
         - profile
         title: AwardGiveawayBlock
+    WebhookBlockReference:
+      allOf:
+      - description: The webhook to trigger.
+        properties:
+          id:
+            description: The unique identifier of the webhook.
+            example: 1
+            format: int64
+            type: integer
+          title:
+            description: The display name of the webhook.
+            example: Thank you for your order.
+            type: string
+        required:
+        - id
+        - title
     TriggerWebhookBlock:
       allOf:
       - $ref: "#/components/schemas/BaseBlock"
@@ -30151,7 +30185,9 @@ components:
           parameters.
         properties:
           webhook:
-            $ref: "#/components/schemas/TriggerWebhookBlock_1_webhook"
+            allOf:
+            - $ref: "#/components/schemas/WebhookBlockReference"
+            description: The webhook to trigger.
           params:
             additionalProperties: true
             description: "The webhook's parameters, in configured order. Each property\
@@ -30635,6 +30671,38 @@ components:
       - $ref: "#/components/schemas/UnaryCheckAttributeBlock"
       - $ref: "#/components/schemas/WithinCheckAttributeBlock"
       - $ref: "#/components/schemas/LocationCheckAttributeBlock"
+    AudienceBlockReference:
+      allOf:
+      - description: The audience to check the profile against.
+        properties:
+          id:
+            description: The ID of the audience.
+            example: 42
+            format: int64
+            type: integer
+          name:
+            description: The display name of the audience.
+            example: Travel audience
+            type: string
+          integration:
+            description: |
+              The Talon.One-supported [3rd-party platform](https://docs.talon.one/docs/dev/technology-partners/overview) that this audience was created in.
+
+              For example, `mParticle`, `Segment`, `Shopify`, `Braze`, or `Iterable`.
+
+              **Note:** If you do not integrate with any of these platforms, do not use this property.
+            example: mparticle
+            type: string
+          integrationId:
+            description: |
+              The ID of this audience in the third-party integration.
+
+              **Note:** To create an audience that doesn't come from a 3rd party platform, do not use this property.
+            example: 382370BKDB946
+            type: string
+        required:
+        - id
+        - name
     CheckAudienceBlock:
       allOf:
       - $ref: "#/components/schemas/BaseBlock"
@@ -30660,7 +30728,9 @@ components:
             example: Current
             type: string
           audience:
-            $ref: "#/components/schemas/CheckAudienceBlock_1_audience"
+            allOf:
+            - $ref: "#/components/schemas/AudienceBlockReference"
+            description: The audience to check the profile against.
           onFailure:
             description: Promotion blocks evaluated when this block fails or returns
               false.
@@ -30737,6 +30807,12 @@ components:
       - $ref: "#/components/schemas/BaseBlock"
       - description: A block that validates the coupon code value and date.
         properties:
+          type:
+            description: A block discriminator of type `checkCoupon`.
+            enum:
+            - checkCoupon
+            example: checkCoupon
+            type: string
           redeem:
             description: "When `true`, the coupon code is redeemed."
             example: true
@@ -30750,12 +30826,19 @@ components:
             default: null
         required:
         - redeem
+        - type
         title: CheckCouponBlock
     CheckReferralBlock:
       allOf:
       - $ref: "#/components/schemas/BaseBlock"
       - description: A block that validates the referral code value and date.
         properties:
+          type:
+            description: A block discriminator of type `checkReferral`.
+            enum:
+            - checkReferral
+            example: checkReferral
+            type: string
           redeem:
             description: "When `true`, the referral code is redeemed."
             example: true
@@ -30769,6 +30852,7 @@ components:
             default: null
         required:
         - redeem
+        - type
         title: CheckReferralBlock
     UpdateAudienceMembershipBlock:
       allOf:
@@ -30792,12 +30876,41 @@ components:
             example: Current
             type: string
           audience:
-            $ref: "#/components/schemas/UpdateAudienceMembershipBlock_1_audience"
+            allOf:
+            - $ref: "#/components/schemas/AudienceBlockReference"
+            description: The audience to add the customer to or remove them from.
         required:
         - audience
         - operator
         - profile
         title: UpdateAudienceMembershipBlock
+    AchievementBlockReference:
+      allOf:
+      - description: The achievement to check for.
+        properties:
+          id:
+            description: The ID of the achievement.
+            example: 42
+            format: int64
+            type: integer
+          title:
+            description: The display name for the achievement in the Campaign Manager.
+            example: 50% off on 50th purchase.
+            type: string
+          name:
+            description: The internal name of the achievement used in API requests.
+            example: Order50Discount
+            type: string
+          target:
+            description: The required number of actions or the transactional milestone
+              to complete the achievement.
+            example: 50
+            type: number
+        required:
+        - id
+        - name
+        - target
+        - title
     UpdateAchievementProgressBlock:
       allOf:
       - $ref: "#/components/schemas/BaseBlock"
@@ -30814,12 +30927,47 @@ components:
             example: "10"
             type: string
           achievement:
-            $ref: "#/components/schemas/UpdateAchievementProgressBlock_1_achievement"
+            allOf:
+            - $ref: "#/components/schemas/AchievementBlockReference"
+            description: The achievement to update.
         required:
         - achievement
         - operator
         - value
         title: UpdateAchievementProgressBlock
+    AttributeBlockReference:
+      allOf:
+      - description: The attribute being updated.
+        properties:
+          id:
+            description: The internal ID of the attribute. Reverts to `0` when the
+              attribute is deleted or does not exist.
+            example: 100
+            format: int64
+            type: integer
+          entity:
+            description: The entity type that owns the attribute. Reverts to an empty
+              string when the attribute is deleted or does not exist.
+            example: profile
+            type: string
+          name:
+            description: The attribute name as used in API requests.
+            example: City
+            type: string
+          title:
+            description: The human-readable name of the attribute.
+            example: City
+            type: string
+          type:
+            description: The data type of the attribute.
+            example: string
+            type: string
+        required:
+        - entity
+        - id
+        - name
+        - title
+        - type
     UpdateAttributeValueBlock:
       allOf:
       - $ref: "#/components/schemas/BaseBlock"
@@ -30840,7 +30988,9 @@ components:
             example: setTo
             type: string
           attribute:
-            $ref: "#/components/schemas/UpdateAttributeValueBlock_1_attribute"
+            allOf:
+            - $ref: "#/components/schemas/AttributeBlockReference"
+            description: The attribute being updated.
           value:
             description: The value of the attribute. Omitted when operator is set
               to `toggle`.
@@ -30858,6 +31008,27 @@ components:
         - operator
         - target
         title: UpdateAttributeValueBlock
+    CustomEffectBlockReference:
+      allOf:
+      - description: The custom effect to trigger.
+        properties:
+          id:
+            description: The unique identifier of the custom effect.
+            example: 1
+            format: int64
+            type: integer
+          name:
+            description: "The name of the custom effect, as used in API requests."
+            example: sendEmail
+            type: string
+          title:
+            description: The display name of the custom effect.
+            example: Send email
+            type: string
+        required:
+        - id
+        - name
+        - title
     TriggerCustomEffectBlock:
       allOf:
       - $ref: "#/components/schemas/BaseBlock"
@@ -30865,7 +31036,9 @@ components:
           required parameters.
         properties:
           customEffect:
-            $ref: "#/components/schemas/TriggerCustomEffectBlock_1_customEffect"
+            allOf:
+            - $ref: "#/components/schemas/CustomEffectBlockReference"
+            description: The custom effect to trigger.
           params:
             additionalProperties: true
             description: "The custom effect's parameters, in configured order. Each\
@@ -30933,7 +31106,9 @@ components:
             example: justCompleted
             type: string
           achievement:
-            $ref: "#/components/schemas/CheckAchievementBlock_1_achievement"
+            allOf:
+            - $ref: "#/components/schemas/AchievementBlockReference"
+            description: The achievement to check for.
           onFailure:
             description: Promotion blocks evaluated when this block fails or returns
               false.
@@ -31105,6 +31280,28 @@ components:
         required:
         - operator
         title: CheckLoyaltyCardBlock
+    TierBlockReference:
+      allOf:
+      - properties:
+          id:
+            description: The ID of the tier.
+            example: 42
+            format: int64
+            type: integer
+          name:
+            description: The display name of the tier.
+            example: Bronze
+            type: string
+          minPoints:
+            description: The minimum amount of points required to enter the tier.
+            example: 150
+            type: number
+          upperLimit:
+            type: number
+        required:
+        - id
+        - minPoints
+        - name
     CheckTierBlock:
       allOf:
       - $ref: "#/components/schemas/BaseBlock"
@@ -31125,7 +31322,9 @@ components:
             example: ""
             type: string
           tier:
-            $ref: "#/components/schemas/CheckTierBlock_1_tier"
+            allOf:
+            - $ref: "#/components/schemas/TierBlockReference"
+            description: The tier to check for.
           onFailure:
             description: Promotion blocks evaluated when this block fails or returns
               false.
@@ -43656,6 +43855,27 @@ components:
             example: Approved after manual review.
             type: string
       description: Points to add via the support portal.
+    SupportBalances:
+      description: The loyalty points balance for a support agent and a specific customer
+        profile.
+      properties:
+        threshold:
+          description: |
+            The maximum number of loyalty points the support agent is allowed to award for this loyalty program. Not present if the agent has no configured limit.
+          example: 1000
+          type: number
+        awardedPoints:
+          description: |
+            The total number of loyalty points already awarded to this customer profile by this support agent.
+          example: 350
+          type: number
+        remainingBalance:
+          description: |
+            The remaining number of loyalty points the support agent can still award to this customer profile. Not present if the agent has no configured limit.
+          example: 650
+          type: number
+      required:
+      - awardedPoints
     ApplicationMembership:
       properties:
         applicationId:
@@ -52514,21 +52734,6 @@ components:
         type: number
       - example: "{{$Session.CartTotal * 0.1}}"
         type: string
-    TriggerWebhookBlock_1_webhook:
-      description: The webhook to trigger.
-      properties:
-        id:
-          description: The unique identifier of the webhook.
-          example: 1
-          format: int64
-          type: integer
-        title:
-          description: The display name of the webhook.
-          example: Thank you for your order.
-          type: string
-      required:
-      - id
-      - title
     LocationCheckAttributeBlock_values_oneOf_inner:
       properties:
         name:
@@ -52549,37 +52754,6 @@ components:
       - description: A reference to a list attribute that contains locations.
         example: "{{$Session.AllowedZones}}"
         type: string
-    CheckAudienceBlock_1_audience:
-      description: The audience to check the profile against.
-      properties:
-        id:
-          description: The ID of the audience.
-          example: 42
-          format: int64
-          type: integer
-        name:
-          description: The display name of the audience.
-          example: Travel audience
-          type: string
-        integration:
-          description: |
-            The Talon.One-supported [3rd-party platform](https://docs.talon.one/docs/dev/technology-partners/overview) that this audience was created in.
-
-            For example, `mParticle`, `Segment`, `Shopify`, `Braze`, or `Iterable`.
-
-            **Note:** If you do not integrate with any of these platforms, do not use this property.
-          example: mparticle
-          type: string
-        integrationId:
-          description: |
-            The ID of this audience in the third-party integration.
-
-            **Note:** To create an audience that doesn't come from a 3rd party platform, do not use this property.
-          example: 382370BKDB946
-          type: string
-      required:
-      - id
-      - name
     CheckLoyaltyBalanceBlock_1_program:
       description: The loyalty program whose ledger balance is checked.
       properties:
@@ -52600,95 +52774,6 @@ components:
       - id
       - name
       - title
-    UpdateAudienceMembershipBlock_1_audience:
-      description: The audience to add the customer to or remove them from.
-      properties:
-        id:
-          description: The ID of the audience.
-          example: 42
-          format: int64
-          type: integer
-        name:
-          description: The display name of the audience.
-          example: Travel audience
-          type: string
-        integration:
-          description: |
-            The Talon.One-supported [3rd-party platform](https://docs.talon.one/docs/dev/technology-partners/overview) that this audience was created in.
-
-            For example, `mParticle`, `Segment`, `Shopify`, `Braze`, or `Iterable`.
-
-            **Note:** If you do not integrate with any of these platforms, do not use this property.
-          example: mparticle
-          type: string
-        integrationId:
-          description: |
-            The ID of this audience in the third-party integration.
-
-            **Note:** To create an audience that doesn't come from a 3rd party platform, do not use this property.
-          example: 382370BKDB946
-          type: string
-      required:
-      - id
-      - name
-    UpdateAchievementProgressBlock_1_achievement:
-      description: The achievement to update.
-      properties:
-        id:
-          description: The ID of the achievement.
-          example: 42
-          format: int64
-          type: integer
-        name:
-          description: The internal name of the achievement used in API requests.
-          example: Order50Discount
-          type: string
-        title:
-          description: The display name of the achievement in the Campaign Manager.
-          example: 50% off on 50th purchase.
-          type: string
-        target:
-          description: The required number of actions or the transactional milestone
-            to complete the achievement.
-          example: 50
-          type: number
-      required:
-      - id
-      - name
-      - target
-      - title
-    UpdateAttributeValueBlock_1_attribute:
-      description: The attribute being updated.
-      properties:
-        id:
-          description: The internal ID of the attribute. Reverts to `0` when the attribute
-            is deleted or does not exist.
-          example: 100
-          format: int64
-          type: integer
-        entity:
-          description: The entity type that owns the attribute. Reverts to an empty
-            string when the attribute is deleted or does not exist.
-          example: profile
-          type: string
-        name:
-          description: The attribute name as used in API requests.
-          example: City
-          type: string
-        title:
-          description: The human-readable name of the attribute.
-          example: City
-          type: string
-        type:
-          description: The data type of the attribute.
-          example: string
-          type: string
-      required:
-      - entity
-      - id
-      - name
-      - title
-      - type
     UpdateAttributeValueBlock_1_target:
       description: The entity or item scope that this effect operates on.
       properties:
@@ -52714,26 +52799,6 @@ components:
           type: string
       required:
       - type
-    TriggerCustomEffectBlock_1_customEffect:
-      description: The custom effect to trigger.
-      properties:
-        id:
-          description: The unique identifier of the custom effect.
-          example: 1
-          format: int64
-          type: integer
-        name:
-          description: "The name of the custom effect, as used in API requests."
-          example: sendEmail
-          type: string
-        title:
-          description: The display name of the custom effect.
-          example: Send email
-          type: string
-      required:
-      - id
-      - name
-      - title
     TriggerCustomEffectBlock_1_target:
       description: The target scope of this effect.
       properties:
@@ -52758,32 +52823,6 @@ components:
           type: string
       required:
       - type
-    CheckAchievementBlock_1_achievement:
-      description: The achievement to check for.
-      properties:
-        id:
-          description: The ID of the achievement.
-          example: 42
-          format: int64
-          type: integer
-        title:
-          description: The display name for the achievement in the Campaign Manager.
-          example: 50% off on 50th purchase.
-          type: string
-        name:
-          description: The internal name of the achievement used in API requests.
-          example: Order50Discount
-          type: string
-        target:
-          description: The required number of actions or the transactional milestone
-            to complete the achievement.
-          example: 50
-          type: number
-      required:
-      - id
-      - name
-      - target
-      - title
     CreateCouponBlock_1_campaignId:
       description: The ID of the campaign in which the coupon code is created.
       oneOf:
@@ -52824,27 +52863,6 @@ components:
         type: number
       - example: "{{$Session.CartTotal * 0.1}}"
         type: string
-    CheckTierBlock_1_tier:
-      properties:
-        id:
-          description: The ID of the tier.
-          example: 42
-          format: int64
-          type: integer
-        name:
-          description: The display name of the tier.
-          example: Bronze
-          type: string
-        minPoints:
-          description: The minimum amount of points required to enter the tier.
-          example: 150
-          type: number
-        upperLimit:
-          type: number
-      required:
-      - id
-      - minPoints
-      - name
     RedeemLoyaltyPointsBlock_1_program:
       description: The loyalty program whose balance points are deducted from.
       properties:

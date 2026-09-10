@@ -25,18 +25,18 @@ Describes a part of the logic of the rule.
 |**body** | **String** | The notification body text. Supports template placeholders (e.g. \&quot;{{$Session.Total}}\&quot;) evaluated at rule execution time. |  [optional] |
 |**sku** | **String** | The stock keeping unit of the item to award. |  |
 |**quantity** | **String** | The number of items to award. Supports template placeholders (e.g. \&quot;{{$Session.Total / 2}}\&quot;) for dynamic quantities. |  |
-|**giveawayPool** | [**GiveawayPoolReference**](GiveawayPoolReference.md) | The giveaway pool from which an item is awarded. |  |
+|**giveawayPool** | [**GiveawayPoolBlockReference**](GiveawayPoolBlockReference.md) | The giveaway pool from which an item is awarded. |  |
 |**profile** | [**ProfileEnum**](#ProfileEnum) | The customer profile to add or remove from the audience. &#x60;Current&#x60; targets the customer in the current session; &#x60;Advocate&#x60; targets the person who invited their friend via referral program. |  |
-|**audience** | [**UpdateAudienceMembershipBlock1Audience**](UpdateAudienceMembershipBlock1Audience.md) |  |  |
+|**audience** | [**AudienceBlockReference**](AudienceBlockReference.md) | The audience to add the customer to or remove them from. |  |
 |**program** | [**RedeemLoyaltyPointsBlock1Program**](RedeemLoyaltyPointsBlock1Program.md) |  |  |
 |**subledger** | **String** | The name of the subledger to deduct points from. Can be empty if this block deducts from the loyalty program&#39;s main ledger instead of a subledger. |  |
 |**balance** | [**BalanceEnum**](#BalanceEnum) | The type of balance to check:  - &#x60;current&#x60; is the sum of currently active points  - &#x60;pending&#x60; is the sum of pending points.  - &#x60;negative&#x60; is the sum of negative points.  - &#x60;tentativeCurrent&#x60; is the tentative points balance within the current open customer session. |  |
 |**redeem** | **Boolean** | When &#x60;true&#x60;, the referral code is redeemed. |  |
-|**achievement** | [**CheckAchievementBlock1Achievement**](CheckAchievementBlock1Achievement.md) |  |  |
-|**attribute** | [**UpdateAttributeValueBlock1Attribute**](UpdateAttributeValueBlock1Attribute.md) |  |  |
-|**webhook** | [**TriggerWebhookBlock1Webhook**](TriggerWebhookBlock1Webhook.md) |  |  |
+|**achievement** | [**AchievementBlockReference**](AchievementBlockReference.md) | The achievement to check for. |  |
+|**attribute** | [**AttributeBlockReference**](AttributeBlockReference.md) | The attribute being updated. |  |
+|**webhook** | [**WebhookBlockReference**](WebhookBlockReference.md) | The webhook to trigger. |  |
 |**params** | **Map&lt;String, Object&gt;** | The custom effect&#39;s parameters, in configured order. Each property name is the parameter&#39;s title, lowercased with spaces replaced by underscores (for example, &#x60;Order ID&#x60; becomes &#x60;order_id&#x60;); falls back to &#x60;param_0&#x60;, &#x60;param_1&#x60;, and so on if a title is blank or collides with another. |  [optional] |
-|**customEffect** | [**TriggerCustomEffectBlock1CustomEffect**](TriggerCustomEffectBlock1CustomEffect.md) |  |  |
+|**customEffect** | [**CustomEffectBlockReference**](CustomEffectBlockReference.md) | The custom effect to trigger. |  |
 |**eventType** | **String** | The event type to check against. |  |
 |**matchers** | [**List&lt;Block&gt;**](Block.md) |  |  [optional] |
 |**action** | [**ActionEnum**](#ActionEnum) | The limitable action to check. |  |
@@ -51,7 +51,7 @@ Describes a part of the logic of the rule.
 |**validCharacters** | **String** | Characters used to generate the random parts of a code. |  [optional] |
 |**pattern** | **String** | The pattern used to generate codes, such as coupon codes, referral codes, and loyalty cards. The character &#x60;#&#x60; is a placeholder and is replaced by a random character from the &#x60;validCharacters&#x60; set.  |  [optional] |
 |**friendId** | **String** | An optional integration ID of the friend&#39;s profile. |  |
-|**tier** | [**CheckTierBlock1Tier**](CheckTierBlock1Tier.md) |  |  |
+|**tier** | [**TierBlockReference**](TierBlockReference.md) | The tier to check for. |  |
 
 
 

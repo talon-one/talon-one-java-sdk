@@ -1,8 +1,7 @@
 
 
-# TriggerCustomEffectBlock1CustomEffect
+# CustomEffectBlockReference
 
-The custom effect to trigger.
 
 ## Properties
 

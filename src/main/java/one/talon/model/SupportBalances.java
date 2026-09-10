@@ -20,6 +20,7 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
+import java.math.BigDecimal;
 import java.util.Arrays;
 
 import com.google.gson.Gson;
@@ -47,106 +48,82 @@ import java.util.Set;
 import one.talon.JSON;
 
 /**
- * The audience to check the profile against.
+ * The loyalty points balance for a support agent and a specific customer profile.
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.25.0")
-public class CheckAudienceBlock1Audience {
-  public static final String SERIALIZED_NAME_ID = "id";
-  @SerializedName(SERIALIZED_NAME_ID)
-  @javax.annotation.Nonnull
-  private Long id;
-
-  public static final String SERIALIZED_NAME_NAME = "name";
-  @SerializedName(SERIALIZED_NAME_NAME)
-  @javax.annotation.Nonnull
-  private String name;
-
-  public static final String SERIALIZED_NAME_INTEGRATION = "integration";
-  @SerializedName(SERIALIZED_NAME_INTEGRATION)
+public class SupportBalances {
+  public static final String SERIALIZED_NAME_THRESHOLD = "threshold";
+  @SerializedName(SERIALIZED_NAME_THRESHOLD)
   @javax.annotation.Nullable
-  private String integration;
+  private BigDecimal threshold;
 
-  public static final String SERIALIZED_NAME_INTEGRATION_ID = "integrationId";
-  @SerializedName(SERIALIZED_NAME_INTEGRATION_ID)
+  public static final String SERIALIZED_NAME_AWARDED_POINTS = "awardedPoints";
+  @SerializedName(SERIALIZED_NAME_AWARDED_POINTS)
+  @javax.annotation.Nonnull
+  private BigDecimal awardedPoints;
+
+  public static final String SERIALIZED_NAME_REMAINING_BALANCE = "remainingBalance";
+  @SerializedName(SERIALIZED_NAME_REMAINING_BALANCE)
   @javax.annotation.Nullable
-  private String integrationId;
+  private BigDecimal remainingBalance;
 
-  public CheckAudienceBlock1Audience() {
+  public SupportBalances() {
   }
 
-  public CheckAudienceBlock1Audience id(@javax.annotation.Nonnull Long id) {
-    this.id = id;
+  public SupportBalances threshold(@javax.annotation.Nullable BigDecimal threshold) {
+    this.threshold = threshold;
     return this;
   }
 
   /**
-   * The ID of the audience.
-   * @return id
-   */
-  @javax.annotation.Nonnull
-  public Long getId() {
-    return id;
-  }
-
-  public void setId(@javax.annotation.Nonnull Long id) {
-    this.id = id;
-  }
-
-
-  public CheckAudienceBlock1Audience name(@javax.annotation.Nonnull String name) {
-    this.name = name;
-    return this;
-  }
-
-  /**
-   * The display name of the audience.
-   * @return name
-   */
-  @javax.annotation.Nonnull
-  public String getName() {
-    return name;
-  }
-
-  public void setName(@javax.annotation.Nonnull String name) {
-    this.name = name;
-  }
-
-
-  public CheckAudienceBlock1Audience integration(@javax.annotation.Nullable String integration) {
-    this.integration = integration;
-    return this;
-  }
-
-  /**
-   * The Talon.One-supported [3rd-party platform](https://docs.talon.one/docs/dev/technology-partners/overview) that this audience was created in.  For example, &#x60;mParticle&#x60;, &#x60;Segment&#x60;, &#x60;Shopify&#x60;, &#x60;Braze&#x60;, or &#x60;Iterable&#x60;.  **Note:** If you do not integrate with any of these platforms, do not use this property. 
-   * @return integration
+   * The maximum number of loyalty points the support agent is allowed to award for this loyalty program. Not present if the agent has no configured limit. 
+   * @return threshold
    */
   @javax.annotation.Nullable
-  public String getIntegration() {
-    return integration;
+  public BigDecimal getThreshold() {
+    return threshold;
   }
 
-  public void setIntegration(@javax.annotation.Nullable String integration) {
-    this.integration = integration;
+  public void setThreshold(@javax.annotation.Nullable BigDecimal threshold) {
+    this.threshold = threshold;
   }
 
 
-  public CheckAudienceBlock1Audience integrationId(@javax.annotation.Nullable String integrationId) {
-    this.integrationId = integrationId;
+  public SupportBalances awardedPoints(@javax.annotation.Nonnull BigDecimal awardedPoints) {
+    this.awardedPoints = awardedPoints;
     return this;
   }
 
   /**
-   * The ID of this audience in the third-party integration.  **Note:** To create an audience that doesn&#39;t come from a 3rd party platform, do not use this property. 
-   * @return integrationId
+   * The total number of loyalty points already awarded to this customer profile by this support agent. 
+   * @return awardedPoints
    */
-  @javax.annotation.Nullable
-  public String getIntegrationId() {
-    return integrationId;
+  @javax.annotation.Nonnull
+  public BigDecimal getAwardedPoints() {
+    return awardedPoints;
   }
 
-  public void setIntegrationId(@javax.annotation.Nullable String integrationId) {
-    this.integrationId = integrationId;
+  public void setAwardedPoints(@javax.annotation.Nonnull BigDecimal awardedPoints) {
+    this.awardedPoints = awardedPoints;
+  }
+
+
+  public SupportBalances remainingBalance(@javax.annotation.Nullable BigDecimal remainingBalance) {
+    this.remainingBalance = remainingBalance;
+    return this;
+  }
+
+  /**
+   * The remaining number of loyalty points the support agent can still award to this customer profile. Not present if the agent has no configured limit. 
+   * @return remainingBalance
+   */
+  @javax.annotation.Nullable
+  public BigDecimal getRemainingBalance() {
+    return remainingBalance;
+  }
+
+  public void setRemainingBalance(@javax.annotation.Nullable BigDecimal remainingBalance) {
+    this.remainingBalance = remainingBalance;
   }
 
   /**
@@ -162,9 +139,9 @@ public class CheckAudienceBlock1Audience {
    *
    * @param key name of the property
    * @param value value of the property
-   * @return the CheckAudienceBlock1Audience instance itself
+   * @return the SupportBalances instance itself
    */
-  public CheckAudienceBlock1Audience putAdditionalProperty(String key, Object value) {
+  public SupportBalances putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
         this.additionalProperties = new HashMap<String, Object>();
     }
@@ -203,27 +180,25 @@ public class CheckAudienceBlock1Audience {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    CheckAudienceBlock1Audience checkAudienceBlock1Audience = (CheckAudienceBlock1Audience) o;
-    return Objects.equals(this.id, checkAudienceBlock1Audience.id) &&
-        Objects.equals(this.name, checkAudienceBlock1Audience.name) &&
-        Objects.equals(this.integration, checkAudienceBlock1Audience.integration) &&
-        Objects.equals(this.integrationId, checkAudienceBlock1Audience.integrationId)&&
-        Objects.equals(this.additionalProperties, checkAudienceBlock1Audience.additionalProperties);
+    SupportBalances supportBalances = (SupportBalances) o;
+    return Objects.equals(this.threshold, supportBalances.threshold) &&
+        Objects.equals(this.awardedPoints, supportBalances.awardedPoints) &&
+        Objects.equals(this.remainingBalance, supportBalances.remainingBalance)&&
+        Objects.equals(this.additionalProperties, supportBalances.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, name, integration, integrationId, additionalProperties);
+    return Objects.hash(threshold, awardedPoints, remainingBalance, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class CheckAudienceBlock1Audience {\n");
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    integration: ").append(toIndentedString(integration)).append("\n");
-    sb.append("    integrationId: ").append(toIndentedString(integrationId)).append("\n");
+    sb.append("class SupportBalances {\n");
+    sb.append("    threshold: ").append(toIndentedString(threshold)).append("\n");
+    sb.append("    awardedPoints: ").append(toIndentedString(awardedPoints)).append("\n");
+    sb.append("    remainingBalance: ").append(toIndentedString(remainingBalance)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -243,57 +218,48 @@ public class CheckAudienceBlock1Audience {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("id", "name", "integration", "integrationId"));
+    openapiFields = new HashSet<String>(Arrays.asList("threshold", "awardedPoints", "remainingBalance"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("id", "name"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("awardedPoints"));
   }
 
   /**
    * Validates the JSON Element and throws an exception if issues found
    *
    * @param jsonElement JSON Element
-   * @throws IOException if the JSON Element is invalid with respect to CheckAudienceBlock1Audience
+   * @throws IOException if the JSON Element is invalid with respect to SupportBalances
    */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
-        if (!CheckAudienceBlock1Audience.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in CheckAudienceBlock1Audience is not found in the empty JSON string", CheckAudienceBlock1Audience.openapiRequiredFields.toString()));
+        if (!SupportBalances.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in SupportBalances is not found in the empty JSON string", SupportBalances.openapiRequiredFields.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : CheckAudienceBlock1Audience.openapiRequiredFields) {
+      for (String requiredField : SupportBalances.openapiRequiredFields) {
         if (jsonElement.getAsJsonObject().get(requiredField) == null) {
           throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if (!jsonObj.get("name").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
-      }
-      if ((jsonObj.get("integration") != null && !jsonObj.get("integration").isJsonNull()) && !jsonObj.get("integration").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `integration` to be a primitive type in the JSON string but got `%s`", jsonObj.get("integration").toString()));
-      }
-      if ((jsonObj.get("integrationId") != null && !jsonObj.get("integrationId").isJsonNull()) && !jsonObj.get("integrationId").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `integrationId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("integrationId").toString()));
-      }
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!CheckAudienceBlock1Audience.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'CheckAudienceBlock1Audience' and its subtypes
+       if (!SupportBalances.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'SupportBalances' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<CheckAudienceBlock1Audience> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(CheckAudienceBlock1Audience.class));
+       final TypeAdapter<SupportBalances> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(SupportBalances.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<CheckAudienceBlock1Audience>() {
+       return (TypeAdapter<T>) new TypeAdapter<SupportBalances>() {
            @Override
-           public void write(JsonWriter out, CheckAudienceBlock1Audience value) throws IOException {
+           public void write(JsonWriter out, SupportBalances value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              obj.remove("additionalProperties");
              // serialize additional properties
@@ -323,12 +289,12 @@ public class CheckAudienceBlock1Audience {
            }
 
            @Override
-           public CheckAudienceBlock1Audience read(JsonReader in) throws IOException {
+           public SupportBalances read(JsonReader in) throws IOException {
              JsonElement jsonElement = elementAdapter.read(in);
              validateJsonElement(jsonElement);
              JsonObject jsonObj = jsonElement.getAsJsonObject();
              // store additional fields in the deserialized instance
-             CheckAudienceBlock1Audience instance = thisAdapter.fromJsonTree(jsonObj);
+             SupportBalances instance = thisAdapter.fromJsonTree(jsonObj);
              for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
                if (!openapiFields.contains(entry.getKey())) {
                  if (entry.getValue().isJsonPrimitive()) { // primitive type
@@ -355,18 +321,18 @@ public class CheckAudienceBlock1Audience {
   }
 
   /**
-   * Create an instance of CheckAudienceBlock1Audience given an JSON string
+   * Create an instance of SupportBalances given an JSON string
    *
    * @param jsonString JSON string
-   * @return An instance of CheckAudienceBlock1Audience
-   * @throws IOException if the JSON string is invalid with respect to CheckAudienceBlock1Audience
+   * @return An instance of SupportBalances
+   * @throws IOException if the JSON string is invalid with respect to SupportBalances
    */
-  public static CheckAudienceBlock1Audience fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, CheckAudienceBlock1Audience.class);
+  public static SupportBalances fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, SupportBalances.class);
   }
 
   /**
-   * Convert an instance of CheckAudienceBlock1Audience to an JSON string
+   * Convert an instance of SupportBalances to an JSON string
    *
    * @return JSON string
    */

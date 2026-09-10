@@ -1,8 +1,7 @@
 
 
-# TriggerWebhookBlock1Webhook
+# WebhookBlockReference
 
-The webhook to trigger.
 
 ## Properties
 

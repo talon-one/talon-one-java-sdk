@@ -19,22 +19,23 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
+import java.math.BigDecimal;
 import java.util.Arrays;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 /**
- * Model tests for TriggerCustomEffectBlock1CustomEffect
+ * Model tests for TierBlockReference
  */
-public class TriggerCustomEffectBlock1CustomEffectTest {
-    private final TriggerCustomEffectBlock1CustomEffect model = new TriggerCustomEffectBlock1CustomEffect();
+public class TierBlockReferenceTest {
+    private final TierBlockReference model = new TierBlockReference();
 
     /**
-     * Model tests for TriggerCustomEffectBlock1CustomEffect
+     * Model tests for TierBlockReference
      */
     @Test
-    public void testTriggerCustomEffectBlock1CustomEffect() {
-        // TODO: test TriggerCustomEffectBlock1CustomEffect
+    public void testTierBlockReference() {
+        // TODO: test TierBlockReference
     }
 
     /**
@@ -54,11 +55,19 @@ public class TriggerCustomEffectBlock1CustomEffectTest {
     }
 
     /**
-     * Test the property 'title'
+     * Test the property 'minPoints'
      */
     @Test
-    public void titleTest() {
-        // TODO: test title
+    public void minPointsTest() {
+        // TODO: test minPoints
+    }
+
+    /**
+     * Test the property 'upperLimit'
+     */
+    @Test
+    public void upperLimitTest() {
+        // TODO: test upperLimit
     }
 
 }

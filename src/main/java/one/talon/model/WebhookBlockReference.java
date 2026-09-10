@@ -20,7 +20,6 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
-import java.math.BigDecimal;
 import java.util.Arrays;
 
 import com.google.gson.Gson;
@@ -48,40 +47,30 @@ import java.util.Set;
 import one.talon.JSON;
 
 /**
- * CheckTierBlock1Tier
+ * WebhookBlockReference
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.25.0")
-public class CheckTierBlock1Tier {
+public class WebhookBlockReference {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
   @javax.annotation.Nonnull
   private Long id;
 
-  public static final String SERIALIZED_NAME_NAME = "name";
-  @SerializedName(SERIALIZED_NAME_NAME)
+  public static final String SERIALIZED_NAME_TITLE = "title";
+  @SerializedName(SERIALIZED_NAME_TITLE)
   @javax.annotation.Nonnull
-  private String name;
+  private String title;
 
-  public static final String SERIALIZED_NAME_MIN_POINTS = "minPoints";
-  @SerializedName(SERIALIZED_NAME_MIN_POINTS)
-  @javax.annotation.Nonnull
-  private BigDecimal minPoints;
-
-  public static final String SERIALIZED_NAME_UPPER_LIMIT = "upperLimit";
-  @SerializedName(SERIALIZED_NAME_UPPER_LIMIT)
-  @javax.annotation.Nullable
-  private BigDecimal upperLimit;
-
-  public CheckTierBlock1Tier() {
+  public WebhookBlockReference() {
   }
 
-  public CheckTierBlock1Tier id(@javax.annotation.Nonnull Long id) {
+  public WebhookBlockReference id(@javax.annotation.Nonnull Long id) {
     this.id = id;
     return this;
   }
 
   /**
-   * The ID of the tier.
+   * The unique identifier of the webhook.
    * @return id
    */
   @javax.annotation.Nonnull
@@ -94,60 +83,22 @@ public class CheckTierBlock1Tier {
   }
 
 
-  public CheckTierBlock1Tier name(@javax.annotation.Nonnull String name) {
-    this.name = name;
+  public WebhookBlockReference title(@javax.annotation.Nonnull String title) {
+    this.title = title;
     return this;
   }
 
   /**
-   * The display name of the tier.
-   * @return name
+   * The display name of the webhook.
+   * @return title
    */
   @javax.annotation.Nonnull
-  public String getName() {
-    return name;
+  public String getTitle() {
+    return title;
   }
 
-  public void setName(@javax.annotation.Nonnull String name) {
-    this.name = name;
-  }
-
-
-  public CheckTierBlock1Tier minPoints(@javax.annotation.Nonnull BigDecimal minPoints) {
-    this.minPoints = minPoints;
-    return this;
-  }
-
-  /**
-   * The minimum amount of points required to enter the tier.
-   * @return minPoints
-   */
-  @javax.annotation.Nonnull
-  public BigDecimal getMinPoints() {
-    return minPoints;
-  }
-
-  public void setMinPoints(@javax.annotation.Nonnull BigDecimal minPoints) {
-    this.minPoints = minPoints;
-  }
-
-
-  public CheckTierBlock1Tier upperLimit(@javax.annotation.Nullable BigDecimal upperLimit) {
-    this.upperLimit = upperLimit;
-    return this;
-  }
-
-  /**
-   * Get upperLimit
-   * @return upperLimit
-   */
-  @javax.annotation.Nullable
-  public BigDecimal getUpperLimit() {
-    return upperLimit;
-  }
-
-  public void setUpperLimit(@javax.annotation.Nullable BigDecimal upperLimit) {
-    this.upperLimit = upperLimit;
+  public void setTitle(@javax.annotation.Nonnull String title) {
+    this.title = title;
   }
 
   /**
@@ -163,9 +114,9 @@ public class CheckTierBlock1Tier {
    *
    * @param key name of the property
    * @param value value of the property
-   * @return the CheckTierBlock1Tier instance itself
+   * @return the WebhookBlockReference instance itself
    */
-  public CheckTierBlock1Tier putAdditionalProperty(String key, Object value) {
+  public WebhookBlockReference putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
         this.additionalProperties = new HashMap<String, Object>();
     }
@@ -204,27 +155,23 @@ public class CheckTierBlock1Tier {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    CheckTierBlock1Tier checkTierBlock1Tier = (CheckTierBlock1Tier) o;
-    return Objects.equals(this.id, checkTierBlock1Tier.id) &&
-        Objects.equals(this.name, checkTierBlock1Tier.name) &&
-        Objects.equals(this.minPoints, checkTierBlock1Tier.minPoints) &&
-        Objects.equals(this.upperLimit, checkTierBlock1Tier.upperLimit)&&
-        Objects.equals(this.additionalProperties, checkTierBlock1Tier.additionalProperties);
+    WebhookBlockReference webhookBlockReference = (WebhookBlockReference) o;
+    return Objects.equals(this.id, webhookBlockReference.id) &&
+        Objects.equals(this.title, webhookBlockReference.title)&&
+        Objects.equals(this.additionalProperties, webhookBlockReference.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, name, minPoints, upperLimit, additionalProperties);
+    return Objects.hash(id, title, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class CheckTierBlock1Tier {\n");
+    sb.append("class WebhookBlockReference {\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    minPoints: ").append(toIndentedString(minPoints)).append("\n");
-    sb.append("    upperLimit: ").append(toIndentedString(upperLimit)).append("\n");
+    sb.append("    title: ").append(toIndentedString(title)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -244,34 +191,34 @@ public class CheckTierBlock1Tier {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("id", "name", "minPoints", "upperLimit"));
+    openapiFields = new HashSet<String>(Arrays.asList("id", "title"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("id", "name", "minPoints"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("id", "title"));
   }
 
   /**
    * Validates the JSON Element and throws an exception if issues found
    *
    * @param jsonElement JSON Element
-   * @throws IOException if the JSON Element is invalid with respect to CheckTierBlock1Tier
+   * @throws IOException if the JSON Element is invalid with respect to WebhookBlockReference
    */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
-        if (!CheckTierBlock1Tier.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in CheckTierBlock1Tier is not found in the empty JSON string", CheckTierBlock1Tier.openapiRequiredFields.toString()));
+        if (!WebhookBlockReference.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in WebhookBlockReference is not found in the empty JSON string", WebhookBlockReference.openapiRequiredFields.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : CheckTierBlock1Tier.openapiRequiredFields) {
+      for (String requiredField : WebhookBlockReference.openapiRequiredFields) {
         if (jsonElement.getAsJsonObject().get(requiredField) == null) {
           throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if (!jsonObj.get("name").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
+      if (!jsonObj.get("title").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `title` to be a primitive type in the JSON string but got `%s`", jsonObj.get("title").toString()));
       }
   }
 
@@ -279,16 +226,16 @@ public class CheckTierBlock1Tier {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!CheckTierBlock1Tier.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'CheckTierBlock1Tier' and its subtypes
+       if (!WebhookBlockReference.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'WebhookBlockReference' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<CheckTierBlock1Tier> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(CheckTierBlock1Tier.class));
+       final TypeAdapter<WebhookBlockReference> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(WebhookBlockReference.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<CheckTierBlock1Tier>() {
+       return (TypeAdapter<T>) new TypeAdapter<WebhookBlockReference>() {
            @Override
-           public void write(JsonWriter out, CheckTierBlock1Tier value) throws IOException {
+           public void write(JsonWriter out, WebhookBlockReference value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              obj.remove("additionalProperties");
              // serialize additional properties
@@ -318,12 +265,12 @@ public class CheckTierBlock1Tier {
            }
 
            @Override
-           public CheckTierBlock1Tier read(JsonReader in) throws IOException {
+           public WebhookBlockReference read(JsonReader in) throws IOException {
              JsonElement jsonElement = elementAdapter.read(in);
              validateJsonElement(jsonElement);
              JsonObject jsonObj = jsonElement.getAsJsonObject();
              // store additional fields in the deserialized instance
-             CheckTierBlock1Tier instance = thisAdapter.fromJsonTree(jsonObj);
+             WebhookBlockReference instance = thisAdapter.fromJsonTree(jsonObj);
              for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
                if (!openapiFields.contains(entry.getKey())) {
                  if (entry.getValue().isJsonPrimitive()) { // primitive type
@@ -350,18 +297,18 @@ public class CheckTierBlock1Tier {
   }
 
   /**
-   * Create an instance of CheckTierBlock1Tier given an JSON string
+   * Create an instance of WebhookBlockReference given an JSON string
    *
    * @param jsonString JSON string
-   * @return An instance of CheckTierBlock1Tier
-   * @throws IOException if the JSON string is invalid with respect to CheckTierBlock1Tier
+   * @return An instance of WebhookBlockReference
+   * @throws IOException if the JSON string is invalid with respect to WebhookBlockReference
    */
-  public static CheckTierBlock1Tier fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, CheckTierBlock1Tier.class);
+  public static WebhookBlockReference fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, WebhookBlockReference.class);
   }
 
   /**
-   * Convert an instance of CheckTierBlock1Tier to an JSON string
+   * Convert an instance of WebhookBlockReference to an JSON string
    *
    * @return JSON string
    */

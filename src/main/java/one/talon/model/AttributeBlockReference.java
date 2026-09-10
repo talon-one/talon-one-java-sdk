@@ -47,14 +47,19 @@ import java.util.Set;
 import one.talon.JSON;
 
 /**
- * The custom effect to trigger.
+ * AttributeBlockReference
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.25.0")
-public class TriggerCustomEffectBlock1CustomEffect {
+public class AttributeBlockReference {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
   @javax.annotation.Nonnull
   private Long id;
+
+  public static final String SERIALIZED_NAME_ENTITY = "entity";
+  @SerializedName(SERIALIZED_NAME_ENTITY)
+  @javax.annotation.Nonnull
+  private String entity;
 
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
@@ -66,16 +71,21 @@ public class TriggerCustomEffectBlock1CustomEffect {
   @javax.annotation.Nonnull
   private String title;
 
-  public TriggerCustomEffectBlock1CustomEffect() {
+  public static final String SERIALIZED_NAME_TYPE = "type";
+  @SerializedName(SERIALIZED_NAME_TYPE)
+  @javax.annotation.Nonnull
+  private String type;
+
+  public AttributeBlockReference() {
   }
 
-  public TriggerCustomEffectBlock1CustomEffect id(@javax.annotation.Nonnull Long id) {
+  public AttributeBlockReference id(@javax.annotation.Nonnull Long id) {
     this.id = id;
     return this;
   }
 
   /**
-   * The unique identifier of the custom effect.
+   * The internal ID of the attribute. Reverts to &#x60;0&#x60; when the attribute is deleted or does not exist.
    * @return id
    */
   @javax.annotation.Nonnull
@@ -88,13 +98,32 @@ public class TriggerCustomEffectBlock1CustomEffect {
   }
 
 
-  public TriggerCustomEffectBlock1CustomEffect name(@javax.annotation.Nonnull String name) {
+  public AttributeBlockReference entity(@javax.annotation.Nonnull String entity) {
+    this.entity = entity;
+    return this;
+  }
+
+  /**
+   * The entity type that owns the attribute. Reverts to an empty string when the attribute is deleted or does not exist.
+   * @return entity
+   */
+  @javax.annotation.Nonnull
+  public String getEntity() {
+    return entity;
+  }
+
+  public void setEntity(@javax.annotation.Nonnull String entity) {
+    this.entity = entity;
+  }
+
+
+  public AttributeBlockReference name(@javax.annotation.Nonnull String name) {
     this.name = name;
     return this;
   }
 
   /**
-   * The name of the custom effect, as used in API requests.
+   * The attribute name as used in API requests.
    * @return name
    */
   @javax.annotation.Nonnull
@@ -107,13 +136,13 @@ public class TriggerCustomEffectBlock1CustomEffect {
   }
 
 
-  public TriggerCustomEffectBlock1CustomEffect title(@javax.annotation.Nonnull String title) {
+  public AttributeBlockReference title(@javax.annotation.Nonnull String title) {
     this.title = title;
     return this;
   }
 
   /**
-   * The display name of the custom effect.
+   * The human-readable name of the attribute.
    * @return title
    */
   @javax.annotation.Nonnull
@@ -123,6 +152,25 @@ public class TriggerCustomEffectBlock1CustomEffect {
 
   public void setTitle(@javax.annotation.Nonnull String title) {
     this.title = title;
+  }
+
+
+  public AttributeBlockReference type(@javax.annotation.Nonnull String type) {
+    this.type = type;
+    return this;
+  }
+
+  /**
+   * The data type of the attribute.
+   * @return type
+   */
+  @javax.annotation.Nonnull
+  public String getType() {
+    return type;
+  }
+
+  public void setType(@javax.annotation.Nonnull String type) {
+    this.type = type;
   }
 
   /**
@@ -138,9 +186,9 @@ public class TriggerCustomEffectBlock1CustomEffect {
    *
    * @param key name of the property
    * @param value value of the property
-   * @return the TriggerCustomEffectBlock1CustomEffect instance itself
+   * @return the AttributeBlockReference instance itself
    */
-  public TriggerCustomEffectBlock1CustomEffect putAdditionalProperty(String key, Object value) {
+  public AttributeBlockReference putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
         this.additionalProperties = new HashMap<String, Object>();
     }
@@ -179,25 +227,29 @@ public class TriggerCustomEffectBlock1CustomEffect {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    TriggerCustomEffectBlock1CustomEffect triggerCustomEffectBlock1CustomEffect = (TriggerCustomEffectBlock1CustomEffect) o;
-    return Objects.equals(this.id, triggerCustomEffectBlock1CustomEffect.id) &&
-        Objects.equals(this.name, triggerCustomEffectBlock1CustomEffect.name) &&
-        Objects.equals(this.title, triggerCustomEffectBlock1CustomEffect.title)&&
-        Objects.equals(this.additionalProperties, triggerCustomEffectBlock1CustomEffect.additionalProperties);
+    AttributeBlockReference attributeBlockReference = (AttributeBlockReference) o;
+    return Objects.equals(this.id, attributeBlockReference.id) &&
+        Objects.equals(this.entity, attributeBlockReference.entity) &&
+        Objects.equals(this.name, attributeBlockReference.name) &&
+        Objects.equals(this.title, attributeBlockReference.title) &&
+        Objects.equals(this.type, attributeBlockReference.type)&&
+        Objects.equals(this.additionalProperties, attributeBlockReference.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, name, title, additionalProperties);
+    return Objects.hash(id, entity, name, title, type, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class TriggerCustomEffectBlock1CustomEffect {\n");
+    sb.append("class AttributeBlockReference {\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    entity: ").append(toIndentedString(entity)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    title: ").append(toIndentedString(title)).append("\n");
+    sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -217,37 +269,43 @@ public class TriggerCustomEffectBlock1CustomEffect {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("id", "name", "title"));
+    openapiFields = new HashSet<String>(Arrays.asList("id", "entity", "name", "title", "type"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("id", "name", "title"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("id", "entity", "name", "title", "type"));
   }
 
   /**
    * Validates the JSON Element and throws an exception if issues found
    *
    * @param jsonElement JSON Element
-   * @throws IOException if the JSON Element is invalid with respect to TriggerCustomEffectBlock1CustomEffect
+   * @throws IOException if the JSON Element is invalid with respect to AttributeBlockReference
    */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
-        if (!TriggerCustomEffectBlock1CustomEffect.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in TriggerCustomEffectBlock1CustomEffect is not found in the empty JSON string", TriggerCustomEffectBlock1CustomEffect.openapiRequiredFields.toString()));
+        if (!AttributeBlockReference.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in AttributeBlockReference is not found in the empty JSON string", AttributeBlockReference.openapiRequiredFields.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : TriggerCustomEffectBlock1CustomEffect.openapiRequiredFields) {
+      for (String requiredField : AttributeBlockReference.openapiRequiredFields) {
         if (jsonElement.getAsJsonObject().get(requiredField) == null) {
           throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
+      if (!jsonObj.get("entity").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `entity` to be a primitive type in the JSON string but got `%s`", jsonObj.get("entity").toString()));
+      }
       if (!jsonObj.get("name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
       }
       if (!jsonObj.get("title").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `title` to be a primitive type in the JSON string but got `%s`", jsonObj.get("title").toString()));
+      }
+      if (!jsonObj.get("type").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("type").toString()));
       }
   }
 
@@ -255,16 +313,16 @@ public class TriggerCustomEffectBlock1CustomEffect {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!TriggerCustomEffectBlock1CustomEffect.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'TriggerCustomEffectBlock1CustomEffect' and its subtypes
+       if (!AttributeBlockReference.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'AttributeBlockReference' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<TriggerCustomEffectBlock1CustomEffect> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(TriggerCustomEffectBlock1CustomEffect.class));
+       final TypeAdapter<AttributeBlockReference> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(AttributeBlockReference.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<TriggerCustomEffectBlock1CustomEffect>() {
+       return (TypeAdapter<T>) new TypeAdapter<AttributeBlockReference>() {
            @Override
-           public void write(JsonWriter out, TriggerCustomEffectBlock1CustomEffect value) throws IOException {
+           public void write(JsonWriter out, AttributeBlockReference value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              obj.remove("additionalProperties");
              // serialize additional properties
@@ -294,12 +352,12 @@ public class TriggerCustomEffectBlock1CustomEffect {
            }
 
            @Override
-           public TriggerCustomEffectBlock1CustomEffect read(JsonReader in) throws IOException {
+           public AttributeBlockReference read(JsonReader in) throws IOException {
              JsonElement jsonElement = elementAdapter.read(in);
              validateJsonElement(jsonElement);
              JsonObject jsonObj = jsonElement.getAsJsonObject();
              // store additional fields in the deserialized instance
-             TriggerCustomEffectBlock1CustomEffect instance = thisAdapter.fromJsonTree(jsonObj);
+             AttributeBlockReference instance = thisAdapter.fromJsonTree(jsonObj);
              for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
                if (!openapiFields.contains(entry.getKey())) {
                  if (entry.getValue().isJsonPrimitive()) { // primitive type
@@ -326,18 +384,18 @@ public class TriggerCustomEffectBlock1CustomEffect {
   }
 
   /**
-   * Create an instance of TriggerCustomEffectBlock1CustomEffect given an JSON string
+   * Create an instance of AttributeBlockReference given an JSON string
    *
    * @param jsonString JSON string
-   * @return An instance of TriggerCustomEffectBlock1CustomEffect
-   * @throws IOException if the JSON string is invalid with respect to TriggerCustomEffectBlock1CustomEffect
+   * @return An instance of AttributeBlockReference
+   * @throws IOException if the JSON string is invalid with respect to AttributeBlockReference
    */
-  public static TriggerCustomEffectBlock1CustomEffect fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, TriggerCustomEffectBlock1CustomEffect.class);
+  public static AttributeBlockReference fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, AttributeBlockReference.class);
   }
 
   /**
-   * Convert an instance of TriggerCustomEffectBlock1CustomEffect to an JSON string
+   * Convert an instance of AttributeBlockReference to an JSON string
    *
    * @return JSON string
    */

@@ -19,54 +19,47 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
+import java.math.BigDecimal;
 import java.util.Arrays;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 /**
- * Model tests for UpdateAudienceMembershipBlock1Audience
+ * Model tests for SupportBalances
  */
-public class UpdateAudienceMembershipBlock1AudienceTest {
-    private final UpdateAudienceMembershipBlock1Audience model = new UpdateAudienceMembershipBlock1Audience();
+public class SupportBalancesTest {
+    private final SupportBalances model = new SupportBalances();
 
     /**
-     * Model tests for UpdateAudienceMembershipBlock1Audience
+     * Model tests for SupportBalances
      */
     @Test
-    public void testUpdateAudienceMembershipBlock1Audience() {
-        // TODO: test UpdateAudienceMembershipBlock1Audience
+    public void testSupportBalances() {
+        // TODO: test SupportBalances
     }
 
     /**
-     * Test the property 'id'
+     * Test the property 'threshold'
      */
     @Test
-    public void idTest() {
-        // TODO: test id
+    public void thresholdTest() {
+        // TODO: test threshold
     }
 
     /**
-     * Test the property 'name'
+     * Test the property 'awardedPoints'
      */
     @Test
-    public void nameTest() {
-        // TODO: test name
+    public void awardedPointsTest() {
+        // TODO: test awardedPoints
     }
 
     /**
-     * Test the property 'integration'
+     * Test the property 'remainingBalance'
      */
     @Test
-    public void integrationTest() {
-        // TODO: test integration
-    }
-
-    /**
-     * Test the property 'integrationId'
-     */
-    @Test
-    public void integrationIdTest() {
-        // TODO: test integrationId
+    public void remainingBalanceTest() {
+        // TODO: test remainingBalance
     }
 
 }

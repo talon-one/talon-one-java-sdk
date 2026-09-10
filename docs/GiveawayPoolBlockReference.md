@@ -1,6 +1,6 @@
 
 
-# GiveawayPoolReference
+# GiveawayPoolBlockReference
 
 
 ## Properties

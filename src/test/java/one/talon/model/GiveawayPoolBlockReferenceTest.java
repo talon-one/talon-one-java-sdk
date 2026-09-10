@@ -24,17 +24,17 @@ import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 /**
- * Model tests for CheckAudienceBlock1Audience
+ * Model tests for GiveawayPoolBlockReference
  */
-public class CheckAudienceBlock1AudienceTest {
-    private final CheckAudienceBlock1Audience model = new CheckAudienceBlock1Audience();
+public class GiveawayPoolBlockReferenceTest {
+    private final GiveawayPoolBlockReference model = new GiveawayPoolBlockReference();
 
     /**
-     * Model tests for CheckAudienceBlock1Audience
+     * Model tests for GiveawayPoolBlockReference
      */
     @Test
-    public void testCheckAudienceBlock1Audience() {
-        // TODO: test CheckAudienceBlock1Audience
+    public void testGiveawayPoolBlockReference() {
+        // TODO: test GiveawayPoolBlockReference
     }
 
     /**
@@ -51,22 +51,6 @@ public class CheckAudienceBlock1AudienceTest {
     @Test
     public void nameTest() {
         // TODO: test name
-    }
-
-    /**
-     * Test the property 'integration'
-     */
-    @Test
-    public void integrationTest() {
-        // TODO: test integration
-    }
-
-    /**
-     * Test the property 'integrationId'
-     */
-    @Test
-    public void integrationIdTest() {
-        // TODO: test integrationId
     }
 
 }

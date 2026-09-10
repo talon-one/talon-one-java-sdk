@@ -2700,11 +2700,12 @@ public class ManagementApiTest {
     @Test
     public void listAchievementsV2Test() throws ApiException {
         Long pageSize = null;
+        List<Long> campaignId = null;
         Long skip = null;
         String sort = null;
         String title = null;
         Long applicationId = null;
-        ListAchievementsV2200Response response = api.listAchievementsV2(pageSize, skip, sort, title, applicationId);
+        ListAchievementsV2200Response response = api.listAchievementsV2(pageSize, campaignId, skip, sort, title, applicationId);
         // TODO: test validations
     }
 

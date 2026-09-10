@@ -23308,6 +23308,7 @@ public class ManagementApi {
     /**
      * Build call for listAchievementsV2
      * @param pageSize The number of items in the response. (optional, default to 50)
+     * @param campaignId Filter results by one or more campaign IDs.  To include multiple IDs, repeat the parameter for each one, for example,&#x60;?campaignId&#x3D;123&amp;campaignId&#x3D;456&#x60;. The response contains only achievements associated with the specified campaigns.  (optional)
      * @param skip The number of items to skip when paging through large result sets. (optional)
      * @param sort The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.  (optional)
      * @param title Filter by the display name of the achievement. (optional)
@@ -23324,7 +23325,7 @@ public class ManagementApi {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call listAchievementsV2Call(@javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable String sort, @javax.annotation.Nullable String title, @javax.annotation.Nullable Long applicationId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call listAchievementsV2Call(@javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable List<Long> campaignId, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable String sort, @javax.annotation.Nullable String title, @javax.annotation.Nullable Long applicationId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -23351,6 +23352,10 @@ public class ManagementApi {
 
         if (pageSize != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("pageSize", pageSize));
+        }
+
+        if (campaignId != null) {
+            localVarCollectionQueryParams.addAll(localVarApiClient.parameterToPairs("multi", "campaignId", campaignId));
         }
 
         if (skip != null) {
@@ -23389,8 +23394,8 @@ public class ManagementApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call listAchievementsV2ValidateBeforeCall(@javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable String sort, @javax.annotation.Nullable String title, @javax.annotation.Nullable Long applicationId, final ApiCallback _callback) throws ApiException {
-        return listAchievementsV2Call(pageSize, skip, sort, title, applicationId, _callback);
+    private okhttp3.Call listAchievementsV2ValidateBeforeCall(@javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable List<Long> campaignId, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable String sort, @javax.annotation.Nullable String title, @javax.annotation.Nullable Long applicationId, final ApiCallback _callback) throws ApiException {
+        return listAchievementsV2Call(pageSize, campaignId, skip, sort, title, applicationId, _callback);
 
     }
 
@@ -23398,6 +23403,7 @@ public class ManagementApi {
      * List achievements
      * List all achievements. 
      * @param pageSize The number of items in the response. (optional, default to 50)
+     * @param campaignId Filter results by one or more campaign IDs.  To include multiple IDs, repeat the parameter for each one, for example,&#x60;?campaignId&#x3D;123&amp;campaignId&#x3D;456&#x60;. The response contains only achievements associated with the specified campaigns.  (optional)
      * @param skip The number of items to skip when paging through large result sets. (optional)
      * @param sort The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.  (optional)
      * @param title Filter by the display name of the achievement. (optional)
@@ -23413,8 +23419,8 @@ public class ManagementApi {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public ListAchievementsV2200Response listAchievementsV2(@javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable String sort, @javax.annotation.Nullable String title, @javax.annotation.Nullable Long applicationId) throws ApiException {
-        ApiResponse<ListAchievementsV2200Response> localVarResp = listAchievementsV2WithHttpInfo(pageSize, skip, sort, title, applicationId);
+    public ListAchievementsV2200Response listAchievementsV2(@javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable List<Long> campaignId, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable String sort, @javax.annotation.Nullable String title, @javax.annotation.Nullable Long applicationId) throws ApiException {
+        ApiResponse<ListAchievementsV2200Response> localVarResp = listAchievementsV2WithHttpInfo(pageSize, campaignId, skip, sort, title, applicationId);
         return localVarResp.getData();
     }
 
@@ -23422,6 +23428,7 @@ public class ManagementApi {
      * List achievements
      * List all achievements. 
      * @param pageSize The number of items in the response. (optional, default to 50)
+     * @param campaignId Filter results by one or more campaign IDs.  To include multiple IDs, repeat the parameter for each one, for example,&#x60;?campaignId&#x3D;123&amp;campaignId&#x3D;456&#x60;. The response contains only achievements associated with the specified campaigns.  (optional)
      * @param skip The number of items to skip when paging through large result sets. (optional)
      * @param sort The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.  (optional)
      * @param title Filter by the display name of the achievement. (optional)
@@ -23437,8 +23444,8 @@ public class ManagementApi {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<ListAchievementsV2200Response> listAchievementsV2WithHttpInfo(@javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable String sort, @javax.annotation.Nullable String title, @javax.annotation.Nullable Long applicationId) throws ApiException {
-        okhttp3.Call localVarCall = listAchievementsV2ValidateBeforeCall(pageSize, skip, sort, title, applicationId, null);
+    public ApiResponse<ListAchievementsV2200Response> listAchievementsV2WithHttpInfo(@javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable List<Long> campaignId, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable String sort, @javax.annotation.Nullable String title, @javax.annotation.Nullable Long applicationId) throws ApiException {
+        okhttp3.Call localVarCall = listAchievementsV2ValidateBeforeCall(pageSize, campaignId, skip, sort, title, applicationId, null);
         Type localVarReturnType = new TypeToken<ListAchievementsV2200Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -23447,6 +23454,7 @@ public class ManagementApi {
      * List achievements (asynchronously)
      * List all achievements. 
      * @param pageSize The number of items in the response. (optional, default to 50)
+     * @param campaignId Filter results by one or more campaign IDs.  To include multiple IDs, repeat the parameter for each one, for example,&#x60;?campaignId&#x3D;123&amp;campaignId&#x3D;456&#x60;. The response contains only achievements associated with the specified campaigns.  (optional)
      * @param skip The number of items to skip when paging through large result sets. (optional)
      * @param sort The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.  (optional)
      * @param title Filter by the display name of the achievement. (optional)
@@ -23463,9 +23471,9 @@ public class ManagementApi {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call listAchievementsV2Async(@javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable String sort, @javax.annotation.Nullable String title, @javax.annotation.Nullable Long applicationId, final ApiCallback<ListAchievementsV2200Response> _callback) throws ApiException {
+    public okhttp3.Call listAchievementsV2Async(@javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable List<Long> campaignId, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable String sort, @javax.annotation.Nullable String title, @javax.annotation.Nullable Long applicationId, final ApiCallback<ListAchievementsV2200Response> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = listAchievementsV2ValidateBeforeCall(pageSize, skip, sort, title, applicationId, _callback);
+        okhttp3.Call localVarCall = listAchievementsV2ValidateBeforeCall(pageSize, campaignId, skip, sort, title, applicationId, _callback);
         Type localVarReturnType = new TypeToken<ListAchievementsV2200Response>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

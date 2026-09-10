@@ -20,7 +20,6 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
-import java.math.BigDecimal;
 import java.util.Arrays;
 
 import com.google.gson.Gson;
@@ -48,10 +47,10 @@ import java.util.Set;
 import one.talon.JSON;
 
 /**
- * The achievement to update.
+ * GiveawayPoolBlockReference
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.25.0")
-public class UpdateAchievementProgressBlock1Achievement {
+public class GiveawayPoolBlockReference {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
   @javax.annotation.Nonnull
@@ -62,26 +61,23 @@ public class UpdateAchievementProgressBlock1Achievement {
   @javax.annotation.Nonnull
   private String name;
 
-  public static final String SERIALIZED_NAME_TITLE = "title";
-  @SerializedName(SERIALIZED_NAME_TITLE)
-  @javax.annotation.Nonnull
-  private String title;
-
-  public static final String SERIALIZED_NAME_TARGET = "target";
-  @SerializedName(SERIALIZED_NAME_TARGET)
-  @javax.annotation.Nonnull
-  private BigDecimal target;
-
-  public UpdateAchievementProgressBlock1Achievement() {
+  public GiveawayPoolBlockReference() {
   }
 
-  public UpdateAchievementProgressBlock1Achievement id(@javax.annotation.Nonnull Long id) {
+  public GiveawayPoolBlockReference(
+     String name
+  ) {
+    this();
+    this.name = name;
+  }
+
+  public GiveawayPoolBlockReference id(@javax.annotation.Nonnull Long id) {
     this.id = id;
     return this;
   }
 
   /**
-   * The ID of the achievement.
+   * The unique identifier of the giveaway pool.
    * @return id
    */
   @javax.annotation.Nonnull
@@ -94,13 +90,8 @@ public class UpdateAchievementProgressBlock1Achievement {
   }
 
 
-  public UpdateAchievementProgressBlock1Achievement name(@javax.annotation.Nonnull String name) {
-    this.name = name;
-    return this;
-  }
-
   /**
-   * The internal name of the achievement used in API requests.
+   * The display name of the giveaway pool.
    * @return name
    */
   @javax.annotation.Nonnull
@@ -108,47 +99,6 @@ public class UpdateAchievementProgressBlock1Achievement {
     return name;
   }
 
-  public void setName(@javax.annotation.Nonnull String name) {
-    this.name = name;
-  }
-
-
-  public UpdateAchievementProgressBlock1Achievement title(@javax.annotation.Nonnull String title) {
-    this.title = title;
-    return this;
-  }
-
-  /**
-   * The display name of the achievement in the Campaign Manager.
-   * @return title
-   */
-  @javax.annotation.Nonnull
-  public String getTitle() {
-    return title;
-  }
-
-  public void setTitle(@javax.annotation.Nonnull String title) {
-    this.title = title;
-  }
-
-
-  public UpdateAchievementProgressBlock1Achievement target(@javax.annotation.Nonnull BigDecimal target) {
-    this.target = target;
-    return this;
-  }
-
-  /**
-   * The required number of actions or the transactional milestone to complete the achievement.
-   * @return target
-   */
-  @javax.annotation.Nonnull
-  public BigDecimal getTarget() {
-    return target;
-  }
-
-  public void setTarget(@javax.annotation.Nonnull BigDecimal target) {
-    this.target = target;
-  }
 
   /**
    * A container for additional, undeclared properties.
@@ -163,9 +113,9 @@ public class UpdateAchievementProgressBlock1Achievement {
    *
    * @param key name of the property
    * @param value value of the property
-   * @return the UpdateAchievementProgressBlock1Achievement instance itself
+   * @return the GiveawayPoolBlockReference instance itself
    */
-  public UpdateAchievementProgressBlock1Achievement putAdditionalProperty(String key, Object value) {
+  public GiveawayPoolBlockReference putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
         this.additionalProperties = new HashMap<String, Object>();
     }
@@ -204,27 +154,23 @@ public class UpdateAchievementProgressBlock1Achievement {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    UpdateAchievementProgressBlock1Achievement updateAchievementProgressBlock1Achievement = (UpdateAchievementProgressBlock1Achievement) o;
-    return Objects.equals(this.id, updateAchievementProgressBlock1Achievement.id) &&
-        Objects.equals(this.name, updateAchievementProgressBlock1Achievement.name) &&
-        Objects.equals(this.title, updateAchievementProgressBlock1Achievement.title) &&
-        Objects.equals(this.target, updateAchievementProgressBlock1Achievement.target)&&
-        Objects.equals(this.additionalProperties, updateAchievementProgressBlock1Achievement.additionalProperties);
+    GiveawayPoolBlockReference giveawayPoolBlockReference = (GiveawayPoolBlockReference) o;
+    return Objects.equals(this.id, giveawayPoolBlockReference.id) &&
+        Objects.equals(this.name, giveawayPoolBlockReference.name)&&
+        Objects.equals(this.additionalProperties, giveawayPoolBlockReference.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, name, title, target, additionalProperties);
+    return Objects.hash(id, name, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class UpdateAchievementProgressBlock1Achievement {\n");
+    sb.append("class GiveawayPoolBlockReference {\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    title: ").append(toIndentedString(title)).append("\n");
-    sb.append("    target: ").append(toIndentedString(target)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -244,27 +190,27 @@ public class UpdateAchievementProgressBlock1Achievement {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("id", "name", "title", "target"));
+    openapiFields = new HashSet<String>(Arrays.asList("id", "name"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("id", "name", "title", "target"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("id", "name"));
   }
 
   /**
    * Validates the JSON Element and throws an exception if issues found
    *
    * @param jsonElement JSON Element
-   * @throws IOException if the JSON Element is invalid with respect to UpdateAchievementProgressBlock1Achievement
+   * @throws IOException if the JSON Element is invalid with respect to GiveawayPoolBlockReference
    */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
-        if (!UpdateAchievementProgressBlock1Achievement.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in UpdateAchievementProgressBlock1Achievement is not found in the empty JSON string", UpdateAchievementProgressBlock1Achievement.openapiRequiredFields.toString()));
+        if (!GiveawayPoolBlockReference.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in GiveawayPoolBlockReference is not found in the empty JSON string", GiveawayPoolBlockReference.openapiRequiredFields.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : UpdateAchievementProgressBlock1Achievement.openapiRequiredFields) {
+      for (String requiredField : GiveawayPoolBlockReference.openapiRequiredFields) {
         if (jsonElement.getAsJsonObject().get(requiredField) == null) {
           throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
@@ -273,25 +219,22 @@ public class UpdateAchievementProgressBlock1Achievement {
       if (!jsonObj.get("name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
       }
-      if (!jsonObj.get("title").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `title` to be a primitive type in the JSON string but got `%s`", jsonObj.get("title").toString()));
-      }
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!UpdateAchievementProgressBlock1Achievement.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'UpdateAchievementProgressBlock1Achievement' and its subtypes
+       if (!GiveawayPoolBlockReference.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'GiveawayPoolBlockReference' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<UpdateAchievementProgressBlock1Achievement> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(UpdateAchievementProgressBlock1Achievement.class));
+       final TypeAdapter<GiveawayPoolBlockReference> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(GiveawayPoolBlockReference.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<UpdateAchievementProgressBlock1Achievement>() {
+       return (TypeAdapter<T>) new TypeAdapter<GiveawayPoolBlockReference>() {
            @Override
-           public void write(JsonWriter out, UpdateAchievementProgressBlock1Achievement value) throws IOException {
+           public void write(JsonWriter out, GiveawayPoolBlockReference value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              obj.remove("additionalProperties");
              // serialize additional properties
@@ -321,12 +264,12 @@ public class UpdateAchievementProgressBlock1Achievement {
            }
 
            @Override
-           public UpdateAchievementProgressBlock1Achievement read(JsonReader in) throws IOException {
+           public GiveawayPoolBlockReference read(JsonReader in) throws IOException {
              JsonElement jsonElement = elementAdapter.read(in);
              validateJsonElement(jsonElement);
              JsonObject jsonObj = jsonElement.getAsJsonObject();
              // store additional fields in the deserialized instance
-             UpdateAchievementProgressBlock1Achievement instance = thisAdapter.fromJsonTree(jsonObj);
+             GiveawayPoolBlockReference instance = thisAdapter.fromJsonTree(jsonObj);
              for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
                if (!openapiFields.contains(entry.getKey())) {
                  if (entry.getValue().isJsonPrimitive()) { // primitive type
@@ -353,18 +296,18 @@ public class UpdateAchievementProgressBlock1Achievement {
   }
 
   /**
-   * Create an instance of UpdateAchievementProgressBlock1Achievement given an JSON string
+   * Create an instance of GiveawayPoolBlockReference given an JSON string
    *
    * @param jsonString JSON string
-   * @return An instance of UpdateAchievementProgressBlock1Achievement
-   * @throws IOException if the JSON string is invalid with respect to UpdateAchievementProgressBlock1Achievement
+   * @return An instance of GiveawayPoolBlockReference
+   * @throws IOException if the JSON string is invalid with respect to GiveawayPoolBlockReference
    */
-  public static UpdateAchievementProgressBlock1Achievement fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, UpdateAchievementProgressBlock1Achievement.class);
+  public static GiveawayPoolBlockReference fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, GiveawayPoolBlockReference.class);
   }
 
   /**
-   * Convert an instance of UpdateAchievementProgressBlock1Achievement to an JSON string
+   * Convert an instance of GiveawayPoolBlockReference to an JSON string
    *
    * @return JSON string
    */

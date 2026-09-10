@@ -26,7 +26,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import one.talon.model.Block;
-import one.talon.model.TriggerCustomEffectBlock1CustomEffect;
+import one.talon.model.CustomEffectBlockReference;
 import one.talon.model.TriggerCustomEffectBlock1Target;
 
 import com.google.gson.Gson;
@@ -76,7 +76,7 @@ public class TriggerCustomEffectBlock {
   public static final String SERIALIZED_NAME_CUSTOM_EFFECT = "customEffect";
   @SerializedName(SERIALIZED_NAME_CUSTOM_EFFECT)
   @javax.annotation.Nonnull
-  private TriggerCustomEffectBlock1CustomEffect customEffect;
+  private CustomEffectBlockReference customEffect;
 
   public static final String SERIALIZED_NAME_PARAMS = "params";
   @SerializedName(SERIALIZED_NAME_PARAMS)
@@ -146,21 +146,21 @@ public class TriggerCustomEffectBlock {
 
 
 
-  public TriggerCustomEffectBlock customEffect(@javax.annotation.Nonnull TriggerCustomEffectBlock1CustomEffect customEffect) {
+  public TriggerCustomEffectBlock customEffect(@javax.annotation.Nonnull CustomEffectBlockReference customEffect) {
     this.customEffect = customEffect;
     return this;
   }
 
   /**
-   * Get customEffect
+   * The custom effect to trigger.
    * @return customEffect
    */
   @javax.annotation.Nonnull
-  public TriggerCustomEffectBlock1CustomEffect getCustomEffect() {
+  public CustomEffectBlockReference getCustomEffect() {
     return customEffect;
   }
 
-  public void setCustomEffect(@javax.annotation.Nonnull TriggerCustomEffectBlock1CustomEffect customEffect) {
+  public void setCustomEffect(@javax.annotation.Nonnull CustomEffectBlockReference customEffect) {
     this.customEffect = customEffect;
   }
 
@@ -374,7 +374,7 @@ public class TriggerCustomEffectBlock {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `tags` to be an array in the JSON string but got `%s`", jsonObj.get("tags").toString()));
       }
       // validate the required field `customEffect`
-      TriggerCustomEffectBlock1CustomEffect.validateJsonElement(jsonObj.get("customEffect"));
+      CustomEffectBlockReference.validateJsonElement(jsonObj.get("customEffect"));
       // validate the required field `target`
       TriggerCustomEffectBlock1Target.validateJsonElement(jsonObj.get("target"));
   }

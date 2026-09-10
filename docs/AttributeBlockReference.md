@@ -1,8 +1,7 @@
 
 
-# UpdateAttributeValueBlock1Attribute
+# AttributeBlockReference
 
-The attribute being updated.
 
 ## Properties
 

@@ -47,19 +47,14 @@ import java.util.Set;
 import one.talon.JSON;
 
 /**
- * The attribute being updated.
+ * CustomEffectBlockReference
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.25.0")
-public class UpdateAttributeValueBlock1Attribute {
+public class CustomEffectBlockReference {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
   @javax.annotation.Nonnull
   private Long id;
-
-  public static final String SERIALIZED_NAME_ENTITY = "entity";
-  @SerializedName(SERIALIZED_NAME_ENTITY)
-  @javax.annotation.Nonnull
-  private String entity;
 
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
@@ -71,21 +66,16 @@ public class UpdateAttributeValueBlock1Attribute {
   @javax.annotation.Nonnull
   private String title;
 
-  public static final String SERIALIZED_NAME_TYPE = "type";
-  @SerializedName(SERIALIZED_NAME_TYPE)
-  @javax.annotation.Nonnull
-  private String type;
-
-  public UpdateAttributeValueBlock1Attribute() {
+  public CustomEffectBlockReference() {
   }
 
-  public UpdateAttributeValueBlock1Attribute id(@javax.annotation.Nonnull Long id) {
+  public CustomEffectBlockReference id(@javax.annotation.Nonnull Long id) {
     this.id = id;
     return this;
   }
 
   /**
-   * The internal ID of the attribute. Reverts to &#x60;0&#x60; when the attribute is deleted or does not exist.
+   * The unique identifier of the custom effect.
    * @return id
    */
   @javax.annotation.Nonnull
@@ -98,32 +88,13 @@ public class UpdateAttributeValueBlock1Attribute {
   }
 
 
-  public UpdateAttributeValueBlock1Attribute entity(@javax.annotation.Nonnull String entity) {
-    this.entity = entity;
-    return this;
-  }
-
-  /**
-   * The entity type that owns the attribute. Reverts to an empty string when the attribute is deleted or does not exist.
-   * @return entity
-   */
-  @javax.annotation.Nonnull
-  public String getEntity() {
-    return entity;
-  }
-
-  public void setEntity(@javax.annotation.Nonnull String entity) {
-    this.entity = entity;
-  }
-
-
-  public UpdateAttributeValueBlock1Attribute name(@javax.annotation.Nonnull String name) {
+  public CustomEffectBlockReference name(@javax.annotation.Nonnull String name) {
     this.name = name;
     return this;
   }
 
   /**
-   * The attribute name as used in API requests.
+   * The name of the custom effect, as used in API requests.
    * @return name
    */
   @javax.annotation.Nonnull
@@ -136,13 +107,13 @@ public class UpdateAttributeValueBlock1Attribute {
   }
 
 
-  public UpdateAttributeValueBlock1Attribute title(@javax.annotation.Nonnull String title) {
+  public CustomEffectBlockReference title(@javax.annotation.Nonnull String title) {
     this.title = title;
     return this;
   }
 
   /**
-   * The human-readable name of the attribute.
+   * The display name of the custom effect.
    * @return title
    */
   @javax.annotation.Nonnull
@@ -152,25 +123,6 @@ public class UpdateAttributeValueBlock1Attribute {
 
   public void setTitle(@javax.annotation.Nonnull String title) {
     this.title = title;
-  }
-
-
-  public UpdateAttributeValueBlock1Attribute type(@javax.annotation.Nonnull String type) {
-    this.type = type;
-    return this;
-  }
-
-  /**
-   * The data type of the attribute.
-   * @return type
-   */
-  @javax.annotation.Nonnull
-  public String getType() {
-    return type;
-  }
-
-  public void setType(@javax.annotation.Nonnull String type) {
-    this.type = type;
   }
 
   /**
@@ -186,9 +138,9 @@ public class UpdateAttributeValueBlock1Attribute {
    *
    * @param key name of the property
    * @param value value of the property
-   * @return the UpdateAttributeValueBlock1Attribute instance itself
+   * @return the CustomEffectBlockReference instance itself
    */
-  public UpdateAttributeValueBlock1Attribute putAdditionalProperty(String key, Object value) {
+  public CustomEffectBlockReference putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
         this.additionalProperties = new HashMap<String, Object>();
     }
@@ -227,29 +179,25 @@ public class UpdateAttributeValueBlock1Attribute {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    UpdateAttributeValueBlock1Attribute updateAttributeValueBlock1Attribute = (UpdateAttributeValueBlock1Attribute) o;
-    return Objects.equals(this.id, updateAttributeValueBlock1Attribute.id) &&
-        Objects.equals(this.entity, updateAttributeValueBlock1Attribute.entity) &&
-        Objects.equals(this.name, updateAttributeValueBlock1Attribute.name) &&
-        Objects.equals(this.title, updateAttributeValueBlock1Attribute.title) &&
-        Objects.equals(this.type, updateAttributeValueBlock1Attribute.type)&&
-        Objects.equals(this.additionalProperties, updateAttributeValueBlock1Attribute.additionalProperties);
+    CustomEffectBlockReference customEffectBlockReference = (CustomEffectBlockReference) o;
+    return Objects.equals(this.id, customEffectBlockReference.id) &&
+        Objects.equals(this.name, customEffectBlockReference.name) &&
+        Objects.equals(this.title, customEffectBlockReference.title)&&
+        Objects.equals(this.additionalProperties, customEffectBlockReference.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, entity, name, title, type, additionalProperties);
+    return Objects.hash(id, name, title, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class UpdateAttributeValueBlock1Attribute {\n");
+    sb.append("class CustomEffectBlockReference {\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    entity: ").append(toIndentedString(entity)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    title: ").append(toIndentedString(title)).append("\n");
-    sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -269,43 +217,37 @@ public class UpdateAttributeValueBlock1Attribute {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("id", "entity", "name", "title", "type"));
+    openapiFields = new HashSet<String>(Arrays.asList("id", "name", "title"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("id", "entity", "name", "title", "type"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("id", "name", "title"));
   }
 
   /**
    * Validates the JSON Element and throws an exception if issues found
    *
    * @param jsonElement JSON Element
-   * @throws IOException if the JSON Element is invalid with respect to UpdateAttributeValueBlock1Attribute
+   * @throws IOException if the JSON Element is invalid with respect to CustomEffectBlockReference
    */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
-        if (!UpdateAttributeValueBlock1Attribute.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in UpdateAttributeValueBlock1Attribute is not found in the empty JSON string", UpdateAttributeValueBlock1Attribute.openapiRequiredFields.toString()));
+        if (!CustomEffectBlockReference.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in CustomEffectBlockReference is not found in the empty JSON string", CustomEffectBlockReference.openapiRequiredFields.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : UpdateAttributeValueBlock1Attribute.openapiRequiredFields) {
+      for (String requiredField : CustomEffectBlockReference.openapiRequiredFields) {
         if (jsonElement.getAsJsonObject().get(requiredField) == null) {
           throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if (!jsonObj.get("entity").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `entity` to be a primitive type in the JSON string but got `%s`", jsonObj.get("entity").toString()));
-      }
       if (!jsonObj.get("name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
       }
       if (!jsonObj.get("title").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `title` to be a primitive type in the JSON string but got `%s`", jsonObj.get("title").toString()));
-      }
-      if (!jsonObj.get("type").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("type").toString()));
       }
   }
 
@@ -313,16 +255,16 @@ public class UpdateAttributeValueBlock1Attribute {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!UpdateAttributeValueBlock1Attribute.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'UpdateAttributeValueBlock1Attribute' and its subtypes
+       if (!CustomEffectBlockReference.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'CustomEffectBlockReference' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<UpdateAttributeValueBlock1Attribute> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(UpdateAttributeValueBlock1Attribute.class));
+       final TypeAdapter<CustomEffectBlockReference> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(CustomEffectBlockReference.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<UpdateAttributeValueBlock1Attribute>() {
+       return (TypeAdapter<T>) new TypeAdapter<CustomEffectBlockReference>() {
            @Override
-           public void write(JsonWriter out, UpdateAttributeValueBlock1Attribute value) throws IOException {
+           public void write(JsonWriter out, CustomEffectBlockReference value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              obj.remove("additionalProperties");
              // serialize additional properties
@@ -352,12 +294,12 @@ public class UpdateAttributeValueBlock1Attribute {
            }
 
            @Override
-           public UpdateAttributeValueBlock1Attribute read(JsonReader in) throws IOException {
+           public CustomEffectBlockReference read(JsonReader in) throws IOException {
              JsonElement jsonElement = elementAdapter.read(in);
              validateJsonElement(jsonElement);
              JsonObject jsonObj = jsonElement.getAsJsonObject();
              // store additional fields in the deserialized instance
-             UpdateAttributeValueBlock1Attribute instance = thisAdapter.fromJsonTree(jsonObj);
+             CustomEffectBlockReference instance = thisAdapter.fromJsonTree(jsonObj);
              for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
                if (!openapiFields.contains(entry.getKey())) {
                  if (entry.getValue().isJsonPrimitive()) { // primitive type
@@ -384,18 +326,18 @@ public class UpdateAttributeValueBlock1Attribute {
   }
 
   /**
-   * Create an instance of UpdateAttributeValueBlock1Attribute given an JSON string
+   * Create an instance of CustomEffectBlockReference given an JSON string
    *
    * @param jsonString JSON string
-   * @return An instance of UpdateAttributeValueBlock1Attribute
-   * @throws IOException if the JSON string is invalid with respect to UpdateAttributeValueBlock1Attribute
+   * @return An instance of CustomEffectBlockReference
+   * @throws IOException if the JSON string is invalid with respect to CustomEffectBlockReference
    */
-  public static UpdateAttributeValueBlock1Attribute fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, UpdateAttributeValueBlock1Attribute.class);
+  public static CustomEffectBlockReference fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, CustomEffectBlockReference.class);
   }
 
   /**
-   * Convert an instance of UpdateAttributeValueBlock1Attribute to an JSON string
+   * Convert an instance of CustomEffectBlockReference to an JSON string
    *
    * @return JSON string
    */

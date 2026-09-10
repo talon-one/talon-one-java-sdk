@@ -11,7 +11,7 @@
 |**type** | **String** | Identifies the block variant and determines which additional properties are present in it. |  |
 |**tags** | **List&lt;String&gt;** | Semantic labels attached to this block. |  [optional] [readonly] |
 |**operator** | [**OperatorEnum**](#OperatorEnum) | The comparison operator applied to the achievement. |  |
-|**achievement** | [**CheckAchievementBlock1Achievement**](CheckAchievementBlock1Achievement.md) |  |  |
+|**achievement** | [**AchievementBlockReference**](AchievementBlockReference.md) | The achievement to check for. |  |
 |**onFailure** | [**List&lt;Block&gt;**](Block.md) | Promotion blocks evaluated when this block fails or returns false. |  [optional] |
 
 

@@ -23,8 +23,8 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import one.talon.model.AchievementBlockReference;
 import one.talon.model.Block;
-import one.talon.model.CheckAchievementBlock1Achievement;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -140,7 +140,7 @@ public class CheckAchievementBlock {
   public static final String SERIALIZED_NAME_ACHIEVEMENT = "achievement";
   @SerializedName(SERIALIZED_NAME_ACHIEVEMENT)
   @javax.annotation.Nonnull
-  private CheckAchievementBlock1Achievement achievement;
+  private AchievementBlockReference achievement;
 
   public static final String SERIALIZED_NAME_ON_FAILURE = "onFailure";
   @SerializedName(SERIALIZED_NAME_ON_FAILURE)
@@ -219,21 +219,21 @@ public class CheckAchievementBlock {
   }
 
 
-  public CheckAchievementBlock achievement(@javax.annotation.Nonnull CheckAchievementBlock1Achievement achievement) {
+  public CheckAchievementBlock achievement(@javax.annotation.Nonnull AchievementBlockReference achievement) {
     this.achievement = achievement;
     return this;
   }
 
   /**
-   * Get achievement
+   * The achievement to check for.
    * @return achievement
    */
   @javax.annotation.Nonnull
-  public CheckAchievementBlock1Achievement getAchievement() {
+  public AchievementBlockReference getAchievement() {
     return achievement;
   }
 
-  public void setAchievement(@javax.annotation.Nonnull CheckAchievementBlock1Achievement achievement) {
+  public void setAchievement(@javax.annotation.Nonnull AchievementBlockReference achievement) {
     this.achievement = achievement;
   }
 
@@ -404,7 +404,7 @@ public class CheckAchievementBlock {
       // validate the required field `operator`
       OperatorEnum.validateJsonElement(jsonObj.get("operator"));
       // validate the required field `achievement`
-      CheckAchievementBlock1Achievement.validateJsonElement(jsonObj.get("achievement"));
+      AchievementBlockReference.validateJsonElement(jsonObj.get("achievement"));
       if (jsonObj.get("onFailure") != null && !jsonObj.get("onFailure").isJsonNull()) {
         JsonArray jsonArrayonFailure = jsonObj.getAsJsonArray("onFailure");
         if (jsonArrayonFailure != null) {

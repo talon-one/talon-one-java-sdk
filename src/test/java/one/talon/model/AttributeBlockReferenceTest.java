@@ -24,17 +24,17 @@ import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 /**
- * Model tests for GiveawayPoolReference
+ * Model tests for AttributeBlockReference
  */
-public class GiveawayPoolReferenceTest {
-    private final GiveawayPoolReference model = new GiveawayPoolReference();
+public class AttributeBlockReferenceTest {
+    private final AttributeBlockReference model = new AttributeBlockReference();
 
     /**
-     * Model tests for GiveawayPoolReference
+     * Model tests for AttributeBlockReference
      */
     @Test
-    public void testGiveawayPoolReference() {
-        // TODO: test GiveawayPoolReference
+    public void testAttributeBlockReference() {
+        // TODO: test AttributeBlockReference
     }
 
     /**
@@ -46,11 +46,35 @@ public class GiveawayPoolReferenceTest {
     }
 
     /**
+     * Test the property 'entity'
+     */
+    @Test
+    public void entityTest() {
+        // TODO: test entity
+    }
+
+    /**
      * Test the property 'name'
      */
     @Test
     public void nameTest() {
         // TODO: test name
+    }
+
+    /**
+     * Test the property 'title'
+     */
+    @Test
+    public void titleTest() {
+        // TODO: test title
+    }
+
+    /**
+     * Test the property 'type'
+     */
+    @Test
+    public void typeTest() {
+        // TODO: test type
     }
 
 }

@@ -25,17 +25,17 @@ import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 /**
- * Model tests for CheckTierBlock1Tier
+ * Model tests for AchievementBlockReference
  */
-public class CheckTierBlock1TierTest {
-    private final CheckTierBlock1Tier model = new CheckTierBlock1Tier();
+public class AchievementBlockReferenceTest {
+    private final AchievementBlockReference model = new AchievementBlockReference();
 
     /**
-     * Model tests for CheckTierBlock1Tier
+     * Model tests for AchievementBlockReference
      */
     @Test
-    public void testCheckTierBlock1Tier() {
-        // TODO: test CheckTierBlock1Tier
+    public void testAchievementBlockReference() {
+        // TODO: test AchievementBlockReference
     }
 
     /**
@@ -47,6 +47,14 @@ public class CheckTierBlock1TierTest {
     }
 
     /**
+     * Test the property 'title'
+     */
+    @Test
+    public void titleTest() {
+        // TODO: test title
+    }
+
+    /**
      * Test the property 'name'
      */
     @Test
@@ -55,19 +63,11 @@ public class CheckTierBlock1TierTest {
     }
 
     /**
-     * Test the property 'minPoints'
+     * Test the property 'target'
      */
     @Test
-    public void minPointsTest() {
-        // TODO: test minPoints
-    }
-
-    /**
-     * Test the property 'upperLimit'
-     */
-    @Test
-    public void upperLimitTest() {
-        // TODO: test upperLimit
+    public void targetTest() {
+        // TODO: test target
     }
 
 }

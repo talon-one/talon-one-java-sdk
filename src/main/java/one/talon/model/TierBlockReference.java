@@ -20,6 +20,7 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
+import java.math.BigDecimal;
 import java.util.Arrays;
 
 import com.google.gson.Gson;
@@ -47,10 +48,10 @@ import java.util.Set;
 import one.talon.JSON;
 
 /**
- * GiveawayPoolReference
+ * TierBlockReference
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.25.0")
-public class GiveawayPoolReference {
+public class TierBlockReference {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
   @javax.annotation.Nonnull
@@ -61,23 +62,26 @@ public class GiveawayPoolReference {
   @javax.annotation.Nonnull
   private String name;
 
-  public GiveawayPoolReference() {
+  public static final String SERIALIZED_NAME_MIN_POINTS = "minPoints";
+  @SerializedName(SERIALIZED_NAME_MIN_POINTS)
+  @javax.annotation.Nonnull
+  private BigDecimal minPoints;
+
+  public static final String SERIALIZED_NAME_UPPER_LIMIT = "upperLimit";
+  @SerializedName(SERIALIZED_NAME_UPPER_LIMIT)
+  @javax.annotation.Nullable
+  private BigDecimal upperLimit;
+
+  public TierBlockReference() {
   }
 
-  public GiveawayPoolReference(
-     String name
-  ) {
-    this();
-    this.name = name;
-  }
-
-  public GiveawayPoolReference id(@javax.annotation.Nonnull Long id) {
+  public TierBlockReference id(@javax.annotation.Nonnull Long id) {
     this.id = id;
     return this;
   }
 
   /**
-   * The unique identifier of the giveaway pool.
+   * The ID of the tier.
    * @return id
    */
   @javax.annotation.Nonnull
@@ -90,8 +94,13 @@ public class GiveawayPoolReference {
   }
 
 
+  public TierBlockReference name(@javax.annotation.Nonnull String name) {
+    this.name = name;
+    return this;
+  }
+
   /**
-   * The display name of the giveaway pool.
+   * The display name of the tier.
    * @return name
    */
   @javax.annotation.Nonnull
@@ -99,6 +108,47 @@ public class GiveawayPoolReference {
     return name;
   }
 
+  public void setName(@javax.annotation.Nonnull String name) {
+    this.name = name;
+  }
+
+
+  public TierBlockReference minPoints(@javax.annotation.Nonnull BigDecimal minPoints) {
+    this.minPoints = minPoints;
+    return this;
+  }
+
+  /**
+   * The minimum amount of points required to enter the tier.
+   * @return minPoints
+   */
+  @javax.annotation.Nonnull
+  public BigDecimal getMinPoints() {
+    return minPoints;
+  }
+
+  public void setMinPoints(@javax.annotation.Nonnull BigDecimal minPoints) {
+    this.minPoints = minPoints;
+  }
+
+
+  public TierBlockReference upperLimit(@javax.annotation.Nullable BigDecimal upperLimit) {
+    this.upperLimit = upperLimit;
+    return this;
+  }
+
+  /**
+   * Get upperLimit
+   * @return upperLimit
+   */
+  @javax.annotation.Nullable
+  public BigDecimal getUpperLimit() {
+    return upperLimit;
+  }
+
+  public void setUpperLimit(@javax.annotation.Nullable BigDecimal upperLimit) {
+    this.upperLimit = upperLimit;
+  }
 
   /**
    * A container for additional, undeclared properties.
@@ -113,9 +163,9 @@ public class GiveawayPoolReference {
    *
    * @param key name of the property
    * @param value value of the property
-   * @return the GiveawayPoolReference instance itself
+   * @return the TierBlockReference instance itself
    */
-  public GiveawayPoolReference putAdditionalProperty(String key, Object value) {
+  public TierBlockReference putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
         this.additionalProperties = new HashMap<String, Object>();
     }
@@ -154,23 +204,27 @@ public class GiveawayPoolReference {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    GiveawayPoolReference giveawayPoolReference = (GiveawayPoolReference) o;
-    return Objects.equals(this.id, giveawayPoolReference.id) &&
-        Objects.equals(this.name, giveawayPoolReference.name)&&
-        Objects.equals(this.additionalProperties, giveawayPoolReference.additionalProperties);
+    TierBlockReference tierBlockReference = (TierBlockReference) o;
+    return Objects.equals(this.id, tierBlockReference.id) &&
+        Objects.equals(this.name, tierBlockReference.name) &&
+        Objects.equals(this.minPoints, tierBlockReference.minPoints) &&
+        Objects.equals(this.upperLimit, tierBlockReference.upperLimit)&&
+        Objects.equals(this.additionalProperties, tierBlockReference.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, name, additionalProperties);
+    return Objects.hash(id, name, minPoints, upperLimit, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class GiveawayPoolReference {\n");
+    sb.append("class TierBlockReference {\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    minPoints: ").append(toIndentedString(minPoints)).append("\n");
+    sb.append("    upperLimit: ").append(toIndentedString(upperLimit)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -190,27 +244,27 @@ public class GiveawayPoolReference {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("id", "name"));
+    openapiFields = new HashSet<String>(Arrays.asList("id", "name", "minPoints", "upperLimit"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("id", "name"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("id", "name", "minPoints"));
   }
 
   /**
    * Validates the JSON Element and throws an exception if issues found
    *
    * @param jsonElement JSON Element
-   * @throws IOException if the JSON Element is invalid with respect to GiveawayPoolReference
+   * @throws IOException if the JSON Element is invalid with respect to TierBlockReference
    */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
-        if (!GiveawayPoolReference.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in GiveawayPoolReference is not found in the empty JSON string", GiveawayPoolReference.openapiRequiredFields.toString()));
+        if (!TierBlockReference.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in TierBlockReference is not found in the empty JSON string", TierBlockReference.openapiRequiredFields.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : GiveawayPoolReference.openapiRequiredFields) {
+      for (String requiredField : TierBlockReference.openapiRequiredFields) {
         if (jsonElement.getAsJsonObject().get(requiredField) == null) {
           throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
@@ -225,16 +279,16 @@ public class GiveawayPoolReference {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!GiveawayPoolReference.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'GiveawayPoolReference' and its subtypes
+       if (!TierBlockReference.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'TierBlockReference' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<GiveawayPoolReference> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(GiveawayPoolReference.class));
+       final TypeAdapter<TierBlockReference> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(TierBlockReference.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<GiveawayPoolReference>() {
+       return (TypeAdapter<T>) new TypeAdapter<TierBlockReference>() {
            @Override
-           public void write(JsonWriter out, GiveawayPoolReference value) throws IOException {
+           public void write(JsonWriter out, TierBlockReference value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              obj.remove("additionalProperties");
              // serialize additional properties
@@ -264,12 +318,12 @@ public class GiveawayPoolReference {
            }
 
            @Override
-           public GiveawayPoolReference read(JsonReader in) throws IOException {
+           public TierBlockReference read(JsonReader in) throws IOException {
              JsonElement jsonElement = elementAdapter.read(in);
              validateJsonElement(jsonElement);
              JsonObject jsonObj = jsonElement.getAsJsonObject();
              // store additional fields in the deserialized instance
-             GiveawayPoolReference instance = thisAdapter.fromJsonTree(jsonObj);
+             TierBlockReference instance = thisAdapter.fromJsonTree(jsonObj);
              for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
                if (!openapiFields.contains(entry.getKey())) {
                  if (entry.getValue().isJsonPrimitive()) { // primitive type
@@ -296,18 +350,18 @@ public class GiveawayPoolReference {
   }
 
   /**
-   * Create an instance of GiveawayPoolReference given an JSON string
+   * Create an instance of TierBlockReference given an JSON string
    *
    * @param jsonString JSON string
-   * @return An instance of GiveawayPoolReference
-   * @throws IOException if the JSON string is invalid with respect to GiveawayPoolReference
+   * @return An instance of TierBlockReference
+   * @throws IOException if the JSON string is invalid with respect to TierBlockReference
    */
-  public static GiveawayPoolReference fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, GiveawayPoolReference.class);
+  public static TierBlockReference fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, TierBlockReference.class);
   }
 
   /**
-   * Convert an instance of GiveawayPoolReference to an JSON string
+   * Convert an instance of TierBlockReference to an JSON string
    *
    * @return JSON string
    */

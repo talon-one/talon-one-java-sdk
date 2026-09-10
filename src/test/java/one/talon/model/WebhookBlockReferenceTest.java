@@ -19,23 +19,22 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
-import java.math.BigDecimal;
 import java.util.Arrays;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 /**
- * Model tests for CheckAchievementBlock1Achievement
+ * Model tests for WebhookBlockReference
  */
-public class CheckAchievementBlock1AchievementTest {
-    private final CheckAchievementBlock1Achievement model = new CheckAchievementBlock1Achievement();
+public class WebhookBlockReferenceTest {
+    private final WebhookBlockReference model = new WebhookBlockReference();
 
     /**
-     * Model tests for CheckAchievementBlock1Achievement
+     * Model tests for WebhookBlockReference
      */
     @Test
-    public void testCheckAchievementBlock1Achievement() {
-        // TODO: test CheckAchievementBlock1Achievement
+    public void testWebhookBlockReference() {
+        // TODO: test WebhookBlockReference
     }
 
     /**
@@ -52,22 +51,6 @@ public class CheckAchievementBlock1AchievementTest {
     @Test
     public void titleTest() {
         // TODO: test title
-    }
-
-    /**
-     * Test the property 'name'
-     */
-    @Test
-    public void nameTest() {
-        // TODO: test name
-    }
-
-    /**
-     * Test the property 'target'
-     */
-    @Test
-    public void targetTest() {
-        // TODO: test target
     }
 
 }

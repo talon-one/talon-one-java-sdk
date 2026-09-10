@@ -47,10 +47,10 @@ import java.util.Set;
 import one.talon.JSON;
 
 /**
- * The audience to add the customer to or remove them from.
+ * AudienceBlockReference
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.25.0")
-public class UpdateAudienceMembershipBlock1Audience {
+public class AudienceBlockReference {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
   @javax.annotation.Nonnull
@@ -71,10 +71,10 @@ public class UpdateAudienceMembershipBlock1Audience {
   @javax.annotation.Nullable
   private String integrationId;
 
-  public UpdateAudienceMembershipBlock1Audience() {
+  public AudienceBlockReference() {
   }
 
-  public UpdateAudienceMembershipBlock1Audience id(@javax.annotation.Nonnull Long id) {
+  public AudienceBlockReference id(@javax.annotation.Nonnull Long id) {
     this.id = id;
     return this;
   }
@@ -93,7 +93,7 @@ public class UpdateAudienceMembershipBlock1Audience {
   }
 
 
-  public UpdateAudienceMembershipBlock1Audience name(@javax.annotation.Nonnull String name) {
+  public AudienceBlockReference name(@javax.annotation.Nonnull String name) {
     this.name = name;
     return this;
   }
@@ -112,7 +112,7 @@ public class UpdateAudienceMembershipBlock1Audience {
   }
 
 
-  public UpdateAudienceMembershipBlock1Audience integration(@javax.annotation.Nullable String integration) {
+  public AudienceBlockReference integration(@javax.annotation.Nullable String integration) {
     this.integration = integration;
     return this;
   }
@@ -131,7 +131,7 @@ public class UpdateAudienceMembershipBlock1Audience {
   }
 
 
-  public UpdateAudienceMembershipBlock1Audience integrationId(@javax.annotation.Nullable String integrationId) {
+  public AudienceBlockReference integrationId(@javax.annotation.Nullable String integrationId) {
     this.integrationId = integrationId;
     return this;
   }
@@ -162,9 +162,9 @@ public class UpdateAudienceMembershipBlock1Audience {
    *
    * @param key name of the property
    * @param value value of the property
-   * @return the UpdateAudienceMembershipBlock1Audience instance itself
+   * @return the AudienceBlockReference instance itself
    */
-  public UpdateAudienceMembershipBlock1Audience putAdditionalProperty(String key, Object value) {
+  public AudienceBlockReference putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
         this.additionalProperties = new HashMap<String, Object>();
     }
@@ -203,12 +203,12 @@ public class UpdateAudienceMembershipBlock1Audience {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    UpdateAudienceMembershipBlock1Audience updateAudienceMembershipBlock1Audience = (UpdateAudienceMembershipBlock1Audience) o;
-    return Objects.equals(this.id, updateAudienceMembershipBlock1Audience.id) &&
-        Objects.equals(this.name, updateAudienceMembershipBlock1Audience.name) &&
-        Objects.equals(this.integration, updateAudienceMembershipBlock1Audience.integration) &&
-        Objects.equals(this.integrationId, updateAudienceMembershipBlock1Audience.integrationId)&&
-        Objects.equals(this.additionalProperties, updateAudienceMembershipBlock1Audience.additionalProperties);
+    AudienceBlockReference audienceBlockReference = (AudienceBlockReference) o;
+    return Objects.equals(this.id, audienceBlockReference.id) &&
+        Objects.equals(this.name, audienceBlockReference.name) &&
+        Objects.equals(this.integration, audienceBlockReference.integration) &&
+        Objects.equals(this.integrationId, audienceBlockReference.integrationId)&&
+        Objects.equals(this.additionalProperties, audienceBlockReference.additionalProperties);
   }
 
   @Override
@@ -219,7 +219,7 @@ public class UpdateAudienceMembershipBlock1Audience {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class UpdateAudienceMembershipBlock1Audience {\n");
+    sb.append("class AudienceBlockReference {\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    integration: ").append(toIndentedString(integration)).append("\n");
@@ -253,17 +253,17 @@ public class UpdateAudienceMembershipBlock1Audience {
    * Validates the JSON Element and throws an exception if issues found
    *
    * @param jsonElement JSON Element
-   * @throws IOException if the JSON Element is invalid with respect to UpdateAudienceMembershipBlock1Audience
+   * @throws IOException if the JSON Element is invalid with respect to AudienceBlockReference
    */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
-        if (!UpdateAudienceMembershipBlock1Audience.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in UpdateAudienceMembershipBlock1Audience is not found in the empty JSON string", UpdateAudienceMembershipBlock1Audience.openapiRequiredFields.toString()));
+        if (!AudienceBlockReference.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in AudienceBlockReference is not found in the empty JSON string", AudienceBlockReference.openapiRequiredFields.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : UpdateAudienceMembershipBlock1Audience.openapiRequiredFields) {
+      for (String requiredField : AudienceBlockReference.openapiRequiredFields) {
         if (jsonElement.getAsJsonObject().get(requiredField) == null) {
           throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
@@ -284,16 +284,16 @@ public class UpdateAudienceMembershipBlock1Audience {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!UpdateAudienceMembershipBlock1Audience.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'UpdateAudienceMembershipBlock1Audience' and its subtypes
+       if (!AudienceBlockReference.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'AudienceBlockReference' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<UpdateAudienceMembershipBlock1Audience> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(UpdateAudienceMembershipBlock1Audience.class));
+       final TypeAdapter<AudienceBlockReference> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(AudienceBlockReference.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<UpdateAudienceMembershipBlock1Audience>() {
+       return (TypeAdapter<T>) new TypeAdapter<AudienceBlockReference>() {
            @Override
-           public void write(JsonWriter out, UpdateAudienceMembershipBlock1Audience value) throws IOException {
+           public void write(JsonWriter out, AudienceBlockReference value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              obj.remove("additionalProperties");
              // serialize additional properties
@@ -323,12 +323,12 @@ public class UpdateAudienceMembershipBlock1Audience {
            }
 
            @Override
-           public UpdateAudienceMembershipBlock1Audience read(JsonReader in) throws IOException {
+           public AudienceBlockReference read(JsonReader in) throws IOException {
              JsonElement jsonElement = elementAdapter.read(in);
              validateJsonElement(jsonElement);
              JsonObject jsonObj = jsonElement.getAsJsonObject();
              // store additional fields in the deserialized instance
-             UpdateAudienceMembershipBlock1Audience instance = thisAdapter.fromJsonTree(jsonObj);
+             AudienceBlockReference instance = thisAdapter.fromJsonTree(jsonObj);
              for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
                if (!openapiFields.contains(entry.getKey())) {
                  if (entry.getValue().isJsonPrimitive()) { // primitive type
@@ -355,18 +355,18 @@ public class UpdateAudienceMembershipBlock1Audience {
   }
 
   /**
-   * Create an instance of UpdateAudienceMembershipBlock1Audience given an JSON string
+   * Create an instance of AudienceBlockReference given an JSON string
    *
    * @param jsonString JSON string
-   * @return An instance of UpdateAudienceMembershipBlock1Audience
-   * @throws IOException if the JSON string is invalid with respect to UpdateAudienceMembershipBlock1Audience
+   * @return An instance of AudienceBlockReference
+   * @throws IOException if the JSON string is invalid with respect to AudienceBlockReference
    */
-  public static UpdateAudienceMembershipBlock1Audience fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, UpdateAudienceMembershipBlock1Audience.class);
+  public static AudienceBlockReference fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, AudienceBlockReference.class);
   }
 
   /**
-   * Convert an instance of UpdateAudienceMembershipBlock1Audience to an JSON string
+   * Convert an instance of AudienceBlockReference to an JSON string
    *
    * @return JSON string
    */

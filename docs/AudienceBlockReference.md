@@ -1,8 +1,7 @@
 
 
-# UpdateAudienceMembershipBlock1Audience
+# AudienceBlockReference
 
-The audience to add the customer to or remove them from.
 
 ## Properties
 

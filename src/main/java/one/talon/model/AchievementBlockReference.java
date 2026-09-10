@@ -48,10 +48,10 @@ import java.util.Set;
 import one.talon.JSON;
 
 /**
- * The achievement to check for.
+ * AchievementBlockReference
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.25.0")
-public class CheckAchievementBlock1Achievement {
+public class AchievementBlockReference {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
   @javax.annotation.Nonnull
@@ -72,10 +72,10 @@ public class CheckAchievementBlock1Achievement {
   @javax.annotation.Nonnull
   private BigDecimal target;
 
-  public CheckAchievementBlock1Achievement() {
+  public AchievementBlockReference() {
   }
 
-  public CheckAchievementBlock1Achievement id(@javax.annotation.Nonnull Long id) {
+  public AchievementBlockReference id(@javax.annotation.Nonnull Long id) {
     this.id = id;
     return this;
   }
@@ -94,7 +94,7 @@ public class CheckAchievementBlock1Achievement {
   }
 
 
-  public CheckAchievementBlock1Achievement title(@javax.annotation.Nonnull String title) {
+  public AchievementBlockReference title(@javax.annotation.Nonnull String title) {
     this.title = title;
     return this;
   }
@@ -113,7 +113,7 @@ public class CheckAchievementBlock1Achievement {
   }
 
 
-  public CheckAchievementBlock1Achievement name(@javax.annotation.Nonnull String name) {
+  public AchievementBlockReference name(@javax.annotation.Nonnull String name) {
     this.name = name;
     return this;
   }
@@ -132,7 +132,7 @@ public class CheckAchievementBlock1Achievement {
   }
 
 
-  public CheckAchievementBlock1Achievement target(@javax.annotation.Nonnull BigDecimal target) {
+  public AchievementBlockReference target(@javax.annotation.Nonnull BigDecimal target) {
     this.target = target;
     return this;
   }
@@ -163,9 +163,9 @@ public class CheckAchievementBlock1Achievement {
    *
    * @param key name of the property
    * @param value value of the property
-   * @return the CheckAchievementBlock1Achievement instance itself
+   * @return the AchievementBlockReference instance itself
    */
-  public CheckAchievementBlock1Achievement putAdditionalProperty(String key, Object value) {
+  public AchievementBlockReference putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
         this.additionalProperties = new HashMap<String, Object>();
     }
@@ -204,12 +204,12 @@ public class CheckAchievementBlock1Achievement {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    CheckAchievementBlock1Achievement checkAchievementBlock1Achievement = (CheckAchievementBlock1Achievement) o;
-    return Objects.equals(this.id, checkAchievementBlock1Achievement.id) &&
-        Objects.equals(this.title, checkAchievementBlock1Achievement.title) &&
-        Objects.equals(this.name, checkAchievementBlock1Achievement.name) &&
-        Objects.equals(this.target, checkAchievementBlock1Achievement.target)&&
-        Objects.equals(this.additionalProperties, checkAchievementBlock1Achievement.additionalProperties);
+    AchievementBlockReference achievementBlockReference = (AchievementBlockReference) o;
+    return Objects.equals(this.id, achievementBlockReference.id) &&
+        Objects.equals(this.title, achievementBlockReference.title) &&
+        Objects.equals(this.name, achievementBlockReference.name) &&
+        Objects.equals(this.target, achievementBlockReference.target)&&
+        Objects.equals(this.additionalProperties, achievementBlockReference.additionalProperties);
   }
 
   @Override
@@ -220,7 +220,7 @@ public class CheckAchievementBlock1Achievement {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class CheckAchievementBlock1Achievement {\n");
+    sb.append("class AchievementBlockReference {\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    title: ").append(toIndentedString(title)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
@@ -254,17 +254,17 @@ public class CheckAchievementBlock1Achievement {
    * Validates the JSON Element and throws an exception if issues found
    *
    * @param jsonElement JSON Element
-   * @throws IOException if the JSON Element is invalid with respect to CheckAchievementBlock1Achievement
+   * @throws IOException if the JSON Element is invalid with respect to AchievementBlockReference
    */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
-        if (!CheckAchievementBlock1Achievement.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in CheckAchievementBlock1Achievement is not found in the empty JSON string", CheckAchievementBlock1Achievement.openapiRequiredFields.toString()));
+        if (!AchievementBlockReference.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in AchievementBlockReference is not found in the empty JSON string", AchievementBlockReference.openapiRequiredFields.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : CheckAchievementBlock1Achievement.openapiRequiredFields) {
+      for (String requiredField : AchievementBlockReference.openapiRequiredFields) {
         if (jsonElement.getAsJsonObject().get(requiredField) == null) {
           throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
@@ -282,16 +282,16 @@ public class CheckAchievementBlock1Achievement {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!CheckAchievementBlock1Achievement.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'CheckAchievementBlock1Achievement' and its subtypes
+       if (!AchievementBlockReference.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'AchievementBlockReference' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<CheckAchievementBlock1Achievement> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(CheckAchievementBlock1Achievement.class));
+       final TypeAdapter<AchievementBlockReference> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(AchievementBlockReference.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<CheckAchievementBlock1Achievement>() {
+       return (TypeAdapter<T>) new TypeAdapter<AchievementBlockReference>() {
            @Override
-           public void write(JsonWriter out, CheckAchievementBlock1Achievement value) throws IOException {
+           public void write(JsonWriter out, AchievementBlockReference value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              obj.remove("additionalProperties");
              // serialize additional properties
@@ -321,12 +321,12 @@ public class CheckAchievementBlock1Achievement {
            }
 
            @Override
-           public CheckAchievementBlock1Achievement read(JsonReader in) throws IOException {
+           public AchievementBlockReference read(JsonReader in) throws IOException {
              JsonElement jsonElement = elementAdapter.read(in);
              validateJsonElement(jsonElement);
              JsonObject jsonObj = jsonElement.getAsJsonObject();
              // store additional fields in the deserialized instance
-             CheckAchievementBlock1Achievement instance = thisAdapter.fromJsonTree(jsonObj);
+             AchievementBlockReference instance = thisAdapter.fromJsonTree(jsonObj);
              for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
                if (!openapiFields.contains(entry.getKey())) {
                  if (entry.getValue().isJsonPrimitive()) { // primitive type
@@ -353,18 +353,18 @@ public class CheckAchievementBlock1Achievement {
   }
 
   /**
-   * Create an instance of CheckAchievementBlock1Achievement given an JSON string
+   * Create an instance of AchievementBlockReference given an JSON string
    *
    * @param jsonString JSON string
-   * @return An instance of CheckAchievementBlock1Achievement
-   * @throws IOException if the JSON string is invalid with respect to CheckAchievementBlock1Achievement
+   * @return An instance of AchievementBlockReference
+   * @throws IOException if the JSON string is invalid with respect to AchievementBlockReference
    */
-  public static CheckAchievementBlock1Achievement fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, CheckAchievementBlock1Achievement.class);
+  public static AchievementBlockReference fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, AchievementBlockReference.class);
   }
 
   /**
-   * Convert an instance of CheckAchievementBlock1Achievement to an JSON string
+   * Convert an instance of AchievementBlockReference to an JSON string
    *
    * @return JSON string
    */
