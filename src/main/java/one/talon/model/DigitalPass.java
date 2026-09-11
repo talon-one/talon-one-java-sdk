@@ -63,13 +63,10 @@ public class DigitalPass {
   private String passTemplateId;
 
   /**
-   * The status of the digital pass.
+   * The status of the digital pass.  &#x60;created&#x60; indicates that the pass was generated and is ready to be added to a wallet. 
    */
   @JsonAdapter(StatusEnum.Adapter.class)
   public enum StatusEnum {
-    /**
-     * The pass was generated and is ready to be added to a wallet.
-     */
     CREATED("created");
 
     private String value;
@@ -172,7 +169,7 @@ public class DigitalPass {
   }
 
   /**
-   * The status of the digital pass.
+   * The status of the digital pass.  &#x60;created&#x60; indicates that the pass was generated and is ready to be added to a wallet. 
    * @return status
    */
   @javax.annotation.Nonnull

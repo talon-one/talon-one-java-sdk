@@ -194,6 +194,57 @@ public class JSON {
                                 getDiscriminatorValue(readElement, "operator"));
                     }
           })
+                .registerTypeSelector(one.talon.model.Effect.class, new TypeSelector<one.talon.model.Effect>() {
+                    @Override
+                    public Class<? extends one.talon.model.Effect> getClassForElement(JsonElement readElement) {
+                        Map<String, Class> classByDiscriminatorValue = new HashMap<String, Class>();
+                        classByDiscriminatorValue.put("acceptCoupon", one.talon.model.EffectAcceptCoupon.class);
+                        classByDiscriminatorValue.put("acceptReferral", one.talon.model.EffectAcceptReferral.class);
+                        classByDiscriminatorValue.put("addFreeItem", one.talon.model.EffectAddFreeItem.class);
+                        classByDiscriminatorValue.put("addLoyaltyPoints", one.talon.model.EffectAddLoyaltyPoints.class);
+                        classByDiscriminatorValue.put("addNegativeLoyaltyPoints", one.talon.model.EffectAddNegativeLoyaltyPoints.class);
+                        classByDiscriminatorValue.put("addToAudience", one.talon.model.EffectAddToAudience.class);
+                        classByDiscriminatorValue.put("awardGiveaway", one.talon.model.EffectAwardGiveaway.class);
+                        classByDiscriminatorValue.put("callApi", one.talon.model.EffectCallApi.class);
+                        classByDiscriminatorValue.put("changeLoyaltyTierLevel", one.talon.model.EffectChangeLoyaltyTierLevel.class);
+                        classByDiscriminatorValue.put("couponCreated", one.talon.model.EffectCouponCreated.class);
+                        classByDiscriminatorValue.put("customEffect", one.talon.model.EffectCustomEffect.class);
+                        classByDiscriminatorValue.put("deductLoyaltyPoints", one.talon.model.EffectDeductLoyaltyPoints.class);
+                        classByDiscriminatorValue.put("error", one.talon.model.EffectError.class);
+                        classByDiscriminatorValue.put("extendLoyaltyPointsExpiryDate", one.talon.model.EffectExtendLoyaltyPointsExpiryDate.class);
+                        classByDiscriminatorValue.put("increaseAchievementProgress", one.talon.model.EffectIncreaseAchievementProgress.class);
+                        classByDiscriminatorValue.put("joinLoyaltyProgram", one.talon.model.EffectJoinLoyaltyProgram.class);
+                        classByDiscriminatorValue.put("offsetNegativeLoyaltyPoints", one.talon.model.EffectOffsetNegativeLoyaltyPoints.class);
+                        classByDiscriminatorValue.put("redeemReferral", one.talon.model.EffectRedeemReferral.class);
+                        classByDiscriminatorValue.put("referralCreated", one.talon.model.EffectReferralCreated.class);
+                        classByDiscriminatorValue.put("rejectCoupon", one.talon.model.EffectRejectCoupon.class);
+                        classByDiscriminatorValue.put("rejectReferral", one.talon.model.EffectRejectReferral.class);
+                        classByDiscriminatorValue.put("removeFromAudience", one.talon.model.EffectRemoveFromAudience.class);
+                        classByDiscriminatorValue.put("reserveCoupon", one.talon.model.EffectReserveCoupon.class);
+                        classByDiscriminatorValue.put("rollbackAddedLoyaltyPoints", one.talon.model.EffectRollbackAddedLoyaltyPoints.class);
+                        classByDiscriminatorValue.put("rollbackCoupon", one.talon.model.EffectRollbackCoupon.class);
+                        classByDiscriminatorValue.put("rollbackDeductedLoyaltyPoints", one.talon.model.EffectRollbackDeductedLoyaltyPoints.class);
+                        classByDiscriminatorValue.put("rollbackDiscount", one.talon.model.EffectRollbackDiscount.class);
+                        classByDiscriminatorValue.put("rollbackIncreasedAchievementProgress", one.talon.model.EffectRollbackIncreasedAchievementProgress.class);
+                        classByDiscriminatorValue.put("rollbackReferral", one.talon.model.EffectRollbackReferral.class);
+                        classByDiscriminatorValue.put("rollbackUseReward", one.talon.model.EffectRollbackUseReward.class);
+                        classByDiscriminatorValue.put("set", one.talon.model.EffectSet.class);
+                        classByDiscriminatorValue.put("setDiscount", one.talon.model.EffectSetDiscount.class);
+                        classByDiscriminatorValue.put("setDiscountPerAdditionalCost", one.talon.model.EffectSetDiscountPerAdditionalCost.class);
+                        classByDiscriminatorValue.put("setDiscountPerAdditionalCostPerItem", one.talon.model.EffectSetDiscountPerAdditionalCostPerItem.class);
+                        classByDiscriminatorValue.put("setDiscountPerItem", one.talon.model.EffectSetDiscountPerItem.class);
+                        classByDiscriminatorValue.put("setLoyaltyPointsExpiryDate", one.talon.model.EffectSetLoyaltyPointsExpiryDate.class);
+                        classByDiscriminatorValue.put("showBundleMetadata", one.talon.model.EffectShowBundleMetadata.class);
+                        classByDiscriminatorValue.put("showNotification", one.talon.model.EffectShowNotification.class);
+                        classByDiscriminatorValue.put("startAchievementProgress", one.talon.model.EffectStartAchievementProgress.class);
+                        classByDiscriminatorValue.put("unlockReward", one.talon.model.EffectUnlockReward.class);
+                        classByDiscriminatorValue.put("useReward", one.talon.model.EffectUseReward.class);
+                        classByDiscriminatorValue.put("willAwardGiveaway", one.talon.model.EffectWillAwardGiveaway.class);
+                        classByDiscriminatorValue.put("Effect", one.talon.model.Effect.class);
+                        return getClassByDiscriminator(classByDiscriminatorValue,
+                                getDiscriminatorValue(readElement, "effectType"));
+                    }
+          })
                 .registerTypeSelector(one.talon.model.GeoJSONGeometry.class, new TypeSelector<one.talon.model.GeoJSONGeometry>() {
                     @Override
                     public Class<? extends one.talon.model.GeoJSONGeometry> getClassForElement(JsonElement readElement) {
@@ -305,6 +356,7 @@ public class JSON {
         gsonBuilder.registerTypeAdapterFactory(new one.talon.model.AchievementAdditionalPropertiesV2.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new one.talon.model.AchievementBase.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new one.talon.model.AchievementBaseV2.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new one.talon.model.AchievementBlockReference.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new one.talon.model.AchievementProgress.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new one.talon.model.AchievementProgressWithDefinition.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new one.talon.model.AchievementReference.CustomTypeAdapterFactory());
@@ -357,10 +409,12 @@ public class JSON {
         gsonBuilder.registerTypeAdapterFactory(new one.talon.model.AsyncCouponDeletionJobResponse.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new one.talon.model.AsyncCouponsData.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new one.talon.model.Attribute.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new one.talon.model.AttributeBlockReference.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new one.talon.model.AttributesMandatory.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new one.talon.model.AttributesSettings.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new one.talon.model.Audience.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new one.talon.model.AudienceAnalytics.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new one.talon.model.AudienceBlockReference.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new one.talon.model.AudienceCustomer.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new one.talon.model.AudienceIntegrationID.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new one.talon.model.AudienceMembership.CustomTypeAdapterFactory());
@@ -481,11 +535,9 @@ public class JSON {
         gsonBuilder.registerTypeAdapterFactory(new one.talon.model.ChangeLoyaltyTierLevelEffectProps.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new one.talon.model.ChangeProfilePassword.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new one.talon.model.CheckAchievementBlock.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new one.talon.model.CheckAchievementBlock1Achievement.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new one.talon.model.CheckAttributeBlock.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new one.talon.model.CheckAttributeBlockBase.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new one.talon.model.CheckAudienceBlock.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new one.talon.model.CheckAudienceBlock1Audience.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new one.talon.model.CheckBudgetBlock.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new one.talon.model.CheckCouponBlock.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new one.talon.model.CheckEventBlock.CustomTypeAdapterFactory());
@@ -494,7 +546,6 @@ public class JSON {
         gsonBuilder.registerTypeAdapterFactory(new one.talon.model.CheckLoyaltyCardBlock.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new one.talon.model.CheckReferralBlock.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new one.talon.model.CheckTierBlock.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new one.talon.model.CheckTierBlock1Tier.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new one.talon.model.CodeGeneratorSettings.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new one.talon.model.Collection.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new one.talon.model.CollectionItem.CustomTypeAdapterFactory());
@@ -535,6 +586,7 @@ public class JSON {
         gsonBuilder.registerTypeAdapterFactory(new one.talon.model.CreateTemplateCampaign.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new one.talon.model.CreateTemplateCampaignResponse.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new one.talon.model.CustomEffect.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new one.talon.model.CustomEffectBlockReference.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new one.talon.model.CustomEffectProps.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new one.talon.model.CustomerAchievement.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new one.talon.model.CustomerActivityReport.CustomTypeAdapterFactory());
@@ -561,7 +613,49 @@ public class JSON {
         gsonBuilder.registerTypeAdapterFactory(new one.talon.model.DigitalPass.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new one.talon.model.DiscardRisksRequest.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new one.talon.model.Effect.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new one.talon.model.EffectAcceptCoupon.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new one.talon.model.EffectAcceptReferral.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new one.talon.model.EffectAddFreeItem.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new one.talon.model.EffectAddLoyaltyPoints.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new one.talon.model.EffectAddNegativeLoyaltyPoints.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new one.talon.model.EffectAddToAudience.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new one.talon.model.EffectAwardGiveaway.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new one.talon.model.EffectCallApi.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new one.talon.model.EffectChangeLoyaltyTierLevel.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new one.talon.model.EffectCouponCreated.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new one.talon.model.EffectCustomEffect.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new one.talon.model.EffectDeductLoyaltyPoints.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new one.talon.model.EffectEntity.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new one.talon.model.EffectError.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new one.talon.model.EffectExtendLoyaltyPointsExpiryDate.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new one.talon.model.EffectIncreaseAchievementProgress.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new one.talon.model.EffectJoinLoyaltyProgram.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new one.talon.model.EffectOffsetNegativeLoyaltyPoints.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new one.talon.model.EffectRedeemReferral.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new one.talon.model.EffectReferralCreated.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new one.talon.model.EffectRejectCoupon.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new one.talon.model.EffectRejectReferral.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new one.talon.model.EffectRemoveFromAudience.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new one.talon.model.EffectReserveCoupon.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new one.talon.model.EffectRollbackAddedLoyaltyPoints.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new one.talon.model.EffectRollbackCoupon.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new one.talon.model.EffectRollbackDeductedLoyaltyPoints.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new one.talon.model.EffectRollbackDiscount.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new one.talon.model.EffectRollbackIncreasedAchievementProgress.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new one.talon.model.EffectRollbackReferral.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new one.talon.model.EffectRollbackUseReward.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new one.talon.model.EffectSet.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new one.talon.model.EffectSetDiscount.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new one.talon.model.EffectSetDiscountPerAdditionalCost.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new one.talon.model.EffectSetDiscountPerAdditionalCostPerItem.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new one.talon.model.EffectSetDiscountPerItem.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new one.talon.model.EffectSetLoyaltyPointsExpiryDate.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new one.talon.model.EffectShowBundleMetadata.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new one.talon.model.EffectShowNotification.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new one.talon.model.EffectStartAchievementProgress.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new one.talon.model.EffectUnlockReward.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new one.talon.model.EffectUseReward.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new one.talon.model.EffectWillAwardGiveaway.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new one.talon.model.EmailEntity.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new one.talon.model.EmbeddedAnalyticsConfiguration.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new one.talon.model.EmbeddedAnalyticsConfigurationDashboards.CustomTypeAdapterFactory());
@@ -687,9 +781,9 @@ public class JSON {
         gsonBuilder.registerTypeAdapterFactory(new one.talon.model.GetUsers200Response.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new one.talon.model.GetWebhooks200Response.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new one.talon.model.Giveaway.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new one.talon.model.GiveawayPoolBlockReference.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new one.talon.model.GiveawayPoolNotification.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new one.talon.model.GiveawayPoolNotificationData.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new one.talon.model.GiveawayPoolReference.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new one.talon.model.GiveawaysPool.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new one.talon.model.GroupBlock.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new one.talon.model.HiddenConditionsEffects.CustomTypeAdapterFactory());
@@ -1064,6 +1158,7 @@ public class JSON {
         gsonBuilder.registerTypeAdapterFactory(new one.talon.model.StrikethroughTrigger.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new one.talon.model.SummarizeCampaignStoreBudget200Response.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new one.talon.model.SummaryCampaignStoreBudget.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new one.talon.model.SupportBalances.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new one.talon.model.SupportCustomerProfile.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new one.talon.model.SupportRequest.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new one.talon.model.SupportRequestInput.CustomTypeAdapterFactory());
@@ -1074,6 +1169,7 @@ public class JSON {
         gsonBuilder.registerTypeAdapterFactory(new one.talon.model.TemplateLimitConfig.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new one.talon.model.TemplateParameter.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new one.talon.model.Tier.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new one.talon.model.TierBlockReference.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new one.talon.model.TierDowngradeData.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new one.talon.model.TierDowngradeNotification.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new one.talon.model.TierDowngradeNotificationPolicy.CustomTypeAdapterFactory());
@@ -1087,10 +1183,8 @@ public class JSON {
         gsonBuilder.registerTypeAdapterFactory(new one.talon.model.TimePoint.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new one.talon.model.TransferLoyaltyCard.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new one.talon.model.TriggerCustomEffectBlock.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new one.talon.model.TriggerCustomEffectBlock1CustomEffect.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new one.talon.model.TriggerCustomEffectBlock1Target.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new one.talon.model.TriggerWebhookBlock.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new one.talon.model.TriggerWebhookBlock1Webhook.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new one.talon.model.TriggerWebhookEffectProps.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new one.talon.model.TwoFAConfig.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new one.talon.model.UnaryCheckAttributeBlock.CustomTypeAdapterFactory());
@@ -1098,18 +1192,15 @@ public class JSON {
         gsonBuilder.registerTypeAdapterFactory(new one.talon.model.UpdateAccount.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new one.talon.model.UpdateAchievement.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new one.talon.model.UpdateAchievementProgressBlock.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new one.talon.model.UpdateAchievementProgressBlock1Achievement.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new one.talon.model.UpdateAchievementV2.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new one.talon.model.UpdateApplication.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new one.talon.model.UpdateApplicationAPIKey.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new one.talon.model.UpdateApplicationCIF.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new one.talon.model.UpdateAttributeEffectProps.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new one.talon.model.UpdateAttributeValueBlock.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new one.talon.model.UpdateAttributeValueBlock1Attribute.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new one.talon.model.UpdateAttributeValueBlock1Target.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new one.talon.model.UpdateAudience.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new one.talon.model.UpdateAudienceMembershipBlock.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new one.talon.model.UpdateAudienceMembershipBlock1Audience.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new one.talon.model.UpdateBlueprint.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new one.talon.model.UpdateCampaign.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new one.talon.model.UpdateCampaignCollection.CustomTypeAdapterFactory());
@@ -1155,6 +1246,7 @@ public class JSON {
         gsonBuilder.registerTypeAdapterFactory(new one.talon.model.WebhookAuthenticationDataBasic.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new one.talon.model.WebhookAuthenticationDataCustom.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new one.talon.model.WebhookAuthenticationWebhookRef.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new one.talon.model.WebhookBlockReference.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new one.talon.model.WebhookWithOutgoingIntegrationDetails.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new one.talon.model.WillAwardGiveawayEffectProps.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new one.talon.model.WithinCheckAttributeBlock.CustomTypeAdapterFactory());

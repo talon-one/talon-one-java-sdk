@@ -242,7 +242,7 @@ public class EffectEntity {
   }
 
   /**
-   * The type of effect that was triggered. See [API effects](https://docs.talon.one/docs/dev/integration-api/api-effects).
+   * See [API effects](https://docs.talon.one/docs/dev/integration-api/api-effects).
    * @return effectType
    */
   @javax.annotation.Nonnull

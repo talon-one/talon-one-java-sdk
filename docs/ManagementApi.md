@@ -11443,7 +11443,7 @@ public class Example {
 
 <a id="listAchievementsV2"></a>
 # **listAchievementsV2**
-> ListAchievementsV2200Response listAchievementsV2(pageSize, skip, sort, title, applicationId)
+> ListAchievementsV2200Response listAchievementsV2(pageSize, campaignId, skip, sort, title, applicationId)
 
 List achievements
 
@@ -11472,12 +11472,13 @@ public class Example {
 
     ManagementApi apiInstance = new ManagementApi(defaultClient);
     Long pageSize = 50L; // Long | The number of items in the response.
+    List<Long> campaignId = Arrays.asList(); // List<Long> | Filter results by one or more campaign IDs.  To include multiple IDs, repeat the parameter for each one, for example,`?campaignId=123&campaignId=456`. The response contains only achievements associated with the specified campaigns. 
     Long skip = 56L; // Long | The number of items to skip when paging through large result sets.
     String sort = "sort_example"; // String | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations. 
     String title = "title_example"; // String | Filter by the display name of the achievement.
     Long applicationId = 56L; // Long | Filter by the ID of an Application connected to the achievement.
     try {
-      ListAchievementsV2200Response result = apiInstance.listAchievementsV2(pageSize, skip, sort, title, applicationId);
+      ListAchievementsV2200Response result = apiInstance.listAchievementsV2(pageSize, campaignId, skip, sort, title, applicationId);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ManagementApi#listAchievementsV2");
@@ -11495,6 +11496,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **pageSize** | **Long**| The number of items in the response. | [optional] [default to 50] |
+| **campaignId** | [**List&lt;Long&gt;**](Long.md)| Filter results by one or more campaign IDs.  To include multiple IDs, repeat the parameter for each one, for example,&#x60;?campaignId&#x3D;123&amp;campaignId&#x3D;456&#x60;. The response contains only achievements associated with the specified campaigns.  | [optional] |
 | **skip** | **Long**| The number of items to skip when paging through large result sets. | [optional] |
 | **sort** | **String**| The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.  | [optional] |
 | **title** | **String**| Filter by the display name of the achievement. | [optional] |

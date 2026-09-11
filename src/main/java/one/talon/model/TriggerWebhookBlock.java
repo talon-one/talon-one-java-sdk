@@ -26,7 +26,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import one.talon.model.Block;
-import one.talon.model.TriggerWebhookBlock1Webhook;
+import one.talon.model.WebhookBlockReference;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -75,7 +75,7 @@ public class TriggerWebhookBlock {
   public static final String SERIALIZED_NAME_WEBHOOK = "webhook";
   @SerializedName(SERIALIZED_NAME_WEBHOOK)
   @javax.annotation.Nonnull
-  private TriggerWebhookBlock1Webhook webhook;
+  private WebhookBlockReference webhook;
 
   public static final String SERIALIZED_NAME_PARAMS = "params";
   @SerializedName(SERIALIZED_NAME_PARAMS)
@@ -140,21 +140,21 @@ public class TriggerWebhookBlock {
 
 
 
-  public TriggerWebhookBlock webhook(@javax.annotation.Nonnull TriggerWebhookBlock1Webhook webhook) {
+  public TriggerWebhookBlock webhook(@javax.annotation.Nonnull WebhookBlockReference webhook) {
     this.webhook = webhook;
     return this;
   }
 
   /**
-   * Get webhook
+   * The webhook to trigger.
    * @return webhook
    */
   @javax.annotation.Nonnull
-  public TriggerWebhookBlock1Webhook getWebhook() {
+  public WebhookBlockReference getWebhook() {
     return webhook;
   }
 
-  public void setWebhook(@javax.annotation.Nonnull TriggerWebhookBlock1Webhook webhook) {
+  public void setWebhook(@javax.annotation.Nonnull WebhookBlockReference webhook) {
     this.webhook = webhook;
   }
 
@@ -347,7 +347,7 @@ public class TriggerWebhookBlock {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `tags` to be an array in the JSON string but got `%s`", jsonObj.get("tags").toString()));
       }
       // validate the required field `webhook`
-      TriggerWebhookBlock1Webhook.validateJsonElement(jsonObj.get("webhook"));
+      WebhookBlockReference.validateJsonElement(jsonObj.get("webhook"));
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {

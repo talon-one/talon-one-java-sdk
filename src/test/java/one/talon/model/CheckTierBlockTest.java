@@ -23,7 +23,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import one.talon.model.Block;
-import one.talon.model.CheckTierBlock1Tier;
+import one.talon.model.TierBlockReference;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 

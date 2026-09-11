@@ -23,7 +23,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import one.talon.model.UpdateAchievementProgressBlock1Achievement;
+import one.talon.model.AchievementBlockReference;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -132,7 +132,7 @@ public class UpdateAchievementProgressBlock {
   public static final String SERIALIZED_NAME_ACHIEVEMENT = "achievement";
   @SerializedName(SERIALIZED_NAME_ACHIEVEMENT)
   @javax.annotation.Nonnull
-  private UpdateAchievementProgressBlock1Achievement achievement;
+  private AchievementBlockReference achievement;
 
   public UpdateAchievementProgressBlock() {
   }
@@ -225,21 +225,21 @@ public class UpdateAchievementProgressBlock {
   }
 
 
-  public UpdateAchievementProgressBlock achievement(@javax.annotation.Nonnull UpdateAchievementProgressBlock1Achievement achievement) {
+  public UpdateAchievementProgressBlock achievement(@javax.annotation.Nonnull AchievementBlockReference achievement) {
     this.achievement = achievement;
     return this;
   }
 
   /**
-   * Get achievement
+   * The achievement to update.
    * @return achievement
    */
   @javax.annotation.Nonnull
-  public UpdateAchievementProgressBlock1Achievement getAchievement() {
+  public AchievementBlockReference getAchievement() {
     return achievement;
   }
 
-  public void setAchievement(@javax.annotation.Nonnull UpdateAchievementProgressBlock1Achievement achievement) {
+  public void setAchievement(@javax.annotation.Nonnull AchievementBlockReference achievement) {
     this.achievement = achievement;
   }
 
@@ -386,7 +386,7 @@ public class UpdateAchievementProgressBlock {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `value` to be a primitive type in the JSON string but got `%s`", jsonObj.get("value").toString()));
       }
       // validate the required field `achievement`
-      UpdateAchievementProgressBlock1Achievement.validateJsonElement(jsonObj.get("achievement"));
+      AchievementBlockReference.validateJsonElement(jsonObj.get("achievement"));
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
