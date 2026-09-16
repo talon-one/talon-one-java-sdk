@@ -23,7 +23,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import one.talon.model.UpdateAttributeValueBlock1Attribute;
+import one.talon.model.AttributeBlockReference;
 import one.talon.model.UpdateAttributeValueBlock1Target;
 import org.openapitools.jackson.nullable.JsonNullable;
 
@@ -143,7 +143,7 @@ public class UpdateAttributeValueBlock {
   public static final String SERIALIZED_NAME_ATTRIBUTE = "attribute";
   @SerializedName(SERIALIZED_NAME_ATTRIBUTE)
   @javax.annotation.Nonnull
-  private UpdateAttributeValueBlock1Attribute attribute;
+  private AttributeBlockReference attribute;
 
   public static final String SERIALIZED_NAME_VALUE = "value";
   @SerializedName(SERIALIZED_NAME_VALUE)
@@ -241,21 +241,21 @@ public class UpdateAttributeValueBlock {
   }
 
 
-  public UpdateAttributeValueBlock attribute(@javax.annotation.Nonnull UpdateAttributeValueBlock1Attribute attribute) {
+  public UpdateAttributeValueBlock attribute(@javax.annotation.Nonnull AttributeBlockReference attribute) {
     this.attribute = attribute;
     return this;
   }
 
   /**
-   * Get attribute
+   * The attribute being updated.
    * @return attribute
    */
   @javax.annotation.Nonnull
-  public UpdateAttributeValueBlock1Attribute getAttribute() {
+  public AttributeBlockReference getAttribute() {
     return attribute;
   }
 
-  public void setAttribute(@javax.annotation.Nonnull UpdateAttributeValueBlock1Attribute attribute) {
+  public void setAttribute(@javax.annotation.Nonnull AttributeBlockReference attribute) {
     this.attribute = attribute;
   }
 
@@ -450,7 +450,7 @@ public class UpdateAttributeValueBlock {
       // validate the required field `operator`
       OperatorEnum.validateJsonElement(jsonObj.get("operator"));
       // validate the required field `attribute`
-      UpdateAttributeValueBlock1Attribute.validateJsonElement(jsonObj.get("attribute"));
+      AttributeBlockReference.validateJsonElement(jsonObj.get("attribute"));
       // validate the required field `target`
       UpdateAttributeValueBlock1Target.validateJsonElement(jsonObj.get("target"));
   }

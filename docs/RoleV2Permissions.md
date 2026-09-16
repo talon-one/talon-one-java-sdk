@@ -2,6 +2,7 @@
 
 # RoleV2Permissions
 
+The permissions that this role gives.
 
 ## Properties
 

@@ -52,7 +52,7 @@ import java.util.Set;
 import one.talon.JSON;
 
 /**
- * RoleV2Permissions
+ * The permissions that this role gives.
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.25.0")
 public class RoleV2Permissions {

@@ -22,8 +22,8 @@ import one.talon.model.BestPriorPriceRequest;
 import java.math.BigDecimal;
 import one.talon.model.Catalog;
 import one.talon.model.CatalogSyncRequest;
-import one.talon.model.Coupon;
 import one.talon.model.CouponReservations;
+import one.talon.model.CouponWithReservations;
 import one.talon.model.CreateReferralsForMultipleAdvocates201Response;
 import one.talon.model.CustomerInventory;
 import one.talon.model.CustomerProfileAudienceRequest;
@@ -36,6 +36,7 @@ import one.talon.model.EventV3;
 import one.talon.model.GenerateLoyaltyCard;
 import one.talon.model.GetCustomerAchievementHistory200Response;
 import one.talon.model.GetCustomerAchievements200Response;
+import one.talon.model.GetCustomerRewards200Response;
 import one.talon.model.GetLoyaltyCardPoints200Response;
 import one.talon.model.GetLoyaltyCardTransactions200Response;
 import one.talon.model.GetLoyaltyProgramProfilePoints200Response;
@@ -51,6 +52,7 @@ import one.talon.model.IntegrationRequest;
 import one.talon.model.IntegrationRewardsCatalog200Response;
 import one.talon.model.IntegrationStateV2;
 import one.talon.model.IntegrationUnlockRewardRequest;
+import one.talon.model.IntegrationUnlockRewardResponse;
 import one.talon.model.LoyaltyBalancesWithTiers;
 import one.talon.model.LoyaltyCard;
 import one.talon.model.LoyaltyCardBalances;
@@ -138,7 +140,7 @@ public class IntegrationApiTest {
     public void createCouponReservationTest() throws ApiException {
         String couponValue = null;
         CouponReservations couponReservations = null;
-        Coupon response = api.createCouponReservation(couponValue, couponReservations);
+        CouponWithReservations response = api.createCouponReservation(couponValue, couponReservations);
         // TODO: test validations
     }
 
@@ -317,6 +319,24 @@ public class IntegrationApiTest {
         Boolean achievements = null;
         Boolean unlockedRewards = null;
         CustomerInventory response = api.getCustomerInventory(integrationId, profile, referrals, coupons, loyalty, giveaways, achievements, unlockedRewards);
+        // TODO: test validations
+    }
+
+    /**
+     * List customer&#39;s rewards
+     *
+     * List the rewards held by a given customer profile. This includes shared rewards unlocked with a loyalty card linked to the customer. 
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void getCustomerRewardsTest() throws ApiException {
+        String integrationId = null;
+        List<String> status = null;
+        Long pageSize = null;
+        Long skip = null;
+        Boolean withTotalResultSize = null;
+        GetCustomerRewards200Response response = api.getCustomerRewards(integrationId, status, pageSize, skip, withTotalResultSize);
         // TODO: test validations
     }
 
@@ -676,7 +696,7 @@ public class IntegrationApiTest {
         Long rewardId = null;
         IntegrationUnlockRewardRequest integrationUnlockRewardRequest = null;
         Boolean dry = null;
-        IntegrationStateV2 response = api.unlockReward(rewardId, integrationUnlockRewardRequest, dry);
+        IntegrationUnlockRewardResponse response = api.unlockReward(rewardId, integrationUnlockRewardRequest, dry);
         // TODO: test validations
     }
 

@@ -14,6 +14,7 @@
 |**attributes** | **Object** | Arbitrary additional JSON properties associated with the event. They must be created in the Campaign Manager before setting them with this property. See [creating custom attributes](https://docs.talon.one/docs/product/account/dev-tools/managing-attributes#creating-a-custom-attribute). |  [optional] |
 |**responseContent** | [**List&lt;ResponseContentEnum&gt;**](#List&lt;ResponseContentEnum&gt;) | Extends the response with the chosen data entities. Use this property to get as much data back as needed from one request instead of sending extra requests to other endpoints.  |  [optional] |
 |**loyaltyCards** | **List&lt;String&gt;** | Identifiers of the loyalty cards used during this event. |  [optional] |
+|**rewardIntegrationIds** | **List&lt;String&gt;** | The integration IDs of the unlocked rewards that can be used in this event.  |  [optional] |
 
 
 

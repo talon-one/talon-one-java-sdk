@@ -112,6 +112,14 @@ public class IntegrationEventV3RequestTest {
     }
 
     /**
+     * Test the property 'rewardIntegrationIds'
+     */
+    @Test
+    public void rewardIntegrationIdsTest() {
+        // TODO: test rewardIntegrationIds
+    }
+
+    /**
      * Test the property 'responseContent'
      */
     @Test

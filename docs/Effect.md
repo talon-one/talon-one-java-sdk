@@ -2,6 +2,7 @@
 
 # Effect
 
+A generic effect that is fired by a triggered campaign. The `effectType` field selects the concrete effect variant and the shape of `props`.
 
 ## Properties
 
@@ -12,7 +13,7 @@
 |**rulesetId** | **Long** | The ID of the ruleset that was active in the campaign when this effect was triggered. |  |
 |**ruleIndex** | **Long** | The position of the rule that triggered this effect within the ruleset. |  |
 |**ruleName** | **String** | The name of the rule that triggered this effect. |  |
-|**effectType** | **String** | The type of effect that was triggered. See [API effects](https://docs.talon.one/docs/dev/integration-api/api-effects). |  |
+|**effectType** | [**EffectTypeEnum**](#EffectTypeEnum) | An effect discriminator of type &#x60;willAwardGiveaway&#x60;. |  |
 |**triggeredByCoupon** | **Long** | The ID of the coupon that was being evaluated when this effect was triggered. |  [optional] |
 |**triggeredForCatalogItem** | **Long** | The ID of the catalog item that was being evaluated when this effect was triggered. |  [optional] |
 |**conditionIndex** | **Long** | The index of the condition that was triggered. |  [optional] |
@@ -24,7 +25,15 @@
 |**selectedPrice** | **BigDecimal** | The value of the selected price type to apply to the SKU targeted by this effect, before any discounts are applied. |  [optional] |
 |**adjustmentReferenceId** | **UUID** | The reference identifier of the selected price adjustment for this SKU. This is only returned if the &#x60;selectedPrice&#x60; resulted from a price adjustment. |  [optional] |
 |**rewardId** | **Long** | The ID of the reward that was being evaluated when this effect was triggered. |  [optional] |
-|**props** | **Object** |  |  |
+|**props** | [**WillAwardGiveawayEffectProps**](WillAwardGiveawayEffectProps.md) | The properties of the &#x60;willAwardGiveaway&#x60; effect. |  |
+
+
+
+## Enum: EffectTypeEnum
+
+| Name | Value |
+|---- | -----|
+| WILL_AWARD_GIVEAWAY | &quot;willAwardGiveaway&quot; |
 
 
 

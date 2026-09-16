@@ -19,6 +19,7 @@ All URIs are relative to *https://yourbaseurl.talon.one*
 | [**getCustomerAchievementHistory**](IntegrationApi.md#getCustomerAchievementHistory) | **GET** /v1/customer_profiles/{integrationId}/achievements/{achievementId} | List customer&#39;s achievement history |
 | [**getCustomerAchievements**](IntegrationApi.md#getCustomerAchievements) | **GET** /v1/customer_profiles/{integrationId}/achievements | List customer&#39;s available achievements |
 | [**getCustomerInventory**](IntegrationApi.md#getCustomerInventory) | **GET** /v1/customer_profiles/{integrationId}/inventory | List customer data |
+| [**getCustomerRewards**](IntegrationApi.md#getCustomerRewards) | **GET** /v1/customer_profiles/{integrationId}/rewards | List customer&#39;s rewards |
 | [**getCustomerSession**](IntegrationApi.md#getCustomerSession) | **GET** /v2/customer_sessions/{customerSessionId} | Get customer session |
 | [**getEventV3**](IntegrationApi.md#getEventV3) | **GET** /v3/events/{integrationId} | Get advanced event |
 | [**getLoyaltyBalances**](IntegrationApi.md#getLoyaltyBalances) | **GET** /v1/loyalty_programs/{loyaltyProgramId}/profile/{integrationId}/balances | Get customer&#39;s loyalty balances |
@@ -264,7 +265,7 @@ public class Example {
 
 <a id="createCouponReservation"></a>
 # **createCouponReservation**
-> Coupon createCouponReservation(couponValue, couponReservations)
+> CouponWithReservations createCouponReservation(couponValue, couponReservations)
 
 Create coupon reservation
 
@@ -295,7 +296,7 @@ public class Example {
     String couponValue = "couponValue_example"; // String | The code of the coupon.  **Important:** The coupon code requires [URL encoding](https://www.w3schools.com/tags//ref_urlencode.asp) if it contains special characters. For example, you must encode `SUMMER25%OFF` as `SUMMER25%25OFF`. 
     CouponReservations couponReservations = new CouponReservations(); // CouponReservations | body
     try {
-      Coupon result = apiInstance.createCouponReservation(couponValue, couponReservations);
+      CouponWithReservations result = apiInstance.createCouponReservation(couponValue, couponReservations);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling IntegrationApi#createCouponReservation");
@@ -317,7 +318,7 @@ public class Example {
 
 ### Return type
 
-[**Coupon**](Coupon.md)
+[**CouponWithReservations**](CouponWithReservations.md)
 
 ### Authorization
 
@@ -1165,6 +1166,86 @@ public class Example {
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
 | **401** | Unauthorized - Invalid API key |  -  |
+| **404** | Not found |  -  |
+
+<a id="getCustomerRewards"></a>
+# **getCustomerRewards**
+> GetCustomerRewards200Response getCustomerRewards(integrationId, status, pageSize, skip, withTotalResultSize)
+
+List customer&#39;s rewards
+
+List the rewards held by a given customer profile. This includes shared rewards unlocked with a loyalty card linked to the customer. 
+
+### Example
+```java
+// Import classes:
+import one.talon.ApiClient;
+import one.talon.ApiException;
+import one.talon.Configuration;
+import one.talon.auth.*;
+import one.talon.models.*;
+import one.talon.api.IntegrationApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://yourbaseurl.talon.one");
+    
+    // Configure API key authorization: api_key_v1
+    ApiKeyAuth api_key_v1 = (ApiKeyAuth) defaultClient.getAuthentication("api_key_v1");
+    api_key_v1.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //api_key_v1.setApiKeyPrefix("Token");
+
+    IntegrationApi apiInstance = new IntegrationApi(defaultClient);
+    String integrationId = "integrationId_example"; // String | The integration identifier for this customer profile. Must be:  - Unique within the deployment. - Stable for the customer. Do not use an ID that the customer can update themselves. For example, you can use a database ID. 
+    List<String> status = Arrays.asList(); // List<String> | Filter results by one or more customer reward statuses.  **Note:** If no status is specified, rewards of all statuses are returned. 
+    Long pageSize = 1000L; // Long | The number of items in the response.
+    Long skip = 56L; // Long | The number of items to skip when paging through large result sets.
+    Boolean withTotalResultSize = true; // Boolean | When this flag is set, the result includes the total number of results for this query. This might decrease performance on large data sets.   - When `true`: `totalResultSize` contains the total number of results for this query.  - When `false`: Only `hasMore` is returned, and it is set to `true` when there are more results than shown on the page. 
+    try {
+      GetCustomerRewards200Response result = apiInstance.getCustomerRewards(integrationId, status, pageSize, skip, withTotalResultSize);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling IntegrationApi#getCustomerRewards");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **integrationId** | **String**| The integration identifier for this customer profile. Must be:  - Unique within the deployment. - Stable for the customer. Do not use an ID that the customer can update themselves. For example, you can use a database ID.  | |
+| **status** | [**List&lt;String&gt;**](String.md)| Filter results by one or more customer reward statuses.  **Note:** If no status is specified, rewards of all statuses are returned.  | [optional] [enum: unlocked, used] |
+| **pageSize** | **Long**| The number of items in the response. | [optional] [default to 1000] |
+| **skip** | **Long**| The number of items to skip when paging through large result sets. | [optional] |
+| **withTotalResultSize** | **Boolean**| When this flag is set, the result includes the total number of results for this query. This might decrease performance on large data sets.   - When &#x60;true&#x60;: &#x60;totalResultSize&#x60; contains the total number of results for this query.  - When &#x60;false&#x60;: Only &#x60;hasMore&#x60; is returned, and it is set to &#x60;true&#x60; when there are more results than shown on the page.  | [optional] |
+
+### Return type
+
+[**GetCustomerRewards200Response**](GetCustomerRewards200Response.md)
+
+### Authorization
+
+[api_key_v1](../README.md#api_key_v1)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **400** | Bad request |  -  |
+| **401** | Unauthorized |  -  |
 | **404** | Not found |  -  |
 
 <a id="getCustomerSession"></a>
@@ -2025,8 +2106,8 @@ public class Example {
     Boolean includeFree = true; // Boolean | Whether to include rewards that have no `pointsRequired`. These rewards are treated as free and available to all customers. 
     Long loyaltyProgramId = 56L; // Long | Return only rewards available in this loyalty program. 
     String subledgerId = "subledgerId_example"; // String | Return only rewards available in this subledger. Must be combined with `loyaltyProgramId`. To specify the main ledger, provide an empty string (\"\"). 
-    String profileIntegrationId = "profileIntegrationId_example"; // String | The integration ID of the customer profile whose loyalty balances to include in the response. Balances are returned only when `loyaltyProgramId` is also provided.  **Note:** `profileIntegrationId` and `loyaltyCardId` are mutually exclusive. Do not send both in the same request. 
-    String loyaltyCardId = "loyaltyCardId_example"; // String | The identifier of the loyalty card whose loyalty balances to include in the response. Balances are returned only when `loyaltyProgramId` is also provided.  **Note:** `profileIntegrationId` and `loyaltyCardId` are mutually exclusive. Do not send both in the same request. 
+    String profileIntegrationId = "profileIntegrationId_example"; // String | The integration ID of the customer profile whose loyalty balances to include in the response. Balances are returned only when `loyaltyProgramId` is also provided.  For a reward with `pointsRequired` configured for a card-based loyalty program, eligibility can be evaluated based on both `profileIntegrationId` and `loyaltyCardId`, if both are provided. The required points are then checked against the card's balance. 
+    String loyaltyCardId = "loyaltyCardId_example"; // String | The identifier of the loyalty card whose loyalty balances to include in the response. Balances are returned only when `loyaltyProgramId` is also provided.  For a reward with `pointsRequired` configured for a card-based loyalty program, eligibility can be evaluated based on both `profileIntegrationId` and `loyaltyCardId`, if both are provided. The card must also be linked to that customer profile. - If `loyaltyCardId` is not provided, the reward returns the `CARD_REQUIRED` failure code, because there is no card balance to compare `pointsRequired` against. - If `profileIntegrationId` is not provided, the reward returns the `PROFILE_REQUIRED` failure code, because its eligibility cannot be evaluated without a customer profile. 
     try {
       IntegrationRewardsCatalog200Response result = apiInstance.integrationRewardsCatalog(pageSize, skip, pointsFrom, pointsTo, includeFree, loyaltyProgramId, subledgerId, profileIntegrationId, loyaltyCardId);
       System.out.println(result);
@@ -2052,8 +2133,8 @@ public class Example {
 | **includeFree** | **Boolean**| Whether to include rewards that have no &#x60;pointsRequired&#x60;. These rewards are treated as free and available to all customers.  | [optional] [default to true] |
 | **loyaltyProgramId** | **Long**| Return only rewards available in this loyalty program.  | [optional] |
 | **subledgerId** | **String**| Return only rewards available in this subledger. Must be combined with &#x60;loyaltyProgramId&#x60;. To specify the main ledger, provide an empty string (\&quot;\&quot;).  | [optional] |
-| **profileIntegrationId** | **String**| The integration ID of the customer profile whose loyalty balances to include in the response. Balances are returned only when &#x60;loyaltyProgramId&#x60; is also provided.  **Note:** &#x60;profileIntegrationId&#x60; and &#x60;loyaltyCardId&#x60; are mutually exclusive. Do not send both in the same request.  | [optional] |
-| **loyaltyCardId** | **String**| The identifier of the loyalty card whose loyalty balances to include in the response. Balances are returned only when &#x60;loyaltyProgramId&#x60; is also provided.  **Note:** &#x60;profileIntegrationId&#x60; and &#x60;loyaltyCardId&#x60; are mutually exclusive. Do not send both in the same request.  | [optional] |
+| **profileIntegrationId** | **String**| The integration ID of the customer profile whose loyalty balances to include in the response. Balances are returned only when &#x60;loyaltyProgramId&#x60; is also provided.  For a reward with &#x60;pointsRequired&#x60; configured for a card-based loyalty program, eligibility can be evaluated based on both &#x60;profileIntegrationId&#x60; and &#x60;loyaltyCardId&#x60;, if both are provided. The required points are then checked against the card&#39;s balance.  | [optional] |
+| **loyaltyCardId** | **String**| The identifier of the loyalty card whose loyalty balances to include in the response. Balances are returned only when &#x60;loyaltyProgramId&#x60; is also provided.  For a reward with &#x60;pointsRequired&#x60; configured for a card-based loyalty program, eligibility can be evaluated based on both &#x60;profileIntegrationId&#x60; and &#x60;loyaltyCardId&#x60;, if both are provided. The card must also be linked to that customer profile. - If &#x60;loyaltyCardId&#x60; is not provided, the reward returns the &#x60;CARD_REQUIRED&#x60; failure code, because there is no card balance to compare &#x60;pointsRequired&#x60; against. - If &#x60;profileIntegrationId&#x60; is not provided, the reward returns the &#x60;PROFILE_REQUIRED&#x60; failure code, because its eligibility cannot be evaluated without a customer profile.  | [optional] |
 
 ### Return type
 
@@ -2688,7 +2769,7 @@ public class Example {
 
 <a id="unlockReward"></a>
 # **unlockReward**
-> IntegrationStateV2 unlockReward(rewardId, integrationUnlockRewardRequest, dry)
+> IntegrationUnlockRewardResponse unlockReward(rewardId, integrationUnlockRewardRequest, dry)
 
 Unlock a reward
 
@@ -2720,7 +2801,7 @@ public class Example {
     IntegrationUnlockRewardRequest integrationUnlockRewardRequest = new IntegrationUnlockRewardRequest(); // IntegrationUnlockRewardRequest | 
     Boolean dry = true; // Boolean | When set to `true`, the rule evaluation is performed but no changes are persisted. Use this to preview the outcome of an unlocking.
     try {
-      IntegrationStateV2 result = apiInstance.unlockReward(rewardId, integrationUnlockRewardRequest, dry);
+      IntegrationUnlockRewardResponse result = apiInstance.unlockReward(rewardId, integrationUnlockRewardRequest, dry);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling IntegrationApi#unlockReward");
@@ -2743,7 +2824,7 @@ public class Example {
 
 ### Return type
 
-[**IntegrationStateV2**](IntegrationStateV2.md)
+[**IntegrationUnlockRewardResponse**](IntegrationUnlockRewardResponse.md)
 
 ### Authorization
 

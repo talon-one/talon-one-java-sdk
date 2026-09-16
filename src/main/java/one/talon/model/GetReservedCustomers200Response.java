@@ -23,7 +23,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import one.talon.model.CustomerProfile;
+import one.talon.model.CustomerReservation;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -62,7 +62,7 @@ public class GetReservedCustomers200Response {
   public static final String SERIALIZED_NAME_DATA = "data";
   @SerializedName(SERIALIZED_NAME_DATA)
   @javax.annotation.Nonnull
-  private List<CustomerProfile> data = new ArrayList<>();
+  private List<CustomerReservation> data = new ArrayList<>();
 
   public GetReservedCustomers200Response() {
   }
@@ -86,12 +86,12 @@ public class GetReservedCustomers200Response {
   }
 
 
-  public GetReservedCustomers200Response data(@javax.annotation.Nonnull List<CustomerProfile> data) {
+  public GetReservedCustomers200Response data(@javax.annotation.Nonnull List<CustomerReservation> data) {
     this.data = data;
     return this;
   }
 
-  public GetReservedCustomers200Response addDataItem(CustomerProfile dataItem) {
+  public GetReservedCustomers200Response addDataItem(CustomerReservation dataItem) {
     if (this.data == null) {
       this.data = new ArrayList<>();
     }
@@ -104,11 +104,11 @@ public class GetReservedCustomers200Response {
    * @return data
    */
   @javax.annotation.Nonnull
-  public List<CustomerProfile> getData() {
+  public List<CustomerReservation> getData() {
     return data;
   }
 
-  public void setData(@javax.annotation.Nonnull List<CustomerProfile> data) {
+  public void setData(@javax.annotation.Nonnull List<CustomerReservation> data) {
     this.data = data;
   }
 
@@ -235,7 +235,7 @@ public class GetReservedCustomers200Response {
         JsonArray jsonArraydata = jsonObj.getAsJsonArray("data");
         // validate the required field `data` (array)
         for (int i = 0; i < jsonArraydata.size(); i++) {
-          CustomerProfile.validateJsonElement(jsonArraydata.get(i));
+          CustomerReservation.validateJsonElement(jsonArraydata.get(i));
         }
       }
   }

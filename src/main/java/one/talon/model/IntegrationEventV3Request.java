@@ -98,6 +98,11 @@ public class IntegrationEventV3Request {
   @javax.annotation.Nullable
   private List<String> loyaltyCards;
 
+  public static final String SERIALIZED_NAME_REWARD_INTEGRATION_IDS = "rewardIntegrationIds";
+  @SerializedName(SERIALIZED_NAME_REWARD_INTEGRATION_IDS)
+  @javax.annotation.Nullable
+  private List<String> rewardIntegrationIds;
+
   /**
    * Gets or Sets responseContent
    */
@@ -115,7 +120,9 @@ public class IntegrationEventV3Request {
     
     RULE_FAILURE_REASONS("ruleFailureReasons"),
     
-    TRIGGERED_CAMPAIGNS("triggeredCampaigns");
+    TRIGGERED_CAMPAIGNS("triggeredCampaigns"),
+    
+    UNLOCKED_REWARDS("unlockedRewards");
 
     private String value;
 
@@ -355,6 +362,33 @@ public class IntegrationEventV3Request {
   }
 
 
+  public IntegrationEventV3Request rewardIntegrationIds(@javax.annotation.Nullable List<String> rewardIntegrationIds) {
+    this.rewardIntegrationIds = rewardIntegrationIds;
+    return this;
+  }
+
+  public IntegrationEventV3Request addRewardIntegrationIdsItem(String rewardIntegrationIdsItem) {
+    if (this.rewardIntegrationIds == null) {
+      this.rewardIntegrationIds = new ArrayList<>();
+    }
+    this.rewardIntegrationIds.add(rewardIntegrationIdsItem);
+    return this;
+  }
+
+  /**
+   * The integration IDs of the unlocked rewards that can be used in this event. 
+   * @return rewardIntegrationIds
+   */
+  @javax.annotation.Nullable
+  public List<String> getRewardIntegrationIds() {
+    return rewardIntegrationIds;
+  }
+
+  public void setRewardIntegrationIds(@javax.annotation.Nullable List<String> rewardIntegrationIds) {
+    this.rewardIntegrationIds = rewardIntegrationIds;
+  }
+
+
   public IntegrationEventV3Request responseContent(@javax.annotation.Nullable List<ResponseContentEnum> responseContent) {
     this.responseContent = responseContent;
     return this;
@@ -445,13 +479,14 @@ public class IntegrationEventV3Request {
         Objects.equals(this.connectedSessionId, integrationEventV3Request.connectedSessionId) &&
         Objects.equals(this.referralCode, integrationEventV3Request.referralCode) &&
         Objects.equals(this.loyaltyCards, integrationEventV3Request.loyaltyCards) &&
+        Objects.equals(this.rewardIntegrationIds, integrationEventV3Request.rewardIntegrationIds) &&
         Objects.equals(this.responseContent, integrationEventV3Request.responseContent)&&
         Objects.equals(this.additionalProperties, integrationEventV3Request.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(profileId, storeIntegrationId, evaluableCampaignIds, type, attributes, integrationId, connectedSessionId, referralCode, loyaltyCards, responseContent, additionalProperties);
+    return Objects.hash(profileId, storeIntegrationId, evaluableCampaignIds, type, attributes, integrationId, connectedSessionId, referralCode, loyaltyCards, rewardIntegrationIds, responseContent, additionalProperties);
   }
 
   @Override
@@ -467,6 +502,7 @@ public class IntegrationEventV3Request {
     sb.append("    connectedSessionId: ").append(toIndentedString(connectedSessionId)).append("\n");
     sb.append("    referralCode: ").append(toIndentedString(referralCode)).append("\n");
     sb.append("    loyaltyCards: ").append(toIndentedString(loyaltyCards)).append("\n");
+    sb.append("    rewardIntegrationIds: ").append(toIndentedString(rewardIntegrationIds)).append("\n");
     sb.append("    responseContent: ").append(toIndentedString(responseContent)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
@@ -487,7 +523,7 @@ public class IntegrationEventV3Request {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("profileId", "storeIntegrationId", "evaluableCampaignIds", "type", "attributes", "integrationId", "connectedSessionId", "referralCode", "loyaltyCards", "responseContent"));
+    openapiFields = new HashSet<String>(Arrays.asList("profileId", "storeIntegrationId", "evaluableCampaignIds", "type", "attributes", "integrationId", "connectedSessionId", "referralCode", "loyaltyCards", "rewardIntegrationIds", "responseContent"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("profileId", "type", "integrationId"));
@@ -538,6 +574,10 @@ public class IntegrationEventV3Request {
       // ensure the optional json data is an array if present
       if (jsonObj.get("loyaltyCards") != null && !jsonObj.get("loyaltyCards").isJsonNull() && !jsonObj.get("loyaltyCards").isJsonArray()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `loyaltyCards` to be an array in the JSON string but got `%s`", jsonObj.get("loyaltyCards").toString()));
+      }
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("rewardIntegrationIds") != null && !jsonObj.get("rewardIntegrationIds").isJsonNull() && !jsonObj.get("rewardIntegrationIds").isJsonArray()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `rewardIntegrationIds` to be an array in the JSON string but got `%s`", jsonObj.get("rewardIntegrationIds").toString()));
       }
       // ensure the optional json data is an array if present
       if (jsonObj.get("responseContent") != null && !jsonObj.get("responseContent").isJsonNull() && !jsonObj.get("responseContent").isJsonArray()) {

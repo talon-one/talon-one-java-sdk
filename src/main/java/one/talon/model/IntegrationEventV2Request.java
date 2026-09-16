@@ -154,6 +154,11 @@ public class IntegrationEventV2Request {
   @javax.annotation.Nullable
   private List<String> loyaltyCards;
 
+  public static final String SERIALIZED_NAME_REWARD_INTEGRATION_IDS = "rewardIntegrationIds";
+  @SerializedName(SERIALIZED_NAME_REWARD_INTEGRATION_IDS)
+  @javax.annotation.Nullable
+  private List<String> rewardIntegrationIds;
+
   public IntegrationEventV2Request() {
   }
 
@@ -313,6 +318,33 @@ public class IntegrationEventV2Request {
     this.loyaltyCards = loyaltyCards;
   }
 
+
+  public IntegrationEventV2Request rewardIntegrationIds(@javax.annotation.Nullable List<String> rewardIntegrationIds) {
+    this.rewardIntegrationIds = rewardIntegrationIds;
+    return this;
+  }
+
+  public IntegrationEventV2Request addRewardIntegrationIdsItem(String rewardIntegrationIdsItem) {
+    if (this.rewardIntegrationIds == null) {
+      this.rewardIntegrationIds = new ArrayList<>();
+    }
+    this.rewardIntegrationIds.add(rewardIntegrationIdsItem);
+    return this;
+  }
+
+  /**
+   * The integration IDs of the unlocked rewards that can be used in this event. 
+   * @return rewardIntegrationIds
+   */
+  @javax.annotation.Nullable
+  public List<String> getRewardIntegrationIds() {
+    return rewardIntegrationIds;
+  }
+
+  public void setRewardIntegrationIds(@javax.annotation.Nullable List<String> rewardIntegrationIds) {
+    this.rewardIntegrationIds = rewardIntegrationIds;
+  }
+
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -374,13 +406,14 @@ public class IntegrationEventV2Request {
         Objects.equals(this.type, integrationEventV2Request.type) &&
         Objects.equals(this.attributes, integrationEventV2Request.attributes) &&
         Objects.equals(this.responseContent, integrationEventV2Request.responseContent) &&
-        Objects.equals(this.loyaltyCards, integrationEventV2Request.loyaltyCards)&&
+        Objects.equals(this.loyaltyCards, integrationEventV2Request.loyaltyCards) &&
+        Objects.equals(this.rewardIntegrationIds, integrationEventV2Request.rewardIntegrationIds)&&
         Objects.equals(this.additionalProperties, integrationEventV2Request.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(profileId, storeIntegrationId, evaluableCampaignIds, type, attributes, responseContent, loyaltyCards, additionalProperties);
+    return Objects.hash(profileId, storeIntegrationId, evaluableCampaignIds, type, attributes, responseContent, loyaltyCards, rewardIntegrationIds, additionalProperties);
   }
 
   @Override
@@ -394,6 +427,7 @@ public class IntegrationEventV2Request {
     sb.append("    attributes: ").append(toIndentedString(attributes)).append("\n");
     sb.append("    responseContent: ").append(toIndentedString(responseContent)).append("\n");
     sb.append("    loyaltyCards: ").append(toIndentedString(loyaltyCards)).append("\n");
+    sb.append("    rewardIntegrationIds: ").append(toIndentedString(rewardIntegrationIds)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -413,7 +447,7 @@ public class IntegrationEventV2Request {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("profileId", "storeIntegrationId", "evaluableCampaignIds", "type", "attributes", "responseContent", "loyaltyCards"));
+    openapiFields = new HashSet<String>(Arrays.asList("profileId", "storeIntegrationId", "evaluableCampaignIds", "type", "attributes", "responseContent", "loyaltyCards", "rewardIntegrationIds"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("type"));
@@ -459,6 +493,10 @@ public class IntegrationEventV2Request {
       // ensure the optional json data is an array if present
       if (jsonObj.get("loyaltyCards") != null && !jsonObj.get("loyaltyCards").isJsonNull() && !jsonObj.get("loyaltyCards").isJsonArray()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `loyaltyCards` to be an array in the JSON string but got `%s`", jsonObj.get("loyaltyCards").toString()));
+      }
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("rewardIntegrationIds") != null && !jsonObj.get("rewardIntegrationIds").isJsonNull() && !jsonObj.get("rewardIntegrationIds").isJsonArray()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `rewardIntegrationIds` to be an array in the JSON string but got `%s`", jsonObj.get("rewardIntegrationIds").toString()));
       }
   }
 

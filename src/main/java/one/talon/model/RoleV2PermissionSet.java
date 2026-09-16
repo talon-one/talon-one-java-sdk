@@ -99,7 +99,7 @@ public class RoleV2PermissionSet {
   }
 
   /**
-   * List of logical operations in the permission set. Each logical operation must be shown under the &#x60;x-permission&#x60; tag on an endpoint level. 
+   * List of logical operations in the permission set. 
    * @return logicalOperations
    */
   @javax.annotation.Nonnull

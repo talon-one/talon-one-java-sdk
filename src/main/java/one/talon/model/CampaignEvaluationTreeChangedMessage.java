@@ -59,7 +59,7 @@ public class CampaignEvaluationTreeChangedMessage {
    */
   @JsonAdapter(NotificationTypeEnum.Adapter.class)
   public enum NotificationTypeEnum {
-    CAMPAIGN_NOTIFICATION("CampaignNotification");
+    CAMPAIGN_EVALUATION_TREE_CHANGED("CampaignEvaluationTreeChanged");
 
     private String value;
 
@@ -116,8 +116,8 @@ public class CampaignEvaluationTreeChangedMessage {
 
   public static final String SERIALIZED_NAME_DATA = "Data";
   @SerializedName(SERIALIZED_NAME_DATA)
-  @javax.annotation.Nullable
-  private List<CampaignEvaluationTreeChangedNotification> data;
+  @javax.annotation.Nonnull
+  private List<CampaignEvaluationTreeChangedNotification> data = new ArrayList<>();
 
   public CampaignEvaluationTreeChangedMessage() {
   }
@@ -160,7 +160,7 @@ public class CampaignEvaluationTreeChangedMessage {
   }
 
 
-  public CampaignEvaluationTreeChangedMessage data(@javax.annotation.Nullable List<CampaignEvaluationTreeChangedNotification> data) {
+  public CampaignEvaluationTreeChangedMessage data(@javax.annotation.Nonnull List<CampaignEvaluationTreeChangedNotification> data) {
     this.data = data;
     return this;
   }
@@ -177,12 +177,12 @@ public class CampaignEvaluationTreeChangedMessage {
    * The array of changes.
    * @return data
    */
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
   public List<CampaignEvaluationTreeChangedNotification> getData() {
     return data;
   }
 
-  public void setData(@javax.annotation.Nullable List<CampaignEvaluationTreeChangedNotification> data) {
+  public void setData(@javax.annotation.Nonnull List<CampaignEvaluationTreeChangedNotification> data) {
     this.data = data;
   }
 
@@ -281,7 +281,7 @@ public class CampaignEvaluationTreeChangedMessage {
     openapiFields = new HashSet<String>(Arrays.asList("NotificationType", "TotalResultSize", "Data"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("NotificationType", "TotalResultSize"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("NotificationType", "TotalResultSize", "Data"));
   }
 
   /**
@@ -309,18 +309,14 @@ public class CampaignEvaluationTreeChangedMessage {
       }
       // validate the required field `NotificationType`
       NotificationTypeEnum.validateJsonElement(jsonObj.get("NotificationType"));
-      if (jsonObj.get("Data") != null && !jsonObj.get("Data").isJsonNull()) {
+      if (jsonObj.get("Data") != null) {
+        if (!jsonObj.get("Data").isJsonArray()) {
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `Data` to be an array in the JSON string but got `%s`", jsonObj.get("Data").toString()));
+        }
         JsonArray jsonArraydata = jsonObj.getAsJsonArray("Data");
-        if (jsonArraydata != null) {
-          // ensure the json data is an array
-          if (!jsonObj.get("Data").isJsonArray()) {
-            throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `Data` to be an array in the JSON string but got `%s`", jsonObj.get("Data").toString()));
-          }
-
-          // validate the optional field `Data` (array)
-          for (int i = 0; i < jsonArraydata.size(); i++) {
-            CampaignEvaluationTreeChangedNotification.validateJsonElement(jsonArraydata.get(i));
-          };
+        // validate the required field `Data` (array)
+        for (int i = 0; i < jsonArraydata.size(); i++) {
+          CampaignEvaluationTreeChangedNotification.validateJsonElement(jsonArraydata.get(i));
         }
       }
   }

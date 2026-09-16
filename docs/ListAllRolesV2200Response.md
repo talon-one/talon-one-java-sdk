@@ -7,8 +7,8 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**totalResultSize** | **Long** |  |  |
-|**data** | [**List&lt;RoleV2&gt;**](RoleV2.md) |  |  |
+|**totalResultSize** | **Long** | The total number of roles returned. |  |
+|**data** | [**List&lt;RoleV2&gt;**](RoleV2.md) | The list of roles. |  |
 
 
 

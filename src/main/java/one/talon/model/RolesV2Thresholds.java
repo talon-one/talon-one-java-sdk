@@ -47,7 +47,7 @@ import java.util.Set;
 import one.talon.JSON;
 
 /**
- * RolesV2Thresholds
+ * Support user limits for actions that require admin approval within the given loyalty program.
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.25.0")
 public class RolesV2Thresholds {
