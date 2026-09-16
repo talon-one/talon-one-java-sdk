@@ -1,0 +1,16 @@
+
+
+# UpdateLoyaltyPointsExpiryBlock1Program
+
+The loyalty program whose points' expiry is changed.
+
+## Properties
+
+| Name | Type | Description | Notes |
+|------------ | ------------- | ------------- | -------------|
+|**id** | **Long** | The ID of the loyalty program. |  |
+|**name** | **String** | The internal name of the loyalty program. |  |
+|**title** | **String** | The display name of the loyalty program. |  |
+
+
+

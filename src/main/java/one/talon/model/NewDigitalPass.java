@@ -74,18 +74,12 @@ public class NewDigitalPass {
   private String loyaltyCardId;
 
   /**
-   * The wallet platform the pass is generated for.
+   * The wallet platform the pass is generated for. Possible values:  - &#x60;apple&#x60;: The digital pass is generated for Apple Wallet. - &#x60;google&#x60;: The digital pass is generated for Google Wallet. 
    */
   @JsonAdapter(PlatformEnum.Adapter.class)
   public enum PlatformEnum {
-    /**
-     * The digital pass is generated for Apple Wallet.
-     */
     APPLE("apple"),
     
-    /**
-     * The digital pass is generated for Google Wallet.
-     */
     GOOGLE("google");
 
     private String value;
@@ -227,7 +221,7 @@ public class NewDigitalPass {
   }
 
   /**
-   * The wallet platform the pass is generated for.
+   * The wallet platform the pass is generated for. Possible values:  - &#x60;apple&#x60;: The digital pass is generated for Apple Wallet. - &#x60;google&#x60;: The digital pass is generated for Google Wallet. 
    * @return platform
    */
   @javax.annotation.Nonnull

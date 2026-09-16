@@ -24,7 +24,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import one.talon.model.Block;
-import one.talon.model.CheckTierBlock1Tier;
+import one.talon.model.TierBlockReference;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -135,7 +135,7 @@ public class CheckTierBlock {
   public static final String SERIALIZED_NAME_TIER = "tier";
   @SerializedName(SERIALIZED_NAME_TIER)
   @javax.annotation.Nonnull
-  private CheckTierBlock1Tier tier;
+  private TierBlockReference tier;
 
   public static final String SERIALIZED_NAME_ON_FAILURE = "onFailure";
   @SerializedName(SERIALIZED_NAME_ON_FAILURE)
@@ -233,21 +233,21 @@ public class CheckTierBlock {
   }
 
 
-  public CheckTierBlock tier(@javax.annotation.Nonnull CheckTierBlock1Tier tier) {
+  public CheckTierBlock tier(@javax.annotation.Nonnull TierBlockReference tier) {
     this.tier = tier;
     return this;
   }
 
   /**
-   * Get tier
+   * The tier to check for.
    * @return tier
    */
   @javax.annotation.Nonnull
-  public CheckTierBlock1Tier getTier() {
+  public TierBlockReference getTier() {
     return tier;
   }
 
-  public void setTier(@javax.annotation.Nonnull CheckTierBlock1Tier tier) {
+  public void setTier(@javax.annotation.Nonnull TierBlockReference tier) {
     this.tier = tier;
   }
 
@@ -423,7 +423,7 @@ public class CheckTierBlock {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `subledger` to be a primitive type in the JSON string but got `%s`", jsonObj.get("subledger").toString()));
       }
       // validate the required field `tier`
-      CheckTierBlock1Tier.validateJsonElement(jsonObj.get("tier"));
+      TierBlockReference.validateJsonElement(jsonObj.get("tier"));
       if (jsonObj.get("onFailure") != null && !jsonObj.get("onFailure").isJsonNull()) {
         JsonArray jsonArrayonFailure = jsonObj.getAsJsonArray("onFailure");
         if (jsonArrayonFailure != null) {

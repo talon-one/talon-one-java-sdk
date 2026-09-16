@@ -23,8 +23,8 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import one.talon.model.AudienceBlockReference;
 import one.talon.model.Block;
-import one.talon.model.CheckAudienceBlock1Audience;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -191,7 +191,7 @@ public class CheckAudienceBlock {
   public static final String SERIALIZED_NAME_AUDIENCE = "audience";
   @SerializedName(SERIALIZED_NAME_AUDIENCE)
   @javax.annotation.Nonnull
-  private CheckAudienceBlock1Audience audience;
+  private AudienceBlockReference audience;
 
   public static final String SERIALIZED_NAME_ON_FAILURE = "onFailure";
   @SerializedName(SERIALIZED_NAME_ON_FAILURE)
@@ -289,21 +289,21 @@ public class CheckAudienceBlock {
   }
 
 
-  public CheckAudienceBlock audience(@javax.annotation.Nonnull CheckAudienceBlock1Audience audience) {
+  public CheckAudienceBlock audience(@javax.annotation.Nonnull AudienceBlockReference audience) {
     this.audience = audience;
     return this;
   }
 
   /**
-   * Get audience
+   * The audience to check the profile against.
    * @return audience
    */
   @javax.annotation.Nonnull
-  public CheckAudienceBlock1Audience getAudience() {
+  public AudienceBlockReference getAudience() {
     return audience;
   }
 
-  public void setAudience(@javax.annotation.Nonnull CheckAudienceBlock1Audience audience) {
+  public void setAudience(@javax.annotation.Nonnull AudienceBlockReference audience) {
     this.audience = audience;
   }
 
@@ -481,7 +481,7 @@ public class CheckAudienceBlock {
       // validate the required field `profile`
       ProfileEnum.validateJsonElement(jsonObj.get("profile"));
       // validate the required field `audience`
-      CheckAudienceBlock1Audience.validateJsonElement(jsonObj.get("audience"));
+      AudienceBlockReference.validateJsonElement(jsonObj.get("audience"));
       if (jsonObj.get("onFailure") != null && !jsonObj.get("onFailure").isJsonNull()) {
         JsonArray jsonArrayonFailure = jsonObj.getAsJsonArray("onFailure");
         if (jsonArrayonFailure != null) {

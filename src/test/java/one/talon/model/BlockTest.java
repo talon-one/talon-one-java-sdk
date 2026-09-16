@@ -24,11 +24,15 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import one.talon.model.AchievementBlockReference;
+import one.talon.model.AttributeBlockReference;
+import one.talon.model.AudienceBlockReference;
 import one.talon.model.AwardDiscountBlock;
 import one.talon.model.AwardGiveawayBlock;
 import one.talon.model.AwardItemBlock;
+import one.talon.model.AwardLoyaltyPointsBlock;
+import one.talon.model.AwardLoyaltyPointsTarget;
 import one.talon.model.CheckAchievementBlock;
-import one.talon.model.CheckAchievementBlock1Achievement;
 import one.talon.model.CheckAttributeBlock;
 import one.talon.model.CheckAudienceBlock;
 import one.talon.model.CheckBudgetBlock;
@@ -38,13 +42,13 @@ import one.talon.model.CheckLoyaltyBalanceBlock;
 import one.talon.model.CheckLoyaltyCardBlock;
 import one.talon.model.CheckReferralBlock;
 import one.talon.model.CheckTierBlock;
-import one.talon.model.CheckTierBlock1Tier;
 import one.talon.model.CreateCouponBlock;
 import one.talon.model.CreateCouponBlock1DiscountLimit;
 import one.talon.model.CreateReferralBlock;
 import one.talon.model.CreateReferralBlock1CampaignId;
 import one.talon.model.CreateReferralBlock1UsageLimit;
-import one.talon.model.GiveawayPoolReference;
+import one.talon.model.CustomEffectBlockReference;
+import one.talon.model.GiveawayPoolBlockReference;
 import one.talon.model.GroupBlock;
 import one.talon.model.LocationCheckAttributeBlockValues;
 import one.talon.model.PassthroughBlock;
@@ -53,16 +57,14 @@ import one.talon.model.RedeemLoyaltyPointsBlock1Program;
 import one.talon.model.RedeemLoyaltyPointsBlock1Value;
 import one.talon.model.ReserveCouponBlock;
 import one.talon.model.ShowNotificationBlock;
+import one.talon.model.TierBlockReference;
 import one.talon.model.TriggerCustomEffectBlock;
-import one.talon.model.TriggerCustomEffectBlock1CustomEffect;
-import one.talon.model.TriggerCustomEffectBlock1Target;
 import one.talon.model.TriggerWebhookBlock;
-import one.talon.model.TriggerWebhookBlock1Webhook;
 import one.talon.model.UpdateAchievementProgressBlock;
 import one.talon.model.UpdateAttributeValueBlock;
-import one.talon.model.UpdateAttributeValueBlock1Attribute;
 import one.talon.model.UpdateAudienceMembershipBlock;
-import one.talon.model.UpdateAudienceMembershipBlock1Audience;
+import one.talon.model.UpdateLoyaltyPointsExpiryBlock;
+import one.talon.model.WebhookBlockReference;
 import org.openapitools.jackson.nullable.JsonNullable;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
@@ -498,11 +500,43 @@ public class BlockTest {
     }
 
     /**
+     * Test the property 'recipient'
+     */
+    @Test
+    public void recipientTest() {
+        // TODO: test recipient
+    }
+
+    /**
      * Test the property 'tier'
      */
     @Test
     public void tierTest() {
         // TODO: test tier
+    }
+
+    /**
+     * Test the property 'awaitsActivation'
+     */
+    @Test
+    public void awaitsActivationTest() {
+        // TODO: test awaitsActivation
+    }
+
+    /**
+     * Test the property 'validityDuration'
+     */
+    @Test
+    public void validityDurationTest() {
+        // TODO: test validityDuration
+    }
+
+    /**
+     * Test the property 'pendingDuration'
+     */
+    @Test
+    public void pendingDurationTest() {
+        // TODO: test pendingDuration
     }
 
 }

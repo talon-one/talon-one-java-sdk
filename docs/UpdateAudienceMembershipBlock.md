@@ -12,7 +12,7 @@
 |**tags** | **List&lt;String&gt;** | Semantic labels attached to this block. |  [optional] [readonly] |
 |**operator** | [**OperatorEnum**](#OperatorEnum) | The action to perform. |  |
 |**profile** | [**ProfileEnum**](#ProfileEnum) | The customer profile to add or remove from the audience. &#x60;Current&#x60; targets the customer in the current session; &#x60;Advocate&#x60; targets the person who invited their friend via referral program. |  |
-|**audience** | [**UpdateAudienceMembershipBlock1Audience**](UpdateAudienceMembershipBlock1Audience.md) |  |  |
+|**audience** | [**AudienceBlockReference**](AudienceBlockReference.md) | The audience to add the customer to or remove them from. |  |
 
 
 

@@ -51,7 +51,7 @@ import java.util.Set;
 import one.talon.JSON;
 
 /**
- * RoleV2
+ * Represents a role with its associated permissions and members.
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.25.0")
 public class RoleV2 {
@@ -269,7 +269,7 @@ public class RoleV2 {
   }
 
   /**
-   * Identifies if the role is read-only. For read-only roles, you can only assign or unassign users. You cannot edit any other properties, such as the name, description, or permissions. The &#39;isReadonly&#39; property cannot be set for new or existing roles. It is reserved for predefined roles, such as the Talon.One support role.
+   * Identifies if the role is read-only. For read-only roles, you can only assign or unassign users. You cannot edit any other properties, such as the name, description, or permissions. This property cannot be set for new or existing roles. It is reserved for predefined roles, such as the Talon.One support role.
    * @return isReadonly
    */
   @javax.annotation.Nullable

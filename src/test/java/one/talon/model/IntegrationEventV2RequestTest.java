@@ -95,4 +95,12 @@ public class IntegrationEventV2RequestTest {
         // TODO: test loyaltyCards
     }
 
+    /**
+     * Test the property 'rewardIntegrationIds'
+     */
+    @Test
+    public void rewardIntegrationIdsTest() {
+        // TODO: test rewardIntegrationIds
+    }
+
 }

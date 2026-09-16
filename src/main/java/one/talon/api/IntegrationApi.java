@@ -35,8 +35,8 @@ import one.talon.model.BestPriorPriceRequest;
 import java.math.BigDecimal;
 import one.talon.model.Catalog;
 import one.talon.model.CatalogSyncRequest;
-import one.talon.model.Coupon;
 import one.talon.model.CouponReservations;
+import one.talon.model.CouponWithReservations;
 import one.talon.model.CreateReferralsForMultipleAdvocates201Response;
 import one.talon.model.CustomerInventory;
 import one.talon.model.CustomerProfileAudienceRequest;
@@ -49,6 +49,7 @@ import one.talon.model.EventV3;
 import one.talon.model.GenerateLoyaltyCard;
 import one.talon.model.GetCustomerAchievementHistory200Response;
 import one.talon.model.GetCustomerAchievements200Response;
+import one.talon.model.GetCustomerRewards200Response;
 import one.talon.model.GetLoyaltyCardPoints200Response;
 import one.talon.model.GetLoyaltyCardTransactions200Response;
 import one.talon.model.GetLoyaltyProgramProfilePoints200Response;
@@ -64,6 +65,7 @@ import one.talon.model.IntegrationRequest;
 import one.talon.model.IntegrationRewardsCatalog200Response;
 import one.talon.model.IntegrationStateV2;
 import one.talon.model.IntegrationUnlockRewardRequest;
+import one.talon.model.IntegrationUnlockRewardResponse;
 import one.talon.model.LoyaltyBalancesWithTiers;
 import one.talon.model.LoyaltyCard;
 import one.talon.model.LoyaltyCardBalances;
@@ -624,7 +626,7 @@ public class IntegrationApi {
      * Create a coupon reservation for the specified customer profiles on the specified coupon.  You can also create a reservation via the Campaign Manager using the [Create coupon code reservation](https://docs.talon.one/docs/product/rules/effects/using-effects#reserving-a-coupon-code) effect.  &gt; [!note] **Note** &gt; - If the **Reservation mandatory** option was selected when creating the &gt;   specified coupon, the endpoint creates a **hard** reservation, meaning only users who have &gt;   this coupon code reserved can redeem it. &gt; &gt;   Otherwise, the endpoint creates a **soft** reservation, meaning the coupon &gt;   is associated with the specified customer profiles (they show up when using &gt;   the [List customer data](https://docs.talon.one/integration-api#tag/Customer-profiles/operation/getCustomerInventory) &gt;   endpoint), but any user can redeem it. &gt; &gt;   This can be useful, for example, to display a _coupon wallet_ for customers &gt;   when they visit your store. &gt; - If the **Coupon visibility** option was selected when creating the &gt;   specified coupon, the coupon code is implicitly soft-reserved for all customers, and the code &gt;   will be returned for all customer profiles in the [List customer &gt;   data](https://docs.talon.one/integration-api#tag/Customer-profiles/operation/getCustomerInventory) endpoint. &gt; - This endpoint overrides the coupon reservation limit set when &gt;   [the coupon is created](https://docs.talon.one/docs/product/campaigns/coupons/creating-coupons).  To ensure that coupons cannot be reserved after the reservation limit is reached, use the [Create coupon code reservation](https://docs.talon.one/docs/product/rules/effects/using-effects#reserving-a-coupon-code) effect in the Rule Builder and the [Update customer session](https://docs.talon.one/integration-api#tag/Customer-sessions/operation/updateCustomerSessionV2) endpoint.  To delete a reservation, use the [Delete reservation](https://docs.talon.one/integration-api#tag/Coupons/operation/deleteCouponReservation) endpoint. 
      * @param couponValue The code of the coupon.  **Important:** The coupon code requires [URL encoding](https://www.w3schools.com/tags//ref_urlencode.asp) if it contains special characters. For example, you must encode &#x60;SUMMER25%OFF&#x60; as &#x60;SUMMER25%25OFF&#x60;.  (required)
      * @param couponReservations body (required)
-     * @return Coupon
+     * @return CouponWithReservations
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table border="1">
@@ -636,8 +638,8 @@ public class IntegrationApi {
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
      */
-    public Coupon createCouponReservation(@javax.annotation.Nonnull String couponValue, @javax.annotation.Nonnull CouponReservations couponReservations) throws ApiException {
-        ApiResponse<Coupon> localVarResp = createCouponReservationWithHttpInfo(couponValue, couponReservations);
+    public CouponWithReservations createCouponReservation(@javax.annotation.Nonnull String couponValue, @javax.annotation.Nonnull CouponReservations couponReservations) throws ApiException {
+        ApiResponse<CouponWithReservations> localVarResp = createCouponReservationWithHttpInfo(couponValue, couponReservations);
         return localVarResp.getData();
     }
 
@@ -646,7 +648,7 @@ public class IntegrationApi {
      * Create a coupon reservation for the specified customer profiles on the specified coupon.  You can also create a reservation via the Campaign Manager using the [Create coupon code reservation](https://docs.talon.one/docs/product/rules/effects/using-effects#reserving-a-coupon-code) effect.  &gt; [!note] **Note** &gt; - If the **Reservation mandatory** option was selected when creating the &gt;   specified coupon, the endpoint creates a **hard** reservation, meaning only users who have &gt;   this coupon code reserved can redeem it. &gt; &gt;   Otherwise, the endpoint creates a **soft** reservation, meaning the coupon &gt;   is associated with the specified customer profiles (they show up when using &gt;   the [List customer data](https://docs.talon.one/integration-api#tag/Customer-profiles/operation/getCustomerInventory) &gt;   endpoint), but any user can redeem it. &gt; &gt;   This can be useful, for example, to display a _coupon wallet_ for customers &gt;   when they visit your store. &gt; - If the **Coupon visibility** option was selected when creating the &gt;   specified coupon, the coupon code is implicitly soft-reserved for all customers, and the code &gt;   will be returned for all customer profiles in the [List customer &gt;   data](https://docs.talon.one/integration-api#tag/Customer-profiles/operation/getCustomerInventory) endpoint. &gt; - This endpoint overrides the coupon reservation limit set when &gt;   [the coupon is created](https://docs.talon.one/docs/product/campaigns/coupons/creating-coupons).  To ensure that coupons cannot be reserved after the reservation limit is reached, use the [Create coupon code reservation](https://docs.talon.one/docs/product/rules/effects/using-effects#reserving-a-coupon-code) effect in the Rule Builder and the [Update customer session](https://docs.talon.one/integration-api#tag/Customer-sessions/operation/updateCustomerSessionV2) endpoint.  To delete a reservation, use the [Delete reservation](https://docs.talon.one/integration-api#tag/Coupons/operation/deleteCouponReservation) endpoint. 
      * @param couponValue The code of the coupon.  **Important:** The coupon code requires [URL encoding](https://www.w3schools.com/tags//ref_urlencode.asp) if it contains special characters. For example, you must encode &#x60;SUMMER25%OFF&#x60; as &#x60;SUMMER25%25OFF&#x60;.  (required)
      * @param couponReservations body (required)
-     * @return ApiResponse&lt;Coupon&gt;
+     * @return ApiResponse&lt;CouponWithReservations&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table border="1">
@@ -658,9 +660,9 @@ public class IntegrationApi {
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Coupon> createCouponReservationWithHttpInfo(@javax.annotation.Nonnull String couponValue, @javax.annotation.Nonnull CouponReservations couponReservations) throws ApiException {
+    public ApiResponse<CouponWithReservations> createCouponReservationWithHttpInfo(@javax.annotation.Nonnull String couponValue, @javax.annotation.Nonnull CouponReservations couponReservations) throws ApiException {
         okhttp3.Call localVarCall = createCouponReservationValidateBeforeCall(couponValue, couponReservations, null);
-        Type localVarReturnType = new TypeToken<Coupon>(){}.getType();
+        Type localVarReturnType = new TypeToken<CouponWithReservations>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -682,10 +684,10 @@ public class IntegrationApi {
         <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createCouponReservationAsync(@javax.annotation.Nonnull String couponValue, @javax.annotation.Nonnull CouponReservations couponReservations, final ApiCallback<Coupon> _callback) throws ApiException {
+    public okhttp3.Call createCouponReservationAsync(@javax.annotation.Nonnull String couponValue, @javax.annotation.Nonnull CouponReservations couponReservations, final ApiCallback<CouponWithReservations> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = createCouponReservationValidateBeforeCall(couponValue, couponReservations, _callback);
-        Type localVarReturnType = new TypeToken<Coupon>(){}.getType();
+        Type localVarReturnType = new TypeToken<CouponWithReservations>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -2381,6 +2383,177 @@ public class IntegrationApi {
 
         okhttp3.Call localVarCall = getCustomerInventoryValidateBeforeCall(integrationId, profile, referrals, coupons, loyalty, giveaways, achievements, unlockedRewards, _callback);
         Type localVarReturnType = new TypeToken<CustomerInventory>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for getCustomerRewards
+     * @param integrationId The integration identifier for this customer profile. Must be:  - Unique within the deployment. - Stable for the customer. Do not use an ID that the customer can update themselves. For example, you can use a database ID.  (required)
+     * @param status Filter results by one or more customer reward statuses.  **Note:** If no status is specified, rewards of all statuses are returned.  (optional)
+     * @param pageSize The number of items in the response. (optional, default to 1000)
+     * @param skip The number of items to skip when paging through large result sets. (optional)
+     * @param withTotalResultSize When this flag is set, the result includes the total number of results for this query. This might decrease performance on large data sets.   - When &#x60;true&#x60;: &#x60;totalResultSize&#x60; contains the total number of results for this query.  - When &#x60;false&#x60;: Only &#x60;hasMore&#x60; is returned, and it is set to &#x60;true&#x60; when there are more results than shown on the page.  (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getCustomerRewardsCall(@javax.annotation.Nonnull String integrationId, @javax.annotation.Nullable List<String> status, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable Boolean withTotalResultSize, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/v1/customer_profiles/{integrationId}/rewards"
+            .replace("{" + "integrationId" + "}", localVarApiClient.escapeString(integrationId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (status != null) {
+            localVarCollectionQueryParams.addAll(localVarApiClient.parameterToPairs("multi", "status", status));
+        }
+
+        if (pageSize != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("pageSize", pageSize));
+        }
+
+        if (skip != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("skip", skip));
+        }
+
+        if (withTotalResultSize != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("withTotalResultSize", withTotalResultSize));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "api_key_v1" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call getCustomerRewardsValidateBeforeCall(@javax.annotation.Nonnull String integrationId, @javax.annotation.Nullable List<String> status, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable Boolean withTotalResultSize, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'integrationId' is set
+        if (integrationId == null) {
+            throw new ApiException("Missing the required parameter 'integrationId' when calling getCustomerRewards(Async)");
+        }
+
+        return getCustomerRewardsCall(integrationId, status, pageSize, skip, withTotalResultSize, _callback);
+
+    }
+
+    /**
+     * List customer&#39;s rewards
+     * List the rewards held by a given customer profile. This includes shared rewards unlocked with a loyalty card linked to the customer. 
+     * @param integrationId The integration identifier for this customer profile. Must be:  - Unique within the deployment. - Stable for the customer. Do not use an ID that the customer can update themselves. For example, you can use a database ID.  (required)
+     * @param status Filter results by one or more customer reward statuses.  **Note:** If no status is specified, rewards of all statuses are returned.  (optional)
+     * @param pageSize The number of items in the response. (optional, default to 1000)
+     * @param skip The number of items to skip when paging through large result sets. (optional)
+     * @param withTotalResultSize When this flag is set, the result includes the total number of results for this query. This might decrease performance on large data sets.   - When &#x60;true&#x60;: &#x60;totalResultSize&#x60; contains the total number of results for this query.  - When &#x60;false&#x60;: Only &#x60;hasMore&#x60; is returned, and it is set to &#x60;true&#x60; when there are more results than shown on the page.  (optional)
+     * @return GetCustomerRewards200Response
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
+     </table>
+     */
+    public GetCustomerRewards200Response getCustomerRewards(@javax.annotation.Nonnull String integrationId, @javax.annotation.Nullable List<String> status, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable Boolean withTotalResultSize) throws ApiException {
+        ApiResponse<GetCustomerRewards200Response> localVarResp = getCustomerRewardsWithHttpInfo(integrationId, status, pageSize, skip, withTotalResultSize);
+        return localVarResp.getData();
+    }
+
+    /**
+     * List customer&#39;s rewards
+     * List the rewards held by a given customer profile. This includes shared rewards unlocked with a loyalty card linked to the customer. 
+     * @param integrationId The integration identifier for this customer profile. Must be:  - Unique within the deployment. - Stable for the customer. Do not use an ID that the customer can update themselves. For example, you can use a database ID.  (required)
+     * @param status Filter results by one or more customer reward statuses.  **Note:** If no status is specified, rewards of all statuses are returned.  (optional)
+     * @param pageSize The number of items in the response. (optional, default to 1000)
+     * @param skip The number of items to skip when paging through large result sets. (optional)
+     * @param withTotalResultSize When this flag is set, the result includes the total number of results for this query. This might decrease performance on large data sets.   - When &#x60;true&#x60;: &#x60;totalResultSize&#x60; contains the total number of results for this query.  - When &#x60;false&#x60;: Only &#x60;hasMore&#x60; is returned, and it is set to &#x60;true&#x60; when there are more results than shown on the page.  (optional)
+     * @return ApiResponse&lt;GetCustomerRewards200Response&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<GetCustomerRewards200Response> getCustomerRewardsWithHttpInfo(@javax.annotation.Nonnull String integrationId, @javax.annotation.Nullable List<String> status, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable Boolean withTotalResultSize) throws ApiException {
+        okhttp3.Call localVarCall = getCustomerRewardsValidateBeforeCall(integrationId, status, pageSize, skip, withTotalResultSize, null);
+        Type localVarReturnType = new TypeToken<GetCustomerRewards200Response>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * List customer&#39;s rewards (asynchronously)
+     * List the rewards held by a given customer profile. This includes shared rewards unlocked with a loyalty card linked to the customer. 
+     * @param integrationId The integration identifier for this customer profile. Must be:  - Unique within the deployment. - Stable for the customer. Do not use an ID that the customer can update themselves. For example, you can use a database ID.  (required)
+     * @param status Filter results by one or more customer reward statuses.  **Note:** If no status is specified, rewards of all statuses are returned.  (optional)
+     * @param pageSize The number of items in the response. (optional, default to 1000)
+     * @param skip The number of items to skip when paging through large result sets. (optional)
+     * @param withTotalResultSize When this flag is set, the result includes the total number of results for this query. This might decrease performance on large data sets.   - When &#x60;true&#x60;: &#x60;totalResultSize&#x60; contains the total number of results for this query.  - When &#x60;false&#x60;: Only &#x60;hasMore&#x60; is returned, and it is set to &#x60;true&#x60; when there are more results than shown on the page.  (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getCustomerRewardsAsync(@javax.annotation.Nonnull String integrationId, @javax.annotation.Nullable List<String> status, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable Boolean withTotalResultSize, final ApiCallback<GetCustomerRewards200Response> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = getCustomerRewardsValidateBeforeCall(integrationId, status, pageSize, skip, withTotalResultSize, _callback);
+        Type localVarReturnType = new TypeToken<GetCustomerRewards200Response>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -4197,8 +4370,8 @@ public class IntegrationApi {
      * @param includeFree Whether to include rewards that have no &#x60;pointsRequired&#x60;. These rewards are treated as free and available to all customers.  (optional, default to true)
      * @param loyaltyProgramId Return only rewards available in this loyalty program.  (optional)
      * @param subledgerId Return only rewards available in this subledger. Must be combined with &#x60;loyaltyProgramId&#x60;. To specify the main ledger, provide an empty string (\&quot;\&quot;).  (optional)
-     * @param profileIntegrationId The integration ID of the customer profile whose loyalty balances to include in the response. Balances are returned only when &#x60;loyaltyProgramId&#x60; is also provided.  **Note:** &#x60;profileIntegrationId&#x60; and &#x60;loyaltyCardId&#x60; are mutually exclusive. Do not send both in the same request.  (optional)
-     * @param loyaltyCardId The identifier of the loyalty card whose loyalty balances to include in the response. Balances are returned only when &#x60;loyaltyProgramId&#x60; is also provided.  **Note:** &#x60;profileIntegrationId&#x60; and &#x60;loyaltyCardId&#x60; are mutually exclusive. Do not send both in the same request.  (optional)
+     * @param profileIntegrationId The integration ID of the customer profile whose loyalty balances to include in the response. Balances are returned only when &#x60;loyaltyProgramId&#x60; is also provided.  For a reward with &#x60;pointsRequired&#x60; configured for a card-based loyalty program, eligibility can be evaluated based on both &#x60;profileIntegrationId&#x60; and &#x60;loyaltyCardId&#x60;, if both are provided. The required points are then checked against the card&#39;s balance.  (optional)
+     * @param loyaltyCardId The identifier of the loyalty card whose loyalty balances to include in the response. Balances are returned only when &#x60;loyaltyProgramId&#x60; is also provided.  For a reward with &#x60;pointsRequired&#x60; configured for a card-based loyalty program, eligibility can be evaluated based on both &#x60;profileIntegrationId&#x60; and &#x60;loyaltyCardId&#x60;, if both are provided. The card must also be linked to that customer profile. - If &#x60;loyaltyCardId&#x60; is not provided, the reward returns the &#x60;CARD_REQUIRED&#x60; failure code, because there is no card balance to compare &#x60;pointsRequired&#x60; against. - If &#x60;profileIntegrationId&#x60; is not provided, the reward returns the &#x60;PROFILE_REQUIRED&#x60; failure code, because its eligibility cannot be evaluated without a customer profile.  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -4308,8 +4481,8 @@ public class IntegrationApi {
      * @param includeFree Whether to include rewards that have no &#x60;pointsRequired&#x60;. These rewards are treated as free and available to all customers.  (optional, default to true)
      * @param loyaltyProgramId Return only rewards available in this loyalty program.  (optional)
      * @param subledgerId Return only rewards available in this subledger. Must be combined with &#x60;loyaltyProgramId&#x60;. To specify the main ledger, provide an empty string (\&quot;\&quot;).  (optional)
-     * @param profileIntegrationId The integration ID of the customer profile whose loyalty balances to include in the response. Balances are returned only when &#x60;loyaltyProgramId&#x60; is also provided.  **Note:** &#x60;profileIntegrationId&#x60; and &#x60;loyaltyCardId&#x60; are mutually exclusive. Do not send both in the same request.  (optional)
-     * @param loyaltyCardId The identifier of the loyalty card whose loyalty balances to include in the response. Balances are returned only when &#x60;loyaltyProgramId&#x60; is also provided.  **Note:** &#x60;profileIntegrationId&#x60; and &#x60;loyaltyCardId&#x60; are mutually exclusive. Do not send both in the same request.  (optional)
+     * @param profileIntegrationId The integration ID of the customer profile whose loyalty balances to include in the response. Balances are returned only when &#x60;loyaltyProgramId&#x60; is also provided.  For a reward with &#x60;pointsRequired&#x60; configured for a card-based loyalty program, eligibility can be evaluated based on both &#x60;profileIntegrationId&#x60; and &#x60;loyaltyCardId&#x60;, if both are provided. The required points are then checked against the card&#39;s balance.  (optional)
+     * @param loyaltyCardId The identifier of the loyalty card whose loyalty balances to include in the response. Balances are returned only when &#x60;loyaltyProgramId&#x60; is also provided.  For a reward with &#x60;pointsRequired&#x60; configured for a card-based loyalty program, eligibility can be evaluated based on both &#x60;profileIntegrationId&#x60; and &#x60;loyaltyCardId&#x60;, if both are provided. The card must also be linked to that customer profile. - If &#x60;loyaltyCardId&#x60; is not provided, the reward returns the &#x60;CARD_REQUIRED&#x60; failure code, because there is no card balance to compare &#x60;pointsRequired&#x60; against. - If &#x60;profileIntegrationId&#x60; is not provided, the reward returns the &#x60;PROFILE_REQUIRED&#x60; failure code, because its eligibility cannot be evaluated without a customer profile.  (optional)
      * @return IntegrationRewardsCatalog200Response
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -4337,8 +4510,8 @@ public class IntegrationApi {
      * @param includeFree Whether to include rewards that have no &#x60;pointsRequired&#x60;. These rewards are treated as free and available to all customers.  (optional, default to true)
      * @param loyaltyProgramId Return only rewards available in this loyalty program.  (optional)
      * @param subledgerId Return only rewards available in this subledger. Must be combined with &#x60;loyaltyProgramId&#x60;. To specify the main ledger, provide an empty string (\&quot;\&quot;).  (optional)
-     * @param profileIntegrationId The integration ID of the customer profile whose loyalty balances to include in the response. Balances are returned only when &#x60;loyaltyProgramId&#x60; is also provided.  **Note:** &#x60;profileIntegrationId&#x60; and &#x60;loyaltyCardId&#x60; are mutually exclusive. Do not send both in the same request.  (optional)
-     * @param loyaltyCardId The identifier of the loyalty card whose loyalty balances to include in the response. Balances are returned only when &#x60;loyaltyProgramId&#x60; is also provided.  **Note:** &#x60;profileIntegrationId&#x60; and &#x60;loyaltyCardId&#x60; are mutually exclusive. Do not send both in the same request.  (optional)
+     * @param profileIntegrationId The integration ID of the customer profile whose loyalty balances to include in the response. Balances are returned only when &#x60;loyaltyProgramId&#x60; is also provided.  For a reward with &#x60;pointsRequired&#x60; configured for a card-based loyalty program, eligibility can be evaluated based on both &#x60;profileIntegrationId&#x60; and &#x60;loyaltyCardId&#x60;, if both are provided. The required points are then checked against the card&#39;s balance.  (optional)
+     * @param loyaltyCardId The identifier of the loyalty card whose loyalty balances to include in the response. Balances are returned only when &#x60;loyaltyProgramId&#x60; is also provided.  For a reward with &#x60;pointsRequired&#x60; configured for a card-based loyalty program, eligibility can be evaluated based on both &#x60;profileIntegrationId&#x60; and &#x60;loyaltyCardId&#x60;, if both are provided. The card must also be linked to that customer profile. - If &#x60;loyaltyCardId&#x60; is not provided, the reward returns the &#x60;CARD_REQUIRED&#x60; failure code, because there is no card balance to compare &#x60;pointsRequired&#x60; against. - If &#x60;profileIntegrationId&#x60; is not provided, the reward returns the &#x60;PROFILE_REQUIRED&#x60; failure code, because its eligibility cannot be evaluated without a customer profile.  (optional)
      * @return ApiResponse&lt;IntegrationRewardsCatalog200Response&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -4367,8 +4540,8 @@ public class IntegrationApi {
      * @param includeFree Whether to include rewards that have no &#x60;pointsRequired&#x60;. These rewards are treated as free and available to all customers.  (optional, default to true)
      * @param loyaltyProgramId Return only rewards available in this loyalty program.  (optional)
      * @param subledgerId Return only rewards available in this subledger. Must be combined with &#x60;loyaltyProgramId&#x60;. To specify the main ledger, provide an empty string (\&quot;\&quot;).  (optional)
-     * @param profileIntegrationId The integration ID of the customer profile whose loyalty balances to include in the response. Balances are returned only when &#x60;loyaltyProgramId&#x60; is also provided.  **Note:** &#x60;profileIntegrationId&#x60; and &#x60;loyaltyCardId&#x60; are mutually exclusive. Do not send both in the same request.  (optional)
-     * @param loyaltyCardId The identifier of the loyalty card whose loyalty balances to include in the response. Balances are returned only when &#x60;loyaltyProgramId&#x60; is also provided.  **Note:** &#x60;profileIntegrationId&#x60; and &#x60;loyaltyCardId&#x60; are mutually exclusive. Do not send both in the same request.  (optional)
+     * @param profileIntegrationId The integration ID of the customer profile whose loyalty balances to include in the response. Balances are returned only when &#x60;loyaltyProgramId&#x60; is also provided.  For a reward with &#x60;pointsRequired&#x60; configured for a card-based loyalty program, eligibility can be evaluated based on both &#x60;profileIntegrationId&#x60; and &#x60;loyaltyCardId&#x60;, if both are provided. The required points are then checked against the card&#39;s balance.  (optional)
+     * @param loyaltyCardId The identifier of the loyalty card whose loyalty balances to include in the response. Balances are returned only when &#x60;loyaltyProgramId&#x60; is also provided.  For a reward with &#x60;pointsRequired&#x60; configured for a card-based loyalty program, eligibility can be evaluated based on both &#x60;profileIntegrationId&#x60; and &#x60;loyaltyCardId&#x60;, if both are provided. The card must also be linked to that customer profile. - If &#x60;loyaltyCardId&#x60; is not provided, the reward returns the &#x60;CARD_REQUIRED&#x60; failure code, because there is no card balance to compare &#x60;pointsRequired&#x60; against. - If &#x60;profileIntegrationId&#x60; is not provided, the reward returns the &#x60;PROFILE_REQUIRED&#x60; failure code, because its eligibility cannot be evaluated without a customer profile.  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -5747,7 +5920,7 @@ public class IntegrationApi {
      * @param rewardId The ID of the reward. You can get the ID with the [List rewards](#tag/Rewards/operation/listRewards) endpoint. (required)
      * @param integrationUnlockRewardRequest  (required)
      * @param dry When set to &#x60;true&#x60;, the rule evaluation is performed but no changes are persisted. Use this to preview the outcome of an unlocking. (optional)
-     * @return IntegrationStateV2
+     * @return IntegrationUnlockRewardResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table border="1">
@@ -5762,8 +5935,8 @@ public class IntegrationApi {
         <tr><td> 422 </td><td> Unprocessable entity. The reward unlock was rejected by the Rule Engine, for example because the customer already unlocked this reward, the customer has insufficient points, or the reward&#39;s eligibility conditions are not met.  </td><td>  -  </td></tr>
      </table>
      */
-    public IntegrationStateV2 unlockReward(@javax.annotation.Nonnull Long rewardId, @javax.annotation.Nonnull IntegrationUnlockRewardRequest integrationUnlockRewardRequest, @javax.annotation.Nullable Boolean dry) throws ApiException {
-        ApiResponse<IntegrationStateV2> localVarResp = unlockRewardWithHttpInfo(rewardId, integrationUnlockRewardRequest, dry);
+    public IntegrationUnlockRewardResponse unlockReward(@javax.annotation.Nonnull Long rewardId, @javax.annotation.Nonnull IntegrationUnlockRewardRequest integrationUnlockRewardRequest, @javax.annotation.Nullable Boolean dry) throws ApiException {
+        ApiResponse<IntegrationUnlockRewardResponse> localVarResp = unlockRewardWithHttpInfo(rewardId, integrationUnlockRewardRequest, dry);
         return localVarResp.getData();
     }
 
@@ -5773,7 +5946,7 @@ public class IntegrationApi {
      * @param rewardId The ID of the reward. You can get the ID with the [List rewards](#tag/Rewards/operation/listRewards) endpoint. (required)
      * @param integrationUnlockRewardRequest  (required)
      * @param dry When set to &#x60;true&#x60;, the rule evaluation is performed but no changes are persisted. Use this to preview the outcome of an unlocking. (optional)
-     * @return ApiResponse&lt;IntegrationStateV2&gt;
+     * @return ApiResponse&lt;IntegrationUnlockRewardResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table border="1">
@@ -5788,9 +5961,9 @@ public class IntegrationApi {
         <tr><td> 422 </td><td> Unprocessable entity. The reward unlock was rejected by the Rule Engine, for example because the customer already unlocked this reward, the customer has insufficient points, or the reward&#39;s eligibility conditions are not met.  </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<IntegrationStateV2> unlockRewardWithHttpInfo(@javax.annotation.Nonnull Long rewardId, @javax.annotation.Nonnull IntegrationUnlockRewardRequest integrationUnlockRewardRequest, @javax.annotation.Nullable Boolean dry) throws ApiException {
+    public ApiResponse<IntegrationUnlockRewardResponse> unlockRewardWithHttpInfo(@javax.annotation.Nonnull Long rewardId, @javax.annotation.Nonnull IntegrationUnlockRewardRequest integrationUnlockRewardRequest, @javax.annotation.Nullable Boolean dry) throws ApiException {
         okhttp3.Call localVarCall = unlockRewardValidateBeforeCall(rewardId, integrationUnlockRewardRequest, dry, null);
-        Type localVarReturnType = new TypeToken<IntegrationStateV2>(){}.getType();
+        Type localVarReturnType = new TypeToken<IntegrationUnlockRewardResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -5816,10 +5989,10 @@ public class IntegrationApi {
         <tr><td> 422 </td><td> Unprocessable entity. The reward unlock was rejected by the Rule Engine, for example because the customer already unlocked this reward, the customer has insufficient points, or the reward&#39;s eligibility conditions are not met.  </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call unlockRewardAsync(@javax.annotation.Nonnull Long rewardId, @javax.annotation.Nonnull IntegrationUnlockRewardRequest integrationUnlockRewardRequest, @javax.annotation.Nullable Boolean dry, final ApiCallback<IntegrationStateV2> _callback) throws ApiException {
+    public okhttp3.Call unlockRewardAsync(@javax.annotation.Nonnull Long rewardId, @javax.annotation.Nonnull IntegrationUnlockRewardRequest integrationUnlockRewardRequest, @javax.annotation.Nullable Boolean dry, final ApiCallback<IntegrationUnlockRewardResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = unlockRewardValidateBeforeCall(rewardId, integrationUnlockRewardRequest, dry, _callback);
-        Type localVarReturnType = new TypeToken<IntegrationStateV2>(){}.getType();
+        Type localVarReturnType = new TypeToken<IntegrationUnlockRewardResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }

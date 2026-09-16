@@ -47,7 +47,7 @@ import java.util.Set;
 import one.talon.JSON;
 
 /**
- * RoleV2ApplicationDetails
+ * Details of the permission sets configured for an Application.
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.25.0")
 public class RoleV2ApplicationDetails {

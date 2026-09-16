@@ -25,7 +25,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import one.talon.model.Block;
-import one.talon.model.TriggerWebhookBlock1Webhook;
+import one.talon.model.WebhookBlockReference;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 

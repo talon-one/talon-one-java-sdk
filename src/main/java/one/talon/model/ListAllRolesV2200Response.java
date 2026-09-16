@@ -73,7 +73,7 @@ public class ListAllRolesV2200Response {
   }
 
   /**
-   * Get totalResultSize
+   * The total number of roles returned.
    * @return totalResultSize
    */
   @javax.annotation.Nonnull
@@ -100,7 +100,7 @@ public class ListAllRolesV2200Response {
   }
 
   /**
-   * Get data
+   * The list of roles.
    * @return data
    */
   @javax.annotation.Nonnull

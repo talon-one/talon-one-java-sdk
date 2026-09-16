@@ -112,6 +112,7 @@ import one.talon.model.MessageLogEntries;
 import one.talon.model.ModelImport;
 import one.talon.model.NewAdditionalCost;
 import one.talon.model.NewAttribute;
+import one.talon.model.NewCampaign;
 import one.talon.model.NewCampaignCollection;
 import one.talon.model.NewCampaignStoreBudget;
 import one.talon.model.NewCollection;
@@ -321,6 +322,21 @@ public class ManagementApiTest {
         Long loyaltyProgramId = null;
         LoyaltyCardBatch loyaltyCardBatch = null;
         LoyaltyCardBatchResponse response = api.createBatchLoyaltyCards(loyaltyProgramId, loyaltyCardBatch);
+        // TODO: test validations
+    }
+
+    /**
+     * Create campaign
+     *
+     * Create a campaign. A campaign is part of an Application and contains a set of rules. 
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void createCampaignTest() throws ApiException {
+        Long applicationId = null;
+        NewCampaign newCampaign = null;
+        Campaign response = api.createCampaign(applicationId, newCampaign);
         // TODO: test validations
     }
 
@@ -1059,7 +1075,8 @@ public class ManagementApiTest {
         String loyaltyProgramId = null;
         OffsetDateTime endDate = null;
         String balances = null;
-        String response = api.exportLoyaltyBalances(loyaltyProgramId, endDate, balances);
+        List<String> subledgerIds = null;
+        String response = api.exportLoyaltyBalances(loyaltyProgramId, endDate, balances, subledgerIds);
         // TODO: test validations
     }
 
@@ -2581,7 +2598,7 @@ public class ManagementApiTest {
     /**
      * Import join dates for a loyalty program
      *
-     * Upload a CSV file containing customer profile IDs and their join dates for the specified loyalty program. Send the file as multipart data.  &gt; [!important] This endpoint only works with profile-based loyalty programs.  The CSV file **must** contain the following columns:  - &#x60;customerprofileid&#x60;: The integration ID of the customer profile whose join   date you want to update. - &#x60;newjoindate&#x60;: The new join date for the customer in RFC3339 format. You   can use the time zone of your choice. It is converted to UTC internally   by Talon.One.  **Note**: - Customer profiles must already exist. If a referenced profile does not exist, the import fails with a &#x60;400&#x60; error. - If a join date already exists for a profile, the uploaded date replaces it.  &gt; [!note] We recommend limiting your file size to 500 MB.  ## Example  &#x60;&#x60;&#x60;csv customerprofileid,newjoindate customer1,2024-03-21T07:32:14Z customer2,2025-04-16T21:12:37Z customer3,2026-05-03T11:47:01Z &#x60;&#x60;&#x60; 
+     * Upload a CSV file containing customer profile IDs and their join dates for the specified loyalty program. Send the file as multipart data.  &gt; [!important] This endpoint only works with profile-based loyalty programs.  The CSV file **must** contain the following columns:  - &#x60;customerprofileid&#x60;: The integration ID of the customer profile whose join   date you want to update. - &#x60;joindate&#x60;: The join date for the customer in RFC3339 format. You   can use the time zone of your choice. It is converted to UTC internally   by Talon.One.  **Note**: - Customer profiles must already exist. If a referenced profile does not exist, the import fails with a &#x60;400&#x60; error. - If a join date already exists for a profile, the uploaded date replaces it.  &gt; [!note] We recommend limiting your file size to 500 MB.  ## Example  &#x60;&#x60;&#x60;csv customerprofileid,joindate customer1,2024-03-21T07:32:14Z customer2,2025-04-16T21:12:37Z customer3,2026-05-03T11:47:01Z &#x60;&#x60;&#x60; 
      *
      * @throws ApiException if the Api call fails
      */
@@ -2700,18 +2717,19 @@ public class ManagementApiTest {
     @Test
     public void listAchievementsV2Test() throws ApiException {
         Long pageSize = null;
+        List<Long> campaignId = null;
         Long skip = null;
         String sort = null;
         String title = null;
         Long applicationId = null;
-        ListAchievementsV2200Response response = api.listAchievementsV2(pageSize, skip, sort, title, applicationId);
+        ListAchievementsV2200Response response = api.listAchievementsV2(pageSize, campaignId, skip, sort, title, applicationId);
         // TODO: test validations
     }
 
     /**
      * List roles
      *
-     * List all roles.
+     * List the roles defined in the deployment.  The roles returned depend on the role of the user calling this endpoint: - If the user has an admin role, all roles defined in the deployment are returned. - If the user does not have an admin role, only the roles currently assigned to this user are returned.  If your identity provider provisions roles through SCIM, any admin roles it defines are not included in this list.  To view the details of a specific role, use the [Get role](https://docs.talon.one/management-api#tag/Roles/operation/getRoleV2) endpoint. 
      *
      * @throws ApiException if the Api call fails
      */

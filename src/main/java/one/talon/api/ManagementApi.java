@@ -125,6 +125,7 @@ import one.talon.model.MessageLogEntries;
 import one.talon.model.ModelImport;
 import one.talon.model.NewAdditionalCost;
 import one.talon.model.NewAttribute;
+import one.talon.model.NewCampaign;
 import one.talon.model.NewCampaignCollection;
 import one.talon.model.NewCampaignStoreBudget;
 import one.talon.model.NewCollection;
@@ -1641,6 +1642,143 @@ public class ManagementApi {
 
         okhttp3.Call localVarCall = createBatchLoyaltyCardsValidateBeforeCall(loyaltyProgramId, loyaltyCardBatch, _callback);
         Type localVarReturnType = new TypeToken<LoyaltyCardBatchResponse>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for createCampaign
+     * @param applicationId The ID of the Application. It is displayed in your Talon.One deployment URL. (required)
+     * @param newCampaign body (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call createCampaignCall(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull NewCampaign newCampaign, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = newCampaign;
+
+        // create path and map variables
+        String localVarPath = "/v1/applications/{applicationId}/campaigns"
+            .replace("{" + "applicationId" + "}", localVarApiClient.escapeString(applicationId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "api_key_v1" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call createCampaignValidateBeforeCall(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull NewCampaign newCampaign, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'applicationId' is set
+        if (applicationId == null) {
+            throw new ApiException("Missing the required parameter 'applicationId' when calling createCampaign(Async)");
+        }
+
+        // verify the required parameter 'newCampaign' is set
+        if (newCampaign == null) {
+            throw new ApiException("Missing the required parameter 'newCampaign' when calling createCampaign(Async)");
+        }
+
+        return createCampaignCall(applicationId, newCampaign, _callback);
+
+    }
+
+    /**
+     * Create campaign
+     * Create a campaign. A campaign is part of an Application and contains a set of rules. 
+     * @param applicationId The ID of the Application. It is displayed in your Talon.One deployment URL. (required)
+     * @param newCampaign body (required)
+     * @return Campaign
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
+     </table>
+     */
+    public Campaign createCampaign(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull NewCampaign newCampaign) throws ApiException {
+        ApiResponse<Campaign> localVarResp = createCampaignWithHttpInfo(applicationId, newCampaign);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Create campaign
+     * Create a campaign. A campaign is part of an Application and contains a set of rules. 
+     * @param applicationId The ID of the Application. It is displayed in your Talon.One deployment URL. (required)
+     * @param newCampaign body (required)
+     * @return ApiResponse&lt;Campaign&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<Campaign> createCampaignWithHttpInfo(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull NewCampaign newCampaign) throws ApiException {
+        okhttp3.Call localVarCall = createCampaignValidateBeforeCall(applicationId, newCampaign, null);
+        Type localVarReturnType = new TypeToken<Campaign>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Create campaign (asynchronously)
+     * Create a campaign. A campaign is part of an Application and contains a set of rules. 
+     * @param applicationId The ID of the Application. It is displayed in your Talon.One deployment URL. (required)
+     * @param newCampaign body (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call createCampaignAsync(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull NewCampaign newCampaign, final ApiCallback<Campaign> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = createCampaignValidateBeforeCall(applicationId, newCampaign, _callback);
+        Type localVarReturnType = new TypeToken<Campaign>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -8329,6 +8467,7 @@ public class ManagementApi {
      * @param loyaltyProgramId The identifier for the loyalty program. (required)
      * @param endDate Used to return expired, active, and pending loyalty balances before this timestamp. You can enter any past, present, or future timestamp value.  &gt; [!note] **Note** &gt; - This must be an RFC3339 timestamp string. &gt; - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting &gt;   considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered. &gt; - This parameter does not affect the &#x60;currentTier&#x60; field in the CSV file, which shows the customer&#39;s tier at the time of export.  (optional)
      * @param balances Filters which balance fields are included in the CSV export. &#x60;currentBalance&#x60; is always returned.  By default, all balance fields are included. When this parameter is provided, only the listed fields contain values and the rest are returned empty.  Accepted values: - &#x60;currentBalance&#x60; - &#x60;pendingBalance&#x60; - &#x60;expiredBalance&#x60; - &#x60;spentBalance&#x60; - &#x60;negativeBalance&#x60;  Multiple values must be provided as a comma-separated list.  (optional)
+     * @param subledgerIds Filter results by an array of subledger IDs. If no value is provided, the export includes all subledgers and main ledger data for the specified loyalty program.  To specify the main ledger, provide an empty string (\&quot;\&quot;).  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -8341,7 +8480,7 @@ public class ManagementApi {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call exportLoyaltyBalancesCall(@javax.annotation.Nonnull String loyaltyProgramId, @javax.annotation.Nullable OffsetDateTime endDate, @javax.annotation.Nullable String balances, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call exportLoyaltyBalancesCall(@javax.annotation.Nonnull String loyaltyProgramId, @javax.annotation.Nullable OffsetDateTime endDate, @javax.annotation.Nullable String balances, @javax.annotation.Nullable List<String> subledgerIds, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -8375,6 +8514,10 @@ public class ManagementApi {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("balances", balances));
         }
 
+        if (subledgerIds != null) {
+            localVarCollectionQueryParams.addAll(localVarApiClient.parameterToPairs("csv", "subledgerIds", subledgerIds));
+        }
+
         final String[] localVarAccepts = {
             "application/csv"
         };
@@ -8395,13 +8538,13 @@ public class ManagementApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call exportLoyaltyBalancesValidateBeforeCall(@javax.annotation.Nonnull String loyaltyProgramId, @javax.annotation.Nullable OffsetDateTime endDate, @javax.annotation.Nullable String balances, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call exportLoyaltyBalancesValidateBeforeCall(@javax.annotation.Nonnull String loyaltyProgramId, @javax.annotation.Nullable OffsetDateTime endDate, @javax.annotation.Nullable String balances, @javax.annotation.Nullable List<String> subledgerIds, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'loyaltyProgramId' is set
         if (loyaltyProgramId == null) {
             throw new ApiException("Missing the required parameter 'loyaltyProgramId' when calling exportLoyaltyBalances(Async)");
         }
 
-        return exportLoyaltyBalancesCall(loyaltyProgramId, endDate, balances, _callback);
+        return exportLoyaltyBalancesCall(loyaltyProgramId, endDate, balances, subledgerIds, _callback);
 
     }
 
@@ -8411,6 +8554,7 @@ public class ManagementApi {
      * @param loyaltyProgramId The identifier for the loyalty program. (required)
      * @param endDate Used to return expired, active, and pending loyalty balances before this timestamp. You can enter any past, present, or future timestamp value.  &gt; [!note] **Note** &gt; - This must be an RFC3339 timestamp string. &gt; - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting &gt;   considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered. &gt; - This parameter does not affect the &#x60;currentTier&#x60; field in the CSV file, which shows the customer&#39;s tier at the time of export.  (optional)
      * @param balances Filters which balance fields are included in the CSV export. &#x60;currentBalance&#x60; is always returned.  By default, all balance fields are included. When this parameter is provided, only the listed fields contain values and the rest are returned empty.  Accepted values: - &#x60;currentBalance&#x60; - &#x60;pendingBalance&#x60; - &#x60;expiredBalance&#x60; - &#x60;spentBalance&#x60; - &#x60;negativeBalance&#x60;  Multiple values must be provided as a comma-separated list.  (optional)
+     * @param subledgerIds Filter results by an array of subledger IDs. If no value is provided, the export includes all subledgers and main ledger data for the specified loyalty program.  To specify the main ledger, provide an empty string (\&quot;\&quot;).  (optional)
      * @return String
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -8422,8 +8566,8 @@ public class ManagementApi {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public String exportLoyaltyBalances(@javax.annotation.Nonnull String loyaltyProgramId, @javax.annotation.Nullable OffsetDateTime endDate, @javax.annotation.Nullable String balances) throws ApiException {
-        ApiResponse<String> localVarResp = exportLoyaltyBalancesWithHttpInfo(loyaltyProgramId, endDate, balances);
+    public String exportLoyaltyBalances(@javax.annotation.Nonnull String loyaltyProgramId, @javax.annotation.Nullable OffsetDateTime endDate, @javax.annotation.Nullable String balances, @javax.annotation.Nullable List<String> subledgerIds) throws ApiException {
+        ApiResponse<String> localVarResp = exportLoyaltyBalancesWithHttpInfo(loyaltyProgramId, endDate, balances, subledgerIds);
         return localVarResp.getData();
     }
 
@@ -8433,6 +8577,7 @@ public class ManagementApi {
      * @param loyaltyProgramId The identifier for the loyalty program. (required)
      * @param endDate Used to return expired, active, and pending loyalty balances before this timestamp. You can enter any past, present, or future timestamp value.  &gt; [!note] **Note** &gt; - This must be an RFC3339 timestamp string. &gt; - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting &gt;   considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered. &gt; - This parameter does not affect the &#x60;currentTier&#x60; field in the CSV file, which shows the customer&#39;s tier at the time of export.  (optional)
      * @param balances Filters which balance fields are included in the CSV export. &#x60;currentBalance&#x60; is always returned.  By default, all balance fields are included. When this parameter is provided, only the listed fields contain values and the rest are returned empty.  Accepted values: - &#x60;currentBalance&#x60; - &#x60;pendingBalance&#x60; - &#x60;expiredBalance&#x60; - &#x60;spentBalance&#x60; - &#x60;negativeBalance&#x60;  Multiple values must be provided as a comma-separated list.  (optional)
+     * @param subledgerIds Filter results by an array of subledger IDs. If no value is provided, the export includes all subledgers and main ledger data for the specified loyalty program.  To specify the main ledger, provide an empty string (\&quot;\&quot;).  (optional)
      * @return ApiResponse&lt;String&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -8444,8 +8589,8 @@ public class ManagementApi {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<String> exportLoyaltyBalancesWithHttpInfo(@javax.annotation.Nonnull String loyaltyProgramId, @javax.annotation.Nullable OffsetDateTime endDate, @javax.annotation.Nullable String balances) throws ApiException {
-        okhttp3.Call localVarCall = exportLoyaltyBalancesValidateBeforeCall(loyaltyProgramId, endDate, balances, null);
+    public ApiResponse<String> exportLoyaltyBalancesWithHttpInfo(@javax.annotation.Nonnull String loyaltyProgramId, @javax.annotation.Nullable OffsetDateTime endDate, @javax.annotation.Nullable String balances, @javax.annotation.Nullable List<String> subledgerIds) throws ApiException {
+        okhttp3.Call localVarCall = exportLoyaltyBalancesValidateBeforeCall(loyaltyProgramId, endDate, balances, subledgerIds, null);
         Type localVarReturnType = new TypeToken<String>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -8456,6 +8601,7 @@ public class ManagementApi {
      * @param loyaltyProgramId The identifier for the loyalty program. (required)
      * @param endDate Used to return expired, active, and pending loyalty balances before this timestamp. You can enter any past, present, or future timestamp value.  &gt; [!note] **Note** &gt; - This must be an RFC3339 timestamp string. &gt; - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting &gt;   considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered. &gt; - This parameter does not affect the &#x60;currentTier&#x60; field in the CSV file, which shows the customer&#39;s tier at the time of export.  (optional)
      * @param balances Filters which balance fields are included in the CSV export. &#x60;currentBalance&#x60; is always returned.  By default, all balance fields are included. When this parameter is provided, only the listed fields contain values and the rest are returned empty.  Accepted values: - &#x60;currentBalance&#x60; - &#x60;pendingBalance&#x60; - &#x60;expiredBalance&#x60; - &#x60;spentBalance&#x60; - &#x60;negativeBalance&#x60;  Multiple values must be provided as a comma-separated list.  (optional)
+     * @param subledgerIds Filter results by an array of subledger IDs. If no value is provided, the export includes all subledgers and main ledger data for the specified loyalty program.  To specify the main ledger, provide an empty string (\&quot;\&quot;).  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -8468,9 +8614,9 @@ public class ManagementApi {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call exportLoyaltyBalancesAsync(@javax.annotation.Nonnull String loyaltyProgramId, @javax.annotation.Nullable OffsetDateTime endDate, @javax.annotation.Nullable String balances, final ApiCallback<String> _callback) throws ApiException {
+    public okhttp3.Call exportLoyaltyBalancesAsync(@javax.annotation.Nonnull String loyaltyProgramId, @javax.annotation.Nullable OffsetDateTime endDate, @javax.annotation.Nullable String balances, @javax.annotation.Nullable List<String> subledgerIds, final ApiCallback<String> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = exportLoyaltyBalancesValidateBeforeCall(loyaltyProgramId, endDate, balances, _callback);
+        okhttp3.Call localVarCall = exportLoyaltyBalancesValidateBeforeCall(loyaltyProgramId, endDate, balances, subledgerIds, _callback);
         Type localVarReturnType = new TypeToken<String>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -22350,7 +22496,7 @@ public class ManagementApi {
 
     /**
      * Import join dates for a loyalty program
-     * Upload a CSV file containing customer profile IDs and their join dates for the specified loyalty program. Send the file as multipart data.  &gt; [!important] This endpoint only works with profile-based loyalty programs.  The CSV file **must** contain the following columns:  - &#x60;customerprofileid&#x60;: The integration ID of the customer profile whose join   date you want to update. - &#x60;newjoindate&#x60;: The new join date for the customer in RFC3339 format. You   can use the time zone of your choice. It is converted to UTC internally   by Talon.One.  **Note**: - Customer profiles must already exist. If a referenced profile does not exist, the import fails with a &#x60;400&#x60; error. - If a join date already exists for a profile, the uploaded date replaces it.  &gt; [!note] We recommend limiting your file size to 500 MB.  ## Example  &#x60;&#x60;&#x60;csv customerprofileid,newjoindate customer1,2024-03-21T07:32:14Z customer2,2025-04-16T21:12:37Z customer3,2026-05-03T11:47:01Z &#x60;&#x60;&#x60; 
+     * Upload a CSV file containing customer profile IDs and their join dates for the specified loyalty program. Send the file as multipart data.  &gt; [!important] This endpoint only works with profile-based loyalty programs.  The CSV file **must** contain the following columns:  - &#x60;customerprofileid&#x60;: The integration ID of the customer profile whose join   date you want to update. - &#x60;joindate&#x60;: The join date for the customer in RFC3339 format. You   can use the time zone of your choice. It is converted to UTC internally   by Talon.One.  **Note**: - Customer profiles must already exist. If a referenced profile does not exist, the import fails with a &#x60;400&#x60; error. - If a join date already exists for a profile, the uploaded date replaces it.  &gt; [!note] We recommend limiting your file size to 500 MB.  ## Example  &#x60;&#x60;&#x60;csv customerprofileid,joindate customer1,2024-03-21T07:32:14Z customer2,2025-04-16T21:12:37Z customer3,2026-05-03T11:47:01Z &#x60;&#x60;&#x60; 
      * @param loyaltyProgramId Identifier of the profile-based loyalty program. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint.  (required)
      * @param upFile The CSV file containing the data that is being imported. (optional)
      * @return ModelImport
@@ -22372,7 +22518,7 @@ public class ManagementApi {
 
     /**
      * Import join dates for a loyalty program
-     * Upload a CSV file containing customer profile IDs and their join dates for the specified loyalty program. Send the file as multipart data.  &gt; [!important] This endpoint only works with profile-based loyalty programs.  The CSV file **must** contain the following columns:  - &#x60;customerprofileid&#x60;: The integration ID of the customer profile whose join   date you want to update. - &#x60;newjoindate&#x60;: The new join date for the customer in RFC3339 format. You   can use the time zone of your choice. It is converted to UTC internally   by Talon.One.  **Note**: - Customer profiles must already exist. If a referenced profile does not exist, the import fails with a &#x60;400&#x60; error. - If a join date already exists for a profile, the uploaded date replaces it.  &gt; [!note] We recommend limiting your file size to 500 MB.  ## Example  &#x60;&#x60;&#x60;csv customerprofileid,newjoindate customer1,2024-03-21T07:32:14Z customer2,2025-04-16T21:12:37Z customer3,2026-05-03T11:47:01Z &#x60;&#x60;&#x60; 
+     * Upload a CSV file containing customer profile IDs and their join dates for the specified loyalty program. Send the file as multipart data.  &gt; [!important] This endpoint only works with profile-based loyalty programs.  The CSV file **must** contain the following columns:  - &#x60;customerprofileid&#x60;: The integration ID of the customer profile whose join   date you want to update. - &#x60;joindate&#x60;: The join date for the customer in RFC3339 format. You   can use the time zone of your choice. It is converted to UTC internally   by Talon.One.  **Note**: - Customer profiles must already exist. If a referenced profile does not exist, the import fails with a &#x60;400&#x60; error. - If a join date already exists for a profile, the uploaded date replaces it.  &gt; [!note] We recommend limiting your file size to 500 MB.  ## Example  &#x60;&#x60;&#x60;csv customerprofileid,joindate customer1,2024-03-21T07:32:14Z customer2,2025-04-16T21:12:37Z customer3,2026-05-03T11:47:01Z &#x60;&#x60;&#x60; 
      * @param loyaltyProgramId Identifier of the profile-based loyalty program. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint.  (required)
      * @param upFile The CSV file containing the data that is being imported. (optional)
      * @return ApiResponse&lt;ModelImport&gt;
@@ -22395,7 +22541,7 @@ public class ManagementApi {
 
     /**
      * Import join dates for a loyalty program (asynchronously)
-     * Upload a CSV file containing customer profile IDs and their join dates for the specified loyalty program. Send the file as multipart data.  &gt; [!important] This endpoint only works with profile-based loyalty programs.  The CSV file **must** contain the following columns:  - &#x60;customerprofileid&#x60;: The integration ID of the customer profile whose join   date you want to update. - &#x60;newjoindate&#x60;: The new join date for the customer in RFC3339 format. You   can use the time zone of your choice. It is converted to UTC internally   by Talon.One.  **Note**: - Customer profiles must already exist. If a referenced profile does not exist, the import fails with a &#x60;400&#x60; error. - If a join date already exists for a profile, the uploaded date replaces it.  &gt; [!note] We recommend limiting your file size to 500 MB.  ## Example  &#x60;&#x60;&#x60;csv customerprofileid,newjoindate customer1,2024-03-21T07:32:14Z customer2,2025-04-16T21:12:37Z customer3,2026-05-03T11:47:01Z &#x60;&#x60;&#x60; 
+     * Upload a CSV file containing customer profile IDs and their join dates for the specified loyalty program. Send the file as multipart data.  &gt; [!important] This endpoint only works with profile-based loyalty programs.  The CSV file **must** contain the following columns:  - &#x60;customerprofileid&#x60;: The integration ID of the customer profile whose join   date you want to update. - &#x60;joindate&#x60;: The join date for the customer in RFC3339 format. You   can use the time zone of your choice. It is converted to UTC internally   by Talon.One.  **Note**: - Customer profiles must already exist. If a referenced profile does not exist, the import fails with a &#x60;400&#x60; error. - If a join date already exists for a profile, the uploaded date replaces it.  &gt; [!note] We recommend limiting your file size to 500 MB.  ## Example  &#x60;&#x60;&#x60;csv customerprofileid,joindate customer1,2024-03-21T07:32:14Z customer2,2025-04-16T21:12:37Z customer3,2026-05-03T11:47:01Z &#x60;&#x60;&#x60; 
      * @param loyaltyProgramId Identifier of the profile-based loyalty program. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint.  (required)
      * @param upFile The CSV file containing the data that is being imported. (optional)
      * @param _callback The callback to be executed when the API call finishes
@@ -23308,6 +23454,7 @@ public class ManagementApi {
     /**
      * Build call for listAchievementsV2
      * @param pageSize The number of items in the response. (optional, default to 50)
+     * @param campaignId Filter results by one or more campaign IDs.  To include multiple IDs, repeat the parameter for each one, for example,&#x60;?campaignId&#x3D;123&amp;campaignId&#x3D;456&#x60;. The response contains only achievements associated with the specified campaigns.  (optional)
      * @param skip The number of items to skip when paging through large result sets. (optional)
      * @param sort The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.  (optional)
      * @param title Filter by the display name of the achievement. (optional)
@@ -23324,7 +23471,7 @@ public class ManagementApi {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call listAchievementsV2Call(@javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable String sort, @javax.annotation.Nullable String title, @javax.annotation.Nullable Long applicationId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call listAchievementsV2Call(@javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable List<Long> campaignId, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable String sort, @javax.annotation.Nullable String title, @javax.annotation.Nullable Long applicationId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -23351,6 +23498,10 @@ public class ManagementApi {
 
         if (pageSize != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("pageSize", pageSize));
+        }
+
+        if (campaignId != null) {
+            localVarCollectionQueryParams.addAll(localVarApiClient.parameterToPairs("multi", "campaignId", campaignId));
         }
 
         if (skip != null) {
@@ -23389,8 +23540,8 @@ public class ManagementApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call listAchievementsV2ValidateBeforeCall(@javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable String sort, @javax.annotation.Nullable String title, @javax.annotation.Nullable Long applicationId, final ApiCallback _callback) throws ApiException {
-        return listAchievementsV2Call(pageSize, skip, sort, title, applicationId, _callback);
+    private okhttp3.Call listAchievementsV2ValidateBeforeCall(@javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable List<Long> campaignId, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable String sort, @javax.annotation.Nullable String title, @javax.annotation.Nullable Long applicationId, final ApiCallback _callback) throws ApiException {
+        return listAchievementsV2Call(pageSize, campaignId, skip, sort, title, applicationId, _callback);
 
     }
 
@@ -23398,6 +23549,7 @@ public class ManagementApi {
      * List achievements
      * List all achievements. 
      * @param pageSize The number of items in the response. (optional, default to 50)
+     * @param campaignId Filter results by one or more campaign IDs.  To include multiple IDs, repeat the parameter for each one, for example,&#x60;?campaignId&#x3D;123&amp;campaignId&#x3D;456&#x60;. The response contains only achievements associated with the specified campaigns.  (optional)
      * @param skip The number of items to skip when paging through large result sets. (optional)
      * @param sort The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.  (optional)
      * @param title Filter by the display name of the achievement. (optional)
@@ -23413,8 +23565,8 @@ public class ManagementApi {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public ListAchievementsV2200Response listAchievementsV2(@javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable String sort, @javax.annotation.Nullable String title, @javax.annotation.Nullable Long applicationId) throws ApiException {
-        ApiResponse<ListAchievementsV2200Response> localVarResp = listAchievementsV2WithHttpInfo(pageSize, skip, sort, title, applicationId);
+    public ListAchievementsV2200Response listAchievementsV2(@javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable List<Long> campaignId, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable String sort, @javax.annotation.Nullable String title, @javax.annotation.Nullable Long applicationId) throws ApiException {
+        ApiResponse<ListAchievementsV2200Response> localVarResp = listAchievementsV2WithHttpInfo(pageSize, campaignId, skip, sort, title, applicationId);
         return localVarResp.getData();
     }
 
@@ -23422,6 +23574,7 @@ public class ManagementApi {
      * List achievements
      * List all achievements. 
      * @param pageSize The number of items in the response. (optional, default to 50)
+     * @param campaignId Filter results by one or more campaign IDs.  To include multiple IDs, repeat the parameter for each one, for example,&#x60;?campaignId&#x3D;123&amp;campaignId&#x3D;456&#x60;. The response contains only achievements associated with the specified campaigns.  (optional)
      * @param skip The number of items to skip when paging through large result sets. (optional)
      * @param sort The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.  (optional)
      * @param title Filter by the display name of the achievement. (optional)
@@ -23437,8 +23590,8 @@ public class ManagementApi {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<ListAchievementsV2200Response> listAchievementsV2WithHttpInfo(@javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable String sort, @javax.annotation.Nullable String title, @javax.annotation.Nullable Long applicationId) throws ApiException {
-        okhttp3.Call localVarCall = listAchievementsV2ValidateBeforeCall(pageSize, skip, sort, title, applicationId, null);
+    public ApiResponse<ListAchievementsV2200Response> listAchievementsV2WithHttpInfo(@javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable List<Long> campaignId, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable String sort, @javax.annotation.Nullable String title, @javax.annotation.Nullable Long applicationId) throws ApiException {
+        okhttp3.Call localVarCall = listAchievementsV2ValidateBeforeCall(pageSize, campaignId, skip, sort, title, applicationId, null);
         Type localVarReturnType = new TypeToken<ListAchievementsV2200Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -23447,6 +23600,7 @@ public class ManagementApi {
      * List achievements (asynchronously)
      * List all achievements. 
      * @param pageSize The number of items in the response. (optional, default to 50)
+     * @param campaignId Filter results by one or more campaign IDs.  To include multiple IDs, repeat the parameter for each one, for example,&#x60;?campaignId&#x3D;123&amp;campaignId&#x3D;456&#x60;. The response contains only achievements associated with the specified campaigns.  (optional)
      * @param skip The number of items to skip when paging through large result sets. (optional)
      * @param sort The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.  (optional)
      * @param title Filter by the display name of the achievement. (optional)
@@ -23463,9 +23617,9 @@ public class ManagementApi {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call listAchievementsV2Async(@javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable String sort, @javax.annotation.Nullable String title, @javax.annotation.Nullable Long applicationId, final ApiCallback<ListAchievementsV2200Response> _callback) throws ApiException {
+    public okhttp3.Call listAchievementsV2Async(@javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable List<Long> campaignId, @javax.annotation.Nullable Long skip, @javax.annotation.Nullable String sort, @javax.annotation.Nullable String title, @javax.annotation.Nullable Long applicationId, final ApiCallback<ListAchievementsV2200Response> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = listAchievementsV2ValidateBeforeCall(pageSize, skip, sort, title, applicationId, _callback);
+        okhttp3.Call localVarCall = listAchievementsV2ValidateBeforeCall(pageSize, campaignId, skip, sort, title, applicationId, _callback);
         Type localVarReturnType = new TypeToken<ListAchievementsV2200Response>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -23534,7 +23688,7 @@ public class ManagementApi {
 
     /**
      * List roles
-     * List all roles.
+     * List the roles defined in the deployment.  The roles returned depend on the role of the user calling this endpoint: - If the user has an admin role, all roles defined in the deployment are returned. - If the user does not have an admin role, only the roles currently assigned to this user are returned.  If your identity provider provisions roles through SCIM, any admin roles it defines are not included in this list.  To view the details of a specific role, use the [Get role](https://docs.talon.one/management-api#tag/Roles/operation/getRoleV2) endpoint. 
      * @return ListAllRolesV2200Response
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -23551,7 +23705,7 @@ public class ManagementApi {
 
     /**
      * List roles
-     * List all roles.
+     * List the roles defined in the deployment.  The roles returned depend on the role of the user calling this endpoint: - If the user has an admin role, all roles defined in the deployment are returned. - If the user does not have an admin role, only the roles currently assigned to this user are returned.  If your identity provider provisions roles through SCIM, any admin roles it defines are not included in this list.  To view the details of a specific role, use the [Get role](https://docs.talon.one/management-api#tag/Roles/operation/getRoleV2) endpoint. 
      * @return ApiResponse&lt;ListAllRolesV2200Response&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -23569,7 +23723,7 @@ public class ManagementApi {
 
     /**
      * List roles (asynchronously)
-     * List all roles.
+     * List the roles defined in the deployment.  The roles returned depend on the role of the user calling this endpoint: - If the user has an admin role, all roles defined in the deployment are returned. - If the user does not have an admin role, only the roles currently assigned to this user are returned.  If your identity provider provisions roles through SCIM, any admin roles it defines are not included in this list.  To view the details of a specific role, use the [Get role](https://docs.talon.one/management-api#tag/Roles/operation/getRoleV2) endpoint. 
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object

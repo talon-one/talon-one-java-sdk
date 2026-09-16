@@ -50,7 +50,7 @@ import java.util.Set;
 import one.talon.JSON;
 
 /**
- * RoleV2RolesGroup
+ * A map of target entities to their permission sets.
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.25.0")
 public class RoleV2RolesGroup {
@@ -118,7 +118,7 @@ public class RoleV2RolesGroup {
   }
 
   /**
-   * A map of the link between the loyalty program-related permission set and the Application ID the permissions apply to.
+   * A map of the link between the loyalty program-related permission set and the loyalty program ID the permissions apply to.
    * @return loyaltyPrograms
    */
   @javax.annotation.Nullable
@@ -145,7 +145,7 @@ public class RoleV2RolesGroup {
   }
 
   /**
-   * A map of the link between the campaign access group-related permission set and the Application ID the permissions apply to.
+   * A map of the link between the campaign access group-related permission set and the campaign access group ID the permissions apply to.
    * @return campaignAccessGroups
    */
   @javax.annotation.Nullable
@@ -164,7 +164,7 @@ public class RoleV2RolesGroup {
   }
 
   /**
-   * Name of the account-level permission set
+   * Name of the account-level permission set.
    * @return account
    */
   @javax.annotation.Nullable

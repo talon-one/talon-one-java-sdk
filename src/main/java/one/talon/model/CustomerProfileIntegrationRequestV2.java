@@ -142,6 +142,11 @@ public class CustomerProfileIntegrationRequestV2 {
   @javax.annotation.Nullable
   private ProfileAudiencesChanges audiencesChanges;
 
+  public static final String SERIALIZED_NAME_REWARD_INTEGRATION_IDS = "rewardIntegrationIds";
+  @SerializedName(SERIALIZED_NAME_REWARD_INTEGRATION_IDS)
+  @javax.annotation.Nullable
+  private List<String> rewardIntegrationIds;
+
   public CustomerProfileIntegrationRequestV2() {
   }
 
@@ -244,6 +249,33 @@ public class CustomerProfileIntegrationRequestV2 {
     this.audiencesChanges = audiencesChanges;
   }
 
+
+  public CustomerProfileIntegrationRequestV2 rewardIntegrationIds(@javax.annotation.Nullable List<String> rewardIntegrationIds) {
+    this.rewardIntegrationIds = rewardIntegrationIds;
+    return this;
+  }
+
+  public CustomerProfileIntegrationRequestV2 addRewardIntegrationIdsItem(String rewardIntegrationIdsItem) {
+    if (this.rewardIntegrationIds == null) {
+      this.rewardIntegrationIds = new ArrayList<>();
+    }
+    this.rewardIntegrationIds.add(rewardIntegrationIdsItem);
+    return this;
+  }
+
+  /**
+   * The integration IDs of the unlocked rewards that can be used in this request. 
+   * @return rewardIntegrationIds
+   */
+  @javax.annotation.Nullable
+  public List<String> getRewardIntegrationIds() {
+    return rewardIntegrationIds;
+  }
+
+  public void setRewardIntegrationIds(@javax.annotation.Nullable List<String> rewardIntegrationIds) {
+    this.rewardIntegrationIds = rewardIntegrationIds;
+  }
+
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -302,13 +334,14 @@ public class CustomerProfileIntegrationRequestV2 {
     return Objects.equals(this.attributes, customerProfileIntegrationRequestV2.attributes) &&
         Objects.equals(this.evaluableCampaignIds, customerProfileIntegrationRequestV2.evaluableCampaignIds) &&
         Objects.equals(this.responseContent, customerProfileIntegrationRequestV2.responseContent) &&
-        Objects.equals(this.audiencesChanges, customerProfileIntegrationRequestV2.audiencesChanges)&&
+        Objects.equals(this.audiencesChanges, customerProfileIntegrationRequestV2.audiencesChanges) &&
+        Objects.equals(this.rewardIntegrationIds, customerProfileIntegrationRequestV2.rewardIntegrationIds)&&
         Objects.equals(this.additionalProperties, customerProfileIntegrationRequestV2.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(attributes, evaluableCampaignIds, responseContent, audiencesChanges, additionalProperties);
+    return Objects.hash(attributes, evaluableCampaignIds, responseContent, audiencesChanges, rewardIntegrationIds, additionalProperties);
   }
 
   @Override
@@ -319,6 +352,7 @@ public class CustomerProfileIntegrationRequestV2 {
     sb.append("    evaluableCampaignIds: ").append(toIndentedString(evaluableCampaignIds)).append("\n");
     sb.append("    responseContent: ").append(toIndentedString(responseContent)).append("\n");
     sb.append("    audiencesChanges: ").append(toIndentedString(audiencesChanges)).append("\n");
+    sb.append("    rewardIntegrationIds: ").append(toIndentedString(rewardIntegrationIds)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -338,7 +372,7 @@ public class CustomerProfileIntegrationRequestV2 {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("attributes", "evaluableCampaignIds", "responseContent", "audiencesChanges"));
+    openapiFields = new HashSet<String>(Arrays.asList("attributes", "evaluableCampaignIds", "responseContent", "audiencesChanges", "rewardIntegrationIds"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(0);
@@ -368,6 +402,10 @@ public class CustomerProfileIntegrationRequestV2 {
       // validate the optional field `audiencesChanges`
       if (jsonObj.get("audiencesChanges") != null && !jsonObj.get("audiencesChanges").isJsonNull()) {
         ProfileAudiencesChanges.validateJsonElement(jsonObj.get("audiencesChanges"));
+      }
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("rewardIntegrationIds") != null && !jsonObj.get("rewardIntegrationIds").isJsonNull() && !jsonObj.get("rewardIntegrationIds").isJsonArray()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `rewardIntegrationIds` to be an array in the JSON string but got `%s`", jsonObj.get("rewardIntegrationIds").toString()));
       }
   }
 
