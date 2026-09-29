@@ -20,9 +20,7 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
-import java.math.BigDecimal;
 import java.util.Arrays;
-import java.util.UUID;
 import one.talon.model.ExtendLoyaltyPointsExpiryDateEffectProps;
 
 import com.google.gson.Gson;
@@ -54,31 +52,6 @@ import one.talon.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.25.0")
 public class EffectExtendLoyaltyPointsExpiryDate {
-  public static final String SERIALIZED_NAME_EXPERIMENT_ID = "experimentId";
-  @SerializedName(SERIALIZED_NAME_EXPERIMENT_ID)
-  @javax.annotation.Nullable
-  private Long experimentId;
-
-  public static final String SERIALIZED_NAME_CAMPAIGN_ID = "campaignId";
-  @SerializedName(SERIALIZED_NAME_CAMPAIGN_ID)
-  @javax.annotation.Nonnull
-  private Long campaignId;
-
-  public static final String SERIALIZED_NAME_RULESET_ID = "rulesetId";
-  @SerializedName(SERIALIZED_NAME_RULESET_ID)
-  @javax.annotation.Nonnull
-  private Long rulesetId;
-
-  public static final String SERIALIZED_NAME_RULE_INDEX = "ruleIndex";
-  @SerializedName(SERIALIZED_NAME_RULE_INDEX)
-  @javax.annotation.Nonnull
-  private Long ruleIndex;
-
-  public static final String SERIALIZED_NAME_RULE_NAME = "ruleName";
-  @SerializedName(SERIALIZED_NAME_RULE_NAME)
-  @javax.annotation.Nonnull
-  private String ruleName;
-
   /**
    * An effect discriminator of type &#x60;extendLoyaltyPointsExpiryDate&#x60;.
    */
@@ -134,61 +107,6 @@ public class EffectExtendLoyaltyPointsExpiryDate {
   @javax.annotation.Nonnull
   private EffectTypeEnum effectType;
 
-  public static final String SERIALIZED_NAME_TRIGGERED_BY_COUPON = "triggeredByCoupon";
-  @SerializedName(SERIALIZED_NAME_TRIGGERED_BY_COUPON)
-  @javax.annotation.Nullable
-  private Long triggeredByCoupon;
-
-  public static final String SERIALIZED_NAME_TRIGGERED_FOR_CATALOG_ITEM = "triggeredForCatalogItem";
-  @SerializedName(SERIALIZED_NAME_TRIGGERED_FOR_CATALOG_ITEM)
-  @javax.annotation.Nullable
-  private Long triggeredForCatalogItem;
-
-  public static final String SERIALIZED_NAME_CONDITION_INDEX = "conditionIndex";
-  @SerializedName(SERIALIZED_NAME_CONDITION_INDEX)
-  @javax.annotation.Nullable
-  private Long conditionIndex;
-
-  public static final String SERIALIZED_NAME_EVALUATION_GROUP_I_D = "evaluationGroupID";
-  @SerializedName(SERIALIZED_NAME_EVALUATION_GROUP_I_D)
-  @javax.annotation.Nullable
-  private Long evaluationGroupID;
-
-  public static final String SERIALIZED_NAME_EVALUATION_GROUP_MODE = "evaluationGroupMode";
-  @SerializedName(SERIALIZED_NAME_EVALUATION_GROUP_MODE)
-  @javax.annotation.Nullable
-  private String evaluationGroupMode;
-
-  public static final String SERIALIZED_NAME_CAMPAIGN_REVISION_ID = "campaignRevisionId";
-  @SerializedName(SERIALIZED_NAME_CAMPAIGN_REVISION_ID)
-  @javax.annotation.Nullable
-  private Long campaignRevisionId;
-
-  public static final String SERIALIZED_NAME_CAMPAIGN_REVISION_VERSION_ID = "campaignRevisionVersionId";
-  @SerializedName(SERIALIZED_NAME_CAMPAIGN_REVISION_VERSION_ID)
-  @javax.annotation.Nullable
-  private Long campaignRevisionVersionId;
-
-  public static final String SERIALIZED_NAME_SELECTED_PRICE_TYPE = "selectedPriceType";
-  @SerializedName(SERIALIZED_NAME_SELECTED_PRICE_TYPE)
-  @javax.annotation.Nullable
-  private String selectedPriceType;
-
-  public static final String SERIALIZED_NAME_SELECTED_PRICE = "selectedPrice";
-  @SerializedName(SERIALIZED_NAME_SELECTED_PRICE)
-  @javax.annotation.Nullable
-  private BigDecimal selectedPrice;
-
-  public static final String SERIALIZED_NAME_ADJUSTMENT_REFERENCE_ID = "adjustmentReferenceId";
-  @SerializedName(SERIALIZED_NAME_ADJUSTMENT_REFERENCE_ID)
-  @javax.annotation.Nullable
-  private UUID adjustmentReferenceId;
-
-  public static final String SERIALIZED_NAME_REWARD_ID = "rewardId";
-  @SerializedName(SERIALIZED_NAME_REWARD_ID)
-  @javax.annotation.Nullable
-  private Long rewardId;
-
   public static final String SERIALIZED_NAME_PROPS = "props";
   @SerializedName(SERIALIZED_NAME_PROPS)
   @javax.annotation.Nonnull
@@ -196,101 +114,6 @@ public class EffectExtendLoyaltyPointsExpiryDate {
 
   public EffectExtendLoyaltyPointsExpiryDate() {
   }
-
-  public EffectExtendLoyaltyPointsExpiryDate experimentId(@javax.annotation.Nullable Long experimentId) {
-    this.experimentId = experimentId;
-    return this;
-  }
-
-  /**
-   * The ID of the experiment that campaign belongs to.
-   * @return experimentId
-   */
-  @javax.annotation.Nullable
-  public Long getExperimentId() {
-    return experimentId;
-  }
-
-  public void setExperimentId(@javax.annotation.Nullable Long experimentId) {
-    this.experimentId = experimentId;
-  }
-
-
-  public EffectExtendLoyaltyPointsExpiryDate campaignId(@javax.annotation.Nonnull Long campaignId) {
-    this.campaignId = campaignId;
-    return this;
-  }
-
-  /**
-   * The ID of the campaign that triggered this effect.
-   * @return campaignId
-   */
-  @javax.annotation.Nonnull
-  public Long getCampaignId() {
-    return campaignId;
-  }
-
-  public void setCampaignId(@javax.annotation.Nonnull Long campaignId) {
-    this.campaignId = campaignId;
-  }
-
-
-  public EffectExtendLoyaltyPointsExpiryDate rulesetId(@javax.annotation.Nonnull Long rulesetId) {
-    this.rulesetId = rulesetId;
-    return this;
-  }
-
-  /**
-   * The ID of the ruleset that was active in the campaign when this effect was triggered.
-   * @return rulesetId
-   */
-  @javax.annotation.Nonnull
-  public Long getRulesetId() {
-    return rulesetId;
-  }
-
-  public void setRulesetId(@javax.annotation.Nonnull Long rulesetId) {
-    this.rulesetId = rulesetId;
-  }
-
-
-  public EffectExtendLoyaltyPointsExpiryDate ruleIndex(@javax.annotation.Nonnull Long ruleIndex) {
-    this.ruleIndex = ruleIndex;
-    return this;
-  }
-
-  /**
-   * The position of the rule that triggered this effect within the ruleset.
-   * @return ruleIndex
-   */
-  @javax.annotation.Nonnull
-  public Long getRuleIndex() {
-    return ruleIndex;
-  }
-
-  public void setRuleIndex(@javax.annotation.Nonnull Long ruleIndex) {
-    this.ruleIndex = ruleIndex;
-  }
-
-
-  public EffectExtendLoyaltyPointsExpiryDate ruleName(@javax.annotation.Nonnull String ruleName) {
-    this.ruleName = ruleName;
-    return this;
-  }
-
-  /**
-   * The name of the rule that triggered this effect.
-   * @return ruleName
-   */
-  @javax.annotation.Nonnull
-  public String getRuleName() {
-    return ruleName;
-  }
-
-  public void setRuleName(@javax.annotation.Nonnull String ruleName) {
-    this.ruleName = ruleName;
-  }
-
 
   public EffectExtendLoyaltyPointsExpiryDate effectType(@javax.annotation.Nonnull EffectTypeEnum effectType) {
     this.effectType = effectType;
@@ -308,215 +131,6 @@ public class EffectExtendLoyaltyPointsExpiryDate {
 
   public void setEffectType(@javax.annotation.Nonnull EffectTypeEnum effectType) {
     this.effectType = effectType;
-  }
-
-
-  public EffectExtendLoyaltyPointsExpiryDate triggeredByCoupon(@javax.annotation.Nullable Long triggeredByCoupon) {
-    this.triggeredByCoupon = triggeredByCoupon;
-    return this;
-  }
-
-  /**
-   * The ID of the coupon that was being evaluated when this effect was triggered.
-   * @return triggeredByCoupon
-   */
-  @javax.annotation.Nullable
-  public Long getTriggeredByCoupon() {
-    return triggeredByCoupon;
-  }
-
-  public void setTriggeredByCoupon(@javax.annotation.Nullable Long triggeredByCoupon) {
-    this.triggeredByCoupon = triggeredByCoupon;
-  }
-
-
-  public EffectExtendLoyaltyPointsExpiryDate triggeredForCatalogItem(@javax.annotation.Nullable Long triggeredForCatalogItem) {
-    this.triggeredForCatalogItem = triggeredForCatalogItem;
-    return this;
-  }
-
-  /**
-   * The ID of the catalog item that was being evaluated when this effect was triggered.
-   * @return triggeredForCatalogItem
-   */
-  @javax.annotation.Nullable
-  public Long getTriggeredForCatalogItem() {
-    return triggeredForCatalogItem;
-  }
-
-  public void setTriggeredForCatalogItem(@javax.annotation.Nullable Long triggeredForCatalogItem) {
-    this.triggeredForCatalogItem = triggeredForCatalogItem;
-  }
-
-
-  public EffectExtendLoyaltyPointsExpiryDate conditionIndex(@javax.annotation.Nullable Long conditionIndex) {
-    this.conditionIndex = conditionIndex;
-    return this;
-  }
-
-  /**
-   * The index of the condition that was triggered.
-   * @return conditionIndex
-   */
-  @javax.annotation.Nullable
-  public Long getConditionIndex() {
-    return conditionIndex;
-  }
-
-  public void setConditionIndex(@javax.annotation.Nullable Long conditionIndex) {
-    this.conditionIndex = conditionIndex;
-  }
-
-
-  public EffectExtendLoyaltyPointsExpiryDate evaluationGroupID(@javax.annotation.Nullable Long evaluationGroupID) {
-    this.evaluationGroupID = evaluationGroupID;
-    return this;
-  }
-
-  /**
-   * The ID of the evaluation group. For more information, see [Managing campaign evaluation](https://docs.talon.one/docs/product/applications/managing-campaign-evaluation).
-   * @return evaluationGroupID
-   */
-  @javax.annotation.Nullable
-  public Long getEvaluationGroupID() {
-    return evaluationGroupID;
-  }
-
-  public void setEvaluationGroupID(@javax.annotation.Nullable Long evaluationGroupID) {
-    this.evaluationGroupID = evaluationGroupID;
-  }
-
-
-  public EffectExtendLoyaltyPointsExpiryDate evaluationGroupMode(@javax.annotation.Nullable String evaluationGroupMode) {
-    this.evaluationGroupMode = evaluationGroupMode;
-    return this;
-  }
-
-  /**
-   * The evaluation mode of the evaluation group. For more information, see [Managing campaign evaluation](https://docs.talon.one/docs/product/applications/managing-campaign-evaluation).
-   * @return evaluationGroupMode
-   */
-  @javax.annotation.Nullable
-  public String getEvaluationGroupMode() {
-    return evaluationGroupMode;
-  }
-
-  public void setEvaluationGroupMode(@javax.annotation.Nullable String evaluationGroupMode) {
-    this.evaluationGroupMode = evaluationGroupMode;
-  }
-
-
-  public EffectExtendLoyaltyPointsExpiryDate campaignRevisionId(@javax.annotation.Nullable Long campaignRevisionId) {
-    this.campaignRevisionId = campaignRevisionId;
-    return this;
-  }
-
-  /**
-   * The revision ID of the campaign that was used when triggering the effect.
-   * @return campaignRevisionId
-   */
-  @javax.annotation.Nullable
-  public Long getCampaignRevisionId() {
-    return campaignRevisionId;
-  }
-
-  public void setCampaignRevisionId(@javax.annotation.Nullable Long campaignRevisionId) {
-    this.campaignRevisionId = campaignRevisionId;
-  }
-
-
-  public EffectExtendLoyaltyPointsExpiryDate campaignRevisionVersionId(@javax.annotation.Nullable Long campaignRevisionVersionId) {
-    this.campaignRevisionVersionId = campaignRevisionVersionId;
-    return this;
-  }
-
-  /**
-   * The revision version ID of the campaign that was used when triggering the effect.
-   * @return campaignRevisionVersionId
-   */
-  @javax.annotation.Nullable
-  public Long getCampaignRevisionVersionId() {
-    return campaignRevisionVersionId;
-  }
-
-  public void setCampaignRevisionVersionId(@javax.annotation.Nullable Long campaignRevisionVersionId) {
-    this.campaignRevisionVersionId = campaignRevisionVersionId;
-  }
-
-
-  public EffectExtendLoyaltyPointsExpiryDate selectedPriceType(@javax.annotation.Nullable String selectedPriceType) {
-    this.selectedPriceType = selectedPriceType;
-    return this;
-  }
-
-  /**
-   * The selected price type for the SKU targeted by this effect.
-   * @return selectedPriceType
-   */
-  @javax.annotation.Nullable
-  public String getSelectedPriceType() {
-    return selectedPriceType;
-  }
-
-  public void setSelectedPriceType(@javax.annotation.Nullable String selectedPriceType) {
-    this.selectedPriceType = selectedPriceType;
-  }
-
-
-  public EffectExtendLoyaltyPointsExpiryDate selectedPrice(@javax.annotation.Nullable BigDecimal selectedPrice) {
-    this.selectedPrice = selectedPrice;
-    return this;
-  }
-
-  /**
-   * The value of the selected price type to apply to the SKU targeted by this effect, before any discounts are applied.
-   * @return selectedPrice
-   */
-  @javax.annotation.Nullable
-  public BigDecimal getSelectedPrice() {
-    return selectedPrice;
-  }
-
-  public void setSelectedPrice(@javax.annotation.Nullable BigDecimal selectedPrice) {
-    this.selectedPrice = selectedPrice;
-  }
-
-
-  public EffectExtendLoyaltyPointsExpiryDate adjustmentReferenceId(@javax.annotation.Nullable UUID adjustmentReferenceId) {
-    this.adjustmentReferenceId = adjustmentReferenceId;
-    return this;
-  }
-
-  /**
-   * The reference identifier of the selected price adjustment for this SKU. This is only returned if the &#x60;selectedPrice&#x60; resulted from a price adjustment.
-   * @return adjustmentReferenceId
-   */
-  @javax.annotation.Nullable
-  public UUID getAdjustmentReferenceId() {
-    return adjustmentReferenceId;
-  }
-
-  public void setAdjustmentReferenceId(@javax.annotation.Nullable UUID adjustmentReferenceId) {
-    this.adjustmentReferenceId = adjustmentReferenceId;
-  }
-
-
-  public EffectExtendLoyaltyPointsExpiryDate rewardId(@javax.annotation.Nullable Long rewardId) {
-    this.rewardId = rewardId;
-    return this;
-  }
-
-  /**
-   * The ID of the reward that was being evaluated when this effect was triggered.
-   * @return rewardId
-   */
-  @javax.annotation.Nullable
-  public Long getRewardId() {
-    return rewardId;
-  }
-
-  public void setRewardId(@javax.annotation.Nullable Long rewardId) {
-    this.rewardId = rewardId;
   }
 
 
@@ -593,53 +207,21 @@ public class EffectExtendLoyaltyPointsExpiryDate {
       return false;
     }
     EffectExtendLoyaltyPointsExpiryDate effectExtendLoyaltyPointsExpiryDate = (EffectExtendLoyaltyPointsExpiryDate) o;
-    return Objects.equals(this.experimentId, effectExtendLoyaltyPointsExpiryDate.experimentId) &&
-        Objects.equals(this.campaignId, effectExtendLoyaltyPointsExpiryDate.campaignId) &&
-        Objects.equals(this.rulesetId, effectExtendLoyaltyPointsExpiryDate.rulesetId) &&
-        Objects.equals(this.ruleIndex, effectExtendLoyaltyPointsExpiryDate.ruleIndex) &&
-        Objects.equals(this.ruleName, effectExtendLoyaltyPointsExpiryDate.ruleName) &&
-        Objects.equals(this.effectType, effectExtendLoyaltyPointsExpiryDate.effectType) &&
-        Objects.equals(this.triggeredByCoupon, effectExtendLoyaltyPointsExpiryDate.triggeredByCoupon) &&
-        Objects.equals(this.triggeredForCatalogItem, effectExtendLoyaltyPointsExpiryDate.triggeredForCatalogItem) &&
-        Objects.equals(this.conditionIndex, effectExtendLoyaltyPointsExpiryDate.conditionIndex) &&
-        Objects.equals(this.evaluationGroupID, effectExtendLoyaltyPointsExpiryDate.evaluationGroupID) &&
-        Objects.equals(this.evaluationGroupMode, effectExtendLoyaltyPointsExpiryDate.evaluationGroupMode) &&
-        Objects.equals(this.campaignRevisionId, effectExtendLoyaltyPointsExpiryDate.campaignRevisionId) &&
-        Objects.equals(this.campaignRevisionVersionId, effectExtendLoyaltyPointsExpiryDate.campaignRevisionVersionId) &&
-        Objects.equals(this.selectedPriceType, effectExtendLoyaltyPointsExpiryDate.selectedPriceType) &&
-        Objects.equals(this.selectedPrice, effectExtendLoyaltyPointsExpiryDate.selectedPrice) &&
-        Objects.equals(this.adjustmentReferenceId, effectExtendLoyaltyPointsExpiryDate.adjustmentReferenceId) &&
-        Objects.equals(this.rewardId, effectExtendLoyaltyPointsExpiryDate.rewardId) &&
+    return Objects.equals(this.effectType, effectExtendLoyaltyPointsExpiryDate.effectType) &&
         Objects.equals(this.props, effectExtendLoyaltyPointsExpiryDate.props)&&
         Objects.equals(this.additionalProperties, effectExtendLoyaltyPointsExpiryDate.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(experimentId, campaignId, rulesetId, ruleIndex, ruleName, effectType, triggeredByCoupon, triggeredForCatalogItem, conditionIndex, evaluationGroupID, evaluationGroupMode, campaignRevisionId, campaignRevisionVersionId, selectedPriceType, selectedPrice, adjustmentReferenceId, rewardId, props, additionalProperties);
+    return Objects.hash(effectType, props, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class EffectExtendLoyaltyPointsExpiryDate {\n");
-    sb.append("    experimentId: ").append(toIndentedString(experimentId)).append("\n");
-    sb.append("    campaignId: ").append(toIndentedString(campaignId)).append("\n");
-    sb.append("    rulesetId: ").append(toIndentedString(rulesetId)).append("\n");
-    sb.append("    ruleIndex: ").append(toIndentedString(ruleIndex)).append("\n");
-    sb.append("    ruleName: ").append(toIndentedString(ruleName)).append("\n");
     sb.append("    effectType: ").append(toIndentedString(effectType)).append("\n");
-    sb.append("    triggeredByCoupon: ").append(toIndentedString(triggeredByCoupon)).append("\n");
-    sb.append("    triggeredForCatalogItem: ").append(toIndentedString(triggeredForCatalogItem)).append("\n");
-    sb.append("    conditionIndex: ").append(toIndentedString(conditionIndex)).append("\n");
-    sb.append("    evaluationGroupID: ").append(toIndentedString(evaluationGroupID)).append("\n");
-    sb.append("    evaluationGroupMode: ").append(toIndentedString(evaluationGroupMode)).append("\n");
-    sb.append("    campaignRevisionId: ").append(toIndentedString(campaignRevisionId)).append("\n");
-    sb.append("    campaignRevisionVersionId: ").append(toIndentedString(campaignRevisionVersionId)).append("\n");
-    sb.append("    selectedPriceType: ").append(toIndentedString(selectedPriceType)).append("\n");
-    sb.append("    selectedPrice: ").append(toIndentedString(selectedPrice)).append("\n");
-    sb.append("    adjustmentReferenceId: ").append(toIndentedString(adjustmentReferenceId)).append("\n");
-    sb.append("    rewardId: ").append(toIndentedString(rewardId)).append("\n");
     sb.append("    props: ").append(toIndentedString(props)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
@@ -660,10 +242,10 @@ public class EffectExtendLoyaltyPointsExpiryDate {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("experimentId", "campaignId", "rulesetId", "ruleIndex", "ruleName", "effectType", "triggeredByCoupon", "triggeredForCatalogItem", "conditionIndex", "evaluationGroupID", "evaluationGroupMode", "campaignRevisionId", "campaignRevisionVersionId", "selectedPriceType", "selectedPrice", "adjustmentReferenceId", "rewardId", "props"));
+    openapiFields = new HashSet<String>(Arrays.asList("effectType", "props"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("campaignId", "rulesetId", "ruleIndex", "ruleName", "effectType", "props"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("effectType", "props"));
   }
 
   /**
@@ -686,23 +268,11 @@ public class EffectExtendLoyaltyPointsExpiryDate {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if (!jsonObj.get("ruleName").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `ruleName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("ruleName").toString()));
-      }
       if (!jsonObj.get("effectType").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `effectType` to be a primitive type in the JSON string but got `%s`", jsonObj.get("effectType").toString()));
       }
       // validate the required field `effectType`
       EffectTypeEnum.validateJsonElement(jsonObj.get("effectType"));
-      if ((jsonObj.get("evaluationGroupMode") != null && !jsonObj.get("evaluationGroupMode").isJsonNull()) && !jsonObj.get("evaluationGroupMode").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `evaluationGroupMode` to be a primitive type in the JSON string but got `%s`", jsonObj.get("evaluationGroupMode").toString()));
-      }
-      if ((jsonObj.get("selectedPriceType") != null && !jsonObj.get("selectedPriceType").isJsonNull()) && !jsonObj.get("selectedPriceType").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `selectedPriceType` to be a primitive type in the JSON string but got `%s`", jsonObj.get("selectedPriceType").toString()));
-      }
-      if ((jsonObj.get("adjustmentReferenceId") != null && !jsonObj.get("adjustmentReferenceId").isJsonNull()) && !jsonObj.get("adjustmentReferenceId").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `adjustmentReferenceId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("adjustmentReferenceId").toString()));
-      }
       // validate the required field `props`
       ExtendLoyaltyPointsExpiryDateEffectProps.validateJsonElement(jsonObj.get("props"));
   }

@@ -19,9 +19,7 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
-import java.math.BigDecimal;
 import java.util.Arrays;
-import java.util.UUID;
 import one.talon.model.AddLoyaltyPointsEffectProps;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
@@ -41,139 +39,11 @@ public class EffectAddLoyaltyPointsTest {
     }
 
     /**
-     * Test the property 'experimentId'
-     */
-    @Test
-    public void experimentIdTest() {
-        // TODO: test experimentId
-    }
-
-    /**
-     * Test the property 'campaignId'
-     */
-    @Test
-    public void campaignIdTest() {
-        // TODO: test campaignId
-    }
-
-    /**
-     * Test the property 'rulesetId'
-     */
-    @Test
-    public void rulesetIdTest() {
-        // TODO: test rulesetId
-    }
-
-    /**
-     * Test the property 'ruleIndex'
-     */
-    @Test
-    public void ruleIndexTest() {
-        // TODO: test ruleIndex
-    }
-
-    /**
-     * Test the property 'ruleName'
-     */
-    @Test
-    public void ruleNameTest() {
-        // TODO: test ruleName
-    }
-
-    /**
      * Test the property 'effectType'
      */
     @Test
     public void effectTypeTest() {
         // TODO: test effectType
-    }
-
-    /**
-     * Test the property 'triggeredByCoupon'
-     */
-    @Test
-    public void triggeredByCouponTest() {
-        // TODO: test triggeredByCoupon
-    }
-
-    /**
-     * Test the property 'triggeredForCatalogItem'
-     */
-    @Test
-    public void triggeredForCatalogItemTest() {
-        // TODO: test triggeredForCatalogItem
-    }
-
-    /**
-     * Test the property 'conditionIndex'
-     */
-    @Test
-    public void conditionIndexTest() {
-        // TODO: test conditionIndex
-    }
-
-    /**
-     * Test the property 'evaluationGroupID'
-     */
-    @Test
-    public void evaluationGroupIDTest() {
-        // TODO: test evaluationGroupID
-    }
-
-    /**
-     * Test the property 'evaluationGroupMode'
-     */
-    @Test
-    public void evaluationGroupModeTest() {
-        // TODO: test evaluationGroupMode
-    }
-
-    /**
-     * Test the property 'campaignRevisionId'
-     */
-    @Test
-    public void campaignRevisionIdTest() {
-        // TODO: test campaignRevisionId
-    }
-
-    /**
-     * Test the property 'campaignRevisionVersionId'
-     */
-    @Test
-    public void campaignRevisionVersionIdTest() {
-        // TODO: test campaignRevisionVersionId
-    }
-
-    /**
-     * Test the property 'selectedPriceType'
-     */
-    @Test
-    public void selectedPriceTypeTest() {
-        // TODO: test selectedPriceType
-    }
-
-    /**
-     * Test the property 'selectedPrice'
-     */
-    @Test
-    public void selectedPriceTest() {
-        // TODO: test selectedPrice
-    }
-
-    /**
-     * Test the property 'adjustmentReferenceId'
-     */
-    @Test
-    public void adjustmentReferenceIdTest() {
-        // TODO: test adjustmentReferenceId
-    }
-
-    /**
-     * Test the property 'rewardId'
-     */
-    @Test
-    public void rewardIdTest() {
-        // TODO: test rewardId
     }
 
     /**

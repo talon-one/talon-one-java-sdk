@@ -42,7 +42,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>one.talon</groupId>
   <artifactId>talon-one-client</artifactId>
-  <version>26.19.0</version>
+  <version>99.99.98</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -52,7 +52,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "one.talon:talon-one-client:26.19.0"
+compile "one.talon:talon-one-client:99.99.98"
 ```
 
 ### Others
@@ -896,6 +896,7 @@ Class | Method | HTTP request | Description
 - [GetLoyaltyCardTransactionLogs200Response](docs/GetLoyaltyCardTransactionLogs200Response.md)
 - [GetLoyaltyCardTransactions200Response](docs/GetLoyaltyCardTransactions200Response.md)
 - [GetLoyaltyCards200Response](docs/GetLoyaltyCards200Response.md)
+- [GetLoyaltyProgramProfileLedgerTransactions200Response](docs/GetLoyaltyProgramProfileLedgerTransactions200Response.md)
 - [GetLoyaltyProgramProfilePoints200Response](docs/GetLoyaltyProgramProfilePoints200Response.md)
 - [GetLoyaltyProgramProfileTransactions200Response](docs/GetLoyaltyProgramProfileTransactions200Response.md)
 - [GetLoyaltyProgramTransactions200Response](docs/GetLoyaltyProgramTransactions200Response.md)
@@ -970,6 +971,7 @@ Class | Method | HTTP request | Description
 - [LedgerInfo](docs/LedgerInfo.md)
 - [LedgerPointsEntryIntegrationAPI](docs/LedgerPointsEntryIntegrationAPI.md)
 - [LedgerTransactionLogEntryIntegrationAPI](docs/LedgerTransactionLogEntryIntegrationAPI.md)
+- [LedgerTransactionLogEntryManagementAPI](docs/LedgerTransactionLogEntryManagementAPI.md)
 - [LibraryAttribute](docs/LibraryAttribute.md)
 - [LimitConfig](docs/LimitConfig.md)
 - [LimitCounter](docs/LimitCounter.md)
@@ -1127,6 +1129,14 @@ Class | Method | HTTP request | Description
 - [OktaEventPayloadData](docs/OktaEventPayloadData.md)
 - [OktaEventTarget](docs/OktaEventTarget.md)
 - [OneTimeCode](docs/OneTimeCode.md)
+- [OutboundLog](docs/OutboundLog.md)
+- [OutboundLogBase](docs/OutboundLogBase.md)
+- [OutboundLogRequest](docs/OutboundLogRequest.md)
+- [OutboundLogResponse](docs/OutboundLogResponse.md)
+- [OutboundLogs](docs/OutboundLogs.md)
+- [OutboundMessage](docs/OutboundMessage.md)
+- [OutboundMessageResponse](docs/OutboundMessageResponse.md)
+- [OutboundMessages](docs/OutboundMessages.md)
 - [OutgoingIntegrationBrazePolicy](docs/OutgoingIntegrationBrazePolicy.md)
 - [OutgoingIntegrationCleverTapPolicy](docs/OutgoingIntegrationCleverTapPolicy.md)
 - [OutgoingIntegrationConfiguration](docs/OutgoingIntegrationConfiguration.md)

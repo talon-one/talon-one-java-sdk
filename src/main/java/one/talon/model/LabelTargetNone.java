@@ -47,7 +47,7 @@ import java.util.Set;
 import one.talon.JSON;
 
 /**
- * Represents the target type when no entity is selected.
+ * Target type when no specific audience is selected. Targets all customers who are not members of an audience.
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.25.0")
 public class LabelTargetNone {

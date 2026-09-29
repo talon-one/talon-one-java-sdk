@@ -2,7 +2,6 @@
 
 # EffectEntity
 
-Definition of all properties that are present on all effects, independent of their type.
 
 ## Properties
 

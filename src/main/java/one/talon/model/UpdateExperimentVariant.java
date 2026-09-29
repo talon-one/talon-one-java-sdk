@@ -72,6 +72,11 @@ public class UpdateExperimentVariant {
   @javax.annotation.Nonnull
   private Long weight;
 
+  public static final String SERIALIZED_NAME_AUDIENCE_ID = "audienceId";
+  @SerializedName(SERIALIZED_NAME_AUDIENCE_ID)
+  @javax.annotation.Nullable
+  private Long audienceId;
+
   public UpdateExperimentVariant() {
   }
 
@@ -138,8 +143,8 @@ public class UpdateExperimentVariant {
   }
 
   /**
-   * The percentage split of this variant. The sum of all variant percentages must be 100.
-   * minimum: 1
+   * The percentage split of this variant. For &#x60;random&#x60; assignment, the split must be between 1 and 99 and the sum across all variants must equal 100. Ignored for &#x60;audience&#x60; and &#x60;external&#x60; assignment. 
+   * minimum: 0
    * maximum: 99
    * @return weight
    */
@@ -150,6 +155,25 @@ public class UpdateExperimentVariant {
 
   public void setWeight(@javax.annotation.Nonnull Long weight) {
     this.weight = weight;
+  }
+
+
+  public UpdateExperimentVariant audienceId(@javax.annotation.Nullable Long audienceId) {
+    this.audienceId = audienceId;
+    return this;
+  }
+
+  /**
+   * The ID of the audience this variant targets. Only used when the experiment &#x60;assignmentType&#x60; is &#x60;audience&#x60;. 
+   * @return audienceId
+   */
+  @javax.annotation.Nullable
+  public Long getAudienceId() {
+    return audienceId;
+  }
+
+  public void setAudienceId(@javax.annotation.Nullable Long audienceId) {
+    this.audienceId = audienceId;
   }
 
   /**
@@ -210,13 +234,14 @@ public class UpdateExperimentVariant {
     return Objects.equals(this.id, updateExperimentVariant.id) &&
         Objects.equals(this.name, updateExperimentVariant.name) &&
         Objects.equals(this.ruleset, updateExperimentVariant.ruleset) &&
-        Objects.equals(this.weight, updateExperimentVariant.weight)&&
+        Objects.equals(this.weight, updateExperimentVariant.weight) &&
+        Objects.equals(this.audienceId, updateExperimentVariant.audienceId)&&
         Objects.equals(this.additionalProperties, updateExperimentVariant.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, name, ruleset, weight, additionalProperties);
+    return Objects.hash(id, name, ruleset, weight, audienceId, additionalProperties);
   }
 
   @Override
@@ -227,6 +252,7 @@ public class UpdateExperimentVariant {
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    ruleset: ").append(toIndentedString(ruleset)).append("\n");
     sb.append("    weight: ").append(toIndentedString(weight)).append("\n");
+    sb.append("    audienceId: ").append(toIndentedString(audienceId)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -246,7 +272,7 @@ public class UpdateExperimentVariant {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("id", "name", "ruleset", "weight"));
+    openapiFields = new HashSet<String>(Arrays.asList("id", "name", "ruleset", "weight", "audienceId"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("id", "name", "ruleset", "weight"));

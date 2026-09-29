@@ -23,49 +23,6 @@ import java.io.IOException;
 import java.math.BigDecimal;
 import java.util.Arrays;
 import java.util.UUID;
-import one.talon.model.EffectAcceptCoupon;
-import one.talon.model.EffectAcceptReferral;
-import one.talon.model.EffectAddFreeItem;
-import one.talon.model.EffectAddLoyaltyPoints;
-import one.talon.model.EffectAddNegativeLoyaltyPoints;
-import one.talon.model.EffectAddToAudience;
-import one.talon.model.EffectAwardGiveaway;
-import one.talon.model.EffectCallApi;
-import one.talon.model.EffectChangeLoyaltyTierLevel;
-import one.talon.model.EffectCouponCreated;
-import one.talon.model.EffectCustomEffect;
-import one.talon.model.EffectDeductLoyaltyPoints;
-import one.talon.model.EffectError;
-import one.talon.model.EffectExtendLoyaltyPointsExpiryDate;
-import one.talon.model.EffectIncreaseAchievementProgress;
-import one.talon.model.EffectJoinLoyaltyProgram;
-import one.talon.model.EffectOffsetNegativeLoyaltyPoints;
-import one.talon.model.EffectRedeemReferral;
-import one.talon.model.EffectReferralCreated;
-import one.talon.model.EffectRejectCoupon;
-import one.talon.model.EffectRejectReferral;
-import one.talon.model.EffectRemoveFromAudience;
-import one.talon.model.EffectReserveCoupon;
-import one.talon.model.EffectRollbackAddedLoyaltyPoints;
-import one.talon.model.EffectRollbackCoupon;
-import one.talon.model.EffectRollbackDeductedLoyaltyPoints;
-import one.talon.model.EffectRollbackDiscount;
-import one.talon.model.EffectRollbackIncreasedAchievementProgress;
-import one.talon.model.EffectRollbackReferral;
-import one.talon.model.EffectRollbackUseReward;
-import one.talon.model.EffectSet;
-import one.talon.model.EffectSetDiscount;
-import one.talon.model.EffectSetDiscountPerAdditionalCost;
-import one.talon.model.EffectSetDiscountPerAdditionalCostPerItem;
-import one.talon.model.EffectSetDiscountPerItem;
-import one.talon.model.EffectSetLoyaltyPointsExpiryDate;
-import one.talon.model.EffectShowBundleMetadata;
-import one.talon.model.EffectShowNotification;
-import one.talon.model.EffectStartAchievementProgress;
-import one.talon.model.EffectUnlockReward;
-import one.talon.model.EffectUseReward;
-import one.talon.model.EffectWillAwardGiveaway;
-import one.talon.model.WillAwardGiveawayEffectProps;
 
 
 
@@ -417,7 +374,7 @@ public class Effect extends AbstractOpenApiSchema {
                         elementAdapter.write(out, element);
                         return;
                     }
-                    throw new IOException("Failed to serialize as the type doesn't match oneOf schemas: EffectAcceptCoupon, EffectAcceptReferral, EffectAddFreeItem, EffectAddLoyaltyPoints, EffectAddNegativeLoyaltyPoints, EffectAddToAudience, EffectAwardGiveaway, EffectCallApi, EffectChangeLoyaltyTierLevel, EffectCouponCreated, EffectCustomEffect, EffectDeductLoyaltyPoints, EffectError, EffectExtendLoyaltyPointsExpiryDate, EffectIncreaseAchievementProgress, EffectJoinLoyaltyProgram, EffectOffsetNegativeLoyaltyPoints, EffectRedeemReferral, EffectReferralCreated, EffectRejectCoupon, EffectRejectReferral, EffectRemoveFromAudience, EffectReserveCoupon, EffectRollbackAddedLoyaltyPoints, EffectRollbackCoupon, EffectRollbackDeductedLoyaltyPoints, EffectRollbackDiscount, EffectRollbackIncreasedAchievementProgress, EffectRollbackReferral, EffectRollbackUseReward, EffectSet, EffectSetDiscount, EffectSetDiscountPerAdditionalCost, EffectSetDiscountPerAdditionalCostPerItem, EffectSetDiscountPerItem, EffectSetLoyaltyPointsExpiryDate, EffectShowBundleMetadata, EffectShowNotification, EffectStartAchievementProgress, EffectUnlockReward, EffectUseReward, EffectWillAwardGiveaway");
+                    throw new IOException("Failed to serialize as the type doesn't match oneOf schemas: EffectEntity");
                 }
 
                 @Override
@@ -1193,7 +1150,7 @@ public class Effect extends AbstractOpenApiSchema {
     /**
      * Set the instance that matches the oneOf child schema, check
      * the instance parameter is valid against the oneOf child schemas:
-     * EffectAcceptCoupon, EffectAcceptReferral, EffectAddFreeItem, EffectAddLoyaltyPoints, EffectAddNegativeLoyaltyPoints, EffectAddToAudience, EffectAwardGiveaway, EffectCallApi, EffectChangeLoyaltyTierLevel, EffectCouponCreated, EffectCustomEffect, EffectDeductLoyaltyPoints, EffectError, EffectExtendLoyaltyPointsExpiryDate, EffectIncreaseAchievementProgress, EffectJoinLoyaltyProgram, EffectOffsetNegativeLoyaltyPoints, EffectRedeemReferral, EffectReferralCreated, EffectRejectCoupon, EffectRejectReferral, EffectRemoveFromAudience, EffectReserveCoupon, EffectRollbackAddedLoyaltyPoints, EffectRollbackCoupon, EffectRollbackDeductedLoyaltyPoints, EffectRollbackDiscount, EffectRollbackIncreasedAchievementProgress, EffectRollbackReferral, EffectRollbackUseReward, EffectSet, EffectSetDiscount, EffectSetDiscountPerAdditionalCost, EffectSetDiscountPerAdditionalCostPerItem, EffectSetDiscountPerItem, EffectSetLoyaltyPointsExpiryDate, EffectShowBundleMetadata, EffectShowNotification, EffectStartAchievementProgress, EffectUnlockReward, EffectUseReward, EffectWillAwardGiveaway
+     * EffectEntity
      *
      * It could be an instance of the 'oneOf' schemas.
      */
@@ -1409,14 +1366,14 @@ public class Effect extends AbstractOpenApiSchema {
             return;
         }
 
-        throw new RuntimeException("Invalid instance type. Must be EffectAcceptCoupon, EffectAcceptReferral, EffectAddFreeItem, EffectAddLoyaltyPoints, EffectAddNegativeLoyaltyPoints, EffectAddToAudience, EffectAwardGiveaway, EffectCallApi, EffectChangeLoyaltyTierLevel, EffectCouponCreated, EffectCustomEffect, EffectDeductLoyaltyPoints, EffectError, EffectExtendLoyaltyPointsExpiryDate, EffectIncreaseAchievementProgress, EffectJoinLoyaltyProgram, EffectOffsetNegativeLoyaltyPoints, EffectRedeemReferral, EffectReferralCreated, EffectRejectCoupon, EffectRejectReferral, EffectRemoveFromAudience, EffectReserveCoupon, EffectRollbackAddedLoyaltyPoints, EffectRollbackCoupon, EffectRollbackDeductedLoyaltyPoints, EffectRollbackDiscount, EffectRollbackIncreasedAchievementProgress, EffectRollbackReferral, EffectRollbackUseReward, EffectSet, EffectSetDiscount, EffectSetDiscountPerAdditionalCost, EffectSetDiscountPerAdditionalCostPerItem, EffectSetDiscountPerItem, EffectSetLoyaltyPointsExpiryDate, EffectShowBundleMetadata, EffectShowNotification, EffectStartAchievementProgress, EffectUnlockReward, EffectUseReward, EffectWillAwardGiveaway");
+        throw new RuntimeException("Invalid instance type. Must be EffectEntity");
     }
 
     /**
      * Get the actual instance, which can be the following:
-     * EffectAcceptCoupon, EffectAcceptReferral, EffectAddFreeItem, EffectAddLoyaltyPoints, EffectAddNegativeLoyaltyPoints, EffectAddToAudience, EffectAwardGiveaway, EffectCallApi, EffectChangeLoyaltyTierLevel, EffectCouponCreated, EffectCustomEffect, EffectDeductLoyaltyPoints, EffectError, EffectExtendLoyaltyPointsExpiryDate, EffectIncreaseAchievementProgress, EffectJoinLoyaltyProgram, EffectOffsetNegativeLoyaltyPoints, EffectRedeemReferral, EffectReferralCreated, EffectRejectCoupon, EffectRejectReferral, EffectRemoveFromAudience, EffectReserveCoupon, EffectRollbackAddedLoyaltyPoints, EffectRollbackCoupon, EffectRollbackDeductedLoyaltyPoints, EffectRollbackDiscount, EffectRollbackIncreasedAchievementProgress, EffectRollbackReferral, EffectRollbackUseReward, EffectSet, EffectSetDiscount, EffectSetDiscountPerAdditionalCost, EffectSetDiscountPerAdditionalCostPerItem, EffectSetDiscountPerItem, EffectSetLoyaltyPointsExpiryDate, EffectShowBundleMetadata, EffectShowNotification, EffectStartAchievementProgress, EffectUnlockReward, EffectUseReward, EffectWillAwardGiveaway
+     * EffectEntity
      *
-     * @return The actual instance (EffectAcceptCoupon, EffectAcceptReferral, EffectAddFreeItem, EffectAddLoyaltyPoints, EffectAddNegativeLoyaltyPoints, EffectAddToAudience, EffectAwardGiveaway, EffectCallApi, EffectChangeLoyaltyTierLevel, EffectCouponCreated, EffectCustomEffect, EffectDeductLoyaltyPoints, EffectError, EffectExtendLoyaltyPointsExpiryDate, EffectIncreaseAchievementProgress, EffectJoinLoyaltyProgram, EffectOffsetNegativeLoyaltyPoints, EffectRedeemReferral, EffectReferralCreated, EffectRejectCoupon, EffectRejectReferral, EffectRemoveFromAudience, EffectReserveCoupon, EffectRollbackAddedLoyaltyPoints, EffectRollbackCoupon, EffectRollbackDeductedLoyaltyPoints, EffectRollbackDiscount, EffectRollbackIncreasedAchievementProgress, EffectRollbackReferral, EffectRollbackUseReward, EffectSet, EffectSetDiscount, EffectSetDiscountPerAdditionalCost, EffectSetDiscountPerAdditionalCostPerItem, EffectSetDiscountPerItem, EffectSetLoyaltyPointsExpiryDate, EffectShowBundleMetadata, EffectShowNotification, EffectStartAchievementProgress, EffectUnlockReward, EffectUseReward, EffectWillAwardGiveaway)
+     * @return The actual instance (EffectEntity)
      */
     @SuppressWarnings("unchecked")
     @Override
@@ -2275,7 +2232,7 @@ public class Effect extends AbstractOpenApiSchema {
             // continue to the next one
         }
         if (validCount != 1) {
-            throw new IOException(String.format(java.util.Locale.ROOT, "The JSON string is invalid for Effect with oneOf schemas: EffectAcceptCoupon, EffectAcceptReferral, EffectAddFreeItem, EffectAddLoyaltyPoints, EffectAddNegativeLoyaltyPoints, EffectAddToAudience, EffectAwardGiveaway, EffectCallApi, EffectChangeLoyaltyTierLevel, EffectCouponCreated, EffectCustomEffect, EffectDeductLoyaltyPoints, EffectError, EffectExtendLoyaltyPointsExpiryDate, EffectIncreaseAchievementProgress, EffectJoinLoyaltyProgram, EffectOffsetNegativeLoyaltyPoints, EffectRedeemReferral, EffectReferralCreated, EffectRejectCoupon, EffectRejectReferral, EffectRemoveFromAudience, EffectReserveCoupon, EffectRollbackAddedLoyaltyPoints, EffectRollbackCoupon, EffectRollbackDeductedLoyaltyPoints, EffectRollbackDiscount, EffectRollbackIncreasedAchievementProgress, EffectRollbackReferral, EffectRollbackUseReward, EffectSet, EffectSetDiscount, EffectSetDiscountPerAdditionalCost, EffectSetDiscountPerAdditionalCostPerItem, EffectSetDiscountPerItem, EffectSetLoyaltyPointsExpiryDate, EffectShowBundleMetadata, EffectShowNotification, EffectStartAchievementProgress, EffectUnlockReward, EffectUseReward, EffectWillAwardGiveaway. %d class(es) match the result, expected 1. Detailed failure message for oneOf schemas: %s. JSON: %s", validCount, errorMessages, jsonElement.toString()));
+            throw new IOException(String.format(java.util.Locale.ROOT, "The JSON string is invalid for Effect with oneOf schemas: EffectEntity. %d class(es) match the result, expected 1. Detailed failure message for oneOf schemas: %s. JSON: %s", validCount, errorMessages, jsonElement.toString()));
         }
     }
 
