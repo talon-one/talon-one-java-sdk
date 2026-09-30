@@ -48,7 +48,7 @@ import java.util.Set;
 import one.talon.JSON;
 
 /**
- * Represents the targeted audience. 
+ * Target type when a specific audience is selected. 
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.25.0")
 public class LabelTargetAudience {

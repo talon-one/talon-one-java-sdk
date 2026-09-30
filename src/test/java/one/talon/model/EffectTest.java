@@ -29,6 +29,7 @@ import one.talon.model.EffectAddLoyaltyPoints;
 import one.talon.model.EffectAddNegativeLoyaltyPoints;
 import one.talon.model.EffectAddToAudience;
 import one.talon.model.EffectAwardGiveaway;
+import one.talon.model.EffectBoostLoyaltyTier;
 import one.talon.model.EffectCallApi;
 import one.talon.model.EffectChangeLoyaltyTierLevel;
 import one.talon.model.EffectCouponCreated;
@@ -216,6 +217,14 @@ public class EffectTest {
     @Test
     public void rewardIdTest() {
         // TODO: test rewardId
+    }
+
+    /**
+     * Test the property 'rewardIntegrationId'
+     */
+    @Test
+    public void rewardIntegrationIdTest() {
+        // TODO: test rewardIntegrationId
     }
 
     /**

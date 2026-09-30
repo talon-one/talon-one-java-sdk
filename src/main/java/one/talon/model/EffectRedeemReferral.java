@@ -189,6 +189,11 @@ public class EffectRedeemReferral {
   @javax.annotation.Nullable
   private Long rewardId;
 
+  public static final String SERIALIZED_NAME_REWARD_INTEGRATION_ID = "rewardIntegrationId";
+  @SerializedName(SERIALIZED_NAME_REWARD_INTEGRATION_ID)
+  @javax.annotation.Nullable
+  private String rewardIntegrationId;
+
   public static final String SERIALIZED_NAME_PROPS = "props";
   @Deprecated
   @SerializedName(SERIALIZED_NAME_PROPS)
@@ -521,6 +526,25 @@ public class EffectRedeemReferral {
   }
 
 
+  public EffectRedeemReferral rewardIntegrationId(@javax.annotation.Nullable String rewardIntegrationId) {
+    this.rewardIntegrationId = rewardIntegrationId;
+    return this;
+  }
+
+  /**
+   * The integration ID of the specific customer reward whose usage produced this effect.
+   * @return rewardIntegrationId
+   */
+  @javax.annotation.Nullable
+  public String getRewardIntegrationId() {
+    return rewardIntegrationId;
+  }
+
+  public void setRewardIntegrationId(@javax.annotation.Nullable String rewardIntegrationId) {
+    this.rewardIntegrationId = rewardIntegrationId;
+  }
+
+
   @Deprecated
   public EffectRedeemReferral props(@javax.annotation.Nonnull RedeemReferralEffectProps props) {
     this.props = props;
@@ -615,13 +639,14 @@ public class EffectRedeemReferral {
         Objects.equals(this.selectedPrice, effectRedeemReferral.selectedPrice) &&
         Objects.equals(this.adjustmentReferenceId, effectRedeemReferral.adjustmentReferenceId) &&
         Objects.equals(this.rewardId, effectRedeemReferral.rewardId) &&
+        Objects.equals(this.rewardIntegrationId, effectRedeemReferral.rewardIntegrationId) &&
         Objects.equals(this.props, effectRedeemReferral.props)&&
         Objects.equals(this.additionalProperties, effectRedeemReferral.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(experimentId, campaignId, rulesetId, ruleIndex, ruleName, effectType, triggeredByCoupon, triggeredForCatalogItem, conditionIndex, evaluationGroupID, evaluationGroupMode, campaignRevisionId, campaignRevisionVersionId, selectedPriceType, selectedPrice, adjustmentReferenceId, rewardId, props, additionalProperties);
+    return Objects.hash(experimentId, campaignId, rulesetId, ruleIndex, ruleName, effectType, triggeredByCoupon, triggeredForCatalogItem, conditionIndex, evaluationGroupID, evaluationGroupMode, campaignRevisionId, campaignRevisionVersionId, selectedPriceType, selectedPrice, adjustmentReferenceId, rewardId, rewardIntegrationId, props, additionalProperties);
   }
 
   @Override
@@ -645,6 +670,7 @@ public class EffectRedeemReferral {
     sb.append("    selectedPrice: ").append(toIndentedString(selectedPrice)).append("\n");
     sb.append("    adjustmentReferenceId: ").append(toIndentedString(adjustmentReferenceId)).append("\n");
     sb.append("    rewardId: ").append(toIndentedString(rewardId)).append("\n");
+    sb.append("    rewardIntegrationId: ").append(toIndentedString(rewardIntegrationId)).append("\n");
     sb.append("    props: ").append(toIndentedString(props)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
@@ -665,7 +691,7 @@ public class EffectRedeemReferral {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("experimentId", "campaignId", "rulesetId", "ruleIndex", "ruleName", "effectType", "triggeredByCoupon", "triggeredForCatalogItem", "conditionIndex", "evaluationGroupID", "evaluationGroupMode", "campaignRevisionId", "campaignRevisionVersionId", "selectedPriceType", "selectedPrice", "adjustmentReferenceId", "rewardId", "props"));
+    openapiFields = new HashSet<String>(Arrays.asList("experimentId", "campaignId", "rulesetId", "ruleIndex", "ruleName", "effectType", "triggeredByCoupon", "triggeredForCatalogItem", "conditionIndex", "evaluationGroupID", "evaluationGroupMode", "campaignRevisionId", "campaignRevisionVersionId", "selectedPriceType", "selectedPrice", "adjustmentReferenceId", "rewardId", "rewardIntegrationId", "props"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("campaignId", "rulesetId", "ruleIndex", "ruleName", "effectType", "props"));
@@ -707,6 +733,9 @@ public class EffectRedeemReferral {
       }
       if ((jsonObj.get("adjustmentReferenceId") != null && !jsonObj.get("adjustmentReferenceId").isJsonNull()) && !jsonObj.get("adjustmentReferenceId").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `adjustmentReferenceId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("adjustmentReferenceId").toString()));
+      }
+      if ((jsonObj.get("rewardIntegrationId") != null && !jsonObj.get("rewardIntegrationId").isJsonNull()) && !jsonObj.get("rewardIntegrationId").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `rewardIntegrationId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("rewardIntegrationId").toString()));
       }
       // validate the required field `props`
       RedeemReferralEffectProps.validateJsonElement(jsonObj.get("props"));

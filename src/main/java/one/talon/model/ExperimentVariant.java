@@ -88,6 +88,11 @@ public class ExperimentVariant {
   @javax.annotation.Nonnull
   private Boolean isPrimary;
 
+  public static final String SERIALIZED_NAME_AUDIENCE_ID = "audienceId";
+  @SerializedName(SERIALIZED_NAME_AUDIENCE_ID)
+  @javax.annotation.Nullable
+  private Long audienceId;
+
   public ExperimentVariant() {
   }
 
@@ -223,6 +228,25 @@ public class ExperimentVariant {
     this.isPrimary = isPrimary;
   }
 
+
+  public ExperimentVariant audienceId(@javax.annotation.Nullable Long audienceId) {
+    this.audienceId = audienceId;
+    return this;
+  }
+
+  /**
+   * The ID of the audience this variant targets. Only used when the experiment &#x60;assignmentType&#x60; is &#x60;audience&#x60;. 
+   * @return audienceId
+   */
+  @javax.annotation.Nullable
+  public Long getAudienceId() {
+    return audienceId;
+  }
+
+  public void setAudienceId(@javax.annotation.Nullable Long audienceId) {
+    this.audienceId = audienceId;
+  }
+
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -284,13 +308,14 @@ public class ExperimentVariant {
         Objects.equals(this.experimentId, experimentVariant.experimentId) &&
         Objects.equals(this.ruleset, experimentVariant.ruleset) &&
         Objects.equals(this.weight, experimentVariant.weight) &&
-        Objects.equals(this.isPrimary, experimentVariant.isPrimary)&&
+        Objects.equals(this.isPrimary, experimentVariant.isPrimary) &&
+        Objects.equals(this.audienceId, experimentVariant.audienceId)&&
         Objects.equals(this.additionalProperties, experimentVariant.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, created, name, experimentId, ruleset, weight, isPrimary, additionalProperties);
+    return Objects.hash(id, created, name, experimentId, ruleset, weight, isPrimary, audienceId, additionalProperties);
   }
 
   @Override
@@ -304,6 +329,7 @@ public class ExperimentVariant {
     sb.append("    ruleset: ").append(toIndentedString(ruleset)).append("\n");
     sb.append("    weight: ").append(toIndentedString(weight)).append("\n");
     sb.append("    isPrimary: ").append(toIndentedString(isPrimary)).append("\n");
+    sb.append("    audienceId: ").append(toIndentedString(audienceId)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -323,7 +349,7 @@ public class ExperimentVariant {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("id", "created", "name", "experimentId", "ruleset", "weight", "isPrimary"));
+    openapiFields = new HashSet<String>(Arrays.asList("id", "created", "name", "experimentId", "ruleset", "weight", "isPrimary", "audienceId"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("id", "created", "name", "isPrimary"));

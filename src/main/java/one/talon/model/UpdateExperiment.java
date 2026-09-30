@@ -53,8 +53,9 @@ import one.talon.JSON;
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.25.0")
 public class UpdateExperiment {
   public static final String SERIALIZED_NAME_IS_VARIANT_ASSIGNMENT_EXTERNAL = "isVariantAssignmentExternal";
+  @Deprecated
   @SerializedName(SERIALIZED_NAME_IS_VARIANT_ASSIGNMENT_EXTERNAL)
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   private Boolean isVariantAssignmentExternal;
 
   public static final String SERIALIZED_NAME_CAMPAIGN = "campaign";
@@ -131,21 +132,25 @@ public class UpdateExperiment {
   public UpdateExperiment() {
   }
 
-  public UpdateExperiment isVariantAssignmentExternal(@javax.annotation.Nonnull Boolean isVariantAssignmentExternal) {
+  @Deprecated
+  public UpdateExperiment isVariantAssignmentExternal(@javax.annotation.Nullable Boolean isVariantAssignmentExternal) {
     this.isVariantAssignmentExternal = isVariantAssignmentExternal;
     return this;
   }
 
   /**
-   * The source of the assignment. - false - The variant assignment is handled internally by Talon.One. - true - The variant assignment is handled externally. 
+   * Deprecated and ignored. The assignment type is set at experiment creation and cannot be changed. Use &#x60;assignmentType&#x60; when creating an experiment instead. 
    * @return isVariantAssignmentExternal
+   * @deprecated
    */
-  @javax.annotation.Nonnull
+  @Deprecated
+  @javax.annotation.Nullable
   public Boolean getIsVariantAssignmentExternal() {
     return isVariantAssignmentExternal;
   }
 
-  public void setIsVariantAssignmentExternal(@javax.annotation.Nonnull Boolean isVariantAssignmentExternal) {
+  @Deprecated
+  public void setIsVariantAssignmentExternal(@javax.annotation.Nullable Boolean isVariantAssignmentExternal) {
     this.isVariantAssignmentExternal = isVariantAssignmentExternal;
   }
 
@@ -303,7 +308,7 @@ public class UpdateExperiment {
     openapiFields = new HashSet<String>(Arrays.asList("isVariantAssignmentExternal", "campaign", "goalType", "goalDescription"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("isVariantAssignmentExternal", "campaign"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("campaign"));
   }
 
   /**

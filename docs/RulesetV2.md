@@ -17,8 +17,8 @@ Ruleset in the V2 JSON block format.
 |**promotionRules** | [**List&lt;RuleV2&gt;**](RuleV2.md) | Set of promotion rules. |  |
 |**strikethroughRules** | [**List&lt;RuleV2&gt;**](RuleV2.md) | Set of strikethrough rules. |  [optional] |
 |**selectors** | [**List&lt;Selector&gt;**](Selector.md) | Variable bindings of type selector. |  [optional] [readonly] |
-|**bundles** | [**List&lt;Bundle&gt;**](Bundle.md) | Variable bindings of type bundle. |  [optional] [readonly] |
-|**parameters** | [**List&lt;TemplateParameter&gt;**](TemplateParameter.md) | Variable bindings of type template parameter. |  [optional] [readonly] |
+|**bundles** | [**List&lt;Bundle&gt;**](Bundle.md) | Variable bindings of type bundle. |  [optional] |
+|**parameters** | [**List&lt;TemplateParameter&gt;**](TemplateParameter.md) | Variable bindings of type template parameter. |  [optional] |
 
 
 

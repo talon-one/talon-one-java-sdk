@@ -55,7 +55,7 @@ import one.talon.JSON;
 public class Bundle {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   private String id;
 
   public static final String SERIALIZED_NAME_NAME = "name";
@@ -136,23 +136,22 @@ public class Bundle {
   public Bundle() {
   }
 
-  public Bundle id(@javax.annotation.Nonnull String id) {
+  public Bundle(
+     String id
+  ) {
+    this();
     this.id = id;
-    return this;
   }
 
   /**
    * An identifier derived from the bundle content.
    * @return id
    */
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   public String getId() {
     return id;
   }
 
-  public void setId(@javax.annotation.Nonnull String id) {
-    this.id = id;
-  }
 
 
   public Bundle name(@javax.annotation.Nonnull String name) {
@@ -374,7 +373,7 @@ public class Bundle {
     openapiFields = new HashSet<String>(Arrays.asList("id", "name", "type", "sources", "counts", "matchers"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("id", "name", "type", "sources", "counts"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("name", "type", "sources", "counts"));
   }
 
   /**
@@ -397,7 +396,7 @@ public class Bundle {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if (!jsonObj.get("id").isJsonPrimitive()) {
+      if ((jsonObj.get("id") != null && !jsonObj.get("id").isJsonNull()) && !jsonObj.get("id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("id").toString()));
       }
       if (!jsonObj.get("name").isJsonPrimitive()) {

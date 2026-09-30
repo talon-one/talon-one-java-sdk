@@ -132,7 +132,7 @@ public class CheckAudienceBlock {
   private OperatorEnum operator;
 
   /**
-   * The customer profile to check against the audience. &#x60;Current&#x60; targets the customer in the current session; &#x60;Advocate&#x60; targets the person who invited their friend via referral program.
+   * The customer profile to check against the audience. &#x60;Current&#x60; targets the customer in the current session; &#x60;Advocate&#x60; targets the person who invited their friend via referral program. Only applies to the &#x60;member&#x60; and &#x60;not(member)&#x60; operators; ignored for &#x60;justJoined&#x60; and &#x60;justLeft&#x60;.
    */
   @JsonAdapter(ProfileEnum.Adapter.class)
   public enum ProfileEnum {
@@ -185,7 +185,7 @@ public class CheckAudienceBlock {
 
   public static final String SERIALIZED_NAME_PROFILE = "profile";
   @SerializedName(SERIALIZED_NAME_PROFILE)
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   private ProfileEnum profile;
 
   public static final String SERIALIZED_NAME_AUDIENCE = "audience";
@@ -270,21 +270,21 @@ public class CheckAudienceBlock {
   }
 
 
-  public CheckAudienceBlock profile(@javax.annotation.Nonnull ProfileEnum profile) {
+  public CheckAudienceBlock profile(@javax.annotation.Nullable ProfileEnum profile) {
     this.profile = profile;
     return this;
   }
 
   /**
-   * The customer profile to check against the audience. &#x60;Current&#x60; targets the customer in the current session; &#x60;Advocate&#x60; targets the person who invited their friend via referral program.
+   * The customer profile to check against the audience. &#x60;Current&#x60; targets the customer in the current session; &#x60;Advocate&#x60; targets the person who invited their friend via referral program. Only applies to the &#x60;member&#x60; and &#x60;not(member)&#x60; operators; ignored for &#x60;justJoined&#x60; and &#x60;justLeft&#x60;.
    * @return profile
    */
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   public ProfileEnum getProfile() {
     return profile;
   }
 
-  public void setProfile(@javax.annotation.Nonnull ProfileEnum profile) {
+  public void setProfile(@javax.annotation.Nullable ProfileEnum profile) {
     this.profile = profile;
   }
 
@@ -437,7 +437,7 @@ public class CheckAudienceBlock {
     openapiFields = new HashSet<String>(Arrays.asList("id", "type", "tags", "operator", "profile", "audience", "onFailure"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("type", "operator", "profile", "audience"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("type", "operator", "audience"));
   }
 
   /**
@@ -475,11 +475,13 @@ public class CheckAudienceBlock {
       }
       // validate the required field `operator`
       OperatorEnum.validateJsonElement(jsonObj.get("operator"));
-      if (!jsonObj.get("profile").isJsonPrimitive()) {
+      if ((jsonObj.get("profile") != null && !jsonObj.get("profile").isJsonNull()) && !jsonObj.get("profile").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `profile` to be a primitive type in the JSON string but got `%s`", jsonObj.get("profile").toString()));
       }
-      // validate the required field `profile`
-      ProfileEnum.validateJsonElement(jsonObj.get("profile"));
+      // validate the optional field `profile`
+      if (jsonObj.get("profile") != null && !jsonObj.get("profile").isJsonNull()) {
+        ProfileEnum.validateJsonElement(jsonObj.get("profile"));
+      }
       // validate the required field `audience`
       AudienceBlockReference.validateJsonElement(jsonObj.get("audience"));
       if (jsonObj.get("onFailure") != null && !jsonObj.get("onFailure").isJsonNull()) {

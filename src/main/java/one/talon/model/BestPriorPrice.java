@@ -166,7 +166,7 @@ public class BestPriorPrice {
   }
 
   /**
-   * The identifiers of the relevant context at the time the price was observed. Includes the context IDs of any price adjustments and of the campaigns that influenced the final price. 
+   * The identifiers of the relevant context (the sales events, e.g. \&quot;Spring Sale\&quot;, \&quot;Summer Sale\&quot;) at the time the price was observed. Includes the context IDs of any price adjustments and of the campaigns that influenced the final price. 
    * @return contextIds
    */
   @javax.annotation.Nonnull

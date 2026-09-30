@@ -170,10 +170,10 @@ public class CustomerProfileReward {
   @javax.annotation.Nullable
   private Long loyaltyProgramId;
 
-  public static final String SERIALIZED_NAME_LOYALTY_CARD_IDENTIFIER = "loyaltyCardIdentifier";
-  @SerializedName(SERIALIZED_NAME_LOYALTY_CARD_IDENTIFIER)
+  public static final String SERIALIZED_NAME_LOYALTY_CARD_ID = "loyaltyCardId";
+  @SerializedName(SERIALIZED_NAME_LOYALTY_CARD_ID)
   @javax.annotation.Nullable
-  private String loyaltyCardIdentifier;
+  private String loyaltyCardId;
 
   public CustomerProfileReward() {
   }
@@ -425,22 +425,22 @@ public class CustomerProfileReward {
   }
 
 
-  public CustomerProfileReward loyaltyCardIdentifier(@javax.annotation.Nullable String loyaltyCardIdentifier) {
-    this.loyaltyCardIdentifier = loyaltyCardIdentifier;
+  public CustomerProfileReward loyaltyCardId(@javax.annotation.Nullable String loyaltyCardId) {
+    this.loyaltyCardId = loyaltyCardId;
     return this;
   }
 
   /**
    * The identifier of the loyalty card that the reward was unlocked with. Only returned for rewards unlocked with a loyalty card.
-   * @return loyaltyCardIdentifier
+   * @return loyaltyCardId
    */
   @javax.annotation.Nullable
-  public String getLoyaltyCardIdentifier() {
-    return loyaltyCardIdentifier;
+  public String getLoyaltyCardId() {
+    return loyaltyCardId;
   }
 
-  public void setLoyaltyCardIdentifier(@javax.annotation.Nullable String loyaltyCardIdentifier) {
-    this.loyaltyCardIdentifier = loyaltyCardIdentifier;
+  public void setLoyaltyCardId(@javax.annotation.Nullable String loyaltyCardId) {
+    this.loyaltyCardId = loyaltyCardId;
   }
 
   /**
@@ -511,13 +511,13 @@ public class CustomerProfileReward {
         Objects.equals(this.usedAt, customerProfileReward.usedAt) &&
         Objects.equals(this.usedByProfileIntegrationId, customerProfileReward.usedByProfileIntegrationId) &&
         Objects.equals(this.loyaltyProgramId, customerProfileReward.loyaltyProgramId) &&
-        Objects.equals(this.loyaltyCardIdentifier, customerProfileReward.loyaltyCardIdentifier)&&
+        Objects.equals(this.loyaltyCardId, customerProfileReward.loyaltyCardId)&&
         Objects.equals(this.additionalProperties, customerProfileReward.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, integrationId, rewardId, rewardIntegrationId, rewardName, description, rule, status, unlockedAt, unlockedByProfileIntegrationId, usedAt, usedByProfileIntegrationId, loyaltyProgramId, loyaltyCardIdentifier, additionalProperties);
+    return Objects.hash(id, integrationId, rewardId, rewardIntegrationId, rewardName, description, rule, status, unlockedAt, unlockedByProfileIntegrationId, usedAt, usedByProfileIntegrationId, loyaltyProgramId, loyaltyCardId, additionalProperties);
   }
 
   @Override
@@ -537,7 +537,7 @@ public class CustomerProfileReward {
     sb.append("    usedAt: ").append(toIndentedString(usedAt)).append("\n");
     sb.append("    usedByProfileIntegrationId: ").append(toIndentedString(usedByProfileIntegrationId)).append("\n");
     sb.append("    loyaltyProgramId: ").append(toIndentedString(loyaltyProgramId)).append("\n");
-    sb.append("    loyaltyCardIdentifier: ").append(toIndentedString(loyaltyCardIdentifier)).append("\n");
+    sb.append("    loyaltyCardId: ").append(toIndentedString(loyaltyCardId)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -557,7 +557,7 @@ public class CustomerProfileReward {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("id", "integrationId", "rewardId", "rewardIntegrationId", "rewardName", "description", "rule", "status", "unlockedAt", "unlockedByProfileIntegrationId", "usedAt", "usedByProfileIntegrationId", "loyaltyProgramId", "loyaltyCardIdentifier"));
+    openapiFields = new HashSet<String>(Arrays.asList("id", "integrationId", "rewardId", "rewardIntegrationId", "rewardName", "description", "rule", "status", "unlockedAt", "unlockedByProfileIntegrationId", "usedAt", "usedByProfileIntegrationId", "loyaltyProgramId", "loyaltyCardId"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("id", "integrationId", "rewardId", "rewardIntegrationId", "rewardName", "status", "unlockedAt"));
@@ -610,8 +610,8 @@ public class CustomerProfileReward {
       if ((jsonObj.get("usedByProfileIntegrationId") != null && !jsonObj.get("usedByProfileIntegrationId").isJsonNull()) && !jsonObj.get("usedByProfileIntegrationId").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `usedByProfileIntegrationId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("usedByProfileIntegrationId").toString()));
       }
-      if ((jsonObj.get("loyaltyCardIdentifier") != null && !jsonObj.get("loyaltyCardIdentifier").isJsonNull()) && !jsonObj.get("loyaltyCardIdentifier").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `loyaltyCardIdentifier` to be a primitive type in the JSON string but got `%s`", jsonObj.get("loyaltyCardIdentifier").toString()));
+      if ((jsonObj.get("loyaltyCardId") != null && !jsonObj.get("loyaltyCardId").isJsonNull()) && !jsonObj.get("loyaltyCardId").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `loyaltyCardId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("loyaltyCardId").toString()));
       }
   }
 

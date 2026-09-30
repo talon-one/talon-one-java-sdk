@@ -94,6 +94,22 @@ public class RuleEligibilityFailureDetailsTest {
     }
 
     /**
+     * Test the property 'ruleIndex'
+     */
+    @Test
+    public void ruleIndexTest() {
+        // TODO: test ruleIndex
+    }
+
+    /**
+     * Test the property 'rulesetId'
+     */
+    @Test
+    public void rulesetIdTest() {
+        // TODO: test rulesetId
+    }
+
+    /**
      * Test the property 'details'
      */
     @Test

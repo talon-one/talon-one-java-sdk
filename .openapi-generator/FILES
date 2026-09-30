@@ -138,6 +138,7 @@ docs/BetweenCheckAttributeBlock.md
 docs/Binding.md
 docs/Block.md
 docs/Blueprint.md
+docs/BoostLoyaltyTierEffectProps.md
 docs/BulkApplicationNotification.md
 docs/BulkOperationOnCampaigns.md
 docs/Bundle.md
@@ -308,6 +309,7 @@ docs/EffectAddLoyaltyPoints.md
 docs/EffectAddNegativeLoyaltyPoints.md
 docs/EffectAddToAudience.md
 docs/EffectAwardGiveaway.md
+docs/EffectBoostLoyaltyTier.md
 docs/EffectCallApi.md
 docs/EffectChangeLoyaltyTierLevel.md
 docs/EffectCouponCreated.md
@@ -460,6 +462,7 @@ docs/GetLoyaltyCardPoints200Response.md
 docs/GetLoyaltyCardTransactionLogs200Response.md
 docs/GetLoyaltyCardTransactions200Response.md
 docs/GetLoyaltyCards200Response.md
+docs/GetLoyaltyProgramProfileLedgerTransactions200Response.md
 docs/GetLoyaltyProgramProfilePoints200Response.md
 docs/GetLoyaltyProgramProfileTransactions200Response.md
 docs/GetLoyaltyProgramTransactions200Response.md
@@ -535,6 +538,7 @@ docs/LedgerEntry.md
 docs/LedgerInfo.md
 docs/LedgerPointsEntryIntegrationAPI.md
 docs/LedgerTransactionLogEntryIntegrationAPI.md
+docs/LedgerTransactionLogEntryManagementAPI.md
 docs/LibraryAttribute.md
 docs/LimitConfig.md
 docs/LimitCounter.md
@@ -693,6 +697,14 @@ docs/OktaEventPayload.md
 docs/OktaEventPayloadData.md
 docs/OktaEventTarget.md
 docs/OneTimeCode.md
+docs/OutboundLog.md
+docs/OutboundLogBase.md
+docs/OutboundLogRequest.md
+docs/OutboundLogResponse.md
+docs/OutboundLogs.md
+docs/OutboundMessage.md
+docs/OutboundMessageResponse.md
+docs/OutboundMessages.md
 docs/OutgoingIntegrationBrazePolicy.md
 docs/OutgoingIntegrationCleverTapPolicy.md
 docs/OutgoingIntegrationConfiguration.md
@@ -782,6 +794,7 @@ docs/RollbackDeductedLoyaltyPointsEffectProps.md
 docs/RollbackDiscountEffectProps.md
 docs/RollbackIncreasedAchievementProgressEffectProps.md
 docs/RollbackReferralEffectProps.md
+docs/RollbackTierBoostEffectProps.md
 docs/RollbackUseRewardEffectProps.md
 docs/Rule.md
 docs/RuleEligibility.md
@@ -1100,6 +1113,7 @@ src/main/java/one/talon/model/BetweenCheckAttributeBlock.java
 src/main/java/one/talon/model/Binding.java
 src/main/java/one/talon/model/Block.java
 src/main/java/one/talon/model/Blueprint.java
+src/main/java/one/talon/model/BoostLoyaltyTierEffectProps.java
 src/main/java/one/talon/model/BulkApplicationNotification.java
 src/main/java/one/talon/model/BulkOperationOnCampaigns.java
 src/main/java/one/talon/model/Bundle.java
@@ -1270,6 +1284,7 @@ src/main/java/one/talon/model/EffectAddLoyaltyPoints.java
 src/main/java/one/talon/model/EffectAddNegativeLoyaltyPoints.java
 src/main/java/one/talon/model/EffectAddToAudience.java
 src/main/java/one/talon/model/EffectAwardGiveaway.java
+src/main/java/one/talon/model/EffectBoostLoyaltyTier.java
 src/main/java/one/talon/model/EffectCallApi.java
 src/main/java/one/talon/model/EffectChangeLoyaltyTierLevel.java
 src/main/java/one/talon/model/EffectCouponCreated.java
@@ -1422,6 +1437,7 @@ src/main/java/one/talon/model/GetLoyaltyCardPoints200Response.java
 src/main/java/one/talon/model/GetLoyaltyCardTransactionLogs200Response.java
 src/main/java/one/talon/model/GetLoyaltyCardTransactions200Response.java
 src/main/java/one/talon/model/GetLoyaltyCards200Response.java
+src/main/java/one/talon/model/GetLoyaltyProgramProfileLedgerTransactions200Response.java
 src/main/java/one/talon/model/GetLoyaltyProgramProfilePoints200Response.java
 src/main/java/one/talon/model/GetLoyaltyProgramProfileTransactions200Response.java
 src/main/java/one/talon/model/GetLoyaltyProgramTransactions200Response.java
@@ -1496,6 +1512,7 @@ src/main/java/one/talon/model/LedgerEntry.java
 src/main/java/one/talon/model/LedgerInfo.java
 src/main/java/one/talon/model/LedgerPointsEntryIntegrationAPI.java
 src/main/java/one/talon/model/LedgerTransactionLogEntryIntegrationAPI.java
+src/main/java/one/talon/model/LedgerTransactionLogEntryManagementAPI.java
 src/main/java/one/talon/model/LibraryAttribute.java
 src/main/java/one/talon/model/LimitConfig.java
 src/main/java/one/talon/model/LimitCounter.java
@@ -1653,6 +1670,14 @@ src/main/java/one/talon/model/OktaEventPayload.java
 src/main/java/one/talon/model/OktaEventPayloadData.java
 src/main/java/one/talon/model/OktaEventTarget.java
 src/main/java/one/talon/model/OneTimeCode.java
+src/main/java/one/talon/model/OutboundLog.java
+src/main/java/one/talon/model/OutboundLogBase.java
+src/main/java/one/talon/model/OutboundLogRequest.java
+src/main/java/one/talon/model/OutboundLogResponse.java
+src/main/java/one/talon/model/OutboundLogs.java
+src/main/java/one/talon/model/OutboundMessage.java
+src/main/java/one/talon/model/OutboundMessageResponse.java
+src/main/java/one/talon/model/OutboundMessages.java
 src/main/java/one/talon/model/OutgoingIntegrationBrazePolicy.java
 src/main/java/one/talon/model/OutgoingIntegrationCleverTapPolicy.java
 src/main/java/one/talon/model/OutgoingIntegrationConfiguration.java
@@ -1742,6 +1767,7 @@ src/main/java/one/talon/model/RollbackDeductedLoyaltyPointsEffectProps.java
 src/main/java/one/talon/model/RollbackDiscountEffectProps.java
 src/main/java/one/talon/model/RollbackIncreasedAchievementProgressEffectProps.java
 src/main/java/one/talon/model/RollbackReferralEffectProps.java
+src/main/java/one/talon/model/RollbackTierBoostEffectProps.java
 src/main/java/one/talon/model/RollbackUseRewardEffectProps.java
 src/main/java/one/talon/model/Rule.java
 src/main/java/one/talon/model/RuleEligibility.java
@@ -2033,6 +2059,7 @@ src/test/java/one/talon/model/BetweenCheckAttributeBlockTest.java
 src/test/java/one/talon/model/BindingTest.java
 src/test/java/one/talon/model/BlockTest.java
 src/test/java/one/talon/model/BlueprintTest.java
+src/test/java/one/talon/model/BoostLoyaltyTierEffectPropsTest.java
 src/test/java/one/talon/model/BulkApplicationNotificationTest.java
 src/test/java/one/talon/model/BulkOperationOnCampaignsTest.java
 src/test/java/one/talon/model/BundleTest.java
@@ -2202,6 +2229,7 @@ src/test/java/one/talon/model/EffectAddLoyaltyPointsTest.java
 src/test/java/one/talon/model/EffectAddNegativeLoyaltyPointsTest.java
 src/test/java/one/talon/model/EffectAddToAudienceTest.java
 src/test/java/one/talon/model/EffectAwardGiveawayTest.java
+src/test/java/one/talon/model/EffectBoostLoyaltyTierTest.java
 src/test/java/one/talon/model/EffectCallApiTest.java
 src/test/java/one/talon/model/EffectChangeLoyaltyTierLevelTest.java
 src/test/java/one/talon/model/EffectCouponCreatedTest.java
@@ -2355,6 +2383,7 @@ src/test/java/one/talon/model/GetLoyaltyCardPoints200ResponseTest.java
 src/test/java/one/talon/model/GetLoyaltyCardTransactionLogs200ResponseTest.java
 src/test/java/one/talon/model/GetLoyaltyCardTransactions200ResponseTest.java
 src/test/java/one/talon/model/GetLoyaltyCards200ResponseTest.java
+src/test/java/one/talon/model/GetLoyaltyProgramProfileLedgerTransactions200ResponseTest.java
 src/test/java/one/talon/model/GetLoyaltyProgramProfilePoints200ResponseTest.java
 src/test/java/one/talon/model/GetLoyaltyProgramProfileTransactions200ResponseTest.java
 src/test/java/one/talon/model/GetLoyaltyProgramTransactions200ResponseTest.java
@@ -2429,6 +2458,7 @@ src/test/java/one/talon/model/LedgerEntryTest.java
 src/test/java/one/talon/model/LedgerInfoTest.java
 src/test/java/one/talon/model/LedgerPointsEntryIntegrationAPITest.java
 src/test/java/one/talon/model/LedgerTransactionLogEntryIntegrationAPITest.java
+src/test/java/one/talon/model/LedgerTransactionLogEntryManagementAPITest.java
 src/test/java/one/talon/model/LibraryAttributeTest.java
 src/test/java/one/talon/model/LimitConfigTest.java
 src/test/java/one/talon/model/LimitCounterTest.java
@@ -2586,6 +2616,14 @@ src/test/java/one/talon/model/OktaEventPayloadTest.java
 src/test/java/one/talon/model/OktaEventTargetTest.java
 src/test/java/one/talon/model/OktaEventTest.java
 src/test/java/one/talon/model/OneTimeCodeTest.java
+src/test/java/one/talon/model/OutboundLogBaseTest.java
+src/test/java/one/talon/model/OutboundLogRequestTest.java
+src/test/java/one/talon/model/OutboundLogResponseTest.java
+src/test/java/one/talon/model/OutboundLogTest.java
+src/test/java/one/talon/model/OutboundLogsTest.java
+src/test/java/one/talon/model/OutboundMessageResponseTest.java
+src/test/java/one/talon/model/OutboundMessageTest.java
+src/test/java/one/talon/model/OutboundMessagesTest.java
 src/test/java/one/talon/model/OutgoingIntegrationBrazePolicyTest.java
 src/test/java/one/talon/model/OutgoingIntegrationCleverTapPolicyTest.java
 src/test/java/one/talon/model/OutgoingIntegrationConfigurationPolicyTest.java
@@ -2675,6 +2713,7 @@ src/test/java/one/talon/model/RollbackDeductedLoyaltyPointsEffectPropsTest.java
 src/test/java/one/talon/model/RollbackDiscountEffectPropsTest.java
 src/test/java/one/talon/model/RollbackIncreasedAchievementProgressEffectPropsTest.java
 src/test/java/one/talon/model/RollbackReferralEffectPropsTest.java
+src/test/java/one/talon/model/RollbackTierBoostEffectPropsTest.java
 src/test/java/one/talon/model/RollbackUseRewardEffectPropsTest.java
 src/test/java/one/talon/model/RuleEligibilityFailureDetailsTest.java
 src/test/java/one/talon/model/RuleEligibilityTest.java
