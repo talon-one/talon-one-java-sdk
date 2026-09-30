@@ -50,7 +50,7 @@ import java.util.Set;
 import one.talon.JSON;
 
 /**
- * Giveaways pools is an entity for managing multiple similar giveaways.
+ * A giveaway pool is an entity for managing multiple similar giveaways.
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.25.0")
 public class GiveawaysPool {
@@ -170,7 +170,7 @@ public class GiveawaysPool {
   }
 
   /**
-   * The name of this giveaways pool.
+   * The name of this giveaway pool.
    * @return name
    */
   @javax.annotation.Nonnull
@@ -189,7 +189,7 @@ public class GiveawaysPool {
   }
 
   /**
-   * The description of this giveaways pool.
+   * The description of this giveaway pool.
    * @return description
    */
   @javax.annotation.Nullable
@@ -216,7 +216,7 @@ public class GiveawaysPool {
   }
 
   /**
-   * A list of the IDs of the applications that this giveaways pool is enabled for.
+   * A list of the IDs of the Applications that this giveaway pool is enabled for.
    * @return subscribedApplicationsIds
    */
   @javax.annotation.Nullable
@@ -254,7 +254,7 @@ public class GiveawaysPool {
   }
 
   /**
-   * Timestamp of the most recent update to the giveaways pool.
+   * Timestamp of the most recent update to the giveaway pool.
    * @return modified
    */
   @javax.annotation.Nullable
@@ -273,7 +273,7 @@ public class GiveawaysPool {
   }
 
   /**
-   * ID of the user who created this giveaways pool.
+   * ID of the user who created this giveaway pool.
    * @return createdBy
    */
   @javax.annotation.Nonnull
@@ -292,7 +292,7 @@ public class GiveawaysPool {
   }
 
   /**
-   * ID of the user who last updated this giveaways pool if available.
+   * ID of the user who last updated this giveaway pool if available.
    * @return modifiedBy
    */
   @javax.annotation.Nullable

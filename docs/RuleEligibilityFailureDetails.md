@@ -15,6 +15,8 @@ The details about why the customer was not eligible for the rule in the current 
 |**referralValue** | **String** | The referral code that was being evaluated when the rule failed.  |  [optional] |
 |**conditionIndex** | **Long** | The index of the condition that caused the rule to fail. |  [optional] |
 |**effectIndex** | **Long** | The index of the effect that caused the rule to fail. |  [optional] |
+|**ruleIndex** | **Long** | The index of the rule that failed within the ruleset. |  [optional] |
+|**rulesetId** | **Long** | The ID of the ruleset containing the rule that failed. |  [optional] |
 |**details** | **String** | Additional details about the failure. |  |
 
 

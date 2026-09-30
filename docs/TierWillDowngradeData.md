@@ -15,6 +15,17 @@
 |**pointsRequiredToRemain** | **BigDecimal** | The number of points needed for a customer to remain on the same tier. |  |
 |**nextTier** | **String** | The name of the customer&#39;s next tier. |  [optional] |
 |**tierExpirationDate** | **OffsetDateTime** | The date and time the tier expires. |  [optional] |
+|**source** | [**SourceEnum**](#SourceEnum) | The source of the tier change, whether from a points change or boost. |  [optional] |
+|**reason** | **String** | The reason for the tier change. |  [optional] |
+
+
+
+## Enum: SourceEnum
+
+| Name | Value |
+|---- | -----|
+| BOOST | &quot;boost&quot; |
+| POINTS | &quot;points&quot; |
 
 
 

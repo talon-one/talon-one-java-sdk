@@ -138,6 +138,16 @@ public class RuleEligibilityFailureDetails {
   @javax.annotation.Nullable
   private Long effectIndex;
 
+  public static final String SERIALIZED_NAME_RULE_INDEX = "ruleIndex";
+  @SerializedName(SERIALIZED_NAME_RULE_INDEX)
+  @javax.annotation.Nullable
+  private Long ruleIndex;
+
+  public static final String SERIALIZED_NAME_RULESET_ID = "rulesetId";
+  @SerializedName(SERIALIZED_NAME_RULESET_ID)
+  @javax.annotation.Nullable
+  private Long rulesetId;
+
   public static final String SERIALIZED_NAME_DETAILS = "details";
   @SerializedName(SERIALIZED_NAME_DETAILS)
   @javax.annotation.Nonnull
@@ -279,6 +289,44 @@ public class RuleEligibilityFailureDetails {
   }
 
 
+  public RuleEligibilityFailureDetails ruleIndex(@javax.annotation.Nullable Long ruleIndex) {
+    this.ruleIndex = ruleIndex;
+    return this;
+  }
+
+  /**
+   * The index of the rule that failed within the ruleset.
+   * @return ruleIndex
+   */
+  @javax.annotation.Nullable
+  public Long getRuleIndex() {
+    return ruleIndex;
+  }
+
+  public void setRuleIndex(@javax.annotation.Nullable Long ruleIndex) {
+    this.ruleIndex = ruleIndex;
+  }
+
+
+  public RuleEligibilityFailureDetails rulesetId(@javax.annotation.Nullable Long rulesetId) {
+    this.rulesetId = rulesetId;
+    return this;
+  }
+
+  /**
+   * The ID of the ruleset containing the rule that failed.
+   * @return rulesetId
+   */
+  @javax.annotation.Nullable
+  public Long getRulesetId() {
+    return rulesetId;
+  }
+
+  public void setRulesetId(@javax.annotation.Nullable Long rulesetId) {
+    this.rulesetId = rulesetId;
+  }
+
+
   public RuleEligibilityFailureDetails details(@javax.annotation.Nonnull String details) {
     this.details = details;
     return this;
@@ -359,13 +407,15 @@ public class RuleEligibilityFailureDetails {
         Objects.equals(this.referralValue, ruleEligibilityFailureDetails.referralValue) &&
         Objects.equals(this.conditionIndex, ruleEligibilityFailureDetails.conditionIndex) &&
         Objects.equals(this.effectIndex, ruleEligibilityFailureDetails.effectIndex) &&
+        Objects.equals(this.ruleIndex, ruleEligibilityFailureDetails.ruleIndex) &&
+        Objects.equals(this.rulesetId, ruleEligibilityFailureDetails.rulesetId) &&
         Objects.equals(this.details, ruleEligibilityFailureDetails.details)&&
         Objects.equals(this.additionalProperties, ruleEligibilityFailureDetails.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(failureCode, couponID, couponValue, referralID, referralValue, conditionIndex, effectIndex, details, additionalProperties);
+    return Objects.hash(failureCode, couponID, couponValue, referralID, referralValue, conditionIndex, effectIndex, ruleIndex, rulesetId, details, additionalProperties);
   }
 
   @Override
@@ -379,6 +429,8 @@ public class RuleEligibilityFailureDetails {
     sb.append("    referralValue: ").append(toIndentedString(referralValue)).append("\n");
     sb.append("    conditionIndex: ").append(toIndentedString(conditionIndex)).append("\n");
     sb.append("    effectIndex: ").append(toIndentedString(effectIndex)).append("\n");
+    sb.append("    ruleIndex: ").append(toIndentedString(ruleIndex)).append("\n");
+    sb.append("    rulesetId: ").append(toIndentedString(rulesetId)).append("\n");
     sb.append("    details: ").append(toIndentedString(details)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
@@ -399,7 +451,7 @@ public class RuleEligibilityFailureDetails {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("failureCode", "couponID", "couponValue", "referralID", "referralValue", "conditionIndex", "effectIndex", "details"));
+    openapiFields = new HashSet<String>(Arrays.asList("failureCode", "couponID", "couponValue", "referralID", "referralValue", "conditionIndex", "effectIndex", "ruleIndex", "rulesetId", "details"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("failureCode", "details"));

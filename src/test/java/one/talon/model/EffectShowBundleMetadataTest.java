@@ -177,6 +177,14 @@ public class EffectShowBundleMetadataTest {
     }
 
     /**
+     * Test the property 'rewardIntegrationId'
+     */
+    @Test
+    public void rewardIntegrationIdTest() {
+        // TODO: test rewardIntegrationId
+    }
+
+    /**
      * Test the property 'props'
      */
     @Test

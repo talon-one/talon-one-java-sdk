@@ -123,9 +123,7 @@ public class RulesetV2 {
      Long campaignId, 
      Long templateId, 
      OffsetDateTime activatedAt, 
-     List<Selector> selectors, 
-     List<Bundle> bundles, 
-     List<TemplateParameter> parameters
+     List<Selector> selectors
   ) {
     this();
     this.id = id;
@@ -135,8 +133,6 @@ public class RulesetV2 {
     this.templateId = templateId;
     this.activatedAt = activatedAt;
     this.selectors = selectors;
-    this.bundles = bundles;
-    this.parameters = parameters;
   }
 
   /**
@@ -270,6 +266,19 @@ public class RulesetV2 {
 
 
 
+  public RulesetV2 bundles(@javax.annotation.Nullable List<Bundle> bundles) {
+    this.bundles = bundles;
+    return this;
+  }
+
+  public RulesetV2 addBundlesItem(Bundle bundlesItem) {
+    if (this.bundles == null) {
+      this.bundles = new ArrayList<>();
+    }
+    this.bundles.add(bundlesItem);
+    return this;
+  }
+
   /**
    * Variable bindings of type bundle.
    * @return bundles
@@ -279,7 +288,23 @@ public class RulesetV2 {
     return bundles;
   }
 
+  public void setBundles(@javax.annotation.Nullable List<Bundle> bundles) {
+    this.bundles = bundles;
+  }
 
+
+  public RulesetV2 parameters(@javax.annotation.Nullable List<TemplateParameter> parameters) {
+    this.parameters = parameters;
+    return this;
+  }
+
+  public RulesetV2 addParametersItem(TemplateParameter parametersItem) {
+    if (this.parameters == null) {
+      this.parameters = new ArrayList<>();
+    }
+    this.parameters.add(parametersItem);
+    return this;
+  }
 
   /**
    * Variable bindings of type template parameter.
@@ -290,6 +315,9 @@ public class RulesetV2 {
     return parameters;
   }
 
+  public void setParameters(@javax.annotation.Nullable List<TemplateParameter> parameters) {
+    this.parameters = parameters;
+  }
 
   /**
    * A container for additional, undeclared properties.

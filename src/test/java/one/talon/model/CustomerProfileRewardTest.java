@@ -144,11 +144,11 @@ public class CustomerProfileRewardTest {
     }
 
     /**
-     * Test the property 'loyaltyCardIdentifier'
+     * Test the property 'loyaltyCardId'
      */
     @Test
-    public void loyaltyCardIdentifierTest() {
-        // TODO: test loyaltyCardIdentifier
+    public void loyaltyCardIdTest() {
+        // TODO: test loyaltyCardId
     }
 
 }

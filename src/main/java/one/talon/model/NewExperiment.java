@@ -52,9 +52,69 @@ import one.talon.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.25.0")
 public class NewExperiment {
+  /**
+   * Controls how customers are assigned to experiment variants. Either &#x60;assignmentType&#x60; or &#x60;isVariantAssignmentExternal&#x60; must be provided; &#x60;assignmentType&#x60; takes priority when both are present. - &#x60;random&#x60;: Talon.One assigns customers randomly based on variant weights. - &#x60;external&#x60;: Variant assignment is handled externally. - &#x60;audience&#x60;: Each variant targets a specific audience; customers are   assigned based on audience membership. 
+   */
+  @JsonAdapter(AssignmentTypeEnum.Adapter.class)
+  public enum AssignmentTypeEnum {
+    RANDOM("random"),
+    
+    EXTERNAL("external"),
+    
+    AUDIENCE("audience");
+
+    private String value;
+
+    AssignmentTypeEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static AssignmentTypeEnum fromValue(String value) {
+      for (AssignmentTypeEnum b : AssignmentTypeEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    }
+
+    public static class Adapter extends TypeAdapter<AssignmentTypeEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final AssignmentTypeEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public AssignmentTypeEnum read(final JsonReader jsonReader) throws IOException {
+        String value =  jsonReader.nextString();
+        return AssignmentTypeEnum.fromValue(value);
+      }
+    }
+
+    public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      String value = jsonElement.getAsString();
+      AssignmentTypeEnum.fromValue(value);
+    }
+  }
+
+  public static final String SERIALIZED_NAME_ASSIGNMENT_TYPE = "assignmentType";
+  @SerializedName(SERIALIZED_NAME_ASSIGNMENT_TYPE)
+  @javax.annotation.Nullable
+  private AssignmentTypeEnum assignmentType;
+
   public static final String SERIALIZED_NAME_IS_VARIANT_ASSIGNMENT_EXTERNAL = "isVariantAssignmentExternal";
+  @Deprecated
   @SerializedName(SERIALIZED_NAME_IS_VARIANT_ASSIGNMENT_EXTERNAL)
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   private Boolean isVariantAssignmentExternal;
 
   public static final String SERIALIZED_NAME_CAMPAIGN = "campaign";
@@ -131,21 +191,44 @@ public class NewExperiment {
   public NewExperiment() {
   }
 
-  public NewExperiment isVariantAssignmentExternal(@javax.annotation.Nonnull Boolean isVariantAssignmentExternal) {
+  public NewExperiment assignmentType(@javax.annotation.Nullable AssignmentTypeEnum assignmentType) {
+    this.assignmentType = assignmentType;
+    return this;
+  }
+
+  /**
+   * Controls how customers are assigned to experiment variants. Either &#x60;assignmentType&#x60; or &#x60;isVariantAssignmentExternal&#x60; must be provided; &#x60;assignmentType&#x60; takes priority when both are present. - &#x60;random&#x60;: Talon.One assigns customers randomly based on variant weights. - &#x60;external&#x60;: Variant assignment is handled externally. - &#x60;audience&#x60;: Each variant targets a specific audience; customers are   assigned based on audience membership. 
+   * @return assignmentType
+   */
+  @javax.annotation.Nullable
+  public AssignmentTypeEnum getAssignmentType() {
+    return assignmentType;
+  }
+
+  public void setAssignmentType(@javax.annotation.Nullable AssignmentTypeEnum assignmentType) {
+    this.assignmentType = assignmentType;
+  }
+
+
+  @Deprecated
+  public NewExperiment isVariantAssignmentExternal(@javax.annotation.Nullable Boolean isVariantAssignmentExternal) {
     this.isVariantAssignmentExternal = isVariantAssignmentExternal;
     return this;
   }
 
   /**
-   * The source of the assignment. - false - The variant assignment is handled internally by Talon.One. - true - The variant assignment is handled externally. 
+   * Deprecated. Use &#x60;assignmentType&#x60; instead. Either &#x60;assignmentType&#x60; or &#x60;isVariantAssignmentExternal&#x60; must be provided. - false - The variant assignment is handled internally by Talon.One. - true - The variant assignment is handled externally. 
    * @return isVariantAssignmentExternal
+   * @deprecated
    */
-  @javax.annotation.Nonnull
+  @Deprecated
+  @javax.annotation.Nullable
   public Boolean getIsVariantAssignmentExternal() {
     return isVariantAssignmentExternal;
   }
 
-  public void setIsVariantAssignmentExternal(@javax.annotation.Nonnull Boolean isVariantAssignmentExternal) {
+  @Deprecated
+  public void setIsVariantAssignmentExternal(@javax.annotation.Nullable Boolean isVariantAssignmentExternal) {
     this.isVariantAssignmentExternal = isVariantAssignmentExternal;
   }
 
@@ -261,7 +344,8 @@ public class NewExperiment {
       return false;
     }
     NewExperiment newExperiment = (NewExperiment) o;
-    return Objects.equals(this.isVariantAssignmentExternal, newExperiment.isVariantAssignmentExternal) &&
+    return Objects.equals(this.assignmentType, newExperiment.assignmentType) &&
+        Objects.equals(this.isVariantAssignmentExternal, newExperiment.isVariantAssignmentExternal) &&
         Objects.equals(this.campaign, newExperiment.campaign) &&
         Objects.equals(this.goalType, newExperiment.goalType) &&
         Objects.equals(this.goalDescription, newExperiment.goalDescription)&&
@@ -270,13 +354,14 @@ public class NewExperiment {
 
   @Override
   public int hashCode() {
-    return Objects.hash(isVariantAssignmentExternal, campaign, goalType, goalDescription, additionalProperties);
+    return Objects.hash(assignmentType, isVariantAssignmentExternal, campaign, goalType, goalDescription, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class NewExperiment {\n");
+    sb.append("    assignmentType: ").append(toIndentedString(assignmentType)).append("\n");
     sb.append("    isVariantAssignmentExternal: ").append(toIndentedString(isVariantAssignmentExternal)).append("\n");
     sb.append("    campaign: ").append(toIndentedString(campaign)).append("\n");
     sb.append("    goalType: ").append(toIndentedString(goalType)).append("\n");
@@ -300,10 +385,10 @@ public class NewExperiment {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("isVariantAssignmentExternal", "campaign", "goalType", "goalDescription"));
+    openapiFields = new HashSet<String>(Arrays.asList("assignmentType", "isVariantAssignmentExternal", "campaign", "goalType", "goalDescription"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("isVariantAssignmentExternal", "campaign", "goalType"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("campaign", "goalType"));
   }
 
   /**
@@ -326,6 +411,13 @@ public class NewExperiment {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
+      if ((jsonObj.get("assignmentType") != null && !jsonObj.get("assignmentType").isJsonNull()) && !jsonObj.get("assignmentType").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `assignmentType` to be a primitive type in the JSON string but got `%s`", jsonObj.get("assignmentType").toString()));
+      }
+      // validate the optional field `assignmentType`
+      if (jsonObj.get("assignmentType") != null && !jsonObj.get("assignmentType").isJsonNull()) {
+        AssignmentTypeEnum.validateJsonElement(jsonObj.get("assignmentType"));
+      }
       // validate the required field `campaign`
       NewCampaign.validateJsonElement(jsonObj.get("campaign"));
       if (!jsonObj.get("goalType").isJsonPrimitive()) {

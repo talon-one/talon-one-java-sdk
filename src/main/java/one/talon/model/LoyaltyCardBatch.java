@@ -134,6 +134,8 @@ public class LoyaltyCardBatch {
 
   /**
    * Number of loyalty cards in the batch.
+   * minimum: 1
+   * maximum: 20000
    * @return numberOfCards
    */
   @javax.annotation.Nonnull

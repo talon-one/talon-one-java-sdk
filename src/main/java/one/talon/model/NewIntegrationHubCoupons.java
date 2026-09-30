@@ -341,6 +341,8 @@ public class NewIntegrationHubCoupons {
 
   /**
    * The number of new coupon codes to generate for the campaign. Must be at least 1.
+   * minimum: 1
+   * maximum: 20000
    * @return numberOfCoupons
    */
   @javax.annotation.Nonnull

@@ -16,7 +16,7 @@ The strikethrough labels notification for an application.
 |**trigger** | [**StrikethroughTrigger**](StrikethroughTrigger.md) |  |  |
 |**changedItems** | [**List&lt;StrikethroughChangedItem&gt;**](StrikethroughChangedItem.md) |  |  |
 |**notificationType** | [**NotificationTypeEnum**](#NotificationTypeEnum) | The type of notification. |  |
-|**sentAt** | **OffsetDateTime** | Timestamp at which the notification was sent. |  |
+|**sentAt** | **OffsetDateTime** | Timestamp when the notification was sent by Talon.One. There may be a delay before the notification is delivered to the user. |  |
 
 
 

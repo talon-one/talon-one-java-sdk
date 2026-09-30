@@ -320,7 +320,7 @@ public class Environment {
   }
 
   /**
-   * The giveaways pools that the application is subscribed to.
+   * The giveaway pools that the Application is subscribed to.
    * @return giveawaysPools
    */
   @javax.annotation.Nullable

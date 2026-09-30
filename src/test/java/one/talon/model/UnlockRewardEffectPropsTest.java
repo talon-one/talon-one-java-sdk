@@ -79,11 +79,11 @@ public class UnlockRewardEffectPropsTest {
     }
 
     /**
-     * Test the property 'cardIdentifier'
+     * Test the property 'loyaltyCardId'
      */
     @Test
-    public void cardIdentifierTest() {
-        // TODO: test cardIdentifier
+    public void loyaltyCardIdTest() {
+        // TODO: test loyaltyCardId
     }
 
 }

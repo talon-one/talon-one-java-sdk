@@ -63,10 +63,10 @@ public class IntegrationUnlockRewardRequest {
   @javax.annotation.Nonnull
   private String profileIntegrationId;
 
-  public static final String SERIALIZED_NAME_CARD_IDENTIFIER = "cardIdentifier";
-  @SerializedName(SERIALIZED_NAME_CARD_IDENTIFIER)
+  public static final String SERIALIZED_NAME_LOYALTY_CARD_ID = "loyaltyCardId";
+  @SerializedName(SERIALIZED_NAME_LOYALTY_CARD_ID)
   @javax.annotation.Nullable
-  private String cardIdentifier;
+  private String loyaltyCardId;
 
   public static final String SERIALIZED_NAME_LOYALTY_PROGRAM_ID = "loyaltyProgramId";
   @SerializedName(SERIALIZED_NAME_LOYALTY_PROGRAM_ID)
@@ -180,22 +180,22 @@ public class IntegrationUnlockRewardRequest {
   }
 
 
-  public IntegrationUnlockRewardRequest cardIdentifier(@javax.annotation.Nullable String cardIdentifier) {
-    this.cardIdentifier = cardIdentifier;
+  public IntegrationUnlockRewardRequest loyaltyCardId(@javax.annotation.Nullable String loyaltyCardId) {
+    this.loyaltyCardId = loyaltyCardId;
     return this;
   }
 
   /**
    * The identifier of the loyalty card unlocking the reward. When provided, the required points are deducted from the card&#39;s balance and the unlocked reward belongs to the card, which makes it available to all customer profiles linked to that card. The customer profile given in &#x60;profileIntegrationId&#x60; must be linked to the card, and the card must be active.
-   * @return cardIdentifier
+   * @return loyaltyCardId
    */
   @javax.annotation.Nullable
-  public String getCardIdentifier() {
-    return cardIdentifier;
+  public String getLoyaltyCardId() {
+    return loyaltyCardId;
   }
 
-  public void setCardIdentifier(@javax.annotation.Nullable String cardIdentifier) {
-    this.cardIdentifier = cardIdentifier;
+  public void setLoyaltyCardId(@javax.annotation.Nullable String loyaltyCardId) {
+    this.loyaltyCardId = loyaltyCardId;
   }
 
 
@@ -320,7 +320,7 @@ public class IntegrationUnlockRewardRequest {
     IntegrationUnlockRewardRequest integrationUnlockRewardRequest = (IntegrationUnlockRewardRequest) o;
     return Objects.equals(this.integrationId, integrationUnlockRewardRequest.integrationId) &&
         Objects.equals(this.profileIntegrationId, integrationUnlockRewardRequest.profileIntegrationId) &&
-        Objects.equals(this.cardIdentifier, integrationUnlockRewardRequest.cardIdentifier) &&
+        Objects.equals(this.loyaltyCardId, integrationUnlockRewardRequest.loyaltyCardId) &&
         Objects.equals(this.loyaltyProgramId, integrationUnlockRewardRequest.loyaltyProgramId) &&
         Objects.equals(this.subledgerId, integrationUnlockRewardRequest.subledgerId) &&
         Objects.equals(this.responseContent, integrationUnlockRewardRequest.responseContent)&&
@@ -329,7 +329,7 @@ public class IntegrationUnlockRewardRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(integrationId, profileIntegrationId, cardIdentifier, loyaltyProgramId, subledgerId, responseContent, additionalProperties);
+    return Objects.hash(integrationId, profileIntegrationId, loyaltyCardId, loyaltyProgramId, subledgerId, responseContent, additionalProperties);
   }
 
   @Override
@@ -338,7 +338,7 @@ public class IntegrationUnlockRewardRequest {
     sb.append("class IntegrationUnlockRewardRequest {\n");
     sb.append("    integrationId: ").append(toIndentedString(integrationId)).append("\n");
     sb.append("    profileIntegrationId: ").append(toIndentedString(profileIntegrationId)).append("\n");
-    sb.append("    cardIdentifier: ").append(toIndentedString(cardIdentifier)).append("\n");
+    sb.append("    loyaltyCardId: ").append(toIndentedString(loyaltyCardId)).append("\n");
     sb.append("    loyaltyProgramId: ").append(toIndentedString(loyaltyProgramId)).append("\n");
     sb.append("    subledgerId: ").append(toIndentedString(subledgerId)).append("\n");
     sb.append("    responseContent: ").append(toIndentedString(responseContent)).append("\n");
@@ -361,7 +361,7 @@ public class IntegrationUnlockRewardRequest {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("integrationId", "profileIntegrationId", "cardIdentifier", "loyaltyProgramId", "subledgerId", "responseContent"));
+    openapiFields = new HashSet<String>(Arrays.asList("integrationId", "profileIntegrationId", "loyaltyCardId", "loyaltyProgramId", "subledgerId", "responseContent"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("integrationId", "profileIntegrationId"));
@@ -393,8 +393,8 @@ public class IntegrationUnlockRewardRequest {
       if (!jsonObj.get("profileIntegrationId").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `profileIntegrationId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("profileIntegrationId").toString()));
       }
-      if ((jsonObj.get("cardIdentifier") != null && !jsonObj.get("cardIdentifier").isJsonNull()) && !jsonObj.get("cardIdentifier").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `cardIdentifier` to be a primitive type in the JSON string but got `%s`", jsonObj.get("cardIdentifier").toString()));
+      if ((jsonObj.get("loyaltyCardId") != null && !jsonObj.get("loyaltyCardId").isJsonNull()) && !jsonObj.get("loyaltyCardId").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `loyaltyCardId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("loyaltyCardId").toString()));
       }
       if ((jsonObj.get("subledgerId") != null && !jsonObj.get("subledgerId").isJsonNull()) && !jsonObj.get("subledgerId").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `subledgerId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("subledgerId").toString()));

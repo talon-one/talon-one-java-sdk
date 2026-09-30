@@ -189,6 +189,11 @@ public class EffectRollbackDeductedLoyaltyPoints {
   @javax.annotation.Nullable
   private Long rewardId;
 
+  public static final String SERIALIZED_NAME_REWARD_INTEGRATION_ID = "rewardIntegrationId";
+  @SerializedName(SERIALIZED_NAME_REWARD_INTEGRATION_ID)
+  @javax.annotation.Nullable
+  private String rewardIntegrationId;
+
   public static final String SERIALIZED_NAME_PROPS = "props";
   @SerializedName(SERIALIZED_NAME_PROPS)
   @javax.annotation.Nonnull
@@ -520,6 +525,25 @@ public class EffectRollbackDeductedLoyaltyPoints {
   }
 
 
+  public EffectRollbackDeductedLoyaltyPoints rewardIntegrationId(@javax.annotation.Nullable String rewardIntegrationId) {
+    this.rewardIntegrationId = rewardIntegrationId;
+    return this;
+  }
+
+  /**
+   * The integration ID of the specific customer reward whose usage produced this effect.
+   * @return rewardIntegrationId
+   */
+  @javax.annotation.Nullable
+  public String getRewardIntegrationId() {
+    return rewardIntegrationId;
+  }
+
+  public void setRewardIntegrationId(@javax.annotation.Nullable String rewardIntegrationId) {
+    this.rewardIntegrationId = rewardIntegrationId;
+  }
+
+
   public EffectRollbackDeductedLoyaltyPoints props(@javax.annotation.Nonnull RollbackDeductedLoyaltyPointsEffectProps props) {
     this.props = props;
     return this;
@@ -610,13 +634,14 @@ public class EffectRollbackDeductedLoyaltyPoints {
         Objects.equals(this.selectedPrice, effectRollbackDeductedLoyaltyPoints.selectedPrice) &&
         Objects.equals(this.adjustmentReferenceId, effectRollbackDeductedLoyaltyPoints.adjustmentReferenceId) &&
         Objects.equals(this.rewardId, effectRollbackDeductedLoyaltyPoints.rewardId) &&
+        Objects.equals(this.rewardIntegrationId, effectRollbackDeductedLoyaltyPoints.rewardIntegrationId) &&
         Objects.equals(this.props, effectRollbackDeductedLoyaltyPoints.props)&&
         Objects.equals(this.additionalProperties, effectRollbackDeductedLoyaltyPoints.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(experimentId, campaignId, rulesetId, ruleIndex, ruleName, effectType, triggeredByCoupon, triggeredForCatalogItem, conditionIndex, evaluationGroupID, evaluationGroupMode, campaignRevisionId, campaignRevisionVersionId, selectedPriceType, selectedPrice, adjustmentReferenceId, rewardId, props, additionalProperties);
+    return Objects.hash(experimentId, campaignId, rulesetId, ruleIndex, ruleName, effectType, triggeredByCoupon, triggeredForCatalogItem, conditionIndex, evaluationGroupID, evaluationGroupMode, campaignRevisionId, campaignRevisionVersionId, selectedPriceType, selectedPrice, adjustmentReferenceId, rewardId, rewardIntegrationId, props, additionalProperties);
   }
 
   @Override
@@ -640,6 +665,7 @@ public class EffectRollbackDeductedLoyaltyPoints {
     sb.append("    selectedPrice: ").append(toIndentedString(selectedPrice)).append("\n");
     sb.append("    adjustmentReferenceId: ").append(toIndentedString(adjustmentReferenceId)).append("\n");
     sb.append("    rewardId: ").append(toIndentedString(rewardId)).append("\n");
+    sb.append("    rewardIntegrationId: ").append(toIndentedString(rewardIntegrationId)).append("\n");
     sb.append("    props: ").append(toIndentedString(props)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
@@ -660,7 +686,7 @@ public class EffectRollbackDeductedLoyaltyPoints {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("experimentId", "campaignId", "rulesetId", "ruleIndex", "ruleName", "effectType", "triggeredByCoupon", "triggeredForCatalogItem", "conditionIndex", "evaluationGroupID", "evaluationGroupMode", "campaignRevisionId", "campaignRevisionVersionId", "selectedPriceType", "selectedPrice", "adjustmentReferenceId", "rewardId", "props"));
+    openapiFields = new HashSet<String>(Arrays.asList("experimentId", "campaignId", "rulesetId", "ruleIndex", "ruleName", "effectType", "triggeredByCoupon", "triggeredForCatalogItem", "conditionIndex", "evaluationGroupID", "evaluationGroupMode", "campaignRevisionId", "campaignRevisionVersionId", "selectedPriceType", "selectedPrice", "adjustmentReferenceId", "rewardId", "rewardIntegrationId", "props"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("campaignId", "rulesetId", "ruleIndex", "ruleName", "effectType", "props"));
@@ -702,6 +728,9 @@ public class EffectRollbackDeductedLoyaltyPoints {
       }
       if ((jsonObj.get("adjustmentReferenceId") != null && !jsonObj.get("adjustmentReferenceId").isJsonNull()) && !jsonObj.get("adjustmentReferenceId").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `adjustmentReferenceId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("adjustmentReferenceId").toString()));
+      }
+      if ((jsonObj.get("rewardIntegrationId") != null && !jsonObj.get("rewardIntegrationId").isJsonNull()) && !jsonObj.get("rewardIntegrationId").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `rewardIntegrationId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("rewardIntegrationId").toString()));
       }
       // validate the required field `props`
       RollbackDeductedLoyaltyPointsEffectProps.validateJsonElement(jsonObj.get("props"));

@@ -212,7 +212,7 @@ public class NewPriceAdjustment {
   }
 
   /**
-   * Identifier of the context of this price adjustment (e.g. summer sale).
+   * Identifier of the context of this price adjustment (the sales event, e.g. \&quot;Summer Sale\&quot;).
    * @return contextId
    */
   @javax.annotation.Nullable

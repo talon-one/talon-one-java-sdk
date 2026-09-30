@@ -67,6 +67,14 @@ public class ExperimentTest {
     }
 
     /**
+     * Test the property 'assignmentType'
+     */
+    @Test
+    public void assignmentTypeTest() {
+        // TODO: test assignmentType
+    }
+
+    /**
      * Test the property 'isVariantAssignmentExternal'
      */
     @Test

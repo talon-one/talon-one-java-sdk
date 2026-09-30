@@ -129,6 +129,68 @@ public class Tier {
   @javax.annotation.Nullable
   private DowngradePolicyEnum downgradePolicy;
 
+  /**
+   * Indicates whether the customer&#39;s current tier was determined based on their points balance or a temporary boost.  - &#x60;points&#x60;: The tier reflects the customer&#39;s current point balance. - &#x60;boost&#x60;: A temporary tier boost is in effect where the customer is in a higher tier than their points-based tier. The boost expires after a set duration and the customer returns to their points-based tier. 
+   */
+  @JsonAdapter(SourceEnum.Adapter.class)
+  public enum SourceEnum {
+    BOOST("boost"),
+    
+    POINTS("points");
+
+    private String value;
+
+    SourceEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static SourceEnum fromValue(String value) {
+      for (SourceEnum b : SourceEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    }
+
+    public static class Adapter extends TypeAdapter<SourceEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final SourceEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public SourceEnum read(final JsonReader jsonReader) throws IOException {
+        String value =  jsonReader.nextString();
+        return SourceEnum.fromValue(value);
+      }
+    }
+
+    public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      String value = jsonElement.getAsString();
+      SourceEnum.fromValue(value);
+    }
+  }
+
+  public static final String SERIALIZED_NAME_SOURCE = "source";
+  @SerializedName(SERIALIZED_NAME_SOURCE)
+  @javax.annotation.Nullable
+  private SourceEnum source = SourceEnum.POINTS;
+
+  public static final String SERIALIZED_NAME_REASON = "reason";
+  @SerializedName(SERIALIZED_NAME_REASON)
+  @javax.annotation.Nullable
+  private String reason;
+
   public Tier() {
   }
 
@@ -226,6 +288,44 @@ public class Tier {
     this.downgradePolicy = downgradePolicy;
   }
 
+
+  public Tier source(@javax.annotation.Nullable SourceEnum source) {
+    this.source = source;
+    return this;
+  }
+
+  /**
+   * Indicates whether the customer&#39;s current tier was determined based on their points balance or a temporary boost.  - &#x60;points&#x60;: The tier reflects the customer&#39;s current point balance. - &#x60;boost&#x60;: A temporary tier boost is in effect where the customer is in a higher tier than their points-based tier. The boost expires after a set duration and the customer returns to their points-based tier. 
+   * @return source
+   */
+  @javax.annotation.Nullable
+  public SourceEnum getSource() {
+    return source;
+  }
+
+  public void setSource(@javax.annotation.Nullable SourceEnum source) {
+    this.source = source;
+  }
+
+
+  public Tier reason(@javax.annotation.Nullable String reason) {
+    this.reason = reason;
+    return this;
+  }
+
+  /**
+   * The reason for the tier assignment. 
+   * @return reason
+   */
+  @javax.annotation.Nullable
+  public String getReason() {
+    return reason;
+  }
+
+  public void setReason(@javax.annotation.Nullable String reason) {
+    this.reason = reason;
+  }
+
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -285,13 +385,15 @@ public class Tier {
         Objects.equals(this.name, tier.name) &&
         Objects.equals(this.startDate, tier.startDate) &&
         Objects.equals(this.expiryDate, tier.expiryDate) &&
-        Objects.equals(this.downgradePolicy, tier.downgradePolicy)&&
+        Objects.equals(this.downgradePolicy, tier.downgradePolicy) &&
+        Objects.equals(this.source, tier.source) &&
+        Objects.equals(this.reason, tier.reason)&&
         Objects.equals(this.additionalProperties, tier.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, name, startDate, expiryDate, downgradePolicy, additionalProperties);
+    return Objects.hash(id, name, startDate, expiryDate, downgradePolicy, source, reason, additionalProperties);
   }
 
   @Override
@@ -303,6 +405,8 @@ public class Tier {
     sb.append("    startDate: ").append(toIndentedString(startDate)).append("\n");
     sb.append("    expiryDate: ").append(toIndentedString(expiryDate)).append("\n");
     sb.append("    downgradePolicy: ").append(toIndentedString(downgradePolicy)).append("\n");
+    sb.append("    source: ").append(toIndentedString(source)).append("\n");
+    sb.append("    reason: ").append(toIndentedString(reason)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -322,7 +426,7 @@ public class Tier {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("id", "name", "startDate", "expiryDate", "downgradePolicy"));
+    openapiFields = new HashSet<String>(Arrays.asList("id", "name", "startDate", "expiryDate", "downgradePolicy", "source", "reason"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("id", "name"));
@@ -357,6 +461,16 @@ public class Tier {
       // validate the optional field `downgradePolicy`
       if (jsonObj.get("downgradePolicy") != null && !jsonObj.get("downgradePolicy").isJsonNull()) {
         DowngradePolicyEnum.validateJsonElement(jsonObj.get("downgradePolicy"));
+      }
+      if ((jsonObj.get("source") != null && !jsonObj.get("source").isJsonNull()) && !jsonObj.get("source").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `source` to be a primitive type in the JSON string but got `%s`", jsonObj.get("source").toString()));
+      }
+      // validate the optional field `source`
+      if (jsonObj.get("source") != null && !jsonObj.get("source").isJsonNull()) {
+        SourceEnum.validateJsonElement(jsonObj.get("source"));
+      }
+      if ((jsonObj.get("reason") != null && !jsonObj.get("reason").isJsonNull()) && !jsonObj.get("reason").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `reason` to be a primitive type in the JSON string but got `%s`", jsonObj.get("reason").toString()));
       }
   }
 
