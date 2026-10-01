@@ -79,61 +79,6 @@ public class EffectRedeemReferral {
   @javax.annotation.Nonnull
   private String ruleName;
 
-  /**
-   * An effect discriminator of type &#x60;redeemReferral&#x60;.
-   */
-  @JsonAdapter(EffectTypeEnum.Adapter.class)
-  public enum EffectTypeEnum {
-    REDEEM_REFERRAL("redeemReferral");
-
-    private String value;
-
-    EffectTypeEnum(String value) {
-      this.value = value;
-    }
-
-    public String getValue() {
-      return value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-
-    public static EffectTypeEnum fromValue(String value) {
-      for (EffectTypeEnum b : EffectTypeEnum.values()) {
-        if (b.value.equals(value)) {
-          return b;
-        }
-      }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
-    }
-
-    public static class Adapter extends TypeAdapter<EffectTypeEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final EffectTypeEnum enumeration) throws IOException {
-        jsonWriter.value(enumeration.getValue());
-      }
-
-      @Override
-      public EffectTypeEnum read(final JsonReader jsonReader) throws IOException {
-        String value =  jsonReader.nextString();
-        return EffectTypeEnum.fromValue(value);
-      }
-    }
-
-    public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-      String value = jsonElement.getAsString();
-      EffectTypeEnum.fromValue(value);
-    }
-  }
-
-  public static final String SERIALIZED_NAME_EFFECT_TYPE = "effectType";
-  @SerializedName(SERIALIZED_NAME_EFFECT_TYPE)
-  @javax.annotation.Nonnull
-  private EffectTypeEnum effectType;
-
   public static final String SERIALIZED_NAME_TRIGGERED_BY_COUPON = "triggeredByCoupon";
   @SerializedName(SERIALIZED_NAME_TRIGGERED_BY_COUPON)
   @javax.annotation.Nullable
@@ -193,6 +138,61 @@ public class EffectRedeemReferral {
   @SerializedName(SERIALIZED_NAME_REWARD_INTEGRATION_ID)
   @javax.annotation.Nullable
   private String rewardIntegrationId;
+
+  /**
+   * An effect discriminator of type &#x60;redeemReferral&#x60;.
+   */
+  @JsonAdapter(EffectTypeEnum.Adapter.class)
+  public enum EffectTypeEnum {
+    REDEEM_REFERRAL("redeemReferral");
+
+    private String value;
+
+    EffectTypeEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static EffectTypeEnum fromValue(String value) {
+      for (EffectTypeEnum b : EffectTypeEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    }
+
+    public static class Adapter extends TypeAdapter<EffectTypeEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final EffectTypeEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public EffectTypeEnum read(final JsonReader jsonReader) throws IOException {
+        String value =  jsonReader.nextString();
+        return EffectTypeEnum.fromValue(value);
+      }
+    }
+
+    public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      String value = jsonElement.getAsString();
+      EffectTypeEnum.fromValue(value);
+    }
+  }
+
+  public static final String SERIALIZED_NAME_EFFECT_TYPE = "effectType";
+  @SerializedName(SERIALIZED_NAME_EFFECT_TYPE)
+  @javax.annotation.Nonnull
+  private EffectTypeEnum effectType;
 
   public static final String SERIALIZED_NAME_PROPS = "props";
   @Deprecated
@@ -295,25 +295,6 @@ public class EffectRedeemReferral {
 
   public void setRuleName(@javax.annotation.Nonnull String ruleName) {
     this.ruleName = ruleName;
-  }
-
-
-  public EffectRedeemReferral effectType(@javax.annotation.Nonnull EffectTypeEnum effectType) {
-    this.effectType = effectType;
-    return this;
-  }
-
-  /**
-   * An effect discriminator of type &#x60;redeemReferral&#x60;.
-   * @return effectType
-   */
-  @javax.annotation.Nonnull
-  public EffectTypeEnum getEffectType() {
-    return effectType;
-  }
-
-  public void setEffectType(@javax.annotation.Nonnull EffectTypeEnum effectType) {
-    this.effectType = effectType;
   }
 
 
@@ -545,6 +526,25 @@ public class EffectRedeemReferral {
   }
 
 
+  public EffectRedeemReferral effectType(@javax.annotation.Nonnull EffectTypeEnum effectType) {
+    this.effectType = effectType;
+    return this;
+  }
+
+  /**
+   * An effect discriminator of type &#x60;redeemReferral&#x60;.
+   * @return effectType
+   */
+  @javax.annotation.Nonnull
+  public EffectTypeEnum getEffectType() {
+    return effectType;
+  }
+
+  public void setEffectType(@javax.annotation.Nonnull EffectTypeEnum effectType) {
+    this.effectType = effectType;
+  }
+
+
   @Deprecated
   public EffectRedeemReferral props(@javax.annotation.Nonnull RedeemReferralEffectProps props) {
     this.props = props;
@@ -552,7 +552,7 @@ public class EffectRedeemReferral {
   }
 
   /**
-   * The properties of the &#x60;redeemReferral&#x60; effect.
+   * Get props
    * @return props
    * @deprecated
    */
@@ -627,7 +627,6 @@ public class EffectRedeemReferral {
         Objects.equals(this.rulesetId, effectRedeemReferral.rulesetId) &&
         Objects.equals(this.ruleIndex, effectRedeemReferral.ruleIndex) &&
         Objects.equals(this.ruleName, effectRedeemReferral.ruleName) &&
-        Objects.equals(this.effectType, effectRedeemReferral.effectType) &&
         Objects.equals(this.triggeredByCoupon, effectRedeemReferral.triggeredByCoupon) &&
         Objects.equals(this.triggeredForCatalogItem, effectRedeemReferral.triggeredForCatalogItem) &&
         Objects.equals(this.conditionIndex, effectRedeemReferral.conditionIndex) &&
@@ -640,13 +639,14 @@ public class EffectRedeemReferral {
         Objects.equals(this.adjustmentReferenceId, effectRedeemReferral.adjustmentReferenceId) &&
         Objects.equals(this.rewardId, effectRedeemReferral.rewardId) &&
         Objects.equals(this.rewardIntegrationId, effectRedeemReferral.rewardIntegrationId) &&
+        Objects.equals(this.effectType, effectRedeemReferral.effectType) &&
         Objects.equals(this.props, effectRedeemReferral.props)&&
         Objects.equals(this.additionalProperties, effectRedeemReferral.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(experimentId, campaignId, rulesetId, ruleIndex, ruleName, effectType, triggeredByCoupon, triggeredForCatalogItem, conditionIndex, evaluationGroupID, evaluationGroupMode, campaignRevisionId, campaignRevisionVersionId, selectedPriceType, selectedPrice, adjustmentReferenceId, rewardId, rewardIntegrationId, props, additionalProperties);
+    return Objects.hash(experimentId, campaignId, rulesetId, ruleIndex, ruleName, triggeredByCoupon, triggeredForCatalogItem, conditionIndex, evaluationGroupID, evaluationGroupMode, campaignRevisionId, campaignRevisionVersionId, selectedPriceType, selectedPrice, adjustmentReferenceId, rewardId, rewardIntegrationId, effectType, props, additionalProperties);
   }
 
   @Override
@@ -658,7 +658,6 @@ public class EffectRedeemReferral {
     sb.append("    rulesetId: ").append(toIndentedString(rulesetId)).append("\n");
     sb.append("    ruleIndex: ").append(toIndentedString(ruleIndex)).append("\n");
     sb.append("    ruleName: ").append(toIndentedString(ruleName)).append("\n");
-    sb.append("    effectType: ").append(toIndentedString(effectType)).append("\n");
     sb.append("    triggeredByCoupon: ").append(toIndentedString(triggeredByCoupon)).append("\n");
     sb.append("    triggeredForCatalogItem: ").append(toIndentedString(triggeredForCatalogItem)).append("\n");
     sb.append("    conditionIndex: ").append(toIndentedString(conditionIndex)).append("\n");
@@ -671,6 +670,7 @@ public class EffectRedeemReferral {
     sb.append("    adjustmentReferenceId: ").append(toIndentedString(adjustmentReferenceId)).append("\n");
     sb.append("    rewardId: ").append(toIndentedString(rewardId)).append("\n");
     sb.append("    rewardIntegrationId: ").append(toIndentedString(rewardIntegrationId)).append("\n");
+    sb.append("    effectType: ").append(toIndentedString(effectType)).append("\n");
     sb.append("    props: ").append(toIndentedString(props)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
@@ -691,7 +691,7 @@ public class EffectRedeemReferral {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("experimentId", "campaignId", "rulesetId", "ruleIndex", "ruleName", "effectType", "triggeredByCoupon", "triggeredForCatalogItem", "conditionIndex", "evaluationGroupID", "evaluationGroupMode", "campaignRevisionId", "campaignRevisionVersionId", "selectedPriceType", "selectedPrice", "adjustmentReferenceId", "rewardId", "rewardIntegrationId", "props"));
+    openapiFields = new HashSet<String>(Arrays.asList("experimentId", "campaignId", "rulesetId", "ruleIndex", "ruleName", "triggeredByCoupon", "triggeredForCatalogItem", "conditionIndex", "evaluationGroupID", "evaluationGroupMode", "campaignRevisionId", "campaignRevisionVersionId", "selectedPriceType", "selectedPrice", "adjustmentReferenceId", "rewardId", "rewardIntegrationId", "effectType", "props"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("campaignId", "rulesetId", "ruleIndex", "ruleName", "effectType", "props"));
@@ -720,11 +720,6 @@ public class EffectRedeemReferral {
       if (!jsonObj.get("ruleName").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `ruleName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("ruleName").toString()));
       }
-      if (!jsonObj.get("effectType").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `effectType` to be a primitive type in the JSON string but got `%s`", jsonObj.get("effectType").toString()));
-      }
-      // validate the required field `effectType`
-      EffectTypeEnum.validateJsonElement(jsonObj.get("effectType"));
       if ((jsonObj.get("evaluationGroupMode") != null && !jsonObj.get("evaluationGroupMode").isJsonNull()) && !jsonObj.get("evaluationGroupMode").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `evaluationGroupMode` to be a primitive type in the JSON string but got `%s`", jsonObj.get("evaluationGroupMode").toString()));
       }
@@ -737,6 +732,11 @@ public class EffectRedeemReferral {
       if ((jsonObj.get("rewardIntegrationId") != null && !jsonObj.get("rewardIntegrationId").isJsonNull()) && !jsonObj.get("rewardIntegrationId").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `rewardIntegrationId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("rewardIntegrationId").toString()));
       }
+      if (!jsonObj.get("effectType").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `effectType` to be a primitive type in the JSON string but got `%s`", jsonObj.get("effectType").toString()));
+      }
+      // validate the required field `effectType`
+      EffectTypeEnum.validateJsonElement(jsonObj.get("effectType"));
       // validate the required field `props`
       RedeemReferralEffectProps.validateJsonElement(jsonObj.get("props"));
   }

@@ -81,14 +81,6 @@ public class EffectSetDiscountPerAdditionalCostTest {
     }
 
     /**
-     * Test the property 'effectType'
-     */
-    @Test
-    public void effectTypeTest() {
-        // TODO: test effectType
-    }
-
-    /**
      * Test the property 'triggeredByCoupon'
      */
     @Test
@@ -182,6 +174,14 @@ public class EffectSetDiscountPerAdditionalCostTest {
     @Test
     public void rewardIntegrationIdTest() {
         // TODO: test rewardIntegrationId
+    }
+
+    /**
+     * Test the property 'effectType'
+     */
+    @Test
+    public void effectTypeTest() {
+        // TODO: test effectType
     }
 
     /**

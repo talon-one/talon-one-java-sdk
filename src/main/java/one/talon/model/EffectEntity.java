@@ -78,11 +78,6 @@ public class EffectEntity {
   @javax.annotation.Nonnull
   private String ruleName;
 
-  public static final String SERIALIZED_NAME_EFFECT_TYPE = "effectType";
-  @SerializedName(SERIALIZED_NAME_EFFECT_TYPE)
-  @javax.annotation.Nonnull
-  private String effectType;
-
   public static final String SERIALIZED_NAME_TRIGGERED_BY_COUPON = "triggeredByCoupon";
   @SerializedName(SERIALIZED_NAME_TRIGGERED_BY_COUPON)
   @javax.annotation.Nullable
@@ -238,25 +233,6 @@ public class EffectEntity {
 
   public void setRuleName(@javax.annotation.Nonnull String ruleName) {
     this.ruleName = ruleName;
-  }
-
-
-  public EffectEntity effectType(@javax.annotation.Nonnull String effectType) {
-    this.effectType = effectType;
-    return this;
-  }
-
-  /**
-   * See [API effects](https://docs.talon.one/docs/dev/integration-api/api-effects).
-   * @return effectType
-   */
-  @javax.annotation.Nonnull
-  public String getEffectType() {
-    return effectType;
-  }
-
-  public void setEffectType(@javax.annotation.Nonnull String effectType) {
-    this.effectType = effectType;
   }
 
 
@@ -547,7 +523,6 @@ public class EffectEntity {
         Objects.equals(this.rulesetId, effectEntity.rulesetId) &&
         Objects.equals(this.ruleIndex, effectEntity.ruleIndex) &&
         Objects.equals(this.ruleName, effectEntity.ruleName) &&
-        Objects.equals(this.effectType, effectEntity.effectType) &&
         Objects.equals(this.triggeredByCoupon, effectEntity.triggeredByCoupon) &&
         Objects.equals(this.triggeredForCatalogItem, effectEntity.triggeredForCatalogItem) &&
         Objects.equals(this.conditionIndex, effectEntity.conditionIndex) &&
@@ -565,7 +540,7 @@ public class EffectEntity {
 
   @Override
   public int hashCode() {
-    return Objects.hash(experimentId, campaignId, rulesetId, ruleIndex, ruleName, effectType, triggeredByCoupon, triggeredForCatalogItem, conditionIndex, evaluationGroupID, evaluationGroupMode, campaignRevisionId, campaignRevisionVersionId, selectedPriceType, selectedPrice, adjustmentReferenceId, rewardId, rewardIntegrationId, additionalProperties);
+    return Objects.hash(experimentId, campaignId, rulesetId, ruleIndex, ruleName, triggeredByCoupon, triggeredForCatalogItem, conditionIndex, evaluationGroupID, evaluationGroupMode, campaignRevisionId, campaignRevisionVersionId, selectedPriceType, selectedPrice, adjustmentReferenceId, rewardId, rewardIntegrationId, additionalProperties);
   }
 
   @Override
@@ -577,7 +552,6 @@ public class EffectEntity {
     sb.append("    rulesetId: ").append(toIndentedString(rulesetId)).append("\n");
     sb.append("    ruleIndex: ").append(toIndentedString(ruleIndex)).append("\n");
     sb.append("    ruleName: ").append(toIndentedString(ruleName)).append("\n");
-    sb.append("    effectType: ").append(toIndentedString(effectType)).append("\n");
     sb.append("    triggeredByCoupon: ").append(toIndentedString(triggeredByCoupon)).append("\n");
     sb.append("    triggeredForCatalogItem: ").append(toIndentedString(triggeredForCatalogItem)).append("\n");
     sb.append("    conditionIndex: ").append(toIndentedString(conditionIndex)).append("\n");
@@ -609,10 +583,10 @@ public class EffectEntity {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("experimentId", "campaignId", "rulesetId", "ruleIndex", "ruleName", "effectType", "triggeredByCoupon", "triggeredForCatalogItem", "conditionIndex", "evaluationGroupID", "evaluationGroupMode", "campaignRevisionId", "campaignRevisionVersionId", "selectedPriceType", "selectedPrice", "adjustmentReferenceId", "rewardId", "rewardIntegrationId"));
+    openapiFields = new HashSet<String>(Arrays.asList("experimentId", "campaignId", "rulesetId", "ruleIndex", "ruleName", "triggeredByCoupon", "triggeredForCatalogItem", "conditionIndex", "evaluationGroupID", "evaluationGroupMode", "campaignRevisionId", "campaignRevisionVersionId", "selectedPriceType", "selectedPrice", "adjustmentReferenceId", "rewardId", "rewardIntegrationId"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("campaignId", "rulesetId", "ruleIndex", "ruleName", "effectType"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("campaignId", "rulesetId", "ruleIndex", "ruleName"));
   }
 
   /**
@@ -637,9 +611,6 @@ public class EffectEntity {
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if (!jsonObj.get("ruleName").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `ruleName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("ruleName").toString()));
-      }
-      if (!jsonObj.get("effectType").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `effectType` to be a primitive type in the JSON string but got `%s`", jsonObj.get("effectType").toString()));
       }
       if ((jsonObj.get("evaluationGroupMode") != null && !jsonObj.get("evaluationGroupMode").isJsonNull()) && !jsonObj.get("evaluationGroupMode").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `evaluationGroupMode` to be a primitive type in the JSON string but got `%s`", jsonObj.get("evaluationGroupMode").toString()));

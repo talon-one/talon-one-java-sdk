@@ -16943,10 +16943,6 @@ components:
           description: The name of the rule that triggered this effect.
           example: Give 20% discount
           type: string
-        effectType:
-          description: "See [API effects](https://docs.talon.one/docs/dev/integration-api/api-effects)."
-          example: rejectCoupon
-          type: string
         triggeredByCoupon:
           description: The ID of the coupon that was being evaluated when this effect
             was triggered.
@@ -17016,7 +17012,6 @@ components:
           type: string
       required:
       - campaignId
-      - effectType
       - ruleIndex
       - ruleName
       - rulesetId
@@ -17049,9 +17044,7 @@ components:
             - acceptCoupon
             type: string
           props:
-            allOf:
-            - $ref: "#/components/schemas/AcceptCouponEffectProps"
-            description: The properties of the `acceptCoupon` effect.
+            $ref: "#/components/schemas/AcceptCouponEffectProps"
         required:
         - effectType
         - props
@@ -17062,7 +17055,6 @@ components:
         rulesetId: 73
         ruleIndex: 2
         ruleName: Give 20% discount
-        effectType: acceptCoupon
         triggeredByCoupon: 4928
         triggeredForCatalogItem: 786
         conditionIndex: 786
@@ -17075,7 +17067,9 @@ components:
         adjustmentReferenceId: 68851723-e6fa-488f-ace9-112581e6c19b
         rewardId: 7
         rewardIntegrationId: reward-unlock-123
-        props: ""
+        effectType: acceptCoupon
+        props:
+          value: COUP-XYZ789
     AcceptReferralEffectProps:
       description: |-
         This effect indicates that the referral code supplied is valid.
@@ -17105,9 +17099,7 @@ components:
             - acceptReferral
             type: string
           props:
-            allOf:
-            - $ref: "#/components/schemas/AcceptReferralEffectProps"
-            description: The properties of the `acceptReferral` effect.
+            $ref: "#/components/schemas/AcceptReferralEffectProps"
         required:
         - effectType
         - props
@@ -17148,9 +17140,7 @@ components:
             - addFreeItem
             type: string
           props:
-            allOf:
-            - $ref: "#/components/schemas/AddFreeItemEffectProps"
-            description: The properties of the `addFreeItem` effect.
+            $ref: "#/components/schemas/AddFreeItemEffectProps"
         required:
         - effectType
         - props
@@ -17280,9 +17270,7 @@ components:
             - addLoyaltyPoints
             type: string
           props:
-            allOf:
-            - $ref: "#/components/schemas/AddLoyaltyPointsEffectProps"
-            description: The properties of the `addLoyaltyPoints` effect.
+            $ref: "#/components/schemas/AddLoyaltyPointsEffectProps"
         required:
         - effectType
         - props
@@ -17343,9 +17331,7 @@ components:
             - addToAudience
             type: string
           props:
-            allOf:
-            - $ref: "#/components/schemas/AddToAudienceEffectProps"
-            description: The properties of the `addToAudience` effect.
+            $ref: "#/components/schemas/AddToAudienceEffectProps"
         required:
         - effectType
         - props
@@ -17401,9 +17387,7 @@ components:
             - awardGiveaway
             type: string
           props:
-            allOf:
-            - $ref: "#/components/schemas/AwardGiveawayEffectProps"
-            description: The properties of the `awardGiveaway` effect.
+            $ref: "#/components/schemas/AwardGiveawayEffectProps"
         required:
         - effectType
         - props
@@ -17452,9 +17436,7 @@ components:
             - boostLoyaltyTier
             type: string
           props:
-            allOf:
-            - $ref: "#/components/schemas/BoostLoyaltyTierEffectProps"
-            description: The properties of the `boostLoyaltyTier` effect.
+            $ref: "#/components/schemas/BoostLoyaltyTierEffectProps"
         required:
         - effectType
         - props
@@ -17488,9 +17470,7 @@ components:
             - callApi
             type: string
           props:
-            allOf:
-            - $ref: "#/components/schemas/TriggerWebhookEffectProps"
-            description: The properties of the `callApi` effect.
+            $ref: "#/components/schemas/TriggerWebhookEffectProps"
         required:
         - effectType
         - props
@@ -17547,9 +17527,7 @@ components:
             - changeLoyaltyTierLevel
             type: string
           props:
-            allOf:
-            - $ref: "#/components/schemas/ChangeLoyaltyTierLevelEffectProps"
-            description: The properties of the `changeLoyaltyTierLevel` effect.
+            $ref: "#/components/schemas/ChangeLoyaltyTierLevelEffectProps"
         required:
         - effectType
         - props
@@ -17587,9 +17565,7 @@ components:
             - couponCreated
             type: string
           props:
-            allOf:
-            - $ref: "#/components/schemas/CouponCreatedEffectProps"
-            description: The properties of the `couponCreated` effect.
+            $ref: "#/components/schemas/CouponCreatedEffectProps"
         required:
         - effectType
         - props
@@ -17660,9 +17636,7 @@ components:
             - customEffect
             type: string
           props:
-            allOf:
-            - $ref: "#/components/schemas/CustomEffectProps"
-            description: The properties of the `customEffect` effect.
+            $ref: "#/components/schemas/CustomEffectProps"
         required:
         - effectType
         - props
@@ -17735,9 +17709,7 @@ components:
             - deductLoyaltyPoints
             type: string
           props:
-            allOf:
-            - $ref: "#/components/schemas/DeductLoyaltyPointsEffectProps"
-            description: The properties of the `deductLoyaltyPoints` effect.
+            $ref: "#/components/schemas/DeductLoyaltyPointsEffectProps"
         required:
         - effectType
         - props
@@ -17765,9 +17737,7 @@ components:
             - error
             type: string
           props:
-            allOf:
-            - $ref: "#/components/schemas/ErrorEffectProps"
-            description: The properties of the `error` effect.
+            $ref: "#/components/schemas/ErrorEffectProps"
         required:
         - effectType
         - props
@@ -17859,9 +17829,7 @@ components:
             - extendLoyaltyPointsExpiryDate
             type: string
           props:
-            allOf:
-            - $ref: "#/components/schemas/ExtendLoyaltyPointsExpiryDateEffectProps"
-            description: The properties of the `extendLoyaltyPointsExpiryDate` effect.
+            $ref: "#/components/schemas/ExtendLoyaltyPointsExpiryDateEffectProps"
         required:
         - effectType
         - props
@@ -17929,9 +17897,7 @@ components:
             - increaseAchievementProgress
             type: string
           props:
-            allOf:
-            - $ref: "#/components/schemas/IncreaseAchievementProgressEffectProps"
-            description: The properties of the `increaseAchievementProgress` effect.
+            $ref: "#/components/schemas/IncreaseAchievementProgressEffectProps"
         required:
         - effectType
         - props
@@ -17975,9 +17941,7 @@ components:
             - joinLoyaltyProgram
             type: string
           props:
-            allOf:
-            - $ref: "#/components/schemas/JoinLoyaltyProgramEffectProps"
-            description: The properties of the `joinLoyaltyProgram` effect.
+            $ref: "#/components/schemas/JoinLoyaltyProgramEffectProps"
         required:
         - effectType
         - props
@@ -18027,9 +17991,7 @@ components:
             - redeemReferral
             type: string
           props:
-            allOf:
-            - $ref: "#/components/schemas/RedeemReferralEffectProps"
-            description: The properties of the `redeemReferral` effect.
+            $ref: "#/components/schemas/RedeemReferralEffectProps"
         required:
         - effectType
         - props
@@ -18058,9 +18020,7 @@ components:
             - referralCreated
             type: string
           props:
-            allOf:
-            - $ref: "#/components/schemas/ReferralCreatedEffectProps"
-            description: The properties of the `referralCreated` effect.
+            $ref: "#/components/schemas/ReferralCreatedEffectProps"
         required:
         - effectType
         - props
@@ -18136,9 +18096,7 @@ components:
             - rejectCoupon
             type: string
           props:
-            allOf:
-            - $ref: "#/components/schemas/RejectCouponEffectProps"
-            description: The properties of the `rejectCoupon` effect.
+            $ref: "#/components/schemas/RejectCouponEffectProps"
         required:
         - effectType
         - props
@@ -18212,9 +18170,7 @@ components:
             - rejectReferral
             type: string
           props:
-            allOf:
-            - $ref: "#/components/schemas/RejectReferralEffectProps"
-            description: The properties of the `rejectReferral` effect.
+            $ref: "#/components/schemas/RejectReferralEffectProps"
         required:
         - effectType
         - props
@@ -18262,9 +18218,7 @@ components:
             - removeFromAudience
             type: string
           props:
-            allOf:
-            - $ref: "#/components/schemas/RemoveFromAudienceEffectProps"
-            description: The properties of the `removeFromAudience` effect.
+            $ref: "#/components/schemas/RemoveFromAudienceEffectProps"
         required:
         - effectType
         - props
@@ -18305,9 +18259,7 @@ components:
             - reserveCoupon
             type: string
           props:
-            allOf:
-            - $ref: "#/components/schemas/ReserveCouponEffectProps"
-            description: The properties of the `reserveCoupon` effect.
+            $ref: "#/components/schemas/ReserveCouponEffectProps"
         required:
         - effectType
         - props
@@ -18386,9 +18338,7 @@ components:
             - rollbackAddedLoyaltyPoints
             type: string
           props:
-            allOf:
-            - $ref: "#/components/schemas/RollbackAddedLoyaltyPointsEffectProps"
-            description: The properties of the `rollbackAddedLoyaltyPoints` effect.
+            $ref: "#/components/schemas/RollbackAddedLoyaltyPointsEffectProps"
         required:
         - effectType
         - props
@@ -18418,9 +18368,7 @@ components:
             - rollbackCoupon
             type: string
           props:
-            allOf:
-            - $ref: "#/components/schemas/RollbackCouponEffectProps"
-            description: The properties of the `rollbackCoupon` effect.
+            $ref: "#/components/schemas/RollbackCouponEffectProps"
         required:
         - effectType
         - props
@@ -18499,9 +18447,7 @@ components:
             - rollbackDeductedLoyaltyPoints
             type: string
           props:
-            allOf:
-            - $ref: "#/components/schemas/RollbackDeductedLoyaltyPointsEffectProps"
-            description: The properties of the `rollbackDeductedLoyaltyPoints` effect.
+            $ref: "#/components/schemas/RollbackDeductedLoyaltyPointsEffectProps"
         required:
         - effectType
         - props
@@ -18567,9 +18513,7 @@ components:
             - rollbackDiscount
             type: string
           props:
-            allOf:
-            - $ref: "#/components/schemas/RollbackDiscountEffectProps"
-            description: The properties of the `rollbackDiscount` effect.
+            $ref: "#/components/schemas/RollbackDiscountEffectProps"
         required:
         - effectType
         - props
@@ -18632,10 +18576,7 @@ components:
             - rollbackIncreasedAchievementProgress
             type: string
           props:
-            allOf:
-            - $ref: "#/components/schemas/RollbackIncreasedAchievementProgressEffectProps"
-            description: The properties of the `rollbackIncreasedAchievementProgress`
-              effect.
+            $ref: "#/components/schemas/RollbackIncreasedAchievementProgressEffectProps"
         required:
         - effectType
         - props
@@ -18665,9 +18606,7 @@ components:
             - rollbackReferral
             type: string
           props:
-            allOf:
-            - $ref: "#/components/schemas/RollbackReferralEffectProps"
-            description: The properties of the `rollbackReferral` effect.
+            $ref: "#/components/schemas/RollbackReferralEffectProps"
         required:
         - effectType
         - props
@@ -18707,9 +18646,7 @@ components:
             - rollbackUseReward
             type: string
           props:
-            allOf:
-            - $ref: "#/components/schemas/RollbackUseRewardEffectProps"
-            description: The properties of the `rollbackUseReward` effect.
+            $ref: "#/components/schemas/RollbackUseRewardEffectProps"
         required:
         - effectType
         - props
@@ -18744,9 +18681,7 @@ components:
             - set
             type: string
           props:
-            allOf:
-            - $ref: "#/components/schemas/UpdateAttributeEffectProps"
-            description: The properties of the `set` effect.
+            $ref: "#/components/schemas/UpdateAttributeEffectProps"
         required:
         - effectType
         - props
@@ -18799,9 +18734,7 @@ components:
             - setDiscount
             type: string
           props:
-            allOf:
-            - $ref: "#/components/schemas/SetDiscountEffectProps"
-            description: The properties of the `setDiscount` effect.
+            $ref: "#/components/schemas/SetDiscountEffectProps"
         required:
         - effectType
         - props
@@ -18853,9 +18786,7 @@ components:
             - setDiscountPerAdditionalCost
             type: string
           props:
-            allOf:
-            - $ref: "#/components/schemas/SetDiscountPerAdditionalCostEffectProps"
-            description: The properties of the `setDiscountPerAdditionalCost` effect.
+            $ref: "#/components/schemas/SetDiscountPerAdditionalCostEffectProps"
         required:
         - effectType
         - props
@@ -18920,10 +18851,7 @@ components:
             - setDiscountPerAdditionalCostPerItem
             type: string
           props:
-            allOf:
-            - $ref: "#/components/schemas/SetDiscountPerAdditionalCostPerItemEffectProps"
-            description: The properties of the `setDiscountPerAdditionalCostPerItem`
-              effect.
+            $ref: "#/components/schemas/SetDiscountPerAdditionalCostPerItemEffectProps"
         required:
         - effectType
         - props
@@ -19026,9 +18954,7 @@ components:
             - setDiscountPerItem
             type: string
           props:
-            allOf:
-            - $ref: "#/components/schemas/SetDiscountPerItemEffectProps"
-            description: The properties of the `setDiscountPerItem` effect.
+            $ref: "#/components/schemas/SetDiscountPerItemEffectProps"
         required:
         - effectType
         - props
@@ -19079,9 +19005,7 @@ components:
             - setLoyaltyPointsExpiryDate
             type: string
           props:
-            allOf:
-            - $ref: "#/components/schemas/SetLoyaltyPointsExpiryDateEffectProps"
-            description: The properties of the `setLoyaltyPointsExpiryDate` effect.
+            $ref: "#/components/schemas/SetLoyaltyPointsExpiryDateEffectProps"
         required:
         - effectType
         - props
@@ -19137,9 +19061,7 @@ components:
             - showBundleMetadata
             type: string
           props:
-            allOf:
-            - $ref: "#/components/schemas/ShowBundleMetadataEffectProps"
-            description: The properties of the `showBundleMetadata` effect.
+            $ref: "#/components/schemas/ShowBundleMetadataEffectProps"
         required:
         - effectType
         - props
@@ -19186,9 +19108,7 @@ components:
             - showNotification
             type: string
           props:
-            allOf:
-            - $ref: "#/components/schemas/ShowNotificationEffectProps"
-            description: The properties of the `showNotification` effect.
+            $ref: "#/components/schemas/ShowNotificationEffectProps"
         required:
         - effectType
         - props
@@ -19289,9 +19209,7 @@ components:
             - startAchievementProgress
             type: string
           props:
-            allOf:
-            - $ref: "#/components/schemas/StartAchievementProgressEffectProps"
-            description: The properties of the `startAchievementProgress` effect.
+            $ref: "#/components/schemas/StartAchievementProgressEffectProps"
         required:
         - effectType
         - props
@@ -19350,9 +19268,7 @@ components:
             - unlockReward
             type: string
           props:
-            allOf:
-            - $ref: "#/components/schemas/UnlockRewardEffectProps"
-            description: The properties of the `unlockReward` effect.
+            $ref: "#/components/schemas/UnlockRewardEffectProps"
         required:
         - effectType
         - props
@@ -19391,9 +19307,7 @@ components:
             - useReward
             type: string
           props:
-            allOf:
-            - $ref: "#/components/schemas/UseRewardEffectProps"
-            description: The properties of the `useReward` effect.
+            $ref: "#/components/schemas/UseRewardEffectProps"
         required:
         - effectType
         - props
@@ -19439,9 +19353,7 @@ components:
             - willAwardGiveaway
             type: string
           props:
-            allOf:
-            - $ref: "#/components/schemas/WillAwardGiveawayEffectProps"
-            description: The properties of the `willAwardGiveaway` effect.
+            $ref: "#/components/schemas/WillAwardGiveawayEffectProps"
         required:
         - effectType
         - props
@@ -19649,7 +19561,6 @@ components:
           rulesetId: 73
           ruleIndex: 2
           ruleName: Give 20% discount
-          effectType: acceptCoupon
           triggeredByCoupon: 4928
           triggeredForCatalogItem: 786
           conditionIndex: 786
@@ -19662,13 +19573,14 @@ components:
           adjustmentReferenceId: 68851723-e6fa-488f-ace9-112581e6c19b
           rewardId: 7
           rewardIntegrationId: reward-unlock-123
-          props: ""
+          effectType: acceptCoupon
+          props:
+            value: COUP-XYZ789
         - experimentId: 12
           campaignId: 244
           rulesetId: 73
           ruleIndex: 2
           ruleName: Give 20% discount
-          effectType: acceptCoupon
           triggeredByCoupon: 4928
           triggeredForCatalogItem: 786
           conditionIndex: 786
@@ -19681,7 +19593,9 @@ components:
           adjustmentReferenceId: 68851723-e6fa-488f-ace9-112581e6c19b
           rewardId: 7
           rewardIntegrationId: reward-unlock-123
-          props: ""
+          effectType: acceptCoupon
+          props:
+            value: COUP-XYZ789
       properties:
         customerSession:
           $ref: "#/components/schemas/CustomerSessionV2"
@@ -23274,7 +23188,6 @@ components:
           rulesetId: 73
           ruleIndex: 2
           ruleName: Give 20% discount
-          effectType: acceptCoupon
           triggeredByCoupon: 4928
           triggeredForCatalogItem: 786
           conditionIndex: 786
@@ -23287,13 +23200,14 @@ components:
           adjustmentReferenceId: 68851723-e6fa-488f-ace9-112581e6c19b
           rewardId: 7
           rewardIntegrationId: reward-unlock-123
-          props: ""
+          effectType: acceptCoupon
+          props:
+            value: COUP-XYZ789
         - experimentId: 12
           campaignId: 244
           rulesetId: 73
           ruleIndex: 2
           ruleName: Give 20% discount
-          effectType: acceptCoupon
           triggeredByCoupon: 4928
           triggeredForCatalogItem: 786
           conditionIndex: 786
@@ -23306,7 +23220,9 @@ components:
           adjustmentReferenceId: 68851723-e6fa-488f-ace9-112581e6c19b
           rewardId: 7
           rewardIntegrationId: reward-unlock-123
-          props: ""
+          effectType: acceptCoupon
+          props:
+            value: COUP-XYZ789
         ruleFailureReasons:
         - campaignID: 1
           campaignName: campaignName
@@ -23598,7 +23514,6 @@ components:
           rulesetId: 73
           ruleIndex: 2
           ruleName: Give 20% discount
-          effectType: acceptCoupon
           triggeredByCoupon: 4928
           triggeredForCatalogItem: 786
           conditionIndex: 786
@@ -23611,13 +23526,14 @@ components:
           adjustmentReferenceId: 68851723-e6fa-488f-ace9-112581e6c19b
           rewardId: 7
           rewardIntegrationId: reward-unlock-123
-          props: ""
+          effectType: acceptCoupon
+          props:
+            value: COUP-XYZ789
         - experimentId: 12
           campaignId: 244
           rulesetId: 73
           ruleIndex: 2
           ruleName: Give 20% discount
-          effectType: acceptCoupon
           triggeredByCoupon: 4928
           triggeredForCatalogItem: 786
           conditionIndex: 786
@@ -23630,7 +23546,9 @@ components:
           adjustmentReferenceId: 68851723-e6fa-488f-ace9-112581e6c19b
           rewardId: 7
           rewardIntegrationId: reward-unlock-123
-          props: ""
+          effectType: acceptCoupon
+          props:
+            value: COUP-XYZ789
       properties:
         effects:
           description: "The effects generated by the rules in your running campaigns.\
@@ -24354,7 +24272,6 @@ components:
           rulesetId: 73
           ruleIndex: 2
           ruleName: Give 20% discount
-          effectType: acceptCoupon
           triggeredByCoupon: 4928
           triggeredForCatalogItem: 786
           conditionIndex: 786
@@ -24367,13 +24284,14 @@ components:
           adjustmentReferenceId: 68851723-e6fa-488f-ace9-112581e6c19b
           rewardId: 7
           rewardIntegrationId: reward-unlock-123
-          props: ""
+          effectType: acceptCoupon
+          props:
+            value: COUP-XYZ789
         - experimentId: 12
           campaignId: 244
           rulesetId: 73
           ruleIndex: 2
           ruleName: Give 20% discount
-          effectType: acceptCoupon
           triggeredByCoupon: 4928
           triggeredForCatalogItem: 786
           conditionIndex: 786
@@ -24386,7 +24304,9 @@ components:
           adjustmentReferenceId: 68851723-e6fa-488f-ace9-112581e6c19b
           rewardId: 7
           rewardIntegrationId: reward-unlock-123
-          props: ""
+          effectType: acceptCoupon
+          props:
+            value: COUP-XYZ789
         createdCoupons:
         - id: 6
           created: 2020-06-10T09:05:27.993483Z
@@ -26791,7 +26711,6 @@ components:
           rulesetId: 73
           ruleIndex: 2
           ruleName: Give 20% discount
-          effectType: acceptCoupon
           triggeredByCoupon: 4928
           triggeredForCatalogItem: 786
           conditionIndex: 786
@@ -26804,13 +26723,14 @@ components:
           adjustmentReferenceId: 68851723-e6fa-488f-ace9-112581e6c19b
           rewardId: 7
           rewardIntegrationId: reward-unlock-123
-          props: ""
+          effectType: acceptCoupon
+          props:
+            value: COUP-XYZ789
         - experimentId: 12
           campaignId: 244
           rulesetId: 73
           ruleIndex: 2
           ruleName: Give 20% discount
-          effectType: acceptCoupon
           triggeredByCoupon: 4928
           triggeredForCatalogItem: 786
           conditionIndex: 786
@@ -26823,7 +26743,9 @@ components:
           adjustmentReferenceId: 68851723-e6fa-488f-ace9-112581e6c19b
           rewardId: 7
           rewardIntegrationId: reward-unlock-123
-          props: ""
+          effectType: acceptCoupon
+          props:
+            value: COUP-XYZ789
         ruleFailureReasons:
         - campaignID: 1
           campaignName: campaignName
@@ -39470,7 +39392,6 @@ components:
           rulesetId: 73
           ruleIndex: 2
           ruleName: Give 20% discount
-          effectType: acceptCoupon
           triggeredByCoupon: 4928
           triggeredForCatalogItem: 786
           conditionIndex: 786
@@ -39483,13 +39404,14 @@ components:
           adjustmentReferenceId: 68851723-e6fa-488f-ace9-112581e6c19b
           rewardId: 7
           rewardIntegrationId: reward-unlock-123
-          props: ""
+          effectType: acceptCoupon
+          props:
+            value: COUP-XYZ789
         - experimentId: 12
           campaignId: 244
           rulesetId: 73
           ruleIndex: 2
           ruleName: Give 20% discount
-          effectType: acceptCoupon
           triggeredByCoupon: 4928
           triggeredForCatalogItem: 786
           conditionIndex: 786
@@ -39502,7 +39424,9 @@ components:
           adjustmentReferenceId: 68851723-e6fa-488f-ace9-112581e6c19b
           rewardId: 7
           rewardIntegrationId: reward-unlock-123
-          props: ""
+          effectType: acceptCoupon
+          props:
+            value: COUP-XYZ789
         ruleFailureReasons:
         - campaignID: 1
           campaignName: campaignName
@@ -46414,7 +46338,6 @@ components:
           rulesetId: 73
           ruleIndex: 2
           ruleName: Give 20% discount
-          effectType: acceptCoupon
           triggeredByCoupon: 4928
           triggeredForCatalogItem: 786
           conditionIndex: 786
@@ -46427,13 +46350,14 @@ components:
           adjustmentReferenceId: 68851723-e6fa-488f-ace9-112581e6c19b
           rewardId: 7
           rewardIntegrationId: reward-unlock-123
-          props: ""
+          effectType: acceptCoupon
+          props:
+            value: COUP-XYZ789
         - experimentId: 12
           campaignId: 244
           rulesetId: 73
           ruleIndex: 2
           ruleName: Give 20% discount
-          effectType: acceptCoupon
           triggeredByCoupon: 4928
           triggeredForCatalogItem: 786
           conditionIndex: 786
@@ -46446,7 +46370,9 @@ components:
           adjustmentReferenceId: 68851723-e6fa-488f-ace9-112581e6c19b
           rewardId: 7
           rewardIntegrationId: reward-unlock-123
-          props: ""
+          effectType: acceptCoupon
+          props:
+            value: COUP-XYZ789
       properties:
         customerProfile:
           allOf:
@@ -47040,7 +46966,6 @@ components:
           rulesetId: 73
           ruleIndex: 2
           ruleName: Give 20% discount
-          effectType: acceptCoupon
           triggeredByCoupon: 4928
           triggeredForCatalogItem: 786
           conditionIndex: 786
@@ -47053,13 +46978,14 @@ components:
           adjustmentReferenceId: 68851723-e6fa-488f-ace9-112581e6c19b
           rewardId: 7
           rewardIntegrationId: reward-unlock-123
-          props: ""
+          effectType: acceptCoupon
+          props:
+            value: COUP-XYZ789
         - experimentId: 12
           campaignId: 244
           rulesetId: 73
           ruleIndex: 2
           ruleName: Give 20% discount
-          effectType: acceptCoupon
           triggeredByCoupon: 4928
           triggeredForCatalogItem: 786
           conditionIndex: 786
@@ -47072,7 +46998,9 @@ components:
           adjustmentReferenceId: 68851723-e6fa-488f-ace9-112581e6c19b
           rewardId: 7
           rewardIntegrationId: reward-unlock-123
-          props: ""
+          effectType: acceptCoupon
+          props:
+            value: COUP-XYZ789
         ruleFailureReasons:
         - campaignID: 1
           campaignName: campaignName
@@ -54031,7 +53959,6 @@ components:
             rulesetId: 73
             ruleIndex: 2
             ruleName: Give 20% discount
-            effectType: acceptCoupon
             triggeredByCoupon: 4928
             triggeredForCatalogItem: 786
             conditionIndex: 786
@@ -54044,13 +53971,14 @@ components:
             adjustmentReferenceId: 68851723-e6fa-488f-ace9-112581e6c19b
             rewardId: 7
             rewardIntegrationId: reward-unlock-123
-            props: ""
+            effectType: acceptCoupon
+            props:
+              value: COUP-XYZ789
           - experimentId: 12
             campaignId: 244
             rulesetId: 73
             ruleIndex: 2
             ruleName: Give 20% discount
-            effectType: acceptCoupon
             triggeredByCoupon: 4928
             triggeredForCatalogItem: 786
             conditionIndex: 786
@@ -54063,7 +53991,9 @@ components:
             adjustmentReferenceId: 68851723-e6fa-488f-ace9-112581e6c19b
             rewardId: 7
             rewardIntegrationId: reward-unlock-123
-            props: ""
+            effectType: acceptCoupon
+            props:
+              value: COUP-XYZ789
           ruleFailureReasons:
           - campaignID: 1
             campaignName: campaignName
@@ -54113,7 +54043,6 @@ components:
             rulesetId: 73
             ruleIndex: 2
             ruleName: Give 20% discount
-            effectType: acceptCoupon
             triggeredByCoupon: 4928
             triggeredForCatalogItem: 786
             conditionIndex: 786
@@ -54126,13 +54055,14 @@ components:
             adjustmentReferenceId: 68851723-e6fa-488f-ace9-112581e6c19b
             rewardId: 7
             rewardIntegrationId: reward-unlock-123
-            props: ""
+            effectType: acceptCoupon
+            props:
+              value: COUP-XYZ789
           - experimentId: 12
             campaignId: 244
             rulesetId: 73
             ruleIndex: 2
             ruleName: Give 20% discount
-            effectType: acceptCoupon
             triggeredByCoupon: 4928
             triggeredForCatalogItem: 786
             conditionIndex: 786
@@ -54145,7 +54075,9 @@ components:
             adjustmentReferenceId: 68851723-e6fa-488f-ace9-112581e6c19b
             rewardId: 7
             rewardIntegrationId: reward-unlock-123
-            props: ""
+            effectType: acceptCoupon
+            props:
+              value: COUP-XYZ789
           ruleFailureReasons:
           - campaignID: 1
             campaignName: campaignName
