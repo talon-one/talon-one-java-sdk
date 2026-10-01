@@ -12,7 +12,6 @@
 |**rulesetId** | **Long** | The ID of the ruleset that was active in the campaign when this effect was triggered. |  |
 |**ruleIndex** | **Long** | The position of the rule that triggered this effect within the ruleset. |  |
 |**ruleName** | **String** | The name of the rule that triggered this effect. |  |
-|**effectType** | [**EffectTypeEnum**](#EffectTypeEnum) | An effect discriminator of type &#x60;referralCreated&#x60;. |  |
 |**triggeredByCoupon** | **Long** | The ID of the coupon that was being evaluated when this effect was triggered. |  [optional] |
 |**triggeredForCatalogItem** | **Long** | The ID of the catalog item that was being evaluated when this effect was triggered. |  [optional] |
 |**conditionIndex** | **Long** | The index of the condition that was triggered. |  [optional] |
@@ -25,7 +24,8 @@
 |**adjustmentReferenceId** | **UUID** | The reference identifier of the selected price adjustment for this SKU. This is only returned if the &#x60;selectedPrice&#x60; resulted from a price adjustment. |  [optional] |
 |**rewardId** | **Long** | The ID of the reward that was being evaluated when this effect was triggered. |  [optional] |
 |**rewardIntegrationId** | **String** | The integration ID of the specific customer reward whose usage produced this effect. |  [optional] |
-|**props** | [**ReferralCreatedEffectProps**](ReferralCreatedEffectProps.md) | The properties of the &#x60;referralCreated&#x60; effect. |  |
+|**effectType** | [**EffectTypeEnum**](#EffectTypeEnum) | An effect discriminator of type &#x60;referralCreated&#x60;. |  |
+|**props** | [**ReferralCreatedEffectProps**](ReferralCreatedEffectProps.md) |  |  |
 
 
 
