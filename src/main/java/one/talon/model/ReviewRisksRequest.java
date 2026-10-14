@@ -51,7 +51,7 @@ import one.talon.JSON;
 /**
  * ReviewRisksRequest
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.25.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.26.0")
 public class ReviewRisksRequest {
   public static final String SERIALIZED_NAME_RISK_IDS = "riskIds";
   @SerializedName(SERIALIZED_NAME_RISK_IDS)

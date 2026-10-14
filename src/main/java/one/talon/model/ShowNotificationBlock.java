@@ -54,7 +54,7 @@ import one.talon.JSON;
 /**
  * ShowNotificationBlock
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.25.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.26.0")
 public class ShowNotificationBlock {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -83,13 +83,8 @@ public class ShowNotificationBlock {
 
   public static final String SERIALIZED_NAME_BODY = "body";
   @SerializedName(SERIALIZED_NAME_BODY)
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
   private String body;
-
-  public static final String SERIALIZED_NAME_ON_FAILURE = "onFailure";
-  @SerializedName(SERIALIZED_NAME_ON_FAILURE)
-  @javax.annotation.Nullable
-  private List<Block> onFailure;
 
   public static final String SERIALIZED_NAME_ON_ERROR = "onError";
   @SerializedName(SERIALIZED_NAME_ON_ERROR)
@@ -187,7 +182,7 @@ public class ShowNotificationBlock {
   }
 
 
-  public ShowNotificationBlock body(@javax.annotation.Nullable String body) {
+  public ShowNotificationBlock body(@javax.annotation.Nonnull String body) {
     this.body = body;
     return this;
   }
@@ -196,40 +191,13 @@ public class ShowNotificationBlock {
    * The notification body text. Supports template placeholders (e.g. \&quot;{{$Session.Total}}\&quot;) evaluated at rule execution time.
    * @return body
    */
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
   public String getBody() {
     return body;
   }
 
-  public void setBody(@javax.annotation.Nullable String body) {
+  public void setBody(@javax.annotation.Nonnull String body) {
     this.body = body;
-  }
-
-
-  public ShowNotificationBlock onFailure(@javax.annotation.Nullable List<Block> onFailure) {
-    this.onFailure = onFailure;
-    return this;
-  }
-
-  public ShowNotificationBlock addOnFailureItem(Block onFailureItem) {
-    if (this.onFailure == null) {
-      this.onFailure = new ArrayList<>();
-    }
-    this.onFailure.add(onFailureItem);
-    return this;
-  }
-
-  /**
-   * Blocks evaluated when this block fails or returns false.
-   * @return onFailure
-   */
-  @javax.annotation.Nullable
-  public List<Block> getOnFailure() {
-    return onFailure;
-  }
-
-  public void setOnFailure(@javax.annotation.Nullable List<Block> onFailure) {
-    this.onFailure = onFailure;
   }
 
 
@@ -320,14 +288,13 @@ public class ShowNotificationBlock {
         Objects.equals(this.notificationType, showNotificationBlock.notificationType) &&
         Objects.equals(this.title, showNotificationBlock.title) &&
         Objects.equals(this.body, showNotificationBlock.body) &&
-        Objects.equals(this.onFailure, showNotificationBlock.onFailure) &&
         Objects.equals(this.onError, showNotificationBlock.onError)&&
         Objects.equals(this.additionalProperties, showNotificationBlock.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, type, tags, notificationType, title, body, onFailure, onError, additionalProperties);
+    return Objects.hash(id, type, tags, notificationType, title, body, onError, additionalProperties);
   }
 
   @Override
@@ -340,7 +307,6 @@ public class ShowNotificationBlock {
     sb.append("    notificationType: ").append(toIndentedString(notificationType)).append("\n");
     sb.append("    title: ").append(toIndentedString(title)).append("\n");
     sb.append("    body: ").append(toIndentedString(body)).append("\n");
-    sb.append("    onFailure: ").append(toIndentedString(onFailure)).append("\n");
     sb.append("    onError: ").append(toIndentedString(onError)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
@@ -361,10 +327,10 @@ public class ShowNotificationBlock {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("id", "type", "tags", "notificationType", "title", "body", "onFailure", "onError"));
+    openapiFields = new HashSet<String>(Arrays.asList("id", "type", "tags", "notificationType", "title", "body", "onError"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("type", "notificationType", "title"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("type", "notificationType", "title", "body"));
   }
 
   /**
@@ -403,22 +369,8 @@ public class ShowNotificationBlock {
       if (!jsonObj.get("title").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `title` to be a primitive type in the JSON string but got `%s`", jsonObj.get("title").toString()));
       }
-      if ((jsonObj.get("body") != null && !jsonObj.get("body").isJsonNull()) && !jsonObj.get("body").isJsonPrimitive()) {
+      if (!jsonObj.get("body").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `body` to be a primitive type in the JSON string but got `%s`", jsonObj.get("body").toString()));
-      }
-      if (jsonObj.get("onFailure") != null && !jsonObj.get("onFailure").isJsonNull()) {
-        JsonArray jsonArrayonFailure = jsonObj.getAsJsonArray("onFailure");
-        if (jsonArrayonFailure != null) {
-          // ensure the json data is an array
-          if (!jsonObj.get("onFailure").isJsonArray()) {
-            throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `onFailure` to be an array in the JSON string but got `%s`", jsonObj.get("onFailure").toString()));
-          }
-
-          // validate the optional field `onFailure` (array)
-          for (int i = 0; i < jsonArrayonFailure.size(); i++) {
-            Block.validateJsonElement(jsonArrayonFailure.get(i));
-          };
-        }
       }
   }
 

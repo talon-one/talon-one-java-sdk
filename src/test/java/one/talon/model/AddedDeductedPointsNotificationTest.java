@@ -152,4 +152,28 @@ public class AddedDeductedPointsNotificationTest {
         // TODO: test transactionUUID
     }
 
+    /**
+     * Test the property 'created'
+     */
+    @Test
+    public void createdTest() {
+        // TODO: test created
+    }
+
+    /**
+     * Test the property 'awaitsActivation'
+     */
+    @Test
+    public void awaitsActivationTest() {
+        // TODO: test awaitsActivation
+    }
+
+    /**
+     * Test the property 'validityDuration'
+     */
+    @Test
+    public void validityDurationTest() {
+        // TODO: test validityDuration
+    }
+
 }

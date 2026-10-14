@@ -21,6 +21,7 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.time.OffsetDateTime;
 import java.util.Arrays;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
@@ -77,6 +78,30 @@ public class ExpiringPointsDataTest {
     @Test
     public void subledgerIDTest() {
         // TODO: test subledgerID
+    }
+
+    /**
+     * Test the property 'created'
+     */
+    @Test
+    public void createdTest() {
+        // TODO: test created
+    }
+
+    /**
+     * Test the property 'awaitsActivation'
+     */
+    @Test
+    public void awaitsActivationTest() {
+        // TODO: test awaitsActivation
+    }
+
+    /**
+     * Test the property 'validityDuration'
+     */
+    @Test
+    public void validityDurationTest() {
+        // TODO: test validityDuration
     }
 
 }

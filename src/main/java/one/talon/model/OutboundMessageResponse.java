@@ -50,7 +50,7 @@ import one.talon.JSON;
 /**
  * Log entry for an outbound message.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.25.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.26.0")
 public class OutboundMessageResponse {
   public static final String SERIALIZED_NAME_STATUS_CODE = "statusCode";
   @SerializedName(SERIALIZED_NAME_STATUS_CODE)

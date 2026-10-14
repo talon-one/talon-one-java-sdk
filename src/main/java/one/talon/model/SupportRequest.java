@@ -50,7 +50,7 @@ import one.talon.JSON;
 /**
  * Summary of a support request created by a customer support agent.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.25.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.26.0")
 public class SupportRequest {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -75,7 +75,7 @@ public class SupportRequest {
   public static final String SERIALIZED_NAME_SUBLEDGER_ID = "subledgerId";
   @SerializedName(SERIALIZED_NAME_SUBLEDGER_ID)
   @javax.annotation.Nullable
-  private Long subledgerId;
+  private String subledgerId;
 
   public static final String SERIALIZED_NAME_CREATED_BY_USER = "createdByUser";
   @SerializedName(SERIALIZED_NAME_CREATED_BY_USER)
@@ -323,21 +323,21 @@ public class SupportRequest {
   }
 
 
-  public SupportRequest subledgerId(@javax.annotation.Nullable Long subledgerId) {
+  public SupportRequest subledgerId(@javax.annotation.Nullable String subledgerId) {
     this.subledgerId = subledgerId;
     return this;
   }
 
   /**
-   * Identifier of the subledger the points are added to or deducted from. If there is no existing subledger with this ID, the subledger is created automatically.
+   * ID of the subledger the points are added to or deducted from. Must be combined with &#x60;loyaltyProgramId&#x60;. The subledger must already exist in the given loyalty program.
    * @return subledgerId
    */
   @javax.annotation.Nullable
-  public Long getSubledgerId() {
+  public String getSubledgerId() {
     return subledgerId;
   }
 
-  public void setSubledgerId(@javax.annotation.Nullable Long subledgerId) {
+  public void setSubledgerId(@javax.annotation.Nullable String subledgerId) {
     this.subledgerId = subledgerId;
   }
 
@@ -695,6 +695,9 @@ public class SupportRequest {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
+      if ((jsonObj.get("subledgerId") != null && !jsonObj.get("subledgerId").isJsonNull()) && !jsonObj.get("subledgerId").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `subledgerId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("subledgerId").toString()));
+      }
       if (!jsonObj.get("createdByUser").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `createdByUser` to be a primitive type in the JSON string but got `%s`", jsonObj.get("createdByUser").toString()));
       }

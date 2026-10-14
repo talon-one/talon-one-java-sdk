@@ -26,6 +26,7 @@ import java.util.Arrays;
 import java.util.List;
 import one.talon.model.CodeGeneratorSettings;
 import one.talon.model.LimitConfig;
+import org.openapitools.jackson.nullable.JsonNullable;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -54,7 +55,7 @@ import one.talon.JSON;
 /**
  * RevisionVersion
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.25.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.26.0")
 public class RevisionVersion {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -522,7 +523,7 @@ public class RevisionVersion {
   }
 
   /**
-   * Get accountId
+   * The ID of the account that owns this entity.
    * @return accountId
    */
   @javax.annotation.Nonnull
@@ -541,7 +542,7 @@ public class RevisionVersion {
   }
 
   /**
-   * Get applicationId
+   * The ID of the Application that owns this entity.
    * @return applicationId
    */
   @javax.annotation.Nonnull
@@ -560,7 +561,7 @@ public class RevisionVersion {
   }
 
   /**
-   * Get campaignId
+   * The ID of the campaign that the revision was created from.
    * @return campaignId
    */
   @javax.annotation.Nonnull
@@ -579,7 +580,7 @@ public class RevisionVersion {
   }
 
   /**
-   * Get created
+   * Timestamp when the revision was created.
    * @return created
    */
   @javax.annotation.Nonnull
@@ -598,7 +599,7 @@ public class RevisionVersion {
   }
 
   /**
-   * Get createdBy
+   * The ID of the user who created this revision.
    * @return createdBy
    */
   @javax.annotation.Nonnull
@@ -617,7 +618,7 @@ public class RevisionVersion {
   }
 
   /**
-   * Get revisionId
+   * The ID of the revision.
    * @return revisionId
    */
   @javax.annotation.Nonnull
@@ -636,7 +637,7 @@ public class RevisionVersion {
   }
 
   /**
-   * Get version
+   * Incrementing number representing how many revisions have been activated on this campaign. Starts from &#x60;0&#x60; for a new campaign. 
    * @return version
    */
   @javax.annotation.Nonnull
@@ -727,9 +728,20 @@ public class RevisionVersion {
         Objects.equals(this.additionalProperties, revisionVersion.additionalProperties);
   }
 
+  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
+    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
+  }
+
   @Override
   public int hashCode() {
     return Objects.hash(id, name, startTime, endTime, attributes, description, activeRulesetId, tags, couponSettings, referralSettings, limits, reevaluateOnReturn, features, couponAttributes, accountId, applicationId, campaignId, created, createdBy, revisionId, version, additionalProperties);
+  }
+
+  private static <T> int hashCodeNullable(JsonNullable<T> a) {
+    if (a == null) {
+      return 1;
+    }
+    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
   }
 
   @Override

@@ -26,7 +26,6 @@ import java.util.List;
 import one.talon.model.AwardLoyaltyPointsBlock1Program;
 import one.talon.model.AwardLoyaltyPointsBlock1Value;
 import one.talon.model.AwardLoyaltyPointsTarget;
-import one.talon.model.Block;
 import org.openapitools.jackson.nullable.JsonNullable;
 
 import com.google.gson.Gson;
@@ -56,7 +55,7 @@ import one.talon.JSON;
 /**
  * AwardLoyaltyPointsBlock
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.25.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.26.0")
 public class AwardLoyaltyPointsBlock {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -184,11 +183,6 @@ public class AwardLoyaltyPointsBlock {
   @SerializedName(SERIALIZED_NAME_PENDING_DURATION)
   @javax.annotation.Nullable
   private String pendingDuration;
-
-  public static final String SERIALIZED_NAME_ON_FAILURE = "onFailure";
-  @SerializedName(SERIALIZED_NAME_ON_FAILURE)
-  @javax.annotation.Nullable
-  private List<Block> onFailure;
 
   public AwardLoyaltyPointsBlock() {
   }
@@ -470,33 +464,6 @@ public class AwardLoyaltyPointsBlock {
     this.pendingDuration = pendingDuration;
   }
 
-
-  public AwardLoyaltyPointsBlock onFailure(@javax.annotation.Nullable List<Block> onFailure) {
-    this.onFailure = onFailure;
-    return this;
-  }
-
-  public AwardLoyaltyPointsBlock addOnFailureItem(Block onFailureItem) {
-    if (this.onFailure == null) {
-      this.onFailure = new ArrayList<>();
-    }
-    this.onFailure.add(onFailureItem);
-    return this;
-  }
-
-  /**
-   * Promotion blocks evaluated when this block fails or returns false.
-   * @return onFailure
-   */
-  @javax.annotation.Nullable
-  public List<Block> getOnFailure() {
-    return onFailure;
-  }
-
-  public void setOnFailure(@javax.annotation.Nullable List<Block> onFailure) {
-    this.onFailure = onFailure;
-  }
-
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -566,8 +533,7 @@ public class AwardLoyaltyPointsBlock {
         Objects.equals(this.startDate, awardLoyaltyPointsBlock.startDate) &&
         Objects.equals(this.validityDuration, awardLoyaltyPointsBlock.validityDuration) &&
         Objects.equals(this.expiryDate, awardLoyaltyPointsBlock.expiryDate) &&
-        Objects.equals(this.pendingDuration, awardLoyaltyPointsBlock.pendingDuration) &&
-        Objects.equals(this.onFailure, awardLoyaltyPointsBlock.onFailure)&&
+        Objects.equals(this.pendingDuration, awardLoyaltyPointsBlock.pendingDuration)&&
         Objects.equals(this.additionalProperties, awardLoyaltyPointsBlock.additionalProperties);
   }
 
@@ -577,7 +543,7 @@ public class AwardLoyaltyPointsBlock {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, type, tags, name, program, recipient, subledger, target, value, partial, awaitsActivation, startDate, validityDuration, expiryDate, pendingDuration, onFailure, additionalProperties);
+    return Objects.hash(id, type, tags, name, program, recipient, subledger, target, value, partial, awaitsActivation, startDate, validityDuration, expiryDate, pendingDuration, additionalProperties);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -606,7 +572,6 @@ public class AwardLoyaltyPointsBlock {
     sb.append("    validityDuration: ").append(toIndentedString(validityDuration)).append("\n");
     sb.append("    expiryDate: ").append(toIndentedString(expiryDate)).append("\n");
     sb.append("    pendingDuration: ").append(toIndentedString(pendingDuration)).append("\n");
-    sb.append("    onFailure: ").append(toIndentedString(onFailure)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -626,7 +591,7 @@ public class AwardLoyaltyPointsBlock {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("id", "type", "tags", "name", "program", "recipient", "subledger", "target", "value", "partial", "awaitsActivation", "startDate", "validityDuration", "expiryDate", "pendingDuration", "onFailure"));
+    openapiFields = new HashSet<String>(Arrays.asList("id", "type", "tags", "name", "program", "recipient", "subledger", "target", "value", "partial", "awaitsActivation", "startDate", "validityDuration", "expiryDate", "pendingDuration"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("type", "name", "program", "recipient", "subledger", "target", "value"));
@@ -684,20 +649,6 @@ public class AwardLoyaltyPointsBlock {
       }
       if ((jsonObj.get("pendingDuration") != null && !jsonObj.get("pendingDuration").isJsonNull()) && !jsonObj.get("pendingDuration").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `pendingDuration` to be a primitive type in the JSON string but got `%s`", jsonObj.get("pendingDuration").toString()));
-      }
-      if (jsonObj.get("onFailure") != null && !jsonObj.get("onFailure").isJsonNull()) {
-        JsonArray jsonArrayonFailure = jsonObj.getAsJsonArray("onFailure");
-        if (jsonArrayonFailure != null) {
-          // ensure the json data is an array
-          if (!jsonObj.get("onFailure").isJsonArray()) {
-            throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `onFailure` to be an array in the JSON string but got `%s`", jsonObj.get("onFailure").toString()));
-          }
-
-          // validate the optional field `onFailure` (array)
-          for (int i = 0; i < jsonArrayonFailure.size(); i++) {
-            Block.validateJsonElement(jsonArrayonFailure.get(i));
-          };
-        }
       }
   }
 

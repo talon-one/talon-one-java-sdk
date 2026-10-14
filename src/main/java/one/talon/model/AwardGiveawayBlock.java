@@ -55,7 +55,7 @@ import one.talon.JSON;
 /**
  * AwardGiveawayBlock
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.25.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.26.0")
 public class AwardGiveawayBlock {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -133,11 +133,6 @@ public class AwardGiveawayBlock {
   @SerializedName(SERIALIZED_NAME_PROFILE)
   @javax.annotation.Nonnull
   private ProfileEnum profile;
-
-  public static final String SERIALIZED_NAME_ON_FAILURE = "onFailure";
-  @SerializedName(SERIALIZED_NAME_ON_FAILURE)
-  @javax.annotation.Nullable
-  private List<Block> onFailure;
 
   public static final String SERIALIZED_NAME_ON_ERROR = "onError";
   @SerializedName(SERIALIZED_NAME_ON_ERROR)
@@ -235,33 +230,6 @@ public class AwardGiveawayBlock {
   }
 
 
-  public AwardGiveawayBlock onFailure(@javax.annotation.Nullable List<Block> onFailure) {
-    this.onFailure = onFailure;
-    return this;
-  }
-
-  public AwardGiveawayBlock addOnFailureItem(Block onFailureItem) {
-    if (this.onFailure == null) {
-      this.onFailure = new ArrayList<>();
-    }
-    this.onFailure.add(onFailureItem);
-    return this;
-  }
-
-  /**
-   * Blocks evaluated when this block fails or returns false.
-   * @return onFailure
-   */
-  @javax.annotation.Nullable
-  public List<Block> getOnFailure() {
-    return onFailure;
-  }
-
-  public void setOnFailure(@javax.annotation.Nullable List<Block> onFailure) {
-    this.onFailure = onFailure;
-  }
-
-
   public AwardGiveawayBlock onError(@javax.annotation.Nullable Map<String, List<Block>> onError) {
     this.onError = onError;
     return this;
@@ -348,14 +316,13 @@ public class AwardGiveawayBlock {
         Objects.equals(this.tags, awardGiveawayBlock.tags) &&
         Objects.equals(this.giveawayPool, awardGiveawayBlock.giveawayPool) &&
         Objects.equals(this.profile, awardGiveawayBlock.profile) &&
-        Objects.equals(this.onFailure, awardGiveawayBlock.onFailure) &&
         Objects.equals(this.onError, awardGiveawayBlock.onError)&&
         Objects.equals(this.additionalProperties, awardGiveawayBlock.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, type, tags, giveawayPool, profile, onFailure, onError, additionalProperties);
+    return Objects.hash(id, type, tags, giveawayPool, profile, onError, additionalProperties);
   }
 
   @Override
@@ -367,7 +334,6 @@ public class AwardGiveawayBlock {
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    giveawayPool: ").append(toIndentedString(giveawayPool)).append("\n");
     sb.append("    profile: ").append(toIndentedString(profile)).append("\n");
-    sb.append("    onFailure: ").append(toIndentedString(onFailure)).append("\n");
     sb.append("    onError: ").append(toIndentedString(onError)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
@@ -388,7 +354,7 @@ public class AwardGiveawayBlock {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("id", "type", "tags", "giveawayPool", "profile", "onFailure", "onError"));
+    openapiFields = new HashSet<String>(Arrays.asList("id", "type", "tags", "giveawayPool", "profile", "onError"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("type", "giveawayPool", "profile"));
@@ -431,20 +397,6 @@ public class AwardGiveawayBlock {
       }
       // validate the required field `profile`
       ProfileEnum.validateJsonElement(jsonObj.get("profile"));
-      if (jsonObj.get("onFailure") != null && !jsonObj.get("onFailure").isJsonNull()) {
-        JsonArray jsonArrayonFailure = jsonObj.getAsJsonArray("onFailure");
-        if (jsonArrayonFailure != null) {
-          // ensure the json data is an array
-          if (!jsonObj.get("onFailure").isJsonArray()) {
-            throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `onFailure` to be an array in the JSON string but got `%s`", jsonObj.get("onFailure").toString()));
-          }
-
-          // validate the optional field `onFailure` (array)
-          for (int i = 0; i < jsonArrayonFailure.size(); i++) {
-            Block.validateJsonElement(jsonArrayonFailure.get(i));
-          };
-        }
-      }
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {

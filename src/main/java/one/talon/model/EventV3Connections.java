@@ -49,7 +49,7 @@ import one.talon.JSON;
 /**
  * EventV3Connections
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.25.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.26.0")
 public class EventV3Connections {
   public static final String SERIALIZED_NAME_CONNECTED_SESSION_ID = "connectedSessionId";
   @SerializedName(SERIALIZED_NAME_CONNECTED_SESSION_ID)

@@ -100,6 +100,7 @@ import one.talon.model.ListApplicationCartItemFilters200Response;
 import one.talon.model.ListCampaignStoreBudgetLimits200Response;
 import one.talon.model.ListCatalogItems200Response;
 import one.talon.model.ListExperiments200Response;
+import one.talon.model.ListGiveawaysPool200Response;
 import one.talon.model.ListStores200Response;
 import one.talon.model.LoginParams;
 import one.talon.model.LoyaltyBalancesWithTiers;
@@ -131,6 +132,7 @@ import java.time.OffsetDateTime;
 import one.talon.model.PriceHistoryRequest;
 import one.talon.model.PriceHistoryResponse;
 import one.talon.model.Referral;
+import one.talon.model.Revision;
 import one.talon.model.RoleV2;
 import one.talon.model.RoleV2Base;
 import one.talon.model.Ruleset;
@@ -499,7 +501,7 @@ public class ManagementApiTest {
     /**
      * Create ruleset (V2)
      *
-     * Create a ruleset from promotion and strikethrough rules in the V2 JSON block format. A ruleset is a revision of all the rules of a campaign.  Only &#x60;group&#x60; and &#x60;passthrough&#x60; blocks are currently writable, with optional &#x60;onFailure&#x60; blocks. A payload containing any other block type is rejected. Each rule&#39;s &#x60;blocks&#x60; array may contain at most one block.
+     * Create a ruleset from promotion and strikethrough rules in the V2 JSON block format. A ruleset is a revision of all the rules of a campaign.  Only the first block of a rule can be a condition. Every other block must be an effect.
      *
      * @throws ApiException if the Api call fails
      */
@@ -1067,7 +1069,7 @@ public class ManagementApiTest {
     /**
      * Export customer loyalty balances
      *
-     * Download a CSV file containing the balance of each customer in the loyalty program.  &gt; [!tip] If the exported CSV file is too large to view, you can &gt; [split it into multiple files](https://www.google.com/search?q&#x3D;split+CSV+into+multiple+files).  The generated file can contain the following columns:  - &#x60;loyaltyProgramID&#x60;: The ID of the loyalty program. - &#x60;loyaltySubledger&#x60;: The name of the subledger, when applicable. - &#x60;profileIntegrationID&#x60;: The integration ID of the customer profile. - &#x60;currentBalance&#x60;: The current point balance. - &#x60;pendingBalance&#x60;: The number of pending points. - &#x60;expiredBalance&#x60;: The number of expired points. - &#x60;spentBalance&#x60;: The number of spent points. - &#x60;currentTier&#x60;: The tier that the customer is in at the time of the export. 
+     * Download a CSV file containing the balance of each customer in the loyalty program.  &gt; [!tip] If the exported CSV file is too large to view, you can &gt; [split it into multiple files](https://www.google.com/search?q&#x3D;split+CSV+into+multiple+files).  The generated file contains the following columns:  - &#x60;loyaltyProgramID&#x60;: The ID of the loyalty program. - &#x60;loyaltySubledger&#x60;: The name of the subledger, when applicable. - &#x60;profileIntegrationID&#x60;: The integration ID of the customer profile. - &#x60;currentBalance&#x60;: The current point balance. - &#x60;pendingBalance&#x60;: The number of pending points. - &#x60;expiredBalance&#x60;: The number of expired points. - &#x60;spentBalance&#x60;: The number of spent points. - &#x60;currentTier&#x60;: The tier that the customer is in at the time of the export. - &#x60;negativeBalance&#x60;: The number of negative points. Only contains a value when requested via &#x60;balances&#x60; and the program uses negative points. 
      *
      * @throws ApiException if the Api call fails
      */
@@ -1435,7 +1437,8 @@ public class ManagementApiTest {
         Long pageSize = null;
         Long skip = null;
         Boolean withTotalResultSize = null;
-        GetApplicationCustomers200Response response = api.getApplicationCustomers(applicationId, integrationId, pageSize, skip, withTotalResultSize);
+        Boolean withLoyaltyMemberships = null;
+        GetApplicationCustomers200Response response = api.getApplicationCustomers(applicationId, integrationId, pageSize, skip, withTotalResultSize, withLoyaltyMemberships);
         // TODO: test validations
     }
 
@@ -1453,7 +1456,8 @@ public class ManagementApiTest {
         Long pageSize = null;
         Long skip = null;
         Boolean withTotalResultSize = null;
-        GetApplicationCustomersByAttributes200Response response = api.getApplicationCustomersByAttributes(applicationId, customerProfileSearchQuery, pageSize, skip, withTotalResultSize);
+        Boolean withLoyaltyMemberships = null;
+        GetApplicationCustomersByAttributes200Response response = api.getApplicationCustomersByAttributes(applicationId, customerProfileSearchQuery, pageSize, skip, withTotalResultSize, withLoyaltyMemberships);
         // TODO: test validations
     }
 
@@ -1881,6 +1885,21 @@ public class ManagementApiTest {
         OffsetDateTime startsAfter = null;
         Boolean valuesOnly = null;
         GetCouponsWithoutTotalCount200Response response = api.getCouponsWithoutTotalCount(applicationId, campaignId, pageSize, skip, sort, value, createdBefore, createdAfter, valid, usable, redeemed, referralId, recipientIntegrationId, batchId, exactMatch, expiresBefore, expiresAfter, startsBefore, startsAfter, valuesOnly);
+        // TODO: test validations
+    }
+
+    /**
+     * Get current revision version
+     *
+     * Get the current revision version for the given campaign.  **Note:** The [Campaign staging and revisions](https://docs.talon.one/docs/product/applications/manage-general-settings#campaign-staging-and-revisions) feature must be enabled for your Application. For more information, see [Revise campaigns](https://docs.talon.one/docs/product/campaigns/revise-campaigns). 
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void getCurrentRevisionTest() throws ApiException {
+        Long applicationId = null;
+        Long campaignId = null;
+        Revision response = api.getCurrentRevision(applicationId, campaignId);
         // TODO: test validations
     }
 
@@ -2614,7 +2633,7 @@ public class ManagementApiTest {
     /**
      * Import join dates for a loyalty program
      *
-     * Upload a CSV file containing customer profile IDs and their join dates for the specified loyalty program. Send the file as multipart data.  &gt; [!important] This endpoint only works with profile-based loyalty programs.  The CSV file **must** contain the following columns:  - &#x60;customerprofileid&#x60;: The integration ID of the customer profile whose join   date you want to update. - &#x60;joindate&#x60;: The join date for the customer in RFC3339 format. You   can use the time zone of your choice. It is converted to UTC internally   by Talon.One.  **Note**: - Customer profiles must already exist. If a referenced profile does not exist, the import fails with a &#x60;400&#x60; error. - If a join date already exists for a profile, the uploaded date replaces it.  &gt; [!note] We recommend limiting your file size to 500 MB.  ## Example  &#x60;&#x60;&#x60;csv customerprofileid,joindate customer1,2024-03-21T07:32:14Z customer2,2025-04-16T21:12:37Z customer3,2026-05-03T11:47:01Z &#x60;&#x60;&#x60; 
+     * Upload a CSV file containing customer profile IDs and their join dates for the specified loyalty program. Send the file as multipart data.  &gt; [!important] This endpoint only works with profile-based loyalty programs.  The CSV file **must** contain the following columns:  - &#x60;customerprofileid&#x60;: The integration ID of the customer profile whose join   date you want to update. - &#x60;joindate&#x60;: The join date for the customer in RFC3339 format. You   can use the time zone of your choice. It is converted to UTC internally   by Talon.One.  **Note**: - Customer profiles must already exist. If a referenced profile does not exist, the import fails with a &#x60;400&#x60; error. - If a join date already exists for a profile, the uploaded date replaces it. - If a join date is in the future at the time of the import, the import fails with a &#x60;400&#x60; error.  &gt; [!note] We recommend limiting your file size to 500 MB.  ## Example  &#x60;&#x60;&#x60;csv customerprofileid,joindate customer1,2024-03-21T07:32:14Z customer2,2025-04-16T21:12:37Z customer3,2026-05-03T11:47:01Z &#x60;&#x60;&#x60; 
      *
      * @throws ApiException if the Api call fails
      */
@@ -2861,6 +2880,24 @@ public class ManagementApiTest {
         Long skip = null;
         String sort = null;
         ListExperiments200Response response = api.listExperiments(applicationId, pageSize, skip, sort);
+        // TODO: test validations
+    }
+
+    /**
+     * List giveaway pools
+     *
+     * Retrieve all the giveaway pools for an account.
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void listGiveawaysPoolTest() throws ApiException {
+        Long pageSize = null;
+        Long skip = null;
+        String sort = null;
+        Boolean withTotalResultSize = null;
+        String applicationIds = null;
+        ListGiveawaysPool200Response response = api.listGiveawaysPool(pageSize, skip, sort, withTotalResultSize, applicationIds);
         // TODO: test validations
     }
 

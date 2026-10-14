@@ -7,7 +7,7 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**activateAt** | **OffsetDateTime** |  |  [optional] |
+|**activateAt** | **OffsetDateTime** | Timestamp when the revision will be activated. |  [optional] |
 
 
 

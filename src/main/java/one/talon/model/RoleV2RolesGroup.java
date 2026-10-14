@@ -52,7 +52,7 @@ import one.talon.JSON;
 /**
  * A map of target entities to their permission sets.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.25.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.26.0")
 public class RoleV2RolesGroup {
   public static final String SERIALIZED_NAME_APPLICATIONS = "applications";
   @SerializedName(SERIALIZED_NAME_APPLICATIONS)

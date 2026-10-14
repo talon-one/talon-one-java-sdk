@@ -51,7 +51,7 @@ import one.talon.JSON;
 /**
  * Applies the discount to an additional cost. The &#x60;target&#x60; field determines which subset of cart items the additional cost contribution is applied to.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.25.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.26.0")
 public class AwardDiscountAdditionalCostTarget {
   /**
    * A target discriminator of type &#x60;additionalCost&#x60;.

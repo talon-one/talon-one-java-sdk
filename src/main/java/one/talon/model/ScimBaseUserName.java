@@ -49,7 +49,7 @@ import one.talon.JSON;
 /**
  * The components of the user&#39;s real name.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.25.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.26.0")
 public class ScimBaseUserName {
   public static final String SERIALIZED_NAME_FORMATTED = "formatted";
   @SerializedName(SERIALIZED_NAME_FORMATTED)

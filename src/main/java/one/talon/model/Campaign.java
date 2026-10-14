@@ -56,7 +56,7 @@ import one.talon.JSON;
 /**
  * Campaign
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.25.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.26.0")
 public class Campaign {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -1674,7 +1674,7 @@ public class Campaign {
   }
 
   /**
-   * Incrementing number representing how many revisions have been activated on this campaign, starts from 0 for a new campaign. 
+   * Incrementing number representing how many revisions have been activated on this campaign. Starts from &#x60;0&#x60; for a new campaign. 
    * @return version
    */
   @javax.annotation.Nullable

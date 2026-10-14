@@ -140,6 +140,22 @@ public class RewardTest {
     }
 
     /**
+     * Test the property 'validityDuration'
+     */
+    @Test
+    public void validityDurationTest() {
+        // TODO: test validityDuration
+    }
+
+    /**
+     * Test the property 'expiryDate'
+     */
+    @Test
+    public void expiryDateTest() {
+        // TODO: test expiryDate
+    }
+
+    /**
      * Test the property 'modified'
      */
     @Test

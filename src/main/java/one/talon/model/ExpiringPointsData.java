@@ -22,6 +22,7 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.time.OffsetDateTime;
 import java.util.Arrays;
 
 import com.google.gson.Gson;
@@ -51,7 +52,7 @@ import one.talon.JSON;
 /**
  * ExpiringPointsData
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.25.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.26.0")
 public class ExpiringPointsData {
   public static final String SERIALIZED_NAME_EXPIRY_DATE = "ExpiryDate";
   @SerializedName(SERIALIZED_NAME_EXPIRY_DATE)
@@ -77,6 +78,21 @@ public class ExpiringPointsData {
   @SerializedName(SERIALIZED_NAME_SUBLEDGER_I_D)
   @javax.annotation.Nonnull
   private String subledgerID;
+
+  public static final String SERIALIZED_NAME_CREATED = "Created";
+  @SerializedName(SERIALIZED_NAME_CREATED)
+  @javax.annotation.Nullable
+  private OffsetDateTime created;
+
+  public static final String SERIALIZED_NAME_AWAITS_ACTIVATION = "AwaitsActivation";
+  @SerializedName(SERIALIZED_NAME_AWAITS_ACTIVATION)
+  @javax.annotation.Nullable
+  private Boolean awaitsActivation;
+
+  public static final String SERIALIZED_NAME_VALIDITY_DURATION = "ValidityDuration";
+  @SerializedName(SERIALIZED_NAME_VALIDITY_DURATION)
+  @javax.annotation.Nullable
+  private String validityDuration;
 
   public ExpiringPointsData() {
   }
@@ -176,6 +192,63 @@ public class ExpiringPointsData {
     this.subledgerID = subledgerID;
   }
 
+
+  public ExpiringPointsData created(@javax.annotation.Nullable OffsetDateTime created) {
+    this.created = created;
+    return this;
+  }
+
+  /**
+   * The timestamp when the loyalty transaction occurred.
+   * @return created
+   */
+  @javax.annotation.Nullable
+  public OffsetDateTime getCreated() {
+    return created;
+  }
+
+  public void setCreated(@javax.annotation.Nullable OffsetDateTime created) {
+    this.created = created;
+  }
+
+
+  public ExpiringPointsData awaitsActivation(@javax.annotation.Nullable Boolean awaitsActivation) {
+    this.awaitsActivation = awaitsActivation;
+    return this;
+  }
+
+  /**
+   * Indicates whether the points have an action-based start date. This property is returned only for point transactions with an action-based start date.
+   * @return awaitsActivation
+   */
+  @javax.annotation.Nullable
+  public Boolean getAwaitsActivation() {
+    return awaitsActivation;
+  }
+
+  public void setAwaitsActivation(@javax.annotation.Nullable Boolean awaitsActivation) {
+    this.awaitsActivation = awaitsActivation;
+  }
+
+
+  public ExpiringPointsData validityDuration(@javax.annotation.Nullable String validityDuration) {
+    this.validityDuration = validityDuration;
+    return this;
+  }
+
+  /**
+   * The duration for which the points remain active, relative to the activation date.  **Note**: This only applies to points for which &#x60;AwaitsActivation&#x60; is &#x60;true&#x60; and &#x60;ExpiryDate&#x60; is not set. 
+   * @return validityDuration
+   */
+  @javax.annotation.Nullable
+  public String getValidityDuration() {
+    return validityDuration;
+  }
+
+  public void setValidityDuration(@javax.annotation.Nullable String validityDuration) {
+    this.validityDuration = validityDuration;
+  }
+
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -235,13 +308,16 @@ public class ExpiringPointsData {
         Objects.equals(this.loyaltyProgramID, expiringPointsData.loyaltyProgramID) &&
         Objects.equals(this.customerProfileID, expiringPointsData.customerProfileID) &&
         Objects.equals(this.amountOfExpiringPoints, expiringPointsData.amountOfExpiringPoints) &&
-        Objects.equals(this.subledgerID, expiringPointsData.subledgerID)&&
+        Objects.equals(this.subledgerID, expiringPointsData.subledgerID) &&
+        Objects.equals(this.created, expiringPointsData.created) &&
+        Objects.equals(this.awaitsActivation, expiringPointsData.awaitsActivation) &&
+        Objects.equals(this.validityDuration, expiringPointsData.validityDuration)&&
         Objects.equals(this.additionalProperties, expiringPointsData.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(expiryDate, loyaltyProgramID, customerProfileID, amountOfExpiringPoints, subledgerID, additionalProperties);
+    return Objects.hash(expiryDate, loyaltyProgramID, customerProfileID, amountOfExpiringPoints, subledgerID, created, awaitsActivation, validityDuration, additionalProperties);
   }
 
   @Override
@@ -253,6 +329,9 @@ public class ExpiringPointsData {
     sb.append("    customerProfileID: ").append(toIndentedString(customerProfileID)).append("\n");
     sb.append("    amountOfExpiringPoints: ").append(toIndentedString(amountOfExpiringPoints)).append("\n");
     sb.append("    subledgerID: ").append(toIndentedString(subledgerID)).append("\n");
+    sb.append("    created: ").append(toIndentedString(created)).append("\n");
+    sb.append("    awaitsActivation: ").append(toIndentedString(awaitsActivation)).append("\n");
+    sb.append("    validityDuration: ").append(toIndentedString(validityDuration)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -272,7 +351,7 @@ public class ExpiringPointsData {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("ExpiryDate", "LoyaltyProgramID", "CustomerProfileID", "AmountOfExpiringPoints", "SubledgerID"));
+    openapiFields = new HashSet<String>(Arrays.asList("ExpiryDate", "LoyaltyProgramID", "CustomerProfileID", "AmountOfExpiringPoints", "SubledgerID", "Created", "AwaitsActivation", "ValidityDuration"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("ExpiryDate", "LoyaltyProgramID", "CustomerProfileID", "AmountOfExpiringPoints", "SubledgerID"));
@@ -303,6 +382,9 @@ public class ExpiringPointsData {
       }
       if (!jsonObj.get("SubledgerID").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `SubledgerID` to be a primitive type in the JSON string but got `%s`", jsonObj.get("SubledgerID").toString()));
+      }
+      if ((jsonObj.get("ValidityDuration") != null && !jsonObj.get("ValidityDuration").isJsonNull()) && !jsonObj.get("ValidityDuration").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `ValidityDuration` to be a primitive type in the JSON string but got `%s`", jsonObj.get("ValidityDuration").toString()));
       }
   }
 

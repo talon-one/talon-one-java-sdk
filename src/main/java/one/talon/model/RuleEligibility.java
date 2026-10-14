@@ -50,7 +50,7 @@ import one.talon.JSON;
 /**
  * The customer&#39;s eligibility for a rule in the current session, based on whether all of the rule&#39;s conditions were met.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.25.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.26.0")
 public class RuleEligibility {
   public static final String SERIALIZED_NAME_PASSED = "passed";
   @SerializedName(SERIALIZED_NAME_PASSED)

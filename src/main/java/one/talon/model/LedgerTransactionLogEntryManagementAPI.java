@@ -54,7 +54,7 @@ import one.talon.JSON;
 /**
  * LedgerTransactionLogEntryManagementAPI
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.25.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.26.0")
 public class LedgerTransactionLogEntryManagementAPI {
   public static final String SERIALIZED_NAME_TRANSACTION_U_U_I_D = "transactionUUID";
   @SerializedName(SERIALIZED_NAME_TRANSACTION_U_U_I_D)

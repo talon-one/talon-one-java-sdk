@@ -50,7 +50,7 @@ import one.talon.JSON;
 /**
  * Adds price adjustments to an item of the catalog.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.25.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.26.0")
 public class CatalogActionAddPriceAdjustment {
   /**
    * A catalog sync action discriminator of type &#x60;ADD_PRICE_ADJUSTMENT&#x60;.

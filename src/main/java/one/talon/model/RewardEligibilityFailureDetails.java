@@ -49,7 +49,7 @@ import one.talon.JSON;
 /**
  * The details about why the customer is not eligible for the reward.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.25.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.26.0")
 public class RewardEligibilityFailureDetails {
   /**
    * A code identifying why the customer is not eligible for the reward.

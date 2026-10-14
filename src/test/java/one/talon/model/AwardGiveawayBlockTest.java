@@ -84,14 +84,6 @@ public class AwardGiveawayBlockTest {
     }
 
     /**
-     * Test the property 'onFailure'
-     */
-    @Test
-    public void onFailureTest() {
-        // TODO: test onFailure
-    }
-
-    /**
      * Test the property 'onError'
      */
     @Test

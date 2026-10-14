@@ -50,7 +50,7 @@ import one.talon.JSON;
 /**
  * A block variant of &#x60;CheckAttributeBlock&#x60; for operators that check whether a geographical location is inside a set of geometric areas.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.25.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.26.0")
 public class LocationCheckAttributeBlock {
   /**
    * The location membership operator applied to the attribute.

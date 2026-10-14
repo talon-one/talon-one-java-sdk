@@ -23,7 +23,6 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import one.talon.model.Block;
 import one.talon.model.RedeemLoyaltyPointsBlock1Program;
 import one.talon.model.RedeemLoyaltyPointsBlock1Value;
 
@@ -54,7 +53,7 @@ import one.talon.JSON;
 /**
  * RedeemLoyaltyPointsBlock
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.25.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.26.0")
 public class RedeemLoyaltyPointsBlock {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -90,11 +89,6 @@ public class RedeemLoyaltyPointsBlock {
   @SerializedName(SERIALIZED_NAME_NAME)
   @javax.annotation.Nullable
   private String name;
-
-  public static final String SERIALIZED_NAME_ON_FAILURE = "onFailure";
-  @SerializedName(SERIALIZED_NAME_ON_FAILURE)
-  @javax.annotation.Nullable
-  private List<Block> onFailure;
 
   public RedeemLoyaltyPointsBlock() {
   }
@@ -224,33 +218,6 @@ public class RedeemLoyaltyPointsBlock {
     this.name = name;
   }
 
-
-  public RedeemLoyaltyPointsBlock onFailure(@javax.annotation.Nullable List<Block> onFailure) {
-    this.onFailure = onFailure;
-    return this;
-  }
-
-  public RedeemLoyaltyPointsBlock addOnFailureItem(Block onFailureItem) {
-    if (this.onFailure == null) {
-      this.onFailure = new ArrayList<>();
-    }
-    this.onFailure.add(onFailureItem);
-    return this;
-  }
-
-  /**
-   * Promotion blocks evaluated when this block fails or returns false.
-   * @return onFailure
-   */
-  @javax.annotation.Nullable
-  public List<Block> getOnFailure() {
-    return onFailure;
-  }
-
-  public void setOnFailure(@javax.annotation.Nullable List<Block> onFailure) {
-    this.onFailure = onFailure;
-  }
-
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -312,14 +279,13 @@ public class RedeemLoyaltyPointsBlock {
         Objects.equals(this.program, redeemLoyaltyPointsBlock.program) &&
         Objects.equals(this.subledger, redeemLoyaltyPointsBlock.subledger) &&
         Objects.equals(this.value, redeemLoyaltyPointsBlock.value) &&
-        Objects.equals(this.name, redeemLoyaltyPointsBlock.name) &&
-        Objects.equals(this.onFailure, redeemLoyaltyPointsBlock.onFailure)&&
+        Objects.equals(this.name, redeemLoyaltyPointsBlock.name)&&
         Objects.equals(this.additionalProperties, redeemLoyaltyPointsBlock.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, type, tags, program, subledger, value, name, onFailure, additionalProperties);
+    return Objects.hash(id, type, tags, program, subledger, value, name, additionalProperties);
   }
 
   @Override
@@ -333,7 +299,6 @@ public class RedeemLoyaltyPointsBlock {
     sb.append("    subledger: ").append(toIndentedString(subledger)).append("\n");
     sb.append("    value: ").append(toIndentedString(value)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    onFailure: ").append(toIndentedString(onFailure)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -353,7 +318,7 @@ public class RedeemLoyaltyPointsBlock {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("id", "type", "tags", "program", "subledger", "value", "name", "onFailure"));
+    openapiFields = new HashSet<String>(Arrays.asList("id", "type", "tags", "program", "subledger", "value", "name"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("type", "program", "subledger", "value"));
@@ -398,20 +363,6 @@ public class RedeemLoyaltyPointsBlock {
       RedeemLoyaltyPointsBlock1Value.validateJsonElement(jsonObj.get("value"));
       if ((jsonObj.get("name") != null && !jsonObj.get("name").isJsonNull()) && !jsonObj.get("name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
-      }
-      if (jsonObj.get("onFailure") != null && !jsonObj.get("onFailure").isJsonNull()) {
-        JsonArray jsonArrayonFailure = jsonObj.getAsJsonArray("onFailure");
-        if (jsonArrayonFailure != null) {
-          // ensure the json data is an array
-          if (!jsonObj.get("onFailure").isJsonArray()) {
-            throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `onFailure` to be an array in the JSON string but got `%s`", jsonObj.get("onFailure").toString()));
-          }
-
-          // validate the optional field `onFailure` (array)
-          for (int i = 0; i < jsonArrayonFailure.size(); i++) {
-            Block.validateJsonElement(jsonArrayonFailure.get(i));
-          };
-        }
       }
   }
 

@@ -50,7 +50,7 @@ import one.talon.JSON;
 /**
  * Picks a subset of the items by count, range, or exact position. The &#x60;operator&#x60; determines which additional fields are required: - &#x60;many&#x60; selects items from &#x60;from&#x60; (&#x60;start&#x60; or &#x60;end&#x60;) and is limited by &#x60;count&#x60;. - &#x60;between&#x60; selects items between integer indices &#x60;from&#x60; and &#x60;to&#x60;. - &#x60;one&#x60; selects the single item at &#x60;index&#x60;.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.25.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.26.0")
 public class SelectSelectorStep {
   /**
    * A step discriminator of type &#x60;select&#x60;.

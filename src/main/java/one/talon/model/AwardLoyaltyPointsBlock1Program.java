@@ -49,7 +49,7 @@ import one.talon.JSON;
 /**
  * The loyalty program points are added to.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.25.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.26.0")
 public class AwardLoyaltyPointsBlock1Program {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -58,15 +58,24 @@ public class AwardLoyaltyPointsBlock1Program {
 
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   private String name;
 
   public static final String SERIALIZED_NAME_TITLE = "title";
   @SerializedName(SERIALIZED_NAME_TITLE)
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   private String title;
 
   public AwardLoyaltyPointsBlock1Program() {
+  }
+
+  public AwardLoyaltyPointsBlock1Program(
+     String name, 
+     String title
+  ) {
+    this();
+    this.name = name;
+    this.title = title;
   }
 
   public AwardLoyaltyPointsBlock1Program id(@javax.annotation.Nonnull Long id) {
@@ -88,42 +97,26 @@ public class AwardLoyaltyPointsBlock1Program {
   }
 
 
-  public AwardLoyaltyPointsBlock1Program name(@javax.annotation.Nonnull String name) {
-    this.name = name;
-    return this;
-  }
-
   /**
    * The internal name of the loyalty program.
    * @return name
    */
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   public String getName() {
     return name;
   }
 
-  public void setName(@javax.annotation.Nonnull String name) {
-    this.name = name;
-  }
 
-
-  public AwardLoyaltyPointsBlock1Program title(@javax.annotation.Nonnull String title) {
-    this.title = title;
-    return this;
-  }
 
   /**
    * The display name of the loyalty program.
    * @return title
    */
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   public String getTitle() {
     return title;
   }
 
-  public void setTitle(@javax.annotation.Nonnull String title) {
-    this.title = title;
-  }
 
   /**
    * A container for additional, undeclared properties.
@@ -220,7 +213,7 @@ public class AwardLoyaltyPointsBlock1Program {
     openapiFields = new HashSet<String>(Arrays.asList("id", "name", "title"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("id", "name", "title"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("id"));
   }
 
   /**
@@ -243,10 +236,10 @@ public class AwardLoyaltyPointsBlock1Program {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if (!jsonObj.get("name").isJsonPrimitive()) {
+      if ((jsonObj.get("name") != null && !jsonObj.get("name").isJsonNull()) && !jsonObj.get("name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
       }
-      if (!jsonObj.get("title").isJsonPrimitive()) {
+      if ((jsonObj.get("title") != null && !jsonObj.get("title").isJsonNull()) && !jsonObj.get("title").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `title` to be a primitive type in the JSON string but got `%s`", jsonObj.get("title").toString()));
       }
   }

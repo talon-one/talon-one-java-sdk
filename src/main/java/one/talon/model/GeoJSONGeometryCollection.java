@@ -52,7 +52,7 @@ import one.talon.JSON;
 /**
  * A group of different shapes combined into a single location, following the GeoJSON format.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.25.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.26.0")
 public class GeoJSONGeometryCollection {
   /**
    * The geometry type discriminator.

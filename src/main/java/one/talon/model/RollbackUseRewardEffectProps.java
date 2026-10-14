@@ -49,7 +49,7 @@ import one.talon.JSON;
 /**
  * This effect is triggered when a reward usage has been rolled back by a session cancellation.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.25.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.26.0")
 public class RollbackUseRewardEffectProps {
   public static final String SERIALIZED_NAME_INTEGRATION_ID = "integrationId";
   @SerializedName(SERIALIZED_NAME_INTEGRATION_ID)

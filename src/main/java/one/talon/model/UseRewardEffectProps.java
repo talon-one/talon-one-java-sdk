@@ -49,7 +49,7 @@ import one.talon.JSON;
 /**
  * This effect is triggered when a rule that uses a customer&#39;s unlocked reward is validated during session evaluation.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.25.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.26.0")
 public class UseRewardEffectProps {
   public static final String SERIALIZED_NAME_INTEGRATION_ID = "integrationId";
   @SerializedName(SERIALIZED_NAME_INTEGRATION_ID)

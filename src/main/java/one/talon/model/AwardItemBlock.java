@@ -54,7 +54,7 @@ import one.talon.JSON;
 /**
  * AwardItemBlock
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.25.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.26.0")
 public class AwardItemBlock {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -217,7 +217,7 @@ public class AwardItemBlock {
   }
 
   /**
-   * When set to &#x60;true&#x60;, applies a partial item reward if the remaining budget is insufficient to award the full reward.
+   * When set to &#x60;true&#x60;, applies a partial item reward if the remaining budget is insufficient to award the full reward. When omitted, the Application&#39;s partial discounts setting applies.
    * @return partial
    */
   @javax.annotation.Nullable

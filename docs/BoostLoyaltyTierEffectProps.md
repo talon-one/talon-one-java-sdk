@@ -2,7 +2,7 @@
 
 # BoostLoyaltyTierEffectProps
 
-Properties returned when a rule triggers a `boostLoyaltyTier` effect. The customer is temporarily placed in a higher loyalty tier for a specified period without any change to their points balance. 
+This effect indicates that the customer was temporarily placed in a higher loyalty tier for a specified period, without any change to their points balance.
 
 ## Properties
 

@@ -49,7 +49,7 @@ import one.talon.JSON;
 /**
  * ApplicationStoreEntity
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.25.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.26.0")
 public class ApplicationStoreEntity {
   public static final String SERIALIZED_NAME_STORE_ID = "storeId";
   @SerializedName(SERIALIZED_NAME_STORE_ID)

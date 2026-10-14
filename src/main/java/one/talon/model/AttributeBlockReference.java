@@ -49,7 +49,7 @@ import one.talon.JSON;
 /**
  * AttributeBlockReference
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.25.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.26.0")
 public class AttributeBlockReference {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -68,15 +68,24 @@ public class AttributeBlockReference {
 
   public static final String SERIALIZED_NAME_TITLE = "title";
   @SerializedName(SERIALIZED_NAME_TITLE)
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   private String title;
 
   public static final String SERIALIZED_NAME_TYPE = "type";
   @SerializedName(SERIALIZED_NAME_TYPE)
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   private String type;
 
   public AttributeBlockReference() {
+  }
+
+  public AttributeBlockReference(
+     String title, 
+     String type
+  ) {
+    this();
+    this.title = title;
+    this.type = type;
   }
 
   public AttributeBlockReference id(@javax.annotation.Nonnull Long id) {
@@ -136,42 +145,26 @@ public class AttributeBlockReference {
   }
 
 
-  public AttributeBlockReference title(@javax.annotation.Nonnull String title) {
-    this.title = title;
-    return this;
-  }
-
   /**
    * The human-readable name of the attribute.
    * @return title
    */
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   public String getTitle() {
     return title;
   }
 
-  public void setTitle(@javax.annotation.Nonnull String title) {
-    this.title = title;
-  }
 
-
-  public AttributeBlockReference type(@javax.annotation.Nonnull String type) {
-    this.type = type;
-    return this;
-  }
 
   /**
    * The data type of the attribute.
    * @return type
    */
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   public String getType() {
     return type;
   }
 
-  public void setType(@javax.annotation.Nonnull String type) {
-    this.type = type;
-  }
 
   /**
    * A container for additional, undeclared properties.
@@ -272,7 +265,7 @@ public class AttributeBlockReference {
     openapiFields = new HashSet<String>(Arrays.asList("id", "entity", "name", "title", "type"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("id", "entity", "name", "title", "type"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("id", "entity", "name"));
   }
 
   /**
@@ -301,10 +294,10 @@ public class AttributeBlockReference {
       if (!jsonObj.get("name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
       }
-      if (!jsonObj.get("title").isJsonPrimitive()) {
+      if ((jsonObj.get("title") != null && !jsonObj.get("title").isJsonNull()) && !jsonObj.get("title").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `title` to be a primitive type in the JSON string but got `%s`", jsonObj.get("title").toString()));
       }
-      if (!jsonObj.get("type").isJsonPrimitive()) {
+      if ((jsonObj.get("type") != null && !jsonObj.get("type").isJsonNull()) && !jsonObj.get("type").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("type").toString()));
       }
   }

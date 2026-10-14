@@ -50,7 +50,7 @@ import one.talon.JSON;
 /**
  * AchievementBlockReference
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.25.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.26.0")
 public class AchievementBlockReference {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -59,20 +59,31 @@ public class AchievementBlockReference {
 
   public static final String SERIALIZED_NAME_TITLE = "title";
   @SerializedName(SERIALIZED_NAME_TITLE)
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   private String title;
 
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   private String name;
 
   public static final String SERIALIZED_NAME_TARGET = "target";
   @SerializedName(SERIALIZED_NAME_TARGET)
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   private BigDecimal target;
 
   public AchievementBlockReference() {
+  }
+
+  public AchievementBlockReference(
+     String title, 
+     String name, 
+     BigDecimal target
+  ) {
+    this();
+    this.title = title;
+    this.name = name;
+    this.target = target;
   }
 
   public AchievementBlockReference id(@javax.annotation.Nonnull Long id) {
@@ -94,61 +105,37 @@ public class AchievementBlockReference {
   }
 
 
-  public AchievementBlockReference title(@javax.annotation.Nonnull String title) {
-    this.title = title;
-    return this;
-  }
-
   /**
    * The display name for the achievement in the Campaign Manager.
    * @return title
    */
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   public String getTitle() {
     return title;
   }
 
-  public void setTitle(@javax.annotation.Nonnull String title) {
-    this.title = title;
-  }
 
-
-  public AchievementBlockReference name(@javax.annotation.Nonnull String name) {
-    this.name = name;
-    return this;
-  }
 
   /**
    * The internal name of the achievement used in API requests.
    * @return name
    */
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   public String getName() {
     return name;
   }
 
-  public void setName(@javax.annotation.Nonnull String name) {
-    this.name = name;
-  }
 
-
-  public AchievementBlockReference target(@javax.annotation.Nonnull BigDecimal target) {
-    this.target = target;
-    return this;
-  }
 
   /**
    * The required number of actions or the transactional milestone to complete the achievement.
    * @return target
    */
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   public BigDecimal getTarget() {
     return target;
   }
 
-  public void setTarget(@javax.annotation.Nonnull BigDecimal target) {
-    this.target = target;
-  }
 
   /**
    * A container for additional, undeclared properties.
@@ -247,7 +234,7 @@ public class AchievementBlockReference {
     openapiFields = new HashSet<String>(Arrays.asList("id", "title", "name", "target"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("id", "title", "name", "target"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("id"));
   }
 
   /**
@@ -270,10 +257,10 @@ public class AchievementBlockReference {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if (!jsonObj.get("title").isJsonPrimitive()) {
+      if ((jsonObj.get("title") != null && !jsonObj.get("title").isJsonNull()) && !jsonObj.get("title").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `title` to be a primitive type in the JSON string but got `%s`", jsonObj.get("title").toString()));
       }
-      if (!jsonObj.get("name").isJsonPrimitive()) {
+      if ((jsonObj.get("name") != null && !jsonObj.get("name").isJsonNull()) && !jsonObj.get("name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
       }
   }

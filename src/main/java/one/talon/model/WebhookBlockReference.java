@@ -49,7 +49,7 @@ import one.talon.JSON;
 /**
  * WebhookBlockReference
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.25.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.26.0")
 public class WebhookBlockReference {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -58,10 +58,17 @@ public class WebhookBlockReference {
 
   public static final String SERIALIZED_NAME_TITLE = "title";
   @SerializedName(SERIALIZED_NAME_TITLE)
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   private String title;
 
   public WebhookBlockReference() {
+  }
+
+  public WebhookBlockReference(
+     String title
+  ) {
+    this();
+    this.title = title;
   }
 
   public WebhookBlockReference id(@javax.annotation.Nonnull Long id) {
@@ -83,23 +90,15 @@ public class WebhookBlockReference {
   }
 
 
-  public WebhookBlockReference title(@javax.annotation.Nonnull String title) {
-    this.title = title;
-    return this;
-  }
-
   /**
    * The display name of the webhook.
    * @return title
    */
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   public String getTitle() {
     return title;
   }
 
-  public void setTitle(@javax.annotation.Nonnull String title) {
-    this.title = title;
-  }
 
   /**
    * A container for additional, undeclared properties.
@@ -194,7 +193,7 @@ public class WebhookBlockReference {
     openapiFields = new HashSet<String>(Arrays.asList("id", "title"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("id", "title"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("id"));
   }
 
   /**
@@ -217,7 +216,7 @@ public class WebhookBlockReference {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if (!jsonObj.get("title").isJsonPrimitive()) {
+      if ((jsonObj.get("title") != null && !jsonObj.get("title").isJsonNull()) && !jsonObj.get("title").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `title` to be a primitive type in the JSON string but got `%s`", jsonObj.get("title").toString()));
       }
   }

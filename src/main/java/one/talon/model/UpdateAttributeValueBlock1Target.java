@@ -49,7 +49,7 @@ import one.talon.JSON;
 /**
  * The entity or item scope that this effect operates on.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.25.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.26.0")
 public class UpdateAttributeValueBlock1Target {
   /**
    * Identifies the target scope of the attribute update.

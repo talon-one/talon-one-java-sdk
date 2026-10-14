@@ -52,7 +52,7 @@ import one.talon.JSON;
 /**
  * A shape formed by one or more boundaries, following the GeoJSON format. The first boundary defines the outer edge of the shape; any additional boundaries define holes within the shape.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.25.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.26.0")
 public class GeoJSONPolygon {
   /**
    * The geometry type discriminator.

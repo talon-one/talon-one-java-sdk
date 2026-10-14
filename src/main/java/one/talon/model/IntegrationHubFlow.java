@@ -50,7 +50,7 @@ import one.talon.JSON;
 /**
  * IntegrationHubFlow
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.25.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.26.0")
 public class IntegrationHubFlow {
   public static final String SERIALIZED_NAME_APPLICATION_I_D = "ApplicationID";
   @SerializedName(SERIALIZED_NAME_APPLICATION_I_D)

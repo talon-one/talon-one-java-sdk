@@ -52,7 +52,7 @@ import one.talon.JSON;
 /**
  * EffectRollbackAddedLoyaltyPoints
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.25.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.26.0")
 public class EffectRollbackAddedLoyaltyPoints {
   public static final String SERIALIZED_NAME_EXPERIMENT_ID = "experimentId";
   @SerializedName(SERIALIZED_NAME_EXPERIMENT_ID)
@@ -550,7 +550,7 @@ public class EffectRollbackAddedLoyaltyPoints {
   }
 
   /**
-   * The properties of the &#x60;rollbackAddedLoyaltyPoints&#x60; effect.
+   * Get props
    * @return props
    */
   @javax.annotation.Nonnull

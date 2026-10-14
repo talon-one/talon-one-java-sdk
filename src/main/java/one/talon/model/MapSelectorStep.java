@@ -49,7 +49,7 @@ import one.talon.JSON;
 /**
  * Transforms each item using an expression.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.25.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.26.0")
 public class MapSelectorStep {
   /**
    * A step discriminator of type &#x60;map&#x60;.

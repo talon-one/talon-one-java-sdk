@@ -64,7 +64,7 @@ import com.google.gson.JsonParseException;
 
 import one.talon.JSON;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.25.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.26.0")
 public class GeoJSONGeometry extends AbstractOpenApiSchema {
     private static final Logger log = Logger.getLogger(GeoJSONGeometry.class.getName());
 

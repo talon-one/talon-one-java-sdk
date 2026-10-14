@@ -49,7 +49,7 @@ import one.talon.JSON;
 /**
  * GiveawayPoolBlockReference
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.25.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.26.0")
 public class GiveawayPoolBlockReference {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -58,7 +58,7 @@ public class GiveawayPoolBlockReference {
 
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   private String name;
 
   public GiveawayPoolBlockReference() {
@@ -94,7 +94,7 @@ public class GiveawayPoolBlockReference {
    * The display name of the giveaway pool.
    * @return name
    */
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   public String getName() {
     return name;
   }
@@ -193,7 +193,7 @@ public class GiveawayPoolBlockReference {
     openapiFields = new HashSet<String>(Arrays.asList("id", "name"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("id", "name"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("id"));
   }
 
   /**
@@ -216,7 +216,7 @@ public class GiveawayPoolBlockReference {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if (!jsonObj.get("name").isJsonPrimitive()) {
+      if ((jsonObj.get("name") != null && !jsonObj.get("name").isJsonNull()) && !jsonObj.get("name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
       }
   }

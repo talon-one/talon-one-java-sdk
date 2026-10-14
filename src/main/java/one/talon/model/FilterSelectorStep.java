@@ -50,7 +50,7 @@ import one.talon.JSON;
 /**
  * Filters only items that match a predicate block.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.25.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.26.0")
 public class FilterSelectorStep {
   /**
    * A step discriminator of type &#x60;filter&#x60;.

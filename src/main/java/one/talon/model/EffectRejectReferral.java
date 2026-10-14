@@ -52,7 +52,7 @@ import one.talon.JSON;
 /**
  * EffectRejectReferral
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.25.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.26.0")
 public class EffectRejectReferral {
   public static final String SERIALIZED_NAME_EXPERIMENT_ID = "experimentId";
   @SerializedName(SERIALIZED_NAME_EXPERIMENT_ID)
@@ -550,7 +550,7 @@ public class EffectRejectReferral {
   }
 
   /**
-   * The properties of the &#x60;rejectReferral&#x60; effect.
+   * Get props
    * @return props
    */
   @javax.annotation.Nonnull

@@ -168,4 +168,12 @@ public class LoyaltyLedgerEntryTest {
         // TODO: test validityDuration
     }
 
+    /**
+     * Test the property 'awaitsActivation'
+     */
+    @Test
+    public void awaitsActivationTest() {
+        // TODO: test awaitsActivation
+    }
+
 }

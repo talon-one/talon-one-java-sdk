@@ -21,13 +21,13 @@
 |**reevaluateOnReturn** | **Boolean** | Indicates whether this campaign should be reevaluated when a customer returns an item. |  [optional] |
 |**features** | [**List&lt;FeaturesEnum&gt;**](#List&lt;FeaturesEnum&gt;) | A list of features for the campaign. |  [optional] |
 |**couponAttributes** | **Object** | Arbitrary properties associated with coupons in this campaign. |  [optional] |
-|**accountId** | **Long** |  |  |
-|**applicationId** | **Long** |  |  |
-|**campaignId** | **Long** |  |  |
-|**created** | **OffsetDateTime** |  |  |
-|**createdBy** | **Long** |  |  |
-|**revisionId** | **Long** |  |  |
-|**version** | **Long** |  |  |
+|**accountId** | **Long** | The ID of the account that owns this entity. |  |
+|**applicationId** | **Long** | The ID of the Application that owns this entity. |  |
+|**campaignId** | **Long** | The ID of the campaign that the revision was created from. |  |
+|**created** | **OffsetDateTime** | Timestamp when the revision was created. |  |
+|**createdBy** | **Long** | The ID of the user who created this revision. |  |
+|**revisionId** | **Long** | The ID of the revision. |  |
+|**version** | **Long** | Incrementing number representing how many revisions have been activated on this campaign. Starts from &#x60;0&#x60; for a new campaign.  |  |
 
 
 

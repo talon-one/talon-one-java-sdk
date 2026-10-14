@@ -14,7 +14,6 @@
 |**subledger** | **String** | The name of the subledger to deduct points from. Can be empty if this block deducts from the loyalty program&#39;s main ledger instead of a subledger. |  |
 |**value** | [**RedeemLoyaltyPointsBlock1Value**](RedeemLoyaltyPointsBlock1Value.md) |  |  |
 |**name** | **String** | A custom description recorded as the reason for the point deduction. |  [optional] |
-|**onFailure** | [**List&lt;Block&gt;**](Block.md) | Promotion blocks evaluated when this block fails or returns false. |  [optional] |
 
 
 

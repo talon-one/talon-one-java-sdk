@@ -50,7 +50,7 @@ import one.talon.JSON;
 /**
  * Keeps items that exist in the value map, and attaches each kept item&#39;s mapped value.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.25.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.26.0")
 public class FilterAndMapValuesSelectorStep {
   /**
    * A step discriminator of type &#x60;filterAndMapValues&#x60;.

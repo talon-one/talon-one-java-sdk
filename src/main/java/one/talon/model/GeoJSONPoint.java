@@ -52,7 +52,7 @@ import one.talon.JSON;
 /**
  * A single point on a map, defined by its longitude and latitude coordinates, following the GeoJSON format.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.25.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.26.0")
 public class GeoJSONPoint {
   /**
    * The geometry type discriminator.

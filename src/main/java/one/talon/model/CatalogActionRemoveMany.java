@@ -50,7 +50,7 @@ import one.talon.JSON;
 /**
  * Removes the items of the catalog that match the given filters.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.25.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.26.0")
 public class CatalogActionRemoveMany {
   /**
    * A catalog sync action discriminator of type &#x60;REMOVE_MANY&#x60;.

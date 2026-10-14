@@ -25,7 +25,6 @@ import java.util.List;
 import one.talon.model.AwardLoyaltyPointsBlock1Program;
 import one.talon.model.AwardLoyaltyPointsBlock1Value;
 import one.talon.model.AwardLoyaltyPointsTarget;
-import one.talon.model.Block;
 import org.openapitools.jackson.nullable.JsonNullable;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
@@ -162,14 +161,6 @@ public class AwardLoyaltyPointsBlockTest {
     @Test
     public void pendingDurationTest() {
         // TODO: test pendingDuration
-    }
-
-    /**
-     * Test the property 'onFailure'
-     */
-    @Test
-    public void onFailureTest() {
-        // TODO: test onFailure
     }
 
 }

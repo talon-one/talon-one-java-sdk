@@ -49,7 +49,7 @@ import one.talon.JSON;
 /**
  * Patch operation that is used to update the information.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.25.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.26.0")
 public class ScimPatchOperation {
   /**
    * The method that should be used in the operation.

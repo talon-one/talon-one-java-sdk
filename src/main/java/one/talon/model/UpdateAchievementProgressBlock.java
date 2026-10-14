@@ -24,6 +24,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import one.talon.model.AchievementBlockReference;
+import one.talon.model.UpdateAchievementProgressBlock1Value;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -52,7 +53,7 @@ import one.talon.JSON;
 /**
  * UpdateAchievementProgressBlock
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.25.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.26.0")
 public class UpdateAchievementProgressBlock {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -127,7 +128,7 @@ public class UpdateAchievementProgressBlock {
   public static final String SERIALIZED_NAME_VALUE = "value";
   @SerializedName(SERIALIZED_NAME_VALUE)
   @javax.annotation.Nonnull
-  private String value;
+  private UpdateAchievementProgressBlock1Value value;
 
   public static final String SERIALIZED_NAME_ACHIEVEMENT = "achievement";
   @SerializedName(SERIALIZED_NAME_ACHIEVEMENT)
@@ -206,21 +207,21 @@ public class UpdateAchievementProgressBlock {
   }
 
 
-  public UpdateAchievementProgressBlock value(@javax.annotation.Nonnull String value) {
+  public UpdateAchievementProgressBlock value(@javax.annotation.Nonnull UpdateAchievementProgressBlock1Value value) {
     this.value = value;
     return this;
   }
 
   /**
-   * The value to update the progress by. Supports template placeholders (e.g. \&quot;{{$Session.Total / 2}}\&quot;) for dynamic quantities.
+   * Get value
    * @return value
    */
   @javax.annotation.Nonnull
-  public String getValue() {
+  public UpdateAchievementProgressBlock1Value getValue() {
     return value;
   }
 
-  public void setValue(@javax.annotation.Nonnull String value) {
+  public void setValue(@javax.annotation.Nonnull UpdateAchievementProgressBlock1Value value) {
     this.value = value;
   }
 
@@ -382,9 +383,8 @@ public class UpdateAchievementProgressBlock {
       }
       // validate the required field `operator`
       OperatorEnum.validateJsonElement(jsonObj.get("operator"));
-      if (!jsonObj.get("value").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `value` to be a primitive type in the JSON string but got `%s`", jsonObj.get("value").toString()));
-      }
+      // validate the required field `value`
+      UpdateAchievementProgressBlock1Value.validateJsonElement(jsonObj.get("value"));
       // validate the required field `achievement`
       AchievementBlockReference.validateJsonElement(jsonObj.get("achievement"));
   }
