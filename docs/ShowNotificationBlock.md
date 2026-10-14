@@ -12,8 +12,7 @@
 |**tags** | **List&lt;String&gt;** | Semantic labels attached to this block. |  [optional] [readonly] |
 |**notificationType** | **String** | The type of notification to display. |  |
 |**title** | **String** | The notification heading shown to the customer. |  |
-|**body** | **String** | The notification body text. Supports template placeholders (e.g. \&quot;{{$Session.Total}}\&quot;) evaluated at rule execution time. |  [optional] |
-|**onFailure** | [**List&lt;Block&gt;**](Block.md) | Blocks evaluated when this block fails or returns false. |  [optional] |
+|**body** | **String** | The notification body text. Supports template placeholders (e.g. \&quot;{{$Session.Total}}\&quot;) evaluated at rule execution time. |  |
 |**onError** | **Map&lt;String, List&lt;Block&gt;&gt;** | Named error handlers evaluated when a specific error occurs. |  [optional] |
 
 

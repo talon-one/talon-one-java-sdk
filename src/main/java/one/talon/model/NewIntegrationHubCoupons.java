@@ -54,7 +54,7 @@ import one.talon.JSON;
 /**
  * NewIntegrationHubCoupons
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.25.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.26.0")
 public class NewIntegrationHubCoupons {
   public static final String SERIALIZED_NAME_USAGE_LIMIT = "usageLimit";
   @SerializedName(SERIALIZED_NAME_USAGE_LIMIT)
@@ -342,7 +342,7 @@ public class NewIntegrationHubCoupons {
   /**
    * The number of new coupon codes to generate for the campaign. Must be at least 1.
    * minimum: 1
-   * maximum: 20000
+   * maximum: 5000000
    * @return numberOfCoupons
    */
   @javax.annotation.Nonnull

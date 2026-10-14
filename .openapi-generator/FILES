@@ -215,6 +215,7 @@ docs/CatalogActionRemove.md
 docs/CatalogActionRemoveMany.md
 docs/CatalogItem.md
 docs/CatalogRule.md
+docs/CatalogRuleset.md
 docs/CatalogSyncRequest.md
 docs/CatalogsStrikethroughNotificationPolicy.md
 docs/Change.md
@@ -277,6 +278,7 @@ docs/CustomEffect.md
 docs/CustomEffectBlockReference.md
 docs/CustomEffectProps.md
 docs/CustomerAchievement.md
+docs/CustomerAchievementHistoryEntry.md
 docs/CustomerActivityReport.md
 docs/CustomerAnalytics.md
 docs/CustomerInventory.md
@@ -319,6 +321,7 @@ docs/EffectEntity.md
 docs/EffectError.md
 docs/EffectExtendLoyaltyPointsExpiryDate.md
 docs/EffectIncreaseAchievementProgress.md
+docs/EffectIncreaseAchievementProgressPerItem.md
 docs/EffectJoinLoyaltyProgram.md
 docs/EffectOffsetNegativeLoyaltyPoints.md
 docs/EffectRedeemReferral.md
@@ -332,7 +335,9 @@ docs/EffectRollbackCoupon.md
 docs/EffectRollbackDeductedLoyaltyPoints.md
 docs/EffectRollbackDiscount.md
 docs/EffectRollbackIncreasedAchievementProgress.md
+docs/EffectRollbackIncreasedAchievementProgressPerItem.md
 docs/EffectRollbackReferral.md
+docs/EffectRollbackTierBoost.md
 docs/EffectRollbackUseReward.md
 docs/EffectSet.md
 docs/EffectSetDiscount.md
@@ -370,6 +375,8 @@ docs/EventV3ReferralEntity.md
 docs/EventV3RequestEntity.md
 docs/ExcludePriceObservationsRequest.md
 docs/Experiment.md
+docs/ExperimentBlueprint.md
+docs/ExperimentBlueprintVariant.md
 docs/ExperimentCampaignCopy.md
 docs/ExperimentConfidenceTimeline.md
 docs/ExperimentConfidenceTimelineDataPoint.md
@@ -483,6 +490,7 @@ docs/History.md
 docs/IdentifiableEntity.md
 docs/ImportEntity.md
 docs/IncreaseAchievementProgressEffectProps.md
+docs/IncreaseAchievementProgressPerItemEffectProps.md
 docs/InfluencingCampaignDetails.md
 docs/IntegrationApi.md
 docs/IntegrationCampaign.md
@@ -553,6 +561,7 @@ docs/ListCampaignStoreBudgetsStore.md
 docs/ListCatalogItems200Response.md
 docs/ListCheckAttributeBlock.md
 docs/ListExperiments200Response.md
+docs/ListGiveawaysPool200Response.md
 docs/ListStores200Response.md
 docs/ListWithCountCheckAttributeBlock.md
 docs/LocationCheckAttributeBlock.md
@@ -652,6 +661,7 @@ docs/NewEvent.md
 docs/NewEventType.md
 docs/NewEventV3Entity.md
 docs/NewExperiment.md
+docs/NewExperimentBlueprint.md
 docs/NewExperimentVariant.md
 docs/NewExperimentVariantArray.md
 docs/NewExternalInvitation.md
@@ -793,6 +803,7 @@ docs/RollbackCouponEffectProps.md
 docs/RollbackDeductedLoyaltyPointsEffectProps.md
 docs/RollbackDiscountEffectProps.md
 docs/RollbackIncreasedAchievementProgressEffectProps.md
+docs/RollbackIncreasedAchievementProgressPerItemEffectProps.md
 docs/RollbackReferralEffectProps.md
 docs/RollbackTierBoostEffectProps.md
 docs/RollbackUseRewardEffectProps.md
@@ -898,6 +909,7 @@ docs/UnlockRewardEffectProps.md
 docs/UpdateAccount.md
 docs/UpdateAchievement.md
 docs/UpdateAchievementProgressBlock.md
+docs/UpdateAchievementProgressBlock1Value.md
 docs/UpdateAchievementV2.md
 docs/UpdateApplication.md
 docs/UpdateApplicationAPIKey.md
@@ -922,6 +934,7 @@ docs/UpdateCustomEffect.md
 docs/UpdateCustomerProfileV2409Response.md
 docs/UpdateCustomerSessionV2409Response.md
 docs/UpdateExperiment.md
+docs/UpdateExperimentBlueprint.md
 docs/UpdateExperimentVariant.md
 docs/UpdateExperimentVariantArray.md
 docs/UpdateExperimentVariantName.md
@@ -1190,6 +1203,7 @@ src/main/java/one/talon/model/CatalogActionRemove.java
 src/main/java/one/talon/model/CatalogActionRemoveMany.java
 src/main/java/one/talon/model/CatalogItem.java
 src/main/java/one/talon/model/CatalogRule.java
+src/main/java/one/talon/model/CatalogRuleset.java
 src/main/java/one/talon/model/CatalogSyncRequest.java
 src/main/java/one/talon/model/CatalogsStrikethroughNotificationPolicy.java
 src/main/java/one/talon/model/Change.java
@@ -1252,6 +1266,7 @@ src/main/java/one/talon/model/CustomEffect.java
 src/main/java/one/talon/model/CustomEffectBlockReference.java
 src/main/java/one/talon/model/CustomEffectProps.java
 src/main/java/one/talon/model/CustomerAchievement.java
+src/main/java/one/talon/model/CustomerAchievementHistoryEntry.java
 src/main/java/one/talon/model/CustomerActivityReport.java
 src/main/java/one/talon/model/CustomerAnalytics.java
 src/main/java/one/talon/model/CustomerInventory.java
@@ -1294,6 +1309,7 @@ src/main/java/one/talon/model/EffectEntity.java
 src/main/java/one/talon/model/EffectError.java
 src/main/java/one/talon/model/EffectExtendLoyaltyPointsExpiryDate.java
 src/main/java/one/talon/model/EffectIncreaseAchievementProgress.java
+src/main/java/one/talon/model/EffectIncreaseAchievementProgressPerItem.java
 src/main/java/one/talon/model/EffectJoinLoyaltyProgram.java
 src/main/java/one/talon/model/EffectOffsetNegativeLoyaltyPoints.java
 src/main/java/one/talon/model/EffectRedeemReferral.java
@@ -1307,7 +1323,9 @@ src/main/java/one/talon/model/EffectRollbackCoupon.java
 src/main/java/one/talon/model/EffectRollbackDeductedLoyaltyPoints.java
 src/main/java/one/talon/model/EffectRollbackDiscount.java
 src/main/java/one/talon/model/EffectRollbackIncreasedAchievementProgress.java
+src/main/java/one/talon/model/EffectRollbackIncreasedAchievementProgressPerItem.java
 src/main/java/one/talon/model/EffectRollbackReferral.java
+src/main/java/one/talon/model/EffectRollbackTierBoost.java
 src/main/java/one/talon/model/EffectRollbackUseReward.java
 src/main/java/one/talon/model/EffectSet.java
 src/main/java/one/talon/model/EffectSetDiscount.java
@@ -1345,6 +1363,8 @@ src/main/java/one/talon/model/EventV3ReferralEntity.java
 src/main/java/one/talon/model/EventV3RequestEntity.java
 src/main/java/one/talon/model/ExcludePriceObservationsRequest.java
 src/main/java/one/talon/model/Experiment.java
+src/main/java/one/talon/model/ExperimentBlueprint.java
+src/main/java/one/talon/model/ExperimentBlueprintVariant.java
 src/main/java/one/talon/model/ExperimentCampaignCopy.java
 src/main/java/one/talon/model/ExperimentConfidenceTimeline.java
 src/main/java/one/talon/model/ExperimentConfidenceTimelineDataPoint.java
@@ -1458,6 +1478,7 @@ src/main/java/one/talon/model/History.java
 src/main/java/one/talon/model/IdentifiableEntity.java
 src/main/java/one/talon/model/ImportEntity.java
 src/main/java/one/talon/model/IncreaseAchievementProgressEffectProps.java
+src/main/java/one/talon/model/IncreaseAchievementProgressPerItemEffectProps.java
 src/main/java/one/talon/model/InfluencingCampaignDetails.java
 src/main/java/one/talon/model/IntegrationCampaign.java
 src/main/java/one/talon/model/IntegrationCampaignBase.java
@@ -1527,6 +1548,7 @@ src/main/java/one/talon/model/ListCampaignStoreBudgetsStore.java
 src/main/java/one/talon/model/ListCatalogItems200Response.java
 src/main/java/one/talon/model/ListCheckAttributeBlock.java
 src/main/java/one/talon/model/ListExperiments200Response.java
+src/main/java/one/talon/model/ListGiveawaysPool200Response.java
 src/main/java/one/talon/model/ListStores200Response.java
 src/main/java/one/talon/model/ListWithCountCheckAttributeBlock.java
 src/main/java/one/talon/model/LocationCheckAttributeBlock.java
@@ -1625,6 +1647,7 @@ src/main/java/one/talon/model/NewEvent.java
 src/main/java/one/talon/model/NewEventType.java
 src/main/java/one/talon/model/NewEventV3Entity.java
 src/main/java/one/talon/model/NewExperiment.java
+src/main/java/one/talon/model/NewExperimentBlueprint.java
 src/main/java/one/talon/model/NewExperimentVariant.java
 src/main/java/one/talon/model/NewExperimentVariantArray.java
 src/main/java/one/talon/model/NewExternalInvitation.java
@@ -1766,6 +1789,7 @@ src/main/java/one/talon/model/RollbackCouponEffectProps.java
 src/main/java/one/talon/model/RollbackDeductedLoyaltyPointsEffectProps.java
 src/main/java/one/talon/model/RollbackDiscountEffectProps.java
 src/main/java/one/talon/model/RollbackIncreasedAchievementProgressEffectProps.java
+src/main/java/one/talon/model/RollbackIncreasedAchievementProgressPerItemEffectProps.java
 src/main/java/one/talon/model/RollbackReferralEffectProps.java
 src/main/java/one/talon/model/RollbackTierBoostEffectProps.java
 src/main/java/one/talon/model/RollbackUseRewardEffectProps.java
@@ -1871,6 +1895,7 @@ src/main/java/one/talon/model/UnlockRewardEffectProps.java
 src/main/java/one/talon/model/UpdateAccount.java
 src/main/java/one/talon/model/UpdateAchievement.java
 src/main/java/one/talon/model/UpdateAchievementProgressBlock.java
+src/main/java/one/talon/model/UpdateAchievementProgressBlock1Value.java
 src/main/java/one/talon/model/UpdateAchievementV2.java
 src/main/java/one/talon/model/UpdateApplication.java
 src/main/java/one/talon/model/UpdateApplicationAPIKey.java
@@ -1895,6 +1920,7 @@ src/main/java/one/talon/model/UpdateCustomEffect.java
 src/main/java/one/talon/model/UpdateCustomerProfileV2409Response.java
 src/main/java/one/talon/model/UpdateCustomerSessionV2409Response.java
 src/main/java/one/talon/model/UpdateExperiment.java
+src/main/java/one/talon/model/UpdateExperimentBlueprint.java
 src/main/java/one/talon/model/UpdateExperimentVariant.java
 src/main/java/one/talon/model/UpdateExperimentVariantArray.java
 src/main/java/one/talon/model/UpdateExperimentVariantName.java
@@ -2135,6 +2161,7 @@ src/test/java/one/talon/model/CatalogActionRemoveTest.java
 src/test/java/one/talon/model/CatalogActionTest.java
 src/test/java/one/talon/model/CatalogItemTest.java
 src/test/java/one/talon/model/CatalogRuleTest.java
+src/test/java/one/talon/model/CatalogRulesetTest.java
 src/test/java/one/talon/model/CatalogSyncRequestTest.java
 src/test/java/one/talon/model/CatalogTest.java
 src/test/java/one/talon/model/CatalogsStrikethroughNotificationPolicyTest.java
@@ -2197,6 +2224,7 @@ src/test/java/one/talon/model/CreateTemplateCampaignTest.java
 src/test/java/one/talon/model/CustomEffectBlockReferenceTest.java
 src/test/java/one/talon/model/CustomEffectPropsTest.java
 src/test/java/one/talon/model/CustomEffectTest.java
+src/test/java/one/talon/model/CustomerAchievementHistoryEntryTest.java
 src/test/java/one/talon/model/CustomerAchievementTest.java
 src/test/java/one/talon/model/CustomerActivityReportTest.java
 src/test/java/one/talon/model/CustomerAnalyticsTest.java
@@ -2238,6 +2266,7 @@ src/test/java/one/talon/model/EffectDeductLoyaltyPointsTest.java
 src/test/java/one/talon/model/EffectEntityTest.java
 src/test/java/one/talon/model/EffectErrorTest.java
 src/test/java/one/talon/model/EffectExtendLoyaltyPointsExpiryDateTest.java
+src/test/java/one/talon/model/EffectIncreaseAchievementProgressPerItemTest.java
 src/test/java/one/talon/model/EffectIncreaseAchievementProgressTest.java
 src/test/java/one/talon/model/EffectJoinLoyaltyProgramTest.java
 src/test/java/one/talon/model/EffectOffsetNegativeLoyaltyPointsTest.java
@@ -2251,8 +2280,10 @@ src/test/java/one/talon/model/EffectRollbackAddedLoyaltyPointsTest.java
 src/test/java/one/talon/model/EffectRollbackCouponTest.java
 src/test/java/one/talon/model/EffectRollbackDeductedLoyaltyPointsTest.java
 src/test/java/one/talon/model/EffectRollbackDiscountTest.java
+src/test/java/one/talon/model/EffectRollbackIncreasedAchievementProgressPerItemTest.java
 src/test/java/one/talon/model/EffectRollbackIncreasedAchievementProgressTest.java
 src/test/java/one/talon/model/EffectRollbackReferralTest.java
+src/test/java/one/talon/model/EffectRollbackTierBoostTest.java
 src/test/java/one/talon/model/EffectRollbackUseRewardTest.java
 src/test/java/one/talon/model/EffectSetDiscountPerAdditionalCostPerItemTest.java
 src/test/java/one/talon/model/EffectSetDiscountPerAdditionalCostTest.java
@@ -2290,6 +2321,8 @@ src/test/java/one/talon/model/EventV3ReferralEntityTest.java
 src/test/java/one/talon/model/EventV3RequestEntityTest.java
 src/test/java/one/talon/model/EventV3Test.java
 src/test/java/one/talon/model/ExcludePriceObservationsRequestTest.java
+src/test/java/one/talon/model/ExperimentBlueprintTest.java
+src/test/java/one/talon/model/ExperimentBlueprintVariantTest.java
 src/test/java/one/talon/model/ExperimentCampaignCopyTest.java
 src/test/java/one/talon/model/ExperimentConfidenceTimelineDataPointTest.java
 src/test/java/one/talon/model/ExperimentConfidenceTimelineTest.java
@@ -2404,6 +2437,7 @@ src/test/java/one/talon/model/HistoryTest.java
 src/test/java/one/talon/model/IdentifiableEntityTest.java
 src/test/java/one/talon/model/ImportEntityTest.java
 src/test/java/one/talon/model/IncreaseAchievementProgressEffectPropsTest.java
+src/test/java/one/talon/model/IncreaseAchievementProgressPerItemEffectPropsTest.java
 src/test/java/one/talon/model/InfluencingCampaignDetailsTest.java
 src/test/java/one/talon/model/IntegrationCampaignBaseTest.java
 src/test/java/one/talon/model/IntegrationCampaignTest.java
@@ -2473,6 +2507,7 @@ src/test/java/one/talon/model/ListCampaignStoreBudgetsTest.java
 src/test/java/one/talon/model/ListCatalogItems200ResponseTest.java
 src/test/java/one/talon/model/ListCheckAttributeBlockTest.java
 src/test/java/one/talon/model/ListExperiments200ResponseTest.java
+src/test/java/one/talon/model/ListGiveawaysPool200ResponseTest.java
 src/test/java/one/talon/model/ListStores200ResponseTest.java
 src/test/java/one/talon/model/ListWithCountCheckAttributeBlockTest.java
 src/test/java/one/talon/model/LocationCheckAttributeBlockTest.java
@@ -2570,6 +2605,7 @@ src/test/java/one/talon/model/NewDigitalPassTest.java
 src/test/java/one/talon/model/NewEventTest.java
 src/test/java/one/talon/model/NewEventTypeTest.java
 src/test/java/one/talon/model/NewEventV3EntityTest.java
+src/test/java/one/talon/model/NewExperimentBlueprintTest.java
 src/test/java/one/talon/model/NewExperimentTest.java
 src/test/java/one/talon/model/NewExperimentVariantArrayTest.java
 src/test/java/one/talon/model/NewExperimentVariantTest.java
@@ -2712,6 +2748,7 @@ src/test/java/one/talon/model/RollbackCouponEffectPropsTest.java
 src/test/java/one/talon/model/RollbackDeductedLoyaltyPointsEffectPropsTest.java
 src/test/java/one/talon/model/RollbackDiscountEffectPropsTest.java
 src/test/java/one/talon/model/RollbackIncreasedAchievementProgressEffectPropsTest.java
+src/test/java/one/talon/model/RollbackIncreasedAchievementProgressPerItemEffectPropsTest.java
 src/test/java/one/talon/model/RollbackReferralEffectPropsTest.java
 src/test/java/one/talon/model/RollbackTierBoostEffectPropsTest.java
 src/test/java/one/talon/model/RollbackUseRewardEffectPropsTest.java
@@ -2815,6 +2852,7 @@ src/test/java/one/talon/model/TwoFAConfigTest.java
 src/test/java/one/talon/model/UnaryCheckAttributeBlockTest.java
 src/test/java/one/talon/model/UnlockRewardEffectPropsTest.java
 src/test/java/one/talon/model/UpdateAccountTest.java
+src/test/java/one/talon/model/UpdateAchievementProgressBlock1ValueTest.java
 src/test/java/one/talon/model/UpdateAchievementProgressBlockTest.java
 src/test/java/one/talon/model/UpdateAchievementTest.java
 src/test/java/one/talon/model/UpdateAchievementV2Test.java
@@ -2840,6 +2878,7 @@ src/test/java/one/talon/model/UpdateCouponsDataTest.java
 src/test/java/one/talon/model/UpdateCustomEffectTest.java
 src/test/java/one/talon/model/UpdateCustomerProfileV2409ResponseTest.java
 src/test/java/one/talon/model/UpdateCustomerSessionV2409ResponseTest.java
+src/test/java/one/talon/model/UpdateExperimentBlueprintTest.java
 src/test/java/one/talon/model/UpdateExperimentTest.java
 src/test/java/one/talon/model/UpdateExperimentVariantArrayTest.java
 src/test/java/one/talon/model/UpdateExperimentVariantNameTest.java

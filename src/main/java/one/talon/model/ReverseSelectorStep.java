@@ -49,7 +49,7 @@ import one.talon.JSON;
 /**
  * Reverses the order of the items.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.25.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.26.0")
 public class ReverseSelectorStep {
   /**
    * A step discriminator of type &#x60;reverse&#x60;.

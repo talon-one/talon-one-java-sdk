@@ -52,7 +52,7 @@ import one.talon.JSON;
 /**
  * EffectSetDiscountPerAdditionalCostPerItem
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.25.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.26.0")
 public class EffectSetDiscountPerAdditionalCostPerItem {
   public static final String SERIALIZED_NAME_EXPERIMENT_ID = "experimentId";
   @SerializedName(SERIALIZED_NAME_EXPERIMENT_ID)
@@ -550,7 +550,7 @@ public class EffectSetDiscountPerAdditionalCostPerItem {
   }
 
   /**
-   * The properties of the &#x60;setDiscountPerAdditionalCostPerItem&#x60; effect.
+   * Get props
    * @return props
    */
   @javax.annotation.Nonnull

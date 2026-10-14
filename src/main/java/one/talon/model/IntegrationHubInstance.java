@@ -49,7 +49,7 @@ import one.talon.JSON;
 /**
  * IntegrationHubInstance
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.25.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.26.0")
 public class IntegrationHubInstance {
   public static final String SERIALIZED_NAME_INSTANCE_ID = "instanceId";
   @SerializedName(SERIALIZED_NAME_INSTANCE_ID)

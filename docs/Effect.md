@@ -2,7 +2,6 @@
 
 # Effect
 
-A generic effect that is fired by a triggered campaign. The `effectType` field selects the concrete effect variant and the shape of `props`.
 
 ## Properties
 
@@ -26,7 +25,7 @@ A generic effect that is fired by a triggered campaign. The `effectType` field s
 |**adjustmentReferenceId** | **UUID** | The reference identifier of the selected price adjustment for this SKU. This is only returned if the &#x60;selectedPrice&#x60; resulted from a price adjustment. |  [optional] |
 |**rewardId** | **Long** | The ID of the reward that was being evaluated when this effect was triggered. |  [optional] |
 |**rewardIntegrationId** | **String** | The integration ID of the specific customer reward whose usage produced this effect. |  [optional] |
-|**props** | [**WillAwardGiveawayEffectProps**](WillAwardGiveawayEffectProps.md) | The properties of the &#x60;willAwardGiveaway&#x60; effect. |  |
+|**props** | [**WillAwardGiveawayEffectProps**](WillAwardGiveawayEffectProps.md) |  |  |
 
 
 

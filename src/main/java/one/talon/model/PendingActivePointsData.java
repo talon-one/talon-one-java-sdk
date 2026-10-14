@@ -51,7 +51,7 @@ import one.talon.JSON;
 /**
  * PendingActivePointsData
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.25.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.26.0")
 public class PendingActivePointsData {
   public static final String SERIALIZED_NAME_LOYALTY_PROGRAM_I_D = "LoyaltyProgramID";
   @SerializedName(SERIALIZED_NAME_LOYALTY_PROGRAM_I_D)
@@ -87,6 +87,21 @@ public class PendingActivePointsData {
   @SerializedName(SERIALIZED_NAME_SESSION_INTEGRATION_I_D)
   @javax.annotation.Nullable
   private String sessionIntegrationID;
+
+  public static final String SERIALIZED_NAME_CREATED = "Created";
+  @SerializedName(SERIALIZED_NAME_CREATED)
+  @javax.annotation.Nullable
+  private OffsetDateTime created;
+
+  public static final String SERIALIZED_NAME_AWAITS_ACTIVATION = "AwaitsActivation";
+  @SerializedName(SERIALIZED_NAME_AWAITS_ACTIVATION)
+  @javax.annotation.Nullable
+  private Boolean awaitsActivation;
+
+  public static final String SERIALIZED_NAME_VALIDITY_DURATION = "ValidityDuration";
+  @SerializedName(SERIALIZED_NAME_VALIDITY_DURATION)
+  @javax.annotation.Nullable
+  private String validityDuration;
 
   public PendingActivePointsData() {
   }
@@ -224,6 +239,63 @@ public class PendingActivePointsData {
     this.sessionIntegrationID = sessionIntegrationID;
   }
 
+
+  public PendingActivePointsData created(@javax.annotation.Nullable OffsetDateTime created) {
+    this.created = created;
+    return this;
+  }
+
+  /**
+   * The timestamp when the loyalty transaction occurred.
+   * @return created
+   */
+  @javax.annotation.Nullable
+  public OffsetDateTime getCreated() {
+    return created;
+  }
+
+  public void setCreated(@javax.annotation.Nullable OffsetDateTime created) {
+    this.created = created;
+  }
+
+
+  public PendingActivePointsData awaitsActivation(@javax.annotation.Nullable Boolean awaitsActivation) {
+    this.awaitsActivation = awaitsActivation;
+    return this;
+  }
+
+  /**
+   * Indicates whether the points have an action-based start date. This property is returned only for point transactions with an action-based start date.
+   * @return awaitsActivation
+   */
+  @javax.annotation.Nullable
+  public Boolean getAwaitsActivation() {
+    return awaitsActivation;
+  }
+
+  public void setAwaitsActivation(@javax.annotation.Nullable Boolean awaitsActivation) {
+    this.awaitsActivation = awaitsActivation;
+  }
+
+
+  public PendingActivePointsData validityDuration(@javax.annotation.Nullable String validityDuration) {
+    this.validityDuration = validityDuration;
+    return this;
+  }
+
+  /**
+   * The duration for which the points remain active, relative to the activation date.  **Note**: This only applies to points for which &#x60;AwaitsActivation&#x60; is &#x60;true&#x60; and &#x60;ExpireOn&#x60; is not set. 
+   * @return validityDuration
+   */
+  @javax.annotation.Nullable
+  public String getValidityDuration() {
+    return validityDuration;
+  }
+
+  public void setValidityDuration(@javax.annotation.Nullable String validityDuration) {
+    this.validityDuration = validityDuration;
+  }
+
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -285,13 +357,16 @@ public class PendingActivePointsData {
         Objects.equals(this.points, pendingActivePointsData.points) &&
         Objects.equals(this.activeOn, pendingActivePointsData.activeOn) &&
         Objects.equals(this.expireOn, pendingActivePointsData.expireOn) &&
-        Objects.equals(this.sessionIntegrationID, pendingActivePointsData.sessionIntegrationID)&&
+        Objects.equals(this.sessionIntegrationID, pendingActivePointsData.sessionIntegrationID) &&
+        Objects.equals(this.created, pendingActivePointsData.created) &&
+        Objects.equals(this.awaitsActivation, pendingActivePointsData.awaitsActivation) &&
+        Objects.equals(this.validityDuration, pendingActivePointsData.validityDuration)&&
         Objects.equals(this.additionalProperties, pendingActivePointsData.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(loyaltyProgramID, subledgerID, customerProfileID, points, activeOn, expireOn, sessionIntegrationID, additionalProperties);
+    return Objects.hash(loyaltyProgramID, subledgerID, customerProfileID, points, activeOn, expireOn, sessionIntegrationID, created, awaitsActivation, validityDuration, additionalProperties);
   }
 
   @Override
@@ -305,6 +380,9 @@ public class PendingActivePointsData {
     sb.append("    activeOn: ").append(toIndentedString(activeOn)).append("\n");
     sb.append("    expireOn: ").append(toIndentedString(expireOn)).append("\n");
     sb.append("    sessionIntegrationID: ").append(toIndentedString(sessionIntegrationID)).append("\n");
+    sb.append("    created: ").append(toIndentedString(created)).append("\n");
+    sb.append("    awaitsActivation: ").append(toIndentedString(awaitsActivation)).append("\n");
+    sb.append("    validityDuration: ").append(toIndentedString(validityDuration)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -324,7 +402,7 @@ public class PendingActivePointsData {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("LoyaltyProgramID", "SubledgerID", "CustomerProfileID", "Points", "ActiveOn", "ExpireOn", "SessionIntegrationID"));
+    openapiFields = new HashSet<String>(Arrays.asList("LoyaltyProgramID", "SubledgerID", "CustomerProfileID", "Points", "ActiveOn", "ExpireOn", "SessionIntegrationID", "Created", "AwaitsActivation", "ValidityDuration"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("LoyaltyProgramID", "SubledgerID", "CustomerProfileID", "Points"));
@@ -358,6 +436,9 @@ public class PendingActivePointsData {
       }
       if ((jsonObj.get("SessionIntegrationID") != null && !jsonObj.get("SessionIntegrationID").isJsonNull()) && !jsonObj.get("SessionIntegrationID").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `SessionIntegrationID` to be a primitive type in the JSON string but got `%s`", jsonObj.get("SessionIntegrationID").toString()));
+      }
+      if ((jsonObj.get("ValidityDuration") != null && !jsonObj.get("ValidityDuration").isJsonNull()) && !jsonObj.get("ValidityDuration").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `ValidityDuration` to be a primitive type in the JSON string but got `%s`", jsonObj.get("ValidityDuration").toString()));
       }
   }
 

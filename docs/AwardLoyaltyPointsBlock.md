@@ -22,7 +22,6 @@
 |**validityDuration** | **String** | Relative duration (e.g. &#x60;30D&#x60;) after which the awarded points expire. Mutually exclusive with &#x60;expiryDate&#x60;. |  [optional] |
 |**expiryDate** | **Object** | Timestamp at which the awarded points expire. Mutually exclusive with &#x60;validityDuration&#x60;. |  [optional] |
 |**pendingDuration** | **String** | Relative duration (e.g. &#x60;3D&#x60;) the awarded points remain pending before activation. |  [optional] |
-|**onFailure** | [**List&lt;Block&gt;**](Block.md) | Promotion blocks evaluated when this block fails or returns false. |  [optional] |
 
 
 

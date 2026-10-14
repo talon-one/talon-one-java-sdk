@@ -49,9 +49,9 @@ import java.util.Set;
 import one.talon.JSON;
 
 /**
- * Properties returned when a rule triggers a &#x60;boostLoyaltyTier&#x60; effect. The customer is temporarily placed in a higher loyalty tier for a specified period without any change to their points balance. 
+ * This effect indicates that the customer was temporarily placed in a higher loyalty tier for a specified period, without any change to their points balance.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.25.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.26.0")
 public class BoostLoyaltyTierEffectProps {
   public static final String SERIALIZED_NAME_PROGRAM_ID = "programId";
   @SerializedName(SERIALIZED_NAME_PROGRAM_ID)

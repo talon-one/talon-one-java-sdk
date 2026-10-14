@@ -50,7 +50,7 @@ import one.talon.JSON;
 /**
  * UpdateExperiment
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.25.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.26.0")
 public class UpdateExperiment {
   public static final String SERIALIZED_NAME_IS_VARIANT_ASSIGNMENT_EXTERNAL = "isVariantAssignmentExternal";
   @Deprecated

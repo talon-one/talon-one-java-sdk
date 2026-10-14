@@ -54,7 +54,7 @@ import one.talon.JSON;
 /**
  * CheckLoyaltyBalanceBlock
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.25.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.26.0")
 public class CheckLoyaltyBalanceBlock {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -147,7 +147,7 @@ public class CheckLoyaltyBalanceBlock {
   private String subledger;
 
   /**
-   * The type of balance to check:  - &#x60;current&#x60; is the sum of currently active points  - &#x60;pending&#x60; is the sum of pending points.  - &#x60;negative&#x60; is the sum of negative points.  - &#x60;tentativeCurrent&#x60; is the tentative points balance within the current open customer session.
+   * The type of balance to check:  - &#x60;current&#x60; is the sum of currently active points  - &#x60;pending&#x60; is the sum of pending points.  - &#x60;negative&#x60; is the sum of negative points. It cannot be used with a subledger.  - &#x60;tentativeCurrent&#x60; is the tentative points balance within the current open customer session.
    */
   @JsonAdapter(BalanceEnum.Adapter.class)
   public enum BalanceEnum {
@@ -314,7 +314,7 @@ public class CheckLoyaltyBalanceBlock {
   }
 
   /**
-   * The name of the subledger to check the balance of. Can be empty if this block checks the loyalty program&#39;s main ledger balance instead of a subledger.
+   * The name of the subledger to check the balance of. Can be empty if this block checks the loyalty program&#39;s main ledger balance instead of a subledger. A subledger can only be used when the loyalty program has subledgers enabled.
    * @return subledger
    */
   @javax.annotation.Nonnull
@@ -333,7 +333,7 @@ public class CheckLoyaltyBalanceBlock {
   }
 
   /**
-   * The type of balance to check:  - &#x60;current&#x60; is the sum of currently active points  - &#x60;pending&#x60; is the sum of pending points.  - &#x60;negative&#x60; is the sum of negative points.  - &#x60;tentativeCurrent&#x60; is the tentative points balance within the current open customer session.
+   * The type of balance to check:  - &#x60;current&#x60; is the sum of currently active points  - &#x60;pending&#x60; is the sum of pending points.  - &#x60;negative&#x60; is the sum of negative points. It cannot be used with a subledger.  - &#x60;tentativeCurrent&#x60; is the tentative points balance within the current open customer session.
    * @return balance
    */
   @javax.annotation.Nonnull

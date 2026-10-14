@@ -49,7 +49,7 @@ import one.talon.JSON;
 /**
  * SSOConfig
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.25.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.26.0")
 public class SSOConfig {
   public static final String SERIALIZED_NAME_ENFORCED = "enforced";
   @SerializedName(SERIALIZED_NAME_ENFORCED)

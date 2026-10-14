@@ -49,7 +49,7 @@ import one.talon.JSON;
 /**
  * MCPOAuthTokenError
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.25.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.26.0")
 public class MCPOAuthTokenError {
   /**
    * RFC 6749 §5.2 error code.

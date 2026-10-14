@@ -51,7 +51,7 @@ import one.talon.JSON;
 /**
  * The request body for unlocking a reward for a customer profile, optionally using the balance of one of the customer&#39;s loyalty cards. 
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.25.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.26.0")
 public class IntegrationUnlockRewardRequest {
   public static final String SERIALIZED_NAME_INTEGRATION_ID = "integrationId";
   @SerializedName(SERIALIZED_NAME_INTEGRATION_ID)

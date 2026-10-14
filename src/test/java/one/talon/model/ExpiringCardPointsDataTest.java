@@ -21,6 +21,7 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -95,6 +96,30 @@ public class ExpiringCardPointsDataTest {
     @Test
     public void profilesTest() {
         // TODO: test profiles
+    }
+
+    /**
+     * Test the property 'created'
+     */
+    @Test
+    public void createdTest() {
+        // TODO: test created
+    }
+
+    /**
+     * Test the property 'awaitsActivation'
+     */
+    @Test
+    public void awaitsActivationTest() {
+        // TODO: test awaitsActivation
+    }
+
+    /**
+     * Test the property 'validityDuration'
+     */
+    @Test
+    public void validityDurationTest() {
+        // TODO: test validityDuration
     }
 
 }

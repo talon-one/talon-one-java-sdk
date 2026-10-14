@@ -23,6 +23,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import one.talon.model.AchievementBlockReference;
+import one.talon.model.UpdateAchievementProgressBlock1Value;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 

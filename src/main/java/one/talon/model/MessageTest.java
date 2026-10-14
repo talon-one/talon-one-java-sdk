@@ -49,7 +49,7 @@ import one.talon.JSON;
 /**
  * MessageTest
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.25.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.26.0")
 public class MessageTest {
   public static final String SERIALIZED_NAME_HTTP_RESPONSE = "httpResponse";
   @SerializedName(SERIALIZED_NAME_HTTP_RESPONSE)

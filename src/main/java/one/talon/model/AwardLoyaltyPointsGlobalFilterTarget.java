@@ -49,7 +49,7 @@ import one.talon.JSON;
 /**
  * Awards points per item in a globally filtered subset of items.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.25.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.26.0")
 public class AwardLoyaltyPointsGlobalFilterTarget {
   /**
    * A target discriminator of type &#x60;globalFilter&#x60;.

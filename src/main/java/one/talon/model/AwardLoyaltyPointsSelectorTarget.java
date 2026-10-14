@@ -49,7 +49,7 @@ import one.talon.JSON;
 /**
  * Awards points per item in a specific selector.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.25.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.26.0")
 public class AwardLoyaltyPointsSelectorTarget {
   /**
    * A target discriminator of type &#x60;selector&#x60;.

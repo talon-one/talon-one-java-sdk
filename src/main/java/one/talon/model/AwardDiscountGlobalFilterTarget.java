@@ -49,7 +49,7 @@ import one.talon.JSON;
 /**
  * Applies the discount to items matched by a named Application-level cart-item filter.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.25.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.26.0")
 public class AwardDiscountGlobalFilterTarget {
   /**
    * A target discriminator of type &#x60;globalFilter&#x60;.

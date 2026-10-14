@@ -49,7 +49,7 @@ import one.talon.JSON;
 /**
  * Variant of &#x60;CheckAttributeBlock&#x60; for operators that test list membership with a minimum or exact count threshold.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.25.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.26.0")
 public class ListWithCountCheckAttributeBlock {
   /**
    * The list membership operator with a count threshold applied to the attribute.

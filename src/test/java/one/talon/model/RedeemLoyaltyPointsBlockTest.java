@@ -22,7 +22,6 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import one.talon.model.Block;
 import one.talon.model.RedeemLoyaltyPointsBlock1Program;
 import one.talon.model.RedeemLoyaltyPointsBlock1Value;
 import org.junit.jupiter.api.Disabled;
@@ -96,14 +95,6 @@ public class RedeemLoyaltyPointsBlockTest {
     @Test
     public void nameTest() {
         // TODO: test name
-    }
-
-    /**
-     * Test the property 'onFailure'
-     */
-    @Test
-    public void onFailureTest() {
-        // TODO: test onFailure
     }
 
 }

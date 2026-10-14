@@ -49,7 +49,7 @@ import one.talon.JSON;
 /**
  * CampaignVersions
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.25.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.26.0")
 public class CampaignVersions {
   /**
    * The campaign revision state displayed in the Campaign Manager.
@@ -204,7 +204,7 @@ public class CampaignVersions {
   }
 
   /**
-   * Incrementing number representing how many revisions have been activated on this campaign, starts from 0 for a new campaign. 
+   * Incrementing number representing how many revisions have been activated on this campaign. Starts from &#x60;0&#x60; for a new campaign. 
    * @return version
    */
   @javax.annotation.Nullable

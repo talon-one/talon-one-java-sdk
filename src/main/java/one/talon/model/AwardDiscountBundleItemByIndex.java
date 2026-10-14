@@ -49,7 +49,7 @@ import one.talon.JSON;
 /**
  * Identifies a bundle slot by its zero-based index within the bundle.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.25.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.26.0")
 public class AwardDiscountBundleItemByIndex {
   /**
    * A bundle-item selector of type &#x60;byIndex&#x60;.

@@ -25,7 +25,7 @@
 |**adjustmentReferenceId** | **UUID** | The reference identifier of the selected price adjustment for this SKU. This is only returned if the &#x60;selectedPrice&#x60; resulted from a price adjustment. |  [optional] |
 |**rewardId** | **Long** | The ID of the reward that was being evaluated when this effect was triggered. |  [optional] |
 |**rewardIntegrationId** | **String** | The integration ID of the specific customer reward whose usage produced this effect. |  [optional] |
-|**props** | [**RejectCouponEffectProps**](RejectCouponEffectProps.md) | The properties of the &#x60;rejectCoupon&#x60; effect. |  |
+|**props** | [**RejectCouponEffectProps**](RejectCouponEffectProps.md) |  |  |
 
 
 

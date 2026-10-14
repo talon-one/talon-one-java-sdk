@@ -50,7 +50,7 @@ import one.talon.JSON;
 /**
  * Updates an item in the catalog.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.25.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.26.0")
 public class CatalogActionPatch {
   /**
    * A catalog sync action discriminator of type &#x60;PATCH&#x60;.

@@ -50,7 +50,7 @@ import one.talon.JSON;
 /**
  * This effect indicates that a customer profile was joined to a profile-based loyalty program with the specified join date.  &gt; [!note] **Note** &gt; - This effect requires a customer profile. It does not work for anonymous sessions. &gt; - The effect fails if the customer profile has already joined the loyalty program. 
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.25.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.26.0")
 public class JoinLoyaltyProgramEffectProps {
   public static final String SERIALIZED_NAME_PROGRAM_ID = "programId";
   @SerializedName(SERIALIZED_NAME_PROGRAM_ID)

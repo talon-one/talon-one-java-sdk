@@ -53,7 +53,7 @@ import one.talon.JSON;
 /**
  * IntegrationHubEventPayloadCouponBasedNotifications
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.25.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.26.0")
 public class IntegrationHubEventPayloadCouponBasedNotifications {
   public static final String SERIALIZED_NAME_EVENT_ID = "EventId";
   @SerializedName(SERIALIZED_NAME_EVENT_ID)

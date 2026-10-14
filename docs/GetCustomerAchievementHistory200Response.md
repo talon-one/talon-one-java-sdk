@@ -8,7 +8,7 @@
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
 |**totalResultSize** | **Long** |  |  |
-|**data** | [**List&lt;AchievementProgress&gt;**](AchievementProgress.md) |  |  |
+|**data** | [**List&lt;CustomerAchievementHistoryEntry&gt;**](CustomerAchievementHistoryEntry.md) |  |  |
 
 
 

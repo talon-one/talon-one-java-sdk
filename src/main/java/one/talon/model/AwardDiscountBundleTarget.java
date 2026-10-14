@@ -50,7 +50,7 @@ import one.talon.JSON;
 /**
  * Applies the discount to items belonging to a named bundle.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.25.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.26.0")
 public class AwardDiscountBundleTarget {
   /**
    * A target discriminator of type &#x60;bundle&#x60;.

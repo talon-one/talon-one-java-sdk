@@ -49,7 +49,7 @@ import one.talon.JSON;
 /**
  * The best prior price settings for this Application.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.25.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.26.0")
 public class BestPriorPriceSettings {
   public static final String SERIALIZED_NAME_ENABLE_BEST_PRIOR_PRICE = "enableBestPriorPrice";
   @SerializedName(SERIALIZED_NAME_ENABLE_BEST_PRIOR_PRICE)

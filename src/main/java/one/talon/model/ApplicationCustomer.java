@@ -57,7 +57,7 @@ import one.talon.JSON;
 /**
  * ApplicationCustomer
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.25.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.26.0")
 public class ApplicationCustomer {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -119,6 +119,11 @@ public class ApplicationCustomer {
   @SerializedName(SERIALIZED_NAME_ADVOCATE_INTEGRATION_ID)
   @javax.annotation.Nullable
   private String advocateIntegrationId;
+
+  public static final String SERIALIZED_NAME_LOYALTY_PROGRAM_JOIN_DATES = "loyaltyProgramJoinDates";
+  @SerializedName(SERIALIZED_NAME_LOYALTY_PROGRAM_JOIN_DATES)
+  @javax.annotation.Nullable
+  private List<LoyaltyMembership> loyaltyProgramJoinDates;
 
   public ApplicationCustomer() {
   }
@@ -378,6 +383,33 @@ public class ApplicationCustomer {
     this.advocateIntegrationId = advocateIntegrationId;
   }
 
+
+  public ApplicationCustomer loyaltyProgramJoinDates(@javax.annotation.Nullable List<LoyaltyMembership> loyaltyProgramJoinDates) {
+    this.loyaltyProgramJoinDates = loyaltyProgramJoinDates;
+    return this;
+  }
+
+  public ApplicationCustomer addLoyaltyProgramJoinDatesItem(LoyaltyMembership loyaltyProgramJoinDatesItem) {
+    if (this.loyaltyProgramJoinDates == null) {
+      this.loyaltyProgramJoinDates = new ArrayList<>();
+    }
+    this.loyaltyProgramJoinDates.add(loyaltyProgramJoinDatesItem);
+    return this;
+  }
+
+  /**
+   * The dates on which the customer joined the profile-based loyalty programs they are part of. Returned only when the &#x60;withLoyaltyMemberships&#x60; query parameter is &#x60;true&#x60;.
+   * @return loyaltyProgramJoinDates
+   */
+  @javax.annotation.Nullable
+  public List<LoyaltyMembership> getLoyaltyProgramJoinDates() {
+    return loyaltyProgramJoinDates;
+  }
+
+  public void setLoyaltyProgramJoinDates(@javax.annotation.Nullable List<LoyaltyMembership> loyaltyProgramJoinDates) {
+    this.loyaltyProgramJoinDates = loyaltyProgramJoinDates;
+  }
+
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -444,13 +476,14 @@ public class ApplicationCustomer {
         Objects.equals(this.audienceMemberships, applicationCustomer.audienceMemberships) &&
         Objects.equals(this.lastActivity, applicationCustomer.lastActivity) &&
         Objects.equals(this.sandbox, applicationCustomer.sandbox) &&
-        Objects.equals(this.advocateIntegrationId, applicationCustomer.advocateIntegrationId)&&
+        Objects.equals(this.advocateIntegrationId, applicationCustomer.advocateIntegrationId) &&
+        Objects.equals(this.loyaltyProgramJoinDates, applicationCustomer.loyaltyProgramJoinDates)&&
         Objects.equals(this.additionalProperties, applicationCustomer.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, created, integrationId, attributes, accountId, closedSessions, totalSales, loyaltyMemberships, audienceMemberships, lastActivity, sandbox, advocateIntegrationId, additionalProperties);
+    return Objects.hash(id, created, integrationId, attributes, accountId, closedSessions, totalSales, loyaltyMemberships, audienceMemberships, lastActivity, sandbox, advocateIntegrationId, loyaltyProgramJoinDates, additionalProperties);
   }
 
   @Override
@@ -469,6 +502,7 @@ public class ApplicationCustomer {
     sb.append("    lastActivity: ").append(toIndentedString(lastActivity)).append("\n");
     sb.append("    sandbox: ").append(toIndentedString(sandbox)).append("\n");
     sb.append("    advocateIntegrationId: ").append(toIndentedString(advocateIntegrationId)).append("\n");
+    sb.append("    loyaltyProgramJoinDates: ").append(toIndentedString(loyaltyProgramJoinDates)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -488,7 +522,7 @@ public class ApplicationCustomer {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("id", "created", "integrationId", "attributes", "accountId", "closedSessions", "totalSales", "loyaltyMemberships", "audienceMemberships", "lastActivity", "sandbox", "advocateIntegrationId"));
+    openapiFields = new HashSet<String>(Arrays.asList("id", "created", "integrationId", "attributes", "accountId", "closedSessions", "totalSales", "loyaltyMemberships", "audienceMemberships", "lastActivity", "sandbox", "advocateIntegrationId", "loyaltyProgramJoinDates"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("id", "created", "integrationId", "accountId", "closedSessions", "totalSales", "lastActivity"));
@@ -547,6 +581,20 @@ public class ApplicationCustomer {
       }
       if ((jsonObj.get("advocateIntegrationId") != null && !jsonObj.get("advocateIntegrationId").isJsonNull()) && !jsonObj.get("advocateIntegrationId").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `advocateIntegrationId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("advocateIntegrationId").toString()));
+      }
+      if (jsonObj.get("loyaltyProgramJoinDates") != null && !jsonObj.get("loyaltyProgramJoinDates").isJsonNull()) {
+        JsonArray jsonArrayloyaltyProgramJoinDates = jsonObj.getAsJsonArray("loyaltyProgramJoinDates");
+        if (jsonArrayloyaltyProgramJoinDates != null) {
+          // ensure the json data is an array
+          if (!jsonObj.get("loyaltyProgramJoinDates").isJsonArray()) {
+            throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `loyaltyProgramJoinDates` to be an array in the JSON string but got `%s`", jsonObj.get("loyaltyProgramJoinDates").toString()));
+          }
+
+          // validate the optional field `loyaltyProgramJoinDates` (array)
+          for (int i = 0; i < jsonArrayloyaltyProgramJoinDates.size(); i++) {
+            LoyaltyMembership.validateJsonElement(jsonArrayloyaltyProgramJoinDates.get(i));
+          };
+        }
       }
   }
 

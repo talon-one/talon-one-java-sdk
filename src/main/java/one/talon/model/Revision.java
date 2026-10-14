@@ -51,7 +51,7 @@ import one.talon.JSON;
 /**
  * Revision
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.25.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.26.0")
 public class Revision {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -131,7 +131,7 @@ public class Revision {
   }
 
   /**
-   * Get activateAt
+   * Timestamp when the revision will be activated.
    * @return activateAt
    */
   @javax.annotation.Nullable
@@ -150,7 +150,7 @@ public class Revision {
   }
 
   /**
-   * Get accountId
+   * The ID of the account that owns this entity.
    * @return accountId
    */
   @javax.annotation.Nonnull
@@ -169,7 +169,7 @@ public class Revision {
   }
 
   /**
-   * Get applicationId
+   * The ID of the Application that owns this entity.
    * @return applicationId
    */
   @javax.annotation.Nonnull
@@ -188,7 +188,7 @@ public class Revision {
   }
 
   /**
-   * Get campaignId
+   * The ID of the campaign that the revision was created from.
    * @return campaignId
    */
   @javax.annotation.Nonnull
@@ -207,7 +207,7 @@ public class Revision {
   }
 
   /**
-   * Get created
+   * Timestamp when the revision was created.
    * @return created
    */
   @javax.annotation.Nonnull
@@ -226,7 +226,7 @@ public class Revision {
   }
 
   /**
-   * Get createdBy
+   * The ID of the user who created this revision.
    * @return createdBy
    */
   @javax.annotation.Nonnull
@@ -245,7 +245,7 @@ public class Revision {
   }
 
   /**
-   * Get activatedAt
+   * Timestamp when this revision was activated.
    * @return activatedAt
    */
   @javax.annotation.Nullable
@@ -264,7 +264,7 @@ public class Revision {
   }
 
   /**
-   * Get activatedBy
+   * The ID of the user who activated this revision.
    * @return activatedBy
    */
   @javax.annotation.Nullable
@@ -283,7 +283,7 @@ public class Revision {
   }
 
   /**
-   * Get currentVersion
+   * The current version of this revision.
    * @return currentVersion
    */
   @javax.annotation.Nullable

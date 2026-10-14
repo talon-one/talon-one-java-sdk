@@ -53,7 +53,7 @@ import one.talon.JSON;
 /**
  * Auxiliary data for found price observation.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.25.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.26.0")
 public class BestPriorPriceMetadata {
   public static final String SERIALIZED_NAME_INFLUENCING_CAMPAIGN_DETAILS = "influencingCampaignDetails";
   @SerializedName(SERIALIZED_NAME_INFLUENCING_CAMPAIGN_DETAILS)

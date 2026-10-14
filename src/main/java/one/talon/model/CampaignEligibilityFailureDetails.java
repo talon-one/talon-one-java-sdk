@@ -49,7 +49,7 @@ import one.talon.JSON;
 /**
  * The details about why the customer was not eligible for the campaign in the current session.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.25.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.26.0")
 public class CampaignEligibilityFailureDetails {
   /**
    * A code identifying why the customer was not eligible for the campaign.

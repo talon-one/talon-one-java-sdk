@@ -49,7 +49,7 @@ import one.talon.JSON;
 /**
  * Variant of &#x60;CheckAttributeBlock&#x60; for the &#x60;between&#x60; operator, which requires both a minimum and maximum value.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.25.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.26.0")
 public class BetweenCheckAttributeBlock {
   /**
    * The range comparison operator. Must be &#x60;between&#x60;.

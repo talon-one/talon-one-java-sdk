@@ -49,7 +49,7 @@ import one.talon.JSON;
 /**
  * Applies the discount to the entire cart as a single unit.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.25.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.26.0")
 public class AwardDiscountCartTarget {
   /**
    * A target discriminator of type &#x60;cart&#x60;.

@@ -49,7 +49,7 @@ import one.talon.JSON;
 /**
  * Variant of &#x60;CheckAttributeBlock&#x60; for the &#x60;within&#x60; and &#x60;not(within)&#x60; operators, which require both a start and end value.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.25.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.26.0")
 public class WithinCheckAttributeBlock {
   /**
    * The range comparison operator. Must be &#x60;within&#x60; or &#x60;not(within)&#x60;.

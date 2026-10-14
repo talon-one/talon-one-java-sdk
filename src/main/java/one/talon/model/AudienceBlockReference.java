@@ -49,7 +49,7 @@ import one.talon.JSON;
 /**
  * AudienceBlockReference
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.25.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.26.0")
 public class AudienceBlockReference {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -58,7 +58,7 @@ public class AudienceBlockReference {
 
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   private String name;
 
   public static final String SERIALIZED_NAME_INTEGRATION = "integration";
@@ -72,6 +72,13 @@ public class AudienceBlockReference {
   private String integrationId;
 
   public AudienceBlockReference() {
+  }
+
+  public AudienceBlockReference(
+     String name
+  ) {
+    this();
+    this.name = name;
   }
 
   public AudienceBlockReference id(@javax.annotation.Nonnull Long id) {
@@ -93,23 +100,15 @@ public class AudienceBlockReference {
   }
 
 
-  public AudienceBlockReference name(@javax.annotation.Nonnull String name) {
-    this.name = name;
-    return this;
-  }
-
   /**
    * The display name of the audience.
    * @return name
    */
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   public String getName() {
     return name;
   }
 
-  public void setName(@javax.annotation.Nonnull String name) {
-    this.name = name;
-  }
 
 
   public AudienceBlockReference integration(@javax.annotation.Nullable String integration) {
@@ -246,7 +245,7 @@ public class AudienceBlockReference {
     openapiFields = new HashSet<String>(Arrays.asList("id", "name", "integration", "integrationId"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("id", "name"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("id"));
   }
 
   /**
@@ -269,7 +268,7 @@ public class AudienceBlockReference {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if (!jsonObj.get("name").isJsonPrimitive()) {
+      if ((jsonObj.get("name") != null && !jsonObj.get("name").isJsonNull()) && !jsonObj.get("name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
       }
       if ((jsonObj.get("integration") != null && !jsonObj.get("integration").isJsonNull()) && !jsonObj.get("integration").isJsonPrimitive()) {

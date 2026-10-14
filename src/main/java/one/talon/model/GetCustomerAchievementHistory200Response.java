@@ -23,7 +23,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import one.talon.model.AchievementProgress;
+import one.talon.model.CustomerAchievementHistoryEntry;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -52,7 +52,7 @@ import one.talon.JSON;
 /**
  * GetCustomerAchievementHistory200Response
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.25.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.26.0")
 public class GetCustomerAchievementHistory200Response {
   public static final String SERIALIZED_NAME_TOTAL_RESULT_SIZE = "totalResultSize";
   @SerializedName(SERIALIZED_NAME_TOTAL_RESULT_SIZE)
@@ -62,7 +62,7 @@ public class GetCustomerAchievementHistory200Response {
   public static final String SERIALIZED_NAME_DATA = "data";
   @SerializedName(SERIALIZED_NAME_DATA)
   @javax.annotation.Nonnull
-  private List<AchievementProgress> data = new ArrayList<>();
+  private List<CustomerAchievementHistoryEntry> data = new ArrayList<>();
 
   public GetCustomerAchievementHistory200Response() {
   }
@@ -86,12 +86,12 @@ public class GetCustomerAchievementHistory200Response {
   }
 
 
-  public GetCustomerAchievementHistory200Response data(@javax.annotation.Nonnull List<AchievementProgress> data) {
+  public GetCustomerAchievementHistory200Response data(@javax.annotation.Nonnull List<CustomerAchievementHistoryEntry> data) {
     this.data = data;
     return this;
   }
 
-  public GetCustomerAchievementHistory200Response addDataItem(AchievementProgress dataItem) {
+  public GetCustomerAchievementHistory200Response addDataItem(CustomerAchievementHistoryEntry dataItem) {
     if (this.data == null) {
       this.data = new ArrayList<>();
     }
@@ -104,11 +104,11 @@ public class GetCustomerAchievementHistory200Response {
    * @return data
    */
   @javax.annotation.Nonnull
-  public List<AchievementProgress> getData() {
+  public List<CustomerAchievementHistoryEntry> getData() {
     return data;
   }
 
-  public void setData(@javax.annotation.Nonnull List<AchievementProgress> data) {
+  public void setData(@javax.annotation.Nonnull List<CustomerAchievementHistoryEntry> data) {
     this.data = data;
   }
 
@@ -235,7 +235,7 @@ public class GetCustomerAchievementHistory200Response {
         JsonArray jsonArraydata = jsonObj.getAsJsonArray("data");
         // validate the required field `data` (array)
         for (int i = 0; i < jsonArraydata.size(); i++) {
-          AchievementProgress.validateJsonElement(jsonArraydata.get(i));
+          CustomerAchievementHistoryEntry.validateJsonElement(jsonArraydata.get(i));
         }
       }
   }

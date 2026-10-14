@@ -49,7 +49,7 @@ import one.talon.JSON;
 /**
  * Identifies a bundle slot by ranking items by a per-item attribute expression and picking the highest- or lowest-ranked one.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.25.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.26.0")
 public class AwardDiscountBundleItemByAttribute {
   /**
    * A bundle-item selector of type &#x60;byAttribute&#x60;.

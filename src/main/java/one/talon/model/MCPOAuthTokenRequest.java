@@ -49,7 +49,7 @@ import one.talon.JSON;
 /**
  * MCPOAuthTokenRequest
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.25.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.26.0")
 public class MCPOAuthTokenRequest {
   /**
    * OAuth2 grant type.

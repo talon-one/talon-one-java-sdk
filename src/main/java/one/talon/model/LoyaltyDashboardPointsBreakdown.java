@@ -50,7 +50,7 @@ import one.talon.JSON;
 /**
  * LoyaltyDashboardPointsBreakdown
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.25.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.26.0")
 public class LoyaltyDashboardPointsBreakdown {
   public static final String SERIALIZED_NAME_CREATED_MANUALLY = "createdManually";
   @SerializedName(SERIALIZED_NAME_CREATED_MANUALLY)

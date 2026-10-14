@@ -52,7 +52,7 @@ import one.talon.JSON;
 /**
  * AddedDeductedPointsNotification
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.25.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.26.0")
 public class AddedDeductedPointsNotification {
   public static final String SERIALIZED_NAME_EMPLOYEE_NAME = "EmployeeName";
   @SerializedName(SERIALIZED_NAME_EMPLOYEE_NAME)
@@ -281,6 +281,21 @@ public class AddedDeductedPointsNotification {
   @SerializedName(SERIALIZED_NAME_TRANSACTION_U_U_I_D)
   @javax.annotation.Nonnull
   private UUID transactionUUID;
+
+  public static final String SERIALIZED_NAME_CREATED = "Created";
+  @SerializedName(SERIALIZED_NAME_CREATED)
+  @javax.annotation.Nullable
+  private OffsetDateTime created;
+
+  public static final String SERIALIZED_NAME_AWAITS_ACTIVATION = "AwaitsActivation";
+  @SerializedName(SERIALIZED_NAME_AWAITS_ACTIVATION)
+  @javax.annotation.Nullable
+  private Boolean awaitsActivation;
+
+  public static final String SERIALIZED_NAME_VALIDITY_DURATION = "ValidityDuration";
+  @SerializedName(SERIALIZED_NAME_VALIDITY_DURATION)
+  @javax.annotation.Nullable
+  private String validityDuration;
 
   public AddedDeductedPointsNotification() {
   }
@@ -551,6 +566,63 @@ public class AddedDeductedPointsNotification {
     this.transactionUUID = transactionUUID;
   }
 
+
+  public AddedDeductedPointsNotification created(@javax.annotation.Nullable OffsetDateTime created) {
+    this.created = created;
+    return this;
+  }
+
+  /**
+   * The timestamp when the loyalty transaction occurred.
+   * @return created
+   */
+  @javax.annotation.Nullable
+  public OffsetDateTime getCreated() {
+    return created;
+  }
+
+  public void setCreated(@javax.annotation.Nullable OffsetDateTime created) {
+    this.created = created;
+  }
+
+
+  public AddedDeductedPointsNotification awaitsActivation(@javax.annotation.Nullable Boolean awaitsActivation) {
+    this.awaitsActivation = awaitsActivation;
+    return this;
+  }
+
+  /**
+   * Indicates whether the points have an action-based start date. This property is returned only for point transactions with an action-based start date.
+   * @return awaitsActivation
+   */
+  @javax.annotation.Nullable
+  public Boolean getAwaitsActivation() {
+    return awaitsActivation;
+  }
+
+  public void setAwaitsActivation(@javax.annotation.Nullable Boolean awaitsActivation) {
+    this.awaitsActivation = awaitsActivation;
+  }
+
+
+  public AddedDeductedPointsNotification validityDuration(@javax.annotation.Nullable String validityDuration) {
+    this.validityDuration = validityDuration;
+    return this;
+  }
+
+  /**
+   * The duration for which the points remain active, relative to the activation date.  **Note**: This only applies to points for which &#x60;AwaitsActivation&#x60; is &#x60;true&#x60; and &#x60;ExpiryDate&#x60; is not set. 
+   * @return validityDuration
+   */
+  @javax.annotation.Nullable
+  public String getValidityDuration() {
+    return validityDuration;
+  }
+
+  public void setValidityDuration(@javax.annotation.Nullable String validityDuration) {
+    this.validityDuration = validityDuration;
+  }
+
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -619,13 +691,16 @@ public class AddedDeductedPointsNotification {
         Objects.equals(this.operation, addedDeductedPointsNotification.operation) &&
         Objects.equals(this.reason, addedDeductedPointsNotification.reason) &&
         Objects.equals(this.startDate, addedDeductedPointsNotification.startDate) &&
-        Objects.equals(this.transactionUUID, addedDeductedPointsNotification.transactionUUID)&&
+        Objects.equals(this.transactionUUID, addedDeductedPointsNotification.transactionUUID) &&
+        Objects.equals(this.created, addedDeductedPointsNotification.created) &&
+        Objects.equals(this.awaitsActivation, addedDeductedPointsNotification.awaitsActivation) &&
+        Objects.equals(this.validityDuration, addedDeductedPointsNotification.validityDuration)&&
         Objects.equals(this.additionalProperties, addedDeductedPointsNotification.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(employeeName, loyaltyProgramID, notificationType, profileIntegrationID, sessionIntegrationID, subledgerID, typeOfChange, userID, amount, expiryDate, operation, reason, startDate, transactionUUID, additionalProperties);
+    return Objects.hash(employeeName, loyaltyProgramID, notificationType, profileIntegrationID, sessionIntegrationID, subledgerID, typeOfChange, userID, amount, expiryDate, operation, reason, startDate, transactionUUID, created, awaitsActivation, validityDuration, additionalProperties);
   }
 
   @Override
@@ -646,6 +721,9 @@ public class AddedDeductedPointsNotification {
     sb.append("    reason: ").append(toIndentedString(reason)).append("\n");
     sb.append("    startDate: ").append(toIndentedString(startDate)).append("\n");
     sb.append("    transactionUUID: ").append(toIndentedString(transactionUUID)).append("\n");
+    sb.append("    created: ").append(toIndentedString(created)).append("\n");
+    sb.append("    awaitsActivation: ").append(toIndentedString(awaitsActivation)).append("\n");
+    sb.append("    validityDuration: ").append(toIndentedString(validityDuration)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -665,7 +743,7 @@ public class AddedDeductedPointsNotification {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("EmployeeName", "LoyaltyProgramID", "NotificationType", "ProfileIntegrationID", "SessionIntegrationID", "SubledgerID", "TypeOfChange", "UserID", "Amount", "ExpiryDate", "Operation", "Reason", "StartDate", "TransactionUUID"));
+    openapiFields = new HashSet<String>(Arrays.asList("EmployeeName", "LoyaltyProgramID", "NotificationType", "ProfileIntegrationID", "SessionIntegrationID", "SubledgerID", "TypeOfChange", "UserID", "Amount", "ExpiryDate", "Operation", "Reason", "StartDate", "TransactionUUID", "Created", "AwaitsActivation", "ValidityDuration"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("EmployeeName", "LoyaltyProgramID", "NotificationType", "ProfileIntegrationID", "SessionIntegrationID", "SubledgerID", "TypeOfChange", "UserID", "Amount", "Operation", "Reason", "TransactionUUID"));
@@ -723,6 +801,9 @@ public class AddedDeductedPointsNotification {
       }
       if (!jsonObj.get("TransactionUUID").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `TransactionUUID` to be a primitive type in the JSON string but got `%s`", jsonObj.get("TransactionUUID").toString()));
+      }
+      if ((jsonObj.get("ValidityDuration") != null && !jsonObj.get("ValidityDuration").isJsonNull()) && !jsonObj.get("ValidityDuration").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `ValidityDuration` to be a primitive type in the JSON string but got `%s`", jsonObj.get("ValidityDuration").toString()));
       }
   }
 

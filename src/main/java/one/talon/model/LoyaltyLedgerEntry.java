@@ -52,7 +52,7 @@ import one.talon.JSON;
 /**
  * A single row of the ledger, describing one addition or deduction.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.25.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.26.0")
 public class LoyaltyLedgerEntry {
   public static final String SERIALIZED_NAME_CREATED = "created";
   @SerializedName(SERIALIZED_NAME_CREATED)
@@ -133,6 +133,11 @@ public class LoyaltyLedgerEntry {
   @SerializedName(SERIALIZED_NAME_VALIDITY_DURATION)
   @javax.annotation.Nullable
   private String validityDuration;
+
+  public static final String SERIALIZED_NAME_AWAITS_ACTIVATION = "awaitsActivation";
+  @SerializedName(SERIALIZED_NAME_AWAITS_ACTIVATION)
+  @javax.annotation.Nullable
+  private Boolean awaitsActivation;
 
   public LoyaltyLedgerEntry() {
   }
@@ -440,6 +445,25 @@ public class LoyaltyLedgerEntry {
     this.validityDuration = validityDuration;
   }
 
+
+  public LoyaltyLedgerEntry awaitsActivation(@javax.annotation.Nullable Boolean awaitsActivation) {
+    this.awaitsActivation = awaitsActivation;
+    return this;
+  }
+
+  /**
+   * Indicates whether the points have an action-based start date. This property is returned only for point transactions with an action-based start date.
+   * @return awaitsActivation
+   */
+  @javax.annotation.Nullable
+  public Boolean getAwaitsActivation() {
+    return awaitsActivation;
+  }
+
+  public void setAwaitsActivation(@javax.annotation.Nullable Boolean awaitsActivation) {
+    this.awaitsActivation = awaitsActivation;
+  }
+
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -510,13 +534,14 @@ public class LoyaltyLedgerEntry {
         Objects.equals(this.userID, loyaltyLedgerEntry.userID) &&
         Objects.equals(this.archived, loyaltyLedgerEntry.archived) &&
         Objects.equals(this.flags, loyaltyLedgerEntry.flags) &&
-        Objects.equals(this.validityDuration, loyaltyLedgerEntry.validityDuration)&&
+        Objects.equals(this.validityDuration, loyaltyLedgerEntry.validityDuration) &&
+        Objects.equals(this.awaitsActivation, loyaltyLedgerEntry.awaitsActivation)&&
         Objects.equals(this.additionalProperties, loyaltyLedgerEntry.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(created, programID, customerProfileID, cardID, customerSessionID, eventID, type, amount, startDate, expiryDate, name, subLedgerID, userID, archived, flags, validityDuration, additionalProperties);
+    return Objects.hash(created, programID, customerProfileID, cardID, customerSessionID, eventID, type, amount, startDate, expiryDate, name, subLedgerID, userID, archived, flags, validityDuration, awaitsActivation, additionalProperties);
   }
 
   @Override
@@ -539,6 +564,7 @@ public class LoyaltyLedgerEntry {
     sb.append("    archived: ").append(toIndentedString(archived)).append("\n");
     sb.append("    flags: ").append(toIndentedString(flags)).append("\n");
     sb.append("    validityDuration: ").append(toIndentedString(validityDuration)).append("\n");
+    sb.append("    awaitsActivation: ").append(toIndentedString(awaitsActivation)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -558,7 +584,7 @@ public class LoyaltyLedgerEntry {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("created", "programID", "customerProfileID", "cardID", "customerSessionID", "eventID", "type", "amount", "startDate", "expiryDate", "name", "subLedgerID", "userID", "archived", "flags", "validityDuration"));
+    openapiFields = new HashSet<String>(Arrays.asList("created", "programID", "customerProfileID", "cardID", "customerSessionID", "eventID", "type", "amount", "startDate", "expiryDate", "name", "subLedgerID", "userID", "archived", "flags", "validityDuration", "awaitsActivation"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("created", "programID", "type", "amount", "name", "subLedgerID"));

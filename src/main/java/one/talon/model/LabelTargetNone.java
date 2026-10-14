@@ -49,7 +49,7 @@ import one.talon.JSON;
 /**
  * Target type when no specific audience is selected. Targets all customers who are not members of an audience.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.25.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.26.0")
 public class LabelTargetNone {
   /**
    * Gets or Sets type

@@ -49,7 +49,7 @@ import one.talon.JSON;
 /**
  * Aggregates items into a single value.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.25.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.26.0")
 public class ReduceSelectorStep {
   /**
    * A step discriminator of type &#x60;reduce&#x60;.

@@ -52,7 +52,7 @@ import one.talon.JSON;
 /**
  * EffectRollbackDiscount
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.25.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.26.0")
 public class EffectRollbackDiscount {
   public static final String SERIALIZED_NAME_EXPERIMENT_ID = "experimentId";
   @SerializedName(SERIALIZED_NAME_EXPERIMENT_ID)
@@ -550,7 +550,7 @@ public class EffectRollbackDiscount {
   }
 
   /**
-   * The properties of the &#x60;rollbackDiscount&#x60; effect.
+   * Get props
    * @return props
    */
   @javax.annotation.Nonnull

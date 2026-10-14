@@ -52,7 +52,7 @@ import one.talon.JSON;
 /**
  * Sorts items by one or more field expressions.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.25.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.26.0")
 public class SortSelectorStep {
   /**
    * A step discriminator of type &#x60;sort&#x60;.
