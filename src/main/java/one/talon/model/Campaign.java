@@ -58,6 +58,9 @@ import one.talon.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.26.0")
 public class Campaign {
+  // Gson ignores transient state; only setters and JSON input mark properties as present.
+  private transient Set<String> openapiExplicitlySetFields = new HashSet<>();
+
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
   @javax.annotation.Nonnull
@@ -623,6 +626,7 @@ public class Campaign {
 
   public Campaign id(@javax.annotation.Nonnull Long id) {
     this.id = id;
+    this.markPropertyAsSet(SERIALIZED_NAME_ID);
     return this;
   }
 
@@ -637,11 +641,13 @@ public class Campaign {
 
   public void setId(@javax.annotation.Nonnull Long id) {
     this.id = id;
+    this.markPropertyAsSet(SERIALIZED_NAME_ID);
   }
 
 
   public Campaign created(@javax.annotation.Nonnull OffsetDateTime created) {
     this.created = created;
+    this.markPropertyAsSet(SERIALIZED_NAME_CREATED);
     return this;
   }
 
@@ -656,11 +662,13 @@ public class Campaign {
 
   public void setCreated(@javax.annotation.Nonnull OffsetDateTime created) {
     this.created = created;
+    this.markPropertyAsSet(SERIALIZED_NAME_CREATED);
   }
 
 
   public Campaign applicationId(@javax.annotation.Nonnull Long applicationId) {
     this.applicationId = applicationId;
+    this.markPropertyAsSet(SERIALIZED_NAME_APPLICATION_ID);
     return this;
   }
 
@@ -675,11 +683,13 @@ public class Campaign {
 
   public void setApplicationId(@javax.annotation.Nonnull Long applicationId) {
     this.applicationId = applicationId;
+    this.markPropertyAsSet(SERIALIZED_NAME_APPLICATION_ID);
   }
 
 
   public Campaign userId(@javax.annotation.Nonnull Long userId) {
     this.userId = userId;
+    this.markPropertyAsSet(SERIALIZED_NAME_USER_ID);
     return this;
   }
 
@@ -694,11 +704,13 @@ public class Campaign {
 
   public void setUserId(@javax.annotation.Nonnull Long userId) {
     this.userId = userId;
+    this.markPropertyAsSet(SERIALIZED_NAME_USER_ID);
   }
 
 
   public Campaign name(@javax.annotation.Nonnull String name) {
     this.name = name;
+    this.markPropertyAsSet(SERIALIZED_NAME_NAME);
     return this;
   }
 
@@ -713,11 +725,13 @@ public class Campaign {
 
   public void setName(@javax.annotation.Nonnull String name) {
     this.name = name;
+    this.markPropertyAsSet(SERIALIZED_NAME_NAME);
   }
 
 
   public Campaign description(@javax.annotation.Nullable String description) {
     this.description = description;
+    this.markPropertyAsSet(SERIALIZED_NAME_DESCRIPTION);
     return this;
   }
 
@@ -732,11 +746,13 @@ public class Campaign {
 
   public void setDescription(@javax.annotation.Nullable String description) {
     this.description = description;
+    this.markPropertyAsSet(SERIALIZED_NAME_DESCRIPTION);
   }
 
 
   public Campaign startTime(@javax.annotation.Nullable OffsetDateTime startTime) {
     this.startTime = startTime;
+    this.markPropertyAsSet(SERIALIZED_NAME_START_TIME);
     return this;
   }
 
@@ -751,11 +767,13 @@ public class Campaign {
 
   public void setStartTime(@javax.annotation.Nullable OffsetDateTime startTime) {
     this.startTime = startTime;
+    this.markPropertyAsSet(SERIALIZED_NAME_START_TIME);
   }
 
 
   public Campaign endTime(@javax.annotation.Nullable OffsetDateTime endTime) {
     this.endTime = endTime;
+    this.markPropertyAsSet(SERIALIZED_NAME_END_TIME);
     return this;
   }
 
@@ -770,11 +788,13 @@ public class Campaign {
 
   public void setEndTime(@javax.annotation.Nullable OffsetDateTime endTime) {
     this.endTime = endTime;
+    this.markPropertyAsSet(SERIALIZED_NAME_END_TIME);
   }
 
 
   public Campaign attributes(@javax.annotation.Nullable Object attributes) {
     this.attributes = attributes;
+    this.markPropertyAsSet(SERIALIZED_NAME_ATTRIBUTES);
     return this;
   }
 
@@ -789,11 +809,13 @@ public class Campaign {
 
   public void setAttributes(@javax.annotation.Nullable Object attributes) {
     this.attributes = attributes;
+    this.markPropertyAsSet(SERIALIZED_NAME_ATTRIBUTES);
   }
 
 
   public Campaign state(@javax.annotation.Nonnull StateEnum state) {
     this.state = state;
+    this.markPropertyAsSet(SERIALIZED_NAME_STATE);
     return this;
   }
 
@@ -808,11 +830,13 @@ public class Campaign {
 
   public void setState(@javax.annotation.Nonnull StateEnum state) {
     this.state = state;
+    this.markPropertyAsSet(SERIALIZED_NAME_STATE);
   }
 
 
   public Campaign activeRulesetId(@javax.annotation.Nullable Long activeRulesetId) {
     this.activeRulesetId = activeRulesetId;
+    this.markPropertyAsSet(SERIALIZED_NAME_ACTIVE_RULESET_ID);
     return this;
   }
 
@@ -827,11 +851,13 @@ public class Campaign {
 
   public void setActiveRulesetId(@javax.annotation.Nullable Long activeRulesetId) {
     this.activeRulesetId = activeRulesetId;
+    this.markPropertyAsSet(SERIALIZED_NAME_ACTIVE_RULESET_ID);
   }
 
 
   public Campaign tags(@javax.annotation.Nonnull List<String> tags) {
     this.tags = tags;
+    this.markPropertyAsSet(SERIALIZED_NAME_TAGS);
     return this;
   }
 
@@ -840,6 +866,7 @@ public class Campaign {
       this.tags = new ArrayList<>();
     }
     this.tags.add(tagsItem);
+    this.markPropertyAsSet(SERIALIZED_NAME_TAGS);
     return this;
   }
 
@@ -854,11 +881,13 @@ public class Campaign {
 
   public void setTags(@javax.annotation.Nonnull List<String> tags) {
     this.tags = tags;
+    this.markPropertyAsSet(SERIALIZED_NAME_TAGS);
   }
 
 
   public Campaign reevaluateOnReturn(@javax.annotation.Nonnull Boolean reevaluateOnReturn) {
     this.reevaluateOnReturn = reevaluateOnReturn;
+    this.markPropertyAsSet(SERIALIZED_NAME_REEVALUATE_ON_RETURN);
     return this;
   }
 
@@ -873,11 +902,13 @@ public class Campaign {
 
   public void setReevaluateOnReturn(@javax.annotation.Nonnull Boolean reevaluateOnReturn) {
     this.reevaluateOnReturn = reevaluateOnReturn;
+    this.markPropertyAsSet(SERIALIZED_NAME_REEVALUATE_ON_RETURN);
   }
 
 
   public Campaign features(@javax.annotation.Nonnull List<FeaturesEnum> features) {
     this.features = features;
+    this.markPropertyAsSet(SERIALIZED_NAME_FEATURES);
     return this;
   }
 
@@ -886,6 +917,7 @@ public class Campaign {
       this.features = new ArrayList<>();
     }
     this.features.add(featuresItem);
+    this.markPropertyAsSet(SERIALIZED_NAME_FEATURES);
     return this;
   }
 
@@ -900,11 +932,13 @@ public class Campaign {
 
   public void setFeatures(@javax.annotation.Nonnull List<FeaturesEnum> features) {
     this.features = features;
+    this.markPropertyAsSet(SERIALIZED_NAME_FEATURES);
   }
 
 
   public Campaign couponSettings(@javax.annotation.Nullable CodeGeneratorSettings couponSettings) {
     this.couponSettings = couponSettings;
+    this.markPropertyAsSet(SERIALIZED_NAME_COUPON_SETTINGS);
     return this;
   }
 
@@ -919,11 +953,13 @@ public class Campaign {
 
   public void setCouponSettings(@javax.annotation.Nullable CodeGeneratorSettings couponSettings) {
     this.couponSettings = couponSettings;
+    this.markPropertyAsSet(SERIALIZED_NAME_COUPON_SETTINGS);
   }
 
 
   public Campaign referralSettings(@javax.annotation.Nullable CodeGeneratorSettings referralSettings) {
     this.referralSettings = referralSettings;
+    this.markPropertyAsSet(SERIALIZED_NAME_REFERRAL_SETTINGS);
     return this;
   }
 
@@ -938,11 +974,13 @@ public class Campaign {
 
   public void setReferralSettings(@javax.annotation.Nullable CodeGeneratorSettings referralSettings) {
     this.referralSettings = referralSettings;
+    this.markPropertyAsSet(SERIALIZED_NAME_REFERRAL_SETTINGS);
   }
 
 
   public Campaign limits(@javax.annotation.Nonnull List<LimitConfig> limits) {
     this.limits = limits;
+    this.markPropertyAsSet(SERIALIZED_NAME_LIMITS);
     return this;
   }
 
@@ -951,6 +989,7 @@ public class Campaign {
       this.limits = new ArrayList<>();
     }
     this.limits.add(limitsItem);
+    this.markPropertyAsSet(SERIALIZED_NAME_LIMITS);
     return this;
   }
 
@@ -965,11 +1004,13 @@ public class Campaign {
 
   public void setLimits(@javax.annotation.Nonnull List<LimitConfig> limits) {
     this.limits = limits;
+    this.markPropertyAsSet(SERIALIZED_NAME_LIMITS);
   }
 
 
   public Campaign campaignGroups(@javax.annotation.Nullable List<Long> campaignGroups) {
     this.campaignGroups = campaignGroups;
+    this.markPropertyAsSet(SERIALIZED_NAME_CAMPAIGN_GROUPS);
     return this;
   }
 
@@ -978,6 +1019,7 @@ public class Campaign {
       this.campaignGroups = new ArrayList<>();
     }
     this.campaignGroups.add(campaignGroupsItem);
+    this.markPropertyAsSet(SERIALIZED_NAME_CAMPAIGN_GROUPS);
     return this;
   }
 
@@ -992,11 +1034,13 @@ public class Campaign {
 
   public void setCampaignGroups(@javax.annotation.Nullable List<Long> campaignGroups) {
     this.campaignGroups = campaignGroups;
+    this.markPropertyAsSet(SERIALIZED_NAME_CAMPAIGN_GROUPS);
   }
 
 
   public Campaign type(@javax.annotation.Nullable TypeEnum type) {
     this.type = type;
+    this.markPropertyAsSet(SERIALIZED_NAME_TYPE);
     return this;
   }
 
@@ -1011,11 +1055,13 @@ public class Campaign {
 
   public void setType(@javax.annotation.Nullable TypeEnum type) {
     this.type = type;
+    this.markPropertyAsSet(SERIALIZED_NAME_TYPE);
   }
 
 
   public Campaign linkedStoreIds(@javax.annotation.Nullable List<Long> linkedStoreIds) {
     this.linkedStoreIds = linkedStoreIds;
+    this.markPropertyAsSet(SERIALIZED_NAME_LINKED_STORE_IDS);
     return this;
   }
 
@@ -1024,6 +1070,7 @@ public class Campaign {
       this.linkedStoreIds = new ArrayList<>();
     }
     this.linkedStoreIds.add(linkedStoreIdsItem);
+    this.markPropertyAsSet(SERIALIZED_NAME_LINKED_STORE_IDS);
     return this;
   }
 
@@ -1038,11 +1085,13 @@ public class Campaign {
 
   public void setLinkedStoreIds(@javax.annotation.Nullable List<Long> linkedStoreIds) {
     this.linkedStoreIds = linkedStoreIds;
+    this.markPropertyAsSet(SERIALIZED_NAME_LINKED_STORE_IDS);
   }
 
 
   public Campaign couponAttributes(@javax.annotation.Nullable Object couponAttributes) {
     this.couponAttributes = couponAttributes;
+    this.markPropertyAsSet(SERIALIZED_NAME_COUPON_ATTRIBUTES);
     return this;
   }
 
@@ -1057,11 +1106,13 @@ public class Campaign {
 
   public void setCouponAttributes(@javax.annotation.Nullable Object couponAttributes) {
     this.couponAttributes = couponAttributes;
+    this.markPropertyAsSet(SERIALIZED_NAME_COUPON_ATTRIBUTES);
   }
 
 
   public Campaign budgets(@javax.annotation.Nullable List<CampaignBudget> budgets) {
     this.budgets = budgets;
+    this.markPropertyAsSet(SERIALIZED_NAME_BUDGETS);
     return this;
   }
 
@@ -1070,6 +1121,7 @@ public class Campaign {
       this.budgets = new ArrayList<>();
     }
     this.budgets.add(budgetsItem);
+    this.markPropertyAsSet(SERIALIZED_NAME_BUDGETS);
     return this;
   }
 
@@ -1084,12 +1136,14 @@ public class Campaign {
 
   public void setBudgets(@javax.annotation.Nullable List<CampaignBudget> budgets) {
     this.budgets = budgets;
+    this.markPropertyAsSet(SERIALIZED_NAME_BUDGETS);
   }
 
 
   @Deprecated
   public Campaign couponRedemptionCount(@javax.annotation.Nullable Long couponRedemptionCount) {
     this.couponRedemptionCount = couponRedemptionCount;
+    this.markPropertyAsSet(SERIALIZED_NAME_COUPON_REDEMPTION_COUNT);
     return this;
   }
 
@@ -1107,12 +1161,14 @@ public class Campaign {
   @Deprecated
   public void setCouponRedemptionCount(@javax.annotation.Nullable Long couponRedemptionCount) {
     this.couponRedemptionCount = couponRedemptionCount;
+    this.markPropertyAsSet(SERIALIZED_NAME_COUPON_REDEMPTION_COUNT);
   }
 
 
   @Deprecated
   public Campaign referralRedemptionCount(@javax.annotation.Nullable Long referralRedemptionCount) {
     this.referralRedemptionCount = referralRedemptionCount;
+    this.markPropertyAsSet(SERIALIZED_NAME_REFERRAL_REDEMPTION_COUNT);
     return this;
   }
 
@@ -1130,12 +1186,14 @@ public class Campaign {
   @Deprecated
   public void setReferralRedemptionCount(@javax.annotation.Nullable Long referralRedemptionCount) {
     this.referralRedemptionCount = referralRedemptionCount;
+    this.markPropertyAsSet(SERIALIZED_NAME_REFERRAL_REDEMPTION_COUNT);
   }
 
 
   @Deprecated
   public Campaign discountCount(@javax.annotation.Nullable BigDecimal discountCount) {
     this.discountCount = discountCount;
+    this.markPropertyAsSet(SERIALIZED_NAME_DISCOUNT_COUNT);
     return this;
   }
 
@@ -1153,12 +1211,14 @@ public class Campaign {
   @Deprecated
   public void setDiscountCount(@javax.annotation.Nullable BigDecimal discountCount) {
     this.discountCount = discountCount;
+    this.markPropertyAsSet(SERIALIZED_NAME_DISCOUNT_COUNT);
   }
 
 
   @Deprecated
   public Campaign discountEffectCount(@javax.annotation.Nullable Long discountEffectCount) {
     this.discountEffectCount = discountEffectCount;
+    this.markPropertyAsSet(SERIALIZED_NAME_DISCOUNT_EFFECT_COUNT);
     return this;
   }
 
@@ -1176,12 +1236,14 @@ public class Campaign {
   @Deprecated
   public void setDiscountEffectCount(@javax.annotation.Nullable Long discountEffectCount) {
     this.discountEffectCount = discountEffectCount;
+    this.markPropertyAsSet(SERIALIZED_NAME_DISCOUNT_EFFECT_COUNT);
   }
 
 
   @Deprecated
   public Campaign couponCreationCount(@javax.annotation.Nullable Long couponCreationCount) {
     this.couponCreationCount = couponCreationCount;
+    this.markPropertyAsSet(SERIALIZED_NAME_COUPON_CREATION_COUNT);
     return this;
   }
 
@@ -1199,12 +1261,14 @@ public class Campaign {
   @Deprecated
   public void setCouponCreationCount(@javax.annotation.Nullable Long couponCreationCount) {
     this.couponCreationCount = couponCreationCount;
+    this.markPropertyAsSet(SERIALIZED_NAME_COUPON_CREATION_COUNT);
   }
 
 
   @Deprecated
   public Campaign customEffectCount(@javax.annotation.Nullable Long customEffectCount) {
     this.customEffectCount = customEffectCount;
+    this.markPropertyAsSet(SERIALIZED_NAME_CUSTOM_EFFECT_COUNT);
     return this;
   }
 
@@ -1222,12 +1286,14 @@ public class Campaign {
   @Deprecated
   public void setCustomEffectCount(@javax.annotation.Nullable Long customEffectCount) {
     this.customEffectCount = customEffectCount;
+    this.markPropertyAsSet(SERIALIZED_NAME_CUSTOM_EFFECT_COUNT);
   }
 
 
   @Deprecated
   public Campaign referralCreationCount(@javax.annotation.Nullable Long referralCreationCount) {
     this.referralCreationCount = referralCreationCount;
+    this.markPropertyAsSet(SERIALIZED_NAME_REFERRAL_CREATION_COUNT);
     return this;
   }
 
@@ -1245,12 +1311,14 @@ public class Campaign {
   @Deprecated
   public void setReferralCreationCount(@javax.annotation.Nullable Long referralCreationCount) {
     this.referralCreationCount = referralCreationCount;
+    this.markPropertyAsSet(SERIALIZED_NAME_REFERRAL_CREATION_COUNT);
   }
 
 
   @Deprecated
   public Campaign addFreeItemEffectCount(@javax.annotation.Nullable Long addFreeItemEffectCount) {
     this.addFreeItemEffectCount = addFreeItemEffectCount;
+    this.markPropertyAsSet(SERIALIZED_NAME_ADD_FREE_ITEM_EFFECT_COUNT);
     return this;
   }
 
@@ -1268,12 +1336,14 @@ public class Campaign {
   @Deprecated
   public void setAddFreeItemEffectCount(@javax.annotation.Nullable Long addFreeItemEffectCount) {
     this.addFreeItemEffectCount = addFreeItemEffectCount;
+    this.markPropertyAsSet(SERIALIZED_NAME_ADD_FREE_ITEM_EFFECT_COUNT);
   }
 
 
   @Deprecated
   public Campaign awardedGiveawaysCount(@javax.annotation.Nullable Long awardedGiveawaysCount) {
     this.awardedGiveawaysCount = awardedGiveawaysCount;
+    this.markPropertyAsSet(SERIALIZED_NAME_AWARDED_GIVEAWAYS_COUNT);
     return this;
   }
 
@@ -1291,12 +1361,14 @@ public class Campaign {
   @Deprecated
   public void setAwardedGiveawaysCount(@javax.annotation.Nullable Long awardedGiveawaysCount) {
     this.awardedGiveawaysCount = awardedGiveawaysCount;
+    this.markPropertyAsSet(SERIALIZED_NAME_AWARDED_GIVEAWAYS_COUNT);
   }
 
 
   @Deprecated
   public Campaign createdLoyaltyPointsCount(@javax.annotation.Nullable BigDecimal createdLoyaltyPointsCount) {
     this.createdLoyaltyPointsCount = createdLoyaltyPointsCount;
+    this.markPropertyAsSet(SERIALIZED_NAME_CREATED_LOYALTY_POINTS_COUNT);
     return this;
   }
 
@@ -1314,12 +1386,14 @@ public class Campaign {
   @Deprecated
   public void setCreatedLoyaltyPointsCount(@javax.annotation.Nullable BigDecimal createdLoyaltyPointsCount) {
     this.createdLoyaltyPointsCount = createdLoyaltyPointsCount;
+    this.markPropertyAsSet(SERIALIZED_NAME_CREATED_LOYALTY_POINTS_COUNT);
   }
 
 
   @Deprecated
   public Campaign createdLoyaltyPointsEffectCount(@javax.annotation.Nullable Long createdLoyaltyPointsEffectCount) {
     this.createdLoyaltyPointsEffectCount = createdLoyaltyPointsEffectCount;
+    this.markPropertyAsSet(SERIALIZED_NAME_CREATED_LOYALTY_POINTS_EFFECT_COUNT);
     return this;
   }
 
@@ -1337,12 +1411,14 @@ public class Campaign {
   @Deprecated
   public void setCreatedLoyaltyPointsEffectCount(@javax.annotation.Nullable Long createdLoyaltyPointsEffectCount) {
     this.createdLoyaltyPointsEffectCount = createdLoyaltyPointsEffectCount;
+    this.markPropertyAsSet(SERIALIZED_NAME_CREATED_LOYALTY_POINTS_EFFECT_COUNT);
   }
 
 
   @Deprecated
   public Campaign redeemedLoyaltyPointsCount(@javax.annotation.Nullable BigDecimal redeemedLoyaltyPointsCount) {
     this.redeemedLoyaltyPointsCount = redeemedLoyaltyPointsCount;
+    this.markPropertyAsSet(SERIALIZED_NAME_REDEEMED_LOYALTY_POINTS_COUNT);
     return this;
   }
 
@@ -1360,12 +1436,14 @@ public class Campaign {
   @Deprecated
   public void setRedeemedLoyaltyPointsCount(@javax.annotation.Nullable BigDecimal redeemedLoyaltyPointsCount) {
     this.redeemedLoyaltyPointsCount = redeemedLoyaltyPointsCount;
+    this.markPropertyAsSet(SERIALIZED_NAME_REDEEMED_LOYALTY_POINTS_COUNT);
   }
 
 
   @Deprecated
   public Campaign redeemedLoyaltyPointsEffectCount(@javax.annotation.Nullable Long redeemedLoyaltyPointsEffectCount) {
     this.redeemedLoyaltyPointsEffectCount = redeemedLoyaltyPointsEffectCount;
+    this.markPropertyAsSet(SERIALIZED_NAME_REDEEMED_LOYALTY_POINTS_EFFECT_COUNT);
     return this;
   }
 
@@ -1383,12 +1461,14 @@ public class Campaign {
   @Deprecated
   public void setRedeemedLoyaltyPointsEffectCount(@javax.annotation.Nullable Long redeemedLoyaltyPointsEffectCount) {
     this.redeemedLoyaltyPointsEffectCount = redeemedLoyaltyPointsEffectCount;
+    this.markPropertyAsSet(SERIALIZED_NAME_REDEEMED_LOYALTY_POINTS_EFFECT_COUNT);
   }
 
 
   @Deprecated
   public Campaign callApiEffectCount(@javax.annotation.Nullable Long callApiEffectCount) {
     this.callApiEffectCount = callApiEffectCount;
+    this.markPropertyAsSet(SERIALIZED_NAME_CALL_API_EFFECT_COUNT);
     return this;
   }
 
@@ -1406,12 +1486,14 @@ public class Campaign {
   @Deprecated
   public void setCallApiEffectCount(@javax.annotation.Nullable Long callApiEffectCount) {
     this.callApiEffectCount = callApiEffectCount;
+    this.markPropertyAsSet(SERIALIZED_NAME_CALL_API_EFFECT_COUNT);
   }
 
 
   @Deprecated
   public Campaign reservecouponEffectCount(@javax.annotation.Nullable Long reservecouponEffectCount) {
     this.reservecouponEffectCount = reservecouponEffectCount;
+    this.markPropertyAsSet(SERIALIZED_NAME_RESERVECOUPON_EFFECT_COUNT);
     return this;
   }
 
@@ -1429,11 +1511,13 @@ public class Campaign {
   @Deprecated
   public void setReservecouponEffectCount(@javax.annotation.Nullable Long reservecouponEffectCount) {
     this.reservecouponEffectCount = reservecouponEffectCount;
+    this.markPropertyAsSet(SERIALIZED_NAME_RESERVECOUPON_EFFECT_COUNT);
   }
 
 
   public Campaign lastActivity(@javax.annotation.Nullable OffsetDateTime lastActivity) {
     this.lastActivity = lastActivity;
+    this.markPropertyAsSet(SERIALIZED_NAME_LAST_ACTIVITY);
     return this;
   }
 
@@ -1448,11 +1532,13 @@ public class Campaign {
 
   public void setLastActivity(@javax.annotation.Nullable OffsetDateTime lastActivity) {
     this.lastActivity = lastActivity;
+    this.markPropertyAsSet(SERIALIZED_NAME_LAST_ACTIVITY);
   }
 
 
   public Campaign updated(@javax.annotation.Nullable OffsetDateTime updated) {
     this.updated = updated;
+    this.markPropertyAsSet(SERIALIZED_NAME_UPDATED);
     return this;
   }
 
@@ -1467,11 +1553,13 @@ public class Campaign {
 
   public void setUpdated(@javax.annotation.Nullable OffsetDateTime updated) {
     this.updated = updated;
+    this.markPropertyAsSet(SERIALIZED_NAME_UPDATED);
   }
 
 
   public Campaign createdBy(@javax.annotation.Nullable String createdBy) {
     this.createdBy = createdBy;
+    this.markPropertyAsSet(SERIALIZED_NAME_CREATED_BY);
     return this;
   }
 
@@ -1486,11 +1574,13 @@ public class Campaign {
 
   public void setCreatedBy(@javax.annotation.Nullable String createdBy) {
     this.createdBy = createdBy;
+    this.markPropertyAsSet(SERIALIZED_NAME_CREATED_BY);
   }
 
 
   public Campaign updatedBy(@javax.annotation.Nullable String updatedBy) {
     this.updatedBy = updatedBy;
+    this.markPropertyAsSet(SERIALIZED_NAME_UPDATED_BY);
     return this;
   }
 
@@ -1505,11 +1595,13 @@ public class Campaign {
 
   public void setUpdatedBy(@javax.annotation.Nullable String updatedBy) {
     this.updatedBy = updatedBy;
+    this.markPropertyAsSet(SERIALIZED_NAME_UPDATED_BY);
   }
 
 
   public Campaign templateId(@javax.annotation.Nullable Long templateId) {
     this.templateId = templateId;
+    this.markPropertyAsSet(SERIALIZED_NAME_TEMPLATE_ID);
     return this;
   }
 
@@ -1524,11 +1616,13 @@ public class Campaign {
 
   public void setTemplateId(@javax.annotation.Nullable Long templateId) {
     this.templateId = templateId;
+    this.markPropertyAsSet(SERIALIZED_NAME_TEMPLATE_ID);
   }
 
 
   public Campaign frontendState(@javax.annotation.Nonnull FrontendStateEnum frontendState) {
     this.frontendState = frontendState;
+    this.markPropertyAsSet(SERIALIZED_NAME_FRONTEND_STATE);
     return this;
   }
 
@@ -1543,11 +1637,13 @@ public class Campaign {
 
   public void setFrontendState(@javax.annotation.Nonnull FrontendStateEnum frontendState) {
     this.frontendState = frontendState;
+    this.markPropertyAsSet(SERIALIZED_NAME_FRONTEND_STATE);
   }
 
 
   public Campaign storesImported(@javax.annotation.Nonnull Boolean storesImported) {
     this.storesImported = storesImported;
+    this.markPropertyAsSet(SERIALIZED_NAME_STORES_IMPORTED);
     return this;
   }
 
@@ -1562,11 +1658,13 @@ public class Campaign {
 
   public void setStoresImported(@javax.annotation.Nonnull Boolean storesImported) {
     this.storesImported = storesImported;
+    this.markPropertyAsSet(SERIALIZED_NAME_STORES_IMPORTED);
   }
 
 
   public Campaign valueMapsIds(@javax.annotation.Nullable List<Long> valueMapsIds) {
     this.valueMapsIds = valueMapsIds;
+    this.markPropertyAsSet(SERIALIZED_NAME_VALUE_MAPS_IDS);
     return this;
   }
 
@@ -1575,6 +1673,7 @@ public class Campaign {
       this.valueMapsIds = new ArrayList<>();
     }
     this.valueMapsIds.add(valueMapsIdsItem);
+    this.markPropertyAsSet(SERIALIZED_NAME_VALUE_MAPS_IDS);
     return this;
   }
 
@@ -1589,11 +1688,13 @@ public class Campaign {
 
   public void setValueMapsIds(@javax.annotation.Nullable List<Long> valueMapsIds) {
     this.valueMapsIds = valueMapsIds;
+    this.markPropertyAsSet(SERIALIZED_NAME_VALUE_MAPS_IDS);
   }
 
 
   public Campaign experimentId(@javax.annotation.Nullable Long experimentId) {
     this.experimentId = experimentId;
+    this.markPropertyAsSet(SERIALIZED_NAME_EXPERIMENT_ID);
     return this;
   }
 
@@ -1608,11 +1709,13 @@ public class Campaign {
 
   public void setExperimentId(@javax.annotation.Nullable Long experimentId) {
     this.experimentId = experimentId;
+    this.markPropertyAsSet(SERIALIZED_NAME_EXPERIMENT_ID);
   }
 
 
   public Campaign revisionFrontendState(@javax.annotation.Nullable RevisionFrontendStateEnum revisionFrontendState) {
     this.revisionFrontendState = revisionFrontendState;
+    this.markPropertyAsSet(SERIALIZED_NAME_REVISION_FRONTEND_STATE);
     return this;
   }
 
@@ -1627,11 +1730,13 @@ public class Campaign {
 
   public void setRevisionFrontendState(@javax.annotation.Nullable RevisionFrontendStateEnum revisionFrontendState) {
     this.revisionFrontendState = revisionFrontendState;
+    this.markPropertyAsSet(SERIALIZED_NAME_REVISION_FRONTEND_STATE);
   }
 
 
   public Campaign activeRevisionId(@javax.annotation.Nullable Long activeRevisionId) {
     this.activeRevisionId = activeRevisionId;
+    this.markPropertyAsSet(SERIALIZED_NAME_ACTIVE_REVISION_ID);
     return this;
   }
 
@@ -1646,11 +1751,13 @@ public class Campaign {
 
   public void setActiveRevisionId(@javax.annotation.Nullable Long activeRevisionId) {
     this.activeRevisionId = activeRevisionId;
+    this.markPropertyAsSet(SERIALIZED_NAME_ACTIVE_REVISION_ID);
   }
 
 
   public Campaign activeRevisionVersionId(@javax.annotation.Nullable Long activeRevisionVersionId) {
     this.activeRevisionVersionId = activeRevisionVersionId;
+    this.markPropertyAsSet(SERIALIZED_NAME_ACTIVE_REVISION_VERSION_ID);
     return this;
   }
 
@@ -1665,11 +1772,13 @@ public class Campaign {
 
   public void setActiveRevisionVersionId(@javax.annotation.Nullable Long activeRevisionVersionId) {
     this.activeRevisionVersionId = activeRevisionVersionId;
+    this.markPropertyAsSet(SERIALIZED_NAME_ACTIVE_REVISION_VERSION_ID);
   }
 
 
   public Campaign version(@javax.annotation.Nullable Long version) {
     this.version = version;
+    this.markPropertyAsSet(SERIALIZED_NAME_VERSION);
     return this;
   }
 
@@ -1684,11 +1793,13 @@ public class Campaign {
 
   public void setVersion(@javax.annotation.Nullable Long version) {
     this.version = version;
+    this.markPropertyAsSet(SERIALIZED_NAME_VERSION);
   }
 
 
   public Campaign currentRevisionId(@javax.annotation.Nullable Long currentRevisionId) {
     this.currentRevisionId = currentRevisionId;
+    this.markPropertyAsSet(SERIALIZED_NAME_CURRENT_REVISION_ID);
     return this;
   }
 
@@ -1703,11 +1814,13 @@ public class Campaign {
 
   public void setCurrentRevisionId(@javax.annotation.Nullable Long currentRevisionId) {
     this.currentRevisionId = currentRevisionId;
+    this.markPropertyAsSet(SERIALIZED_NAME_CURRENT_REVISION_ID);
   }
 
 
   public Campaign currentRevisionVersionId(@javax.annotation.Nullable Long currentRevisionVersionId) {
     this.currentRevisionVersionId = currentRevisionVersionId;
+    this.markPropertyAsSet(SERIALIZED_NAME_CURRENT_REVISION_VERSION_ID);
     return this;
   }
 
@@ -1722,11 +1835,13 @@ public class Campaign {
 
   public void setCurrentRevisionVersionId(@javax.annotation.Nullable Long currentRevisionVersionId) {
     this.currentRevisionVersionId = currentRevisionVersionId;
+    this.markPropertyAsSet(SERIALIZED_NAME_CURRENT_REVISION_VERSION_ID);
   }
 
 
   public Campaign stageRevision(@javax.annotation.Nullable Boolean stageRevision) {
     this.stageRevision = stageRevision;
+    this.markPropertyAsSet(SERIALIZED_NAME_STAGE_REVISION);
     return this;
   }
 
@@ -1741,6 +1856,7 @@ public class Campaign {
 
   public void setStageRevision(@javax.annotation.Nullable Boolean stageRevision) {
     this.stageRevision = stageRevision;
+    this.markPropertyAsSet(SERIALIZED_NAME_STAGE_REVISION);
   }
 
   /**
@@ -1786,6 +1902,21 @@ public class Campaign {
         return null;
     }
     return this.additionalProperties.get(key);
+  }
+
+  /** Omit null properties unless they were explicitly assigned or present in JSON input. */
+  protected final void removeUnsetNullFields(JsonObject obj) {
+    obj.entrySet().removeIf(entry -> entry.getValue().isJsonNull()
+        && !openapiExplicitlySetFields.contains(entry.getKey()));
+  }
+
+  protected final void markPropertyAsSet(String propertyName) {
+    openapiExplicitlySetFields.add(propertyName);
+  }
+
+  /** Gson populates fields directly, bypassing setters during deserialization. */
+  protected final void markPropertiesAsSet(Set<String> propertyNames) {
+    openapiExplicitlySetFields.addAll(propertyNames);
   }
 
 
@@ -2060,7 +2191,7 @@ public class Campaign {
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
        if (!Campaign.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'Campaign' and its subtypes
+         return null; // let other model factories handle this type
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
        final TypeAdapter<Campaign> thisAdapter
@@ -2070,31 +2201,22 @@ public class Campaign {
            @Override
            public void write(JsonWriter out, Campaign value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+             value.removeUnsetNullFields(obj);
              obj.remove("additionalProperties");
              // serialize additional properties
              if (value.getAdditionalProperties() != null) {
                for (Map.Entry<String, Object> entry : value.getAdditionalProperties().entrySet()) {
-                 if (entry.getValue() instanceof String)
-                   obj.addProperty(entry.getKey(), (String) entry.getValue());
-                 else if (entry.getValue() instanceof Number)
-                   obj.addProperty(entry.getKey(), (Number) entry.getValue());
-                 else if (entry.getValue() instanceof Boolean)
-                   obj.addProperty(entry.getKey(), (Boolean) entry.getValue());
-                 else if (entry.getValue() instanceof Character)
-                   obj.addProperty(entry.getKey(), (Character) entry.getValue());
-                 else {
-                   JsonElement jsonElement = gson.toJsonTree(entry.getValue());
-                   if (jsonElement.isJsonNull()) {
-                     obj.add(entry.getKey(), JsonNull.INSTANCE);
-                   } else if (jsonElement.isJsonArray()) {
-                     obj.add(entry.getKey(), jsonElement.getAsJsonArray());
-                   } else {
-                     obj.add(entry.getKey(), jsonElement.getAsJsonObject());
-                   }
-                 }
+                 // TypeAdapter.toJsonTree keeps explicit null entries in arbitrary maps too.
+                 obj.add(entry.getKey(), gson.getAdapter(Object.class).toJsonTree(entry.getValue()));
                }
              }
-             elementAdapter.write(out, obj);
+             boolean originalSerializeNulls = out.getSerializeNulls();
+             try {
+               out.setSerializeNulls(true);
+               elementAdapter.write(out, obj);
+             } finally {
+               out.setSerializeNulls(originalSerializeNulls);
+             }
            }
 
            @Override
@@ -2104,6 +2226,7 @@ public class Campaign {
              JsonObject jsonObj = jsonElement.getAsJsonObject();
              // store additional fields in the deserialized instance
              Campaign instance = thisAdapter.fromJsonTree(jsonObj);
+             instance.markPropertiesAsSet(jsonObj.keySet());
              for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
                if (!openapiFields.contains(entry.getKey())) {
                  if (entry.getValue().isJsonPrimitive()) { // primitive type

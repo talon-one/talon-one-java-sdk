@@ -55,6 +55,9 @@ import one.talon.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.26.0")
 public class IntegrationCampaign {
+  // Gson ignores transient state; only setters and JSON input mark properties as present.
+  private transient Set<String> openapiExplicitlySetFields = new HashSet<>();
+
   public static final String SERIALIZED_NAME_APPLICATION_ID = "applicationId";
   @SerializedName(SERIALIZED_NAME_APPLICATION_ID)
   @javax.annotation.Nonnull
@@ -237,6 +240,7 @@ public class IntegrationCampaign {
 
   public IntegrationCampaign applicationId(@javax.annotation.Nonnull Long applicationId) {
     this.applicationId = applicationId;
+    this.markPropertyAsSet(SERIALIZED_NAME_APPLICATION_ID);
     return this;
   }
 
@@ -251,11 +255,13 @@ public class IntegrationCampaign {
 
   public void setApplicationId(@javax.annotation.Nonnull Long applicationId) {
     this.applicationId = applicationId;
+    this.markPropertyAsSet(SERIALIZED_NAME_APPLICATION_ID);
   }
 
 
   public IntegrationCampaign id(@javax.annotation.Nonnull Long id) {
     this.id = id;
+    this.markPropertyAsSet(SERIALIZED_NAME_ID);
     return this;
   }
 
@@ -270,11 +276,13 @@ public class IntegrationCampaign {
 
   public void setId(@javax.annotation.Nonnull Long id) {
     this.id = id;
+    this.markPropertyAsSet(SERIALIZED_NAME_ID);
   }
 
 
   public IntegrationCampaign name(@javax.annotation.Nonnull String name) {
     this.name = name;
+    this.markPropertyAsSet(SERIALIZED_NAME_NAME);
     return this;
   }
 
@@ -289,11 +297,13 @@ public class IntegrationCampaign {
 
   public void setName(@javax.annotation.Nonnull String name) {
     this.name = name;
+    this.markPropertyAsSet(SERIALIZED_NAME_NAME);
   }
 
 
   public IntegrationCampaign description(@javax.annotation.Nullable String description) {
     this.description = description;
+    this.markPropertyAsSet(SERIALIZED_NAME_DESCRIPTION);
     return this;
   }
 
@@ -308,11 +318,13 @@ public class IntegrationCampaign {
 
   public void setDescription(@javax.annotation.Nullable String description) {
     this.description = description;
+    this.markPropertyAsSet(SERIALIZED_NAME_DESCRIPTION);
   }
 
 
   public IntegrationCampaign startTime(@javax.annotation.Nullable OffsetDateTime startTime) {
     this.startTime = startTime;
+    this.markPropertyAsSet(SERIALIZED_NAME_START_TIME);
     return this;
   }
 
@@ -327,11 +339,13 @@ public class IntegrationCampaign {
 
   public void setStartTime(@javax.annotation.Nullable OffsetDateTime startTime) {
     this.startTime = startTime;
+    this.markPropertyAsSet(SERIALIZED_NAME_START_TIME);
   }
 
 
   public IntegrationCampaign endTime(@javax.annotation.Nullable OffsetDateTime endTime) {
     this.endTime = endTime;
+    this.markPropertyAsSet(SERIALIZED_NAME_END_TIME);
     return this;
   }
 
@@ -346,11 +360,13 @@ public class IntegrationCampaign {
 
   public void setEndTime(@javax.annotation.Nullable OffsetDateTime endTime) {
     this.endTime = endTime;
+    this.markPropertyAsSet(SERIALIZED_NAME_END_TIME);
   }
 
 
   public IntegrationCampaign attributes(@javax.annotation.Nullable Object attributes) {
     this.attributes = attributes;
+    this.markPropertyAsSet(SERIALIZED_NAME_ATTRIBUTES);
     return this;
   }
 
@@ -365,11 +381,13 @@ public class IntegrationCampaign {
 
   public void setAttributes(@javax.annotation.Nullable Object attributes) {
     this.attributes = attributes;
+    this.markPropertyAsSet(SERIALIZED_NAME_ATTRIBUTES);
   }
 
 
   public IntegrationCampaign state(@javax.annotation.Nonnull StateEnum state) {
     this.state = state;
+    this.markPropertyAsSet(SERIALIZED_NAME_STATE);
     return this;
   }
 
@@ -384,11 +402,13 @@ public class IntegrationCampaign {
 
   public void setState(@javax.annotation.Nonnull StateEnum state) {
     this.state = state;
+    this.markPropertyAsSet(SERIALIZED_NAME_STATE);
   }
 
 
   public IntegrationCampaign tags(@javax.annotation.Nonnull List<String> tags) {
     this.tags = tags;
+    this.markPropertyAsSet(SERIALIZED_NAME_TAGS);
     return this;
   }
 
@@ -397,6 +417,7 @@ public class IntegrationCampaign {
       this.tags = new ArrayList<>();
     }
     this.tags.add(tagsItem);
+    this.markPropertyAsSet(SERIALIZED_NAME_TAGS);
     return this;
   }
 
@@ -411,11 +432,13 @@ public class IntegrationCampaign {
 
   public void setTags(@javax.annotation.Nonnull List<String> tags) {
     this.tags = tags;
+    this.markPropertyAsSet(SERIALIZED_NAME_TAGS);
   }
 
 
   public IntegrationCampaign features(@javax.annotation.Nonnull List<FeaturesEnum> features) {
     this.features = features;
+    this.markPropertyAsSet(SERIALIZED_NAME_FEATURES);
     return this;
   }
 
@@ -424,6 +447,7 @@ public class IntegrationCampaign {
       this.features = new ArrayList<>();
     }
     this.features.add(featuresItem);
+    this.markPropertyAsSet(SERIALIZED_NAME_FEATURES);
     return this;
   }
 
@@ -438,11 +462,13 @@ public class IntegrationCampaign {
 
   public void setFeatures(@javax.annotation.Nonnull List<FeaturesEnum> features) {
     this.features = features;
+    this.markPropertyAsSet(SERIALIZED_NAME_FEATURES);
   }
 
 
   public IntegrationCampaign rules(@javax.annotation.Nonnull List<RuleMetadata> rules) {
     this.rules = rules;
+    this.markPropertyAsSet(SERIALIZED_NAME_RULES);
     return this;
   }
 
@@ -451,6 +477,7 @@ public class IntegrationCampaign {
       this.rules = new ArrayList<>();
     }
     this.rules.add(rulesItem);
+    this.markPropertyAsSet(SERIALIZED_NAME_RULES);
     return this;
   }
 
@@ -465,11 +492,13 @@ public class IntegrationCampaign {
 
   public void setRules(@javax.annotation.Nonnull List<RuleMetadata> rules) {
     this.rules = rules;
+    this.markPropertyAsSet(SERIALIZED_NAME_RULES);
   }
 
 
   public IntegrationCampaign linkedStoreIds(@javax.annotation.Nullable List<Long> linkedStoreIds) {
     this.linkedStoreIds = linkedStoreIds;
+    this.markPropertyAsSet(SERIALIZED_NAME_LINKED_STORE_IDS);
     return this;
   }
 
@@ -478,6 +507,7 @@ public class IntegrationCampaign {
       this.linkedStoreIds = new ArrayList<>();
     }
     this.linkedStoreIds.add(linkedStoreIdsItem);
+    this.markPropertyAsSet(SERIALIZED_NAME_LINKED_STORE_IDS);
     return this;
   }
 
@@ -492,11 +522,13 @@ public class IntegrationCampaign {
 
   public void setLinkedStoreIds(@javax.annotation.Nullable List<Long> linkedStoreIds) {
     this.linkedStoreIds = linkedStoreIds;
+    this.markPropertyAsSet(SERIALIZED_NAME_LINKED_STORE_IDS);
   }
 
 
   public IntegrationCampaign linkedAudienceIds(@javax.annotation.Nullable List<Long> linkedAudienceIds) {
     this.linkedAudienceIds = linkedAudienceIds;
+    this.markPropertyAsSet(SERIALIZED_NAME_LINKED_AUDIENCE_IDS);
     return this;
   }
 
@@ -505,6 +537,7 @@ public class IntegrationCampaign {
       this.linkedAudienceIds = new ArrayList<>();
     }
     this.linkedAudienceIds.add(linkedAudienceIdsItem);
+    this.markPropertyAsSet(SERIALIZED_NAME_LINKED_AUDIENCE_IDS);
     return this;
   }
 
@@ -519,6 +552,7 @@ public class IntegrationCampaign {
 
   public void setLinkedAudienceIds(@javax.annotation.Nullable List<Long> linkedAudienceIds) {
     this.linkedAudienceIds = linkedAudienceIds;
+    this.markPropertyAsSet(SERIALIZED_NAME_LINKED_AUDIENCE_IDS);
   }
 
   /**
@@ -564,6 +598,21 @@ public class IntegrationCampaign {
         return null;
     }
     return this.additionalProperties.get(key);
+  }
+
+  /** Omit null properties unless they were explicitly assigned or present in JSON input. */
+  protected final void removeUnsetNullFields(JsonObject obj) {
+    obj.entrySet().removeIf(entry -> entry.getValue().isJsonNull()
+        && !openapiExplicitlySetFields.contains(entry.getKey()));
+  }
+
+  protected final void markPropertyAsSet(String propertyName) {
+    openapiExplicitlySetFields.add(propertyName);
+  }
+
+  /** Gson populates fields directly, bypassing setters during deserialization. */
+  protected final void markPropertiesAsSet(Set<String> propertyNames) {
+    openapiExplicitlySetFields.addAll(propertyNames);
   }
 
 
@@ -707,7 +756,7 @@ public class IntegrationCampaign {
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
        if (!IntegrationCampaign.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'IntegrationCampaign' and its subtypes
+         return null; // let other model factories handle this type
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
        final TypeAdapter<IntegrationCampaign> thisAdapter
@@ -717,31 +766,22 @@ public class IntegrationCampaign {
            @Override
            public void write(JsonWriter out, IntegrationCampaign value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+             value.removeUnsetNullFields(obj);
              obj.remove("additionalProperties");
              // serialize additional properties
              if (value.getAdditionalProperties() != null) {
                for (Map.Entry<String, Object> entry : value.getAdditionalProperties().entrySet()) {
-                 if (entry.getValue() instanceof String)
-                   obj.addProperty(entry.getKey(), (String) entry.getValue());
-                 else if (entry.getValue() instanceof Number)
-                   obj.addProperty(entry.getKey(), (Number) entry.getValue());
-                 else if (entry.getValue() instanceof Boolean)
-                   obj.addProperty(entry.getKey(), (Boolean) entry.getValue());
-                 else if (entry.getValue() instanceof Character)
-                   obj.addProperty(entry.getKey(), (Character) entry.getValue());
-                 else {
-                   JsonElement jsonElement = gson.toJsonTree(entry.getValue());
-                   if (jsonElement.isJsonNull()) {
-                     obj.add(entry.getKey(), JsonNull.INSTANCE);
-                   } else if (jsonElement.isJsonArray()) {
-                     obj.add(entry.getKey(), jsonElement.getAsJsonArray());
-                   } else {
-                     obj.add(entry.getKey(), jsonElement.getAsJsonObject());
-                   }
-                 }
+                 // TypeAdapter.toJsonTree keeps explicit null entries in arbitrary maps too.
+                 obj.add(entry.getKey(), gson.getAdapter(Object.class).toJsonTree(entry.getValue()));
                }
              }
-             elementAdapter.write(out, obj);
+             boolean originalSerializeNulls = out.getSerializeNulls();
+             try {
+               out.setSerializeNulls(true);
+               elementAdapter.write(out, obj);
+             } finally {
+               out.setSerializeNulls(originalSerializeNulls);
+             }
            }
 
            @Override
@@ -751,6 +791,7 @@ public class IntegrationCampaign {
              JsonObject jsonObj = jsonElement.getAsJsonObject();
              // store additional fields in the deserialized instance
              IntegrationCampaign instance = thisAdapter.fromJsonTree(jsonObj);
+             instance.markPropertiesAsSet(jsonObj.keySet());
              for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
                if (!openapiFields.contains(entry.getKey())) {
                  if (entry.getValue().isJsonPrimitive()) { // primitive type

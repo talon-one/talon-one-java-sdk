@@ -82,62 +82,72 @@ public class SelectorStep extends AbstractOpenApiSchema {
                 return null; // this class only serializes 'SelectorStep' and its subtypes
             }
             final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-            final TypeAdapter<FilterSelectorStep> adapterFilterSelectorStep = gson.getDelegateAdapter(this, TypeToken.get(FilterSelectorStep.class));
-            final TypeAdapter<SortSelectorStep> adapterSortSelectorStep = gson.getDelegateAdapter(this, TypeToken.get(SortSelectorStep.class));
-            final TypeAdapter<SelectSelectorStep> adapterSelectSelectorStep = gson.getDelegateAdapter(this, TypeToken.get(SelectSelectorStep.class));
-            final TypeAdapter<MapSelectorStep> adapterMapSelectorStep = gson.getDelegateAdapter(this, TypeToken.get(MapSelectorStep.class));
-            final TypeAdapter<ReduceSelectorStep> adapterReduceSelectorStep = gson.getDelegateAdapter(this, TypeToken.get(ReduceSelectorStep.class));
-            final TypeAdapter<ReverseSelectorStep> adapterReverseSelectorStep = gson.getDelegateAdapter(this, TypeToken.get(ReverseSelectorStep.class));
-            final TypeAdapter<FilterAndMapValuesSelectorStep> adapterFilterAndMapValuesSelectorStep = gson.getDelegateAdapter(this, TypeToken.get(FilterAndMapValuesSelectorStep.class));
+            final TypeAdapter<FilterSelectorStep> adapterFilterSelectorStep = gson.getAdapter(TypeToken.get(FilterSelectorStep.class));
+            final TypeAdapter<SortSelectorStep> adapterSortSelectorStep = gson.getAdapter(TypeToken.get(SortSelectorStep.class));
+            final TypeAdapter<SelectSelectorStep> adapterSelectSelectorStep = gson.getAdapter(TypeToken.get(SelectSelectorStep.class));
+            final TypeAdapter<MapSelectorStep> adapterMapSelectorStep = gson.getAdapter(TypeToken.get(MapSelectorStep.class));
+            final TypeAdapter<ReduceSelectorStep> adapterReduceSelectorStep = gson.getAdapter(TypeToken.get(ReduceSelectorStep.class));
+            final TypeAdapter<ReverseSelectorStep> adapterReverseSelectorStep = gson.getAdapter(TypeToken.get(ReverseSelectorStep.class));
+            final TypeAdapter<FilterAndMapValuesSelectorStep> adapterFilterAndMapValuesSelectorStep = gson.getAdapter(TypeToken.get(FilterAndMapValuesSelectorStep.class));
 
             return (TypeAdapter<T>) new TypeAdapter<SelectorStep>() {
+                private void writeJsonElement(JsonWriter out, JsonElement value) throws IOException {
+                    boolean originalSerializeNulls = out.getSerializeNulls();
+                    try {
+                        out.setSerializeNulls(true);
+                        elementAdapter.write(out, value);
+                    } finally {
+                        out.setSerializeNulls(originalSerializeNulls);
+                    }
+                }
+
                 @Override
                 public void write(JsonWriter out, SelectorStep value) throws IOException {
                     if (value == null || value.getActualInstance() == null) {
-                        elementAdapter.write(out, null);
+                        writeJsonElement(out, null);
                         return;
                     }
 
                     // check if the actual instance is of the type `FilterSelectorStep`
                     if (value.getActualInstance() instanceof FilterSelectorStep) {
                         JsonElement element = adapterFilterSelectorStep.toJsonTree((FilterSelectorStep)value.getActualInstance());
-                        elementAdapter.write(out, element);
+                        writeJsonElement(out, element);
                         return;
                     }
                     // check if the actual instance is of the type `SortSelectorStep`
                     if (value.getActualInstance() instanceof SortSelectorStep) {
                         JsonElement element = adapterSortSelectorStep.toJsonTree((SortSelectorStep)value.getActualInstance());
-                        elementAdapter.write(out, element);
+                        writeJsonElement(out, element);
                         return;
                     }
                     // check if the actual instance is of the type `SelectSelectorStep`
                     if (value.getActualInstance() instanceof SelectSelectorStep) {
                         JsonElement element = adapterSelectSelectorStep.toJsonTree((SelectSelectorStep)value.getActualInstance());
-                        elementAdapter.write(out, element);
+                        writeJsonElement(out, element);
                         return;
                     }
                     // check if the actual instance is of the type `MapSelectorStep`
                     if (value.getActualInstance() instanceof MapSelectorStep) {
                         JsonElement element = adapterMapSelectorStep.toJsonTree((MapSelectorStep)value.getActualInstance());
-                        elementAdapter.write(out, element);
+                        writeJsonElement(out, element);
                         return;
                     }
                     // check if the actual instance is of the type `ReduceSelectorStep`
                     if (value.getActualInstance() instanceof ReduceSelectorStep) {
                         JsonElement element = adapterReduceSelectorStep.toJsonTree((ReduceSelectorStep)value.getActualInstance());
-                        elementAdapter.write(out, element);
+                        writeJsonElement(out, element);
                         return;
                     }
                     // check if the actual instance is of the type `ReverseSelectorStep`
                     if (value.getActualInstance() instanceof ReverseSelectorStep) {
                         JsonElement element = adapterReverseSelectorStep.toJsonTree((ReverseSelectorStep)value.getActualInstance());
-                        elementAdapter.write(out, element);
+                        writeJsonElement(out, element);
                         return;
                     }
                     // check if the actual instance is of the type `FilterAndMapValuesSelectorStep`
                     if (value.getActualInstance() instanceof FilterAndMapValuesSelectorStep) {
                         JsonElement element = adapterFilterAndMapValuesSelectorStep.toJsonTree((FilterAndMapValuesSelectorStep)value.getActualInstance());
-                        elementAdapter.write(out, element);
+                        writeJsonElement(out, element);
                         return;
                     }
                     throw new IOException("Failed to serialize as the type doesn't match oneOf schemas: FilterAndMapValuesSelectorStep, FilterSelectorStep, MapSelectorStep, ReduceSelectorStep, ReverseSelectorStep, SelectSelectorStep, SortSelectorStep");

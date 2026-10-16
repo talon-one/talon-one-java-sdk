@@ -56,6 +56,9 @@ import one.talon.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.26.0")
 public class ApplicationEvent {
+  // Gson ignores transient state; only setters and JSON input mark properties as present.
+  private transient Set<String> openapiExplicitlySetFields = new HashSet<>();
+
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
   @javax.annotation.Nonnull
@@ -121,6 +124,7 @@ public class ApplicationEvent {
 
   public ApplicationEvent id(@javax.annotation.Nonnull Long id) {
     this.id = id;
+    this.markPropertyAsSet(SERIALIZED_NAME_ID);
     return this;
   }
 
@@ -135,11 +139,13 @@ public class ApplicationEvent {
 
   public void setId(@javax.annotation.Nonnull Long id) {
     this.id = id;
+    this.markPropertyAsSet(SERIALIZED_NAME_ID);
   }
 
 
   public ApplicationEvent created(@javax.annotation.Nonnull OffsetDateTime created) {
     this.created = created;
+    this.markPropertyAsSet(SERIALIZED_NAME_CREATED);
     return this;
   }
 
@@ -154,11 +160,13 @@ public class ApplicationEvent {
 
   public void setCreated(@javax.annotation.Nonnull OffsetDateTime created) {
     this.created = created;
+    this.markPropertyAsSet(SERIALIZED_NAME_CREATED);
   }
 
 
   public ApplicationEvent applicationId(@javax.annotation.Nonnull Long applicationId) {
     this.applicationId = applicationId;
+    this.markPropertyAsSet(SERIALIZED_NAME_APPLICATION_ID);
     return this;
   }
 
@@ -173,11 +181,13 @@ public class ApplicationEvent {
 
   public void setApplicationId(@javax.annotation.Nonnull Long applicationId) {
     this.applicationId = applicationId;
+    this.markPropertyAsSet(SERIALIZED_NAME_APPLICATION_ID);
   }
 
 
   public ApplicationEvent profileId(@javax.annotation.Nullable Long profileId) {
     this.profileId = profileId;
+    this.markPropertyAsSet(SERIALIZED_NAME_PROFILE_ID);
     return this;
   }
 
@@ -192,11 +202,13 @@ public class ApplicationEvent {
 
   public void setProfileId(@javax.annotation.Nullable Long profileId) {
     this.profileId = profileId;
+    this.markPropertyAsSet(SERIALIZED_NAME_PROFILE_ID);
   }
 
 
   public ApplicationEvent storeId(@javax.annotation.Nullable Long storeId) {
     this.storeId = storeId;
+    this.markPropertyAsSet(SERIALIZED_NAME_STORE_ID);
     return this;
   }
 
@@ -211,11 +223,13 @@ public class ApplicationEvent {
 
   public void setStoreId(@javax.annotation.Nullable Long storeId) {
     this.storeId = storeId;
+    this.markPropertyAsSet(SERIALIZED_NAME_STORE_ID);
   }
 
 
   public ApplicationEvent storeIntegrationId(@javax.annotation.Nullable String storeIntegrationId) {
     this.storeIntegrationId = storeIntegrationId;
+    this.markPropertyAsSet(SERIALIZED_NAME_STORE_INTEGRATION_ID);
     return this;
   }
 
@@ -230,11 +244,13 @@ public class ApplicationEvent {
 
   public void setStoreIntegrationId(@javax.annotation.Nullable String storeIntegrationId) {
     this.storeIntegrationId = storeIntegrationId;
+    this.markPropertyAsSet(SERIALIZED_NAME_STORE_INTEGRATION_ID);
   }
 
 
   public ApplicationEvent integrationId(@javax.annotation.Nullable String integrationId) {
     this.integrationId = integrationId;
+    this.markPropertyAsSet(SERIALIZED_NAME_INTEGRATION_ID);
     return this;
   }
 
@@ -249,11 +265,13 @@ public class ApplicationEvent {
 
   public void setIntegrationId(@javax.annotation.Nullable String integrationId) {
     this.integrationId = integrationId;
+    this.markPropertyAsSet(SERIALIZED_NAME_INTEGRATION_ID);
   }
 
 
   public ApplicationEvent sessionId(@javax.annotation.Nullable Long sessionId) {
     this.sessionId = sessionId;
+    this.markPropertyAsSet(SERIALIZED_NAME_SESSION_ID);
     return this;
   }
 
@@ -268,11 +286,13 @@ public class ApplicationEvent {
 
   public void setSessionId(@javax.annotation.Nullable Long sessionId) {
     this.sessionId = sessionId;
+    this.markPropertyAsSet(SERIALIZED_NAME_SESSION_ID);
   }
 
 
   public ApplicationEvent type(@javax.annotation.Nonnull String type) {
     this.type = type;
+    this.markPropertyAsSet(SERIALIZED_NAME_TYPE);
     return this;
   }
 
@@ -287,11 +307,13 @@ public class ApplicationEvent {
 
   public void setType(@javax.annotation.Nonnull String type) {
     this.type = type;
+    this.markPropertyAsSet(SERIALIZED_NAME_TYPE);
   }
 
 
   public ApplicationEvent attributes(@javax.annotation.Nonnull Object attributes) {
     this.attributes = attributes;
+    this.markPropertyAsSet(SERIALIZED_NAME_ATTRIBUTES);
     return this;
   }
 
@@ -306,11 +328,13 @@ public class ApplicationEvent {
 
   public void setAttributes(@javax.annotation.Nonnull Object attributes) {
     this.attributes = attributes;
+    this.markPropertyAsSet(SERIALIZED_NAME_ATTRIBUTES);
   }
 
 
   public ApplicationEvent effects(@javax.annotation.Nonnull List<Effect> effects) {
     this.effects = effects;
+    this.markPropertyAsSet(SERIALIZED_NAME_EFFECTS);
     return this;
   }
 
@@ -319,6 +343,7 @@ public class ApplicationEvent {
       this.effects = new ArrayList<>();
     }
     this.effects.add(effectsItem);
+    this.markPropertyAsSet(SERIALIZED_NAME_EFFECTS);
     return this;
   }
 
@@ -333,11 +358,13 @@ public class ApplicationEvent {
 
   public void setEffects(@javax.annotation.Nonnull List<Effect> effects) {
     this.effects = effects;
+    this.markPropertyAsSet(SERIALIZED_NAME_EFFECTS);
   }
 
 
   public ApplicationEvent ruleFailureReasons(@javax.annotation.Nullable List<RuleFailureReason> ruleFailureReasons) {
     this.ruleFailureReasons = ruleFailureReasons;
+    this.markPropertyAsSet(SERIALIZED_NAME_RULE_FAILURE_REASONS);
     return this;
   }
 
@@ -346,6 +373,7 @@ public class ApplicationEvent {
       this.ruleFailureReasons = new ArrayList<>();
     }
     this.ruleFailureReasons.add(ruleFailureReasonsItem);
+    this.markPropertyAsSet(SERIALIZED_NAME_RULE_FAILURE_REASONS);
     return this;
   }
 
@@ -360,6 +388,7 @@ public class ApplicationEvent {
 
   public void setRuleFailureReasons(@javax.annotation.Nullable List<RuleFailureReason> ruleFailureReasons) {
     this.ruleFailureReasons = ruleFailureReasons;
+    this.markPropertyAsSet(SERIALIZED_NAME_RULE_FAILURE_REASONS);
   }
 
   /**
@@ -405,6 +434,21 @@ public class ApplicationEvent {
         return null;
     }
     return this.additionalProperties.get(key);
+  }
+
+  /** Omit null properties unless they were explicitly assigned or present in JSON input. */
+  protected final void removeUnsetNullFields(JsonObject obj) {
+    obj.entrySet().removeIf(entry -> entry.getValue().isJsonNull()
+        && !openapiExplicitlySetFields.contains(entry.getKey()));
+  }
+
+  protected final void markPropertyAsSet(String propertyName) {
+    openapiExplicitlySetFields.add(propertyName);
+  }
+
+  /** Gson populates fields directly, bypassing setters during deserialization. */
+  protected final void markPropertiesAsSet(Set<String> propertyNames) {
+    openapiExplicitlySetFields.addAll(propertyNames);
   }
 
 
@@ -538,7 +582,7 @@ public class ApplicationEvent {
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
        if (!ApplicationEvent.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'ApplicationEvent' and its subtypes
+         return null; // let other model factories handle this type
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
        final TypeAdapter<ApplicationEvent> thisAdapter
@@ -548,31 +592,22 @@ public class ApplicationEvent {
            @Override
            public void write(JsonWriter out, ApplicationEvent value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+             value.removeUnsetNullFields(obj);
              obj.remove("additionalProperties");
              // serialize additional properties
              if (value.getAdditionalProperties() != null) {
                for (Map.Entry<String, Object> entry : value.getAdditionalProperties().entrySet()) {
-                 if (entry.getValue() instanceof String)
-                   obj.addProperty(entry.getKey(), (String) entry.getValue());
-                 else if (entry.getValue() instanceof Number)
-                   obj.addProperty(entry.getKey(), (Number) entry.getValue());
-                 else if (entry.getValue() instanceof Boolean)
-                   obj.addProperty(entry.getKey(), (Boolean) entry.getValue());
-                 else if (entry.getValue() instanceof Character)
-                   obj.addProperty(entry.getKey(), (Character) entry.getValue());
-                 else {
-                   JsonElement jsonElement = gson.toJsonTree(entry.getValue());
-                   if (jsonElement.isJsonNull()) {
-                     obj.add(entry.getKey(), JsonNull.INSTANCE);
-                   } else if (jsonElement.isJsonArray()) {
-                     obj.add(entry.getKey(), jsonElement.getAsJsonArray());
-                   } else {
-                     obj.add(entry.getKey(), jsonElement.getAsJsonObject());
-                   }
-                 }
+                 // TypeAdapter.toJsonTree keeps explicit null entries in arbitrary maps too.
+                 obj.add(entry.getKey(), gson.getAdapter(Object.class).toJsonTree(entry.getValue()));
                }
              }
-             elementAdapter.write(out, obj);
+             boolean originalSerializeNulls = out.getSerializeNulls();
+             try {
+               out.setSerializeNulls(true);
+               elementAdapter.write(out, obj);
+             } finally {
+               out.setSerializeNulls(originalSerializeNulls);
+             }
            }
 
            @Override
@@ -582,6 +617,7 @@ public class ApplicationEvent {
              JsonObject jsonObj = jsonElement.getAsJsonObject();
              // store additional fields in the deserialized instance
              ApplicationEvent instance = thisAdapter.fromJsonTree(jsonObj);
+             instance.markPropertiesAsSet(jsonObj.keySet());
              for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
                if (!openapiFields.contains(entry.getKey())) {
                  if (entry.getValue().isJsonPrimitive()) { // primitive type

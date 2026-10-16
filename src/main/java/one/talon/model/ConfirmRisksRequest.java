@@ -53,6 +53,9 @@ import one.talon.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.26.0")
 public class ConfirmRisksRequest {
+  // Gson ignores transient state; only setters and JSON input mark properties as present.
+  private transient Set<String> openapiExplicitlySetFields = new HashSet<>();
+
   public static final String SERIALIZED_NAME_RISK_IDS = "riskIds";
   @SerializedName(SERIALIZED_NAME_RISK_IDS)
   @javax.annotation.Nonnull
@@ -68,6 +71,7 @@ public class ConfirmRisksRequest {
 
   public ConfirmRisksRequest riskIds(@javax.annotation.Nonnull List<Long> riskIds) {
     this.riskIds = riskIds;
+    this.markPropertyAsSet(SERIALIZED_NAME_RISK_IDS);
     return this;
   }
 
@@ -76,6 +80,7 @@ public class ConfirmRisksRequest {
       this.riskIds = new ArrayList<>();
     }
     this.riskIds.add(riskIdsItem);
+    this.markPropertyAsSet(SERIALIZED_NAME_RISK_IDS);
     return this;
   }
 
@@ -90,11 +95,13 @@ public class ConfirmRisksRequest {
 
   public void setRiskIds(@javax.annotation.Nonnull List<Long> riskIds) {
     this.riskIds = riskIds;
+    this.markPropertyAsSet(SERIALIZED_NAME_RISK_IDS);
   }
 
 
   public ConfirmRisksRequest comment(@javax.annotation.Nonnull String comment) {
     this.comment = comment;
+    this.markPropertyAsSet(SERIALIZED_NAME_COMMENT);
     return this;
   }
 
@@ -109,6 +116,7 @@ public class ConfirmRisksRequest {
 
   public void setComment(@javax.annotation.Nonnull String comment) {
     this.comment = comment;
+    this.markPropertyAsSet(SERIALIZED_NAME_COMMENT);
   }
 
   /**
@@ -154,6 +162,21 @@ public class ConfirmRisksRequest {
         return null;
     }
     return this.additionalProperties.get(key);
+  }
+
+  /** Omit null properties unless they were explicitly assigned or present in JSON input. */
+  protected final void removeUnsetNullFields(JsonObject obj) {
+    obj.entrySet().removeIf(entry -> entry.getValue().isJsonNull()
+        && !openapiExplicitlySetFields.contains(entry.getKey()));
+  }
+
+  protected final void markPropertyAsSet(String propertyName) {
+    openapiExplicitlySetFields.add(propertyName);
+  }
+
+  /** Gson populates fields directly, bypassing setters during deserialization. */
+  protected final void markPropertiesAsSet(Set<String> propertyNames) {
+    openapiExplicitlySetFields.addAll(propertyNames);
   }
 
 
@@ -243,7 +266,7 @@ public class ConfirmRisksRequest {
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
        if (!ConfirmRisksRequest.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'ConfirmRisksRequest' and its subtypes
+         return null; // let other model factories handle this type
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
        final TypeAdapter<ConfirmRisksRequest> thisAdapter
@@ -253,31 +276,22 @@ public class ConfirmRisksRequest {
            @Override
            public void write(JsonWriter out, ConfirmRisksRequest value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+             value.removeUnsetNullFields(obj);
              obj.remove("additionalProperties");
              // serialize additional properties
              if (value.getAdditionalProperties() != null) {
                for (Map.Entry<String, Object> entry : value.getAdditionalProperties().entrySet()) {
-                 if (entry.getValue() instanceof String)
-                   obj.addProperty(entry.getKey(), (String) entry.getValue());
-                 else if (entry.getValue() instanceof Number)
-                   obj.addProperty(entry.getKey(), (Number) entry.getValue());
-                 else if (entry.getValue() instanceof Boolean)
-                   obj.addProperty(entry.getKey(), (Boolean) entry.getValue());
-                 else if (entry.getValue() instanceof Character)
-                   obj.addProperty(entry.getKey(), (Character) entry.getValue());
-                 else {
-                   JsonElement jsonElement = gson.toJsonTree(entry.getValue());
-                   if (jsonElement.isJsonNull()) {
-                     obj.add(entry.getKey(), JsonNull.INSTANCE);
-                   } else if (jsonElement.isJsonArray()) {
-                     obj.add(entry.getKey(), jsonElement.getAsJsonArray());
-                   } else {
-                     obj.add(entry.getKey(), jsonElement.getAsJsonObject());
-                   }
-                 }
+                 // TypeAdapter.toJsonTree keeps explicit null entries in arbitrary maps too.
+                 obj.add(entry.getKey(), gson.getAdapter(Object.class).toJsonTree(entry.getValue()));
                }
              }
-             elementAdapter.write(out, obj);
+             boolean originalSerializeNulls = out.getSerializeNulls();
+             try {
+               out.setSerializeNulls(true);
+               elementAdapter.write(out, obj);
+             } finally {
+               out.setSerializeNulls(originalSerializeNulls);
+             }
            }
 
            @Override
@@ -287,6 +301,7 @@ public class ConfirmRisksRequest {
              JsonObject jsonObj = jsonElement.getAsJsonObject();
              // store additional fields in the deserialized instance
              ConfirmRisksRequest instance = thisAdapter.fromJsonTree(jsonObj);
+             instance.markPropertiesAsSet(jsonObj.keySet());
              for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
                if (!openapiFields.contains(entry.getKey())) {
                  if (entry.getValue().isJsonPrimitive()) { // primitive type

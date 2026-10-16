@@ -52,6 +52,9 @@ import one.talon.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.26.0")
 public class NewApplicationAPIKey {
+  // Gson ignores transient state; only setters and JSON input mark properties as present.
+  private transient Set<String> openapiExplicitlySetFields = new HashSet<>();
+
   public static final String SERIALIZED_NAME_TITLE = "title";
   @SerializedName(SERIALIZED_NAME_TITLE)
   @javax.annotation.Nonnull
@@ -230,6 +233,7 @@ public class NewApplicationAPIKey {
 
   public NewApplicationAPIKey title(@javax.annotation.Nonnull String title) {
     this.title = title;
+    this.markPropertyAsSet(SERIALIZED_NAME_TITLE);
     return this;
   }
 
@@ -244,11 +248,13 @@ public class NewApplicationAPIKey {
 
   public void setTitle(@javax.annotation.Nonnull String title) {
     this.title = title;
+    this.markPropertyAsSet(SERIALIZED_NAME_TITLE);
   }
 
 
   public NewApplicationAPIKey expires(@javax.annotation.Nonnull OffsetDateTime expires) {
     this.expires = expires;
+    this.markPropertyAsSet(SERIALIZED_NAME_EXPIRES);
     return this;
   }
 
@@ -263,11 +269,13 @@ public class NewApplicationAPIKey {
 
   public void setExpires(@javax.annotation.Nonnull OffsetDateTime expires) {
     this.expires = expires;
+    this.markPropertyAsSet(SERIALIZED_NAME_EXPIRES);
   }
 
 
   public NewApplicationAPIKey platform(@javax.annotation.Nullable PlatformEnum platform) {
     this.platform = platform;
+    this.markPropertyAsSet(SERIALIZED_NAME_PLATFORM);
     return this;
   }
 
@@ -282,11 +290,13 @@ public class NewApplicationAPIKey {
 
   public void setPlatform(@javax.annotation.Nullable PlatformEnum platform) {
     this.platform = platform;
+    this.markPropertyAsSet(SERIALIZED_NAME_PLATFORM);
   }
 
 
   public NewApplicationAPIKey type(@javax.annotation.Nullable TypeEnum type) {
     this.type = type;
+    this.markPropertyAsSet(SERIALIZED_NAME_TYPE);
     return this;
   }
 
@@ -301,11 +311,13 @@ public class NewApplicationAPIKey {
 
   public void setType(@javax.annotation.Nullable TypeEnum type) {
     this.type = type;
+    this.markPropertyAsSet(SERIALIZED_NAME_TYPE);
   }
 
 
   public NewApplicationAPIKey timeOffset(@javax.annotation.Nullable Long timeOffset) {
     this.timeOffset = timeOffset;
+    this.markPropertyAsSet(SERIALIZED_NAME_TIME_OFFSET);
     return this;
   }
 
@@ -320,11 +332,13 @@ public class NewApplicationAPIKey {
 
   public void setTimeOffset(@javax.annotation.Nullable Long timeOffset) {
     this.timeOffset = timeOffset;
+    this.markPropertyAsSet(SERIALIZED_NAME_TIME_OFFSET);
   }
 
 
   public NewApplicationAPIKey id(@javax.annotation.Nonnull Long id) {
     this.id = id;
+    this.markPropertyAsSet(SERIALIZED_NAME_ID);
     return this;
   }
 
@@ -339,11 +353,13 @@ public class NewApplicationAPIKey {
 
   public void setId(@javax.annotation.Nonnull Long id) {
     this.id = id;
+    this.markPropertyAsSet(SERIALIZED_NAME_ID);
   }
 
 
   public NewApplicationAPIKey createdBy(@javax.annotation.Nonnull Long createdBy) {
     this.createdBy = createdBy;
+    this.markPropertyAsSet(SERIALIZED_NAME_CREATED_BY);
     return this;
   }
 
@@ -358,11 +374,13 @@ public class NewApplicationAPIKey {
 
   public void setCreatedBy(@javax.annotation.Nonnull Long createdBy) {
     this.createdBy = createdBy;
+    this.markPropertyAsSet(SERIALIZED_NAME_CREATED_BY);
   }
 
 
   public NewApplicationAPIKey accountID(@javax.annotation.Nonnull Long accountID) {
     this.accountID = accountID;
+    this.markPropertyAsSet(SERIALIZED_NAME_ACCOUNT_I_D);
     return this;
   }
 
@@ -377,11 +395,13 @@ public class NewApplicationAPIKey {
 
   public void setAccountID(@javax.annotation.Nonnull Long accountID) {
     this.accountID = accountID;
+    this.markPropertyAsSet(SERIALIZED_NAME_ACCOUNT_I_D);
   }
 
 
   public NewApplicationAPIKey applicationID(@javax.annotation.Nonnull Long applicationID) {
     this.applicationID = applicationID;
+    this.markPropertyAsSet(SERIALIZED_NAME_APPLICATION_I_D);
     return this;
   }
 
@@ -396,11 +416,13 @@ public class NewApplicationAPIKey {
 
   public void setApplicationID(@javax.annotation.Nonnull Long applicationID) {
     this.applicationID = applicationID;
+    this.markPropertyAsSet(SERIALIZED_NAME_APPLICATION_I_D);
   }
 
 
   public NewApplicationAPIKey created(@javax.annotation.Nonnull OffsetDateTime created) {
     this.created = created;
+    this.markPropertyAsSet(SERIALIZED_NAME_CREATED);
     return this;
   }
 
@@ -415,11 +437,13 @@ public class NewApplicationAPIKey {
 
   public void setCreated(@javax.annotation.Nonnull OffsetDateTime created) {
     this.created = created;
+    this.markPropertyAsSet(SERIALIZED_NAME_CREATED);
   }
 
 
   public NewApplicationAPIKey key(@javax.annotation.Nonnull String key) {
     this.key = key;
+    this.markPropertyAsSet(SERIALIZED_NAME_KEY);
     return this;
   }
 
@@ -434,6 +458,7 @@ public class NewApplicationAPIKey {
 
   public void setKey(@javax.annotation.Nonnull String key) {
     this.key = key;
+    this.markPropertyAsSet(SERIALIZED_NAME_KEY);
   }
 
   /**
@@ -479,6 +504,21 @@ public class NewApplicationAPIKey {
         return null;
     }
     return this.additionalProperties.get(key);
+  }
+
+  /** Omit null properties unless they were explicitly assigned or present in JSON input. */
+  protected final void removeUnsetNullFields(JsonObject obj) {
+    obj.entrySet().removeIf(entry -> entry.getValue().isJsonNull()
+        && !openapiExplicitlySetFields.contains(entry.getKey()));
+  }
+
+  protected final void markPropertyAsSet(String propertyName) {
+    openapiExplicitlySetFields.add(propertyName);
+  }
+
+  /** Gson populates fields directly, bypassing setters during deserialization. */
+  protected final void markPropertiesAsSet(Set<String> propertyNames) {
+    openapiExplicitlySetFields.addAll(propertyNames);
   }
 
 
@@ -597,7 +637,7 @@ public class NewApplicationAPIKey {
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
        if (!NewApplicationAPIKey.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'NewApplicationAPIKey' and its subtypes
+         return null; // let other model factories handle this type
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
        final TypeAdapter<NewApplicationAPIKey> thisAdapter
@@ -607,31 +647,22 @@ public class NewApplicationAPIKey {
            @Override
            public void write(JsonWriter out, NewApplicationAPIKey value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+             value.removeUnsetNullFields(obj);
              obj.remove("additionalProperties");
              // serialize additional properties
              if (value.getAdditionalProperties() != null) {
                for (Map.Entry<String, Object> entry : value.getAdditionalProperties().entrySet()) {
-                 if (entry.getValue() instanceof String)
-                   obj.addProperty(entry.getKey(), (String) entry.getValue());
-                 else if (entry.getValue() instanceof Number)
-                   obj.addProperty(entry.getKey(), (Number) entry.getValue());
-                 else if (entry.getValue() instanceof Boolean)
-                   obj.addProperty(entry.getKey(), (Boolean) entry.getValue());
-                 else if (entry.getValue() instanceof Character)
-                   obj.addProperty(entry.getKey(), (Character) entry.getValue());
-                 else {
-                   JsonElement jsonElement = gson.toJsonTree(entry.getValue());
-                   if (jsonElement.isJsonNull()) {
-                     obj.add(entry.getKey(), JsonNull.INSTANCE);
-                   } else if (jsonElement.isJsonArray()) {
-                     obj.add(entry.getKey(), jsonElement.getAsJsonArray());
-                   } else {
-                     obj.add(entry.getKey(), jsonElement.getAsJsonObject());
-                   }
-                 }
+                 // TypeAdapter.toJsonTree keeps explicit null entries in arbitrary maps too.
+                 obj.add(entry.getKey(), gson.getAdapter(Object.class).toJsonTree(entry.getValue()));
                }
              }
-             elementAdapter.write(out, obj);
+             boolean originalSerializeNulls = out.getSerializeNulls();
+             try {
+               out.setSerializeNulls(true);
+               elementAdapter.write(out, obj);
+             } finally {
+               out.setSerializeNulls(originalSerializeNulls);
+             }
            }
 
            @Override
@@ -641,6 +672,7 @@ public class NewApplicationAPIKey {
              JsonObject jsonObj = jsonElement.getAsJsonObject();
              // store additional fields in the deserialized instance
              NewApplicationAPIKey instance = thisAdapter.fromJsonTree(jsonObj);
+             instance.markPropertiesAsSet(jsonObj.keySet());
              for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
                if (!openapiFields.contains(entry.getKey())) {
                  if (entry.getValue().isJsonPrimitive()) { // primitive type

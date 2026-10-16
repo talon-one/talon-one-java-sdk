@@ -56,6 +56,9 @@ import one.talon.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.26.0")
 public class NewCoupons {
+  // Gson ignores transient state; only setters and JSON input mark properties as present.
+  private transient Set<String> openapiExplicitlySetFields = new HashSet<>();
+
   public static final String SERIALIZED_NAME_USAGE_LIMIT = "usageLimit";
   @SerializedName(SERIALIZED_NAME_USAGE_LIMIT)
   @javax.annotation.Nullable
@@ -147,6 +150,7 @@ public class NewCoupons {
 
   public NewCoupons usageLimit(@javax.annotation.Nullable Long usageLimit) {
     this.usageLimit = usageLimit;
+    this.markPropertyAsSet(SERIALIZED_NAME_USAGE_LIMIT);
     return this;
   }
 
@@ -163,11 +167,13 @@ public class NewCoupons {
 
   public void setUsageLimit(@javax.annotation.Nullable Long usageLimit) {
     this.usageLimit = usageLimit;
+    this.markPropertyAsSet(SERIALIZED_NAME_USAGE_LIMIT);
   }
 
 
   public NewCoupons discountLimit(@javax.annotation.Nullable BigDecimal discountLimit) {
     this.discountLimit = discountLimit;
+    this.markPropertyAsSet(SERIALIZED_NAME_DISCOUNT_LIMIT);
     return this;
   }
 
@@ -184,11 +190,13 @@ public class NewCoupons {
 
   public void setDiscountLimit(@javax.annotation.Nullable BigDecimal discountLimit) {
     this.discountLimit = discountLimit;
+    this.markPropertyAsSet(SERIALIZED_NAME_DISCOUNT_LIMIT);
   }
 
 
   public NewCoupons reservationLimit(@javax.annotation.Nullable Long reservationLimit) {
     this.reservationLimit = reservationLimit;
+    this.markPropertyAsSet(SERIALIZED_NAME_RESERVATION_LIMIT);
     return this;
   }
 
@@ -205,11 +213,13 @@ public class NewCoupons {
 
   public void setReservationLimit(@javax.annotation.Nullable Long reservationLimit) {
     this.reservationLimit = reservationLimit;
+    this.markPropertyAsSet(SERIALIZED_NAME_RESERVATION_LIMIT);
   }
 
 
   public NewCoupons startDate(@javax.annotation.Nullable OffsetDateTime startDate) {
     this.startDate = startDate;
+    this.markPropertyAsSet(SERIALIZED_NAME_START_DATE);
     return this;
   }
 
@@ -224,11 +234,13 @@ public class NewCoupons {
 
   public void setStartDate(@javax.annotation.Nullable OffsetDateTime startDate) {
     this.startDate = startDate;
+    this.markPropertyAsSet(SERIALIZED_NAME_START_DATE);
   }
 
 
   public NewCoupons expiryDate(@javax.annotation.Nullable OffsetDateTime expiryDate) {
     this.expiryDate = expiryDate;
+    this.markPropertyAsSet(SERIALIZED_NAME_EXPIRY_DATE);
     return this;
   }
 
@@ -243,11 +255,13 @@ public class NewCoupons {
 
   public void setExpiryDate(@javax.annotation.Nullable OffsetDateTime expiryDate) {
     this.expiryDate = expiryDate;
+    this.markPropertyAsSet(SERIALIZED_NAME_EXPIRY_DATE);
   }
 
 
   public NewCoupons limits(@javax.annotation.Nullable List<LimitConfig> limits) {
     this.limits = limits;
+    this.markPropertyAsSet(SERIALIZED_NAME_LIMITS);
     return this;
   }
 
@@ -256,6 +270,7 @@ public class NewCoupons {
       this.limits = new ArrayList<>();
     }
     this.limits.add(limitsItem);
+    this.markPropertyAsSet(SERIALIZED_NAME_LIMITS);
     return this;
   }
 
@@ -270,11 +285,13 @@ public class NewCoupons {
 
   public void setLimits(@javax.annotation.Nullable List<LimitConfig> limits) {
     this.limits = limits;
+    this.markPropertyAsSet(SERIALIZED_NAME_LIMITS);
   }
 
 
   public NewCoupons numberOfCoupons(@javax.annotation.Nonnull Long numberOfCoupons) {
     this.numberOfCoupons = numberOfCoupons;
+    this.markPropertyAsSet(SERIALIZED_NAME_NUMBER_OF_COUPONS);
     return this;
   }
 
@@ -291,11 +308,13 @@ public class NewCoupons {
 
   public void setNumberOfCoupons(@javax.annotation.Nonnull Long numberOfCoupons) {
     this.numberOfCoupons = numberOfCoupons;
+    this.markPropertyAsSet(SERIALIZED_NAME_NUMBER_OF_COUPONS);
   }
 
 
   public NewCoupons batchId(@javax.annotation.Nullable String batchId) {
     this.batchId = batchId;
+    this.markPropertyAsSet(SERIALIZED_NAME_BATCH_ID);
     return this;
   }
 
@@ -310,12 +329,14 @@ public class NewCoupons {
 
   public void setBatchId(@javax.annotation.Nullable String batchId) {
     this.batchId = batchId;
+    this.markPropertyAsSet(SERIALIZED_NAME_BATCH_ID);
   }
 
 
   @Deprecated
   public NewCoupons uniquePrefix(@javax.annotation.Nullable String uniquePrefix) {
     this.uniquePrefix = uniquePrefix;
+    this.markPropertyAsSet(SERIALIZED_NAME_UNIQUE_PREFIX);
     return this;
   }
 
@@ -333,11 +354,13 @@ public class NewCoupons {
   @Deprecated
   public void setUniquePrefix(@javax.annotation.Nullable String uniquePrefix) {
     this.uniquePrefix = uniquePrefix;
+    this.markPropertyAsSet(SERIALIZED_NAME_UNIQUE_PREFIX);
   }
 
 
   public NewCoupons attributes(@javax.annotation.Nullable Object attributes) {
     this.attributes = attributes;
+    this.markPropertyAsSet(SERIALIZED_NAME_ATTRIBUTES);
     return this;
   }
 
@@ -352,11 +375,13 @@ public class NewCoupons {
 
   public void setAttributes(@javax.annotation.Nullable Object attributes) {
     this.attributes = attributes;
+    this.markPropertyAsSet(SERIALIZED_NAME_ATTRIBUTES);
   }
 
 
   public NewCoupons recipientIntegrationId(@javax.annotation.Nullable String recipientIntegrationId) {
     this.recipientIntegrationId = recipientIntegrationId;
+    this.markPropertyAsSet(SERIALIZED_NAME_RECIPIENT_INTEGRATION_ID);
     return this;
   }
 
@@ -371,11 +396,13 @@ public class NewCoupons {
 
   public void setRecipientIntegrationId(@javax.annotation.Nullable String recipientIntegrationId) {
     this.recipientIntegrationId = recipientIntegrationId;
+    this.markPropertyAsSet(SERIALIZED_NAME_RECIPIENT_INTEGRATION_ID);
   }
 
 
   public NewCoupons validCharacters(@javax.annotation.Nullable List<String> validCharacters) {
     this.validCharacters = validCharacters;
+    this.markPropertyAsSet(SERIALIZED_NAME_VALID_CHARACTERS);
     return this;
   }
 
@@ -384,6 +411,7 @@ public class NewCoupons {
       this.validCharacters = new ArrayList<>();
     }
     this.validCharacters.add(validCharactersItem);
+    this.markPropertyAsSet(SERIALIZED_NAME_VALID_CHARACTERS);
     return this;
   }
 
@@ -398,11 +426,13 @@ public class NewCoupons {
 
   public void setValidCharacters(@javax.annotation.Nullable List<String> validCharacters) {
     this.validCharacters = validCharacters;
+    this.markPropertyAsSet(SERIALIZED_NAME_VALID_CHARACTERS);
   }
 
 
   public NewCoupons couponPattern(@javax.annotation.Nullable String couponPattern) {
     this.couponPattern = couponPattern;
+    this.markPropertyAsSet(SERIALIZED_NAME_COUPON_PATTERN);
     return this;
   }
 
@@ -417,11 +447,13 @@ public class NewCoupons {
 
   public void setCouponPattern(@javax.annotation.Nullable String couponPattern) {
     this.couponPattern = couponPattern;
+    this.markPropertyAsSet(SERIALIZED_NAME_COUPON_PATTERN);
   }
 
 
   public NewCoupons isReservationMandatory(@javax.annotation.Nullable Boolean isReservationMandatory) {
     this.isReservationMandatory = isReservationMandatory;
+    this.markPropertyAsSet(SERIALIZED_NAME_IS_RESERVATION_MANDATORY);
     return this;
   }
 
@@ -436,11 +468,13 @@ public class NewCoupons {
 
   public void setIsReservationMandatory(@javax.annotation.Nullable Boolean isReservationMandatory) {
     this.isReservationMandatory = isReservationMandatory;
+    this.markPropertyAsSet(SERIALIZED_NAME_IS_RESERVATION_MANDATORY);
   }
 
 
   public NewCoupons implicitlyReserved(@javax.annotation.Nullable Boolean implicitlyReserved) {
     this.implicitlyReserved = implicitlyReserved;
+    this.markPropertyAsSet(SERIALIZED_NAME_IMPLICITLY_RESERVED);
     return this;
   }
 
@@ -455,11 +489,13 @@ public class NewCoupons {
 
   public void setImplicitlyReserved(@javax.annotation.Nullable Boolean implicitlyReserved) {
     this.implicitlyReserved = implicitlyReserved;
+    this.markPropertyAsSet(SERIALIZED_NAME_IMPLICITLY_RESERVED);
   }
 
 
   public NewCoupons supportRequestId(@javax.annotation.Nullable Long supportRequestId) {
     this.supportRequestId = supportRequestId;
+    this.markPropertyAsSet(SERIALIZED_NAME_SUPPORT_REQUEST_ID);
     return this;
   }
 
@@ -474,11 +510,13 @@ public class NewCoupons {
 
   public void setSupportRequestId(@javax.annotation.Nullable Long supportRequestId) {
     this.supportRequestId = supportRequestId;
+    this.markPropertyAsSet(SERIALIZED_NAME_SUPPORT_REQUEST_ID);
   }
 
 
   public NewCoupons supportRequestNote(@javax.annotation.Nullable String supportRequestNote) {
     this.supportRequestNote = supportRequestNote;
+    this.markPropertyAsSet(SERIALIZED_NAME_SUPPORT_REQUEST_NOTE);
     return this;
   }
 
@@ -493,6 +531,7 @@ public class NewCoupons {
 
   public void setSupportRequestNote(@javax.annotation.Nullable String supportRequestNote) {
     this.supportRequestNote = supportRequestNote;
+    this.markPropertyAsSet(SERIALIZED_NAME_SUPPORT_REQUEST_NOTE);
   }
 
   /**
@@ -538,6 +577,21 @@ public class NewCoupons {
         return null;
     }
     return this.additionalProperties.get(key);
+  }
+
+  /** Omit null properties unless they were explicitly assigned or present in JSON input. */
+  protected final void removeUnsetNullFields(JsonObject obj) {
+    obj.entrySet().removeIf(entry -> entry.getValue().isJsonNull()
+        && !openapiExplicitlySetFields.contains(entry.getKey()));
+  }
+
+  protected final void markPropertyAsSet(String propertyName) {
+    openapiExplicitlySetFields.add(propertyName);
+  }
+
+  /** Gson populates fields directly, bypassing setters during deserialization. */
+  protected final void markPropertiesAsSet(Set<String> propertyNames) {
+    openapiExplicitlySetFields.addAll(propertyNames);
   }
 
 
@@ -681,7 +735,7 @@ public class NewCoupons {
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
        if (!NewCoupons.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'NewCoupons' and its subtypes
+         return null; // let other model factories handle this type
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
        final TypeAdapter<NewCoupons> thisAdapter
@@ -691,31 +745,22 @@ public class NewCoupons {
            @Override
            public void write(JsonWriter out, NewCoupons value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+             value.removeUnsetNullFields(obj);
              obj.remove("additionalProperties");
              // serialize additional properties
              if (value.getAdditionalProperties() != null) {
                for (Map.Entry<String, Object> entry : value.getAdditionalProperties().entrySet()) {
-                 if (entry.getValue() instanceof String)
-                   obj.addProperty(entry.getKey(), (String) entry.getValue());
-                 else if (entry.getValue() instanceof Number)
-                   obj.addProperty(entry.getKey(), (Number) entry.getValue());
-                 else if (entry.getValue() instanceof Boolean)
-                   obj.addProperty(entry.getKey(), (Boolean) entry.getValue());
-                 else if (entry.getValue() instanceof Character)
-                   obj.addProperty(entry.getKey(), (Character) entry.getValue());
-                 else {
-                   JsonElement jsonElement = gson.toJsonTree(entry.getValue());
-                   if (jsonElement.isJsonNull()) {
-                     obj.add(entry.getKey(), JsonNull.INSTANCE);
-                   } else if (jsonElement.isJsonArray()) {
-                     obj.add(entry.getKey(), jsonElement.getAsJsonArray());
-                   } else {
-                     obj.add(entry.getKey(), jsonElement.getAsJsonObject());
-                   }
-                 }
+                 // TypeAdapter.toJsonTree keeps explicit null entries in arbitrary maps too.
+                 obj.add(entry.getKey(), gson.getAdapter(Object.class).toJsonTree(entry.getValue()));
                }
              }
-             elementAdapter.write(out, obj);
+             boolean originalSerializeNulls = out.getSerializeNulls();
+             try {
+               out.setSerializeNulls(true);
+               elementAdapter.write(out, obj);
+             } finally {
+               out.setSerializeNulls(originalSerializeNulls);
+             }
            }
 
            @Override
@@ -725,6 +770,7 @@ public class NewCoupons {
              JsonObject jsonObj = jsonElement.getAsJsonObject();
              // store additional fields in the deserialized instance
              NewCoupons instance = thisAdapter.fromJsonTree(jsonObj);
+             instance.markPropertiesAsSet(jsonObj.keySet());
              for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
                if (!openapiFields.contains(entry.getKey())) {
                  if (entry.getValue().isJsonPrimitive()) { // primitive type

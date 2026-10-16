@@ -54,6 +54,9 @@ import one.talon.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.26.0")
 public class CampaignDeletedNotification {
+  // Gson ignores transient state; only setters and JSON input mark properties as present.
+  private transient Set<String> openapiExplicitlySetFields = new HashSet<>();
+
   /**
    * The type of the notification
    */
@@ -124,6 +127,7 @@ public class CampaignDeletedNotification {
 
   public CampaignDeletedNotification notificationType(@javax.annotation.Nonnull NotificationTypeEnum notificationType) {
     this.notificationType = notificationType;
+    this.markPropertyAsSet(SERIALIZED_NAME_NOTIFICATION_TYPE);
     return this;
   }
 
@@ -138,11 +142,13 @@ public class CampaignDeletedNotification {
 
   public void setNotificationType(@javax.annotation.Nonnull NotificationTypeEnum notificationType) {
     this.notificationType = notificationType;
+    this.markPropertyAsSet(SERIALIZED_NAME_NOTIFICATION_TYPE);
   }
 
 
   public CampaignDeletedNotification totalResultSize(@javax.annotation.Nonnull Long totalResultSize) {
     this.totalResultSize = totalResultSize;
+    this.markPropertyAsSet(SERIALIZED_NAME_TOTAL_RESULT_SIZE);
     return this;
   }
 
@@ -157,11 +163,13 @@ public class CampaignDeletedNotification {
 
   public void setTotalResultSize(@javax.annotation.Nonnull Long totalResultSize) {
     this.totalResultSize = totalResultSize;
+    this.markPropertyAsSet(SERIALIZED_NAME_TOTAL_RESULT_SIZE);
   }
 
 
   public CampaignDeletedNotification data(@javax.annotation.Nullable List<CampaignDeletedNotificationItem> data) {
     this.data = data;
+    this.markPropertyAsSet(SERIALIZED_NAME_DATA);
     return this;
   }
 
@@ -170,6 +178,7 @@ public class CampaignDeletedNotification {
       this.data = new ArrayList<>();
     }
     this.data.add(dataItem);
+    this.markPropertyAsSet(SERIALIZED_NAME_DATA);
     return this;
   }
 
@@ -184,6 +193,7 @@ public class CampaignDeletedNotification {
 
   public void setData(@javax.annotation.Nullable List<CampaignDeletedNotificationItem> data) {
     this.data = data;
+    this.markPropertyAsSet(SERIALIZED_NAME_DATA);
   }
 
   /**
@@ -229,6 +239,21 @@ public class CampaignDeletedNotification {
         return null;
     }
     return this.additionalProperties.get(key);
+  }
+
+  /** Omit null properties unless they were explicitly assigned or present in JSON input. */
+  protected final void removeUnsetNullFields(JsonObject obj) {
+    obj.entrySet().removeIf(entry -> entry.getValue().isJsonNull()
+        && !openapiExplicitlySetFields.contains(entry.getKey()));
+  }
+
+  protected final void markPropertyAsSet(String propertyName) {
+    openapiExplicitlySetFields.add(propertyName);
+  }
+
+  /** Gson populates fields directly, bypassing setters during deserialization. */
+  protected final void markPropertiesAsSet(Set<String> propertyNames) {
+    openapiExplicitlySetFields.addAll(propertyNames);
   }
 
 
@@ -330,7 +355,7 @@ public class CampaignDeletedNotification {
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
        if (!CampaignDeletedNotification.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'CampaignDeletedNotification' and its subtypes
+         return null; // let other model factories handle this type
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
        final TypeAdapter<CampaignDeletedNotification> thisAdapter
@@ -340,31 +365,22 @@ public class CampaignDeletedNotification {
            @Override
            public void write(JsonWriter out, CampaignDeletedNotification value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+             value.removeUnsetNullFields(obj);
              obj.remove("additionalProperties");
              // serialize additional properties
              if (value.getAdditionalProperties() != null) {
                for (Map.Entry<String, Object> entry : value.getAdditionalProperties().entrySet()) {
-                 if (entry.getValue() instanceof String)
-                   obj.addProperty(entry.getKey(), (String) entry.getValue());
-                 else if (entry.getValue() instanceof Number)
-                   obj.addProperty(entry.getKey(), (Number) entry.getValue());
-                 else if (entry.getValue() instanceof Boolean)
-                   obj.addProperty(entry.getKey(), (Boolean) entry.getValue());
-                 else if (entry.getValue() instanceof Character)
-                   obj.addProperty(entry.getKey(), (Character) entry.getValue());
-                 else {
-                   JsonElement jsonElement = gson.toJsonTree(entry.getValue());
-                   if (jsonElement.isJsonNull()) {
-                     obj.add(entry.getKey(), JsonNull.INSTANCE);
-                   } else if (jsonElement.isJsonArray()) {
-                     obj.add(entry.getKey(), jsonElement.getAsJsonArray());
-                   } else {
-                     obj.add(entry.getKey(), jsonElement.getAsJsonObject());
-                   }
-                 }
+                 // TypeAdapter.toJsonTree keeps explicit null entries in arbitrary maps too.
+                 obj.add(entry.getKey(), gson.getAdapter(Object.class).toJsonTree(entry.getValue()));
                }
              }
-             elementAdapter.write(out, obj);
+             boolean originalSerializeNulls = out.getSerializeNulls();
+             try {
+               out.setSerializeNulls(true);
+               elementAdapter.write(out, obj);
+             } finally {
+               out.setSerializeNulls(originalSerializeNulls);
+             }
            }
 
            @Override
@@ -374,6 +390,7 @@ public class CampaignDeletedNotification {
              JsonObject jsonObj = jsonElement.getAsJsonObject();
              // store additional fields in the deserialized instance
              CampaignDeletedNotification instance = thisAdapter.fromJsonTree(jsonObj);
+             instance.markPropertiesAsSet(jsonObj.keySet());
              for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
                if (!openapiFields.contains(entry.getKey())) {
                  if (entry.getValue().isJsonPrimitive()) { // primitive type

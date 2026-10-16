@@ -65,6 +65,9 @@ import one.talon.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.26.0")
 public class IntegrationEventV2Response {
+  // Gson ignores transient state; only setters and JSON input mark properties as present.
+  private transient Set<String> openapiExplicitlySetFields = new HashSet<>();
+
   public static final String SERIALIZED_NAME_CUSTOMER_PROFILE = "customerProfile";
   @SerializedName(SERIALIZED_NAME_CUSTOMER_PROFILE)
   @javax.annotation.Nullable
@@ -130,6 +133,7 @@ public class IntegrationEventV2Response {
 
   public IntegrationEventV2Response customerProfile(@javax.annotation.Nullable CustomerProfile customerProfile) {
     this.customerProfile = customerProfile;
+    this.markPropertyAsSet(SERIALIZED_NAME_CUSTOMER_PROFILE);
     return this;
   }
 
@@ -144,11 +148,13 @@ public class IntegrationEventV2Response {
 
   public void setCustomerProfile(@javax.annotation.Nullable CustomerProfile customerProfile) {
     this.customerProfile = customerProfile;
+    this.markPropertyAsSet(SERIALIZED_NAME_CUSTOMER_PROFILE);
   }
 
 
   public IntegrationEventV2Response loyalty(@javax.annotation.Nullable Loyalty loyalty) {
     this.loyalty = loyalty;
+    this.markPropertyAsSet(SERIALIZED_NAME_LOYALTY);
     return this;
   }
 
@@ -163,11 +169,13 @@ public class IntegrationEventV2Response {
 
   public void setLoyalty(@javax.annotation.Nullable Loyalty loyalty) {
     this.loyalty = loyalty;
+    this.markPropertyAsSet(SERIALIZED_NAME_LOYALTY);
   }
 
 
   public IntegrationEventV2Response triggeredCampaigns(@javax.annotation.Nullable List<Campaign> triggeredCampaigns) {
     this.triggeredCampaigns = triggeredCampaigns;
+    this.markPropertyAsSet(SERIALIZED_NAME_TRIGGERED_CAMPAIGNS);
     return this;
   }
 
@@ -176,6 +184,7 @@ public class IntegrationEventV2Response {
       this.triggeredCampaigns = new ArrayList<>();
     }
     this.triggeredCampaigns.add(triggeredCampaignsItem);
+    this.markPropertyAsSet(SERIALIZED_NAME_TRIGGERED_CAMPAIGNS);
     return this;
   }
 
@@ -190,11 +199,13 @@ public class IntegrationEventV2Response {
 
   public void setTriggeredCampaigns(@javax.annotation.Nullable List<Campaign> triggeredCampaigns) {
     this.triggeredCampaigns = triggeredCampaigns;
+    this.markPropertyAsSet(SERIALIZED_NAME_TRIGGERED_CAMPAIGNS);
   }
 
 
   public IntegrationEventV2Response campaignEligibility(@javax.annotation.Nullable List<CampaignEligibility> campaignEligibility) {
     this.campaignEligibility = campaignEligibility;
+    this.markPropertyAsSet(SERIALIZED_NAME_CAMPAIGN_ELIGIBILITY);
     return this;
   }
 
@@ -203,6 +214,7 @@ public class IntegrationEventV2Response {
       this.campaignEligibility = new ArrayList<>();
     }
     this.campaignEligibility.add(campaignEligibilityItem);
+    this.markPropertyAsSet(SERIALIZED_NAME_CAMPAIGN_ELIGIBILITY);
     return this;
   }
 
@@ -217,11 +229,13 @@ public class IntegrationEventV2Response {
 
   public void setCampaignEligibility(@javax.annotation.Nullable List<CampaignEligibility> campaignEligibility) {
     this.campaignEligibility = campaignEligibility;
+    this.markPropertyAsSet(SERIALIZED_NAME_CAMPAIGN_ELIGIBILITY);
   }
 
 
   public IntegrationEventV2Response effects(@javax.annotation.Nonnull List<Effect> effects) {
     this.effects = effects;
+    this.markPropertyAsSet(SERIALIZED_NAME_EFFECTS);
     return this;
   }
 
@@ -230,6 +244,7 @@ public class IntegrationEventV2Response {
       this.effects = new ArrayList<>();
     }
     this.effects.add(effectsItem);
+    this.markPropertyAsSet(SERIALIZED_NAME_EFFECTS);
     return this;
   }
 
@@ -244,11 +259,13 @@ public class IntegrationEventV2Response {
 
   public void setEffects(@javax.annotation.Nonnull List<Effect> effects) {
     this.effects = effects;
+    this.markPropertyAsSet(SERIALIZED_NAME_EFFECTS);
   }
 
 
   public IntegrationEventV2Response ruleFailureReasons(@javax.annotation.Nullable List<RuleFailureReason> ruleFailureReasons) {
     this.ruleFailureReasons = ruleFailureReasons;
+    this.markPropertyAsSet(SERIALIZED_NAME_RULE_FAILURE_REASONS);
     return this;
   }
 
@@ -257,6 +274,7 @@ public class IntegrationEventV2Response {
       this.ruleFailureReasons = new ArrayList<>();
     }
     this.ruleFailureReasons.add(ruleFailureReasonsItem);
+    this.markPropertyAsSet(SERIALIZED_NAME_RULE_FAILURE_REASONS);
     return this;
   }
 
@@ -271,11 +289,13 @@ public class IntegrationEventV2Response {
 
   public void setRuleFailureReasons(@javax.annotation.Nullable List<RuleFailureReason> ruleFailureReasons) {
     this.ruleFailureReasons = ruleFailureReasons;
+    this.markPropertyAsSet(SERIALIZED_NAME_RULE_FAILURE_REASONS);
   }
 
 
   public IntegrationEventV2Response createdCoupons(@javax.annotation.Nonnull List<Coupon> createdCoupons) {
     this.createdCoupons = createdCoupons;
+    this.markPropertyAsSet(SERIALIZED_NAME_CREATED_COUPONS);
     return this;
   }
 
@@ -284,6 +304,7 @@ public class IntegrationEventV2Response {
       this.createdCoupons = new ArrayList<>();
     }
     this.createdCoupons.add(createdCouponsItem);
+    this.markPropertyAsSet(SERIALIZED_NAME_CREATED_COUPONS);
     return this;
   }
 
@@ -298,11 +319,13 @@ public class IntegrationEventV2Response {
 
   public void setCreatedCoupons(@javax.annotation.Nonnull List<Coupon> createdCoupons) {
     this.createdCoupons = createdCoupons;
+    this.markPropertyAsSet(SERIALIZED_NAME_CREATED_COUPONS);
   }
 
 
   public IntegrationEventV2Response createdReferrals(@javax.annotation.Nonnull List<Referral> createdReferrals) {
     this.createdReferrals = createdReferrals;
+    this.markPropertyAsSet(SERIALIZED_NAME_CREATED_REFERRALS);
     return this;
   }
 
@@ -311,6 +334,7 @@ public class IntegrationEventV2Response {
       this.createdReferrals = new ArrayList<>();
     }
     this.createdReferrals.add(createdReferralsItem);
+    this.markPropertyAsSet(SERIALIZED_NAME_CREATED_REFERRALS);
     return this;
   }
 
@@ -325,11 +349,13 @@ public class IntegrationEventV2Response {
 
   public void setCreatedReferrals(@javax.annotation.Nonnull List<Referral> createdReferrals) {
     this.createdReferrals = createdReferrals;
+    this.markPropertyAsSet(SERIALIZED_NAME_CREATED_REFERRALS);
   }
 
 
   public IntegrationEventV2Response awardedGiveaways(@javax.annotation.Nullable List<Giveaway> awardedGiveaways) {
     this.awardedGiveaways = awardedGiveaways;
+    this.markPropertyAsSet(SERIALIZED_NAME_AWARDED_GIVEAWAYS);
     return this;
   }
 
@@ -338,6 +364,7 @@ public class IntegrationEventV2Response {
       this.awardedGiveaways = new ArrayList<>();
     }
     this.awardedGiveaways.add(awardedGiveawaysItem);
+    this.markPropertyAsSet(SERIALIZED_NAME_AWARDED_GIVEAWAYS);
     return this;
   }
 
@@ -352,11 +379,13 @@ public class IntegrationEventV2Response {
 
   public void setAwardedGiveaways(@javax.annotation.Nullable List<Giveaway> awardedGiveaways) {
     this.awardedGiveaways = awardedGiveaways;
+    this.markPropertyAsSet(SERIALIZED_NAME_AWARDED_GIVEAWAYS);
   }
 
 
   public IntegrationEventV2Response achievements(@javax.annotation.Nullable List<CustomerAchievement> achievements) {
     this.achievements = achievements;
+    this.markPropertyAsSet(SERIALIZED_NAME_ACHIEVEMENTS);
     return this;
   }
 
@@ -365,6 +394,7 @@ public class IntegrationEventV2Response {
       this.achievements = new ArrayList<>();
     }
     this.achievements.add(achievementsItem);
+    this.markPropertyAsSet(SERIALIZED_NAME_ACHIEVEMENTS);
     return this;
   }
 
@@ -379,11 +409,13 @@ public class IntegrationEventV2Response {
 
   public void setAchievements(@javax.annotation.Nullable List<CustomerAchievement> achievements) {
     this.achievements = achievements;
+    this.markPropertyAsSet(SERIALIZED_NAME_ACHIEVEMENTS);
   }
 
 
   public IntegrationEventV2Response rewards(@javax.annotation.Nullable List<RewardWithUnlocks> rewards) {
     this.rewards = rewards;
+    this.markPropertyAsSet(SERIALIZED_NAME_REWARDS);
     return this;
   }
 
@@ -392,6 +424,7 @@ public class IntegrationEventV2Response {
       this.rewards = new ArrayList<>();
     }
     this.rewards.add(rewardsItem);
+    this.markPropertyAsSet(SERIALIZED_NAME_REWARDS);
     return this;
   }
 
@@ -406,11 +439,13 @@ public class IntegrationEventV2Response {
 
   public void setRewards(@javax.annotation.Nullable List<RewardWithUnlocks> rewards) {
     this.rewards = rewards;
+    this.markPropertyAsSet(SERIALIZED_NAME_REWARDS);
   }
 
 
   public IntegrationEventV2Response event(@javax.annotation.Nullable Event event) {
     this.event = event;
+    this.markPropertyAsSet(SERIALIZED_NAME_EVENT);
     return this;
   }
 
@@ -425,6 +460,7 @@ public class IntegrationEventV2Response {
 
   public void setEvent(@javax.annotation.Nullable Event event) {
     this.event = event;
+    this.markPropertyAsSet(SERIALIZED_NAME_EVENT);
   }
 
   /**
@@ -470,6 +506,21 @@ public class IntegrationEventV2Response {
         return null;
     }
     return this.additionalProperties.get(key);
+  }
+
+  /** Omit null properties unless they were explicitly assigned or present in JSON input. */
+  protected final void removeUnsetNullFields(JsonObject obj) {
+    obj.entrySet().removeIf(entry -> entry.getValue().isJsonNull()
+        && !openapiExplicitlySetFields.contains(entry.getKey()));
+  }
+
+  protected final void markPropertyAsSet(String propertyName) {
+    openapiExplicitlySetFields.add(propertyName);
+  }
+
+  /** Gson populates fields directly, bypassing setters during deserialization. */
+  protected final void markPropertiesAsSet(Set<String> propertyNames) {
+    openapiExplicitlySetFields.addAll(propertyNames);
   }
 
 
@@ -696,7 +747,7 @@ public class IntegrationEventV2Response {
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
        if (!IntegrationEventV2Response.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'IntegrationEventV2Response' and its subtypes
+         return null; // let other model factories handle this type
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
        final TypeAdapter<IntegrationEventV2Response> thisAdapter
@@ -706,31 +757,22 @@ public class IntegrationEventV2Response {
            @Override
            public void write(JsonWriter out, IntegrationEventV2Response value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+             value.removeUnsetNullFields(obj);
              obj.remove("additionalProperties");
              // serialize additional properties
              if (value.getAdditionalProperties() != null) {
                for (Map.Entry<String, Object> entry : value.getAdditionalProperties().entrySet()) {
-                 if (entry.getValue() instanceof String)
-                   obj.addProperty(entry.getKey(), (String) entry.getValue());
-                 else if (entry.getValue() instanceof Number)
-                   obj.addProperty(entry.getKey(), (Number) entry.getValue());
-                 else if (entry.getValue() instanceof Boolean)
-                   obj.addProperty(entry.getKey(), (Boolean) entry.getValue());
-                 else if (entry.getValue() instanceof Character)
-                   obj.addProperty(entry.getKey(), (Character) entry.getValue());
-                 else {
-                   JsonElement jsonElement = gson.toJsonTree(entry.getValue());
-                   if (jsonElement.isJsonNull()) {
-                     obj.add(entry.getKey(), JsonNull.INSTANCE);
-                   } else if (jsonElement.isJsonArray()) {
-                     obj.add(entry.getKey(), jsonElement.getAsJsonArray());
-                   } else {
-                     obj.add(entry.getKey(), jsonElement.getAsJsonObject());
-                   }
-                 }
+                 // TypeAdapter.toJsonTree keeps explicit null entries in arbitrary maps too.
+                 obj.add(entry.getKey(), gson.getAdapter(Object.class).toJsonTree(entry.getValue()));
                }
              }
-             elementAdapter.write(out, obj);
+             boolean originalSerializeNulls = out.getSerializeNulls();
+             try {
+               out.setSerializeNulls(true);
+               elementAdapter.write(out, obj);
+             } finally {
+               out.setSerializeNulls(originalSerializeNulls);
+             }
            }
 
            @Override
@@ -740,6 +782,7 @@ public class IntegrationEventV2Response {
              JsonObject jsonObj = jsonElement.getAsJsonObject();
              // store additional fields in the deserialized instance
              IntegrationEventV2Response instance = thisAdapter.fromJsonTree(jsonObj);
+             instance.markPropertiesAsSet(jsonObj.keySet());
              for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
                if (!openapiFields.contains(entry.getKey())) {
                  if (entry.getValue().isJsonPrimitive()) { // primitive type

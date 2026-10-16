@@ -53,6 +53,9 @@ import one.talon.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.26.0")
 public class RollbackDeductedLoyaltyPointsEffectProps {
+  // Gson ignores transient state; only setters and JSON input mark properties as present.
+  private transient Set<String> openapiExplicitlySetFields = new HashSet<>();
+
   public static final String SERIALIZED_NAME_PROGRAM_ID = "programId";
   @SerializedName(SERIALIZED_NAME_PROGRAM_ID)
   @javax.annotation.Nonnull
@@ -98,6 +101,7 @@ public class RollbackDeductedLoyaltyPointsEffectProps {
 
   public RollbackDeductedLoyaltyPointsEffectProps programId(@javax.annotation.Nonnull Long programId) {
     this.programId = programId;
+    this.markPropertyAsSet(SERIALIZED_NAME_PROGRAM_ID);
     return this;
   }
 
@@ -112,11 +116,13 @@ public class RollbackDeductedLoyaltyPointsEffectProps {
 
   public void setProgramId(@javax.annotation.Nonnull Long programId) {
     this.programId = programId;
+    this.markPropertyAsSet(SERIALIZED_NAME_PROGRAM_ID);
   }
 
 
   public RollbackDeductedLoyaltyPointsEffectProps subLedgerId(@javax.annotation.Nonnull String subLedgerId) {
     this.subLedgerId = subLedgerId;
+    this.markPropertyAsSet(SERIALIZED_NAME_SUB_LEDGER_ID);
     return this;
   }
 
@@ -131,11 +137,13 @@ public class RollbackDeductedLoyaltyPointsEffectProps {
 
   public void setSubLedgerId(@javax.annotation.Nonnull String subLedgerId) {
     this.subLedgerId = subLedgerId;
+    this.markPropertyAsSet(SERIALIZED_NAME_SUB_LEDGER_ID);
   }
 
 
   public RollbackDeductedLoyaltyPointsEffectProps value(@javax.annotation.Nonnull BigDecimal value) {
     this.value = value;
+    this.markPropertyAsSet(SERIALIZED_NAME_VALUE);
     return this;
   }
 
@@ -150,11 +158,13 @@ public class RollbackDeductedLoyaltyPointsEffectProps {
 
   public void setValue(@javax.annotation.Nonnull BigDecimal value) {
     this.value = value;
+    this.markPropertyAsSet(SERIALIZED_NAME_VALUE);
   }
 
 
   public RollbackDeductedLoyaltyPointsEffectProps recipientIntegrationId(@javax.annotation.Nonnull String recipientIntegrationId) {
     this.recipientIntegrationId = recipientIntegrationId;
+    this.markPropertyAsSet(SERIALIZED_NAME_RECIPIENT_INTEGRATION_ID);
     return this;
   }
 
@@ -169,11 +179,13 @@ public class RollbackDeductedLoyaltyPointsEffectProps {
 
   public void setRecipientIntegrationId(@javax.annotation.Nonnull String recipientIntegrationId) {
     this.recipientIntegrationId = recipientIntegrationId;
+    this.markPropertyAsSet(SERIALIZED_NAME_RECIPIENT_INTEGRATION_ID);
   }
 
 
   public RollbackDeductedLoyaltyPointsEffectProps startDate(@javax.annotation.Nullable OffsetDateTime startDate) {
     this.startDate = startDate;
+    this.markPropertyAsSet(SERIALIZED_NAME_START_DATE);
     return this;
   }
 
@@ -188,11 +200,13 @@ public class RollbackDeductedLoyaltyPointsEffectProps {
 
   public void setStartDate(@javax.annotation.Nullable OffsetDateTime startDate) {
     this.startDate = startDate;
+    this.markPropertyAsSet(SERIALIZED_NAME_START_DATE);
   }
 
 
   public RollbackDeductedLoyaltyPointsEffectProps expiryDate(@javax.annotation.Nullable OffsetDateTime expiryDate) {
     this.expiryDate = expiryDate;
+    this.markPropertyAsSet(SERIALIZED_NAME_EXPIRY_DATE);
     return this;
   }
 
@@ -207,11 +221,13 @@ public class RollbackDeductedLoyaltyPointsEffectProps {
 
   public void setExpiryDate(@javax.annotation.Nullable OffsetDateTime expiryDate) {
     this.expiryDate = expiryDate;
+    this.markPropertyAsSet(SERIALIZED_NAME_EXPIRY_DATE);
   }
 
 
   public RollbackDeductedLoyaltyPointsEffectProps transactionUUID(@javax.annotation.Nonnull String transactionUUID) {
     this.transactionUUID = transactionUUID;
+    this.markPropertyAsSet(SERIALIZED_NAME_TRANSACTION_U_U_I_D);
     return this;
   }
 
@@ -226,11 +242,13 @@ public class RollbackDeductedLoyaltyPointsEffectProps {
 
   public void setTransactionUUID(@javax.annotation.Nonnull String transactionUUID) {
     this.transactionUUID = transactionUUID;
+    this.markPropertyAsSet(SERIALIZED_NAME_TRANSACTION_U_U_I_D);
   }
 
 
   public RollbackDeductedLoyaltyPointsEffectProps cardIdentifier(@javax.annotation.Nullable String cardIdentifier) {
     this.cardIdentifier = cardIdentifier;
+    this.markPropertyAsSet(SERIALIZED_NAME_CARD_IDENTIFIER);
     return this;
   }
 
@@ -245,6 +263,7 @@ public class RollbackDeductedLoyaltyPointsEffectProps {
 
   public void setCardIdentifier(@javax.annotation.Nullable String cardIdentifier) {
     this.cardIdentifier = cardIdentifier;
+    this.markPropertyAsSet(SERIALIZED_NAME_CARD_IDENTIFIER);
   }
 
   /**
@@ -290,6 +309,21 @@ public class RollbackDeductedLoyaltyPointsEffectProps {
         return null;
     }
     return this.additionalProperties.get(key);
+  }
+
+  /** Omit null properties unless they were explicitly assigned or present in JSON input. */
+  protected final void removeUnsetNullFields(JsonObject obj) {
+    obj.entrySet().removeIf(entry -> entry.getValue().isJsonNull()
+        && !openapiExplicitlySetFields.contains(entry.getKey()));
+  }
+
+  protected final void markPropertyAsSet(String propertyName) {
+    openapiExplicitlySetFields.add(propertyName);
+  }
+
+  /** Gson populates fields directly, bypassing setters during deserialization. */
+  protected final void markPropertiesAsSet(Set<String> propertyNames) {
+    openapiExplicitlySetFields.addAll(propertyNames);
   }
 
 
@@ -394,7 +428,7 @@ public class RollbackDeductedLoyaltyPointsEffectProps {
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
        if (!RollbackDeductedLoyaltyPointsEffectProps.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'RollbackDeductedLoyaltyPointsEffectProps' and its subtypes
+         return null; // let other model factories handle this type
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
        final TypeAdapter<RollbackDeductedLoyaltyPointsEffectProps> thisAdapter
@@ -404,31 +438,22 @@ public class RollbackDeductedLoyaltyPointsEffectProps {
            @Override
            public void write(JsonWriter out, RollbackDeductedLoyaltyPointsEffectProps value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+             value.removeUnsetNullFields(obj);
              obj.remove("additionalProperties");
              // serialize additional properties
              if (value.getAdditionalProperties() != null) {
                for (Map.Entry<String, Object> entry : value.getAdditionalProperties().entrySet()) {
-                 if (entry.getValue() instanceof String)
-                   obj.addProperty(entry.getKey(), (String) entry.getValue());
-                 else if (entry.getValue() instanceof Number)
-                   obj.addProperty(entry.getKey(), (Number) entry.getValue());
-                 else if (entry.getValue() instanceof Boolean)
-                   obj.addProperty(entry.getKey(), (Boolean) entry.getValue());
-                 else if (entry.getValue() instanceof Character)
-                   obj.addProperty(entry.getKey(), (Character) entry.getValue());
-                 else {
-                   JsonElement jsonElement = gson.toJsonTree(entry.getValue());
-                   if (jsonElement.isJsonNull()) {
-                     obj.add(entry.getKey(), JsonNull.INSTANCE);
-                   } else if (jsonElement.isJsonArray()) {
-                     obj.add(entry.getKey(), jsonElement.getAsJsonArray());
-                   } else {
-                     obj.add(entry.getKey(), jsonElement.getAsJsonObject());
-                   }
-                 }
+                 // TypeAdapter.toJsonTree keeps explicit null entries in arbitrary maps too.
+                 obj.add(entry.getKey(), gson.getAdapter(Object.class).toJsonTree(entry.getValue()));
                }
              }
-             elementAdapter.write(out, obj);
+             boolean originalSerializeNulls = out.getSerializeNulls();
+             try {
+               out.setSerializeNulls(true);
+               elementAdapter.write(out, obj);
+             } finally {
+               out.setSerializeNulls(originalSerializeNulls);
+             }
            }
 
            @Override
@@ -438,6 +463,7 @@ public class RollbackDeductedLoyaltyPointsEffectProps {
              JsonObject jsonObj = jsonElement.getAsJsonObject();
              // store additional fields in the deserialized instance
              RollbackDeductedLoyaltyPointsEffectProps instance = thisAdapter.fromJsonTree(jsonObj);
+             instance.markPropertiesAsSet(jsonObj.keySet());
              for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
                if (!openapiFields.contains(entry.getKey())) {
                  if (entry.getValue().isJsonPrimitive()) { // primitive type

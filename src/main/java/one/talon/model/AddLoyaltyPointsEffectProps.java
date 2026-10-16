@@ -53,6 +53,9 @@ import one.talon.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.26.0")
 public class AddLoyaltyPointsEffectProps {
+  // Gson ignores transient state; only setters and JSON input mark properties as present.
+  private transient Set<String> openapiExplicitlySetFields = new HashSet<>();
+
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
   @javax.annotation.Nonnull
@@ -138,6 +141,7 @@ public class AddLoyaltyPointsEffectProps {
 
   public AddLoyaltyPointsEffectProps name(@javax.annotation.Nonnull String name) {
     this.name = name;
+    this.markPropertyAsSet(SERIALIZED_NAME_NAME);
     return this;
   }
 
@@ -152,11 +156,13 @@ public class AddLoyaltyPointsEffectProps {
 
   public void setName(@javax.annotation.Nonnull String name) {
     this.name = name;
+    this.markPropertyAsSet(SERIALIZED_NAME_NAME);
   }
 
 
   public AddLoyaltyPointsEffectProps programId(@javax.annotation.Nonnull Long programId) {
     this.programId = programId;
+    this.markPropertyAsSet(SERIALIZED_NAME_PROGRAM_ID);
     return this;
   }
 
@@ -171,11 +177,13 @@ public class AddLoyaltyPointsEffectProps {
 
   public void setProgramId(@javax.annotation.Nonnull Long programId) {
     this.programId = programId;
+    this.markPropertyAsSet(SERIALIZED_NAME_PROGRAM_ID);
   }
 
 
   public AddLoyaltyPointsEffectProps subLedgerId(@javax.annotation.Nonnull String subLedgerId) {
     this.subLedgerId = subLedgerId;
+    this.markPropertyAsSet(SERIALIZED_NAME_SUB_LEDGER_ID);
     return this;
   }
 
@@ -190,11 +198,13 @@ public class AddLoyaltyPointsEffectProps {
 
   public void setSubLedgerId(@javax.annotation.Nonnull String subLedgerId) {
     this.subLedgerId = subLedgerId;
+    this.markPropertyAsSet(SERIALIZED_NAME_SUB_LEDGER_ID);
   }
 
 
   public AddLoyaltyPointsEffectProps value(@javax.annotation.Nonnull BigDecimal value) {
     this.value = value;
+    this.markPropertyAsSet(SERIALIZED_NAME_VALUE);
     return this;
   }
 
@@ -209,11 +219,13 @@ public class AddLoyaltyPointsEffectProps {
 
   public void setValue(@javax.annotation.Nonnull BigDecimal value) {
     this.value = value;
+    this.markPropertyAsSet(SERIALIZED_NAME_VALUE);
   }
 
 
   public AddLoyaltyPointsEffectProps desiredValue(@javax.annotation.Nullable BigDecimal desiredValue) {
     this.desiredValue = desiredValue;
+    this.markPropertyAsSet(SERIALIZED_NAME_DESIRED_VALUE);
     return this;
   }
 
@@ -228,11 +240,13 @@ public class AddLoyaltyPointsEffectProps {
 
   public void setDesiredValue(@javax.annotation.Nullable BigDecimal desiredValue) {
     this.desiredValue = desiredValue;
+    this.markPropertyAsSet(SERIALIZED_NAME_DESIRED_VALUE);
   }
 
 
   public AddLoyaltyPointsEffectProps recipientIntegrationId(@javax.annotation.Nonnull String recipientIntegrationId) {
     this.recipientIntegrationId = recipientIntegrationId;
+    this.markPropertyAsSet(SERIALIZED_NAME_RECIPIENT_INTEGRATION_ID);
     return this;
   }
 
@@ -247,11 +261,13 @@ public class AddLoyaltyPointsEffectProps {
 
   public void setRecipientIntegrationId(@javax.annotation.Nonnull String recipientIntegrationId) {
     this.recipientIntegrationId = recipientIntegrationId;
+    this.markPropertyAsSet(SERIALIZED_NAME_RECIPIENT_INTEGRATION_ID);
   }
 
 
   public AddLoyaltyPointsEffectProps startDate(@javax.annotation.Nullable OffsetDateTime startDate) {
     this.startDate = startDate;
+    this.markPropertyAsSet(SERIALIZED_NAME_START_DATE);
     return this;
   }
 
@@ -266,11 +282,13 @@ public class AddLoyaltyPointsEffectProps {
 
   public void setStartDate(@javax.annotation.Nullable OffsetDateTime startDate) {
     this.startDate = startDate;
+    this.markPropertyAsSet(SERIALIZED_NAME_START_DATE);
   }
 
 
   public AddLoyaltyPointsEffectProps expiryDate(@javax.annotation.Nullable OffsetDateTime expiryDate) {
     this.expiryDate = expiryDate;
+    this.markPropertyAsSet(SERIALIZED_NAME_EXPIRY_DATE);
     return this;
   }
 
@@ -285,11 +303,13 @@ public class AddLoyaltyPointsEffectProps {
 
   public void setExpiryDate(@javax.annotation.Nullable OffsetDateTime expiryDate) {
     this.expiryDate = expiryDate;
+    this.markPropertyAsSet(SERIALIZED_NAME_EXPIRY_DATE);
   }
 
 
   public AddLoyaltyPointsEffectProps transactionUUID(@javax.annotation.Nonnull String transactionUUID) {
     this.transactionUUID = transactionUUID;
+    this.markPropertyAsSet(SERIALIZED_NAME_TRANSACTION_U_U_I_D);
     return this;
   }
 
@@ -304,11 +324,13 @@ public class AddLoyaltyPointsEffectProps {
 
   public void setTransactionUUID(@javax.annotation.Nonnull String transactionUUID) {
     this.transactionUUID = transactionUUID;
+    this.markPropertyAsSet(SERIALIZED_NAME_TRANSACTION_U_U_I_D);
   }
 
 
   public AddLoyaltyPointsEffectProps cartItemPosition(@javax.annotation.Nullable BigDecimal cartItemPosition) {
     this.cartItemPosition = cartItemPosition;
+    this.markPropertyAsSet(SERIALIZED_NAME_CART_ITEM_POSITION);
     return this;
   }
 
@@ -323,11 +345,13 @@ public class AddLoyaltyPointsEffectProps {
 
   public void setCartItemPosition(@javax.annotation.Nullable BigDecimal cartItemPosition) {
     this.cartItemPosition = cartItemPosition;
+    this.markPropertyAsSet(SERIALIZED_NAME_CART_ITEM_POSITION);
   }
 
 
   public AddLoyaltyPointsEffectProps cartItemSubPosition(@javax.annotation.Nullable BigDecimal cartItemSubPosition) {
     this.cartItemSubPosition = cartItemSubPosition;
+    this.markPropertyAsSet(SERIALIZED_NAME_CART_ITEM_SUB_POSITION);
     return this;
   }
 
@@ -342,11 +366,13 @@ public class AddLoyaltyPointsEffectProps {
 
   public void setCartItemSubPosition(@javax.annotation.Nullable BigDecimal cartItemSubPosition) {
     this.cartItemSubPosition = cartItemSubPosition;
+    this.markPropertyAsSet(SERIALIZED_NAME_CART_ITEM_SUB_POSITION);
   }
 
 
   public AddLoyaltyPointsEffectProps cardIdentifier(@javax.annotation.Nullable String cardIdentifier) {
     this.cardIdentifier = cardIdentifier;
+    this.markPropertyAsSet(SERIALIZED_NAME_CARD_IDENTIFIER);
     return this;
   }
 
@@ -361,11 +387,13 @@ public class AddLoyaltyPointsEffectProps {
 
   public void setCardIdentifier(@javax.annotation.Nullable String cardIdentifier) {
     this.cardIdentifier = cardIdentifier;
+    this.markPropertyAsSet(SERIALIZED_NAME_CARD_IDENTIFIER);
   }
 
 
   public AddLoyaltyPointsEffectProps bundleIndex(@javax.annotation.Nullable Long bundleIndex) {
     this.bundleIndex = bundleIndex;
+    this.markPropertyAsSet(SERIALIZED_NAME_BUNDLE_INDEX);
     return this;
   }
 
@@ -380,11 +408,13 @@ public class AddLoyaltyPointsEffectProps {
 
   public void setBundleIndex(@javax.annotation.Nullable Long bundleIndex) {
     this.bundleIndex = bundleIndex;
+    this.markPropertyAsSet(SERIALIZED_NAME_BUNDLE_INDEX);
   }
 
 
   public AddLoyaltyPointsEffectProps bundleName(@javax.annotation.Nullable String bundleName) {
     this.bundleName = bundleName;
+    this.markPropertyAsSet(SERIALIZED_NAME_BUNDLE_NAME);
     return this;
   }
 
@@ -399,11 +429,13 @@ public class AddLoyaltyPointsEffectProps {
 
   public void setBundleName(@javax.annotation.Nullable String bundleName) {
     this.bundleName = bundleName;
+    this.markPropertyAsSet(SERIALIZED_NAME_BUNDLE_NAME);
   }
 
 
   public AddLoyaltyPointsEffectProps awaitsActivation(@javax.annotation.Nullable Boolean awaitsActivation) {
     this.awaitsActivation = awaitsActivation;
+    this.markPropertyAsSet(SERIALIZED_NAME_AWAITS_ACTIVATION);
     return this;
   }
 
@@ -418,11 +450,13 @@ public class AddLoyaltyPointsEffectProps {
 
   public void setAwaitsActivation(@javax.annotation.Nullable Boolean awaitsActivation) {
     this.awaitsActivation = awaitsActivation;
+    this.markPropertyAsSet(SERIALIZED_NAME_AWAITS_ACTIVATION);
   }
 
 
   public AddLoyaltyPointsEffectProps validityDuration(@javax.annotation.Nullable String validityDuration) {
     this.validityDuration = validityDuration;
+    this.markPropertyAsSet(SERIALIZED_NAME_VALIDITY_DURATION);
     return this;
   }
 
@@ -437,6 +471,7 @@ public class AddLoyaltyPointsEffectProps {
 
   public void setValidityDuration(@javax.annotation.Nullable String validityDuration) {
     this.validityDuration = validityDuration;
+    this.markPropertyAsSet(SERIALIZED_NAME_VALIDITY_DURATION);
   }
 
   /**
@@ -482,6 +517,21 @@ public class AddLoyaltyPointsEffectProps {
         return null;
     }
     return this.additionalProperties.get(key);
+  }
+
+  /** Omit null properties unless they were explicitly assigned or present in JSON input. */
+  protected final void removeUnsetNullFields(JsonObject obj) {
+    obj.entrySet().removeIf(entry -> entry.getValue().isJsonNull()
+        && !openapiExplicitlySetFields.contains(entry.getKey()));
+  }
+
+  protected final void markPropertyAsSet(String propertyName) {
+    openapiExplicitlySetFields.add(propertyName);
+  }
+
+  /** Gson populates fields directly, bypassing setters during deserialization. */
+  protected final void markPropertiesAsSet(Set<String> propertyNames) {
+    openapiExplicitlySetFields.addAll(propertyNames);
   }
 
 
@@ -611,7 +661,7 @@ public class AddLoyaltyPointsEffectProps {
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
        if (!AddLoyaltyPointsEffectProps.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'AddLoyaltyPointsEffectProps' and its subtypes
+         return null; // let other model factories handle this type
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
        final TypeAdapter<AddLoyaltyPointsEffectProps> thisAdapter
@@ -621,31 +671,22 @@ public class AddLoyaltyPointsEffectProps {
            @Override
            public void write(JsonWriter out, AddLoyaltyPointsEffectProps value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+             value.removeUnsetNullFields(obj);
              obj.remove("additionalProperties");
              // serialize additional properties
              if (value.getAdditionalProperties() != null) {
                for (Map.Entry<String, Object> entry : value.getAdditionalProperties().entrySet()) {
-                 if (entry.getValue() instanceof String)
-                   obj.addProperty(entry.getKey(), (String) entry.getValue());
-                 else if (entry.getValue() instanceof Number)
-                   obj.addProperty(entry.getKey(), (Number) entry.getValue());
-                 else if (entry.getValue() instanceof Boolean)
-                   obj.addProperty(entry.getKey(), (Boolean) entry.getValue());
-                 else if (entry.getValue() instanceof Character)
-                   obj.addProperty(entry.getKey(), (Character) entry.getValue());
-                 else {
-                   JsonElement jsonElement = gson.toJsonTree(entry.getValue());
-                   if (jsonElement.isJsonNull()) {
-                     obj.add(entry.getKey(), JsonNull.INSTANCE);
-                   } else if (jsonElement.isJsonArray()) {
-                     obj.add(entry.getKey(), jsonElement.getAsJsonArray());
-                   } else {
-                     obj.add(entry.getKey(), jsonElement.getAsJsonObject());
-                   }
-                 }
+                 // TypeAdapter.toJsonTree keeps explicit null entries in arbitrary maps too.
+                 obj.add(entry.getKey(), gson.getAdapter(Object.class).toJsonTree(entry.getValue()));
                }
              }
-             elementAdapter.write(out, obj);
+             boolean originalSerializeNulls = out.getSerializeNulls();
+             try {
+               out.setSerializeNulls(true);
+               elementAdapter.write(out, obj);
+             } finally {
+               out.setSerializeNulls(originalSerializeNulls);
+             }
            }
 
            @Override
@@ -655,6 +696,7 @@ public class AddLoyaltyPointsEffectProps {
              JsonObject jsonObj = jsonElement.getAsJsonObject();
              // store additional fields in the deserialized instance
              AddLoyaltyPointsEffectProps instance = thisAdapter.fromJsonTree(jsonObj);
+             instance.markPropertiesAsSet(jsonObj.keySet());
              for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
                if (!openapiFields.contains(entry.getKey())) {
                  if (entry.getValue().isJsonPrimitive()) { // primitive type

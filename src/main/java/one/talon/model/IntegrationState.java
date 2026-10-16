@@ -56,6 +56,9 @@ import one.talon.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.26.0")
 public class IntegrationState {
+  // Gson ignores transient state; only setters and JSON input mark properties as present.
+  private transient Set<String> openapiExplicitlySetFields = new HashSet<>();
+
   public static final String SERIALIZED_NAME_SESSION = "session";
   @SerializedName(SERIALIZED_NAME_SESSION)
   @javax.annotation.Nonnull
@@ -86,6 +89,7 @@ public class IntegrationState {
 
   public IntegrationState session(@javax.annotation.Nonnull CustomerSession session) {
     this.session = session;
+    this.markPropertyAsSet(SERIALIZED_NAME_SESSION);
     return this;
   }
 
@@ -100,11 +104,13 @@ public class IntegrationState {
 
   public void setSession(@javax.annotation.Nonnull CustomerSession session) {
     this.session = session;
+    this.markPropertyAsSet(SERIALIZED_NAME_SESSION);
   }
 
 
   public IntegrationState profile(@javax.annotation.Nonnull CustomerProfile profile) {
     this.profile = profile;
+    this.markPropertyAsSet(SERIALIZED_NAME_PROFILE);
     return this;
   }
 
@@ -119,11 +125,13 @@ public class IntegrationState {
 
   public void setProfile(@javax.annotation.Nonnull CustomerProfile profile) {
     this.profile = profile;
+    this.markPropertyAsSet(SERIALIZED_NAME_PROFILE);
   }
 
 
   public IntegrationState event(@javax.annotation.Nonnull Event event) {
     this.event = event;
+    this.markPropertyAsSet(SERIALIZED_NAME_EVENT);
     return this;
   }
 
@@ -138,11 +146,13 @@ public class IntegrationState {
 
   public void setEvent(@javax.annotation.Nonnull Event event) {
     this.event = event;
+    this.markPropertyAsSet(SERIALIZED_NAME_EVENT);
   }
 
 
   public IntegrationState loyalty(@javax.annotation.Nullable Loyalty loyalty) {
     this.loyalty = loyalty;
+    this.markPropertyAsSet(SERIALIZED_NAME_LOYALTY);
     return this;
   }
 
@@ -157,11 +167,13 @@ public class IntegrationState {
 
   public void setLoyalty(@javax.annotation.Nullable Loyalty loyalty) {
     this.loyalty = loyalty;
+    this.markPropertyAsSet(SERIALIZED_NAME_LOYALTY);
   }
 
 
   public IntegrationState coupon(@javax.annotation.Nullable Coupon coupon) {
     this.coupon = coupon;
+    this.markPropertyAsSet(SERIALIZED_NAME_COUPON);
     return this;
   }
 
@@ -176,6 +188,7 @@ public class IntegrationState {
 
   public void setCoupon(@javax.annotation.Nullable Coupon coupon) {
     this.coupon = coupon;
+    this.markPropertyAsSet(SERIALIZED_NAME_COUPON);
   }
 
   /**
@@ -221,6 +234,21 @@ public class IntegrationState {
         return null;
     }
     return this.additionalProperties.get(key);
+  }
+
+  /** Omit null properties unless they were explicitly assigned or present in JSON input. */
+  protected final void removeUnsetNullFields(JsonObject obj) {
+    obj.entrySet().removeIf(entry -> entry.getValue().isJsonNull()
+        && !openapiExplicitlySetFields.contains(entry.getKey()));
+  }
+
+  protected final void markPropertyAsSet(String propertyName) {
+    openapiExplicitlySetFields.add(propertyName);
+  }
+
+  /** Gson populates fields directly, bypassing setters during deserialization. */
+  protected final void markPropertiesAsSet(Set<String> propertyNames) {
+    openapiExplicitlySetFields.addAll(propertyNames);
   }
 
 
@@ -321,7 +349,7 @@ public class IntegrationState {
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
        if (!IntegrationState.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'IntegrationState' and its subtypes
+         return null; // let other model factories handle this type
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
        final TypeAdapter<IntegrationState> thisAdapter
@@ -331,31 +359,22 @@ public class IntegrationState {
            @Override
            public void write(JsonWriter out, IntegrationState value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+             value.removeUnsetNullFields(obj);
              obj.remove("additionalProperties");
              // serialize additional properties
              if (value.getAdditionalProperties() != null) {
                for (Map.Entry<String, Object> entry : value.getAdditionalProperties().entrySet()) {
-                 if (entry.getValue() instanceof String)
-                   obj.addProperty(entry.getKey(), (String) entry.getValue());
-                 else if (entry.getValue() instanceof Number)
-                   obj.addProperty(entry.getKey(), (Number) entry.getValue());
-                 else if (entry.getValue() instanceof Boolean)
-                   obj.addProperty(entry.getKey(), (Boolean) entry.getValue());
-                 else if (entry.getValue() instanceof Character)
-                   obj.addProperty(entry.getKey(), (Character) entry.getValue());
-                 else {
-                   JsonElement jsonElement = gson.toJsonTree(entry.getValue());
-                   if (jsonElement.isJsonNull()) {
-                     obj.add(entry.getKey(), JsonNull.INSTANCE);
-                   } else if (jsonElement.isJsonArray()) {
-                     obj.add(entry.getKey(), jsonElement.getAsJsonArray());
-                   } else {
-                     obj.add(entry.getKey(), jsonElement.getAsJsonObject());
-                   }
-                 }
+                 // TypeAdapter.toJsonTree keeps explicit null entries in arbitrary maps too.
+                 obj.add(entry.getKey(), gson.getAdapter(Object.class).toJsonTree(entry.getValue()));
                }
              }
-             elementAdapter.write(out, obj);
+             boolean originalSerializeNulls = out.getSerializeNulls();
+             try {
+               out.setSerializeNulls(true);
+               elementAdapter.write(out, obj);
+             } finally {
+               out.setSerializeNulls(originalSerializeNulls);
+             }
            }
 
            @Override
@@ -365,6 +384,7 @@ public class IntegrationState {
              JsonObject jsonObj = jsonElement.getAsJsonObject();
              // store additional fields in the deserialized instance
              IntegrationState instance = thisAdapter.fromJsonTree(jsonObj);
+             instance.markPropertiesAsSet(jsonObj.keySet());
              for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
                if (!openapiFields.contains(entry.getKey())) {
                  if (entry.getValue().isJsonPrimitive()) { // primitive type

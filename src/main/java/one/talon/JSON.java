@@ -321,7 +321,9 @@ public class JSON {
                     }
           })
         ;
-        GsonBuilder builder = fireBuilder.createGsonBuilder();
+        // Keep nulls through GsonFire's intermediate JSON trees. Model adapters remove
+        // unset null properties before writing, so this does not emit untouched fields.
+        GsonBuilder builder = fireBuilder.createGsonBuilder().serializeNulls();
         return builder;
     }
 

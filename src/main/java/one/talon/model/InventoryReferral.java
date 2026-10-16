@@ -54,6 +54,9 @@ import one.talon.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.26.0")
 public class InventoryReferral {
+  // Gson ignores transient state; only setters and JSON input mark properties as present.
+  private transient Set<String> openapiExplicitlySetFields = new HashSet<>();
+
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
   @javax.annotation.Nonnull
@@ -129,6 +132,7 @@ public class InventoryReferral {
 
   public InventoryReferral id(@javax.annotation.Nonnull Long id) {
     this.id = id;
+    this.markPropertyAsSet(SERIALIZED_NAME_ID);
     return this;
   }
 
@@ -143,11 +147,13 @@ public class InventoryReferral {
 
   public void setId(@javax.annotation.Nonnull Long id) {
     this.id = id;
+    this.markPropertyAsSet(SERIALIZED_NAME_ID);
   }
 
 
   public InventoryReferral created(@javax.annotation.Nonnull OffsetDateTime created) {
     this.created = created;
+    this.markPropertyAsSet(SERIALIZED_NAME_CREATED);
     return this;
   }
 
@@ -162,11 +168,13 @@ public class InventoryReferral {
 
   public void setCreated(@javax.annotation.Nonnull OffsetDateTime created) {
     this.created = created;
+    this.markPropertyAsSet(SERIALIZED_NAME_CREATED);
   }
 
 
   public InventoryReferral startDate(@javax.annotation.Nullable OffsetDateTime startDate) {
     this.startDate = startDate;
+    this.markPropertyAsSet(SERIALIZED_NAME_START_DATE);
     return this;
   }
 
@@ -181,11 +189,13 @@ public class InventoryReferral {
 
   public void setStartDate(@javax.annotation.Nullable OffsetDateTime startDate) {
     this.startDate = startDate;
+    this.markPropertyAsSet(SERIALIZED_NAME_START_DATE);
   }
 
 
   public InventoryReferral expiryDate(@javax.annotation.Nullable OffsetDateTime expiryDate) {
     this.expiryDate = expiryDate;
+    this.markPropertyAsSet(SERIALIZED_NAME_EXPIRY_DATE);
     return this;
   }
 
@@ -200,11 +210,13 @@ public class InventoryReferral {
 
   public void setExpiryDate(@javax.annotation.Nullable OffsetDateTime expiryDate) {
     this.expiryDate = expiryDate;
+    this.markPropertyAsSet(SERIALIZED_NAME_EXPIRY_DATE);
   }
 
 
   public InventoryReferral usageLimit(@javax.annotation.Nullable Long usageLimit) {
     this.usageLimit = usageLimit;
+    this.markPropertyAsSet(SERIALIZED_NAME_USAGE_LIMIT);
     return this;
   }
 
@@ -221,11 +233,13 @@ public class InventoryReferral {
 
   public void setUsageLimit(@javax.annotation.Nullable Long usageLimit) {
     this.usageLimit = usageLimit;
+    this.markPropertyAsSet(SERIALIZED_NAME_USAGE_LIMIT);
   }
 
 
   public InventoryReferral campaignId(@javax.annotation.Nonnull Long campaignId) {
     this.campaignId = campaignId;
+    this.markPropertyAsSet(SERIALIZED_NAME_CAMPAIGN_ID);
     return this;
   }
 
@@ -240,11 +254,13 @@ public class InventoryReferral {
 
   public void setCampaignId(@javax.annotation.Nonnull Long campaignId) {
     this.campaignId = campaignId;
+    this.markPropertyAsSet(SERIALIZED_NAME_CAMPAIGN_ID);
   }
 
 
   public InventoryReferral advocateProfileIntegrationId(@javax.annotation.Nonnull String advocateProfileIntegrationId) {
     this.advocateProfileIntegrationId = advocateProfileIntegrationId;
+    this.markPropertyAsSet(SERIALIZED_NAME_ADVOCATE_PROFILE_INTEGRATION_ID);
     return this;
   }
 
@@ -259,11 +275,13 @@ public class InventoryReferral {
 
   public void setAdvocateProfileIntegrationId(@javax.annotation.Nonnull String advocateProfileIntegrationId) {
     this.advocateProfileIntegrationId = advocateProfileIntegrationId;
+    this.markPropertyAsSet(SERIALIZED_NAME_ADVOCATE_PROFILE_INTEGRATION_ID);
   }
 
 
   public InventoryReferral friendProfileIntegrationId(@javax.annotation.Nullable String friendProfileIntegrationId) {
     this.friendProfileIntegrationId = friendProfileIntegrationId;
+    this.markPropertyAsSet(SERIALIZED_NAME_FRIEND_PROFILE_INTEGRATION_ID);
     return this;
   }
 
@@ -278,11 +296,13 @@ public class InventoryReferral {
 
   public void setFriendProfileIntegrationId(@javax.annotation.Nullable String friendProfileIntegrationId) {
     this.friendProfileIntegrationId = friendProfileIntegrationId;
+    this.markPropertyAsSet(SERIALIZED_NAME_FRIEND_PROFILE_INTEGRATION_ID);
   }
 
 
   public InventoryReferral attributes(@javax.annotation.Nullable Object attributes) {
     this.attributes = attributes;
+    this.markPropertyAsSet(SERIALIZED_NAME_ATTRIBUTES);
     return this;
   }
 
@@ -297,11 +317,13 @@ public class InventoryReferral {
 
   public void setAttributes(@javax.annotation.Nullable Object attributes) {
     this.attributes = attributes;
+    this.markPropertyAsSet(SERIALIZED_NAME_ATTRIBUTES);
   }
 
 
   public InventoryReferral importId(@javax.annotation.Nullable Long importId) {
     this.importId = importId;
+    this.markPropertyAsSet(SERIALIZED_NAME_IMPORT_ID);
     return this;
   }
 
@@ -316,11 +338,13 @@ public class InventoryReferral {
 
   public void setImportId(@javax.annotation.Nullable Long importId) {
     this.importId = importId;
+    this.markPropertyAsSet(SERIALIZED_NAME_IMPORT_ID);
   }
 
 
   public InventoryReferral code(@javax.annotation.Nonnull String code) {
     this.code = code;
+    this.markPropertyAsSet(SERIALIZED_NAME_CODE);
     return this;
   }
 
@@ -335,11 +359,13 @@ public class InventoryReferral {
 
   public void setCode(@javax.annotation.Nonnull String code) {
     this.code = code;
+    this.markPropertyAsSet(SERIALIZED_NAME_CODE);
   }
 
 
   public InventoryReferral usageCounter(@javax.annotation.Nonnull Long usageCounter) {
     this.usageCounter = usageCounter;
+    this.markPropertyAsSet(SERIALIZED_NAME_USAGE_COUNTER);
     return this;
   }
 
@@ -354,11 +380,13 @@ public class InventoryReferral {
 
   public void setUsageCounter(@javax.annotation.Nonnull Long usageCounter) {
     this.usageCounter = usageCounter;
+    this.markPropertyAsSet(SERIALIZED_NAME_USAGE_COUNTER);
   }
 
 
   public InventoryReferral batchId(@javax.annotation.Nullable String batchId) {
     this.batchId = batchId;
+    this.markPropertyAsSet(SERIALIZED_NAME_BATCH_ID);
     return this;
   }
 
@@ -373,11 +401,13 @@ public class InventoryReferral {
 
   public void setBatchId(@javax.annotation.Nullable String batchId) {
     this.batchId = batchId;
+    this.markPropertyAsSet(SERIALIZED_NAME_BATCH_ID);
   }
 
 
   public InventoryReferral referredCustomers(@javax.annotation.Nonnull List<String> referredCustomers) {
     this.referredCustomers = referredCustomers;
+    this.markPropertyAsSet(SERIALIZED_NAME_REFERRED_CUSTOMERS);
     return this;
   }
 
@@ -386,6 +416,7 @@ public class InventoryReferral {
       this.referredCustomers = new ArrayList<>();
     }
     this.referredCustomers.add(referredCustomersItem);
+    this.markPropertyAsSet(SERIALIZED_NAME_REFERRED_CUSTOMERS);
     return this;
   }
 
@@ -400,6 +431,7 @@ public class InventoryReferral {
 
   public void setReferredCustomers(@javax.annotation.Nonnull List<String> referredCustomers) {
     this.referredCustomers = referredCustomers;
+    this.markPropertyAsSet(SERIALIZED_NAME_REFERRED_CUSTOMERS);
   }
 
   /**
@@ -445,6 +477,21 @@ public class InventoryReferral {
         return null;
     }
     return this.additionalProperties.get(key);
+  }
+
+  /** Omit null properties unless they were explicitly assigned or present in JSON input. */
+  protected final void removeUnsetNullFields(JsonObject obj) {
+    obj.entrySet().removeIf(entry -> entry.getValue().isJsonNull()
+        && !openapiExplicitlySetFields.contains(entry.getKey()));
+  }
+
+  protected final void markPropertyAsSet(String propertyName) {
+    openapiExplicitlySetFields.add(propertyName);
+  }
+
+  /** Gson populates fields directly, bypassing setters during deserialization. */
+  protected final void markPropertiesAsSet(Set<String> propertyNames) {
+    openapiExplicitlySetFields.addAll(propertyNames);
   }
 
 
@@ -567,7 +614,7 @@ public class InventoryReferral {
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
        if (!InventoryReferral.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'InventoryReferral' and its subtypes
+         return null; // let other model factories handle this type
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
        final TypeAdapter<InventoryReferral> thisAdapter
@@ -577,31 +624,22 @@ public class InventoryReferral {
            @Override
            public void write(JsonWriter out, InventoryReferral value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+             value.removeUnsetNullFields(obj);
              obj.remove("additionalProperties");
              // serialize additional properties
              if (value.getAdditionalProperties() != null) {
                for (Map.Entry<String, Object> entry : value.getAdditionalProperties().entrySet()) {
-                 if (entry.getValue() instanceof String)
-                   obj.addProperty(entry.getKey(), (String) entry.getValue());
-                 else if (entry.getValue() instanceof Number)
-                   obj.addProperty(entry.getKey(), (Number) entry.getValue());
-                 else if (entry.getValue() instanceof Boolean)
-                   obj.addProperty(entry.getKey(), (Boolean) entry.getValue());
-                 else if (entry.getValue() instanceof Character)
-                   obj.addProperty(entry.getKey(), (Character) entry.getValue());
-                 else {
-                   JsonElement jsonElement = gson.toJsonTree(entry.getValue());
-                   if (jsonElement.isJsonNull()) {
-                     obj.add(entry.getKey(), JsonNull.INSTANCE);
-                   } else if (jsonElement.isJsonArray()) {
-                     obj.add(entry.getKey(), jsonElement.getAsJsonArray());
-                   } else {
-                     obj.add(entry.getKey(), jsonElement.getAsJsonObject());
-                   }
-                 }
+                 // TypeAdapter.toJsonTree keeps explicit null entries in arbitrary maps too.
+                 obj.add(entry.getKey(), gson.getAdapter(Object.class).toJsonTree(entry.getValue()));
                }
              }
-             elementAdapter.write(out, obj);
+             boolean originalSerializeNulls = out.getSerializeNulls();
+             try {
+               out.setSerializeNulls(true);
+               elementAdapter.write(out, obj);
+             } finally {
+               out.setSerializeNulls(originalSerializeNulls);
+             }
            }
 
            @Override
@@ -611,6 +649,7 @@ public class InventoryReferral {
              JsonObject jsonObj = jsonElement.getAsJsonObject();
              // store additional fields in the deserialized instance
              InventoryReferral instance = thisAdapter.fromJsonTree(jsonObj);
+             instance.markPropertiesAsSet(jsonObj.keySet());
              for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
                if (!openapiFields.contains(entry.getKey())) {
                  if (entry.getValue().isJsonPrimitive()) { // primitive type

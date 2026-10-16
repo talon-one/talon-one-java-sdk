@@ -63,27 +63,37 @@ public class CreateReferralBlock1CampaignId extends AbstractOpenApiSchema {
                 return null; // this class only serializes 'CreateReferralBlock1CampaignId' and its subtypes
             }
             final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-            final TypeAdapter<BigDecimal> adapterBigDecimal = gson.getDelegateAdapter(this, TypeToken.get(BigDecimal.class));
-            final TypeAdapter<String> adapterString = gson.getDelegateAdapter(this, TypeToken.get(String.class));
+            final TypeAdapter<BigDecimal> adapterBigDecimal = gson.getAdapter(TypeToken.get(BigDecimal.class));
+            final TypeAdapter<String> adapterString = gson.getAdapter(TypeToken.get(String.class));
 
             return (TypeAdapter<T>) new TypeAdapter<CreateReferralBlock1CampaignId>() {
+                private void writeJsonElement(JsonWriter out, JsonElement value) throws IOException {
+                    boolean originalSerializeNulls = out.getSerializeNulls();
+                    try {
+                        out.setSerializeNulls(true);
+                        elementAdapter.write(out, value);
+                    } finally {
+                        out.setSerializeNulls(originalSerializeNulls);
+                    }
+                }
+
                 @Override
                 public void write(JsonWriter out, CreateReferralBlock1CampaignId value) throws IOException {
                     if (value == null || value.getActualInstance() == null) {
-                        elementAdapter.write(out, null);
+                        writeJsonElement(out, null);
                         return;
                     }
 
                     // check if the actual instance is of the type `BigDecimal`
                     if (value.getActualInstance() instanceof BigDecimal) {
                         JsonElement element = adapterBigDecimal.toJsonTree((BigDecimal)value.getActualInstance());
-                        elementAdapter.write(out, element);
+                        writeJsonElement(out, element);
                         return;
                     }
                     // check if the actual instance is of the type `String`
                     if (value.getActualInstance() instanceof String) {
                         JsonPrimitive primitive = adapterString.toJsonTree((String)value.getActualInstance()).getAsJsonPrimitive();
-                        elementAdapter.write(out, primitive);
+                        writeJsonElement(out, primitive);
                         return;
                     }
                     throw new IOException("Failed to serialize as the type doesn't match oneOf schemas: BigDecimal, String");

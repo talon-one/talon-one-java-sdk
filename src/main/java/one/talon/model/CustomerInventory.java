@@ -60,6 +60,9 @@ import one.talon.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.26.0")
 public class CustomerInventory {
+  // Gson ignores transient state; only setters and JSON input mark properties as present.
+  private transient Set<String> openapiExplicitlySetFields = new HashSet<>();
+
   public static final String SERIALIZED_NAME_PROFILE = "profile";
   @SerializedName(SERIALIZED_NAME_PROFILE)
   @javax.annotation.Nullable
@@ -100,6 +103,7 @@ public class CustomerInventory {
 
   public CustomerInventory profile(@javax.annotation.Nullable CustomerProfile profile) {
     this.profile = profile;
+    this.markPropertyAsSet(SERIALIZED_NAME_PROFILE);
     return this;
   }
 
@@ -114,11 +118,13 @@ public class CustomerInventory {
 
   public void setProfile(@javax.annotation.Nullable CustomerProfile profile) {
     this.profile = profile;
+    this.markPropertyAsSet(SERIALIZED_NAME_PROFILE);
   }
 
 
   public CustomerInventory loyalty(@javax.annotation.Nullable Loyalty loyalty) {
     this.loyalty = loyalty;
+    this.markPropertyAsSet(SERIALIZED_NAME_LOYALTY);
     return this;
   }
 
@@ -133,11 +139,13 @@ public class CustomerInventory {
 
   public void setLoyalty(@javax.annotation.Nullable Loyalty loyalty) {
     this.loyalty = loyalty;
+    this.markPropertyAsSet(SERIALIZED_NAME_LOYALTY);
   }
 
 
   public CustomerInventory referrals(@javax.annotation.Nullable List<InventoryReferral> referrals) {
     this.referrals = referrals;
+    this.markPropertyAsSet(SERIALIZED_NAME_REFERRALS);
     return this;
   }
 
@@ -146,6 +154,7 @@ public class CustomerInventory {
       this.referrals = new ArrayList<>();
     }
     this.referrals.add(referralsItem);
+    this.markPropertyAsSet(SERIALIZED_NAME_REFERRALS);
     return this;
   }
 
@@ -160,11 +169,13 @@ public class CustomerInventory {
 
   public void setReferrals(@javax.annotation.Nullable List<InventoryReferral> referrals) {
     this.referrals = referrals;
+    this.markPropertyAsSet(SERIALIZED_NAME_REFERRALS);
   }
 
 
   public CustomerInventory coupons(@javax.annotation.Nullable List<InventoryCoupon> coupons) {
     this.coupons = coupons;
+    this.markPropertyAsSet(SERIALIZED_NAME_COUPONS);
     return this;
   }
 
@@ -173,6 +184,7 @@ public class CustomerInventory {
       this.coupons = new ArrayList<>();
     }
     this.coupons.add(couponsItem);
+    this.markPropertyAsSet(SERIALIZED_NAME_COUPONS);
     return this;
   }
 
@@ -187,11 +199,13 @@ public class CustomerInventory {
 
   public void setCoupons(@javax.annotation.Nullable List<InventoryCoupon> coupons) {
     this.coupons = coupons;
+    this.markPropertyAsSet(SERIALIZED_NAME_COUPONS);
   }
 
 
   public CustomerInventory giveaways(@javax.annotation.Nullable List<Giveaway> giveaways) {
     this.giveaways = giveaways;
+    this.markPropertyAsSet(SERIALIZED_NAME_GIVEAWAYS);
     return this;
   }
 
@@ -200,6 +214,7 @@ public class CustomerInventory {
       this.giveaways = new ArrayList<>();
     }
     this.giveaways.add(giveawaysItem);
+    this.markPropertyAsSet(SERIALIZED_NAME_GIVEAWAYS);
     return this;
   }
 
@@ -214,11 +229,13 @@ public class CustomerInventory {
 
   public void setGiveaways(@javax.annotation.Nullable List<Giveaway> giveaways) {
     this.giveaways = giveaways;
+    this.markPropertyAsSet(SERIALIZED_NAME_GIVEAWAYS);
   }
 
 
   public CustomerInventory achievements(@javax.annotation.Nullable List<AchievementProgressWithDefinition> achievements) {
     this.achievements = achievements;
+    this.markPropertyAsSet(SERIALIZED_NAME_ACHIEVEMENTS);
     return this;
   }
 
@@ -227,6 +244,7 @@ public class CustomerInventory {
       this.achievements = new ArrayList<>();
     }
     this.achievements.add(achievementsItem);
+    this.markPropertyAsSet(SERIALIZED_NAME_ACHIEVEMENTS);
     return this;
   }
 
@@ -241,11 +259,13 @@ public class CustomerInventory {
 
   public void setAchievements(@javax.annotation.Nullable List<AchievementProgressWithDefinition> achievements) {
     this.achievements = achievements;
+    this.markPropertyAsSet(SERIALIZED_NAME_ACHIEVEMENTS);
   }
 
 
   public CustomerInventory rewards(@javax.annotation.Nullable List<RewardWithUnlocks> rewards) {
     this.rewards = rewards;
+    this.markPropertyAsSet(SERIALIZED_NAME_REWARDS);
     return this;
   }
 
@@ -254,6 +274,7 @@ public class CustomerInventory {
       this.rewards = new ArrayList<>();
     }
     this.rewards.add(rewardsItem);
+    this.markPropertyAsSet(SERIALIZED_NAME_REWARDS);
     return this;
   }
 
@@ -268,6 +289,7 @@ public class CustomerInventory {
 
   public void setRewards(@javax.annotation.Nullable List<RewardWithUnlocks> rewards) {
     this.rewards = rewards;
+    this.markPropertyAsSet(SERIALIZED_NAME_REWARDS);
   }
 
   /**
@@ -313,6 +335,21 @@ public class CustomerInventory {
         return null;
     }
     return this.additionalProperties.get(key);
+  }
+
+  /** Omit null properties unless they were explicitly assigned or present in JSON input. */
+  protected final void removeUnsetNullFields(JsonObject obj) {
+    obj.entrySet().removeIf(entry -> entry.getValue().isJsonNull()
+        && !openapiExplicitlySetFields.contains(entry.getKey()));
+  }
+
+  protected final void markPropertyAsSet(String propertyName) {
+    openapiExplicitlySetFields.add(propertyName);
+  }
+
+  /** Gson populates fields directly, bypassing setters during deserialization. */
+  protected final void markPropertiesAsSet(Set<String> propertyNames) {
+    openapiExplicitlySetFields.addAll(propertyNames);
   }
 
 
@@ -474,7 +511,7 @@ public class CustomerInventory {
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
        if (!CustomerInventory.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'CustomerInventory' and its subtypes
+         return null; // let other model factories handle this type
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
        final TypeAdapter<CustomerInventory> thisAdapter
@@ -484,31 +521,22 @@ public class CustomerInventory {
            @Override
            public void write(JsonWriter out, CustomerInventory value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+             value.removeUnsetNullFields(obj);
              obj.remove("additionalProperties");
              // serialize additional properties
              if (value.getAdditionalProperties() != null) {
                for (Map.Entry<String, Object> entry : value.getAdditionalProperties().entrySet()) {
-                 if (entry.getValue() instanceof String)
-                   obj.addProperty(entry.getKey(), (String) entry.getValue());
-                 else if (entry.getValue() instanceof Number)
-                   obj.addProperty(entry.getKey(), (Number) entry.getValue());
-                 else if (entry.getValue() instanceof Boolean)
-                   obj.addProperty(entry.getKey(), (Boolean) entry.getValue());
-                 else if (entry.getValue() instanceof Character)
-                   obj.addProperty(entry.getKey(), (Character) entry.getValue());
-                 else {
-                   JsonElement jsonElement = gson.toJsonTree(entry.getValue());
-                   if (jsonElement.isJsonNull()) {
-                     obj.add(entry.getKey(), JsonNull.INSTANCE);
-                   } else if (jsonElement.isJsonArray()) {
-                     obj.add(entry.getKey(), jsonElement.getAsJsonArray());
-                   } else {
-                     obj.add(entry.getKey(), jsonElement.getAsJsonObject());
-                   }
-                 }
+                 // TypeAdapter.toJsonTree keeps explicit null entries in arbitrary maps too.
+                 obj.add(entry.getKey(), gson.getAdapter(Object.class).toJsonTree(entry.getValue()));
                }
              }
-             elementAdapter.write(out, obj);
+             boolean originalSerializeNulls = out.getSerializeNulls();
+             try {
+               out.setSerializeNulls(true);
+               elementAdapter.write(out, obj);
+             } finally {
+               out.setSerializeNulls(originalSerializeNulls);
+             }
            }
 
            @Override
@@ -518,6 +546,7 @@ public class CustomerInventory {
              JsonObject jsonObj = jsonElement.getAsJsonObject();
              // store additional fields in the deserialized instance
              CustomerInventory instance = thisAdapter.fromJsonTree(jsonObj);
+             instance.markPropertiesAsSet(jsonObj.keySet());
              for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
                if (!openapiFields.contains(entry.getKey())) {
                  if (entry.getValue().isJsonPrimitive()) { // primitive type

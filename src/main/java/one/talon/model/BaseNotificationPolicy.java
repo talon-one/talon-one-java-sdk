@@ -86,111 +86,121 @@ public class BaseNotificationPolicy extends AbstractOpenApiSchema {
                 return null; // this class only serializes 'BaseNotificationPolicy' and its subtypes
             }
             final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-            final TypeAdapter<ExpiringCouponsNotificationPolicy> adapterExpiringCouponsNotificationPolicy = gson.getDelegateAdapter(this, TypeToken.get(ExpiringCouponsNotificationPolicy.class));
-            final TypeAdapter<CardExpiringPointsNotificationPolicy> adapterCardExpiringPointsNotificationPolicy = gson.getDelegateAdapter(this, TypeToken.get(CardExpiringPointsNotificationPolicy.class));
-            final TypeAdapter<ExpiringPointsNotificationPolicy> adapterExpiringPointsNotificationPolicy = gson.getDelegateAdapter(this, TypeToken.get(ExpiringPointsNotificationPolicy.class));
-            final TypeAdapter<AddedDeductedPointsNotificationPolicy> adapterAddedDeductedPointsNotificationPolicy = gson.getDelegateAdapter(this, TypeToken.get(AddedDeductedPointsNotificationPolicy.class));
-            final TypeAdapter<CardAddedDeductedPointsNotificationPolicy> adapterCardAddedDeductedPointsNotificationPolicy = gson.getDelegateAdapter(this, TypeToken.get(CardAddedDeductedPointsNotificationPolicy.class));
-            final TypeAdapter<AddedDeductedPointsBalancesNotificationPolicy> adapterAddedDeductedPointsBalancesNotificationPolicy = gson.getDelegateAdapter(this, TypeToken.get(AddedDeductedPointsBalancesNotificationPolicy.class));
-            final TypeAdapter<CardAddedDeductedPointsBalancesNotificationPolicy> adapterCardAddedDeductedPointsBalancesNotificationPolicy = gson.getDelegateAdapter(this, TypeToken.get(CardAddedDeductedPointsBalancesNotificationPolicy.class));
-            final TypeAdapter<CouponsNotificationPolicy> adapterCouponsNotificationPolicy = gson.getDelegateAdapter(this, TypeToken.get(CouponsNotificationPolicy.class));
-            final TypeAdapter<CatalogsStrikethroughNotificationPolicy> adapterCatalogsStrikethroughNotificationPolicy = gson.getDelegateAdapter(this, TypeToken.get(CatalogsStrikethroughNotificationPolicy.class));
-            final TypeAdapter<PendingPointsNotificationPolicy> adapterPendingPointsNotificationPolicy = gson.getDelegateAdapter(this, TypeToken.get(PendingPointsNotificationPolicy.class));
-            final TypeAdapter<CampaignNotificationPolicy> adapterCampaignNotificationPolicy = gson.getDelegateAdapter(this, TypeToken.get(CampaignNotificationPolicy.class));
-            final TypeAdapter<TierDowngradeNotificationPolicy> adapterTierDowngradeNotificationPolicy = gson.getDelegateAdapter(this, TypeToken.get(TierDowngradeNotificationPolicy.class));
-            final TypeAdapter<TierUpgradeNotificationPolicy> adapterTierUpgradeNotificationPolicy = gson.getDelegateAdapter(this, TypeToken.get(TierUpgradeNotificationPolicy.class));
-            final TypeAdapter<TierWillDowngradeNotificationPolicy> adapterTierWillDowngradeNotificationPolicy = gson.getDelegateAdapter(this, TypeToken.get(TierWillDowngradeNotificationPolicy.class));
+            final TypeAdapter<ExpiringCouponsNotificationPolicy> adapterExpiringCouponsNotificationPolicy = gson.getAdapter(TypeToken.get(ExpiringCouponsNotificationPolicy.class));
+            final TypeAdapter<CardExpiringPointsNotificationPolicy> adapterCardExpiringPointsNotificationPolicy = gson.getAdapter(TypeToken.get(CardExpiringPointsNotificationPolicy.class));
+            final TypeAdapter<ExpiringPointsNotificationPolicy> adapterExpiringPointsNotificationPolicy = gson.getAdapter(TypeToken.get(ExpiringPointsNotificationPolicy.class));
+            final TypeAdapter<AddedDeductedPointsNotificationPolicy> adapterAddedDeductedPointsNotificationPolicy = gson.getAdapter(TypeToken.get(AddedDeductedPointsNotificationPolicy.class));
+            final TypeAdapter<CardAddedDeductedPointsNotificationPolicy> adapterCardAddedDeductedPointsNotificationPolicy = gson.getAdapter(TypeToken.get(CardAddedDeductedPointsNotificationPolicy.class));
+            final TypeAdapter<AddedDeductedPointsBalancesNotificationPolicy> adapterAddedDeductedPointsBalancesNotificationPolicy = gson.getAdapter(TypeToken.get(AddedDeductedPointsBalancesNotificationPolicy.class));
+            final TypeAdapter<CardAddedDeductedPointsBalancesNotificationPolicy> adapterCardAddedDeductedPointsBalancesNotificationPolicy = gson.getAdapter(TypeToken.get(CardAddedDeductedPointsBalancesNotificationPolicy.class));
+            final TypeAdapter<CouponsNotificationPolicy> adapterCouponsNotificationPolicy = gson.getAdapter(TypeToken.get(CouponsNotificationPolicy.class));
+            final TypeAdapter<CatalogsStrikethroughNotificationPolicy> adapterCatalogsStrikethroughNotificationPolicy = gson.getAdapter(TypeToken.get(CatalogsStrikethroughNotificationPolicy.class));
+            final TypeAdapter<PendingPointsNotificationPolicy> adapterPendingPointsNotificationPolicy = gson.getAdapter(TypeToken.get(PendingPointsNotificationPolicy.class));
+            final TypeAdapter<CampaignNotificationPolicy> adapterCampaignNotificationPolicy = gson.getAdapter(TypeToken.get(CampaignNotificationPolicy.class));
+            final TypeAdapter<TierDowngradeNotificationPolicy> adapterTierDowngradeNotificationPolicy = gson.getAdapter(TypeToken.get(TierDowngradeNotificationPolicy.class));
+            final TypeAdapter<TierUpgradeNotificationPolicy> adapterTierUpgradeNotificationPolicy = gson.getAdapter(TypeToken.get(TierUpgradeNotificationPolicy.class));
+            final TypeAdapter<TierWillDowngradeNotificationPolicy> adapterTierWillDowngradeNotificationPolicy = gson.getAdapter(TypeToken.get(TierWillDowngradeNotificationPolicy.class));
 
             return (TypeAdapter<T>) new TypeAdapter<BaseNotificationPolicy>() {
+                private void writeJsonElement(JsonWriter out, JsonElement value) throws IOException {
+                    boolean originalSerializeNulls = out.getSerializeNulls();
+                    try {
+                        out.setSerializeNulls(true);
+                        elementAdapter.write(out, value);
+                    } finally {
+                        out.setSerializeNulls(originalSerializeNulls);
+                    }
+                }
+
                 @Override
                 public void write(JsonWriter out, BaseNotificationPolicy value) throws IOException {
                     if (value == null || value.getActualInstance() == null) {
-                        elementAdapter.write(out, null);
+                        writeJsonElement(out, null);
                         return;
                     }
 
                     // check if the actual instance is of the type `ExpiringCouponsNotificationPolicy`
                     if (value.getActualInstance() instanceof ExpiringCouponsNotificationPolicy) {
                         JsonElement element = adapterExpiringCouponsNotificationPolicy.toJsonTree((ExpiringCouponsNotificationPolicy)value.getActualInstance());
-                        elementAdapter.write(out, element);
+                        writeJsonElement(out, element);
                         return;
                     }
                     // check if the actual instance is of the type `CardExpiringPointsNotificationPolicy`
                     if (value.getActualInstance() instanceof CardExpiringPointsNotificationPolicy) {
                         JsonElement element = adapterCardExpiringPointsNotificationPolicy.toJsonTree((CardExpiringPointsNotificationPolicy)value.getActualInstance());
-                        elementAdapter.write(out, element);
+                        writeJsonElement(out, element);
                         return;
                     }
                     // check if the actual instance is of the type `ExpiringPointsNotificationPolicy`
                     if (value.getActualInstance() instanceof ExpiringPointsNotificationPolicy) {
                         JsonElement element = adapterExpiringPointsNotificationPolicy.toJsonTree((ExpiringPointsNotificationPolicy)value.getActualInstance());
-                        elementAdapter.write(out, element);
+                        writeJsonElement(out, element);
                         return;
                     }
                     // check if the actual instance is of the type `AddedDeductedPointsNotificationPolicy`
                     if (value.getActualInstance() instanceof AddedDeductedPointsNotificationPolicy) {
                         JsonElement element = adapterAddedDeductedPointsNotificationPolicy.toJsonTree((AddedDeductedPointsNotificationPolicy)value.getActualInstance());
-                        elementAdapter.write(out, element);
+                        writeJsonElement(out, element);
                         return;
                     }
                     // check if the actual instance is of the type `CardAddedDeductedPointsNotificationPolicy`
                     if (value.getActualInstance() instanceof CardAddedDeductedPointsNotificationPolicy) {
                         JsonElement element = adapterCardAddedDeductedPointsNotificationPolicy.toJsonTree((CardAddedDeductedPointsNotificationPolicy)value.getActualInstance());
-                        elementAdapter.write(out, element);
+                        writeJsonElement(out, element);
                         return;
                     }
                     // check if the actual instance is of the type `AddedDeductedPointsBalancesNotificationPolicy`
                     if (value.getActualInstance() instanceof AddedDeductedPointsBalancesNotificationPolicy) {
                         JsonElement element = adapterAddedDeductedPointsBalancesNotificationPolicy.toJsonTree((AddedDeductedPointsBalancesNotificationPolicy)value.getActualInstance());
-                        elementAdapter.write(out, element);
+                        writeJsonElement(out, element);
                         return;
                     }
                     // check if the actual instance is of the type `CardAddedDeductedPointsBalancesNotificationPolicy`
                     if (value.getActualInstance() instanceof CardAddedDeductedPointsBalancesNotificationPolicy) {
                         JsonElement element = adapterCardAddedDeductedPointsBalancesNotificationPolicy.toJsonTree((CardAddedDeductedPointsBalancesNotificationPolicy)value.getActualInstance());
-                        elementAdapter.write(out, element);
+                        writeJsonElement(out, element);
                         return;
                     }
                     // check if the actual instance is of the type `CouponsNotificationPolicy`
                     if (value.getActualInstance() instanceof CouponsNotificationPolicy) {
                         JsonElement element = adapterCouponsNotificationPolicy.toJsonTree((CouponsNotificationPolicy)value.getActualInstance());
-                        elementAdapter.write(out, element);
+                        writeJsonElement(out, element);
                         return;
                     }
                     // check if the actual instance is of the type `CatalogsStrikethroughNotificationPolicy`
                     if (value.getActualInstance() instanceof CatalogsStrikethroughNotificationPolicy) {
                         JsonElement element = adapterCatalogsStrikethroughNotificationPolicy.toJsonTree((CatalogsStrikethroughNotificationPolicy)value.getActualInstance());
-                        elementAdapter.write(out, element);
+                        writeJsonElement(out, element);
                         return;
                     }
                     // check if the actual instance is of the type `PendingPointsNotificationPolicy`
                     if (value.getActualInstance() instanceof PendingPointsNotificationPolicy) {
                         JsonElement element = adapterPendingPointsNotificationPolicy.toJsonTree((PendingPointsNotificationPolicy)value.getActualInstance());
-                        elementAdapter.write(out, element);
+                        writeJsonElement(out, element);
                         return;
                     }
                     // check if the actual instance is of the type `CampaignNotificationPolicy`
                     if (value.getActualInstance() instanceof CampaignNotificationPolicy) {
                         JsonElement element = adapterCampaignNotificationPolicy.toJsonTree((CampaignNotificationPolicy)value.getActualInstance());
-                        elementAdapter.write(out, element);
+                        writeJsonElement(out, element);
                         return;
                     }
                     // check if the actual instance is of the type `TierDowngradeNotificationPolicy`
                     if (value.getActualInstance() instanceof TierDowngradeNotificationPolicy) {
                         JsonElement element = adapterTierDowngradeNotificationPolicy.toJsonTree((TierDowngradeNotificationPolicy)value.getActualInstance());
-                        elementAdapter.write(out, element);
+                        writeJsonElement(out, element);
                         return;
                     }
                     // check if the actual instance is of the type `TierUpgradeNotificationPolicy`
                     if (value.getActualInstance() instanceof TierUpgradeNotificationPolicy) {
                         JsonElement element = adapterTierUpgradeNotificationPolicy.toJsonTree((TierUpgradeNotificationPolicy)value.getActualInstance());
-                        elementAdapter.write(out, element);
+                        writeJsonElement(out, element);
                         return;
                     }
                     // check if the actual instance is of the type `TierWillDowngradeNotificationPolicy`
                     if (value.getActualInstance() instanceof TierWillDowngradeNotificationPolicy) {
                         JsonElement element = adapterTierWillDowngradeNotificationPolicy.toJsonTree((TierWillDowngradeNotificationPolicy)value.getActualInstance());
-                        elementAdapter.write(out, element);
+                        writeJsonElement(out, element);
                         return;
                     }
                     throw new IOException("Failed to serialize as the type doesn't match oneOf schemas: AddedDeductedPointsBalancesNotificationPolicy, AddedDeductedPointsNotificationPolicy, CampaignNotificationPolicy, CardAddedDeductedPointsBalancesNotificationPolicy, CardAddedDeductedPointsNotificationPolicy, CardExpiringPointsNotificationPolicy, CatalogsStrikethroughNotificationPolicy, CouponsNotificationPolicy, ExpiringCouponsNotificationPolicy, ExpiringPointsNotificationPolicy, PendingPointsNotificationPolicy, TierDowngradeNotificationPolicy, TierUpgradeNotificationPolicy, TierWillDowngradeNotificationPolicy");

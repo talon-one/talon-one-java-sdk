@@ -55,6 +55,9 @@ import one.talon.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.26.0")
 public class WebhookWithOutgoingIntegrationDetails {
+  // Gson ignores transient state; only setters and JSON input mark properties as present.
+  private transient Set<String> openapiExplicitlySetFields = new HashSet<>();
+
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
   @javax.annotation.Nonnull
@@ -203,6 +206,7 @@ public class WebhookWithOutgoingIntegrationDetails {
 
   public WebhookWithOutgoingIntegrationDetails id(@javax.annotation.Nonnull Long id) {
     this.id = id;
+    this.markPropertyAsSet(SERIALIZED_NAME_ID);
     return this;
   }
 
@@ -217,11 +221,13 @@ public class WebhookWithOutgoingIntegrationDetails {
 
   public void setId(@javax.annotation.Nonnull Long id) {
     this.id = id;
+    this.markPropertyAsSet(SERIALIZED_NAME_ID);
   }
 
 
   public WebhookWithOutgoingIntegrationDetails created(@javax.annotation.Nonnull OffsetDateTime created) {
     this.created = created;
+    this.markPropertyAsSet(SERIALIZED_NAME_CREATED);
     return this;
   }
 
@@ -236,11 +242,13 @@ public class WebhookWithOutgoingIntegrationDetails {
 
   public void setCreated(@javax.annotation.Nonnull OffsetDateTime created) {
     this.created = created;
+    this.markPropertyAsSet(SERIALIZED_NAME_CREATED);
   }
 
 
   public WebhookWithOutgoingIntegrationDetails modified(@javax.annotation.Nonnull OffsetDateTime modified) {
     this.modified = modified;
+    this.markPropertyAsSet(SERIALIZED_NAME_MODIFIED);
     return this;
   }
 
@@ -255,11 +263,13 @@ public class WebhookWithOutgoingIntegrationDetails {
 
   public void setModified(@javax.annotation.Nonnull OffsetDateTime modified) {
     this.modified = modified;
+    this.markPropertyAsSet(SERIALIZED_NAME_MODIFIED);
   }
 
 
   public WebhookWithOutgoingIntegrationDetails applicationIds(@javax.annotation.Nonnull List<Long> applicationIds) {
     this.applicationIds = applicationIds;
+    this.markPropertyAsSet(SERIALIZED_NAME_APPLICATION_IDS);
     return this;
   }
 
@@ -268,6 +278,7 @@ public class WebhookWithOutgoingIntegrationDetails {
       this.applicationIds = new ArrayList<>();
     }
     this.applicationIds.add(applicationIdsItem);
+    this.markPropertyAsSet(SERIALIZED_NAME_APPLICATION_IDS);
     return this;
   }
 
@@ -282,11 +293,13 @@ public class WebhookWithOutgoingIntegrationDetails {
 
   public void setApplicationIds(@javax.annotation.Nonnull List<Long> applicationIds) {
     this.applicationIds = applicationIds;
+    this.markPropertyAsSet(SERIALIZED_NAME_APPLICATION_IDS);
   }
 
 
   public WebhookWithOutgoingIntegrationDetails title(@javax.annotation.Nonnull String title) {
     this.title = title;
+    this.markPropertyAsSet(SERIALIZED_NAME_TITLE);
     return this;
   }
 
@@ -301,11 +314,13 @@ public class WebhookWithOutgoingIntegrationDetails {
 
   public void setTitle(@javax.annotation.Nonnull String title) {
     this.title = title;
+    this.markPropertyAsSet(SERIALIZED_NAME_TITLE);
   }
 
 
   public WebhookWithOutgoingIntegrationDetails description(@javax.annotation.Nullable String description) {
     this.description = description;
+    this.markPropertyAsSet(SERIALIZED_NAME_DESCRIPTION);
     return this;
   }
 
@@ -320,11 +335,13 @@ public class WebhookWithOutgoingIntegrationDetails {
 
   public void setDescription(@javax.annotation.Nullable String description) {
     this.description = description;
+    this.markPropertyAsSet(SERIALIZED_NAME_DESCRIPTION);
   }
 
 
   public WebhookWithOutgoingIntegrationDetails draft(@javax.annotation.Nonnull Boolean draft) {
     this.draft = draft;
+    this.markPropertyAsSet(SERIALIZED_NAME_DRAFT);
     return this;
   }
 
@@ -339,11 +356,13 @@ public class WebhookWithOutgoingIntegrationDetails {
 
   public void setDraft(@javax.annotation.Nonnull Boolean draft) {
     this.draft = draft;
+    this.markPropertyAsSet(SERIALIZED_NAME_DRAFT);
   }
 
 
   public WebhookWithOutgoingIntegrationDetails verb(@javax.annotation.Nonnull VerbEnum verb) {
     this.verb = verb;
+    this.markPropertyAsSet(SERIALIZED_NAME_VERB);
     return this;
   }
 
@@ -358,11 +377,13 @@ public class WebhookWithOutgoingIntegrationDetails {
 
   public void setVerb(@javax.annotation.Nonnull VerbEnum verb) {
     this.verb = verb;
+    this.markPropertyAsSet(SERIALIZED_NAME_VERB);
   }
 
 
   public WebhookWithOutgoingIntegrationDetails url(@javax.annotation.Nonnull String url) {
     this.url = url;
+    this.markPropertyAsSet(SERIALIZED_NAME_URL);
     return this;
   }
 
@@ -377,11 +398,13 @@ public class WebhookWithOutgoingIntegrationDetails {
 
   public void setUrl(@javax.annotation.Nonnull String url) {
     this.url = url;
+    this.markPropertyAsSet(SERIALIZED_NAME_URL);
   }
 
 
   public WebhookWithOutgoingIntegrationDetails headers(@javax.annotation.Nonnull List<String> headers) {
     this.headers = headers;
+    this.markPropertyAsSet(SERIALIZED_NAME_HEADERS);
     return this;
   }
 
@@ -390,6 +413,7 @@ public class WebhookWithOutgoingIntegrationDetails {
       this.headers = new ArrayList<>();
     }
     this.headers.add(headersItem);
+    this.markPropertyAsSet(SERIALIZED_NAME_HEADERS);
     return this;
   }
 
@@ -404,11 +428,13 @@ public class WebhookWithOutgoingIntegrationDetails {
 
   public void setHeaders(@javax.annotation.Nonnull List<String> headers) {
     this.headers = headers;
+    this.markPropertyAsSet(SERIALIZED_NAME_HEADERS);
   }
 
 
   public WebhookWithOutgoingIntegrationDetails payload(@javax.annotation.Nullable String payload) {
     this.payload = payload;
+    this.markPropertyAsSet(SERIALIZED_NAME_PAYLOAD);
     return this;
   }
 
@@ -423,11 +449,13 @@ public class WebhookWithOutgoingIntegrationDetails {
 
   public void setPayload(@javax.annotation.Nullable String payload) {
     this.payload = payload;
+    this.markPropertyAsSet(SERIALIZED_NAME_PAYLOAD);
   }
 
 
   public WebhookWithOutgoingIntegrationDetails params(@javax.annotation.Nonnull List<TemplateArgDef> params) {
     this.params = params;
+    this.markPropertyAsSet(SERIALIZED_NAME_PARAMS);
     return this;
   }
 
@@ -436,6 +464,7 @@ public class WebhookWithOutgoingIntegrationDetails {
       this.params = new ArrayList<>();
     }
     this.params.add(paramsItem);
+    this.markPropertyAsSet(SERIALIZED_NAME_PARAMS);
     return this;
   }
 
@@ -450,11 +479,13 @@ public class WebhookWithOutgoingIntegrationDetails {
 
   public void setParams(@javax.annotation.Nonnull List<TemplateArgDef> params) {
     this.params = params;
+    this.markPropertyAsSet(SERIALIZED_NAME_PARAMS);
   }
 
 
   public WebhookWithOutgoingIntegrationDetails enabled(@javax.annotation.Nonnull Boolean enabled) {
     this.enabled = enabled;
+    this.markPropertyAsSet(SERIALIZED_NAME_ENABLED);
     return this;
   }
 
@@ -469,11 +500,13 @@ public class WebhookWithOutgoingIntegrationDetails {
 
   public void setEnabled(@javax.annotation.Nonnull Boolean enabled) {
     this.enabled = enabled;
+    this.markPropertyAsSet(SERIALIZED_NAME_ENABLED);
   }
 
 
   public WebhookWithOutgoingIntegrationDetails authenticationId(@javax.annotation.Nullable Long authenticationId) {
     this.authenticationId = authenticationId;
+    this.markPropertyAsSet(SERIALIZED_NAME_AUTHENTICATION_ID);
     return this;
   }
 
@@ -488,11 +521,13 @@ public class WebhookWithOutgoingIntegrationDetails {
 
   public void setAuthenticationId(@javax.annotation.Nullable Long authenticationId) {
     this.authenticationId = authenticationId;
+    this.markPropertyAsSet(SERIALIZED_NAME_AUTHENTICATION_ID);
   }
 
 
   public WebhookWithOutgoingIntegrationDetails outgoingIntegrationTemplateId(@javax.annotation.Nullable Long outgoingIntegrationTemplateId) {
     this.outgoingIntegrationTemplateId = outgoingIntegrationTemplateId;
+    this.markPropertyAsSet(SERIALIZED_NAME_OUTGOING_INTEGRATION_TEMPLATE_ID);
     return this;
   }
 
@@ -507,11 +542,13 @@ public class WebhookWithOutgoingIntegrationDetails {
 
   public void setOutgoingIntegrationTemplateId(@javax.annotation.Nullable Long outgoingIntegrationTemplateId) {
     this.outgoingIntegrationTemplateId = outgoingIntegrationTemplateId;
+    this.markPropertyAsSet(SERIALIZED_NAME_OUTGOING_INTEGRATION_TEMPLATE_ID);
   }
 
 
   public WebhookWithOutgoingIntegrationDetails outgoingIntegrationTypeId(@javax.annotation.Nullable Long outgoingIntegrationTypeId) {
     this.outgoingIntegrationTypeId = outgoingIntegrationTypeId;
+    this.markPropertyAsSet(SERIALIZED_NAME_OUTGOING_INTEGRATION_TYPE_ID);
     return this;
   }
 
@@ -526,11 +563,13 @@ public class WebhookWithOutgoingIntegrationDetails {
 
   public void setOutgoingIntegrationTypeId(@javax.annotation.Nullable Long outgoingIntegrationTypeId) {
     this.outgoingIntegrationTypeId = outgoingIntegrationTypeId;
+    this.markPropertyAsSet(SERIALIZED_NAME_OUTGOING_INTEGRATION_TYPE_ID);
   }
 
 
   public WebhookWithOutgoingIntegrationDetails outgoingIntegrationTypeName(@javax.annotation.Nullable String outgoingIntegrationTypeName) {
     this.outgoingIntegrationTypeName = outgoingIntegrationTypeName;
+    this.markPropertyAsSet(SERIALIZED_NAME_OUTGOING_INTEGRATION_TYPE_NAME);
     return this;
   }
 
@@ -545,6 +584,7 @@ public class WebhookWithOutgoingIntegrationDetails {
 
   public void setOutgoingIntegrationTypeName(@javax.annotation.Nullable String outgoingIntegrationTypeName) {
     this.outgoingIntegrationTypeName = outgoingIntegrationTypeName;
+    this.markPropertyAsSet(SERIALIZED_NAME_OUTGOING_INTEGRATION_TYPE_NAME);
   }
 
   /**
@@ -590,6 +630,21 @@ public class WebhookWithOutgoingIntegrationDetails {
         return null;
     }
     return this.additionalProperties.get(key);
+  }
+
+  /** Omit null properties unless they were explicitly assigned or present in JSON input. */
+  protected final void removeUnsetNullFields(JsonObject obj) {
+    obj.entrySet().removeIf(entry -> entry.getValue().isJsonNull()
+        && !openapiExplicitlySetFields.contains(entry.getKey()));
+  }
+
+  protected final void markPropertyAsSet(String propertyName) {
+    openapiExplicitlySetFields.add(propertyName);
+  }
+
+  /** Gson populates fields directly, bypassing setters during deserialization. */
+  protected final void markPropertiesAsSet(Set<String> propertyNames) {
+    openapiExplicitlySetFields.addAll(propertyNames);
   }
 
 
@@ -742,7 +797,7 @@ public class WebhookWithOutgoingIntegrationDetails {
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
        if (!WebhookWithOutgoingIntegrationDetails.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'WebhookWithOutgoingIntegrationDetails' and its subtypes
+         return null; // let other model factories handle this type
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
        final TypeAdapter<WebhookWithOutgoingIntegrationDetails> thisAdapter
@@ -752,31 +807,22 @@ public class WebhookWithOutgoingIntegrationDetails {
            @Override
            public void write(JsonWriter out, WebhookWithOutgoingIntegrationDetails value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+             value.removeUnsetNullFields(obj);
              obj.remove("additionalProperties");
              // serialize additional properties
              if (value.getAdditionalProperties() != null) {
                for (Map.Entry<String, Object> entry : value.getAdditionalProperties().entrySet()) {
-                 if (entry.getValue() instanceof String)
-                   obj.addProperty(entry.getKey(), (String) entry.getValue());
-                 else if (entry.getValue() instanceof Number)
-                   obj.addProperty(entry.getKey(), (Number) entry.getValue());
-                 else if (entry.getValue() instanceof Boolean)
-                   obj.addProperty(entry.getKey(), (Boolean) entry.getValue());
-                 else if (entry.getValue() instanceof Character)
-                   obj.addProperty(entry.getKey(), (Character) entry.getValue());
-                 else {
-                   JsonElement jsonElement = gson.toJsonTree(entry.getValue());
-                   if (jsonElement.isJsonNull()) {
-                     obj.add(entry.getKey(), JsonNull.INSTANCE);
-                   } else if (jsonElement.isJsonArray()) {
-                     obj.add(entry.getKey(), jsonElement.getAsJsonArray());
-                   } else {
-                     obj.add(entry.getKey(), jsonElement.getAsJsonObject());
-                   }
-                 }
+                 // TypeAdapter.toJsonTree keeps explicit null entries in arbitrary maps too.
+                 obj.add(entry.getKey(), gson.getAdapter(Object.class).toJsonTree(entry.getValue()));
                }
              }
-             elementAdapter.write(out, obj);
+             boolean originalSerializeNulls = out.getSerializeNulls();
+             try {
+               out.setSerializeNulls(true);
+               elementAdapter.write(out, obj);
+             } finally {
+               out.setSerializeNulls(originalSerializeNulls);
+             }
            }
 
            @Override
@@ -786,6 +832,7 @@ public class WebhookWithOutgoingIntegrationDetails {
              JsonObject jsonObj = jsonElement.getAsJsonObject();
              // store additional fields in the deserialized instance
              WebhookWithOutgoingIntegrationDetails instance = thisAdapter.fromJsonTree(jsonObj);
+             instance.markPropertiesAsSet(jsonObj.keySet());
              for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
                if (!openapiFields.contains(entry.getKey())) {
                  if (entry.getValue().isJsonPrimitive()) { // primitive type

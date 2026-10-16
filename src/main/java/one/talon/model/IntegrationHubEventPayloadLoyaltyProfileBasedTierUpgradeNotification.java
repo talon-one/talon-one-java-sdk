@@ -52,6 +52,9 @@ import one.talon.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.26.0")
 public class IntegrationHubEventPayloadLoyaltyProfileBasedTierUpgradeNotification {
+  // Gson ignores transient state; only setters and JSON input mark properties as present.
+  private transient Set<String> openapiExplicitlySetFields = new HashSet<>();
+
   public static final String SERIALIZED_NAME_EVENT_ID = "EventId";
   @SerializedName(SERIALIZED_NAME_EVENT_ID)
   @javax.annotation.Nonnull
@@ -127,6 +130,7 @@ public class IntegrationHubEventPayloadLoyaltyProfileBasedTierUpgradeNotificatio
 
   public IntegrationHubEventPayloadLoyaltyProfileBasedTierUpgradeNotification eventId(@javax.annotation.Nonnull Long eventId) {
     this.eventId = eventId;
+    this.markPropertyAsSet(SERIALIZED_NAME_EVENT_ID);
     return this;
   }
 
@@ -141,11 +145,13 @@ public class IntegrationHubEventPayloadLoyaltyProfileBasedTierUpgradeNotificatio
 
   public void setEventId(@javax.annotation.Nonnull Long eventId) {
     this.eventId = eventId;
+    this.markPropertyAsSet(SERIALIZED_NAME_EVENT_ID);
   }
 
 
   public IntegrationHubEventPayloadLoyaltyProfileBasedTierUpgradeNotification profileIntegrationID(@javax.annotation.Nonnull String profileIntegrationID) {
     this.profileIntegrationID = profileIntegrationID;
+    this.markPropertyAsSet(SERIALIZED_NAME_PROFILE_INTEGRATION_I_D);
     return this;
   }
 
@@ -160,11 +166,13 @@ public class IntegrationHubEventPayloadLoyaltyProfileBasedTierUpgradeNotificatio
 
   public void setProfileIntegrationID(@javax.annotation.Nonnull String profileIntegrationID) {
     this.profileIntegrationID = profileIntegrationID;
+    this.markPropertyAsSet(SERIALIZED_NAME_PROFILE_INTEGRATION_I_D);
   }
 
 
   public IntegrationHubEventPayloadLoyaltyProfileBasedTierUpgradeNotification loyaltyProgramID(@javax.annotation.Nonnull Long loyaltyProgramID) {
     this.loyaltyProgramID = loyaltyProgramID;
+    this.markPropertyAsSet(SERIALIZED_NAME_LOYALTY_PROGRAM_I_D);
     return this;
   }
 
@@ -179,11 +187,13 @@ public class IntegrationHubEventPayloadLoyaltyProfileBasedTierUpgradeNotificatio
 
   public void setLoyaltyProgramID(@javax.annotation.Nonnull Long loyaltyProgramID) {
     this.loyaltyProgramID = loyaltyProgramID;
+    this.markPropertyAsSet(SERIALIZED_NAME_LOYALTY_PROGRAM_I_D);
   }
 
 
   public IntegrationHubEventPayloadLoyaltyProfileBasedTierUpgradeNotification loyaltyProgramName(@javax.annotation.Nonnull String loyaltyProgramName) {
     this.loyaltyProgramName = loyaltyProgramName;
+    this.markPropertyAsSet(SERIALIZED_NAME_LOYALTY_PROGRAM_NAME);
     return this;
   }
 
@@ -198,11 +208,13 @@ public class IntegrationHubEventPayloadLoyaltyProfileBasedTierUpgradeNotificatio
 
   public void setLoyaltyProgramName(@javax.annotation.Nonnull String loyaltyProgramName) {
     this.loyaltyProgramName = loyaltyProgramName;
+    this.markPropertyAsSet(SERIALIZED_NAME_LOYALTY_PROGRAM_NAME);
   }
 
 
   public IntegrationHubEventPayloadLoyaltyProfileBasedTierUpgradeNotification subledgerID(@javax.annotation.Nonnull String subledgerID) {
     this.subledgerID = subledgerID;
+    this.markPropertyAsSet(SERIALIZED_NAME_SUBLEDGER_I_D);
     return this;
   }
 
@@ -217,11 +229,13 @@ public class IntegrationHubEventPayloadLoyaltyProfileBasedTierUpgradeNotificatio
 
   public void setSubledgerID(@javax.annotation.Nonnull String subledgerID) {
     this.subledgerID = subledgerID;
+    this.markPropertyAsSet(SERIALIZED_NAME_SUBLEDGER_I_D);
   }
 
 
   public IntegrationHubEventPayloadLoyaltyProfileBasedTierUpgradeNotification sourceOfEvent(@javax.annotation.Nonnull String sourceOfEvent) {
     this.sourceOfEvent = sourceOfEvent;
+    this.markPropertyAsSet(SERIALIZED_NAME_SOURCE_OF_EVENT);
     return this;
   }
 
@@ -236,11 +250,13 @@ public class IntegrationHubEventPayloadLoyaltyProfileBasedTierUpgradeNotificatio
 
   public void setSourceOfEvent(@javax.annotation.Nonnull String sourceOfEvent) {
     this.sourceOfEvent = sourceOfEvent;
+    this.markPropertyAsSet(SERIALIZED_NAME_SOURCE_OF_EVENT);
   }
 
 
   public IntegrationHubEventPayloadLoyaltyProfileBasedTierUpgradeNotification currentTier(@javax.annotation.Nonnull String currentTier) {
     this.currentTier = currentTier;
+    this.markPropertyAsSet(SERIALIZED_NAME_CURRENT_TIER);
     return this;
   }
 
@@ -255,11 +271,13 @@ public class IntegrationHubEventPayloadLoyaltyProfileBasedTierUpgradeNotificatio
 
   public void setCurrentTier(@javax.annotation.Nonnull String currentTier) {
     this.currentTier = currentTier;
+    this.markPropertyAsSet(SERIALIZED_NAME_CURRENT_TIER);
   }
 
 
   public IntegrationHubEventPayloadLoyaltyProfileBasedTierUpgradeNotification currentPoints(@javax.annotation.Nonnull Float currentPoints) {
     this.currentPoints = currentPoints;
+    this.markPropertyAsSet(SERIALIZED_NAME_CURRENT_POINTS);
     return this;
   }
 
@@ -274,11 +292,13 @@ public class IntegrationHubEventPayloadLoyaltyProfileBasedTierUpgradeNotificatio
 
   public void setCurrentPoints(@javax.annotation.Nonnull Float currentPoints) {
     this.currentPoints = currentPoints;
+    this.markPropertyAsSet(SERIALIZED_NAME_CURRENT_POINTS);
   }
 
 
   public IntegrationHubEventPayloadLoyaltyProfileBasedTierUpgradeNotification oldTier(@javax.annotation.Nullable String oldTier) {
     this.oldTier = oldTier;
+    this.markPropertyAsSet(SERIALIZED_NAME_OLD_TIER);
     return this;
   }
 
@@ -293,11 +313,13 @@ public class IntegrationHubEventPayloadLoyaltyProfileBasedTierUpgradeNotificatio
 
   public void setOldTier(@javax.annotation.Nullable String oldTier) {
     this.oldTier = oldTier;
+    this.markPropertyAsSet(SERIALIZED_NAME_OLD_TIER);
   }
 
 
   public IntegrationHubEventPayloadLoyaltyProfileBasedTierUpgradeNotification pointsRequiredToTheNextTier(@javax.annotation.Nullable Float pointsRequiredToTheNextTier) {
     this.pointsRequiredToTheNextTier = pointsRequiredToTheNextTier;
+    this.markPropertyAsSet(SERIALIZED_NAME_POINTS_REQUIRED_TO_THE_NEXT_TIER);
     return this;
   }
 
@@ -312,11 +334,13 @@ public class IntegrationHubEventPayloadLoyaltyProfileBasedTierUpgradeNotificatio
 
   public void setPointsRequiredToTheNextTier(@javax.annotation.Nullable Float pointsRequiredToTheNextTier) {
     this.pointsRequiredToTheNextTier = pointsRequiredToTheNextTier;
+    this.markPropertyAsSet(SERIALIZED_NAME_POINTS_REQUIRED_TO_THE_NEXT_TIER);
   }
 
 
   public IntegrationHubEventPayloadLoyaltyProfileBasedTierUpgradeNotification nextTier(@javax.annotation.Nullable String nextTier) {
     this.nextTier = nextTier;
+    this.markPropertyAsSet(SERIALIZED_NAME_NEXT_TIER);
     return this;
   }
 
@@ -331,11 +355,13 @@ public class IntegrationHubEventPayloadLoyaltyProfileBasedTierUpgradeNotificatio
 
   public void setNextTier(@javax.annotation.Nullable String nextTier) {
     this.nextTier = nextTier;
+    this.markPropertyAsSet(SERIALIZED_NAME_NEXT_TIER);
   }
 
 
   public IntegrationHubEventPayloadLoyaltyProfileBasedTierUpgradeNotification tierExpirationDate(@javax.annotation.Nullable OffsetDateTime tierExpirationDate) {
     this.tierExpirationDate = tierExpirationDate;
+    this.markPropertyAsSet(SERIALIZED_NAME_TIER_EXPIRATION_DATE);
     return this;
   }
 
@@ -350,11 +376,13 @@ public class IntegrationHubEventPayloadLoyaltyProfileBasedTierUpgradeNotificatio
 
   public void setTierExpirationDate(@javax.annotation.Nullable OffsetDateTime tierExpirationDate) {
     this.tierExpirationDate = tierExpirationDate;
+    this.markPropertyAsSet(SERIALIZED_NAME_TIER_EXPIRATION_DATE);
   }
 
 
   public IntegrationHubEventPayloadLoyaltyProfileBasedTierUpgradeNotification timestampOfTierChange(@javax.annotation.Nullable OffsetDateTime timestampOfTierChange) {
     this.timestampOfTierChange = timestampOfTierChange;
+    this.markPropertyAsSet(SERIALIZED_NAME_TIMESTAMP_OF_TIER_CHANGE);
     return this;
   }
 
@@ -369,11 +397,13 @@ public class IntegrationHubEventPayloadLoyaltyProfileBasedTierUpgradeNotificatio
 
   public void setTimestampOfTierChange(@javax.annotation.Nullable OffsetDateTime timestampOfTierChange) {
     this.timestampOfTierChange = timestampOfTierChange;
+    this.markPropertyAsSet(SERIALIZED_NAME_TIMESTAMP_OF_TIER_CHANGE);
   }
 
 
   public IntegrationHubEventPayloadLoyaltyProfileBasedTierUpgradeNotification publishedAt(@javax.annotation.Nonnull OffsetDateTime publishedAt) {
     this.publishedAt = publishedAt;
+    this.markPropertyAsSet(SERIALIZED_NAME_PUBLISHED_AT);
     return this;
   }
 
@@ -388,6 +418,7 @@ public class IntegrationHubEventPayloadLoyaltyProfileBasedTierUpgradeNotificatio
 
   public void setPublishedAt(@javax.annotation.Nonnull OffsetDateTime publishedAt) {
     this.publishedAt = publishedAt;
+    this.markPropertyAsSet(SERIALIZED_NAME_PUBLISHED_AT);
   }
 
   /**
@@ -433,6 +464,21 @@ public class IntegrationHubEventPayloadLoyaltyProfileBasedTierUpgradeNotificatio
         return null;
     }
     return this.additionalProperties.get(key);
+  }
+
+  /** Omit null properties unless they were explicitly assigned or present in JSON input. */
+  protected final void removeUnsetNullFields(JsonObject obj) {
+    obj.entrySet().removeIf(entry -> entry.getValue().isJsonNull()
+        && !openapiExplicitlySetFields.contains(entry.getKey()));
+  }
+
+  protected final void markPropertyAsSet(String propertyName) {
+    openapiExplicitlySetFields.add(propertyName);
+  }
+
+  /** Gson populates fields directly, bypassing setters during deserialization. */
+  protected final void markPropertiesAsSet(Set<String> propertyNames) {
+    openapiExplicitlySetFields.addAll(propertyNames);
   }
 
 
@@ -558,7 +604,7 @@ public class IntegrationHubEventPayloadLoyaltyProfileBasedTierUpgradeNotificatio
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
        if (!IntegrationHubEventPayloadLoyaltyProfileBasedTierUpgradeNotification.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'IntegrationHubEventPayloadLoyaltyProfileBasedTierUpgradeNotification' and its subtypes
+         return null; // let other model factories handle this type
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
        final TypeAdapter<IntegrationHubEventPayloadLoyaltyProfileBasedTierUpgradeNotification> thisAdapter
@@ -568,31 +614,22 @@ public class IntegrationHubEventPayloadLoyaltyProfileBasedTierUpgradeNotificatio
            @Override
            public void write(JsonWriter out, IntegrationHubEventPayloadLoyaltyProfileBasedTierUpgradeNotification value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+             value.removeUnsetNullFields(obj);
              obj.remove("additionalProperties");
              // serialize additional properties
              if (value.getAdditionalProperties() != null) {
                for (Map.Entry<String, Object> entry : value.getAdditionalProperties().entrySet()) {
-                 if (entry.getValue() instanceof String)
-                   obj.addProperty(entry.getKey(), (String) entry.getValue());
-                 else if (entry.getValue() instanceof Number)
-                   obj.addProperty(entry.getKey(), (Number) entry.getValue());
-                 else if (entry.getValue() instanceof Boolean)
-                   obj.addProperty(entry.getKey(), (Boolean) entry.getValue());
-                 else if (entry.getValue() instanceof Character)
-                   obj.addProperty(entry.getKey(), (Character) entry.getValue());
-                 else {
-                   JsonElement jsonElement = gson.toJsonTree(entry.getValue());
-                   if (jsonElement.isJsonNull()) {
-                     obj.add(entry.getKey(), JsonNull.INSTANCE);
-                   } else if (jsonElement.isJsonArray()) {
-                     obj.add(entry.getKey(), jsonElement.getAsJsonArray());
-                   } else {
-                     obj.add(entry.getKey(), jsonElement.getAsJsonObject());
-                   }
-                 }
+                 // TypeAdapter.toJsonTree keeps explicit null entries in arbitrary maps too.
+                 obj.add(entry.getKey(), gson.getAdapter(Object.class).toJsonTree(entry.getValue()));
                }
              }
-             elementAdapter.write(out, obj);
+             boolean originalSerializeNulls = out.getSerializeNulls();
+             try {
+               out.setSerializeNulls(true);
+               elementAdapter.write(out, obj);
+             } finally {
+               out.setSerializeNulls(originalSerializeNulls);
+             }
            }
 
            @Override
@@ -602,6 +639,7 @@ public class IntegrationHubEventPayloadLoyaltyProfileBasedTierUpgradeNotificatio
              JsonObject jsonObj = jsonElement.getAsJsonObject();
              // store additional fields in the deserialized instance
              IntegrationHubEventPayloadLoyaltyProfileBasedTierUpgradeNotification instance = thisAdapter.fromJsonTree(jsonObj);
+             instance.markPropertiesAsSet(jsonObj.keySet());
              for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
                if (!openapiFields.contains(entry.getKey())) {
                  if (entry.getValue().isJsonPrimitive()) { // primitive type

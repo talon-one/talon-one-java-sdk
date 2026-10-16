@@ -53,6 +53,9 @@ import one.talon.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.26.0")
 public class OutgoingIntegrationTemplate {
+  // Gson ignores transient state; only setters and JSON input mark properties as present.
+  private transient Set<String> openapiExplicitlySetFields = new HashSet<>();
+
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
   @javax.annotation.Nonnull
@@ -156,6 +159,7 @@ public class OutgoingIntegrationTemplate {
 
   public OutgoingIntegrationTemplate id(@javax.annotation.Nonnull Long id) {
     this.id = id;
+    this.markPropertyAsSet(SERIALIZED_NAME_ID);
     return this;
   }
 
@@ -170,11 +174,13 @@ public class OutgoingIntegrationTemplate {
 
   public void setId(@javax.annotation.Nonnull Long id) {
     this.id = id;
+    this.markPropertyAsSet(SERIALIZED_NAME_ID);
   }
 
 
   public OutgoingIntegrationTemplate integrationType(@javax.annotation.Nonnull Long integrationType) {
     this.integrationType = integrationType;
+    this.markPropertyAsSet(SERIALIZED_NAME_INTEGRATION_TYPE);
     return this;
   }
 
@@ -189,11 +195,13 @@ public class OutgoingIntegrationTemplate {
 
   public void setIntegrationType(@javax.annotation.Nonnull Long integrationType) {
     this.integrationType = integrationType;
+    this.markPropertyAsSet(SERIALIZED_NAME_INTEGRATION_TYPE);
   }
 
 
   public OutgoingIntegrationTemplate title(@javax.annotation.Nonnull String title) {
     this.title = title;
+    this.markPropertyAsSet(SERIALIZED_NAME_TITLE);
     return this;
   }
 
@@ -208,11 +216,13 @@ public class OutgoingIntegrationTemplate {
 
   public void setTitle(@javax.annotation.Nonnull String title) {
     this.title = title;
+    this.markPropertyAsSet(SERIALIZED_NAME_TITLE);
   }
 
 
   public OutgoingIntegrationTemplate description(@javax.annotation.Nonnull String description) {
     this.description = description;
+    this.markPropertyAsSet(SERIALIZED_NAME_DESCRIPTION);
     return this;
   }
 
@@ -227,11 +237,13 @@ public class OutgoingIntegrationTemplate {
 
   public void setDescription(@javax.annotation.Nonnull String description) {
     this.description = description;
+    this.markPropertyAsSet(SERIALIZED_NAME_DESCRIPTION);
   }
 
 
   public OutgoingIntegrationTemplate payload(@javax.annotation.Nonnull String payload) {
     this.payload = payload;
+    this.markPropertyAsSet(SERIALIZED_NAME_PAYLOAD);
     return this;
   }
 
@@ -246,11 +258,13 @@ public class OutgoingIntegrationTemplate {
 
   public void setPayload(@javax.annotation.Nonnull String payload) {
     this.payload = payload;
+    this.markPropertyAsSet(SERIALIZED_NAME_PAYLOAD);
   }
 
 
   public OutgoingIntegrationTemplate method(@javax.annotation.Nonnull MethodEnum method) {
     this.method = method;
+    this.markPropertyAsSet(SERIALIZED_NAME_METHOD);
     return this;
   }
 
@@ -265,11 +279,13 @@ public class OutgoingIntegrationTemplate {
 
   public void setMethod(@javax.annotation.Nonnull MethodEnum method) {
     this.method = method;
+    this.markPropertyAsSet(SERIALIZED_NAME_METHOD);
   }
 
 
   public OutgoingIntegrationTemplate relativeUrl(@javax.annotation.Nonnull String relativeUrl) {
     this.relativeUrl = relativeUrl;
+    this.markPropertyAsSet(SERIALIZED_NAME_RELATIVE_URL);
     return this;
   }
 
@@ -284,11 +300,13 @@ public class OutgoingIntegrationTemplate {
 
   public void setRelativeUrl(@javax.annotation.Nonnull String relativeUrl) {
     this.relativeUrl = relativeUrl;
+    this.markPropertyAsSet(SERIALIZED_NAME_RELATIVE_URL);
   }
 
 
   public OutgoingIntegrationTemplate headers(@javax.annotation.Nonnull List<String> headers) {
     this.headers = headers;
+    this.markPropertyAsSet(SERIALIZED_NAME_HEADERS);
     return this;
   }
 
@@ -297,6 +315,7 @@ public class OutgoingIntegrationTemplate {
       this.headers = new ArrayList<>();
     }
     this.headers.add(headersItem);
+    this.markPropertyAsSet(SERIALIZED_NAME_HEADERS);
     return this;
   }
 
@@ -311,6 +330,7 @@ public class OutgoingIntegrationTemplate {
 
   public void setHeaders(@javax.annotation.Nonnull List<String> headers) {
     this.headers = headers;
+    this.markPropertyAsSet(SERIALIZED_NAME_HEADERS);
   }
 
   /**
@@ -356,6 +376,21 @@ public class OutgoingIntegrationTemplate {
         return null;
     }
     return this.additionalProperties.get(key);
+  }
+
+  /** Omit null properties unless they were explicitly assigned or present in JSON input. */
+  protected final void removeUnsetNullFields(JsonObject obj) {
+    obj.entrySet().removeIf(entry -> entry.getValue().isJsonNull()
+        && !openapiExplicitlySetFields.contains(entry.getKey()));
+  }
+
+  protected final void markPropertyAsSet(String propertyName) {
+    openapiExplicitlySetFields.add(propertyName);
+  }
+
+  /** Gson populates fields directly, bypassing setters during deserialization. */
+  protected final void markPropertiesAsSet(Set<String> propertyNames) {
+    openapiExplicitlySetFields.addAll(propertyNames);
   }
 
 
@@ -471,7 +506,7 @@ public class OutgoingIntegrationTemplate {
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
        if (!OutgoingIntegrationTemplate.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'OutgoingIntegrationTemplate' and its subtypes
+         return null; // let other model factories handle this type
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
        final TypeAdapter<OutgoingIntegrationTemplate> thisAdapter
@@ -481,31 +516,22 @@ public class OutgoingIntegrationTemplate {
            @Override
            public void write(JsonWriter out, OutgoingIntegrationTemplate value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+             value.removeUnsetNullFields(obj);
              obj.remove("additionalProperties");
              // serialize additional properties
              if (value.getAdditionalProperties() != null) {
                for (Map.Entry<String, Object> entry : value.getAdditionalProperties().entrySet()) {
-                 if (entry.getValue() instanceof String)
-                   obj.addProperty(entry.getKey(), (String) entry.getValue());
-                 else if (entry.getValue() instanceof Number)
-                   obj.addProperty(entry.getKey(), (Number) entry.getValue());
-                 else if (entry.getValue() instanceof Boolean)
-                   obj.addProperty(entry.getKey(), (Boolean) entry.getValue());
-                 else if (entry.getValue() instanceof Character)
-                   obj.addProperty(entry.getKey(), (Character) entry.getValue());
-                 else {
-                   JsonElement jsonElement = gson.toJsonTree(entry.getValue());
-                   if (jsonElement.isJsonNull()) {
-                     obj.add(entry.getKey(), JsonNull.INSTANCE);
-                   } else if (jsonElement.isJsonArray()) {
-                     obj.add(entry.getKey(), jsonElement.getAsJsonArray());
-                   } else {
-                     obj.add(entry.getKey(), jsonElement.getAsJsonObject());
-                   }
-                 }
+                 // TypeAdapter.toJsonTree keeps explicit null entries in arbitrary maps too.
+                 obj.add(entry.getKey(), gson.getAdapter(Object.class).toJsonTree(entry.getValue()));
                }
              }
-             elementAdapter.write(out, obj);
+             boolean originalSerializeNulls = out.getSerializeNulls();
+             try {
+               out.setSerializeNulls(true);
+               elementAdapter.write(out, obj);
+             } finally {
+               out.setSerializeNulls(originalSerializeNulls);
+             }
            }
 
            @Override
@@ -515,6 +541,7 @@ public class OutgoingIntegrationTemplate {
              JsonObject jsonObj = jsonElement.getAsJsonObject();
              // store additional fields in the deserialized instance
              OutgoingIntegrationTemplate instance = thisAdapter.fromJsonTree(jsonObj);
+             instance.markPropertiesAsSet(jsonObj.keySet());
              for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
                if (!openapiFields.contains(entry.getKey())) {
                  if (entry.getValue().isJsonPrimitive()) { // primitive type

@@ -56,6 +56,9 @@ import one.talon.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.26.0")
 public class CreateReferralBlock {
+  // Gson ignores transient state; only setters and JSON input mark properties as present.
+  private transient Set<String> openapiExplicitlySetFields = new HashSet<>();
+
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
   @javax.annotation.Nullable
@@ -125,7 +128,9 @@ public class CreateReferralBlock {
   ) {
     this();
     this.id = id;
+    this.markPropertyAsSet(SERIALIZED_NAME_ID);
     this.tags = tags;
+    this.markPropertyAsSet(SERIALIZED_NAME_TAGS);
   }
 
   /**
@@ -141,6 +146,7 @@ public class CreateReferralBlock {
 
   public CreateReferralBlock type(@javax.annotation.Nonnull String type) {
     this.type = type;
+    this.markPropertyAsSet(SERIALIZED_NAME_TYPE);
     return this;
   }
 
@@ -155,6 +161,7 @@ public class CreateReferralBlock {
 
   public void setType(@javax.annotation.Nonnull String type) {
     this.type = type;
+    this.markPropertyAsSet(SERIALIZED_NAME_TYPE);
   }
 
 
@@ -171,6 +178,7 @@ public class CreateReferralBlock {
 
   public CreateReferralBlock campaignId(@javax.annotation.Nonnull CreateReferralBlock1CampaignId campaignId) {
     this.campaignId = campaignId;
+    this.markPropertyAsSet(SERIALIZED_NAME_CAMPAIGN_ID);
     return this;
   }
 
@@ -185,11 +193,13 @@ public class CreateReferralBlock {
 
   public void setCampaignId(@javax.annotation.Nonnull CreateReferralBlock1CampaignId campaignId) {
     this.campaignId = campaignId;
+    this.markPropertyAsSet(SERIALIZED_NAME_CAMPAIGN_ID);
   }
 
 
   public CreateReferralBlock friendId(@javax.annotation.Nonnull String friendId) {
     this.friendId = friendId;
+    this.markPropertyAsSet(SERIALIZED_NAME_FRIEND_ID);
     return this;
   }
 
@@ -204,11 +214,13 @@ public class CreateReferralBlock {
 
   public void setFriendId(@javax.annotation.Nonnull String friendId) {
     this.friendId = friendId;
+    this.markPropertyAsSet(SERIALIZED_NAME_FRIEND_ID);
   }
 
 
   public CreateReferralBlock storeInSession(@javax.annotation.Nonnull Boolean storeInSession) {
     this.storeInSession = storeInSession;
+    this.markPropertyAsSet(SERIALIZED_NAME_STORE_IN_SESSION);
     return this;
   }
 
@@ -223,11 +235,13 @@ public class CreateReferralBlock {
 
   public void setStoreInSession(@javax.annotation.Nonnull Boolean storeInSession) {
     this.storeInSession = storeInSession;
+    this.markPropertyAsSet(SERIALIZED_NAME_STORE_IN_SESSION);
   }
 
 
   public CreateReferralBlock usageLimit(@javax.annotation.Nullable CreateReferralBlock1UsageLimit usageLimit) {
     this.usageLimit = usageLimit;
+    this.markPropertyAsSet(SERIALIZED_NAME_USAGE_LIMIT);
     return this;
   }
 
@@ -242,11 +256,13 @@ public class CreateReferralBlock {
 
   public void setUsageLimit(@javax.annotation.Nullable CreateReferralBlock1UsageLimit usageLimit) {
     this.usageLimit = usageLimit;
+    this.markPropertyAsSet(SERIALIZED_NAME_USAGE_LIMIT);
   }
 
 
   public CreateReferralBlock startDate(@javax.annotation.Nullable Object startDate) {
     this.startDate = startDate;
+    this.markPropertyAsSet(SERIALIZED_NAME_START_DATE);
     return this;
   }
 
@@ -261,11 +277,13 @@ public class CreateReferralBlock {
 
   public void setStartDate(@javax.annotation.Nullable Object startDate) {
     this.startDate = startDate;
+    this.markPropertyAsSet(SERIALIZED_NAME_START_DATE);
   }
 
 
   public CreateReferralBlock expiryDate(@javax.annotation.Nullable Object expiryDate) {
     this.expiryDate = expiryDate;
+    this.markPropertyAsSet(SERIALIZED_NAME_EXPIRY_DATE);
     return this;
   }
 
@@ -280,11 +298,13 @@ public class CreateReferralBlock {
 
   public void setExpiryDate(@javax.annotation.Nullable Object expiryDate) {
     this.expiryDate = expiryDate;
+    this.markPropertyAsSet(SERIALIZED_NAME_EXPIRY_DATE);
   }
 
 
   public CreateReferralBlock attributes(@javax.annotation.Nullable Object attributes) {
     this.attributes = attributes;
+    this.markPropertyAsSet(SERIALIZED_NAME_ATTRIBUTES);
     return this;
   }
 
@@ -299,11 +319,13 @@ public class CreateReferralBlock {
 
   public void setAttributes(@javax.annotation.Nullable Object attributes) {
     this.attributes = attributes;
+    this.markPropertyAsSet(SERIALIZED_NAME_ATTRIBUTES);
   }
 
 
   public CreateReferralBlock validCharacters(@javax.annotation.Nullable String validCharacters) {
     this.validCharacters = validCharacters;
+    this.markPropertyAsSet(SERIALIZED_NAME_VALID_CHARACTERS);
     return this;
   }
 
@@ -318,11 +340,13 @@ public class CreateReferralBlock {
 
   public void setValidCharacters(@javax.annotation.Nullable String validCharacters) {
     this.validCharacters = validCharacters;
+    this.markPropertyAsSet(SERIALIZED_NAME_VALID_CHARACTERS);
   }
 
 
   public CreateReferralBlock pattern(@javax.annotation.Nullable String pattern) {
     this.pattern = pattern;
+    this.markPropertyAsSet(SERIALIZED_NAME_PATTERN);
     return this;
   }
 
@@ -337,6 +361,7 @@ public class CreateReferralBlock {
 
   public void setPattern(@javax.annotation.Nullable String pattern) {
     this.pattern = pattern;
+    this.markPropertyAsSet(SERIALIZED_NAME_PATTERN);
   }
 
   /**
@@ -382,6 +407,21 @@ public class CreateReferralBlock {
         return null;
     }
     return this.additionalProperties.get(key);
+  }
+
+  /** Omit null properties unless they were explicitly assigned or present in JSON input. */
+  protected final void removeUnsetNullFields(JsonObject obj) {
+    obj.entrySet().removeIf(entry -> entry.getValue().isJsonNull()
+        && !openapiExplicitlySetFields.contains(entry.getKey()));
+  }
+
+  protected final void markPropertyAsSet(String propertyName) {
+    openapiExplicitlySetFields.add(propertyName);
+  }
+
+  /** Gson populates fields directly, bypassing setters during deserialization. */
+  protected final void markPropertiesAsSet(Set<String> propertyNames) {
+    openapiExplicitlySetFields.addAll(propertyNames);
   }
 
 
@@ -518,7 +558,7 @@ public class CreateReferralBlock {
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
        if (!CreateReferralBlock.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'CreateReferralBlock' and its subtypes
+         return null; // let other model factories handle this type
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
        final TypeAdapter<CreateReferralBlock> thisAdapter
@@ -528,31 +568,22 @@ public class CreateReferralBlock {
            @Override
            public void write(JsonWriter out, CreateReferralBlock value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+             value.removeUnsetNullFields(obj);
              obj.remove("additionalProperties");
              // serialize additional properties
              if (value.getAdditionalProperties() != null) {
                for (Map.Entry<String, Object> entry : value.getAdditionalProperties().entrySet()) {
-                 if (entry.getValue() instanceof String)
-                   obj.addProperty(entry.getKey(), (String) entry.getValue());
-                 else if (entry.getValue() instanceof Number)
-                   obj.addProperty(entry.getKey(), (Number) entry.getValue());
-                 else if (entry.getValue() instanceof Boolean)
-                   obj.addProperty(entry.getKey(), (Boolean) entry.getValue());
-                 else if (entry.getValue() instanceof Character)
-                   obj.addProperty(entry.getKey(), (Character) entry.getValue());
-                 else {
-                   JsonElement jsonElement = gson.toJsonTree(entry.getValue());
-                   if (jsonElement.isJsonNull()) {
-                     obj.add(entry.getKey(), JsonNull.INSTANCE);
-                   } else if (jsonElement.isJsonArray()) {
-                     obj.add(entry.getKey(), jsonElement.getAsJsonArray());
-                   } else {
-                     obj.add(entry.getKey(), jsonElement.getAsJsonObject());
-                   }
-                 }
+                 // TypeAdapter.toJsonTree keeps explicit null entries in arbitrary maps too.
+                 obj.add(entry.getKey(), gson.getAdapter(Object.class).toJsonTree(entry.getValue()));
                }
              }
-             elementAdapter.write(out, obj);
+             boolean originalSerializeNulls = out.getSerializeNulls();
+             try {
+               out.setSerializeNulls(true);
+               elementAdapter.write(out, obj);
+             } finally {
+               out.setSerializeNulls(originalSerializeNulls);
+             }
            }
 
            @Override
@@ -562,6 +593,7 @@ public class CreateReferralBlock {
              JsonObject jsonObj = jsonElement.getAsJsonObject();
              // store additional fields in the deserialized instance
              CreateReferralBlock instance = thisAdapter.fromJsonTree(jsonObj);
+             instance.markPropertiesAsSet(jsonObj.keySet());
              for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
                if (!openapiFields.contains(entry.getKey())) {
                  if (entry.getValue().isJsonPrimitive()) { // primitive type

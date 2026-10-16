@@ -52,6 +52,9 @@ import one.talon.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.26.0")
 public class NewMCPKey {
+  // Gson ignores transient state; only setters and JSON input mark properties as present.
+  private transient Set<String> openapiExplicitlySetFields = new HashSet<>();
+
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
   @javax.annotation.Nonnull
@@ -102,6 +105,7 @@ public class NewMCPKey {
 
   public NewMCPKey name(@javax.annotation.Nonnull String name) {
     this.name = name;
+    this.markPropertyAsSet(SERIALIZED_NAME_NAME);
     return this;
   }
 
@@ -116,11 +120,13 @@ public class NewMCPKey {
 
   public void setName(@javax.annotation.Nonnull String name) {
     this.name = name;
+    this.markPropertyAsSet(SERIALIZED_NAME_NAME);
   }
 
 
   public NewMCPKey expiryDate(@javax.annotation.Nonnull OffsetDateTime expiryDate) {
     this.expiryDate = expiryDate;
+    this.markPropertyAsSet(SERIALIZED_NAME_EXPIRY_DATE);
     return this;
   }
 
@@ -135,11 +141,13 @@ public class NewMCPKey {
 
   public void setExpiryDate(@javax.annotation.Nonnull OffsetDateTime expiryDate) {
     this.expiryDate = expiryDate;
+    this.markPropertyAsSet(SERIALIZED_NAME_EXPIRY_DATE);
   }
 
 
   public NewMCPKey id(@javax.annotation.Nonnull Long id) {
     this.id = id;
+    this.markPropertyAsSet(SERIALIZED_NAME_ID);
     return this;
   }
 
@@ -154,11 +162,13 @@ public class NewMCPKey {
 
   public void setId(@javax.annotation.Nonnull Long id) {
     this.id = id;
+    this.markPropertyAsSet(SERIALIZED_NAME_ID);
   }
 
 
   public NewMCPKey createdBy(@javax.annotation.Nonnull Long createdBy) {
     this.createdBy = createdBy;
+    this.markPropertyAsSet(SERIALIZED_NAME_CREATED_BY);
     return this;
   }
 
@@ -173,11 +183,13 @@ public class NewMCPKey {
 
   public void setCreatedBy(@javax.annotation.Nonnull Long createdBy) {
     this.createdBy = createdBy;
+    this.markPropertyAsSet(SERIALIZED_NAME_CREATED_BY);
   }
 
 
   public NewMCPKey accountID(@javax.annotation.Nonnull Long accountID) {
     this.accountID = accountID;
+    this.markPropertyAsSet(SERIALIZED_NAME_ACCOUNT_I_D);
     return this;
   }
 
@@ -192,11 +204,13 @@ public class NewMCPKey {
 
   public void setAccountID(@javax.annotation.Nonnull Long accountID) {
     this.accountID = accountID;
+    this.markPropertyAsSet(SERIALIZED_NAME_ACCOUNT_I_D);
   }
 
 
   public NewMCPKey created(@javax.annotation.Nonnull OffsetDateTime created) {
     this.created = created;
+    this.markPropertyAsSet(SERIALIZED_NAME_CREATED);
     return this;
   }
 
@@ -211,11 +225,13 @@ public class NewMCPKey {
 
   public void setCreated(@javax.annotation.Nonnull OffsetDateTime created) {
     this.created = created;
+    this.markPropertyAsSet(SERIALIZED_NAME_CREATED);
   }
 
 
   public NewMCPKey disabled(@javax.annotation.Nullable Boolean disabled) {
     this.disabled = disabled;
+    this.markPropertyAsSet(SERIALIZED_NAME_DISABLED);
     return this;
   }
 
@@ -230,11 +246,13 @@ public class NewMCPKey {
 
   public void setDisabled(@javax.annotation.Nullable Boolean disabled) {
     this.disabled = disabled;
+    this.markPropertyAsSet(SERIALIZED_NAME_DISABLED);
   }
 
 
   public NewMCPKey lastUsed(@javax.annotation.Nullable OffsetDateTime lastUsed) {
     this.lastUsed = lastUsed;
+    this.markPropertyAsSet(SERIALIZED_NAME_LAST_USED);
     return this;
   }
 
@@ -249,11 +267,13 @@ public class NewMCPKey {
 
   public void setLastUsed(@javax.annotation.Nullable OffsetDateTime lastUsed) {
     this.lastUsed = lastUsed;
+    this.markPropertyAsSet(SERIALIZED_NAME_LAST_USED);
   }
 
 
   public NewMCPKey key(@javax.annotation.Nonnull String key) {
     this.key = key;
+    this.markPropertyAsSet(SERIALIZED_NAME_KEY);
     return this;
   }
 
@@ -268,6 +288,7 @@ public class NewMCPKey {
 
   public void setKey(@javax.annotation.Nonnull String key) {
     this.key = key;
+    this.markPropertyAsSet(SERIALIZED_NAME_KEY);
   }
 
   /**
@@ -313,6 +334,21 @@ public class NewMCPKey {
         return null;
     }
     return this.additionalProperties.get(key);
+  }
+
+  /** Omit null properties unless they were explicitly assigned or present in JSON input. */
+  protected final void removeUnsetNullFields(JsonObject obj) {
+    obj.entrySet().removeIf(entry -> entry.getValue().isJsonNull()
+        && !openapiExplicitlySetFields.contains(entry.getKey()));
+  }
+
+  protected final void markPropertyAsSet(String propertyName) {
+    openapiExplicitlySetFields.add(propertyName);
+  }
+
+  /** Gson populates fields directly, bypassing setters during deserialization. */
+  protected final void markPropertiesAsSet(Set<String> propertyNames) {
+    openapiExplicitlySetFields.addAll(propertyNames);
   }
 
 
@@ -413,7 +449,7 @@ public class NewMCPKey {
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
        if (!NewMCPKey.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'NewMCPKey' and its subtypes
+         return null; // let other model factories handle this type
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
        final TypeAdapter<NewMCPKey> thisAdapter
@@ -423,31 +459,22 @@ public class NewMCPKey {
            @Override
            public void write(JsonWriter out, NewMCPKey value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+             value.removeUnsetNullFields(obj);
              obj.remove("additionalProperties");
              // serialize additional properties
              if (value.getAdditionalProperties() != null) {
                for (Map.Entry<String, Object> entry : value.getAdditionalProperties().entrySet()) {
-                 if (entry.getValue() instanceof String)
-                   obj.addProperty(entry.getKey(), (String) entry.getValue());
-                 else if (entry.getValue() instanceof Number)
-                   obj.addProperty(entry.getKey(), (Number) entry.getValue());
-                 else if (entry.getValue() instanceof Boolean)
-                   obj.addProperty(entry.getKey(), (Boolean) entry.getValue());
-                 else if (entry.getValue() instanceof Character)
-                   obj.addProperty(entry.getKey(), (Character) entry.getValue());
-                 else {
-                   JsonElement jsonElement = gson.toJsonTree(entry.getValue());
-                   if (jsonElement.isJsonNull()) {
-                     obj.add(entry.getKey(), JsonNull.INSTANCE);
-                   } else if (jsonElement.isJsonArray()) {
-                     obj.add(entry.getKey(), jsonElement.getAsJsonArray());
-                   } else {
-                     obj.add(entry.getKey(), jsonElement.getAsJsonObject());
-                   }
-                 }
+                 // TypeAdapter.toJsonTree keeps explicit null entries in arbitrary maps too.
+                 obj.add(entry.getKey(), gson.getAdapter(Object.class).toJsonTree(entry.getValue()));
                }
              }
-             elementAdapter.write(out, obj);
+             boolean originalSerializeNulls = out.getSerializeNulls();
+             try {
+               out.setSerializeNulls(true);
+               elementAdapter.write(out, obj);
+             } finally {
+               out.setSerializeNulls(originalSerializeNulls);
+             }
            }
 
            @Override
@@ -457,6 +484,7 @@ public class NewMCPKey {
              JsonObject jsonObj = jsonElement.getAsJsonObject();
              // store additional fields in the deserialized instance
              NewMCPKey instance = thisAdapter.fromJsonTree(jsonObj);
+             instance.markPropertiesAsSet(jsonObj.keySet());
              for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
                if (!openapiFields.contains(entry.getKey())) {
                  if (entry.getValue().isJsonPrimitive()) { // primitive type

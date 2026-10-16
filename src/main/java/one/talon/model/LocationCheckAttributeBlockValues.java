@@ -66,14 +66,24 @@ public class LocationCheckAttributeBlockValues extends AbstractOpenApiSchema {
             final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
 
             final Type typeInstanceListLocationCheckAttributeBlockValuesOneOfInner = new TypeToken<List<LocationCheckAttributeBlockValuesOneOfInner>>(){}.getType();
-            final TypeAdapter<List<LocationCheckAttributeBlockValuesOneOfInner>> adapterListLocationCheckAttributeBlockValuesOneOfInner = (TypeAdapter<List<LocationCheckAttributeBlockValuesOneOfInner>>) gson.getDelegateAdapter(this, TypeToken.get(typeInstanceListLocationCheckAttributeBlockValuesOneOfInner));
-            final TypeAdapter<String> adapterString = gson.getDelegateAdapter(this, TypeToken.get(String.class));
+            final TypeAdapter<List<LocationCheckAttributeBlockValuesOneOfInner>> adapterListLocationCheckAttributeBlockValuesOneOfInner = (TypeAdapter<List<LocationCheckAttributeBlockValuesOneOfInner>>) gson.getAdapter(TypeToken.get(typeInstanceListLocationCheckAttributeBlockValuesOneOfInner));
+            final TypeAdapter<String> adapterString = gson.getAdapter(TypeToken.get(String.class));
 
             return (TypeAdapter<T>) new TypeAdapter<LocationCheckAttributeBlockValues>() {
+                private void writeJsonElement(JsonWriter out, JsonElement value) throws IOException {
+                    boolean originalSerializeNulls = out.getSerializeNulls();
+                    try {
+                        out.setSerializeNulls(true);
+                        elementAdapter.write(out, value);
+                    } finally {
+                        out.setSerializeNulls(originalSerializeNulls);
+                    }
+                }
+
                 @Override
                 public void write(JsonWriter out, LocationCheckAttributeBlockValues value) throws IOException {
                     if (value == null || value.getActualInstance() == null) {
-                        elementAdapter.write(out, null);
+                        writeJsonElement(out, null);
                         return;
                     }
 
@@ -82,14 +92,14 @@ public class LocationCheckAttributeBlockValues extends AbstractOpenApiSchema {
                         List<?> list = (List<?>) value.getActualInstance();
                         if (!list.isEmpty() && list.get(0) instanceof LocationCheckAttributeBlockValuesOneOfInner) {
                             JsonArray array = adapterListLocationCheckAttributeBlockValuesOneOfInner.toJsonTree((List<LocationCheckAttributeBlockValuesOneOfInner>)value.getActualInstance()).getAsJsonArray();
-                            elementAdapter.write(out, array);
+                            writeJsonElement(out, array);
                             return;
                         }
                     }
                     // check if the actual instance is of the type `String`
                     if (value.getActualInstance() instanceof String) {
                         JsonPrimitive primitive = adapterString.toJsonTree((String)value.getActualInstance()).getAsJsonPrimitive();
-                        elementAdapter.write(out, primitive);
+                        writeJsonElement(out, primitive);
                         return;
                     }
                     throw new IOException("Failed to serialize as the type doesn't match oneOf schemas: List<LocationCheckAttributeBlockValuesOneOfInner>, String");

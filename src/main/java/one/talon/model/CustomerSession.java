@@ -58,6 +58,9 @@ import one.talon.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.26.0")
 public class CustomerSession {
+  // Gson ignores transient state; only setters and JSON input mark properties as present.
+  private transient Set<String> openapiExplicitlySetFields = new HashSet<>();
+
   public static final String SERIALIZED_NAME_INTEGRATION_ID = "integrationId";
   @SerializedName(SERIALIZED_NAME_INTEGRATION_ID)
   @javax.annotation.Nonnull
@@ -194,6 +197,7 @@ public class CustomerSession {
 
   public CustomerSession integrationId(@javax.annotation.Nonnull String integrationId) {
     this.integrationId = integrationId;
+    this.markPropertyAsSet(SERIALIZED_NAME_INTEGRATION_ID);
     return this;
   }
 
@@ -208,11 +212,13 @@ public class CustomerSession {
 
   public void setIntegrationId(@javax.annotation.Nonnull String integrationId) {
     this.integrationId = integrationId;
+    this.markPropertyAsSet(SERIALIZED_NAME_INTEGRATION_ID);
   }
 
 
   public CustomerSession created(@javax.annotation.Nonnull OffsetDateTime created) {
     this.created = created;
+    this.markPropertyAsSet(SERIALIZED_NAME_CREATED);
     return this;
   }
 
@@ -227,11 +233,13 @@ public class CustomerSession {
 
   public void setCreated(@javax.annotation.Nonnull OffsetDateTime created) {
     this.created = created;
+    this.markPropertyAsSet(SERIALIZED_NAME_CREATED);
   }
 
 
   public CustomerSession applicationId(@javax.annotation.Nonnull Long applicationId) {
     this.applicationId = applicationId;
+    this.markPropertyAsSet(SERIALIZED_NAME_APPLICATION_ID);
     return this;
   }
 
@@ -246,11 +254,13 @@ public class CustomerSession {
 
   public void setApplicationId(@javax.annotation.Nonnull Long applicationId) {
     this.applicationId = applicationId;
+    this.markPropertyAsSet(SERIALIZED_NAME_APPLICATION_ID);
   }
 
 
   public CustomerSession profileId(@javax.annotation.Nullable String profileId) {
     this.profileId = profileId;
+    this.markPropertyAsSet(SERIALIZED_NAME_PROFILE_ID);
     return this;
   }
 
@@ -265,11 +275,13 @@ public class CustomerSession {
 
   public void setProfileId(@javax.annotation.Nullable String profileId) {
     this.profileId = profileId;
+    this.markPropertyAsSet(SERIALIZED_NAME_PROFILE_ID);
   }
 
 
   public CustomerSession coupon(@javax.annotation.Nullable String coupon) {
     this.coupon = coupon;
+    this.markPropertyAsSet(SERIALIZED_NAME_COUPON);
     return this;
   }
 
@@ -284,11 +296,13 @@ public class CustomerSession {
 
   public void setCoupon(@javax.annotation.Nullable String coupon) {
     this.coupon = coupon;
+    this.markPropertyAsSet(SERIALIZED_NAME_COUPON);
   }
 
 
   public CustomerSession referral(@javax.annotation.Nullable String referral) {
     this.referral = referral;
+    this.markPropertyAsSet(SERIALIZED_NAME_REFERRAL);
     return this;
   }
 
@@ -303,11 +317,13 @@ public class CustomerSession {
 
   public void setReferral(@javax.annotation.Nullable String referral) {
     this.referral = referral;
+    this.markPropertyAsSet(SERIALIZED_NAME_REFERRAL);
   }
 
 
   public CustomerSession state(@javax.annotation.Nullable StateEnum state) {
     this.state = state;
+    this.markPropertyAsSet(SERIALIZED_NAME_STATE);
     return this;
   }
 
@@ -322,11 +338,13 @@ public class CustomerSession {
 
   public void setState(@javax.annotation.Nullable StateEnum state) {
     this.state = state;
+    this.markPropertyAsSet(SERIALIZED_NAME_STATE);
   }
 
 
   public CustomerSession cartItems(@javax.annotation.Nullable List<CartItem> cartItems) {
     this.cartItems = cartItems;
+    this.markPropertyAsSet(SERIALIZED_NAME_CART_ITEMS);
     return this;
   }
 
@@ -335,6 +353,7 @@ public class CustomerSession {
       this.cartItems = new ArrayList<>();
     }
     this.cartItems.add(cartItemsItem);
+    this.markPropertyAsSet(SERIALIZED_NAME_CART_ITEMS);
     return this;
   }
 
@@ -349,11 +368,13 @@ public class CustomerSession {
 
   public void setCartItems(@javax.annotation.Nullable List<CartItem> cartItems) {
     this.cartItems = cartItems;
+    this.markPropertyAsSet(SERIALIZED_NAME_CART_ITEMS);
   }
 
 
   public CustomerSession identifiers(@javax.annotation.Nullable List<String> identifiers) {
     this.identifiers = identifiers;
+    this.markPropertyAsSet(SERIALIZED_NAME_IDENTIFIERS);
     return this;
   }
 
@@ -362,6 +383,7 @@ public class CustomerSession {
       this.identifiers = new ArrayList<>();
     }
     this.identifiers.add(identifiersItem);
+    this.markPropertyAsSet(SERIALIZED_NAME_IDENTIFIERS);
     return this;
   }
 
@@ -376,11 +398,13 @@ public class CustomerSession {
 
   public void setIdentifiers(@javax.annotation.Nullable List<String> identifiers) {
     this.identifiers = identifiers;
+    this.markPropertyAsSet(SERIALIZED_NAME_IDENTIFIERS);
   }
 
 
   public CustomerSession total(@javax.annotation.Nullable BigDecimal total) {
     this.total = total;
+    this.markPropertyAsSet(SERIALIZED_NAME_TOTAL);
     return this;
   }
 
@@ -395,11 +419,13 @@ public class CustomerSession {
 
   public void setTotal(@javax.annotation.Nullable BigDecimal total) {
     this.total = total;
+    this.markPropertyAsSet(SERIALIZED_NAME_TOTAL);
   }
 
 
   public CustomerSession attributes(@javax.annotation.Nullable Object attributes) {
     this.attributes = attributes;
+    this.markPropertyAsSet(SERIALIZED_NAME_ATTRIBUTES);
     return this;
   }
 
@@ -414,11 +440,13 @@ public class CustomerSession {
 
   public void setAttributes(@javax.annotation.Nullable Object attributes) {
     this.attributes = attributes;
+    this.markPropertyAsSet(SERIALIZED_NAME_ATTRIBUTES);
   }
 
 
   public CustomerSession firstSession(@javax.annotation.Nonnull Boolean firstSession) {
     this.firstSession = firstSession;
+    this.markPropertyAsSet(SERIALIZED_NAME_FIRST_SESSION);
     return this;
   }
 
@@ -433,11 +461,13 @@ public class CustomerSession {
 
   public void setFirstSession(@javax.annotation.Nonnull Boolean firstSession) {
     this.firstSession = firstSession;
+    this.markPropertyAsSet(SERIALIZED_NAME_FIRST_SESSION);
   }
 
 
   public CustomerSession updateCount(@javax.annotation.Nonnull Long updateCount) {
     this.updateCount = updateCount;
+    this.markPropertyAsSet(SERIALIZED_NAME_UPDATE_COUNT);
     return this;
   }
 
@@ -452,11 +482,13 @@ public class CustomerSession {
 
   public void setUpdateCount(@javax.annotation.Nonnull Long updateCount) {
     this.updateCount = updateCount;
+    this.markPropertyAsSet(SERIALIZED_NAME_UPDATE_COUNT);
   }
 
 
   public CustomerSession discounts(@javax.annotation.Nonnull Map<String, BigDecimal> discounts) {
     this.discounts = discounts;
+    this.markPropertyAsSet(SERIALIZED_NAME_DISCOUNTS);
     return this;
   }
 
@@ -465,6 +497,7 @@ public class CustomerSession {
       this.discounts = new HashMap<>();
     }
     this.discounts.put(key, discountsItem);
+    this.markPropertyAsSet(SERIALIZED_NAME_DISCOUNTS);
     return this;
   }
 
@@ -479,11 +512,13 @@ public class CustomerSession {
 
   public void setDiscounts(@javax.annotation.Nonnull Map<String, BigDecimal> discounts) {
     this.discounts = discounts;
+    this.markPropertyAsSet(SERIALIZED_NAME_DISCOUNTS);
   }
 
 
   public CustomerSession updated(@javax.annotation.Nonnull OffsetDateTime updated) {
     this.updated = updated;
+    this.markPropertyAsSet(SERIALIZED_NAME_UPDATED);
     return this;
   }
 
@@ -498,6 +533,7 @@ public class CustomerSession {
 
   public void setUpdated(@javax.annotation.Nonnull OffsetDateTime updated) {
     this.updated = updated;
+    this.markPropertyAsSet(SERIALIZED_NAME_UPDATED);
   }
 
   /**
@@ -543,6 +579,21 @@ public class CustomerSession {
         return null;
     }
     return this.additionalProperties.get(key);
+  }
+
+  /** Omit null properties unless they were explicitly assigned or present in JSON input. */
+  protected final void removeUnsetNullFields(JsonObject obj) {
+    obj.entrySet().removeIf(entry -> entry.getValue().isJsonNull()
+        && !openapiExplicitlySetFields.contains(entry.getKey()));
+  }
+
+  protected final void markPropertyAsSet(String propertyName) {
+    openapiExplicitlySetFields.add(propertyName);
+  }
+
+  /** Gson populates fields directly, bypassing setters during deserialization. */
+  protected final void markPropertiesAsSet(Set<String> propertyNames) {
+    openapiExplicitlySetFields.addAll(propertyNames);
   }
 
 
@@ -686,7 +737,7 @@ public class CustomerSession {
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
        if (!CustomerSession.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'CustomerSession' and its subtypes
+         return null; // let other model factories handle this type
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
        final TypeAdapter<CustomerSession> thisAdapter
@@ -696,31 +747,22 @@ public class CustomerSession {
            @Override
            public void write(JsonWriter out, CustomerSession value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+             value.removeUnsetNullFields(obj);
              obj.remove("additionalProperties");
              // serialize additional properties
              if (value.getAdditionalProperties() != null) {
                for (Map.Entry<String, Object> entry : value.getAdditionalProperties().entrySet()) {
-                 if (entry.getValue() instanceof String)
-                   obj.addProperty(entry.getKey(), (String) entry.getValue());
-                 else if (entry.getValue() instanceof Number)
-                   obj.addProperty(entry.getKey(), (Number) entry.getValue());
-                 else if (entry.getValue() instanceof Boolean)
-                   obj.addProperty(entry.getKey(), (Boolean) entry.getValue());
-                 else if (entry.getValue() instanceof Character)
-                   obj.addProperty(entry.getKey(), (Character) entry.getValue());
-                 else {
-                   JsonElement jsonElement = gson.toJsonTree(entry.getValue());
-                   if (jsonElement.isJsonNull()) {
-                     obj.add(entry.getKey(), JsonNull.INSTANCE);
-                   } else if (jsonElement.isJsonArray()) {
-                     obj.add(entry.getKey(), jsonElement.getAsJsonArray());
-                   } else {
-                     obj.add(entry.getKey(), jsonElement.getAsJsonObject());
-                   }
-                 }
+                 // TypeAdapter.toJsonTree keeps explicit null entries in arbitrary maps too.
+                 obj.add(entry.getKey(), gson.getAdapter(Object.class).toJsonTree(entry.getValue()));
                }
              }
-             elementAdapter.write(out, obj);
+             boolean originalSerializeNulls = out.getSerializeNulls();
+             try {
+               out.setSerializeNulls(true);
+               elementAdapter.write(out, obj);
+             } finally {
+               out.setSerializeNulls(originalSerializeNulls);
+             }
            }
 
            @Override
@@ -730,6 +772,7 @@ public class CustomerSession {
              JsonObject jsonObj = jsonElement.getAsJsonObject();
              // store additional fields in the deserialized instance
              CustomerSession instance = thisAdapter.fromJsonTree(jsonObj);
+             instance.markPropertiesAsSet(jsonObj.keySet());
              for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
                if (!openapiFields.contains(entry.getKey())) {
                  if (entry.getValue().isJsonPrimitive()) { // primitive type

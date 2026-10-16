@@ -54,6 +54,9 @@ import one.talon.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.26.0")
 public class NewWebhook {
+  // Gson ignores transient state; only setters and JSON input mark properties as present.
+  private transient Set<String> openapiExplicitlySetFields = new HashSet<>();
+
   public static final String SERIALIZED_NAME_APPLICATION_IDS = "applicationIds";
   @SerializedName(SERIALIZED_NAME_APPLICATION_IDS)
   @javax.annotation.Nonnull
@@ -172,6 +175,7 @@ public class NewWebhook {
 
   public NewWebhook applicationIds(@javax.annotation.Nonnull List<Long> applicationIds) {
     this.applicationIds = applicationIds;
+    this.markPropertyAsSet(SERIALIZED_NAME_APPLICATION_IDS);
     return this;
   }
 
@@ -180,6 +184,7 @@ public class NewWebhook {
       this.applicationIds = new ArrayList<>();
     }
     this.applicationIds.add(applicationIdsItem);
+    this.markPropertyAsSet(SERIALIZED_NAME_APPLICATION_IDS);
     return this;
   }
 
@@ -194,11 +199,13 @@ public class NewWebhook {
 
   public void setApplicationIds(@javax.annotation.Nonnull List<Long> applicationIds) {
     this.applicationIds = applicationIds;
+    this.markPropertyAsSet(SERIALIZED_NAME_APPLICATION_IDS);
   }
 
 
   public NewWebhook title(@javax.annotation.Nonnull String title) {
     this.title = title;
+    this.markPropertyAsSet(SERIALIZED_NAME_TITLE);
     return this;
   }
 
@@ -213,11 +220,13 @@ public class NewWebhook {
 
   public void setTitle(@javax.annotation.Nonnull String title) {
     this.title = title;
+    this.markPropertyAsSet(SERIALIZED_NAME_TITLE);
   }
 
 
   public NewWebhook description(@javax.annotation.Nullable String description) {
     this.description = description;
+    this.markPropertyAsSet(SERIALIZED_NAME_DESCRIPTION);
     return this;
   }
 
@@ -232,11 +241,13 @@ public class NewWebhook {
 
   public void setDescription(@javax.annotation.Nullable String description) {
     this.description = description;
+    this.markPropertyAsSet(SERIALIZED_NAME_DESCRIPTION);
   }
 
 
   public NewWebhook draft(@javax.annotation.Nonnull Boolean draft) {
     this.draft = draft;
+    this.markPropertyAsSet(SERIALIZED_NAME_DRAFT);
     return this;
   }
 
@@ -251,11 +262,13 @@ public class NewWebhook {
 
   public void setDraft(@javax.annotation.Nonnull Boolean draft) {
     this.draft = draft;
+    this.markPropertyAsSet(SERIALIZED_NAME_DRAFT);
   }
 
 
   public NewWebhook verb(@javax.annotation.Nonnull VerbEnum verb) {
     this.verb = verb;
+    this.markPropertyAsSet(SERIALIZED_NAME_VERB);
     return this;
   }
 
@@ -270,11 +283,13 @@ public class NewWebhook {
 
   public void setVerb(@javax.annotation.Nonnull VerbEnum verb) {
     this.verb = verb;
+    this.markPropertyAsSet(SERIALIZED_NAME_VERB);
   }
 
 
   public NewWebhook url(@javax.annotation.Nonnull String url) {
     this.url = url;
+    this.markPropertyAsSet(SERIALIZED_NAME_URL);
     return this;
   }
 
@@ -289,11 +304,13 @@ public class NewWebhook {
 
   public void setUrl(@javax.annotation.Nonnull String url) {
     this.url = url;
+    this.markPropertyAsSet(SERIALIZED_NAME_URL);
   }
 
 
   public NewWebhook headers(@javax.annotation.Nonnull List<String> headers) {
     this.headers = headers;
+    this.markPropertyAsSet(SERIALIZED_NAME_HEADERS);
     return this;
   }
 
@@ -302,6 +319,7 @@ public class NewWebhook {
       this.headers = new ArrayList<>();
     }
     this.headers.add(headersItem);
+    this.markPropertyAsSet(SERIALIZED_NAME_HEADERS);
     return this;
   }
 
@@ -316,11 +334,13 @@ public class NewWebhook {
 
   public void setHeaders(@javax.annotation.Nonnull List<String> headers) {
     this.headers = headers;
+    this.markPropertyAsSet(SERIALIZED_NAME_HEADERS);
   }
 
 
   public NewWebhook payload(@javax.annotation.Nullable String payload) {
     this.payload = payload;
+    this.markPropertyAsSet(SERIALIZED_NAME_PAYLOAD);
     return this;
   }
 
@@ -335,11 +355,13 @@ public class NewWebhook {
 
   public void setPayload(@javax.annotation.Nullable String payload) {
     this.payload = payload;
+    this.markPropertyAsSet(SERIALIZED_NAME_PAYLOAD);
   }
 
 
   public NewWebhook params(@javax.annotation.Nonnull List<TemplateArgDef> params) {
     this.params = params;
+    this.markPropertyAsSet(SERIALIZED_NAME_PARAMS);
     return this;
   }
 
@@ -348,6 +370,7 @@ public class NewWebhook {
       this.params = new ArrayList<>();
     }
     this.params.add(paramsItem);
+    this.markPropertyAsSet(SERIALIZED_NAME_PARAMS);
     return this;
   }
 
@@ -362,11 +385,13 @@ public class NewWebhook {
 
   public void setParams(@javax.annotation.Nonnull List<TemplateArgDef> params) {
     this.params = params;
+    this.markPropertyAsSet(SERIALIZED_NAME_PARAMS);
   }
 
 
   public NewWebhook enabled(@javax.annotation.Nonnull Boolean enabled) {
     this.enabled = enabled;
+    this.markPropertyAsSet(SERIALIZED_NAME_ENABLED);
     return this;
   }
 
@@ -381,11 +406,13 @@ public class NewWebhook {
 
   public void setEnabled(@javax.annotation.Nonnull Boolean enabled) {
     this.enabled = enabled;
+    this.markPropertyAsSet(SERIALIZED_NAME_ENABLED);
   }
 
 
   public NewWebhook authenticationId(@javax.annotation.Nullable Long authenticationId) {
     this.authenticationId = authenticationId;
+    this.markPropertyAsSet(SERIALIZED_NAME_AUTHENTICATION_ID);
     return this;
   }
 
@@ -400,6 +427,7 @@ public class NewWebhook {
 
   public void setAuthenticationId(@javax.annotation.Nullable Long authenticationId) {
     this.authenticationId = authenticationId;
+    this.markPropertyAsSet(SERIALIZED_NAME_AUTHENTICATION_ID);
   }
 
   /**
@@ -445,6 +473,21 @@ public class NewWebhook {
         return null;
     }
     return this.additionalProperties.get(key);
+  }
+
+  /** Omit null properties unless they were explicitly assigned or present in JSON input. */
+  protected final void removeUnsetNullFields(JsonObject obj) {
+    obj.entrySet().removeIf(entry -> entry.getValue().isJsonNull()
+        && !openapiExplicitlySetFields.contains(entry.getKey()));
+  }
+
+  protected final void markPropertyAsSet(String propertyName) {
+    openapiExplicitlySetFields.add(propertyName);
+  }
+
+  /** Gson populates fields directly, bypassing setters during deserialization. */
+  protected final void markPropertiesAsSet(Set<String> propertyNames) {
+    openapiExplicitlySetFields.addAll(propertyNames);
   }
 
 
@@ -582,7 +625,7 @@ public class NewWebhook {
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
        if (!NewWebhook.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'NewWebhook' and its subtypes
+         return null; // let other model factories handle this type
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
        final TypeAdapter<NewWebhook> thisAdapter
@@ -592,31 +635,22 @@ public class NewWebhook {
            @Override
            public void write(JsonWriter out, NewWebhook value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+             value.removeUnsetNullFields(obj);
              obj.remove("additionalProperties");
              // serialize additional properties
              if (value.getAdditionalProperties() != null) {
                for (Map.Entry<String, Object> entry : value.getAdditionalProperties().entrySet()) {
-                 if (entry.getValue() instanceof String)
-                   obj.addProperty(entry.getKey(), (String) entry.getValue());
-                 else if (entry.getValue() instanceof Number)
-                   obj.addProperty(entry.getKey(), (Number) entry.getValue());
-                 else if (entry.getValue() instanceof Boolean)
-                   obj.addProperty(entry.getKey(), (Boolean) entry.getValue());
-                 else if (entry.getValue() instanceof Character)
-                   obj.addProperty(entry.getKey(), (Character) entry.getValue());
-                 else {
-                   JsonElement jsonElement = gson.toJsonTree(entry.getValue());
-                   if (jsonElement.isJsonNull()) {
-                     obj.add(entry.getKey(), JsonNull.INSTANCE);
-                   } else if (jsonElement.isJsonArray()) {
-                     obj.add(entry.getKey(), jsonElement.getAsJsonArray());
-                   } else {
-                     obj.add(entry.getKey(), jsonElement.getAsJsonObject());
-                   }
-                 }
+                 // TypeAdapter.toJsonTree keeps explicit null entries in arbitrary maps too.
+                 obj.add(entry.getKey(), gson.getAdapter(Object.class).toJsonTree(entry.getValue()));
                }
              }
-             elementAdapter.write(out, obj);
+             boolean originalSerializeNulls = out.getSerializeNulls();
+             try {
+               out.setSerializeNulls(true);
+               elementAdapter.write(out, obj);
+             } finally {
+               out.setSerializeNulls(originalSerializeNulls);
+             }
            }
 
            @Override
@@ -626,6 +660,7 @@ public class NewWebhook {
              JsonObject jsonObj = jsonElement.getAsJsonObject();
              // store additional fields in the deserialized instance
              NewWebhook instance = thisAdapter.fromJsonTree(jsonObj);
+             instance.markPropertiesAsSet(jsonObj.keySet());
              for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
                if (!openapiFields.contains(entry.getKey())) {
                  if (entry.getValue().isJsonPrimitive()) { // primitive type

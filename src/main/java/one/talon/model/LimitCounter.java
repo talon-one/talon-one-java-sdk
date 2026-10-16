@@ -52,6 +52,9 @@ import one.talon.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.26.0")
 public class LimitCounter {
+  // Gson ignores transient state; only setters and JSON input mark properties as present.
+  private transient Set<String> openapiExplicitlySetFields = new HashSet<>();
+
   public static final String SERIALIZED_NAME_CAMPAIGN_ID = "campaignId";
   @SerializedName(SERIALIZED_NAME_CAMPAIGN_ID)
   @javax.annotation.Nonnull
@@ -132,6 +135,7 @@ public class LimitCounter {
 
   public LimitCounter campaignId(@javax.annotation.Nonnull Long campaignId) {
     this.campaignId = campaignId;
+    this.markPropertyAsSet(SERIALIZED_NAME_CAMPAIGN_ID);
     return this;
   }
 
@@ -146,11 +150,13 @@ public class LimitCounter {
 
   public void setCampaignId(@javax.annotation.Nonnull Long campaignId) {
     this.campaignId = campaignId;
+    this.markPropertyAsSet(SERIALIZED_NAME_CAMPAIGN_ID);
   }
 
 
   public LimitCounter applicationId(@javax.annotation.Nonnull Long applicationId) {
     this.applicationId = applicationId;
+    this.markPropertyAsSet(SERIALIZED_NAME_APPLICATION_ID);
     return this;
   }
 
@@ -165,11 +171,13 @@ public class LimitCounter {
 
   public void setApplicationId(@javax.annotation.Nonnull Long applicationId) {
     this.applicationId = applicationId;
+    this.markPropertyAsSet(SERIALIZED_NAME_APPLICATION_ID);
   }
 
 
   public LimitCounter accountId(@javax.annotation.Nonnull Long accountId) {
     this.accountId = accountId;
+    this.markPropertyAsSet(SERIALIZED_NAME_ACCOUNT_ID);
     return this;
   }
 
@@ -184,11 +192,13 @@ public class LimitCounter {
 
   public void setAccountId(@javax.annotation.Nonnull Long accountId) {
     this.accountId = accountId;
+    this.markPropertyAsSet(SERIALIZED_NAME_ACCOUNT_ID);
   }
 
 
   public LimitCounter id(@javax.annotation.Nonnull Long id) {
     this.id = id;
+    this.markPropertyAsSet(SERIALIZED_NAME_ID);
     return this;
   }
 
@@ -203,11 +213,13 @@ public class LimitCounter {
 
   public void setId(@javax.annotation.Nonnull Long id) {
     this.id = id;
+    this.markPropertyAsSet(SERIALIZED_NAME_ID);
   }
 
 
   public LimitCounter action(@javax.annotation.Nonnull String action) {
     this.action = action;
+    this.markPropertyAsSet(SERIALIZED_NAME_ACTION);
     return this;
   }
 
@@ -222,11 +234,13 @@ public class LimitCounter {
 
   public void setAction(@javax.annotation.Nonnull String action) {
     this.action = action;
+    this.markPropertyAsSet(SERIALIZED_NAME_ACTION);
   }
 
 
   public LimitCounter profileId(@javax.annotation.Nullable Long profileId) {
     this.profileId = profileId;
+    this.markPropertyAsSet(SERIALIZED_NAME_PROFILE_ID);
     return this;
   }
 
@@ -241,11 +255,13 @@ public class LimitCounter {
 
   public void setProfileId(@javax.annotation.Nullable Long profileId) {
     this.profileId = profileId;
+    this.markPropertyAsSet(SERIALIZED_NAME_PROFILE_ID);
   }
 
 
   public LimitCounter profileIntegrationId(@javax.annotation.Nullable String profileIntegrationId) {
     this.profileIntegrationId = profileIntegrationId;
+    this.markPropertyAsSet(SERIALIZED_NAME_PROFILE_INTEGRATION_ID);
     return this;
   }
 
@@ -260,11 +276,13 @@ public class LimitCounter {
 
   public void setProfileIntegrationId(@javax.annotation.Nullable String profileIntegrationId) {
     this.profileIntegrationId = profileIntegrationId;
+    this.markPropertyAsSet(SERIALIZED_NAME_PROFILE_INTEGRATION_ID);
   }
 
 
   public LimitCounter couponId(@javax.annotation.Nullable Long couponId) {
     this.couponId = couponId;
+    this.markPropertyAsSet(SERIALIZED_NAME_COUPON_ID);
     return this;
   }
 
@@ -279,11 +297,13 @@ public class LimitCounter {
 
   public void setCouponId(@javax.annotation.Nullable Long couponId) {
     this.couponId = couponId;
+    this.markPropertyAsSet(SERIALIZED_NAME_COUPON_ID);
   }
 
 
   public LimitCounter couponValue(@javax.annotation.Nullable String couponValue) {
     this.couponValue = couponValue;
+    this.markPropertyAsSet(SERIALIZED_NAME_COUPON_VALUE);
     return this;
   }
 
@@ -298,11 +318,13 @@ public class LimitCounter {
 
   public void setCouponValue(@javax.annotation.Nullable String couponValue) {
     this.couponValue = couponValue;
+    this.markPropertyAsSet(SERIALIZED_NAME_COUPON_VALUE);
   }
 
 
   public LimitCounter referralId(@javax.annotation.Nullable Long referralId) {
     this.referralId = referralId;
+    this.markPropertyAsSet(SERIALIZED_NAME_REFERRAL_ID);
     return this;
   }
 
@@ -317,11 +339,13 @@ public class LimitCounter {
 
   public void setReferralId(@javax.annotation.Nullable Long referralId) {
     this.referralId = referralId;
+    this.markPropertyAsSet(SERIALIZED_NAME_REFERRAL_ID);
   }
 
 
   public LimitCounter referralValue(@javax.annotation.Nullable String referralValue) {
     this.referralValue = referralValue;
+    this.markPropertyAsSet(SERIALIZED_NAME_REFERRAL_VALUE);
     return this;
   }
 
@@ -336,11 +360,13 @@ public class LimitCounter {
 
   public void setReferralValue(@javax.annotation.Nullable String referralValue) {
     this.referralValue = referralValue;
+    this.markPropertyAsSet(SERIALIZED_NAME_REFERRAL_VALUE);
   }
 
 
   public LimitCounter identifier(@javax.annotation.Nullable String identifier) {
     this.identifier = identifier;
+    this.markPropertyAsSet(SERIALIZED_NAME_IDENTIFIER);
     return this;
   }
 
@@ -355,11 +381,13 @@ public class LimitCounter {
 
   public void setIdentifier(@javax.annotation.Nullable String identifier) {
     this.identifier = identifier;
+    this.markPropertyAsSet(SERIALIZED_NAME_IDENTIFIER);
   }
 
 
   public LimitCounter period(@javax.annotation.Nullable String period) {
     this.period = period;
+    this.markPropertyAsSet(SERIALIZED_NAME_PERIOD);
     return this;
   }
 
@@ -374,11 +402,13 @@ public class LimitCounter {
 
   public void setPeriod(@javax.annotation.Nullable String period) {
     this.period = period;
+    this.markPropertyAsSet(SERIALIZED_NAME_PERIOD);
   }
 
 
   public LimitCounter limit(@javax.annotation.Nonnull BigDecimal limit) {
     this.limit = limit;
+    this.markPropertyAsSet(SERIALIZED_NAME_LIMIT);
     return this;
   }
 
@@ -393,11 +423,13 @@ public class LimitCounter {
 
   public void setLimit(@javax.annotation.Nonnull BigDecimal limit) {
     this.limit = limit;
+    this.markPropertyAsSet(SERIALIZED_NAME_LIMIT);
   }
 
 
   public LimitCounter counter(@javax.annotation.Nonnull BigDecimal counter) {
     this.counter = counter;
+    this.markPropertyAsSet(SERIALIZED_NAME_COUNTER);
     return this;
   }
 
@@ -412,6 +444,7 @@ public class LimitCounter {
 
   public void setCounter(@javax.annotation.Nonnull BigDecimal counter) {
     this.counter = counter;
+    this.markPropertyAsSet(SERIALIZED_NAME_COUNTER);
   }
 
   /**
@@ -457,6 +490,21 @@ public class LimitCounter {
         return null;
     }
     return this.additionalProperties.get(key);
+  }
+
+  /** Omit null properties unless they were explicitly assigned or present in JSON input. */
+  protected final void removeUnsetNullFields(JsonObject obj) {
+    obj.entrySet().removeIf(entry -> entry.getValue().isJsonNull()
+        && !openapiExplicitlySetFields.contains(entry.getKey()));
+  }
+
+  protected final void markPropertyAsSet(String propertyName) {
+    openapiExplicitlySetFields.add(propertyName);
+  }
+
+  /** Gson populates fields directly, bypassing setters during deserialization. */
+  protected final void markPropertiesAsSet(Set<String> propertyNames) {
+    openapiExplicitlySetFields.addAll(propertyNames);
   }
 
 
@@ -581,7 +629,7 @@ public class LimitCounter {
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
        if (!LimitCounter.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'LimitCounter' and its subtypes
+         return null; // let other model factories handle this type
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
        final TypeAdapter<LimitCounter> thisAdapter
@@ -591,31 +639,22 @@ public class LimitCounter {
            @Override
            public void write(JsonWriter out, LimitCounter value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+             value.removeUnsetNullFields(obj);
              obj.remove("additionalProperties");
              // serialize additional properties
              if (value.getAdditionalProperties() != null) {
                for (Map.Entry<String, Object> entry : value.getAdditionalProperties().entrySet()) {
-                 if (entry.getValue() instanceof String)
-                   obj.addProperty(entry.getKey(), (String) entry.getValue());
-                 else if (entry.getValue() instanceof Number)
-                   obj.addProperty(entry.getKey(), (Number) entry.getValue());
-                 else if (entry.getValue() instanceof Boolean)
-                   obj.addProperty(entry.getKey(), (Boolean) entry.getValue());
-                 else if (entry.getValue() instanceof Character)
-                   obj.addProperty(entry.getKey(), (Character) entry.getValue());
-                 else {
-                   JsonElement jsonElement = gson.toJsonTree(entry.getValue());
-                   if (jsonElement.isJsonNull()) {
-                     obj.add(entry.getKey(), JsonNull.INSTANCE);
-                   } else if (jsonElement.isJsonArray()) {
-                     obj.add(entry.getKey(), jsonElement.getAsJsonArray());
-                   } else {
-                     obj.add(entry.getKey(), jsonElement.getAsJsonObject());
-                   }
-                 }
+                 // TypeAdapter.toJsonTree keeps explicit null entries in arbitrary maps too.
+                 obj.add(entry.getKey(), gson.getAdapter(Object.class).toJsonTree(entry.getValue()));
                }
              }
-             elementAdapter.write(out, obj);
+             boolean originalSerializeNulls = out.getSerializeNulls();
+             try {
+               out.setSerializeNulls(true);
+               elementAdapter.write(out, obj);
+             } finally {
+               out.setSerializeNulls(originalSerializeNulls);
+             }
            }
 
            @Override
@@ -625,6 +664,7 @@ public class LimitCounter {
              JsonObject jsonObj = jsonElement.getAsJsonObject();
              // store additional fields in the deserialized instance
              LimitCounter instance = thisAdapter.fromJsonTree(jsonObj);
+             instance.markPropertiesAsSet(jsonObj.keySet());
              for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
                if (!openapiFields.contains(entry.getKey())) {
                  if (entry.getValue().isJsonPrimitive()) { // primitive type

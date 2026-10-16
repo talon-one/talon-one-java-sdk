@@ -52,6 +52,9 @@ import one.talon.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.26.0")
 public class ProjectedTier {
+  // Gson ignores transient state; only setters and JSON input mark properties as present.
+  private transient Set<String> openapiExplicitlySetFields = new HashSet<>();
+
   public static final String SERIALIZED_NAME_PROJECTED_ACTIVE_POINTS = "projectedActivePoints";
   @SerializedName(SERIALIZED_NAME_PROJECTED_ACTIVE_POINTS)
   @javax.annotation.Nonnull
@@ -72,6 +75,7 @@ public class ProjectedTier {
 
   public ProjectedTier projectedActivePoints(@javax.annotation.Nonnull BigDecimal projectedActivePoints) {
     this.projectedActivePoints = projectedActivePoints;
+    this.markPropertyAsSet(SERIALIZED_NAME_PROJECTED_ACTIVE_POINTS);
     return this;
   }
 
@@ -86,11 +90,13 @@ public class ProjectedTier {
 
   public void setProjectedActivePoints(@javax.annotation.Nonnull BigDecimal projectedActivePoints) {
     this.projectedActivePoints = projectedActivePoints;
+    this.markPropertyAsSet(SERIALIZED_NAME_PROJECTED_ACTIVE_POINTS);
   }
 
 
   public ProjectedTier stayInTierPoints(@javax.annotation.Nullable BigDecimal stayInTierPoints) {
     this.stayInTierPoints = stayInTierPoints;
+    this.markPropertyAsSet(SERIALIZED_NAME_STAY_IN_TIER_POINTS);
     return this;
   }
 
@@ -105,11 +111,13 @@ public class ProjectedTier {
 
   public void setStayInTierPoints(@javax.annotation.Nullable BigDecimal stayInTierPoints) {
     this.stayInTierPoints = stayInTierPoints;
+    this.markPropertyAsSet(SERIALIZED_NAME_STAY_IN_TIER_POINTS);
   }
 
 
   public ProjectedTier projectedTierName(@javax.annotation.Nullable String projectedTierName) {
     this.projectedTierName = projectedTierName;
+    this.markPropertyAsSet(SERIALIZED_NAME_PROJECTED_TIER_NAME);
     return this;
   }
 
@@ -124,6 +132,7 @@ public class ProjectedTier {
 
   public void setProjectedTierName(@javax.annotation.Nullable String projectedTierName) {
     this.projectedTierName = projectedTierName;
+    this.markPropertyAsSet(SERIALIZED_NAME_PROJECTED_TIER_NAME);
   }
 
   /**
@@ -169,6 +178,21 @@ public class ProjectedTier {
         return null;
     }
     return this.additionalProperties.get(key);
+  }
+
+  /** Omit null properties unless they were explicitly assigned or present in JSON input. */
+  protected final void removeUnsetNullFields(JsonObject obj) {
+    obj.entrySet().removeIf(entry -> entry.getValue().isJsonNull()
+        && !openapiExplicitlySetFields.contains(entry.getKey()));
+  }
+
+  protected final void markPropertyAsSet(String propertyName) {
+    openapiExplicitlySetFields.add(propertyName);
+  }
+
+  /** Gson populates fields directly, bypassing setters during deserialization. */
+  protected final void markPropertiesAsSet(Set<String> propertyNames) {
+    openapiExplicitlySetFields.addAll(propertyNames);
   }
 
 
@@ -254,7 +278,7 @@ public class ProjectedTier {
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
        if (!ProjectedTier.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'ProjectedTier' and its subtypes
+         return null; // let other model factories handle this type
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
        final TypeAdapter<ProjectedTier> thisAdapter
@@ -264,31 +288,22 @@ public class ProjectedTier {
            @Override
            public void write(JsonWriter out, ProjectedTier value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+             value.removeUnsetNullFields(obj);
              obj.remove("additionalProperties");
              // serialize additional properties
              if (value.getAdditionalProperties() != null) {
                for (Map.Entry<String, Object> entry : value.getAdditionalProperties().entrySet()) {
-                 if (entry.getValue() instanceof String)
-                   obj.addProperty(entry.getKey(), (String) entry.getValue());
-                 else if (entry.getValue() instanceof Number)
-                   obj.addProperty(entry.getKey(), (Number) entry.getValue());
-                 else if (entry.getValue() instanceof Boolean)
-                   obj.addProperty(entry.getKey(), (Boolean) entry.getValue());
-                 else if (entry.getValue() instanceof Character)
-                   obj.addProperty(entry.getKey(), (Character) entry.getValue());
-                 else {
-                   JsonElement jsonElement = gson.toJsonTree(entry.getValue());
-                   if (jsonElement.isJsonNull()) {
-                     obj.add(entry.getKey(), JsonNull.INSTANCE);
-                   } else if (jsonElement.isJsonArray()) {
-                     obj.add(entry.getKey(), jsonElement.getAsJsonArray());
-                   } else {
-                     obj.add(entry.getKey(), jsonElement.getAsJsonObject());
-                   }
-                 }
+                 // TypeAdapter.toJsonTree keeps explicit null entries in arbitrary maps too.
+                 obj.add(entry.getKey(), gson.getAdapter(Object.class).toJsonTree(entry.getValue()));
                }
              }
-             elementAdapter.write(out, obj);
+             boolean originalSerializeNulls = out.getSerializeNulls();
+             try {
+               out.setSerializeNulls(true);
+               elementAdapter.write(out, obj);
+             } finally {
+               out.setSerializeNulls(originalSerializeNulls);
+             }
            }
 
            @Override
@@ -298,6 +313,7 @@ public class ProjectedTier {
              JsonObject jsonObj = jsonElement.getAsJsonObject();
              // store additional fields in the deserialized instance
              ProjectedTier instance = thisAdapter.fromJsonTree(jsonObj);
+             instance.markPropertiesAsSet(jsonObj.keySet());
              for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
                if (!openapiFields.contains(entry.getKey())) {
                  if (entry.getValue().isJsonPrimitive()) { // primitive type

@@ -55,6 +55,9 @@ import one.talon.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.26.0")
 public class CardAddedDeductedPointsBalancesNotification {
+  // Gson ignores transient state; only setters and JSON input mark properties as present.
+  private transient Set<String> openapiExplicitlySetFields = new HashSet<>();
+
   public static final String SERIALIZED_NAME_CARD_IDENTIFIER = "CardIdentifier";
   @SerializedName(SERIALIZED_NAME_CARD_IDENTIFIER)
   @javax.annotation.Nonnull
@@ -224,6 +227,7 @@ public class CardAddedDeductedPointsBalancesNotification {
 
   public CardAddedDeductedPointsBalancesNotification cardIdentifier(@javax.annotation.Nonnull String cardIdentifier) {
     this.cardIdentifier = cardIdentifier;
+    this.markPropertyAsSet(SERIALIZED_NAME_CARD_IDENTIFIER);
     return this;
   }
 
@@ -238,11 +242,13 @@ public class CardAddedDeductedPointsBalancesNotification {
 
   public void setCardIdentifier(@javax.annotation.Nonnull String cardIdentifier) {
     this.cardIdentifier = cardIdentifier;
+    this.markPropertyAsSet(SERIALIZED_NAME_CARD_IDENTIFIER);
   }
 
 
   public CardAddedDeductedPointsBalancesNotification employeeName(@javax.annotation.Nonnull String employeeName) {
     this.employeeName = employeeName;
+    this.markPropertyAsSet(SERIALIZED_NAME_EMPLOYEE_NAME);
     return this;
   }
 
@@ -257,11 +263,13 @@ public class CardAddedDeductedPointsBalancesNotification {
 
   public void setEmployeeName(@javax.annotation.Nonnull String employeeName) {
     this.employeeName = employeeName;
+    this.markPropertyAsSet(SERIALIZED_NAME_EMPLOYEE_NAME);
   }
 
 
   public CardAddedDeductedPointsBalancesNotification loyaltyProgramID(@javax.annotation.Nonnull Long loyaltyProgramID) {
     this.loyaltyProgramID = loyaltyProgramID;
+    this.markPropertyAsSet(SERIALIZED_NAME_LOYALTY_PROGRAM_I_D);
     return this;
   }
 
@@ -277,11 +285,13 @@ public class CardAddedDeductedPointsBalancesNotification {
 
   public void setLoyaltyProgramID(@javax.annotation.Nonnull Long loyaltyProgramID) {
     this.loyaltyProgramID = loyaltyProgramID;
+    this.markPropertyAsSet(SERIALIZED_NAME_LOYALTY_PROGRAM_I_D);
   }
 
 
   public CardAddedDeductedPointsBalancesNotification notificationType(@javax.annotation.Nonnull NotificationTypeEnum notificationType) {
     this.notificationType = notificationType;
+    this.markPropertyAsSet(SERIALIZED_NAME_NOTIFICATION_TYPE);
     return this;
   }
 
@@ -296,11 +306,13 @@ public class CardAddedDeductedPointsBalancesNotification {
 
   public void setNotificationType(@javax.annotation.Nonnull NotificationTypeEnum notificationType) {
     this.notificationType = notificationType;
+    this.markPropertyAsSet(SERIALIZED_NAME_NOTIFICATION_TYPE);
   }
 
 
   public CardAddedDeductedPointsBalancesNotification profileIntegrationIDs(@javax.annotation.Nonnull List<String> profileIntegrationIDs) {
     this.profileIntegrationIDs = profileIntegrationIDs;
+    this.markPropertyAsSet(SERIALIZED_NAME_PROFILE_INTEGRATION_I_DS);
     return this;
   }
 
@@ -309,6 +321,7 @@ public class CardAddedDeductedPointsBalancesNotification {
       this.profileIntegrationIDs = new ArrayList<>();
     }
     this.profileIntegrationIDs.add(profileIntegrationIDsItem);
+    this.markPropertyAsSet(SERIALIZED_NAME_PROFILE_INTEGRATION_I_DS);
     return this;
   }
 
@@ -323,11 +336,13 @@ public class CardAddedDeductedPointsBalancesNotification {
 
   public void setProfileIntegrationIDs(@javax.annotation.Nonnull List<String> profileIntegrationIDs) {
     this.profileIntegrationIDs = profileIntegrationIDs;
+    this.markPropertyAsSet(SERIALIZED_NAME_PROFILE_INTEGRATION_I_DS);
   }
 
 
   public CardAddedDeductedPointsBalancesNotification sessionIntegrationID(@javax.annotation.Nonnull String sessionIntegrationID) {
     this.sessionIntegrationID = sessionIntegrationID;
+    this.markPropertyAsSet(SERIALIZED_NAME_SESSION_INTEGRATION_I_D);
     return this;
   }
 
@@ -342,11 +357,13 @@ public class CardAddedDeductedPointsBalancesNotification {
 
   public void setSessionIntegrationID(@javax.annotation.Nonnull String sessionIntegrationID) {
     this.sessionIntegrationID = sessionIntegrationID;
+    this.markPropertyAsSet(SERIALIZED_NAME_SESSION_INTEGRATION_I_D);
   }
 
 
   public CardAddedDeductedPointsBalancesNotification subledgerID(@javax.annotation.Nonnull String subledgerID) {
     this.subledgerID = subledgerID;
+    this.markPropertyAsSet(SERIALIZED_NAME_SUBLEDGER_I_D);
     return this;
   }
 
@@ -361,11 +378,13 @@ public class CardAddedDeductedPointsBalancesNotification {
 
   public void setSubledgerID(@javax.annotation.Nonnull String subledgerID) {
     this.subledgerID = subledgerID;
+    this.markPropertyAsSet(SERIALIZED_NAME_SUBLEDGER_I_D);
   }
 
 
   public CardAddedDeductedPointsBalancesNotification typeOfChange(@javax.annotation.Nonnull TypeOfChangeEnum typeOfChange) {
     this.typeOfChange = typeOfChange;
+    this.markPropertyAsSet(SERIALIZED_NAME_TYPE_OF_CHANGE);
     return this;
   }
 
@@ -380,11 +399,13 @@ public class CardAddedDeductedPointsBalancesNotification {
 
   public void setTypeOfChange(@javax.annotation.Nonnull TypeOfChangeEnum typeOfChange) {
     this.typeOfChange = typeOfChange;
+    this.markPropertyAsSet(SERIALIZED_NAME_TYPE_OF_CHANGE);
   }
 
 
   public CardAddedDeductedPointsBalancesNotification userID(@javax.annotation.Nonnull Long userID) {
     this.userID = userID;
+    this.markPropertyAsSet(SERIALIZED_NAME_USER_I_D);
     return this;
   }
 
@@ -399,11 +420,13 @@ public class CardAddedDeductedPointsBalancesNotification {
 
   public void setUserID(@javax.annotation.Nonnull Long userID) {
     this.userID = userID;
+    this.markPropertyAsSet(SERIALIZED_NAME_USER_I_D);
   }
 
 
   public CardAddedDeductedPointsBalancesNotification usersPerCardLimit(@javax.annotation.Nonnull Long usersPerCardLimit) {
     this.usersPerCardLimit = usersPerCardLimit;
+    this.markPropertyAsSet(SERIALIZED_NAME_USERS_PER_CARD_LIMIT);
     return this;
   }
 
@@ -418,11 +441,13 @@ public class CardAddedDeductedPointsBalancesNotification {
 
   public void setUsersPerCardLimit(@javax.annotation.Nonnull Long usersPerCardLimit) {
     this.usersPerCardLimit = usersPerCardLimit;
+    this.markPropertyAsSet(SERIALIZED_NAME_USERS_PER_CARD_LIMIT);
   }
 
 
   public CardAddedDeductedPointsBalancesNotification actions(@javax.annotation.Nonnull List<AddedDeductedPointsBalancesAction> actions) {
     this.actions = actions;
+    this.markPropertyAsSet(SERIALIZED_NAME_ACTIONS);
     return this;
   }
 
@@ -431,6 +456,7 @@ public class CardAddedDeductedPointsBalancesNotification {
       this.actions = new ArrayList<>();
     }
     this.actions.add(actionsItem);
+    this.markPropertyAsSet(SERIALIZED_NAME_ACTIONS);
     return this;
   }
 
@@ -445,11 +471,13 @@ public class CardAddedDeductedPointsBalancesNotification {
 
   public void setActions(@javax.annotation.Nonnull List<AddedDeductedPointsBalancesAction> actions) {
     this.actions = actions;
+    this.markPropertyAsSet(SERIALIZED_NAME_ACTIONS);
   }
 
 
   public CardAddedDeductedPointsBalancesNotification currentPoints(@javax.annotation.Nonnull BigDecimal currentPoints) {
     this.currentPoints = currentPoints;
+    this.markPropertyAsSet(SERIALIZED_NAME_CURRENT_POINTS);
     return this;
   }
 
@@ -464,6 +492,7 @@ public class CardAddedDeductedPointsBalancesNotification {
 
   public void setCurrentPoints(@javax.annotation.Nonnull BigDecimal currentPoints) {
     this.currentPoints = currentPoints;
+    this.markPropertyAsSet(SERIALIZED_NAME_CURRENT_POINTS);
   }
 
   /**
@@ -509,6 +538,21 @@ public class CardAddedDeductedPointsBalancesNotification {
         return null;
     }
     return this.additionalProperties.get(key);
+  }
+
+  /** Omit null properties unless they were explicitly assigned or present in JSON input. */
+  protected final void removeUnsetNullFields(JsonObject obj) {
+    obj.entrySet().removeIf(entry -> entry.getValue().isJsonNull()
+        && !openapiExplicitlySetFields.contains(entry.getKey()));
+  }
+
+  protected final void markPropertyAsSet(String propertyName) {
+    openapiExplicitlySetFields.add(propertyName);
+  }
+
+  /** Gson populates fields directly, bypassing setters during deserialization. */
+  protected final void markPropertiesAsSet(Set<String> propertyNames) {
+    openapiExplicitlySetFields.addAll(propertyNames);
   }
 
 
@@ -647,7 +691,7 @@ public class CardAddedDeductedPointsBalancesNotification {
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
        if (!CardAddedDeductedPointsBalancesNotification.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'CardAddedDeductedPointsBalancesNotification' and its subtypes
+         return null; // let other model factories handle this type
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
        final TypeAdapter<CardAddedDeductedPointsBalancesNotification> thisAdapter
@@ -657,31 +701,22 @@ public class CardAddedDeductedPointsBalancesNotification {
            @Override
            public void write(JsonWriter out, CardAddedDeductedPointsBalancesNotification value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+             value.removeUnsetNullFields(obj);
              obj.remove("additionalProperties");
              // serialize additional properties
              if (value.getAdditionalProperties() != null) {
                for (Map.Entry<String, Object> entry : value.getAdditionalProperties().entrySet()) {
-                 if (entry.getValue() instanceof String)
-                   obj.addProperty(entry.getKey(), (String) entry.getValue());
-                 else if (entry.getValue() instanceof Number)
-                   obj.addProperty(entry.getKey(), (Number) entry.getValue());
-                 else if (entry.getValue() instanceof Boolean)
-                   obj.addProperty(entry.getKey(), (Boolean) entry.getValue());
-                 else if (entry.getValue() instanceof Character)
-                   obj.addProperty(entry.getKey(), (Character) entry.getValue());
-                 else {
-                   JsonElement jsonElement = gson.toJsonTree(entry.getValue());
-                   if (jsonElement.isJsonNull()) {
-                     obj.add(entry.getKey(), JsonNull.INSTANCE);
-                   } else if (jsonElement.isJsonArray()) {
-                     obj.add(entry.getKey(), jsonElement.getAsJsonArray());
-                   } else {
-                     obj.add(entry.getKey(), jsonElement.getAsJsonObject());
-                   }
-                 }
+                 // TypeAdapter.toJsonTree keeps explicit null entries in arbitrary maps too.
+                 obj.add(entry.getKey(), gson.getAdapter(Object.class).toJsonTree(entry.getValue()));
                }
              }
-             elementAdapter.write(out, obj);
+             boolean originalSerializeNulls = out.getSerializeNulls();
+             try {
+               out.setSerializeNulls(true);
+               elementAdapter.write(out, obj);
+             } finally {
+               out.setSerializeNulls(originalSerializeNulls);
+             }
            }
 
            @Override
@@ -691,6 +726,7 @@ public class CardAddedDeductedPointsBalancesNotification {
              JsonObject jsonObj = jsonElement.getAsJsonObject();
              // store additional fields in the deserialized instance
              CardAddedDeductedPointsBalancesNotification instance = thisAdapter.fromJsonTree(jsonObj);
+             instance.markPropertiesAsSet(jsonObj.keySet());
              for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
                if (!openapiFields.contains(entry.getKey())) {
                  if (entry.getValue().isJsonPrimitive()) { // primitive type

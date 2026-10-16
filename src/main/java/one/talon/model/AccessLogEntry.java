@@ -52,6 +52,9 @@ import one.talon.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.26.0")
 public class AccessLogEntry {
+  // Gson ignores transient state; only setters and JSON input mark properties as present.
+  private transient Set<String> openapiExplicitlySetFields = new HashSet<>();
+
   public static final String SERIALIZED_NAME_UUID = "uuid";
   @SerializedName(SERIALIZED_NAME_UUID)
   @javax.annotation.Nonnull
@@ -92,6 +95,7 @@ public class AccessLogEntry {
 
   public AccessLogEntry uuid(@javax.annotation.Nonnull String uuid) {
     this.uuid = uuid;
+    this.markPropertyAsSet(SERIALIZED_NAME_UUID);
     return this;
   }
 
@@ -106,11 +110,13 @@ public class AccessLogEntry {
 
   public void setUuid(@javax.annotation.Nonnull String uuid) {
     this.uuid = uuid;
+    this.markPropertyAsSet(SERIALIZED_NAME_UUID);
   }
 
 
   public AccessLogEntry status(@javax.annotation.Nonnull Long status) {
     this.status = status;
+    this.markPropertyAsSet(SERIALIZED_NAME_STATUS);
     return this;
   }
 
@@ -125,11 +131,13 @@ public class AccessLogEntry {
 
   public void setStatus(@javax.annotation.Nonnull Long status) {
     this.status = status;
+    this.markPropertyAsSet(SERIALIZED_NAME_STATUS);
   }
 
 
   public AccessLogEntry method(@javax.annotation.Nonnull String method) {
     this.method = method;
+    this.markPropertyAsSet(SERIALIZED_NAME_METHOD);
     return this;
   }
 
@@ -144,11 +152,13 @@ public class AccessLogEntry {
 
   public void setMethod(@javax.annotation.Nonnull String method) {
     this.method = method;
+    this.markPropertyAsSet(SERIALIZED_NAME_METHOD);
   }
 
 
   public AccessLogEntry requestUri(@javax.annotation.Nonnull String requestUri) {
     this.requestUri = requestUri;
+    this.markPropertyAsSet(SERIALIZED_NAME_REQUEST_URI);
     return this;
   }
 
@@ -163,11 +173,13 @@ public class AccessLogEntry {
 
   public void setRequestUri(@javax.annotation.Nonnull String requestUri) {
     this.requestUri = requestUri;
+    this.markPropertyAsSet(SERIALIZED_NAME_REQUEST_URI);
   }
 
 
   public AccessLogEntry time(@javax.annotation.Nonnull OffsetDateTime time) {
     this.time = time;
+    this.markPropertyAsSet(SERIALIZED_NAME_TIME);
     return this;
   }
 
@@ -182,11 +194,13 @@ public class AccessLogEntry {
 
   public void setTime(@javax.annotation.Nonnull OffsetDateTime time) {
     this.time = time;
+    this.markPropertyAsSet(SERIALIZED_NAME_TIME);
   }
 
 
   public AccessLogEntry requestPayload(@javax.annotation.Nonnull String requestPayload) {
     this.requestPayload = requestPayload;
+    this.markPropertyAsSet(SERIALIZED_NAME_REQUEST_PAYLOAD);
     return this;
   }
 
@@ -201,11 +215,13 @@ public class AccessLogEntry {
 
   public void setRequestPayload(@javax.annotation.Nonnull String requestPayload) {
     this.requestPayload = requestPayload;
+    this.markPropertyAsSet(SERIALIZED_NAME_REQUEST_PAYLOAD);
   }
 
 
   public AccessLogEntry responsePayload(@javax.annotation.Nonnull String responsePayload) {
     this.responsePayload = responsePayload;
+    this.markPropertyAsSet(SERIALIZED_NAME_RESPONSE_PAYLOAD);
     return this;
   }
 
@@ -220,6 +236,7 @@ public class AccessLogEntry {
 
   public void setResponsePayload(@javax.annotation.Nonnull String responsePayload) {
     this.responsePayload = responsePayload;
+    this.markPropertyAsSet(SERIALIZED_NAME_RESPONSE_PAYLOAD);
   }
 
   /**
@@ -265,6 +282,21 @@ public class AccessLogEntry {
         return null;
     }
     return this.additionalProperties.get(key);
+  }
+
+  /** Omit null properties unless they were explicitly assigned or present in JSON input. */
+  protected final void removeUnsetNullFields(JsonObject obj) {
+    obj.entrySet().removeIf(entry -> entry.getValue().isJsonNull()
+        && !openapiExplicitlySetFields.contains(entry.getKey()));
+  }
+
+  protected final void markPropertyAsSet(String propertyName) {
+    openapiExplicitlySetFields.add(propertyName);
+  }
+
+  /** Gson populates fields directly, bypassing setters during deserialization. */
+  protected final void markPropertiesAsSet(Set<String> propertyNames) {
+    openapiExplicitlySetFields.addAll(propertyNames);
   }
 
 
@@ -370,7 +402,7 @@ public class AccessLogEntry {
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
        if (!AccessLogEntry.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'AccessLogEntry' and its subtypes
+         return null; // let other model factories handle this type
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
        final TypeAdapter<AccessLogEntry> thisAdapter
@@ -380,31 +412,22 @@ public class AccessLogEntry {
            @Override
            public void write(JsonWriter out, AccessLogEntry value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+             value.removeUnsetNullFields(obj);
              obj.remove("additionalProperties");
              // serialize additional properties
              if (value.getAdditionalProperties() != null) {
                for (Map.Entry<String, Object> entry : value.getAdditionalProperties().entrySet()) {
-                 if (entry.getValue() instanceof String)
-                   obj.addProperty(entry.getKey(), (String) entry.getValue());
-                 else if (entry.getValue() instanceof Number)
-                   obj.addProperty(entry.getKey(), (Number) entry.getValue());
-                 else if (entry.getValue() instanceof Boolean)
-                   obj.addProperty(entry.getKey(), (Boolean) entry.getValue());
-                 else if (entry.getValue() instanceof Character)
-                   obj.addProperty(entry.getKey(), (Character) entry.getValue());
-                 else {
-                   JsonElement jsonElement = gson.toJsonTree(entry.getValue());
-                   if (jsonElement.isJsonNull()) {
-                     obj.add(entry.getKey(), JsonNull.INSTANCE);
-                   } else if (jsonElement.isJsonArray()) {
-                     obj.add(entry.getKey(), jsonElement.getAsJsonArray());
-                   } else {
-                     obj.add(entry.getKey(), jsonElement.getAsJsonObject());
-                   }
-                 }
+                 // TypeAdapter.toJsonTree keeps explicit null entries in arbitrary maps too.
+                 obj.add(entry.getKey(), gson.getAdapter(Object.class).toJsonTree(entry.getValue()));
                }
              }
-             elementAdapter.write(out, obj);
+             boolean originalSerializeNulls = out.getSerializeNulls();
+             try {
+               out.setSerializeNulls(true);
+               elementAdapter.write(out, obj);
+             } finally {
+               out.setSerializeNulls(originalSerializeNulls);
+             }
            }
 
            @Override
@@ -414,6 +437,7 @@ public class AccessLogEntry {
              JsonObject jsonObj = jsonElement.getAsJsonObject();
              // store additional fields in the deserialized instance
              AccessLogEntry instance = thisAdapter.fromJsonTree(jsonObj);
+             instance.markPropertiesAsSet(jsonObj.keySet());
              for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
                if (!openapiFields.contains(entry.getKey())) {
                  if (entry.getValue().isJsonPrimitive()) { // primitive type

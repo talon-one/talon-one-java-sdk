@@ -53,6 +53,9 @@ import one.talon.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.26.0")
 public class TierDowngradeData {
+  // Gson ignores transient state; only setters and JSON input mark properties as present.
+  private transient Set<String> openapiExplicitlySetFields = new HashSet<>();
+
   public static final String SERIALIZED_NAME_CUSTOMER_PROFILE_I_D = "CustomerProfileID";
   @SerializedName(SERIALIZED_NAME_CUSTOMER_PROFILE_I_D)
   @javax.annotation.Nonnull
@@ -160,6 +163,7 @@ public class TierDowngradeData {
 
   public TierDowngradeData customerProfileID(@javax.annotation.Nonnull String customerProfileID) {
     this.customerProfileID = customerProfileID;
+    this.markPropertyAsSet(SERIALIZED_NAME_CUSTOMER_PROFILE_I_D);
     return this;
   }
 
@@ -174,11 +178,13 @@ public class TierDowngradeData {
 
   public void setCustomerProfileID(@javax.annotation.Nonnull String customerProfileID) {
     this.customerProfileID = customerProfileID;
+    this.markPropertyAsSet(SERIALIZED_NAME_CUSTOMER_PROFILE_I_D);
   }
 
 
   public TierDowngradeData loyaltyProgramID(@javax.annotation.Nonnull Long loyaltyProgramID) {
     this.loyaltyProgramID = loyaltyProgramID;
+    this.markPropertyAsSet(SERIALIZED_NAME_LOYALTY_PROGRAM_I_D);
     return this;
   }
 
@@ -194,11 +200,13 @@ public class TierDowngradeData {
 
   public void setLoyaltyProgramID(@javax.annotation.Nonnull Long loyaltyProgramID) {
     this.loyaltyProgramID = loyaltyProgramID;
+    this.markPropertyAsSet(SERIALIZED_NAME_LOYALTY_PROGRAM_I_D);
   }
 
 
   public TierDowngradeData subledgerID(@javax.annotation.Nonnull String subledgerID) {
     this.subledgerID = subledgerID;
+    this.markPropertyAsSet(SERIALIZED_NAME_SUBLEDGER_I_D);
     return this;
   }
 
@@ -213,11 +221,13 @@ public class TierDowngradeData {
 
   public void setSubledgerID(@javax.annotation.Nonnull String subledgerID) {
     this.subledgerID = subledgerID;
+    this.markPropertyAsSet(SERIALIZED_NAME_SUBLEDGER_I_D);
   }
 
 
   public TierDowngradeData currentTier(@javax.annotation.Nullable String currentTier) {
     this.currentTier = currentTier;
+    this.markPropertyAsSet(SERIALIZED_NAME_CURRENT_TIER);
     return this;
   }
 
@@ -232,11 +242,13 @@ public class TierDowngradeData {
 
   public void setCurrentTier(@javax.annotation.Nullable String currentTier) {
     this.currentTier = currentTier;
+    this.markPropertyAsSet(SERIALIZED_NAME_CURRENT_TIER);
   }
 
 
   public TierDowngradeData currentPoints(@javax.annotation.Nonnull BigDecimal currentPoints) {
     this.currentPoints = currentPoints;
+    this.markPropertyAsSet(SERIALIZED_NAME_CURRENT_POINTS);
     return this;
   }
 
@@ -251,11 +263,13 @@ public class TierDowngradeData {
 
   public void setCurrentPoints(@javax.annotation.Nonnull BigDecimal currentPoints) {
     this.currentPoints = currentPoints;
+    this.markPropertyAsSet(SERIALIZED_NAME_CURRENT_POINTS);
   }
 
 
   public TierDowngradeData oldTier(@javax.annotation.Nonnull String oldTier) {
     this.oldTier = oldTier;
+    this.markPropertyAsSet(SERIALIZED_NAME_OLD_TIER);
     return this;
   }
 
@@ -270,11 +284,13 @@ public class TierDowngradeData {
 
   public void setOldTier(@javax.annotation.Nonnull String oldTier) {
     this.oldTier = oldTier;
+    this.markPropertyAsSet(SERIALIZED_NAME_OLD_TIER);
   }
 
 
   public TierDowngradeData tierExpirationDate(@javax.annotation.Nullable OffsetDateTime tierExpirationDate) {
     this.tierExpirationDate = tierExpirationDate;
+    this.markPropertyAsSet(SERIALIZED_NAME_TIER_EXPIRATION_DATE);
     return this;
   }
 
@@ -289,11 +305,13 @@ public class TierDowngradeData {
 
   public void setTierExpirationDate(@javax.annotation.Nullable OffsetDateTime tierExpirationDate) {
     this.tierExpirationDate = tierExpirationDate;
+    this.markPropertyAsSet(SERIALIZED_NAME_TIER_EXPIRATION_DATE);
   }
 
 
   public TierDowngradeData timestampOfTierChange(@javax.annotation.Nonnull OffsetDateTime timestampOfTierChange) {
     this.timestampOfTierChange = timestampOfTierChange;
+    this.markPropertyAsSet(SERIALIZED_NAME_TIMESTAMP_OF_TIER_CHANGE);
     return this;
   }
 
@@ -308,11 +326,13 @@ public class TierDowngradeData {
 
   public void setTimestampOfTierChange(@javax.annotation.Nonnull OffsetDateTime timestampOfTierChange) {
     this.timestampOfTierChange = timestampOfTierChange;
+    this.markPropertyAsSet(SERIALIZED_NAME_TIMESTAMP_OF_TIER_CHANGE);
   }
 
 
   public TierDowngradeData source(@javax.annotation.Nullable SourceEnum source) {
     this.source = source;
+    this.markPropertyAsSet(SERIALIZED_NAME_SOURCE);
     return this;
   }
 
@@ -327,11 +347,13 @@ public class TierDowngradeData {
 
   public void setSource(@javax.annotation.Nullable SourceEnum source) {
     this.source = source;
+    this.markPropertyAsSet(SERIALIZED_NAME_SOURCE);
   }
 
 
   public TierDowngradeData reason(@javax.annotation.Nullable String reason) {
     this.reason = reason;
+    this.markPropertyAsSet(SERIALIZED_NAME_REASON);
     return this;
   }
 
@@ -346,6 +368,7 @@ public class TierDowngradeData {
 
   public void setReason(@javax.annotation.Nullable String reason) {
     this.reason = reason;
+    this.markPropertyAsSet(SERIALIZED_NAME_REASON);
   }
 
   /**
@@ -391,6 +414,21 @@ public class TierDowngradeData {
         return null;
     }
     return this.additionalProperties.get(key);
+  }
+
+  /** Omit null properties unless they were explicitly assigned or present in JSON input. */
+  protected final void removeUnsetNullFields(JsonObject obj) {
+    obj.entrySet().removeIf(entry -> entry.getValue().isJsonNull()
+        && !openapiExplicitlySetFields.contains(entry.getKey()));
+  }
+
+  protected final void markPropertyAsSet(String propertyName) {
+    openapiExplicitlySetFields.add(propertyName);
+  }
+
+  /** Gson populates fields directly, bypassing setters during deserialization. */
+  protected final void markPropertiesAsSet(Set<String> propertyNames) {
+    openapiExplicitlySetFields.addAll(propertyNames);
   }
 
 
@@ -509,7 +547,7 @@ public class TierDowngradeData {
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
        if (!TierDowngradeData.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'TierDowngradeData' and its subtypes
+         return null; // let other model factories handle this type
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
        final TypeAdapter<TierDowngradeData> thisAdapter
@@ -519,31 +557,22 @@ public class TierDowngradeData {
            @Override
            public void write(JsonWriter out, TierDowngradeData value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+             value.removeUnsetNullFields(obj);
              obj.remove("additionalProperties");
              // serialize additional properties
              if (value.getAdditionalProperties() != null) {
                for (Map.Entry<String, Object> entry : value.getAdditionalProperties().entrySet()) {
-                 if (entry.getValue() instanceof String)
-                   obj.addProperty(entry.getKey(), (String) entry.getValue());
-                 else if (entry.getValue() instanceof Number)
-                   obj.addProperty(entry.getKey(), (Number) entry.getValue());
-                 else if (entry.getValue() instanceof Boolean)
-                   obj.addProperty(entry.getKey(), (Boolean) entry.getValue());
-                 else if (entry.getValue() instanceof Character)
-                   obj.addProperty(entry.getKey(), (Character) entry.getValue());
-                 else {
-                   JsonElement jsonElement = gson.toJsonTree(entry.getValue());
-                   if (jsonElement.isJsonNull()) {
-                     obj.add(entry.getKey(), JsonNull.INSTANCE);
-                   } else if (jsonElement.isJsonArray()) {
-                     obj.add(entry.getKey(), jsonElement.getAsJsonArray());
-                   } else {
-                     obj.add(entry.getKey(), jsonElement.getAsJsonObject());
-                   }
-                 }
+                 // TypeAdapter.toJsonTree keeps explicit null entries in arbitrary maps too.
+                 obj.add(entry.getKey(), gson.getAdapter(Object.class).toJsonTree(entry.getValue()));
                }
              }
-             elementAdapter.write(out, obj);
+             boolean originalSerializeNulls = out.getSerializeNulls();
+             try {
+               out.setSerializeNulls(true);
+               elementAdapter.write(out, obj);
+             } finally {
+               out.setSerializeNulls(originalSerializeNulls);
+             }
            }
 
            @Override
@@ -553,6 +582,7 @@ public class TierDowngradeData {
              JsonObject jsonObj = jsonElement.getAsJsonObject();
              // store additional fields in the deserialized instance
              TierDowngradeData instance = thisAdapter.fromJsonTree(jsonObj);
+             instance.markPropertiesAsSet(jsonObj.keySet());
              for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
                if (!openapiFields.contains(entry.getKey())) {
                  if (entry.getValue().isJsonPrimitive()) { // primitive type

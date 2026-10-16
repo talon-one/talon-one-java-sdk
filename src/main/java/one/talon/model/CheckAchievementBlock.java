@@ -55,6 +55,9 @@ import one.talon.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.26.0")
 public class CheckAchievementBlock {
+  // Gson ignores transient state; only setters and JSON input mark properties as present.
+  private transient Set<String> openapiExplicitlySetFields = new HashSet<>();
+
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
   @javax.annotation.Nullable
@@ -156,7 +159,9 @@ public class CheckAchievementBlock {
   ) {
     this();
     this.id = id;
+    this.markPropertyAsSet(SERIALIZED_NAME_ID);
     this.tags = tags;
+    this.markPropertyAsSet(SERIALIZED_NAME_TAGS);
   }
 
   /**
@@ -172,6 +177,7 @@ public class CheckAchievementBlock {
 
   public CheckAchievementBlock type(@javax.annotation.Nonnull String type) {
     this.type = type;
+    this.markPropertyAsSet(SERIALIZED_NAME_TYPE);
     return this;
   }
 
@@ -186,6 +192,7 @@ public class CheckAchievementBlock {
 
   public void setType(@javax.annotation.Nonnull String type) {
     this.type = type;
+    this.markPropertyAsSet(SERIALIZED_NAME_TYPE);
   }
 
 
@@ -202,6 +209,7 @@ public class CheckAchievementBlock {
 
   public CheckAchievementBlock operator(@javax.annotation.Nonnull OperatorEnum operator) {
     this.operator = operator;
+    this.markPropertyAsSet(SERIALIZED_NAME_OPERATOR);
     return this;
   }
 
@@ -216,11 +224,13 @@ public class CheckAchievementBlock {
 
   public void setOperator(@javax.annotation.Nonnull OperatorEnum operator) {
     this.operator = operator;
+    this.markPropertyAsSet(SERIALIZED_NAME_OPERATOR);
   }
 
 
   public CheckAchievementBlock achievement(@javax.annotation.Nonnull AchievementBlockReference achievement) {
     this.achievement = achievement;
+    this.markPropertyAsSet(SERIALIZED_NAME_ACHIEVEMENT);
     return this;
   }
 
@@ -235,11 +245,13 @@ public class CheckAchievementBlock {
 
   public void setAchievement(@javax.annotation.Nonnull AchievementBlockReference achievement) {
     this.achievement = achievement;
+    this.markPropertyAsSet(SERIALIZED_NAME_ACHIEVEMENT);
   }
 
 
   public CheckAchievementBlock onFailure(@javax.annotation.Nullable List<Block> onFailure) {
     this.onFailure = onFailure;
+    this.markPropertyAsSet(SERIALIZED_NAME_ON_FAILURE);
     return this;
   }
 
@@ -248,6 +260,7 @@ public class CheckAchievementBlock {
       this.onFailure = new ArrayList<>();
     }
     this.onFailure.add(onFailureItem);
+    this.markPropertyAsSet(SERIALIZED_NAME_ON_FAILURE);
     return this;
   }
 
@@ -262,6 +275,7 @@ public class CheckAchievementBlock {
 
   public void setOnFailure(@javax.annotation.Nullable List<Block> onFailure) {
     this.onFailure = onFailure;
+    this.markPropertyAsSet(SERIALIZED_NAME_ON_FAILURE);
   }
 
   /**
@@ -307,6 +321,21 @@ public class CheckAchievementBlock {
         return null;
     }
     return this.additionalProperties.get(key);
+  }
+
+  /** Omit null properties unless they were explicitly assigned or present in JSON input. */
+  protected final void removeUnsetNullFields(JsonObject obj) {
+    obj.entrySet().removeIf(entry -> entry.getValue().isJsonNull()
+        && !openapiExplicitlySetFields.contains(entry.getKey()));
+  }
+
+  protected final void markPropertyAsSet(String propertyName) {
+    openapiExplicitlySetFields.add(propertyName);
+  }
+
+  /** Gson populates fields directly, bypassing setters during deserialization. */
+  protected final void markPropertiesAsSet(Set<String> propertyNames) {
+    openapiExplicitlySetFields.addAll(propertyNames);
   }
 
 
@@ -426,7 +455,7 @@ public class CheckAchievementBlock {
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
        if (!CheckAchievementBlock.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'CheckAchievementBlock' and its subtypes
+         return null; // let other model factories handle this type
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
        final TypeAdapter<CheckAchievementBlock> thisAdapter
@@ -436,31 +465,22 @@ public class CheckAchievementBlock {
            @Override
            public void write(JsonWriter out, CheckAchievementBlock value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+             value.removeUnsetNullFields(obj);
              obj.remove("additionalProperties");
              // serialize additional properties
              if (value.getAdditionalProperties() != null) {
                for (Map.Entry<String, Object> entry : value.getAdditionalProperties().entrySet()) {
-                 if (entry.getValue() instanceof String)
-                   obj.addProperty(entry.getKey(), (String) entry.getValue());
-                 else if (entry.getValue() instanceof Number)
-                   obj.addProperty(entry.getKey(), (Number) entry.getValue());
-                 else if (entry.getValue() instanceof Boolean)
-                   obj.addProperty(entry.getKey(), (Boolean) entry.getValue());
-                 else if (entry.getValue() instanceof Character)
-                   obj.addProperty(entry.getKey(), (Character) entry.getValue());
-                 else {
-                   JsonElement jsonElement = gson.toJsonTree(entry.getValue());
-                   if (jsonElement.isJsonNull()) {
-                     obj.add(entry.getKey(), JsonNull.INSTANCE);
-                   } else if (jsonElement.isJsonArray()) {
-                     obj.add(entry.getKey(), jsonElement.getAsJsonArray());
-                   } else {
-                     obj.add(entry.getKey(), jsonElement.getAsJsonObject());
-                   }
-                 }
+                 // TypeAdapter.toJsonTree keeps explicit null entries in arbitrary maps too.
+                 obj.add(entry.getKey(), gson.getAdapter(Object.class).toJsonTree(entry.getValue()));
                }
              }
-             elementAdapter.write(out, obj);
+             boolean originalSerializeNulls = out.getSerializeNulls();
+             try {
+               out.setSerializeNulls(true);
+               elementAdapter.write(out, obj);
+             } finally {
+               out.setSerializeNulls(originalSerializeNulls);
+             }
            }
 
            @Override
@@ -470,6 +490,7 @@ public class CheckAchievementBlock {
              JsonObject jsonObj = jsonElement.getAsJsonObject();
              // store additional fields in the deserialized instance
              CheckAchievementBlock instance = thisAdapter.fromJsonTree(jsonObj);
+             instance.markPropertiesAsSet(jsonObj.keySet());
              for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
                if (!openapiFields.contains(entry.getKey())) {
                  if (entry.getValue().isJsonPrimitive()) { // primitive type

@@ -54,6 +54,9 @@ import one.talon.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.26.0")
 public class NewPriceAdjustment {
+  // Gson ignores transient state; only setters and JSON input mark properties as present.
+  private transient Set<String> openapiExplicitlySetFields = new HashSet<>();
+
   public static final String SERIALIZED_NAME_PRICE_TYPE = "priceType";
   @SerializedName(SERIALIZED_NAME_PRICE_TYPE)
   @javax.annotation.Nonnull
@@ -94,6 +97,7 @@ public class NewPriceAdjustment {
 
   public NewPriceAdjustment priceType(@javax.annotation.Nonnull String priceType) {
     this.priceType = priceType;
+    this.markPropertyAsSet(SERIALIZED_NAME_PRICE_TYPE);
     return this;
   }
 
@@ -108,11 +112,13 @@ public class NewPriceAdjustment {
 
   public void setPriceType(@javax.annotation.Nonnull String priceType) {
     this.priceType = priceType;
+    this.markPropertyAsSet(SERIALIZED_NAME_PRICE_TYPE);
   }
 
 
   public NewPriceAdjustment price(@javax.annotation.Nullable BigDecimal price) {
     this.price = price;
+    this.markPropertyAsSet(SERIALIZED_NAME_PRICE);
     return this;
   }
 
@@ -127,11 +133,13 @@ public class NewPriceAdjustment {
 
   public void setPrice(@javax.annotation.Nullable BigDecimal price) {
     this.price = price;
+    this.markPropertyAsSet(SERIALIZED_NAME_PRICE);
   }
 
 
   public NewPriceAdjustment referenceId(@javax.annotation.Nonnull String referenceId) {
     this.referenceId = referenceId;
+    this.markPropertyAsSet(SERIALIZED_NAME_REFERENCE_ID);
     return this;
   }
 
@@ -146,11 +154,13 @@ public class NewPriceAdjustment {
 
   public void setReferenceId(@javax.annotation.Nonnull String referenceId) {
     this.referenceId = referenceId;
+    this.markPropertyAsSet(SERIALIZED_NAME_REFERENCE_ID);
   }
 
 
   public NewPriceAdjustment calculatedAt(@javax.annotation.Nullable OffsetDateTime calculatedAt) {
     this.calculatedAt = calculatedAt;
+    this.markPropertyAsSet(SERIALIZED_NAME_CALCULATED_AT);
     return this;
   }
 
@@ -165,11 +175,13 @@ public class NewPriceAdjustment {
 
   public void setCalculatedAt(@javax.annotation.Nullable OffsetDateTime calculatedAt) {
     this.calculatedAt = calculatedAt;
+    this.markPropertyAsSet(SERIALIZED_NAME_CALCULATED_AT);
   }
 
 
   public NewPriceAdjustment effectiveFrom(@javax.annotation.Nullable OffsetDateTime effectiveFrom) {
     this.effectiveFrom = effectiveFrom;
+    this.markPropertyAsSet(SERIALIZED_NAME_EFFECTIVE_FROM);
     return this;
   }
 
@@ -184,11 +196,13 @@ public class NewPriceAdjustment {
 
   public void setEffectiveFrom(@javax.annotation.Nullable OffsetDateTime effectiveFrom) {
     this.effectiveFrom = effectiveFrom;
+    this.markPropertyAsSet(SERIALIZED_NAME_EFFECTIVE_FROM);
   }
 
 
   public NewPriceAdjustment effectiveUntil(@javax.annotation.Nullable OffsetDateTime effectiveUntil) {
     this.effectiveUntil = effectiveUntil;
+    this.markPropertyAsSet(SERIALIZED_NAME_EFFECTIVE_UNTIL);
     return this;
   }
 
@@ -203,11 +217,13 @@ public class NewPriceAdjustment {
 
   public void setEffectiveUntil(@javax.annotation.Nullable OffsetDateTime effectiveUntil) {
     this.effectiveUntil = effectiveUntil;
+    this.markPropertyAsSet(SERIALIZED_NAME_EFFECTIVE_UNTIL);
   }
 
 
   public NewPriceAdjustment contextId(@javax.annotation.Nullable String contextId) {
     this.contextId = contextId;
+    this.markPropertyAsSet(SERIALIZED_NAME_CONTEXT_ID);
     return this;
   }
 
@@ -222,6 +238,7 @@ public class NewPriceAdjustment {
 
   public void setContextId(@javax.annotation.Nullable String contextId) {
     this.contextId = contextId;
+    this.markPropertyAsSet(SERIALIZED_NAME_CONTEXT_ID);
   }
 
   /**
@@ -267,6 +284,21 @@ public class NewPriceAdjustment {
         return null;
     }
     return this.additionalProperties.get(key);
+  }
+
+  /** Omit null properties unless they were explicitly assigned or present in JSON input. */
+  protected final void removeUnsetNullFields(JsonObject obj) {
+    obj.entrySet().removeIf(entry -> entry.getValue().isJsonNull()
+        && !openapiExplicitlySetFields.contains(entry.getKey()));
+  }
+
+  protected final void markPropertyAsSet(String propertyName) {
+    openapiExplicitlySetFields.add(propertyName);
+  }
+
+  /** Gson populates fields directly, bypassing setters during deserialization. */
+  protected final void markPropertiesAsSet(Set<String> propertyNames) {
+    openapiExplicitlySetFields.addAll(propertyNames);
   }
 
 
@@ -377,7 +409,7 @@ public class NewPriceAdjustment {
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
        if (!NewPriceAdjustment.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'NewPriceAdjustment' and its subtypes
+         return null; // let other model factories handle this type
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
        final TypeAdapter<NewPriceAdjustment> thisAdapter
@@ -387,31 +419,22 @@ public class NewPriceAdjustment {
            @Override
            public void write(JsonWriter out, NewPriceAdjustment value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+             value.removeUnsetNullFields(obj);
              obj.remove("additionalProperties");
              // serialize additional properties
              if (value.getAdditionalProperties() != null) {
                for (Map.Entry<String, Object> entry : value.getAdditionalProperties().entrySet()) {
-                 if (entry.getValue() instanceof String)
-                   obj.addProperty(entry.getKey(), (String) entry.getValue());
-                 else if (entry.getValue() instanceof Number)
-                   obj.addProperty(entry.getKey(), (Number) entry.getValue());
-                 else if (entry.getValue() instanceof Boolean)
-                   obj.addProperty(entry.getKey(), (Boolean) entry.getValue());
-                 else if (entry.getValue() instanceof Character)
-                   obj.addProperty(entry.getKey(), (Character) entry.getValue());
-                 else {
-                   JsonElement jsonElement = gson.toJsonTree(entry.getValue());
-                   if (jsonElement.isJsonNull()) {
-                     obj.add(entry.getKey(), JsonNull.INSTANCE);
-                   } else if (jsonElement.isJsonArray()) {
-                     obj.add(entry.getKey(), jsonElement.getAsJsonArray());
-                   } else {
-                     obj.add(entry.getKey(), jsonElement.getAsJsonObject());
-                   }
-                 }
+                 // TypeAdapter.toJsonTree keeps explicit null entries in arbitrary maps too.
+                 obj.add(entry.getKey(), gson.getAdapter(Object.class).toJsonTree(entry.getValue()));
                }
              }
-             elementAdapter.write(out, obj);
+             boolean originalSerializeNulls = out.getSerializeNulls();
+             try {
+               out.setSerializeNulls(true);
+               elementAdapter.write(out, obj);
+             } finally {
+               out.setSerializeNulls(originalSerializeNulls);
+             }
            }
 
            @Override
@@ -421,6 +444,7 @@ public class NewPriceAdjustment {
              JsonObject jsonObj = jsonElement.getAsJsonObject();
              // store additional fields in the deserialized instance
              NewPriceAdjustment instance = thisAdapter.fromJsonTree(jsonObj);
+             instance.markPropertiesAsSet(jsonObj.keySet());
              for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
                if (!openapiFields.contains(entry.getKey())) {
                  if (entry.getValue().isJsonPrimitive()) { // primitive type

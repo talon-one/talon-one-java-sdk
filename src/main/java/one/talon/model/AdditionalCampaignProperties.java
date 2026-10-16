@@ -56,6 +56,9 @@ import one.talon.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.26.0")
 public class AdditionalCampaignProperties {
+  // Gson ignores transient state; only setters and JSON input mark properties as present.
+  private transient Set<String> openapiExplicitlySetFields = new HashSet<>();
+
   public static final String SERIALIZED_NAME_BUDGETS = "budgets";
   @SerializedName(SERIALIZED_NAME_BUDGETS)
   @javax.annotation.Nullable
@@ -261,6 +264,7 @@ public class AdditionalCampaignProperties {
 
   public AdditionalCampaignProperties budgets(@javax.annotation.Nullable List<CampaignBudget> budgets) {
     this.budgets = budgets;
+    this.markPropertyAsSet(SERIALIZED_NAME_BUDGETS);
     return this;
   }
 
@@ -269,6 +273,7 @@ public class AdditionalCampaignProperties {
       this.budgets = new ArrayList<>();
     }
     this.budgets.add(budgetsItem);
+    this.markPropertyAsSet(SERIALIZED_NAME_BUDGETS);
     return this;
   }
 
@@ -283,12 +288,14 @@ public class AdditionalCampaignProperties {
 
   public void setBudgets(@javax.annotation.Nullable List<CampaignBudget> budgets) {
     this.budgets = budgets;
+    this.markPropertyAsSet(SERIALIZED_NAME_BUDGETS);
   }
 
 
   @Deprecated
   public AdditionalCampaignProperties couponRedemptionCount(@javax.annotation.Nullable Long couponRedemptionCount) {
     this.couponRedemptionCount = couponRedemptionCount;
+    this.markPropertyAsSet(SERIALIZED_NAME_COUPON_REDEMPTION_COUNT);
     return this;
   }
 
@@ -306,12 +313,14 @@ public class AdditionalCampaignProperties {
   @Deprecated
   public void setCouponRedemptionCount(@javax.annotation.Nullable Long couponRedemptionCount) {
     this.couponRedemptionCount = couponRedemptionCount;
+    this.markPropertyAsSet(SERIALIZED_NAME_COUPON_REDEMPTION_COUNT);
   }
 
 
   @Deprecated
   public AdditionalCampaignProperties referralRedemptionCount(@javax.annotation.Nullable Long referralRedemptionCount) {
     this.referralRedemptionCount = referralRedemptionCount;
+    this.markPropertyAsSet(SERIALIZED_NAME_REFERRAL_REDEMPTION_COUNT);
     return this;
   }
 
@@ -329,12 +338,14 @@ public class AdditionalCampaignProperties {
   @Deprecated
   public void setReferralRedemptionCount(@javax.annotation.Nullable Long referralRedemptionCount) {
     this.referralRedemptionCount = referralRedemptionCount;
+    this.markPropertyAsSet(SERIALIZED_NAME_REFERRAL_REDEMPTION_COUNT);
   }
 
 
   @Deprecated
   public AdditionalCampaignProperties discountCount(@javax.annotation.Nullable BigDecimal discountCount) {
     this.discountCount = discountCount;
+    this.markPropertyAsSet(SERIALIZED_NAME_DISCOUNT_COUNT);
     return this;
   }
 
@@ -352,12 +363,14 @@ public class AdditionalCampaignProperties {
   @Deprecated
   public void setDiscountCount(@javax.annotation.Nullable BigDecimal discountCount) {
     this.discountCount = discountCount;
+    this.markPropertyAsSet(SERIALIZED_NAME_DISCOUNT_COUNT);
   }
 
 
   @Deprecated
   public AdditionalCampaignProperties discountEffectCount(@javax.annotation.Nullable Long discountEffectCount) {
     this.discountEffectCount = discountEffectCount;
+    this.markPropertyAsSet(SERIALIZED_NAME_DISCOUNT_EFFECT_COUNT);
     return this;
   }
 
@@ -375,12 +388,14 @@ public class AdditionalCampaignProperties {
   @Deprecated
   public void setDiscountEffectCount(@javax.annotation.Nullable Long discountEffectCount) {
     this.discountEffectCount = discountEffectCount;
+    this.markPropertyAsSet(SERIALIZED_NAME_DISCOUNT_EFFECT_COUNT);
   }
 
 
   @Deprecated
   public AdditionalCampaignProperties couponCreationCount(@javax.annotation.Nullable Long couponCreationCount) {
     this.couponCreationCount = couponCreationCount;
+    this.markPropertyAsSet(SERIALIZED_NAME_COUPON_CREATION_COUNT);
     return this;
   }
 
@@ -398,12 +413,14 @@ public class AdditionalCampaignProperties {
   @Deprecated
   public void setCouponCreationCount(@javax.annotation.Nullable Long couponCreationCount) {
     this.couponCreationCount = couponCreationCount;
+    this.markPropertyAsSet(SERIALIZED_NAME_COUPON_CREATION_COUNT);
   }
 
 
   @Deprecated
   public AdditionalCampaignProperties customEffectCount(@javax.annotation.Nullable Long customEffectCount) {
     this.customEffectCount = customEffectCount;
+    this.markPropertyAsSet(SERIALIZED_NAME_CUSTOM_EFFECT_COUNT);
     return this;
   }
 
@@ -421,12 +438,14 @@ public class AdditionalCampaignProperties {
   @Deprecated
   public void setCustomEffectCount(@javax.annotation.Nullable Long customEffectCount) {
     this.customEffectCount = customEffectCount;
+    this.markPropertyAsSet(SERIALIZED_NAME_CUSTOM_EFFECT_COUNT);
   }
 
 
   @Deprecated
   public AdditionalCampaignProperties referralCreationCount(@javax.annotation.Nullable Long referralCreationCount) {
     this.referralCreationCount = referralCreationCount;
+    this.markPropertyAsSet(SERIALIZED_NAME_REFERRAL_CREATION_COUNT);
     return this;
   }
 
@@ -444,12 +463,14 @@ public class AdditionalCampaignProperties {
   @Deprecated
   public void setReferralCreationCount(@javax.annotation.Nullable Long referralCreationCount) {
     this.referralCreationCount = referralCreationCount;
+    this.markPropertyAsSet(SERIALIZED_NAME_REFERRAL_CREATION_COUNT);
   }
 
 
   @Deprecated
   public AdditionalCampaignProperties addFreeItemEffectCount(@javax.annotation.Nullable Long addFreeItemEffectCount) {
     this.addFreeItemEffectCount = addFreeItemEffectCount;
+    this.markPropertyAsSet(SERIALIZED_NAME_ADD_FREE_ITEM_EFFECT_COUNT);
     return this;
   }
 
@@ -467,12 +488,14 @@ public class AdditionalCampaignProperties {
   @Deprecated
   public void setAddFreeItemEffectCount(@javax.annotation.Nullable Long addFreeItemEffectCount) {
     this.addFreeItemEffectCount = addFreeItemEffectCount;
+    this.markPropertyAsSet(SERIALIZED_NAME_ADD_FREE_ITEM_EFFECT_COUNT);
   }
 
 
   @Deprecated
   public AdditionalCampaignProperties awardedGiveawaysCount(@javax.annotation.Nullable Long awardedGiveawaysCount) {
     this.awardedGiveawaysCount = awardedGiveawaysCount;
+    this.markPropertyAsSet(SERIALIZED_NAME_AWARDED_GIVEAWAYS_COUNT);
     return this;
   }
 
@@ -490,12 +513,14 @@ public class AdditionalCampaignProperties {
   @Deprecated
   public void setAwardedGiveawaysCount(@javax.annotation.Nullable Long awardedGiveawaysCount) {
     this.awardedGiveawaysCount = awardedGiveawaysCount;
+    this.markPropertyAsSet(SERIALIZED_NAME_AWARDED_GIVEAWAYS_COUNT);
   }
 
 
   @Deprecated
   public AdditionalCampaignProperties createdLoyaltyPointsCount(@javax.annotation.Nullable BigDecimal createdLoyaltyPointsCount) {
     this.createdLoyaltyPointsCount = createdLoyaltyPointsCount;
+    this.markPropertyAsSet(SERIALIZED_NAME_CREATED_LOYALTY_POINTS_COUNT);
     return this;
   }
 
@@ -513,12 +538,14 @@ public class AdditionalCampaignProperties {
   @Deprecated
   public void setCreatedLoyaltyPointsCount(@javax.annotation.Nullable BigDecimal createdLoyaltyPointsCount) {
     this.createdLoyaltyPointsCount = createdLoyaltyPointsCount;
+    this.markPropertyAsSet(SERIALIZED_NAME_CREATED_LOYALTY_POINTS_COUNT);
   }
 
 
   @Deprecated
   public AdditionalCampaignProperties createdLoyaltyPointsEffectCount(@javax.annotation.Nullable Long createdLoyaltyPointsEffectCount) {
     this.createdLoyaltyPointsEffectCount = createdLoyaltyPointsEffectCount;
+    this.markPropertyAsSet(SERIALIZED_NAME_CREATED_LOYALTY_POINTS_EFFECT_COUNT);
     return this;
   }
 
@@ -536,12 +563,14 @@ public class AdditionalCampaignProperties {
   @Deprecated
   public void setCreatedLoyaltyPointsEffectCount(@javax.annotation.Nullable Long createdLoyaltyPointsEffectCount) {
     this.createdLoyaltyPointsEffectCount = createdLoyaltyPointsEffectCount;
+    this.markPropertyAsSet(SERIALIZED_NAME_CREATED_LOYALTY_POINTS_EFFECT_COUNT);
   }
 
 
   @Deprecated
   public AdditionalCampaignProperties redeemedLoyaltyPointsCount(@javax.annotation.Nullable BigDecimal redeemedLoyaltyPointsCount) {
     this.redeemedLoyaltyPointsCount = redeemedLoyaltyPointsCount;
+    this.markPropertyAsSet(SERIALIZED_NAME_REDEEMED_LOYALTY_POINTS_COUNT);
     return this;
   }
 
@@ -559,12 +588,14 @@ public class AdditionalCampaignProperties {
   @Deprecated
   public void setRedeemedLoyaltyPointsCount(@javax.annotation.Nullable BigDecimal redeemedLoyaltyPointsCount) {
     this.redeemedLoyaltyPointsCount = redeemedLoyaltyPointsCount;
+    this.markPropertyAsSet(SERIALIZED_NAME_REDEEMED_LOYALTY_POINTS_COUNT);
   }
 
 
   @Deprecated
   public AdditionalCampaignProperties redeemedLoyaltyPointsEffectCount(@javax.annotation.Nullable Long redeemedLoyaltyPointsEffectCount) {
     this.redeemedLoyaltyPointsEffectCount = redeemedLoyaltyPointsEffectCount;
+    this.markPropertyAsSet(SERIALIZED_NAME_REDEEMED_LOYALTY_POINTS_EFFECT_COUNT);
     return this;
   }
 
@@ -582,12 +613,14 @@ public class AdditionalCampaignProperties {
   @Deprecated
   public void setRedeemedLoyaltyPointsEffectCount(@javax.annotation.Nullable Long redeemedLoyaltyPointsEffectCount) {
     this.redeemedLoyaltyPointsEffectCount = redeemedLoyaltyPointsEffectCount;
+    this.markPropertyAsSet(SERIALIZED_NAME_REDEEMED_LOYALTY_POINTS_EFFECT_COUNT);
   }
 
 
   @Deprecated
   public AdditionalCampaignProperties callApiEffectCount(@javax.annotation.Nullable Long callApiEffectCount) {
     this.callApiEffectCount = callApiEffectCount;
+    this.markPropertyAsSet(SERIALIZED_NAME_CALL_API_EFFECT_COUNT);
     return this;
   }
 
@@ -605,12 +638,14 @@ public class AdditionalCampaignProperties {
   @Deprecated
   public void setCallApiEffectCount(@javax.annotation.Nullable Long callApiEffectCount) {
     this.callApiEffectCount = callApiEffectCount;
+    this.markPropertyAsSet(SERIALIZED_NAME_CALL_API_EFFECT_COUNT);
   }
 
 
   @Deprecated
   public AdditionalCampaignProperties reservecouponEffectCount(@javax.annotation.Nullable Long reservecouponEffectCount) {
     this.reservecouponEffectCount = reservecouponEffectCount;
+    this.markPropertyAsSet(SERIALIZED_NAME_RESERVECOUPON_EFFECT_COUNT);
     return this;
   }
 
@@ -628,11 +663,13 @@ public class AdditionalCampaignProperties {
   @Deprecated
   public void setReservecouponEffectCount(@javax.annotation.Nullable Long reservecouponEffectCount) {
     this.reservecouponEffectCount = reservecouponEffectCount;
+    this.markPropertyAsSet(SERIALIZED_NAME_RESERVECOUPON_EFFECT_COUNT);
   }
 
 
   public AdditionalCampaignProperties lastActivity(@javax.annotation.Nullable OffsetDateTime lastActivity) {
     this.lastActivity = lastActivity;
+    this.markPropertyAsSet(SERIALIZED_NAME_LAST_ACTIVITY);
     return this;
   }
 
@@ -647,11 +684,13 @@ public class AdditionalCampaignProperties {
 
   public void setLastActivity(@javax.annotation.Nullable OffsetDateTime lastActivity) {
     this.lastActivity = lastActivity;
+    this.markPropertyAsSet(SERIALIZED_NAME_LAST_ACTIVITY);
   }
 
 
   public AdditionalCampaignProperties updated(@javax.annotation.Nullable OffsetDateTime updated) {
     this.updated = updated;
+    this.markPropertyAsSet(SERIALIZED_NAME_UPDATED);
     return this;
   }
 
@@ -666,11 +705,13 @@ public class AdditionalCampaignProperties {
 
   public void setUpdated(@javax.annotation.Nullable OffsetDateTime updated) {
     this.updated = updated;
+    this.markPropertyAsSet(SERIALIZED_NAME_UPDATED);
   }
 
 
   public AdditionalCampaignProperties createdBy(@javax.annotation.Nullable String createdBy) {
     this.createdBy = createdBy;
+    this.markPropertyAsSet(SERIALIZED_NAME_CREATED_BY);
     return this;
   }
 
@@ -685,11 +726,13 @@ public class AdditionalCampaignProperties {
 
   public void setCreatedBy(@javax.annotation.Nullable String createdBy) {
     this.createdBy = createdBy;
+    this.markPropertyAsSet(SERIALIZED_NAME_CREATED_BY);
   }
 
 
   public AdditionalCampaignProperties updatedBy(@javax.annotation.Nullable String updatedBy) {
     this.updatedBy = updatedBy;
+    this.markPropertyAsSet(SERIALIZED_NAME_UPDATED_BY);
     return this;
   }
 
@@ -704,11 +747,13 @@ public class AdditionalCampaignProperties {
 
   public void setUpdatedBy(@javax.annotation.Nullable String updatedBy) {
     this.updatedBy = updatedBy;
+    this.markPropertyAsSet(SERIALIZED_NAME_UPDATED_BY);
   }
 
 
   public AdditionalCampaignProperties templateId(@javax.annotation.Nullable Long templateId) {
     this.templateId = templateId;
+    this.markPropertyAsSet(SERIALIZED_NAME_TEMPLATE_ID);
     return this;
   }
 
@@ -723,11 +768,13 @@ public class AdditionalCampaignProperties {
 
   public void setTemplateId(@javax.annotation.Nullable Long templateId) {
     this.templateId = templateId;
+    this.markPropertyAsSet(SERIALIZED_NAME_TEMPLATE_ID);
   }
 
 
   public AdditionalCampaignProperties frontendState(@javax.annotation.Nonnull FrontendStateEnum frontendState) {
     this.frontendState = frontendState;
+    this.markPropertyAsSet(SERIALIZED_NAME_FRONTEND_STATE);
     return this;
   }
 
@@ -742,11 +789,13 @@ public class AdditionalCampaignProperties {
 
   public void setFrontendState(@javax.annotation.Nonnull FrontendStateEnum frontendState) {
     this.frontendState = frontendState;
+    this.markPropertyAsSet(SERIALIZED_NAME_FRONTEND_STATE);
   }
 
 
   public AdditionalCampaignProperties storesImported(@javax.annotation.Nonnull Boolean storesImported) {
     this.storesImported = storesImported;
+    this.markPropertyAsSet(SERIALIZED_NAME_STORES_IMPORTED);
     return this;
   }
 
@@ -761,11 +810,13 @@ public class AdditionalCampaignProperties {
 
   public void setStoresImported(@javax.annotation.Nonnull Boolean storesImported) {
     this.storesImported = storesImported;
+    this.markPropertyAsSet(SERIALIZED_NAME_STORES_IMPORTED);
   }
 
 
   public AdditionalCampaignProperties valueMapsIds(@javax.annotation.Nullable List<Long> valueMapsIds) {
     this.valueMapsIds = valueMapsIds;
+    this.markPropertyAsSet(SERIALIZED_NAME_VALUE_MAPS_IDS);
     return this;
   }
 
@@ -774,6 +825,7 @@ public class AdditionalCampaignProperties {
       this.valueMapsIds = new ArrayList<>();
     }
     this.valueMapsIds.add(valueMapsIdsItem);
+    this.markPropertyAsSet(SERIALIZED_NAME_VALUE_MAPS_IDS);
     return this;
   }
 
@@ -788,11 +840,13 @@ public class AdditionalCampaignProperties {
 
   public void setValueMapsIds(@javax.annotation.Nullable List<Long> valueMapsIds) {
     this.valueMapsIds = valueMapsIds;
+    this.markPropertyAsSet(SERIALIZED_NAME_VALUE_MAPS_IDS);
   }
 
 
   public AdditionalCampaignProperties experimentId(@javax.annotation.Nullable Long experimentId) {
     this.experimentId = experimentId;
+    this.markPropertyAsSet(SERIALIZED_NAME_EXPERIMENT_ID);
     return this;
   }
 
@@ -807,6 +861,7 @@ public class AdditionalCampaignProperties {
 
   public void setExperimentId(@javax.annotation.Nullable Long experimentId) {
     this.experimentId = experimentId;
+    this.markPropertyAsSet(SERIALIZED_NAME_EXPERIMENT_ID);
   }
 
   /**
@@ -852,6 +907,21 @@ public class AdditionalCampaignProperties {
         return null;
     }
     return this.additionalProperties.get(key);
+  }
+
+  /** Omit null properties unless they were explicitly assigned or present in JSON input. */
+  protected final void removeUnsetNullFields(JsonObject obj) {
+    obj.entrySet().removeIf(entry -> entry.getValue().isJsonNull()
+        && !openapiExplicitlySetFields.contains(entry.getKey()));
+  }
+
+  protected final void markPropertyAsSet(String propertyName) {
+    openapiExplicitlySetFields.add(propertyName);
+  }
+
+  /** Gson populates fields directly, bypassing setters during deserialization. */
+  protected final void markPropertiesAsSet(Set<String> propertyNames) {
+    openapiExplicitlySetFields.addAll(propertyNames);
   }
 
 
@@ -1007,7 +1077,7 @@ public class AdditionalCampaignProperties {
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
        if (!AdditionalCampaignProperties.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'AdditionalCampaignProperties' and its subtypes
+         return null; // let other model factories handle this type
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
        final TypeAdapter<AdditionalCampaignProperties> thisAdapter
@@ -1017,31 +1087,22 @@ public class AdditionalCampaignProperties {
            @Override
            public void write(JsonWriter out, AdditionalCampaignProperties value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+             value.removeUnsetNullFields(obj);
              obj.remove("additionalProperties");
              // serialize additional properties
              if (value.getAdditionalProperties() != null) {
                for (Map.Entry<String, Object> entry : value.getAdditionalProperties().entrySet()) {
-                 if (entry.getValue() instanceof String)
-                   obj.addProperty(entry.getKey(), (String) entry.getValue());
-                 else if (entry.getValue() instanceof Number)
-                   obj.addProperty(entry.getKey(), (Number) entry.getValue());
-                 else if (entry.getValue() instanceof Boolean)
-                   obj.addProperty(entry.getKey(), (Boolean) entry.getValue());
-                 else if (entry.getValue() instanceof Character)
-                   obj.addProperty(entry.getKey(), (Character) entry.getValue());
-                 else {
-                   JsonElement jsonElement = gson.toJsonTree(entry.getValue());
-                   if (jsonElement.isJsonNull()) {
-                     obj.add(entry.getKey(), JsonNull.INSTANCE);
-                   } else if (jsonElement.isJsonArray()) {
-                     obj.add(entry.getKey(), jsonElement.getAsJsonArray());
-                   } else {
-                     obj.add(entry.getKey(), jsonElement.getAsJsonObject());
-                   }
-                 }
+                 // TypeAdapter.toJsonTree keeps explicit null entries in arbitrary maps too.
+                 obj.add(entry.getKey(), gson.getAdapter(Object.class).toJsonTree(entry.getValue()));
                }
              }
-             elementAdapter.write(out, obj);
+             boolean originalSerializeNulls = out.getSerializeNulls();
+             try {
+               out.setSerializeNulls(true);
+               elementAdapter.write(out, obj);
+             } finally {
+               out.setSerializeNulls(originalSerializeNulls);
+             }
            }
 
            @Override
@@ -1051,6 +1112,7 @@ public class AdditionalCampaignProperties {
              JsonObject jsonObj = jsonElement.getAsJsonObject();
              // store additional fields in the deserialized instance
              AdditionalCampaignProperties instance = thisAdapter.fromJsonTree(jsonObj);
+             instance.markPropertiesAsSet(jsonObj.keySet());
              for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
                if (!openapiFields.contains(entry.getKey())) {
                  if (entry.getValue().isJsonPrimitive()) { // primitive type

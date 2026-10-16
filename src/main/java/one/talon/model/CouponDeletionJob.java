@@ -55,6 +55,9 @@ import one.talon.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.26.0")
 public class CouponDeletionJob {
+  // Gson ignores transient state; only setters and JSON input mark properties as present.
+  private transient Set<String> openapiExplicitlySetFields = new HashSet<>();
+
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
   @javax.annotation.Nonnull
@@ -120,6 +123,7 @@ public class CouponDeletionJob {
 
   public CouponDeletionJob id(@javax.annotation.Nonnull Long id) {
     this.id = id;
+    this.markPropertyAsSet(SERIALIZED_NAME_ID);
     return this;
   }
 
@@ -134,11 +138,13 @@ public class CouponDeletionJob {
 
   public void setId(@javax.annotation.Nonnull Long id) {
     this.id = id;
+    this.markPropertyAsSet(SERIALIZED_NAME_ID);
   }
 
 
   public CouponDeletionJob created(@javax.annotation.Nonnull OffsetDateTime created) {
     this.created = created;
+    this.markPropertyAsSet(SERIALIZED_NAME_CREATED);
     return this;
   }
 
@@ -153,11 +159,13 @@ public class CouponDeletionJob {
 
   public void setCreated(@javax.annotation.Nonnull OffsetDateTime created) {
     this.created = created;
+    this.markPropertyAsSet(SERIALIZED_NAME_CREATED);
   }
 
 
   public CouponDeletionJob applicationId(@javax.annotation.Nonnull Long applicationId) {
     this.applicationId = applicationId;
+    this.markPropertyAsSet(SERIALIZED_NAME_APPLICATION_ID);
     return this;
   }
 
@@ -172,11 +180,13 @@ public class CouponDeletionJob {
 
   public void setApplicationId(@javax.annotation.Nonnull Long applicationId) {
     this.applicationId = applicationId;
+    this.markPropertyAsSet(SERIALIZED_NAME_APPLICATION_ID);
   }
 
 
   public CouponDeletionJob accountId(@javax.annotation.Nonnull Long accountId) {
     this.accountId = accountId;
+    this.markPropertyAsSet(SERIALIZED_NAME_ACCOUNT_ID);
     return this;
   }
 
@@ -191,11 +201,13 @@ public class CouponDeletionJob {
 
   public void setAccountId(@javax.annotation.Nonnull Long accountId) {
     this.accountId = accountId;
+    this.markPropertyAsSet(SERIALIZED_NAME_ACCOUNT_ID);
   }
 
 
   public CouponDeletionJob filters(@javax.annotation.Nonnull CouponDeletionFilters filters) {
     this.filters = filters;
+    this.markPropertyAsSet(SERIALIZED_NAME_FILTERS);
     return this;
   }
 
@@ -210,11 +222,13 @@ public class CouponDeletionJob {
 
   public void setFilters(@javax.annotation.Nonnull CouponDeletionFilters filters) {
     this.filters = filters;
+    this.markPropertyAsSet(SERIALIZED_NAME_FILTERS);
   }
 
 
   public CouponDeletionJob status(@javax.annotation.Nonnull String status) {
     this.status = status;
+    this.markPropertyAsSet(SERIALIZED_NAME_STATUS);
     return this;
   }
 
@@ -229,11 +243,13 @@ public class CouponDeletionJob {
 
   public void setStatus(@javax.annotation.Nonnull String status) {
     this.status = status;
+    this.markPropertyAsSet(SERIALIZED_NAME_STATUS);
   }
 
 
   public CouponDeletionJob deletedAmount(@javax.annotation.Nullable Long deletedAmount) {
     this.deletedAmount = deletedAmount;
+    this.markPropertyAsSet(SERIALIZED_NAME_DELETED_AMOUNT);
     return this;
   }
 
@@ -248,11 +264,13 @@ public class CouponDeletionJob {
 
   public void setDeletedAmount(@javax.annotation.Nullable Long deletedAmount) {
     this.deletedAmount = deletedAmount;
+    this.markPropertyAsSet(SERIALIZED_NAME_DELETED_AMOUNT);
   }
 
 
   public CouponDeletionJob failCount(@javax.annotation.Nonnull Long failCount) {
     this.failCount = failCount;
+    this.markPropertyAsSet(SERIALIZED_NAME_FAIL_COUNT);
     return this;
   }
 
@@ -267,11 +285,13 @@ public class CouponDeletionJob {
 
   public void setFailCount(@javax.annotation.Nonnull Long failCount) {
     this.failCount = failCount;
+    this.markPropertyAsSet(SERIALIZED_NAME_FAIL_COUNT);
   }
 
 
   public CouponDeletionJob errors(@javax.annotation.Nonnull List<String> errors) {
     this.errors = errors;
+    this.markPropertyAsSet(SERIALIZED_NAME_ERRORS);
     return this;
   }
 
@@ -280,6 +300,7 @@ public class CouponDeletionJob {
       this.errors = new ArrayList<>();
     }
     this.errors.add(errorsItem);
+    this.markPropertyAsSet(SERIALIZED_NAME_ERRORS);
     return this;
   }
 
@@ -294,11 +315,13 @@ public class CouponDeletionJob {
 
   public void setErrors(@javax.annotation.Nonnull List<String> errors) {
     this.errors = errors;
+    this.markPropertyAsSet(SERIALIZED_NAME_ERRORS);
   }
 
 
   public CouponDeletionJob createdBy(@javax.annotation.Nonnull Long createdBy) {
     this.createdBy = createdBy;
+    this.markPropertyAsSet(SERIALIZED_NAME_CREATED_BY);
     return this;
   }
 
@@ -313,11 +336,13 @@ public class CouponDeletionJob {
 
   public void setCreatedBy(@javax.annotation.Nonnull Long createdBy) {
     this.createdBy = createdBy;
+    this.markPropertyAsSet(SERIALIZED_NAME_CREATED_BY);
   }
 
 
   public CouponDeletionJob communicated(@javax.annotation.Nonnull Boolean communicated) {
     this.communicated = communicated;
+    this.markPropertyAsSet(SERIALIZED_NAME_COMMUNICATED);
     return this;
   }
 
@@ -332,11 +357,13 @@ public class CouponDeletionJob {
 
   public void setCommunicated(@javax.annotation.Nonnull Boolean communicated) {
     this.communicated = communicated;
+    this.markPropertyAsSet(SERIALIZED_NAME_COMMUNICATED);
   }
 
 
   public CouponDeletionJob campaignIDs(@javax.annotation.Nullable List<Long> campaignIDs) {
     this.campaignIDs = campaignIDs;
+    this.markPropertyAsSet(SERIALIZED_NAME_CAMPAIGN_I_DS);
     return this;
   }
 
@@ -345,6 +372,7 @@ public class CouponDeletionJob {
       this.campaignIDs = new ArrayList<>();
     }
     this.campaignIDs.add(campaignIDsItem);
+    this.markPropertyAsSet(SERIALIZED_NAME_CAMPAIGN_I_DS);
     return this;
   }
 
@@ -359,6 +387,7 @@ public class CouponDeletionJob {
 
   public void setCampaignIDs(@javax.annotation.Nullable List<Long> campaignIDs) {
     this.campaignIDs = campaignIDs;
+    this.markPropertyAsSet(SERIALIZED_NAME_CAMPAIGN_I_DS);
   }
 
   /**
@@ -404,6 +433,21 @@ public class CouponDeletionJob {
         return null;
     }
     return this.additionalProperties.get(key);
+  }
+
+  /** Omit null properties unless they were explicitly assigned or present in JSON input. */
+  protected final void removeUnsetNullFields(JsonObject obj) {
+    obj.entrySet().removeIf(entry -> entry.getValue().isJsonNull()
+        && !openapiExplicitlySetFields.contains(entry.getKey()));
+  }
+
+  protected final void markPropertyAsSet(String propertyName) {
+    openapiExplicitlySetFields.add(propertyName);
+  }
+
+  /** Gson populates fields directly, bypassing setters during deserialization. */
+  protected final void markPropertiesAsSet(Set<String> propertyNames) {
+    openapiExplicitlySetFields.addAll(propertyNames);
   }
 
 
@@ -519,7 +563,7 @@ public class CouponDeletionJob {
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
        if (!CouponDeletionJob.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'CouponDeletionJob' and its subtypes
+         return null; // let other model factories handle this type
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
        final TypeAdapter<CouponDeletionJob> thisAdapter
@@ -529,31 +573,22 @@ public class CouponDeletionJob {
            @Override
            public void write(JsonWriter out, CouponDeletionJob value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+             value.removeUnsetNullFields(obj);
              obj.remove("additionalProperties");
              // serialize additional properties
              if (value.getAdditionalProperties() != null) {
                for (Map.Entry<String, Object> entry : value.getAdditionalProperties().entrySet()) {
-                 if (entry.getValue() instanceof String)
-                   obj.addProperty(entry.getKey(), (String) entry.getValue());
-                 else if (entry.getValue() instanceof Number)
-                   obj.addProperty(entry.getKey(), (Number) entry.getValue());
-                 else if (entry.getValue() instanceof Boolean)
-                   obj.addProperty(entry.getKey(), (Boolean) entry.getValue());
-                 else if (entry.getValue() instanceof Character)
-                   obj.addProperty(entry.getKey(), (Character) entry.getValue());
-                 else {
-                   JsonElement jsonElement = gson.toJsonTree(entry.getValue());
-                   if (jsonElement.isJsonNull()) {
-                     obj.add(entry.getKey(), JsonNull.INSTANCE);
-                   } else if (jsonElement.isJsonArray()) {
-                     obj.add(entry.getKey(), jsonElement.getAsJsonArray());
-                   } else {
-                     obj.add(entry.getKey(), jsonElement.getAsJsonObject());
-                   }
-                 }
+                 // TypeAdapter.toJsonTree keeps explicit null entries in arbitrary maps too.
+                 obj.add(entry.getKey(), gson.getAdapter(Object.class).toJsonTree(entry.getValue()));
                }
              }
-             elementAdapter.write(out, obj);
+             boolean originalSerializeNulls = out.getSerializeNulls();
+             try {
+               out.setSerializeNulls(true);
+               elementAdapter.write(out, obj);
+             } finally {
+               out.setSerializeNulls(originalSerializeNulls);
+             }
            }
 
            @Override
@@ -563,6 +598,7 @@ public class CouponDeletionJob {
              JsonObject jsonObj = jsonElement.getAsJsonObject();
              // store additional fields in the deserialized instance
              CouponDeletionJob instance = thisAdapter.fromJsonTree(jsonObj);
+             instance.markPropertiesAsSet(jsonObj.keySet());
              for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
                if (!openapiFields.contains(entry.getKey())) {
                  if (entry.getValue().isJsonPrimitive()) { // primitive type

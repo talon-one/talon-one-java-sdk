@@ -57,6 +57,9 @@ import one.talon.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.26.0")
 public class BestPriorPrice {
+  // Gson ignores transient state; only setters and JSON input mark properties as present.
+  private transient Set<String> openapiExplicitlySetFields = new HashSet<>();
+
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
   @javax.annotation.Nonnull
@@ -97,6 +100,7 @@ public class BestPriorPrice {
 
   public BestPriorPrice id(@javax.annotation.Nonnull Long id) {
     this.id = id;
+    this.markPropertyAsSet(SERIALIZED_NAME_ID);
     return this;
   }
 
@@ -111,11 +115,13 @@ public class BestPriorPrice {
 
   public void setId(@javax.annotation.Nonnull Long id) {
     this.id = id;
+    this.markPropertyAsSet(SERIALIZED_NAME_ID);
   }
 
 
   public BestPriorPrice sku(@javax.annotation.Nonnull String sku) {
     this.sku = sku;
+    this.markPropertyAsSet(SERIALIZED_NAME_SKU);
     return this;
   }
 
@@ -130,11 +136,13 @@ public class BestPriorPrice {
 
   public void setSku(@javax.annotation.Nonnull String sku) {
     this.sku = sku;
+    this.markPropertyAsSet(SERIALIZED_NAME_SKU);
   }
 
 
   public BestPriorPrice observedAt(@javax.annotation.Nonnull OffsetDateTime observedAt) {
     this.observedAt = observedAt;
+    this.markPropertyAsSet(SERIALIZED_NAME_OBSERVED_AT);
     return this;
   }
 
@@ -149,11 +157,13 @@ public class BestPriorPrice {
 
   public void setObservedAt(@javax.annotation.Nonnull OffsetDateTime observedAt) {
     this.observedAt = observedAt;
+    this.markPropertyAsSet(SERIALIZED_NAME_OBSERVED_AT);
   }
 
 
   public BestPriorPrice contextIds(@javax.annotation.Nonnull List<String> contextIds) {
     this.contextIds = contextIds;
+    this.markPropertyAsSet(SERIALIZED_NAME_CONTEXT_IDS);
     return this;
   }
 
@@ -162,6 +172,7 @@ public class BestPriorPrice {
       this.contextIds = new ArrayList<>();
     }
     this.contextIds.add(contextIdsItem);
+    this.markPropertyAsSet(SERIALIZED_NAME_CONTEXT_IDS);
     return this;
   }
 
@@ -176,11 +187,13 @@ public class BestPriorPrice {
 
   public void setContextIds(@javax.annotation.Nonnull List<String> contextIds) {
     this.contextIds = contextIds;
+    this.markPropertyAsSet(SERIALIZED_NAME_CONTEXT_IDS);
   }
 
 
   public BestPriorPrice price(@javax.annotation.Nonnull BigDecimal price) {
     this.price = price;
+    this.markPropertyAsSet(SERIALIZED_NAME_PRICE);
     return this;
   }
 
@@ -195,11 +208,13 @@ public class BestPriorPrice {
 
   public void setPrice(@javax.annotation.Nonnull BigDecimal price) {
     this.price = price;
+    this.markPropertyAsSet(SERIALIZED_NAME_PRICE);
   }
 
 
   public BestPriorPrice metadata(@javax.annotation.Nonnull BestPriorPriceMetadata metadata) {
     this.metadata = metadata;
+    this.markPropertyAsSet(SERIALIZED_NAME_METADATA);
     return this;
   }
 
@@ -214,11 +229,13 @@ public class BestPriorPrice {
 
   public void setMetadata(@javax.annotation.Nonnull BestPriorPriceMetadata metadata) {
     this.metadata = metadata;
+    this.markPropertyAsSet(SERIALIZED_NAME_METADATA);
   }
 
 
   public BestPriorPrice target(@javax.annotation.Nonnull LabelTarget target) {
     this.target = target;
+    this.markPropertyAsSet(SERIALIZED_NAME_TARGET);
     return this;
   }
 
@@ -233,6 +250,7 @@ public class BestPriorPrice {
 
   public void setTarget(@javax.annotation.Nonnull LabelTarget target) {
     this.target = target;
+    this.markPropertyAsSet(SERIALIZED_NAME_TARGET);
   }
 
   /**
@@ -278,6 +296,21 @@ public class BestPriorPrice {
         return null;
     }
     return this.additionalProperties.get(key);
+  }
+
+  /** Omit null properties unless they were explicitly assigned or present in JSON input. */
+  protected final void removeUnsetNullFields(JsonObject obj) {
+    obj.entrySet().removeIf(entry -> entry.getValue().isJsonNull()
+        && !openapiExplicitlySetFields.contains(entry.getKey()));
+  }
+
+  protected final void markPropertyAsSet(String propertyName) {
+    openapiExplicitlySetFields.add(propertyName);
+  }
+
+  /** Gson populates fields directly, bypassing setters during deserialization. */
+  protected final void markPropertiesAsSet(Set<String> propertyNames) {
+    openapiExplicitlySetFields.addAll(propertyNames);
   }
 
 
@@ -381,7 +414,7 @@ public class BestPriorPrice {
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
        if (!BestPriorPrice.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'BestPriorPrice' and its subtypes
+         return null; // let other model factories handle this type
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
        final TypeAdapter<BestPriorPrice> thisAdapter
@@ -391,31 +424,22 @@ public class BestPriorPrice {
            @Override
            public void write(JsonWriter out, BestPriorPrice value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+             value.removeUnsetNullFields(obj);
              obj.remove("additionalProperties");
              // serialize additional properties
              if (value.getAdditionalProperties() != null) {
                for (Map.Entry<String, Object> entry : value.getAdditionalProperties().entrySet()) {
-                 if (entry.getValue() instanceof String)
-                   obj.addProperty(entry.getKey(), (String) entry.getValue());
-                 else if (entry.getValue() instanceof Number)
-                   obj.addProperty(entry.getKey(), (Number) entry.getValue());
-                 else if (entry.getValue() instanceof Boolean)
-                   obj.addProperty(entry.getKey(), (Boolean) entry.getValue());
-                 else if (entry.getValue() instanceof Character)
-                   obj.addProperty(entry.getKey(), (Character) entry.getValue());
-                 else {
-                   JsonElement jsonElement = gson.toJsonTree(entry.getValue());
-                   if (jsonElement.isJsonNull()) {
-                     obj.add(entry.getKey(), JsonNull.INSTANCE);
-                   } else if (jsonElement.isJsonArray()) {
-                     obj.add(entry.getKey(), jsonElement.getAsJsonArray());
-                   } else {
-                     obj.add(entry.getKey(), jsonElement.getAsJsonObject());
-                   }
-                 }
+                 // TypeAdapter.toJsonTree keeps explicit null entries in arbitrary maps too.
+                 obj.add(entry.getKey(), gson.getAdapter(Object.class).toJsonTree(entry.getValue()));
                }
              }
-             elementAdapter.write(out, obj);
+             boolean originalSerializeNulls = out.getSerializeNulls();
+             try {
+               out.setSerializeNulls(true);
+               elementAdapter.write(out, obj);
+             } finally {
+               out.setSerializeNulls(originalSerializeNulls);
+             }
            }
 
            @Override
@@ -425,6 +449,7 @@ public class BestPriorPrice {
              JsonObject jsonObj = jsonElement.getAsJsonObject();
              // store additional fields in the deserialized instance
              BestPriorPrice instance = thisAdapter.fromJsonTree(jsonObj);
+             instance.markPropertiesAsSet(jsonObj.keySet());
              for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
                if (!openapiFields.contains(entry.getKey())) {
                  if (entry.getValue().isJsonPrimitive()) { // primitive type

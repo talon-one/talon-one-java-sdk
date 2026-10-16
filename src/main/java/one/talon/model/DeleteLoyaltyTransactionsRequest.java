@@ -54,6 +54,9 @@ import one.talon.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.26.0")
 public class DeleteLoyaltyTransactionsRequest {
+  // Gson ignores transient state; only setters and JSON input mark properties as present.
+  private transient Set<String> openapiExplicitlySetFields = new HashSet<>();
+
   /**
    * &#x60;AllSubledgers&#x60; deletes all transactions for the specified customer profile from all ledgers in the loyalty program.  &#x60;SelectedSubledgers&#x60; deletes all transactions for the specified customer profile only from the given ledgers in the loyalty program. 
    */
@@ -121,6 +124,7 @@ public class DeleteLoyaltyTransactionsRequest {
 
   public DeleteLoyaltyTransactionsRequest scope(@javax.annotation.Nonnull ScopeEnum scope) {
     this.scope = scope;
+    this.markPropertyAsSet(SERIALIZED_NAME_SCOPE);
     return this;
   }
 
@@ -135,11 +139,13 @@ public class DeleteLoyaltyTransactionsRequest {
 
   public void setScope(@javax.annotation.Nonnull ScopeEnum scope) {
     this.scope = scope;
+    this.markPropertyAsSet(SERIALIZED_NAME_SCOPE);
   }
 
 
   public DeleteLoyaltyTransactionsRequest subledgerIds(@javax.annotation.Nullable List<String> subledgerIds) {
     this.subledgerIds = subledgerIds;
+    this.markPropertyAsSet(SERIALIZED_NAME_SUBLEDGER_IDS);
     return this;
   }
 
@@ -148,6 +154,7 @@ public class DeleteLoyaltyTransactionsRequest {
       this.subledgerIds = new ArrayList<>();
     }
     this.subledgerIds.add(subledgerIdsItem);
+    this.markPropertyAsSet(SERIALIZED_NAME_SUBLEDGER_IDS);
     return this;
   }
 
@@ -162,6 +169,7 @@ public class DeleteLoyaltyTransactionsRequest {
 
   public void setSubledgerIds(@javax.annotation.Nullable List<String> subledgerIds) {
     this.subledgerIds = subledgerIds;
+    this.markPropertyAsSet(SERIALIZED_NAME_SUBLEDGER_IDS);
   }
 
   /**
@@ -207,6 +215,21 @@ public class DeleteLoyaltyTransactionsRequest {
         return null;
     }
     return this.additionalProperties.get(key);
+  }
+
+  /** Omit null properties unless they were explicitly assigned or present in JSON input. */
+  protected final void removeUnsetNullFields(JsonObject obj) {
+    obj.entrySet().removeIf(entry -> entry.getValue().isJsonNull()
+        && !openapiExplicitlySetFields.contains(entry.getKey()));
+  }
+
+  protected final void markPropertyAsSet(String propertyName) {
+    openapiExplicitlySetFields.add(propertyName);
+  }
+
+  /** Gson populates fields directly, bypassing setters during deserialization. */
+  protected final void markPropertiesAsSet(Set<String> propertyNames) {
+    openapiExplicitlySetFields.addAll(propertyNames);
   }
 
 
@@ -307,7 +330,7 @@ public class DeleteLoyaltyTransactionsRequest {
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
        if (!DeleteLoyaltyTransactionsRequest.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'DeleteLoyaltyTransactionsRequest' and its subtypes
+         return null; // let other model factories handle this type
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
        final TypeAdapter<DeleteLoyaltyTransactionsRequest> thisAdapter
@@ -317,31 +340,22 @@ public class DeleteLoyaltyTransactionsRequest {
            @Override
            public void write(JsonWriter out, DeleteLoyaltyTransactionsRequest value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+             value.removeUnsetNullFields(obj);
              obj.remove("additionalProperties");
              // serialize additional properties
              if (value.getAdditionalProperties() != null) {
                for (Map.Entry<String, Object> entry : value.getAdditionalProperties().entrySet()) {
-                 if (entry.getValue() instanceof String)
-                   obj.addProperty(entry.getKey(), (String) entry.getValue());
-                 else if (entry.getValue() instanceof Number)
-                   obj.addProperty(entry.getKey(), (Number) entry.getValue());
-                 else if (entry.getValue() instanceof Boolean)
-                   obj.addProperty(entry.getKey(), (Boolean) entry.getValue());
-                 else if (entry.getValue() instanceof Character)
-                   obj.addProperty(entry.getKey(), (Character) entry.getValue());
-                 else {
-                   JsonElement jsonElement = gson.toJsonTree(entry.getValue());
-                   if (jsonElement.isJsonNull()) {
-                     obj.add(entry.getKey(), JsonNull.INSTANCE);
-                   } else if (jsonElement.isJsonArray()) {
-                     obj.add(entry.getKey(), jsonElement.getAsJsonArray());
-                   } else {
-                     obj.add(entry.getKey(), jsonElement.getAsJsonObject());
-                   }
-                 }
+                 // TypeAdapter.toJsonTree keeps explicit null entries in arbitrary maps too.
+                 obj.add(entry.getKey(), gson.getAdapter(Object.class).toJsonTree(entry.getValue()));
                }
              }
-             elementAdapter.write(out, obj);
+             boolean originalSerializeNulls = out.getSerializeNulls();
+             try {
+               out.setSerializeNulls(true);
+               elementAdapter.write(out, obj);
+             } finally {
+               out.setSerializeNulls(originalSerializeNulls);
+             }
            }
 
            @Override
@@ -351,6 +365,7 @@ public class DeleteLoyaltyTransactionsRequest {
              JsonObject jsonObj = jsonElement.getAsJsonObject();
              // store additional fields in the deserialized instance
              DeleteLoyaltyTransactionsRequest instance = thisAdapter.fromJsonTree(jsonObj);
+             instance.markPropertiesAsSet(jsonObj.keySet());
              for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
                if (!openapiFields.contains(entry.getKey())) {
                  if (entry.getValue().isJsonPrimitive()) { // primitive type

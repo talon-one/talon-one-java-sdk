@@ -73,27 +73,37 @@ public class CampaignSetNode extends AbstractOpenApiSchema {
                 return null; // this class only serializes 'CampaignSetNode' and its subtypes
             }
             final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-            final TypeAdapter<CampaignSetBranchNode> adapterCampaignSetBranchNode = gson.getDelegateAdapter(this, TypeToken.get(CampaignSetBranchNode.class));
-            final TypeAdapter<CampaignSetLeafNode> adapterCampaignSetLeafNode = gson.getDelegateAdapter(this, TypeToken.get(CampaignSetLeafNode.class));
+            final TypeAdapter<CampaignSetBranchNode> adapterCampaignSetBranchNode = gson.getAdapter(TypeToken.get(CampaignSetBranchNode.class));
+            final TypeAdapter<CampaignSetLeafNode> adapterCampaignSetLeafNode = gson.getAdapter(TypeToken.get(CampaignSetLeafNode.class));
 
             return (TypeAdapter<T>) new TypeAdapter<CampaignSetNode>() {
+                private void writeJsonElement(JsonWriter out, JsonElement value) throws IOException {
+                    boolean originalSerializeNulls = out.getSerializeNulls();
+                    try {
+                        out.setSerializeNulls(true);
+                        elementAdapter.write(out, value);
+                    } finally {
+                        out.setSerializeNulls(originalSerializeNulls);
+                    }
+                }
+
                 @Override
                 public void write(JsonWriter out, CampaignSetNode value) throws IOException {
                     if (value == null || value.getActualInstance() == null) {
-                        elementAdapter.write(out, null);
+                        writeJsonElement(out, null);
                         return;
                     }
 
                     // check if the actual instance is of the type `CampaignSetBranchNode`
                     if (value.getActualInstance() instanceof CampaignSetBranchNode) {
                         JsonElement element = adapterCampaignSetBranchNode.toJsonTree((CampaignSetBranchNode)value.getActualInstance());
-                        elementAdapter.write(out, element);
+                        writeJsonElement(out, element);
                         return;
                     }
                     // check if the actual instance is of the type `CampaignSetLeafNode`
                     if (value.getActualInstance() instanceof CampaignSetLeafNode) {
                         JsonElement element = adapterCampaignSetLeafNode.toJsonTree((CampaignSetLeafNode)value.getActualInstance());
-                        elementAdapter.write(out, element);
+                        writeJsonElement(out, element);
                         return;
                     }
                     throw new IOException("Failed to serialize as the type doesn't match oneOf schemas: CampaignSetBranchNode, CampaignSetLeafNode");

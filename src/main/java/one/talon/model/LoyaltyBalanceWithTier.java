@@ -54,6 +54,9 @@ import one.talon.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.26.0")
 public class LoyaltyBalanceWithTier {
+  // Gson ignores transient state; only setters and JSON input mark properties as present.
+  private transient Set<String> openapiExplicitlySetFields = new HashSet<>();
+
   public static final String SERIALIZED_NAME_ACTIVE_POINTS = "activePoints";
   @SerializedName(SERIALIZED_NAME_ACTIVE_POINTS)
   @javax.annotation.Nullable
@@ -104,6 +107,7 @@ public class LoyaltyBalanceWithTier {
 
   public LoyaltyBalanceWithTier activePoints(@javax.annotation.Nullable BigDecimal activePoints) {
     this.activePoints = activePoints;
+    this.markPropertyAsSet(SERIALIZED_NAME_ACTIVE_POINTS);
     return this;
   }
 
@@ -118,11 +122,13 @@ public class LoyaltyBalanceWithTier {
 
   public void setActivePoints(@javax.annotation.Nullable BigDecimal activePoints) {
     this.activePoints = activePoints;
+    this.markPropertyAsSet(SERIALIZED_NAME_ACTIVE_POINTS);
   }
 
 
   public LoyaltyBalanceWithTier pendingPoints(@javax.annotation.Nullable BigDecimal pendingPoints) {
     this.pendingPoints = pendingPoints;
+    this.markPropertyAsSet(SERIALIZED_NAME_PENDING_POINTS);
     return this;
   }
 
@@ -137,11 +143,13 @@ public class LoyaltyBalanceWithTier {
 
   public void setPendingPoints(@javax.annotation.Nullable BigDecimal pendingPoints) {
     this.pendingPoints = pendingPoints;
+    this.markPropertyAsSet(SERIALIZED_NAME_PENDING_POINTS);
   }
 
 
   public LoyaltyBalanceWithTier spentPoints(@javax.annotation.Nullable BigDecimal spentPoints) {
     this.spentPoints = spentPoints;
+    this.markPropertyAsSet(SERIALIZED_NAME_SPENT_POINTS);
     return this;
   }
 
@@ -156,11 +164,13 @@ public class LoyaltyBalanceWithTier {
 
   public void setSpentPoints(@javax.annotation.Nullable BigDecimal spentPoints) {
     this.spentPoints = spentPoints;
+    this.markPropertyAsSet(SERIALIZED_NAME_SPENT_POINTS);
   }
 
 
   public LoyaltyBalanceWithTier expiredPoints(@javax.annotation.Nullable BigDecimal expiredPoints) {
     this.expiredPoints = expiredPoints;
+    this.markPropertyAsSet(SERIALIZED_NAME_EXPIRED_POINTS);
     return this;
   }
 
@@ -175,11 +185,13 @@ public class LoyaltyBalanceWithTier {
 
   public void setExpiredPoints(@javax.annotation.Nullable BigDecimal expiredPoints) {
     this.expiredPoints = expiredPoints;
+    this.markPropertyAsSet(SERIALIZED_NAME_EXPIRED_POINTS);
   }
 
 
   public LoyaltyBalanceWithTier negativePoints(@javax.annotation.Nullable BigDecimal negativePoints) {
     this.negativePoints = negativePoints;
+    this.markPropertyAsSet(SERIALIZED_NAME_NEGATIVE_POINTS);
     return this;
   }
 
@@ -194,11 +206,13 @@ public class LoyaltyBalanceWithTier {
 
   public void setNegativePoints(@javax.annotation.Nullable BigDecimal negativePoints) {
     this.negativePoints = negativePoints;
+    this.markPropertyAsSet(SERIALIZED_NAME_NEGATIVE_POINTS);
   }
 
 
   public LoyaltyBalanceWithTier currentTier(@javax.annotation.Nullable Tier currentTier) {
     this.currentTier = currentTier;
+    this.markPropertyAsSet(SERIALIZED_NAME_CURRENT_TIER);
     return this;
   }
 
@@ -213,11 +227,13 @@ public class LoyaltyBalanceWithTier {
 
   public void setCurrentTier(@javax.annotation.Nullable Tier currentTier) {
     this.currentTier = currentTier;
+    this.markPropertyAsSet(SERIALIZED_NAME_CURRENT_TIER);
   }
 
 
   public LoyaltyBalanceWithTier projectedTier(@javax.annotation.Nullable ProjectedTier projectedTier) {
     this.projectedTier = projectedTier;
+    this.markPropertyAsSet(SERIALIZED_NAME_PROJECTED_TIER);
     return this;
   }
 
@@ -232,11 +248,13 @@ public class LoyaltyBalanceWithTier {
 
   public void setProjectedTier(@javax.annotation.Nullable ProjectedTier projectedTier) {
     this.projectedTier = projectedTier;
+    this.markPropertyAsSet(SERIALIZED_NAME_PROJECTED_TIER);
   }
 
 
   public LoyaltyBalanceWithTier pointsToNextTier(@javax.annotation.Nullable BigDecimal pointsToNextTier) {
     this.pointsToNextTier = pointsToNextTier;
+    this.markPropertyAsSet(SERIALIZED_NAME_POINTS_TO_NEXT_TIER);
     return this;
   }
 
@@ -251,11 +269,13 @@ public class LoyaltyBalanceWithTier {
 
   public void setPointsToNextTier(@javax.annotation.Nullable BigDecimal pointsToNextTier) {
     this.pointsToNextTier = pointsToNextTier;
+    this.markPropertyAsSet(SERIALIZED_NAME_POINTS_TO_NEXT_TIER);
   }
 
 
   public LoyaltyBalanceWithTier nextTierName(@javax.annotation.Nullable String nextTierName) {
     this.nextTierName = nextTierName;
+    this.markPropertyAsSet(SERIALIZED_NAME_NEXT_TIER_NAME);
     return this;
   }
 
@@ -270,6 +290,7 @@ public class LoyaltyBalanceWithTier {
 
   public void setNextTierName(@javax.annotation.Nullable String nextTierName) {
     this.nextTierName = nextTierName;
+    this.markPropertyAsSet(SERIALIZED_NAME_NEXT_TIER_NAME);
   }
 
   /**
@@ -315,6 +336,21 @@ public class LoyaltyBalanceWithTier {
         return null;
     }
     return this.additionalProperties.get(key);
+  }
+
+  /** Omit null properties unless they were explicitly assigned or present in JSON input. */
+  protected final void removeUnsetNullFields(JsonObject obj) {
+    obj.entrySet().removeIf(entry -> entry.getValue().isJsonNull()
+        && !openapiExplicitlySetFields.contains(entry.getKey()));
+  }
+
+  protected final void markPropertyAsSet(String propertyName) {
+    openapiExplicitlySetFields.add(propertyName);
+  }
+
+  /** Gson populates fields directly, bypassing setters during deserialization. */
+  protected final void markPropertiesAsSet(Set<String> propertyNames) {
+    openapiExplicitlySetFields.addAll(propertyNames);
   }
 
 
@@ -413,7 +449,7 @@ public class LoyaltyBalanceWithTier {
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
        if (!LoyaltyBalanceWithTier.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'LoyaltyBalanceWithTier' and its subtypes
+         return null; // let other model factories handle this type
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
        final TypeAdapter<LoyaltyBalanceWithTier> thisAdapter
@@ -423,31 +459,22 @@ public class LoyaltyBalanceWithTier {
            @Override
            public void write(JsonWriter out, LoyaltyBalanceWithTier value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+             value.removeUnsetNullFields(obj);
              obj.remove("additionalProperties");
              // serialize additional properties
              if (value.getAdditionalProperties() != null) {
                for (Map.Entry<String, Object> entry : value.getAdditionalProperties().entrySet()) {
-                 if (entry.getValue() instanceof String)
-                   obj.addProperty(entry.getKey(), (String) entry.getValue());
-                 else if (entry.getValue() instanceof Number)
-                   obj.addProperty(entry.getKey(), (Number) entry.getValue());
-                 else if (entry.getValue() instanceof Boolean)
-                   obj.addProperty(entry.getKey(), (Boolean) entry.getValue());
-                 else if (entry.getValue() instanceof Character)
-                   obj.addProperty(entry.getKey(), (Character) entry.getValue());
-                 else {
-                   JsonElement jsonElement = gson.toJsonTree(entry.getValue());
-                   if (jsonElement.isJsonNull()) {
-                     obj.add(entry.getKey(), JsonNull.INSTANCE);
-                   } else if (jsonElement.isJsonArray()) {
-                     obj.add(entry.getKey(), jsonElement.getAsJsonArray());
-                   } else {
-                     obj.add(entry.getKey(), jsonElement.getAsJsonObject());
-                   }
-                 }
+                 // TypeAdapter.toJsonTree keeps explicit null entries in arbitrary maps too.
+                 obj.add(entry.getKey(), gson.getAdapter(Object.class).toJsonTree(entry.getValue()));
                }
              }
-             elementAdapter.write(out, obj);
+             boolean originalSerializeNulls = out.getSerializeNulls();
+             try {
+               out.setSerializeNulls(true);
+               elementAdapter.write(out, obj);
+             } finally {
+               out.setSerializeNulls(originalSerializeNulls);
+             }
            }
 
            @Override
@@ -457,6 +484,7 @@ public class LoyaltyBalanceWithTier {
              JsonObject jsonObj = jsonElement.getAsJsonObject();
              // store additional fields in the deserialized instance
              LoyaltyBalanceWithTier instance = thisAdapter.fromJsonTree(jsonObj);
+             instance.markPropertiesAsSet(jsonObj.keySet());
              for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
                if (!openapiFields.contains(entry.getKey())) {
                  if (entry.getValue().isJsonPrimitive()) { // primitive type

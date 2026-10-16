@@ -72,27 +72,37 @@ public class WebhookAuthenticationBase extends AbstractOpenApiSchema {
                 return null; // this class only serializes 'WebhookAuthenticationBase' and its subtypes
             }
             final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-            final TypeAdapter<WebhookAuthenticationBaseBasic> adapterWebhookAuthenticationBaseBasic = gson.getDelegateAdapter(this, TypeToken.get(WebhookAuthenticationBaseBasic.class));
-            final TypeAdapter<WebhookAuthenticationBaseCustom> adapterWebhookAuthenticationBaseCustom = gson.getDelegateAdapter(this, TypeToken.get(WebhookAuthenticationBaseCustom.class));
+            final TypeAdapter<WebhookAuthenticationBaseBasic> adapterWebhookAuthenticationBaseBasic = gson.getAdapter(TypeToken.get(WebhookAuthenticationBaseBasic.class));
+            final TypeAdapter<WebhookAuthenticationBaseCustom> adapterWebhookAuthenticationBaseCustom = gson.getAdapter(TypeToken.get(WebhookAuthenticationBaseCustom.class));
 
             return (TypeAdapter<T>) new TypeAdapter<WebhookAuthenticationBase>() {
+                private void writeJsonElement(JsonWriter out, JsonElement value) throws IOException {
+                    boolean originalSerializeNulls = out.getSerializeNulls();
+                    try {
+                        out.setSerializeNulls(true);
+                        elementAdapter.write(out, value);
+                    } finally {
+                        out.setSerializeNulls(originalSerializeNulls);
+                    }
+                }
+
                 @Override
                 public void write(JsonWriter out, WebhookAuthenticationBase value) throws IOException {
                     if (value == null || value.getActualInstance() == null) {
-                        elementAdapter.write(out, null);
+                        writeJsonElement(out, null);
                         return;
                     }
 
                     // check if the actual instance is of the type `WebhookAuthenticationBaseBasic`
                     if (value.getActualInstance() instanceof WebhookAuthenticationBaseBasic) {
                         JsonElement element = adapterWebhookAuthenticationBaseBasic.toJsonTree((WebhookAuthenticationBaseBasic)value.getActualInstance());
-                        elementAdapter.write(out, element);
+                        writeJsonElement(out, element);
                         return;
                     }
                     // check if the actual instance is of the type `WebhookAuthenticationBaseCustom`
                     if (value.getActualInstance() instanceof WebhookAuthenticationBaseCustom) {
                         JsonElement element = adapterWebhookAuthenticationBaseCustom.toJsonTree((WebhookAuthenticationBaseCustom)value.getActualInstance());
-                        elementAdapter.write(out, element);
+                        writeJsonElement(out, element);
                         return;
                     }
                     throw new IOException("Failed to serialize as the type doesn't match oneOf schemas: WebhookAuthenticationBaseBasic, WebhookAuthenticationBaseCustom");

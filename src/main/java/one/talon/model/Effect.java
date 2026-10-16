@@ -118,335 +118,345 @@ public class Effect extends AbstractOpenApiSchema {
                 return null; // this class only serializes 'Effect' and its subtypes
             }
             final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-            final TypeAdapter<EffectAcceptCoupon> adapterEffectAcceptCoupon = gson.getDelegateAdapter(this, TypeToken.get(EffectAcceptCoupon.class));
-            final TypeAdapter<EffectAcceptReferral> adapterEffectAcceptReferral = gson.getDelegateAdapter(this, TypeToken.get(EffectAcceptReferral.class));
-            final TypeAdapter<EffectAddFreeItem> adapterEffectAddFreeItem = gson.getDelegateAdapter(this, TypeToken.get(EffectAddFreeItem.class));
-            final TypeAdapter<EffectAddLoyaltyPoints> adapterEffectAddLoyaltyPoints = gson.getDelegateAdapter(this, TypeToken.get(EffectAddLoyaltyPoints.class));
-            final TypeAdapter<EffectAddNegativeLoyaltyPoints> adapterEffectAddNegativeLoyaltyPoints = gson.getDelegateAdapter(this, TypeToken.get(EffectAddNegativeLoyaltyPoints.class));
-            final TypeAdapter<EffectAddToAudience> adapterEffectAddToAudience = gson.getDelegateAdapter(this, TypeToken.get(EffectAddToAudience.class));
-            final TypeAdapter<EffectAwardGiveaway> adapterEffectAwardGiveaway = gson.getDelegateAdapter(this, TypeToken.get(EffectAwardGiveaway.class));
-            final TypeAdapter<EffectBoostLoyaltyTier> adapterEffectBoostLoyaltyTier = gson.getDelegateAdapter(this, TypeToken.get(EffectBoostLoyaltyTier.class));
-            final TypeAdapter<EffectCallApi> adapterEffectCallApi = gson.getDelegateAdapter(this, TypeToken.get(EffectCallApi.class));
-            final TypeAdapter<EffectChangeLoyaltyTierLevel> adapterEffectChangeLoyaltyTierLevel = gson.getDelegateAdapter(this, TypeToken.get(EffectChangeLoyaltyTierLevel.class));
-            final TypeAdapter<EffectCouponCreated> adapterEffectCouponCreated = gson.getDelegateAdapter(this, TypeToken.get(EffectCouponCreated.class));
-            final TypeAdapter<EffectCustomEffect> adapterEffectCustomEffect = gson.getDelegateAdapter(this, TypeToken.get(EffectCustomEffect.class));
-            final TypeAdapter<EffectDeductLoyaltyPoints> adapterEffectDeductLoyaltyPoints = gson.getDelegateAdapter(this, TypeToken.get(EffectDeductLoyaltyPoints.class));
-            final TypeAdapter<EffectError> adapterEffectError = gson.getDelegateAdapter(this, TypeToken.get(EffectError.class));
-            final TypeAdapter<EffectExtendLoyaltyPointsExpiryDate> adapterEffectExtendLoyaltyPointsExpiryDate = gson.getDelegateAdapter(this, TypeToken.get(EffectExtendLoyaltyPointsExpiryDate.class));
-            final TypeAdapter<EffectIncreaseAchievementProgress> adapterEffectIncreaseAchievementProgress = gson.getDelegateAdapter(this, TypeToken.get(EffectIncreaseAchievementProgress.class));
-            final TypeAdapter<EffectIncreaseAchievementProgressPerItem> adapterEffectIncreaseAchievementProgressPerItem = gson.getDelegateAdapter(this, TypeToken.get(EffectIncreaseAchievementProgressPerItem.class));
-            final TypeAdapter<EffectJoinLoyaltyProgram> adapterEffectJoinLoyaltyProgram = gson.getDelegateAdapter(this, TypeToken.get(EffectJoinLoyaltyProgram.class));
-            final TypeAdapter<EffectOffsetNegativeLoyaltyPoints> adapterEffectOffsetNegativeLoyaltyPoints = gson.getDelegateAdapter(this, TypeToken.get(EffectOffsetNegativeLoyaltyPoints.class));
-            final TypeAdapter<EffectRedeemReferral> adapterEffectRedeemReferral = gson.getDelegateAdapter(this, TypeToken.get(EffectRedeemReferral.class));
-            final TypeAdapter<EffectReferralCreated> adapterEffectReferralCreated = gson.getDelegateAdapter(this, TypeToken.get(EffectReferralCreated.class));
-            final TypeAdapter<EffectRejectCoupon> adapterEffectRejectCoupon = gson.getDelegateAdapter(this, TypeToken.get(EffectRejectCoupon.class));
-            final TypeAdapter<EffectRejectReferral> adapterEffectRejectReferral = gson.getDelegateAdapter(this, TypeToken.get(EffectRejectReferral.class));
-            final TypeAdapter<EffectRemoveFromAudience> adapterEffectRemoveFromAudience = gson.getDelegateAdapter(this, TypeToken.get(EffectRemoveFromAudience.class));
-            final TypeAdapter<EffectReserveCoupon> adapterEffectReserveCoupon = gson.getDelegateAdapter(this, TypeToken.get(EffectReserveCoupon.class));
-            final TypeAdapter<EffectRollbackAddedLoyaltyPoints> adapterEffectRollbackAddedLoyaltyPoints = gson.getDelegateAdapter(this, TypeToken.get(EffectRollbackAddedLoyaltyPoints.class));
-            final TypeAdapter<EffectRollbackCoupon> adapterEffectRollbackCoupon = gson.getDelegateAdapter(this, TypeToken.get(EffectRollbackCoupon.class));
-            final TypeAdapter<EffectRollbackDeductedLoyaltyPoints> adapterEffectRollbackDeductedLoyaltyPoints = gson.getDelegateAdapter(this, TypeToken.get(EffectRollbackDeductedLoyaltyPoints.class));
-            final TypeAdapter<EffectRollbackDiscount> adapterEffectRollbackDiscount = gson.getDelegateAdapter(this, TypeToken.get(EffectRollbackDiscount.class));
-            final TypeAdapter<EffectRollbackIncreasedAchievementProgress> adapterEffectRollbackIncreasedAchievementProgress = gson.getDelegateAdapter(this, TypeToken.get(EffectRollbackIncreasedAchievementProgress.class));
-            final TypeAdapter<EffectRollbackIncreasedAchievementProgressPerItem> adapterEffectRollbackIncreasedAchievementProgressPerItem = gson.getDelegateAdapter(this, TypeToken.get(EffectRollbackIncreasedAchievementProgressPerItem.class));
-            final TypeAdapter<EffectRollbackReferral> adapterEffectRollbackReferral = gson.getDelegateAdapter(this, TypeToken.get(EffectRollbackReferral.class));
-            final TypeAdapter<EffectRollbackTierBoost> adapterEffectRollbackTierBoost = gson.getDelegateAdapter(this, TypeToken.get(EffectRollbackTierBoost.class));
-            final TypeAdapter<EffectRollbackUseReward> adapterEffectRollbackUseReward = gson.getDelegateAdapter(this, TypeToken.get(EffectRollbackUseReward.class));
-            final TypeAdapter<EffectSet> adapterEffectSet = gson.getDelegateAdapter(this, TypeToken.get(EffectSet.class));
-            final TypeAdapter<EffectSetDiscount> adapterEffectSetDiscount = gson.getDelegateAdapter(this, TypeToken.get(EffectSetDiscount.class));
-            final TypeAdapter<EffectSetDiscountPerAdditionalCost> adapterEffectSetDiscountPerAdditionalCost = gson.getDelegateAdapter(this, TypeToken.get(EffectSetDiscountPerAdditionalCost.class));
-            final TypeAdapter<EffectSetDiscountPerAdditionalCostPerItem> adapterEffectSetDiscountPerAdditionalCostPerItem = gson.getDelegateAdapter(this, TypeToken.get(EffectSetDiscountPerAdditionalCostPerItem.class));
-            final TypeAdapter<EffectSetDiscountPerItem> adapterEffectSetDiscountPerItem = gson.getDelegateAdapter(this, TypeToken.get(EffectSetDiscountPerItem.class));
-            final TypeAdapter<EffectSetLoyaltyPointsExpiryDate> adapterEffectSetLoyaltyPointsExpiryDate = gson.getDelegateAdapter(this, TypeToken.get(EffectSetLoyaltyPointsExpiryDate.class));
-            final TypeAdapter<EffectShowBundleMetadata> adapterEffectShowBundleMetadata = gson.getDelegateAdapter(this, TypeToken.get(EffectShowBundleMetadata.class));
-            final TypeAdapter<EffectShowNotification> adapterEffectShowNotification = gson.getDelegateAdapter(this, TypeToken.get(EffectShowNotification.class));
-            final TypeAdapter<EffectStartAchievementProgress> adapterEffectStartAchievementProgress = gson.getDelegateAdapter(this, TypeToken.get(EffectStartAchievementProgress.class));
-            final TypeAdapter<EffectUnlockReward> adapterEffectUnlockReward = gson.getDelegateAdapter(this, TypeToken.get(EffectUnlockReward.class));
-            final TypeAdapter<EffectUseReward> adapterEffectUseReward = gson.getDelegateAdapter(this, TypeToken.get(EffectUseReward.class));
-            final TypeAdapter<EffectWillAwardGiveaway> adapterEffectWillAwardGiveaway = gson.getDelegateAdapter(this, TypeToken.get(EffectWillAwardGiveaway.class));
+            final TypeAdapter<EffectAcceptCoupon> adapterEffectAcceptCoupon = gson.getAdapter(TypeToken.get(EffectAcceptCoupon.class));
+            final TypeAdapter<EffectAcceptReferral> adapterEffectAcceptReferral = gson.getAdapter(TypeToken.get(EffectAcceptReferral.class));
+            final TypeAdapter<EffectAddFreeItem> adapterEffectAddFreeItem = gson.getAdapter(TypeToken.get(EffectAddFreeItem.class));
+            final TypeAdapter<EffectAddLoyaltyPoints> adapterEffectAddLoyaltyPoints = gson.getAdapter(TypeToken.get(EffectAddLoyaltyPoints.class));
+            final TypeAdapter<EffectAddNegativeLoyaltyPoints> adapterEffectAddNegativeLoyaltyPoints = gson.getAdapter(TypeToken.get(EffectAddNegativeLoyaltyPoints.class));
+            final TypeAdapter<EffectAddToAudience> adapterEffectAddToAudience = gson.getAdapter(TypeToken.get(EffectAddToAudience.class));
+            final TypeAdapter<EffectAwardGiveaway> adapterEffectAwardGiveaway = gson.getAdapter(TypeToken.get(EffectAwardGiveaway.class));
+            final TypeAdapter<EffectBoostLoyaltyTier> adapterEffectBoostLoyaltyTier = gson.getAdapter(TypeToken.get(EffectBoostLoyaltyTier.class));
+            final TypeAdapter<EffectCallApi> adapterEffectCallApi = gson.getAdapter(TypeToken.get(EffectCallApi.class));
+            final TypeAdapter<EffectChangeLoyaltyTierLevel> adapterEffectChangeLoyaltyTierLevel = gson.getAdapter(TypeToken.get(EffectChangeLoyaltyTierLevel.class));
+            final TypeAdapter<EffectCouponCreated> adapterEffectCouponCreated = gson.getAdapter(TypeToken.get(EffectCouponCreated.class));
+            final TypeAdapter<EffectCustomEffect> adapterEffectCustomEffect = gson.getAdapter(TypeToken.get(EffectCustomEffect.class));
+            final TypeAdapter<EffectDeductLoyaltyPoints> adapterEffectDeductLoyaltyPoints = gson.getAdapter(TypeToken.get(EffectDeductLoyaltyPoints.class));
+            final TypeAdapter<EffectError> adapterEffectError = gson.getAdapter(TypeToken.get(EffectError.class));
+            final TypeAdapter<EffectExtendLoyaltyPointsExpiryDate> adapterEffectExtendLoyaltyPointsExpiryDate = gson.getAdapter(TypeToken.get(EffectExtendLoyaltyPointsExpiryDate.class));
+            final TypeAdapter<EffectIncreaseAchievementProgress> adapterEffectIncreaseAchievementProgress = gson.getAdapter(TypeToken.get(EffectIncreaseAchievementProgress.class));
+            final TypeAdapter<EffectIncreaseAchievementProgressPerItem> adapterEffectIncreaseAchievementProgressPerItem = gson.getAdapter(TypeToken.get(EffectIncreaseAchievementProgressPerItem.class));
+            final TypeAdapter<EffectJoinLoyaltyProgram> adapterEffectJoinLoyaltyProgram = gson.getAdapter(TypeToken.get(EffectJoinLoyaltyProgram.class));
+            final TypeAdapter<EffectOffsetNegativeLoyaltyPoints> adapterEffectOffsetNegativeLoyaltyPoints = gson.getAdapter(TypeToken.get(EffectOffsetNegativeLoyaltyPoints.class));
+            final TypeAdapter<EffectRedeemReferral> adapterEffectRedeemReferral = gson.getAdapter(TypeToken.get(EffectRedeemReferral.class));
+            final TypeAdapter<EffectReferralCreated> adapterEffectReferralCreated = gson.getAdapter(TypeToken.get(EffectReferralCreated.class));
+            final TypeAdapter<EffectRejectCoupon> adapterEffectRejectCoupon = gson.getAdapter(TypeToken.get(EffectRejectCoupon.class));
+            final TypeAdapter<EffectRejectReferral> adapterEffectRejectReferral = gson.getAdapter(TypeToken.get(EffectRejectReferral.class));
+            final TypeAdapter<EffectRemoveFromAudience> adapterEffectRemoveFromAudience = gson.getAdapter(TypeToken.get(EffectRemoveFromAudience.class));
+            final TypeAdapter<EffectReserveCoupon> adapterEffectReserveCoupon = gson.getAdapter(TypeToken.get(EffectReserveCoupon.class));
+            final TypeAdapter<EffectRollbackAddedLoyaltyPoints> adapterEffectRollbackAddedLoyaltyPoints = gson.getAdapter(TypeToken.get(EffectRollbackAddedLoyaltyPoints.class));
+            final TypeAdapter<EffectRollbackCoupon> adapterEffectRollbackCoupon = gson.getAdapter(TypeToken.get(EffectRollbackCoupon.class));
+            final TypeAdapter<EffectRollbackDeductedLoyaltyPoints> adapterEffectRollbackDeductedLoyaltyPoints = gson.getAdapter(TypeToken.get(EffectRollbackDeductedLoyaltyPoints.class));
+            final TypeAdapter<EffectRollbackDiscount> adapterEffectRollbackDiscount = gson.getAdapter(TypeToken.get(EffectRollbackDiscount.class));
+            final TypeAdapter<EffectRollbackIncreasedAchievementProgress> adapterEffectRollbackIncreasedAchievementProgress = gson.getAdapter(TypeToken.get(EffectRollbackIncreasedAchievementProgress.class));
+            final TypeAdapter<EffectRollbackIncreasedAchievementProgressPerItem> adapterEffectRollbackIncreasedAchievementProgressPerItem = gson.getAdapter(TypeToken.get(EffectRollbackIncreasedAchievementProgressPerItem.class));
+            final TypeAdapter<EffectRollbackReferral> adapterEffectRollbackReferral = gson.getAdapter(TypeToken.get(EffectRollbackReferral.class));
+            final TypeAdapter<EffectRollbackTierBoost> adapterEffectRollbackTierBoost = gson.getAdapter(TypeToken.get(EffectRollbackTierBoost.class));
+            final TypeAdapter<EffectRollbackUseReward> adapterEffectRollbackUseReward = gson.getAdapter(TypeToken.get(EffectRollbackUseReward.class));
+            final TypeAdapter<EffectSet> adapterEffectSet = gson.getAdapter(TypeToken.get(EffectSet.class));
+            final TypeAdapter<EffectSetDiscount> adapterEffectSetDiscount = gson.getAdapter(TypeToken.get(EffectSetDiscount.class));
+            final TypeAdapter<EffectSetDiscountPerAdditionalCost> adapterEffectSetDiscountPerAdditionalCost = gson.getAdapter(TypeToken.get(EffectSetDiscountPerAdditionalCost.class));
+            final TypeAdapter<EffectSetDiscountPerAdditionalCostPerItem> adapterEffectSetDiscountPerAdditionalCostPerItem = gson.getAdapter(TypeToken.get(EffectSetDiscountPerAdditionalCostPerItem.class));
+            final TypeAdapter<EffectSetDiscountPerItem> adapterEffectSetDiscountPerItem = gson.getAdapter(TypeToken.get(EffectSetDiscountPerItem.class));
+            final TypeAdapter<EffectSetLoyaltyPointsExpiryDate> adapterEffectSetLoyaltyPointsExpiryDate = gson.getAdapter(TypeToken.get(EffectSetLoyaltyPointsExpiryDate.class));
+            final TypeAdapter<EffectShowBundleMetadata> adapterEffectShowBundleMetadata = gson.getAdapter(TypeToken.get(EffectShowBundleMetadata.class));
+            final TypeAdapter<EffectShowNotification> adapterEffectShowNotification = gson.getAdapter(TypeToken.get(EffectShowNotification.class));
+            final TypeAdapter<EffectStartAchievementProgress> adapterEffectStartAchievementProgress = gson.getAdapter(TypeToken.get(EffectStartAchievementProgress.class));
+            final TypeAdapter<EffectUnlockReward> adapterEffectUnlockReward = gson.getAdapter(TypeToken.get(EffectUnlockReward.class));
+            final TypeAdapter<EffectUseReward> adapterEffectUseReward = gson.getAdapter(TypeToken.get(EffectUseReward.class));
+            final TypeAdapter<EffectWillAwardGiveaway> adapterEffectWillAwardGiveaway = gson.getAdapter(TypeToken.get(EffectWillAwardGiveaway.class));
 
             return (TypeAdapter<T>) new TypeAdapter<Effect>() {
+                private void writeJsonElement(JsonWriter out, JsonElement value) throws IOException {
+                    boolean originalSerializeNulls = out.getSerializeNulls();
+                    try {
+                        out.setSerializeNulls(true);
+                        elementAdapter.write(out, value);
+                    } finally {
+                        out.setSerializeNulls(originalSerializeNulls);
+                    }
+                }
+
                 @Override
                 public void write(JsonWriter out, Effect value) throws IOException {
                     if (value == null || value.getActualInstance() == null) {
-                        elementAdapter.write(out, null);
+                        writeJsonElement(out, null);
                         return;
                     }
 
                     // check if the actual instance is of the type `EffectAcceptCoupon`
                     if (value.getActualInstance() instanceof EffectAcceptCoupon) {
                         JsonElement element = adapterEffectAcceptCoupon.toJsonTree((EffectAcceptCoupon)value.getActualInstance());
-                        elementAdapter.write(out, element);
+                        writeJsonElement(out, element);
                         return;
                     }
                     // check if the actual instance is of the type `EffectAcceptReferral`
                     if (value.getActualInstance() instanceof EffectAcceptReferral) {
                         JsonElement element = adapterEffectAcceptReferral.toJsonTree((EffectAcceptReferral)value.getActualInstance());
-                        elementAdapter.write(out, element);
+                        writeJsonElement(out, element);
                         return;
                     }
                     // check if the actual instance is of the type `EffectAddFreeItem`
                     if (value.getActualInstance() instanceof EffectAddFreeItem) {
                         JsonElement element = adapterEffectAddFreeItem.toJsonTree((EffectAddFreeItem)value.getActualInstance());
-                        elementAdapter.write(out, element);
+                        writeJsonElement(out, element);
                         return;
                     }
                     // check if the actual instance is of the type `EffectAddLoyaltyPoints`
                     if (value.getActualInstance() instanceof EffectAddLoyaltyPoints) {
                         JsonElement element = adapterEffectAddLoyaltyPoints.toJsonTree((EffectAddLoyaltyPoints)value.getActualInstance());
-                        elementAdapter.write(out, element);
+                        writeJsonElement(out, element);
                         return;
                     }
                     // check if the actual instance is of the type `EffectAddNegativeLoyaltyPoints`
                     if (value.getActualInstance() instanceof EffectAddNegativeLoyaltyPoints) {
                         JsonElement element = adapterEffectAddNegativeLoyaltyPoints.toJsonTree((EffectAddNegativeLoyaltyPoints)value.getActualInstance());
-                        elementAdapter.write(out, element);
+                        writeJsonElement(out, element);
                         return;
                     }
                     // check if the actual instance is of the type `EffectAddToAudience`
                     if (value.getActualInstance() instanceof EffectAddToAudience) {
                         JsonElement element = adapterEffectAddToAudience.toJsonTree((EffectAddToAudience)value.getActualInstance());
-                        elementAdapter.write(out, element);
+                        writeJsonElement(out, element);
                         return;
                     }
                     // check if the actual instance is of the type `EffectAwardGiveaway`
                     if (value.getActualInstance() instanceof EffectAwardGiveaway) {
                         JsonElement element = adapterEffectAwardGiveaway.toJsonTree((EffectAwardGiveaway)value.getActualInstance());
-                        elementAdapter.write(out, element);
+                        writeJsonElement(out, element);
                         return;
                     }
                     // check if the actual instance is of the type `EffectBoostLoyaltyTier`
                     if (value.getActualInstance() instanceof EffectBoostLoyaltyTier) {
                         JsonElement element = adapterEffectBoostLoyaltyTier.toJsonTree((EffectBoostLoyaltyTier)value.getActualInstance());
-                        elementAdapter.write(out, element);
+                        writeJsonElement(out, element);
                         return;
                     }
                     // check if the actual instance is of the type `EffectCallApi`
                     if (value.getActualInstance() instanceof EffectCallApi) {
                         JsonElement element = adapterEffectCallApi.toJsonTree((EffectCallApi)value.getActualInstance());
-                        elementAdapter.write(out, element);
+                        writeJsonElement(out, element);
                         return;
                     }
                     // check if the actual instance is of the type `EffectChangeLoyaltyTierLevel`
                     if (value.getActualInstance() instanceof EffectChangeLoyaltyTierLevel) {
                         JsonElement element = adapterEffectChangeLoyaltyTierLevel.toJsonTree((EffectChangeLoyaltyTierLevel)value.getActualInstance());
-                        elementAdapter.write(out, element);
+                        writeJsonElement(out, element);
                         return;
                     }
                     // check if the actual instance is of the type `EffectCouponCreated`
                     if (value.getActualInstance() instanceof EffectCouponCreated) {
                         JsonElement element = adapterEffectCouponCreated.toJsonTree((EffectCouponCreated)value.getActualInstance());
-                        elementAdapter.write(out, element);
+                        writeJsonElement(out, element);
                         return;
                     }
                     // check if the actual instance is of the type `EffectCustomEffect`
                     if (value.getActualInstance() instanceof EffectCustomEffect) {
                         JsonElement element = adapterEffectCustomEffect.toJsonTree((EffectCustomEffect)value.getActualInstance());
-                        elementAdapter.write(out, element);
+                        writeJsonElement(out, element);
                         return;
                     }
                     // check if the actual instance is of the type `EffectDeductLoyaltyPoints`
                     if (value.getActualInstance() instanceof EffectDeductLoyaltyPoints) {
                         JsonElement element = adapterEffectDeductLoyaltyPoints.toJsonTree((EffectDeductLoyaltyPoints)value.getActualInstance());
-                        elementAdapter.write(out, element);
+                        writeJsonElement(out, element);
                         return;
                     }
                     // check if the actual instance is of the type `EffectError`
                     if (value.getActualInstance() instanceof EffectError) {
                         JsonElement element = adapterEffectError.toJsonTree((EffectError)value.getActualInstance());
-                        elementAdapter.write(out, element);
+                        writeJsonElement(out, element);
                         return;
                     }
                     // check if the actual instance is of the type `EffectExtendLoyaltyPointsExpiryDate`
                     if (value.getActualInstance() instanceof EffectExtendLoyaltyPointsExpiryDate) {
                         JsonElement element = adapterEffectExtendLoyaltyPointsExpiryDate.toJsonTree((EffectExtendLoyaltyPointsExpiryDate)value.getActualInstance());
-                        elementAdapter.write(out, element);
+                        writeJsonElement(out, element);
                         return;
                     }
                     // check if the actual instance is of the type `EffectIncreaseAchievementProgress`
                     if (value.getActualInstance() instanceof EffectIncreaseAchievementProgress) {
                         JsonElement element = adapterEffectIncreaseAchievementProgress.toJsonTree((EffectIncreaseAchievementProgress)value.getActualInstance());
-                        elementAdapter.write(out, element);
+                        writeJsonElement(out, element);
                         return;
                     }
                     // check if the actual instance is of the type `EffectIncreaseAchievementProgressPerItem`
                     if (value.getActualInstance() instanceof EffectIncreaseAchievementProgressPerItem) {
                         JsonElement element = adapterEffectIncreaseAchievementProgressPerItem.toJsonTree((EffectIncreaseAchievementProgressPerItem)value.getActualInstance());
-                        elementAdapter.write(out, element);
+                        writeJsonElement(out, element);
                         return;
                     }
                     // check if the actual instance is of the type `EffectJoinLoyaltyProgram`
                     if (value.getActualInstance() instanceof EffectJoinLoyaltyProgram) {
                         JsonElement element = adapterEffectJoinLoyaltyProgram.toJsonTree((EffectJoinLoyaltyProgram)value.getActualInstance());
-                        elementAdapter.write(out, element);
+                        writeJsonElement(out, element);
                         return;
                     }
                     // check if the actual instance is of the type `EffectOffsetNegativeLoyaltyPoints`
                     if (value.getActualInstance() instanceof EffectOffsetNegativeLoyaltyPoints) {
                         JsonElement element = adapterEffectOffsetNegativeLoyaltyPoints.toJsonTree((EffectOffsetNegativeLoyaltyPoints)value.getActualInstance());
-                        elementAdapter.write(out, element);
+                        writeJsonElement(out, element);
                         return;
                     }
                     // check if the actual instance is of the type `EffectRedeemReferral`
                     if (value.getActualInstance() instanceof EffectRedeemReferral) {
                         JsonElement element = adapterEffectRedeemReferral.toJsonTree((EffectRedeemReferral)value.getActualInstance());
-                        elementAdapter.write(out, element);
+                        writeJsonElement(out, element);
                         return;
                     }
                     // check if the actual instance is of the type `EffectReferralCreated`
                     if (value.getActualInstance() instanceof EffectReferralCreated) {
                         JsonElement element = adapterEffectReferralCreated.toJsonTree((EffectReferralCreated)value.getActualInstance());
-                        elementAdapter.write(out, element);
+                        writeJsonElement(out, element);
                         return;
                     }
                     // check if the actual instance is of the type `EffectRejectCoupon`
                     if (value.getActualInstance() instanceof EffectRejectCoupon) {
                         JsonElement element = adapterEffectRejectCoupon.toJsonTree((EffectRejectCoupon)value.getActualInstance());
-                        elementAdapter.write(out, element);
+                        writeJsonElement(out, element);
                         return;
                     }
                     // check if the actual instance is of the type `EffectRejectReferral`
                     if (value.getActualInstance() instanceof EffectRejectReferral) {
                         JsonElement element = adapterEffectRejectReferral.toJsonTree((EffectRejectReferral)value.getActualInstance());
-                        elementAdapter.write(out, element);
+                        writeJsonElement(out, element);
                         return;
                     }
                     // check if the actual instance is of the type `EffectRemoveFromAudience`
                     if (value.getActualInstance() instanceof EffectRemoveFromAudience) {
                         JsonElement element = adapterEffectRemoveFromAudience.toJsonTree((EffectRemoveFromAudience)value.getActualInstance());
-                        elementAdapter.write(out, element);
+                        writeJsonElement(out, element);
                         return;
                     }
                     // check if the actual instance is of the type `EffectReserveCoupon`
                     if (value.getActualInstance() instanceof EffectReserveCoupon) {
                         JsonElement element = adapterEffectReserveCoupon.toJsonTree((EffectReserveCoupon)value.getActualInstance());
-                        elementAdapter.write(out, element);
+                        writeJsonElement(out, element);
                         return;
                     }
                     // check if the actual instance is of the type `EffectRollbackAddedLoyaltyPoints`
                     if (value.getActualInstance() instanceof EffectRollbackAddedLoyaltyPoints) {
                         JsonElement element = adapterEffectRollbackAddedLoyaltyPoints.toJsonTree((EffectRollbackAddedLoyaltyPoints)value.getActualInstance());
-                        elementAdapter.write(out, element);
+                        writeJsonElement(out, element);
                         return;
                     }
                     // check if the actual instance is of the type `EffectRollbackCoupon`
                     if (value.getActualInstance() instanceof EffectRollbackCoupon) {
                         JsonElement element = adapterEffectRollbackCoupon.toJsonTree((EffectRollbackCoupon)value.getActualInstance());
-                        elementAdapter.write(out, element);
+                        writeJsonElement(out, element);
                         return;
                     }
                     // check if the actual instance is of the type `EffectRollbackDeductedLoyaltyPoints`
                     if (value.getActualInstance() instanceof EffectRollbackDeductedLoyaltyPoints) {
                         JsonElement element = adapterEffectRollbackDeductedLoyaltyPoints.toJsonTree((EffectRollbackDeductedLoyaltyPoints)value.getActualInstance());
-                        elementAdapter.write(out, element);
+                        writeJsonElement(out, element);
                         return;
                     }
                     // check if the actual instance is of the type `EffectRollbackDiscount`
                     if (value.getActualInstance() instanceof EffectRollbackDiscount) {
                         JsonElement element = adapterEffectRollbackDiscount.toJsonTree((EffectRollbackDiscount)value.getActualInstance());
-                        elementAdapter.write(out, element);
+                        writeJsonElement(out, element);
                         return;
                     }
                     // check if the actual instance is of the type `EffectRollbackIncreasedAchievementProgress`
                     if (value.getActualInstance() instanceof EffectRollbackIncreasedAchievementProgress) {
                         JsonElement element = adapterEffectRollbackIncreasedAchievementProgress.toJsonTree((EffectRollbackIncreasedAchievementProgress)value.getActualInstance());
-                        elementAdapter.write(out, element);
+                        writeJsonElement(out, element);
                         return;
                     }
                     // check if the actual instance is of the type `EffectRollbackIncreasedAchievementProgressPerItem`
                     if (value.getActualInstance() instanceof EffectRollbackIncreasedAchievementProgressPerItem) {
                         JsonElement element = adapterEffectRollbackIncreasedAchievementProgressPerItem.toJsonTree((EffectRollbackIncreasedAchievementProgressPerItem)value.getActualInstance());
-                        elementAdapter.write(out, element);
+                        writeJsonElement(out, element);
                         return;
                     }
                     // check if the actual instance is of the type `EffectRollbackReferral`
                     if (value.getActualInstance() instanceof EffectRollbackReferral) {
                         JsonElement element = adapterEffectRollbackReferral.toJsonTree((EffectRollbackReferral)value.getActualInstance());
-                        elementAdapter.write(out, element);
+                        writeJsonElement(out, element);
                         return;
                     }
                     // check if the actual instance is of the type `EffectRollbackTierBoost`
                     if (value.getActualInstance() instanceof EffectRollbackTierBoost) {
                         JsonElement element = adapterEffectRollbackTierBoost.toJsonTree((EffectRollbackTierBoost)value.getActualInstance());
-                        elementAdapter.write(out, element);
+                        writeJsonElement(out, element);
                         return;
                     }
                     // check if the actual instance is of the type `EffectRollbackUseReward`
                     if (value.getActualInstance() instanceof EffectRollbackUseReward) {
                         JsonElement element = adapterEffectRollbackUseReward.toJsonTree((EffectRollbackUseReward)value.getActualInstance());
-                        elementAdapter.write(out, element);
+                        writeJsonElement(out, element);
                         return;
                     }
                     // check if the actual instance is of the type `EffectSet`
                     if (value.getActualInstance() instanceof EffectSet) {
                         JsonElement element = adapterEffectSet.toJsonTree((EffectSet)value.getActualInstance());
-                        elementAdapter.write(out, element);
+                        writeJsonElement(out, element);
                         return;
                     }
                     // check if the actual instance is of the type `EffectSetDiscount`
                     if (value.getActualInstance() instanceof EffectSetDiscount) {
                         JsonElement element = adapterEffectSetDiscount.toJsonTree((EffectSetDiscount)value.getActualInstance());
-                        elementAdapter.write(out, element);
+                        writeJsonElement(out, element);
                         return;
                     }
                     // check if the actual instance is of the type `EffectSetDiscountPerAdditionalCost`
                     if (value.getActualInstance() instanceof EffectSetDiscountPerAdditionalCost) {
                         JsonElement element = adapterEffectSetDiscountPerAdditionalCost.toJsonTree((EffectSetDiscountPerAdditionalCost)value.getActualInstance());
-                        elementAdapter.write(out, element);
+                        writeJsonElement(out, element);
                         return;
                     }
                     // check if the actual instance is of the type `EffectSetDiscountPerAdditionalCostPerItem`
                     if (value.getActualInstance() instanceof EffectSetDiscountPerAdditionalCostPerItem) {
                         JsonElement element = adapterEffectSetDiscountPerAdditionalCostPerItem.toJsonTree((EffectSetDiscountPerAdditionalCostPerItem)value.getActualInstance());
-                        elementAdapter.write(out, element);
+                        writeJsonElement(out, element);
                         return;
                     }
                     // check if the actual instance is of the type `EffectSetDiscountPerItem`
                     if (value.getActualInstance() instanceof EffectSetDiscountPerItem) {
                         JsonElement element = adapterEffectSetDiscountPerItem.toJsonTree((EffectSetDiscountPerItem)value.getActualInstance());
-                        elementAdapter.write(out, element);
+                        writeJsonElement(out, element);
                         return;
                     }
                     // check if the actual instance is of the type `EffectSetLoyaltyPointsExpiryDate`
                     if (value.getActualInstance() instanceof EffectSetLoyaltyPointsExpiryDate) {
                         JsonElement element = adapterEffectSetLoyaltyPointsExpiryDate.toJsonTree((EffectSetLoyaltyPointsExpiryDate)value.getActualInstance());
-                        elementAdapter.write(out, element);
+                        writeJsonElement(out, element);
                         return;
                     }
                     // check if the actual instance is of the type `EffectShowBundleMetadata`
                     if (value.getActualInstance() instanceof EffectShowBundleMetadata) {
                         JsonElement element = adapterEffectShowBundleMetadata.toJsonTree((EffectShowBundleMetadata)value.getActualInstance());
-                        elementAdapter.write(out, element);
+                        writeJsonElement(out, element);
                         return;
                     }
                     // check if the actual instance is of the type `EffectShowNotification`
                     if (value.getActualInstance() instanceof EffectShowNotification) {
                         JsonElement element = adapterEffectShowNotification.toJsonTree((EffectShowNotification)value.getActualInstance());
-                        elementAdapter.write(out, element);
+                        writeJsonElement(out, element);
                         return;
                     }
                     // check if the actual instance is of the type `EffectStartAchievementProgress`
                     if (value.getActualInstance() instanceof EffectStartAchievementProgress) {
                         JsonElement element = adapterEffectStartAchievementProgress.toJsonTree((EffectStartAchievementProgress)value.getActualInstance());
-                        elementAdapter.write(out, element);
+                        writeJsonElement(out, element);
                         return;
                     }
                     // check if the actual instance is of the type `EffectUnlockReward`
                     if (value.getActualInstance() instanceof EffectUnlockReward) {
                         JsonElement element = adapterEffectUnlockReward.toJsonTree((EffectUnlockReward)value.getActualInstance());
-                        elementAdapter.write(out, element);
+                        writeJsonElement(out, element);
                         return;
                     }
                     // check if the actual instance is of the type `EffectUseReward`
                     if (value.getActualInstance() instanceof EffectUseReward) {
                         JsonElement element = adapterEffectUseReward.toJsonTree((EffectUseReward)value.getActualInstance());
-                        elementAdapter.write(out, element);
+                        writeJsonElement(out, element);
                         return;
                     }
                     // check if the actual instance is of the type `EffectWillAwardGiveaway`
                     if (value.getActualInstance() instanceof EffectWillAwardGiveaway) {
                         JsonElement element = adapterEffectWillAwardGiveaway.toJsonTree((EffectWillAwardGiveaway)value.getActualInstance());
-                        elementAdapter.write(out, element);
+                        writeJsonElement(out, element);
                         return;
                     }
                     throw new IOException("Failed to serialize as the type doesn't match oneOf schemas: EffectAcceptCoupon, EffectAcceptReferral, EffectAddFreeItem, EffectAddLoyaltyPoints, EffectAddNegativeLoyaltyPoints, EffectAddToAudience, EffectAwardGiveaway, EffectBoostLoyaltyTier, EffectCallApi, EffectChangeLoyaltyTierLevel, EffectCouponCreated, EffectCustomEffect, EffectDeductLoyaltyPoints, EffectError, EffectExtendLoyaltyPointsExpiryDate, EffectIncreaseAchievementProgress, EffectIncreaseAchievementProgressPerItem, EffectJoinLoyaltyProgram, EffectOffsetNegativeLoyaltyPoints, EffectRedeemReferral, EffectReferralCreated, EffectRejectCoupon, EffectRejectReferral, EffectRemoveFromAudience, EffectReserveCoupon, EffectRollbackAddedLoyaltyPoints, EffectRollbackCoupon, EffectRollbackDeductedLoyaltyPoints, EffectRollbackDiscount, EffectRollbackIncreasedAchievementProgress, EffectRollbackIncreasedAchievementProgressPerItem, EffectRollbackReferral, EffectRollbackTierBoost, EffectRollbackUseReward, EffectSet, EffectSetDiscount, EffectSetDiscountPerAdditionalCost, EffectSetDiscountPerAdditionalCostPerItem, EffectSetDiscountPerItem, EffectSetLoyaltyPointsExpiryDate, EffectShowBundleMetadata, EffectShowNotification, EffectStartAchievementProgress, EffectUnlockReward, EffectUseReward, EffectWillAwardGiveaway");

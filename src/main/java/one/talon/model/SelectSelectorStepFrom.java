@@ -62,27 +62,37 @@ public class SelectSelectorStepFrom extends AbstractOpenApiSchema {
                 return null; // this class only serializes 'SelectSelectorStepFrom' and its subtypes
             }
             final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-            final TypeAdapter<String> adapterString = gson.getDelegateAdapter(this, TypeToken.get(String.class));
-            final TypeAdapter<Integer> adapterInteger = gson.getDelegateAdapter(this, TypeToken.get(Integer.class));
+            final TypeAdapter<String> adapterString = gson.getAdapter(TypeToken.get(String.class));
+            final TypeAdapter<Integer> adapterInteger = gson.getAdapter(TypeToken.get(Integer.class));
 
             return (TypeAdapter<T>) new TypeAdapter<SelectSelectorStepFrom>() {
+                private void writeJsonElement(JsonWriter out, JsonElement value) throws IOException {
+                    boolean originalSerializeNulls = out.getSerializeNulls();
+                    try {
+                        out.setSerializeNulls(true);
+                        elementAdapter.write(out, value);
+                    } finally {
+                        out.setSerializeNulls(originalSerializeNulls);
+                    }
+                }
+
                 @Override
                 public void write(JsonWriter out, SelectSelectorStepFrom value) throws IOException {
                     if (value == null || value.getActualInstance() == null) {
-                        elementAdapter.write(out, null);
+                        writeJsonElement(out, null);
                         return;
                     }
 
                     // check if the actual instance is of the type `String`
                     if (value.getActualInstance() instanceof String) {
                         JsonPrimitive primitive = adapterString.toJsonTree((String)value.getActualInstance()).getAsJsonPrimitive();
-                        elementAdapter.write(out, primitive);
+                        writeJsonElement(out, primitive);
                         return;
                     }
                     // check if the actual instance is of the type `Integer`
                     if (value.getActualInstance() instanceof Integer) {
                         JsonPrimitive primitive = adapterInteger.toJsonTree((Integer)value.getActualInstance()).getAsJsonPrimitive();
-                        elementAdapter.write(out, primitive);
+                        writeJsonElement(out, primitive);
                         return;
                     }
                     throw new IOException("Failed to serialize as the type doesn't match oneOf schemas: Integer, String");

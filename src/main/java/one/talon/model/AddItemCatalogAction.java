@@ -53,6 +53,9 @@ import one.talon.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.26.0")
 public class AddItemCatalogAction {
+  // Gson ignores transient state; only setters and JSON input mark properties as present.
+  private transient Set<String> openapiExplicitlySetFields = new HashSet<>();
+
   public static final String SERIALIZED_NAME_SKU = "sku";
   @SerializedName(SERIALIZED_NAME_SKU)
   @javax.annotation.Nonnull
@@ -83,6 +86,7 @@ public class AddItemCatalogAction {
 
   public AddItemCatalogAction sku(@javax.annotation.Nonnull String sku) {
     this.sku = sku;
+    this.markPropertyAsSet(SERIALIZED_NAME_SKU);
     return this;
   }
 
@@ -97,11 +101,13 @@ public class AddItemCatalogAction {
 
   public void setSku(@javax.annotation.Nonnull String sku) {
     this.sku = sku;
+    this.markPropertyAsSet(SERIALIZED_NAME_SKU);
   }
 
 
   public AddItemCatalogAction price(@javax.annotation.Nullable BigDecimal price) {
     this.price = price;
+    this.markPropertyAsSet(SERIALIZED_NAME_PRICE);
     return this;
   }
 
@@ -116,11 +122,13 @@ public class AddItemCatalogAction {
 
   public void setPrice(@javax.annotation.Nullable BigDecimal price) {
     this.price = price;
+    this.markPropertyAsSet(SERIALIZED_NAME_PRICE);
   }
 
 
   public AddItemCatalogAction attributes(@javax.annotation.Nullable Object attributes) {
     this.attributes = attributes;
+    this.markPropertyAsSet(SERIALIZED_NAME_ATTRIBUTES);
     return this;
   }
 
@@ -135,11 +143,13 @@ public class AddItemCatalogAction {
 
   public void setAttributes(@javax.annotation.Nullable Object attributes) {
     this.attributes = attributes;
+    this.markPropertyAsSet(SERIALIZED_NAME_ATTRIBUTES);
   }
 
 
   public AddItemCatalogAction product(@javax.annotation.Nullable Product product) {
     this.product = product;
+    this.markPropertyAsSet(SERIALIZED_NAME_PRODUCT);
     return this;
   }
 
@@ -154,11 +164,13 @@ public class AddItemCatalogAction {
 
   public void setProduct(@javax.annotation.Nullable Product product) {
     this.product = product;
+    this.markPropertyAsSet(SERIALIZED_NAME_PRODUCT);
   }
 
 
   public AddItemCatalogAction replaceIfExists(@javax.annotation.Nullable Boolean replaceIfExists) {
     this.replaceIfExists = replaceIfExists;
+    this.markPropertyAsSet(SERIALIZED_NAME_REPLACE_IF_EXISTS);
     return this;
   }
 
@@ -173,6 +185,7 @@ public class AddItemCatalogAction {
 
   public void setReplaceIfExists(@javax.annotation.Nullable Boolean replaceIfExists) {
     this.replaceIfExists = replaceIfExists;
+    this.markPropertyAsSet(SERIALIZED_NAME_REPLACE_IF_EXISTS);
   }
 
   /**
@@ -218,6 +231,21 @@ public class AddItemCatalogAction {
         return null;
     }
     return this.additionalProperties.get(key);
+  }
+
+  /** Omit null properties unless they were explicitly assigned or present in JSON input. */
+  protected final void removeUnsetNullFields(JsonObject obj) {
+    obj.entrySet().removeIf(entry -> entry.getValue().isJsonNull()
+        && !openapiExplicitlySetFields.contains(entry.getKey()));
+  }
+
+  protected final void markPropertyAsSet(String propertyName) {
+    openapiExplicitlySetFields.add(propertyName);
+  }
+
+  /** Gson populates fields directly, bypassing setters during deserialization. */
+  protected final void markPropertiesAsSet(Set<String> propertyNames) {
+    openapiExplicitlySetFields.addAll(propertyNames);
   }
 
 
@@ -311,7 +339,7 @@ public class AddItemCatalogAction {
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
        if (!AddItemCatalogAction.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'AddItemCatalogAction' and its subtypes
+         return null; // let other model factories handle this type
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
        final TypeAdapter<AddItemCatalogAction> thisAdapter
@@ -321,31 +349,22 @@ public class AddItemCatalogAction {
            @Override
            public void write(JsonWriter out, AddItemCatalogAction value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+             value.removeUnsetNullFields(obj);
              obj.remove("additionalProperties");
              // serialize additional properties
              if (value.getAdditionalProperties() != null) {
                for (Map.Entry<String, Object> entry : value.getAdditionalProperties().entrySet()) {
-                 if (entry.getValue() instanceof String)
-                   obj.addProperty(entry.getKey(), (String) entry.getValue());
-                 else if (entry.getValue() instanceof Number)
-                   obj.addProperty(entry.getKey(), (Number) entry.getValue());
-                 else if (entry.getValue() instanceof Boolean)
-                   obj.addProperty(entry.getKey(), (Boolean) entry.getValue());
-                 else if (entry.getValue() instanceof Character)
-                   obj.addProperty(entry.getKey(), (Character) entry.getValue());
-                 else {
-                   JsonElement jsonElement = gson.toJsonTree(entry.getValue());
-                   if (jsonElement.isJsonNull()) {
-                     obj.add(entry.getKey(), JsonNull.INSTANCE);
-                   } else if (jsonElement.isJsonArray()) {
-                     obj.add(entry.getKey(), jsonElement.getAsJsonArray());
-                   } else {
-                     obj.add(entry.getKey(), jsonElement.getAsJsonObject());
-                   }
-                 }
+                 // TypeAdapter.toJsonTree keeps explicit null entries in arbitrary maps too.
+                 obj.add(entry.getKey(), gson.getAdapter(Object.class).toJsonTree(entry.getValue()));
                }
              }
-             elementAdapter.write(out, obj);
+             boolean originalSerializeNulls = out.getSerializeNulls();
+             try {
+               out.setSerializeNulls(true);
+               elementAdapter.write(out, obj);
+             } finally {
+               out.setSerializeNulls(originalSerializeNulls);
+             }
            }
 
            @Override
@@ -355,6 +374,7 @@ public class AddItemCatalogAction {
              JsonObject jsonObj = jsonElement.getAsJsonObject();
              // store additional fields in the deserialized instance
              AddItemCatalogAction instance = thisAdapter.fromJsonTree(jsonObj);
+             instance.markPropertiesAsSet(jsonObj.keySet());
              for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
                if (!openapiFields.contains(entry.getKey())) {
                  if (entry.getValue().isJsonPrimitive()) { // primitive type

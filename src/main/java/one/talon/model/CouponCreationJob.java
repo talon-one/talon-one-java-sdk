@@ -56,6 +56,9 @@ import one.talon.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.26.0")
 public class CouponCreationJob {
+  // Gson ignores transient state; only setters and JSON input mark properties as present.
+  private transient Set<String> openapiExplicitlySetFields = new HashSet<>();
+
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
   @javax.annotation.Nonnull
@@ -176,6 +179,7 @@ public class CouponCreationJob {
 
   public CouponCreationJob id(@javax.annotation.Nonnull Long id) {
     this.id = id;
+    this.markPropertyAsSet(SERIALIZED_NAME_ID);
     return this;
   }
 
@@ -190,11 +194,13 @@ public class CouponCreationJob {
 
   public void setId(@javax.annotation.Nonnull Long id) {
     this.id = id;
+    this.markPropertyAsSet(SERIALIZED_NAME_ID);
   }
 
 
   public CouponCreationJob created(@javax.annotation.Nonnull OffsetDateTime created) {
     this.created = created;
+    this.markPropertyAsSet(SERIALIZED_NAME_CREATED);
     return this;
   }
 
@@ -209,11 +215,13 @@ public class CouponCreationJob {
 
   public void setCreated(@javax.annotation.Nonnull OffsetDateTime created) {
     this.created = created;
+    this.markPropertyAsSet(SERIALIZED_NAME_CREATED);
   }
 
 
   public CouponCreationJob campaignId(@javax.annotation.Nonnull Long campaignId) {
     this.campaignId = campaignId;
+    this.markPropertyAsSet(SERIALIZED_NAME_CAMPAIGN_ID);
     return this;
   }
 
@@ -228,11 +236,13 @@ public class CouponCreationJob {
 
   public void setCampaignId(@javax.annotation.Nonnull Long campaignId) {
     this.campaignId = campaignId;
+    this.markPropertyAsSet(SERIALIZED_NAME_CAMPAIGN_ID);
   }
 
 
   public CouponCreationJob applicationId(@javax.annotation.Nonnull Long applicationId) {
     this.applicationId = applicationId;
+    this.markPropertyAsSet(SERIALIZED_NAME_APPLICATION_ID);
     return this;
   }
 
@@ -247,11 +257,13 @@ public class CouponCreationJob {
 
   public void setApplicationId(@javax.annotation.Nonnull Long applicationId) {
     this.applicationId = applicationId;
+    this.markPropertyAsSet(SERIALIZED_NAME_APPLICATION_ID);
   }
 
 
   public CouponCreationJob accountId(@javax.annotation.Nonnull Long accountId) {
     this.accountId = accountId;
+    this.markPropertyAsSet(SERIALIZED_NAME_ACCOUNT_ID);
     return this;
   }
 
@@ -266,11 +278,13 @@ public class CouponCreationJob {
 
   public void setAccountId(@javax.annotation.Nonnull Long accountId) {
     this.accountId = accountId;
+    this.markPropertyAsSet(SERIALIZED_NAME_ACCOUNT_ID);
   }
 
 
   public CouponCreationJob usageLimit(@javax.annotation.Nonnull Long usageLimit) {
     this.usageLimit = usageLimit;
+    this.markPropertyAsSet(SERIALIZED_NAME_USAGE_LIMIT);
     return this;
   }
 
@@ -287,11 +301,13 @@ public class CouponCreationJob {
 
   public void setUsageLimit(@javax.annotation.Nonnull Long usageLimit) {
     this.usageLimit = usageLimit;
+    this.markPropertyAsSet(SERIALIZED_NAME_USAGE_LIMIT);
   }
 
 
   public CouponCreationJob discountLimit(@javax.annotation.Nullable BigDecimal discountLimit) {
     this.discountLimit = discountLimit;
+    this.markPropertyAsSet(SERIALIZED_NAME_DISCOUNT_LIMIT);
     return this;
   }
 
@@ -308,11 +324,13 @@ public class CouponCreationJob {
 
   public void setDiscountLimit(@javax.annotation.Nullable BigDecimal discountLimit) {
     this.discountLimit = discountLimit;
+    this.markPropertyAsSet(SERIALIZED_NAME_DISCOUNT_LIMIT);
   }
 
 
   public CouponCreationJob reservationLimit(@javax.annotation.Nullable Long reservationLimit) {
     this.reservationLimit = reservationLimit;
+    this.markPropertyAsSet(SERIALIZED_NAME_RESERVATION_LIMIT);
     return this;
   }
 
@@ -329,11 +347,13 @@ public class CouponCreationJob {
 
   public void setReservationLimit(@javax.annotation.Nullable Long reservationLimit) {
     this.reservationLimit = reservationLimit;
+    this.markPropertyAsSet(SERIALIZED_NAME_RESERVATION_LIMIT);
   }
 
 
   public CouponCreationJob startDate(@javax.annotation.Nullable OffsetDateTime startDate) {
     this.startDate = startDate;
+    this.markPropertyAsSet(SERIALIZED_NAME_START_DATE);
     return this;
   }
 
@@ -348,11 +368,13 @@ public class CouponCreationJob {
 
   public void setStartDate(@javax.annotation.Nullable OffsetDateTime startDate) {
     this.startDate = startDate;
+    this.markPropertyAsSet(SERIALIZED_NAME_START_DATE);
   }
 
 
   public CouponCreationJob expiryDate(@javax.annotation.Nullable OffsetDateTime expiryDate) {
     this.expiryDate = expiryDate;
+    this.markPropertyAsSet(SERIALIZED_NAME_EXPIRY_DATE);
     return this;
   }
 
@@ -367,11 +389,13 @@ public class CouponCreationJob {
 
   public void setExpiryDate(@javax.annotation.Nullable OffsetDateTime expiryDate) {
     this.expiryDate = expiryDate;
+    this.markPropertyAsSet(SERIALIZED_NAME_EXPIRY_DATE);
   }
 
 
   public CouponCreationJob numberOfCoupons(@javax.annotation.Nonnull Long numberOfCoupons) {
     this.numberOfCoupons = numberOfCoupons;
+    this.markPropertyAsSet(SERIALIZED_NAME_NUMBER_OF_COUPONS);
     return this;
   }
 
@@ -388,11 +412,13 @@ public class CouponCreationJob {
 
   public void setNumberOfCoupons(@javax.annotation.Nonnull Long numberOfCoupons) {
     this.numberOfCoupons = numberOfCoupons;
+    this.markPropertyAsSet(SERIALIZED_NAME_NUMBER_OF_COUPONS);
   }
 
 
   public CouponCreationJob couponSettings(@javax.annotation.Nullable CodeGeneratorSettings couponSettings) {
     this.couponSettings = couponSettings;
+    this.markPropertyAsSet(SERIALIZED_NAME_COUPON_SETTINGS);
     return this;
   }
 
@@ -407,11 +433,13 @@ public class CouponCreationJob {
 
   public void setCouponSettings(@javax.annotation.Nullable CodeGeneratorSettings couponSettings) {
     this.couponSettings = couponSettings;
+    this.markPropertyAsSet(SERIALIZED_NAME_COUPON_SETTINGS);
   }
 
 
   public CouponCreationJob attributes(@javax.annotation.Nonnull Object attributes) {
     this.attributes = attributes;
+    this.markPropertyAsSet(SERIALIZED_NAME_ATTRIBUTES);
     return this;
   }
 
@@ -426,11 +454,13 @@ public class CouponCreationJob {
 
   public void setAttributes(@javax.annotation.Nonnull Object attributes) {
     this.attributes = attributes;
+    this.markPropertyAsSet(SERIALIZED_NAME_ATTRIBUTES);
   }
 
 
   public CouponCreationJob isReservationMandatory(@javax.annotation.Nullable Boolean isReservationMandatory) {
     this.isReservationMandatory = isReservationMandatory;
+    this.markPropertyAsSet(SERIALIZED_NAME_IS_RESERVATION_MANDATORY);
     return this;
   }
 
@@ -445,11 +475,13 @@ public class CouponCreationJob {
 
   public void setIsReservationMandatory(@javax.annotation.Nullable Boolean isReservationMandatory) {
     this.isReservationMandatory = isReservationMandatory;
+    this.markPropertyAsSet(SERIALIZED_NAME_IS_RESERVATION_MANDATORY);
   }
 
 
   public CouponCreationJob batchId(@javax.annotation.Nonnull String batchId) {
     this.batchId = batchId;
+    this.markPropertyAsSet(SERIALIZED_NAME_BATCH_ID);
     return this;
   }
 
@@ -464,11 +496,13 @@ public class CouponCreationJob {
 
   public void setBatchId(@javax.annotation.Nonnull String batchId) {
     this.batchId = batchId;
+    this.markPropertyAsSet(SERIALIZED_NAME_BATCH_ID);
   }
 
 
   public CouponCreationJob status(@javax.annotation.Nonnull String status) {
     this.status = status;
+    this.markPropertyAsSet(SERIALIZED_NAME_STATUS);
     return this;
   }
 
@@ -483,11 +517,13 @@ public class CouponCreationJob {
 
   public void setStatus(@javax.annotation.Nonnull String status) {
     this.status = status;
+    this.markPropertyAsSet(SERIALIZED_NAME_STATUS);
   }
 
 
   public CouponCreationJob createdAmount(@javax.annotation.Nonnull Long createdAmount) {
     this.createdAmount = createdAmount;
+    this.markPropertyAsSet(SERIALIZED_NAME_CREATED_AMOUNT);
     return this;
   }
 
@@ -502,11 +538,13 @@ public class CouponCreationJob {
 
   public void setCreatedAmount(@javax.annotation.Nonnull Long createdAmount) {
     this.createdAmount = createdAmount;
+    this.markPropertyAsSet(SERIALIZED_NAME_CREATED_AMOUNT);
   }
 
 
   public CouponCreationJob failCount(@javax.annotation.Nonnull Long failCount) {
     this.failCount = failCount;
+    this.markPropertyAsSet(SERIALIZED_NAME_FAIL_COUNT);
     return this;
   }
 
@@ -521,11 +559,13 @@ public class CouponCreationJob {
 
   public void setFailCount(@javax.annotation.Nonnull Long failCount) {
     this.failCount = failCount;
+    this.markPropertyAsSet(SERIALIZED_NAME_FAIL_COUNT);
   }
 
 
   public CouponCreationJob errors(@javax.annotation.Nonnull List<String> errors) {
     this.errors = errors;
+    this.markPropertyAsSet(SERIALIZED_NAME_ERRORS);
     return this;
   }
 
@@ -534,6 +574,7 @@ public class CouponCreationJob {
       this.errors = new ArrayList<>();
     }
     this.errors.add(errorsItem);
+    this.markPropertyAsSet(SERIALIZED_NAME_ERRORS);
     return this;
   }
 
@@ -548,11 +589,13 @@ public class CouponCreationJob {
 
   public void setErrors(@javax.annotation.Nonnull List<String> errors) {
     this.errors = errors;
+    this.markPropertyAsSet(SERIALIZED_NAME_ERRORS);
   }
 
 
   public CouponCreationJob createdBy(@javax.annotation.Nonnull Long createdBy) {
     this.createdBy = createdBy;
+    this.markPropertyAsSet(SERIALIZED_NAME_CREATED_BY);
     return this;
   }
 
@@ -567,11 +610,13 @@ public class CouponCreationJob {
 
   public void setCreatedBy(@javax.annotation.Nonnull Long createdBy) {
     this.createdBy = createdBy;
+    this.markPropertyAsSet(SERIALIZED_NAME_CREATED_BY);
   }
 
 
   public CouponCreationJob communicated(@javax.annotation.Nonnull Boolean communicated) {
     this.communicated = communicated;
+    this.markPropertyAsSet(SERIALIZED_NAME_COMMUNICATED);
     return this;
   }
 
@@ -586,11 +631,13 @@ public class CouponCreationJob {
 
   public void setCommunicated(@javax.annotation.Nonnull Boolean communicated) {
     this.communicated = communicated;
+    this.markPropertyAsSet(SERIALIZED_NAME_COMMUNICATED);
   }
 
 
   public CouponCreationJob chunkExecutionCount(@javax.annotation.Nonnull Long chunkExecutionCount) {
     this.chunkExecutionCount = chunkExecutionCount;
+    this.markPropertyAsSet(SERIALIZED_NAME_CHUNK_EXECUTION_COUNT);
     return this;
   }
 
@@ -605,11 +652,13 @@ public class CouponCreationJob {
 
   public void setChunkExecutionCount(@javax.annotation.Nonnull Long chunkExecutionCount) {
     this.chunkExecutionCount = chunkExecutionCount;
+    this.markPropertyAsSet(SERIALIZED_NAME_CHUNK_EXECUTION_COUNT);
   }
 
 
   public CouponCreationJob chunkSize(@javax.annotation.Nullable Long chunkSize) {
     this.chunkSize = chunkSize;
+    this.markPropertyAsSet(SERIALIZED_NAME_CHUNK_SIZE);
     return this;
   }
 
@@ -624,6 +673,7 @@ public class CouponCreationJob {
 
   public void setChunkSize(@javax.annotation.Nullable Long chunkSize) {
     this.chunkSize = chunkSize;
+    this.markPropertyAsSet(SERIALIZED_NAME_CHUNK_SIZE);
   }
 
   /**
@@ -669,6 +719,21 @@ public class CouponCreationJob {
         return null;
     }
     return this.additionalProperties.get(key);
+  }
+
+  /** Omit null properties unless they were explicitly assigned or present in JSON input. */
+  protected final void removeUnsetNullFields(JsonObject obj) {
+    obj.entrySet().removeIf(entry -> entry.getValue().isJsonNull()
+        && !openapiExplicitlySetFields.contains(entry.getKey()));
+  }
+
+  protected final void markPropertyAsSet(String propertyName) {
+    openapiExplicitlySetFields.add(propertyName);
+  }
+
+  /** Gson populates fields directly, bypassing setters during deserialization. */
+  protected final void markPropertiesAsSet(Set<String> propertyNames) {
+    openapiExplicitlySetFields.addAll(propertyNames);
   }
 
 
@@ -807,7 +872,7 @@ public class CouponCreationJob {
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
        if (!CouponCreationJob.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'CouponCreationJob' and its subtypes
+         return null; // let other model factories handle this type
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
        final TypeAdapter<CouponCreationJob> thisAdapter
@@ -817,31 +882,22 @@ public class CouponCreationJob {
            @Override
            public void write(JsonWriter out, CouponCreationJob value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+             value.removeUnsetNullFields(obj);
              obj.remove("additionalProperties");
              // serialize additional properties
              if (value.getAdditionalProperties() != null) {
                for (Map.Entry<String, Object> entry : value.getAdditionalProperties().entrySet()) {
-                 if (entry.getValue() instanceof String)
-                   obj.addProperty(entry.getKey(), (String) entry.getValue());
-                 else if (entry.getValue() instanceof Number)
-                   obj.addProperty(entry.getKey(), (Number) entry.getValue());
-                 else if (entry.getValue() instanceof Boolean)
-                   obj.addProperty(entry.getKey(), (Boolean) entry.getValue());
-                 else if (entry.getValue() instanceof Character)
-                   obj.addProperty(entry.getKey(), (Character) entry.getValue());
-                 else {
-                   JsonElement jsonElement = gson.toJsonTree(entry.getValue());
-                   if (jsonElement.isJsonNull()) {
-                     obj.add(entry.getKey(), JsonNull.INSTANCE);
-                   } else if (jsonElement.isJsonArray()) {
-                     obj.add(entry.getKey(), jsonElement.getAsJsonArray());
-                   } else {
-                     obj.add(entry.getKey(), jsonElement.getAsJsonObject());
-                   }
-                 }
+                 // TypeAdapter.toJsonTree keeps explicit null entries in arbitrary maps too.
+                 obj.add(entry.getKey(), gson.getAdapter(Object.class).toJsonTree(entry.getValue()));
                }
              }
-             elementAdapter.write(out, obj);
+             boolean originalSerializeNulls = out.getSerializeNulls();
+             try {
+               out.setSerializeNulls(true);
+               elementAdapter.write(out, obj);
+             } finally {
+               out.setSerializeNulls(originalSerializeNulls);
+             }
            }
 
            @Override
@@ -851,6 +907,7 @@ public class CouponCreationJob {
              JsonObject jsonObj = jsonElement.getAsJsonObject();
              // store additional fields in the deserialized instance
              CouponCreationJob instance = thisAdapter.fromJsonTree(jsonObj);
+             instance.markPropertiesAsSet(jsonObj.keySet());
              for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
                if (!openapiFields.contains(entry.getKey())) {
                  if (entry.getValue().isJsonPrimitive()) { // primitive type

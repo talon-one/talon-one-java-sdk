@@ -66,6 +66,9 @@ import one.talon.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.26.0")
 public class Environment {
+  // Gson ignores transient state; only setters and JSON input mark properties as present.
+  private transient Set<String> openapiExplicitlySetFields = new HashSet<>();
+
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
   @javax.annotation.Nonnull
@@ -151,6 +154,7 @@ public class Environment {
 
   public Environment id(@javax.annotation.Nonnull Long id) {
     this.id = id;
+    this.markPropertyAsSet(SERIALIZED_NAME_ID);
     return this;
   }
 
@@ -165,11 +169,13 @@ public class Environment {
 
   public void setId(@javax.annotation.Nonnull Long id) {
     this.id = id;
+    this.markPropertyAsSet(SERIALIZED_NAME_ID);
   }
 
 
   public Environment created(@javax.annotation.Nonnull OffsetDateTime created) {
     this.created = created;
+    this.markPropertyAsSet(SERIALIZED_NAME_CREATED);
     return this;
   }
 
@@ -184,11 +190,13 @@ public class Environment {
 
   public void setCreated(@javax.annotation.Nonnull OffsetDateTime created) {
     this.created = created;
+    this.markPropertyAsSet(SERIALIZED_NAME_CREATED);
   }
 
 
   public Environment applicationId(@javax.annotation.Nonnull Long applicationId) {
     this.applicationId = applicationId;
+    this.markPropertyAsSet(SERIALIZED_NAME_APPLICATION_ID);
     return this;
   }
 
@@ -203,11 +211,13 @@ public class Environment {
 
   public void setApplicationId(@javax.annotation.Nonnull Long applicationId) {
     this.applicationId = applicationId;
+    this.markPropertyAsSet(SERIALIZED_NAME_APPLICATION_ID);
   }
 
 
   public Environment slots(@javax.annotation.Nonnull List<SlotDef> slots) {
     this.slots = slots;
+    this.markPropertyAsSet(SERIALIZED_NAME_SLOTS);
     return this;
   }
 
@@ -216,6 +226,7 @@ public class Environment {
       this.slots = new ArrayList<>();
     }
     this.slots.add(slotsItem);
+    this.markPropertyAsSet(SERIALIZED_NAME_SLOTS);
     return this;
   }
 
@@ -230,11 +241,13 @@ public class Environment {
 
   public void setSlots(@javax.annotation.Nonnull List<SlotDef> slots) {
     this.slots = slots;
+    this.markPropertyAsSet(SERIALIZED_NAME_SLOTS);
   }
 
 
   public Environment functions(@javax.annotation.Nonnull List<FunctionDef> functions) {
     this.functions = functions;
+    this.markPropertyAsSet(SERIALIZED_NAME_FUNCTIONS);
     return this;
   }
 
@@ -243,6 +256,7 @@ public class Environment {
       this.functions = new ArrayList<>();
     }
     this.functions.add(functionsItem);
+    this.markPropertyAsSet(SERIALIZED_NAME_FUNCTIONS);
     return this;
   }
 
@@ -257,11 +271,13 @@ public class Environment {
 
   public void setFunctions(@javax.annotation.Nonnull List<FunctionDef> functions) {
     this.functions = functions;
+    this.markPropertyAsSet(SERIALIZED_NAME_FUNCTIONS);
   }
 
 
   public Environment templates(@javax.annotation.Nonnull List<TemplateDef> templates) {
     this.templates = templates;
+    this.markPropertyAsSet(SERIALIZED_NAME_TEMPLATES);
     return this;
   }
 
@@ -270,6 +286,7 @@ public class Environment {
       this.templates = new ArrayList<>();
     }
     this.templates.add(templatesItem);
+    this.markPropertyAsSet(SERIALIZED_NAME_TEMPLATES);
     return this;
   }
 
@@ -284,11 +301,13 @@ public class Environment {
 
   public void setTemplates(@javax.annotation.Nonnull List<TemplateDef> templates) {
     this.templates = templates;
+    this.markPropertyAsSet(SERIALIZED_NAME_TEMPLATES);
   }
 
 
   public Environment variables(@javax.annotation.Nonnull String variables) {
     this.variables = variables;
+    this.markPropertyAsSet(SERIALIZED_NAME_VARIABLES);
     return this;
   }
 
@@ -303,11 +322,13 @@ public class Environment {
 
   public void setVariables(@javax.annotation.Nonnull String variables) {
     this.variables = variables;
+    this.markPropertyAsSet(SERIALIZED_NAME_VARIABLES);
   }
 
 
   public Environment giveawaysPools(@javax.annotation.Nullable List<GiveawaysPool> giveawaysPools) {
     this.giveawaysPools = giveawaysPools;
+    this.markPropertyAsSet(SERIALIZED_NAME_GIVEAWAYS_POOLS);
     return this;
   }
 
@@ -316,6 +337,7 @@ public class Environment {
       this.giveawaysPools = new ArrayList<>();
     }
     this.giveawaysPools.add(giveawaysPoolsItem);
+    this.markPropertyAsSet(SERIALIZED_NAME_GIVEAWAYS_POOLS);
     return this;
   }
 
@@ -330,11 +352,13 @@ public class Environment {
 
   public void setGiveawaysPools(@javax.annotation.Nullable List<GiveawaysPool> giveawaysPools) {
     this.giveawaysPools = giveawaysPools;
+    this.markPropertyAsSet(SERIALIZED_NAME_GIVEAWAYS_POOLS);
   }
 
 
   public Environment loyaltyPrograms(@javax.annotation.Nullable List<LoyaltyProgram> loyaltyPrograms) {
     this.loyaltyPrograms = loyaltyPrograms;
+    this.markPropertyAsSet(SERIALIZED_NAME_LOYALTY_PROGRAMS);
     return this;
   }
 
@@ -343,6 +367,7 @@ public class Environment {
       this.loyaltyPrograms = new ArrayList<>();
     }
     this.loyaltyPrograms.add(loyaltyProgramsItem);
+    this.markPropertyAsSet(SERIALIZED_NAME_LOYALTY_PROGRAMS);
     return this;
   }
 
@@ -357,11 +382,13 @@ public class Environment {
 
   public void setLoyaltyPrograms(@javax.annotation.Nullable List<LoyaltyProgram> loyaltyPrograms) {
     this.loyaltyPrograms = loyaltyPrograms;
+    this.markPropertyAsSet(SERIALIZED_NAME_LOYALTY_PROGRAMS);
   }
 
 
   public Environment achievements(@javax.annotation.Nullable List<Achievement> achievements) {
     this.achievements = achievements;
+    this.markPropertyAsSet(SERIALIZED_NAME_ACHIEVEMENTS);
     return this;
   }
 
@@ -370,6 +397,7 @@ public class Environment {
       this.achievements = new ArrayList<>();
     }
     this.achievements.add(achievementsItem);
+    this.markPropertyAsSet(SERIALIZED_NAME_ACHIEVEMENTS);
     return this;
   }
 
@@ -384,11 +412,13 @@ public class Environment {
 
   public void setAchievements(@javax.annotation.Nullable List<Achievement> achievements) {
     this.achievements = achievements;
+    this.markPropertyAsSet(SERIALIZED_NAME_ACHIEVEMENTS);
   }
 
 
   public Environment attributes(@javax.annotation.Nullable List<Attribute> attributes) {
     this.attributes = attributes;
+    this.markPropertyAsSet(SERIALIZED_NAME_ATTRIBUTES);
     return this;
   }
 
@@ -397,6 +427,7 @@ public class Environment {
       this.attributes = new ArrayList<>();
     }
     this.attributes.add(attributesItem);
+    this.markPropertyAsSet(SERIALIZED_NAME_ATTRIBUTES);
     return this;
   }
 
@@ -411,11 +442,13 @@ public class Environment {
 
   public void setAttributes(@javax.annotation.Nullable List<Attribute> attributes) {
     this.attributes = attributes;
+    this.markPropertyAsSet(SERIALIZED_NAME_ATTRIBUTES);
   }
 
 
   public Environment additionalCosts(@javax.annotation.Nullable List<AccountAdditionalCost> additionalCosts) {
     this.additionalCosts = additionalCosts;
+    this.markPropertyAsSet(SERIALIZED_NAME_ADDITIONAL_COSTS);
     return this;
   }
 
@@ -424,6 +457,7 @@ public class Environment {
       this.additionalCosts = new ArrayList<>();
     }
     this.additionalCosts.add(additionalCostsItem);
+    this.markPropertyAsSet(SERIALIZED_NAME_ADDITIONAL_COSTS);
     return this;
   }
 
@@ -438,11 +472,13 @@ public class Environment {
 
   public void setAdditionalCosts(@javax.annotation.Nullable List<AccountAdditionalCost> additionalCosts) {
     this.additionalCosts = additionalCosts;
+    this.markPropertyAsSet(SERIALIZED_NAME_ADDITIONAL_COSTS);
   }
 
 
   public Environment audiences(@javax.annotation.Nullable List<Audience> audiences) {
     this.audiences = audiences;
+    this.markPropertyAsSet(SERIALIZED_NAME_AUDIENCES);
     return this;
   }
 
@@ -451,6 +487,7 @@ public class Environment {
       this.audiences = new ArrayList<>();
     }
     this.audiences.add(audiencesItem);
+    this.markPropertyAsSet(SERIALIZED_NAME_AUDIENCES);
     return this;
   }
 
@@ -465,11 +502,13 @@ public class Environment {
 
   public void setAudiences(@javax.annotation.Nullable List<Audience> audiences) {
     this.audiences = audiences;
+    this.markPropertyAsSet(SERIALIZED_NAME_AUDIENCES);
   }
 
 
   public Environment collections(@javax.annotation.Nullable List<Collection> collections) {
     this.collections = collections;
+    this.markPropertyAsSet(SERIALIZED_NAME_COLLECTIONS);
     return this;
   }
 
@@ -478,6 +517,7 @@ public class Environment {
       this.collections = new ArrayList<>();
     }
     this.collections.add(collectionsItem);
+    this.markPropertyAsSet(SERIALIZED_NAME_COLLECTIONS);
     return this;
   }
 
@@ -492,11 +532,13 @@ public class Environment {
 
   public void setCollections(@javax.annotation.Nullable List<Collection> collections) {
     this.collections = collections;
+    this.markPropertyAsSet(SERIALIZED_NAME_COLLECTIONS);
   }
 
 
   public Environment applicationCartItemFilters(@javax.annotation.Nullable List<ApplicationCIF> applicationCartItemFilters) {
     this.applicationCartItemFilters = applicationCartItemFilters;
+    this.markPropertyAsSet(SERIALIZED_NAME_APPLICATION_CART_ITEM_FILTERS);
     return this;
   }
 
@@ -505,6 +547,7 @@ public class Environment {
       this.applicationCartItemFilters = new ArrayList<>();
     }
     this.applicationCartItemFilters.add(applicationCartItemFiltersItem);
+    this.markPropertyAsSet(SERIALIZED_NAME_APPLICATION_CART_ITEM_FILTERS);
     return this;
   }
 
@@ -519,11 +562,13 @@ public class Environment {
 
   public void setApplicationCartItemFilters(@javax.annotation.Nullable List<ApplicationCIF> applicationCartItemFilters) {
     this.applicationCartItemFilters = applicationCartItemFilters;
+    this.markPropertyAsSet(SERIALIZED_NAME_APPLICATION_CART_ITEM_FILTERS);
   }
 
 
   public Environment priceTypes(@javax.annotation.Nullable List<PriceType> priceTypes) {
     this.priceTypes = priceTypes;
+    this.markPropertyAsSet(SERIALIZED_NAME_PRICE_TYPES);
     return this;
   }
 
@@ -532,6 +577,7 @@ public class Environment {
       this.priceTypes = new ArrayList<>();
     }
     this.priceTypes.add(priceTypesItem);
+    this.markPropertyAsSet(SERIALIZED_NAME_PRICE_TYPES);
     return this;
   }
 
@@ -546,6 +592,7 @@ public class Environment {
 
   public void setPriceTypes(@javax.annotation.Nullable List<PriceType> priceTypes) {
     this.priceTypes = priceTypes;
+    this.markPropertyAsSet(SERIALIZED_NAME_PRICE_TYPES);
   }
 
   /**
@@ -591,6 +638,21 @@ public class Environment {
         return null;
     }
     return this.additionalProperties.get(key);
+  }
+
+  /** Omit null properties unless they were explicitly assigned or present in JSON input. */
+  protected final void removeUnsetNullFields(JsonObject obj) {
+    obj.entrySet().removeIf(entry -> entry.getValue().isJsonNull()
+        && !openapiExplicitlySetFields.contains(entry.getKey()));
+  }
+
+  protected final void markPropertyAsSet(String propertyName) {
+    openapiExplicitlySetFields.add(propertyName);
+  }
+
+  /** Gson populates fields directly, bypassing setters during deserialization. */
+  protected final void markPropertiesAsSet(Set<String> propertyNames) {
+    openapiExplicitlySetFields.addAll(propertyNames);
   }
 
 
@@ -858,7 +920,7 @@ public class Environment {
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
        if (!Environment.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'Environment' and its subtypes
+         return null; // let other model factories handle this type
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
        final TypeAdapter<Environment> thisAdapter
@@ -868,31 +930,22 @@ public class Environment {
            @Override
            public void write(JsonWriter out, Environment value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+             value.removeUnsetNullFields(obj);
              obj.remove("additionalProperties");
              // serialize additional properties
              if (value.getAdditionalProperties() != null) {
                for (Map.Entry<String, Object> entry : value.getAdditionalProperties().entrySet()) {
-                 if (entry.getValue() instanceof String)
-                   obj.addProperty(entry.getKey(), (String) entry.getValue());
-                 else if (entry.getValue() instanceof Number)
-                   obj.addProperty(entry.getKey(), (Number) entry.getValue());
-                 else if (entry.getValue() instanceof Boolean)
-                   obj.addProperty(entry.getKey(), (Boolean) entry.getValue());
-                 else if (entry.getValue() instanceof Character)
-                   obj.addProperty(entry.getKey(), (Character) entry.getValue());
-                 else {
-                   JsonElement jsonElement = gson.toJsonTree(entry.getValue());
-                   if (jsonElement.isJsonNull()) {
-                     obj.add(entry.getKey(), JsonNull.INSTANCE);
-                   } else if (jsonElement.isJsonArray()) {
-                     obj.add(entry.getKey(), jsonElement.getAsJsonArray());
-                   } else {
-                     obj.add(entry.getKey(), jsonElement.getAsJsonObject());
-                   }
-                 }
+                 // TypeAdapter.toJsonTree keeps explicit null entries in arbitrary maps too.
+                 obj.add(entry.getKey(), gson.getAdapter(Object.class).toJsonTree(entry.getValue()));
                }
              }
-             elementAdapter.write(out, obj);
+             boolean originalSerializeNulls = out.getSerializeNulls();
+             try {
+               out.setSerializeNulls(true);
+               elementAdapter.write(out, obj);
+             } finally {
+               out.setSerializeNulls(originalSerializeNulls);
+             }
            }
 
            @Override
@@ -902,6 +955,7 @@ public class Environment {
              JsonObject jsonObj = jsonElement.getAsJsonObject();
              // store additional fields in the deserialized instance
              Environment instance = thisAdapter.fromJsonTree(jsonObj);
+             instance.markPropertiesAsSet(jsonObj.keySet());
              for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
                if (!openapiFields.contains(entry.getKey())) {
                  if (entry.getValue().isJsonPrimitive()) { // primitive type

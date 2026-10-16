@@ -57,6 +57,9 @@ import one.talon.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.26.0")
 public class AwardLoyaltyPointsBlock {
+  // Gson ignores transient state; only setters and JSON input mark properties as present.
+  private transient Set<String> openapiExplicitlySetFields = new HashSet<>();
+
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
   @javax.annotation.Nullable
@@ -193,7 +196,9 @@ public class AwardLoyaltyPointsBlock {
   ) {
     this();
     this.id = id;
+    this.markPropertyAsSet(SERIALIZED_NAME_ID);
     this.tags = tags;
+    this.markPropertyAsSet(SERIALIZED_NAME_TAGS);
   }
 
   /**
@@ -209,6 +214,7 @@ public class AwardLoyaltyPointsBlock {
 
   public AwardLoyaltyPointsBlock type(@javax.annotation.Nonnull String type) {
     this.type = type;
+    this.markPropertyAsSet(SERIALIZED_NAME_TYPE);
     return this;
   }
 
@@ -223,6 +229,7 @@ public class AwardLoyaltyPointsBlock {
 
   public void setType(@javax.annotation.Nonnull String type) {
     this.type = type;
+    this.markPropertyAsSet(SERIALIZED_NAME_TYPE);
   }
 
 
@@ -239,6 +246,7 @@ public class AwardLoyaltyPointsBlock {
 
   public AwardLoyaltyPointsBlock name(@javax.annotation.Nonnull String name) {
     this.name = name;
+    this.markPropertyAsSet(SERIALIZED_NAME_NAME);
     return this;
   }
 
@@ -253,11 +261,13 @@ public class AwardLoyaltyPointsBlock {
 
   public void setName(@javax.annotation.Nonnull String name) {
     this.name = name;
+    this.markPropertyAsSet(SERIALIZED_NAME_NAME);
   }
 
 
   public AwardLoyaltyPointsBlock program(@javax.annotation.Nonnull AwardLoyaltyPointsBlock1Program program) {
     this.program = program;
+    this.markPropertyAsSet(SERIALIZED_NAME_PROGRAM);
     return this;
   }
 
@@ -272,11 +282,13 @@ public class AwardLoyaltyPointsBlock {
 
   public void setProgram(@javax.annotation.Nonnull AwardLoyaltyPointsBlock1Program program) {
     this.program = program;
+    this.markPropertyAsSet(SERIALIZED_NAME_PROGRAM);
   }
 
 
   public AwardLoyaltyPointsBlock recipient(@javax.annotation.Nonnull RecipientEnum recipient) {
     this.recipient = recipient;
+    this.markPropertyAsSet(SERIALIZED_NAME_RECIPIENT);
     return this;
   }
 
@@ -291,11 +303,13 @@ public class AwardLoyaltyPointsBlock {
 
   public void setRecipient(@javax.annotation.Nonnull RecipientEnum recipient) {
     this.recipient = recipient;
+    this.markPropertyAsSet(SERIALIZED_NAME_RECIPIENT);
   }
 
 
   public AwardLoyaltyPointsBlock subledger(@javax.annotation.Nonnull String subledger) {
     this.subledger = subledger;
+    this.markPropertyAsSet(SERIALIZED_NAME_SUBLEDGER);
     return this;
   }
 
@@ -310,11 +324,13 @@ public class AwardLoyaltyPointsBlock {
 
   public void setSubledger(@javax.annotation.Nonnull String subledger) {
     this.subledger = subledger;
+    this.markPropertyAsSet(SERIALIZED_NAME_SUBLEDGER);
   }
 
 
   public AwardLoyaltyPointsBlock target(@javax.annotation.Nonnull AwardLoyaltyPointsTarget target) {
     this.target = target;
+    this.markPropertyAsSet(SERIALIZED_NAME_TARGET);
     return this;
   }
 
@@ -329,11 +345,13 @@ public class AwardLoyaltyPointsBlock {
 
   public void setTarget(@javax.annotation.Nonnull AwardLoyaltyPointsTarget target) {
     this.target = target;
+    this.markPropertyAsSet(SERIALIZED_NAME_TARGET);
   }
 
 
   public AwardLoyaltyPointsBlock value(@javax.annotation.Nonnull AwardLoyaltyPointsBlock1Value value) {
     this.value = value;
+    this.markPropertyAsSet(SERIALIZED_NAME_VALUE);
     return this;
   }
 
@@ -348,11 +366,13 @@ public class AwardLoyaltyPointsBlock {
 
   public void setValue(@javax.annotation.Nonnull AwardLoyaltyPointsBlock1Value value) {
     this.value = value;
+    this.markPropertyAsSet(SERIALIZED_NAME_VALUE);
   }
 
 
   public AwardLoyaltyPointsBlock partial(@javax.annotation.Nullable Boolean partial) {
     this.partial = partial;
+    this.markPropertyAsSet(SERIALIZED_NAME_PARTIAL);
     return this;
   }
 
@@ -367,11 +387,13 @@ public class AwardLoyaltyPointsBlock {
 
   public void setPartial(@javax.annotation.Nullable Boolean partial) {
     this.partial = partial;
+    this.markPropertyAsSet(SERIALIZED_NAME_PARTIAL);
   }
 
 
   public AwardLoyaltyPointsBlock awaitsActivation(@javax.annotation.Nullable Boolean awaitsActivation) {
     this.awaitsActivation = awaitsActivation;
+    this.markPropertyAsSet(SERIALIZED_NAME_AWAITS_ACTIVATION);
     return this;
   }
 
@@ -386,11 +408,13 @@ public class AwardLoyaltyPointsBlock {
 
   public void setAwaitsActivation(@javax.annotation.Nullable Boolean awaitsActivation) {
     this.awaitsActivation = awaitsActivation;
+    this.markPropertyAsSet(SERIALIZED_NAME_AWAITS_ACTIVATION);
   }
 
 
   public AwardLoyaltyPointsBlock startDate(@javax.annotation.Nullable Object startDate) {
     this.startDate = startDate;
+    this.markPropertyAsSet(SERIALIZED_NAME_START_DATE);
     return this;
   }
 
@@ -405,11 +429,13 @@ public class AwardLoyaltyPointsBlock {
 
   public void setStartDate(@javax.annotation.Nullable Object startDate) {
     this.startDate = startDate;
+    this.markPropertyAsSet(SERIALIZED_NAME_START_DATE);
   }
 
 
   public AwardLoyaltyPointsBlock validityDuration(@javax.annotation.Nullable String validityDuration) {
     this.validityDuration = validityDuration;
+    this.markPropertyAsSet(SERIALIZED_NAME_VALIDITY_DURATION);
     return this;
   }
 
@@ -424,11 +450,13 @@ public class AwardLoyaltyPointsBlock {
 
   public void setValidityDuration(@javax.annotation.Nullable String validityDuration) {
     this.validityDuration = validityDuration;
+    this.markPropertyAsSet(SERIALIZED_NAME_VALIDITY_DURATION);
   }
 
 
   public AwardLoyaltyPointsBlock expiryDate(@javax.annotation.Nullable Object expiryDate) {
     this.expiryDate = expiryDate;
+    this.markPropertyAsSet(SERIALIZED_NAME_EXPIRY_DATE);
     return this;
   }
 
@@ -443,11 +471,13 @@ public class AwardLoyaltyPointsBlock {
 
   public void setExpiryDate(@javax.annotation.Nullable Object expiryDate) {
     this.expiryDate = expiryDate;
+    this.markPropertyAsSet(SERIALIZED_NAME_EXPIRY_DATE);
   }
 
 
   public AwardLoyaltyPointsBlock pendingDuration(@javax.annotation.Nullable String pendingDuration) {
     this.pendingDuration = pendingDuration;
+    this.markPropertyAsSet(SERIALIZED_NAME_PENDING_DURATION);
     return this;
   }
 
@@ -462,6 +492,7 @@ public class AwardLoyaltyPointsBlock {
 
   public void setPendingDuration(@javax.annotation.Nullable String pendingDuration) {
     this.pendingDuration = pendingDuration;
+    this.markPropertyAsSet(SERIALIZED_NAME_PENDING_DURATION);
   }
 
   /**
@@ -507,6 +538,21 @@ public class AwardLoyaltyPointsBlock {
         return null;
     }
     return this.additionalProperties.get(key);
+  }
+
+  /** Omit null properties unless they were explicitly assigned or present in JSON input. */
+  protected final void removeUnsetNullFields(JsonObject obj) {
+    obj.entrySet().removeIf(entry -> entry.getValue().isJsonNull()
+        && !openapiExplicitlySetFields.contains(entry.getKey()));
+  }
+
+  protected final void markPropertyAsSet(String propertyName) {
+    openapiExplicitlySetFields.add(propertyName);
+  }
+
+  /** Gson populates fields directly, bypassing setters during deserialization. */
+  protected final void markPropertiesAsSet(Set<String> propertyNames) {
+    openapiExplicitlySetFields.addAll(propertyNames);
   }
 
 
@@ -657,7 +703,7 @@ public class AwardLoyaltyPointsBlock {
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
        if (!AwardLoyaltyPointsBlock.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'AwardLoyaltyPointsBlock' and its subtypes
+         return null; // let other model factories handle this type
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
        final TypeAdapter<AwardLoyaltyPointsBlock> thisAdapter
@@ -667,31 +713,22 @@ public class AwardLoyaltyPointsBlock {
            @Override
            public void write(JsonWriter out, AwardLoyaltyPointsBlock value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+             value.removeUnsetNullFields(obj);
              obj.remove("additionalProperties");
              // serialize additional properties
              if (value.getAdditionalProperties() != null) {
                for (Map.Entry<String, Object> entry : value.getAdditionalProperties().entrySet()) {
-                 if (entry.getValue() instanceof String)
-                   obj.addProperty(entry.getKey(), (String) entry.getValue());
-                 else if (entry.getValue() instanceof Number)
-                   obj.addProperty(entry.getKey(), (Number) entry.getValue());
-                 else if (entry.getValue() instanceof Boolean)
-                   obj.addProperty(entry.getKey(), (Boolean) entry.getValue());
-                 else if (entry.getValue() instanceof Character)
-                   obj.addProperty(entry.getKey(), (Character) entry.getValue());
-                 else {
-                   JsonElement jsonElement = gson.toJsonTree(entry.getValue());
-                   if (jsonElement.isJsonNull()) {
-                     obj.add(entry.getKey(), JsonNull.INSTANCE);
-                   } else if (jsonElement.isJsonArray()) {
-                     obj.add(entry.getKey(), jsonElement.getAsJsonArray());
-                   } else {
-                     obj.add(entry.getKey(), jsonElement.getAsJsonObject());
-                   }
-                 }
+                 // TypeAdapter.toJsonTree keeps explicit null entries in arbitrary maps too.
+                 obj.add(entry.getKey(), gson.getAdapter(Object.class).toJsonTree(entry.getValue()));
                }
              }
-             elementAdapter.write(out, obj);
+             boolean originalSerializeNulls = out.getSerializeNulls();
+             try {
+               out.setSerializeNulls(true);
+               elementAdapter.write(out, obj);
+             } finally {
+               out.setSerializeNulls(originalSerializeNulls);
+             }
            }
 
            @Override
@@ -701,6 +738,7 @@ public class AwardLoyaltyPointsBlock {
              JsonObject jsonObj = jsonElement.getAsJsonObject();
              // store additional fields in the deserialized instance
              AwardLoyaltyPointsBlock instance = thisAdapter.fromJsonTree(jsonObj);
+             instance.markPropertiesAsSet(jsonObj.keySet());
              for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
                if (!openapiFields.contains(entry.getKey())) {
                  if (entry.getValue().isJsonPrimitive()) { // primitive type

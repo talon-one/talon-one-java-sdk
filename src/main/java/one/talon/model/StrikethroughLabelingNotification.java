@@ -56,6 +56,9 @@ import one.talon.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.26.0")
 public class StrikethroughLabelingNotification {
+  // Gson ignores transient state; only setters and JSON input mark properties as present.
+  private transient Set<String> openapiExplicitlySetFields = new HashSet<>();
+
   /**
    * The version of the strikethrough pricing notification. Set for **scheduled** strikethrough pricing updates only. 
    */
@@ -206,6 +209,7 @@ public class StrikethroughLabelingNotification {
 
   public StrikethroughLabelingNotification version(@javax.annotation.Nullable VersionEnum version) {
     this.version = version;
+    this.markPropertyAsSet(SERIALIZED_NAME_VERSION);
     return this;
   }
 
@@ -220,11 +224,13 @@ public class StrikethroughLabelingNotification {
 
   public void setVersion(@javax.annotation.Nullable VersionEnum version) {
     this.version = version;
+    this.markPropertyAsSet(SERIALIZED_NAME_VERSION);
   }
 
 
   public StrikethroughLabelingNotification validFrom(@javax.annotation.Nullable OffsetDateTime validFrom) {
     this.validFrom = validFrom;
+    this.markPropertyAsSet(SERIALIZED_NAME_VALID_FROM);
     return this;
   }
 
@@ -239,11 +245,13 @@ public class StrikethroughLabelingNotification {
 
   public void setValidFrom(@javax.annotation.Nullable OffsetDateTime validFrom) {
     this.validFrom = validFrom;
+    this.markPropertyAsSet(SERIALIZED_NAME_VALID_FROM);
   }
 
 
   public StrikethroughLabelingNotification applicationId(@javax.annotation.Nonnull Long applicationId) {
     this.applicationId = applicationId;
+    this.markPropertyAsSet(SERIALIZED_NAME_APPLICATION_ID);
     return this;
   }
 
@@ -258,11 +266,13 @@ public class StrikethroughLabelingNotification {
 
   public void setApplicationId(@javax.annotation.Nonnull Long applicationId) {
     this.applicationId = applicationId;
+    this.markPropertyAsSet(SERIALIZED_NAME_APPLICATION_ID);
   }
 
 
   public StrikethroughLabelingNotification currentBatch(@javax.annotation.Nonnull Long currentBatch) {
     this.currentBatch = currentBatch;
+    this.markPropertyAsSet(SERIALIZED_NAME_CURRENT_BATCH);
     return this;
   }
 
@@ -277,11 +287,13 @@ public class StrikethroughLabelingNotification {
 
   public void setCurrentBatch(@javax.annotation.Nonnull Long currentBatch) {
     this.currentBatch = currentBatch;
+    this.markPropertyAsSet(SERIALIZED_NAME_CURRENT_BATCH);
   }
 
 
   public StrikethroughLabelingNotification totalBatches(@javax.annotation.Nonnull Long totalBatches) {
     this.totalBatches = totalBatches;
+    this.markPropertyAsSet(SERIALIZED_NAME_TOTAL_BATCHES);
     return this;
   }
 
@@ -296,11 +308,13 @@ public class StrikethroughLabelingNotification {
 
   public void setTotalBatches(@javax.annotation.Nonnull Long totalBatches) {
     this.totalBatches = totalBatches;
+    this.markPropertyAsSet(SERIALIZED_NAME_TOTAL_BATCHES);
   }
 
 
   public StrikethroughLabelingNotification trigger(@javax.annotation.Nonnull StrikethroughTrigger trigger) {
     this.trigger = trigger;
+    this.markPropertyAsSet(SERIALIZED_NAME_TRIGGER);
     return this;
   }
 
@@ -315,11 +329,13 @@ public class StrikethroughLabelingNotification {
 
   public void setTrigger(@javax.annotation.Nonnull StrikethroughTrigger trigger) {
     this.trigger = trigger;
+    this.markPropertyAsSet(SERIALIZED_NAME_TRIGGER);
   }
 
 
   public StrikethroughLabelingNotification changedItems(@javax.annotation.Nonnull List<StrikethroughChangedItem> changedItems) {
     this.changedItems = changedItems;
+    this.markPropertyAsSet(SERIALIZED_NAME_CHANGED_ITEMS);
     return this;
   }
 
@@ -328,6 +344,7 @@ public class StrikethroughLabelingNotification {
       this.changedItems = new ArrayList<>();
     }
     this.changedItems.add(changedItemsItem);
+    this.markPropertyAsSet(SERIALIZED_NAME_CHANGED_ITEMS);
     return this;
   }
 
@@ -342,11 +359,13 @@ public class StrikethroughLabelingNotification {
 
   public void setChangedItems(@javax.annotation.Nonnull List<StrikethroughChangedItem> changedItems) {
     this.changedItems = changedItems;
+    this.markPropertyAsSet(SERIALIZED_NAME_CHANGED_ITEMS);
   }
 
 
   public StrikethroughLabelingNotification notificationType(@javax.annotation.Nonnull NotificationTypeEnum notificationType) {
     this.notificationType = notificationType;
+    this.markPropertyAsSet(SERIALIZED_NAME_NOTIFICATION_TYPE);
     return this;
   }
 
@@ -361,11 +380,13 @@ public class StrikethroughLabelingNotification {
 
   public void setNotificationType(@javax.annotation.Nonnull NotificationTypeEnum notificationType) {
     this.notificationType = notificationType;
+    this.markPropertyAsSet(SERIALIZED_NAME_NOTIFICATION_TYPE);
   }
 
 
   public StrikethroughLabelingNotification sentAt(@javax.annotation.Nonnull OffsetDateTime sentAt) {
     this.sentAt = sentAt;
+    this.markPropertyAsSet(SERIALIZED_NAME_SENT_AT);
     return this;
   }
 
@@ -380,6 +401,7 @@ public class StrikethroughLabelingNotification {
 
   public void setSentAt(@javax.annotation.Nonnull OffsetDateTime sentAt) {
     this.sentAt = sentAt;
+    this.markPropertyAsSet(SERIALIZED_NAME_SENT_AT);
   }
 
   /**
@@ -425,6 +447,21 @@ public class StrikethroughLabelingNotification {
         return null;
     }
     return this.additionalProperties.get(key);
+  }
+
+  /** Omit null properties unless they were explicitly assigned or present in JSON input. */
+  protected final void removeUnsetNullFields(JsonObject obj) {
+    obj.entrySet().removeIf(entry -> entry.getValue().isJsonNull()
+        && !openapiExplicitlySetFields.contains(entry.getKey()));
+  }
+
+  protected final void markPropertyAsSet(String propertyName) {
+    openapiExplicitlySetFields.add(propertyName);
+  }
+
+  /** Gson populates fields directly, bypassing setters during deserialization. */
+  protected final void markPropertiesAsSet(Set<String> propertyNames) {
+    openapiExplicitlySetFields.addAll(propertyNames);
   }
 
 
@@ -543,7 +580,7 @@ public class StrikethroughLabelingNotification {
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
        if (!StrikethroughLabelingNotification.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'StrikethroughLabelingNotification' and its subtypes
+         return null; // let other model factories handle this type
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
        final TypeAdapter<StrikethroughLabelingNotification> thisAdapter
@@ -553,31 +590,22 @@ public class StrikethroughLabelingNotification {
            @Override
            public void write(JsonWriter out, StrikethroughLabelingNotification value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+             value.removeUnsetNullFields(obj);
              obj.remove("additionalProperties");
              // serialize additional properties
              if (value.getAdditionalProperties() != null) {
                for (Map.Entry<String, Object> entry : value.getAdditionalProperties().entrySet()) {
-                 if (entry.getValue() instanceof String)
-                   obj.addProperty(entry.getKey(), (String) entry.getValue());
-                 else if (entry.getValue() instanceof Number)
-                   obj.addProperty(entry.getKey(), (Number) entry.getValue());
-                 else if (entry.getValue() instanceof Boolean)
-                   obj.addProperty(entry.getKey(), (Boolean) entry.getValue());
-                 else if (entry.getValue() instanceof Character)
-                   obj.addProperty(entry.getKey(), (Character) entry.getValue());
-                 else {
-                   JsonElement jsonElement = gson.toJsonTree(entry.getValue());
-                   if (jsonElement.isJsonNull()) {
-                     obj.add(entry.getKey(), JsonNull.INSTANCE);
-                   } else if (jsonElement.isJsonArray()) {
-                     obj.add(entry.getKey(), jsonElement.getAsJsonArray());
-                   } else {
-                     obj.add(entry.getKey(), jsonElement.getAsJsonObject());
-                   }
-                 }
+                 // TypeAdapter.toJsonTree keeps explicit null entries in arbitrary maps too.
+                 obj.add(entry.getKey(), gson.getAdapter(Object.class).toJsonTree(entry.getValue()));
                }
              }
-             elementAdapter.write(out, obj);
+             boolean originalSerializeNulls = out.getSerializeNulls();
+             try {
+               out.setSerializeNulls(true);
+               elementAdapter.write(out, obj);
+             } finally {
+               out.setSerializeNulls(originalSerializeNulls);
+             }
            }
 
            @Override
@@ -587,6 +615,7 @@ public class StrikethroughLabelingNotification {
              JsonObject jsonObj = jsonElement.getAsJsonObject();
              // store additional fields in the deserialized instance
              StrikethroughLabelingNotification instance = thisAdapter.fromJsonTree(jsonObj);
+             instance.markPropertiesAsSet(jsonObj.keySet());
              for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
                if (!openapiFields.contains(entry.getKey())) {
                  if (entry.getValue().isJsonPrimitive()) { // primitive type

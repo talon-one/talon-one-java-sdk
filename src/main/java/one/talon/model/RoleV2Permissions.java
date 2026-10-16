@@ -56,6 +56,9 @@ import one.talon.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.26.0")
 public class RoleV2Permissions {
+  // Gson ignores transient state; only setters and JSON input mark properties as present.
+  private transient Set<String> openapiExplicitlySetFields = new HashSet<>();
+
   public static final String SERIALIZED_NAME_PERMISSION_SETS = "permissionSets";
   @SerializedName(SERIALIZED_NAME_PERMISSION_SETS)
   @javax.annotation.Nullable
@@ -76,6 +79,7 @@ public class RoleV2Permissions {
 
   public RoleV2Permissions permissionSets(@javax.annotation.Nullable List<RoleV2PermissionSet> permissionSets) {
     this.permissionSets = permissionSets;
+    this.markPropertyAsSet(SERIALIZED_NAME_PERMISSION_SETS);
     return this;
   }
 
@@ -84,6 +88,7 @@ public class RoleV2Permissions {
       this.permissionSets = new ArrayList<>();
     }
     this.permissionSets.add(permissionSetsItem);
+    this.markPropertyAsSet(SERIALIZED_NAME_PERMISSION_SETS);
     return this;
   }
 
@@ -98,11 +103,13 @@ public class RoleV2Permissions {
 
   public void setPermissionSets(@javax.annotation.Nullable List<RoleV2PermissionSet> permissionSets) {
     this.permissionSets = permissionSets;
+    this.markPropertyAsSet(SERIALIZED_NAME_PERMISSION_SETS);
   }
 
 
   public RoleV2Permissions roles(@javax.annotation.Nullable RoleV2RolesGroup roles) {
     this.roles = roles;
+    this.markPropertyAsSet(SERIALIZED_NAME_ROLES);
     return this;
   }
 
@@ -117,11 +124,13 @@ public class RoleV2Permissions {
 
   public void setRoles(@javax.annotation.Nullable RoleV2RolesGroup roles) {
     this.roles = roles;
+    this.markPropertyAsSet(SERIALIZED_NAME_ROLES);
   }
 
 
   public RoleV2Permissions thresholds(@javax.annotation.Nullable List<RolesV2Thresholds> thresholds) {
     this.thresholds = thresholds;
+    this.markPropertyAsSet(SERIALIZED_NAME_THRESHOLDS);
     return this;
   }
 
@@ -130,6 +139,7 @@ public class RoleV2Permissions {
       this.thresholds = new ArrayList<>();
     }
     this.thresholds.add(thresholdsItem);
+    this.markPropertyAsSet(SERIALIZED_NAME_THRESHOLDS);
     return this;
   }
 
@@ -144,6 +154,7 @@ public class RoleV2Permissions {
 
   public void setThresholds(@javax.annotation.Nullable List<RolesV2Thresholds> thresholds) {
     this.thresholds = thresholds;
+    this.markPropertyAsSet(SERIALIZED_NAME_THRESHOLDS);
   }
 
   /**
@@ -189,6 +200,21 @@ public class RoleV2Permissions {
         return null;
     }
     return this.additionalProperties.get(key);
+  }
+
+  /** Omit null properties unless they were explicitly assigned or present in JSON input. */
+  protected final void removeUnsetNullFields(JsonObject obj) {
+    obj.entrySet().removeIf(entry -> entry.getValue().isJsonNull()
+        && !openapiExplicitlySetFields.contains(entry.getKey()));
+  }
+
+  protected final void markPropertyAsSet(String propertyName) {
+    openapiExplicitlySetFields.add(propertyName);
+  }
+
+  /** Gson populates fields directly, bypassing setters during deserialization. */
+  protected final void markPropertiesAsSet(Set<String> propertyNames) {
+    openapiExplicitlySetFields.addAll(propertyNames);
   }
 
 
@@ -296,7 +322,7 @@ public class RoleV2Permissions {
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
        if (!RoleV2Permissions.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'RoleV2Permissions' and its subtypes
+         return null; // let other model factories handle this type
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
        final TypeAdapter<RoleV2Permissions> thisAdapter
@@ -306,31 +332,22 @@ public class RoleV2Permissions {
            @Override
            public void write(JsonWriter out, RoleV2Permissions value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+             value.removeUnsetNullFields(obj);
              obj.remove("additionalProperties");
              // serialize additional properties
              if (value.getAdditionalProperties() != null) {
                for (Map.Entry<String, Object> entry : value.getAdditionalProperties().entrySet()) {
-                 if (entry.getValue() instanceof String)
-                   obj.addProperty(entry.getKey(), (String) entry.getValue());
-                 else if (entry.getValue() instanceof Number)
-                   obj.addProperty(entry.getKey(), (Number) entry.getValue());
-                 else if (entry.getValue() instanceof Boolean)
-                   obj.addProperty(entry.getKey(), (Boolean) entry.getValue());
-                 else if (entry.getValue() instanceof Character)
-                   obj.addProperty(entry.getKey(), (Character) entry.getValue());
-                 else {
-                   JsonElement jsonElement = gson.toJsonTree(entry.getValue());
-                   if (jsonElement.isJsonNull()) {
-                     obj.add(entry.getKey(), JsonNull.INSTANCE);
-                   } else if (jsonElement.isJsonArray()) {
-                     obj.add(entry.getKey(), jsonElement.getAsJsonArray());
-                   } else {
-                     obj.add(entry.getKey(), jsonElement.getAsJsonObject());
-                   }
-                 }
+                 // TypeAdapter.toJsonTree keeps explicit null entries in arbitrary maps too.
+                 obj.add(entry.getKey(), gson.getAdapter(Object.class).toJsonTree(entry.getValue()));
                }
              }
-             elementAdapter.write(out, obj);
+             boolean originalSerializeNulls = out.getSerializeNulls();
+             try {
+               out.setSerializeNulls(true);
+               elementAdapter.write(out, obj);
+             } finally {
+               out.setSerializeNulls(originalSerializeNulls);
+             }
            }
 
            @Override
@@ -340,6 +357,7 @@ public class RoleV2Permissions {
              JsonObject jsonObj = jsonElement.getAsJsonObject();
              // store additional fields in the deserialized instance
              RoleV2Permissions instance = thisAdapter.fromJsonTree(jsonObj);
+             instance.markPropertiesAsSet(jsonObj.keySet());
              for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
                if (!openapiFields.contains(entry.getKey())) {
                  if (entry.getValue().isJsonPrimitive()) { // primitive type

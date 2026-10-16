@@ -57,6 +57,9 @@ import one.talon.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.26.0")
 public class CreateCouponBlock {
+  // Gson ignores transient state; only setters and JSON input mark properties as present.
+  private transient Set<String> openapiExplicitlySetFields = new HashSet<>();
+
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
   @javax.annotation.Nullable
@@ -131,7 +134,9 @@ public class CreateCouponBlock {
   ) {
     this();
     this.id = id;
+    this.markPropertyAsSet(SERIALIZED_NAME_ID);
     this.tags = tags;
+    this.markPropertyAsSet(SERIALIZED_NAME_TAGS);
   }
 
   /**
@@ -147,6 +152,7 @@ public class CreateCouponBlock {
 
   public CreateCouponBlock type(@javax.annotation.Nonnull String type) {
     this.type = type;
+    this.markPropertyAsSet(SERIALIZED_NAME_TYPE);
     return this;
   }
 
@@ -161,6 +167,7 @@ public class CreateCouponBlock {
 
   public void setType(@javax.annotation.Nonnull String type) {
     this.type = type;
+    this.markPropertyAsSet(SERIALIZED_NAME_TYPE);
   }
 
 
@@ -177,6 +184,7 @@ public class CreateCouponBlock {
 
   public CreateCouponBlock campaignId(@javax.annotation.Nonnull CreateCouponBlock1CampaignId campaignId) {
     this.campaignId = campaignId;
+    this.markPropertyAsSet(SERIALIZED_NAME_CAMPAIGN_ID);
     return this;
   }
 
@@ -191,11 +199,13 @@ public class CreateCouponBlock {
 
   public void setCampaignId(@javax.annotation.Nonnull CreateCouponBlock1CampaignId campaignId) {
     this.campaignId = campaignId;
+    this.markPropertyAsSet(SERIALIZED_NAME_CAMPAIGN_ID);
   }
 
 
   public CreateCouponBlock recipientId(@javax.annotation.Nonnull String recipientId) {
     this.recipientId = recipientId;
+    this.markPropertyAsSet(SERIALIZED_NAME_RECIPIENT_ID);
     return this;
   }
 
@@ -210,11 +220,13 @@ public class CreateCouponBlock {
 
   public void setRecipientId(@javax.annotation.Nonnull String recipientId) {
     this.recipientId = recipientId;
+    this.markPropertyAsSet(SERIALIZED_NAME_RECIPIENT_ID);
   }
 
 
   public CreateCouponBlock storeInSession(@javax.annotation.Nonnull Boolean storeInSession) {
     this.storeInSession = storeInSession;
+    this.markPropertyAsSet(SERIALIZED_NAME_STORE_IN_SESSION);
     return this;
   }
 
@@ -229,11 +241,13 @@ public class CreateCouponBlock {
 
   public void setStoreInSession(@javax.annotation.Nonnull Boolean storeInSession) {
     this.storeInSession = storeInSession;
+    this.markPropertyAsSet(SERIALIZED_NAME_STORE_IN_SESSION);
   }
 
 
   public CreateCouponBlock usageLimit(@javax.annotation.Nullable CreateCouponBlock1UsageLimit usageLimit) {
     this.usageLimit = usageLimit;
+    this.markPropertyAsSet(SERIALIZED_NAME_USAGE_LIMIT);
     return this;
   }
 
@@ -248,11 +262,13 @@ public class CreateCouponBlock {
 
   public void setUsageLimit(@javax.annotation.Nullable CreateCouponBlock1UsageLimit usageLimit) {
     this.usageLimit = usageLimit;
+    this.markPropertyAsSet(SERIALIZED_NAME_USAGE_LIMIT);
   }
 
 
   public CreateCouponBlock discountLimit(@javax.annotation.Nullable CreateCouponBlock1DiscountLimit discountLimit) {
     this.discountLimit = discountLimit;
+    this.markPropertyAsSet(SERIALIZED_NAME_DISCOUNT_LIMIT);
     return this;
   }
 
@@ -267,11 +283,13 @@ public class CreateCouponBlock {
 
   public void setDiscountLimit(@javax.annotation.Nullable CreateCouponBlock1DiscountLimit discountLimit) {
     this.discountLimit = discountLimit;
+    this.markPropertyAsSet(SERIALIZED_NAME_DISCOUNT_LIMIT);
   }
 
 
   public CreateCouponBlock startDate(@javax.annotation.Nullable Object startDate) {
     this.startDate = startDate;
+    this.markPropertyAsSet(SERIALIZED_NAME_START_DATE);
     return this;
   }
 
@@ -286,11 +304,13 @@ public class CreateCouponBlock {
 
   public void setStartDate(@javax.annotation.Nullable Object startDate) {
     this.startDate = startDate;
+    this.markPropertyAsSet(SERIALIZED_NAME_START_DATE);
   }
 
 
   public CreateCouponBlock expiryDate(@javax.annotation.Nullable Object expiryDate) {
     this.expiryDate = expiryDate;
+    this.markPropertyAsSet(SERIALIZED_NAME_EXPIRY_DATE);
     return this;
   }
 
@@ -305,11 +325,13 @@ public class CreateCouponBlock {
 
   public void setExpiryDate(@javax.annotation.Nullable Object expiryDate) {
     this.expiryDate = expiryDate;
+    this.markPropertyAsSet(SERIALIZED_NAME_EXPIRY_DATE);
   }
 
 
   public CreateCouponBlock attributes(@javax.annotation.Nullable Object attributes) {
     this.attributes = attributes;
+    this.markPropertyAsSet(SERIALIZED_NAME_ATTRIBUTES);
     return this;
   }
 
@@ -324,11 +346,13 @@ public class CreateCouponBlock {
 
   public void setAttributes(@javax.annotation.Nullable Object attributes) {
     this.attributes = attributes;
+    this.markPropertyAsSet(SERIALIZED_NAME_ATTRIBUTES);
   }
 
 
   public CreateCouponBlock validCharacters(@javax.annotation.Nullable String validCharacters) {
     this.validCharacters = validCharacters;
+    this.markPropertyAsSet(SERIALIZED_NAME_VALID_CHARACTERS);
     return this;
   }
 
@@ -343,11 +367,13 @@ public class CreateCouponBlock {
 
   public void setValidCharacters(@javax.annotation.Nullable String validCharacters) {
     this.validCharacters = validCharacters;
+    this.markPropertyAsSet(SERIALIZED_NAME_VALID_CHARACTERS);
   }
 
 
   public CreateCouponBlock pattern(@javax.annotation.Nullable String pattern) {
     this.pattern = pattern;
+    this.markPropertyAsSet(SERIALIZED_NAME_PATTERN);
     return this;
   }
 
@@ -362,6 +388,7 @@ public class CreateCouponBlock {
 
   public void setPattern(@javax.annotation.Nullable String pattern) {
     this.pattern = pattern;
+    this.markPropertyAsSet(SERIALIZED_NAME_PATTERN);
   }
 
   /**
@@ -407,6 +434,21 @@ public class CreateCouponBlock {
         return null;
     }
     return this.additionalProperties.get(key);
+  }
+
+  /** Omit null properties unless they were explicitly assigned or present in JSON input. */
+  protected final void removeUnsetNullFields(JsonObject obj) {
+    obj.entrySet().removeIf(entry -> entry.getValue().isJsonNull()
+        && !openapiExplicitlySetFields.contains(entry.getKey()));
+  }
+
+  protected final void markPropertyAsSet(String propertyName) {
+    openapiExplicitlySetFields.add(propertyName);
+  }
+
+  /** Gson populates fields directly, bypassing setters during deserialization. */
+  protected final void markPropertiesAsSet(Set<String> propertyNames) {
+    openapiExplicitlySetFields.addAll(propertyNames);
   }
 
 
@@ -549,7 +591,7 @@ public class CreateCouponBlock {
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
        if (!CreateCouponBlock.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'CreateCouponBlock' and its subtypes
+         return null; // let other model factories handle this type
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
        final TypeAdapter<CreateCouponBlock> thisAdapter
@@ -559,31 +601,22 @@ public class CreateCouponBlock {
            @Override
            public void write(JsonWriter out, CreateCouponBlock value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+             value.removeUnsetNullFields(obj);
              obj.remove("additionalProperties");
              // serialize additional properties
              if (value.getAdditionalProperties() != null) {
                for (Map.Entry<String, Object> entry : value.getAdditionalProperties().entrySet()) {
-                 if (entry.getValue() instanceof String)
-                   obj.addProperty(entry.getKey(), (String) entry.getValue());
-                 else if (entry.getValue() instanceof Number)
-                   obj.addProperty(entry.getKey(), (Number) entry.getValue());
-                 else if (entry.getValue() instanceof Boolean)
-                   obj.addProperty(entry.getKey(), (Boolean) entry.getValue());
-                 else if (entry.getValue() instanceof Character)
-                   obj.addProperty(entry.getKey(), (Character) entry.getValue());
-                 else {
-                   JsonElement jsonElement = gson.toJsonTree(entry.getValue());
-                   if (jsonElement.isJsonNull()) {
-                     obj.add(entry.getKey(), JsonNull.INSTANCE);
-                   } else if (jsonElement.isJsonArray()) {
-                     obj.add(entry.getKey(), jsonElement.getAsJsonArray());
-                   } else {
-                     obj.add(entry.getKey(), jsonElement.getAsJsonObject());
-                   }
-                 }
+                 // TypeAdapter.toJsonTree keeps explicit null entries in arbitrary maps too.
+                 obj.add(entry.getKey(), gson.getAdapter(Object.class).toJsonTree(entry.getValue()));
                }
              }
-             elementAdapter.write(out, obj);
+             boolean originalSerializeNulls = out.getSerializeNulls();
+             try {
+               out.setSerializeNulls(true);
+               elementAdapter.write(out, obj);
+             } finally {
+               out.setSerializeNulls(originalSerializeNulls);
+             }
            }
 
            @Override
@@ -593,6 +626,7 @@ public class CreateCouponBlock {
              JsonObject jsonObj = jsonElement.getAsJsonObject();
              // store additional fields in the deserialized instance
              CreateCouponBlock instance = thisAdapter.fromJsonTree(jsonObj);
+             instance.markPropertiesAsSet(jsonObj.keySet());
              for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
                if (!openapiFields.contains(entry.getKey())) {
                  if (entry.getValue().isJsonPrimitive()) { // primitive type

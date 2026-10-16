@@ -71,27 +71,37 @@ public class AwardDiscountBundleItem extends AbstractOpenApiSchema {
                 return null; // this class only serializes 'AwardDiscountBundleItem' and its subtypes
             }
             final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-            final TypeAdapter<AwardDiscountBundleItemByIndex> adapterAwardDiscountBundleItemByIndex = gson.getDelegateAdapter(this, TypeToken.get(AwardDiscountBundleItemByIndex.class));
-            final TypeAdapter<AwardDiscountBundleItemByAttribute> adapterAwardDiscountBundleItemByAttribute = gson.getDelegateAdapter(this, TypeToken.get(AwardDiscountBundleItemByAttribute.class));
+            final TypeAdapter<AwardDiscountBundleItemByIndex> adapterAwardDiscountBundleItemByIndex = gson.getAdapter(TypeToken.get(AwardDiscountBundleItemByIndex.class));
+            final TypeAdapter<AwardDiscountBundleItemByAttribute> adapterAwardDiscountBundleItemByAttribute = gson.getAdapter(TypeToken.get(AwardDiscountBundleItemByAttribute.class));
 
             return (TypeAdapter<T>) new TypeAdapter<AwardDiscountBundleItem>() {
+                private void writeJsonElement(JsonWriter out, JsonElement value) throws IOException {
+                    boolean originalSerializeNulls = out.getSerializeNulls();
+                    try {
+                        out.setSerializeNulls(true);
+                        elementAdapter.write(out, value);
+                    } finally {
+                        out.setSerializeNulls(originalSerializeNulls);
+                    }
+                }
+
                 @Override
                 public void write(JsonWriter out, AwardDiscountBundleItem value) throws IOException {
                     if (value == null || value.getActualInstance() == null) {
-                        elementAdapter.write(out, null);
+                        writeJsonElement(out, null);
                         return;
                     }
 
                     // check if the actual instance is of the type `AwardDiscountBundleItemByIndex`
                     if (value.getActualInstance() instanceof AwardDiscountBundleItemByIndex) {
                         JsonElement element = adapterAwardDiscountBundleItemByIndex.toJsonTree((AwardDiscountBundleItemByIndex)value.getActualInstance());
-                        elementAdapter.write(out, element);
+                        writeJsonElement(out, element);
                         return;
                     }
                     // check if the actual instance is of the type `AwardDiscountBundleItemByAttribute`
                     if (value.getActualInstance() instanceof AwardDiscountBundleItemByAttribute) {
                         JsonElement element = adapterAwardDiscountBundleItemByAttribute.toJsonTree((AwardDiscountBundleItemByAttribute)value.getActualInstance());
-                        elementAdapter.write(out, element);
+                        writeJsonElement(out, element);
                         return;
                     }
                     throw new IOException("Failed to serialize as the type doesn't match oneOf schemas: AwardDiscountBundleItemByAttribute, AwardDiscountBundleItemByIndex");

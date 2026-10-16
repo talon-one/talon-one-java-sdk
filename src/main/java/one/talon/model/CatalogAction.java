@@ -76,55 +76,65 @@ public class CatalogAction extends AbstractOpenApiSchema {
                 return null; // this class only serializes 'CatalogAction' and its subtypes
             }
             final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-            final TypeAdapter<CatalogActionAdd> adapterCatalogActionAdd = gson.getDelegateAdapter(this, TypeToken.get(CatalogActionAdd.class));
-            final TypeAdapter<CatalogActionPatch> adapterCatalogActionPatch = gson.getDelegateAdapter(this, TypeToken.get(CatalogActionPatch.class));
-            final TypeAdapter<CatalogActionPatchMany> adapterCatalogActionPatchMany = gson.getDelegateAdapter(this, TypeToken.get(CatalogActionPatchMany.class));
-            final TypeAdapter<CatalogActionRemove> adapterCatalogActionRemove = gson.getDelegateAdapter(this, TypeToken.get(CatalogActionRemove.class));
-            final TypeAdapter<CatalogActionRemoveMany> adapterCatalogActionRemoveMany = gson.getDelegateAdapter(this, TypeToken.get(CatalogActionRemoveMany.class));
-            final TypeAdapter<CatalogActionAddPriceAdjustment> adapterCatalogActionAddPriceAdjustment = gson.getDelegateAdapter(this, TypeToken.get(CatalogActionAddPriceAdjustment.class));
+            final TypeAdapter<CatalogActionAdd> adapterCatalogActionAdd = gson.getAdapter(TypeToken.get(CatalogActionAdd.class));
+            final TypeAdapter<CatalogActionPatch> adapterCatalogActionPatch = gson.getAdapter(TypeToken.get(CatalogActionPatch.class));
+            final TypeAdapter<CatalogActionPatchMany> adapterCatalogActionPatchMany = gson.getAdapter(TypeToken.get(CatalogActionPatchMany.class));
+            final TypeAdapter<CatalogActionRemove> adapterCatalogActionRemove = gson.getAdapter(TypeToken.get(CatalogActionRemove.class));
+            final TypeAdapter<CatalogActionRemoveMany> adapterCatalogActionRemoveMany = gson.getAdapter(TypeToken.get(CatalogActionRemoveMany.class));
+            final TypeAdapter<CatalogActionAddPriceAdjustment> adapterCatalogActionAddPriceAdjustment = gson.getAdapter(TypeToken.get(CatalogActionAddPriceAdjustment.class));
 
             return (TypeAdapter<T>) new TypeAdapter<CatalogAction>() {
+                private void writeJsonElement(JsonWriter out, JsonElement value) throws IOException {
+                    boolean originalSerializeNulls = out.getSerializeNulls();
+                    try {
+                        out.setSerializeNulls(true);
+                        elementAdapter.write(out, value);
+                    } finally {
+                        out.setSerializeNulls(originalSerializeNulls);
+                    }
+                }
+
                 @Override
                 public void write(JsonWriter out, CatalogAction value) throws IOException {
                     if (value == null || value.getActualInstance() == null) {
-                        elementAdapter.write(out, null);
+                        writeJsonElement(out, null);
                         return;
                     }
 
                     // check if the actual instance is of the type `CatalogActionAdd`
                     if (value.getActualInstance() instanceof CatalogActionAdd) {
                         JsonElement element = adapterCatalogActionAdd.toJsonTree((CatalogActionAdd)value.getActualInstance());
-                        elementAdapter.write(out, element);
+                        writeJsonElement(out, element);
                         return;
                     }
                     // check if the actual instance is of the type `CatalogActionPatch`
                     if (value.getActualInstance() instanceof CatalogActionPatch) {
                         JsonElement element = adapterCatalogActionPatch.toJsonTree((CatalogActionPatch)value.getActualInstance());
-                        elementAdapter.write(out, element);
+                        writeJsonElement(out, element);
                         return;
                     }
                     // check if the actual instance is of the type `CatalogActionPatchMany`
                     if (value.getActualInstance() instanceof CatalogActionPatchMany) {
                         JsonElement element = adapterCatalogActionPatchMany.toJsonTree((CatalogActionPatchMany)value.getActualInstance());
-                        elementAdapter.write(out, element);
+                        writeJsonElement(out, element);
                         return;
                     }
                     // check if the actual instance is of the type `CatalogActionRemove`
                     if (value.getActualInstance() instanceof CatalogActionRemove) {
                         JsonElement element = adapterCatalogActionRemove.toJsonTree((CatalogActionRemove)value.getActualInstance());
-                        elementAdapter.write(out, element);
+                        writeJsonElement(out, element);
                         return;
                     }
                     // check if the actual instance is of the type `CatalogActionRemoveMany`
                     if (value.getActualInstance() instanceof CatalogActionRemoveMany) {
                         JsonElement element = adapterCatalogActionRemoveMany.toJsonTree((CatalogActionRemoveMany)value.getActualInstance());
-                        elementAdapter.write(out, element);
+                        writeJsonElement(out, element);
                         return;
                     }
                     // check if the actual instance is of the type `CatalogActionAddPriceAdjustment`
                     if (value.getActualInstance() instanceof CatalogActionAddPriceAdjustment) {
                         JsonElement element = adapterCatalogActionAddPriceAdjustment.toJsonTree((CatalogActionAddPriceAdjustment)value.getActualInstance());
-                        elementAdapter.write(out, element);
+                        writeJsonElement(out, element);
                         return;
                     }
                     throw new IOException("Failed to serialize as the type doesn't match oneOf schemas: CatalogActionAdd, CatalogActionAddPriceAdjustment, CatalogActionPatch, CatalogActionPatchMany, CatalogActionRemove, CatalogActionRemoveMany");

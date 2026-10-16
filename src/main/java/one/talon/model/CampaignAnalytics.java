@@ -53,6 +53,9 @@ import one.talon.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.26.0")
 public class CampaignAnalytics {
+  // Gson ignores transient state; only setters and JSON input mark properties as present.
+  private transient Set<String> openapiExplicitlySetFields = new HashSet<>();
+
   public static final String SERIALIZED_NAME_DATE = "date";
   @SerializedName(SERIALIZED_NAME_DATE)
   @javax.annotation.Nonnull
@@ -183,6 +186,7 @@ public class CampaignAnalytics {
 
   public CampaignAnalytics date(@javax.annotation.Nonnull OffsetDateTime date) {
     this.date = date;
+    this.markPropertyAsSet(SERIALIZED_NAME_DATE);
     return this;
   }
 
@@ -197,11 +201,13 @@ public class CampaignAnalytics {
 
   public void setDate(@javax.annotation.Nonnull OffsetDateTime date) {
     this.date = date;
+    this.markPropertyAsSet(SERIALIZED_NAME_DATE);
   }
 
 
   public CampaignAnalytics campaignRevenue(@javax.annotation.Nonnull BigDecimal campaignRevenue) {
     this.campaignRevenue = campaignRevenue;
+    this.markPropertyAsSet(SERIALIZED_NAME_CAMPAIGN_REVENUE);
     return this;
   }
 
@@ -216,11 +222,13 @@ public class CampaignAnalytics {
 
   public void setCampaignRevenue(@javax.annotation.Nonnull BigDecimal campaignRevenue) {
     this.campaignRevenue = campaignRevenue;
+    this.markPropertyAsSet(SERIALIZED_NAME_CAMPAIGN_REVENUE);
   }
 
 
   public CampaignAnalytics totalCampaignRevenue(@javax.annotation.Nonnull BigDecimal totalCampaignRevenue) {
     this.totalCampaignRevenue = totalCampaignRevenue;
+    this.markPropertyAsSet(SERIALIZED_NAME_TOTAL_CAMPAIGN_REVENUE);
     return this;
   }
 
@@ -235,11 +243,13 @@ public class CampaignAnalytics {
 
   public void setTotalCampaignRevenue(@javax.annotation.Nonnull BigDecimal totalCampaignRevenue) {
     this.totalCampaignRevenue = totalCampaignRevenue;
+    this.markPropertyAsSet(SERIALIZED_NAME_TOTAL_CAMPAIGN_REVENUE);
   }
 
 
   public CampaignAnalytics campaignRefund(@javax.annotation.Nonnull BigDecimal campaignRefund) {
     this.campaignRefund = campaignRefund;
+    this.markPropertyAsSet(SERIALIZED_NAME_CAMPAIGN_REFUND);
     return this;
   }
 
@@ -254,11 +264,13 @@ public class CampaignAnalytics {
 
   public void setCampaignRefund(@javax.annotation.Nonnull BigDecimal campaignRefund) {
     this.campaignRefund = campaignRefund;
+    this.markPropertyAsSet(SERIALIZED_NAME_CAMPAIGN_REFUND);
   }
 
 
   public CampaignAnalytics totalCampaignRefund(@javax.annotation.Nonnull BigDecimal totalCampaignRefund) {
     this.totalCampaignRefund = totalCampaignRefund;
+    this.markPropertyAsSet(SERIALIZED_NAME_TOTAL_CAMPAIGN_REFUND);
     return this;
   }
 
@@ -273,11 +285,13 @@ public class CampaignAnalytics {
 
   public void setTotalCampaignRefund(@javax.annotation.Nonnull BigDecimal totalCampaignRefund) {
     this.totalCampaignRefund = totalCampaignRefund;
+    this.markPropertyAsSet(SERIALIZED_NAME_TOTAL_CAMPAIGN_REFUND);
   }
 
 
   public CampaignAnalytics campaignDiscountCosts(@javax.annotation.Nonnull BigDecimal campaignDiscountCosts) {
     this.campaignDiscountCosts = campaignDiscountCosts;
+    this.markPropertyAsSet(SERIALIZED_NAME_CAMPAIGN_DISCOUNT_COSTS);
     return this;
   }
 
@@ -292,11 +306,13 @@ public class CampaignAnalytics {
 
   public void setCampaignDiscountCosts(@javax.annotation.Nonnull BigDecimal campaignDiscountCosts) {
     this.campaignDiscountCosts = campaignDiscountCosts;
+    this.markPropertyAsSet(SERIALIZED_NAME_CAMPAIGN_DISCOUNT_COSTS);
   }
 
 
   public CampaignAnalytics totalCampaignDiscountCosts(@javax.annotation.Nonnull BigDecimal totalCampaignDiscountCosts) {
     this.totalCampaignDiscountCosts = totalCampaignDiscountCosts;
+    this.markPropertyAsSet(SERIALIZED_NAME_TOTAL_CAMPAIGN_DISCOUNT_COSTS);
     return this;
   }
 
@@ -311,11 +327,13 @@ public class CampaignAnalytics {
 
   public void setTotalCampaignDiscountCosts(@javax.annotation.Nonnull BigDecimal totalCampaignDiscountCosts) {
     this.totalCampaignDiscountCosts = totalCampaignDiscountCosts;
+    this.markPropertyAsSet(SERIALIZED_NAME_TOTAL_CAMPAIGN_DISCOUNT_COSTS);
   }
 
 
   public CampaignAnalytics campaignRefundedDiscounts(@javax.annotation.Nonnull BigDecimal campaignRefundedDiscounts) {
     this.campaignRefundedDiscounts = campaignRefundedDiscounts;
+    this.markPropertyAsSet(SERIALIZED_NAME_CAMPAIGN_REFUNDED_DISCOUNTS);
     return this;
   }
 
@@ -330,11 +348,13 @@ public class CampaignAnalytics {
 
   public void setCampaignRefundedDiscounts(@javax.annotation.Nonnull BigDecimal campaignRefundedDiscounts) {
     this.campaignRefundedDiscounts = campaignRefundedDiscounts;
+    this.markPropertyAsSet(SERIALIZED_NAME_CAMPAIGN_REFUNDED_DISCOUNTS);
   }
 
 
   public CampaignAnalytics totalCampaignRefundedDiscounts(@javax.annotation.Nonnull BigDecimal totalCampaignRefundedDiscounts) {
     this.totalCampaignRefundedDiscounts = totalCampaignRefundedDiscounts;
+    this.markPropertyAsSet(SERIALIZED_NAME_TOTAL_CAMPAIGN_REFUNDED_DISCOUNTS);
     return this;
   }
 
@@ -349,11 +369,13 @@ public class CampaignAnalytics {
 
   public void setTotalCampaignRefundedDiscounts(@javax.annotation.Nonnull BigDecimal totalCampaignRefundedDiscounts) {
     this.totalCampaignRefundedDiscounts = totalCampaignRefundedDiscounts;
+    this.markPropertyAsSet(SERIALIZED_NAME_TOTAL_CAMPAIGN_REFUNDED_DISCOUNTS);
   }
 
 
   public CampaignAnalytics campaignFreeItems(@javax.annotation.Nonnull Long campaignFreeItems) {
     this.campaignFreeItems = campaignFreeItems;
+    this.markPropertyAsSet(SERIALIZED_NAME_CAMPAIGN_FREE_ITEMS);
     return this;
   }
 
@@ -368,11 +390,13 @@ public class CampaignAnalytics {
 
   public void setCampaignFreeItems(@javax.annotation.Nonnull Long campaignFreeItems) {
     this.campaignFreeItems = campaignFreeItems;
+    this.markPropertyAsSet(SERIALIZED_NAME_CAMPAIGN_FREE_ITEMS);
   }
 
 
   public CampaignAnalytics totalCampaignFreeItems(@javax.annotation.Nonnull Long totalCampaignFreeItems) {
     this.totalCampaignFreeItems = totalCampaignFreeItems;
+    this.markPropertyAsSet(SERIALIZED_NAME_TOTAL_CAMPAIGN_FREE_ITEMS);
     return this;
   }
 
@@ -387,11 +411,13 @@ public class CampaignAnalytics {
 
   public void setTotalCampaignFreeItems(@javax.annotation.Nonnull Long totalCampaignFreeItems) {
     this.totalCampaignFreeItems = totalCampaignFreeItems;
+    this.markPropertyAsSet(SERIALIZED_NAME_TOTAL_CAMPAIGN_FREE_ITEMS);
   }
 
 
   public CampaignAnalytics couponRedemptions(@javax.annotation.Nonnull Long couponRedemptions) {
     this.couponRedemptions = couponRedemptions;
+    this.markPropertyAsSet(SERIALIZED_NAME_COUPON_REDEMPTIONS);
     return this;
   }
 
@@ -406,11 +432,13 @@ public class CampaignAnalytics {
 
   public void setCouponRedemptions(@javax.annotation.Nonnull Long couponRedemptions) {
     this.couponRedemptions = couponRedemptions;
+    this.markPropertyAsSet(SERIALIZED_NAME_COUPON_REDEMPTIONS);
   }
 
 
   public CampaignAnalytics totalCouponRedemptions(@javax.annotation.Nonnull Long totalCouponRedemptions) {
     this.totalCouponRedemptions = totalCouponRedemptions;
+    this.markPropertyAsSet(SERIALIZED_NAME_TOTAL_COUPON_REDEMPTIONS);
     return this;
   }
 
@@ -425,11 +453,13 @@ public class CampaignAnalytics {
 
   public void setTotalCouponRedemptions(@javax.annotation.Nonnull Long totalCouponRedemptions) {
     this.totalCouponRedemptions = totalCouponRedemptions;
+    this.markPropertyAsSet(SERIALIZED_NAME_TOTAL_COUPON_REDEMPTIONS);
   }
 
 
   public CampaignAnalytics couponRolledbackRedemptions(@javax.annotation.Nonnull Long couponRolledbackRedemptions) {
     this.couponRolledbackRedemptions = couponRolledbackRedemptions;
+    this.markPropertyAsSet(SERIALIZED_NAME_COUPON_ROLLEDBACK_REDEMPTIONS);
     return this;
   }
 
@@ -444,11 +474,13 @@ public class CampaignAnalytics {
 
   public void setCouponRolledbackRedemptions(@javax.annotation.Nonnull Long couponRolledbackRedemptions) {
     this.couponRolledbackRedemptions = couponRolledbackRedemptions;
+    this.markPropertyAsSet(SERIALIZED_NAME_COUPON_ROLLEDBACK_REDEMPTIONS);
   }
 
 
   public CampaignAnalytics totalCouponRolledbackRedemptions(@javax.annotation.Nonnull Long totalCouponRolledbackRedemptions) {
     this.totalCouponRolledbackRedemptions = totalCouponRolledbackRedemptions;
+    this.markPropertyAsSet(SERIALIZED_NAME_TOTAL_COUPON_ROLLEDBACK_REDEMPTIONS);
     return this;
   }
 
@@ -463,11 +495,13 @@ public class CampaignAnalytics {
 
   public void setTotalCouponRolledbackRedemptions(@javax.annotation.Nonnull Long totalCouponRolledbackRedemptions) {
     this.totalCouponRolledbackRedemptions = totalCouponRolledbackRedemptions;
+    this.markPropertyAsSet(SERIALIZED_NAME_TOTAL_COUPON_ROLLEDBACK_REDEMPTIONS);
   }
 
 
   public CampaignAnalytics referralRedemptions(@javax.annotation.Nonnull Long referralRedemptions) {
     this.referralRedemptions = referralRedemptions;
+    this.markPropertyAsSet(SERIALIZED_NAME_REFERRAL_REDEMPTIONS);
     return this;
   }
 
@@ -482,11 +516,13 @@ public class CampaignAnalytics {
 
   public void setReferralRedemptions(@javax.annotation.Nonnull Long referralRedemptions) {
     this.referralRedemptions = referralRedemptions;
+    this.markPropertyAsSet(SERIALIZED_NAME_REFERRAL_REDEMPTIONS);
   }
 
 
   public CampaignAnalytics totalReferralRedemptions(@javax.annotation.Nonnull Long totalReferralRedemptions) {
     this.totalReferralRedemptions = totalReferralRedemptions;
+    this.markPropertyAsSet(SERIALIZED_NAME_TOTAL_REFERRAL_REDEMPTIONS);
     return this;
   }
 
@@ -501,11 +537,13 @@ public class CampaignAnalytics {
 
   public void setTotalReferralRedemptions(@javax.annotation.Nonnull Long totalReferralRedemptions) {
     this.totalReferralRedemptions = totalReferralRedemptions;
+    this.markPropertyAsSet(SERIALIZED_NAME_TOTAL_REFERRAL_REDEMPTIONS);
   }
 
 
   public CampaignAnalytics couponsCreated(@javax.annotation.Nonnull Long couponsCreated) {
     this.couponsCreated = couponsCreated;
+    this.markPropertyAsSet(SERIALIZED_NAME_COUPONS_CREATED);
     return this;
   }
 
@@ -520,11 +558,13 @@ public class CampaignAnalytics {
 
   public void setCouponsCreated(@javax.annotation.Nonnull Long couponsCreated) {
     this.couponsCreated = couponsCreated;
+    this.markPropertyAsSet(SERIALIZED_NAME_COUPONS_CREATED);
   }
 
 
   public CampaignAnalytics totalCouponsCreated(@javax.annotation.Nonnull Long totalCouponsCreated) {
     this.totalCouponsCreated = totalCouponsCreated;
+    this.markPropertyAsSet(SERIALIZED_NAME_TOTAL_COUPONS_CREATED);
     return this;
   }
 
@@ -539,11 +579,13 @@ public class CampaignAnalytics {
 
   public void setTotalCouponsCreated(@javax.annotation.Nonnull Long totalCouponsCreated) {
     this.totalCouponsCreated = totalCouponsCreated;
+    this.markPropertyAsSet(SERIALIZED_NAME_TOTAL_COUPONS_CREATED);
   }
 
 
   public CampaignAnalytics referralsCreated(@javax.annotation.Nonnull Long referralsCreated) {
     this.referralsCreated = referralsCreated;
+    this.markPropertyAsSet(SERIALIZED_NAME_REFERRALS_CREATED);
     return this;
   }
 
@@ -558,11 +600,13 @@ public class CampaignAnalytics {
 
   public void setReferralsCreated(@javax.annotation.Nonnull Long referralsCreated) {
     this.referralsCreated = referralsCreated;
+    this.markPropertyAsSet(SERIALIZED_NAME_REFERRALS_CREATED);
   }
 
 
   public CampaignAnalytics totalReferralsCreated(@javax.annotation.Nonnull Long totalReferralsCreated) {
     this.totalReferralsCreated = totalReferralsCreated;
+    this.markPropertyAsSet(SERIALIZED_NAME_TOTAL_REFERRALS_CREATED);
     return this;
   }
 
@@ -577,11 +621,13 @@ public class CampaignAnalytics {
 
   public void setTotalReferralsCreated(@javax.annotation.Nonnull Long totalReferralsCreated) {
     this.totalReferralsCreated = totalReferralsCreated;
+    this.markPropertyAsSet(SERIALIZED_NAME_TOTAL_REFERRALS_CREATED);
   }
 
 
   public CampaignAnalytics addedLoyaltyPoints(@javax.annotation.Nonnull BigDecimal addedLoyaltyPoints) {
     this.addedLoyaltyPoints = addedLoyaltyPoints;
+    this.markPropertyAsSet(SERIALIZED_NAME_ADDED_LOYALTY_POINTS);
     return this;
   }
 
@@ -596,11 +642,13 @@ public class CampaignAnalytics {
 
   public void setAddedLoyaltyPoints(@javax.annotation.Nonnull BigDecimal addedLoyaltyPoints) {
     this.addedLoyaltyPoints = addedLoyaltyPoints;
+    this.markPropertyAsSet(SERIALIZED_NAME_ADDED_LOYALTY_POINTS);
   }
 
 
   public CampaignAnalytics totalAddedLoyaltyPoints(@javax.annotation.Nonnull BigDecimal totalAddedLoyaltyPoints) {
     this.totalAddedLoyaltyPoints = totalAddedLoyaltyPoints;
+    this.markPropertyAsSet(SERIALIZED_NAME_TOTAL_ADDED_LOYALTY_POINTS);
     return this;
   }
 
@@ -615,11 +663,13 @@ public class CampaignAnalytics {
 
   public void setTotalAddedLoyaltyPoints(@javax.annotation.Nonnull BigDecimal totalAddedLoyaltyPoints) {
     this.totalAddedLoyaltyPoints = totalAddedLoyaltyPoints;
+    this.markPropertyAsSet(SERIALIZED_NAME_TOTAL_ADDED_LOYALTY_POINTS);
   }
 
 
   public CampaignAnalytics deductedLoyaltyPoints(@javax.annotation.Nonnull BigDecimal deductedLoyaltyPoints) {
     this.deductedLoyaltyPoints = deductedLoyaltyPoints;
+    this.markPropertyAsSet(SERIALIZED_NAME_DEDUCTED_LOYALTY_POINTS);
     return this;
   }
 
@@ -634,11 +684,13 @@ public class CampaignAnalytics {
 
   public void setDeductedLoyaltyPoints(@javax.annotation.Nonnull BigDecimal deductedLoyaltyPoints) {
     this.deductedLoyaltyPoints = deductedLoyaltyPoints;
+    this.markPropertyAsSet(SERIALIZED_NAME_DEDUCTED_LOYALTY_POINTS);
   }
 
 
   public CampaignAnalytics totalDeductedLoyaltyPoints(@javax.annotation.Nonnull BigDecimal totalDeductedLoyaltyPoints) {
     this.totalDeductedLoyaltyPoints = totalDeductedLoyaltyPoints;
+    this.markPropertyAsSet(SERIALIZED_NAME_TOTAL_DEDUCTED_LOYALTY_POINTS);
     return this;
   }
 
@@ -653,6 +705,7 @@ public class CampaignAnalytics {
 
   public void setTotalDeductedLoyaltyPoints(@javax.annotation.Nonnull BigDecimal totalDeductedLoyaltyPoints) {
     this.totalDeductedLoyaltyPoints = totalDeductedLoyaltyPoints;
+    this.markPropertyAsSet(SERIALIZED_NAME_TOTAL_DEDUCTED_LOYALTY_POINTS);
   }
 
   /**
@@ -698,6 +751,21 @@ public class CampaignAnalytics {
         return null;
     }
     return this.additionalProperties.get(key);
+  }
+
+  /** Omit null properties unless they were explicitly assigned or present in JSON input. */
+  protected final void removeUnsetNullFields(JsonObject obj) {
+    obj.entrySet().removeIf(entry -> entry.getValue().isJsonNull()
+        && !openapiExplicitlySetFields.contains(entry.getKey()));
+  }
+
+  protected final void markPropertyAsSet(String propertyName) {
+    openapiExplicitlySetFields.add(propertyName);
+  }
+
+  /** Gson populates fields directly, bypassing setters during deserialization. */
+  protected final void markPropertiesAsSet(Set<String> propertyNames) {
+    openapiExplicitlySetFields.addAll(propertyNames);
   }
 
 
@@ -824,7 +892,7 @@ public class CampaignAnalytics {
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
        if (!CampaignAnalytics.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'CampaignAnalytics' and its subtypes
+         return null; // let other model factories handle this type
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
        final TypeAdapter<CampaignAnalytics> thisAdapter
@@ -834,31 +902,22 @@ public class CampaignAnalytics {
            @Override
            public void write(JsonWriter out, CampaignAnalytics value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+             value.removeUnsetNullFields(obj);
              obj.remove("additionalProperties");
              // serialize additional properties
              if (value.getAdditionalProperties() != null) {
                for (Map.Entry<String, Object> entry : value.getAdditionalProperties().entrySet()) {
-                 if (entry.getValue() instanceof String)
-                   obj.addProperty(entry.getKey(), (String) entry.getValue());
-                 else if (entry.getValue() instanceof Number)
-                   obj.addProperty(entry.getKey(), (Number) entry.getValue());
-                 else if (entry.getValue() instanceof Boolean)
-                   obj.addProperty(entry.getKey(), (Boolean) entry.getValue());
-                 else if (entry.getValue() instanceof Character)
-                   obj.addProperty(entry.getKey(), (Character) entry.getValue());
-                 else {
-                   JsonElement jsonElement = gson.toJsonTree(entry.getValue());
-                   if (jsonElement.isJsonNull()) {
-                     obj.add(entry.getKey(), JsonNull.INSTANCE);
-                   } else if (jsonElement.isJsonArray()) {
-                     obj.add(entry.getKey(), jsonElement.getAsJsonArray());
-                   } else {
-                     obj.add(entry.getKey(), jsonElement.getAsJsonObject());
-                   }
-                 }
+                 // TypeAdapter.toJsonTree keeps explicit null entries in arbitrary maps too.
+                 obj.add(entry.getKey(), gson.getAdapter(Object.class).toJsonTree(entry.getValue()));
                }
              }
-             elementAdapter.write(out, obj);
+             boolean originalSerializeNulls = out.getSerializeNulls();
+             try {
+               out.setSerializeNulls(true);
+               elementAdapter.write(out, obj);
+             } finally {
+               out.setSerializeNulls(originalSerializeNulls);
+             }
            }
 
            @Override
@@ -868,6 +927,7 @@ public class CampaignAnalytics {
              JsonObject jsonObj = jsonElement.getAsJsonObject();
              // store additional fields in the deserialized instance
              CampaignAnalytics instance = thisAdapter.fromJsonTree(jsonObj);
+             instance.markPropertiesAsSet(jsonObj.keySet());
              for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
                if (!openapiFields.contains(entry.getKey())) {
                  if (entry.getValue().isJsonPrimitive()) { // primitive type

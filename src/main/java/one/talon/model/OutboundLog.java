@@ -55,6 +55,9 @@ import one.talon.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.26.0")
 public class OutboundLog {
+  // Gson ignores transient state; only setters and JSON input mark properties as present.
+  private transient Set<String> openapiExplicitlySetFields = new HashSet<>();
+
   public static final String SERIALIZED_NAME_UUID = "uuid";
   @SerializedName(SERIALIZED_NAME_UUID)
   @javax.annotation.Nonnull
@@ -120,6 +123,7 @@ public class OutboundLog {
 
   public OutboundLog uuid(@javax.annotation.Nonnull UUID uuid) {
     this.uuid = uuid;
+    this.markPropertyAsSet(SERIALIZED_NAME_UUID);
     return this;
   }
 
@@ -134,11 +138,13 @@ public class OutboundLog {
 
   public void setUuid(@javax.annotation.Nonnull UUID uuid) {
     this.uuid = uuid;
+    this.markPropertyAsSet(SERIALIZED_NAME_UUID);
   }
 
 
   public OutboundLog notificationId(@javax.annotation.Nullable Long notificationId) {
     this.notificationId = notificationId;
+    this.markPropertyAsSet(SERIALIZED_NAME_NOTIFICATION_ID);
     return this;
   }
 
@@ -153,11 +159,13 @@ public class OutboundLog {
 
   public void setNotificationId(@javax.annotation.Nullable Long notificationId) {
     this.notificationId = notificationId;
+    this.markPropertyAsSet(SERIALIZED_NAME_NOTIFICATION_ID);
   }
 
 
   public OutboundLog notificationName(@javax.annotation.Nullable String notificationName) {
     this.notificationName = notificationName;
+    this.markPropertyAsSet(SERIALIZED_NAME_NOTIFICATION_NAME);
     return this;
   }
 
@@ -172,11 +180,13 @@ public class OutboundLog {
 
   public void setNotificationName(@javax.annotation.Nullable String notificationName) {
     this.notificationName = notificationName;
+    this.markPropertyAsSet(SERIALIZED_NAME_NOTIFICATION_NAME);
   }
 
 
   public OutboundLog webhookId(@javax.annotation.Nullable Long webhookId) {
     this.webhookId = webhookId;
+    this.markPropertyAsSet(SERIALIZED_NAME_WEBHOOK_ID);
     return this;
   }
 
@@ -191,11 +201,13 @@ public class OutboundLog {
 
   public void setWebhookId(@javax.annotation.Nullable Long webhookId) {
     this.webhookId = webhookId;
+    this.markPropertyAsSet(SERIALIZED_NAME_WEBHOOK_ID);
   }
 
 
   public OutboundLog webhookName(@javax.annotation.Nullable String webhookName) {
     this.webhookName = webhookName;
+    this.markPropertyAsSet(SERIALIZED_NAME_WEBHOOK_NAME);
     return this;
   }
 
@@ -210,11 +222,13 @@ public class OutboundLog {
 
   public void setWebhookName(@javax.annotation.Nullable String webhookName) {
     this.webhookName = webhookName;
+    this.markPropertyAsSet(SERIALIZED_NAME_WEBHOOK_NAME);
   }
 
 
   public OutboundLog notificationType(@javax.annotation.Nonnull String notificationType) {
     this.notificationType = notificationType;
+    this.markPropertyAsSet(SERIALIZED_NAME_NOTIFICATION_TYPE);
     return this;
   }
 
@@ -229,11 +243,13 @@ public class OutboundLog {
 
   public void setNotificationType(@javax.annotation.Nonnull String notificationType) {
     this.notificationType = notificationType;
+    this.markPropertyAsSet(SERIALIZED_NAME_NOTIFICATION_TYPE);
   }
 
 
   public OutboundLog applicationId(@javax.annotation.Nullable Long applicationId) {
     this.applicationId = applicationId;
+    this.markPropertyAsSet(SERIALIZED_NAME_APPLICATION_ID);
     return this;
   }
 
@@ -248,11 +264,13 @@ public class OutboundLog {
 
   public void setApplicationId(@javax.annotation.Nullable Long applicationId) {
     this.applicationId = applicationId;
+    this.markPropertyAsSet(SERIALIZED_NAME_APPLICATION_ID);
   }
 
 
   public OutboundLog loyaltyProgramId(@javax.annotation.Nullable Long loyaltyProgramId) {
     this.loyaltyProgramId = loyaltyProgramId;
+    this.markPropertyAsSet(SERIALIZED_NAME_LOYALTY_PROGRAM_ID);
     return this;
   }
 
@@ -267,11 +285,13 @@ public class OutboundLog {
 
   public void setLoyaltyProgramId(@javax.annotation.Nullable Long loyaltyProgramId) {
     this.loyaltyProgramId = loyaltyProgramId;
+    this.markPropertyAsSet(SERIALIZED_NAME_LOYALTY_PROGRAM_ID);
   }
 
 
   public OutboundLog request(@javax.annotation.Nullable OutboundLogRequest request) {
     this.request = request;
+    this.markPropertyAsSet(SERIALIZED_NAME_REQUEST);
     return this;
   }
 
@@ -286,11 +306,13 @@ public class OutboundLog {
 
   public void setRequest(@javax.annotation.Nullable OutboundLogRequest request) {
     this.request = request;
+    this.markPropertyAsSet(SERIALIZED_NAME_REQUEST);
   }
 
 
   public OutboundLog createdAt(@javax.annotation.Nonnull OffsetDateTime createdAt) {
     this.createdAt = createdAt;
+    this.markPropertyAsSet(SERIALIZED_NAME_CREATED_AT);
     return this;
   }
 
@@ -305,11 +327,13 @@ public class OutboundLog {
 
   public void setCreatedAt(@javax.annotation.Nonnull OffsetDateTime createdAt) {
     this.createdAt = createdAt;
+    this.markPropertyAsSet(SERIALIZED_NAME_CREATED_AT);
   }
 
 
   public OutboundLog processingTimeMs(@javax.annotation.Nonnull Long processingTimeMs) {
     this.processingTimeMs = processingTimeMs;
+    this.markPropertyAsSet(SERIALIZED_NAME_PROCESSING_TIME_MS);
     return this;
   }
 
@@ -324,11 +348,13 @@ public class OutboundLog {
 
   public void setProcessingTimeMs(@javax.annotation.Nonnull Long processingTimeMs) {
     this.processingTimeMs = processingTimeMs;
+    this.markPropertyAsSet(SERIALIZED_NAME_PROCESSING_TIME_MS);
   }
 
 
   public OutboundLog response(@javax.annotation.Nullable OutboundLogResponse response) {
     this.response = response;
+    this.markPropertyAsSet(SERIALIZED_NAME_RESPONSE);
     return this;
   }
 
@@ -343,6 +369,7 @@ public class OutboundLog {
 
   public void setResponse(@javax.annotation.Nullable OutboundLogResponse response) {
     this.response = response;
+    this.markPropertyAsSet(SERIALIZED_NAME_RESPONSE);
   }
 
   /**
@@ -388,6 +415,21 @@ public class OutboundLog {
         return null;
     }
     return this.additionalProperties.get(key);
+  }
+
+  /** Omit null properties unless they were explicitly assigned or present in JSON input. */
+  protected final void removeUnsetNullFields(JsonObject obj) {
+    obj.entrySet().removeIf(entry -> entry.getValue().isJsonNull()
+        && !openapiExplicitlySetFields.contains(entry.getKey()));
+  }
+
+  protected final void markPropertyAsSet(String propertyName) {
+    openapiExplicitlySetFields.add(propertyName);
+  }
+
+  /** Gson populates fields directly, bypassing setters during deserialization. */
+  protected final void markPropertiesAsSet(Set<String> propertyNames) {
+    openapiExplicitlySetFields.addAll(propertyNames);
   }
 
 
@@ -508,7 +550,7 @@ public class OutboundLog {
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
        if (!OutboundLog.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'OutboundLog' and its subtypes
+         return null; // let other model factories handle this type
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
        final TypeAdapter<OutboundLog> thisAdapter
@@ -518,31 +560,22 @@ public class OutboundLog {
            @Override
            public void write(JsonWriter out, OutboundLog value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+             value.removeUnsetNullFields(obj);
              obj.remove("additionalProperties");
              // serialize additional properties
              if (value.getAdditionalProperties() != null) {
                for (Map.Entry<String, Object> entry : value.getAdditionalProperties().entrySet()) {
-                 if (entry.getValue() instanceof String)
-                   obj.addProperty(entry.getKey(), (String) entry.getValue());
-                 else if (entry.getValue() instanceof Number)
-                   obj.addProperty(entry.getKey(), (Number) entry.getValue());
-                 else if (entry.getValue() instanceof Boolean)
-                   obj.addProperty(entry.getKey(), (Boolean) entry.getValue());
-                 else if (entry.getValue() instanceof Character)
-                   obj.addProperty(entry.getKey(), (Character) entry.getValue());
-                 else {
-                   JsonElement jsonElement = gson.toJsonTree(entry.getValue());
-                   if (jsonElement.isJsonNull()) {
-                     obj.add(entry.getKey(), JsonNull.INSTANCE);
-                   } else if (jsonElement.isJsonArray()) {
-                     obj.add(entry.getKey(), jsonElement.getAsJsonArray());
-                   } else {
-                     obj.add(entry.getKey(), jsonElement.getAsJsonObject());
-                   }
-                 }
+                 // TypeAdapter.toJsonTree keeps explicit null entries in arbitrary maps too.
+                 obj.add(entry.getKey(), gson.getAdapter(Object.class).toJsonTree(entry.getValue()));
                }
              }
-             elementAdapter.write(out, obj);
+             boolean originalSerializeNulls = out.getSerializeNulls();
+             try {
+               out.setSerializeNulls(true);
+               elementAdapter.write(out, obj);
+             } finally {
+               out.setSerializeNulls(originalSerializeNulls);
+             }
            }
 
            @Override
@@ -552,6 +585,7 @@ public class OutboundLog {
              JsonObject jsonObj = jsonElement.getAsJsonObject();
              // store additional fields in the deserialized instance
              OutboundLog instance = thisAdapter.fromJsonTree(jsonObj);
+             instance.markPropertiesAsSet(jsonObj.keySet());
              for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
                if (!openapiFields.contains(entry.getKey())) {
                  if (entry.getValue().isJsonPrimitive()) { // primitive type

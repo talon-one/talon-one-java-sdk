@@ -52,6 +52,9 @@ import one.talon.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.26.0")
 public class SetDiscountPerAdditionalCostPerItemEffectProps {
+  // Gson ignores transient state; only setters and JSON input mark properties as present.
+  private transient Set<String> openapiExplicitlySetFields = new HashSet<>();
+
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
   @javax.annotation.Nonnull
@@ -92,6 +95,7 @@ public class SetDiscountPerAdditionalCostPerItemEffectProps {
 
   public SetDiscountPerAdditionalCostPerItemEffectProps name(@javax.annotation.Nonnull String name) {
     this.name = name;
+    this.markPropertyAsSet(SERIALIZED_NAME_NAME);
     return this;
   }
 
@@ -106,11 +110,13 @@ public class SetDiscountPerAdditionalCostPerItemEffectProps {
 
   public void setName(@javax.annotation.Nonnull String name) {
     this.name = name;
+    this.markPropertyAsSet(SERIALIZED_NAME_NAME);
   }
 
 
   public SetDiscountPerAdditionalCostPerItemEffectProps additionalCostId(@javax.annotation.Nonnull Long additionalCostId) {
     this.additionalCostId = additionalCostId;
+    this.markPropertyAsSet(SERIALIZED_NAME_ADDITIONAL_COST_ID);
     return this;
   }
 
@@ -125,11 +131,13 @@ public class SetDiscountPerAdditionalCostPerItemEffectProps {
 
   public void setAdditionalCostId(@javax.annotation.Nonnull Long additionalCostId) {
     this.additionalCostId = additionalCostId;
+    this.markPropertyAsSet(SERIALIZED_NAME_ADDITIONAL_COST_ID);
   }
 
 
   public SetDiscountPerAdditionalCostPerItemEffectProps value(@javax.annotation.Nonnull BigDecimal value) {
     this.value = value;
+    this.markPropertyAsSet(SERIALIZED_NAME_VALUE);
     return this;
   }
 
@@ -144,11 +152,13 @@ public class SetDiscountPerAdditionalCostPerItemEffectProps {
 
   public void setValue(@javax.annotation.Nonnull BigDecimal value) {
     this.value = value;
+    this.markPropertyAsSet(SERIALIZED_NAME_VALUE);
   }
 
 
   public SetDiscountPerAdditionalCostPerItemEffectProps position(@javax.annotation.Nonnull BigDecimal position) {
     this.position = position;
+    this.markPropertyAsSet(SERIALIZED_NAME_POSITION);
     return this;
   }
 
@@ -163,11 +173,13 @@ public class SetDiscountPerAdditionalCostPerItemEffectProps {
 
   public void setPosition(@javax.annotation.Nonnull BigDecimal position) {
     this.position = position;
+    this.markPropertyAsSet(SERIALIZED_NAME_POSITION);
   }
 
 
   public SetDiscountPerAdditionalCostPerItemEffectProps subPosition(@javax.annotation.Nullable BigDecimal subPosition) {
     this.subPosition = subPosition;
+    this.markPropertyAsSet(SERIALIZED_NAME_SUB_POSITION);
     return this;
   }
 
@@ -182,11 +194,13 @@ public class SetDiscountPerAdditionalCostPerItemEffectProps {
 
   public void setSubPosition(@javax.annotation.Nullable BigDecimal subPosition) {
     this.subPosition = subPosition;
+    this.markPropertyAsSet(SERIALIZED_NAME_SUB_POSITION);
   }
 
 
   public SetDiscountPerAdditionalCostPerItemEffectProps additionalCost(@javax.annotation.Nonnull String additionalCost) {
     this.additionalCost = additionalCost;
+    this.markPropertyAsSet(SERIALIZED_NAME_ADDITIONAL_COST);
     return this;
   }
 
@@ -201,11 +215,13 @@ public class SetDiscountPerAdditionalCostPerItemEffectProps {
 
   public void setAdditionalCost(@javax.annotation.Nonnull String additionalCost) {
     this.additionalCost = additionalCost;
+    this.markPropertyAsSet(SERIALIZED_NAME_ADDITIONAL_COST);
   }
 
 
   public SetDiscountPerAdditionalCostPerItemEffectProps desiredValue(@javax.annotation.Nullable BigDecimal desiredValue) {
     this.desiredValue = desiredValue;
+    this.markPropertyAsSet(SERIALIZED_NAME_DESIRED_VALUE);
     return this;
   }
 
@@ -220,6 +236,7 @@ public class SetDiscountPerAdditionalCostPerItemEffectProps {
 
   public void setDesiredValue(@javax.annotation.Nullable BigDecimal desiredValue) {
     this.desiredValue = desiredValue;
+    this.markPropertyAsSet(SERIALIZED_NAME_DESIRED_VALUE);
   }
 
   /**
@@ -265,6 +282,21 @@ public class SetDiscountPerAdditionalCostPerItemEffectProps {
         return null;
     }
     return this.additionalProperties.get(key);
+  }
+
+  /** Omit null properties unless they were explicitly assigned or present in JSON input. */
+  protected final void removeUnsetNullFields(JsonObject obj) {
+    obj.entrySet().removeIf(entry -> entry.getValue().isJsonNull()
+        && !openapiExplicitlySetFields.contains(entry.getKey()));
+  }
+
+  protected final void markPropertyAsSet(String propertyName) {
+    openapiExplicitlySetFields.add(propertyName);
+  }
+
+  /** Gson populates fields directly, bypassing setters during deserialization. */
+  protected final void markPropertiesAsSet(Set<String> propertyNames) {
+    openapiExplicitlySetFields.addAll(propertyNames);
   }
 
 
@@ -361,7 +393,7 @@ public class SetDiscountPerAdditionalCostPerItemEffectProps {
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
        if (!SetDiscountPerAdditionalCostPerItemEffectProps.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'SetDiscountPerAdditionalCostPerItemEffectProps' and its subtypes
+         return null; // let other model factories handle this type
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
        final TypeAdapter<SetDiscountPerAdditionalCostPerItemEffectProps> thisAdapter
@@ -371,31 +403,22 @@ public class SetDiscountPerAdditionalCostPerItemEffectProps {
            @Override
            public void write(JsonWriter out, SetDiscountPerAdditionalCostPerItemEffectProps value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+             value.removeUnsetNullFields(obj);
              obj.remove("additionalProperties");
              // serialize additional properties
              if (value.getAdditionalProperties() != null) {
                for (Map.Entry<String, Object> entry : value.getAdditionalProperties().entrySet()) {
-                 if (entry.getValue() instanceof String)
-                   obj.addProperty(entry.getKey(), (String) entry.getValue());
-                 else if (entry.getValue() instanceof Number)
-                   obj.addProperty(entry.getKey(), (Number) entry.getValue());
-                 else if (entry.getValue() instanceof Boolean)
-                   obj.addProperty(entry.getKey(), (Boolean) entry.getValue());
-                 else if (entry.getValue() instanceof Character)
-                   obj.addProperty(entry.getKey(), (Character) entry.getValue());
-                 else {
-                   JsonElement jsonElement = gson.toJsonTree(entry.getValue());
-                   if (jsonElement.isJsonNull()) {
-                     obj.add(entry.getKey(), JsonNull.INSTANCE);
-                   } else if (jsonElement.isJsonArray()) {
-                     obj.add(entry.getKey(), jsonElement.getAsJsonArray());
-                   } else {
-                     obj.add(entry.getKey(), jsonElement.getAsJsonObject());
-                   }
-                 }
+                 // TypeAdapter.toJsonTree keeps explicit null entries in arbitrary maps too.
+                 obj.add(entry.getKey(), gson.getAdapter(Object.class).toJsonTree(entry.getValue()));
                }
              }
-             elementAdapter.write(out, obj);
+             boolean originalSerializeNulls = out.getSerializeNulls();
+             try {
+               out.setSerializeNulls(true);
+               elementAdapter.write(out, obj);
+             } finally {
+               out.setSerializeNulls(originalSerializeNulls);
+             }
            }
 
            @Override
@@ -405,6 +428,7 @@ public class SetDiscountPerAdditionalCostPerItemEffectProps {
              JsonObject jsonObj = jsonElement.getAsJsonObject();
              // store additional fields in the deserialized instance
              SetDiscountPerAdditionalCostPerItemEffectProps instance = thisAdapter.fromJsonTree(jsonObj);
+             instance.markPropertiesAsSet(jsonObj.keySet());
              for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
                if (!openapiFields.contains(entry.getKey())) {
                  if (entry.getValue().isJsonPrimitive()) { // primitive type

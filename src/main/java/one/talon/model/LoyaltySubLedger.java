@@ -56,6 +56,9 @@ import one.talon.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.26.0")
 public class LoyaltySubLedger {
+  // Gson ignores transient state; only setters and JSON input mark properties as present.
+  private transient Set<String> openapiExplicitlySetFields = new HashSet<>();
+
   public static final String SERIALIZED_NAME_TOTAL = "total";
   @Deprecated
   @SerializedName(SERIALIZED_NAME_TOTAL)
@@ -123,6 +126,7 @@ public class LoyaltySubLedger {
   @Deprecated
   public LoyaltySubLedger total(@javax.annotation.Nonnull BigDecimal total) {
     this.total = total;
+    this.markPropertyAsSet(SERIALIZED_NAME_TOTAL);
     return this;
   }
 
@@ -140,11 +144,13 @@ public class LoyaltySubLedger {
   @Deprecated
   public void setTotal(@javax.annotation.Nonnull BigDecimal total) {
     this.total = total;
+    this.markPropertyAsSet(SERIALIZED_NAME_TOTAL);
   }
 
 
   public LoyaltySubLedger totalActivePoints(@javax.annotation.Nonnull BigDecimal totalActivePoints) {
     this.totalActivePoints = totalActivePoints;
+    this.markPropertyAsSet(SERIALIZED_NAME_TOTAL_ACTIVE_POINTS);
     return this;
   }
 
@@ -159,11 +165,13 @@ public class LoyaltySubLedger {
 
   public void setTotalActivePoints(@javax.annotation.Nonnull BigDecimal totalActivePoints) {
     this.totalActivePoints = totalActivePoints;
+    this.markPropertyAsSet(SERIALIZED_NAME_TOTAL_ACTIVE_POINTS);
   }
 
 
   public LoyaltySubLedger totalPendingPoints(@javax.annotation.Nonnull BigDecimal totalPendingPoints) {
     this.totalPendingPoints = totalPendingPoints;
+    this.markPropertyAsSet(SERIALIZED_NAME_TOTAL_PENDING_POINTS);
     return this;
   }
 
@@ -178,11 +186,13 @@ public class LoyaltySubLedger {
 
   public void setTotalPendingPoints(@javax.annotation.Nonnull BigDecimal totalPendingPoints) {
     this.totalPendingPoints = totalPendingPoints;
+    this.markPropertyAsSet(SERIALIZED_NAME_TOTAL_PENDING_POINTS);
   }
 
 
   public LoyaltySubLedger totalSpentPoints(@javax.annotation.Nonnull BigDecimal totalSpentPoints) {
     this.totalSpentPoints = totalSpentPoints;
+    this.markPropertyAsSet(SERIALIZED_NAME_TOTAL_SPENT_POINTS);
     return this;
   }
 
@@ -197,11 +207,13 @@ public class LoyaltySubLedger {
 
   public void setTotalSpentPoints(@javax.annotation.Nonnull BigDecimal totalSpentPoints) {
     this.totalSpentPoints = totalSpentPoints;
+    this.markPropertyAsSet(SERIALIZED_NAME_TOTAL_SPENT_POINTS);
   }
 
 
   public LoyaltySubLedger totalExpiredPoints(@javax.annotation.Nonnull BigDecimal totalExpiredPoints) {
     this.totalExpiredPoints = totalExpiredPoints;
+    this.markPropertyAsSet(SERIALIZED_NAME_TOTAL_EXPIRED_POINTS);
     return this;
   }
 
@@ -216,11 +228,13 @@ public class LoyaltySubLedger {
 
   public void setTotalExpiredPoints(@javax.annotation.Nonnull BigDecimal totalExpiredPoints) {
     this.totalExpiredPoints = totalExpiredPoints;
+    this.markPropertyAsSet(SERIALIZED_NAME_TOTAL_EXPIRED_POINTS);
   }
 
 
   public LoyaltySubLedger totalNegativePoints(@javax.annotation.Nonnull BigDecimal totalNegativePoints) {
     this.totalNegativePoints = totalNegativePoints;
+    this.markPropertyAsSet(SERIALIZED_NAME_TOTAL_NEGATIVE_POINTS);
     return this;
   }
 
@@ -235,11 +249,13 @@ public class LoyaltySubLedger {
 
   public void setTotalNegativePoints(@javax.annotation.Nonnull BigDecimal totalNegativePoints) {
     this.totalNegativePoints = totalNegativePoints;
+    this.markPropertyAsSet(SERIALIZED_NAME_TOTAL_NEGATIVE_POINTS);
   }
 
 
   public LoyaltySubLedger transactions(@javax.annotation.Nullable List<LoyaltyLedgerEntry> transactions) {
     this.transactions = transactions;
+    this.markPropertyAsSet(SERIALIZED_NAME_TRANSACTIONS);
     return this;
   }
 
@@ -248,6 +264,7 @@ public class LoyaltySubLedger {
       this.transactions = new ArrayList<>();
     }
     this.transactions.add(transactionsItem);
+    this.markPropertyAsSet(SERIALIZED_NAME_TRANSACTIONS);
     return this;
   }
 
@@ -262,11 +279,13 @@ public class LoyaltySubLedger {
 
   public void setTransactions(@javax.annotation.Nullable List<LoyaltyLedgerEntry> transactions) {
     this.transactions = transactions;
+    this.markPropertyAsSet(SERIALIZED_NAME_TRANSACTIONS);
   }
 
 
   public LoyaltySubLedger expiringPoints(@javax.annotation.Nullable List<LoyaltyLedgerEntry> expiringPoints) {
     this.expiringPoints = expiringPoints;
+    this.markPropertyAsSet(SERIALIZED_NAME_EXPIRING_POINTS);
     return this;
   }
 
@@ -275,6 +294,7 @@ public class LoyaltySubLedger {
       this.expiringPoints = new ArrayList<>();
     }
     this.expiringPoints.add(expiringPointsItem);
+    this.markPropertyAsSet(SERIALIZED_NAME_EXPIRING_POINTS);
     return this;
   }
 
@@ -289,11 +309,13 @@ public class LoyaltySubLedger {
 
   public void setExpiringPoints(@javax.annotation.Nullable List<LoyaltyLedgerEntry> expiringPoints) {
     this.expiringPoints = expiringPoints;
+    this.markPropertyAsSet(SERIALIZED_NAME_EXPIRING_POINTS);
   }
 
 
   public LoyaltySubLedger activePoints(@javax.annotation.Nullable List<LoyaltyLedgerEntry> activePoints) {
     this.activePoints = activePoints;
+    this.markPropertyAsSet(SERIALIZED_NAME_ACTIVE_POINTS);
     return this;
   }
 
@@ -302,6 +324,7 @@ public class LoyaltySubLedger {
       this.activePoints = new ArrayList<>();
     }
     this.activePoints.add(activePointsItem);
+    this.markPropertyAsSet(SERIALIZED_NAME_ACTIVE_POINTS);
     return this;
   }
 
@@ -316,11 +339,13 @@ public class LoyaltySubLedger {
 
   public void setActivePoints(@javax.annotation.Nullable List<LoyaltyLedgerEntry> activePoints) {
     this.activePoints = activePoints;
+    this.markPropertyAsSet(SERIALIZED_NAME_ACTIVE_POINTS);
   }
 
 
   public LoyaltySubLedger pendingPoints(@javax.annotation.Nullable List<LoyaltyLedgerEntry> pendingPoints) {
     this.pendingPoints = pendingPoints;
+    this.markPropertyAsSet(SERIALIZED_NAME_PENDING_POINTS);
     return this;
   }
 
@@ -329,6 +354,7 @@ public class LoyaltySubLedger {
       this.pendingPoints = new ArrayList<>();
     }
     this.pendingPoints.add(pendingPointsItem);
+    this.markPropertyAsSet(SERIALIZED_NAME_PENDING_POINTS);
     return this;
   }
 
@@ -343,11 +369,13 @@ public class LoyaltySubLedger {
 
   public void setPendingPoints(@javax.annotation.Nullable List<LoyaltyLedgerEntry> pendingPoints) {
     this.pendingPoints = pendingPoints;
+    this.markPropertyAsSet(SERIALIZED_NAME_PENDING_POINTS);
   }
 
 
   public LoyaltySubLedger expiredPoints(@javax.annotation.Nullable List<LoyaltyLedgerEntry> expiredPoints) {
     this.expiredPoints = expiredPoints;
+    this.markPropertyAsSet(SERIALIZED_NAME_EXPIRED_POINTS);
     return this;
   }
 
@@ -356,6 +384,7 @@ public class LoyaltySubLedger {
       this.expiredPoints = new ArrayList<>();
     }
     this.expiredPoints.add(expiredPointsItem);
+    this.markPropertyAsSet(SERIALIZED_NAME_EXPIRED_POINTS);
     return this;
   }
 
@@ -370,11 +399,13 @@ public class LoyaltySubLedger {
 
   public void setExpiredPoints(@javax.annotation.Nullable List<LoyaltyLedgerEntry> expiredPoints) {
     this.expiredPoints = expiredPoints;
+    this.markPropertyAsSet(SERIALIZED_NAME_EXPIRED_POINTS);
   }
 
 
   public LoyaltySubLedger currentTier(@javax.annotation.Nullable Tier currentTier) {
     this.currentTier = currentTier;
+    this.markPropertyAsSet(SERIALIZED_NAME_CURRENT_TIER);
     return this;
   }
 
@@ -389,6 +420,7 @@ public class LoyaltySubLedger {
 
   public void setCurrentTier(@javax.annotation.Nullable Tier currentTier) {
     this.currentTier = currentTier;
+    this.markPropertyAsSet(SERIALIZED_NAME_CURRENT_TIER);
   }
 
   /**
@@ -434,6 +466,21 @@ public class LoyaltySubLedger {
         return null;
     }
     return this.additionalProperties.get(key);
+  }
+
+  /** Omit null properties unless they were explicitly assigned or present in JSON input. */
+  protected final void removeUnsetNullFields(JsonObject obj) {
+    obj.entrySet().removeIf(entry -> entry.getValue().isJsonNull()
+        && !openapiExplicitlySetFields.contains(entry.getKey()));
+  }
+
+  protected final void markPropertyAsSet(String propertyName) {
+    openapiExplicitlySetFields.add(propertyName);
+  }
+
+  /** Gson populates fields directly, bypassing setters during deserialization. */
+  protected final void markPropertiesAsSet(Set<String> propertyNames) {
+    openapiExplicitlySetFields.addAll(propertyNames);
   }
 
 
@@ -608,7 +655,7 @@ public class LoyaltySubLedger {
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
        if (!LoyaltySubLedger.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'LoyaltySubLedger' and its subtypes
+         return null; // let other model factories handle this type
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
        final TypeAdapter<LoyaltySubLedger> thisAdapter
@@ -618,31 +665,22 @@ public class LoyaltySubLedger {
            @Override
            public void write(JsonWriter out, LoyaltySubLedger value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+             value.removeUnsetNullFields(obj);
              obj.remove("additionalProperties");
              // serialize additional properties
              if (value.getAdditionalProperties() != null) {
                for (Map.Entry<String, Object> entry : value.getAdditionalProperties().entrySet()) {
-                 if (entry.getValue() instanceof String)
-                   obj.addProperty(entry.getKey(), (String) entry.getValue());
-                 else if (entry.getValue() instanceof Number)
-                   obj.addProperty(entry.getKey(), (Number) entry.getValue());
-                 else if (entry.getValue() instanceof Boolean)
-                   obj.addProperty(entry.getKey(), (Boolean) entry.getValue());
-                 else if (entry.getValue() instanceof Character)
-                   obj.addProperty(entry.getKey(), (Character) entry.getValue());
-                 else {
-                   JsonElement jsonElement = gson.toJsonTree(entry.getValue());
-                   if (jsonElement.isJsonNull()) {
-                     obj.add(entry.getKey(), JsonNull.INSTANCE);
-                   } else if (jsonElement.isJsonArray()) {
-                     obj.add(entry.getKey(), jsonElement.getAsJsonArray());
-                   } else {
-                     obj.add(entry.getKey(), jsonElement.getAsJsonObject());
-                   }
-                 }
+                 // TypeAdapter.toJsonTree keeps explicit null entries in arbitrary maps too.
+                 obj.add(entry.getKey(), gson.getAdapter(Object.class).toJsonTree(entry.getValue()));
                }
              }
-             elementAdapter.write(out, obj);
+             boolean originalSerializeNulls = out.getSerializeNulls();
+             try {
+               out.setSerializeNulls(true);
+               elementAdapter.write(out, obj);
+             } finally {
+               out.setSerializeNulls(originalSerializeNulls);
+             }
            }
 
            @Override
@@ -652,6 +690,7 @@ public class LoyaltySubLedger {
              JsonObject jsonObj = jsonElement.getAsJsonObject();
              // store additional fields in the deserialized instance
              LoyaltySubLedger instance = thisAdapter.fromJsonTree(jsonObj);
+             instance.markPropertiesAsSet(jsonObj.keySet());
              for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
                if (!openapiFields.contains(entry.getKey())) {
                  if (entry.getValue().isJsonPrimitive()) { // primitive type

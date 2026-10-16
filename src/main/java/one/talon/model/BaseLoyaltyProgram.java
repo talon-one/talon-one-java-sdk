@@ -55,6 +55,9 @@ import one.talon.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.26.0")
 public class BaseLoyaltyProgram {
+  // Gson ignores transient state; only setters and JSON input mark properties as present.
+  private transient Set<String> openapiExplicitlySetFields = new HashSet<>();
+
   public static final String SERIALIZED_NAME_TITLE = "title";
   @SerializedName(SERIALIZED_NAME_TITLE)
   @javax.annotation.Nullable
@@ -351,6 +354,7 @@ public class BaseLoyaltyProgram {
 
   public BaseLoyaltyProgram title(@javax.annotation.Nullable String title) {
     this.title = title;
+    this.markPropertyAsSet(SERIALIZED_NAME_TITLE);
     return this;
   }
 
@@ -365,11 +369,13 @@ public class BaseLoyaltyProgram {
 
   public void setTitle(@javax.annotation.Nullable String title) {
     this.title = title;
+    this.markPropertyAsSet(SERIALIZED_NAME_TITLE);
   }
 
 
   public BaseLoyaltyProgram description(@javax.annotation.Nullable String description) {
     this.description = description;
+    this.markPropertyAsSet(SERIALIZED_NAME_DESCRIPTION);
     return this;
   }
 
@@ -384,11 +390,13 @@ public class BaseLoyaltyProgram {
 
   public void setDescription(@javax.annotation.Nullable String description) {
     this.description = description;
+    this.markPropertyAsSet(SERIALIZED_NAME_DESCRIPTION);
   }
 
 
   public BaseLoyaltyProgram subscribedApplications(@javax.annotation.Nullable List<Long> subscribedApplications) {
     this.subscribedApplications = subscribedApplications;
+    this.markPropertyAsSet(SERIALIZED_NAME_SUBSCRIBED_APPLICATIONS);
     return this;
   }
 
@@ -397,6 +405,7 @@ public class BaseLoyaltyProgram {
       this.subscribedApplications = new ArrayList<>();
     }
     this.subscribedApplications.add(subscribedApplicationsItem);
+    this.markPropertyAsSet(SERIALIZED_NAME_SUBSCRIBED_APPLICATIONS);
     return this;
   }
 
@@ -411,11 +420,13 @@ public class BaseLoyaltyProgram {
 
   public void setSubscribedApplications(@javax.annotation.Nullable List<Long> subscribedApplications) {
     this.subscribedApplications = subscribedApplications;
+    this.markPropertyAsSet(SERIALIZED_NAME_SUBSCRIBED_APPLICATIONS);
   }
 
 
   public BaseLoyaltyProgram defaultValidity(@javax.annotation.Nullable String defaultValidity) {
     this.defaultValidity = defaultValidity;
+    this.markPropertyAsSet(SERIALIZED_NAME_DEFAULT_VALIDITY);
     return this;
   }
 
@@ -430,11 +441,13 @@ public class BaseLoyaltyProgram {
 
   public void setDefaultValidity(@javax.annotation.Nullable String defaultValidity) {
     this.defaultValidity = defaultValidity;
+    this.markPropertyAsSet(SERIALIZED_NAME_DEFAULT_VALIDITY);
   }
 
 
   public BaseLoyaltyProgram defaultPending(@javax.annotation.Nullable String defaultPending) {
     this.defaultPending = defaultPending;
+    this.markPropertyAsSet(SERIALIZED_NAME_DEFAULT_PENDING);
     return this;
   }
 
@@ -449,11 +462,13 @@ public class BaseLoyaltyProgram {
 
   public void setDefaultPending(@javax.annotation.Nullable String defaultPending) {
     this.defaultPending = defaultPending;
+    this.markPropertyAsSet(SERIALIZED_NAME_DEFAULT_PENDING);
   }
 
 
   public BaseLoyaltyProgram allowSubledger(@javax.annotation.Nullable Boolean allowSubledger) {
     this.allowSubledger = allowSubledger;
+    this.markPropertyAsSet(SERIALIZED_NAME_ALLOW_SUBLEDGER);
     return this;
   }
 
@@ -468,11 +483,13 @@ public class BaseLoyaltyProgram {
 
   public void setAllowSubledger(@javax.annotation.Nullable Boolean allowSubledger) {
     this.allowSubledger = allowSubledger;
+    this.markPropertyAsSet(SERIALIZED_NAME_ALLOW_SUBLEDGER);
   }
 
 
   public BaseLoyaltyProgram usersPerCardLimit(@javax.annotation.Nullable Long usersPerCardLimit) {
     this.usersPerCardLimit = usersPerCardLimit;
+    this.markPropertyAsSet(SERIALIZED_NAME_USERS_PER_CARD_LIMIT);
     return this;
   }
 
@@ -488,11 +505,13 @@ public class BaseLoyaltyProgram {
 
   public void setUsersPerCardLimit(@javax.annotation.Nullable Long usersPerCardLimit) {
     this.usersPerCardLimit = usersPerCardLimit;
+    this.markPropertyAsSet(SERIALIZED_NAME_USERS_PER_CARD_LIMIT);
   }
 
 
   public BaseLoyaltyProgram sandbox(@javax.annotation.Nullable Boolean sandbox) {
     this.sandbox = sandbox;
+    this.markPropertyAsSet(SERIALIZED_NAME_SANDBOX);
     return this;
   }
 
@@ -507,11 +526,13 @@ public class BaseLoyaltyProgram {
 
   public void setSandbox(@javax.annotation.Nullable Boolean sandbox) {
     this.sandbox = sandbox;
+    this.markPropertyAsSet(SERIALIZED_NAME_SANDBOX);
   }
 
 
   public BaseLoyaltyProgram programJoinPolicy(@javax.annotation.Nullable ProgramJoinPolicyEnum programJoinPolicy) {
     this.programJoinPolicy = programJoinPolicy;
+    this.markPropertyAsSet(SERIALIZED_NAME_PROGRAM_JOIN_POLICY);
     return this;
   }
 
@@ -526,11 +547,13 @@ public class BaseLoyaltyProgram {
 
   public void setProgramJoinPolicy(@javax.annotation.Nullable ProgramJoinPolicyEnum programJoinPolicy) {
     this.programJoinPolicy = programJoinPolicy;
+    this.markPropertyAsSet(SERIALIZED_NAME_PROGRAM_JOIN_POLICY);
   }
 
 
   public BaseLoyaltyProgram tiersExpirationPolicy(@javax.annotation.Nullable TiersExpirationPolicyEnum tiersExpirationPolicy) {
     this.tiersExpirationPolicy = tiersExpirationPolicy;
+    this.markPropertyAsSet(SERIALIZED_NAME_TIERS_EXPIRATION_POLICY);
     return this;
   }
 
@@ -545,11 +568,13 @@ public class BaseLoyaltyProgram {
 
   public void setTiersExpirationPolicy(@javax.annotation.Nullable TiersExpirationPolicyEnum tiersExpirationPolicy) {
     this.tiersExpirationPolicy = tiersExpirationPolicy;
+    this.markPropertyAsSet(SERIALIZED_NAME_TIERS_EXPIRATION_POLICY);
   }
 
 
   public BaseLoyaltyProgram tierCycleStartDate(@javax.annotation.Nullable OffsetDateTime tierCycleStartDate) {
     this.tierCycleStartDate = tierCycleStartDate;
+    this.markPropertyAsSet(SERIALIZED_NAME_TIER_CYCLE_START_DATE);
     return this;
   }
 
@@ -564,11 +589,13 @@ public class BaseLoyaltyProgram {
 
   public void setTierCycleStartDate(@javax.annotation.Nullable OffsetDateTime tierCycleStartDate) {
     this.tierCycleStartDate = tierCycleStartDate;
+    this.markPropertyAsSet(SERIALIZED_NAME_TIER_CYCLE_START_DATE);
   }
 
 
   public BaseLoyaltyProgram tiersExpireIn(@javax.annotation.Nullable String tiersExpireIn) {
     this.tiersExpireIn = tiersExpireIn;
+    this.markPropertyAsSet(SERIALIZED_NAME_TIERS_EXPIRE_IN);
     return this;
   }
 
@@ -583,11 +610,13 @@ public class BaseLoyaltyProgram {
 
   public void setTiersExpireIn(@javax.annotation.Nullable String tiersExpireIn) {
     this.tiersExpireIn = tiersExpireIn;
+    this.markPropertyAsSet(SERIALIZED_NAME_TIERS_EXPIRE_IN);
   }
 
 
   public BaseLoyaltyProgram tiersDowngradePolicy(@javax.annotation.Nullable TiersDowngradePolicyEnum tiersDowngradePolicy) {
     this.tiersDowngradePolicy = tiersDowngradePolicy;
+    this.markPropertyAsSet(SERIALIZED_NAME_TIERS_DOWNGRADE_POLICY);
     return this;
   }
 
@@ -602,11 +631,13 @@ public class BaseLoyaltyProgram {
 
   public void setTiersDowngradePolicy(@javax.annotation.Nullable TiersDowngradePolicyEnum tiersDowngradePolicy) {
     this.tiersDowngradePolicy = tiersDowngradePolicy;
+    this.markPropertyAsSet(SERIALIZED_NAME_TIERS_DOWNGRADE_POLICY);
   }
 
 
   public BaseLoyaltyProgram cardCodeSettings(@javax.annotation.Nullable CodeGeneratorSettings cardCodeSettings) {
     this.cardCodeSettings = cardCodeSettings;
+    this.markPropertyAsSet(SERIALIZED_NAME_CARD_CODE_SETTINGS);
     return this;
   }
 
@@ -621,11 +652,13 @@ public class BaseLoyaltyProgram {
 
   public void setCardCodeSettings(@javax.annotation.Nullable CodeGeneratorSettings cardCodeSettings) {
     this.cardCodeSettings = cardCodeSettings;
+    this.markPropertyAsSet(SERIALIZED_NAME_CARD_CODE_SETTINGS);
   }
 
 
   public BaseLoyaltyProgram returnPolicy(@javax.annotation.Nullable ReturnPolicyEnum returnPolicy) {
     this.returnPolicy = returnPolicy;
+    this.markPropertyAsSet(SERIALIZED_NAME_RETURN_POLICY);
     return this;
   }
 
@@ -640,6 +673,7 @@ public class BaseLoyaltyProgram {
 
   public void setReturnPolicy(@javax.annotation.Nullable ReturnPolicyEnum returnPolicy) {
     this.returnPolicy = returnPolicy;
+    this.markPropertyAsSet(SERIALIZED_NAME_RETURN_POLICY);
   }
 
   /**
@@ -685,6 +719,21 @@ public class BaseLoyaltyProgram {
         return null;
     }
     return this.additionalProperties.get(key);
+  }
+
+  /** Omit null properties unless they were explicitly assigned or present in JSON input. */
+  protected final void removeUnsetNullFields(JsonObject obj) {
+    obj.entrySet().removeIf(entry -> entry.getValue().isJsonNull()
+        && !openapiExplicitlySetFields.contains(entry.getKey()));
+  }
+
+  protected final void markPropertyAsSet(String propertyName) {
+    openapiExplicitlySetFields.add(propertyName);
+  }
+
+  /** Gson populates fields directly, bypassing setters during deserialization. */
+  protected final void markPropertiesAsSet(Set<String> propertyNames) {
+    openapiExplicitlySetFields.addAll(propertyNames);
   }
 
 
@@ -835,7 +884,7 @@ public class BaseLoyaltyProgram {
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
        if (!BaseLoyaltyProgram.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'BaseLoyaltyProgram' and its subtypes
+         return null; // let other model factories handle this type
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
        final TypeAdapter<BaseLoyaltyProgram> thisAdapter
@@ -845,31 +894,22 @@ public class BaseLoyaltyProgram {
            @Override
            public void write(JsonWriter out, BaseLoyaltyProgram value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+             value.removeUnsetNullFields(obj);
              obj.remove("additionalProperties");
              // serialize additional properties
              if (value.getAdditionalProperties() != null) {
                for (Map.Entry<String, Object> entry : value.getAdditionalProperties().entrySet()) {
-                 if (entry.getValue() instanceof String)
-                   obj.addProperty(entry.getKey(), (String) entry.getValue());
-                 else if (entry.getValue() instanceof Number)
-                   obj.addProperty(entry.getKey(), (Number) entry.getValue());
-                 else if (entry.getValue() instanceof Boolean)
-                   obj.addProperty(entry.getKey(), (Boolean) entry.getValue());
-                 else if (entry.getValue() instanceof Character)
-                   obj.addProperty(entry.getKey(), (Character) entry.getValue());
-                 else {
-                   JsonElement jsonElement = gson.toJsonTree(entry.getValue());
-                   if (jsonElement.isJsonNull()) {
-                     obj.add(entry.getKey(), JsonNull.INSTANCE);
-                   } else if (jsonElement.isJsonArray()) {
-                     obj.add(entry.getKey(), jsonElement.getAsJsonArray());
-                   } else {
-                     obj.add(entry.getKey(), jsonElement.getAsJsonObject());
-                   }
-                 }
+                 // TypeAdapter.toJsonTree keeps explicit null entries in arbitrary maps too.
+                 obj.add(entry.getKey(), gson.getAdapter(Object.class).toJsonTree(entry.getValue()));
                }
              }
-             elementAdapter.write(out, obj);
+             boolean originalSerializeNulls = out.getSerializeNulls();
+             try {
+               out.setSerializeNulls(true);
+               elementAdapter.write(out, obj);
+             } finally {
+               out.setSerializeNulls(originalSerializeNulls);
+             }
            }
 
            @Override
@@ -879,6 +919,7 @@ public class BaseLoyaltyProgram {
              JsonObject jsonObj = jsonElement.getAsJsonObject();
              // store additional fields in the deserialized instance
              BaseLoyaltyProgram instance = thisAdapter.fromJsonTree(jsonObj);
+             instance.markPropertiesAsSet(jsonObj.keySet());
              for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
                if (!openapiFields.contains(entry.getKey())) {
                  if (entry.getValue().isJsonPrimitive()) { // primitive type

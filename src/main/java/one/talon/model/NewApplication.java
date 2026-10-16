@@ -56,6 +56,9 @@ import one.talon.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.26.0")
 public class NewApplication {
+  // Gson ignores transient state; only setters and JSON input mark properties as present.
+  private transient Set<String> openapiExplicitlySetFields = new HashSet<>();
+
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
   @javax.annotation.Nonnull
@@ -308,6 +311,7 @@ public class NewApplication {
 
   public NewApplication name(@javax.annotation.Nonnull String name) {
     this.name = name;
+    this.markPropertyAsSet(SERIALIZED_NAME_NAME);
     return this;
   }
 
@@ -322,11 +326,13 @@ public class NewApplication {
 
   public void setName(@javax.annotation.Nonnull String name) {
     this.name = name;
+    this.markPropertyAsSet(SERIALIZED_NAME_NAME);
   }
 
 
   public NewApplication description(@javax.annotation.Nullable String description) {
     this.description = description;
+    this.markPropertyAsSet(SERIALIZED_NAME_DESCRIPTION);
     return this;
   }
 
@@ -341,11 +347,13 @@ public class NewApplication {
 
   public void setDescription(@javax.annotation.Nullable String description) {
     this.description = description;
+    this.markPropertyAsSet(SERIALIZED_NAME_DESCRIPTION);
   }
 
 
   public NewApplication timezone(@javax.annotation.Nonnull String timezone) {
     this.timezone = timezone;
+    this.markPropertyAsSet(SERIALIZED_NAME_TIMEZONE);
     return this;
   }
 
@@ -360,11 +368,13 @@ public class NewApplication {
 
   public void setTimezone(@javax.annotation.Nonnull String timezone) {
     this.timezone = timezone;
+    this.markPropertyAsSet(SERIALIZED_NAME_TIMEZONE);
   }
 
 
   public NewApplication currency(@javax.annotation.Nonnull String currency) {
     this.currency = currency;
+    this.markPropertyAsSet(SERIALIZED_NAME_CURRENCY);
     return this;
   }
 
@@ -379,11 +389,13 @@ public class NewApplication {
 
   public void setCurrency(@javax.annotation.Nonnull String currency) {
     this.currency = currency;
+    this.markPropertyAsSet(SERIALIZED_NAME_CURRENCY);
   }
 
 
   public NewApplication caseSensitivity(@javax.annotation.Nullable CaseSensitivityEnum caseSensitivity) {
     this.caseSensitivity = caseSensitivity;
+    this.markPropertyAsSet(SERIALIZED_NAME_CASE_SENSITIVITY);
     return this;
   }
 
@@ -398,11 +410,13 @@ public class NewApplication {
 
   public void setCaseSensitivity(@javax.annotation.Nullable CaseSensitivityEnum caseSensitivity) {
     this.caseSensitivity = caseSensitivity;
+    this.markPropertyAsSet(SERIALIZED_NAME_CASE_SENSITIVITY);
   }
 
 
   public NewApplication attributes(@javax.annotation.Nullable Object attributes) {
     this.attributes = attributes;
+    this.markPropertyAsSet(SERIALIZED_NAME_ATTRIBUTES);
     return this;
   }
 
@@ -417,11 +431,13 @@ public class NewApplication {
 
   public void setAttributes(@javax.annotation.Nullable Object attributes) {
     this.attributes = attributes;
+    this.markPropertyAsSet(SERIALIZED_NAME_ATTRIBUTES);
   }
 
 
   public NewApplication limits(@javax.annotation.Nullable List<LimitConfig> limits) {
     this.limits = limits;
+    this.markPropertyAsSet(SERIALIZED_NAME_LIMITS);
     return this;
   }
 
@@ -430,6 +446,7 @@ public class NewApplication {
       this.limits = new ArrayList<>();
     }
     this.limits.add(limitsItem);
+    this.markPropertyAsSet(SERIALIZED_NAME_LIMITS);
     return this;
   }
 
@@ -444,11 +461,13 @@ public class NewApplication {
 
   public void setLimits(@javax.annotation.Nullable List<LimitConfig> limits) {
     this.limits = limits;
+    this.markPropertyAsSet(SERIALIZED_NAME_LIMITS);
   }
 
 
   public NewApplication defaultDiscountScope(@javax.annotation.Nullable DefaultDiscountScopeEnum defaultDiscountScope) {
     this.defaultDiscountScope = defaultDiscountScope;
+    this.markPropertyAsSet(SERIALIZED_NAME_DEFAULT_DISCOUNT_SCOPE);
     return this;
   }
 
@@ -463,11 +482,13 @@ public class NewApplication {
 
   public void setDefaultDiscountScope(@javax.annotation.Nullable DefaultDiscountScopeEnum defaultDiscountScope) {
     this.defaultDiscountScope = defaultDiscountScope;
+    this.markPropertyAsSet(SERIALIZED_NAME_DEFAULT_DISCOUNT_SCOPE);
   }
 
 
   public NewApplication enableCascadingDiscounts(@javax.annotation.Nullable Boolean enableCascadingDiscounts) {
     this.enableCascadingDiscounts = enableCascadingDiscounts;
+    this.markPropertyAsSet(SERIALIZED_NAME_ENABLE_CASCADING_DISCOUNTS);
     return this;
   }
 
@@ -482,11 +503,13 @@ public class NewApplication {
 
   public void setEnableCascadingDiscounts(@javax.annotation.Nullable Boolean enableCascadingDiscounts) {
     this.enableCascadingDiscounts = enableCascadingDiscounts;
+    this.markPropertyAsSet(SERIALIZED_NAME_ENABLE_CASCADING_DISCOUNTS);
   }
 
 
   public NewApplication enableFlattenedCartItems(@javax.annotation.Nullable Boolean enableFlattenedCartItems) {
     this.enableFlattenedCartItems = enableFlattenedCartItems;
+    this.markPropertyAsSet(SERIALIZED_NAME_ENABLE_FLATTENED_CART_ITEMS);
     return this;
   }
 
@@ -501,11 +524,13 @@ public class NewApplication {
 
   public void setEnableFlattenedCartItems(@javax.annotation.Nullable Boolean enableFlattenedCartItems) {
     this.enableFlattenedCartItems = enableFlattenedCartItems;
+    this.markPropertyAsSet(SERIALIZED_NAME_ENABLE_FLATTENED_CART_ITEMS);
   }
 
 
   public NewApplication attributesSettings(@javax.annotation.Nullable AttributesSettings attributesSettings) {
     this.attributesSettings = attributesSettings;
+    this.markPropertyAsSet(SERIALIZED_NAME_ATTRIBUTES_SETTINGS);
     return this;
   }
 
@@ -520,11 +545,13 @@ public class NewApplication {
 
   public void setAttributesSettings(@javax.annotation.Nullable AttributesSettings attributesSettings) {
     this.attributesSettings = attributesSettings;
+    this.markPropertyAsSet(SERIALIZED_NAME_ATTRIBUTES_SETTINGS);
   }
 
 
   public NewApplication sandbox(@javax.annotation.Nullable Boolean sandbox) {
     this.sandbox = sandbox;
+    this.markPropertyAsSet(SERIALIZED_NAME_SANDBOX);
     return this;
   }
 
@@ -539,11 +566,13 @@ public class NewApplication {
 
   public void setSandbox(@javax.annotation.Nullable Boolean sandbox) {
     this.sandbox = sandbox;
+    this.markPropertyAsSet(SERIALIZED_NAME_SANDBOX);
   }
 
 
   public NewApplication enablePartialDiscounts(@javax.annotation.Nullable Boolean enablePartialDiscounts) {
     this.enablePartialDiscounts = enablePartialDiscounts;
+    this.markPropertyAsSet(SERIALIZED_NAME_ENABLE_PARTIAL_DISCOUNTS);
     return this;
   }
 
@@ -558,11 +587,13 @@ public class NewApplication {
 
   public void setEnablePartialDiscounts(@javax.annotation.Nullable Boolean enablePartialDiscounts) {
     this.enablePartialDiscounts = enablePartialDiscounts;
+    this.markPropertyAsSet(SERIALIZED_NAME_ENABLE_PARTIAL_DISCOUNTS);
   }
 
 
   public NewApplication defaultDiscountAdditionalCostPerItemScope(@javax.annotation.Nullable DefaultDiscountAdditionalCostPerItemScopeEnum defaultDiscountAdditionalCostPerItemScope) {
     this.defaultDiscountAdditionalCostPerItemScope = defaultDiscountAdditionalCostPerItemScope;
+    this.markPropertyAsSet(SERIALIZED_NAME_DEFAULT_DISCOUNT_ADDITIONAL_COST_PER_ITEM_SCOPE);
     return this;
   }
 
@@ -577,11 +608,13 @@ public class NewApplication {
 
   public void setDefaultDiscountAdditionalCostPerItemScope(@javax.annotation.Nullable DefaultDiscountAdditionalCostPerItemScopeEnum defaultDiscountAdditionalCostPerItemScope) {
     this.defaultDiscountAdditionalCostPerItemScope = defaultDiscountAdditionalCostPerItemScope;
+    this.markPropertyAsSet(SERIALIZED_NAME_DEFAULT_DISCOUNT_ADDITIONAL_COST_PER_ITEM_SCOPE);
   }
 
 
   public NewApplication key(@javax.annotation.Nullable String key) {
     this.key = key;
+    this.markPropertyAsSet(SERIALIZED_NAME_KEY);
     return this;
   }
 
@@ -596,11 +629,13 @@ public class NewApplication {
 
   public void setKey(@javax.annotation.Nullable String key) {
     this.key = key;
+    this.markPropertyAsSet(SERIALIZED_NAME_KEY);
   }
 
 
   public NewApplication enableCampaignStateManagement(@javax.annotation.Nullable Boolean enableCampaignStateManagement) {
     this.enableCampaignStateManagement = enableCampaignStateManagement;
+    this.markPropertyAsSet(SERIALIZED_NAME_ENABLE_CAMPAIGN_STATE_MANAGEMENT);
     return this;
   }
 
@@ -615,11 +650,13 @@ public class NewApplication {
 
   public void setEnableCampaignStateManagement(@javax.annotation.Nullable Boolean enableCampaignStateManagement) {
     this.enableCampaignStateManagement = enableCampaignStateManagement;
+    this.markPropertyAsSet(SERIALIZED_NAME_ENABLE_CAMPAIGN_STATE_MANAGEMENT);
   }
 
 
   public NewApplication bestPriorPriceSettings(@javax.annotation.Nullable BestPriorPriceSettings bestPriorPriceSettings) {
     this.bestPriorPriceSettings = bestPriorPriceSettings;
+    this.markPropertyAsSet(SERIALIZED_NAME_BEST_PRIOR_PRICE_SETTINGS);
     return this;
   }
 
@@ -634,6 +671,7 @@ public class NewApplication {
 
   public void setBestPriorPriceSettings(@javax.annotation.Nullable BestPriorPriceSettings bestPriorPriceSettings) {
     this.bestPriorPriceSettings = bestPriorPriceSettings;
+    this.markPropertyAsSet(SERIALIZED_NAME_BEST_PRIOR_PRICE_SETTINGS);
   }
 
   /**
@@ -679,6 +717,21 @@ public class NewApplication {
         return null;
     }
     return this.additionalProperties.get(key);
+  }
+
+  /** Omit null properties unless they were explicitly assigned or present in JSON input. */
+  protected final void removeUnsetNullFields(JsonObject obj) {
+    obj.entrySet().removeIf(entry -> entry.getValue().isJsonNull()
+        && !openapiExplicitlySetFields.contains(entry.getKey()));
+  }
+
+  protected final void markPropertyAsSet(String propertyName) {
+    openapiExplicitlySetFields.add(propertyName);
+  }
+
+  /** Gson populates fields directly, bypassing setters during deserialization. */
+  protected final void markPropertiesAsSet(Set<String> propertyNames) {
+    openapiExplicitlySetFields.addAll(propertyNames);
   }
 
 
@@ -847,7 +900,7 @@ public class NewApplication {
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
        if (!NewApplication.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'NewApplication' and its subtypes
+         return null; // let other model factories handle this type
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
        final TypeAdapter<NewApplication> thisAdapter
@@ -857,31 +910,22 @@ public class NewApplication {
            @Override
            public void write(JsonWriter out, NewApplication value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+             value.removeUnsetNullFields(obj);
              obj.remove("additionalProperties");
              // serialize additional properties
              if (value.getAdditionalProperties() != null) {
                for (Map.Entry<String, Object> entry : value.getAdditionalProperties().entrySet()) {
-                 if (entry.getValue() instanceof String)
-                   obj.addProperty(entry.getKey(), (String) entry.getValue());
-                 else if (entry.getValue() instanceof Number)
-                   obj.addProperty(entry.getKey(), (Number) entry.getValue());
-                 else if (entry.getValue() instanceof Boolean)
-                   obj.addProperty(entry.getKey(), (Boolean) entry.getValue());
-                 else if (entry.getValue() instanceof Character)
-                   obj.addProperty(entry.getKey(), (Character) entry.getValue());
-                 else {
-                   JsonElement jsonElement = gson.toJsonTree(entry.getValue());
-                   if (jsonElement.isJsonNull()) {
-                     obj.add(entry.getKey(), JsonNull.INSTANCE);
-                   } else if (jsonElement.isJsonArray()) {
-                     obj.add(entry.getKey(), jsonElement.getAsJsonArray());
-                   } else {
-                     obj.add(entry.getKey(), jsonElement.getAsJsonObject());
-                   }
-                 }
+                 // TypeAdapter.toJsonTree keeps explicit null entries in arbitrary maps too.
+                 obj.add(entry.getKey(), gson.getAdapter(Object.class).toJsonTree(entry.getValue()));
                }
              }
-             elementAdapter.write(out, obj);
+             boolean originalSerializeNulls = out.getSerializeNulls();
+             try {
+               out.setSerializeNulls(true);
+               elementAdapter.write(out, obj);
+             } finally {
+               out.setSerializeNulls(originalSerializeNulls);
+             }
            }
 
            @Override
@@ -891,6 +935,7 @@ public class NewApplication {
              JsonObject jsonObj = jsonElement.getAsJsonObject();
              // store additional fields in the deserialized instance
              NewApplication instance = thisAdapter.fromJsonTree(jsonObj);
+             instance.markPropertiesAsSet(jsonObj.keySet());
              for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
                if (!openapiFields.contains(entry.getKey())) {
                  if (entry.getValue().isJsonPrimitive()) { // primitive type

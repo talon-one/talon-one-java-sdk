@@ -52,6 +52,9 @@ import one.talon.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.26.0")
 public class RollbackIncreasedAchievementProgressPerItemEffectProps {
+  // Gson ignores transient state; only setters and JSON input mark properties as present.
+  private transient Set<String> openapiExplicitlySetFields = new HashSet<>();
+
   public static final String SERIALIZED_NAME_ACHIEVEMENT_ID = "achievementId";
   @SerializedName(SERIALIZED_NAME_ACHIEVEMENT_ID)
   @javax.annotation.Nonnull
@@ -107,6 +110,7 @@ public class RollbackIncreasedAchievementProgressPerItemEffectProps {
 
   public RollbackIncreasedAchievementProgressPerItemEffectProps achievementId(@javax.annotation.Nonnull Long achievementId) {
     this.achievementId = achievementId;
+    this.markPropertyAsSet(SERIALIZED_NAME_ACHIEVEMENT_ID);
     return this;
   }
 
@@ -121,11 +125,13 @@ public class RollbackIncreasedAchievementProgressPerItemEffectProps {
 
   public void setAchievementId(@javax.annotation.Nonnull Long achievementId) {
     this.achievementId = achievementId;
+    this.markPropertyAsSet(SERIALIZED_NAME_ACHIEVEMENT_ID);
   }
 
 
   public RollbackIncreasedAchievementProgressPerItemEffectProps achievementName(@javax.annotation.Nonnull String achievementName) {
     this.achievementName = achievementName;
+    this.markPropertyAsSet(SERIALIZED_NAME_ACHIEVEMENT_NAME);
     return this;
   }
 
@@ -140,11 +146,13 @@ public class RollbackIncreasedAchievementProgressPerItemEffectProps {
 
   public void setAchievementName(@javax.annotation.Nonnull String achievementName) {
     this.achievementName = achievementName;
+    this.markPropertyAsSet(SERIALIZED_NAME_ACHIEVEMENT_NAME);
   }
 
 
   public RollbackIncreasedAchievementProgressPerItemEffectProps progressTrackerId(@javax.annotation.Nonnull Long progressTrackerId) {
     this.progressTrackerId = progressTrackerId;
+    this.markPropertyAsSet(SERIALIZED_NAME_PROGRESS_TRACKER_ID);
     return this;
   }
 
@@ -159,11 +167,13 @@ public class RollbackIncreasedAchievementProgressPerItemEffectProps {
 
   public void setProgressTrackerId(@javax.annotation.Nonnull Long progressTrackerId) {
     this.progressTrackerId = progressTrackerId;
+    this.markPropertyAsSet(SERIALIZED_NAME_PROGRESS_TRACKER_ID);
   }
 
 
   public RollbackIncreasedAchievementProgressPerItemEffectProps decreaseProgressBy(@javax.annotation.Nonnull BigDecimal decreaseProgressBy) {
     this.decreaseProgressBy = decreaseProgressBy;
+    this.markPropertyAsSet(SERIALIZED_NAME_DECREASE_PROGRESS_BY);
     return this;
   }
 
@@ -178,11 +188,13 @@ public class RollbackIncreasedAchievementProgressPerItemEffectProps {
 
   public void setDecreaseProgressBy(@javax.annotation.Nonnull BigDecimal decreaseProgressBy) {
     this.decreaseProgressBy = decreaseProgressBy;
+    this.markPropertyAsSet(SERIALIZED_NAME_DECREASE_PROGRESS_BY);
   }
 
 
   public RollbackIncreasedAchievementProgressPerItemEffectProps currentProgress(@javax.annotation.Nonnull BigDecimal currentProgress) {
     this.currentProgress = currentProgress;
+    this.markPropertyAsSet(SERIALIZED_NAME_CURRENT_PROGRESS);
     return this;
   }
 
@@ -197,11 +209,13 @@ public class RollbackIncreasedAchievementProgressPerItemEffectProps {
 
   public void setCurrentProgress(@javax.annotation.Nonnull BigDecimal currentProgress) {
     this.currentProgress = currentProgress;
+    this.markPropertyAsSet(SERIALIZED_NAME_CURRENT_PROGRESS);
   }
 
 
   public RollbackIncreasedAchievementProgressPerItemEffectProps target(@javax.annotation.Nonnull BigDecimal target) {
     this.target = target;
+    this.markPropertyAsSet(SERIALIZED_NAME_TARGET);
     return this;
   }
 
@@ -216,11 +230,13 @@ public class RollbackIncreasedAchievementProgressPerItemEffectProps {
 
   public void setTarget(@javax.annotation.Nonnull BigDecimal target) {
     this.target = target;
+    this.markPropertyAsSet(SERIALIZED_NAME_TARGET);
   }
 
 
   public RollbackIncreasedAchievementProgressPerItemEffectProps cartItemPosition(@javax.annotation.Nonnull BigDecimal cartItemPosition) {
     this.cartItemPosition = cartItemPosition;
+    this.markPropertyAsSet(SERIALIZED_NAME_CART_ITEM_POSITION);
     return this;
   }
 
@@ -235,11 +251,13 @@ public class RollbackIncreasedAchievementProgressPerItemEffectProps {
 
   public void setCartItemPosition(@javax.annotation.Nonnull BigDecimal cartItemPosition) {
     this.cartItemPosition = cartItemPosition;
+    this.markPropertyAsSet(SERIALIZED_NAME_CART_ITEM_POSITION);
   }
 
 
   public RollbackIncreasedAchievementProgressPerItemEffectProps cartItemSubPosition(@javax.annotation.Nullable BigDecimal cartItemSubPosition) {
     this.cartItemSubPosition = cartItemSubPosition;
+    this.markPropertyAsSet(SERIALIZED_NAME_CART_ITEM_SUB_POSITION);
     return this;
   }
 
@@ -254,11 +272,13 @@ public class RollbackIncreasedAchievementProgressPerItemEffectProps {
 
   public void setCartItemSubPosition(@javax.annotation.Nullable BigDecimal cartItemSubPosition) {
     this.cartItemSubPosition = cartItemSubPosition;
+    this.markPropertyAsSet(SERIALIZED_NAME_CART_ITEM_SUB_POSITION);
   }
 
 
   public RollbackIncreasedAchievementProgressPerItemEffectProps bundleIndex(@javax.annotation.Nullable Long bundleIndex) {
     this.bundleIndex = bundleIndex;
+    this.markPropertyAsSet(SERIALIZED_NAME_BUNDLE_INDEX);
     return this;
   }
 
@@ -273,11 +293,13 @@ public class RollbackIncreasedAchievementProgressPerItemEffectProps {
 
   public void setBundleIndex(@javax.annotation.Nullable Long bundleIndex) {
     this.bundleIndex = bundleIndex;
+    this.markPropertyAsSet(SERIALIZED_NAME_BUNDLE_INDEX);
   }
 
 
   public RollbackIncreasedAchievementProgressPerItemEffectProps bundleName(@javax.annotation.Nullable String bundleName) {
     this.bundleName = bundleName;
+    this.markPropertyAsSet(SERIALIZED_NAME_BUNDLE_NAME);
     return this;
   }
 
@@ -292,6 +314,7 @@ public class RollbackIncreasedAchievementProgressPerItemEffectProps {
 
   public void setBundleName(@javax.annotation.Nullable String bundleName) {
     this.bundleName = bundleName;
+    this.markPropertyAsSet(SERIALIZED_NAME_BUNDLE_NAME);
   }
 
   /**
@@ -337,6 +360,21 @@ public class RollbackIncreasedAchievementProgressPerItemEffectProps {
         return null;
     }
     return this.additionalProperties.get(key);
+  }
+
+  /** Omit null properties unless they were explicitly assigned or present in JSON input. */
+  protected final void removeUnsetNullFields(JsonObject obj) {
+    obj.entrySet().removeIf(entry -> entry.getValue().isJsonNull()
+        && !openapiExplicitlySetFields.contains(entry.getKey()));
+  }
+
+  protected final void markPropertyAsSet(String propertyName) {
+    openapiExplicitlySetFields.add(propertyName);
+  }
+
+  /** Gson populates fields directly, bypassing setters during deserialization. */
+  protected final void markPropertiesAsSet(Set<String> propertyNames) {
+    openapiExplicitlySetFields.addAll(propertyNames);
   }
 
 
@@ -439,7 +477,7 @@ public class RollbackIncreasedAchievementProgressPerItemEffectProps {
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
        if (!RollbackIncreasedAchievementProgressPerItemEffectProps.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'RollbackIncreasedAchievementProgressPerItemEffectProps' and its subtypes
+         return null; // let other model factories handle this type
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
        final TypeAdapter<RollbackIncreasedAchievementProgressPerItemEffectProps> thisAdapter
@@ -449,31 +487,22 @@ public class RollbackIncreasedAchievementProgressPerItemEffectProps {
            @Override
            public void write(JsonWriter out, RollbackIncreasedAchievementProgressPerItemEffectProps value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+             value.removeUnsetNullFields(obj);
              obj.remove("additionalProperties");
              // serialize additional properties
              if (value.getAdditionalProperties() != null) {
                for (Map.Entry<String, Object> entry : value.getAdditionalProperties().entrySet()) {
-                 if (entry.getValue() instanceof String)
-                   obj.addProperty(entry.getKey(), (String) entry.getValue());
-                 else if (entry.getValue() instanceof Number)
-                   obj.addProperty(entry.getKey(), (Number) entry.getValue());
-                 else if (entry.getValue() instanceof Boolean)
-                   obj.addProperty(entry.getKey(), (Boolean) entry.getValue());
-                 else if (entry.getValue() instanceof Character)
-                   obj.addProperty(entry.getKey(), (Character) entry.getValue());
-                 else {
-                   JsonElement jsonElement = gson.toJsonTree(entry.getValue());
-                   if (jsonElement.isJsonNull()) {
-                     obj.add(entry.getKey(), JsonNull.INSTANCE);
-                   } else if (jsonElement.isJsonArray()) {
-                     obj.add(entry.getKey(), jsonElement.getAsJsonArray());
-                   } else {
-                     obj.add(entry.getKey(), jsonElement.getAsJsonObject());
-                   }
-                 }
+                 // TypeAdapter.toJsonTree keeps explicit null entries in arbitrary maps too.
+                 obj.add(entry.getKey(), gson.getAdapter(Object.class).toJsonTree(entry.getValue()));
                }
              }
-             elementAdapter.write(out, obj);
+             boolean originalSerializeNulls = out.getSerializeNulls();
+             try {
+               out.setSerializeNulls(true);
+               elementAdapter.write(out, obj);
+             } finally {
+               out.setSerializeNulls(originalSerializeNulls);
+             }
            }
 
            @Override
@@ -483,6 +512,7 @@ public class RollbackIncreasedAchievementProgressPerItemEffectProps {
              JsonObject jsonObj = jsonElement.getAsJsonObject();
              // store additional fields in the deserialized instance
              RollbackIncreasedAchievementProgressPerItemEffectProps instance = thisAdapter.fromJsonTree(jsonObj);
+             instance.markPropertiesAsSet(jsonObj.keySet());
              for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
                if (!openapiFields.contains(entry.getKey())) {
                  if (entry.getValue().isJsonPrimitive()) { // primitive type

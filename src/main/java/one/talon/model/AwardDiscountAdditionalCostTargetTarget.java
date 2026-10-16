@@ -73,41 +73,51 @@ public class AwardDiscountAdditionalCostTargetTarget extends AbstractOpenApiSche
                 return null; // this class only serializes 'AwardDiscountAdditionalCostTargetTarget' and its subtypes
             }
             final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-            final TypeAdapter<AwardDiscountCartTarget> adapterAwardDiscountCartTarget = gson.getDelegateAdapter(this, TypeToken.get(AwardDiscountCartTarget.class));
-            final TypeAdapter<AwardDiscountAllItemsTarget> adapterAwardDiscountAllItemsTarget = gson.getDelegateAdapter(this, TypeToken.get(AwardDiscountAllItemsTarget.class));
-            final TypeAdapter<AwardDiscountGlobalFilterTarget> adapterAwardDiscountGlobalFilterTarget = gson.getDelegateAdapter(this, TypeToken.get(AwardDiscountGlobalFilterTarget.class));
-            final TypeAdapter<AwardDiscountSelectorTarget> adapterAwardDiscountSelectorTarget = gson.getDelegateAdapter(this, TypeToken.get(AwardDiscountSelectorTarget.class));
+            final TypeAdapter<AwardDiscountCartTarget> adapterAwardDiscountCartTarget = gson.getAdapter(TypeToken.get(AwardDiscountCartTarget.class));
+            final TypeAdapter<AwardDiscountAllItemsTarget> adapterAwardDiscountAllItemsTarget = gson.getAdapter(TypeToken.get(AwardDiscountAllItemsTarget.class));
+            final TypeAdapter<AwardDiscountGlobalFilterTarget> adapterAwardDiscountGlobalFilterTarget = gson.getAdapter(TypeToken.get(AwardDiscountGlobalFilterTarget.class));
+            final TypeAdapter<AwardDiscountSelectorTarget> adapterAwardDiscountSelectorTarget = gson.getAdapter(TypeToken.get(AwardDiscountSelectorTarget.class));
 
             return (TypeAdapter<T>) new TypeAdapter<AwardDiscountAdditionalCostTargetTarget>() {
+                private void writeJsonElement(JsonWriter out, JsonElement value) throws IOException {
+                    boolean originalSerializeNulls = out.getSerializeNulls();
+                    try {
+                        out.setSerializeNulls(true);
+                        elementAdapter.write(out, value);
+                    } finally {
+                        out.setSerializeNulls(originalSerializeNulls);
+                    }
+                }
+
                 @Override
                 public void write(JsonWriter out, AwardDiscountAdditionalCostTargetTarget value) throws IOException {
                     if (value == null || value.getActualInstance() == null) {
-                        elementAdapter.write(out, null);
+                        writeJsonElement(out, null);
                         return;
                     }
 
                     // check if the actual instance is of the type `AwardDiscountCartTarget`
                     if (value.getActualInstance() instanceof AwardDiscountCartTarget) {
                         JsonElement element = adapterAwardDiscountCartTarget.toJsonTree((AwardDiscountCartTarget)value.getActualInstance());
-                        elementAdapter.write(out, element);
+                        writeJsonElement(out, element);
                         return;
                     }
                     // check if the actual instance is of the type `AwardDiscountAllItemsTarget`
                     if (value.getActualInstance() instanceof AwardDiscountAllItemsTarget) {
                         JsonElement element = adapterAwardDiscountAllItemsTarget.toJsonTree((AwardDiscountAllItemsTarget)value.getActualInstance());
-                        elementAdapter.write(out, element);
+                        writeJsonElement(out, element);
                         return;
                     }
                     // check if the actual instance is of the type `AwardDiscountGlobalFilterTarget`
                     if (value.getActualInstance() instanceof AwardDiscountGlobalFilterTarget) {
                         JsonElement element = adapterAwardDiscountGlobalFilterTarget.toJsonTree((AwardDiscountGlobalFilterTarget)value.getActualInstance());
-                        elementAdapter.write(out, element);
+                        writeJsonElement(out, element);
                         return;
                     }
                     // check if the actual instance is of the type `AwardDiscountSelectorTarget`
                     if (value.getActualInstance() instanceof AwardDiscountSelectorTarget) {
                         JsonElement element = adapterAwardDiscountSelectorTarget.toJsonTree((AwardDiscountSelectorTarget)value.getActualInstance());
-                        elementAdapter.write(out, element);
+                        writeJsonElement(out, element);
                         return;
                     }
                     throw new IOException("Failed to serialize as the type doesn't match oneOf schemas: AwardDiscountAllItemsTarget, AwardDiscountCartTarget, AwardDiscountGlobalFilterTarget, AwardDiscountSelectorTarget");

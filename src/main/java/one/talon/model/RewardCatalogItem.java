@@ -56,6 +56,9 @@ import one.talon.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.26.0")
 public class RewardCatalogItem {
+  // Gson ignores transient state; only setters and JSON input mark properties as present.
+  private transient Set<String> openapiExplicitlySetFields = new HashSet<>();
+
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
   @javax.annotation.Nonnull
@@ -91,6 +94,7 @@ public class RewardCatalogItem {
 
   public RewardCatalogItem id(@javax.annotation.Nonnull Long id) {
     this.id = id;
+    this.markPropertyAsSet(SERIALIZED_NAME_ID);
     return this;
   }
 
@@ -105,11 +109,13 @@ public class RewardCatalogItem {
 
   public void setId(@javax.annotation.Nonnull Long id) {
     this.id = id;
+    this.markPropertyAsSet(SERIALIZED_NAME_ID);
   }
 
 
   public RewardCatalogItem name(@javax.annotation.Nonnull String name) {
     this.name = name;
+    this.markPropertyAsSet(SERIALIZED_NAME_NAME);
     return this;
   }
 
@@ -124,11 +130,13 @@ public class RewardCatalogItem {
 
   public void setName(@javax.annotation.Nonnull String name) {
     this.name = name;
+    this.markPropertyAsSet(SERIALIZED_NAME_NAME);
   }
 
 
   public RewardCatalogItem description(@javax.annotation.Nullable String description) {
     this.description = description;
+    this.markPropertyAsSet(SERIALIZED_NAME_DESCRIPTION);
     return this;
   }
 
@@ -143,11 +151,13 @@ public class RewardCatalogItem {
 
   public void setDescription(@javax.annotation.Nullable String description) {
     this.description = description;
+    this.markPropertyAsSet(SERIALIZED_NAME_DESCRIPTION);
   }
 
 
   public RewardCatalogItem pointsRequired(@javax.annotation.Nullable List<RewardPointsRequired> pointsRequired) {
     this.pointsRequired = pointsRequired;
+    this.markPropertyAsSet(SERIALIZED_NAME_POINTS_REQUIRED);
     return this;
   }
 
@@ -156,6 +166,7 @@ public class RewardCatalogItem {
       this.pointsRequired = new ArrayList<>();
     }
     this.pointsRequired.add(pointsRequiredItem);
+    this.markPropertyAsSet(SERIALIZED_NAME_POINTS_REQUIRED);
     return this;
   }
 
@@ -170,11 +181,13 @@ public class RewardCatalogItem {
 
   public void setPointsRequired(@javax.annotation.Nullable List<RewardPointsRequired> pointsRequired) {
     this.pointsRequired = pointsRequired;
+    this.markPropertyAsSet(SERIALIZED_NAME_POINTS_REQUIRED);
   }
 
 
   public RewardCatalogItem rule(@javax.annotation.Nonnull RuleMetadata rule) {
     this.rule = rule;
+    this.markPropertyAsSet(SERIALIZED_NAME_RULE);
     return this;
   }
 
@@ -189,11 +202,13 @@ public class RewardCatalogItem {
 
   public void setRule(@javax.annotation.Nonnull RuleMetadata rule) {
     this.rule = rule;
+    this.markPropertyAsSet(SERIALIZED_NAME_RULE);
   }
 
 
   public RewardCatalogItem eligibility(@javax.annotation.Nullable RewardEligibility eligibility) {
     this.eligibility = eligibility;
+    this.markPropertyAsSet(SERIALIZED_NAME_ELIGIBILITY);
     return this;
   }
 
@@ -208,6 +223,7 @@ public class RewardCatalogItem {
 
   public void setEligibility(@javax.annotation.Nullable RewardEligibility eligibility) {
     this.eligibility = eligibility;
+    this.markPropertyAsSet(SERIALIZED_NAME_ELIGIBILITY);
   }
 
   /**
@@ -253,6 +269,21 @@ public class RewardCatalogItem {
         return null;
     }
     return this.additionalProperties.get(key);
+  }
+
+  /** Omit null properties unless they were explicitly assigned or present in JSON input. */
+  protected final void removeUnsetNullFields(JsonObject obj) {
+    obj.entrySet().removeIf(entry -> entry.getValue().isJsonNull()
+        && !openapiExplicitlySetFields.contains(entry.getKey()));
+  }
+
+  protected final void markPropertyAsSet(String propertyName) {
+    openapiExplicitlySetFields.add(propertyName);
+  }
+
+  /** Gson populates fields directly, bypassing setters during deserialization. */
+  protected final void markPropertiesAsSet(Set<String> propertyNames) {
+    openapiExplicitlySetFields.addAll(propertyNames);
   }
 
 
@@ -367,7 +398,7 @@ public class RewardCatalogItem {
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
        if (!RewardCatalogItem.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'RewardCatalogItem' and its subtypes
+         return null; // let other model factories handle this type
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
        final TypeAdapter<RewardCatalogItem> thisAdapter
@@ -377,31 +408,22 @@ public class RewardCatalogItem {
            @Override
            public void write(JsonWriter out, RewardCatalogItem value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+             value.removeUnsetNullFields(obj);
              obj.remove("additionalProperties");
              // serialize additional properties
              if (value.getAdditionalProperties() != null) {
                for (Map.Entry<String, Object> entry : value.getAdditionalProperties().entrySet()) {
-                 if (entry.getValue() instanceof String)
-                   obj.addProperty(entry.getKey(), (String) entry.getValue());
-                 else if (entry.getValue() instanceof Number)
-                   obj.addProperty(entry.getKey(), (Number) entry.getValue());
-                 else if (entry.getValue() instanceof Boolean)
-                   obj.addProperty(entry.getKey(), (Boolean) entry.getValue());
-                 else if (entry.getValue() instanceof Character)
-                   obj.addProperty(entry.getKey(), (Character) entry.getValue());
-                 else {
-                   JsonElement jsonElement = gson.toJsonTree(entry.getValue());
-                   if (jsonElement.isJsonNull()) {
-                     obj.add(entry.getKey(), JsonNull.INSTANCE);
-                   } else if (jsonElement.isJsonArray()) {
-                     obj.add(entry.getKey(), jsonElement.getAsJsonArray());
-                   } else {
-                     obj.add(entry.getKey(), jsonElement.getAsJsonObject());
-                   }
-                 }
+                 // TypeAdapter.toJsonTree keeps explicit null entries in arbitrary maps too.
+                 obj.add(entry.getKey(), gson.getAdapter(Object.class).toJsonTree(entry.getValue()));
                }
              }
-             elementAdapter.write(out, obj);
+             boolean originalSerializeNulls = out.getSerializeNulls();
+             try {
+               out.setSerializeNulls(true);
+               elementAdapter.write(out, obj);
+             } finally {
+               out.setSerializeNulls(originalSerializeNulls);
+             }
            }
 
            @Override
@@ -411,6 +433,7 @@ public class RewardCatalogItem {
              JsonObject jsonObj = jsonElement.getAsJsonObject();
              // store additional fields in the deserialized instance
              RewardCatalogItem instance = thisAdapter.fromJsonTree(jsonObj);
+             instance.markPropertiesAsSet(jsonObj.keySet());
              for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
                if (!openapiFields.contains(entry.getKey())) {
                  if (entry.getValue().isJsonPrimitive()) { // primitive type
