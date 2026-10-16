@@ -55,6 +55,9 @@ import one.talon.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.26.0")
 public class BestPriorPriceMetadata {
+  // Gson ignores transient state; only setters and JSON input mark properties as present.
+  private transient Set<String> openapiExplicitlySetFields = new HashSet<>();
+
   public static final String SERIALIZED_NAME_INFLUENCING_CAMPAIGN_DETAILS = "influencingCampaignDetails";
   @SerializedName(SERIALIZED_NAME_INFLUENCING_CAMPAIGN_DETAILS)
   @javax.annotation.Nonnull
@@ -70,6 +73,7 @@ public class BestPriorPriceMetadata {
 
   public BestPriorPriceMetadata influencingCampaignDetails(@javax.annotation.Nonnull List<InfluencingCampaignDetails> influencingCampaignDetails) {
     this.influencingCampaignDetails = influencingCampaignDetails;
+    this.markPropertyAsSet(SERIALIZED_NAME_INFLUENCING_CAMPAIGN_DETAILS);
     return this;
   }
 
@@ -78,6 +82,7 @@ public class BestPriorPriceMetadata {
       this.influencingCampaignDetails = new ArrayList<>();
     }
     this.influencingCampaignDetails.add(influencingCampaignDetailsItem);
+    this.markPropertyAsSet(SERIALIZED_NAME_INFLUENCING_CAMPAIGN_DETAILS);
     return this;
   }
 
@@ -92,11 +97,13 @@ public class BestPriorPriceMetadata {
 
   public void setInfluencingCampaignDetails(@javax.annotation.Nonnull List<InfluencingCampaignDetails> influencingCampaignDetails) {
     this.influencingCampaignDetails = influencingCampaignDetails;
+    this.markPropertyAsSet(SERIALIZED_NAME_INFLUENCING_CAMPAIGN_DETAILS);
   }
 
 
   public BestPriorPriceMetadata adjustmentDetails(@javax.annotation.Nullable AdjustmentDetails adjustmentDetails) {
     this.adjustmentDetails = adjustmentDetails;
+    this.markPropertyAsSet(SERIALIZED_NAME_ADJUSTMENT_DETAILS);
     return this;
   }
 
@@ -111,6 +118,7 @@ public class BestPriorPriceMetadata {
 
   public void setAdjustmentDetails(@javax.annotation.Nullable AdjustmentDetails adjustmentDetails) {
     this.adjustmentDetails = adjustmentDetails;
+    this.markPropertyAsSet(SERIALIZED_NAME_ADJUSTMENT_DETAILS);
   }
 
   /**
@@ -156,6 +164,21 @@ public class BestPriorPriceMetadata {
         return null;
     }
     return this.additionalProperties.get(key);
+  }
+
+  /** Omit null properties unless they were explicitly assigned or present in JSON input. */
+  protected final void removeUnsetNullFields(JsonObject obj) {
+    obj.entrySet().removeIf(entry -> entry.getValue().isJsonNull()
+        && !openapiExplicitlySetFields.contains(entry.getKey()));
+  }
+
+  protected final void markPropertyAsSet(String propertyName) {
+    openapiExplicitlySetFields.add(propertyName);
+  }
+
+  /** Gson populates fields directly, bypassing setters during deserialization. */
+  protected final void markPropertiesAsSet(Set<String> propertyNames) {
+    openapiExplicitlySetFields.addAll(propertyNames);
   }
 
 
@@ -250,7 +273,7 @@ public class BestPriorPriceMetadata {
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
        if (!BestPriorPriceMetadata.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'BestPriorPriceMetadata' and its subtypes
+         return null; // let other model factories handle this type
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
        final TypeAdapter<BestPriorPriceMetadata> thisAdapter
@@ -260,31 +283,22 @@ public class BestPriorPriceMetadata {
            @Override
            public void write(JsonWriter out, BestPriorPriceMetadata value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+             value.removeUnsetNullFields(obj);
              obj.remove("additionalProperties");
              // serialize additional properties
              if (value.getAdditionalProperties() != null) {
                for (Map.Entry<String, Object> entry : value.getAdditionalProperties().entrySet()) {
-                 if (entry.getValue() instanceof String)
-                   obj.addProperty(entry.getKey(), (String) entry.getValue());
-                 else if (entry.getValue() instanceof Number)
-                   obj.addProperty(entry.getKey(), (Number) entry.getValue());
-                 else if (entry.getValue() instanceof Boolean)
-                   obj.addProperty(entry.getKey(), (Boolean) entry.getValue());
-                 else if (entry.getValue() instanceof Character)
-                   obj.addProperty(entry.getKey(), (Character) entry.getValue());
-                 else {
-                   JsonElement jsonElement = gson.toJsonTree(entry.getValue());
-                   if (jsonElement.isJsonNull()) {
-                     obj.add(entry.getKey(), JsonNull.INSTANCE);
-                   } else if (jsonElement.isJsonArray()) {
-                     obj.add(entry.getKey(), jsonElement.getAsJsonArray());
-                   } else {
-                     obj.add(entry.getKey(), jsonElement.getAsJsonObject());
-                   }
-                 }
+                 // TypeAdapter.toJsonTree keeps explicit null entries in arbitrary maps too.
+                 obj.add(entry.getKey(), gson.getAdapter(Object.class).toJsonTree(entry.getValue()));
                }
              }
-             elementAdapter.write(out, obj);
+             boolean originalSerializeNulls = out.getSerializeNulls();
+             try {
+               out.setSerializeNulls(true);
+               elementAdapter.write(out, obj);
+             } finally {
+               out.setSerializeNulls(originalSerializeNulls);
+             }
            }
 
            @Override
@@ -294,6 +308,7 @@ public class BestPriorPriceMetadata {
              JsonObject jsonObj = jsonElement.getAsJsonObject();
              // store additional fields in the deserialized instance
              BestPriorPriceMetadata instance = thisAdapter.fromJsonTree(jsonObj);
+             instance.markPropertiesAsSet(jsonObj.keySet());
              for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
                if (!openapiFields.contains(entry.getKey())) {
                  if (entry.getValue().isJsonPrimitive()) { // primitive type

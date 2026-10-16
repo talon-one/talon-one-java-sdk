@@ -52,6 +52,9 @@ import one.talon.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.26.0")
 public class ApplicationApiHealth {
+  // Gson ignores transient state; only setters and JSON input mark properties as present.
+  private transient Set<String> openapiExplicitlySetFields = new HashSet<>();
+
   /**
    * One-word summary of the health of the API connection of an application. Possible values are: - &#x60;OK&#x60;: The Application has received only successful API requests in the last 5 minutes. - &#x60;WARNING&#x60;: The Application received at least one failed request in the last 5 minutes. - &#x60;ERROR&#x60;: More than 50% of received requests failed. - &#x60;CRITICAL&#x60;: All received requests failed. - &#x60;NONE&#x60;: During the last 5 minutes, the Application hasn&#39;t recorded any integration API requests. 
    */
@@ -125,6 +128,7 @@ public class ApplicationApiHealth {
 
   public ApplicationApiHealth summary(@javax.annotation.Nonnull SummaryEnum summary) {
     this.summary = summary;
+    this.markPropertyAsSet(SERIALIZED_NAME_SUMMARY);
     return this;
   }
 
@@ -139,11 +143,13 @@ public class ApplicationApiHealth {
 
   public void setSummary(@javax.annotation.Nonnull SummaryEnum summary) {
     this.summary = summary;
+    this.markPropertyAsSet(SERIALIZED_NAME_SUMMARY);
   }
 
 
   public ApplicationApiHealth lastUsed(@javax.annotation.Nonnull OffsetDateTime lastUsed) {
     this.lastUsed = lastUsed;
+    this.markPropertyAsSet(SERIALIZED_NAME_LAST_USED);
     return this;
   }
 
@@ -158,6 +164,7 @@ public class ApplicationApiHealth {
 
   public void setLastUsed(@javax.annotation.Nonnull OffsetDateTime lastUsed) {
     this.lastUsed = lastUsed;
+    this.markPropertyAsSet(SERIALIZED_NAME_LAST_USED);
   }
 
   /**
@@ -203,6 +210,21 @@ public class ApplicationApiHealth {
         return null;
     }
     return this.additionalProperties.get(key);
+  }
+
+  /** Omit null properties unless they were explicitly assigned or present in JSON input. */
+  protected final void removeUnsetNullFields(JsonObject obj) {
+    obj.entrySet().removeIf(entry -> entry.getValue().isJsonNull()
+        && !openapiExplicitlySetFields.contains(entry.getKey()));
+  }
+
+  protected final void markPropertyAsSet(String propertyName) {
+    openapiExplicitlySetFields.add(propertyName);
+  }
+
+  /** Gson populates fields directly, bypassing setters during deserialization. */
+  protected final void markPropertiesAsSet(Set<String> propertyNames) {
+    openapiExplicitlySetFields.addAll(propertyNames);
   }
 
 
@@ -288,7 +310,7 @@ public class ApplicationApiHealth {
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
        if (!ApplicationApiHealth.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'ApplicationApiHealth' and its subtypes
+         return null; // let other model factories handle this type
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
        final TypeAdapter<ApplicationApiHealth> thisAdapter
@@ -298,31 +320,22 @@ public class ApplicationApiHealth {
            @Override
            public void write(JsonWriter out, ApplicationApiHealth value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+             value.removeUnsetNullFields(obj);
              obj.remove("additionalProperties");
              // serialize additional properties
              if (value.getAdditionalProperties() != null) {
                for (Map.Entry<String, Object> entry : value.getAdditionalProperties().entrySet()) {
-                 if (entry.getValue() instanceof String)
-                   obj.addProperty(entry.getKey(), (String) entry.getValue());
-                 else if (entry.getValue() instanceof Number)
-                   obj.addProperty(entry.getKey(), (Number) entry.getValue());
-                 else if (entry.getValue() instanceof Boolean)
-                   obj.addProperty(entry.getKey(), (Boolean) entry.getValue());
-                 else if (entry.getValue() instanceof Character)
-                   obj.addProperty(entry.getKey(), (Character) entry.getValue());
-                 else {
-                   JsonElement jsonElement = gson.toJsonTree(entry.getValue());
-                   if (jsonElement.isJsonNull()) {
-                     obj.add(entry.getKey(), JsonNull.INSTANCE);
-                   } else if (jsonElement.isJsonArray()) {
-                     obj.add(entry.getKey(), jsonElement.getAsJsonArray());
-                   } else {
-                     obj.add(entry.getKey(), jsonElement.getAsJsonObject());
-                   }
-                 }
+                 // TypeAdapter.toJsonTree keeps explicit null entries in arbitrary maps too.
+                 obj.add(entry.getKey(), gson.getAdapter(Object.class).toJsonTree(entry.getValue()));
                }
              }
-             elementAdapter.write(out, obj);
+             boolean originalSerializeNulls = out.getSerializeNulls();
+             try {
+               out.setSerializeNulls(true);
+               elementAdapter.write(out, obj);
+             } finally {
+               out.setSerializeNulls(originalSerializeNulls);
+             }
            }
 
            @Override
@@ -332,6 +345,7 @@ public class ApplicationApiHealth {
              JsonObject jsonObj = jsonElement.getAsJsonObject();
              // store additional fields in the deserialized instance
              ApplicationApiHealth instance = thisAdapter.fromJsonTree(jsonObj);
+             instance.markPropertiesAsSet(jsonObj.keySet());
              for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
                if (!openapiFields.contains(entry.getKey())) {
                  if (entry.getValue().isJsonPrimitive()) { // primitive type

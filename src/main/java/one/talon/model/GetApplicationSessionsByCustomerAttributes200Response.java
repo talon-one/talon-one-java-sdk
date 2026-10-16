@@ -54,6 +54,9 @@ import one.talon.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.26.0")
 public class GetApplicationSessionsByCustomerAttributes200Response {
+  // Gson ignores transient state; only setters and JSON input mark properties as present.
+  private transient Set<String> openapiExplicitlySetFields = new HashSet<>();
+
   public static final String SERIALIZED_NAME_HAS_MORE = "hasMore";
   @SerializedName(SERIALIZED_NAME_HAS_MORE)
   @javax.annotation.Nullable
@@ -74,6 +77,7 @@ public class GetApplicationSessionsByCustomerAttributes200Response {
 
   public GetApplicationSessionsByCustomerAttributes200Response hasMore(@javax.annotation.Nullable Boolean hasMore) {
     this.hasMore = hasMore;
+    this.markPropertyAsSet(SERIALIZED_NAME_HAS_MORE);
     return this;
   }
 
@@ -88,11 +92,13 @@ public class GetApplicationSessionsByCustomerAttributes200Response {
 
   public void setHasMore(@javax.annotation.Nullable Boolean hasMore) {
     this.hasMore = hasMore;
+    this.markPropertyAsSet(SERIALIZED_NAME_HAS_MORE);
   }
 
 
   public GetApplicationSessionsByCustomerAttributes200Response totalResultSize(@javax.annotation.Nullable Long totalResultSize) {
     this.totalResultSize = totalResultSize;
+    this.markPropertyAsSet(SERIALIZED_NAME_TOTAL_RESULT_SIZE);
     return this;
   }
 
@@ -107,11 +113,13 @@ public class GetApplicationSessionsByCustomerAttributes200Response {
 
   public void setTotalResultSize(@javax.annotation.Nullable Long totalResultSize) {
     this.totalResultSize = totalResultSize;
+    this.markPropertyAsSet(SERIALIZED_NAME_TOTAL_RESULT_SIZE);
   }
 
 
   public GetApplicationSessionsByCustomerAttributes200Response data(@javax.annotation.Nonnull List<ApplicationSession> data) {
     this.data = data;
+    this.markPropertyAsSet(SERIALIZED_NAME_DATA);
     return this;
   }
 
@@ -120,6 +128,7 @@ public class GetApplicationSessionsByCustomerAttributes200Response {
       this.data = new ArrayList<>();
     }
     this.data.add(dataItem);
+    this.markPropertyAsSet(SERIALIZED_NAME_DATA);
     return this;
   }
 
@@ -134,6 +143,7 @@ public class GetApplicationSessionsByCustomerAttributes200Response {
 
   public void setData(@javax.annotation.Nonnull List<ApplicationSession> data) {
     this.data = data;
+    this.markPropertyAsSet(SERIALIZED_NAME_DATA);
   }
 
   /**
@@ -179,6 +189,21 @@ public class GetApplicationSessionsByCustomerAttributes200Response {
         return null;
     }
     return this.additionalProperties.get(key);
+  }
+
+  /** Omit null properties unless they were explicitly assigned or present in JSON input. */
+  protected final void removeUnsetNullFields(JsonObject obj) {
+    obj.entrySet().removeIf(entry -> entry.getValue().isJsonNull()
+        && !openapiExplicitlySetFields.contains(entry.getKey()));
+  }
+
+  protected final void markPropertyAsSet(String propertyName) {
+    openapiExplicitlySetFields.add(propertyName);
+  }
+
+  /** Gson populates fields directly, bypassing setters during deserialization. */
+  protected final void markPropertiesAsSet(Set<String> propertyNames) {
+    openapiExplicitlySetFields.addAll(propertyNames);
   }
 
 
@@ -271,7 +296,7 @@ public class GetApplicationSessionsByCustomerAttributes200Response {
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
        if (!GetApplicationSessionsByCustomerAttributes200Response.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'GetApplicationSessionsByCustomerAttributes200Response' and its subtypes
+         return null; // let other model factories handle this type
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
        final TypeAdapter<GetApplicationSessionsByCustomerAttributes200Response> thisAdapter
@@ -281,31 +306,22 @@ public class GetApplicationSessionsByCustomerAttributes200Response {
            @Override
            public void write(JsonWriter out, GetApplicationSessionsByCustomerAttributes200Response value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+             value.removeUnsetNullFields(obj);
              obj.remove("additionalProperties");
              // serialize additional properties
              if (value.getAdditionalProperties() != null) {
                for (Map.Entry<String, Object> entry : value.getAdditionalProperties().entrySet()) {
-                 if (entry.getValue() instanceof String)
-                   obj.addProperty(entry.getKey(), (String) entry.getValue());
-                 else if (entry.getValue() instanceof Number)
-                   obj.addProperty(entry.getKey(), (Number) entry.getValue());
-                 else if (entry.getValue() instanceof Boolean)
-                   obj.addProperty(entry.getKey(), (Boolean) entry.getValue());
-                 else if (entry.getValue() instanceof Character)
-                   obj.addProperty(entry.getKey(), (Character) entry.getValue());
-                 else {
-                   JsonElement jsonElement = gson.toJsonTree(entry.getValue());
-                   if (jsonElement.isJsonNull()) {
-                     obj.add(entry.getKey(), JsonNull.INSTANCE);
-                   } else if (jsonElement.isJsonArray()) {
-                     obj.add(entry.getKey(), jsonElement.getAsJsonArray());
-                   } else {
-                     obj.add(entry.getKey(), jsonElement.getAsJsonObject());
-                   }
-                 }
+                 // TypeAdapter.toJsonTree keeps explicit null entries in arbitrary maps too.
+                 obj.add(entry.getKey(), gson.getAdapter(Object.class).toJsonTree(entry.getValue()));
                }
              }
-             elementAdapter.write(out, obj);
+             boolean originalSerializeNulls = out.getSerializeNulls();
+             try {
+               out.setSerializeNulls(true);
+               elementAdapter.write(out, obj);
+             } finally {
+               out.setSerializeNulls(originalSerializeNulls);
+             }
            }
 
            @Override
@@ -315,6 +331,7 @@ public class GetApplicationSessionsByCustomerAttributes200Response {
              JsonObject jsonObj = jsonElement.getAsJsonObject();
              // store additional fields in the deserialized instance
              GetApplicationSessionsByCustomerAttributes200Response instance = thisAdapter.fromJsonTree(jsonObj);
+             instance.markPropertiesAsSet(jsonObj.keySet());
              for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
                if (!openapiFields.contains(entry.getKey())) {
                  if (entry.getValue().isJsonPrimitive()) { // primitive type

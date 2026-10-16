@@ -55,6 +55,9 @@ import one.talon.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.26.0")
 public class CreateTemplateCampaign {
+  // Gson ignores transient state; only setters and JSON input mark properties as present.
+  private transient Set<String> openapiExplicitlySetFields = new HashSet<>();
+
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
   @javax.annotation.Nonnull
@@ -110,6 +113,7 @@ public class CreateTemplateCampaign {
 
   public CreateTemplateCampaign name(@javax.annotation.Nonnull String name) {
     this.name = name;
+    this.markPropertyAsSet(SERIALIZED_NAME_NAME);
     return this;
   }
 
@@ -124,11 +128,13 @@ public class CreateTemplateCampaign {
 
   public void setName(@javax.annotation.Nonnull String name) {
     this.name = name;
+    this.markPropertyAsSet(SERIALIZED_NAME_NAME);
   }
 
 
   public CreateTemplateCampaign description(@javax.annotation.Nullable String description) {
     this.description = description;
+    this.markPropertyAsSet(SERIALIZED_NAME_DESCRIPTION);
     return this;
   }
 
@@ -143,11 +149,13 @@ public class CreateTemplateCampaign {
 
   public void setDescription(@javax.annotation.Nullable String description) {
     this.description = description;
+    this.markPropertyAsSet(SERIALIZED_NAME_DESCRIPTION);
   }
 
 
   public CreateTemplateCampaign templateId(@javax.annotation.Nonnull Long templateId) {
     this.templateId = templateId;
+    this.markPropertyAsSet(SERIALIZED_NAME_TEMPLATE_ID);
     return this;
   }
 
@@ -162,11 +170,13 @@ public class CreateTemplateCampaign {
 
   public void setTemplateId(@javax.annotation.Nonnull Long templateId) {
     this.templateId = templateId;
+    this.markPropertyAsSet(SERIALIZED_NAME_TEMPLATE_ID);
   }
 
 
   public CreateTemplateCampaign campaignAttributesOverrides(@javax.annotation.Nullable Object campaignAttributesOverrides) {
     this.campaignAttributesOverrides = campaignAttributesOverrides;
+    this.markPropertyAsSet(SERIALIZED_NAME_CAMPAIGN_ATTRIBUTES_OVERRIDES);
     return this;
   }
 
@@ -181,11 +191,13 @@ public class CreateTemplateCampaign {
 
   public void setCampaignAttributesOverrides(@javax.annotation.Nullable Object campaignAttributesOverrides) {
     this.campaignAttributesOverrides = campaignAttributesOverrides;
+    this.markPropertyAsSet(SERIALIZED_NAME_CAMPAIGN_ATTRIBUTES_OVERRIDES);
   }
 
 
   public CreateTemplateCampaign templateParamValues(@javax.annotation.Nullable List<Binding> templateParamValues) {
     this.templateParamValues = templateParamValues;
+    this.markPropertyAsSet(SERIALIZED_NAME_TEMPLATE_PARAM_VALUES);
     return this;
   }
 
@@ -194,6 +206,7 @@ public class CreateTemplateCampaign {
       this.templateParamValues = new ArrayList<>();
     }
     this.templateParamValues.add(templateParamValuesItem);
+    this.markPropertyAsSet(SERIALIZED_NAME_TEMPLATE_PARAM_VALUES);
     return this;
   }
 
@@ -208,11 +221,13 @@ public class CreateTemplateCampaign {
 
   public void setTemplateParamValues(@javax.annotation.Nullable List<Binding> templateParamValues) {
     this.templateParamValues = templateParamValues;
+    this.markPropertyAsSet(SERIALIZED_NAME_TEMPLATE_PARAM_VALUES);
   }
 
 
   public CreateTemplateCampaign limitOverrides(@javax.annotation.Nullable List<LimitConfig> limitOverrides) {
     this.limitOverrides = limitOverrides;
+    this.markPropertyAsSet(SERIALIZED_NAME_LIMIT_OVERRIDES);
     return this;
   }
 
@@ -221,6 +236,7 @@ public class CreateTemplateCampaign {
       this.limitOverrides = new ArrayList<>();
     }
     this.limitOverrides.add(limitOverridesItem);
+    this.markPropertyAsSet(SERIALIZED_NAME_LIMIT_OVERRIDES);
     return this;
   }
 
@@ -235,11 +251,13 @@ public class CreateTemplateCampaign {
 
   public void setLimitOverrides(@javax.annotation.Nullable List<LimitConfig> limitOverrides) {
     this.limitOverrides = limitOverrides;
+    this.markPropertyAsSet(SERIALIZED_NAME_LIMIT_OVERRIDES);
   }
 
 
   public CreateTemplateCampaign campaignGroups(@javax.annotation.Nullable List<Long> campaignGroups) {
     this.campaignGroups = campaignGroups;
+    this.markPropertyAsSet(SERIALIZED_NAME_CAMPAIGN_GROUPS);
     return this;
   }
 
@@ -248,6 +266,7 @@ public class CreateTemplateCampaign {
       this.campaignGroups = new ArrayList<>();
     }
     this.campaignGroups.add(campaignGroupsItem);
+    this.markPropertyAsSet(SERIALIZED_NAME_CAMPAIGN_GROUPS);
     return this;
   }
 
@@ -262,11 +281,13 @@ public class CreateTemplateCampaign {
 
   public void setCampaignGroups(@javax.annotation.Nullable List<Long> campaignGroups) {
     this.campaignGroups = campaignGroups;
+    this.markPropertyAsSet(SERIALIZED_NAME_CAMPAIGN_GROUPS);
   }
 
 
   public CreateTemplateCampaign tags(@javax.annotation.Nullable List<String> tags) {
     this.tags = tags;
+    this.markPropertyAsSet(SERIALIZED_NAME_TAGS);
     return this;
   }
 
@@ -275,6 +296,7 @@ public class CreateTemplateCampaign {
       this.tags = new ArrayList<>();
     }
     this.tags.add(tagsItem);
+    this.markPropertyAsSet(SERIALIZED_NAME_TAGS);
     return this;
   }
 
@@ -289,11 +311,13 @@ public class CreateTemplateCampaign {
 
   public void setTags(@javax.annotation.Nullable List<String> tags) {
     this.tags = tags;
+    this.markPropertyAsSet(SERIALIZED_NAME_TAGS);
   }
 
 
   public CreateTemplateCampaign evaluationGroupId(@javax.annotation.Nullable Long evaluationGroupId) {
     this.evaluationGroupId = evaluationGroupId;
+    this.markPropertyAsSet(SERIALIZED_NAME_EVALUATION_GROUP_ID);
     return this;
   }
 
@@ -308,11 +332,13 @@ public class CreateTemplateCampaign {
 
   public void setEvaluationGroupId(@javax.annotation.Nullable Long evaluationGroupId) {
     this.evaluationGroupId = evaluationGroupId;
+    this.markPropertyAsSet(SERIALIZED_NAME_EVALUATION_GROUP_ID);
   }
 
 
   public CreateTemplateCampaign linkedStoreIds(@javax.annotation.Nullable List<Long> linkedStoreIds) {
     this.linkedStoreIds = linkedStoreIds;
+    this.markPropertyAsSet(SERIALIZED_NAME_LINKED_STORE_IDS);
     return this;
   }
 
@@ -321,6 +347,7 @@ public class CreateTemplateCampaign {
       this.linkedStoreIds = new ArrayList<>();
     }
     this.linkedStoreIds.add(linkedStoreIdsItem);
+    this.markPropertyAsSet(SERIALIZED_NAME_LINKED_STORE_IDS);
     return this;
   }
 
@@ -335,6 +362,7 @@ public class CreateTemplateCampaign {
 
   public void setLinkedStoreIds(@javax.annotation.Nullable List<Long> linkedStoreIds) {
     this.linkedStoreIds = linkedStoreIds;
+    this.markPropertyAsSet(SERIALIZED_NAME_LINKED_STORE_IDS);
   }
 
   /**
@@ -380,6 +408,21 @@ public class CreateTemplateCampaign {
         return null;
     }
     return this.additionalProperties.get(key);
+  }
+
+  /** Omit null properties unless they were explicitly assigned or present in JSON input. */
+  protected final void removeUnsetNullFields(JsonObject obj) {
+    obj.entrySet().removeIf(entry -> entry.getValue().isJsonNull()
+        && !openapiExplicitlySetFields.contains(entry.getKey()));
+  }
+
+  protected final void markPropertyAsSet(String propertyName) {
+    openapiExplicitlySetFields.add(propertyName);
+  }
+
+  /** Gson populates fields directly, bypassing setters during deserialization. */
+  protected final void markPropertiesAsSet(Set<String> propertyNames) {
+    openapiExplicitlySetFields.addAll(propertyNames);
   }
 
 
@@ -522,7 +565,7 @@ public class CreateTemplateCampaign {
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
        if (!CreateTemplateCampaign.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'CreateTemplateCampaign' and its subtypes
+         return null; // let other model factories handle this type
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
        final TypeAdapter<CreateTemplateCampaign> thisAdapter
@@ -532,31 +575,22 @@ public class CreateTemplateCampaign {
            @Override
            public void write(JsonWriter out, CreateTemplateCampaign value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+             value.removeUnsetNullFields(obj);
              obj.remove("additionalProperties");
              // serialize additional properties
              if (value.getAdditionalProperties() != null) {
                for (Map.Entry<String, Object> entry : value.getAdditionalProperties().entrySet()) {
-                 if (entry.getValue() instanceof String)
-                   obj.addProperty(entry.getKey(), (String) entry.getValue());
-                 else if (entry.getValue() instanceof Number)
-                   obj.addProperty(entry.getKey(), (Number) entry.getValue());
-                 else if (entry.getValue() instanceof Boolean)
-                   obj.addProperty(entry.getKey(), (Boolean) entry.getValue());
-                 else if (entry.getValue() instanceof Character)
-                   obj.addProperty(entry.getKey(), (Character) entry.getValue());
-                 else {
-                   JsonElement jsonElement = gson.toJsonTree(entry.getValue());
-                   if (jsonElement.isJsonNull()) {
-                     obj.add(entry.getKey(), JsonNull.INSTANCE);
-                   } else if (jsonElement.isJsonArray()) {
-                     obj.add(entry.getKey(), jsonElement.getAsJsonArray());
-                   } else {
-                     obj.add(entry.getKey(), jsonElement.getAsJsonObject());
-                   }
-                 }
+                 // TypeAdapter.toJsonTree keeps explicit null entries in arbitrary maps too.
+                 obj.add(entry.getKey(), gson.getAdapter(Object.class).toJsonTree(entry.getValue()));
                }
              }
-             elementAdapter.write(out, obj);
+             boolean originalSerializeNulls = out.getSerializeNulls();
+             try {
+               out.setSerializeNulls(true);
+               elementAdapter.write(out, obj);
+             } finally {
+               out.setSerializeNulls(originalSerializeNulls);
+             }
            }
 
            @Override
@@ -566,6 +600,7 @@ public class CreateTemplateCampaign {
              JsonObject jsonObj = jsonElement.getAsJsonObject();
              // store additional fields in the deserialized instance
              CreateTemplateCampaign instance = thisAdapter.fromJsonTree(jsonObj);
+             instance.markPropertiesAsSet(jsonObj.keySet());
              for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
                if (!openapiFields.contains(entry.getKey())) {
                  if (entry.getValue().isJsonPrimitive()) { // primitive type

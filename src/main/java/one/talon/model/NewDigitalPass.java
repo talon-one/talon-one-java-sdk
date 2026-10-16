@@ -53,6 +53,9 @@ import one.talon.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.26.0")
 public class NewDigitalPass {
+  // Gson ignores transient state; only setters and JSON input mark properties as present.
+  private transient Set<String> openapiExplicitlySetFields = new HashSet<>();
+
   public static final String SERIALIZED_NAME_LOYALTY_PROGRAM_ID = "loyaltyProgramId";
   @SerializedName(SERIALIZED_NAME_LOYALTY_PROGRAM_ID)
   @javax.annotation.Nonnull
@@ -140,6 +143,7 @@ public class NewDigitalPass {
 
   public NewDigitalPass loyaltyProgramId(@javax.annotation.Nonnull Long loyaltyProgramId) {
     this.loyaltyProgramId = loyaltyProgramId;
+    this.markPropertyAsSet(SERIALIZED_NAME_LOYALTY_PROGRAM_ID);
     return this;
   }
 
@@ -155,11 +159,13 @@ public class NewDigitalPass {
 
   public void setLoyaltyProgramId(@javax.annotation.Nonnull Long loyaltyProgramId) {
     this.loyaltyProgramId = loyaltyProgramId;
+    this.markPropertyAsSet(SERIALIZED_NAME_LOYALTY_PROGRAM_ID);
   }
 
 
   public NewDigitalPass passTemplateId(@javax.annotation.Nonnull String passTemplateId) {
     this.passTemplateId = passTemplateId;
+    this.markPropertyAsSet(SERIALIZED_NAME_PASS_TEMPLATE_ID);
     return this;
   }
 
@@ -174,11 +180,13 @@ public class NewDigitalPass {
 
   public void setPassTemplateId(@javax.annotation.Nonnull String passTemplateId) {
     this.passTemplateId = passTemplateId;
+    this.markPropertyAsSet(SERIALIZED_NAME_PASS_TEMPLATE_ID);
   }
 
 
   public NewDigitalPass profileId(@javax.annotation.Nonnull String profileId) {
     this.profileId = profileId;
+    this.markPropertyAsSet(SERIALIZED_NAME_PROFILE_ID);
     return this;
   }
 
@@ -193,11 +201,13 @@ public class NewDigitalPass {
 
   public void setProfileId(@javax.annotation.Nonnull String profileId) {
     this.profileId = profileId;
+    this.markPropertyAsSet(SERIALIZED_NAME_PROFILE_ID);
   }
 
 
   public NewDigitalPass loyaltyCardId(@javax.annotation.Nullable String loyaltyCardId) {
     this.loyaltyCardId = loyaltyCardId;
+    this.markPropertyAsSet(SERIALIZED_NAME_LOYALTY_CARD_ID);
     return this;
   }
 
@@ -212,11 +222,13 @@ public class NewDigitalPass {
 
   public void setLoyaltyCardId(@javax.annotation.Nullable String loyaltyCardId) {
     this.loyaltyCardId = loyaltyCardId;
+    this.markPropertyAsSet(SERIALIZED_NAME_LOYALTY_CARD_ID);
   }
 
 
   public NewDigitalPass platform(@javax.annotation.Nonnull PlatformEnum platform) {
     this.platform = platform;
+    this.markPropertyAsSet(SERIALIZED_NAME_PLATFORM);
     return this;
   }
 
@@ -231,11 +243,13 @@ public class NewDigitalPass {
 
   public void setPlatform(@javax.annotation.Nonnull PlatformEnum platform) {
     this.platform = platform;
+    this.markPropertyAsSet(SERIALIZED_NAME_PLATFORM);
   }
 
 
   public NewDigitalPass attributes(@javax.annotation.Nullable Map<String, String> attributes) {
     this.attributes = attributes;
+    this.markPropertyAsSet(SERIALIZED_NAME_ATTRIBUTES);
     return this;
   }
 
@@ -244,6 +258,7 @@ public class NewDigitalPass {
       this.attributes = new HashMap<>();
     }
     this.attributes.put(key, attributesItem);
+    this.markPropertyAsSet(SERIALIZED_NAME_ATTRIBUTES);
     return this;
   }
 
@@ -258,6 +273,7 @@ public class NewDigitalPass {
 
   public void setAttributes(@javax.annotation.Nullable Map<String, String> attributes) {
     this.attributes = attributes;
+    this.markPropertyAsSet(SERIALIZED_NAME_ATTRIBUTES);
   }
 
   /**
@@ -303,6 +319,21 @@ public class NewDigitalPass {
         return null;
     }
     return this.additionalProperties.get(key);
+  }
+
+  /** Omit null properties unless they were explicitly assigned or present in JSON input. */
+  protected final void removeUnsetNullFields(JsonObject obj) {
+    obj.entrySet().removeIf(entry -> entry.getValue().isJsonNull()
+        && !openapiExplicitlySetFields.contains(entry.getKey()));
+  }
+
+  protected final void markPropertyAsSet(String propertyName) {
+    openapiExplicitlySetFields.add(propertyName);
+  }
+
+  /** Gson populates fields directly, bypassing setters during deserialization. */
+  protected final void markPropertiesAsSet(Set<String> propertyNames) {
+    openapiExplicitlySetFields.addAll(propertyNames);
   }
 
 
@@ -405,7 +436,7 @@ public class NewDigitalPass {
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
        if (!NewDigitalPass.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'NewDigitalPass' and its subtypes
+         return null; // let other model factories handle this type
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
        final TypeAdapter<NewDigitalPass> thisAdapter
@@ -415,31 +446,22 @@ public class NewDigitalPass {
            @Override
            public void write(JsonWriter out, NewDigitalPass value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+             value.removeUnsetNullFields(obj);
              obj.remove("additionalProperties");
              // serialize additional properties
              if (value.getAdditionalProperties() != null) {
                for (Map.Entry<String, Object> entry : value.getAdditionalProperties().entrySet()) {
-                 if (entry.getValue() instanceof String)
-                   obj.addProperty(entry.getKey(), (String) entry.getValue());
-                 else if (entry.getValue() instanceof Number)
-                   obj.addProperty(entry.getKey(), (Number) entry.getValue());
-                 else if (entry.getValue() instanceof Boolean)
-                   obj.addProperty(entry.getKey(), (Boolean) entry.getValue());
-                 else if (entry.getValue() instanceof Character)
-                   obj.addProperty(entry.getKey(), (Character) entry.getValue());
-                 else {
-                   JsonElement jsonElement = gson.toJsonTree(entry.getValue());
-                   if (jsonElement.isJsonNull()) {
-                     obj.add(entry.getKey(), JsonNull.INSTANCE);
-                   } else if (jsonElement.isJsonArray()) {
-                     obj.add(entry.getKey(), jsonElement.getAsJsonArray());
-                   } else {
-                     obj.add(entry.getKey(), jsonElement.getAsJsonObject());
-                   }
-                 }
+                 // TypeAdapter.toJsonTree keeps explicit null entries in arbitrary maps too.
+                 obj.add(entry.getKey(), gson.getAdapter(Object.class).toJsonTree(entry.getValue()));
                }
              }
-             elementAdapter.write(out, obj);
+             boolean originalSerializeNulls = out.getSerializeNulls();
+             try {
+               out.setSerializeNulls(true);
+               elementAdapter.write(out, obj);
+             } finally {
+               out.setSerializeNulls(originalSerializeNulls);
+             }
            }
 
            @Override
@@ -449,6 +471,7 @@ public class NewDigitalPass {
              JsonObject jsonObj = jsonElement.getAsJsonObject();
              // store additional fields in the deserialized instance
              NewDigitalPass instance = thisAdapter.fromJsonTree(jsonObj);
+             instance.markPropertiesAsSet(jsonObj.keySet());
              for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
                if (!openapiFields.contains(entry.getKey())) {
                  if (entry.getValue().isJsonPrimitive()) { // primitive type

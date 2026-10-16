@@ -58,6 +58,9 @@ import one.talon.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.26.0")
 public class ScimServiceProviderConfigResponse {
+  // Gson ignores transient state; only setters and JSON input mark properties as present.
+  private transient Set<String> openapiExplicitlySetFields = new HashSet<>();
+
   public static final String SERIALIZED_NAME_BULK = "bulk";
   @SerializedName(SERIALIZED_NAME_BULK)
   @javax.annotation.Nullable
@@ -98,6 +101,7 @@ public class ScimServiceProviderConfigResponse {
 
   public ScimServiceProviderConfigResponse bulk(@javax.annotation.Nullable ScimServiceProviderConfigResponseBulk bulk) {
     this.bulk = bulk;
+    this.markPropertyAsSet(SERIALIZED_NAME_BULK);
     return this;
   }
 
@@ -112,11 +116,13 @@ public class ScimServiceProviderConfigResponse {
 
   public void setBulk(@javax.annotation.Nullable ScimServiceProviderConfigResponseBulk bulk) {
     this.bulk = bulk;
+    this.markPropertyAsSet(SERIALIZED_NAME_BULK);
   }
 
 
   public ScimServiceProviderConfigResponse changePassword(@javax.annotation.Nullable ScimServiceProviderConfigResponseChangePassword changePassword) {
     this.changePassword = changePassword;
+    this.markPropertyAsSet(SERIALIZED_NAME_CHANGE_PASSWORD);
     return this;
   }
 
@@ -131,11 +137,13 @@ public class ScimServiceProviderConfigResponse {
 
   public void setChangePassword(@javax.annotation.Nullable ScimServiceProviderConfigResponseChangePassword changePassword) {
     this.changePassword = changePassword;
+    this.markPropertyAsSet(SERIALIZED_NAME_CHANGE_PASSWORD);
   }
 
 
   public ScimServiceProviderConfigResponse documentationUri(@javax.annotation.Nullable String documentationUri) {
     this.documentationUri = documentationUri;
+    this.markPropertyAsSet(SERIALIZED_NAME_DOCUMENTATION_URI);
     return this;
   }
 
@@ -150,11 +158,13 @@ public class ScimServiceProviderConfigResponse {
 
   public void setDocumentationUri(@javax.annotation.Nullable String documentationUri) {
     this.documentationUri = documentationUri;
+    this.markPropertyAsSet(SERIALIZED_NAME_DOCUMENTATION_URI);
   }
 
 
   public ScimServiceProviderConfigResponse filter(@javax.annotation.Nullable ScimServiceProviderConfigResponseFilter filter) {
     this.filter = filter;
+    this.markPropertyAsSet(SERIALIZED_NAME_FILTER);
     return this;
   }
 
@@ -169,11 +179,13 @@ public class ScimServiceProviderConfigResponse {
 
   public void setFilter(@javax.annotation.Nullable ScimServiceProviderConfigResponseFilter filter) {
     this.filter = filter;
+    this.markPropertyAsSet(SERIALIZED_NAME_FILTER);
   }
 
 
   public ScimServiceProviderConfigResponse patch(@javax.annotation.Nullable ScimServiceProviderConfigResponsePatch patch) {
     this.patch = patch;
+    this.markPropertyAsSet(SERIALIZED_NAME_PATCH);
     return this;
   }
 
@@ -188,11 +200,13 @@ public class ScimServiceProviderConfigResponse {
 
   public void setPatch(@javax.annotation.Nullable ScimServiceProviderConfigResponsePatch patch) {
     this.patch = patch;
+    this.markPropertyAsSet(SERIALIZED_NAME_PATCH);
   }
 
 
   public ScimServiceProviderConfigResponse schemas(@javax.annotation.Nullable List<String> schemas) {
     this.schemas = schemas;
+    this.markPropertyAsSet(SERIALIZED_NAME_SCHEMAS);
     return this;
   }
 
@@ -201,6 +215,7 @@ public class ScimServiceProviderConfigResponse {
       this.schemas = new ArrayList<>();
     }
     this.schemas.add(schemasItem);
+    this.markPropertyAsSet(SERIALIZED_NAME_SCHEMAS);
     return this;
   }
 
@@ -215,11 +230,13 @@ public class ScimServiceProviderConfigResponse {
 
   public void setSchemas(@javax.annotation.Nullable List<String> schemas) {
     this.schemas = schemas;
+    this.markPropertyAsSet(SERIALIZED_NAME_SCHEMAS);
   }
 
 
   public ScimServiceProviderConfigResponse sort(@javax.annotation.Nullable ScimServiceProviderConfigResponseSort sort) {
     this.sort = sort;
+    this.markPropertyAsSet(SERIALIZED_NAME_SORT);
     return this;
   }
 
@@ -234,6 +251,7 @@ public class ScimServiceProviderConfigResponse {
 
   public void setSort(@javax.annotation.Nullable ScimServiceProviderConfigResponseSort sort) {
     this.sort = sort;
+    this.markPropertyAsSet(SERIALIZED_NAME_SORT);
   }
 
   /**
@@ -279,6 +297,21 @@ public class ScimServiceProviderConfigResponse {
         return null;
     }
     return this.additionalProperties.get(key);
+  }
+
+  /** Omit null properties unless they were explicitly assigned or present in JSON input. */
+  protected final void removeUnsetNullFields(JsonObject obj) {
+    obj.entrySet().removeIf(entry -> entry.getValue().isJsonNull()
+        && !openapiExplicitlySetFields.contains(entry.getKey()));
+  }
+
+  protected final void markPropertyAsSet(String propertyName) {
+    openapiExplicitlySetFields.add(propertyName);
+  }
+
+  /** Gson populates fields directly, bypassing setters during deserialization. */
+  protected final void markPropertiesAsSet(Set<String> propertyNames) {
+    openapiExplicitlySetFields.addAll(propertyNames);
   }
 
 
@@ -389,7 +422,7 @@ public class ScimServiceProviderConfigResponse {
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
        if (!ScimServiceProviderConfigResponse.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'ScimServiceProviderConfigResponse' and its subtypes
+         return null; // let other model factories handle this type
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
        final TypeAdapter<ScimServiceProviderConfigResponse> thisAdapter
@@ -399,31 +432,22 @@ public class ScimServiceProviderConfigResponse {
            @Override
            public void write(JsonWriter out, ScimServiceProviderConfigResponse value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+             value.removeUnsetNullFields(obj);
              obj.remove("additionalProperties");
              // serialize additional properties
              if (value.getAdditionalProperties() != null) {
                for (Map.Entry<String, Object> entry : value.getAdditionalProperties().entrySet()) {
-                 if (entry.getValue() instanceof String)
-                   obj.addProperty(entry.getKey(), (String) entry.getValue());
-                 else if (entry.getValue() instanceof Number)
-                   obj.addProperty(entry.getKey(), (Number) entry.getValue());
-                 else if (entry.getValue() instanceof Boolean)
-                   obj.addProperty(entry.getKey(), (Boolean) entry.getValue());
-                 else if (entry.getValue() instanceof Character)
-                   obj.addProperty(entry.getKey(), (Character) entry.getValue());
-                 else {
-                   JsonElement jsonElement = gson.toJsonTree(entry.getValue());
-                   if (jsonElement.isJsonNull()) {
-                     obj.add(entry.getKey(), JsonNull.INSTANCE);
-                   } else if (jsonElement.isJsonArray()) {
-                     obj.add(entry.getKey(), jsonElement.getAsJsonArray());
-                   } else {
-                     obj.add(entry.getKey(), jsonElement.getAsJsonObject());
-                   }
-                 }
+                 // TypeAdapter.toJsonTree keeps explicit null entries in arbitrary maps too.
+                 obj.add(entry.getKey(), gson.getAdapter(Object.class).toJsonTree(entry.getValue()));
                }
              }
-             elementAdapter.write(out, obj);
+             boolean originalSerializeNulls = out.getSerializeNulls();
+             try {
+               out.setSerializeNulls(true);
+               elementAdapter.write(out, obj);
+             } finally {
+               out.setSerializeNulls(originalSerializeNulls);
+             }
            }
 
            @Override
@@ -433,6 +457,7 @@ public class ScimServiceProviderConfigResponse {
              JsonObject jsonObj = jsonElement.getAsJsonObject();
              // store additional fields in the deserialized instance
              ScimServiceProviderConfigResponse instance = thisAdapter.fromJsonTree(jsonObj);
+             instance.markPropertiesAsSet(jsonObj.keySet());
              for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
                if (!openapiFields.contains(entry.getKey())) {
                  if (entry.getValue().isJsonPrimitive()) { // primitive type

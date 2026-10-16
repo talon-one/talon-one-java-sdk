@@ -53,6 +53,9 @@ import one.talon.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.26.0")
 public class MCPOAuthServerMetadata {
+  // Gson ignores transient state; only setters and JSON input mark properties as present.
+  private transient Set<String> openapiExplicitlySetFields = new HashSet<>();
+
   public static final String SERIALIZED_NAME_ISSUER = "issuer";
   @SerializedName(SERIALIZED_NAME_ISSUER)
   @javax.annotation.Nonnull
@@ -93,6 +96,7 @@ public class MCPOAuthServerMetadata {
 
   public MCPOAuthServerMetadata issuer(@javax.annotation.Nonnull String issuer) {
     this.issuer = issuer;
+    this.markPropertyAsSet(SERIALIZED_NAME_ISSUER);
     return this;
   }
 
@@ -107,11 +111,13 @@ public class MCPOAuthServerMetadata {
 
   public void setIssuer(@javax.annotation.Nonnull String issuer) {
     this.issuer = issuer;
+    this.markPropertyAsSet(SERIALIZED_NAME_ISSUER);
   }
 
 
   public MCPOAuthServerMetadata authorizationEndpoint(@javax.annotation.Nonnull String authorizationEndpoint) {
     this.authorizationEndpoint = authorizationEndpoint;
+    this.markPropertyAsSet(SERIALIZED_NAME_AUTHORIZATION_ENDPOINT);
     return this;
   }
 
@@ -126,11 +132,13 @@ public class MCPOAuthServerMetadata {
 
   public void setAuthorizationEndpoint(@javax.annotation.Nonnull String authorizationEndpoint) {
     this.authorizationEndpoint = authorizationEndpoint;
+    this.markPropertyAsSet(SERIALIZED_NAME_AUTHORIZATION_ENDPOINT);
   }
 
 
   public MCPOAuthServerMetadata tokenEndpoint(@javax.annotation.Nonnull String tokenEndpoint) {
     this.tokenEndpoint = tokenEndpoint;
+    this.markPropertyAsSet(SERIALIZED_NAME_TOKEN_ENDPOINT);
     return this;
   }
 
@@ -145,11 +153,13 @@ public class MCPOAuthServerMetadata {
 
   public void setTokenEndpoint(@javax.annotation.Nonnull String tokenEndpoint) {
     this.tokenEndpoint = tokenEndpoint;
+    this.markPropertyAsSet(SERIALIZED_NAME_TOKEN_ENDPOINT);
   }
 
 
   public MCPOAuthServerMetadata registrationEndpoint(@javax.annotation.Nonnull String registrationEndpoint) {
     this.registrationEndpoint = registrationEndpoint;
+    this.markPropertyAsSet(SERIALIZED_NAME_REGISTRATION_ENDPOINT);
     return this;
   }
 
@@ -164,11 +174,13 @@ public class MCPOAuthServerMetadata {
 
   public void setRegistrationEndpoint(@javax.annotation.Nonnull String registrationEndpoint) {
     this.registrationEndpoint = registrationEndpoint;
+    this.markPropertyAsSet(SERIALIZED_NAME_REGISTRATION_ENDPOINT);
   }
 
 
   public MCPOAuthServerMetadata responseTypesSupported(@javax.annotation.Nonnull List<String> responseTypesSupported) {
     this.responseTypesSupported = responseTypesSupported;
+    this.markPropertyAsSet(SERIALIZED_NAME_RESPONSE_TYPES_SUPPORTED);
     return this;
   }
 
@@ -177,6 +189,7 @@ public class MCPOAuthServerMetadata {
       this.responseTypesSupported = new ArrayList<>();
     }
     this.responseTypesSupported.add(responseTypesSupportedItem);
+    this.markPropertyAsSet(SERIALIZED_NAME_RESPONSE_TYPES_SUPPORTED);
     return this;
   }
 
@@ -191,11 +204,13 @@ public class MCPOAuthServerMetadata {
 
   public void setResponseTypesSupported(@javax.annotation.Nonnull List<String> responseTypesSupported) {
     this.responseTypesSupported = responseTypesSupported;
+    this.markPropertyAsSet(SERIALIZED_NAME_RESPONSE_TYPES_SUPPORTED);
   }
 
 
   public MCPOAuthServerMetadata grantTypesSupported(@javax.annotation.Nonnull List<String> grantTypesSupported) {
     this.grantTypesSupported = grantTypesSupported;
+    this.markPropertyAsSet(SERIALIZED_NAME_GRANT_TYPES_SUPPORTED);
     return this;
   }
 
@@ -204,6 +219,7 @@ public class MCPOAuthServerMetadata {
       this.grantTypesSupported = new ArrayList<>();
     }
     this.grantTypesSupported.add(grantTypesSupportedItem);
+    this.markPropertyAsSet(SERIALIZED_NAME_GRANT_TYPES_SUPPORTED);
     return this;
   }
 
@@ -218,11 +234,13 @@ public class MCPOAuthServerMetadata {
 
   public void setGrantTypesSupported(@javax.annotation.Nonnull List<String> grantTypesSupported) {
     this.grantTypesSupported = grantTypesSupported;
+    this.markPropertyAsSet(SERIALIZED_NAME_GRANT_TYPES_SUPPORTED);
   }
 
 
   public MCPOAuthServerMetadata codeChallengeMethodsSupported(@javax.annotation.Nonnull List<String> codeChallengeMethodsSupported) {
     this.codeChallengeMethodsSupported = codeChallengeMethodsSupported;
+    this.markPropertyAsSet(SERIALIZED_NAME_CODE_CHALLENGE_METHODS_SUPPORTED);
     return this;
   }
 
@@ -231,6 +249,7 @@ public class MCPOAuthServerMetadata {
       this.codeChallengeMethodsSupported = new ArrayList<>();
     }
     this.codeChallengeMethodsSupported.add(codeChallengeMethodsSupportedItem);
+    this.markPropertyAsSet(SERIALIZED_NAME_CODE_CHALLENGE_METHODS_SUPPORTED);
     return this;
   }
 
@@ -245,6 +264,7 @@ public class MCPOAuthServerMetadata {
 
   public void setCodeChallengeMethodsSupported(@javax.annotation.Nonnull List<String> codeChallengeMethodsSupported) {
     this.codeChallengeMethodsSupported = codeChallengeMethodsSupported;
+    this.markPropertyAsSet(SERIALIZED_NAME_CODE_CHALLENGE_METHODS_SUPPORTED);
   }
 
   /**
@@ -290,6 +310,21 @@ public class MCPOAuthServerMetadata {
         return null;
     }
     return this.additionalProperties.get(key);
+  }
+
+  /** Omit null properties unless they were explicitly assigned or present in JSON input. */
+  protected final void removeUnsetNullFields(JsonObject obj) {
+    obj.entrySet().removeIf(entry -> entry.getValue().isJsonNull()
+        && !openapiExplicitlySetFields.contains(entry.getKey()));
+  }
+
+  protected final void markPropertyAsSet(String propertyName) {
+    openapiExplicitlySetFields.add(propertyName);
+  }
+
+  /** Gson populates fields directly, bypassing setters during deserialization. */
+  protected final void markPropertiesAsSet(Set<String> propertyNames) {
+    openapiExplicitlySetFields.addAll(propertyNames);
   }
 
 
@@ -410,7 +445,7 @@ public class MCPOAuthServerMetadata {
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
        if (!MCPOAuthServerMetadata.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'MCPOAuthServerMetadata' and its subtypes
+         return null; // let other model factories handle this type
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
        final TypeAdapter<MCPOAuthServerMetadata> thisAdapter
@@ -420,31 +455,22 @@ public class MCPOAuthServerMetadata {
            @Override
            public void write(JsonWriter out, MCPOAuthServerMetadata value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+             value.removeUnsetNullFields(obj);
              obj.remove("additionalProperties");
              // serialize additional properties
              if (value.getAdditionalProperties() != null) {
                for (Map.Entry<String, Object> entry : value.getAdditionalProperties().entrySet()) {
-                 if (entry.getValue() instanceof String)
-                   obj.addProperty(entry.getKey(), (String) entry.getValue());
-                 else if (entry.getValue() instanceof Number)
-                   obj.addProperty(entry.getKey(), (Number) entry.getValue());
-                 else if (entry.getValue() instanceof Boolean)
-                   obj.addProperty(entry.getKey(), (Boolean) entry.getValue());
-                 else if (entry.getValue() instanceof Character)
-                   obj.addProperty(entry.getKey(), (Character) entry.getValue());
-                 else {
-                   JsonElement jsonElement = gson.toJsonTree(entry.getValue());
-                   if (jsonElement.isJsonNull()) {
-                     obj.add(entry.getKey(), JsonNull.INSTANCE);
-                   } else if (jsonElement.isJsonArray()) {
-                     obj.add(entry.getKey(), jsonElement.getAsJsonArray());
-                   } else {
-                     obj.add(entry.getKey(), jsonElement.getAsJsonObject());
-                   }
-                 }
+                 // TypeAdapter.toJsonTree keeps explicit null entries in arbitrary maps too.
+                 obj.add(entry.getKey(), gson.getAdapter(Object.class).toJsonTree(entry.getValue()));
                }
              }
-             elementAdapter.write(out, obj);
+             boolean originalSerializeNulls = out.getSerializeNulls();
+             try {
+               out.setSerializeNulls(true);
+               elementAdapter.write(out, obj);
+             } finally {
+               out.setSerializeNulls(originalSerializeNulls);
+             }
            }
 
            @Override
@@ -454,6 +480,7 @@ public class MCPOAuthServerMetadata {
              JsonObject jsonObj = jsonElement.getAsJsonObject();
              // store additional fields in the deserialized instance
              MCPOAuthServerMetadata instance = thisAdapter.fromJsonTree(jsonObj);
+             instance.markPropertiesAsSet(jsonObj.keySet());
              for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
                if (!openapiFields.contains(entry.getKey())) {
                  if (entry.getValue().isJsonPrimitive()) { // primitive type

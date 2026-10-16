@@ -58,6 +58,9 @@ import one.talon.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.26.0")
 public class LoyaltyCard {
+  // Gson ignores transient state; only setters and JSON input mark properties as present.
+  private transient Set<String> openapiExplicitlySetFields = new HashSet<>();
+
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
   @javax.annotation.Nonnull
@@ -143,6 +146,7 @@ public class LoyaltyCard {
 
   public LoyaltyCard id(@javax.annotation.Nonnull Long id) {
     this.id = id;
+    this.markPropertyAsSet(SERIALIZED_NAME_ID);
     return this;
   }
 
@@ -157,11 +161,13 @@ public class LoyaltyCard {
 
   public void setId(@javax.annotation.Nonnull Long id) {
     this.id = id;
+    this.markPropertyAsSet(SERIALIZED_NAME_ID);
   }
 
 
   public LoyaltyCard created(@javax.annotation.Nonnull OffsetDateTime created) {
     this.created = created;
+    this.markPropertyAsSet(SERIALIZED_NAME_CREATED);
     return this;
   }
 
@@ -176,11 +182,13 @@ public class LoyaltyCard {
 
   public void setCreated(@javax.annotation.Nonnull OffsetDateTime created) {
     this.created = created;
+    this.markPropertyAsSet(SERIALIZED_NAME_CREATED);
   }
 
 
   public LoyaltyCard programID(@javax.annotation.Nonnull Long programID) {
     this.programID = programID;
+    this.markPropertyAsSet(SERIALIZED_NAME_PROGRAM_I_D);
     return this;
   }
 
@@ -195,11 +203,13 @@ public class LoyaltyCard {
 
   public void setProgramID(@javax.annotation.Nonnull Long programID) {
     this.programID = programID;
+    this.markPropertyAsSet(SERIALIZED_NAME_PROGRAM_I_D);
   }
 
 
   public LoyaltyCard programName(@javax.annotation.Nullable String programName) {
     this.programName = programName;
+    this.markPropertyAsSet(SERIALIZED_NAME_PROGRAM_NAME);
     return this;
   }
 
@@ -214,11 +224,13 @@ public class LoyaltyCard {
 
   public void setProgramName(@javax.annotation.Nullable String programName) {
     this.programName = programName;
+    this.markPropertyAsSet(SERIALIZED_NAME_PROGRAM_NAME);
   }
 
 
   public LoyaltyCard programTitle(@javax.annotation.Nullable String programTitle) {
     this.programTitle = programTitle;
+    this.markPropertyAsSet(SERIALIZED_NAME_PROGRAM_TITLE);
     return this;
   }
 
@@ -233,11 +245,13 @@ public class LoyaltyCard {
 
   public void setProgramTitle(@javax.annotation.Nullable String programTitle) {
     this.programTitle = programTitle;
+    this.markPropertyAsSet(SERIALIZED_NAME_PROGRAM_TITLE);
   }
 
 
   public LoyaltyCard status(@javax.annotation.Nonnull String status) {
     this.status = status;
+    this.markPropertyAsSet(SERIALIZED_NAME_STATUS);
     return this;
   }
 
@@ -252,11 +266,13 @@ public class LoyaltyCard {
 
   public void setStatus(@javax.annotation.Nonnull String status) {
     this.status = status;
+    this.markPropertyAsSet(SERIALIZED_NAME_STATUS);
   }
 
 
   public LoyaltyCard blockReason(@javax.annotation.Nullable String blockReason) {
     this.blockReason = blockReason;
+    this.markPropertyAsSet(SERIALIZED_NAME_BLOCK_REASON);
     return this;
   }
 
@@ -271,11 +287,13 @@ public class LoyaltyCard {
 
   public void setBlockReason(@javax.annotation.Nullable String blockReason) {
     this.blockReason = blockReason;
+    this.markPropertyAsSet(SERIALIZED_NAME_BLOCK_REASON);
   }
 
 
   public LoyaltyCard identifier(@javax.annotation.Nonnull String identifier) {
     this.identifier = identifier;
+    this.markPropertyAsSet(SERIALIZED_NAME_IDENTIFIER);
     return this;
   }
 
@@ -290,11 +308,13 @@ public class LoyaltyCard {
 
   public void setIdentifier(@javax.annotation.Nonnull String identifier) {
     this.identifier = identifier;
+    this.markPropertyAsSet(SERIALIZED_NAME_IDENTIFIER);
   }
 
 
   public LoyaltyCard usersPerCardLimit(@javax.annotation.Nonnull Long usersPerCardLimit) {
     this.usersPerCardLimit = usersPerCardLimit;
+    this.markPropertyAsSet(SERIALIZED_NAME_USERS_PER_CARD_LIMIT);
     return this;
   }
 
@@ -310,11 +330,13 @@ public class LoyaltyCard {
 
   public void setUsersPerCardLimit(@javax.annotation.Nonnull Long usersPerCardLimit) {
     this.usersPerCardLimit = usersPerCardLimit;
+    this.markPropertyAsSet(SERIALIZED_NAME_USERS_PER_CARD_LIMIT);
   }
 
 
   public LoyaltyCard profiles(@javax.annotation.Nullable List<LoyaltyCardProfileRegistration> profiles) {
     this.profiles = profiles;
+    this.markPropertyAsSet(SERIALIZED_NAME_PROFILES);
     return this;
   }
 
@@ -323,6 +345,7 @@ public class LoyaltyCard {
       this.profiles = new ArrayList<>();
     }
     this.profiles.add(profilesItem);
+    this.markPropertyAsSet(SERIALIZED_NAME_PROFILES);
     return this;
   }
 
@@ -337,11 +360,13 @@ public class LoyaltyCard {
 
   public void setProfiles(@javax.annotation.Nullable List<LoyaltyCardProfileRegistration> profiles) {
     this.profiles = profiles;
+    this.markPropertyAsSet(SERIALIZED_NAME_PROFILES);
   }
 
 
   public LoyaltyCard ledger(@javax.annotation.Nullable LedgerInfo ledger) {
     this.ledger = ledger;
+    this.markPropertyAsSet(SERIALIZED_NAME_LEDGER);
     return this;
   }
 
@@ -356,11 +381,13 @@ public class LoyaltyCard {
 
   public void setLedger(@javax.annotation.Nullable LedgerInfo ledger) {
     this.ledger = ledger;
+    this.markPropertyAsSet(SERIALIZED_NAME_LEDGER);
   }
 
 
   public LoyaltyCard subledgers(@javax.annotation.Nullable Map<String, LedgerInfo> subledgers) {
     this.subledgers = subledgers;
+    this.markPropertyAsSet(SERIALIZED_NAME_SUBLEDGERS);
     return this;
   }
 
@@ -369,6 +396,7 @@ public class LoyaltyCard {
       this.subledgers = new HashMap<>();
     }
     this.subledgers.put(key, subledgersItem);
+    this.markPropertyAsSet(SERIALIZED_NAME_SUBLEDGERS);
     return this;
   }
 
@@ -383,11 +411,13 @@ public class LoyaltyCard {
 
   public void setSubledgers(@javax.annotation.Nullable Map<String, LedgerInfo> subledgers) {
     this.subledgers = subledgers;
+    this.markPropertyAsSet(SERIALIZED_NAME_SUBLEDGERS);
   }
 
 
   public LoyaltyCard modified(@javax.annotation.Nullable OffsetDateTime modified) {
     this.modified = modified;
+    this.markPropertyAsSet(SERIALIZED_NAME_MODIFIED);
     return this;
   }
 
@@ -402,11 +432,13 @@ public class LoyaltyCard {
 
   public void setModified(@javax.annotation.Nullable OffsetDateTime modified) {
     this.modified = modified;
+    this.markPropertyAsSet(SERIALIZED_NAME_MODIFIED);
   }
 
 
   public LoyaltyCard oldCardIdentifier(@javax.annotation.Nullable String oldCardIdentifier) {
     this.oldCardIdentifier = oldCardIdentifier;
+    this.markPropertyAsSet(SERIALIZED_NAME_OLD_CARD_IDENTIFIER);
     return this;
   }
 
@@ -421,11 +453,13 @@ public class LoyaltyCard {
 
   public void setOldCardIdentifier(@javax.annotation.Nullable String oldCardIdentifier) {
     this.oldCardIdentifier = oldCardIdentifier;
+    this.markPropertyAsSet(SERIALIZED_NAME_OLD_CARD_IDENTIFIER);
   }
 
 
   public LoyaltyCard newCardIdentifier(@javax.annotation.Nullable String newCardIdentifier) {
     this.newCardIdentifier = newCardIdentifier;
+    this.markPropertyAsSet(SERIALIZED_NAME_NEW_CARD_IDENTIFIER);
     return this;
   }
 
@@ -440,11 +474,13 @@ public class LoyaltyCard {
 
   public void setNewCardIdentifier(@javax.annotation.Nullable String newCardIdentifier) {
     this.newCardIdentifier = newCardIdentifier;
+    this.markPropertyAsSet(SERIALIZED_NAME_NEW_CARD_IDENTIFIER);
   }
 
 
   public LoyaltyCard batchId(@javax.annotation.Nullable String batchId) {
     this.batchId = batchId;
+    this.markPropertyAsSet(SERIALIZED_NAME_BATCH_ID);
     return this;
   }
 
@@ -459,6 +495,7 @@ public class LoyaltyCard {
 
   public void setBatchId(@javax.annotation.Nullable String batchId) {
     this.batchId = batchId;
+    this.markPropertyAsSet(SERIALIZED_NAME_BATCH_ID);
   }
 
   /**
@@ -504,6 +541,21 @@ public class LoyaltyCard {
         return null;
     }
     return this.additionalProperties.get(key);
+  }
+
+  /** Omit null properties unless they were explicitly assigned or present in JSON input. */
+  protected final void removeUnsetNullFields(JsonObject obj) {
+    obj.entrySet().removeIf(entry -> entry.getValue().isJsonNull()
+        && !openapiExplicitlySetFields.contains(entry.getKey()));
+  }
+
+  protected final void markPropertyAsSet(String propertyName) {
+    openapiExplicitlySetFields.add(propertyName);
+  }
+
+  /** Gson populates fields directly, bypassing setters during deserialization. */
+  protected final void markPropertiesAsSet(Set<String> propertyNames) {
+    openapiExplicitlySetFields.addAll(propertyNames);
   }
 
 
@@ -654,7 +706,7 @@ public class LoyaltyCard {
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
        if (!LoyaltyCard.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'LoyaltyCard' and its subtypes
+         return null; // let other model factories handle this type
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
        final TypeAdapter<LoyaltyCard> thisAdapter
@@ -664,31 +716,22 @@ public class LoyaltyCard {
            @Override
            public void write(JsonWriter out, LoyaltyCard value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+             value.removeUnsetNullFields(obj);
              obj.remove("additionalProperties");
              // serialize additional properties
              if (value.getAdditionalProperties() != null) {
                for (Map.Entry<String, Object> entry : value.getAdditionalProperties().entrySet()) {
-                 if (entry.getValue() instanceof String)
-                   obj.addProperty(entry.getKey(), (String) entry.getValue());
-                 else if (entry.getValue() instanceof Number)
-                   obj.addProperty(entry.getKey(), (Number) entry.getValue());
-                 else if (entry.getValue() instanceof Boolean)
-                   obj.addProperty(entry.getKey(), (Boolean) entry.getValue());
-                 else if (entry.getValue() instanceof Character)
-                   obj.addProperty(entry.getKey(), (Character) entry.getValue());
-                 else {
-                   JsonElement jsonElement = gson.toJsonTree(entry.getValue());
-                   if (jsonElement.isJsonNull()) {
-                     obj.add(entry.getKey(), JsonNull.INSTANCE);
-                   } else if (jsonElement.isJsonArray()) {
-                     obj.add(entry.getKey(), jsonElement.getAsJsonArray());
-                   } else {
-                     obj.add(entry.getKey(), jsonElement.getAsJsonObject());
-                   }
-                 }
+                 // TypeAdapter.toJsonTree keeps explicit null entries in arbitrary maps too.
+                 obj.add(entry.getKey(), gson.getAdapter(Object.class).toJsonTree(entry.getValue()));
                }
              }
-             elementAdapter.write(out, obj);
+             boolean originalSerializeNulls = out.getSerializeNulls();
+             try {
+               out.setSerializeNulls(true);
+               elementAdapter.write(out, obj);
+             } finally {
+               out.setSerializeNulls(originalSerializeNulls);
+             }
            }
 
            @Override
@@ -698,6 +741,7 @@ public class LoyaltyCard {
              JsonObject jsonObj = jsonElement.getAsJsonObject();
              // store additional fields in the deserialized instance
              LoyaltyCard instance = thisAdapter.fromJsonTree(jsonObj);
+             instance.markPropertiesAsSet(jsonObj.keySet());
              for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
                if (!openapiFields.contains(entry.getKey())) {
                  if (entry.getValue().isJsonPrimitive()) { // primitive type

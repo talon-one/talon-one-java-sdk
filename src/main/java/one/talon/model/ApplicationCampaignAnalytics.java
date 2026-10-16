@@ -57,6 +57,9 @@ import one.talon.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.26.0")
 public class ApplicationCampaignAnalytics {
+  // Gson ignores transient state; only setters and JSON input mark properties as present.
+  private transient Set<String> openapiExplicitlySetFields = new HashSet<>();
+
   public static final String SERIALIZED_NAME_START_TIME = "startTime";
   @SerializedName(SERIALIZED_NAME_START_TIME)
   @javax.annotation.Nonnull
@@ -182,6 +185,7 @@ public class ApplicationCampaignAnalytics {
 
   public ApplicationCampaignAnalytics startTime(@javax.annotation.Nonnull OffsetDateTime startTime) {
     this.startTime = startTime;
+    this.markPropertyAsSet(SERIALIZED_NAME_START_TIME);
     return this;
   }
 
@@ -196,11 +200,13 @@ public class ApplicationCampaignAnalytics {
 
   public void setStartTime(@javax.annotation.Nonnull OffsetDateTime startTime) {
     this.startTime = startTime;
+    this.markPropertyAsSet(SERIALIZED_NAME_START_TIME);
   }
 
 
   public ApplicationCampaignAnalytics endTime(@javax.annotation.Nonnull OffsetDateTime endTime) {
     this.endTime = endTime;
+    this.markPropertyAsSet(SERIALIZED_NAME_END_TIME);
     return this;
   }
 
@@ -215,11 +221,13 @@ public class ApplicationCampaignAnalytics {
 
   public void setEndTime(@javax.annotation.Nonnull OffsetDateTime endTime) {
     this.endTime = endTime;
+    this.markPropertyAsSet(SERIALIZED_NAME_END_TIME);
   }
 
 
   public ApplicationCampaignAnalytics campaignId(@javax.annotation.Nonnull Long campaignId) {
     this.campaignId = campaignId;
+    this.markPropertyAsSet(SERIALIZED_NAME_CAMPAIGN_ID);
     return this;
   }
 
@@ -234,11 +242,13 @@ public class ApplicationCampaignAnalytics {
 
   public void setCampaignId(@javax.annotation.Nonnull Long campaignId) {
     this.campaignId = campaignId;
+    this.markPropertyAsSet(SERIALIZED_NAME_CAMPAIGN_ID);
   }
 
 
   public ApplicationCampaignAnalytics campaignName(@javax.annotation.Nonnull String campaignName) {
     this.campaignName = campaignName;
+    this.markPropertyAsSet(SERIALIZED_NAME_CAMPAIGN_NAME);
     return this;
   }
 
@@ -253,11 +263,13 @@ public class ApplicationCampaignAnalytics {
 
   public void setCampaignName(@javax.annotation.Nonnull String campaignName) {
     this.campaignName = campaignName;
+    this.markPropertyAsSet(SERIALIZED_NAME_CAMPAIGN_NAME);
   }
 
 
   public ApplicationCampaignAnalytics campaignTags(@javax.annotation.Nonnull List<String> campaignTags) {
     this.campaignTags = campaignTags;
+    this.markPropertyAsSet(SERIALIZED_NAME_CAMPAIGN_TAGS);
     return this;
   }
 
@@ -266,6 +278,7 @@ public class ApplicationCampaignAnalytics {
       this.campaignTags = new ArrayList<>();
     }
     this.campaignTags.add(campaignTagsItem);
+    this.markPropertyAsSet(SERIALIZED_NAME_CAMPAIGN_TAGS);
     return this;
   }
 
@@ -280,11 +293,13 @@ public class ApplicationCampaignAnalytics {
 
   public void setCampaignTags(@javax.annotation.Nonnull List<String> campaignTags) {
     this.campaignTags = campaignTags;
+    this.markPropertyAsSet(SERIALIZED_NAME_CAMPAIGN_TAGS);
   }
 
 
   public ApplicationCampaignAnalytics campaignState(@javax.annotation.Nonnull CampaignStateEnum campaignState) {
     this.campaignState = campaignState;
+    this.markPropertyAsSet(SERIALIZED_NAME_CAMPAIGN_STATE);
     return this;
   }
 
@@ -299,11 +314,13 @@ public class ApplicationCampaignAnalytics {
 
   public void setCampaignState(@javax.annotation.Nonnull CampaignStateEnum campaignState) {
     this.campaignState = campaignState;
+    this.markPropertyAsSet(SERIALIZED_NAME_CAMPAIGN_STATE);
   }
 
 
   public ApplicationCampaignAnalytics totalRevenue(@javax.annotation.Nullable AnalyticsDataPointWithTrendAndInfluencedRate totalRevenue) {
     this.totalRevenue = totalRevenue;
+    this.markPropertyAsSet(SERIALIZED_NAME_TOTAL_REVENUE);
     return this;
   }
 
@@ -318,11 +335,13 @@ public class ApplicationCampaignAnalytics {
 
   public void setTotalRevenue(@javax.annotation.Nullable AnalyticsDataPointWithTrendAndInfluencedRate totalRevenue) {
     this.totalRevenue = totalRevenue;
+    this.markPropertyAsSet(SERIALIZED_NAME_TOTAL_REVENUE);
   }
 
 
   public ApplicationCampaignAnalytics sessionsCount(@javax.annotation.Nullable AnalyticsDataPointWithTrendAndInfluencedRate sessionsCount) {
     this.sessionsCount = sessionsCount;
+    this.markPropertyAsSet(SERIALIZED_NAME_SESSIONS_COUNT);
     return this;
   }
 
@@ -337,11 +356,13 @@ public class ApplicationCampaignAnalytics {
 
   public void setSessionsCount(@javax.annotation.Nullable AnalyticsDataPointWithTrendAndInfluencedRate sessionsCount) {
     this.sessionsCount = sessionsCount;
+    this.markPropertyAsSet(SERIALIZED_NAME_SESSIONS_COUNT);
   }
 
 
   public ApplicationCampaignAnalytics avgItemsPerSession(@javax.annotation.Nullable AnalyticsDataPointWithTrendAndUplift avgItemsPerSession) {
     this.avgItemsPerSession = avgItemsPerSession;
+    this.markPropertyAsSet(SERIALIZED_NAME_AVG_ITEMS_PER_SESSION);
     return this;
   }
 
@@ -356,11 +377,13 @@ public class ApplicationCampaignAnalytics {
 
   public void setAvgItemsPerSession(@javax.annotation.Nullable AnalyticsDataPointWithTrendAndUplift avgItemsPerSession) {
     this.avgItemsPerSession = avgItemsPerSession;
+    this.markPropertyAsSet(SERIALIZED_NAME_AVG_ITEMS_PER_SESSION);
   }
 
 
   public ApplicationCampaignAnalytics avgSessionValue(@javax.annotation.Nullable AnalyticsDataPointWithTrendAndUplift avgSessionValue) {
     this.avgSessionValue = avgSessionValue;
+    this.markPropertyAsSet(SERIALIZED_NAME_AVG_SESSION_VALUE);
     return this;
   }
 
@@ -375,11 +398,13 @@ public class ApplicationCampaignAnalytics {
 
   public void setAvgSessionValue(@javax.annotation.Nullable AnalyticsDataPointWithTrendAndUplift avgSessionValue) {
     this.avgSessionValue = avgSessionValue;
+    this.markPropertyAsSet(SERIALIZED_NAME_AVG_SESSION_VALUE);
   }
 
 
   public ApplicationCampaignAnalytics totalDiscounts(@javax.annotation.Nullable AnalyticsDataPointWithTrend totalDiscounts) {
     this.totalDiscounts = totalDiscounts;
+    this.markPropertyAsSet(SERIALIZED_NAME_TOTAL_DISCOUNTS);
     return this;
   }
 
@@ -394,11 +419,13 @@ public class ApplicationCampaignAnalytics {
 
   public void setTotalDiscounts(@javax.annotation.Nullable AnalyticsDataPointWithTrend totalDiscounts) {
     this.totalDiscounts = totalDiscounts;
+    this.markPropertyAsSet(SERIALIZED_NAME_TOTAL_DISCOUNTS);
   }
 
 
   public ApplicationCampaignAnalytics couponsCount(@javax.annotation.Nullable AnalyticsDataPointWithTrend couponsCount) {
     this.couponsCount = couponsCount;
+    this.markPropertyAsSet(SERIALIZED_NAME_COUPONS_COUNT);
     return this;
   }
 
@@ -413,6 +440,7 @@ public class ApplicationCampaignAnalytics {
 
   public void setCouponsCount(@javax.annotation.Nullable AnalyticsDataPointWithTrend couponsCount) {
     this.couponsCount = couponsCount;
+    this.markPropertyAsSet(SERIALIZED_NAME_COUPONS_COUNT);
   }
 
   /**
@@ -458,6 +486,21 @@ public class ApplicationCampaignAnalytics {
         return null;
     }
     return this.additionalProperties.get(key);
+  }
+
+  /** Omit null properties unless they were explicitly assigned or present in JSON input. */
+  protected final void removeUnsetNullFields(JsonObject obj) {
+    obj.entrySet().removeIf(entry -> entry.getValue().isJsonNull()
+        && !openapiExplicitlySetFields.contains(entry.getKey()));
+  }
+
+  protected final void markPropertyAsSet(String propertyName) {
+    openapiExplicitlySetFields.add(propertyName);
+  }
+
+  /** Gson populates fields directly, bypassing setters during deserialization. */
+  protected final void markPropertiesAsSet(Set<String> propertyNames) {
+    openapiExplicitlySetFields.addAll(propertyNames);
   }
 
 
@@ -596,7 +639,7 @@ public class ApplicationCampaignAnalytics {
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
        if (!ApplicationCampaignAnalytics.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'ApplicationCampaignAnalytics' and its subtypes
+         return null; // let other model factories handle this type
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
        final TypeAdapter<ApplicationCampaignAnalytics> thisAdapter
@@ -606,31 +649,22 @@ public class ApplicationCampaignAnalytics {
            @Override
            public void write(JsonWriter out, ApplicationCampaignAnalytics value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+             value.removeUnsetNullFields(obj);
              obj.remove("additionalProperties");
              // serialize additional properties
              if (value.getAdditionalProperties() != null) {
                for (Map.Entry<String, Object> entry : value.getAdditionalProperties().entrySet()) {
-                 if (entry.getValue() instanceof String)
-                   obj.addProperty(entry.getKey(), (String) entry.getValue());
-                 else if (entry.getValue() instanceof Number)
-                   obj.addProperty(entry.getKey(), (Number) entry.getValue());
-                 else if (entry.getValue() instanceof Boolean)
-                   obj.addProperty(entry.getKey(), (Boolean) entry.getValue());
-                 else if (entry.getValue() instanceof Character)
-                   obj.addProperty(entry.getKey(), (Character) entry.getValue());
-                 else {
-                   JsonElement jsonElement = gson.toJsonTree(entry.getValue());
-                   if (jsonElement.isJsonNull()) {
-                     obj.add(entry.getKey(), JsonNull.INSTANCE);
-                   } else if (jsonElement.isJsonArray()) {
-                     obj.add(entry.getKey(), jsonElement.getAsJsonArray());
-                   } else {
-                     obj.add(entry.getKey(), jsonElement.getAsJsonObject());
-                   }
-                 }
+                 // TypeAdapter.toJsonTree keeps explicit null entries in arbitrary maps too.
+                 obj.add(entry.getKey(), gson.getAdapter(Object.class).toJsonTree(entry.getValue()));
                }
              }
-             elementAdapter.write(out, obj);
+             boolean originalSerializeNulls = out.getSerializeNulls();
+             try {
+               out.setSerializeNulls(true);
+               elementAdapter.write(out, obj);
+             } finally {
+               out.setSerializeNulls(originalSerializeNulls);
+             }
            }
 
            @Override
@@ -640,6 +674,7 @@ public class ApplicationCampaignAnalytics {
              JsonObject jsonObj = jsonElement.getAsJsonObject();
              // store additional fields in the deserialized instance
              ApplicationCampaignAnalytics instance = thisAdapter.fromJsonTree(jsonObj);
+             instance.markPropertiesAsSet(jsonObj.keySet());
              for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
                if (!openapiFields.contains(entry.getKey())) {
                  if (entry.getValue().isJsonPrimitive()) { // primitive type

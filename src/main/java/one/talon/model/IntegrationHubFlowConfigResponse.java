@@ -51,6 +51,9 @@ import one.talon.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.26.0")
 public class IntegrationHubFlowConfigResponse {
+  // Gson ignores transient state; only setters and JSON input mark properties as present.
+  private transient Set<String> openapiExplicitlySetFields = new HashSet<>();
+
   public static final String SERIALIZED_NAME_WORKER_COUNT = "WorkerCount";
   @SerializedName(SERIALIZED_NAME_WORKER_COUNT)
   @javax.annotation.Nullable
@@ -71,6 +74,7 @@ public class IntegrationHubFlowConfigResponse {
 
   public IntegrationHubFlowConfigResponse workerCount(@javax.annotation.Nullable Long workerCount) {
     this.workerCount = workerCount;
+    this.markPropertyAsSet(SERIALIZED_NAME_WORKER_COUNT);
     return this;
   }
 
@@ -87,11 +91,13 @@ public class IntegrationHubFlowConfigResponse {
 
   public void setWorkerCount(@javax.annotation.Nullable Long workerCount) {
     this.workerCount = workerCount;
+    this.markPropertyAsSet(SERIALIZED_NAME_WORKER_COUNT);
   }
 
 
   public IntegrationHubFlowConfigResponse maxEventsPerMessage(@javax.annotation.Nullable Long maxEventsPerMessage) {
     this.maxEventsPerMessage = maxEventsPerMessage;
+    this.markPropertyAsSet(SERIALIZED_NAME_MAX_EVENTS_PER_MESSAGE);
     return this;
   }
 
@@ -107,11 +113,13 @@ public class IntegrationHubFlowConfigResponse {
 
   public void setMaxEventsPerMessage(@javax.annotation.Nullable Long maxEventsPerMessage) {
     this.maxEventsPerMessage = maxEventsPerMessage;
+    this.markPropertyAsSet(SERIALIZED_NAME_MAX_EVENTS_PER_MESSAGE);
   }
 
 
   public IntegrationHubFlowConfigResponse maxRetries(@javax.annotation.Nullable Long maxRetries) {
     this.maxRetries = maxRetries;
+    this.markPropertyAsSet(SERIALIZED_NAME_MAX_RETRIES);
     return this;
   }
 
@@ -127,6 +135,7 @@ public class IntegrationHubFlowConfigResponse {
 
   public void setMaxRetries(@javax.annotation.Nullable Long maxRetries) {
     this.maxRetries = maxRetries;
+    this.markPropertyAsSet(SERIALIZED_NAME_MAX_RETRIES);
   }
 
   /**
@@ -172,6 +181,21 @@ public class IntegrationHubFlowConfigResponse {
         return null;
     }
     return this.additionalProperties.get(key);
+  }
+
+  /** Omit null properties unless they were explicitly assigned or present in JSON input. */
+  protected final void removeUnsetNullFields(JsonObject obj) {
+    obj.entrySet().removeIf(entry -> entry.getValue().isJsonNull()
+        && !openapiExplicitlySetFields.contains(entry.getKey()));
+  }
+
+  protected final void markPropertyAsSet(String propertyName) {
+    openapiExplicitlySetFields.add(propertyName);
+  }
+
+  /** Gson populates fields directly, bypassing setters during deserialization. */
+  protected final void markPropertiesAsSet(Set<String> propertyNames) {
+    openapiExplicitlySetFields.addAll(propertyNames);
   }
 
 
@@ -247,7 +271,7 @@ public class IntegrationHubFlowConfigResponse {
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
        if (!IntegrationHubFlowConfigResponse.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'IntegrationHubFlowConfigResponse' and its subtypes
+         return null; // let other model factories handle this type
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
        final TypeAdapter<IntegrationHubFlowConfigResponse> thisAdapter
@@ -257,31 +281,22 @@ public class IntegrationHubFlowConfigResponse {
            @Override
            public void write(JsonWriter out, IntegrationHubFlowConfigResponse value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+             value.removeUnsetNullFields(obj);
              obj.remove("additionalProperties");
              // serialize additional properties
              if (value.getAdditionalProperties() != null) {
                for (Map.Entry<String, Object> entry : value.getAdditionalProperties().entrySet()) {
-                 if (entry.getValue() instanceof String)
-                   obj.addProperty(entry.getKey(), (String) entry.getValue());
-                 else if (entry.getValue() instanceof Number)
-                   obj.addProperty(entry.getKey(), (Number) entry.getValue());
-                 else if (entry.getValue() instanceof Boolean)
-                   obj.addProperty(entry.getKey(), (Boolean) entry.getValue());
-                 else if (entry.getValue() instanceof Character)
-                   obj.addProperty(entry.getKey(), (Character) entry.getValue());
-                 else {
-                   JsonElement jsonElement = gson.toJsonTree(entry.getValue());
-                   if (jsonElement.isJsonNull()) {
-                     obj.add(entry.getKey(), JsonNull.INSTANCE);
-                   } else if (jsonElement.isJsonArray()) {
-                     obj.add(entry.getKey(), jsonElement.getAsJsonArray());
-                   } else {
-                     obj.add(entry.getKey(), jsonElement.getAsJsonObject());
-                   }
-                 }
+                 // TypeAdapter.toJsonTree keeps explicit null entries in arbitrary maps too.
+                 obj.add(entry.getKey(), gson.getAdapter(Object.class).toJsonTree(entry.getValue()));
                }
              }
-             elementAdapter.write(out, obj);
+             boolean originalSerializeNulls = out.getSerializeNulls();
+             try {
+               out.setSerializeNulls(true);
+               elementAdapter.write(out, obj);
+             } finally {
+               out.setSerializeNulls(originalSerializeNulls);
+             }
            }
 
            @Override
@@ -291,6 +306,7 @@ public class IntegrationHubFlowConfigResponse {
              JsonObject jsonObj = jsonElement.getAsJsonObject();
              // store additional fields in the deserialized instance
              IntegrationHubFlowConfigResponse instance = thisAdapter.fromJsonTree(jsonObj);
+             instance.markPropertiesAsSet(jsonObj.keySet());
              for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
                if (!openapiFields.contains(entry.getKey())) {
                  if (entry.getValue().isJsonPrimitive()) { // primitive type

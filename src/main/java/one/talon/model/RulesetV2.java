@@ -58,6 +58,9 @@ import one.talon.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.26.0")
 public class RulesetV2 {
+  // Gson ignores transient state; only setters and JSON input mark properties as present.
+  private transient Set<String> openapiExplicitlySetFields = new HashSet<>();
+
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
   @javax.annotation.Nullable
@@ -127,12 +130,19 @@ public class RulesetV2 {
   ) {
     this();
     this.id = id;
+    this.markPropertyAsSet(SERIALIZED_NAME_ID);
     this.created = created;
+    this.markPropertyAsSet(SERIALIZED_NAME_CREATED);
     this.userId = userId;
+    this.markPropertyAsSet(SERIALIZED_NAME_USER_ID);
     this.campaignId = campaignId;
+    this.markPropertyAsSet(SERIALIZED_NAME_CAMPAIGN_ID);
     this.templateId = templateId;
+    this.markPropertyAsSet(SERIALIZED_NAME_TEMPLATE_ID);
     this.activatedAt = activatedAt;
+    this.markPropertyAsSet(SERIALIZED_NAME_ACTIVATED_AT);
     this.selectors = selectors;
+    this.markPropertyAsSet(SERIALIZED_NAME_SELECTORS);
   }
 
   /**
@@ -203,6 +213,7 @@ public class RulesetV2 {
 
   public RulesetV2 promotionRules(@javax.annotation.Nonnull List<RuleV2> promotionRules) {
     this.promotionRules = promotionRules;
+    this.markPropertyAsSet(SERIALIZED_NAME_PROMOTION_RULES);
     return this;
   }
 
@@ -211,6 +222,7 @@ public class RulesetV2 {
       this.promotionRules = new ArrayList<>();
     }
     this.promotionRules.add(promotionRulesItem);
+    this.markPropertyAsSet(SERIALIZED_NAME_PROMOTION_RULES);
     return this;
   }
 
@@ -225,11 +237,13 @@ public class RulesetV2 {
 
   public void setPromotionRules(@javax.annotation.Nonnull List<RuleV2> promotionRules) {
     this.promotionRules = promotionRules;
+    this.markPropertyAsSet(SERIALIZED_NAME_PROMOTION_RULES);
   }
 
 
   public RulesetV2 strikethroughRules(@javax.annotation.Nullable List<RuleV2> strikethroughRules) {
     this.strikethroughRules = strikethroughRules;
+    this.markPropertyAsSet(SERIALIZED_NAME_STRIKETHROUGH_RULES);
     return this;
   }
 
@@ -238,6 +252,7 @@ public class RulesetV2 {
       this.strikethroughRules = new ArrayList<>();
     }
     this.strikethroughRules.add(strikethroughRulesItem);
+    this.markPropertyAsSet(SERIALIZED_NAME_STRIKETHROUGH_RULES);
     return this;
   }
 
@@ -252,6 +267,7 @@ public class RulesetV2 {
 
   public void setStrikethroughRules(@javax.annotation.Nullable List<RuleV2> strikethroughRules) {
     this.strikethroughRules = strikethroughRules;
+    this.markPropertyAsSet(SERIALIZED_NAME_STRIKETHROUGH_RULES);
   }
 
 
@@ -268,6 +284,7 @@ public class RulesetV2 {
 
   public RulesetV2 bundles(@javax.annotation.Nullable List<Bundle> bundles) {
     this.bundles = bundles;
+    this.markPropertyAsSet(SERIALIZED_NAME_BUNDLES);
     return this;
   }
 
@@ -276,6 +293,7 @@ public class RulesetV2 {
       this.bundles = new ArrayList<>();
     }
     this.bundles.add(bundlesItem);
+    this.markPropertyAsSet(SERIALIZED_NAME_BUNDLES);
     return this;
   }
 
@@ -290,11 +308,13 @@ public class RulesetV2 {
 
   public void setBundles(@javax.annotation.Nullable List<Bundle> bundles) {
     this.bundles = bundles;
+    this.markPropertyAsSet(SERIALIZED_NAME_BUNDLES);
   }
 
 
   public RulesetV2 parameters(@javax.annotation.Nullable List<TemplateParameter> parameters) {
     this.parameters = parameters;
+    this.markPropertyAsSet(SERIALIZED_NAME_PARAMETERS);
     return this;
   }
 
@@ -303,6 +323,7 @@ public class RulesetV2 {
       this.parameters = new ArrayList<>();
     }
     this.parameters.add(parametersItem);
+    this.markPropertyAsSet(SERIALIZED_NAME_PARAMETERS);
     return this;
   }
 
@@ -317,6 +338,7 @@ public class RulesetV2 {
 
   public void setParameters(@javax.annotation.Nullable List<TemplateParameter> parameters) {
     this.parameters = parameters;
+    this.markPropertyAsSet(SERIALIZED_NAME_PARAMETERS);
   }
 
   /**
@@ -362,6 +384,21 @@ public class RulesetV2 {
         return null;
     }
     return this.additionalProperties.get(key);
+  }
+
+  /** Omit null properties unless they were explicitly assigned or present in JSON input. */
+  protected final void removeUnsetNullFields(JsonObject obj) {
+    obj.entrySet().removeIf(entry -> entry.getValue().isJsonNull()
+        && !openapiExplicitlySetFields.contains(entry.getKey()));
+  }
+
+  protected final void markPropertyAsSet(String propertyName) {
+    openapiExplicitlySetFields.add(propertyName);
+  }
+
+  /** Gson populates fields directly, bypassing setters during deserialization. */
+  protected final void markPropertiesAsSet(Set<String> propertyNames) {
+    openapiExplicitlySetFields.addAll(propertyNames);
   }
 
 
@@ -526,7 +563,7 @@ public class RulesetV2 {
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
        if (!RulesetV2.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'RulesetV2' and its subtypes
+         return null; // let other model factories handle this type
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
        final TypeAdapter<RulesetV2> thisAdapter
@@ -536,31 +573,22 @@ public class RulesetV2 {
            @Override
            public void write(JsonWriter out, RulesetV2 value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+             value.removeUnsetNullFields(obj);
              obj.remove("additionalProperties");
              // serialize additional properties
              if (value.getAdditionalProperties() != null) {
                for (Map.Entry<String, Object> entry : value.getAdditionalProperties().entrySet()) {
-                 if (entry.getValue() instanceof String)
-                   obj.addProperty(entry.getKey(), (String) entry.getValue());
-                 else if (entry.getValue() instanceof Number)
-                   obj.addProperty(entry.getKey(), (Number) entry.getValue());
-                 else if (entry.getValue() instanceof Boolean)
-                   obj.addProperty(entry.getKey(), (Boolean) entry.getValue());
-                 else if (entry.getValue() instanceof Character)
-                   obj.addProperty(entry.getKey(), (Character) entry.getValue());
-                 else {
-                   JsonElement jsonElement = gson.toJsonTree(entry.getValue());
-                   if (jsonElement.isJsonNull()) {
-                     obj.add(entry.getKey(), JsonNull.INSTANCE);
-                   } else if (jsonElement.isJsonArray()) {
-                     obj.add(entry.getKey(), jsonElement.getAsJsonArray());
-                   } else {
-                     obj.add(entry.getKey(), jsonElement.getAsJsonObject());
-                   }
-                 }
+                 // TypeAdapter.toJsonTree keeps explicit null entries in arbitrary maps too.
+                 obj.add(entry.getKey(), gson.getAdapter(Object.class).toJsonTree(entry.getValue()));
                }
              }
-             elementAdapter.write(out, obj);
+             boolean originalSerializeNulls = out.getSerializeNulls();
+             try {
+               out.setSerializeNulls(true);
+               elementAdapter.write(out, obj);
+             } finally {
+               out.setSerializeNulls(originalSerializeNulls);
+             }
            }
 
            @Override
@@ -570,6 +598,7 @@ public class RulesetV2 {
              JsonObject jsonObj = jsonElement.getAsJsonObject();
              // store additional fields in the deserialized instance
              RulesetV2 instance = thisAdapter.fromJsonTree(jsonObj);
+             instance.markPropertiesAsSet(jsonObj.keySet());
              for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
                if (!openapiFields.contains(entry.getKey())) {
                  if (entry.getValue().isJsonPrimitive()) { // primitive type

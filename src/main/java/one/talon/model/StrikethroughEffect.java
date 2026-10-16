@@ -56,6 +56,9 @@ import one.talon.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.26.0")
 public class StrikethroughEffect {
+  // Gson ignores transient state; only setters and JSON input mark properties as present.
+  private transient Set<String> openapiExplicitlySetFields = new HashSet<>();
+
   public static final String SERIALIZED_NAME_CAMPAIGN_ID = "campaignId";
   @SerializedName(SERIALIZED_NAME_CAMPAIGN_ID)
   @javax.annotation.Nonnull
@@ -121,6 +124,7 @@ public class StrikethroughEffect {
 
   public StrikethroughEffect campaignId(@javax.annotation.Nonnull Long campaignId) {
     this.campaignId = campaignId;
+    this.markPropertyAsSet(SERIALIZED_NAME_CAMPAIGN_ID);
     return this;
   }
 
@@ -135,11 +139,13 @@ public class StrikethroughEffect {
 
   public void setCampaignId(@javax.annotation.Nonnull Long campaignId) {
     this.campaignId = campaignId;
+    this.markPropertyAsSet(SERIALIZED_NAME_CAMPAIGN_ID);
   }
 
 
   public StrikethroughEffect rulesetId(@javax.annotation.Nonnull Long rulesetId) {
     this.rulesetId = rulesetId;
+    this.markPropertyAsSet(SERIALIZED_NAME_RULESET_ID);
     return this;
   }
 
@@ -154,11 +160,13 @@ public class StrikethroughEffect {
 
   public void setRulesetId(@javax.annotation.Nonnull Long rulesetId) {
     this.rulesetId = rulesetId;
+    this.markPropertyAsSet(SERIALIZED_NAME_RULESET_ID);
   }
 
 
   public StrikethroughEffect ruleIndex(@javax.annotation.Nonnull Long ruleIndex) {
     this.ruleIndex = ruleIndex;
+    this.markPropertyAsSet(SERIALIZED_NAME_RULE_INDEX);
     return this;
   }
 
@@ -173,11 +181,13 @@ public class StrikethroughEffect {
 
   public void setRuleIndex(@javax.annotation.Nonnull Long ruleIndex) {
     this.ruleIndex = ruleIndex;
+    this.markPropertyAsSet(SERIALIZED_NAME_RULE_INDEX);
   }
 
 
   public StrikethroughEffect ruleName(@javax.annotation.Nonnull String ruleName) {
     this.ruleName = ruleName;
+    this.markPropertyAsSet(SERIALIZED_NAME_RULE_NAME);
     return this;
   }
 
@@ -192,11 +202,13 @@ public class StrikethroughEffect {
 
   public void setRuleName(@javax.annotation.Nonnull String ruleName) {
     this.ruleName = ruleName;
+    this.markPropertyAsSet(SERIALIZED_NAME_RULE_NAME);
   }
 
 
   public StrikethroughEffect type(@javax.annotation.Nonnull String type) {
     this.type = type;
+    this.markPropertyAsSet(SERIALIZED_NAME_TYPE);
     return this;
   }
 
@@ -211,11 +223,13 @@ public class StrikethroughEffect {
 
   public void setType(@javax.annotation.Nonnull String type) {
     this.type = type;
+    this.markPropertyAsSet(SERIALIZED_NAME_TYPE);
   }
 
 
   public StrikethroughEffect props(@javax.annotation.Nonnull Object props) {
     this.props = props;
+    this.markPropertyAsSet(SERIALIZED_NAME_PROPS);
     return this;
   }
 
@@ -230,11 +244,13 @@ public class StrikethroughEffect {
 
   public void setProps(@javax.annotation.Nonnull Object props) {
     this.props = props;
+    this.markPropertyAsSet(SERIALIZED_NAME_PROPS);
   }
 
 
   public StrikethroughEffect startTime(@javax.annotation.Nullable OffsetDateTime startTime) {
     this.startTime = startTime;
+    this.markPropertyAsSet(SERIALIZED_NAME_START_TIME);
     return this;
   }
 
@@ -249,11 +265,13 @@ public class StrikethroughEffect {
 
   public void setStartTime(@javax.annotation.Nullable OffsetDateTime startTime) {
     this.startTime = startTime;
+    this.markPropertyAsSet(SERIALIZED_NAME_START_TIME);
   }
 
 
   public StrikethroughEffect endTime(@javax.annotation.Nullable OffsetDateTime endTime) {
     this.endTime = endTime;
+    this.markPropertyAsSet(SERIALIZED_NAME_END_TIME);
     return this;
   }
 
@@ -268,11 +286,13 @@ public class StrikethroughEffect {
 
   public void setEndTime(@javax.annotation.Nullable OffsetDateTime endTime) {
     this.endTime = endTime;
+    this.markPropertyAsSet(SERIALIZED_NAME_END_TIME);
   }
 
 
   public StrikethroughEffect selectedPriceType(@javax.annotation.Nullable String selectedPriceType) {
     this.selectedPriceType = selectedPriceType;
+    this.markPropertyAsSet(SERIALIZED_NAME_SELECTED_PRICE_TYPE);
     return this;
   }
 
@@ -287,11 +307,13 @@ public class StrikethroughEffect {
 
   public void setSelectedPriceType(@javax.annotation.Nullable String selectedPriceType) {
     this.selectedPriceType = selectedPriceType;
+    this.markPropertyAsSet(SERIALIZED_NAME_SELECTED_PRICE_TYPE);
   }
 
 
   public StrikethroughEffect selectedPrice(@javax.annotation.Nullable BigDecimal selectedPrice) {
     this.selectedPrice = selectedPrice;
+    this.markPropertyAsSet(SERIALIZED_NAME_SELECTED_PRICE);
     return this;
   }
 
@@ -306,11 +328,13 @@ public class StrikethroughEffect {
 
   public void setSelectedPrice(@javax.annotation.Nullable BigDecimal selectedPrice) {
     this.selectedPrice = selectedPrice;
+    this.markPropertyAsSet(SERIALIZED_NAME_SELECTED_PRICE);
   }
 
 
   public StrikethroughEffect adjustmentReferenceId(@javax.annotation.Nullable String adjustmentReferenceId) {
     this.adjustmentReferenceId = adjustmentReferenceId;
+    this.markPropertyAsSet(SERIALIZED_NAME_ADJUSTMENT_REFERENCE_ID);
     return this;
   }
 
@@ -325,11 +349,13 @@ public class StrikethroughEffect {
 
   public void setAdjustmentReferenceId(@javax.annotation.Nullable String adjustmentReferenceId) {
     this.adjustmentReferenceId = adjustmentReferenceId;
+    this.markPropertyAsSet(SERIALIZED_NAME_ADJUSTMENT_REFERENCE_ID);
   }
 
 
   public StrikethroughEffect targets(@javax.annotation.Nullable List<LabelTarget> targets) {
     this.targets = targets;
+    this.markPropertyAsSet(SERIALIZED_NAME_TARGETS);
     return this;
   }
 
@@ -338,6 +364,7 @@ public class StrikethroughEffect {
       this.targets = new ArrayList<>();
     }
     this.targets.add(targetsItem);
+    this.markPropertyAsSet(SERIALIZED_NAME_TARGETS);
     return this;
   }
 
@@ -352,6 +379,7 @@ public class StrikethroughEffect {
 
   public void setTargets(@javax.annotation.Nullable List<LabelTarget> targets) {
     this.targets = targets;
+    this.markPropertyAsSet(SERIALIZED_NAME_TARGETS);
   }
 
   /**
@@ -397,6 +425,21 @@ public class StrikethroughEffect {
         return null;
     }
     return this.additionalProperties.get(key);
+  }
+
+  /** Omit null properties unless they were explicitly assigned or present in JSON input. */
+  protected final void removeUnsetNullFields(JsonObject obj) {
+    obj.entrySet().removeIf(entry -> entry.getValue().isJsonNull()
+        && !openapiExplicitlySetFields.contains(entry.getKey()));
+  }
+
+  protected final void markPropertyAsSet(String propertyName) {
+    openapiExplicitlySetFields.add(propertyName);
+  }
+
+  /** Gson populates fields directly, bypassing setters during deserialization. */
+  protected final void markPropertiesAsSet(Set<String> propertyNames) {
+    openapiExplicitlySetFields.addAll(propertyNames);
   }
 
 
@@ -523,7 +566,7 @@ public class StrikethroughEffect {
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
        if (!StrikethroughEffect.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'StrikethroughEffect' and its subtypes
+         return null; // let other model factories handle this type
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
        final TypeAdapter<StrikethroughEffect> thisAdapter
@@ -533,31 +576,22 @@ public class StrikethroughEffect {
            @Override
            public void write(JsonWriter out, StrikethroughEffect value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+             value.removeUnsetNullFields(obj);
              obj.remove("additionalProperties");
              // serialize additional properties
              if (value.getAdditionalProperties() != null) {
                for (Map.Entry<String, Object> entry : value.getAdditionalProperties().entrySet()) {
-                 if (entry.getValue() instanceof String)
-                   obj.addProperty(entry.getKey(), (String) entry.getValue());
-                 else if (entry.getValue() instanceof Number)
-                   obj.addProperty(entry.getKey(), (Number) entry.getValue());
-                 else if (entry.getValue() instanceof Boolean)
-                   obj.addProperty(entry.getKey(), (Boolean) entry.getValue());
-                 else if (entry.getValue() instanceof Character)
-                   obj.addProperty(entry.getKey(), (Character) entry.getValue());
-                 else {
-                   JsonElement jsonElement = gson.toJsonTree(entry.getValue());
-                   if (jsonElement.isJsonNull()) {
-                     obj.add(entry.getKey(), JsonNull.INSTANCE);
-                   } else if (jsonElement.isJsonArray()) {
-                     obj.add(entry.getKey(), jsonElement.getAsJsonArray());
-                   } else {
-                     obj.add(entry.getKey(), jsonElement.getAsJsonObject());
-                   }
-                 }
+                 // TypeAdapter.toJsonTree keeps explicit null entries in arbitrary maps too.
+                 obj.add(entry.getKey(), gson.getAdapter(Object.class).toJsonTree(entry.getValue()));
                }
              }
-             elementAdapter.write(out, obj);
+             boolean originalSerializeNulls = out.getSerializeNulls();
+             try {
+               out.setSerializeNulls(true);
+               elementAdapter.write(out, obj);
+             } finally {
+               out.setSerializeNulls(originalSerializeNulls);
+             }
            }
 
            @Override
@@ -567,6 +601,7 @@ public class StrikethroughEffect {
              JsonObject jsonObj = jsonElement.getAsJsonObject();
              // store additional fields in the deserialized instance
              StrikethroughEffect instance = thisAdapter.fromJsonTree(jsonObj);
+             instance.markPropertiesAsSet(jsonObj.keySet());
              for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
                if (!openapiFields.contains(entry.getKey())) {
                  if (entry.getValue().isJsonPrimitive()) { // primitive type

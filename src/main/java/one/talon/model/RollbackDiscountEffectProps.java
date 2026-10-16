@@ -52,6 +52,9 @@ import one.talon.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.26.0")
 public class RollbackDiscountEffectProps {
+  // Gson ignores transient state; only setters and JSON input mark properties as present.
+  private transient Set<String> openapiExplicitlySetFields = new HashSet<>();
+
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
   @javax.annotation.Nonnull
@@ -92,6 +95,7 @@ public class RollbackDiscountEffectProps {
 
   public RollbackDiscountEffectProps name(@javax.annotation.Nonnull String name) {
     this.name = name;
+    this.markPropertyAsSet(SERIALIZED_NAME_NAME);
     return this;
   }
 
@@ -106,11 +110,13 @@ public class RollbackDiscountEffectProps {
 
   public void setName(@javax.annotation.Nonnull String name) {
     this.name = name;
+    this.markPropertyAsSet(SERIALIZED_NAME_NAME);
   }
 
 
   public RollbackDiscountEffectProps value(@javax.annotation.Nonnull BigDecimal value) {
     this.value = value;
+    this.markPropertyAsSet(SERIALIZED_NAME_VALUE);
     return this;
   }
 
@@ -125,11 +131,13 @@ public class RollbackDiscountEffectProps {
 
   public void setValue(@javax.annotation.Nonnull BigDecimal value) {
     this.value = value;
+    this.markPropertyAsSet(SERIALIZED_NAME_VALUE);
   }
 
 
   public RollbackDiscountEffectProps cartItemPosition(@javax.annotation.Nullable BigDecimal cartItemPosition) {
     this.cartItemPosition = cartItemPosition;
+    this.markPropertyAsSet(SERIALIZED_NAME_CART_ITEM_POSITION);
     return this;
   }
 
@@ -144,11 +152,13 @@ public class RollbackDiscountEffectProps {
 
   public void setCartItemPosition(@javax.annotation.Nullable BigDecimal cartItemPosition) {
     this.cartItemPosition = cartItemPosition;
+    this.markPropertyAsSet(SERIALIZED_NAME_CART_ITEM_POSITION);
   }
 
 
   public RollbackDiscountEffectProps cartItemSubPosition(@javax.annotation.Nullable BigDecimal cartItemSubPosition) {
     this.cartItemSubPosition = cartItemSubPosition;
+    this.markPropertyAsSet(SERIALIZED_NAME_CART_ITEM_SUB_POSITION);
     return this;
   }
 
@@ -163,11 +173,13 @@ public class RollbackDiscountEffectProps {
 
   public void setCartItemSubPosition(@javax.annotation.Nullable BigDecimal cartItemSubPosition) {
     this.cartItemSubPosition = cartItemSubPosition;
+    this.markPropertyAsSet(SERIALIZED_NAME_CART_ITEM_SUB_POSITION);
   }
 
 
   public RollbackDiscountEffectProps additionalCostId(@javax.annotation.Nullable Long additionalCostId) {
     this.additionalCostId = additionalCostId;
+    this.markPropertyAsSet(SERIALIZED_NAME_ADDITIONAL_COST_ID);
     return this;
   }
 
@@ -182,11 +194,13 @@ public class RollbackDiscountEffectProps {
 
   public void setAdditionalCostId(@javax.annotation.Nullable Long additionalCostId) {
     this.additionalCostId = additionalCostId;
+    this.markPropertyAsSet(SERIALIZED_NAME_ADDITIONAL_COST_ID);
   }
 
 
   public RollbackDiscountEffectProps additionalCost(@javax.annotation.Nullable String additionalCost) {
     this.additionalCost = additionalCost;
+    this.markPropertyAsSet(SERIALIZED_NAME_ADDITIONAL_COST);
     return this;
   }
 
@@ -201,11 +215,13 @@ public class RollbackDiscountEffectProps {
 
   public void setAdditionalCost(@javax.annotation.Nullable String additionalCost) {
     this.additionalCost = additionalCost;
+    this.markPropertyAsSet(SERIALIZED_NAME_ADDITIONAL_COST);
   }
 
 
   public RollbackDiscountEffectProps scope(@javax.annotation.Nullable String scope) {
     this.scope = scope;
+    this.markPropertyAsSet(SERIALIZED_NAME_SCOPE);
     return this;
   }
 
@@ -220,6 +236,7 @@ public class RollbackDiscountEffectProps {
 
   public void setScope(@javax.annotation.Nullable String scope) {
     this.scope = scope;
+    this.markPropertyAsSet(SERIALIZED_NAME_SCOPE);
   }
 
   /**
@@ -265,6 +282,21 @@ public class RollbackDiscountEffectProps {
         return null;
     }
     return this.additionalProperties.get(key);
+  }
+
+  /** Omit null properties unless they were explicitly assigned or present in JSON input. */
+  protected final void removeUnsetNullFields(JsonObject obj) {
+    obj.entrySet().removeIf(entry -> entry.getValue().isJsonNull()
+        && !openapiExplicitlySetFields.contains(entry.getKey()));
+  }
+
+  protected final void markPropertyAsSet(String propertyName) {
+    openapiExplicitlySetFields.add(propertyName);
+  }
+
+  /** Gson populates fields directly, bypassing setters during deserialization. */
+  protected final void markPropertiesAsSet(Set<String> propertyNames) {
+    openapiExplicitlySetFields.addAll(propertyNames);
   }
 
 
@@ -364,7 +396,7 @@ public class RollbackDiscountEffectProps {
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
        if (!RollbackDiscountEffectProps.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'RollbackDiscountEffectProps' and its subtypes
+         return null; // let other model factories handle this type
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
        final TypeAdapter<RollbackDiscountEffectProps> thisAdapter
@@ -374,31 +406,22 @@ public class RollbackDiscountEffectProps {
            @Override
            public void write(JsonWriter out, RollbackDiscountEffectProps value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+             value.removeUnsetNullFields(obj);
              obj.remove("additionalProperties");
              // serialize additional properties
              if (value.getAdditionalProperties() != null) {
                for (Map.Entry<String, Object> entry : value.getAdditionalProperties().entrySet()) {
-                 if (entry.getValue() instanceof String)
-                   obj.addProperty(entry.getKey(), (String) entry.getValue());
-                 else if (entry.getValue() instanceof Number)
-                   obj.addProperty(entry.getKey(), (Number) entry.getValue());
-                 else if (entry.getValue() instanceof Boolean)
-                   obj.addProperty(entry.getKey(), (Boolean) entry.getValue());
-                 else if (entry.getValue() instanceof Character)
-                   obj.addProperty(entry.getKey(), (Character) entry.getValue());
-                 else {
-                   JsonElement jsonElement = gson.toJsonTree(entry.getValue());
-                   if (jsonElement.isJsonNull()) {
-                     obj.add(entry.getKey(), JsonNull.INSTANCE);
-                   } else if (jsonElement.isJsonArray()) {
-                     obj.add(entry.getKey(), jsonElement.getAsJsonArray());
-                   } else {
-                     obj.add(entry.getKey(), jsonElement.getAsJsonObject());
-                   }
-                 }
+                 // TypeAdapter.toJsonTree keeps explicit null entries in arbitrary maps too.
+                 obj.add(entry.getKey(), gson.getAdapter(Object.class).toJsonTree(entry.getValue()));
                }
              }
-             elementAdapter.write(out, obj);
+             boolean originalSerializeNulls = out.getSerializeNulls();
+             try {
+               out.setSerializeNulls(true);
+               elementAdapter.write(out, obj);
+             } finally {
+               out.setSerializeNulls(originalSerializeNulls);
+             }
            }
 
            @Override
@@ -408,6 +431,7 @@ public class RollbackDiscountEffectProps {
              JsonObject jsonObj = jsonElement.getAsJsonObject();
              // store additional fields in the deserialized instance
              RollbackDiscountEffectProps instance = thisAdapter.fromJsonTree(jsonObj);
+             instance.markPropertiesAsSet(jsonObj.keySet());
              for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
                if (!openapiFields.contains(entry.getKey())) {
                  if (entry.getValue().isJsonPrimitive()) { // primitive type

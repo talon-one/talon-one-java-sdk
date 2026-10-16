@@ -54,6 +54,9 @@ import one.talon.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.26.0")
 public class ExperimentSegmentInsight {
+  // Gson ignores transient state; only setters and JSON input mark properties as present.
+  private transient Set<String> openapiExplicitlySetFields = new HashSet<>();
+
   /**
    * The segmentation dimension used to group customers or purchases for analysis.
    */
@@ -198,6 +201,7 @@ public class ExperimentSegmentInsight {
 
   public ExperimentSegmentInsight dimension(@javax.annotation.Nonnull DimensionEnum dimension) {
     this.dimension = dimension;
+    this.markPropertyAsSet(SERIALIZED_NAME_DIMENSION);
     return this;
   }
 
@@ -212,11 +216,13 @@ public class ExperimentSegmentInsight {
 
   public void setDimension(@javax.annotation.Nonnull DimensionEnum dimension) {
     this.dimension = dimension;
+    this.markPropertyAsSet(SERIALIZED_NAME_DIMENSION);
   }
 
 
   public ExperimentSegmentInsight bucket(@javax.annotation.Nonnull BucketEnum bucket) {
     this.bucket = bucket;
+    this.markPropertyAsSet(SERIALIZED_NAME_BUCKET);
     return this;
   }
 
@@ -231,11 +237,13 @@ public class ExperimentSegmentInsight {
 
   public void setBucket(@javax.annotation.Nonnull BucketEnum bucket) {
     this.bucket = bucket;
+    this.markPropertyAsSet(SERIALIZED_NAME_BUCKET);
   }
 
 
   public ExperimentSegmentInsight confidence(@javax.annotation.Nonnull Double confidence) {
     this.confidence = confidence;
+    this.markPropertyAsSet(SERIALIZED_NAME_CONFIDENCE);
     return this;
   }
 
@@ -252,11 +260,13 @@ public class ExperimentSegmentInsight {
 
   public void setConfidence(@javax.annotation.Nonnull Double confidence) {
     this.confidence = confidence;
+    this.markPropertyAsSet(SERIALIZED_NAME_CONFIDENCE);
   }
 
 
   public ExperimentSegmentInsight winnerVariantId(@javax.annotation.Nonnull Long winnerVariantId) {
     this.winnerVariantId = winnerVariantId;
+    this.markPropertyAsSet(SERIALIZED_NAME_WINNER_VARIANT_ID);
     return this;
   }
 
@@ -271,11 +281,13 @@ public class ExperimentSegmentInsight {
 
   public void setWinnerVariantId(@javax.annotation.Nonnull Long winnerVariantId) {
     this.winnerVariantId = winnerVariantId;
+    this.markPropertyAsSet(SERIALIZED_NAME_WINNER_VARIANT_ID);
   }
 
 
   public ExperimentSegmentInsight variants(@javax.annotation.Nonnull List<ExperimentSegmentInsightVariant> variants) {
     this.variants = variants;
+    this.markPropertyAsSet(SERIALIZED_NAME_VARIANTS);
     return this;
   }
 
@@ -284,6 +296,7 @@ public class ExperimentSegmentInsight {
       this.variants = new ArrayList<>();
     }
     this.variants.add(variantsItem);
+    this.markPropertyAsSet(SERIALIZED_NAME_VARIANTS);
     return this;
   }
 
@@ -298,6 +311,7 @@ public class ExperimentSegmentInsight {
 
   public void setVariants(@javax.annotation.Nonnull List<ExperimentSegmentInsightVariant> variants) {
     this.variants = variants;
+    this.markPropertyAsSet(SERIALIZED_NAME_VARIANTS);
   }
 
   /**
@@ -343,6 +357,21 @@ public class ExperimentSegmentInsight {
         return null;
     }
     return this.additionalProperties.get(key);
+  }
+
+  /** Omit null properties unless they were explicitly assigned or present in JSON input. */
+  protected final void removeUnsetNullFields(JsonObject obj) {
+    obj.entrySet().removeIf(entry -> entry.getValue().isJsonNull()
+        && !openapiExplicitlySetFields.contains(entry.getKey()));
+  }
+
+  protected final void markPropertyAsSet(String propertyName) {
+    openapiExplicitlySetFields.add(propertyName);
+  }
+
+  /** Gson populates fields directly, bypassing setters during deserialization. */
+  protected final void markPropertiesAsSet(Set<String> propertyNames) {
+    openapiExplicitlySetFields.addAll(propertyNames);
   }
 
 
@@ -449,7 +478,7 @@ public class ExperimentSegmentInsight {
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
        if (!ExperimentSegmentInsight.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'ExperimentSegmentInsight' and its subtypes
+         return null; // let other model factories handle this type
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
        final TypeAdapter<ExperimentSegmentInsight> thisAdapter
@@ -459,31 +488,22 @@ public class ExperimentSegmentInsight {
            @Override
            public void write(JsonWriter out, ExperimentSegmentInsight value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+             value.removeUnsetNullFields(obj);
              obj.remove("additionalProperties");
              // serialize additional properties
              if (value.getAdditionalProperties() != null) {
                for (Map.Entry<String, Object> entry : value.getAdditionalProperties().entrySet()) {
-                 if (entry.getValue() instanceof String)
-                   obj.addProperty(entry.getKey(), (String) entry.getValue());
-                 else if (entry.getValue() instanceof Number)
-                   obj.addProperty(entry.getKey(), (Number) entry.getValue());
-                 else if (entry.getValue() instanceof Boolean)
-                   obj.addProperty(entry.getKey(), (Boolean) entry.getValue());
-                 else if (entry.getValue() instanceof Character)
-                   obj.addProperty(entry.getKey(), (Character) entry.getValue());
-                 else {
-                   JsonElement jsonElement = gson.toJsonTree(entry.getValue());
-                   if (jsonElement.isJsonNull()) {
-                     obj.add(entry.getKey(), JsonNull.INSTANCE);
-                   } else if (jsonElement.isJsonArray()) {
-                     obj.add(entry.getKey(), jsonElement.getAsJsonArray());
-                   } else {
-                     obj.add(entry.getKey(), jsonElement.getAsJsonObject());
-                   }
-                 }
+                 // TypeAdapter.toJsonTree keeps explicit null entries in arbitrary maps too.
+                 obj.add(entry.getKey(), gson.getAdapter(Object.class).toJsonTree(entry.getValue()));
                }
              }
-             elementAdapter.write(out, obj);
+             boolean originalSerializeNulls = out.getSerializeNulls();
+             try {
+               out.setSerializeNulls(true);
+               elementAdapter.write(out, obj);
+             } finally {
+               out.setSerializeNulls(originalSerializeNulls);
+             }
            }
 
            @Override
@@ -493,6 +513,7 @@ public class ExperimentSegmentInsight {
              JsonObject jsonObj = jsonElement.getAsJsonObject();
              // store additional fields in the deserialized instance
              ExperimentSegmentInsight instance = thisAdapter.fromJsonTree(jsonObj);
+             instance.markPropertiesAsSet(jsonObj.keySet());
              for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
                if (!openapiFields.contains(entry.getKey())) {
                  if (entry.getValue().isJsonPrimitive()) { // primitive type

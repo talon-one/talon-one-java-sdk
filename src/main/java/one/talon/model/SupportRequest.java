@@ -52,6 +52,9 @@ import one.talon.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.26.0")
 public class SupportRequest {
+  // Gson ignores transient state; only setters and JSON input mark properties as present.
+  private transient Set<String> openapiExplicitlySetFields = new HashSet<>();
+
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
   @javax.annotation.Nonnull
@@ -249,6 +252,7 @@ public class SupportRequest {
 
   public SupportRequest id(@javax.annotation.Nonnull Long id) {
     this.id = id;
+    this.markPropertyAsSet(SERIALIZED_NAME_ID);
     return this;
   }
 
@@ -263,11 +267,13 @@ public class SupportRequest {
 
   public void setId(@javax.annotation.Nonnull Long id) {
     this.id = id;
+    this.markPropertyAsSet(SERIALIZED_NAME_ID);
   }
 
 
   public SupportRequest applicationId(@javax.annotation.Nonnull Long applicationId) {
     this.applicationId = applicationId;
+    this.markPropertyAsSet(SERIALIZED_NAME_APPLICATION_ID);
     return this;
   }
 
@@ -282,11 +288,13 @@ public class SupportRequest {
 
   public void setApplicationId(@javax.annotation.Nonnull Long applicationId) {
     this.applicationId = applicationId;
+    this.markPropertyAsSet(SERIALIZED_NAME_APPLICATION_ID);
   }
 
 
   public SupportRequest campaignId(@javax.annotation.Nullable Long campaignId) {
     this.campaignId = campaignId;
+    this.markPropertyAsSet(SERIALIZED_NAME_CAMPAIGN_ID);
     return this;
   }
 
@@ -301,11 +309,13 @@ public class SupportRequest {
 
   public void setCampaignId(@javax.annotation.Nullable Long campaignId) {
     this.campaignId = campaignId;
+    this.markPropertyAsSet(SERIALIZED_NAME_CAMPAIGN_ID);
   }
 
 
   public SupportRequest loyaltyProgramId(@javax.annotation.Nullable Long loyaltyProgramId) {
     this.loyaltyProgramId = loyaltyProgramId;
+    this.markPropertyAsSet(SERIALIZED_NAME_LOYALTY_PROGRAM_ID);
     return this;
   }
 
@@ -320,11 +330,13 @@ public class SupportRequest {
 
   public void setLoyaltyProgramId(@javax.annotation.Nullable Long loyaltyProgramId) {
     this.loyaltyProgramId = loyaltyProgramId;
+    this.markPropertyAsSet(SERIALIZED_NAME_LOYALTY_PROGRAM_ID);
   }
 
 
   public SupportRequest subledgerId(@javax.annotation.Nullable String subledgerId) {
     this.subledgerId = subledgerId;
+    this.markPropertyAsSet(SERIALIZED_NAME_SUBLEDGER_ID);
     return this;
   }
 
@@ -339,11 +351,13 @@ public class SupportRequest {
 
   public void setSubledgerId(@javax.annotation.Nullable String subledgerId) {
     this.subledgerId = subledgerId;
+    this.markPropertyAsSet(SERIALIZED_NAME_SUBLEDGER_ID);
   }
 
 
   public SupportRequest createdByUser(@javax.annotation.Nonnull String createdByUser) {
     this.createdByUser = createdByUser;
+    this.markPropertyAsSet(SERIALIZED_NAME_CREATED_BY_USER);
     return this;
   }
 
@@ -358,11 +372,13 @@ public class SupportRequest {
 
   public void setCreatedByUser(@javax.annotation.Nonnull String createdByUser) {
     this.createdByUser = createdByUser;
+    this.markPropertyAsSet(SERIALIZED_NAME_CREATED_BY_USER);
   }
 
 
   public SupportRequest createdAt(@javax.annotation.Nonnull OffsetDateTime createdAt) {
     this.createdAt = createdAt;
+    this.markPropertyAsSet(SERIALIZED_NAME_CREATED_AT);
     return this;
   }
 
@@ -377,11 +393,13 @@ public class SupportRequest {
 
   public void setCreatedAt(@javax.annotation.Nonnull OffsetDateTime createdAt) {
     this.createdAt = createdAt;
+    this.markPropertyAsSet(SERIALIZED_NAME_CREATED_AT);
   }
 
 
   public SupportRequest customerProfileId(@javax.annotation.Nonnull String customerProfileId) {
     this.customerProfileId = customerProfileId;
+    this.markPropertyAsSet(SERIALIZED_NAME_CUSTOMER_PROFILE_ID);
     return this;
   }
 
@@ -396,11 +414,13 @@ public class SupportRequest {
 
   public void setCustomerProfileId(@javax.annotation.Nonnull String customerProfileId) {
     this.customerProfileId = customerProfileId;
+    this.markPropertyAsSet(SERIALIZED_NAME_CUSTOMER_PROFILE_ID);
   }
 
 
   public SupportRequest requestType(@javax.annotation.Nonnull RequestTypeEnum requestType) {
     this.requestType = requestType;
+    this.markPropertyAsSet(SERIALIZED_NAME_REQUEST_TYPE);
     return this;
   }
 
@@ -415,11 +435,13 @@ public class SupportRequest {
 
   public void setRequestType(@javax.annotation.Nonnull RequestTypeEnum requestType) {
     this.requestType = requestType;
+    this.markPropertyAsSet(SERIALIZED_NAME_REQUEST_TYPE);
   }
 
 
   public SupportRequest requestValue(@javax.annotation.Nullable Float requestValue) {
     this.requestValue = requestValue;
+    this.markPropertyAsSet(SERIALIZED_NAME_REQUEST_VALUE);
     return this;
   }
 
@@ -435,11 +457,13 @@ public class SupportRequest {
 
   public void setRequestValue(@javax.annotation.Nullable Float requestValue) {
     this.requestValue = requestValue;
+    this.markPropertyAsSet(SERIALIZED_NAME_REQUEST_VALUE);
   }
 
 
   public SupportRequest requestNote(@javax.annotation.Nonnull String requestNote) {
     this.requestNote = requestNote;
+    this.markPropertyAsSet(SERIALIZED_NAME_REQUEST_NOTE);
     return this;
   }
 
@@ -454,11 +478,13 @@ public class SupportRequest {
 
   public void setRequestNote(@javax.annotation.Nonnull String requestNote) {
     this.requestNote = requestNote;
+    this.markPropertyAsSet(SERIALIZED_NAME_REQUEST_NOTE);
   }
 
 
   public SupportRequest requestStatus(@javax.annotation.Nonnull RequestStatusEnum requestStatus) {
     this.requestStatus = requestStatus;
+    this.markPropertyAsSet(SERIALIZED_NAME_REQUEST_STATUS);
     return this;
   }
 
@@ -473,11 +499,13 @@ public class SupportRequest {
 
   public void setRequestStatus(@javax.annotation.Nonnull RequestStatusEnum requestStatus) {
     this.requestStatus = requestStatus;
+    this.markPropertyAsSet(SERIALIZED_NAME_REQUEST_STATUS);
   }
 
 
   public SupportRequest processedAt(@javax.annotation.Nullable OffsetDateTime processedAt) {
     this.processedAt = processedAt;
+    this.markPropertyAsSet(SERIALIZED_NAME_PROCESSED_AT);
     return this;
   }
 
@@ -492,11 +520,13 @@ public class SupportRequest {
 
   public void setProcessedAt(@javax.annotation.Nullable OffsetDateTime processedAt) {
     this.processedAt = processedAt;
+    this.markPropertyAsSet(SERIALIZED_NAME_PROCESSED_AT);
   }
 
 
   public SupportRequest processingNote(@javax.annotation.Nullable String processingNote) {
     this.processingNote = processingNote;
+    this.markPropertyAsSet(SERIALIZED_NAME_PROCESSING_NOTE);
     return this;
   }
 
@@ -511,11 +541,13 @@ public class SupportRequest {
 
   public void setProcessingNote(@javax.annotation.Nullable String processingNote) {
     this.processingNote = processingNote;
+    this.markPropertyAsSet(SERIALIZED_NAME_PROCESSING_NOTE);
   }
 
 
   public SupportRequest processedByUser(@javax.annotation.Nullable String processedByUser) {
     this.processedByUser = processedByUser;
+    this.markPropertyAsSet(SERIALIZED_NAME_PROCESSED_BY_USER);
     return this;
   }
 
@@ -530,11 +562,13 @@ public class SupportRequest {
 
   public void setProcessedByUser(@javax.annotation.Nullable String processedByUser) {
     this.processedByUser = processedByUser;
+    this.markPropertyAsSet(SERIALIZED_NAME_PROCESSED_BY_USER);
   }
 
 
   public SupportRequest couponCode(@javax.annotation.Nullable String couponCode) {
     this.couponCode = couponCode;
+    this.markPropertyAsSet(SERIALIZED_NAME_COUPON_CODE);
     return this;
   }
 
@@ -549,6 +583,7 @@ public class SupportRequest {
 
   public void setCouponCode(@javax.annotation.Nullable String couponCode) {
     this.couponCode = couponCode;
+    this.markPropertyAsSet(SERIALIZED_NAME_COUPON_CODE);
   }
 
   /**
@@ -594,6 +629,21 @@ public class SupportRequest {
         return null;
     }
     return this.additionalProperties.get(key);
+  }
+
+  /** Omit null properties unless they were explicitly assigned or present in JSON input. */
+  protected final void removeUnsetNullFields(JsonObject obj) {
+    obj.entrySet().removeIf(entry -> entry.getValue().isJsonNull()
+        && !openapiExplicitlySetFields.contains(entry.getKey()));
+  }
+
+  protected final void markPropertyAsSet(String propertyName) {
+    openapiExplicitlySetFields.add(propertyName);
+  }
+
+  /** Gson populates fields directly, bypassing setters during deserialization. */
+  protected final void markPropertiesAsSet(Set<String> propertyNames) {
+    openapiExplicitlySetFields.addAll(propertyNames);
   }
 
 
@@ -733,7 +783,7 @@ public class SupportRequest {
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
        if (!SupportRequest.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'SupportRequest' and its subtypes
+         return null; // let other model factories handle this type
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
        final TypeAdapter<SupportRequest> thisAdapter
@@ -743,31 +793,22 @@ public class SupportRequest {
            @Override
            public void write(JsonWriter out, SupportRequest value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+             value.removeUnsetNullFields(obj);
              obj.remove("additionalProperties");
              // serialize additional properties
              if (value.getAdditionalProperties() != null) {
                for (Map.Entry<String, Object> entry : value.getAdditionalProperties().entrySet()) {
-                 if (entry.getValue() instanceof String)
-                   obj.addProperty(entry.getKey(), (String) entry.getValue());
-                 else if (entry.getValue() instanceof Number)
-                   obj.addProperty(entry.getKey(), (Number) entry.getValue());
-                 else if (entry.getValue() instanceof Boolean)
-                   obj.addProperty(entry.getKey(), (Boolean) entry.getValue());
-                 else if (entry.getValue() instanceof Character)
-                   obj.addProperty(entry.getKey(), (Character) entry.getValue());
-                 else {
-                   JsonElement jsonElement = gson.toJsonTree(entry.getValue());
-                   if (jsonElement.isJsonNull()) {
-                     obj.add(entry.getKey(), JsonNull.INSTANCE);
-                   } else if (jsonElement.isJsonArray()) {
-                     obj.add(entry.getKey(), jsonElement.getAsJsonArray());
-                   } else {
-                     obj.add(entry.getKey(), jsonElement.getAsJsonObject());
-                   }
-                 }
+                 // TypeAdapter.toJsonTree keeps explicit null entries in arbitrary maps too.
+                 obj.add(entry.getKey(), gson.getAdapter(Object.class).toJsonTree(entry.getValue()));
                }
              }
-             elementAdapter.write(out, obj);
+             boolean originalSerializeNulls = out.getSerializeNulls();
+             try {
+               out.setSerializeNulls(true);
+               elementAdapter.write(out, obj);
+             } finally {
+               out.setSerializeNulls(originalSerializeNulls);
+             }
            }
 
            @Override
@@ -777,6 +818,7 @@ public class SupportRequest {
              JsonObject jsonObj = jsonElement.getAsJsonObject();
              // store additional fields in the deserialized instance
              SupportRequest instance = thisAdapter.fromJsonTree(jsonObj);
+             instance.markPropertiesAsSet(jsonObj.keySet());
              for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
                if (!openapiFields.contains(entry.getKey())) {
                  if (entry.getValue().isJsonPrimitive()) { // primitive type

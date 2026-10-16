@@ -52,6 +52,9 @@ import one.talon.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.26.0")
 public class UpdateReferralBatch {
+  // Gson ignores transient state; only setters and JSON input mark properties as present.
+  private transient Set<String> openapiExplicitlySetFields = new HashSet<>();
+
   public static final String SERIALIZED_NAME_ATTRIBUTES = "attributes";
   @SerializedName(SERIALIZED_NAME_ATTRIBUTES)
   @javax.annotation.Nullable
@@ -82,6 +85,7 @@ public class UpdateReferralBatch {
 
   public UpdateReferralBatch attributes(@javax.annotation.Nullable Object attributes) {
     this.attributes = attributes;
+    this.markPropertyAsSet(SERIALIZED_NAME_ATTRIBUTES);
     return this;
   }
 
@@ -96,11 +100,13 @@ public class UpdateReferralBatch {
 
   public void setAttributes(@javax.annotation.Nullable Object attributes) {
     this.attributes = attributes;
+    this.markPropertyAsSet(SERIALIZED_NAME_ATTRIBUTES);
   }
 
 
   public UpdateReferralBatch batchID(@javax.annotation.Nonnull String batchID) {
     this.batchID = batchID;
+    this.markPropertyAsSet(SERIALIZED_NAME_BATCH_I_D);
     return this;
   }
 
@@ -115,11 +121,13 @@ public class UpdateReferralBatch {
 
   public void setBatchID(@javax.annotation.Nonnull String batchID) {
     this.batchID = batchID;
+    this.markPropertyAsSet(SERIALIZED_NAME_BATCH_I_D);
   }
 
 
   public UpdateReferralBatch startDate(@javax.annotation.Nullable OffsetDateTime startDate) {
     this.startDate = startDate;
+    this.markPropertyAsSet(SERIALIZED_NAME_START_DATE);
     return this;
   }
 
@@ -134,11 +142,13 @@ public class UpdateReferralBatch {
 
   public void setStartDate(@javax.annotation.Nullable OffsetDateTime startDate) {
     this.startDate = startDate;
+    this.markPropertyAsSet(SERIALIZED_NAME_START_DATE);
   }
 
 
   public UpdateReferralBatch expiryDate(@javax.annotation.Nullable OffsetDateTime expiryDate) {
     this.expiryDate = expiryDate;
+    this.markPropertyAsSet(SERIALIZED_NAME_EXPIRY_DATE);
     return this;
   }
 
@@ -153,11 +163,13 @@ public class UpdateReferralBatch {
 
   public void setExpiryDate(@javax.annotation.Nullable OffsetDateTime expiryDate) {
     this.expiryDate = expiryDate;
+    this.markPropertyAsSet(SERIALIZED_NAME_EXPIRY_DATE);
   }
 
 
   public UpdateReferralBatch usageLimit(@javax.annotation.Nullable Long usageLimit) {
     this.usageLimit = usageLimit;
+    this.markPropertyAsSet(SERIALIZED_NAME_USAGE_LIMIT);
     return this;
   }
 
@@ -174,6 +186,7 @@ public class UpdateReferralBatch {
 
   public void setUsageLimit(@javax.annotation.Nullable Long usageLimit) {
     this.usageLimit = usageLimit;
+    this.markPropertyAsSet(SERIALIZED_NAME_USAGE_LIMIT);
   }
 
   /**
@@ -219,6 +232,21 @@ public class UpdateReferralBatch {
         return null;
     }
     return this.additionalProperties.get(key);
+  }
+
+  /** Omit null properties unless they were explicitly assigned or present in JSON input. */
+  protected final void removeUnsetNullFields(JsonObject obj) {
+    obj.entrySet().removeIf(entry -> entry.getValue().isJsonNull()
+        && !openapiExplicitlySetFields.contains(entry.getKey()));
+  }
+
+  protected final void markPropertyAsSet(String propertyName) {
+    openapiExplicitlySetFields.add(propertyName);
+  }
+
+  /** Gson populates fields directly, bypassing setters during deserialization. */
+  protected final void markPropertiesAsSet(Set<String> propertyNames) {
+    openapiExplicitlySetFields.addAll(propertyNames);
   }
 
 
@@ -308,7 +336,7 @@ public class UpdateReferralBatch {
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
        if (!UpdateReferralBatch.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'UpdateReferralBatch' and its subtypes
+         return null; // let other model factories handle this type
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
        final TypeAdapter<UpdateReferralBatch> thisAdapter
@@ -318,31 +346,22 @@ public class UpdateReferralBatch {
            @Override
            public void write(JsonWriter out, UpdateReferralBatch value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+             value.removeUnsetNullFields(obj);
              obj.remove("additionalProperties");
              // serialize additional properties
              if (value.getAdditionalProperties() != null) {
                for (Map.Entry<String, Object> entry : value.getAdditionalProperties().entrySet()) {
-                 if (entry.getValue() instanceof String)
-                   obj.addProperty(entry.getKey(), (String) entry.getValue());
-                 else if (entry.getValue() instanceof Number)
-                   obj.addProperty(entry.getKey(), (Number) entry.getValue());
-                 else if (entry.getValue() instanceof Boolean)
-                   obj.addProperty(entry.getKey(), (Boolean) entry.getValue());
-                 else if (entry.getValue() instanceof Character)
-                   obj.addProperty(entry.getKey(), (Character) entry.getValue());
-                 else {
-                   JsonElement jsonElement = gson.toJsonTree(entry.getValue());
-                   if (jsonElement.isJsonNull()) {
-                     obj.add(entry.getKey(), JsonNull.INSTANCE);
-                   } else if (jsonElement.isJsonArray()) {
-                     obj.add(entry.getKey(), jsonElement.getAsJsonArray());
-                   } else {
-                     obj.add(entry.getKey(), jsonElement.getAsJsonObject());
-                   }
-                 }
+                 // TypeAdapter.toJsonTree keeps explicit null entries in arbitrary maps too.
+                 obj.add(entry.getKey(), gson.getAdapter(Object.class).toJsonTree(entry.getValue()));
                }
              }
-             elementAdapter.write(out, obj);
+             boolean originalSerializeNulls = out.getSerializeNulls();
+             try {
+               out.setSerializeNulls(true);
+               elementAdapter.write(out, obj);
+             } finally {
+               out.setSerializeNulls(originalSerializeNulls);
+             }
            }
 
            @Override
@@ -352,6 +371,7 @@ public class UpdateReferralBatch {
              JsonObject jsonObj = jsonElement.getAsJsonObject();
              // store additional fields in the deserialized instance
              UpdateReferralBatch instance = thisAdapter.fromJsonTree(jsonObj);
+             instance.markPropertiesAsSet(jsonObj.keySet());
              for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
                if (!openapiFields.contains(entry.getKey())) {
                  if (entry.getValue().isJsonPrimitive()) { // primitive type

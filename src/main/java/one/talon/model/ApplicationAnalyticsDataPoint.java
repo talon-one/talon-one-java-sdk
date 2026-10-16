@@ -54,6 +54,9 @@ import one.talon.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.26.0")
 public class ApplicationAnalyticsDataPoint {
+  // Gson ignores transient state; only setters and JSON input mark properties as present.
+  private transient Set<String> openapiExplicitlySetFields = new HashSet<>();
+
   public static final String SERIALIZED_NAME_START_TIME = "startTime";
   @SerializedName(SERIALIZED_NAME_START_TIME)
   @javax.annotation.Nonnull
@@ -99,6 +102,7 @@ public class ApplicationAnalyticsDataPoint {
 
   public ApplicationAnalyticsDataPoint startTime(@javax.annotation.Nonnull OffsetDateTime startTime) {
     this.startTime = startTime;
+    this.markPropertyAsSet(SERIALIZED_NAME_START_TIME);
     return this;
   }
 
@@ -113,11 +117,13 @@ public class ApplicationAnalyticsDataPoint {
 
   public void setStartTime(@javax.annotation.Nonnull OffsetDateTime startTime) {
     this.startTime = startTime;
+    this.markPropertyAsSet(SERIALIZED_NAME_START_TIME);
   }
 
 
   public ApplicationAnalyticsDataPoint endTime(@javax.annotation.Nonnull OffsetDateTime endTime) {
     this.endTime = endTime;
+    this.markPropertyAsSet(SERIALIZED_NAME_END_TIME);
     return this;
   }
 
@@ -132,11 +138,13 @@ public class ApplicationAnalyticsDataPoint {
 
   public void setEndTime(@javax.annotation.Nonnull OffsetDateTime endTime) {
     this.endTime = endTime;
+    this.markPropertyAsSet(SERIALIZED_NAME_END_TIME);
   }
 
 
   public ApplicationAnalyticsDataPoint totalRevenue(@javax.annotation.Nullable AnalyticsDataPoint totalRevenue) {
     this.totalRevenue = totalRevenue;
+    this.markPropertyAsSet(SERIALIZED_NAME_TOTAL_REVENUE);
     return this;
   }
 
@@ -151,11 +159,13 @@ public class ApplicationAnalyticsDataPoint {
 
   public void setTotalRevenue(@javax.annotation.Nullable AnalyticsDataPoint totalRevenue) {
     this.totalRevenue = totalRevenue;
+    this.markPropertyAsSet(SERIALIZED_NAME_TOTAL_REVENUE);
   }
 
 
   public ApplicationAnalyticsDataPoint sessionsCount(@javax.annotation.Nullable AnalyticsDataPoint sessionsCount) {
     this.sessionsCount = sessionsCount;
+    this.markPropertyAsSet(SERIALIZED_NAME_SESSIONS_COUNT);
     return this;
   }
 
@@ -170,11 +180,13 @@ public class ApplicationAnalyticsDataPoint {
 
   public void setSessionsCount(@javax.annotation.Nullable AnalyticsDataPoint sessionsCount) {
     this.sessionsCount = sessionsCount;
+    this.markPropertyAsSet(SERIALIZED_NAME_SESSIONS_COUNT);
   }
 
 
   public ApplicationAnalyticsDataPoint avgItemsPerSession(@javax.annotation.Nullable AnalyticsDataPoint avgItemsPerSession) {
     this.avgItemsPerSession = avgItemsPerSession;
+    this.markPropertyAsSet(SERIALIZED_NAME_AVG_ITEMS_PER_SESSION);
     return this;
   }
 
@@ -189,11 +201,13 @@ public class ApplicationAnalyticsDataPoint {
 
   public void setAvgItemsPerSession(@javax.annotation.Nullable AnalyticsDataPoint avgItemsPerSession) {
     this.avgItemsPerSession = avgItemsPerSession;
+    this.markPropertyAsSet(SERIALIZED_NAME_AVG_ITEMS_PER_SESSION);
   }
 
 
   public ApplicationAnalyticsDataPoint avgSessionValue(@javax.annotation.Nullable AnalyticsDataPoint avgSessionValue) {
     this.avgSessionValue = avgSessionValue;
+    this.markPropertyAsSet(SERIALIZED_NAME_AVG_SESSION_VALUE);
     return this;
   }
 
@@ -208,11 +222,13 @@ public class ApplicationAnalyticsDataPoint {
 
   public void setAvgSessionValue(@javax.annotation.Nullable AnalyticsDataPoint avgSessionValue) {
     this.avgSessionValue = avgSessionValue;
+    this.markPropertyAsSet(SERIALIZED_NAME_AVG_SESSION_VALUE);
   }
 
 
   public ApplicationAnalyticsDataPoint totalDiscounts(@javax.annotation.Nullable BigDecimal totalDiscounts) {
     this.totalDiscounts = totalDiscounts;
+    this.markPropertyAsSet(SERIALIZED_NAME_TOTAL_DISCOUNTS);
     return this;
   }
 
@@ -227,11 +243,13 @@ public class ApplicationAnalyticsDataPoint {
 
   public void setTotalDiscounts(@javax.annotation.Nullable BigDecimal totalDiscounts) {
     this.totalDiscounts = totalDiscounts;
+    this.markPropertyAsSet(SERIALIZED_NAME_TOTAL_DISCOUNTS);
   }
 
 
   public ApplicationAnalyticsDataPoint couponsCount(@javax.annotation.Nullable BigDecimal couponsCount) {
     this.couponsCount = couponsCount;
+    this.markPropertyAsSet(SERIALIZED_NAME_COUPONS_COUNT);
     return this;
   }
 
@@ -246,6 +264,7 @@ public class ApplicationAnalyticsDataPoint {
 
   public void setCouponsCount(@javax.annotation.Nullable BigDecimal couponsCount) {
     this.couponsCount = couponsCount;
+    this.markPropertyAsSet(SERIALIZED_NAME_COUPONS_COUNT);
   }
 
   /**
@@ -291,6 +310,21 @@ public class ApplicationAnalyticsDataPoint {
         return null;
     }
     return this.additionalProperties.get(key);
+  }
+
+  /** Omit null properties unless they were explicitly assigned or present in JSON input. */
+  protected final void removeUnsetNullFields(JsonObject obj) {
+    obj.entrySet().removeIf(entry -> entry.getValue().isJsonNull()
+        && !openapiExplicitlySetFields.contains(entry.getKey()));
+  }
+
+  protected final void markPropertyAsSet(String propertyName) {
+    openapiExplicitlySetFields.add(propertyName);
+  }
+
+  /** Gson populates fields directly, bypassing setters during deserialization. */
+  protected final void markPropertiesAsSet(Set<String> propertyNames) {
+    openapiExplicitlySetFields.addAll(propertyNames);
   }
 
 
@@ -399,7 +433,7 @@ public class ApplicationAnalyticsDataPoint {
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
        if (!ApplicationAnalyticsDataPoint.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'ApplicationAnalyticsDataPoint' and its subtypes
+         return null; // let other model factories handle this type
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
        final TypeAdapter<ApplicationAnalyticsDataPoint> thisAdapter
@@ -409,31 +443,22 @@ public class ApplicationAnalyticsDataPoint {
            @Override
            public void write(JsonWriter out, ApplicationAnalyticsDataPoint value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+             value.removeUnsetNullFields(obj);
              obj.remove("additionalProperties");
              // serialize additional properties
              if (value.getAdditionalProperties() != null) {
                for (Map.Entry<String, Object> entry : value.getAdditionalProperties().entrySet()) {
-                 if (entry.getValue() instanceof String)
-                   obj.addProperty(entry.getKey(), (String) entry.getValue());
-                 else if (entry.getValue() instanceof Number)
-                   obj.addProperty(entry.getKey(), (Number) entry.getValue());
-                 else if (entry.getValue() instanceof Boolean)
-                   obj.addProperty(entry.getKey(), (Boolean) entry.getValue());
-                 else if (entry.getValue() instanceof Character)
-                   obj.addProperty(entry.getKey(), (Character) entry.getValue());
-                 else {
-                   JsonElement jsonElement = gson.toJsonTree(entry.getValue());
-                   if (jsonElement.isJsonNull()) {
-                     obj.add(entry.getKey(), JsonNull.INSTANCE);
-                   } else if (jsonElement.isJsonArray()) {
-                     obj.add(entry.getKey(), jsonElement.getAsJsonArray());
-                   } else {
-                     obj.add(entry.getKey(), jsonElement.getAsJsonObject());
-                   }
-                 }
+                 // TypeAdapter.toJsonTree keeps explicit null entries in arbitrary maps too.
+                 obj.add(entry.getKey(), gson.getAdapter(Object.class).toJsonTree(entry.getValue()));
                }
              }
-             elementAdapter.write(out, obj);
+             boolean originalSerializeNulls = out.getSerializeNulls();
+             try {
+               out.setSerializeNulls(true);
+               elementAdapter.write(out, obj);
+             } finally {
+               out.setSerializeNulls(originalSerializeNulls);
+             }
            }
 
            @Override
@@ -443,6 +468,7 @@ public class ApplicationAnalyticsDataPoint {
              JsonObject jsonObj = jsonElement.getAsJsonObject();
              // store additional fields in the deserialized instance
              ApplicationAnalyticsDataPoint instance = thisAdapter.fromJsonTree(jsonObj);
+             instance.markPropertiesAsSet(jsonObj.keySet());
              for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
                if (!openapiFields.contains(entry.getKey())) {
                  if (entry.getValue().isJsonPrimitive()) { // primitive type

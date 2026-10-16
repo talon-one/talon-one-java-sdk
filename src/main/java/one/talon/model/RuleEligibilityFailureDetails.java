@@ -51,6 +51,9 @@ import one.talon.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.26.0")
 public class RuleEligibilityFailureDetails {
+  // Gson ignores transient state; only setters and JSON input mark properties as present.
+  private transient Set<String> openapiExplicitlySetFields = new HashSet<>();
+
   /**
    * A code identifying why the customer was not eligible for the rule in the current session.
    */
@@ -158,6 +161,7 @@ public class RuleEligibilityFailureDetails {
 
   public RuleEligibilityFailureDetails failureCode(@javax.annotation.Nonnull FailureCodeEnum failureCode) {
     this.failureCode = failureCode;
+    this.markPropertyAsSet(SERIALIZED_NAME_FAILURE_CODE);
     return this;
   }
 
@@ -172,11 +176,13 @@ public class RuleEligibilityFailureDetails {
 
   public void setFailureCode(@javax.annotation.Nonnull FailureCodeEnum failureCode) {
     this.failureCode = failureCode;
+    this.markPropertyAsSet(SERIALIZED_NAME_FAILURE_CODE);
   }
 
 
   public RuleEligibilityFailureDetails couponID(@javax.annotation.Nullable Long couponID) {
     this.couponID = couponID;
+    this.markPropertyAsSet(SERIALIZED_NAME_COUPON_I_D);
     return this;
   }
 
@@ -191,11 +197,13 @@ public class RuleEligibilityFailureDetails {
 
   public void setCouponID(@javax.annotation.Nullable Long couponID) {
     this.couponID = couponID;
+    this.markPropertyAsSet(SERIALIZED_NAME_COUPON_I_D);
   }
 
 
   public RuleEligibilityFailureDetails couponValue(@javax.annotation.Nullable String couponValue) {
     this.couponValue = couponValue;
+    this.markPropertyAsSet(SERIALIZED_NAME_COUPON_VALUE);
     return this;
   }
 
@@ -210,11 +218,13 @@ public class RuleEligibilityFailureDetails {
 
   public void setCouponValue(@javax.annotation.Nullable String couponValue) {
     this.couponValue = couponValue;
+    this.markPropertyAsSet(SERIALIZED_NAME_COUPON_VALUE);
   }
 
 
   public RuleEligibilityFailureDetails referralID(@javax.annotation.Nullable Long referralID) {
     this.referralID = referralID;
+    this.markPropertyAsSet(SERIALIZED_NAME_REFERRAL_I_D);
     return this;
   }
 
@@ -229,11 +239,13 @@ public class RuleEligibilityFailureDetails {
 
   public void setReferralID(@javax.annotation.Nullable Long referralID) {
     this.referralID = referralID;
+    this.markPropertyAsSet(SERIALIZED_NAME_REFERRAL_I_D);
   }
 
 
   public RuleEligibilityFailureDetails referralValue(@javax.annotation.Nullable String referralValue) {
     this.referralValue = referralValue;
+    this.markPropertyAsSet(SERIALIZED_NAME_REFERRAL_VALUE);
     return this;
   }
 
@@ -248,11 +260,13 @@ public class RuleEligibilityFailureDetails {
 
   public void setReferralValue(@javax.annotation.Nullable String referralValue) {
     this.referralValue = referralValue;
+    this.markPropertyAsSet(SERIALIZED_NAME_REFERRAL_VALUE);
   }
 
 
   public RuleEligibilityFailureDetails conditionIndex(@javax.annotation.Nullable Long conditionIndex) {
     this.conditionIndex = conditionIndex;
+    this.markPropertyAsSet(SERIALIZED_NAME_CONDITION_INDEX);
     return this;
   }
 
@@ -267,11 +281,13 @@ public class RuleEligibilityFailureDetails {
 
   public void setConditionIndex(@javax.annotation.Nullable Long conditionIndex) {
     this.conditionIndex = conditionIndex;
+    this.markPropertyAsSet(SERIALIZED_NAME_CONDITION_INDEX);
   }
 
 
   public RuleEligibilityFailureDetails effectIndex(@javax.annotation.Nullable Long effectIndex) {
     this.effectIndex = effectIndex;
+    this.markPropertyAsSet(SERIALIZED_NAME_EFFECT_INDEX);
     return this;
   }
 
@@ -286,11 +302,13 @@ public class RuleEligibilityFailureDetails {
 
   public void setEffectIndex(@javax.annotation.Nullable Long effectIndex) {
     this.effectIndex = effectIndex;
+    this.markPropertyAsSet(SERIALIZED_NAME_EFFECT_INDEX);
   }
 
 
   public RuleEligibilityFailureDetails ruleIndex(@javax.annotation.Nullable Long ruleIndex) {
     this.ruleIndex = ruleIndex;
+    this.markPropertyAsSet(SERIALIZED_NAME_RULE_INDEX);
     return this;
   }
 
@@ -305,11 +323,13 @@ public class RuleEligibilityFailureDetails {
 
   public void setRuleIndex(@javax.annotation.Nullable Long ruleIndex) {
     this.ruleIndex = ruleIndex;
+    this.markPropertyAsSet(SERIALIZED_NAME_RULE_INDEX);
   }
 
 
   public RuleEligibilityFailureDetails rulesetId(@javax.annotation.Nullable Long rulesetId) {
     this.rulesetId = rulesetId;
+    this.markPropertyAsSet(SERIALIZED_NAME_RULESET_ID);
     return this;
   }
 
@@ -324,11 +344,13 @@ public class RuleEligibilityFailureDetails {
 
   public void setRulesetId(@javax.annotation.Nullable Long rulesetId) {
     this.rulesetId = rulesetId;
+    this.markPropertyAsSet(SERIALIZED_NAME_RULESET_ID);
   }
 
 
   public RuleEligibilityFailureDetails details(@javax.annotation.Nonnull String details) {
     this.details = details;
+    this.markPropertyAsSet(SERIALIZED_NAME_DETAILS);
     return this;
   }
 
@@ -343,6 +365,7 @@ public class RuleEligibilityFailureDetails {
 
   public void setDetails(@javax.annotation.Nonnull String details) {
     this.details = details;
+    this.markPropertyAsSet(SERIALIZED_NAME_DETAILS);
   }
 
   /**
@@ -388,6 +411,21 @@ public class RuleEligibilityFailureDetails {
         return null;
     }
     return this.additionalProperties.get(key);
+  }
+
+  /** Omit null properties unless they were explicitly assigned or present in JSON input. */
+  protected final void removeUnsetNullFields(JsonObject obj) {
+    obj.entrySet().removeIf(entry -> entry.getValue().isJsonNull()
+        && !openapiExplicitlySetFields.contains(entry.getKey()));
+  }
+
+  protected final void markPropertyAsSet(String propertyName) {
+    openapiExplicitlySetFields.add(propertyName);
+  }
+
+  /** Gson populates fields directly, bypassing setters during deserialization. */
+  protected final void markPropertiesAsSet(Set<String> propertyNames) {
+    openapiExplicitlySetFields.addAll(propertyNames);
   }
 
 
@@ -498,7 +536,7 @@ public class RuleEligibilityFailureDetails {
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
        if (!RuleEligibilityFailureDetails.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'RuleEligibilityFailureDetails' and its subtypes
+         return null; // let other model factories handle this type
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
        final TypeAdapter<RuleEligibilityFailureDetails> thisAdapter
@@ -508,31 +546,22 @@ public class RuleEligibilityFailureDetails {
            @Override
            public void write(JsonWriter out, RuleEligibilityFailureDetails value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+             value.removeUnsetNullFields(obj);
              obj.remove("additionalProperties");
              // serialize additional properties
              if (value.getAdditionalProperties() != null) {
                for (Map.Entry<String, Object> entry : value.getAdditionalProperties().entrySet()) {
-                 if (entry.getValue() instanceof String)
-                   obj.addProperty(entry.getKey(), (String) entry.getValue());
-                 else if (entry.getValue() instanceof Number)
-                   obj.addProperty(entry.getKey(), (Number) entry.getValue());
-                 else if (entry.getValue() instanceof Boolean)
-                   obj.addProperty(entry.getKey(), (Boolean) entry.getValue());
-                 else if (entry.getValue() instanceof Character)
-                   obj.addProperty(entry.getKey(), (Character) entry.getValue());
-                 else {
-                   JsonElement jsonElement = gson.toJsonTree(entry.getValue());
-                   if (jsonElement.isJsonNull()) {
-                     obj.add(entry.getKey(), JsonNull.INSTANCE);
-                   } else if (jsonElement.isJsonArray()) {
-                     obj.add(entry.getKey(), jsonElement.getAsJsonArray());
-                   } else {
-                     obj.add(entry.getKey(), jsonElement.getAsJsonObject());
-                   }
-                 }
+                 // TypeAdapter.toJsonTree keeps explicit null entries in arbitrary maps too.
+                 obj.add(entry.getKey(), gson.getAdapter(Object.class).toJsonTree(entry.getValue()));
                }
              }
-             elementAdapter.write(out, obj);
+             boolean originalSerializeNulls = out.getSerializeNulls();
+             try {
+               out.setSerializeNulls(true);
+               elementAdapter.write(out, obj);
+             } finally {
+               out.setSerializeNulls(originalSerializeNulls);
+             }
            }
 
            @Override
@@ -542,6 +571,7 @@ public class RuleEligibilityFailureDetails {
              JsonObject jsonObj = jsonElement.getAsJsonObject();
              // store additional fields in the deserialized instance
              RuleEligibilityFailureDetails instance = thisAdapter.fromJsonTree(jsonObj);
+             instance.markPropertiesAsSet(jsonObj.keySet());
              for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
                if (!openapiFields.contains(entry.getKey())) {
                  if (entry.getValue().isJsonPrimitive()) { // primitive type

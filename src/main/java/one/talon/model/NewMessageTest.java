@@ -56,6 +56,9 @@ import one.talon.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.26.0")
 public class NewMessageTest {
+  // Gson ignores transient state; only setters and JSON input mark properties as present.
+  private transient Set<String> openapiExplicitlySetFields = new HashSet<>();
+
   public static final String SERIALIZED_NAME_HEADERS = "headers";
   @SerializedName(SERIALIZED_NAME_HEADERS)
   @javax.annotation.Nullable
@@ -154,6 +157,7 @@ public class NewMessageTest {
 
   public NewMessageTest headers(@javax.annotation.Nullable Map<String, String> headers) {
     this.headers = headers;
+    this.markPropertyAsSet(SERIALIZED_NAME_HEADERS);
     return this;
   }
 
@@ -162,6 +166,7 @@ public class NewMessageTest {
       this.headers = new HashMap<>();
     }
     this.headers.put(key, headersItem);
+    this.markPropertyAsSet(SERIALIZED_NAME_HEADERS);
     return this;
   }
 
@@ -176,11 +181,13 @@ public class NewMessageTest {
 
   public void setHeaders(@javax.annotation.Nullable Map<String, String> headers) {
     this.headers = headers;
+    this.markPropertyAsSet(SERIALIZED_NAME_HEADERS);
   }
 
 
   public NewMessageTest verb(@javax.annotation.Nonnull VerbEnum verb) {
     this.verb = verb;
+    this.markPropertyAsSet(SERIALIZED_NAME_VERB);
     return this;
   }
 
@@ -195,11 +202,13 @@ public class NewMessageTest {
 
   public void setVerb(@javax.annotation.Nonnull VerbEnum verb) {
     this.verb = verb;
+    this.markPropertyAsSet(SERIALIZED_NAME_VERB);
   }
 
 
   public NewMessageTest url(@javax.annotation.Nonnull String url) {
     this.url = url;
+    this.markPropertyAsSet(SERIALIZED_NAME_URL);
     return this;
   }
 
@@ -214,11 +223,13 @@ public class NewMessageTest {
 
   public void setUrl(@javax.annotation.Nonnull String url) {
     this.url = url;
+    this.markPropertyAsSet(SERIALIZED_NAME_URL);
   }
 
 
   public NewMessageTest payload(@javax.annotation.Nullable String payload) {
     this.payload = payload;
+    this.markPropertyAsSet(SERIALIZED_NAME_PAYLOAD);
     return this;
   }
 
@@ -233,11 +244,13 @@ public class NewMessageTest {
 
   public void setPayload(@javax.annotation.Nullable String payload) {
     this.payload = payload;
+    this.markPropertyAsSet(SERIALIZED_NAME_PAYLOAD);
   }
 
 
   public NewMessageTest params(@javax.annotation.Nullable List<TemplateArgDef> params) {
     this.params = params;
+    this.markPropertyAsSet(SERIALIZED_NAME_PARAMS);
     return this;
   }
 
@@ -246,6 +259,7 @@ public class NewMessageTest {
       this.params = new ArrayList<>();
     }
     this.params.add(paramsItem);
+    this.markPropertyAsSet(SERIALIZED_NAME_PARAMS);
     return this;
   }
 
@@ -260,11 +274,13 @@ public class NewMessageTest {
 
   public void setParams(@javax.annotation.Nullable List<TemplateArgDef> params) {
     this.params = params;
+    this.markPropertyAsSet(SERIALIZED_NAME_PARAMS);
   }
 
 
   public NewMessageTest applicationIds(@javax.annotation.Nullable List<Long> applicationIds) {
     this.applicationIds = applicationIds;
+    this.markPropertyAsSet(SERIALIZED_NAME_APPLICATION_IDS);
     return this;
   }
 
@@ -273,6 +289,7 @@ public class NewMessageTest {
       this.applicationIds = new ArrayList<>();
     }
     this.applicationIds.add(applicationIdsItem);
+    this.markPropertyAsSet(SERIALIZED_NAME_APPLICATION_IDS);
     return this;
   }
 
@@ -287,11 +304,13 @@ public class NewMessageTest {
 
   public void setApplicationIds(@javax.annotation.Nullable List<Long> applicationIds) {
     this.applicationIds = applicationIds;
+    this.markPropertyAsSet(SERIALIZED_NAME_APPLICATION_IDS);
   }
 
 
   public NewMessageTest authenticationId(@javax.annotation.Nullable Long authenticationId) {
     this.authenticationId = authenticationId;
+    this.markPropertyAsSet(SERIALIZED_NAME_AUTHENTICATION_ID);
     return this;
   }
 
@@ -306,6 +325,7 @@ public class NewMessageTest {
 
   public void setAuthenticationId(@javax.annotation.Nullable Long authenticationId) {
     this.authenticationId = authenticationId;
+    this.markPropertyAsSet(SERIALIZED_NAME_AUTHENTICATION_ID);
   }
 
   /**
@@ -351,6 +371,21 @@ public class NewMessageTest {
         return null;
     }
     return this.additionalProperties.get(key);
+  }
+
+  /** Omit null properties unless they were explicitly assigned or present in JSON input. */
+  protected final void removeUnsetNullFields(JsonObject obj) {
+    obj.entrySet().removeIf(entry -> entry.getValue().isJsonNull()
+        && !openapiExplicitlySetFields.contains(entry.getKey()));
+  }
+
+  protected final void markPropertyAsSet(String propertyName) {
+    openapiExplicitlySetFields.add(propertyName);
+  }
+
+  /** Gson populates fields directly, bypassing setters during deserialization. */
+  protected final void markPropertiesAsSet(Set<String> propertyNames) {
+    openapiExplicitlySetFields.addAll(propertyNames);
   }
 
 
@@ -470,7 +505,7 @@ public class NewMessageTest {
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
        if (!NewMessageTest.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'NewMessageTest' and its subtypes
+         return null; // let other model factories handle this type
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
        final TypeAdapter<NewMessageTest> thisAdapter
@@ -480,31 +515,22 @@ public class NewMessageTest {
            @Override
            public void write(JsonWriter out, NewMessageTest value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+             value.removeUnsetNullFields(obj);
              obj.remove("additionalProperties");
              // serialize additional properties
              if (value.getAdditionalProperties() != null) {
                for (Map.Entry<String, Object> entry : value.getAdditionalProperties().entrySet()) {
-                 if (entry.getValue() instanceof String)
-                   obj.addProperty(entry.getKey(), (String) entry.getValue());
-                 else if (entry.getValue() instanceof Number)
-                   obj.addProperty(entry.getKey(), (Number) entry.getValue());
-                 else if (entry.getValue() instanceof Boolean)
-                   obj.addProperty(entry.getKey(), (Boolean) entry.getValue());
-                 else if (entry.getValue() instanceof Character)
-                   obj.addProperty(entry.getKey(), (Character) entry.getValue());
-                 else {
-                   JsonElement jsonElement = gson.toJsonTree(entry.getValue());
-                   if (jsonElement.isJsonNull()) {
-                     obj.add(entry.getKey(), JsonNull.INSTANCE);
-                   } else if (jsonElement.isJsonArray()) {
-                     obj.add(entry.getKey(), jsonElement.getAsJsonArray());
-                   } else {
-                     obj.add(entry.getKey(), jsonElement.getAsJsonObject());
-                   }
-                 }
+                 // TypeAdapter.toJsonTree keeps explicit null entries in arbitrary maps too.
+                 obj.add(entry.getKey(), gson.getAdapter(Object.class).toJsonTree(entry.getValue()));
                }
              }
-             elementAdapter.write(out, obj);
+             boolean originalSerializeNulls = out.getSerializeNulls();
+             try {
+               out.setSerializeNulls(true);
+               elementAdapter.write(out, obj);
+             } finally {
+               out.setSerializeNulls(originalSerializeNulls);
+             }
            }
 
            @Override
@@ -514,6 +540,7 @@ public class NewMessageTest {
              JsonObject jsonObj = jsonElement.getAsJsonObject();
              // store additional fields in the deserialized instance
              NewMessageTest instance = thisAdapter.fromJsonTree(jsonObj);
+             instance.markPropertiesAsSet(jsonObj.keySet());
              for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
                if (!openapiFields.contains(entry.getKey())) {
                  if (entry.getValue().isJsonPrimitive()) { // primitive type

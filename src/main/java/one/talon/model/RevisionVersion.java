@@ -57,6 +57,9 @@ import one.talon.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.26.0")
 public class RevisionVersion {
+  // Gson ignores transient state; only setters and JSON input mark properties as present.
+  private transient Set<String> openapiExplicitlySetFields = new HashSet<>();
+
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
   @javax.annotation.Nonnull
@@ -229,6 +232,7 @@ public class RevisionVersion {
 
   public RevisionVersion id(@javax.annotation.Nonnull Long id) {
     this.id = id;
+    this.markPropertyAsSet(SERIALIZED_NAME_ID);
     return this;
   }
 
@@ -243,11 +247,13 @@ public class RevisionVersion {
 
   public void setId(@javax.annotation.Nonnull Long id) {
     this.id = id;
+    this.markPropertyAsSet(SERIALIZED_NAME_ID);
   }
 
 
   public RevisionVersion name(@javax.annotation.Nullable String name) {
     this.name = name;
+    this.markPropertyAsSet(SERIALIZED_NAME_NAME);
     return this;
   }
 
@@ -262,11 +268,13 @@ public class RevisionVersion {
 
   public void setName(@javax.annotation.Nullable String name) {
     this.name = name;
+    this.markPropertyAsSet(SERIALIZED_NAME_NAME);
   }
 
 
   public RevisionVersion startTime(@javax.annotation.Nullable OffsetDateTime startTime) {
     this.startTime = startTime;
+    this.markPropertyAsSet(SERIALIZED_NAME_START_TIME);
     return this;
   }
 
@@ -281,11 +289,13 @@ public class RevisionVersion {
 
   public void setStartTime(@javax.annotation.Nullable OffsetDateTime startTime) {
     this.startTime = startTime;
+    this.markPropertyAsSet(SERIALIZED_NAME_START_TIME);
   }
 
 
   public RevisionVersion endTime(@javax.annotation.Nullable OffsetDateTime endTime) {
     this.endTime = endTime;
+    this.markPropertyAsSet(SERIALIZED_NAME_END_TIME);
     return this;
   }
 
@@ -300,11 +310,13 @@ public class RevisionVersion {
 
   public void setEndTime(@javax.annotation.Nullable OffsetDateTime endTime) {
     this.endTime = endTime;
+    this.markPropertyAsSet(SERIALIZED_NAME_END_TIME);
   }
 
 
   public RevisionVersion attributes(@javax.annotation.Nullable Object attributes) {
     this.attributes = attributes;
+    this.markPropertyAsSet(SERIALIZED_NAME_ATTRIBUTES);
     return this;
   }
 
@@ -319,11 +331,13 @@ public class RevisionVersion {
 
   public void setAttributes(@javax.annotation.Nullable Object attributes) {
     this.attributes = attributes;
+    this.markPropertyAsSet(SERIALIZED_NAME_ATTRIBUTES);
   }
 
 
   public RevisionVersion description(@javax.annotation.Nullable String description) {
     this.description = description;
+    this.markPropertyAsSet(SERIALIZED_NAME_DESCRIPTION);
     return this;
   }
 
@@ -338,11 +352,13 @@ public class RevisionVersion {
 
   public void setDescription(@javax.annotation.Nullable String description) {
     this.description = description;
+    this.markPropertyAsSet(SERIALIZED_NAME_DESCRIPTION);
   }
 
 
   public RevisionVersion activeRulesetId(@javax.annotation.Nullable Integer activeRulesetId) {
     this.activeRulesetId = activeRulesetId;
+    this.markPropertyAsSet(SERIALIZED_NAME_ACTIVE_RULESET_ID);
     return this;
   }
 
@@ -357,11 +373,13 @@ public class RevisionVersion {
 
   public void setActiveRulesetId(@javax.annotation.Nullable Integer activeRulesetId) {
     this.activeRulesetId = activeRulesetId;
+    this.markPropertyAsSet(SERIALIZED_NAME_ACTIVE_RULESET_ID);
   }
 
 
   public RevisionVersion tags(@javax.annotation.Nullable List<String> tags) {
     this.tags = tags;
+    this.markPropertyAsSet(SERIALIZED_NAME_TAGS);
     return this;
   }
 
@@ -370,6 +388,7 @@ public class RevisionVersion {
       this.tags = new ArrayList<>();
     }
     this.tags.add(tagsItem);
+    this.markPropertyAsSet(SERIALIZED_NAME_TAGS);
     return this;
   }
 
@@ -384,11 +403,13 @@ public class RevisionVersion {
 
   public void setTags(@javax.annotation.Nullable List<String> tags) {
     this.tags = tags;
+    this.markPropertyAsSet(SERIALIZED_NAME_TAGS);
   }
 
 
   public RevisionVersion couponSettings(@javax.annotation.Nullable CodeGeneratorSettings couponSettings) {
     this.couponSettings = couponSettings;
+    this.markPropertyAsSet(SERIALIZED_NAME_COUPON_SETTINGS);
     return this;
   }
 
@@ -403,11 +424,13 @@ public class RevisionVersion {
 
   public void setCouponSettings(@javax.annotation.Nullable CodeGeneratorSettings couponSettings) {
     this.couponSettings = couponSettings;
+    this.markPropertyAsSet(SERIALIZED_NAME_COUPON_SETTINGS);
   }
 
 
   public RevisionVersion referralSettings(@javax.annotation.Nullable CodeGeneratorSettings referralSettings) {
     this.referralSettings = referralSettings;
+    this.markPropertyAsSet(SERIALIZED_NAME_REFERRAL_SETTINGS);
     return this;
   }
 
@@ -422,11 +445,13 @@ public class RevisionVersion {
 
   public void setReferralSettings(@javax.annotation.Nullable CodeGeneratorSettings referralSettings) {
     this.referralSettings = referralSettings;
+    this.markPropertyAsSet(SERIALIZED_NAME_REFERRAL_SETTINGS);
   }
 
 
   public RevisionVersion limits(@javax.annotation.Nullable List<LimitConfig> limits) {
     this.limits = limits;
+    this.markPropertyAsSet(SERIALIZED_NAME_LIMITS);
     return this;
   }
 
@@ -435,6 +460,7 @@ public class RevisionVersion {
       this.limits = new ArrayList<>();
     }
     this.limits.add(limitsItem);
+    this.markPropertyAsSet(SERIALIZED_NAME_LIMITS);
     return this;
   }
 
@@ -449,11 +475,13 @@ public class RevisionVersion {
 
   public void setLimits(@javax.annotation.Nullable List<LimitConfig> limits) {
     this.limits = limits;
+    this.markPropertyAsSet(SERIALIZED_NAME_LIMITS);
   }
 
 
   public RevisionVersion reevaluateOnReturn(@javax.annotation.Nullable Boolean reevaluateOnReturn) {
     this.reevaluateOnReturn = reevaluateOnReturn;
+    this.markPropertyAsSet(SERIALIZED_NAME_REEVALUATE_ON_RETURN);
     return this;
   }
 
@@ -468,11 +496,13 @@ public class RevisionVersion {
 
   public void setReevaluateOnReturn(@javax.annotation.Nullable Boolean reevaluateOnReturn) {
     this.reevaluateOnReturn = reevaluateOnReturn;
+    this.markPropertyAsSet(SERIALIZED_NAME_REEVALUATE_ON_RETURN);
   }
 
 
   public RevisionVersion features(@javax.annotation.Nullable List<FeaturesEnum> features) {
     this.features = features;
+    this.markPropertyAsSet(SERIALIZED_NAME_FEATURES);
     return this;
   }
 
@@ -481,6 +511,7 @@ public class RevisionVersion {
       this.features = new ArrayList<>();
     }
     this.features.add(featuresItem);
+    this.markPropertyAsSet(SERIALIZED_NAME_FEATURES);
     return this;
   }
 
@@ -495,11 +526,13 @@ public class RevisionVersion {
 
   public void setFeatures(@javax.annotation.Nullable List<FeaturesEnum> features) {
     this.features = features;
+    this.markPropertyAsSet(SERIALIZED_NAME_FEATURES);
   }
 
 
   public RevisionVersion couponAttributes(@javax.annotation.Nullable Object couponAttributes) {
     this.couponAttributes = couponAttributes;
+    this.markPropertyAsSet(SERIALIZED_NAME_COUPON_ATTRIBUTES);
     return this;
   }
 
@@ -514,11 +547,13 @@ public class RevisionVersion {
 
   public void setCouponAttributes(@javax.annotation.Nullable Object couponAttributes) {
     this.couponAttributes = couponAttributes;
+    this.markPropertyAsSet(SERIALIZED_NAME_COUPON_ATTRIBUTES);
   }
 
 
   public RevisionVersion accountId(@javax.annotation.Nonnull Long accountId) {
     this.accountId = accountId;
+    this.markPropertyAsSet(SERIALIZED_NAME_ACCOUNT_ID);
     return this;
   }
 
@@ -533,11 +568,13 @@ public class RevisionVersion {
 
   public void setAccountId(@javax.annotation.Nonnull Long accountId) {
     this.accountId = accountId;
+    this.markPropertyAsSet(SERIALIZED_NAME_ACCOUNT_ID);
   }
 
 
   public RevisionVersion applicationId(@javax.annotation.Nonnull Long applicationId) {
     this.applicationId = applicationId;
+    this.markPropertyAsSet(SERIALIZED_NAME_APPLICATION_ID);
     return this;
   }
 
@@ -552,11 +589,13 @@ public class RevisionVersion {
 
   public void setApplicationId(@javax.annotation.Nonnull Long applicationId) {
     this.applicationId = applicationId;
+    this.markPropertyAsSet(SERIALIZED_NAME_APPLICATION_ID);
   }
 
 
   public RevisionVersion campaignId(@javax.annotation.Nonnull Long campaignId) {
     this.campaignId = campaignId;
+    this.markPropertyAsSet(SERIALIZED_NAME_CAMPAIGN_ID);
     return this;
   }
 
@@ -571,11 +610,13 @@ public class RevisionVersion {
 
   public void setCampaignId(@javax.annotation.Nonnull Long campaignId) {
     this.campaignId = campaignId;
+    this.markPropertyAsSet(SERIALIZED_NAME_CAMPAIGN_ID);
   }
 
 
   public RevisionVersion created(@javax.annotation.Nonnull OffsetDateTime created) {
     this.created = created;
+    this.markPropertyAsSet(SERIALIZED_NAME_CREATED);
     return this;
   }
 
@@ -590,11 +631,13 @@ public class RevisionVersion {
 
   public void setCreated(@javax.annotation.Nonnull OffsetDateTime created) {
     this.created = created;
+    this.markPropertyAsSet(SERIALIZED_NAME_CREATED);
   }
 
 
   public RevisionVersion createdBy(@javax.annotation.Nonnull Long createdBy) {
     this.createdBy = createdBy;
+    this.markPropertyAsSet(SERIALIZED_NAME_CREATED_BY);
     return this;
   }
 
@@ -609,11 +652,13 @@ public class RevisionVersion {
 
   public void setCreatedBy(@javax.annotation.Nonnull Long createdBy) {
     this.createdBy = createdBy;
+    this.markPropertyAsSet(SERIALIZED_NAME_CREATED_BY);
   }
 
 
   public RevisionVersion revisionId(@javax.annotation.Nonnull Long revisionId) {
     this.revisionId = revisionId;
+    this.markPropertyAsSet(SERIALIZED_NAME_REVISION_ID);
     return this;
   }
 
@@ -628,11 +673,13 @@ public class RevisionVersion {
 
   public void setRevisionId(@javax.annotation.Nonnull Long revisionId) {
     this.revisionId = revisionId;
+    this.markPropertyAsSet(SERIALIZED_NAME_REVISION_ID);
   }
 
 
   public RevisionVersion version(@javax.annotation.Nonnull Long version) {
     this.version = version;
+    this.markPropertyAsSet(SERIALIZED_NAME_VERSION);
     return this;
   }
 
@@ -647,6 +694,7 @@ public class RevisionVersion {
 
   public void setVersion(@javax.annotation.Nonnull Long version) {
     this.version = version;
+    this.markPropertyAsSet(SERIALIZED_NAME_VERSION);
   }
 
   /**
@@ -692,6 +740,21 @@ public class RevisionVersion {
         return null;
     }
     return this.additionalProperties.get(key);
+  }
+
+  /** Omit null properties unless they were explicitly assigned or present in JSON input. */
+  protected final void removeUnsetNullFields(JsonObject obj) {
+    obj.entrySet().removeIf(entry -> entry.getValue().isJsonNull()
+        && !openapiExplicitlySetFields.contains(entry.getKey()));
+  }
+
+  protected final void markPropertyAsSet(String propertyName) {
+    openapiExplicitlySetFields.add(propertyName);
+  }
+
+  /** Gson populates fields directly, bypassing setters during deserialization. */
+  protected final void markPropertiesAsSet(Set<String> propertyNames) {
+    openapiExplicitlySetFields.addAll(propertyNames);
   }
 
 
@@ -857,7 +920,7 @@ public class RevisionVersion {
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
        if (!RevisionVersion.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'RevisionVersion' and its subtypes
+         return null; // let other model factories handle this type
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
        final TypeAdapter<RevisionVersion> thisAdapter
@@ -867,31 +930,22 @@ public class RevisionVersion {
            @Override
            public void write(JsonWriter out, RevisionVersion value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+             value.removeUnsetNullFields(obj);
              obj.remove("additionalProperties");
              // serialize additional properties
              if (value.getAdditionalProperties() != null) {
                for (Map.Entry<String, Object> entry : value.getAdditionalProperties().entrySet()) {
-                 if (entry.getValue() instanceof String)
-                   obj.addProperty(entry.getKey(), (String) entry.getValue());
-                 else if (entry.getValue() instanceof Number)
-                   obj.addProperty(entry.getKey(), (Number) entry.getValue());
-                 else if (entry.getValue() instanceof Boolean)
-                   obj.addProperty(entry.getKey(), (Boolean) entry.getValue());
-                 else if (entry.getValue() instanceof Character)
-                   obj.addProperty(entry.getKey(), (Character) entry.getValue());
-                 else {
-                   JsonElement jsonElement = gson.toJsonTree(entry.getValue());
-                   if (jsonElement.isJsonNull()) {
-                     obj.add(entry.getKey(), JsonNull.INSTANCE);
-                   } else if (jsonElement.isJsonArray()) {
-                     obj.add(entry.getKey(), jsonElement.getAsJsonArray());
-                   } else {
-                     obj.add(entry.getKey(), jsonElement.getAsJsonObject());
-                   }
-                 }
+                 // TypeAdapter.toJsonTree keeps explicit null entries in arbitrary maps too.
+                 obj.add(entry.getKey(), gson.getAdapter(Object.class).toJsonTree(entry.getValue()));
                }
              }
-             elementAdapter.write(out, obj);
+             boolean originalSerializeNulls = out.getSerializeNulls();
+             try {
+               out.setSerializeNulls(true);
+               elementAdapter.write(out, obj);
+             } finally {
+               out.setSerializeNulls(originalSerializeNulls);
+             }
            }
 
            @Override
@@ -901,6 +955,7 @@ public class RevisionVersion {
              JsonObject jsonObj = jsonElement.getAsJsonObject();
              // store additional fields in the deserialized instance
              RevisionVersion instance = thisAdapter.fromJsonTree(jsonObj);
+             instance.markPropertiesAsSet(jsonObj.keySet());
              for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
                if (!openapiFields.contains(entry.getKey())) {
                  if (entry.getValue().isJsonPrimitive()) { // primitive type

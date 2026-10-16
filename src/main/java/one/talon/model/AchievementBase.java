@@ -54,6 +54,9 @@ import one.talon.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.26.0")
 public class AchievementBase {
+  // Gson ignores transient state; only setters and JSON input mark properties as present.
+  private transient Set<String> openapiExplicitlySetFields = new HashSet<>();
+
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
   @javax.annotation.Nullable
@@ -221,6 +224,7 @@ public class AchievementBase {
 
   public AchievementBase name(@javax.annotation.Nullable String name) {
     this.name = name;
+    this.markPropertyAsSet(SERIALIZED_NAME_NAME);
     return this;
   }
 
@@ -235,11 +239,13 @@ public class AchievementBase {
 
   public void setName(@javax.annotation.Nullable String name) {
     this.name = name;
+    this.markPropertyAsSet(SERIALIZED_NAME_NAME);
   }
 
 
   public AchievementBase title(@javax.annotation.Nullable String title) {
     this.title = title;
+    this.markPropertyAsSet(SERIALIZED_NAME_TITLE);
     return this;
   }
 
@@ -254,11 +260,13 @@ public class AchievementBase {
 
   public void setTitle(@javax.annotation.Nullable String title) {
     this.title = title;
+    this.markPropertyAsSet(SERIALIZED_NAME_TITLE);
   }
 
 
   public AchievementBase description(@javax.annotation.Nullable String description) {
     this.description = description;
+    this.markPropertyAsSet(SERIALIZED_NAME_DESCRIPTION);
     return this;
   }
 
@@ -273,11 +281,13 @@ public class AchievementBase {
 
   public void setDescription(@javax.annotation.Nullable String description) {
     this.description = description;
+    this.markPropertyAsSet(SERIALIZED_NAME_DESCRIPTION);
   }
 
 
   public AchievementBase target(@javax.annotation.Nullable BigDecimal target) {
     this.target = target;
+    this.markPropertyAsSet(SERIALIZED_NAME_TARGET);
     return this;
   }
 
@@ -292,11 +302,13 @@ public class AchievementBase {
 
   public void setTarget(@javax.annotation.Nullable BigDecimal target) {
     this.target = target;
+    this.markPropertyAsSet(SERIALIZED_NAME_TARGET);
   }
 
 
   public AchievementBase period(@javax.annotation.Nullable String period) {
     this.period = period;
+    this.markPropertyAsSet(SERIALIZED_NAME_PERIOD);
     return this;
   }
 
@@ -311,12 +323,14 @@ public class AchievementBase {
 
   public void setPeriod(@javax.annotation.Nullable String period) {
     this.period = period;
+    this.markPropertyAsSet(SERIALIZED_NAME_PERIOD);
   }
 
 
   @Deprecated
   public AchievementBase periodEndOverride(@javax.annotation.Nullable TimePoint periodEndOverride) {
     this.periodEndOverride = periodEndOverride;
+    this.markPropertyAsSet(SERIALIZED_NAME_PERIOD_END_OVERRIDE);
     return this;
   }
 
@@ -334,11 +348,13 @@ public class AchievementBase {
   @Deprecated
   public void setPeriodEndOverride(@javax.annotation.Nullable TimePoint periodEndOverride) {
     this.periodEndOverride = periodEndOverride;
+    this.markPropertyAsSet(SERIALIZED_NAME_PERIOD_END_OVERRIDE);
   }
 
 
   public AchievementBase recurrencePolicy(@javax.annotation.Nullable RecurrencePolicyEnum recurrencePolicy) {
     this.recurrencePolicy = recurrencePolicy;
+    this.markPropertyAsSet(SERIALIZED_NAME_RECURRENCE_POLICY);
     return this;
   }
 
@@ -353,11 +369,13 @@ public class AchievementBase {
 
   public void setRecurrencePolicy(@javax.annotation.Nullable RecurrencePolicyEnum recurrencePolicy) {
     this.recurrencePolicy = recurrencePolicy;
+    this.markPropertyAsSet(SERIALIZED_NAME_RECURRENCE_POLICY);
   }
 
 
   public AchievementBase activationPolicy(@javax.annotation.Nullable ActivationPolicyEnum activationPolicy) {
     this.activationPolicy = activationPolicy;
+    this.markPropertyAsSet(SERIALIZED_NAME_ACTIVATION_POLICY);
     return this;
   }
 
@@ -372,11 +390,13 @@ public class AchievementBase {
 
   public void setActivationPolicy(@javax.annotation.Nullable ActivationPolicyEnum activationPolicy) {
     this.activationPolicy = activationPolicy;
+    this.markPropertyAsSet(SERIALIZED_NAME_ACTIVATION_POLICY);
   }
 
 
   public AchievementBase fixedStartDate(@javax.annotation.Nullable OffsetDateTime fixedStartDate) {
     this.fixedStartDate = fixedStartDate;
+    this.markPropertyAsSet(SERIALIZED_NAME_FIXED_START_DATE);
     return this;
   }
 
@@ -391,11 +411,13 @@ public class AchievementBase {
 
   public void setFixedStartDate(@javax.annotation.Nullable OffsetDateTime fixedStartDate) {
     this.fixedStartDate = fixedStartDate;
+    this.markPropertyAsSet(SERIALIZED_NAME_FIXED_START_DATE);
   }
 
 
   public AchievementBase endDate(@javax.annotation.Nullable OffsetDateTime endDate) {
     this.endDate = endDate;
+    this.markPropertyAsSet(SERIALIZED_NAME_END_DATE);
     return this;
   }
 
@@ -410,11 +432,13 @@ public class AchievementBase {
 
   public void setEndDate(@javax.annotation.Nullable OffsetDateTime endDate) {
     this.endDate = endDate;
+    this.markPropertyAsSet(SERIALIZED_NAME_END_DATE);
   }
 
 
   public AchievementBase allowRollbackAfterCompletion(@javax.annotation.Nullable Boolean allowRollbackAfterCompletion) {
     this.allowRollbackAfterCompletion = allowRollbackAfterCompletion;
+    this.markPropertyAsSet(SERIALIZED_NAME_ALLOW_ROLLBACK_AFTER_COMPLETION);
     return this;
   }
 
@@ -429,6 +453,7 @@ public class AchievementBase {
 
   public void setAllowRollbackAfterCompletion(@javax.annotation.Nullable Boolean allowRollbackAfterCompletion) {
     this.allowRollbackAfterCompletion = allowRollbackAfterCompletion;
+    this.markPropertyAsSet(SERIALIZED_NAME_ALLOW_ROLLBACK_AFTER_COMPLETION);
   }
 
   /**
@@ -474,6 +499,21 @@ public class AchievementBase {
         return null;
     }
     return this.additionalProperties.get(key);
+  }
+
+  /** Omit null properties unless they were explicitly assigned or present in JSON input. */
+  protected final void removeUnsetNullFields(JsonObject obj) {
+    obj.entrySet().removeIf(entry -> entry.getValue().isJsonNull()
+        && !openapiExplicitlySetFields.contains(entry.getKey()));
+  }
+
+  protected final void markPropertyAsSet(String propertyName) {
+    openapiExplicitlySetFields.add(propertyName);
+  }
+
+  /** Gson populates fields directly, bypassing setters during deserialization. */
+  protected final void markPropertiesAsSet(Set<String> propertyNames) {
+    openapiExplicitlySetFields.addAll(propertyNames);
   }
 
 
@@ -595,7 +635,7 @@ public class AchievementBase {
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
        if (!AchievementBase.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'AchievementBase' and its subtypes
+         return null; // let other model factories handle this type
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
        final TypeAdapter<AchievementBase> thisAdapter
@@ -605,31 +645,22 @@ public class AchievementBase {
            @Override
            public void write(JsonWriter out, AchievementBase value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+             value.removeUnsetNullFields(obj);
              obj.remove("additionalProperties");
              // serialize additional properties
              if (value.getAdditionalProperties() != null) {
                for (Map.Entry<String, Object> entry : value.getAdditionalProperties().entrySet()) {
-                 if (entry.getValue() instanceof String)
-                   obj.addProperty(entry.getKey(), (String) entry.getValue());
-                 else if (entry.getValue() instanceof Number)
-                   obj.addProperty(entry.getKey(), (Number) entry.getValue());
-                 else if (entry.getValue() instanceof Boolean)
-                   obj.addProperty(entry.getKey(), (Boolean) entry.getValue());
-                 else if (entry.getValue() instanceof Character)
-                   obj.addProperty(entry.getKey(), (Character) entry.getValue());
-                 else {
-                   JsonElement jsonElement = gson.toJsonTree(entry.getValue());
-                   if (jsonElement.isJsonNull()) {
-                     obj.add(entry.getKey(), JsonNull.INSTANCE);
-                   } else if (jsonElement.isJsonArray()) {
-                     obj.add(entry.getKey(), jsonElement.getAsJsonArray());
-                   } else {
-                     obj.add(entry.getKey(), jsonElement.getAsJsonObject());
-                   }
-                 }
+                 // TypeAdapter.toJsonTree keeps explicit null entries in arbitrary maps too.
+                 obj.add(entry.getKey(), gson.getAdapter(Object.class).toJsonTree(entry.getValue()));
                }
              }
-             elementAdapter.write(out, obj);
+             boolean originalSerializeNulls = out.getSerializeNulls();
+             try {
+               out.setSerializeNulls(true);
+               elementAdapter.write(out, obj);
+             } finally {
+               out.setSerializeNulls(originalSerializeNulls);
+             }
            }
 
            @Override
@@ -639,6 +670,7 @@ public class AchievementBase {
              JsonObject jsonObj = jsonElement.getAsJsonObject();
              // store additional fields in the deserialized instance
              AchievementBase instance = thisAdapter.fromJsonTree(jsonObj);
+             instance.markPropertiesAsSet(jsonObj.keySet());
              for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
                if (!openapiFields.contains(entry.getKey())) {
                  if (entry.getValue().isJsonPrimitive()) { // primitive type

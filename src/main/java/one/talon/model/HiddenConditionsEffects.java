@@ -53,6 +53,9 @@ import one.talon.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.26.0")
 public class HiddenConditionsEffects {
+  // Gson ignores transient state; only setters and JSON input mark properties as present.
+  private transient Set<String> openapiExplicitlySetFields = new HashSet<>();
+
   public static final String SERIALIZED_NAME_BUILT_IN_EFFECTS = "builtInEffects";
   @SerializedName(SERIALIZED_NAME_BUILT_IN_EFFECTS)
   @javax.annotation.Nullable
@@ -78,6 +81,7 @@ public class HiddenConditionsEffects {
 
   public HiddenConditionsEffects builtInEffects(@javax.annotation.Nullable List<String> builtInEffects) {
     this.builtInEffects = builtInEffects;
+    this.markPropertyAsSet(SERIALIZED_NAME_BUILT_IN_EFFECTS);
     return this;
   }
 
@@ -86,6 +90,7 @@ public class HiddenConditionsEffects {
       this.builtInEffects = new ArrayList<>();
     }
     this.builtInEffects.add(builtInEffectsItem);
+    this.markPropertyAsSet(SERIALIZED_NAME_BUILT_IN_EFFECTS);
     return this;
   }
 
@@ -100,11 +105,13 @@ public class HiddenConditionsEffects {
 
   public void setBuiltInEffects(@javax.annotation.Nullable List<String> builtInEffects) {
     this.builtInEffects = builtInEffects;
+    this.markPropertyAsSet(SERIALIZED_NAME_BUILT_IN_EFFECTS);
   }
 
 
   public HiddenConditionsEffects conditions(@javax.annotation.Nullable List<String> conditions) {
     this.conditions = conditions;
+    this.markPropertyAsSet(SERIALIZED_NAME_CONDITIONS);
     return this;
   }
 
@@ -113,6 +120,7 @@ public class HiddenConditionsEffects {
       this.conditions = new ArrayList<>();
     }
     this.conditions.add(conditionsItem);
+    this.markPropertyAsSet(SERIALIZED_NAME_CONDITIONS);
     return this;
   }
 
@@ -127,11 +135,13 @@ public class HiddenConditionsEffects {
 
   public void setConditions(@javax.annotation.Nullable List<String> conditions) {
     this.conditions = conditions;
+    this.markPropertyAsSet(SERIALIZED_NAME_CONDITIONS);
   }
 
 
   public HiddenConditionsEffects customEffects(@javax.annotation.Nullable List<Long> customEffects) {
     this.customEffects = customEffects;
+    this.markPropertyAsSet(SERIALIZED_NAME_CUSTOM_EFFECTS);
     return this;
   }
 
@@ -140,6 +150,7 @@ public class HiddenConditionsEffects {
       this.customEffects = new ArrayList<>();
     }
     this.customEffects.add(customEffectsItem);
+    this.markPropertyAsSet(SERIALIZED_NAME_CUSTOM_EFFECTS);
     return this;
   }
 
@@ -154,11 +165,13 @@ public class HiddenConditionsEffects {
 
   public void setCustomEffects(@javax.annotation.Nullable List<Long> customEffects) {
     this.customEffects = customEffects;
+    this.markPropertyAsSet(SERIALIZED_NAME_CUSTOM_EFFECTS);
   }
 
 
   public HiddenConditionsEffects webhooks(@javax.annotation.Nullable List<Long> webhooks) {
     this.webhooks = webhooks;
+    this.markPropertyAsSet(SERIALIZED_NAME_WEBHOOKS);
     return this;
   }
 
@@ -167,6 +180,7 @@ public class HiddenConditionsEffects {
       this.webhooks = new ArrayList<>();
     }
     this.webhooks.add(webhooksItem);
+    this.markPropertyAsSet(SERIALIZED_NAME_WEBHOOKS);
     return this;
   }
 
@@ -181,6 +195,7 @@ public class HiddenConditionsEffects {
 
   public void setWebhooks(@javax.annotation.Nullable List<Long> webhooks) {
     this.webhooks = webhooks;
+    this.markPropertyAsSet(SERIALIZED_NAME_WEBHOOKS);
   }
 
   /**
@@ -226,6 +241,21 @@ public class HiddenConditionsEffects {
         return null;
     }
     return this.additionalProperties.get(key);
+  }
+
+  /** Omit null properties unless they were explicitly assigned or present in JSON input. */
+  protected final void removeUnsetNullFields(JsonObject obj) {
+    obj.entrySet().removeIf(entry -> entry.getValue().isJsonNull()
+        && !openapiExplicitlySetFields.contains(entry.getKey()));
+  }
+
+  protected final void markPropertyAsSet(String propertyName) {
+    openapiExplicitlySetFields.add(propertyName);
+  }
+
+  /** Gson populates fields directly, bypassing setters during deserialization. */
+  protected final void markPropertiesAsSet(Set<String> propertyNames) {
+    openapiExplicitlySetFields.addAll(propertyNames);
   }
 
 
@@ -319,7 +349,7 @@ public class HiddenConditionsEffects {
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
        if (!HiddenConditionsEffects.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'HiddenConditionsEffects' and its subtypes
+         return null; // let other model factories handle this type
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
        final TypeAdapter<HiddenConditionsEffects> thisAdapter
@@ -329,31 +359,22 @@ public class HiddenConditionsEffects {
            @Override
            public void write(JsonWriter out, HiddenConditionsEffects value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+             value.removeUnsetNullFields(obj);
              obj.remove("additionalProperties");
              // serialize additional properties
              if (value.getAdditionalProperties() != null) {
                for (Map.Entry<String, Object> entry : value.getAdditionalProperties().entrySet()) {
-                 if (entry.getValue() instanceof String)
-                   obj.addProperty(entry.getKey(), (String) entry.getValue());
-                 else if (entry.getValue() instanceof Number)
-                   obj.addProperty(entry.getKey(), (Number) entry.getValue());
-                 else if (entry.getValue() instanceof Boolean)
-                   obj.addProperty(entry.getKey(), (Boolean) entry.getValue());
-                 else if (entry.getValue() instanceof Character)
-                   obj.addProperty(entry.getKey(), (Character) entry.getValue());
-                 else {
-                   JsonElement jsonElement = gson.toJsonTree(entry.getValue());
-                   if (jsonElement.isJsonNull()) {
-                     obj.add(entry.getKey(), JsonNull.INSTANCE);
-                   } else if (jsonElement.isJsonArray()) {
-                     obj.add(entry.getKey(), jsonElement.getAsJsonArray());
-                   } else {
-                     obj.add(entry.getKey(), jsonElement.getAsJsonObject());
-                   }
-                 }
+                 // TypeAdapter.toJsonTree keeps explicit null entries in arbitrary maps too.
+                 obj.add(entry.getKey(), gson.getAdapter(Object.class).toJsonTree(entry.getValue()));
                }
              }
-             elementAdapter.write(out, obj);
+             boolean originalSerializeNulls = out.getSerializeNulls();
+             try {
+               out.setSerializeNulls(true);
+               elementAdapter.write(out, obj);
+             } finally {
+               out.setSerializeNulls(originalSerializeNulls);
+             }
            }
 
            @Override
@@ -363,6 +384,7 @@ public class HiddenConditionsEffects {
              JsonObject jsonObj = jsonElement.getAsJsonObject();
              // store additional fields in the deserialized instance
              HiddenConditionsEffects instance = thisAdapter.fromJsonTree(jsonObj);
+             instance.markPropertiesAsSet(jsonObj.keySet());
              for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
                if (!openapiFields.contains(entry.getKey())) {
                  if (entry.getValue().isJsonPrimitive()) { // primitive type

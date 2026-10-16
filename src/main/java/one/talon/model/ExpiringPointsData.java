@@ -54,6 +54,9 @@ import one.talon.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.26.0")
 public class ExpiringPointsData {
+  // Gson ignores transient state; only setters and JSON input mark properties as present.
+  private transient Set<String> openapiExplicitlySetFields = new HashSet<>();
+
   public static final String SERIALIZED_NAME_EXPIRY_DATE = "ExpiryDate";
   @SerializedName(SERIALIZED_NAME_EXPIRY_DATE)
   @javax.annotation.Nonnull
@@ -99,6 +102,7 @@ public class ExpiringPointsData {
 
   public ExpiringPointsData expiryDate(@javax.annotation.Nonnull LocalDate expiryDate) {
     this.expiryDate = expiryDate;
+    this.markPropertyAsSet(SERIALIZED_NAME_EXPIRY_DATE);
     return this;
   }
 
@@ -113,11 +117,13 @@ public class ExpiringPointsData {
 
   public void setExpiryDate(@javax.annotation.Nonnull LocalDate expiryDate) {
     this.expiryDate = expiryDate;
+    this.markPropertyAsSet(SERIALIZED_NAME_EXPIRY_DATE);
   }
 
 
   public ExpiringPointsData loyaltyProgramID(@javax.annotation.Nonnull Long loyaltyProgramID) {
     this.loyaltyProgramID = loyaltyProgramID;
+    this.markPropertyAsSet(SERIALIZED_NAME_LOYALTY_PROGRAM_I_D);
     return this;
   }
 
@@ -133,11 +139,13 @@ public class ExpiringPointsData {
 
   public void setLoyaltyProgramID(@javax.annotation.Nonnull Long loyaltyProgramID) {
     this.loyaltyProgramID = loyaltyProgramID;
+    this.markPropertyAsSet(SERIALIZED_NAME_LOYALTY_PROGRAM_I_D);
   }
 
 
   public ExpiringPointsData customerProfileID(@javax.annotation.Nonnull String customerProfileID) {
     this.customerProfileID = customerProfileID;
+    this.markPropertyAsSet(SERIALIZED_NAME_CUSTOMER_PROFILE_I_D);
     return this;
   }
 
@@ -152,11 +160,13 @@ public class ExpiringPointsData {
 
   public void setCustomerProfileID(@javax.annotation.Nonnull String customerProfileID) {
     this.customerProfileID = customerProfileID;
+    this.markPropertyAsSet(SERIALIZED_NAME_CUSTOMER_PROFILE_I_D);
   }
 
 
   public ExpiringPointsData amountOfExpiringPoints(@javax.annotation.Nonnull BigDecimal amountOfExpiringPoints) {
     this.amountOfExpiringPoints = amountOfExpiringPoints;
+    this.markPropertyAsSet(SERIALIZED_NAME_AMOUNT_OF_EXPIRING_POINTS);
     return this;
   }
 
@@ -171,11 +181,13 @@ public class ExpiringPointsData {
 
   public void setAmountOfExpiringPoints(@javax.annotation.Nonnull BigDecimal amountOfExpiringPoints) {
     this.amountOfExpiringPoints = amountOfExpiringPoints;
+    this.markPropertyAsSet(SERIALIZED_NAME_AMOUNT_OF_EXPIRING_POINTS);
   }
 
 
   public ExpiringPointsData subledgerID(@javax.annotation.Nonnull String subledgerID) {
     this.subledgerID = subledgerID;
+    this.markPropertyAsSet(SERIALIZED_NAME_SUBLEDGER_I_D);
     return this;
   }
 
@@ -190,11 +202,13 @@ public class ExpiringPointsData {
 
   public void setSubledgerID(@javax.annotation.Nonnull String subledgerID) {
     this.subledgerID = subledgerID;
+    this.markPropertyAsSet(SERIALIZED_NAME_SUBLEDGER_I_D);
   }
 
 
   public ExpiringPointsData created(@javax.annotation.Nullable OffsetDateTime created) {
     this.created = created;
+    this.markPropertyAsSet(SERIALIZED_NAME_CREATED);
     return this;
   }
 
@@ -209,11 +223,13 @@ public class ExpiringPointsData {
 
   public void setCreated(@javax.annotation.Nullable OffsetDateTime created) {
     this.created = created;
+    this.markPropertyAsSet(SERIALIZED_NAME_CREATED);
   }
 
 
   public ExpiringPointsData awaitsActivation(@javax.annotation.Nullable Boolean awaitsActivation) {
     this.awaitsActivation = awaitsActivation;
+    this.markPropertyAsSet(SERIALIZED_NAME_AWAITS_ACTIVATION);
     return this;
   }
 
@@ -228,11 +244,13 @@ public class ExpiringPointsData {
 
   public void setAwaitsActivation(@javax.annotation.Nullable Boolean awaitsActivation) {
     this.awaitsActivation = awaitsActivation;
+    this.markPropertyAsSet(SERIALIZED_NAME_AWAITS_ACTIVATION);
   }
 
 
   public ExpiringPointsData validityDuration(@javax.annotation.Nullable String validityDuration) {
     this.validityDuration = validityDuration;
+    this.markPropertyAsSet(SERIALIZED_NAME_VALIDITY_DURATION);
     return this;
   }
 
@@ -247,6 +265,7 @@ public class ExpiringPointsData {
 
   public void setValidityDuration(@javax.annotation.Nullable String validityDuration) {
     this.validityDuration = validityDuration;
+    this.markPropertyAsSet(SERIALIZED_NAME_VALIDITY_DURATION);
   }
 
   /**
@@ -292,6 +311,21 @@ public class ExpiringPointsData {
         return null;
     }
     return this.additionalProperties.get(key);
+  }
+
+  /** Omit null properties unless they were explicitly assigned or present in JSON input. */
+  protected final void removeUnsetNullFields(JsonObject obj) {
+    obj.entrySet().removeIf(entry -> entry.getValue().isJsonNull()
+        && !openapiExplicitlySetFields.contains(entry.getKey()));
+  }
+
+  protected final void markPropertyAsSet(String propertyName) {
+    openapiExplicitlySetFields.add(propertyName);
+  }
+
+  /** Gson populates fields directly, bypassing setters during deserialization. */
+  protected final void markPropertiesAsSet(Set<String> propertyNames) {
+    openapiExplicitlySetFields.addAll(propertyNames);
   }
 
 
@@ -393,7 +427,7 @@ public class ExpiringPointsData {
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
        if (!ExpiringPointsData.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'ExpiringPointsData' and its subtypes
+         return null; // let other model factories handle this type
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
        final TypeAdapter<ExpiringPointsData> thisAdapter
@@ -403,31 +437,22 @@ public class ExpiringPointsData {
            @Override
            public void write(JsonWriter out, ExpiringPointsData value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+             value.removeUnsetNullFields(obj);
              obj.remove("additionalProperties");
              // serialize additional properties
              if (value.getAdditionalProperties() != null) {
                for (Map.Entry<String, Object> entry : value.getAdditionalProperties().entrySet()) {
-                 if (entry.getValue() instanceof String)
-                   obj.addProperty(entry.getKey(), (String) entry.getValue());
-                 else if (entry.getValue() instanceof Number)
-                   obj.addProperty(entry.getKey(), (Number) entry.getValue());
-                 else if (entry.getValue() instanceof Boolean)
-                   obj.addProperty(entry.getKey(), (Boolean) entry.getValue());
-                 else if (entry.getValue() instanceof Character)
-                   obj.addProperty(entry.getKey(), (Character) entry.getValue());
-                 else {
-                   JsonElement jsonElement = gson.toJsonTree(entry.getValue());
-                   if (jsonElement.isJsonNull()) {
-                     obj.add(entry.getKey(), JsonNull.INSTANCE);
-                   } else if (jsonElement.isJsonArray()) {
-                     obj.add(entry.getKey(), jsonElement.getAsJsonArray());
-                   } else {
-                     obj.add(entry.getKey(), jsonElement.getAsJsonObject());
-                   }
-                 }
+                 // TypeAdapter.toJsonTree keeps explicit null entries in arbitrary maps too.
+                 obj.add(entry.getKey(), gson.getAdapter(Object.class).toJsonTree(entry.getValue()));
                }
              }
-             elementAdapter.write(out, obj);
+             boolean originalSerializeNulls = out.getSerializeNulls();
+             try {
+               out.setSerializeNulls(true);
+               elementAdapter.write(out, obj);
+             } finally {
+               out.setSerializeNulls(originalSerializeNulls);
+             }
            }
 
            @Override
@@ -437,6 +462,7 @@ public class ExpiringPointsData {
              JsonObject jsonObj = jsonElement.getAsJsonObject();
              // store additional fields in the deserialized instance
              ExpiringPointsData instance = thisAdapter.fromJsonTree(jsonObj);
+             instance.markPropertiesAsSet(jsonObj.keySet());
              for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
                if (!openapiFields.contains(entry.getKey())) {
                  if (entry.getValue().isJsonPrimitive()) { // primitive type

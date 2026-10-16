@@ -54,6 +54,9 @@ import one.talon.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.26.0")
 public class Collection {
+  // Gson ignores transient state; only setters and JSON input mark properties as present.
+  private transient Set<String> openapiExplicitlySetFields = new HashSet<>();
+
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
   @javax.annotation.Nonnull
@@ -119,6 +122,7 @@ public class Collection {
 
   public Collection id(@javax.annotation.Nonnull Long id) {
     this.id = id;
+    this.markPropertyAsSet(SERIALIZED_NAME_ID);
     return this;
   }
 
@@ -133,11 +137,13 @@ public class Collection {
 
   public void setId(@javax.annotation.Nonnull Long id) {
     this.id = id;
+    this.markPropertyAsSet(SERIALIZED_NAME_ID);
   }
 
 
   public Collection created(@javax.annotation.Nonnull OffsetDateTime created) {
     this.created = created;
+    this.markPropertyAsSet(SERIALIZED_NAME_CREATED);
     return this;
   }
 
@@ -152,11 +158,13 @@ public class Collection {
 
   public void setCreated(@javax.annotation.Nonnull OffsetDateTime created) {
     this.created = created;
+    this.markPropertyAsSet(SERIALIZED_NAME_CREATED);
   }
 
 
   public Collection accountId(@javax.annotation.Nonnull Long accountId) {
     this.accountId = accountId;
+    this.markPropertyAsSet(SERIALIZED_NAME_ACCOUNT_ID);
     return this;
   }
 
@@ -171,11 +179,13 @@ public class Collection {
 
   public void setAccountId(@javax.annotation.Nonnull Long accountId) {
     this.accountId = accountId;
+    this.markPropertyAsSet(SERIALIZED_NAME_ACCOUNT_ID);
   }
 
 
   public Collection modified(@javax.annotation.Nonnull OffsetDateTime modified) {
     this.modified = modified;
+    this.markPropertyAsSet(SERIALIZED_NAME_MODIFIED);
     return this;
   }
 
@@ -190,11 +200,13 @@ public class Collection {
 
   public void setModified(@javax.annotation.Nonnull OffsetDateTime modified) {
     this.modified = modified;
+    this.markPropertyAsSet(SERIALIZED_NAME_MODIFIED);
   }
 
 
   public Collection description(@javax.annotation.Nullable String description) {
     this.description = description;
+    this.markPropertyAsSet(SERIALIZED_NAME_DESCRIPTION);
     return this;
   }
 
@@ -209,11 +221,13 @@ public class Collection {
 
   public void setDescription(@javax.annotation.Nullable String description) {
     this.description = description;
+    this.markPropertyAsSet(SERIALIZED_NAME_DESCRIPTION);
   }
 
 
   public Collection subscribedApplicationsIds(@javax.annotation.Nullable List<Long> subscribedApplicationsIds) {
     this.subscribedApplicationsIds = subscribedApplicationsIds;
+    this.markPropertyAsSet(SERIALIZED_NAME_SUBSCRIBED_APPLICATIONS_IDS);
     return this;
   }
 
@@ -222,6 +236,7 @@ public class Collection {
       this.subscribedApplicationsIds = new ArrayList<>();
     }
     this.subscribedApplicationsIds.add(subscribedApplicationsIdsItem);
+    this.markPropertyAsSet(SERIALIZED_NAME_SUBSCRIBED_APPLICATIONS_IDS);
     return this;
   }
 
@@ -236,11 +251,13 @@ public class Collection {
 
   public void setSubscribedApplicationsIds(@javax.annotation.Nullable List<Long> subscribedApplicationsIds) {
     this.subscribedApplicationsIds = subscribedApplicationsIds;
+    this.markPropertyAsSet(SERIALIZED_NAME_SUBSCRIBED_APPLICATIONS_IDS);
   }
 
 
   public Collection name(@javax.annotation.Nonnull String name) {
     this.name = name;
+    this.markPropertyAsSet(SERIALIZED_NAME_NAME);
     return this;
   }
 
@@ -255,11 +272,13 @@ public class Collection {
 
   public void setName(@javax.annotation.Nonnull String name) {
     this.name = name;
+    this.markPropertyAsSet(SERIALIZED_NAME_NAME);
   }
 
 
   public Collection modifiedBy(@javax.annotation.Nullable Long modifiedBy) {
     this.modifiedBy = modifiedBy;
+    this.markPropertyAsSet(SERIALIZED_NAME_MODIFIED_BY);
     return this;
   }
 
@@ -274,11 +293,13 @@ public class Collection {
 
   public void setModifiedBy(@javax.annotation.Nullable Long modifiedBy) {
     this.modifiedBy = modifiedBy;
+    this.markPropertyAsSet(SERIALIZED_NAME_MODIFIED_BY);
   }
 
 
   public Collection createdBy(@javax.annotation.Nonnull Long createdBy) {
     this.createdBy = createdBy;
+    this.markPropertyAsSet(SERIALIZED_NAME_CREATED_BY);
     return this;
   }
 
@@ -293,11 +314,13 @@ public class Collection {
 
   public void setCreatedBy(@javax.annotation.Nonnull Long createdBy) {
     this.createdBy = createdBy;
+    this.markPropertyAsSet(SERIALIZED_NAME_CREATED_BY);
   }
 
 
   public Collection applicationId(@javax.annotation.Nullable Long applicationId) {
     this.applicationId = applicationId;
+    this.markPropertyAsSet(SERIALIZED_NAME_APPLICATION_ID);
     return this;
   }
 
@@ -312,11 +335,13 @@ public class Collection {
 
   public void setApplicationId(@javax.annotation.Nullable Long applicationId) {
     this.applicationId = applicationId;
+    this.markPropertyAsSet(SERIALIZED_NAME_APPLICATION_ID);
   }
 
 
   public Collection campaignId(@javax.annotation.Nullable Long campaignId) {
     this.campaignId = campaignId;
+    this.markPropertyAsSet(SERIALIZED_NAME_CAMPAIGN_ID);
     return this;
   }
 
@@ -331,11 +356,13 @@ public class Collection {
 
   public void setCampaignId(@javax.annotation.Nullable Long campaignId) {
     this.campaignId = campaignId;
+    this.markPropertyAsSet(SERIALIZED_NAME_CAMPAIGN_ID);
   }
 
 
   public Collection payload(@javax.annotation.Nullable List<String> payload) {
     this.payload = payload;
+    this.markPropertyAsSet(SERIALIZED_NAME_PAYLOAD);
     return this;
   }
 
@@ -344,6 +371,7 @@ public class Collection {
       this.payload = new ArrayList<>();
     }
     this.payload.add(payloadItem);
+    this.markPropertyAsSet(SERIALIZED_NAME_PAYLOAD);
     return this;
   }
 
@@ -358,6 +386,7 @@ public class Collection {
 
   public void setPayload(@javax.annotation.Nullable List<String> payload) {
     this.payload = payload;
+    this.markPropertyAsSet(SERIALIZED_NAME_PAYLOAD);
   }
 
   /**
@@ -403,6 +432,21 @@ public class Collection {
         return null;
     }
     return this.additionalProperties.get(key);
+  }
+
+  /** Omit null properties unless they were explicitly assigned or present in JSON input. */
+  protected final void removeUnsetNullFields(JsonObject obj) {
+    obj.entrySet().removeIf(entry -> entry.getValue().isJsonNull()
+        && !openapiExplicitlySetFields.contains(entry.getKey()));
+  }
+
+  protected final void markPropertyAsSet(String propertyName) {
+    openapiExplicitlySetFields.add(propertyName);
+  }
+
+  /** Gson populates fields directly, bypassing setters during deserialization. */
+  protected final void markPropertiesAsSet(Set<String> propertyNames) {
+    openapiExplicitlySetFields.addAll(propertyNames);
   }
 
 
@@ -517,7 +561,7 @@ public class Collection {
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
        if (!Collection.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'Collection' and its subtypes
+         return null; // let other model factories handle this type
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
        final TypeAdapter<Collection> thisAdapter
@@ -527,31 +571,22 @@ public class Collection {
            @Override
            public void write(JsonWriter out, Collection value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+             value.removeUnsetNullFields(obj);
              obj.remove("additionalProperties");
              // serialize additional properties
              if (value.getAdditionalProperties() != null) {
                for (Map.Entry<String, Object> entry : value.getAdditionalProperties().entrySet()) {
-                 if (entry.getValue() instanceof String)
-                   obj.addProperty(entry.getKey(), (String) entry.getValue());
-                 else if (entry.getValue() instanceof Number)
-                   obj.addProperty(entry.getKey(), (Number) entry.getValue());
-                 else if (entry.getValue() instanceof Boolean)
-                   obj.addProperty(entry.getKey(), (Boolean) entry.getValue());
-                 else if (entry.getValue() instanceof Character)
-                   obj.addProperty(entry.getKey(), (Character) entry.getValue());
-                 else {
-                   JsonElement jsonElement = gson.toJsonTree(entry.getValue());
-                   if (jsonElement.isJsonNull()) {
-                     obj.add(entry.getKey(), JsonNull.INSTANCE);
-                   } else if (jsonElement.isJsonArray()) {
-                     obj.add(entry.getKey(), jsonElement.getAsJsonArray());
-                   } else {
-                     obj.add(entry.getKey(), jsonElement.getAsJsonObject());
-                   }
-                 }
+                 // TypeAdapter.toJsonTree keeps explicit null entries in arbitrary maps too.
+                 obj.add(entry.getKey(), gson.getAdapter(Object.class).toJsonTree(entry.getValue()));
                }
              }
-             elementAdapter.write(out, obj);
+             boolean originalSerializeNulls = out.getSerializeNulls();
+             try {
+               out.setSerializeNulls(true);
+               elementAdapter.write(out, obj);
+             } finally {
+               out.setSerializeNulls(originalSerializeNulls);
+             }
            }
 
            @Override
@@ -561,6 +596,7 @@ public class Collection {
              JsonObject jsonObj = jsonElement.getAsJsonObject();
              // store additional fields in the deserialized instance
              Collection instance = thisAdapter.fromJsonTree(jsonObj);
+             instance.markPropertiesAsSet(jsonObj.keySet());
              for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
                if (!openapiFields.contains(entry.getKey())) {
                  if (entry.getValue().isJsonPrimitive()) { // primitive type

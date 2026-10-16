@@ -53,6 +53,9 @@ import one.talon.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.26.0")
 public class LoyaltyTier {
+  // Gson ignores transient state; only setters and JSON input mark properties as present.
+  private transient Set<String> openapiExplicitlySetFields = new HashSet<>();
+
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
   @javax.annotation.Nonnull
@@ -93,6 +96,7 @@ public class LoyaltyTier {
 
   public LoyaltyTier id(@javax.annotation.Nonnull Long id) {
     this.id = id;
+    this.markPropertyAsSet(SERIALIZED_NAME_ID);
     return this;
   }
 
@@ -107,11 +111,13 @@ public class LoyaltyTier {
 
   public void setId(@javax.annotation.Nonnull Long id) {
     this.id = id;
+    this.markPropertyAsSet(SERIALIZED_NAME_ID);
   }
 
 
   public LoyaltyTier created(@javax.annotation.Nonnull OffsetDateTime created) {
     this.created = created;
+    this.markPropertyAsSet(SERIALIZED_NAME_CREATED);
     return this;
   }
 
@@ -126,11 +132,13 @@ public class LoyaltyTier {
 
   public void setCreated(@javax.annotation.Nonnull OffsetDateTime created) {
     this.created = created;
+    this.markPropertyAsSet(SERIALIZED_NAME_CREATED);
   }
 
 
   public LoyaltyTier programID(@javax.annotation.Nonnull Long programID) {
     this.programID = programID;
+    this.markPropertyAsSet(SERIALIZED_NAME_PROGRAM_I_D);
     return this;
   }
 
@@ -145,11 +153,13 @@ public class LoyaltyTier {
 
   public void setProgramID(@javax.annotation.Nonnull Long programID) {
     this.programID = programID;
+    this.markPropertyAsSet(SERIALIZED_NAME_PROGRAM_I_D);
   }
 
 
   public LoyaltyTier programName(@javax.annotation.Nullable String programName) {
     this.programName = programName;
+    this.markPropertyAsSet(SERIALIZED_NAME_PROGRAM_NAME);
     return this;
   }
 
@@ -164,11 +174,13 @@ public class LoyaltyTier {
 
   public void setProgramName(@javax.annotation.Nullable String programName) {
     this.programName = programName;
+    this.markPropertyAsSet(SERIALIZED_NAME_PROGRAM_NAME);
   }
 
 
   public LoyaltyTier programTitle(@javax.annotation.Nullable String programTitle) {
     this.programTitle = programTitle;
+    this.markPropertyAsSet(SERIALIZED_NAME_PROGRAM_TITLE);
     return this;
   }
 
@@ -183,11 +195,13 @@ public class LoyaltyTier {
 
   public void setProgramTitle(@javax.annotation.Nullable String programTitle) {
     this.programTitle = programTitle;
+    this.markPropertyAsSet(SERIALIZED_NAME_PROGRAM_TITLE);
   }
 
 
   public LoyaltyTier name(@javax.annotation.Nonnull String name) {
     this.name = name;
+    this.markPropertyAsSet(SERIALIZED_NAME_NAME);
     return this;
   }
 
@@ -202,11 +216,13 @@ public class LoyaltyTier {
 
   public void setName(@javax.annotation.Nonnull String name) {
     this.name = name;
+    this.markPropertyAsSet(SERIALIZED_NAME_NAME);
   }
 
 
   public LoyaltyTier minPoints(@javax.annotation.Nonnull BigDecimal minPoints) {
     this.minPoints = minPoints;
+    this.markPropertyAsSet(SERIALIZED_NAME_MIN_POINTS);
     return this;
   }
 
@@ -223,6 +239,7 @@ public class LoyaltyTier {
 
   public void setMinPoints(@javax.annotation.Nonnull BigDecimal minPoints) {
     this.minPoints = minPoints;
+    this.markPropertyAsSet(SERIALIZED_NAME_MIN_POINTS);
   }
 
   /**
@@ -268,6 +285,21 @@ public class LoyaltyTier {
         return null;
     }
     return this.additionalProperties.get(key);
+  }
+
+  /** Omit null properties unless they were explicitly assigned or present in JSON input. */
+  protected final void removeUnsetNullFields(JsonObject obj) {
+    obj.entrySet().removeIf(entry -> entry.getValue().isJsonNull()
+        && !openapiExplicitlySetFields.contains(entry.getKey()));
+  }
+
+  protected final void markPropertyAsSet(String propertyName) {
+    openapiExplicitlySetFields.add(propertyName);
+  }
+
+  /** Gson populates fields directly, bypassing setters during deserialization. */
+  protected final void markPropertiesAsSet(Set<String> propertyNames) {
+    openapiExplicitlySetFields.addAll(propertyNames);
   }
 
 
@@ -367,7 +399,7 @@ public class LoyaltyTier {
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
        if (!LoyaltyTier.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'LoyaltyTier' and its subtypes
+         return null; // let other model factories handle this type
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
        final TypeAdapter<LoyaltyTier> thisAdapter
@@ -377,31 +409,22 @@ public class LoyaltyTier {
            @Override
            public void write(JsonWriter out, LoyaltyTier value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+             value.removeUnsetNullFields(obj);
              obj.remove("additionalProperties");
              // serialize additional properties
              if (value.getAdditionalProperties() != null) {
                for (Map.Entry<String, Object> entry : value.getAdditionalProperties().entrySet()) {
-                 if (entry.getValue() instanceof String)
-                   obj.addProperty(entry.getKey(), (String) entry.getValue());
-                 else if (entry.getValue() instanceof Number)
-                   obj.addProperty(entry.getKey(), (Number) entry.getValue());
-                 else if (entry.getValue() instanceof Boolean)
-                   obj.addProperty(entry.getKey(), (Boolean) entry.getValue());
-                 else if (entry.getValue() instanceof Character)
-                   obj.addProperty(entry.getKey(), (Character) entry.getValue());
-                 else {
-                   JsonElement jsonElement = gson.toJsonTree(entry.getValue());
-                   if (jsonElement.isJsonNull()) {
-                     obj.add(entry.getKey(), JsonNull.INSTANCE);
-                   } else if (jsonElement.isJsonArray()) {
-                     obj.add(entry.getKey(), jsonElement.getAsJsonArray());
-                   } else {
-                     obj.add(entry.getKey(), jsonElement.getAsJsonObject());
-                   }
-                 }
+                 // TypeAdapter.toJsonTree keeps explicit null entries in arbitrary maps too.
+                 obj.add(entry.getKey(), gson.getAdapter(Object.class).toJsonTree(entry.getValue()));
                }
              }
-             elementAdapter.write(out, obj);
+             boolean originalSerializeNulls = out.getSerializeNulls();
+             try {
+               out.setSerializeNulls(true);
+               elementAdapter.write(out, obj);
+             } finally {
+               out.setSerializeNulls(originalSerializeNulls);
+             }
            }
 
            @Override
@@ -411,6 +434,7 @@ public class LoyaltyTier {
              JsonObject jsonObj = jsonElement.getAsJsonObject();
              // store additional fields in the deserialized instance
              LoyaltyTier instance = thisAdapter.fromJsonTree(jsonObj);
+             instance.markPropertiesAsSet(jsonObj.keySet());
              for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
                if (!openapiFields.contains(entry.getKey())) {
                  if (entry.getValue().isJsonPrimitive()) { // primitive type

@@ -53,6 +53,9 @@ import one.talon.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.26.0")
 public class EffectAddNegativeLoyaltyPoints {
+  // Gson ignores transient state; only setters and JSON input mark properties as present.
+  private transient Set<String> openapiExplicitlySetFields = new HashSet<>();
+
   public static final String SERIALIZED_NAME_EXPERIMENT_ID = "experimentId";
   @SerializedName(SERIALIZED_NAME_EXPERIMENT_ID)
   @javax.annotation.Nullable
@@ -198,6 +201,7 @@ public class EffectAddNegativeLoyaltyPoints {
 
   public EffectAddNegativeLoyaltyPoints experimentId(@javax.annotation.Nullable Long experimentId) {
     this.experimentId = experimentId;
+    this.markPropertyAsSet(SERIALIZED_NAME_EXPERIMENT_ID);
     return this;
   }
 
@@ -212,11 +216,13 @@ public class EffectAddNegativeLoyaltyPoints {
 
   public void setExperimentId(@javax.annotation.Nullable Long experimentId) {
     this.experimentId = experimentId;
+    this.markPropertyAsSet(SERIALIZED_NAME_EXPERIMENT_ID);
   }
 
 
   public EffectAddNegativeLoyaltyPoints campaignId(@javax.annotation.Nonnull Long campaignId) {
     this.campaignId = campaignId;
+    this.markPropertyAsSet(SERIALIZED_NAME_CAMPAIGN_ID);
     return this;
   }
 
@@ -231,11 +237,13 @@ public class EffectAddNegativeLoyaltyPoints {
 
   public void setCampaignId(@javax.annotation.Nonnull Long campaignId) {
     this.campaignId = campaignId;
+    this.markPropertyAsSet(SERIALIZED_NAME_CAMPAIGN_ID);
   }
 
 
   public EffectAddNegativeLoyaltyPoints rulesetId(@javax.annotation.Nonnull Long rulesetId) {
     this.rulesetId = rulesetId;
+    this.markPropertyAsSet(SERIALIZED_NAME_RULESET_ID);
     return this;
   }
 
@@ -250,11 +258,13 @@ public class EffectAddNegativeLoyaltyPoints {
 
   public void setRulesetId(@javax.annotation.Nonnull Long rulesetId) {
     this.rulesetId = rulesetId;
+    this.markPropertyAsSet(SERIALIZED_NAME_RULESET_ID);
   }
 
 
   public EffectAddNegativeLoyaltyPoints ruleIndex(@javax.annotation.Nonnull Long ruleIndex) {
     this.ruleIndex = ruleIndex;
+    this.markPropertyAsSet(SERIALIZED_NAME_RULE_INDEX);
     return this;
   }
 
@@ -269,11 +279,13 @@ public class EffectAddNegativeLoyaltyPoints {
 
   public void setRuleIndex(@javax.annotation.Nonnull Long ruleIndex) {
     this.ruleIndex = ruleIndex;
+    this.markPropertyAsSet(SERIALIZED_NAME_RULE_INDEX);
   }
 
 
   public EffectAddNegativeLoyaltyPoints ruleName(@javax.annotation.Nonnull String ruleName) {
     this.ruleName = ruleName;
+    this.markPropertyAsSet(SERIALIZED_NAME_RULE_NAME);
     return this;
   }
 
@@ -288,11 +300,13 @@ public class EffectAddNegativeLoyaltyPoints {
 
   public void setRuleName(@javax.annotation.Nonnull String ruleName) {
     this.ruleName = ruleName;
+    this.markPropertyAsSet(SERIALIZED_NAME_RULE_NAME);
   }
 
 
   public EffectAddNegativeLoyaltyPoints effectType(@javax.annotation.Nonnull EffectTypeEnum effectType) {
     this.effectType = effectType;
+    this.markPropertyAsSet(SERIALIZED_NAME_EFFECT_TYPE);
     return this;
   }
 
@@ -307,11 +321,13 @@ public class EffectAddNegativeLoyaltyPoints {
 
   public void setEffectType(@javax.annotation.Nonnull EffectTypeEnum effectType) {
     this.effectType = effectType;
+    this.markPropertyAsSet(SERIALIZED_NAME_EFFECT_TYPE);
   }
 
 
   public EffectAddNegativeLoyaltyPoints triggeredByCoupon(@javax.annotation.Nullable Long triggeredByCoupon) {
     this.triggeredByCoupon = triggeredByCoupon;
+    this.markPropertyAsSet(SERIALIZED_NAME_TRIGGERED_BY_COUPON);
     return this;
   }
 
@@ -326,11 +342,13 @@ public class EffectAddNegativeLoyaltyPoints {
 
   public void setTriggeredByCoupon(@javax.annotation.Nullable Long triggeredByCoupon) {
     this.triggeredByCoupon = triggeredByCoupon;
+    this.markPropertyAsSet(SERIALIZED_NAME_TRIGGERED_BY_COUPON);
   }
 
 
   public EffectAddNegativeLoyaltyPoints triggeredForCatalogItem(@javax.annotation.Nullable Long triggeredForCatalogItem) {
     this.triggeredForCatalogItem = triggeredForCatalogItem;
+    this.markPropertyAsSet(SERIALIZED_NAME_TRIGGERED_FOR_CATALOG_ITEM);
     return this;
   }
 
@@ -345,11 +363,13 @@ public class EffectAddNegativeLoyaltyPoints {
 
   public void setTriggeredForCatalogItem(@javax.annotation.Nullable Long triggeredForCatalogItem) {
     this.triggeredForCatalogItem = triggeredForCatalogItem;
+    this.markPropertyAsSet(SERIALIZED_NAME_TRIGGERED_FOR_CATALOG_ITEM);
   }
 
 
   public EffectAddNegativeLoyaltyPoints conditionIndex(@javax.annotation.Nullable Long conditionIndex) {
     this.conditionIndex = conditionIndex;
+    this.markPropertyAsSet(SERIALIZED_NAME_CONDITION_INDEX);
     return this;
   }
 
@@ -364,11 +384,13 @@ public class EffectAddNegativeLoyaltyPoints {
 
   public void setConditionIndex(@javax.annotation.Nullable Long conditionIndex) {
     this.conditionIndex = conditionIndex;
+    this.markPropertyAsSet(SERIALIZED_NAME_CONDITION_INDEX);
   }
 
 
   public EffectAddNegativeLoyaltyPoints evaluationGroupID(@javax.annotation.Nullable Long evaluationGroupID) {
     this.evaluationGroupID = evaluationGroupID;
+    this.markPropertyAsSet(SERIALIZED_NAME_EVALUATION_GROUP_I_D);
     return this;
   }
 
@@ -383,11 +405,13 @@ public class EffectAddNegativeLoyaltyPoints {
 
   public void setEvaluationGroupID(@javax.annotation.Nullable Long evaluationGroupID) {
     this.evaluationGroupID = evaluationGroupID;
+    this.markPropertyAsSet(SERIALIZED_NAME_EVALUATION_GROUP_I_D);
   }
 
 
   public EffectAddNegativeLoyaltyPoints evaluationGroupMode(@javax.annotation.Nullable String evaluationGroupMode) {
     this.evaluationGroupMode = evaluationGroupMode;
+    this.markPropertyAsSet(SERIALIZED_NAME_EVALUATION_GROUP_MODE);
     return this;
   }
 
@@ -402,11 +426,13 @@ public class EffectAddNegativeLoyaltyPoints {
 
   public void setEvaluationGroupMode(@javax.annotation.Nullable String evaluationGroupMode) {
     this.evaluationGroupMode = evaluationGroupMode;
+    this.markPropertyAsSet(SERIALIZED_NAME_EVALUATION_GROUP_MODE);
   }
 
 
   public EffectAddNegativeLoyaltyPoints campaignRevisionId(@javax.annotation.Nullable Long campaignRevisionId) {
     this.campaignRevisionId = campaignRevisionId;
+    this.markPropertyAsSet(SERIALIZED_NAME_CAMPAIGN_REVISION_ID);
     return this;
   }
 
@@ -421,11 +447,13 @@ public class EffectAddNegativeLoyaltyPoints {
 
   public void setCampaignRevisionId(@javax.annotation.Nullable Long campaignRevisionId) {
     this.campaignRevisionId = campaignRevisionId;
+    this.markPropertyAsSet(SERIALIZED_NAME_CAMPAIGN_REVISION_ID);
   }
 
 
   public EffectAddNegativeLoyaltyPoints campaignRevisionVersionId(@javax.annotation.Nullable Long campaignRevisionVersionId) {
     this.campaignRevisionVersionId = campaignRevisionVersionId;
+    this.markPropertyAsSet(SERIALIZED_NAME_CAMPAIGN_REVISION_VERSION_ID);
     return this;
   }
 
@@ -440,11 +468,13 @@ public class EffectAddNegativeLoyaltyPoints {
 
   public void setCampaignRevisionVersionId(@javax.annotation.Nullable Long campaignRevisionVersionId) {
     this.campaignRevisionVersionId = campaignRevisionVersionId;
+    this.markPropertyAsSet(SERIALIZED_NAME_CAMPAIGN_REVISION_VERSION_ID);
   }
 
 
   public EffectAddNegativeLoyaltyPoints selectedPriceType(@javax.annotation.Nullable String selectedPriceType) {
     this.selectedPriceType = selectedPriceType;
+    this.markPropertyAsSet(SERIALIZED_NAME_SELECTED_PRICE_TYPE);
     return this;
   }
 
@@ -459,11 +489,13 @@ public class EffectAddNegativeLoyaltyPoints {
 
   public void setSelectedPriceType(@javax.annotation.Nullable String selectedPriceType) {
     this.selectedPriceType = selectedPriceType;
+    this.markPropertyAsSet(SERIALIZED_NAME_SELECTED_PRICE_TYPE);
   }
 
 
   public EffectAddNegativeLoyaltyPoints selectedPrice(@javax.annotation.Nullable BigDecimal selectedPrice) {
     this.selectedPrice = selectedPrice;
+    this.markPropertyAsSet(SERIALIZED_NAME_SELECTED_PRICE);
     return this;
   }
 
@@ -478,11 +510,13 @@ public class EffectAddNegativeLoyaltyPoints {
 
   public void setSelectedPrice(@javax.annotation.Nullable BigDecimal selectedPrice) {
     this.selectedPrice = selectedPrice;
+    this.markPropertyAsSet(SERIALIZED_NAME_SELECTED_PRICE);
   }
 
 
   public EffectAddNegativeLoyaltyPoints adjustmentReferenceId(@javax.annotation.Nullable UUID adjustmentReferenceId) {
     this.adjustmentReferenceId = adjustmentReferenceId;
+    this.markPropertyAsSet(SERIALIZED_NAME_ADJUSTMENT_REFERENCE_ID);
     return this;
   }
 
@@ -497,11 +531,13 @@ public class EffectAddNegativeLoyaltyPoints {
 
   public void setAdjustmentReferenceId(@javax.annotation.Nullable UUID adjustmentReferenceId) {
     this.adjustmentReferenceId = adjustmentReferenceId;
+    this.markPropertyAsSet(SERIALIZED_NAME_ADJUSTMENT_REFERENCE_ID);
   }
 
 
   public EffectAddNegativeLoyaltyPoints rewardId(@javax.annotation.Nullable Long rewardId) {
     this.rewardId = rewardId;
+    this.markPropertyAsSet(SERIALIZED_NAME_REWARD_ID);
     return this;
   }
 
@@ -516,11 +552,13 @@ public class EffectAddNegativeLoyaltyPoints {
 
   public void setRewardId(@javax.annotation.Nullable Long rewardId) {
     this.rewardId = rewardId;
+    this.markPropertyAsSet(SERIALIZED_NAME_REWARD_ID);
   }
 
 
   public EffectAddNegativeLoyaltyPoints rewardIntegrationId(@javax.annotation.Nullable String rewardIntegrationId) {
     this.rewardIntegrationId = rewardIntegrationId;
+    this.markPropertyAsSet(SERIALIZED_NAME_REWARD_INTEGRATION_ID);
     return this;
   }
 
@@ -535,6 +573,7 @@ public class EffectAddNegativeLoyaltyPoints {
 
   public void setRewardIntegrationId(@javax.annotation.Nullable String rewardIntegrationId) {
     this.rewardIntegrationId = rewardIntegrationId;
+    this.markPropertyAsSet(SERIALIZED_NAME_REWARD_INTEGRATION_ID);
   }
 
   /**
@@ -580,6 +619,21 @@ public class EffectAddNegativeLoyaltyPoints {
         return null;
     }
     return this.additionalProperties.get(key);
+  }
+
+  /** Omit null properties unless they were explicitly assigned or present in JSON input. */
+  protected final void removeUnsetNullFields(JsonObject obj) {
+    obj.entrySet().removeIf(entry -> entry.getValue().isJsonNull()
+        && !openapiExplicitlySetFields.contains(entry.getKey()));
+  }
+
+  protected final void markPropertyAsSet(String propertyName) {
+    openapiExplicitlySetFields.add(propertyName);
+  }
+
+  /** Gson populates fields directly, bypassing setters during deserialization. */
+  protected final void markPropertiesAsSet(Set<String> propertyNames) {
+    openapiExplicitlySetFields.addAll(propertyNames);
   }
 
 
@@ -712,7 +766,7 @@ public class EffectAddNegativeLoyaltyPoints {
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
        if (!EffectAddNegativeLoyaltyPoints.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'EffectAddNegativeLoyaltyPoints' and its subtypes
+         return null; // let other model factories handle this type
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
        final TypeAdapter<EffectAddNegativeLoyaltyPoints> thisAdapter
@@ -722,31 +776,22 @@ public class EffectAddNegativeLoyaltyPoints {
            @Override
            public void write(JsonWriter out, EffectAddNegativeLoyaltyPoints value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+             value.removeUnsetNullFields(obj);
              obj.remove("additionalProperties");
              // serialize additional properties
              if (value.getAdditionalProperties() != null) {
                for (Map.Entry<String, Object> entry : value.getAdditionalProperties().entrySet()) {
-                 if (entry.getValue() instanceof String)
-                   obj.addProperty(entry.getKey(), (String) entry.getValue());
-                 else if (entry.getValue() instanceof Number)
-                   obj.addProperty(entry.getKey(), (Number) entry.getValue());
-                 else if (entry.getValue() instanceof Boolean)
-                   obj.addProperty(entry.getKey(), (Boolean) entry.getValue());
-                 else if (entry.getValue() instanceof Character)
-                   obj.addProperty(entry.getKey(), (Character) entry.getValue());
-                 else {
-                   JsonElement jsonElement = gson.toJsonTree(entry.getValue());
-                   if (jsonElement.isJsonNull()) {
-                     obj.add(entry.getKey(), JsonNull.INSTANCE);
-                   } else if (jsonElement.isJsonArray()) {
-                     obj.add(entry.getKey(), jsonElement.getAsJsonArray());
-                   } else {
-                     obj.add(entry.getKey(), jsonElement.getAsJsonObject());
-                   }
-                 }
+                 // TypeAdapter.toJsonTree keeps explicit null entries in arbitrary maps too.
+                 obj.add(entry.getKey(), gson.getAdapter(Object.class).toJsonTree(entry.getValue()));
                }
              }
-             elementAdapter.write(out, obj);
+             boolean originalSerializeNulls = out.getSerializeNulls();
+             try {
+               out.setSerializeNulls(true);
+               elementAdapter.write(out, obj);
+             } finally {
+               out.setSerializeNulls(originalSerializeNulls);
+             }
            }
 
            @Override
@@ -756,6 +801,7 @@ public class EffectAddNegativeLoyaltyPoints {
              JsonObject jsonObj = jsonElement.getAsJsonObject();
              // store additional fields in the deserialized instance
              EffectAddNegativeLoyaltyPoints instance = thisAdapter.fromJsonTree(jsonObj);
+             instance.markPropertiesAsSet(jsonObj.keySet());
              for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
                if (!openapiFields.contains(entry.getKey())) {
                  if (entry.getValue().isJsonPrimitive()) { // primitive type

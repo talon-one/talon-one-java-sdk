@@ -51,6 +51,9 @@ import one.talon.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.26.0")
 public class SummaryCampaignStoreBudget {
+  // Gson ignores transient state; only setters and JSON input mark properties as present.
+  private transient Set<String> openapiExplicitlySetFields = new HashSet<>();
+
   /**
    * Gets or Sets action
    */
@@ -212,6 +215,7 @@ public class SummaryCampaignStoreBudget {
 
   public SummaryCampaignStoreBudget action(@javax.annotation.Nonnull ActionEnum action) {
     this.action = action;
+    this.markPropertyAsSet(SERIALIZED_NAME_ACTION);
     return this;
   }
 
@@ -226,11 +230,13 @@ public class SummaryCampaignStoreBudget {
 
   public void setAction(@javax.annotation.Nonnull ActionEnum action) {
     this.action = action;
+    this.markPropertyAsSet(SERIALIZED_NAME_ACTION);
   }
 
 
   public SummaryCampaignStoreBudget period(@javax.annotation.Nullable PeriodEnum period) {
     this.period = period;
+    this.markPropertyAsSet(SERIALIZED_NAME_PERIOD);
     return this;
   }
 
@@ -245,11 +251,13 @@ public class SummaryCampaignStoreBudget {
 
   public void setPeriod(@javax.annotation.Nullable PeriodEnum period) {
     this.period = period;
+    this.markPropertyAsSet(SERIALIZED_NAME_PERIOD);
   }
 
 
   public SummaryCampaignStoreBudget storeCount(@javax.annotation.Nonnull Long storeCount) {
     this.storeCount = storeCount;
+    this.markPropertyAsSet(SERIALIZED_NAME_STORE_COUNT);
     return this;
   }
 
@@ -264,11 +272,13 @@ public class SummaryCampaignStoreBudget {
 
   public void setStoreCount(@javax.annotation.Nonnull Long storeCount) {
     this.storeCount = storeCount;
+    this.markPropertyAsSet(SERIALIZED_NAME_STORE_COUNT);
   }
 
 
   public SummaryCampaignStoreBudget imported(@javax.annotation.Nonnull Boolean imported) {
     this.imported = imported;
+    this.markPropertyAsSet(SERIALIZED_NAME_IMPORTED);
     return this;
   }
 
@@ -283,6 +293,7 @@ public class SummaryCampaignStoreBudget {
 
   public void setImported(@javax.annotation.Nonnull Boolean imported) {
     this.imported = imported;
+    this.markPropertyAsSet(SERIALIZED_NAME_IMPORTED);
   }
 
   /**
@@ -328,6 +339,21 @@ public class SummaryCampaignStoreBudget {
         return null;
     }
     return this.additionalProperties.get(key);
+  }
+
+  /** Omit null properties unless they were explicitly assigned or present in JSON input. */
+  protected final void removeUnsetNullFields(JsonObject obj) {
+    obj.entrySet().removeIf(entry -> entry.getValue().isJsonNull()
+        && !openapiExplicitlySetFields.contains(entry.getKey()));
+  }
+
+  protected final void markPropertyAsSet(String propertyName) {
+    openapiExplicitlySetFields.add(propertyName);
+  }
+
+  /** Gson populates fields directly, bypassing setters during deserialization. */
+  protected final void markPropertiesAsSet(Set<String> propertyNames) {
+    openapiExplicitlySetFields.addAll(propertyNames);
   }
 
 
@@ -424,7 +450,7 @@ public class SummaryCampaignStoreBudget {
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
        if (!SummaryCampaignStoreBudget.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'SummaryCampaignStoreBudget' and its subtypes
+         return null; // let other model factories handle this type
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
        final TypeAdapter<SummaryCampaignStoreBudget> thisAdapter
@@ -434,31 +460,22 @@ public class SummaryCampaignStoreBudget {
            @Override
            public void write(JsonWriter out, SummaryCampaignStoreBudget value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+             value.removeUnsetNullFields(obj);
              obj.remove("additionalProperties");
              // serialize additional properties
              if (value.getAdditionalProperties() != null) {
                for (Map.Entry<String, Object> entry : value.getAdditionalProperties().entrySet()) {
-                 if (entry.getValue() instanceof String)
-                   obj.addProperty(entry.getKey(), (String) entry.getValue());
-                 else if (entry.getValue() instanceof Number)
-                   obj.addProperty(entry.getKey(), (Number) entry.getValue());
-                 else if (entry.getValue() instanceof Boolean)
-                   obj.addProperty(entry.getKey(), (Boolean) entry.getValue());
-                 else if (entry.getValue() instanceof Character)
-                   obj.addProperty(entry.getKey(), (Character) entry.getValue());
-                 else {
-                   JsonElement jsonElement = gson.toJsonTree(entry.getValue());
-                   if (jsonElement.isJsonNull()) {
-                     obj.add(entry.getKey(), JsonNull.INSTANCE);
-                   } else if (jsonElement.isJsonArray()) {
-                     obj.add(entry.getKey(), jsonElement.getAsJsonArray());
-                   } else {
-                     obj.add(entry.getKey(), jsonElement.getAsJsonObject());
-                   }
-                 }
+                 // TypeAdapter.toJsonTree keeps explicit null entries in arbitrary maps too.
+                 obj.add(entry.getKey(), gson.getAdapter(Object.class).toJsonTree(entry.getValue()));
                }
              }
-             elementAdapter.write(out, obj);
+             boolean originalSerializeNulls = out.getSerializeNulls();
+             try {
+               out.setSerializeNulls(true);
+               elementAdapter.write(out, obj);
+             } finally {
+               out.setSerializeNulls(originalSerializeNulls);
+             }
            }
 
            @Override
@@ -468,6 +485,7 @@ public class SummaryCampaignStoreBudget {
              JsonObject jsonObj = jsonElement.getAsJsonObject();
              // store additional fields in the deserialized instance
              SummaryCampaignStoreBudget instance = thisAdapter.fromJsonTree(jsonObj);
+             instance.markPropertiesAsSet(jsonObj.keySet());
              for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
                if (!openapiFields.contains(entry.getKey())) {
                  if (entry.getValue().isJsonPrimitive()) { // primitive type

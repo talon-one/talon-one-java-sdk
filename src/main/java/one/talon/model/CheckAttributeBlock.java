@@ -73,62 +73,72 @@ public class CheckAttributeBlock extends AbstractOpenApiSchema {
                 return null; // this class only serializes 'CheckAttributeBlock' and its subtypes
             }
             final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-            final TypeAdapter<ScalarCheckAttributeBlock> adapterScalarCheckAttributeBlock = gson.getDelegateAdapter(this, TypeToken.get(ScalarCheckAttributeBlock.class));
-            final TypeAdapter<BetweenCheckAttributeBlock> adapterBetweenCheckAttributeBlock = gson.getDelegateAdapter(this, TypeToken.get(BetweenCheckAttributeBlock.class));
-            final TypeAdapter<ListCheckAttributeBlock> adapterListCheckAttributeBlock = gson.getDelegateAdapter(this, TypeToken.get(ListCheckAttributeBlock.class));
-            final TypeAdapter<ListWithCountCheckAttributeBlock> adapterListWithCountCheckAttributeBlock = gson.getDelegateAdapter(this, TypeToken.get(ListWithCountCheckAttributeBlock.class));
-            final TypeAdapter<UnaryCheckAttributeBlock> adapterUnaryCheckAttributeBlock = gson.getDelegateAdapter(this, TypeToken.get(UnaryCheckAttributeBlock.class));
-            final TypeAdapter<WithinCheckAttributeBlock> adapterWithinCheckAttributeBlock = gson.getDelegateAdapter(this, TypeToken.get(WithinCheckAttributeBlock.class));
-            final TypeAdapter<LocationCheckAttributeBlock> adapterLocationCheckAttributeBlock = gson.getDelegateAdapter(this, TypeToken.get(LocationCheckAttributeBlock.class));
+            final TypeAdapter<ScalarCheckAttributeBlock> adapterScalarCheckAttributeBlock = gson.getAdapter(TypeToken.get(ScalarCheckAttributeBlock.class));
+            final TypeAdapter<BetweenCheckAttributeBlock> adapterBetweenCheckAttributeBlock = gson.getAdapter(TypeToken.get(BetweenCheckAttributeBlock.class));
+            final TypeAdapter<ListCheckAttributeBlock> adapterListCheckAttributeBlock = gson.getAdapter(TypeToken.get(ListCheckAttributeBlock.class));
+            final TypeAdapter<ListWithCountCheckAttributeBlock> adapterListWithCountCheckAttributeBlock = gson.getAdapter(TypeToken.get(ListWithCountCheckAttributeBlock.class));
+            final TypeAdapter<UnaryCheckAttributeBlock> adapterUnaryCheckAttributeBlock = gson.getAdapter(TypeToken.get(UnaryCheckAttributeBlock.class));
+            final TypeAdapter<WithinCheckAttributeBlock> adapterWithinCheckAttributeBlock = gson.getAdapter(TypeToken.get(WithinCheckAttributeBlock.class));
+            final TypeAdapter<LocationCheckAttributeBlock> adapterLocationCheckAttributeBlock = gson.getAdapter(TypeToken.get(LocationCheckAttributeBlock.class));
 
             return (TypeAdapter<T>) new TypeAdapter<CheckAttributeBlock>() {
+                private void writeJsonElement(JsonWriter out, JsonElement value) throws IOException {
+                    boolean originalSerializeNulls = out.getSerializeNulls();
+                    try {
+                        out.setSerializeNulls(true);
+                        elementAdapter.write(out, value);
+                    } finally {
+                        out.setSerializeNulls(originalSerializeNulls);
+                    }
+                }
+
                 @Override
                 public void write(JsonWriter out, CheckAttributeBlock value) throws IOException {
                     if (value == null || value.getActualInstance() == null) {
-                        elementAdapter.write(out, null);
+                        writeJsonElement(out, null);
                         return;
                     }
 
                     // check if the actual instance is of the type `ScalarCheckAttributeBlock`
                     if (value.getActualInstance() instanceof ScalarCheckAttributeBlock) {
                         JsonElement element = adapterScalarCheckAttributeBlock.toJsonTree((ScalarCheckAttributeBlock)value.getActualInstance());
-                        elementAdapter.write(out, element);
+                        writeJsonElement(out, element);
                         return;
                     }
                     // check if the actual instance is of the type `BetweenCheckAttributeBlock`
                     if (value.getActualInstance() instanceof BetweenCheckAttributeBlock) {
                         JsonElement element = adapterBetweenCheckAttributeBlock.toJsonTree((BetweenCheckAttributeBlock)value.getActualInstance());
-                        elementAdapter.write(out, element);
+                        writeJsonElement(out, element);
                         return;
                     }
                     // check if the actual instance is of the type `ListCheckAttributeBlock`
                     if (value.getActualInstance() instanceof ListCheckAttributeBlock) {
                         JsonElement element = adapterListCheckAttributeBlock.toJsonTree((ListCheckAttributeBlock)value.getActualInstance());
-                        elementAdapter.write(out, element);
+                        writeJsonElement(out, element);
                         return;
                     }
                     // check if the actual instance is of the type `ListWithCountCheckAttributeBlock`
                     if (value.getActualInstance() instanceof ListWithCountCheckAttributeBlock) {
                         JsonElement element = adapterListWithCountCheckAttributeBlock.toJsonTree((ListWithCountCheckAttributeBlock)value.getActualInstance());
-                        elementAdapter.write(out, element);
+                        writeJsonElement(out, element);
                         return;
                     }
                     // check if the actual instance is of the type `UnaryCheckAttributeBlock`
                     if (value.getActualInstance() instanceof UnaryCheckAttributeBlock) {
                         JsonElement element = adapterUnaryCheckAttributeBlock.toJsonTree((UnaryCheckAttributeBlock)value.getActualInstance());
-                        elementAdapter.write(out, element);
+                        writeJsonElement(out, element);
                         return;
                     }
                     // check if the actual instance is of the type `WithinCheckAttributeBlock`
                     if (value.getActualInstance() instanceof WithinCheckAttributeBlock) {
                         JsonElement element = adapterWithinCheckAttributeBlock.toJsonTree((WithinCheckAttributeBlock)value.getActualInstance());
-                        elementAdapter.write(out, element);
+                        writeJsonElement(out, element);
                         return;
                     }
                     // check if the actual instance is of the type `LocationCheckAttributeBlock`
                     if (value.getActualInstance() instanceof LocationCheckAttributeBlock) {
                         JsonElement element = adapterLocationCheckAttributeBlock.toJsonTree((LocationCheckAttributeBlock)value.getActualInstance());
-                        elementAdapter.write(out, element);
+                        writeJsonElement(out, element);
                         return;
                     }
                     throw new IOException("Failed to serialize as the type doesn't match oneOf schemas: CheckAttributeBlockBase, Object");

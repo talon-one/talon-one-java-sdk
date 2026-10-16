@@ -13,7 +13,7 @@ build: clean
 		maven:latest\
 		/bin/bash -c "mvn clean install && \
 			mkdir $(INSTALL) && \
-			cp ~/.m2/repository/one/talon/talon-one-client/maven-metadata-local.xml $(INSTALL)/ && \
+			cp ~/.m2/repository/one/talon/talon-one-client/maven-metadata-local.xml $(INSTALL)/maven-metadata.xml && \
 			cp -r ~/.m2/repository/one/talon/talon-one-client/$(VERSION) $(INSTALL)/$(VERSION)"
 
 bundle:

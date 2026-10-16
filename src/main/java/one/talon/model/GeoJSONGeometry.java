@@ -76,41 +76,51 @@ public class GeoJSONGeometry extends AbstractOpenApiSchema {
                 return null; // this class only serializes 'GeoJSONGeometry' and its subtypes
             }
             final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-            final TypeAdapter<GeoJSONPoint> adapterGeoJSONPoint = gson.getDelegateAdapter(this, TypeToken.get(GeoJSONPoint.class));
-            final TypeAdapter<GeoJSONPolygon> adapterGeoJSONPolygon = gson.getDelegateAdapter(this, TypeToken.get(GeoJSONPolygon.class));
-            final TypeAdapter<GeoJSONMultiPolygon> adapterGeoJSONMultiPolygon = gson.getDelegateAdapter(this, TypeToken.get(GeoJSONMultiPolygon.class));
-            final TypeAdapter<GeoJSONGeometryCollection> adapterGeoJSONGeometryCollection = gson.getDelegateAdapter(this, TypeToken.get(GeoJSONGeometryCollection.class));
+            final TypeAdapter<GeoJSONPoint> adapterGeoJSONPoint = gson.getAdapter(TypeToken.get(GeoJSONPoint.class));
+            final TypeAdapter<GeoJSONPolygon> adapterGeoJSONPolygon = gson.getAdapter(TypeToken.get(GeoJSONPolygon.class));
+            final TypeAdapter<GeoJSONMultiPolygon> adapterGeoJSONMultiPolygon = gson.getAdapter(TypeToken.get(GeoJSONMultiPolygon.class));
+            final TypeAdapter<GeoJSONGeometryCollection> adapterGeoJSONGeometryCollection = gson.getAdapter(TypeToken.get(GeoJSONGeometryCollection.class));
 
             return (TypeAdapter<T>) new TypeAdapter<GeoJSONGeometry>() {
+                private void writeJsonElement(JsonWriter out, JsonElement value) throws IOException {
+                    boolean originalSerializeNulls = out.getSerializeNulls();
+                    try {
+                        out.setSerializeNulls(true);
+                        elementAdapter.write(out, value);
+                    } finally {
+                        out.setSerializeNulls(originalSerializeNulls);
+                    }
+                }
+
                 @Override
                 public void write(JsonWriter out, GeoJSONGeometry value) throws IOException {
                     if (value == null || value.getActualInstance() == null) {
-                        elementAdapter.write(out, null);
+                        writeJsonElement(out, null);
                         return;
                     }
 
                     // check if the actual instance is of the type `GeoJSONPoint`
                     if (value.getActualInstance() instanceof GeoJSONPoint) {
                         JsonElement element = adapterGeoJSONPoint.toJsonTree((GeoJSONPoint)value.getActualInstance());
-                        elementAdapter.write(out, element);
+                        writeJsonElement(out, element);
                         return;
                     }
                     // check if the actual instance is of the type `GeoJSONPolygon`
                     if (value.getActualInstance() instanceof GeoJSONPolygon) {
                         JsonElement element = adapterGeoJSONPolygon.toJsonTree((GeoJSONPolygon)value.getActualInstance());
-                        elementAdapter.write(out, element);
+                        writeJsonElement(out, element);
                         return;
                     }
                     // check if the actual instance is of the type `GeoJSONMultiPolygon`
                     if (value.getActualInstance() instanceof GeoJSONMultiPolygon) {
                         JsonElement element = adapterGeoJSONMultiPolygon.toJsonTree((GeoJSONMultiPolygon)value.getActualInstance());
-                        elementAdapter.write(out, element);
+                        writeJsonElement(out, element);
                         return;
                     }
                     // check if the actual instance is of the type `GeoJSONGeometryCollection`
                     if (value.getActualInstance() instanceof GeoJSONGeometryCollection) {
                         JsonElement element = adapterGeoJSONGeometryCollection.toJsonTree((GeoJSONGeometryCollection)value.getActualInstance());
-                        elementAdapter.write(out, element);
+                        writeJsonElement(out, element);
                         return;
                     }
                     throw new IOException("Failed to serialize as the type doesn't match oneOf schemas: GeoJSONGeometryCollection, GeoJSONMultiPolygon, GeoJSONPoint, GeoJSONPolygon");

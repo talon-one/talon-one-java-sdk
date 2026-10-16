@@ -52,6 +52,9 @@ import one.talon.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.26.0")
 public class GenerateCouponFailureDetailedSummary {
+  // Gson ignores transient state; only setters and JSON input mark properties as present.
+  private transient Set<String> openapiExplicitlySetFields = new HashSet<>();
+
   public static final String SERIALIZED_NAME_APPLICATION_I_D = "applicationID";
   @SerializedName(SERIALIZED_NAME_APPLICATION_I_D)
   @javax.annotation.Nonnull
@@ -82,6 +85,7 @@ public class GenerateCouponFailureDetailedSummary {
 
   public GenerateCouponFailureDetailedSummary applicationID(@javax.annotation.Nonnull BigDecimal applicationID) {
     this.applicationID = applicationID;
+    this.markPropertyAsSet(SERIALIZED_NAME_APPLICATION_I_D);
     return this;
   }
 
@@ -96,11 +100,13 @@ public class GenerateCouponFailureDetailedSummary {
 
   public void setApplicationID(@javax.annotation.Nonnull BigDecimal applicationID) {
     this.applicationID = applicationID;
+    this.markPropertyAsSet(SERIALIZED_NAME_APPLICATION_I_D);
   }
 
 
   public GenerateCouponFailureDetailedSummary sessionID(@javax.annotation.Nonnull String sessionID) {
     this.sessionID = sessionID;
+    this.markPropertyAsSet(SERIALIZED_NAME_SESSION_I_D);
     return this;
   }
 
@@ -115,11 +121,13 @@ public class GenerateCouponFailureDetailedSummary {
 
   public void setSessionID(@javax.annotation.Nonnull String sessionID) {
     this.sessionID = sessionID;
+    this.markPropertyAsSet(SERIALIZED_NAME_SESSION_I_D);
   }
 
 
   public GenerateCouponFailureDetailedSummary eventID(@javax.annotation.Nonnull Long eventID) {
     this.eventID = eventID;
+    this.markPropertyAsSet(SERIALIZED_NAME_EVENT_I_D);
     return this;
   }
 
@@ -134,11 +142,13 @@ public class GenerateCouponFailureDetailedSummary {
 
   public void setEventID(@javax.annotation.Nonnull Long eventID) {
     this.eventID = eventID;
+    this.markPropertyAsSet(SERIALIZED_NAME_EVENT_I_D);
   }
 
 
   public GenerateCouponFailureDetailedSummary coupon(@javax.annotation.Nonnull String coupon) {
     this.coupon = coupon;
+    this.markPropertyAsSet(SERIALIZED_NAME_COUPON);
     return this;
   }
 
@@ -153,11 +163,13 @@ public class GenerateCouponFailureDetailedSummary {
 
   public void setCoupon(@javax.annotation.Nonnull String coupon) {
     this.coupon = coupon;
+    this.markPropertyAsSet(SERIALIZED_NAME_COUPON);
   }
 
 
   public GenerateCouponFailureDetailedSummary language(@javax.annotation.Nullable String language) {
     this.language = language;
+    this.markPropertyAsSet(SERIALIZED_NAME_LANGUAGE);
     return this;
   }
 
@@ -172,6 +184,7 @@ public class GenerateCouponFailureDetailedSummary {
 
   public void setLanguage(@javax.annotation.Nullable String language) {
     this.language = language;
+    this.markPropertyAsSet(SERIALIZED_NAME_LANGUAGE);
   }
 
   /**
@@ -217,6 +230,21 @@ public class GenerateCouponFailureDetailedSummary {
         return null;
     }
     return this.additionalProperties.get(key);
+  }
+
+  /** Omit null properties unless they were explicitly assigned or present in JSON input. */
+  protected final void removeUnsetNullFields(JsonObject obj) {
+    obj.entrySet().removeIf(entry -> entry.getValue().isJsonNull()
+        && !openapiExplicitlySetFields.contains(entry.getKey()));
+  }
+
+  protected final void markPropertyAsSet(String propertyName) {
+    openapiExplicitlySetFields.add(propertyName);
+  }
+
+  /** Gson populates fields directly, bypassing setters during deserialization. */
+  protected final void markPropertiesAsSet(Set<String> propertyNames) {
+    openapiExplicitlySetFields.addAll(propertyNames);
   }
 
 
@@ -312,7 +340,7 @@ public class GenerateCouponFailureDetailedSummary {
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
        if (!GenerateCouponFailureDetailedSummary.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'GenerateCouponFailureDetailedSummary' and its subtypes
+         return null; // let other model factories handle this type
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
        final TypeAdapter<GenerateCouponFailureDetailedSummary> thisAdapter
@@ -322,31 +350,22 @@ public class GenerateCouponFailureDetailedSummary {
            @Override
            public void write(JsonWriter out, GenerateCouponFailureDetailedSummary value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+             value.removeUnsetNullFields(obj);
              obj.remove("additionalProperties");
              // serialize additional properties
              if (value.getAdditionalProperties() != null) {
                for (Map.Entry<String, Object> entry : value.getAdditionalProperties().entrySet()) {
-                 if (entry.getValue() instanceof String)
-                   obj.addProperty(entry.getKey(), (String) entry.getValue());
-                 else if (entry.getValue() instanceof Number)
-                   obj.addProperty(entry.getKey(), (Number) entry.getValue());
-                 else if (entry.getValue() instanceof Boolean)
-                   obj.addProperty(entry.getKey(), (Boolean) entry.getValue());
-                 else if (entry.getValue() instanceof Character)
-                   obj.addProperty(entry.getKey(), (Character) entry.getValue());
-                 else {
-                   JsonElement jsonElement = gson.toJsonTree(entry.getValue());
-                   if (jsonElement.isJsonNull()) {
-                     obj.add(entry.getKey(), JsonNull.INSTANCE);
-                   } else if (jsonElement.isJsonArray()) {
-                     obj.add(entry.getKey(), jsonElement.getAsJsonArray());
-                   } else {
-                     obj.add(entry.getKey(), jsonElement.getAsJsonObject());
-                   }
-                 }
+                 // TypeAdapter.toJsonTree keeps explicit null entries in arbitrary maps too.
+                 obj.add(entry.getKey(), gson.getAdapter(Object.class).toJsonTree(entry.getValue()));
                }
              }
-             elementAdapter.write(out, obj);
+             boolean originalSerializeNulls = out.getSerializeNulls();
+             try {
+               out.setSerializeNulls(true);
+               elementAdapter.write(out, obj);
+             } finally {
+               out.setSerializeNulls(originalSerializeNulls);
+             }
            }
 
            @Override
@@ -356,6 +375,7 @@ public class GenerateCouponFailureDetailedSummary {
              JsonObject jsonObj = jsonElement.getAsJsonObject();
              // store additional fields in the deserialized instance
              GenerateCouponFailureDetailedSummary instance = thisAdapter.fromJsonTree(jsonObj);
+             instance.markPropertiesAsSet(jsonObj.keySet());
              for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
                if (!openapiFields.contains(entry.getKey())) {
                  if (entry.getValue().isJsonPrimitive()) { // primitive type

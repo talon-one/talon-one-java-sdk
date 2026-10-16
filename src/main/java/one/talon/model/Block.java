@@ -115,202 +115,212 @@ public class Block extends AbstractOpenApiSchema {
                 return null; // this class only serializes 'Block' and its subtypes
             }
             final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-            final TypeAdapter<GroupBlock> adapterGroupBlock = gson.getDelegateAdapter(this, TypeToken.get(GroupBlock.class));
-            final TypeAdapter<AwardDiscountBlock> adapterAwardDiscountBlock = gson.getDelegateAdapter(this, TypeToken.get(AwardDiscountBlock.class));
-            final TypeAdapter<PassthroughBlock> adapterPassthroughBlock = gson.getDelegateAdapter(this, TypeToken.get(PassthroughBlock.class));
-            final TypeAdapter<ShowNotificationBlock> adapterShowNotificationBlock = gson.getDelegateAdapter(this, TypeToken.get(ShowNotificationBlock.class));
-            final TypeAdapter<AwardItemBlock> adapterAwardItemBlock = gson.getDelegateAdapter(this, TypeToken.get(AwardItemBlock.class));
-            final TypeAdapter<AwardGiveawayBlock> adapterAwardGiveawayBlock = gson.getDelegateAdapter(this, TypeToken.get(AwardGiveawayBlock.class));
-            final TypeAdapter<CheckAttributeBlock> adapterCheckAttributeBlock = gson.getDelegateAdapter(this, TypeToken.get(CheckAttributeBlock.class));
-            final TypeAdapter<CheckAudienceBlock> adapterCheckAudienceBlock = gson.getDelegateAdapter(this, TypeToken.get(CheckAudienceBlock.class));
-            final TypeAdapter<CheckLoyaltyBalanceBlock> adapterCheckLoyaltyBalanceBlock = gson.getDelegateAdapter(this, TypeToken.get(CheckLoyaltyBalanceBlock.class));
-            final TypeAdapter<CheckCouponBlock> adapterCheckCouponBlock = gson.getDelegateAdapter(this, TypeToken.get(CheckCouponBlock.class));
-            final TypeAdapter<CheckReferralBlock> adapterCheckReferralBlock = gson.getDelegateAdapter(this, TypeToken.get(CheckReferralBlock.class));
-            final TypeAdapter<UpdateAudienceMembershipBlock> adapterUpdateAudienceMembershipBlock = gson.getDelegateAdapter(this, TypeToken.get(UpdateAudienceMembershipBlock.class));
-            final TypeAdapter<UpdateAchievementProgressBlock> adapterUpdateAchievementProgressBlock = gson.getDelegateAdapter(this, TypeToken.get(UpdateAchievementProgressBlock.class));
-            final TypeAdapter<UpdateAttributeValueBlock> adapterUpdateAttributeValueBlock = gson.getDelegateAdapter(this, TypeToken.get(UpdateAttributeValueBlock.class));
-            final TypeAdapter<TriggerWebhookBlock> adapterTriggerWebhookBlock = gson.getDelegateAdapter(this, TypeToken.get(TriggerWebhookBlock.class));
-            final TypeAdapter<TriggerCustomEffectBlock> adapterTriggerCustomEffectBlock = gson.getDelegateAdapter(this, TypeToken.get(TriggerCustomEffectBlock.class));
-            final TypeAdapter<CheckEventBlock> adapterCheckEventBlock = gson.getDelegateAdapter(this, TypeToken.get(CheckEventBlock.class));
-            final TypeAdapter<CheckAchievementBlock> adapterCheckAchievementBlock = gson.getDelegateAdapter(this, TypeToken.get(CheckAchievementBlock.class));
-            final TypeAdapter<CheckBudgetBlock> adapterCheckBudgetBlock = gson.getDelegateAdapter(this, TypeToken.get(CheckBudgetBlock.class));
-            final TypeAdapter<CreateCouponBlock> adapterCreateCouponBlock = gson.getDelegateAdapter(this, TypeToken.get(CreateCouponBlock.class));
-            final TypeAdapter<CreateReferralBlock> adapterCreateReferralBlock = gson.getDelegateAdapter(this, TypeToken.get(CreateReferralBlock.class));
-            final TypeAdapter<ReserveCouponBlock> adapterReserveCouponBlock = gson.getDelegateAdapter(this, TypeToken.get(ReserveCouponBlock.class));
-            final TypeAdapter<UpdateLoyaltyPointsExpiryBlock> adapterUpdateLoyaltyPointsExpiryBlock = gson.getDelegateAdapter(this, TypeToken.get(UpdateLoyaltyPointsExpiryBlock.class));
-            final TypeAdapter<CheckLoyaltyCardBlock> adapterCheckLoyaltyCardBlock = gson.getDelegateAdapter(this, TypeToken.get(CheckLoyaltyCardBlock.class));
-            final TypeAdapter<CheckTierBlock> adapterCheckTierBlock = gson.getDelegateAdapter(this, TypeToken.get(CheckTierBlock.class));
-            final TypeAdapter<AwardLoyaltyPointsBlock> adapterAwardLoyaltyPointsBlock = gson.getDelegateAdapter(this, TypeToken.get(AwardLoyaltyPointsBlock.class));
-            final TypeAdapter<RedeemLoyaltyPointsBlock> adapterRedeemLoyaltyPointsBlock = gson.getDelegateAdapter(this, TypeToken.get(RedeemLoyaltyPointsBlock.class));
+            final TypeAdapter<GroupBlock> adapterGroupBlock = gson.getAdapter(TypeToken.get(GroupBlock.class));
+            final TypeAdapter<AwardDiscountBlock> adapterAwardDiscountBlock = gson.getAdapter(TypeToken.get(AwardDiscountBlock.class));
+            final TypeAdapter<PassthroughBlock> adapterPassthroughBlock = gson.getAdapter(TypeToken.get(PassthroughBlock.class));
+            final TypeAdapter<ShowNotificationBlock> adapterShowNotificationBlock = gson.getAdapter(TypeToken.get(ShowNotificationBlock.class));
+            final TypeAdapter<AwardItemBlock> adapterAwardItemBlock = gson.getAdapter(TypeToken.get(AwardItemBlock.class));
+            final TypeAdapter<AwardGiveawayBlock> adapterAwardGiveawayBlock = gson.getAdapter(TypeToken.get(AwardGiveawayBlock.class));
+            final TypeAdapter<CheckAttributeBlock> adapterCheckAttributeBlock = gson.getAdapter(TypeToken.get(CheckAttributeBlock.class));
+            final TypeAdapter<CheckAudienceBlock> adapterCheckAudienceBlock = gson.getAdapter(TypeToken.get(CheckAudienceBlock.class));
+            final TypeAdapter<CheckLoyaltyBalanceBlock> adapterCheckLoyaltyBalanceBlock = gson.getAdapter(TypeToken.get(CheckLoyaltyBalanceBlock.class));
+            final TypeAdapter<CheckCouponBlock> adapterCheckCouponBlock = gson.getAdapter(TypeToken.get(CheckCouponBlock.class));
+            final TypeAdapter<CheckReferralBlock> adapterCheckReferralBlock = gson.getAdapter(TypeToken.get(CheckReferralBlock.class));
+            final TypeAdapter<UpdateAudienceMembershipBlock> adapterUpdateAudienceMembershipBlock = gson.getAdapter(TypeToken.get(UpdateAudienceMembershipBlock.class));
+            final TypeAdapter<UpdateAchievementProgressBlock> adapterUpdateAchievementProgressBlock = gson.getAdapter(TypeToken.get(UpdateAchievementProgressBlock.class));
+            final TypeAdapter<UpdateAttributeValueBlock> adapterUpdateAttributeValueBlock = gson.getAdapter(TypeToken.get(UpdateAttributeValueBlock.class));
+            final TypeAdapter<TriggerWebhookBlock> adapterTriggerWebhookBlock = gson.getAdapter(TypeToken.get(TriggerWebhookBlock.class));
+            final TypeAdapter<TriggerCustomEffectBlock> adapterTriggerCustomEffectBlock = gson.getAdapter(TypeToken.get(TriggerCustomEffectBlock.class));
+            final TypeAdapter<CheckEventBlock> adapterCheckEventBlock = gson.getAdapter(TypeToken.get(CheckEventBlock.class));
+            final TypeAdapter<CheckAchievementBlock> adapterCheckAchievementBlock = gson.getAdapter(TypeToken.get(CheckAchievementBlock.class));
+            final TypeAdapter<CheckBudgetBlock> adapterCheckBudgetBlock = gson.getAdapter(TypeToken.get(CheckBudgetBlock.class));
+            final TypeAdapter<CreateCouponBlock> adapterCreateCouponBlock = gson.getAdapter(TypeToken.get(CreateCouponBlock.class));
+            final TypeAdapter<CreateReferralBlock> adapterCreateReferralBlock = gson.getAdapter(TypeToken.get(CreateReferralBlock.class));
+            final TypeAdapter<ReserveCouponBlock> adapterReserveCouponBlock = gson.getAdapter(TypeToken.get(ReserveCouponBlock.class));
+            final TypeAdapter<UpdateLoyaltyPointsExpiryBlock> adapterUpdateLoyaltyPointsExpiryBlock = gson.getAdapter(TypeToken.get(UpdateLoyaltyPointsExpiryBlock.class));
+            final TypeAdapter<CheckLoyaltyCardBlock> adapterCheckLoyaltyCardBlock = gson.getAdapter(TypeToken.get(CheckLoyaltyCardBlock.class));
+            final TypeAdapter<CheckTierBlock> adapterCheckTierBlock = gson.getAdapter(TypeToken.get(CheckTierBlock.class));
+            final TypeAdapter<AwardLoyaltyPointsBlock> adapterAwardLoyaltyPointsBlock = gson.getAdapter(TypeToken.get(AwardLoyaltyPointsBlock.class));
+            final TypeAdapter<RedeemLoyaltyPointsBlock> adapterRedeemLoyaltyPointsBlock = gson.getAdapter(TypeToken.get(RedeemLoyaltyPointsBlock.class));
 
             return (TypeAdapter<T>) new TypeAdapter<Block>() {
+                private void writeJsonElement(JsonWriter out, JsonElement value) throws IOException {
+                    boolean originalSerializeNulls = out.getSerializeNulls();
+                    try {
+                        out.setSerializeNulls(true);
+                        elementAdapter.write(out, value);
+                    } finally {
+                        out.setSerializeNulls(originalSerializeNulls);
+                    }
+                }
+
                 @Override
                 public void write(JsonWriter out, Block value) throws IOException {
                     if (value == null || value.getActualInstance() == null) {
-                        elementAdapter.write(out, null);
+                        writeJsonElement(out, null);
                         return;
                     }
 
                     // check if the actual instance is of the type `GroupBlock`
                     if (value.getActualInstance() instanceof GroupBlock) {
                         JsonElement element = adapterGroupBlock.toJsonTree((GroupBlock)value.getActualInstance());
-                        elementAdapter.write(out, element);
+                        writeJsonElement(out, element);
                         return;
                     }
                     // check if the actual instance is of the type `AwardDiscountBlock`
                     if (value.getActualInstance() instanceof AwardDiscountBlock) {
                         JsonElement element = adapterAwardDiscountBlock.toJsonTree((AwardDiscountBlock)value.getActualInstance());
-                        elementAdapter.write(out, element);
+                        writeJsonElement(out, element);
                         return;
                     }
                     // check if the actual instance is of the type `PassthroughBlock`
                     if (value.getActualInstance() instanceof PassthroughBlock) {
                         JsonElement element = adapterPassthroughBlock.toJsonTree((PassthroughBlock)value.getActualInstance());
-                        elementAdapter.write(out, element);
+                        writeJsonElement(out, element);
                         return;
                     }
                     // check if the actual instance is of the type `ShowNotificationBlock`
                     if (value.getActualInstance() instanceof ShowNotificationBlock) {
                         JsonElement element = adapterShowNotificationBlock.toJsonTree((ShowNotificationBlock)value.getActualInstance());
-                        elementAdapter.write(out, element);
+                        writeJsonElement(out, element);
                         return;
                     }
                     // check if the actual instance is of the type `AwardItemBlock`
                     if (value.getActualInstance() instanceof AwardItemBlock) {
                         JsonElement element = adapterAwardItemBlock.toJsonTree((AwardItemBlock)value.getActualInstance());
-                        elementAdapter.write(out, element);
+                        writeJsonElement(out, element);
                         return;
                     }
                     // check if the actual instance is of the type `AwardGiveawayBlock`
                     if (value.getActualInstance() instanceof AwardGiveawayBlock) {
                         JsonElement element = adapterAwardGiveawayBlock.toJsonTree((AwardGiveawayBlock)value.getActualInstance());
-                        elementAdapter.write(out, element);
+                        writeJsonElement(out, element);
                         return;
                     }
                     // check if the actual instance is of the type `CheckAttributeBlock`
                     if (value.getActualInstance() instanceof CheckAttributeBlock) {
                         JsonElement element = adapterCheckAttributeBlock.toJsonTree((CheckAttributeBlock)value.getActualInstance());
-                        elementAdapter.write(out, element);
+                        writeJsonElement(out, element);
                         return;
                     }
                     // check if the actual instance is of the type `CheckAudienceBlock`
                     if (value.getActualInstance() instanceof CheckAudienceBlock) {
                         JsonElement element = adapterCheckAudienceBlock.toJsonTree((CheckAudienceBlock)value.getActualInstance());
-                        elementAdapter.write(out, element);
+                        writeJsonElement(out, element);
                         return;
                     }
                     // check if the actual instance is of the type `CheckLoyaltyBalanceBlock`
                     if (value.getActualInstance() instanceof CheckLoyaltyBalanceBlock) {
                         JsonElement element = adapterCheckLoyaltyBalanceBlock.toJsonTree((CheckLoyaltyBalanceBlock)value.getActualInstance());
-                        elementAdapter.write(out, element);
+                        writeJsonElement(out, element);
                         return;
                     }
                     // check if the actual instance is of the type `CheckCouponBlock`
                     if (value.getActualInstance() instanceof CheckCouponBlock) {
                         JsonElement element = adapterCheckCouponBlock.toJsonTree((CheckCouponBlock)value.getActualInstance());
-                        elementAdapter.write(out, element);
+                        writeJsonElement(out, element);
                         return;
                     }
                     // check if the actual instance is of the type `CheckReferralBlock`
                     if (value.getActualInstance() instanceof CheckReferralBlock) {
                         JsonElement element = adapterCheckReferralBlock.toJsonTree((CheckReferralBlock)value.getActualInstance());
-                        elementAdapter.write(out, element);
+                        writeJsonElement(out, element);
                         return;
                     }
                     // check if the actual instance is of the type `UpdateAudienceMembershipBlock`
                     if (value.getActualInstance() instanceof UpdateAudienceMembershipBlock) {
                         JsonElement element = adapterUpdateAudienceMembershipBlock.toJsonTree((UpdateAudienceMembershipBlock)value.getActualInstance());
-                        elementAdapter.write(out, element);
+                        writeJsonElement(out, element);
                         return;
                     }
                     // check if the actual instance is of the type `UpdateAchievementProgressBlock`
                     if (value.getActualInstance() instanceof UpdateAchievementProgressBlock) {
                         JsonElement element = adapterUpdateAchievementProgressBlock.toJsonTree((UpdateAchievementProgressBlock)value.getActualInstance());
-                        elementAdapter.write(out, element);
+                        writeJsonElement(out, element);
                         return;
                     }
                     // check if the actual instance is of the type `UpdateAttributeValueBlock`
                     if (value.getActualInstance() instanceof UpdateAttributeValueBlock) {
                         JsonElement element = adapterUpdateAttributeValueBlock.toJsonTree((UpdateAttributeValueBlock)value.getActualInstance());
-                        elementAdapter.write(out, element);
+                        writeJsonElement(out, element);
                         return;
                     }
                     // check if the actual instance is of the type `TriggerWebhookBlock`
                     if (value.getActualInstance() instanceof TriggerWebhookBlock) {
                         JsonElement element = adapterTriggerWebhookBlock.toJsonTree((TriggerWebhookBlock)value.getActualInstance());
-                        elementAdapter.write(out, element);
+                        writeJsonElement(out, element);
                         return;
                     }
                     // check if the actual instance is of the type `TriggerCustomEffectBlock`
                     if (value.getActualInstance() instanceof TriggerCustomEffectBlock) {
                         JsonElement element = adapterTriggerCustomEffectBlock.toJsonTree((TriggerCustomEffectBlock)value.getActualInstance());
-                        elementAdapter.write(out, element);
+                        writeJsonElement(out, element);
                         return;
                     }
                     // check if the actual instance is of the type `CheckEventBlock`
                     if (value.getActualInstance() instanceof CheckEventBlock) {
                         JsonElement element = adapterCheckEventBlock.toJsonTree((CheckEventBlock)value.getActualInstance());
-                        elementAdapter.write(out, element);
+                        writeJsonElement(out, element);
                         return;
                     }
                     // check if the actual instance is of the type `CheckAchievementBlock`
                     if (value.getActualInstance() instanceof CheckAchievementBlock) {
                         JsonElement element = adapterCheckAchievementBlock.toJsonTree((CheckAchievementBlock)value.getActualInstance());
-                        elementAdapter.write(out, element);
+                        writeJsonElement(out, element);
                         return;
                     }
                     // check if the actual instance is of the type `CheckBudgetBlock`
                     if (value.getActualInstance() instanceof CheckBudgetBlock) {
                         JsonElement element = adapterCheckBudgetBlock.toJsonTree((CheckBudgetBlock)value.getActualInstance());
-                        elementAdapter.write(out, element);
+                        writeJsonElement(out, element);
                         return;
                     }
                     // check if the actual instance is of the type `CreateCouponBlock`
                     if (value.getActualInstance() instanceof CreateCouponBlock) {
                         JsonElement element = adapterCreateCouponBlock.toJsonTree((CreateCouponBlock)value.getActualInstance());
-                        elementAdapter.write(out, element);
+                        writeJsonElement(out, element);
                         return;
                     }
                     // check if the actual instance is of the type `CreateReferralBlock`
                     if (value.getActualInstance() instanceof CreateReferralBlock) {
                         JsonElement element = adapterCreateReferralBlock.toJsonTree((CreateReferralBlock)value.getActualInstance());
-                        elementAdapter.write(out, element);
+                        writeJsonElement(out, element);
                         return;
                     }
                     // check if the actual instance is of the type `ReserveCouponBlock`
                     if (value.getActualInstance() instanceof ReserveCouponBlock) {
                         JsonElement element = adapterReserveCouponBlock.toJsonTree((ReserveCouponBlock)value.getActualInstance());
-                        elementAdapter.write(out, element);
+                        writeJsonElement(out, element);
                         return;
                     }
                     // check if the actual instance is of the type `UpdateLoyaltyPointsExpiryBlock`
                     if (value.getActualInstance() instanceof UpdateLoyaltyPointsExpiryBlock) {
                         JsonElement element = adapterUpdateLoyaltyPointsExpiryBlock.toJsonTree((UpdateLoyaltyPointsExpiryBlock)value.getActualInstance());
-                        elementAdapter.write(out, element);
+                        writeJsonElement(out, element);
                         return;
                     }
                     // check if the actual instance is of the type `CheckLoyaltyCardBlock`
                     if (value.getActualInstance() instanceof CheckLoyaltyCardBlock) {
                         JsonElement element = adapterCheckLoyaltyCardBlock.toJsonTree((CheckLoyaltyCardBlock)value.getActualInstance());
-                        elementAdapter.write(out, element);
+                        writeJsonElement(out, element);
                         return;
                     }
                     // check if the actual instance is of the type `CheckTierBlock`
                     if (value.getActualInstance() instanceof CheckTierBlock) {
                         JsonElement element = adapterCheckTierBlock.toJsonTree((CheckTierBlock)value.getActualInstance());
-                        elementAdapter.write(out, element);
+                        writeJsonElement(out, element);
                         return;
                     }
                     // check if the actual instance is of the type `AwardLoyaltyPointsBlock`
                     if (value.getActualInstance() instanceof AwardLoyaltyPointsBlock) {
                         JsonElement element = adapterAwardLoyaltyPointsBlock.toJsonTree((AwardLoyaltyPointsBlock)value.getActualInstance());
-                        elementAdapter.write(out, element);
+                        writeJsonElement(out, element);
                         return;
                     }
                     // check if the actual instance is of the type `RedeemLoyaltyPointsBlock`
                     if (value.getActualInstance() instanceof RedeemLoyaltyPointsBlock) {
                         JsonElement element = adapterRedeemLoyaltyPointsBlock.toJsonTree((RedeemLoyaltyPointsBlock)value.getActualInstance());
-                        elementAdapter.write(out, element);
+                        writeJsonElement(out, element);
                         return;
                     }
                     throw new IOException("Failed to serialize as the type doesn't match oneOf schemas: AwardDiscountBlock, AwardGiveawayBlock, AwardItemBlock, AwardLoyaltyPointsBlock, CheckAchievementBlock, CheckAttributeBlock, CheckAudienceBlock, CheckBudgetBlock, CheckCouponBlock, CheckEventBlock, CheckLoyaltyBalanceBlock, CheckLoyaltyCardBlock, CheckReferralBlock, CheckTierBlock, CreateCouponBlock, CreateReferralBlock, GroupBlock, PassthroughBlock, RedeemLoyaltyPointsBlock, ReserveCouponBlock, ShowNotificationBlock, TriggerCustomEffectBlock, TriggerWebhookBlock, UpdateAchievementProgressBlock, UpdateAttributeValueBlock, UpdateAudienceMembershipBlock, UpdateLoyaltyPointsExpiryBlock");

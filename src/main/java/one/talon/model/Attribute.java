@@ -54,6 +54,9 @@ import one.talon.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.26.0")
 public class Attribute {
+  // Gson ignores transient state; only setters and JSON input mark properties as present.
+  private transient Set<String> openapiExplicitlySetFields = new HashSet<>();
+
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
   @javax.annotation.Nonnull
@@ -332,6 +335,7 @@ public class Attribute {
 
   public Attribute id(@javax.annotation.Nonnull Long id) {
     this.id = id;
+    this.markPropertyAsSet(SERIALIZED_NAME_ID);
     return this;
   }
 
@@ -346,11 +350,13 @@ public class Attribute {
 
   public void setId(@javax.annotation.Nonnull Long id) {
     this.id = id;
+    this.markPropertyAsSet(SERIALIZED_NAME_ID);
   }
 
 
   public Attribute created(@javax.annotation.Nonnull OffsetDateTime created) {
     this.created = created;
+    this.markPropertyAsSet(SERIALIZED_NAME_CREATED);
     return this;
   }
 
@@ -365,11 +371,13 @@ public class Attribute {
 
   public void setCreated(@javax.annotation.Nonnull OffsetDateTime created) {
     this.created = created;
+    this.markPropertyAsSet(SERIALIZED_NAME_CREATED);
   }
 
 
   public Attribute accountId(@javax.annotation.Nonnull Long accountId) {
     this.accountId = accountId;
+    this.markPropertyAsSet(SERIALIZED_NAME_ACCOUNT_ID);
     return this;
   }
 
@@ -384,11 +392,13 @@ public class Attribute {
 
   public void setAccountId(@javax.annotation.Nonnull Long accountId) {
     this.accountId = accountId;
+    this.markPropertyAsSet(SERIALIZED_NAME_ACCOUNT_ID);
   }
 
 
   public Attribute entity(@javax.annotation.Nonnull EntityEnum entity) {
     this.entity = entity;
+    this.markPropertyAsSet(SERIALIZED_NAME_ENTITY);
     return this;
   }
 
@@ -403,11 +413,13 @@ public class Attribute {
 
   public void setEntity(@javax.annotation.Nonnull EntityEnum entity) {
     this.entity = entity;
+    this.markPropertyAsSet(SERIALIZED_NAME_ENTITY);
   }
 
 
   public Attribute eventType(@javax.annotation.Nullable String eventType) {
     this.eventType = eventType;
+    this.markPropertyAsSet(SERIALIZED_NAME_EVENT_TYPE);
     return this;
   }
 
@@ -422,11 +434,13 @@ public class Attribute {
 
   public void setEventType(@javax.annotation.Nullable String eventType) {
     this.eventType = eventType;
+    this.markPropertyAsSet(SERIALIZED_NAME_EVENT_TYPE);
   }
 
 
   public Attribute name(@javax.annotation.Nonnull String name) {
     this.name = name;
+    this.markPropertyAsSet(SERIALIZED_NAME_NAME);
     return this;
   }
 
@@ -441,11 +455,13 @@ public class Attribute {
 
   public void setName(@javax.annotation.Nonnull String name) {
     this.name = name;
+    this.markPropertyAsSet(SERIALIZED_NAME_NAME);
   }
 
 
   public Attribute title(@javax.annotation.Nonnull String title) {
     this.title = title;
+    this.markPropertyAsSet(SERIALIZED_NAME_TITLE);
     return this;
   }
 
@@ -460,11 +476,13 @@ public class Attribute {
 
   public void setTitle(@javax.annotation.Nonnull String title) {
     this.title = title;
+    this.markPropertyAsSet(SERIALIZED_NAME_TITLE);
   }
 
 
   public Attribute type(@javax.annotation.Nonnull TypeEnum type) {
     this.type = type;
+    this.markPropertyAsSet(SERIALIZED_NAME_TYPE);
     return this;
   }
 
@@ -479,11 +497,13 @@ public class Attribute {
 
   public void setType(@javax.annotation.Nonnull TypeEnum type) {
     this.type = type;
+    this.markPropertyAsSet(SERIALIZED_NAME_TYPE);
   }
 
 
   public Attribute description(@javax.annotation.Nonnull String description) {
     this.description = description;
+    this.markPropertyAsSet(SERIALIZED_NAME_DESCRIPTION);
     return this;
   }
 
@@ -498,11 +518,13 @@ public class Attribute {
 
   public void setDescription(@javax.annotation.Nonnull String description) {
     this.description = description;
+    this.markPropertyAsSet(SERIALIZED_NAME_DESCRIPTION);
   }
 
 
   public Attribute suggestions(@javax.annotation.Nonnull List<String> suggestions) {
     this.suggestions = suggestions;
+    this.markPropertyAsSet(SERIALIZED_NAME_SUGGESTIONS);
     return this;
   }
 
@@ -511,6 +533,7 @@ public class Attribute {
       this.suggestions = new ArrayList<>();
     }
     this.suggestions.add(suggestionsItem);
+    this.markPropertyAsSet(SERIALIZED_NAME_SUGGESTIONS);
     return this;
   }
 
@@ -525,11 +548,13 @@ public class Attribute {
 
   public void setSuggestions(@javax.annotation.Nonnull List<String> suggestions) {
     this.suggestions = suggestions;
+    this.markPropertyAsSet(SERIALIZED_NAME_SUGGESTIONS);
   }
 
 
   public Attribute hasAllowedList(@javax.annotation.Nullable Boolean hasAllowedList) {
     this.hasAllowedList = hasAllowedList;
+    this.markPropertyAsSet(SERIALIZED_NAME_HAS_ALLOWED_LIST);
     return this;
   }
 
@@ -544,11 +569,13 @@ public class Attribute {
 
   public void setHasAllowedList(@javax.annotation.Nullable Boolean hasAllowedList) {
     this.hasAllowedList = hasAllowedList;
+    this.markPropertyAsSet(SERIALIZED_NAME_HAS_ALLOWED_LIST);
   }
 
 
   public Attribute restrictedBySuggestions(@javax.annotation.Nullable Boolean restrictedBySuggestions) {
     this.restrictedBySuggestions = restrictedBySuggestions;
+    this.markPropertyAsSet(SERIALIZED_NAME_RESTRICTED_BY_SUGGESTIONS);
     return this;
   }
 
@@ -563,11 +590,13 @@ public class Attribute {
 
   public void setRestrictedBySuggestions(@javax.annotation.Nullable Boolean restrictedBySuggestions) {
     this.restrictedBySuggestions = restrictedBySuggestions;
+    this.markPropertyAsSet(SERIALIZED_NAME_RESTRICTED_BY_SUGGESTIONS);
   }
 
 
   public Attribute editable(@javax.annotation.Nonnull Boolean editable) {
     this.editable = editable;
+    this.markPropertyAsSet(SERIALIZED_NAME_EDITABLE);
     return this;
   }
 
@@ -582,11 +611,13 @@ public class Attribute {
 
   public void setEditable(@javax.annotation.Nonnull Boolean editable) {
     this.editable = editable;
+    this.markPropertyAsSet(SERIALIZED_NAME_EDITABLE);
   }
 
 
   public Attribute subscribedApplicationsIds(@javax.annotation.Nullable List<Long> subscribedApplicationsIds) {
     this.subscribedApplicationsIds = subscribedApplicationsIds;
+    this.markPropertyAsSet(SERIALIZED_NAME_SUBSCRIBED_APPLICATIONS_IDS);
     return this;
   }
 
@@ -595,6 +626,7 @@ public class Attribute {
       this.subscribedApplicationsIds = new ArrayList<>();
     }
     this.subscribedApplicationsIds.add(subscribedApplicationsIdsItem);
+    this.markPropertyAsSet(SERIALIZED_NAME_SUBSCRIBED_APPLICATIONS_IDS);
     return this;
   }
 
@@ -609,11 +641,13 @@ public class Attribute {
 
   public void setSubscribedApplicationsIds(@javax.annotation.Nullable List<Long> subscribedApplicationsIds) {
     this.subscribedApplicationsIds = subscribedApplicationsIds;
+    this.markPropertyAsSet(SERIALIZED_NAME_SUBSCRIBED_APPLICATIONS_IDS);
   }
 
 
   public Attribute subscribedCatalogsIds(@javax.annotation.Nullable List<Long> subscribedCatalogsIds) {
     this.subscribedCatalogsIds = subscribedCatalogsIds;
+    this.markPropertyAsSet(SERIALIZED_NAME_SUBSCRIBED_CATALOGS_IDS);
     return this;
   }
 
@@ -622,6 +656,7 @@ public class Attribute {
       this.subscribedCatalogsIds = new ArrayList<>();
     }
     this.subscribedCatalogsIds.add(subscribedCatalogsIdsItem);
+    this.markPropertyAsSet(SERIALIZED_NAME_SUBSCRIBED_CATALOGS_IDS);
     return this;
   }
 
@@ -636,11 +671,13 @@ public class Attribute {
 
   public void setSubscribedCatalogsIds(@javax.annotation.Nullable List<Long> subscribedCatalogsIds) {
     this.subscribedCatalogsIds = subscribedCatalogsIds;
+    this.markPropertyAsSet(SERIALIZED_NAME_SUBSCRIBED_CATALOGS_IDS);
   }
 
 
   public Attribute allowedSubscriptions(@javax.annotation.Nullable List<AllowedSubscriptionsEnum> allowedSubscriptions) {
     this.allowedSubscriptions = allowedSubscriptions;
+    this.markPropertyAsSet(SERIALIZED_NAME_ALLOWED_SUBSCRIPTIONS);
     return this;
   }
 
@@ -649,6 +686,7 @@ public class Attribute {
       this.allowedSubscriptions = new ArrayList<>();
     }
     this.allowedSubscriptions.add(allowedSubscriptionsItem);
+    this.markPropertyAsSet(SERIALIZED_NAME_ALLOWED_SUBSCRIPTIONS);
     return this;
   }
 
@@ -663,11 +701,13 @@ public class Attribute {
 
   public void setAllowedSubscriptions(@javax.annotation.Nullable List<AllowedSubscriptionsEnum> allowedSubscriptions) {
     this.allowedSubscriptions = allowedSubscriptions;
+    this.markPropertyAsSet(SERIALIZED_NAME_ALLOWED_SUBSCRIPTIONS);
   }
 
 
   public Attribute eventTypeId(@javax.annotation.Nullable Long eventTypeId) {
     this.eventTypeId = eventTypeId;
+    this.markPropertyAsSet(SERIALIZED_NAME_EVENT_TYPE_ID);
     return this;
   }
 
@@ -682,6 +722,7 @@ public class Attribute {
 
   public void setEventTypeId(@javax.annotation.Nullable Long eventTypeId) {
     this.eventTypeId = eventTypeId;
+    this.markPropertyAsSet(SERIALIZED_NAME_EVENT_TYPE_ID);
   }
 
   /**
@@ -727,6 +768,21 @@ public class Attribute {
         return null;
     }
     return this.additionalProperties.get(key);
+  }
+
+  /** Omit null properties unless they were explicitly assigned or present in JSON input. */
+  protected final void removeUnsetNullFields(JsonObject obj) {
+    obj.entrySet().removeIf(entry -> entry.getValue().isJsonNull()
+        && !openapiExplicitlySetFields.contains(entry.getKey()));
+  }
+
+  protected final void markPropertyAsSet(String propertyName) {
+    openapiExplicitlySetFields.add(propertyName);
+  }
+
+  /** Gson populates fields directly, bypassing setters during deserialization. */
+  protected final void markPropertiesAsSet(Set<String> propertyNames) {
+    openapiExplicitlySetFields.addAll(propertyNames);
   }
 
 
@@ -877,7 +933,7 @@ public class Attribute {
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
        if (!Attribute.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'Attribute' and its subtypes
+         return null; // let other model factories handle this type
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
        final TypeAdapter<Attribute> thisAdapter
@@ -887,31 +943,22 @@ public class Attribute {
            @Override
            public void write(JsonWriter out, Attribute value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+             value.removeUnsetNullFields(obj);
              obj.remove("additionalProperties");
              // serialize additional properties
              if (value.getAdditionalProperties() != null) {
                for (Map.Entry<String, Object> entry : value.getAdditionalProperties().entrySet()) {
-                 if (entry.getValue() instanceof String)
-                   obj.addProperty(entry.getKey(), (String) entry.getValue());
-                 else if (entry.getValue() instanceof Number)
-                   obj.addProperty(entry.getKey(), (Number) entry.getValue());
-                 else if (entry.getValue() instanceof Boolean)
-                   obj.addProperty(entry.getKey(), (Boolean) entry.getValue());
-                 else if (entry.getValue() instanceof Character)
-                   obj.addProperty(entry.getKey(), (Character) entry.getValue());
-                 else {
-                   JsonElement jsonElement = gson.toJsonTree(entry.getValue());
-                   if (jsonElement.isJsonNull()) {
-                     obj.add(entry.getKey(), JsonNull.INSTANCE);
-                   } else if (jsonElement.isJsonArray()) {
-                     obj.add(entry.getKey(), jsonElement.getAsJsonArray());
-                   } else {
-                     obj.add(entry.getKey(), jsonElement.getAsJsonObject());
-                   }
-                 }
+                 // TypeAdapter.toJsonTree keeps explicit null entries in arbitrary maps too.
+                 obj.add(entry.getKey(), gson.getAdapter(Object.class).toJsonTree(entry.getValue()));
                }
              }
-             elementAdapter.write(out, obj);
+             boolean originalSerializeNulls = out.getSerializeNulls();
+             try {
+               out.setSerializeNulls(true);
+               elementAdapter.write(out, obj);
+             } finally {
+               out.setSerializeNulls(originalSerializeNulls);
+             }
            }
 
            @Override
@@ -921,6 +968,7 @@ public class Attribute {
              JsonObject jsonObj = jsonElement.getAsJsonObject();
              // store additional fields in the deserialized instance
              Attribute instance = thisAdapter.fromJsonTree(jsonObj);
+             instance.markPropertiesAsSet(jsonObj.keySet());
              for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
                if (!openapiFields.contains(entry.getKey())) {
                  if (entry.getValue().isJsonPrimitive()) { // primitive type

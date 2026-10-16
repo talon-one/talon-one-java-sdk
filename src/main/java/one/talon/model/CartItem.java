@@ -59,6 +59,9 @@ import one.talon.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.26.0")
 public class CartItem {
+  // Gson ignores transient state; only setters and JSON input mark properties as present.
+  private transient Set<String> openapiExplicitlySetFields = new HashSet<>();
+
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
   @javax.annotation.Nullable
@@ -180,18 +183,28 @@ public class CartItem {
   ) {
     this();
     this.returnedQuantity = returnedQuantity;
+    this.markPropertyAsSet(SERIALIZED_NAME_RETURNED_QUANTITY);
     this.remainingQuantity = remainingQuantity;
+    this.markPropertyAsSet(SERIALIZED_NAME_REMAINING_QUANTITY);
     this.position = position;
+    this.markPropertyAsSet(SERIALIZED_NAME_POSITION);
     this.catalogItemID = catalogItemID;
+    this.markPropertyAsSet(SERIALIZED_NAME_CATALOG_ITEM_I_D);
     this.selectedPriceType = selectedPriceType;
+    this.markPropertyAsSet(SERIALIZED_NAME_SELECTED_PRICE_TYPE);
     this.adjustmentReferenceId = adjustmentReferenceId;
+    this.markPropertyAsSet(SERIALIZED_NAME_ADJUSTMENT_REFERENCE_ID);
     this.adjustmentEffectiveFrom = adjustmentEffectiveFrom;
+    this.markPropertyAsSet(SERIALIZED_NAME_ADJUSTMENT_EFFECTIVE_FROM);
     this.adjustmentEffectiveUntil = adjustmentEffectiveUntil;
+    this.markPropertyAsSet(SERIALIZED_NAME_ADJUSTMENT_EFFECTIVE_UNTIL);
     this.prices = prices;
+    this.markPropertyAsSet(SERIALIZED_NAME_PRICES);
   }
 
   public CartItem name(@javax.annotation.Nullable String name) {
     this.name = name;
+    this.markPropertyAsSet(SERIALIZED_NAME_NAME);
     return this;
   }
 
@@ -206,11 +219,13 @@ public class CartItem {
 
   public void setName(@javax.annotation.Nullable String name) {
     this.name = name;
+    this.markPropertyAsSet(SERIALIZED_NAME_NAME);
   }
 
 
   public CartItem sku(@javax.annotation.Nonnull String sku) {
     this.sku = sku;
+    this.markPropertyAsSet(SERIALIZED_NAME_SKU);
     return this;
   }
 
@@ -225,11 +240,13 @@ public class CartItem {
 
   public void setSku(@javax.annotation.Nonnull String sku) {
     this.sku = sku;
+    this.markPropertyAsSet(SERIALIZED_NAME_SKU);
   }
 
 
   public CartItem quantity(@javax.annotation.Nonnull Long quantity) {
     this.quantity = quantity;
+    this.markPropertyAsSet(SERIALIZED_NAME_QUANTITY);
     return this;
   }
 
@@ -245,6 +262,7 @@ public class CartItem {
 
   public void setQuantity(@javax.annotation.Nonnull Long quantity) {
     this.quantity = quantity;
+    this.markPropertyAsSet(SERIALIZED_NAME_QUANTITY);
   }
 
 
@@ -272,6 +290,7 @@ public class CartItem {
 
   public CartItem price(@javax.annotation.Nullable BigDecimal price) {
     this.price = price;
+    this.markPropertyAsSet(SERIALIZED_NAME_PRICE);
     return this;
   }
 
@@ -286,11 +305,13 @@ public class CartItem {
 
   public void setPrice(@javax.annotation.Nullable BigDecimal price) {
     this.price = price;
+    this.markPropertyAsSet(SERIALIZED_NAME_PRICE);
   }
 
 
   public CartItem category(@javax.annotation.Nullable String category) {
     this.category = category;
+    this.markPropertyAsSet(SERIALIZED_NAME_CATEGORY);
     return this;
   }
 
@@ -305,11 +326,13 @@ public class CartItem {
 
   public void setCategory(@javax.annotation.Nullable String category) {
     this.category = category;
+    this.markPropertyAsSet(SERIALIZED_NAME_CATEGORY);
   }
 
 
   public CartItem product(@javax.annotation.Nullable Product product) {
     this.product = product;
+    this.markPropertyAsSet(SERIALIZED_NAME_PRODUCT);
     return this;
   }
 
@@ -324,11 +347,13 @@ public class CartItem {
 
   public void setProduct(@javax.annotation.Nullable Product product) {
     this.product = product;
+    this.markPropertyAsSet(SERIALIZED_NAME_PRODUCT);
   }
 
 
   public CartItem weight(@javax.annotation.Nullable BigDecimal weight) {
     this.weight = weight;
+    this.markPropertyAsSet(SERIALIZED_NAME_WEIGHT);
     return this;
   }
 
@@ -343,11 +368,13 @@ public class CartItem {
 
   public void setWeight(@javax.annotation.Nullable BigDecimal weight) {
     this.weight = weight;
+    this.markPropertyAsSet(SERIALIZED_NAME_WEIGHT);
   }
 
 
   public CartItem height(@javax.annotation.Nullable BigDecimal height) {
     this.height = height;
+    this.markPropertyAsSet(SERIALIZED_NAME_HEIGHT);
     return this;
   }
 
@@ -362,11 +389,13 @@ public class CartItem {
 
   public void setHeight(@javax.annotation.Nullable BigDecimal height) {
     this.height = height;
+    this.markPropertyAsSet(SERIALIZED_NAME_HEIGHT);
   }
 
 
   public CartItem width(@javax.annotation.Nullable BigDecimal width) {
     this.width = width;
+    this.markPropertyAsSet(SERIALIZED_NAME_WIDTH);
     return this;
   }
 
@@ -381,11 +410,13 @@ public class CartItem {
 
   public void setWidth(@javax.annotation.Nullable BigDecimal width) {
     this.width = width;
+    this.markPropertyAsSet(SERIALIZED_NAME_WIDTH);
   }
 
 
   public CartItem length(@javax.annotation.Nullable BigDecimal length) {
     this.length = length;
+    this.markPropertyAsSet(SERIALIZED_NAME_LENGTH);
     return this;
   }
 
@@ -400,6 +431,7 @@ public class CartItem {
 
   public void setLength(@javax.annotation.Nullable BigDecimal length) {
     this.length = length;
+    this.markPropertyAsSet(SERIALIZED_NAME_LENGTH);
   }
 
 
@@ -416,6 +448,7 @@ public class CartItem {
 
   public CartItem attributes(@javax.annotation.Nullable Object attributes) {
     this.attributes = attributes;
+    this.markPropertyAsSet(SERIALIZED_NAME_ATTRIBUTES);
     return this;
   }
 
@@ -430,11 +463,13 @@ public class CartItem {
 
   public void setAttributes(@javax.annotation.Nullable Object attributes) {
     this.attributes = attributes;
+    this.markPropertyAsSet(SERIALIZED_NAME_ATTRIBUTES);
   }
 
 
   public CartItem additionalCosts(@javax.annotation.Nullable Map<String, AdditionalCost> additionalCosts) {
     this.additionalCosts = additionalCosts;
+    this.markPropertyAsSet(SERIALIZED_NAME_ADDITIONAL_COSTS);
     return this;
   }
 
@@ -443,6 +478,7 @@ public class CartItem {
       this.additionalCosts = new HashMap<>();
     }
     this.additionalCosts.put(key, additionalCostsItem);
+    this.markPropertyAsSet(SERIALIZED_NAME_ADDITIONAL_COSTS);
     return this;
   }
 
@@ -457,6 +493,7 @@ public class CartItem {
 
   public void setAdditionalCosts(@javax.annotation.Nullable Map<String, AdditionalCost> additionalCosts) {
     this.additionalCosts = additionalCosts;
+    this.markPropertyAsSet(SERIALIZED_NAME_ADDITIONAL_COSTS);
   }
 
 
@@ -568,6 +605,21 @@ public class CartItem {
         return null;
     }
     return this.additionalProperties.get(key);
+  }
+
+  /** Omit null properties unless they were explicitly assigned or present in JSON input. */
+  protected final void removeUnsetNullFields(JsonObject obj) {
+    obj.entrySet().removeIf(entry -> entry.getValue().isJsonNull()
+        && !openapiExplicitlySetFields.contains(entry.getKey()));
+  }
+
+  protected final void markPropertyAsSet(String propertyName) {
+    openapiExplicitlySetFields.add(propertyName);
+  }
+
+  /** Gson populates fields directly, bypassing setters during deserialization. */
+  protected final void markPropertiesAsSet(Set<String> propertyNames) {
+    openapiExplicitlySetFields.addAll(propertyNames);
   }
 
 
@@ -705,7 +757,7 @@ public class CartItem {
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
        if (!CartItem.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'CartItem' and its subtypes
+         return null; // let other model factories handle this type
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
        final TypeAdapter<CartItem> thisAdapter
@@ -715,31 +767,22 @@ public class CartItem {
            @Override
            public void write(JsonWriter out, CartItem value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+             value.removeUnsetNullFields(obj);
              obj.remove("additionalProperties");
              // serialize additional properties
              if (value.getAdditionalProperties() != null) {
                for (Map.Entry<String, Object> entry : value.getAdditionalProperties().entrySet()) {
-                 if (entry.getValue() instanceof String)
-                   obj.addProperty(entry.getKey(), (String) entry.getValue());
-                 else if (entry.getValue() instanceof Number)
-                   obj.addProperty(entry.getKey(), (Number) entry.getValue());
-                 else if (entry.getValue() instanceof Boolean)
-                   obj.addProperty(entry.getKey(), (Boolean) entry.getValue());
-                 else if (entry.getValue() instanceof Character)
-                   obj.addProperty(entry.getKey(), (Character) entry.getValue());
-                 else {
-                   JsonElement jsonElement = gson.toJsonTree(entry.getValue());
-                   if (jsonElement.isJsonNull()) {
-                     obj.add(entry.getKey(), JsonNull.INSTANCE);
-                   } else if (jsonElement.isJsonArray()) {
-                     obj.add(entry.getKey(), jsonElement.getAsJsonArray());
-                   } else {
-                     obj.add(entry.getKey(), jsonElement.getAsJsonObject());
-                   }
-                 }
+                 // TypeAdapter.toJsonTree keeps explicit null entries in arbitrary maps too.
+                 obj.add(entry.getKey(), gson.getAdapter(Object.class).toJsonTree(entry.getValue()));
                }
              }
-             elementAdapter.write(out, obj);
+             boolean originalSerializeNulls = out.getSerializeNulls();
+             try {
+               out.setSerializeNulls(true);
+               elementAdapter.write(out, obj);
+             } finally {
+               out.setSerializeNulls(originalSerializeNulls);
+             }
            }
 
            @Override
@@ -749,6 +792,7 @@ public class CartItem {
              JsonObject jsonObj = jsonElement.getAsJsonObject();
              // store additional fields in the deserialized instance
              CartItem instance = thisAdapter.fromJsonTree(jsonObj);
+             instance.markPropertiesAsSet(jsonObj.keySet());
              for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
                if (!openapiFields.contains(entry.getKey())) {
                  if (entry.getValue().isJsonPrimitive()) { // primitive type

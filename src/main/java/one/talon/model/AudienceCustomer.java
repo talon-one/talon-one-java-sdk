@@ -59,6 +59,9 @@ import one.talon.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.26.0")
 public class AudienceCustomer {
+  // Gson ignores transient state; only setters and JSON input mark properties as present.
+  private transient Set<String> openapiExplicitlySetFields = new HashSet<>();
+
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
   @javax.annotation.Nonnull
@@ -130,6 +133,7 @@ public class AudienceCustomer {
 
   public AudienceCustomer id(@javax.annotation.Nonnull Long id) {
     this.id = id;
+    this.markPropertyAsSet(SERIALIZED_NAME_ID);
     return this;
   }
 
@@ -144,11 +148,13 @@ public class AudienceCustomer {
 
   public void setId(@javax.annotation.Nonnull Long id) {
     this.id = id;
+    this.markPropertyAsSet(SERIALIZED_NAME_ID);
   }
 
 
   public AudienceCustomer created(@javax.annotation.Nonnull OffsetDateTime created) {
     this.created = created;
+    this.markPropertyAsSet(SERIALIZED_NAME_CREATED);
     return this;
   }
 
@@ -163,11 +169,13 @@ public class AudienceCustomer {
 
   public void setCreated(@javax.annotation.Nonnull OffsetDateTime created) {
     this.created = created;
+    this.markPropertyAsSet(SERIALIZED_NAME_CREATED);
   }
 
 
   public AudienceCustomer integrationId(@javax.annotation.Nonnull String integrationId) {
     this.integrationId = integrationId;
+    this.markPropertyAsSet(SERIALIZED_NAME_INTEGRATION_ID);
     return this;
   }
 
@@ -182,11 +190,13 @@ public class AudienceCustomer {
 
   public void setIntegrationId(@javax.annotation.Nonnull String integrationId) {
     this.integrationId = integrationId;
+    this.markPropertyAsSet(SERIALIZED_NAME_INTEGRATION_ID);
   }
 
 
   public AudienceCustomer attributes(@javax.annotation.Nullable Map<String, Object> attributes) {
     this.attributes = attributes;
+    this.markPropertyAsSet(SERIALIZED_NAME_ATTRIBUTES);
     return this;
   }
 
@@ -195,6 +205,7 @@ public class AudienceCustomer {
       this.attributes = new HashMap<>();
     }
     this.attributes.put(key, attributesItem);
+    this.markPropertyAsSet(SERIALIZED_NAME_ATTRIBUTES);
     return this;
   }
 
@@ -209,11 +220,13 @@ public class AudienceCustomer {
 
   public void setAttributes(@javax.annotation.Nullable Map<String, Object> attributes) {
     this.attributes = attributes;
+    this.markPropertyAsSet(SERIALIZED_NAME_ATTRIBUTES);
   }
 
 
   public AudienceCustomer accountId(@javax.annotation.Nonnull Long accountId) {
     this.accountId = accountId;
+    this.markPropertyAsSet(SERIALIZED_NAME_ACCOUNT_ID);
     return this;
   }
 
@@ -228,11 +241,13 @@ public class AudienceCustomer {
 
   public void setAccountId(@javax.annotation.Nonnull Long accountId) {
     this.accountId = accountId;
+    this.markPropertyAsSet(SERIALIZED_NAME_ACCOUNT_ID);
   }
 
 
   public AudienceCustomer closedSessions(@javax.annotation.Nonnull Long closedSessions) {
     this.closedSessions = closedSessions;
+    this.markPropertyAsSet(SERIALIZED_NAME_CLOSED_SESSIONS);
     return this;
   }
 
@@ -247,11 +262,13 @@ public class AudienceCustomer {
 
   public void setClosedSessions(@javax.annotation.Nonnull Long closedSessions) {
     this.closedSessions = closedSessions;
+    this.markPropertyAsSet(SERIALIZED_NAME_CLOSED_SESSIONS);
   }
 
 
   public AudienceCustomer totalSales(@javax.annotation.Nonnull BigDecimal totalSales) {
     this.totalSales = totalSales;
+    this.markPropertyAsSet(SERIALIZED_NAME_TOTAL_SALES);
     return this;
   }
 
@@ -266,12 +283,14 @@ public class AudienceCustomer {
 
   public void setTotalSales(@javax.annotation.Nonnull BigDecimal totalSales) {
     this.totalSales = totalSales;
+    this.markPropertyAsSet(SERIALIZED_NAME_TOTAL_SALES);
   }
 
 
   @Deprecated
   public AudienceCustomer loyaltyMemberships(@javax.annotation.Nullable List<LoyaltyMembership> loyaltyMemberships) {
     this.loyaltyMemberships = loyaltyMemberships;
+    this.markPropertyAsSet(SERIALIZED_NAME_LOYALTY_MEMBERSHIPS);
     return this;
   }
 
@@ -280,6 +299,7 @@ public class AudienceCustomer {
       this.loyaltyMemberships = new ArrayList<>();
     }
     this.loyaltyMemberships.add(loyaltyMembershipsItem);
+    this.markPropertyAsSet(SERIALIZED_NAME_LOYALTY_MEMBERSHIPS);
     return this;
   }
 
@@ -297,11 +317,13 @@ public class AudienceCustomer {
   @Deprecated
   public void setLoyaltyMemberships(@javax.annotation.Nullable List<LoyaltyMembership> loyaltyMemberships) {
     this.loyaltyMemberships = loyaltyMemberships;
+    this.markPropertyAsSet(SERIALIZED_NAME_LOYALTY_MEMBERSHIPS);
   }
 
 
   public AudienceCustomer audienceMemberships(@javax.annotation.Nullable List<AudienceMembership> audienceMemberships) {
     this.audienceMemberships = audienceMemberships;
+    this.markPropertyAsSet(SERIALIZED_NAME_AUDIENCE_MEMBERSHIPS);
     return this;
   }
 
@@ -310,6 +332,7 @@ public class AudienceCustomer {
       this.audienceMemberships = new ArrayList<>();
     }
     this.audienceMemberships.add(audienceMembershipsItem);
+    this.markPropertyAsSet(SERIALIZED_NAME_AUDIENCE_MEMBERSHIPS);
     return this;
   }
 
@@ -324,11 +347,13 @@ public class AudienceCustomer {
 
   public void setAudienceMemberships(@javax.annotation.Nullable List<AudienceMembership> audienceMemberships) {
     this.audienceMemberships = audienceMemberships;
+    this.markPropertyAsSet(SERIALIZED_NAME_AUDIENCE_MEMBERSHIPS);
   }
 
 
   public AudienceCustomer lastActivity(@javax.annotation.Nonnull OffsetDateTime lastActivity) {
     this.lastActivity = lastActivity;
+    this.markPropertyAsSet(SERIALIZED_NAME_LAST_ACTIVITY);
     return this;
   }
 
@@ -343,11 +368,13 @@ public class AudienceCustomer {
 
   public void setLastActivity(@javax.annotation.Nonnull OffsetDateTime lastActivity) {
     this.lastActivity = lastActivity;
+    this.markPropertyAsSet(SERIALIZED_NAME_LAST_ACTIVITY);
   }
 
 
   public AudienceCustomer sandbox(@javax.annotation.Nullable Boolean sandbox) {
     this.sandbox = sandbox;
+    this.markPropertyAsSet(SERIALIZED_NAME_SANDBOX);
     return this;
   }
 
@@ -362,11 +389,13 @@ public class AudienceCustomer {
 
   public void setSandbox(@javax.annotation.Nullable Boolean sandbox) {
     this.sandbox = sandbox;
+    this.markPropertyAsSet(SERIALIZED_NAME_SANDBOX);
   }
 
 
   public AudienceCustomer connectedApplicationsIds(@javax.annotation.Nullable List<Long> connectedApplicationsIds) {
     this.connectedApplicationsIds = connectedApplicationsIds;
+    this.markPropertyAsSet(SERIALIZED_NAME_CONNECTED_APPLICATIONS_IDS);
     return this;
   }
 
@@ -375,6 +404,7 @@ public class AudienceCustomer {
       this.connectedApplicationsIds = new ArrayList<>();
     }
     this.connectedApplicationsIds.add(connectedApplicationsIdsItem);
+    this.markPropertyAsSet(SERIALIZED_NAME_CONNECTED_APPLICATIONS_IDS);
     return this;
   }
 
@@ -389,11 +419,13 @@ public class AudienceCustomer {
 
   public void setConnectedApplicationsIds(@javax.annotation.Nullable List<Long> connectedApplicationsIds) {
     this.connectedApplicationsIds = connectedApplicationsIds;
+    this.markPropertyAsSet(SERIALIZED_NAME_CONNECTED_APPLICATIONS_IDS);
   }
 
 
   public AudienceCustomer connectedAudiences(@javax.annotation.Nullable List<Long> connectedAudiences) {
     this.connectedAudiences = connectedAudiences;
+    this.markPropertyAsSet(SERIALIZED_NAME_CONNECTED_AUDIENCES);
     return this;
   }
 
@@ -402,6 +434,7 @@ public class AudienceCustomer {
       this.connectedAudiences = new ArrayList<>();
     }
     this.connectedAudiences.add(connectedAudiencesItem);
+    this.markPropertyAsSet(SERIALIZED_NAME_CONNECTED_AUDIENCES);
     return this;
   }
 
@@ -416,6 +449,7 @@ public class AudienceCustomer {
 
   public void setConnectedAudiences(@javax.annotation.Nullable List<Long> connectedAudiences) {
     this.connectedAudiences = connectedAudiences;
+    this.markPropertyAsSet(SERIALIZED_NAME_CONNECTED_AUDIENCES);
   }
 
   /**
@@ -461,6 +495,21 @@ public class AudienceCustomer {
         return null;
     }
     return this.additionalProperties.get(key);
+  }
+
+  /** Omit null properties unless they were explicitly assigned or present in JSON input. */
+  protected final void removeUnsetNullFields(JsonObject obj) {
+    obj.entrySet().removeIf(entry -> entry.getValue().isJsonNull()
+        && !openapiExplicitlySetFields.contains(entry.getKey()));
+  }
+
+  protected final void markPropertyAsSet(String propertyName) {
+    openapiExplicitlySetFields.add(propertyName);
+  }
+
+  /** Gson populates fields directly, bypassing setters during deserialization. */
+  protected final void markPropertiesAsSet(Set<String> propertyNames) {
+    openapiExplicitlySetFields.addAll(propertyNames);
   }
 
 
@@ -602,7 +651,7 @@ public class AudienceCustomer {
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
        if (!AudienceCustomer.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'AudienceCustomer' and its subtypes
+         return null; // let other model factories handle this type
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
        final TypeAdapter<AudienceCustomer> thisAdapter
@@ -612,31 +661,22 @@ public class AudienceCustomer {
            @Override
            public void write(JsonWriter out, AudienceCustomer value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+             value.removeUnsetNullFields(obj);
              obj.remove("additionalProperties");
              // serialize additional properties
              if (value.getAdditionalProperties() != null) {
                for (Map.Entry<String, Object> entry : value.getAdditionalProperties().entrySet()) {
-                 if (entry.getValue() instanceof String)
-                   obj.addProperty(entry.getKey(), (String) entry.getValue());
-                 else if (entry.getValue() instanceof Number)
-                   obj.addProperty(entry.getKey(), (Number) entry.getValue());
-                 else if (entry.getValue() instanceof Boolean)
-                   obj.addProperty(entry.getKey(), (Boolean) entry.getValue());
-                 else if (entry.getValue() instanceof Character)
-                   obj.addProperty(entry.getKey(), (Character) entry.getValue());
-                 else {
-                   JsonElement jsonElement = gson.toJsonTree(entry.getValue());
-                   if (jsonElement.isJsonNull()) {
-                     obj.add(entry.getKey(), JsonNull.INSTANCE);
-                   } else if (jsonElement.isJsonArray()) {
-                     obj.add(entry.getKey(), jsonElement.getAsJsonArray());
-                   } else {
-                     obj.add(entry.getKey(), jsonElement.getAsJsonObject());
-                   }
-                 }
+                 // TypeAdapter.toJsonTree keeps explicit null entries in arbitrary maps too.
+                 obj.add(entry.getKey(), gson.getAdapter(Object.class).toJsonTree(entry.getValue()));
                }
              }
-             elementAdapter.write(out, obj);
+             boolean originalSerializeNulls = out.getSerializeNulls();
+             try {
+               out.setSerializeNulls(true);
+               elementAdapter.write(out, obj);
+             } finally {
+               out.setSerializeNulls(originalSerializeNulls);
+             }
            }
 
            @Override
@@ -646,6 +686,7 @@ public class AudienceCustomer {
              JsonObject jsonObj = jsonElement.getAsJsonObject();
              // store additional fields in the deserialized instance
              AudienceCustomer instance = thisAdapter.fromJsonTree(jsonObj);
+             instance.markPropertiesAsSet(jsonObj.keySet());
              for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
                if (!openapiFields.contains(entry.getKey())) {
                  if (entry.getValue().isJsonPrimitive()) { // primitive type

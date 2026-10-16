@@ -56,6 +56,9 @@ import one.talon.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.26.0")
 public class AchievementProgressWithDefinition {
+  // Gson ignores transient state; only setters and JSON input mark properties as present.
+  private transient Set<String> openapiExplicitlySetFields = new HashSet<>();
+
   /**
    * The status of the achievement.
    */
@@ -314,6 +317,7 @@ public class AchievementProgressWithDefinition {
 
   public AchievementProgressWithDefinition status(@javax.annotation.Nonnull StatusEnum status) {
     this.status = status;
+    this.markPropertyAsSet(SERIALIZED_NAME_STATUS);
     return this;
   }
 
@@ -328,11 +332,13 @@ public class AchievementProgressWithDefinition {
 
   public void setStatus(@javax.annotation.Nonnull StatusEnum status) {
     this.status = status;
+    this.markPropertyAsSet(SERIALIZED_NAME_STATUS);
   }
 
 
   public AchievementProgressWithDefinition progress(@javax.annotation.Nonnull BigDecimal progress) {
     this.progress = progress;
+    this.markPropertyAsSet(SERIALIZED_NAME_PROGRESS);
     return this;
   }
 
@@ -347,11 +353,13 @@ public class AchievementProgressWithDefinition {
 
   public void setProgress(@javax.annotation.Nonnull BigDecimal progress) {
     this.progress = progress;
+    this.markPropertyAsSet(SERIALIZED_NAME_PROGRESS);
   }
 
 
   public AchievementProgressWithDefinition startDate(@javax.annotation.Nullable OffsetDateTime startDate) {
     this.startDate = startDate;
+    this.markPropertyAsSet(SERIALIZED_NAME_START_DATE);
     return this;
   }
 
@@ -366,11 +374,13 @@ public class AchievementProgressWithDefinition {
 
   public void setStartDate(@javax.annotation.Nullable OffsetDateTime startDate) {
     this.startDate = startDate;
+    this.markPropertyAsSet(SERIALIZED_NAME_START_DATE);
   }
 
 
   public AchievementProgressWithDefinition completionDate(@javax.annotation.Nullable OffsetDateTime completionDate) {
     this.completionDate = completionDate;
+    this.markPropertyAsSet(SERIALIZED_NAME_COMPLETION_DATE);
     return this;
   }
 
@@ -385,11 +395,13 @@ public class AchievementProgressWithDefinition {
 
   public void setCompletionDate(@javax.annotation.Nullable OffsetDateTime completionDate) {
     this.completionDate = completionDate;
+    this.markPropertyAsSet(SERIALIZED_NAME_COMPLETION_DATE);
   }
 
 
   public AchievementProgressWithDefinition endDate(@javax.annotation.Nullable OffsetDateTime endDate) {
     this.endDate = endDate;
+    this.markPropertyAsSet(SERIALIZED_NAME_END_DATE);
     return this;
   }
 
@@ -404,11 +416,13 @@ public class AchievementProgressWithDefinition {
 
   public void setEndDate(@javax.annotation.Nullable OffsetDateTime endDate) {
     this.endDate = endDate;
+    this.markPropertyAsSet(SERIALIZED_NAME_END_DATE);
   }
 
 
   public AchievementProgressWithDefinition achievementId(@javax.annotation.Nonnull Long achievementId) {
     this.achievementId = achievementId;
+    this.markPropertyAsSet(SERIALIZED_NAME_ACHIEVEMENT_ID);
     return this;
   }
 
@@ -423,11 +437,13 @@ public class AchievementProgressWithDefinition {
 
   public void setAchievementId(@javax.annotation.Nonnull Long achievementId) {
     this.achievementId = achievementId;
+    this.markPropertyAsSet(SERIALIZED_NAME_ACHIEVEMENT_ID);
   }
 
 
   public AchievementProgressWithDefinition name(@javax.annotation.Nonnull String name) {
     this.name = name;
+    this.markPropertyAsSet(SERIALIZED_NAME_NAME);
     return this;
   }
 
@@ -442,11 +458,13 @@ public class AchievementProgressWithDefinition {
 
   public void setName(@javax.annotation.Nonnull String name) {
     this.name = name;
+    this.markPropertyAsSet(SERIALIZED_NAME_NAME);
   }
 
 
   public AchievementProgressWithDefinition title(@javax.annotation.Nonnull String title) {
     this.title = title;
+    this.markPropertyAsSet(SERIALIZED_NAME_TITLE);
     return this;
   }
 
@@ -461,11 +479,13 @@ public class AchievementProgressWithDefinition {
 
   public void setTitle(@javax.annotation.Nonnull String title) {
     this.title = title;
+    this.markPropertyAsSet(SERIALIZED_NAME_TITLE);
   }
 
 
   public AchievementProgressWithDefinition description(@javax.annotation.Nonnull String description) {
     this.description = description;
+    this.markPropertyAsSet(SERIALIZED_NAME_DESCRIPTION);
     return this;
   }
 
@@ -480,12 +500,14 @@ public class AchievementProgressWithDefinition {
 
   public void setDescription(@javax.annotation.Nonnull String description) {
     this.description = description;
+    this.markPropertyAsSet(SERIALIZED_NAME_DESCRIPTION);
   }
 
 
   @Deprecated
   public AchievementProgressWithDefinition campaignId(@javax.annotation.Nullable Long campaignId) {
     this.campaignId = campaignId;
+    this.markPropertyAsSet(SERIALIZED_NAME_CAMPAIGN_ID);
     return this;
   }
 
@@ -503,11 +525,13 @@ public class AchievementProgressWithDefinition {
   @Deprecated
   public void setCampaignId(@javax.annotation.Nullable Long campaignId) {
     this.campaignId = campaignId;
+    this.markPropertyAsSet(SERIALIZED_NAME_CAMPAIGN_ID);
   }
 
 
   public AchievementProgressWithDefinition campaignIds(@javax.annotation.Nonnull List<Long> campaignIds) {
     this.campaignIds = campaignIds;
+    this.markPropertyAsSet(SERIALIZED_NAME_CAMPAIGN_IDS);
     return this;
   }
 
@@ -516,6 +540,7 @@ public class AchievementProgressWithDefinition {
       this.campaignIds = new ArrayList<>();
     }
     this.campaignIds.add(campaignIdsItem);
+    this.markPropertyAsSet(SERIALIZED_NAME_CAMPAIGN_IDS);
     return this;
   }
 
@@ -530,11 +555,13 @@ public class AchievementProgressWithDefinition {
 
   public void setCampaignIds(@javax.annotation.Nonnull List<Long> campaignIds) {
     this.campaignIds = campaignIds;
+    this.markPropertyAsSet(SERIALIZED_NAME_CAMPAIGN_IDS);
   }
 
 
   public AchievementProgressWithDefinition referencedByCampaigns(@javax.annotation.Nonnull List<CampaignReference> referencedByCampaigns) {
     this.referencedByCampaigns = referencedByCampaigns;
+    this.markPropertyAsSet(SERIALIZED_NAME_REFERENCED_BY_CAMPAIGNS);
     return this;
   }
 
@@ -543,6 +570,7 @@ public class AchievementProgressWithDefinition {
       this.referencedByCampaigns = new ArrayList<>();
     }
     this.referencedByCampaigns.add(referencedByCampaignsItem);
+    this.markPropertyAsSet(SERIALIZED_NAME_REFERENCED_BY_CAMPAIGNS);
     return this;
   }
 
@@ -557,11 +585,13 @@ public class AchievementProgressWithDefinition {
 
   public void setReferencedByCampaigns(@javax.annotation.Nonnull List<CampaignReference> referencedByCampaigns) {
     this.referencedByCampaigns = referencedByCampaigns;
+    this.markPropertyAsSet(SERIALIZED_NAME_REFERENCED_BY_CAMPAIGNS);
   }
 
 
   public AchievementProgressWithDefinition target(@javax.annotation.Nullable BigDecimal target) {
     this.target = target;
+    this.markPropertyAsSet(SERIALIZED_NAME_TARGET);
     return this;
   }
 
@@ -576,11 +606,13 @@ public class AchievementProgressWithDefinition {
 
   public void setTarget(@javax.annotation.Nullable BigDecimal target) {
     this.target = target;
+    this.markPropertyAsSet(SERIALIZED_NAME_TARGET);
   }
 
 
   public AchievementProgressWithDefinition achievementRecurrencePolicy(@javax.annotation.Nonnull AchievementRecurrencePolicyEnum achievementRecurrencePolicy) {
     this.achievementRecurrencePolicy = achievementRecurrencePolicy;
+    this.markPropertyAsSet(SERIALIZED_NAME_ACHIEVEMENT_RECURRENCE_POLICY);
     return this;
   }
 
@@ -595,11 +627,13 @@ public class AchievementProgressWithDefinition {
 
   public void setAchievementRecurrencePolicy(@javax.annotation.Nonnull AchievementRecurrencePolicyEnum achievementRecurrencePolicy) {
     this.achievementRecurrencePolicy = achievementRecurrencePolicy;
+    this.markPropertyAsSet(SERIALIZED_NAME_ACHIEVEMENT_RECURRENCE_POLICY);
   }
 
 
   public AchievementProgressWithDefinition achievementActivationPolicy(@javax.annotation.Nonnull AchievementActivationPolicyEnum achievementActivationPolicy) {
     this.achievementActivationPolicy = achievementActivationPolicy;
+    this.markPropertyAsSet(SERIALIZED_NAME_ACHIEVEMENT_ACTIVATION_POLICY);
     return this;
   }
 
@@ -614,11 +648,13 @@ public class AchievementProgressWithDefinition {
 
   public void setAchievementActivationPolicy(@javax.annotation.Nonnull AchievementActivationPolicyEnum achievementActivationPolicy) {
     this.achievementActivationPolicy = achievementActivationPolicy;
+    this.markPropertyAsSet(SERIALIZED_NAME_ACHIEVEMENT_ACTIVATION_POLICY);
   }
 
 
   public AchievementProgressWithDefinition achievementFixedStartDate(@javax.annotation.Nullable OffsetDateTime achievementFixedStartDate) {
     this.achievementFixedStartDate = achievementFixedStartDate;
+    this.markPropertyAsSet(SERIALIZED_NAME_ACHIEVEMENT_FIXED_START_DATE);
     return this;
   }
 
@@ -633,11 +669,13 @@ public class AchievementProgressWithDefinition {
 
   public void setAchievementFixedStartDate(@javax.annotation.Nullable OffsetDateTime achievementFixedStartDate) {
     this.achievementFixedStartDate = achievementFixedStartDate;
+    this.markPropertyAsSet(SERIALIZED_NAME_ACHIEVEMENT_FIXED_START_DATE);
   }
 
 
   public AchievementProgressWithDefinition achievementEndDate(@javax.annotation.Nullable OffsetDateTime achievementEndDate) {
     this.achievementEndDate = achievementEndDate;
+    this.markPropertyAsSet(SERIALIZED_NAME_ACHIEVEMENT_END_DATE);
     return this;
   }
 
@@ -652,11 +690,13 @@ public class AchievementProgressWithDefinition {
 
   public void setAchievementEndDate(@javax.annotation.Nullable OffsetDateTime achievementEndDate) {
     this.achievementEndDate = achievementEndDate;
+    this.markPropertyAsSet(SERIALIZED_NAME_ACHIEVEMENT_END_DATE);
   }
 
 
   public AchievementProgressWithDefinition achievementAllowRollbackAfterCompletion(@javax.annotation.Nullable Boolean achievementAllowRollbackAfterCompletion) {
     this.achievementAllowRollbackAfterCompletion = achievementAllowRollbackAfterCompletion;
+    this.markPropertyAsSet(SERIALIZED_NAME_ACHIEVEMENT_ALLOW_ROLLBACK_AFTER_COMPLETION);
     return this;
   }
 
@@ -671,6 +711,7 @@ public class AchievementProgressWithDefinition {
 
   public void setAchievementAllowRollbackAfterCompletion(@javax.annotation.Nullable Boolean achievementAllowRollbackAfterCompletion) {
     this.achievementAllowRollbackAfterCompletion = achievementAllowRollbackAfterCompletion;
+    this.markPropertyAsSet(SERIALIZED_NAME_ACHIEVEMENT_ALLOW_ROLLBACK_AFTER_COMPLETION);
   }
 
   /**
@@ -716,6 +757,21 @@ public class AchievementProgressWithDefinition {
         return null;
     }
     return this.additionalProperties.get(key);
+  }
+
+  /** Omit null properties unless they were explicitly assigned or present in JSON input. */
+  protected final void removeUnsetNullFields(JsonObject obj) {
+    obj.entrySet().removeIf(entry -> entry.getValue().isJsonNull()
+        && !openapiExplicitlySetFields.contains(entry.getKey()));
+  }
+
+  protected final void markPropertyAsSet(String propertyName) {
+    openapiExplicitlySetFields.add(propertyName);
+  }
+
+  /** Gson populates fields directly, bypassing setters during deserialization. */
+  protected final void markPropertiesAsSet(Set<String> propertyNames) {
+    openapiExplicitlySetFields.addAll(propertyNames);
   }
 
 
@@ -868,7 +924,7 @@ public class AchievementProgressWithDefinition {
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
        if (!AchievementProgressWithDefinition.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'AchievementProgressWithDefinition' and its subtypes
+         return null; // let other model factories handle this type
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
        final TypeAdapter<AchievementProgressWithDefinition> thisAdapter
@@ -878,31 +934,22 @@ public class AchievementProgressWithDefinition {
            @Override
            public void write(JsonWriter out, AchievementProgressWithDefinition value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+             value.removeUnsetNullFields(obj);
              obj.remove("additionalProperties");
              // serialize additional properties
              if (value.getAdditionalProperties() != null) {
                for (Map.Entry<String, Object> entry : value.getAdditionalProperties().entrySet()) {
-                 if (entry.getValue() instanceof String)
-                   obj.addProperty(entry.getKey(), (String) entry.getValue());
-                 else if (entry.getValue() instanceof Number)
-                   obj.addProperty(entry.getKey(), (Number) entry.getValue());
-                 else if (entry.getValue() instanceof Boolean)
-                   obj.addProperty(entry.getKey(), (Boolean) entry.getValue());
-                 else if (entry.getValue() instanceof Character)
-                   obj.addProperty(entry.getKey(), (Character) entry.getValue());
-                 else {
-                   JsonElement jsonElement = gson.toJsonTree(entry.getValue());
-                   if (jsonElement.isJsonNull()) {
-                     obj.add(entry.getKey(), JsonNull.INSTANCE);
-                   } else if (jsonElement.isJsonArray()) {
-                     obj.add(entry.getKey(), jsonElement.getAsJsonArray());
-                   } else {
-                     obj.add(entry.getKey(), jsonElement.getAsJsonObject());
-                   }
-                 }
+                 // TypeAdapter.toJsonTree keeps explicit null entries in arbitrary maps too.
+                 obj.add(entry.getKey(), gson.getAdapter(Object.class).toJsonTree(entry.getValue()));
                }
              }
-             elementAdapter.write(out, obj);
+             boolean originalSerializeNulls = out.getSerializeNulls();
+             try {
+               out.setSerializeNulls(true);
+               elementAdapter.write(out, obj);
+             } finally {
+               out.setSerializeNulls(originalSerializeNulls);
+             }
            }
 
            @Override
@@ -912,6 +959,7 @@ public class AchievementProgressWithDefinition {
              JsonObject jsonObj = jsonElement.getAsJsonObject();
              // store additional fields in the deserialized instance
              AchievementProgressWithDefinition instance = thisAdapter.fromJsonTree(jsonObj);
+             instance.markPropertiesAsSet(jsonObj.keySet());
              for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
                if (!openapiFields.contains(entry.getKey())) {
                  if (entry.getValue().isJsonPrimitive()) { // primitive type

@@ -74,48 +74,58 @@ public class AwardLoyaltyPointsTarget extends AbstractOpenApiSchema {
                 return null; // this class only serializes 'AwardLoyaltyPointsTarget' and its subtypes
             }
             final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-            final TypeAdapter<AwardLoyaltyPointsCartTarget> adapterAwardLoyaltyPointsCartTarget = gson.getDelegateAdapter(this, TypeToken.get(AwardLoyaltyPointsCartTarget.class));
-            final TypeAdapter<AwardLoyaltyPointsAllItemsTarget> adapterAwardLoyaltyPointsAllItemsTarget = gson.getDelegateAdapter(this, TypeToken.get(AwardLoyaltyPointsAllItemsTarget.class));
-            final TypeAdapter<AwardLoyaltyPointsGlobalFilterTarget> adapterAwardLoyaltyPointsGlobalFilterTarget = gson.getDelegateAdapter(this, TypeToken.get(AwardLoyaltyPointsGlobalFilterTarget.class));
-            final TypeAdapter<AwardLoyaltyPointsSelectorTarget> adapterAwardLoyaltyPointsSelectorTarget = gson.getDelegateAdapter(this, TypeToken.get(AwardLoyaltyPointsSelectorTarget.class));
-            final TypeAdapter<AwardLoyaltyPointsBundleTarget> adapterAwardLoyaltyPointsBundleTarget = gson.getDelegateAdapter(this, TypeToken.get(AwardLoyaltyPointsBundleTarget.class));
+            final TypeAdapter<AwardLoyaltyPointsCartTarget> adapterAwardLoyaltyPointsCartTarget = gson.getAdapter(TypeToken.get(AwardLoyaltyPointsCartTarget.class));
+            final TypeAdapter<AwardLoyaltyPointsAllItemsTarget> adapterAwardLoyaltyPointsAllItemsTarget = gson.getAdapter(TypeToken.get(AwardLoyaltyPointsAllItemsTarget.class));
+            final TypeAdapter<AwardLoyaltyPointsGlobalFilterTarget> adapterAwardLoyaltyPointsGlobalFilterTarget = gson.getAdapter(TypeToken.get(AwardLoyaltyPointsGlobalFilterTarget.class));
+            final TypeAdapter<AwardLoyaltyPointsSelectorTarget> adapterAwardLoyaltyPointsSelectorTarget = gson.getAdapter(TypeToken.get(AwardLoyaltyPointsSelectorTarget.class));
+            final TypeAdapter<AwardLoyaltyPointsBundleTarget> adapterAwardLoyaltyPointsBundleTarget = gson.getAdapter(TypeToken.get(AwardLoyaltyPointsBundleTarget.class));
 
             return (TypeAdapter<T>) new TypeAdapter<AwardLoyaltyPointsTarget>() {
+                private void writeJsonElement(JsonWriter out, JsonElement value) throws IOException {
+                    boolean originalSerializeNulls = out.getSerializeNulls();
+                    try {
+                        out.setSerializeNulls(true);
+                        elementAdapter.write(out, value);
+                    } finally {
+                        out.setSerializeNulls(originalSerializeNulls);
+                    }
+                }
+
                 @Override
                 public void write(JsonWriter out, AwardLoyaltyPointsTarget value) throws IOException {
                     if (value == null || value.getActualInstance() == null) {
-                        elementAdapter.write(out, null);
+                        writeJsonElement(out, null);
                         return;
                     }
 
                     // check if the actual instance is of the type `AwardLoyaltyPointsCartTarget`
                     if (value.getActualInstance() instanceof AwardLoyaltyPointsCartTarget) {
                         JsonElement element = adapterAwardLoyaltyPointsCartTarget.toJsonTree((AwardLoyaltyPointsCartTarget)value.getActualInstance());
-                        elementAdapter.write(out, element);
+                        writeJsonElement(out, element);
                         return;
                     }
                     // check if the actual instance is of the type `AwardLoyaltyPointsAllItemsTarget`
                     if (value.getActualInstance() instanceof AwardLoyaltyPointsAllItemsTarget) {
                         JsonElement element = adapterAwardLoyaltyPointsAllItemsTarget.toJsonTree((AwardLoyaltyPointsAllItemsTarget)value.getActualInstance());
-                        elementAdapter.write(out, element);
+                        writeJsonElement(out, element);
                         return;
                     }
                     // check if the actual instance is of the type `AwardLoyaltyPointsGlobalFilterTarget`
                     if (value.getActualInstance() instanceof AwardLoyaltyPointsGlobalFilterTarget) {
                         JsonElement element = adapterAwardLoyaltyPointsGlobalFilterTarget.toJsonTree((AwardLoyaltyPointsGlobalFilterTarget)value.getActualInstance());
-                        elementAdapter.write(out, element);
+                        writeJsonElement(out, element);
                         return;
                     }
                     // check if the actual instance is of the type `AwardLoyaltyPointsSelectorTarget`
                     if (value.getActualInstance() instanceof AwardLoyaltyPointsSelectorTarget) {
                         JsonElement element = adapterAwardLoyaltyPointsSelectorTarget.toJsonTree((AwardLoyaltyPointsSelectorTarget)value.getActualInstance());
-                        elementAdapter.write(out, element);
+                        writeJsonElement(out, element);
                         return;
                     }
                     // check if the actual instance is of the type `AwardLoyaltyPointsBundleTarget`
                     if (value.getActualInstance() instanceof AwardLoyaltyPointsBundleTarget) {
                         JsonElement element = adapterAwardLoyaltyPointsBundleTarget.toJsonTree((AwardLoyaltyPointsBundleTarget)value.getActualInstance());
-                        elementAdapter.write(out, element);
+                        writeJsonElement(out, element);
                         return;
                     }
                     throw new IOException("Failed to serialize as the type doesn't match oneOf schemas: AwardLoyaltyPointsAllItemsTarget, AwardLoyaltyPointsBundleTarget, AwardLoyaltyPointsCartTarget, AwardLoyaltyPointsGlobalFilterTarget, AwardLoyaltyPointsSelectorTarget");

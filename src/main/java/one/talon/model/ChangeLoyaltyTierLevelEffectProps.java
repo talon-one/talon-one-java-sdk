@@ -52,6 +52,9 @@ import one.talon.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.26.0")
 public class ChangeLoyaltyTierLevelEffectProps {
+  // Gson ignores transient state; only setters and JSON input mark properties as present.
+  private transient Set<String> openapiExplicitlySetFields = new HashSet<>();
+
   public static final String SERIALIZED_NAME_RULE_TITLE = "ruleTitle";
   @SerializedName(SERIALIZED_NAME_RULE_TITLE)
   @javax.annotation.Nonnull
@@ -87,6 +90,7 @@ public class ChangeLoyaltyTierLevelEffectProps {
 
   public ChangeLoyaltyTierLevelEffectProps ruleTitle(@javax.annotation.Nonnull String ruleTitle) {
     this.ruleTitle = ruleTitle;
+    this.markPropertyAsSet(SERIALIZED_NAME_RULE_TITLE);
     return this;
   }
 
@@ -101,11 +105,13 @@ public class ChangeLoyaltyTierLevelEffectProps {
 
   public void setRuleTitle(@javax.annotation.Nonnull String ruleTitle) {
     this.ruleTitle = ruleTitle;
+    this.markPropertyAsSet(SERIALIZED_NAME_RULE_TITLE);
   }
 
 
   public ChangeLoyaltyTierLevelEffectProps programId(@javax.annotation.Nonnull Long programId) {
     this.programId = programId;
+    this.markPropertyAsSet(SERIALIZED_NAME_PROGRAM_ID);
     return this;
   }
 
@@ -120,11 +126,13 @@ public class ChangeLoyaltyTierLevelEffectProps {
 
   public void setProgramId(@javax.annotation.Nonnull Long programId) {
     this.programId = programId;
+    this.markPropertyAsSet(SERIALIZED_NAME_PROGRAM_ID);
   }
 
 
   public ChangeLoyaltyTierLevelEffectProps subLedgerId(@javax.annotation.Nonnull String subLedgerId) {
     this.subLedgerId = subLedgerId;
+    this.markPropertyAsSet(SERIALIZED_NAME_SUB_LEDGER_ID);
     return this;
   }
 
@@ -139,11 +147,13 @@ public class ChangeLoyaltyTierLevelEffectProps {
 
   public void setSubLedgerId(@javax.annotation.Nonnull String subLedgerId) {
     this.subLedgerId = subLedgerId;
+    this.markPropertyAsSet(SERIALIZED_NAME_SUB_LEDGER_ID);
   }
 
 
   public ChangeLoyaltyTierLevelEffectProps previousTierName(@javax.annotation.Nullable String previousTierName) {
     this.previousTierName = previousTierName;
+    this.markPropertyAsSet(SERIALIZED_NAME_PREVIOUS_TIER_NAME);
     return this;
   }
 
@@ -158,11 +168,13 @@ public class ChangeLoyaltyTierLevelEffectProps {
 
   public void setPreviousTierName(@javax.annotation.Nullable String previousTierName) {
     this.previousTierName = previousTierName;
+    this.markPropertyAsSet(SERIALIZED_NAME_PREVIOUS_TIER_NAME);
   }
 
 
   public ChangeLoyaltyTierLevelEffectProps newTierName(@javax.annotation.Nonnull String newTierName) {
     this.newTierName = newTierName;
+    this.markPropertyAsSet(SERIALIZED_NAME_NEW_TIER_NAME);
     return this;
   }
 
@@ -177,11 +189,13 @@ public class ChangeLoyaltyTierLevelEffectProps {
 
   public void setNewTierName(@javax.annotation.Nonnull String newTierName) {
     this.newTierName = newTierName;
+    this.markPropertyAsSet(SERIALIZED_NAME_NEW_TIER_NAME);
   }
 
 
   public ChangeLoyaltyTierLevelEffectProps expiryDate(@javax.annotation.Nullable OffsetDateTime expiryDate) {
     this.expiryDate = expiryDate;
+    this.markPropertyAsSet(SERIALIZED_NAME_EXPIRY_DATE);
     return this;
   }
 
@@ -196,6 +210,7 @@ public class ChangeLoyaltyTierLevelEffectProps {
 
   public void setExpiryDate(@javax.annotation.Nullable OffsetDateTime expiryDate) {
     this.expiryDate = expiryDate;
+    this.markPropertyAsSet(SERIALIZED_NAME_EXPIRY_DATE);
   }
 
   /**
@@ -241,6 +256,21 @@ public class ChangeLoyaltyTierLevelEffectProps {
         return null;
     }
     return this.additionalProperties.get(key);
+  }
+
+  /** Omit null properties unless they were explicitly assigned or present in JSON input. */
+  protected final void removeUnsetNullFields(JsonObject obj) {
+    obj.entrySet().removeIf(entry -> entry.getValue().isJsonNull()
+        && !openapiExplicitlySetFields.contains(entry.getKey()));
+  }
+
+  protected final void markPropertyAsSet(String propertyName) {
+    openapiExplicitlySetFields.add(propertyName);
+  }
+
+  /** Gson populates fields directly, bypassing setters during deserialization. */
+  protected final void markPropertiesAsSet(Set<String> propertyNames) {
+    openapiExplicitlySetFields.addAll(propertyNames);
   }
 
 
@@ -341,7 +371,7 @@ public class ChangeLoyaltyTierLevelEffectProps {
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
        if (!ChangeLoyaltyTierLevelEffectProps.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'ChangeLoyaltyTierLevelEffectProps' and its subtypes
+         return null; // let other model factories handle this type
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
        final TypeAdapter<ChangeLoyaltyTierLevelEffectProps> thisAdapter
@@ -351,31 +381,22 @@ public class ChangeLoyaltyTierLevelEffectProps {
            @Override
            public void write(JsonWriter out, ChangeLoyaltyTierLevelEffectProps value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+             value.removeUnsetNullFields(obj);
              obj.remove("additionalProperties");
              // serialize additional properties
              if (value.getAdditionalProperties() != null) {
                for (Map.Entry<String, Object> entry : value.getAdditionalProperties().entrySet()) {
-                 if (entry.getValue() instanceof String)
-                   obj.addProperty(entry.getKey(), (String) entry.getValue());
-                 else if (entry.getValue() instanceof Number)
-                   obj.addProperty(entry.getKey(), (Number) entry.getValue());
-                 else if (entry.getValue() instanceof Boolean)
-                   obj.addProperty(entry.getKey(), (Boolean) entry.getValue());
-                 else if (entry.getValue() instanceof Character)
-                   obj.addProperty(entry.getKey(), (Character) entry.getValue());
-                 else {
-                   JsonElement jsonElement = gson.toJsonTree(entry.getValue());
-                   if (jsonElement.isJsonNull()) {
-                     obj.add(entry.getKey(), JsonNull.INSTANCE);
-                   } else if (jsonElement.isJsonArray()) {
-                     obj.add(entry.getKey(), jsonElement.getAsJsonArray());
-                   } else {
-                     obj.add(entry.getKey(), jsonElement.getAsJsonObject());
-                   }
-                 }
+                 // TypeAdapter.toJsonTree keeps explicit null entries in arbitrary maps too.
+                 obj.add(entry.getKey(), gson.getAdapter(Object.class).toJsonTree(entry.getValue()));
                }
              }
-             elementAdapter.write(out, obj);
+             boolean originalSerializeNulls = out.getSerializeNulls();
+             try {
+               out.setSerializeNulls(true);
+               elementAdapter.write(out, obj);
+             } finally {
+               out.setSerializeNulls(originalSerializeNulls);
+             }
            }
 
            @Override
@@ -385,6 +406,7 @@ public class ChangeLoyaltyTierLevelEffectProps {
              JsonObject jsonObj = jsonElement.getAsJsonObject();
              // store additional fields in the deserialized instance
              ChangeLoyaltyTierLevelEffectProps instance = thisAdapter.fromJsonTree(jsonObj);
+             instance.markPropertiesAsSet(jsonObj.keySet());
              for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
                if (!openapiFields.contains(entry.getKey())) {
                  if (entry.getValue().isJsonPrimitive()) { // primitive type

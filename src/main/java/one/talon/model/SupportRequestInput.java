@@ -51,6 +51,9 @@ import one.talon.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.26.0")
 public class SupportRequestInput {
+  // Gson ignores transient state; only setters and JSON input mark properties as present.
+  private transient Set<String> openapiExplicitlySetFields = new HashSet<>();
+
   public static final String SERIALIZED_NAME_APPLICATION_ID = "applicationId";
   @SerializedName(SERIALIZED_NAME_APPLICATION_ID)
   @javax.annotation.Nonnull
@@ -152,6 +155,7 @@ public class SupportRequestInput {
 
   public SupportRequestInput applicationId(@javax.annotation.Nonnull Long applicationId) {
     this.applicationId = applicationId;
+    this.markPropertyAsSet(SERIALIZED_NAME_APPLICATION_ID);
     return this;
   }
 
@@ -166,11 +170,13 @@ public class SupportRequestInput {
 
   public void setApplicationId(@javax.annotation.Nonnull Long applicationId) {
     this.applicationId = applicationId;
+    this.markPropertyAsSet(SERIALIZED_NAME_APPLICATION_ID);
   }
 
 
   public SupportRequestInput campaignId(@javax.annotation.Nullable Long campaignId) {
     this.campaignId = campaignId;
+    this.markPropertyAsSet(SERIALIZED_NAME_CAMPAIGN_ID);
     return this;
   }
 
@@ -185,11 +191,13 @@ public class SupportRequestInput {
 
   public void setCampaignId(@javax.annotation.Nullable Long campaignId) {
     this.campaignId = campaignId;
+    this.markPropertyAsSet(SERIALIZED_NAME_CAMPAIGN_ID);
   }
 
 
   public SupportRequestInput loyaltyProgramId(@javax.annotation.Nullable Long loyaltyProgramId) {
     this.loyaltyProgramId = loyaltyProgramId;
+    this.markPropertyAsSet(SERIALIZED_NAME_LOYALTY_PROGRAM_ID);
     return this;
   }
 
@@ -204,11 +212,13 @@ public class SupportRequestInput {
 
   public void setLoyaltyProgramId(@javax.annotation.Nullable Long loyaltyProgramId) {
     this.loyaltyProgramId = loyaltyProgramId;
+    this.markPropertyAsSet(SERIALIZED_NAME_LOYALTY_PROGRAM_ID);
   }
 
 
   public SupportRequestInput subledgerId(@javax.annotation.Nullable String subledgerId) {
     this.subledgerId = subledgerId;
+    this.markPropertyAsSet(SERIALIZED_NAME_SUBLEDGER_ID);
     return this;
   }
 
@@ -223,11 +233,13 @@ public class SupportRequestInput {
 
   public void setSubledgerId(@javax.annotation.Nullable String subledgerId) {
     this.subledgerId = subledgerId;
+    this.markPropertyAsSet(SERIALIZED_NAME_SUBLEDGER_ID);
   }
 
 
   public SupportRequestInput customerProfileId(@javax.annotation.Nonnull String customerProfileId) {
     this.customerProfileId = customerProfileId;
+    this.markPropertyAsSet(SERIALIZED_NAME_CUSTOMER_PROFILE_ID);
     return this;
   }
 
@@ -242,11 +254,13 @@ public class SupportRequestInput {
 
   public void setCustomerProfileId(@javax.annotation.Nonnull String customerProfileId) {
     this.customerProfileId = customerProfileId;
+    this.markPropertyAsSet(SERIALIZED_NAME_CUSTOMER_PROFILE_ID);
   }
 
 
   public SupportRequestInput requestType(@javax.annotation.Nonnull RequestTypeEnum requestType) {
     this.requestType = requestType;
+    this.markPropertyAsSet(SERIALIZED_NAME_REQUEST_TYPE);
     return this;
   }
 
@@ -261,11 +275,13 @@ public class SupportRequestInput {
 
   public void setRequestType(@javax.annotation.Nonnull RequestTypeEnum requestType) {
     this.requestType = requestType;
+    this.markPropertyAsSet(SERIALIZED_NAME_REQUEST_TYPE);
   }
 
 
   public SupportRequestInput requestValue(@javax.annotation.Nullable Float requestValue) {
     this.requestValue = requestValue;
+    this.markPropertyAsSet(SERIALIZED_NAME_REQUEST_VALUE);
     return this;
   }
 
@@ -281,11 +297,13 @@ public class SupportRequestInput {
 
   public void setRequestValue(@javax.annotation.Nullable Float requestValue) {
     this.requestValue = requestValue;
+    this.markPropertyAsSet(SERIALIZED_NAME_REQUEST_VALUE);
   }
 
 
   public SupportRequestInput requestNote(@javax.annotation.Nonnull String requestNote) {
     this.requestNote = requestNote;
+    this.markPropertyAsSet(SERIALIZED_NAME_REQUEST_NOTE);
     return this;
   }
 
@@ -300,6 +318,7 @@ public class SupportRequestInput {
 
   public void setRequestNote(@javax.annotation.Nonnull String requestNote) {
     this.requestNote = requestNote;
+    this.markPropertyAsSet(SERIALIZED_NAME_REQUEST_NOTE);
   }
 
   /**
@@ -345,6 +364,21 @@ public class SupportRequestInput {
         return null;
     }
     return this.additionalProperties.get(key);
+  }
+
+  /** Omit null properties unless they were explicitly assigned or present in JSON input. */
+  protected final void removeUnsetNullFields(JsonObject obj) {
+    obj.entrySet().removeIf(entry -> entry.getValue().isJsonNull()
+        && !openapiExplicitlySetFields.contains(entry.getKey()));
+  }
+
+  protected final void markPropertyAsSet(String propertyName) {
+    openapiExplicitlySetFields.add(propertyName);
+  }
+
+  /** Gson populates fields directly, bypassing setters during deserialization. */
+  protected final void markPropertiesAsSet(Set<String> propertyNames) {
+    openapiExplicitlySetFields.addAll(propertyNames);
   }
 
 
@@ -451,7 +485,7 @@ public class SupportRequestInput {
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
        if (!SupportRequestInput.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'SupportRequestInput' and its subtypes
+         return null; // let other model factories handle this type
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
        final TypeAdapter<SupportRequestInput> thisAdapter
@@ -461,31 +495,22 @@ public class SupportRequestInput {
            @Override
            public void write(JsonWriter out, SupportRequestInput value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+             value.removeUnsetNullFields(obj);
              obj.remove("additionalProperties");
              // serialize additional properties
              if (value.getAdditionalProperties() != null) {
                for (Map.Entry<String, Object> entry : value.getAdditionalProperties().entrySet()) {
-                 if (entry.getValue() instanceof String)
-                   obj.addProperty(entry.getKey(), (String) entry.getValue());
-                 else if (entry.getValue() instanceof Number)
-                   obj.addProperty(entry.getKey(), (Number) entry.getValue());
-                 else if (entry.getValue() instanceof Boolean)
-                   obj.addProperty(entry.getKey(), (Boolean) entry.getValue());
-                 else if (entry.getValue() instanceof Character)
-                   obj.addProperty(entry.getKey(), (Character) entry.getValue());
-                 else {
-                   JsonElement jsonElement = gson.toJsonTree(entry.getValue());
-                   if (jsonElement.isJsonNull()) {
-                     obj.add(entry.getKey(), JsonNull.INSTANCE);
-                   } else if (jsonElement.isJsonArray()) {
-                     obj.add(entry.getKey(), jsonElement.getAsJsonArray());
-                   } else {
-                     obj.add(entry.getKey(), jsonElement.getAsJsonObject());
-                   }
-                 }
+                 // TypeAdapter.toJsonTree keeps explicit null entries in arbitrary maps too.
+                 obj.add(entry.getKey(), gson.getAdapter(Object.class).toJsonTree(entry.getValue()));
                }
              }
-             elementAdapter.write(out, obj);
+             boolean originalSerializeNulls = out.getSerializeNulls();
+             try {
+               out.setSerializeNulls(true);
+               elementAdapter.write(out, obj);
+             } finally {
+               out.setSerializeNulls(originalSerializeNulls);
+             }
            }
 
            @Override
@@ -495,6 +520,7 @@ public class SupportRequestInput {
              JsonObject jsonObj = jsonElement.getAsJsonObject();
              // store additional fields in the deserialized instance
              SupportRequestInput instance = thisAdapter.fromJsonTree(jsonObj);
+             instance.markPropertiesAsSet(jsonObj.keySet());
              for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
                if (!openapiFields.contains(entry.getKey())) {
                  if (entry.getValue().isJsonPrimitive()) { // primitive type

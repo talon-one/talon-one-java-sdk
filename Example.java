@@ -25,6 +25,7 @@ public class Example {
         apiKeyV1.setApiKey(System.getenv("TALON_API_KEY"));
 
         IntegrationApi iApi = new IntegrationApi(apiClient);
+        verifyProfileAttributeCanBeCleared(iApi);
 
         // Creating a cart item object
         CartItem cartItem = new CartItem();
@@ -83,5 +84,39 @@ public class Example {
                 // ...
             }
         }
+    }
+
+    private static void verifyProfileAttributeCanBeCleared(IntegrationApi iApi) throws Exception {
+        // Regression for issue #30: clearing an attribute must remove its previously stored value.
+        String profileId = "java-sdk-null-attribute-" + UUID.randomUUID();
+        String attributeName = "Name"; // Built-in customer profile attribute; no custom setup needed.
+        String initialValue = "Java SDK null attribute regression";
+        Map<String, Object> attributes = new LinkedHashMap<>();
+        attributes.put(attributeName, initialValue);
+        iApi.updateCustomerProfileV2(profileId,
+                new CustomerProfileIntegrationRequestV2().attributes(attributes), false, null, null);
+
+        CustomerProfile before = iApi.getCustomerInventory(
+                profileId, true, false, false, false, false, false, false).getProfile();
+        if (before == null || before.getAttributes() == null
+                || !initialValue.equals(before.getAttributes().get(attributeName))) {
+            throw new IllegalStateException("Profile attribute was not stored before clearing it");
+        }
+
+        attributes.put(attributeName, null);
+        iApi.updateCustomerProfileV2(profileId,
+                new CustomerProfileIntegrationRequestV2().attributes(attributes), false, null, null);
+
+        CustomerProfile after = iApi.getCustomerInventory(
+                profileId, true, false, false, false, false, false, false).getProfile();
+        if (after == null) {
+            throw new IllegalStateException("Customer profile was not returned after clearing its attribute");
+        }
+        // Cleared attributes are removed from the stored map, so get() must return null.
+        if (after.getAttributes() != null && after.getAttributes().get(attributeName) != null) {
+            throw new IllegalStateException("Profile attribute still has a value after being set to null: "
+                    + after.getAttributes().get(attributeName));
+        }
+        System.out.println("Profile attribute successfully cleared: " + profileId);
     }
 }

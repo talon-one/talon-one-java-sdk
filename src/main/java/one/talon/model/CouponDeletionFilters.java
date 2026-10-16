@@ -52,6 +52,9 @@ import one.talon.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.26.0")
 public class CouponDeletionFilters {
+  // Gson ignores transient state; only setters and JSON input mark properties as present.
+  private transient Set<String> openapiExplicitlySetFields = new HashSet<>();
+
   public static final String SERIALIZED_NAME_CREATED_BEFORE = "createdBefore";
   @SerializedName(SERIALIZED_NAME_CREATED_BEFORE)
   @javax.annotation.Nullable
@@ -181,6 +184,7 @@ public class CouponDeletionFilters {
 
   public CouponDeletionFilters createdBefore(@javax.annotation.Nullable OffsetDateTime createdBefore) {
     this.createdBefore = createdBefore;
+    this.markPropertyAsSet(SERIALIZED_NAME_CREATED_BEFORE);
     return this;
   }
 
@@ -195,11 +199,13 @@ public class CouponDeletionFilters {
 
   public void setCreatedBefore(@javax.annotation.Nullable OffsetDateTime createdBefore) {
     this.createdBefore = createdBefore;
+    this.markPropertyAsSet(SERIALIZED_NAME_CREATED_BEFORE);
   }
 
 
   public CouponDeletionFilters createdAfter(@javax.annotation.Nullable OffsetDateTime createdAfter) {
     this.createdAfter = createdAfter;
+    this.markPropertyAsSet(SERIALIZED_NAME_CREATED_AFTER);
     return this;
   }
 
@@ -214,11 +220,13 @@ public class CouponDeletionFilters {
 
   public void setCreatedAfter(@javax.annotation.Nullable OffsetDateTime createdAfter) {
     this.createdAfter = createdAfter;
+    this.markPropertyAsSet(SERIALIZED_NAME_CREATED_AFTER);
   }
 
 
   public CouponDeletionFilters startsAfter(@javax.annotation.Nullable OffsetDateTime startsAfter) {
     this.startsAfter = startsAfter;
+    this.markPropertyAsSet(SERIALIZED_NAME_STARTS_AFTER);
     return this;
   }
 
@@ -233,11 +241,13 @@ public class CouponDeletionFilters {
 
   public void setStartsAfter(@javax.annotation.Nullable OffsetDateTime startsAfter) {
     this.startsAfter = startsAfter;
+    this.markPropertyAsSet(SERIALIZED_NAME_STARTS_AFTER);
   }
 
 
   public CouponDeletionFilters startsBefore(@javax.annotation.Nullable OffsetDateTime startsBefore) {
     this.startsBefore = startsBefore;
+    this.markPropertyAsSet(SERIALIZED_NAME_STARTS_BEFORE);
     return this;
   }
 
@@ -252,11 +262,13 @@ public class CouponDeletionFilters {
 
   public void setStartsBefore(@javax.annotation.Nullable OffsetDateTime startsBefore) {
     this.startsBefore = startsBefore;
+    this.markPropertyAsSet(SERIALIZED_NAME_STARTS_BEFORE);
   }
 
 
   public CouponDeletionFilters valid(@javax.annotation.Nullable ValidEnum valid) {
     this.valid = valid;
+    this.markPropertyAsSet(SERIALIZED_NAME_VALID);
     return this;
   }
 
@@ -271,11 +283,13 @@ public class CouponDeletionFilters {
 
   public void setValid(@javax.annotation.Nullable ValidEnum valid) {
     this.valid = valid;
+    this.markPropertyAsSet(SERIALIZED_NAME_VALID);
   }
 
 
   public CouponDeletionFilters usable(@javax.annotation.Nullable Boolean usable) {
     this.usable = usable;
+    this.markPropertyAsSet(SERIALIZED_NAME_USABLE);
     return this;
   }
 
@@ -290,11 +304,13 @@ public class CouponDeletionFilters {
 
   public void setUsable(@javax.annotation.Nullable Boolean usable) {
     this.usable = usable;
+    this.markPropertyAsSet(SERIALIZED_NAME_USABLE);
   }
 
 
   public CouponDeletionFilters redeemed(@javax.annotation.Nullable Boolean redeemed) {
     this.redeemed = redeemed;
+    this.markPropertyAsSet(SERIALIZED_NAME_REDEEMED);
     return this;
   }
 
@@ -309,11 +325,13 @@ public class CouponDeletionFilters {
 
   public void setRedeemed(@javax.annotation.Nullable Boolean redeemed) {
     this.redeemed = redeemed;
+    this.markPropertyAsSet(SERIALIZED_NAME_REDEEMED);
   }
 
 
   public CouponDeletionFilters recipientIntegrationId(@javax.annotation.Nullable String recipientIntegrationId) {
     this.recipientIntegrationId = recipientIntegrationId;
+    this.markPropertyAsSet(SERIALIZED_NAME_RECIPIENT_INTEGRATION_ID);
     return this;
   }
 
@@ -328,11 +346,13 @@ public class CouponDeletionFilters {
 
   public void setRecipientIntegrationId(@javax.annotation.Nullable String recipientIntegrationId) {
     this.recipientIntegrationId = recipientIntegrationId;
+    this.markPropertyAsSet(SERIALIZED_NAME_RECIPIENT_INTEGRATION_ID);
   }
 
 
   public CouponDeletionFilters exactMatch(@javax.annotation.Nullable Boolean exactMatch) {
     this.exactMatch = exactMatch;
+    this.markPropertyAsSet(SERIALIZED_NAME_EXACT_MATCH);
     return this;
   }
 
@@ -347,11 +367,13 @@ public class CouponDeletionFilters {
 
   public void setExactMatch(@javax.annotation.Nullable Boolean exactMatch) {
     this.exactMatch = exactMatch;
+    this.markPropertyAsSet(SERIALIZED_NAME_EXACT_MATCH);
   }
 
 
   public CouponDeletionFilters value(@javax.annotation.Nullable String value) {
     this.value = value;
+    this.markPropertyAsSet(SERIALIZED_NAME_VALUE);
     return this;
   }
 
@@ -366,11 +388,13 @@ public class CouponDeletionFilters {
 
   public void setValue(@javax.annotation.Nullable String value) {
     this.value = value;
+    this.markPropertyAsSet(SERIALIZED_NAME_VALUE);
   }
 
 
   public CouponDeletionFilters batchId(@javax.annotation.Nullable String batchId) {
     this.batchId = batchId;
+    this.markPropertyAsSet(SERIALIZED_NAME_BATCH_ID);
     return this;
   }
 
@@ -385,11 +409,13 @@ public class CouponDeletionFilters {
 
   public void setBatchId(@javax.annotation.Nullable String batchId) {
     this.batchId = batchId;
+    this.markPropertyAsSet(SERIALIZED_NAME_BATCH_ID);
   }
 
 
   public CouponDeletionFilters referralId(@javax.annotation.Nullable Long referralId) {
     this.referralId = referralId;
+    this.markPropertyAsSet(SERIALIZED_NAME_REFERRAL_ID);
     return this;
   }
 
@@ -404,11 +430,13 @@ public class CouponDeletionFilters {
 
   public void setReferralId(@javax.annotation.Nullable Long referralId) {
     this.referralId = referralId;
+    this.markPropertyAsSet(SERIALIZED_NAME_REFERRAL_ID);
   }
 
 
   public CouponDeletionFilters expiresAfter(@javax.annotation.Nullable OffsetDateTime expiresAfter) {
     this.expiresAfter = expiresAfter;
+    this.markPropertyAsSet(SERIALIZED_NAME_EXPIRES_AFTER);
     return this;
   }
 
@@ -423,11 +451,13 @@ public class CouponDeletionFilters {
 
   public void setExpiresAfter(@javax.annotation.Nullable OffsetDateTime expiresAfter) {
     this.expiresAfter = expiresAfter;
+    this.markPropertyAsSet(SERIALIZED_NAME_EXPIRES_AFTER);
   }
 
 
   public CouponDeletionFilters expiresBefore(@javax.annotation.Nullable OffsetDateTime expiresBefore) {
     this.expiresBefore = expiresBefore;
+    this.markPropertyAsSet(SERIALIZED_NAME_EXPIRES_BEFORE);
     return this;
   }
 
@@ -442,6 +472,7 @@ public class CouponDeletionFilters {
 
   public void setExpiresBefore(@javax.annotation.Nullable OffsetDateTime expiresBefore) {
     this.expiresBefore = expiresBefore;
+    this.markPropertyAsSet(SERIALIZED_NAME_EXPIRES_BEFORE);
   }
 
   /**
@@ -487,6 +518,21 @@ public class CouponDeletionFilters {
         return null;
     }
     return this.additionalProperties.get(key);
+  }
+
+  /** Omit null properties unless they were explicitly assigned or present in JSON input. */
+  protected final void removeUnsetNullFields(JsonObject obj) {
+    obj.entrySet().removeIf(entry -> entry.getValue().isJsonNull()
+        && !openapiExplicitlySetFields.contains(entry.getKey()));
+  }
+
+  protected final void markPropertyAsSet(String propertyName) {
+    openapiExplicitlySetFields.add(propertyName);
+  }
+
+  /** Gson populates fields directly, bypassing setters during deserialization. */
+  protected final void markPropertiesAsSet(Set<String> propertyNames) {
+    openapiExplicitlySetFields.addAll(propertyNames);
   }
 
 
@@ -600,7 +646,7 @@ public class CouponDeletionFilters {
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
        if (!CouponDeletionFilters.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'CouponDeletionFilters' and its subtypes
+         return null; // let other model factories handle this type
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
        final TypeAdapter<CouponDeletionFilters> thisAdapter
@@ -610,31 +656,22 @@ public class CouponDeletionFilters {
            @Override
            public void write(JsonWriter out, CouponDeletionFilters value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+             value.removeUnsetNullFields(obj);
              obj.remove("additionalProperties");
              // serialize additional properties
              if (value.getAdditionalProperties() != null) {
                for (Map.Entry<String, Object> entry : value.getAdditionalProperties().entrySet()) {
-                 if (entry.getValue() instanceof String)
-                   obj.addProperty(entry.getKey(), (String) entry.getValue());
-                 else if (entry.getValue() instanceof Number)
-                   obj.addProperty(entry.getKey(), (Number) entry.getValue());
-                 else if (entry.getValue() instanceof Boolean)
-                   obj.addProperty(entry.getKey(), (Boolean) entry.getValue());
-                 else if (entry.getValue() instanceof Character)
-                   obj.addProperty(entry.getKey(), (Character) entry.getValue());
-                 else {
-                   JsonElement jsonElement = gson.toJsonTree(entry.getValue());
-                   if (jsonElement.isJsonNull()) {
-                     obj.add(entry.getKey(), JsonNull.INSTANCE);
-                   } else if (jsonElement.isJsonArray()) {
-                     obj.add(entry.getKey(), jsonElement.getAsJsonArray());
-                   } else {
-                     obj.add(entry.getKey(), jsonElement.getAsJsonObject());
-                   }
-                 }
+                 // TypeAdapter.toJsonTree keeps explicit null entries in arbitrary maps too.
+                 obj.add(entry.getKey(), gson.getAdapter(Object.class).toJsonTree(entry.getValue()));
                }
              }
-             elementAdapter.write(out, obj);
+             boolean originalSerializeNulls = out.getSerializeNulls();
+             try {
+               out.setSerializeNulls(true);
+               elementAdapter.write(out, obj);
+             } finally {
+               out.setSerializeNulls(originalSerializeNulls);
+             }
            }
 
            @Override
@@ -644,6 +681,7 @@ public class CouponDeletionFilters {
              JsonObject jsonObj = jsonElement.getAsJsonObject();
              // store additional fields in the deserialized instance
              CouponDeletionFilters instance = thisAdapter.fromJsonTree(jsonObj);
+             instance.markPropertiesAsSet(jsonObj.keySet());
              for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
                if (!openapiFields.contains(entry.getKey())) {
                  if (entry.getValue().isJsonPrimitive()) { // primitive type

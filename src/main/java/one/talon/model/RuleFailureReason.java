@@ -51,6 +51,9 @@ import one.talon.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.26.0")
 public class RuleFailureReason {
+  // Gson ignores transient state; only setters and JSON input mark properties as present.
+  private transient Set<String> openapiExplicitlySetFields = new HashSet<>();
+
   public static final String SERIALIZED_NAME_CAMPAIGN_I_D = "campaignID";
   @SerializedName(SERIALIZED_NAME_CAMPAIGN_I_D)
   @javax.annotation.Nonnull
@@ -136,6 +139,7 @@ public class RuleFailureReason {
 
   public RuleFailureReason campaignID(@javax.annotation.Nonnull Long campaignID) {
     this.campaignID = campaignID;
+    this.markPropertyAsSet(SERIALIZED_NAME_CAMPAIGN_I_D);
     return this;
   }
 
@@ -150,11 +154,13 @@ public class RuleFailureReason {
 
   public void setCampaignID(@javax.annotation.Nonnull Long campaignID) {
     this.campaignID = campaignID;
+    this.markPropertyAsSet(SERIALIZED_NAME_CAMPAIGN_I_D);
   }
 
 
   public RuleFailureReason campaignName(@javax.annotation.Nonnull String campaignName) {
     this.campaignName = campaignName;
+    this.markPropertyAsSet(SERIALIZED_NAME_CAMPAIGN_NAME);
     return this;
   }
 
@@ -169,11 +175,13 @@ public class RuleFailureReason {
 
   public void setCampaignName(@javax.annotation.Nonnull String campaignName) {
     this.campaignName = campaignName;
+    this.markPropertyAsSet(SERIALIZED_NAME_CAMPAIGN_NAME);
   }
 
 
   public RuleFailureReason rulesetID(@javax.annotation.Nonnull Long rulesetID) {
     this.rulesetID = rulesetID;
+    this.markPropertyAsSet(SERIALIZED_NAME_RULESET_I_D);
     return this;
   }
 
@@ -188,11 +196,13 @@ public class RuleFailureReason {
 
   public void setRulesetID(@javax.annotation.Nonnull Long rulesetID) {
     this.rulesetID = rulesetID;
+    this.markPropertyAsSet(SERIALIZED_NAME_RULESET_I_D);
   }
 
 
   public RuleFailureReason couponID(@javax.annotation.Nullable Long couponID) {
     this.couponID = couponID;
+    this.markPropertyAsSet(SERIALIZED_NAME_COUPON_I_D);
     return this;
   }
 
@@ -207,11 +217,13 @@ public class RuleFailureReason {
 
   public void setCouponID(@javax.annotation.Nullable Long couponID) {
     this.couponID = couponID;
+    this.markPropertyAsSet(SERIALIZED_NAME_COUPON_I_D);
   }
 
 
   public RuleFailureReason couponValue(@javax.annotation.Nullable String couponValue) {
     this.couponValue = couponValue;
+    this.markPropertyAsSet(SERIALIZED_NAME_COUPON_VALUE);
     return this;
   }
 
@@ -226,11 +238,13 @@ public class RuleFailureReason {
 
   public void setCouponValue(@javax.annotation.Nullable String couponValue) {
     this.couponValue = couponValue;
+    this.markPropertyAsSet(SERIALIZED_NAME_COUPON_VALUE);
   }
 
 
   public RuleFailureReason referralID(@javax.annotation.Nullable Long referralID) {
     this.referralID = referralID;
+    this.markPropertyAsSet(SERIALIZED_NAME_REFERRAL_I_D);
     return this;
   }
 
@@ -245,11 +259,13 @@ public class RuleFailureReason {
 
   public void setReferralID(@javax.annotation.Nullable Long referralID) {
     this.referralID = referralID;
+    this.markPropertyAsSet(SERIALIZED_NAME_REFERRAL_I_D);
   }
 
 
   public RuleFailureReason referralValue(@javax.annotation.Nullable String referralValue) {
     this.referralValue = referralValue;
+    this.markPropertyAsSet(SERIALIZED_NAME_REFERRAL_VALUE);
     return this;
   }
 
@@ -264,11 +280,13 @@ public class RuleFailureReason {
 
   public void setReferralValue(@javax.annotation.Nullable String referralValue) {
     this.referralValue = referralValue;
+    this.markPropertyAsSet(SERIALIZED_NAME_REFERRAL_VALUE);
   }
 
 
   public RuleFailureReason rewardId(@javax.annotation.Nullable Long rewardId) {
     this.rewardId = rewardId;
+    this.markPropertyAsSet(SERIALIZED_NAME_REWARD_ID);
     return this;
   }
 
@@ -283,11 +301,13 @@ public class RuleFailureReason {
 
   public void setRewardId(@javax.annotation.Nullable Long rewardId) {
     this.rewardId = rewardId;
+    this.markPropertyAsSet(SERIALIZED_NAME_REWARD_ID);
   }
 
 
   public RuleFailureReason rewardIntegrationId(@javax.annotation.Nullable String rewardIntegrationId) {
     this.rewardIntegrationId = rewardIntegrationId;
+    this.markPropertyAsSet(SERIALIZED_NAME_REWARD_INTEGRATION_ID);
     return this;
   }
 
@@ -302,11 +322,13 @@ public class RuleFailureReason {
 
   public void setRewardIntegrationId(@javax.annotation.Nullable String rewardIntegrationId) {
     this.rewardIntegrationId = rewardIntegrationId;
+    this.markPropertyAsSet(SERIALIZED_NAME_REWARD_INTEGRATION_ID);
   }
 
 
   public RuleFailureReason ruleIndex(@javax.annotation.Nonnull Long ruleIndex) {
     this.ruleIndex = ruleIndex;
+    this.markPropertyAsSet(SERIALIZED_NAME_RULE_INDEX);
     return this;
   }
 
@@ -321,11 +343,13 @@ public class RuleFailureReason {
 
   public void setRuleIndex(@javax.annotation.Nonnull Long ruleIndex) {
     this.ruleIndex = ruleIndex;
+    this.markPropertyAsSet(SERIALIZED_NAME_RULE_INDEX);
   }
 
 
   public RuleFailureReason ruleName(@javax.annotation.Nonnull String ruleName) {
     this.ruleName = ruleName;
+    this.markPropertyAsSet(SERIALIZED_NAME_RULE_NAME);
     return this;
   }
 
@@ -340,11 +364,13 @@ public class RuleFailureReason {
 
   public void setRuleName(@javax.annotation.Nonnull String ruleName) {
     this.ruleName = ruleName;
+    this.markPropertyAsSet(SERIALIZED_NAME_RULE_NAME);
   }
 
 
   public RuleFailureReason conditionIndex(@javax.annotation.Nullable Long conditionIndex) {
     this.conditionIndex = conditionIndex;
+    this.markPropertyAsSet(SERIALIZED_NAME_CONDITION_INDEX);
     return this;
   }
 
@@ -359,11 +385,13 @@ public class RuleFailureReason {
 
   public void setConditionIndex(@javax.annotation.Nullable Long conditionIndex) {
     this.conditionIndex = conditionIndex;
+    this.markPropertyAsSet(SERIALIZED_NAME_CONDITION_INDEX);
   }
 
 
   public RuleFailureReason effectIndex(@javax.annotation.Nullable Long effectIndex) {
     this.effectIndex = effectIndex;
+    this.markPropertyAsSet(SERIALIZED_NAME_EFFECT_INDEX);
     return this;
   }
 
@@ -378,11 +406,13 @@ public class RuleFailureReason {
 
   public void setEffectIndex(@javax.annotation.Nullable Long effectIndex) {
     this.effectIndex = effectIndex;
+    this.markPropertyAsSet(SERIALIZED_NAME_EFFECT_INDEX);
   }
 
 
   public RuleFailureReason details(@javax.annotation.Nullable String details) {
     this.details = details;
+    this.markPropertyAsSet(SERIALIZED_NAME_DETAILS);
     return this;
   }
 
@@ -397,11 +427,13 @@ public class RuleFailureReason {
 
   public void setDetails(@javax.annotation.Nullable String details) {
     this.details = details;
+    this.markPropertyAsSet(SERIALIZED_NAME_DETAILS);
   }
 
 
   public RuleFailureReason evaluationGroupID(@javax.annotation.Nullable Long evaluationGroupID) {
     this.evaluationGroupID = evaluationGroupID;
+    this.markPropertyAsSet(SERIALIZED_NAME_EVALUATION_GROUP_I_D);
     return this;
   }
 
@@ -416,11 +448,13 @@ public class RuleFailureReason {
 
   public void setEvaluationGroupID(@javax.annotation.Nullable Long evaluationGroupID) {
     this.evaluationGroupID = evaluationGroupID;
+    this.markPropertyAsSet(SERIALIZED_NAME_EVALUATION_GROUP_I_D);
   }
 
 
   public RuleFailureReason evaluationGroupMode(@javax.annotation.Nullable String evaluationGroupMode) {
     this.evaluationGroupMode = evaluationGroupMode;
+    this.markPropertyAsSet(SERIALIZED_NAME_EVALUATION_GROUP_MODE);
     return this;
   }
 
@@ -435,6 +469,7 @@ public class RuleFailureReason {
 
   public void setEvaluationGroupMode(@javax.annotation.Nullable String evaluationGroupMode) {
     this.evaluationGroupMode = evaluationGroupMode;
+    this.markPropertyAsSet(SERIALIZED_NAME_EVALUATION_GROUP_MODE);
   }
 
   /**
@@ -480,6 +515,21 @@ public class RuleFailureReason {
         return null;
     }
     return this.additionalProperties.get(key);
+  }
+
+  /** Omit null properties unless they were explicitly assigned or present in JSON input. */
+  protected final void removeUnsetNullFields(JsonObject obj) {
+    obj.entrySet().removeIf(entry -> entry.getValue().isJsonNull()
+        && !openapiExplicitlySetFields.contains(entry.getKey()));
+  }
+
+  protected final void markPropertyAsSet(String propertyName) {
+    openapiExplicitlySetFields.add(propertyName);
+  }
+
+  /** Gson populates fields directly, bypassing setters during deserialization. */
+  protected final void markPropertiesAsSet(Set<String> propertyNames) {
+    openapiExplicitlySetFields.addAll(propertyNames);
   }
 
 
@@ -609,7 +659,7 @@ public class RuleFailureReason {
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
        if (!RuleFailureReason.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'RuleFailureReason' and its subtypes
+         return null; // let other model factories handle this type
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
        final TypeAdapter<RuleFailureReason> thisAdapter
@@ -619,31 +669,22 @@ public class RuleFailureReason {
            @Override
            public void write(JsonWriter out, RuleFailureReason value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+             value.removeUnsetNullFields(obj);
              obj.remove("additionalProperties");
              // serialize additional properties
              if (value.getAdditionalProperties() != null) {
                for (Map.Entry<String, Object> entry : value.getAdditionalProperties().entrySet()) {
-                 if (entry.getValue() instanceof String)
-                   obj.addProperty(entry.getKey(), (String) entry.getValue());
-                 else if (entry.getValue() instanceof Number)
-                   obj.addProperty(entry.getKey(), (Number) entry.getValue());
-                 else if (entry.getValue() instanceof Boolean)
-                   obj.addProperty(entry.getKey(), (Boolean) entry.getValue());
-                 else if (entry.getValue() instanceof Character)
-                   obj.addProperty(entry.getKey(), (Character) entry.getValue());
-                 else {
-                   JsonElement jsonElement = gson.toJsonTree(entry.getValue());
-                   if (jsonElement.isJsonNull()) {
-                     obj.add(entry.getKey(), JsonNull.INSTANCE);
-                   } else if (jsonElement.isJsonArray()) {
-                     obj.add(entry.getKey(), jsonElement.getAsJsonArray());
-                   } else {
-                     obj.add(entry.getKey(), jsonElement.getAsJsonObject());
-                   }
-                 }
+                 // TypeAdapter.toJsonTree keeps explicit null entries in arbitrary maps too.
+                 obj.add(entry.getKey(), gson.getAdapter(Object.class).toJsonTree(entry.getValue()));
                }
              }
-             elementAdapter.write(out, obj);
+             boolean originalSerializeNulls = out.getSerializeNulls();
+             try {
+               out.setSerializeNulls(true);
+               elementAdapter.write(out, obj);
+             } finally {
+               out.setSerializeNulls(originalSerializeNulls);
+             }
            }
 
            @Override
@@ -653,6 +694,7 @@ public class RuleFailureReason {
              JsonObject jsonObj = jsonElement.getAsJsonObject();
              // store additional fields in the deserialized instance
              RuleFailureReason instance = thisAdapter.fromJsonTree(jsonObj);
+             instance.markPropertiesAsSet(jsonObj.keySet());
              for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
                if (!openapiFields.contains(entry.getKey())) {
                  if (entry.getValue().isJsonPrimitive()) { // primitive type

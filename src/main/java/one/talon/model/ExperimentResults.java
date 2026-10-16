@@ -55,6 +55,9 @@ import one.talon.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.26.0")
 public class ExperimentResults {
+  // Gson ignores transient state; only setters and JSON input mark properties as present.
+  private transient Set<String> openapiExplicitlySetFields = new HashSet<>();
+
   public static final String SERIALIZED_NAME_VARIANTS = "variants";
   @SerializedName(SERIALIZED_NAME_VARIANTS)
   @javax.annotation.Nonnull
@@ -70,6 +73,7 @@ public class ExperimentResults {
 
   public ExperimentResults variants(@javax.annotation.Nonnull List<ExperimentVariantResult> variants) {
     this.variants = variants;
+    this.markPropertyAsSet(SERIALIZED_NAME_VARIANTS);
     return this;
   }
 
@@ -78,6 +82,7 @@ public class ExperimentResults {
       this.variants = new ArrayList<>();
     }
     this.variants.add(variantsItem);
+    this.markPropertyAsSet(SERIALIZED_NAME_VARIANTS);
     return this;
   }
 
@@ -92,11 +97,13 @@ public class ExperimentResults {
 
   public void setVariants(@javax.annotation.Nonnull List<ExperimentVariantResult> variants) {
     this.variants = variants;
+    this.markPropertyAsSet(SERIALIZED_NAME_VARIANTS);
   }
 
 
   public ExperimentResults confidence(@javax.annotation.Nonnull ExperimentVariantResultConfidence confidence) {
     this.confidence = confidence;
+    this.markPropertyAsSet(SERIALIZED_NAME_CONFIDENCE);
     return this;
   }
 
@@ -111,6 +118,7 @@ public class ExperimentResults {
 
   public void setConfidence(@javax.annotation.Nonnull ExperimentVariantResultConfidence confidence) {
     this.confidence = confidence;
+    this.markPropertyAsSet(SERIALIZED_NAME_CONFIDENCE);
   }
 
   /**
@@ -156,6 +164,21 @@ public class ExperimentResults {
         return null;
     }
     return this.additionalProperties.get(key);
+  }
+
+  /** Omit null properties unless they were explicitly assigned or present in JSON input. */
+  protected final void removeUnsetNullFields(JsonObject obj) {
+    obj.entrySet().removeIf(entry -> entry.getValue().isJsonNull()
+        && !openapiExplicitlySetFields.contains(entry.getKey()));
+  }
+
+  protected final void markPropertyAsSet(String propertyName) {
+    openapiExplicitlySetFields.add(propertyName);
+  }
+
+  /** Gson populates fields directly, bypassing setters during deserialization. */
+  protected final void markPropertiesAsSet(Set<String> propertyNames) {
+    openapiExplicitlySetFields.addAll(propertyNames);
   }
 
 
@@ -248,7 +271,7 @@ public class ExperimentResults {
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
        if (!ExperimentResults.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'ExperimentResults' and its subtypes
+         return null; // let other model factories handle this type
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
        final TypeAdapter<ExperimentResults> thisAdapter
@@ -258,31 +281,22 @@ public class ExperimentResults {
            @Override
            public void write(JsonWriter out, ExperimentResults value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+             value.removeUnsetNullFields(obj);
              obj.remove("additionalProperties");
              // serialize additional properties
              if (value.getAdditionalProperties() != null) {
                for (Map.Entry<String, Object> entry : value.getAdditionalProperties().entrySet()) {
-                 if (entry.getValue() instanceof String)
-                   obj.addProperty(entry.getKey(), (String) entry.getValue());
-                 else if (entry.getValue() instanceof Number)
-                   obj.addProperty(entry.getKey(), (Number) entry.getValue());
-                 else if (entry.getValue() instanceof Boolean)
-                   obj.addProperty(entry.getKey(), (Boolean) entry.getValue());
-                 else if (entry.getValue() instanceof Character)
-                   obj.addProperty(entry.getKey(), (Character) entry.getValue());
-                 else {
-                   JsonElement jsonElement = gson.toJsonTree(entry.getValue());
-                   if (jsonElement.isJsonNull()) {
-                     obj.add(entry.getKey(), JsonNull.INSTANCE);
-                   } else if (jsonElement.isJsonArray()) {
-                     obj.add(entry.getKey(), jsonElement.getAsJsonArray());
-                   } else {
-                     obj.add(entry.getKey(), jsonElement.getAsJsonObject());
-                   }
-                 }
+                 // TypeAdapter.toJsonTree keeps explicit null entries in arbitrary maps too.
+                 obj.add(entry.getKey(), gson.getAdapter(Object.class).toJsonTree(entry.getValue()));
                }
              }
-             elementAdapter.write(out, obj);
+             boolean originalSerializeNulls = out.getSerializeNulls();
+             try {
+               out.setSerializeNulls(true);
+               elementAdapter.write(out, obj);
+             } finally {
+               out.setSerializeNulls(originalSerializeNulls);
+             }
            }
 
            @Override
@@ -292,6 +306,7 @@ public class ExperimentResults {
              JsonObject jsonObj = jsonElement.getAsJsonObject();
              // store additional fields in the deserialized instance
              ExperimentResults instance = thisAdapter.fromJsonTree(jsonObj);
+             instance.markPropertiesAsSet(jsonObj.keySet());
              for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
                if (!openapiFields.contains(entry.getKey())) {
                  if (entry.getValue().isJsonPrimitive()) { // primitive type

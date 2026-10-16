@@ -55,6 +55,9 @@ import one.talon.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.26.0")
 public class BestPriorPriceRequest {
+  // Gson ignores transient state; only setters and JSON input mark properties as present.
+  private transient Set<String> openapiExplicitlySetFields = new HashSet<>();
+
   public static final String SERIALIZED_NAME_SKUS = "skus";
   @SerializedName(SERIALIZED_NAME_SKUS)
   @javax.annotation.Nonnull
@@ -139,6 +142,7 @@ public class BestPriorPriceRequest {
 
   public BestPriorPriceRequest skus(@javax.annotation.Nonnull List<String> skus) {
     this.skus = skus;
+    this.markPropertyAsSet(SERIALIZED_NAME_SKUS);
     return this;
   }
 
@@ -147,6 +151,7 @@ public class BestPriorPriceRequest {
       this.skus = new ArrayList<>();
     }
     this.skus.add(skusItem);
+    this.markPropertyAsSet(SERIALIZED_NAME_SKUS);
     return this;
   }
 
@@ -161,11 +166,13 @@ public class BestPriorPriceRequest {
 
   public void setSkus(@javax.annotation.Nonnull List<String> skus) {
     this.skus = skus;
+    this.markPropertyAsSet(SERIALIZED_NAME_SKUS);
   }
 
 
   public BestPriorPriceRequest timeframeEndDate(@javax.annotation.Nonnull OffsetDateTime timeframeEndDate) {
     this.timeframeEndDate = timeframeEndDate;
+    this.markPropertyAsSet(SERIALIZED_NAME_TIMEFRAME_END_DATE);
     return this;
   }
 
@@ -180,11 +187,13 @@ public class BestPriorPriceRequest {
 
   public void setTimeframeEndDate(@javax.annotation.Nonnull OffsetDateTime timeframeEndDate) {
     this.timeframeEndDate = timeframeEndDate;
+    this.markPropertyAsSet(SERIALIZED_NAME_TIMEFRAME_END_DATE);
   }
 
 
   public BestPriorPriceRequest timeframe(@javax.annotation.Nonnull String timeframe) {
     this.timeframe = timeframe;
+    this.markPropertyAsSet(SERIALIZED_NAME_TIMEFRAME);
     return this;
   }
 
@@ -199,11 +208,13 @@ public class BestPriorPriceRequest {
 
   public void setTimeframe(@javax.annotation.Nonnull String timeframe) {
     this.timeframe = timeframe;
+    this.markPropertyAsSet(SERIALIZED_NAME_TIMEFRAME);
   }
 
 
   public BestPriorPriceRequest timeframeEndDateType(@javax.annotation.Nonnull TimeframeEndDateTypeEnum timeframeEndDateType) {
     this.timeframeEndDateType = timeframeEndDateType;
+    this.markPropertyAsSet(SERIALIZED_NAME_TIMEFRAME_END_DATE_TYPE);
     return this;
   }
 
@@ -218,11 +229,13 @@ public class BestPriorPriceRequest {
 
   public void setTimeframeEndDateType(@javax.annotation.Nonnull TimeframeEndDateTypeEnum timeframeEndDateType) {
     this.timeframeEndDateType = timeframeEndDateType;
+    this.markPropertyAsSet(SERIALIZED_NAME_TIMEFRAME_END_DATE_TYPE);
   }
 
 
   public BestPriorPriceRequest target(@javax.annotation.Nullable BestPriorTarget target) {
     this.target = target;
+    this.markPropertyAsSet(SERIALIZED_NAME_TARGET);
     return this;
   }
 
@@ -237,6 +250,7 @@ public class BestPriorPriceRequest {
 
   public void setTarget(@javax.annotation.Nullable BestPriorTarget target) {
     this.target = target;
+    this.markPropertyAsSet(SERIALIZED_NAME_TARGET);
   }
 
   /**
@@ -282,6 +296,21 @@ public class BestPriorPriceRequest {
         return null;
     }
     return this.additionalProperties.get(key);
+  }
+
+  /** Omit null properties unless they were explicitly assigned or present in JSON input. */
+  protected final void removeUnsetNullFields(JsonObject obj) {
+    obj.entrySet().removeIf(entry -> entry.getValue().isJsonNull()
+        && !openapiExplicitlySetFields.contains(entry.getKey()));
+  }
+
+  protected final void markPropertyAsSet(String propertyName) {
+    openapiExplicitlySetFields.add(propertyName);
+  }
+
+  /** Gson populates fields directly, bypassing setters during deserialization. */
+  protected final void markPropertiesAsSet(Set<String> propertyNames) {
+    openapiExplicitlySetFields.addAll(propertyNames);
   }
 
 
@@ -386,7 +415,7 @@ public class BestPriorPriceRequest {
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
        if (!BestPriorPriceRequest.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'BestPriorPriceRequest' and its subtypes
+         return null; // let other model factories handle this type
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
        final TypeAdapter<BestPriorPriceRequest> thisAdapter
@@ -396,31 +425,22 @@ public class BestPriorPriceRequest {
            @Override
            public void write(JsonWriter out, BestPriorPriceRequest value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+             value.removeUnsetNullFields(obj);
              obj.remove("additionalProperties");
              // serialize additional properties
              if (value.getAdditionalProperties() != null) {
                for (Map.Entry<String, Object> entry : value.getAdditionalProperties().entrySet()) {
-                 if (entry.getValue() instanceof String)
-                   obj.addProperty(entry.getKey(), (String) entry.getValue());
-                 else if (entry.getValue() instanceof Number)
-                   obj.addProperty(entry.getKey(), (Number) entry.getValue());
-                 else if (entry.getValue() instanceof Boolean)
-                   obj.addProperty(entry.getKey(), (Boolean) entry.getValue());
-                 else if (entry.getValue() instanceof Character)
-                   obj.addProperty(entry.getKey(), (Character) entry.getValue());
-                 else {
-                   JsonElement jsonElement = gson.toJsonTree(entry.getValue());
-                   if (jsonElement.isJsonNull()) {
-                     obj.add(entry.getKey(), JsonNull.INSTANCE);
-                   } else if (jsonElement.isJsonArray()) {
-                     obj.add(entry.getKey(), jsonElement.getAsJsonArray());
-                   } else {
-                     obj.add(entry.getKey(), jsonElement.getAsJsonObject());
-                   }
-                 }
+                 // TypeAdapter.toJsonTree keeps explicit null entries in arbitrary maps too.
+                 obj.add(entry.getKey(), gson.getAdapter(Object.class).toJsonTree(entry.getValue()));
                }
              }
-             elementAdapter.write(out, obj);
+             boolean originalSerializeNulls = out.getSerializeNulls();
+             try {
+               out.setSerializeNulls(true);
+               elementAdapter.write(out, obj);
+             } finally {
+               out.setSerializeNulls(originalSerializeNulls);
+             }
            }
 
            @Override
@@ -430,6 +450,7 @@ public class BestPriorPriceRequest {
              JsonObject jsonObj = jsonElement.getAsJsonObject();
              // store additional fields in the deserialized instance
              BestPriorPriceRequest instance = thisAdapter.fromJsonTree(jsonObj);
+             instance.markPropertiesAsSet(jsonObj.keySet());
              for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
                if (!openapiFields.contains(entry.getKey())) {
                  if (entry.getValue().isJsonPrimitive()) { // primitive type

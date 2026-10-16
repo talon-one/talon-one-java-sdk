@@ -56,6 +56,9 @@ import one.talon.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.26.0")
 public class Experiment {
+  // Gson ignores transient state; only setters and JSON input mark properties as present.
+  private transient Set<String> openapiExplicitlySetFields = new HashSet<>();
+
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
   @javax.annotation.Nonnull
@@ -286,6 +289,7 @@ public class Experiment {
 
   public Experiment id(@javax.annotation.Nonnull Long id) {
     this.id = id;
+    this.markPropertyAsSet(SERIALIZED_NAME_ID);
     return this;
   }
 
@@ -300,11 +304,13 @@ public class Experiment {
 
   public void setId(@javax.annotation.Nonnull Long id) {
     this.id = id;
+    this.markPropertyAsSet(SERIALIZED_NAME_ID);
   }
 
 
   public Experiment created(@javax.annotation.Nonnull OffsetDateTime created) {
     this.created = created;
+    this.markPropertyAsSet(SERIALIZED_NAME_CREATED);
     return this;
   }
 
@@ -319,11 +325,13 @@ public class Experiment {
 
   public void setCreated(@javax.annotation.Nonnull OffsetDateTime created) {
     this.created = created;
+    this.markPropertyAsSet(SERIALIZED_NAME_CREATED);
   }
 
 
   public Experiment applicationId(@javax.annotation.Nonnull Long applicationId) {
     this.applicationId = applicationId;
+    this.markPropertyAsSet(SERIALIZED_NAME_APPLICATION_ID);
     return this;
   }
 
@@ -338,11 +346,13 @@ public class Experiment {
 
   public void setApplicationId(@javax.annotation.Nonnull Long applicationId) {
     this.applicationId = applicationId;
+    this.markPropertyAsSet(SERIALIZED_NAME_APPLICATION_ID);
   }
 
 
   public Experiment assignmentType(@javax.annotation.Nullable AssignmentTypeEnum assignmentType) {
     this.assignmentType = assignmentType;
+    this.markPropertyAsSet(SERIALIZED_NAME_ASSIGNMENT_TYPE);
     return this;
   }
 
@@ -357,12 +367,14 @@ public class Experiment {
 
   public void setAssignmentType(@javax.annotation.Nullable AssignmentTypeEnum assignmentType) {
     this.assignmentType = assignmentType;
+    this.markPropertyAsSet(SERIALIZED_NAME_ASSIGNMENT_TYPE);
   }
 
 
   @Deprecated
   public Experiment isVariantAssignmentExternal(@javax.annotation.Nullable Boolean isVariantAssignmentExternal) {
     this.isVariantAssignmentExternal = isVariantAssignmentExternal;
+    this.markPropertyAsSet(SERIALIZED_NAME_IS_VARIANT_ASSIGNMENT_EXTERNAL);
     return this;
   }
 
@@ -380,11 +392,13 @@ public class Experiment {
   @Deprecated
   public void setIsVariantAssignmentExternal(@javax.annotation.Nullable Boolean isVariantAssignmentExternal) {
     this.isVariantAssignmentExternal = isVariantAssignmentExternal;
+    this.markPropertyAsSet(SERIALIZED_NAME_IS_VARIANT_ASSIGNMENT_EXTERNAL);
   }
 
 
   public Experiment campaign(@javax.annotation.Nullable Campaign campaign) {
     this.campaign = campaign;
+    this.markPropertyAsSet(SERIALIZED_NAME_CAMPAIGN);
     return this;
   }
 
@@ -399,11 +413,13 @@ public class Experiment {
 
   public void setCampaign(@javax.annotation.Nullable Campaign campaign) {
     this.campaign = campaign;
+    this.markPropertyAsSet(SERIALIZED_NAME_CAMPAIGN);
   }
 
 
   public Experiment activated(@javax.annotation.Nullable OffsetDateTime activated) {
     this.activated = activated;
+    this.markPropertyAsSet(SERIALIZED_NAME_ACTIVATED);
     return this;
   }
 
@@ -418,11 +434,13 @@ public class Experiment {
 
   public void setActivated(@javax.annotation.Nullable OffsetDateTime activated) {
     this.activated = activated;
+    this.markPropertyAsSet(SERIALIZED_NAME_ACTIVATED);
   }
 
 
   public Experiment state(@javax.annotation.Nonnull StateEnum state) {
     this.state = state;
+    this.markPropertyAsSet(SERIALIZED_NAME_STATE);
     return this;
   }
 
@@ -437,11 +455,13 @@ public class Experiment {
 
   public void setState(@javax.annotation.Nonnull StateEnum state) {
     this.state = state;
+    this.markPropertyAsSet(SERIALIZED_NAME_STATE);
   }
 
 
   public Experiment variants(@javax.annotation.Nullable List<ExperimentVariant> variants) {
     this.variants = variants;
+    this.markPropertyAsSet(SERIALIZED_NAME_VARIANTS);
     return this;
   }
 
@@ -450,6 +470,7 @@ public class Experiment {
       this.variants = new ArrayList<>();
     }
     this.variants.add(variantsItem);
+    this.markPropertyAsSet(SERIALIZED_NAME_VARIANTS);
     return this;
   }
 
@@ -464,11 +485,13 @@ public class Experiment {
 
   public void setVariants(@javax.annotation.Nullable List<ExperimentVariant> variants) {
     this.variants = variants;
+    this.markPropertyAsSet(SERIALIZED_NAME_VARIANTS);
   }
 
 
   public Experiment goalType(@javax.annotation.Nonnull GoalTypeEnum goalType) {
     this.goalType = goalType;
+    this.markPropertyAsSet(SERIALIZED_NAME_GOAL_TYPE);
     return this;
   }
 
@@ -483,11 +506,13 @@ public class Experiment {
 
   public void setGoalType(@javax.annotation.Nonnull GoalTypeEnum goalType) {
     this.goalType = goalType;
+    this.markPropertyAsSet(SERIALIZED_NAME_GOAL_TYPE);
   }
 
 
   public Experiment goalDescription(@javax.annotation.Nullable String goalDescription) {
     this.goalDescription = goalDescription;
+    this.markPropertyAsSet(SERIALIZED_NAME_GOAL_DESCRIPTION);
     return this;
   }
 
@@ -502,11 +527,13 @@ public class Experiment {
 
   public void setGoalDescription(@javax.annotation.Nullable String goalDescription) {
     this.goalDescription = goalDescription;
+    this.markPropertyAsSet(SERIALIZED_NAME_GOAL_DESCRIPTION);
   }
 
 
   public Experiment deletedat(@javax.annotation.Nullable OffsetDateTime deletedat) {
     this.deletedat = deletedat;
+    this.markPropertyAsSet(SERIALIZED_NAME_DELETEDAT);
     return this;
   }
 
@@ -521,6 +548,7 @@ public class Experiment {
 
   public void setDeletedat(@javax.annotation.Nullable OffsetDateTime deletedat) {
     this.deletedat = deletedat;
+    this.markPropertyAsSet(SERIALIZED_NAME_DELETEDAT);
   }
 
   /**
@@ -566,6 +594,21 @@ public class Experiment {
         return null;
     }
     return this.additionalProperties.get(key);
+  }
+
+  /** Omit null properties unless they were explicitly assigned or present in JSON input. */
+  protected final void removeUnsetNullFields(JsonObject obj) {
+    obj.entrySet().removeIf(entry -> entry.getValue().isJsonNull()
+        && !openapiExplicitlySetFields.contains(entry.getKey()));
+  }
+
+  protected final void markPropertyAsSet(String propertyName) {
+    openapiExplicitlySetFields.add(propertyName);
+  }
+
+  /** Gson populates fields directly, bypassing setters during deserialization. */
+  protected final void markPropertiesAsSet(Set<String> propertyNames) {
+    openapiExplicitlySetFields.addAll(propertyNames);
   }
 
 
@@ -704,7 +747,7 @@ public class Experiment {
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
        if (!Experiment.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'Experiment' and its subtypes
+         return null; // let other model factories handle this type
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
        final TypeAdapter<Experiment> thisAdapter
@@ -714,31 +757,22 @@ public class Experiment {
            @Override
            public void write(JsonWriter out, Experiment value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+             value.removeUnsetNullFields(obj);
              obj.remove("additionalProperties");
              // serialize additional properties
              if (value.getAdditionalProperties() != null) {
                for (Map.Entry<String, Object> entry : value.getAdditionalProperties().entrySet()) {
-                 if (entry.getValue() instanceof String)
-                   obj.addProperty(entry.getKey(), (String) entry.getValue());
-                 else if (entry.getValue() instanceof Number)
-                   obj.addProperty(entry.getKey(), (Number) entry.getValue());
-                 else if (entry.getValue() instanceof Boolean)
-                   obj.addProperty(entry.getKey(), (Boolean) entry.getValue());
-                 else if (entry.getValue() instanceof Character)
-                   obj.addProperty(entry.getKey(), (Character) entry.getValue());
-                 else {
-                   JsonElement jsonElement = gson.toJsonTree(entry.getValue());
-                   if (jsonElement.isJsonNull()) {
-                     obj.add(entry.getKey(), JsonNull.INSTANCE);
-                   } else if (jsonElement.isJsonArray()) {
-                     obj.add(entry.getKey(), jsonElement.getAsJsonArray());
-                   } else {
-                     obj.add(entry.getKey(), jsonElement.getAsJsonObject());
-                   }
-                 }
+                 // TypeAdapter.toJsonTree keeps explicit null entries in arbitrary maps too.
+                 obj.add(entry.getKey(), gson.getAdapter(Object.class).toJsonTree(entry.getValue()));
                }
              }
-             elementAdapter.write(out, obj);
+             boolean originalSerializeNulls = out.getSerializeNulls();
+             try {
+               out.setSerializeNulls(true);
+               elementAdapter.write(out, obj);
+             } finally {
+               out.setSerializeNulls(originalSerializeNulls);
+             }
            }
 
            @Override
@@ -748,6 +782,7 @@ public class Experiment {
              JsonObject jsonObj = jsonElement.getAsJsonObject();
              // store additional fields in the deserialized instance
              Experiment instance = thisAdapter.fromJsonTree(jsonObj);
+             instance.markPropertiesAsSet(jsonObj.keySet());
              for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
                if (!openapiFields.contains(entry.getKey())) {
                  if (entry.getValue().isJsonPrimitive()) { // primitive type

@@ -54,6 +54,9 @@ import one.talon.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.26.0")
 public class LoyaltyProgramTransaction {
+  // Gson ignores transient state; only setters and JSON input mark properties as present.
+  private transient Set<String> openapiExplicitlySetFields = new HashSet<>();
+
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
   @javax.annotation.Nonnull
@@ -216,6 +219,7 @@ public class LoyaltyProgramTransaction {
 
   public LoyaltyProgramTransaction id(@javax.annotation.Nonnull Long id) {
     this.id = id;
+    this.markPropertyAsSet(SERIALIZED_NAME_ID);
     return this;
   }
 
@@ -230,11 +234,13 @@ public class LoyaltyProgramTransaction {
 
   public void setId(@javax.annotation.Nonnull Long id) {
     this.id = id;
+    this.markPropertyAsSet(SERIALIZED_NAME_ID);
   }
 
 
   public LoyaltyProgramTransaction transactionUUID(@javax.annotation.Nonnull String transactionUUID) {
     this.transactionUUID = transactionUUID;
+    this.markPropertyAsSet(SERIALIZED_NAME_TRANSACTION_U_U_I_D);
     return this;
   }
 
@@ -249,11 +255,13 @@ public class LoyaltyProgramTransaction {
 
   public void setTransactionUUID(@javax.annotation.Nonnull String transactionUUID) {
     this.transactionUUID = transactionUUID;
+    this.markPropertyAsSet(SERIALIZED_NAME_TRANSACTION_U_U_I_D);
   }
 
 
   public LoyaltyProgramTransaction programId(@javax.annotation.Nonnull Long programId) {
     this.programId = programId;
+    this.markPropertyAsSet(SERIALIZED_NAME_PROGRAM_ID);
     return this;
   }
 
@@ -268,11 +276,13 @@ public class LoyaltyProgramTransaction {
 
   public void setProgramId(@javax.annotation.Nonnull Long programId) {
     this.programId = programId;
+    this.markPropertyAsSet(SERIALIZED_NAME_PROGRAM_ID);
   }
 
 
   public LoyaltyProgramTransaction campaignId(@javax.annotation.Nullable Long campaignId) {
     this.campaignId = campaignId;
+    this.markPropertyAsSet(SERIALIZED_NAME_CAMPAIGN_ID);
     return this;
   }
 
@@ -287,11 +297,13 @@ public class LoyaltyProgramTransaction {
 
   public void setCampaignId(@javax.annotation.Nullable Long campaignId) {
     this.campaignId = campaignId;
+    this.markPropertyAsSet(SERIALIZED_NAME_CAMPAIGN_ID);
   }
 
 
   public LoyaltyProgramTransaction created(@javax.annotation.Nonnull OffsetDateTime created) {
     this.created = created;
+    this.markPropertyAsSet(SERIALIZED_NAME_CREATED);
     return this;
   }
 
@@ -306,11 +318,13 @@ public class LoyaltyProgramTransaction {
 
   public void setCreated(@javax.annotation.Nonnull OffsetDateTime created) {
     this.created = created;
+    this.markPropertyAsSet(SERIALIZED_NAME_CREATED);
   }
 
 
   public LoyaltyProgramTransaction type(@javax.annotation.Nonnull TypeEnum type) {
     this.type = type;
+    this.markPropertyAsSet(SERIALIZED_NAME_TYPE);
     return this;
   }
 
@@ -325,11 +339,13 @@ public class LoyaltyProgramTransaction {
 
   public void setType(@javax.annotation.Nonnull TypeEnum type) {
     this.type = type;
+    this.markPropertyAsSet(SERIALIZED_NAME_TYPE);
   }
 
 
   public LoyaltyProgramTransaction amount(@javax.annotation.Nonnull BigDecimal amount) {
     this.amount = amount;
+    this.markPropertyAsSet(SERIALIZED_NAME_AMOUNT);
     return this;
   }
 
@@ -344,11 +360,13 @@ public class LoyaltyProgramTransaction {
 
   public void setAmount(@javax.annotation.Nonnull BigDecimal amount) {
     this.amount = amount;
+    this.markPropertyAsSet(SERIALIZED_NAME_AMOUNT);
   }
 
 
   public LoyaltyProgramTransaction name(@javax.annotation.Nonnull String name) {
     this.name = name;
+    this.markPropertyAsSet(SERIALIZED_NAME_NAME);
     return this;
   }
 
@@ -363,11 +381,13 @@ public class LoyaltyProgramTransaction {
 
   public void setName(@javax.annotation.Nonnull String name) {
     this.name = name;
+    this.markPropertyAsSet(SERIALIZED_NAME_NAME);
   }
 
 
   public LoyaltyProgramTransaction startDate(@javax.annotation.Nonnull String startDate) {
     this.startDate = startDate;
+    this.markPropertyAsSet(SERIALIZED_NAME_START_DATE);
     return this;
   }
 
@@ -382,11 +402,13 @@ public class LoyaltyProgramTransaction {
 
   public void setStartDate(@javax.annotation.Nonnull String startDate) {
     this.startDate = startDate;
+    this.markPropertyAsSet(SERIALIZED_NAME_START_DATE);
   }
 
 
   public LoyaltyProgramTransaction expiryDate(@javax.annotation.Nonnull String expiryDate) {
     this.expiryDate = expiryDate;
+    this.markPropertyAsSet(SERIALIZED_NAME_EXPIRY_DATE);
     return this;
   }
 
@@ -401,11 +423,13 @@ public class LoyaltyProgramTransaction {
 
   public void setExpiryDate(@javax.annotation.Nonnull String expiryDate) {
     this.expiryDate = expiryDate;
+    this.markPropertyAsSet(SERIALIZED_NAME_EXPIRY_DATE);
   }
 
 
   public LoyaltyProgramTransaction customerProfileId(@javax.annotation.Nullable String customerProfileId) {
     this.customerProfileId = customerProfileId;
+    this.markPropertyAsSet(SERIALIZED_NAME_CUSTOMER_PROFILE_ID);
     return this;
   }
 
@@ -420,11 +444,13 @@ public class LoyaltyProgramTransaction {
 
   public void setCustomerProfileId(@javax.annotation.Nullable String customerProfileId) {
     this.customerProfileId = customerProfileId;
+    this.markPropertyAsSet(SERIALIZED_NAME_CUSTOMER_PROFILE_ID);
   }
 
 
   public LoyaltyProgramTransaction cardIdentifier(@javax.annotation.Nullable String cardIdentifier) {
     this.cardIdentifier = cardIdentifier;
+    this.markPropertyAsSet(SERIALIZED_NAME_CARD_IDENTIFIER);
     return this;
   }
 
@@ -439,11 +465,13 @@ public class LoyaltyProgramTransaction {
 
   public void setCardIdentifier(@javax.annotation.Nullable String cardIdentifier) {
     this.cardIdentifier = cardIdentifier;
+    this.markPropertyAsSet(SERIALIZED_NAME_CARD_IDENTIFIER);
   }
 
 
   public LoyaltyProgramTransaction subledgerId(@javax.annotation.Nonnull String subledgerId) {
     this.subledgerId = subledgerId;
+    this.markPropertyAsSet(SERIALIZED_NAME_SUBLEDGER_ID);
     return this;
   }
 
@@ -458,11 +486,13 @@ public class LoyaltyProgramTransaction {
 
   public void setSubledgerId(@javax.annotation.Nonnull String subledgerId) {
     this.subledgerId = subledgerId;
+    this.markPropertyAsSet(SERIALIZED_NAME_SUBLEDGER_ID);
   }
 
 
   public LoyaltyProgramTransaction customerSessionId(@javax.annotation.Nullable String customerSessionId) {
     this.customerSessionId = customerSessionId;
+    this.markPropertyAsSet(SERIALIZED_NAME_CUSTOMER_SESSION_ID);
     return this;
   }
 
@@ -477,11 +507,13 @@ public class LoyaltyProgramTransaction {
 
   public void setCustomerSessionId(@javax.annotation.Nullable String customerSessionId) {
     this.customerSessionId = customerSessionId;
+    this.markPropertyAsSet(SERIALIZED_NAME_CUSTOMER_SESSION_ID);
   }
 
 
   public LoyaltyProgramTransaction importId(@javax.annotation.Nullable Long importId) {
     this.importId = importId;
+    this.markPropertyAsSet(SERIALIZED_NAME_IMPORT_ID);
     return this;
   }
 
@@ -496,11 +528,13 @@ public class LoyaltyProgramTransaction {
 
   public void setImportId(@javax.annotation.Nullable Long importId) {
     this.importId = importId;
+    this.markPropertyAsSet(SERIALIZED_NAME_IMPORT_ID);
   }
 
 
   public LoyaltyProgramTransaction userId(@javax.annotation.Nullable Long userId) {
     this.userId = userId;
+    this.markPropertyAsSet(SERIALIZED_NAME_USER_ID);
     return this;
   }
 
@@ -515,11 +549,13 @@ public class LoyaltyProgramTransaction {
 
   public void setUserId(@javax.annotation.Nullable Long userId) {
     this.userId = userId;
+    this.markPropertyAsSet(SERIALIZED_NAME_USER_ID);
   }
 
 
   public LoyaltyProgramTransaction userEmail(@javax.annotation.Nullable String userEmail) {
     this.userEmail = userEmail;
+    this.markPropertyAsSet(SERIALIZED_NAME_USER_EMAIL);
     return this;
   }
 
@@ -534,11 +570,13 @@ public class LoyaltyProgramTransaction {
 
   public void setUserEmail(@javax.annotation.Nullable String userEmail) {
     this.userEmail = userEmail;
+    this.markPropertyAsSet(SERIALIZED_NAME_USER_EMAIL);
   }
 
 
   public LoyaltyProgramTransaction rulesetId(@javax.annotation.Nullable Long rulesetId) {
     this.rulesetId = rulesetId;
+    this.markPropertyAsSet(SERIALIZED_NAME_RULESET_ID);
     return this;
   }
 
@@ -553,11 +591,13 @@ public class LoyaltyProgramTransaction {
 
   public void setRulesetId(@javax.annotation.Nullable Long rulesetId) {
     this.rulesetId = rulesetId;
+    this.markPropertyAsSet(SERIALIZED_NAME_RULESET_ID);
   }
 
 
   public LoyaltyProgramTransaction ruleName(@javax.annotation.Nullable String ruleName) {
     this.ruleName = ruleName;
+    this.markPropertyAsSet(SERIALIZED_NAME_RULE_NAME);
     return this;
   }
 
@@ -572,11 +612,13 @@ public class LoyaltyProgramTransaction {
 
   public void setRuleName(@javax.annotation.Nullable String ruleName) {
     this.ruleName = ruleName;
+    this.markPropertyAsSet(SERIALIZED_NAME_RULE_NAME);
   }
 
 
   public LoyaltyProgramTransaction flags(@javax.annotation.Nullable LoyaltyLedgerEntryFlags flags) {
     this.flags = flags;
+    this.markPropertyAsSet(SERIALIZED_NAME_FLAGS);
     return this;
   }
 
@@ -591,11 +633,13 @@ public class LoyaltyProgramTransaction {
 
   public void setFlags(@javax.annotation.Nullable LoyaltyLedgerEntryFlags flags) {
     this.flags = flags;
+    this.markPropertyAsSet(SERIALIZED_NAME_FLAGS);
   }
 
 
   public LoyaltyProgramTransaction validityDuration(@javax.annotation.Nullable String validityDuration) {
     this.validityDuration = validityDuration;
+    this.markPropertyAsSet(SERIALIZED_NAME_VALIDITY_DURATION);
     return this;
   }
 
@@ -610,6 +654,7 @@ public class LoyaltyProgramTransaction {
 
   public void setValidityDuration(@javax.annotation.Nullable String validityDuration) {
     this.validityDuration = validityDuration;
+    this.markPropertyAsSet(SERIALIZED_NAME_VALIDITY_DURATION);
   }
 
   /**
@@ -655,6 +700,21 @@ public class LoyaltyProgramTransaction {
         return null;
     }
     return this.additionalProperties.get(key);
+  }
+
+  /** Omit null properties unless they were explicitly assigned or present in JSON input. */
+  protected final void removeUnsetNullFields(JsonObject obj) {
+    obj.entrySet().removeIf(entry -> entry.getValue().isJsonNull()
+        && !openapiExplicitlySetFields.contains(entry.getKey()));
+  }
+
+  protected final void markPropertyAsSet(String propertyName) {
+    openapiExplicitlySetFields.add(propertyName);
+  }
+
+  /** Gson populates fields directly, bypassing setters during deserialization. */
+  protected final void markPropertiesAsSet(Set<String> propertyNames) {
+    openapiExplicitlySetFields.addAll(propertyNames);
   }
 
 
@@ -815,7 +875,7 @@ public class LoyaltyProgramTransaction {
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
        if (!LoyaltyProgramTransaction.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'LoyaltyProgramTransaction' and its subtypes
+         return null; // let other model factories handle this type
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
        final TypeAdapter<LoyaltyProgramTransaction> thisAdapter
@@ -825,31 +885,22 @@ public class LoyaltyProgramTransaction {
            @Override
            public void write(JsonWriter out, LoyaltyProgramTransaction value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+             value.removeUnsetNullFields(obj);
              obj.remove("additionalProperties");
              // serialize additional properties
              if (value.getAdditionalProperties() != null) {
                for (Map.Entry<String, Object> entry : value.getAdditionalProperties().entrySet()) {
-                 if (entry.getValue() instanceof String)
-                   obj.addProperty(entry.getKey(), (String) entry.getValue());
-                 else if (entry.getValue() instanceof Number)
-                   obj.addProperty(entry.getKey(), (Number) entry.getValue());
-                 else if (entry.getValue() instanceof Boolean)
-                   obj.addProperty(entry.getKey(), (Boolean) entry.getValue());
-                 else if (entry.getValue() instanceof Character)
-                   obj.addProperty(entry.getKey(), (Character) entry.getValue());
-                 else {
-                   JsonElement jsonElement = gson.toJsonTree(entry.getValue());
-                   if (jsonElement.isJsonNull()) {
-                     obj.add(entry.getKey(), JsonNull.INSTANCE);
-                   } else if (jsonElement.isJsonArray()) {
-                     obj.add(entry.getKey(), jsonElement.getAsJsonArray());
-                   } else {
-                     obj.add(entry.getKey(), jsonElement.getAsJsonObject());
-                   }
-                 }
+                 // TypeAdapter.toJsonTree keeps explicit null entries in arbitrary maps too.
+                 obj.add(entry.getKey(), gson.getAdapter(Object.class).toJsonTree(entry.getValue()));
                }
              }
-             elementAdapter.write(out, obj);
+             boolean originalSerializeNulls = out.getSerializeNulls();
+             try {
+               out.setSerializeNulls(true);
+               elementAdapter.write(out, obj);
+             } finally {
+               out.setSerializeNulls(originalSerializeNulls);
+             }
            }
 
            @Override
@@ -859,6 +910,7 @@ public class LoyaltyProgramTransaction {
              JsonObject jsonObj = jsonElement.getAsJsonObject();
              // store additional fields in the deserialized instance
              LoyaltyProgramTransaction instance = thisAdapter.fromJsonTree(jsonObj);
+             instance.markPropertiesAsSet(jsonObj.keySet());
              for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
                if (!openapiFields.contains(entry.getKey())) {
                  if (entry.getValue().isJsonPrimitive()) { // primitive type

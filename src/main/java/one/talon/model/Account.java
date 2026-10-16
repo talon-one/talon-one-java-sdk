@@ -52,6 +52,9 @@ import one.talon.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.26.0")
 public class Account {
+  // Gson ignores transient state; only setters and JSON input mark properties as present.
+  private transient Set<String> openapiExplicitlySetFields = new HashSet<>();
+
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
   @javax.annotation.Nonnull
@@ -199,6 +202,7 @@ public class Account {
 
   public Account id(@javax.annotation.Nonnull Long id) {
     this.id = id;
+    this.markPropertyAsSet(SERIALIZED_NAME_ID);
     return this;
   }
 
@@ -213,11 +217,13 @@ public class Account {
 
   public void setId(@javax.annotation.Nonnull Long id) {
     this.id = id;
+    this.markPropertyAsSet(SERIALIZED_NAME_ID);
   }
 
 
   public Account created(@javax.annotation.Nonnull OffsetDateTime created) {
     this.created = created;
+    this.markPropertyAsSet(SERIALIZED_NAME_CREATED);
     return this;
   }
 
@@ -232,11 +238,13 @@ public class Account {
 
   public void setCreated(@javax.annotation.Nonnull OffsetDateTime created) {
     this.created = created;
+    this.markPropertyAsSet(SERIALIZED_NAME_CREATED);
   }
 
 
   public Account modified(@javax.annotation.Nonnull OffsetDateTime modified) {
     this.modified = modified;
+    this.markPropertyAsSet(SERIALIZED_NAME_MODIFIED);
     return this;
   }
 
@@ -251,11 +259,13 @@ public class Account {
 
   public void setModified(@javax.annotation.Nonnull OffsetDateTime modified) {
     this.modified = modified;
+    this.markPropertyAsSet(SERIALIZED_NAME_MODIFIED);
   }
 
 
   public Account companyName(@javax.annotation.Nonnull String companyName) {
     this.companyName = companyName;
+    this.markPropertyAsSet(SERIALIZED_NAME_COMPANY_NAME);
     return this;
   }
 
@@ -270,11 +280,13 @@ public class Account {
 
   public void setCompanyName(@javax.annotation.Nonnull String companyName) {
     this.companyName = companyName;
+    this.markPropertyAsSet(SERIALIZED_NAME_COMPANY_NAME);
   }
 
 
   public Account domainName(@javax.annotation.Nonnull String domainName) {
     this.domainName = domainName;
+    this.markPropertyAsSet(SERIALIZED_NAME_DOMAIN_NAME);
     return this;
   }
 
@@ -289,11 +301,13 @@ public class Account {
 
   public void setDomainName(@javax.annotation.Nonnull String domainName) {
     this.domainName = domainName;
+    this.markPropertyAsSet(SERIALIZED_NAME_DOMAIN_NAME);
   }
 
 
   public Account state(@javax.annotation.Nonnull StateEnum state) {
     this.state = state;
+    this.markPropertyAsSet(SERIALIZED_NAME_STATE);
     return this;
   }
 
@@ -308,11 +322,13 @@ public class Account {
 
   public void setState(@javax.annotation.Nonnull StateEnum state) {
     this.state = state;
+    this.markPropertyAsSet(SERIALIZED_NAME_STATE);
   }
 
 
   public Account billingEmail(@javax.annotation.Nonnull String billingEmail) {
     this.billingEmail = billingEmail;
+    this.markPropertyAsSet(SERIALIZED_NAME_BILLING_EMAIL);
     return this;
   }
 
@@ -327,11 +343,13 @@ public class Account {
 
   public void setBillingEmail(@javax.annotation.Nonnull String billingEmail) {
     this.billingEmail = billingEmail;
+    this.markPropertyAsSet(SERIALIZED_NAME_BILLING_EMAIL);
   }
 
 
   public Account planName(@javax.annotation.Nullable String planName) {
     this.planName = planName;
+    this.markPropertyAsSet(SERIALIZED_NAME_PLAN_NAME);
     return this;
   }
 
@@ -346,11 +364,13 @@ public class Account {
 
   public void setPlanName(@javax.annotation.Nullable String planName) {
     this.planName = planName;
+    this.markPropertyAsSet(SERIALIZED_NAME_PLAN_NAME);
   }
 
 
   public Account planExpires(@javax.annotation.Nullable OffsetDateTime planExpires) {
     this.planExpires = planExpires;
+    this.markPropertyAsSet(SERIALIZED_NAME_PLAN_EXPIRES);
     return this;
   }
 
@@ -365,11 +385,13 @@ public class Account {
 
   public void setPlanExpires(@javax.annotation.Nullable OffsetDateTime planExpires) {
     this.planExpires = planExpires;
+    this.markPropertyAsSet(SERIALIZED_NAME_PLAN_EXPIRES);
   }
 
 
   public Account applicationLimit(@javax.annotation.Nullable Long applicationLimit) {
     this.applicationLimit = applicationLimit;
+    this.markPropertyAsSet(SERIALIZED_NAME_APPLICATION_LIMIT);
     return this;
   }
 
@@ -384,11 +406,13 @@ public class Account {
 
   public void setApplicationLimit(@javax.annotation.Nullable Long applicationLimit) {
     this.applicationLimit = applicationLimit;
+    this.markPropertyAsSet(SERIALIZED_NAME_APPLICATION_LIMIT);
   }
 
 
   public Account userLimit(@javax.annotation.Nullable Long userLimit) {
     this.userLimit = userLimit;
+    this.markPropertyAsSet(SERIALIZED_NAME_USER_LIMIT);
     return this;
   }
 
@@ -403,11 +427,13 @@ public class Account {
 
   public void setUserLimit(@javax.annotation.Nullable Long userLimit) {
     this.userLimit = userLimit;
+    this.markPropertyAsSet(SERIALIZED_NAME_USER_LIMIT);
   }
 
 
   public Account campaignLimit(@javax.annotation.Nullable Long campaignLimit) {
     this.campaignLimit = campaignLimit;
+    this.markPropertyAsSet(SERIALIZED_NAME_CAMPAIGN_LIMIT);
     return this;
   }
 
@@ -422,11 +448,13 @@ public class Account {
 
   public void setCampaignLimit(@javax.annotation.Nullable Long campaignLimit) {
     this.campaignLimit = campaignLimit;
+    this.markPropertyAsSet(SERIALIZED_NAME_CAMPAIGN_LIMIT);
   }
 
 
   public Account apiLimit(@javax.annotation.Nullable Long apiLimit) {
     this.apiLimit = apiLimit;
+    this.markPropertyAsSet(SERIALIZED_NAME_API_LIMIT);
     return this;
   }
 
@@ -441,11 +469,13 @@ public class Account {
 
   public void setApiLimit(@javax.annotation.Nullable Long apiLimit) {
     this.apiLimit = apiLimit;
+    this.markPropertyAsSet(SERIALIZED_NAME_API_LIMIT);
   }
 
 
   public Account applicationCount(@javax.annotation.Nonnull Long applicationCount) {
     this.applicationCount = applicationCount;
+    this.markPropertyAsSet(SERIALIZED_NAME_APPLICATION_COUNT);
     return this;
   }
 
@@ -460,11 +490,13 @@ public class Account {
 
   public void setApplicationCount(@javax.annotation.Nonnull Long applicationCount) {
     this.applicationCount = applicationCount;
+    this.markPropertyAsSet(SERIALIZED_NAME_APPLICATION_COUNT);
   }
 
 
   public Account userCount(@javax.annotation.Nonnull Long userCount) {
     this.userCount = userCount;
+    this.markPropertyAsSet(SERIALIZED_NAME_USER_COUNT);
     return this;
   }
 
@@ -479,11 +511,13 @@ public class Account {
 
   public void setUserCount(@javax.annotation.Nonnull Long userCount) {
     this.userCount = userCount;
+    this.markPropertyAsSet(SERIALIZED_NAME_USER_COUNT);
   }
 
 
   public Account campaignsActiveCount(@javax.annotation.Nonnull Long campaignsActiveCount) {
     this.campaignsActiveCount = campaignsActiveCount;
+    this.markPropertyAsSet(SERIALIZED_NAME_CAMPAIGNS_ACTIVE_COUNT);
     return this;
   }
 
@@ -498,11 +532,13 @@ public class Account {
 
   public void setCampaignsActiveCount(@javax.annotation.Nonnull Long campaignsActiveCount) {
     this.campaignsActiveCount = campaignsActiveCount;
+    this.markPropertyAsSet(SERIALIZED_NAME_CAMPAIGNS_ACTIVE_COUNT);
   }
 
 
   public Account campaignsInactiveCount(@javax.annotation.Nonnull Long campaignsInactiveCount) {
     this.campaignsInactiveCount = campaignsInactiveCount;
+    this.markPropertyAsSet(SERIALIZED_NAME_CAMPAIGNS_INACTIVE_COUNT);
     return this;
   }
 
@@ -517,11 +553,13 @@ public class Account {
 
   public void setCampaignsInactiveCount(@javax.annotation.Nonnull Long campaignsInactiveCount) {
     this.campaignsInactiveCount = campaignsInactiveCount;
+    this.markPropertyAsSet(SERIALIZED_NAME_CAMPAIGNS_INACTIVE_COUNT);
   }
 
 
   public Account attributes(@javax.annotation.Nullable Object attributes) {
     this.attributes = attributes;
+    this.markPropertyAsSet(SERIALIZED_NAME_ATTRIBUTES);
     return this;
   }
 
@@ -536,6 +574,7 @@ public class Account {
 
   public void setAttributes(@javax.annotation.Nullable Object attributes) {
     this.attributes = attributes;
+    this.markPropertyAsSet(SERIALIZED_NAME_ATTRIBUTES);
   }
 
   /**
@@ -581,6 +620,21 @@ public class Account {
         return null;
     }
     return this.additionalProperties.get(key);
+  }
+
+  /** Omit null properties unless they were explicitly assigned or present in JSON input. */
+  protected final void removeUnsetNullFields(JsonObject obj) {
+    obj.entrySet().removeIf(entry -> entry.getValue().isJsonNull()
+        && !openapiExplicitlySetFields.contains(entry.getKey()));
+  }
+
+  protected final void markPropertyAsSet(String propertyName) {
+    openapiExplicitlySetFields.add(propertyName);
+  }
+
+  /** Gson populates fields directly, bypassing setters during deserialization. */
+  protected final void markPropertiesAsSet(Set<String> propertyNames) {
+    openapiExplicitlySetFields.addAll(propertyNames);
   }
 
 
@@ -710,7 +764,7 @@ public class Account {
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
        if (!Account.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'Account' and its subtypes
+         return null; // let other model factories handle this type
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
        final TypeAdapter<Account> thisAdapter
@@ -720,31 +774,22 @@ public class Account {
            @Override
            public void write(JsonWriter out, Account value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+             value.removeUnsetNullFields(obj);
              obj.remove("additionalProperties");
              // serialize additional properties
              if (value.getAdditionalProperties() != null) {
                for (Map.Entry<String, Object> entry : value.getAdditionalProperties().entrySet()) {
-                 if (entry.getValue() instanceof String)
-                   obj.addProperty(entry.getKey(), (String) entry.getValue());
-                 else if (entry.getValue() instanceof Number)
-                   obj.addProperty(entry.getKey(), (Number) entry.getValue());
-                 else if (entry.getValue() instanceof Boolean)
-                   obj.addProperty(entry.getKey(), (Boolean) entry.getValue());
-                 else if (entry.getValue() instanceof Character)
-                   obj.addProperty(entry.getKey(), (Character) entry.getValue());
-                 else {
-                   JsonElement jsonElement = gson.toJsonTree(entry.getValue());
-                   if (jsonElement.isJsonNull()) {
-                     obj.add(entry.getKey(), JsonNull.INSTANCE);
-                   } else if (jsonElement.isJsonArray()) {
-                     obj.add(entry.getKey(), jsonElement.getAsJsonArray());
-                   } else {
-                     obj.add(entry.getKey(), jsonElement.getAsJsonObject());
-                   }
-                 }
+                 // TypeAdapter.toJsonTree keeps explicit null entries in arbitrary maps too.
+                 obj.add(entry.getKey(), gson.getAdapter(Object.class).toJsonTree(entry.getValue()));
                }
              }
-             elementAdapter.write(out, obj);
+             boolean originalSerializeNulls = out.getSerializeNulls();
+             try {
+               out.setSerializeNulls(true);
+               elementAdapter.write(out, obj);
+             } finally {
+               out.setSerializeNulls(originalSerializeNulls);
+             }
            }
 
            @Override
@@ -754,6 +799,7 @@ public class Account {
              JsonObject jsonObj = jsonElement.getAsJsonObject();
              // store additional fields in the deserialized instance
              Account instance = thisAdapter.fromJsonTree(jsonObj);
+             instance.markPropertiesAsSet(jsonObj.keySet());
              for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
                if (!openapiFields.contains(entry.getKey())) {
                  if (entry.getValue().isJsonPrimitive()) { // primitive type

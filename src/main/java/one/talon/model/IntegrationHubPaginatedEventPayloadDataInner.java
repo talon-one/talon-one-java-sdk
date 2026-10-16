@@ -78,41 +78,51 @@ public class IntegrationHubPaginatedEventPayloadDataInner extends AbstractOpenAp
                 return null; // this class only serializes 'IntegrationHubPaginatedEventPayloadDataInner' and its subtypes
             }
             final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-            final TypeAdapter<IntegrationHubEventPayloadLoyaltyProfileBasedPointsChangedNotification> adapterIntegrationHubEventPayloadLoyaltyProfileBasedPointsChangedNotification = gson.getDelegateAdapter(this, TypeToken.get(IntegrationHubEventPayloadLoyaltyProfileBasedPointsChangedNotification.class));
-            final TypeAdapter<IntegrationHubEventPayloadLoyaltyProfileBasedTierDowngradeNotification> adapterIntegrationHubEventPayloadLoyaltyProfileBasedTierDowngradeNotification = gson.getDelegateAdapter(this, TypeToken.get(IntegrationHubEventPayloadLoyaltyProfileBasedTierDowngradeNotification.class));
-            final TypeAdapter<IntegrationHubEventPayloadLoyaltyProfileBasedTierUpgradeNotification> adapterIntegrationHubEventPayloadLoyaltyProfileBasedTierUpgradeNotification = gson.getDelegateAdapter(this, TypeToken.get(IntegrationHubEventPayloadLoyaltyProfileBasedTierUpgradeNotification.class));
-            final TypeAdapter<IntegrationHubEventPayloadCouponBasedNotifications> adapterIntegrationHubEventPayloadCouponBasedNotifications = gson.getDelegateAdapter(this, TypeToken.get(IntegrationHubEventPayloadCouponBasedNotifications.class));
+            final TypeAdapter<IntegrationHubEventPayloadLoyaltyProfileBasedPointsChangedNotification> adapterIntegrationHubEventPayloadLoyaltyProfileBasedPointsChangedNotification = gson.getAdapter(TypeToken.get(IntegrationHubEventPayloadLoyaltyProfileBasedPointsChangedNotification.class));
+            final TypeAdapter<IntegrationHubEventPayloadLoyaltyProfileBasedTierDowngradeNotification> adapterIntegrationHubEventPayloadLoyaltyProfileBasedTierDowngradeNotification = gson.getAdapter(TypeToken.get(IntegrationHubEventPayloadLoyaltyProfileBasedTierDowngradeNotification.class));
+            final TypeAdapter<IntegrationHubEventPayloadLoyaltyProfileBasedTierUpgradeNotification> adapterIntegrationHubEventPayloadLoyaltyProfileBasedTierUpgradeNotification = gson.getAdapter(TypeToken.get(IntegrationHubEventPayloadLoyaltyProfileBasedTierUpgradeNotification.class));
+            final TypeAdapter<IntegrationHubEventPayloadCouponBasedNotifications> adapterIntegrationHubEventPayloadCouponBasedNotifications = gson.getAdapter(TypeToken.get(IntegrationHubEventPayloadCouponBasedNotifications.class));
 
             return (TypeAdapter<T>) new TypeAdapter<IntegrationHubPaginatedEventPayloadDataInner>() {
+                private void writeJsonElement(JsonWriter out, JsonElement value) throws IOException {
+                    boolean originalSerializeNulls = out.getSerializeNulls();
+                    try {
+                        out.setSerializeNulls(true);
+                        elementAdapter.write(out, value);
+                    } finally {
+                        out.setSerializeNulls(originalSerializeNulls);
+                    }
+                }
+
                 @Override
                 public void write(JsonWriter out, IntegrationHubPaginatedEventPayloadDataInner value) throws IOException {
                     if (value == null || value.getActualInstance() == null) {
-                        elementAdapter.write(out, null);
+                        writeJsonElement(out, null);
                         return;
                     }
 
                     // check if the actual instance is of the type `IntegrationHubEventPayloadLoyaltyProfileBasedPointsChangedNotification`
                     if (value.getActualInstance() instanceof IntegrationHubEventPayloadLoyaltyProfileBasedPointsChangedNotification) {
                         JsonElement element = adapterIntegrationHubEventPayloadLoyaltyProfileBasedPointsChangedNotification.toJsonTree((IntegrationHubEventPayloadLoyaltyProfileBasedPointsChangedNotification)value.getActualInstance());
-                        elementAdapter.write(out, element);
+                        writeJsonElement(out, element);
                         return;
                     }
                     // check if the actual instance is of the type `IntegrationHubEventPayloadLoyaltyProfileBasedTierDowngradeNotification`
                     if (value.getActualInstance() instanceof IntegrationHubEventPayloadLoyaltyProfileBasedTierDowngradeNotification) {
                         JsonElement element = adapterIntegrationHubEventPayloadLoyaltyProfileBasedTierDowngradeNotification.toJsonTree((IntegrationHubEventPayloadLoyaltyProfileBasedTierDowngradeNotification)value.getActualInstance());
-                        elementAdapter.write(out, element);
+                        writeJsonElement(out, element);
                         return;
                     }
                     // check if the actual instance is of the type `IntegrationHubEventPayloadLoyaltyProfileBasedTierUpgradeNotification`
                     if (value.getActualInstance() instanceof IntegrationHubEventPayloadLoyaltyProfileBasedTierUpgradeNotification) {
                         JsonElement element = adapterIntegrationHubEventPayloadLoyaltyProfileBasedTierUpgradeNotification.toJsonTree((IntegrationHubEventPayloadLoyaltyProfileBasedTierUpgradeNotification)value.getActualInstance());
-                        elementAdapter.write(out, element);
+                        writeJsonElement(out, element);
                         return;
                     }
                     // check if the actual instance is of the type `IntegrationHubEventPayloadCouponBasedNotifications`
                     if (value.getActualInstance() instanceof IntegrationHubEventPayloadCouponBasedNotifications) {
                         JsonElement element = adapterIntegrationHubEventPayloadCouponBasedNotifications.toJsonTree((IntegrationHubEventPayloadCouponBasedNotifications)value.getActualInstance());
-                        elementAdapter.write(out, element);
+                        writeJsonElement(out, element);
                         return;
                     }
                     throw new IOException("Failed to serialize as the type doesn't match oneOf schemas: IntegrationHubEventPayloadCouponBasedNotifications, IntegrationHubEventPayloadLoyaltyProfileBasedPointsChangedNotification, IntegrationHubEventPayloadLoyaltyProfileBasedTierDowngradeNotification, IntegrationHubEventPayloadLoyaltyProfileBasedTierUpgradeNotification");

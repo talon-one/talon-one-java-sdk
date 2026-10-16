@@ -51,6 +51,9 @@ import one.talon.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.26.0")
 public class BaseSamlConnection {
+  // Gson ignores transient state; only setters and JSON input mark properties as present.
+  private transient Set<String> openapiExplicitlySetFields = new HashSet<>();
+
   public static final String SERIALIZED_NAME_ACCOUNT_ID = "accountId";
   @SerializedName(SERIALIZED_NAME_ACCOUNT_ID)
   @javax.annotation.Nonnull
@@ -96,6 +99,7 @@ public class BaseSamlConnection {
 
   public BaseSamlConnection accountId(@javax.annotation.Nonnull Long accountId) {
     this.accountId = accountId;
+    this.markPropertyAsSet(SERIALIZED_NAME_ACCOUNT_ID);
     return this;
   }
 
@@ -110,11 +114,13 @@ public class BaseSamlConnection {
 
   public void setAccountId(@javax.annotation.Nonnull Long accountId) {
     this.accountId = accountId;
+    this.markPropertyAsSet(SERIALIZED_NAME_ACCOUNT_ID);
   }
 
 
   public BaseSamlConnection name(@javax.annotation.Nonnull String name) {
     this.name = name;
+    this.markPropertyAsSet(SERIALIZED_NAME_NAME);
     return this;
   }
 
@@ -129,11 +135,13 @@ public class BaseSamlConnection {
 
   public void setName(@javax.annotation.Nonnull String name) {
     this.name = name;
+    this.markPropertyAsSet(SERIALIZED_NAME_NAME);
   }
 
 
   public BaseSamlConnection enabled(@javax.annotation.Nonnull Boolean enabled) {
     this.enabled = enabled;
+    this.markPropertyAsSet(SERIALIZED_NAME_ENABLED);
     return this;
   }
 
@@ -148,11 +156,13 @@ public class BaseSamlConnection {
 
   public void setEnabled(@javax.annotation.Nonnull Boolean enabled) {
     this.enabled = enabled;
+    this.markPropertyAsSet(SERIALIZED_NAME_ENABLED);
   }
 
 
   public BaseSamlConnection issuer(@javax.annotation.Nonnull String issuer) {
     this.issuer = issuer;
+    this.markPropertyAsSet(SERIALIZED_NAME_ISSUER);
     return this;
   }
 
@@ -167,11 +177,13 @@ public class BaseSamlConnection {
 
   public void setIssuer(@javax.annotation.Nonnull String issuer) {
     this.issuer = issuer;
+    this.markPropertyAsSet(SERIALIZED_NAME_ISSUER);
   }
 
 
   public BaseSamlConnection signOnURL(@javax.annotation.Nonnull String signOnURL) {
     this.signOnURL = signOnURL;
+    this.markPropertyAsSet(SERIALIZED_NAME_SIGN_ON_U_R_L);
     return this;
   }
 
@@ -186,11 +198,13 @@ public class BaseSamlConnection {
 
   public void setSignOnURL(@javax.annotation.Nonnull String signOnURL) {
     this.signOnURL = signOnURL;
+    this.markPropertyAsSet(SERIALIZED_NAME_SIGN_ON_U_R_L);
   }
 
 
   public BaseSamlConnection signOutURL(@javax.annotation.Nullable String signOutURL) {
     this.signOutURL = signOutURL;
+    this.markPropertyAsSet(SERIALIZED_NAME_SIGN_OUT_U_R_L);
     return this;
   }
 
@@ -205,11 +219,13 @@ public class BaseSamlConnection {
 
   public void setSignOutURL(@javax.annotation.Nullable String signOutURL) {
     this.signOutURL = signOutURL;
+    this.markPropertyAsSet(SERIALIZED_NAME_SIGN_OUT_U_R_L);
   }
 
 
   public BaseSamlConnection metadataURL(@javax.annotation.Nullable String metadataURL) {
     this.metadataURL = metadataURL;
+    this.markPropertyAsSet(SERIALIZED_NAME_METADATA_U_R_L);
     return this;
   }
 
@@ -224,11 +240,13 @@ public class BaseSamlConnection {
 
   public void setMetadataURL(@javax.annotation.Nullable String metadataURL) {
     this.metadataURL = metadataURL;
+    this.markPropertyAsSet(SERIALIZED_NAME_METADATA_U_R_L);
   }
 
 
   public BaseSamlConnection audienceURI(@javax.annotation.Nullable String audienceURI) {
     this.audienceURI = audienceURI;
+    this.markPropertyAsSet(SERIALIZED_NAME_AUDIENCE_U_R_I);
     return this;
   }
 
@@ -243,6 +261,7 @@ public class BaseSamlConnection {
 
   public void setAudienceURI(@javax.annotation.Nullable String audienceURI) {
     this.audienceURI = audienceURI;
+    this.markPropertyAsSet(SERIALIZED_NAME_AUDIENCE_U_R_I);
   }
 
   /**
@@ -288,6 +307,21 @@ public class BaseSamlConnection {
         return null;
     }
     return this.additionalProperties.get(key);
+  }
+
+  /** Omit null properties unless they were explicitly assigned or present in JSON input. */
+  protected final void removeUnsetNullFields(JsonObject obj) {
+    obj.entrySet().removeIf(entry -> entry.getValue().isJsonNull()
+        && !openapiExplicitlySetFields.contains(entry.getKey()));
+  }
+
+  protected final void markPropertyAsSet(String propertyName) {
+    openapiExplicitlySetFields.add(propertyName);
+  }
+
+  /** Gson populates fields directly, bypassing setters during deserialization. */
+  protected final void markPropertiesAsSet(Set<String> propertyNames) {
+    openapiExplicitlySetFields.addAll(propertyNames);
   }
 
 
@@ -398,7 +432,7 @@ public class BaseSamlConnection {
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
        if (!BaseSamlConnection.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'BaseSamlConnection' and its subtypes
+         return null; // let other model factories handle this type
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
        final TypeAdapter<BaseSamlConnection> thisAdapter
@@ -408,31 +442,22 @@ public class BaseSamlConnection {
            @Override
            public void write(JsonWriter out, BaseSamlConnection value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+             value.removeUnsetNullFields(obj);
              obj.remove("additionalProperties");
              // serialize additional properties
              if (value.getAdditionalProperties() != null) {
                for (Map.Entry<String, Object> entry : value.getAdditionalProperties().entrySet()) {
-                 if (entry.getValue() instanceof String)
-                   obj.addProperty(entry.getKey(), (String) entry.getValue());
-                 else if (entry.getValue() instanceof Number)
-                   obj.addProperty(entry.getKey(), (Number) entry.getValue());
-                 else if (entry.getValue() instanceof Boolean)
-                   obj.addProperty(entry.getKey(), (Boolean) entry.getValue());
-                 else if (entry.getValue() instanceof Character)
-                   obj.addProperty(entry.getKey(), (Character) entry.getValue());
-                 else {
-                   JsonElement jsonElement = gson.toJsonTree(entry.getValue());
-                   if (jsonElement.isJsonNull()) {
-                     obj.add(entry.getKey(), JsonNull.INSTANCE);
-                   } else if (jsonElement.isJsonArray()) {
-                     obj.add(entry.getKey(), jsonElement.getAsJsonArray());
-                   } else {
-                     obj.add(entry.getKey(), jsonElement.getAsJsonObject());
-                   }
-                 }
+                 // TypeAdapter.toJsonTree keeps explicit null entries in arbitrary maps too.
+                 obj.add(entry.getKey(), gson.getAdapter(Object.class).toJsonTree(entry.getValue()));
                }
              }
-             elementAdapter.write(out, obj);
+             boolean originalSerializeNulls = out.getSerializeNulls();
+             try {
+               out.setSerializeNulls(true);
+               elementAdapter.write(out, obj);
+             } finally {
+               out.setSerializeNulls(originalSerializeNulls);
+             }
            }
 
            @Override
@@ -442,6 +467,7 @@ public class BaseSamlConnection {
              JsonObject jsonObj = jsonElement.getAsJsonObject();
              // store additional fields in the deserialized instance
              BaseSamlConnection instance = thisAdapter.fromJsonTree(jsonObj);
+             instance.markPropertiesAsSet(jsonObj.keySet());
              for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
                if (!openapiFields.contains(entry.getKey())) {
                  if (entry.getValue().isJsonPrimitive()) { // primitive type

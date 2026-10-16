@@ -72,27 +72,37 @@ public class LabelTarget extends AbstractOpenApiSchema {
                 return null; // this class only serializes 'LabelTarget' and its subtypes
             }
             final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-            final TypeAdapter<LabelTargetNone> adapterLabelTargetNone = gson.getDelegateAdapter(this, TypeToken.get(LabelTargetNone.class));
-            final TypeAdapter<LabelTargetAudience> adapterLabelTargetAudience = gson.getDelegateAdapter(this, TypeToken.get(LabelTargetAudience.class));
+            final TypeAdapter<LabelTargetNone> adapterLabelTargetNone = gson.getAdapter(TypeToken.get(LabelTargetNone.class));
+            final TypeAdapter<LabelTargetAudience> adapterLabelTargetAudience = gson.getAdapter(TypeToken.get(LabelTargetAudience.class));
 
             return (TypeAdapter<T>) new TypeAdapter<LabelTarget>() {
+                private void writeJsonElement(JsonWriter out, JsonElement value) throws IOException {
+                    boolean originalSerializeNulls = out.getSerializeNulls();
+                    try {
+                        out.setSerializeNulls(true);
+                        elementAdapter.write(out, value);
+                    } finally {
+                        out.setSerializeNulls(originalSerializeNulls);
+                    }
+                }
+
                 @Override
                 public void write(JsonWriter out, LabelTarget value) throws IOException {
                     if (value == null || value.getActualInstance() == null) {
-                        elementAdapter.write(out, null);
+                        writeJsonElement(out, null);
                         return;
                     }
 
                     // check if the actual instance is of the type `LabelTargetNone`
                     if (value.getActualInstance() instanceof LabelTargetNone) {
                         JsonElement element = adapterLabelTargetNone.toJsonTree((LabelTargetNone)value.getActualInstance());
-                        elementAdapter.write(out, element);
+                        writeJsonElement(out, element);
                         return;
                     }
                     // check if the actual instance is of the type `LabelTargetAudience`
                     if (value.getActualInstance() instanceof LabelTargetAudience) {
                         JsonElement element = adapterLabelTargetAudience.toJsonTree((LabelTargetAudience)value.getActualInstance());
-                        elementAdapter.write(out, element);
+                        writeJsonElement(out, element);
                         return;
                     }
                     throw new IOException("Failed to serialize as the type doesn't match oneOf schemas: LabelTargetAudience, LabelTargetNone");

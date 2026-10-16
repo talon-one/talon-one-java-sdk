@@ -58,6 +58,9 @@ import one.talon.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.26.0")
 public class AccountDashboardStatistic {
+  // Gson ignores transient state; only setters and JSON input mark properties as present.
+  private transient Set<String> openapiExplicitlySetFields = new HashSet<>();
+
   public static final String SERIALIZED_NAME_REVENUE = "revenue";
   @SerializedName(SERIALIZED_NAME_REVENUE)
   @javax.annotation.Nullable
@@ -88,6 +91,7 @@ public class AccountDashboardStatistic {
 
   public AccountDashboardStatistic revenue(@javax.annotation.Nullable List<AccountDashboardStatisticRevenue> revenue) {
     this.revenue = revenue;
+    this.markPropertyAsSet(SERIALIZED_NAME_REVENUE);
     return this;
   }
 
@@ -96,6 +100,7 @@ public class AccountDashboardStatistic {
       this.revenue = new ArrayList<>();
     }
     this.revenue.add(revenueItem);
+    this.markPropertyAsSet(SERIALIZED_NAME_REVENUE);
     return this;
   }
 
@@ -110,11 +115,13 @@ public class AccountDashboardStatistic {
 
   public void setRevenue(@javax.annotation.Nullable List<AccountDashboardStatisticRevenue> revenue) {
     this.revenue = revenue;
+    this.markPropertyAsSet(SERIALIZED_NAME_REVENUE);
   }
 
 
   public AccountDashboardStatistic discounts(@javax.annotation.Nullable List<AccountDashboardStatisticDiscount> discounts) {
     this.discounts = discounts;
+    this.markPropertyAsSet(SERIALIZED_NAME_DISCOUNTS);
     return this;
   }
 
@@ -123,6 +130,7 @@ public class AccountDashboardStatistic {
       this.discounts = new ArrayList<>();
     }
     this.discounts.add(discountsItem);
+    this.markPropertyAsSet(SERIALIZED_NAME_DISCOUNTS);
     return this;
   }
 
@@ -137,11 +145,13 @@ public class AccountDashboardStatistic {
 
   public void setDiscounts(@javax.annotation.Nullable List<AccountDashboardStatisticDiscount> discounts) {
     this.discounts = discounts;
+    this.markPropertyAsSet(SERIALIZED_NAME_DISCOUNTS);
   }
 
 
   public AccountDashboardStatistic loyaltyPoints(@javax.annotation.Nullable List<AccountDashboardStatisticLoyaltyPoints> loyaltyPoints) {
     this.loyaltyPoints = loyaltyPoints;
+    this.markPropertyAsSet(SERIALIZED_NAME_LOYALTY_POINTS);
     return this;
   }
 
@@ -150,6 +160,7 @@ public class AccountDashboardStatistic {
       this.loyaltyPoints = new ArrayList<>();
     }
     this.loyaltyPoints.add(loyaltyPointsItem);
+    this.markPropertyAsSet(SERIALIZED_NAME_LOYALTY_POINTS);
     return this;
   }
 
@@ -164,11 +175,13 @@ public class AccountDashboardStatistic {
 
   public void setLoyaltyPoints(@javax.annotation.Nullable List<AccountDashboardStatisticLoyaltyPoints> loyaltyPoints) {
     this.loyaltyPoints = loyaltyPoints;
+    this.markPropertyAsSet(SERIALIZED_NAME_LOYALTY_POINTS);
   }
 
 
   public AccountDashboardStatistic referrals(@javax.annotation.Nullable List<AccountDashboardStatisticReferrals> referrals) {
     this.referrals = referrals;
+    this.markPropertyAsSet(SERIALIZED_NAME_REFERRALS);
     return this;
   }
 
@@ -177,6 +190,7 @@ public class AccountDashboardStatistic {
       this.referrals = new ArrayList<>();
     }
     this.referrals.add(referralsItem);
+    this.markPropertyAsSet(SERIALIZED_NAME_REFERRALS);
     return this;
   }
 
@@ -191,11 +205,13 @@ public class AccountDashboardStatistic {
 
   public void setReferrals(@javax.annotation.Nullable List<AccountDashboardStatisticReferrals> referrals) {
     this.referrals = referrals;
+    this.markPropertyAsSet(SERIALIZED_NAME_REFERRALS);
   }
 
 
   public AccountDashboardStatistic campaigns(@javax.annotation.Nonnull AccountDashboardStatisticCampaigns campaigns) {
     this.campaigns = campaigns;
+    this.markPropertyAsSet(SERIALIZED_NAME_CAMPAIGNS);
     return this;
   }
 
@@ -210,6 +226,7 @@ public class AccountDashboardStatistic {
 
   public void setCampaigns(@javax.annotation.Nonnull AccountDashboardStatisticCampaigns campaigns) {
     this.campaigns = campaigns;
+    this.markPropertyAsSet(SERIALIZED_NAME_CAMPAIGNS);
   }
 
   /**
@@ -255,6 +272,21 @@ public class AccountDashboardStatistic {
         return null;
     }
     return this.additionalProperties.get(key);
+  }
+
+  /** Omit null properties unless they were explicitly assigned or present in JSON input. */
+  protected final void removeUnsetNullFields(JsonObject obj) {
+    obj.entrySet().removeIf(entry -> entry.getValue().isJsonNull()
+        && !openapiExplicitlySetFields.contains(entry.getKey()));
+  }
+
+  protected final void markPropertyAsSet(String propertyName) {
+    openapiExplicitlySetFields.add(propertyName);
+  }
+
+  /** Gson populates fields directly, bypassing setters during deserialization. */
+  protected final void markPropertiesAsSet(Set<String> propertyNames) {
+    openapiExplicitlySetFields.addAll(propertyNames);
   }
 
 
@@ -399,7 +431,7 @@ public class AccountDashboardStatistic {
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
        if (!AccountDashboardStatistic.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'AccountDashboardStatistic' and its subtypes
+         return null; // let other model factories handle this type
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
        final TypeAdapter<AccountDashboardStatistic> thisAdapter
@@ -409,31 +441,22 @@ public class AccountDashboardStatistic {
            @Override
            public void write(JsonWriter out, AccountDashboardStatistic value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+             value.removeUnsetNullFields(obj);
              obj.remove("additionalProperties");
              // serialize additional properties
              if (value.getAdditionalProperties() != null) {
                for (Map.Entry<String, Object> entry : value.getAdditionalProperties().entrySet()) {
-                 if (entry.getValue() instanceof String)
-                   obj.addProperty(entry.getKey(), (String) entry.getValue());
-                 else if (entry.getValue() instanceof Number)
-                   obj.addProperty(entry.getKey(), (Number) entry.getValue());
-                 else if (entry.getValue() instanceof Boolean)
-                   obj.addProperty(entry.getKey(), (Boolean) entry.getValue());
-                 else if (entry.getValue() instanceof Character)
-                   obj.addProperty(entry.getKey(), (Character) entry.getValue());
-                 else {
-                   JsonElement jsonElement = gson.toJsonTree(entry.getValue());
-                   if (jsonElement.isJsonNull()) {
-                     obj.add(entry.getKey(), JsonNull.INSTANCE);
-                   } else if (jsonElement.isJsonArray()) {
-                     obj.add(entry.getKey(), jsonElement.getAsJsonArray());
-                   } else {
-                     obj.add(entry.getKey(), jsonElement.getAsJsonObject());
-                   }
-                 }
+                 // TypeAdapter.toJsonTree keeps explicit null entries in arbitrary maps too.
+                 obj.add(entry.getKey(), gson.getAdapter(Object.class).toJsonTree(entry.getValue()));
                }
              }
-             elementAdapter.write(out, obj);
+             boolean originalSerializeNulls = out.getSerializeNulls();
+             try {
+               out.setSerializeNulls(true);
+               elementAdapter.write(out, obj);
+             } finally {
+               out.setSerializeNulls(originalSerializeNulls);
+             }
            }
 
            @Override
@@ -443,6 +466,7 @@ public class AccountDashboardStatistic {
              JsonObject jsonObj = jsonElement.getAsJsonObject();
              // store additional fields in the deserialized instance
              AccountDashboardStatistic instance = thisAdapter.fromJsonTree(jsonObj);
+             instance.markPropertiesAsSet(jsonObj.keySet());
              for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
                if (!openapiFields.contains(entry.getKey())) {
                  if (entry.getValue().isJsonPrimitive()) { // primitive type

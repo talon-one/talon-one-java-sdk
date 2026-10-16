@@ -56,6 +56,9 @@ import one.talon.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.26.0")
 public class UpdateCoupon {
+  // Gson ignores transient state; only setters and JSON input mark properties as present.
+  private transient Set<String> openapiExplicitlySetFields = new HashSet<>();
+
   public static final String SERIALIZED_NAME_USAGE_LIMIT = "usageLimit";
   @SerializedName(SERIALIZED_NAME_USAGE_LIMIT)
   @javax.annotation.Nullable
@@ -111,6 +114,7 @@ public class UpdateCoupon {
 
   public UpdateCoupon usageLimit(@javax.annotation.Nullable Long usageLimit) {
     this.usageLimit = usageLimit;
+    this.markPropertyAsSet(SERIALIZED_NAME_USAGE_LIMIT);
     return this;
   }
 
@@ -127,11 +131,13 @@ public class UpdateCoupon {
 
   public void setUsageLimit(@javax.annotation.Nullable Long usageLimit) {
     this.usageLimit = usageLimit;
+    this.markPropertyAsSet(SERIALIZED_NAME_USAGE_LIMIT);
   }
 
 
   public UpdateCoupon discountLimit(@javax.annotation.Nullable BigDecimal discountLimit) {
     this.discountLimit = discountLimit;
+    this.markPropertyAsSet(SERIALIZED_NAME_DISCOUNT_LIMIT);
     return this;
   }
 
@@ -148,11 +154,13 @@ public class UpdateCoupon {
 
   public void setDiscountLimit(@javax.annotation.Nullable BigDecimal discountLimit) {
     this.discountLimit = discountLimit;
+    this.markPropertyAsSet(SERIALIZED_NAME_DISCOUNT_LIMIT);
   }
 
 
   public UpdateCoupon reservationLimit(@javax.annotation.Nullable Long reservationLimit) {
     this.reservationLimit = reservationLimit;
+    this.markPropertyAsSet(SERIALIZED_NAME_RESERVATION_LIMIT);
     return this;
   }
 
@@ -169,11 +177,13 @@ public class UpdateCoupon {
 
   public void setReservationLimit(@javax.annotation.Nullable Long reservationLimit) {
     this.reservationLimit = reservationLimit;
+    this.markPropertyAsSet(SERIALIZED_NAME_RESERVATION_LIMIT);
   }
 
 
   public UpdateCoupon startDate(@javax.annotation.Nullable OffsetDateTime startDate) {
     this.startDate = startDate;
+    this.markPropertyAsSet(SERIALIZED_NAME_START_DATE);
     return this;
   }
 
@@ -188,11 +198,13 @@ public class UpdateCoupon {
 
   public void setStartDate(@javax.annotation.Nullable OffsetDateTime startDate) {
     this.startDate = startDate;
+    this.markPropertyAsSet(SERIALIZED_NAME_START_DATE);
   }
 
 
   public UpdateCoupon expiryDate(@javax.annotation.Nullable OffsetDateTime expiryDate) {
     this.expiryDate = expiryDate;
+    this.markPropertyAsSet(SERIALIZED_NAME_EXPIRY_DATE);
     return this;
   }
 
@@ -207,11 +219,13 @@ public class UpdateCoupon {
 
   public void setExpiryDate(@javax.annotation.Nullable OffsetDateTime expiryDate) {
     this.expiryDate = expiryDate;
+    this.markPropertyAsSet(SERIALIZED_NAME_EXPIRY_DATE);
   }
 
 
   public UpdateCoupon limits(@javax.annotation.Nullable List<LimitConfig> limits) {
     this.limits = limits;
+    this.markPropertyAsSet(SERIALIZED_NAME_LIMITS);
     return this;
   }
 
@@ -220,6 +234,7 @@ public class UpdateCoupon {
       this.limits = new ArrayList<>();
     }
     this.limits.add(limitsItem);
+    this.markPropertyAsSet(SERIALIZED_NAME_LIMITS);
     return this;
   }
 
@@ -234,11 +249,13 @@ public class UpdateCoupon {
 
   public void setLimits(@javax.annotation.Nullable List<LimitConfig> limits) {
     this.limits = limits;
+    this.markPropertyAsSet(SERIALIZED_NAME_LIMITS);
   }
 
 
   public UpdateCoupon recipientIntegrationId(@javax.annotation.Nullable String recipientIntegrationId) {
     this.recipientIntegrationId = recipientIntegrationId;
+    this.markPropertyAsSet(SERIALIZED_NAME_RECIPIENT_INTEGRATION_ID);
     return this;
   }
 
@@ -253,11 +270,13 @@ public class UpdateCoupon {
 
   public void setRecipientIntegrationId(@javax.annotation.Nullable String recipientIntegrationId) {
     this.recipientIntegrationId = recipientIntegrationId;
+    this.markPropertyAsSet(SERIALIZED_NAME_RECIPIENT_INTEGRATION_ID);
   }
 
 
   public UpdateCoupon attributes(@javax.annotation.Nullable Object attributes) {
     this.attributes = attributes;
+    this.markPropertyAsSet(SERIALIZED_NAME_ATTRIBUTES);
     return this;
   }
 
@@ -272,11 +291,13 @@ public class UpdateCoupon {
 
   public void setAttributes(@javax.annotation.Nullable Object attributes) {
     this.attributes = attributes;
+    this.markPropertyAsSet(SERIALIZED_NAME_ATTRIBUTES);
   }
 
 
   public UpdateCoupon isReservationMandatory(@javax.annotation.Nullable Boolean isReservationMandatory) {
     this.isReservationMandatory = isReservationMandatory;
+    this.markPropertyAsSet(SERIALIZED_NAME_IS_RESERVATION_MANDATORY);
     return this;
   }
 
@@ -291,11 +312,13 @@ public class UpdateCoupon {
 
   public void setIsReservationMandatory(@javax.annotation.Nullable Boolean isReservationMandatory) {
     this.isReservationMandatory = isReservationMandatory;
+    this.markPropertyAsSet(SERIALIZED_NAME_IS_RESERVATION_MANDATORY);
   }
 
 
   public UpdateCoupon implicitlyReserved(@javax.annotation.Nullable Boolean implicitlyReserved) {
     this.implicitlyReserved = implicitlyReserved;
+    this.markPropertyAsSet(SERIALIZED_NAME_IMPLICITLY_RESERVED);
     return this;
   }
 
@@ -310,6 +333,7 @@ public class UpdateCoupon {
 
   public void setImplicitlyReserved(@javax.annotation.Nullable Boolean implicitlyReserved) {
     this.implicitlyReserved = implicitlyReserved;
+    this.markPropertyAsSet(SERIALIZED_NAME_IMPLICITLY_RESERVED);
   }
 
   /**
@@ -355,6 +379,21 @@ public class UpdateCoupon {
         return null;
     }
     return this.additionalProperties.get(key);
+  }
+
+  /** Omit null properties unless they were explicitly assigned or present in JSON input. */
+  protected final void removeUnsetNullFields(JsonObject obj) {
+    obj.entrySet().removeIf(entry -> entry.getValue().isJsonNull()
+        && !openapiExplicitlySetFields.contains(entry.getKey()));
+  }
+
+  protected final void markPropertyAsSet(String propertyName) {
+    openapiExplicitlySetFields.add(propertyName);
+  }
+
+  /** Gson populates fields directly, bypassing setters during deserialization. */
+  protected final void markPropertiesAsSet(Set<String> propertyNames) {
+    openapiExplicitlySetFields.addAll(propertyNames);
   }
 
 
@@ -461,7 +500,7 @@ public class UpdateCoupon {
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
        if (!UpdateCoupon.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'UpdateCoupon' and its subtypes
+         return null; // let other model factories handle this type
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
        final TypeAdapter<UpdateCoupon> thisAdapter
@@ -471,31 +510,22 @@ public class UpdateCoupon {
            @Override
            public void write(JsonWriter out, UpdateCoupon value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+             value.removeUnsetNullFields(obj);
              obj.remove("additionalProperties");
              // serialize additional properties
              if (value.getAdditionalProperties() != null) {
                for (Map.Entry<String, Object> entry : value.getAdditionalProperties().entrySet()) {
-                 if (entry.getValue() instanceof String)
-                   obj.addProperty(entry.getKey(), (String) entry.getValue());
-                 else if (entry.getValue() instanceof Number)
-                   obj.addProperty(entry.getKey(), (Number) entry.getValue());
-                 else if (entry.getValue() instanceof Boolean)
-                   obj.addProperty(entry.getKey(), (Boolean) entry.getValue());
-                 else if (entry.getValue() instanceof Character)
-                   obj.addProperty(entry.getKey(), (Character) entry.getValue());
-                 else {
-                   JsonElement jsonElement = gson.toJsonTree(entry.getValue());
-                   if (jsonElement.isJsonNull()) {
-                     obj.add(entry.getKey(), JsonNull.INSTANCE);
-                   } else if (jsonElement.isJsonArray()) {
-                     obj.add(entry.getKey(), jsonElement.getAsJsonArray());
-                   } else {
-                     obj.add(entry.getKey(), jsonElement.getAsJsonObject());
-                   }
-                 }
+                 // TypeAdapter.toJsonTree keeps explicit null entries in arbitrary maps too.
+                 obj.add(entry.getKey(), gson.getAdapter(Object.class).toJsonTree(entry.getValue()));
                }
              }
-             elementAdapter.write(out, obj);
+             boolean originalSerializeNulls = out.getSerializeNulls();
+             try {
+               out.setSerializeNulls(true);
+               elementAdapter.write(out, obj);
+             } finally {
+               out.setSerializeNulls(originalSerializeNulls);
+             }
            }
 
            @Override
@@ -505,6 +535,7 @@ public class UpdateCoupon {
              JsonObject jsonObj = jsonElement.getAsJsonObject();
              // store additional fields in the deserialized instance
              UpdateCoupon instance = thisAdapter.fromJsonTree(jsonObj);
+             instance.markPropertiesAsSet(jsonObj.keySet());
              for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
                if (!openapiFields.contains(entry.getKey())) {
                  if (entry.getValue().isJsonPrimitive()) { // primitive type

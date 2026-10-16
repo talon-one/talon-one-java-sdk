@@ -54,6 +54,9 @@ import one.talon.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.26.0")
 public class LoyaltyDashboardData {
+  // Gson ignores transient state; only setters and JSON input mark properties as present.
+  private transient Set<String> openapiExplicitlySetFields = new HashSet<>();
+
   public static final String SERIALIZED_NAME_DATE = "date";
   @SerializedName(SERIALIZED_NAME_DATE)
   @javax.annotation.Nonnull
@@ -109,6 +112,7 @@ public class LoyaltyDashboardData {
 
   public LoyaltyDashboardData date(@javax.annotation.Nonnull OffsetDateTime date) {
     this.date = date;
+    this.markPropertyAsSet(SERIALIZED_NAME_DATE);
     return this;
   }
 
@@ -123,11 +127,13 @@ public class LoyaltyDashboardData {
 
   public void setDate(@javax.annotation.Nonnull OffsetDateTime date) {
     this.date = date;
+    this.markPropertyAsSet(SERIALIZED_NAME_DATE);
   }
 
 
   public LoyaltyDashboardData totalActivePoints(@javax.annotation.Nonnull BigDecimal totalActivePoints) {
     this.totalActivePoints = totalActivePoints;
+    this.markPropertyAsSet(SERIALIZED_NAME_TOTAL_ACTIVE_POINTS);
     return this;
   }
 
@@ -142,11 +148,13 @@ public class LoyaltyDashboardData {
 
   public void setTotalActivePoints(@javax.annotation.Nonnull BigDecimal totalActivePoints) {
     this.totalActivePoints = totalActivePoints;
+    this.markPropertyAsSet(SERIALIZED_NAME_TOTAL_ACTIVE_POINTS);
   }
 
 
   public LoyaltyDashboardData totalPendingPoints(@javax.annotation.Nonnull BigDecimal totalPendingPoints) {
     this.totalPendingPoints = totalPendingPoints;
+    this.markPropertyAsSet(SERIALIZED_NAME_TOTAL_PENDING_POINTS);
     return this;
   }
 
@@ -161,11 +169,13 @@ public class LoyaltyDashboardData {
 
   public void setTotalPendingPoints(@javax.annotation.Nonnull BigDecimal totalPendingPoints) {
     this.totalPendingPoints = totalPendingPoints;
+    this.markPropertyAsSet(SERIALIZED_NAME_TOTAL_PENDING_POINTS);
   }
 
 
   public LoyaltyDashboardData totalSpentPoints(@javax.annotation.Nonnull BigDecimal totalSpentPoints) {
     this.totalSpentPoints = totalSpentPoints;
+    this.markPropertyAsSet(SERIALIZED_NAME_TOTAL_SPENT_POINTS);
     return this;
   }
 
@@ -180,11 +190,13 @@ public class LoyaltyDashboardData {
 
   public void setTotalSpentPoints(@javax.annotation.Nonnull BigDecimal totalSpentPoints) {
     this.totalSpentPoints = totalSpentPoints;
+    this.markPropertyAsSet(SERIALIZED_NAME_TOTAL_SPENT_POINTS);
   }
 
 
   public LoyaltyDashboardData totalExpiredPoints(@javax.annotation.Nonnull BigDecimal totalExpiredPoints) {
     this.totalExpiredPoints = totalExpiredPoints;
+    this.markPropertyAsSet(SERIALIZED_NAME_TOTAL_EXPIRED_POINTS);
     return this;
   }
 
@@ -199,11 +211,13 @@ public class LoyaltyDashboardData {
 
   public void setTotalExpiredPoints(@javax.annotation.Nonnull BigDecimal totalExpiredPoints) {
     this.totalExpiredPoints = totalExpiredPoints;
+    this.markPropertyAsSet(SERIALIZED_NAME_TOTAL_EXPIRED_POINTS);
   }
 
 
   public LoyaltyDashboardData totalNegativePoints(@javax.annotation.Nonnull BigDecimal totalNegativePoints) {
     this.totalNegativePoints = totalNegativePoints;
+    this.markPropertyAsSet(SERIALIZED_NAME_TOTAL_NEGATIVE_POINTS);
     return this;
   }
 
@@ -218,11 +232,13 @@ public class LoyaltyDashboardData {
 
   public void setTotalNegativePoints(@javax.annotation.Nonnull BigDecimal totalNegativePoints) {
     this.totalNegativePoints = totalNegativePoints;
+    this.markPropertyAsSet(SERIALIZED_NAME_TOTAL_NEGATIVE_POINTS);
   }
 
 
   public LoyaltyDashboardData totalMembers(@javax.annotation.Nonnull BigDecimal totalMembers) {
     this.totalMembers = totalMembers;
+    this.markPropertyAsSet(SERIALIZED_NAME_TOTAL_MEMBERS);
     return this;
   }
 
@@ -237,11 +253,13 @@ public class LoyaltyDashboardData {
 
   public void setTotalMembers(@javax.annotation.Nonnull BigDecimal totalMembers) {
     this.totalMembers = totalMembers;
+    this.markPropertyAsSet(SERIALIZED_NAME_TOTAL_MEMBERS);
   }
 
 
   public LoyaltyDashboardData newMembers(@javax.annotation.Nonnull BigDecimal newMembers) {
     this.newMembers = newMembers;
+    this.markPropertyAsSet(SERIALIZED_NAME_NEW_MEMBERS);
     return this;
   }
 
@@ -256,11 +274,13 @@ public class LoyaltyDashboardData {
 
   public void setNewMembers(@javax.annotation.Nonnull BigDecimal newMembers) {
     this.newMembers = newMembers;
+    this.markPropertyAsSet(SERIALIZED_NAME_NEW_MEMBERS);
   }
 
 
   public LoyaltyDashboardData spentPoints(@javax.annotation.Nonnull LoyaltyDashboardPointsBreakdown spentPoints) {
     this.spentPoints = spentPoints;
+    this.markPropertyAsSet(SERIALIZED_NAME_SPENT_POINTS);
     return this;
   }
 
@@ -275,11 +295,13 @@ public class LoyaltyDashboardData {
 
   public void setSpentPoints(@javax.annotation.Nonnull LoyaltyDashboardPointsBreakdown spentPoints) {
     this.spentPoints = spentPoints;
+    this.markPropertyAsSet(SERIALIZED_NAME_SPENT_POINTS);
   }
 
 
   public LoyaltyDashboardData earnedPoints(@javax.annotation.Nonnull LoyaltyDashboardPointsBreakdown earnedPoints) {
     this.earnedPoints = earnedPoints;
+    this.markPropertyAsSet(SERIALIZED_NAME_EARNED_POINTS);
     return this;
   }
 
@@ -294,6 +316,7 @@ public class LoyaltyDashboardData {
 
   public void setEarnedPoints(@javax.annotation.Nonnull LoyaltyDashboardPointsBreakdown earnedPoints) {
     this.earnedPoints = earnedPoints;
+    this.markPropertyAsSet(SERIALIZED_NAME_EARNED_POINTS);
   }
 
   /**
@@ -339,6 +362,21 @@ public class LoyaltyDashboardData {
         return null;
     }
     return this.additionalProperties.get(key);
+  }
+
+  /** Omit null properties unless they were explicitly assigned or present in JSON input. */
+  protected final void removeUnsetNullFields(JsonObject obj) {
+    obj.entrySet().removeIf(entry -> entry.getValue().isJsonNull()
+        && !openapiExplicitlySetFields.contains(entry.getKey()));
+  }
+
+  protected final void markPropertyAsSet(String propertyName) {
+    openapiExplicitlySetFields.add(propertyName);
+  }
+
+  /** Gson populates fields directly, bypassing setters during deserialization. */
+  protected final void markPropertiesAsSet(Set<String> propertyNames) {
+    openapiExplicitlySetFields.addAll(propertyNames);
   }
 
 
@@ -439,7 +477,7 @@ public class LoyaltyDashboardData {
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
        if (!LoyaltyDashboardData.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'LoyaltyDashboardData' and its subtypes
+         return null; // let other model factories handle this type
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
        final TypeAdapter<LoyaltyDashboardData> thisAdapter
@@ -449,31 +487,22 @@ public class LoyaltyDashboardData {
            @Override
            public void write(JsonWriter out, LoyaltyDashboardData value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+             value.removeUnsetNullFields(obj);
              obj.remove("additionalProperties");
              // serialize additional properties
              if (value.getAdditionalProperties() != null) {
                for (Map.Entry<String, Object> entry : value.getAdditionalProperties().entrySet()) {
-                 if (entry.getValue() instanceof String)
-                   obj.addProperty(entry.getKey(), (String) entry.getValue());
-                 else if (entry.getValue() instanceof Number)
-                   obj.addProperty(entry.getKey(), (Number) entry.getValue());
-                 else if (entry.getValue() instanceof Boolean)
-                   obj.addProperty(entry.getKey(), (Boolean) entry.getValue());
-                 else if (entry.getValue() instanceof Character)
-                   obj.addProperty(entry.getKey(), (Character) entry.getValue());
-                 else {
-                   JsonElement jsonElement = gson.toJsonTree(entry.getValue());
-                   if (jsonElement.isJsonNull()) {
-                     obj.add(entry.getKey(), JsonNull.INSTANCE);
-                   } else if (jsonElement.isJsonArray()) {
-                     obj.add(entry.getKey(), jsonElement.getAsJsonArray());
-                   } else {
-                     obj.add(entry.getKey(), jsonElement.getAsJsonObject());
-                   }
-                 }
+                 // TypeAdapter.toJsonTree keeps explicit null entries in arbitrary maps too.
+                 obj.add(entry.getKey(), gson.getAdapter(Object.class).toJsonTree(entry.getValue()));
                }
              }
-             elementAdapter.write(out, obj);
+             boolean originalSerializeNulls = out.getSerializeNulls();
+             try {
+               out.setSerializeNulls(true);
+               elementAdapter.write(out, obj);
+             } finally {
+               out.setSerializeNulls(originalSerializeNulls);
+             }
            }
 
            @Override
@@ -483,6 +512,7 @@ public class LoyaltyDashboardData {
              JsonObject jsonObj = jsonElement.getAsJsonObject();
              // store additional fields in the deserialized instance
              LoyaltyDashboardData instance = thisAdapter.fromJsonTree(jsonObj);
+             instance.markPropertiesAsSet(jsonObj.keySet());
              for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
                if (!openapiFields.contains(entry.getKey())) {
                  if (entry.getValue().isJsonPrimitive()) { // primitive type

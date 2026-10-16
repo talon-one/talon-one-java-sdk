@@ -55,6 +55,9 @@ import one.talon.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.26.0")
 public class IntegrationHubEventPayloadCouponBasedNotifications {
+  // Gson ignores transient state; only setters and JSON input mark properties as present.
+  private transient Set<String> openapiExplicitlySetFields = new HashSet<>();
+
   public static final String SERIALIZED_NAME_EVENT_ID = "EventId";
   @SerializedName(SERIALIZED_NAME_EVENT_ID)
   @javax.annotation.Nonnull
@@ -170,6 +173,7 @@ public class IntegrationHubEventPayloadCouponBasedNotifications {
 
   public IntegrationHubEventPayloadCouponBasedNotifications eventId(@javax.annotation.Nonnull Long eventId) {
     this.eventId = eventId;
+    this.markPropertyAsSet(SERIALIZED_NAME_EVENT_ID);
     return this;
   }
 
@@ -184,11 +188,13 @@ public class IntegrationHubEventPayloadCouponBasedNotifications {
 
   public void setEventId(@javax.annotation.Nonnull Long eventId) {
     this.eventId = eventId;
+    this.markPropertyAsSet(SERIALIZED_NAME_EVENT_ID);
   }
 
 
   public IntegrationHubEventPayloadCouponBasedNotifications id(@javax.annotation.Nonnull Long id) {
     this.id = id;
+    this.markPropertyAsSet(SERIALIZED_NAME_ID);
     return this;
   }
 
@@ -203,11 +209,13 @@ public class IntegrationHubEventPayloadCouponBasedNotifications {
 
   public void setId(@javax.annotation.Nonnull Long id) {
     this.id = id;
+    this.markPropertyAsSet(SERIALIZED_NAME_ID);
   }
 
 
   public IntegrationHubEventPayloadCouponBasedNotifications created(@javax.annotation.Nonnull OffsetDateTime created) {
     this.created = created;
+    this.markPropertyAsSet(SERIALIZED_NAME_CREATED);
     return this;
   }
 
@@ -222,11 +230,13 @@ public class IntegrationHubEventPayloadCouponBasedNotifications {
 
   public void setCreated(@javax.annotation.Nonnull OffsetDateTime created) {
     this.created = created;
+    this.markPropertyAsSet(SERIALIZED_NAME_CREATED);
   }
 
 
   public IntegrationHubEventPayloadCouponBasedNotifications campaignId(@javax.annotation.Nonnull Long campaignId) {
     this.campaignId = campaignId;
+    this.markPropertyAsSet(SERIALIZED_NAME_CAMPAIGN_ID);
     return this;
   }
 
@@ -241,11 +251,13 @@ public class IntegrationHubEventPayloadCouponBasedNotifications {
 
   public void setCampaignId(@javax.annotation.Nonnull Long campaignId) {
     this.campaignId = campaignId;
+    this.markPropertyAsSet(SERIALIZED_NAME_CAMPAIGN_ID);
   }
 
 
   public IntegrationHubEventPayloadCouponBasedNotifications value(@javax.annotation.Nonnull String value) {
     this.value = value;
+    this.markPropertyAsSet(SERIALIZED_NAME_VALUE);
     return this;
   }
 
@@ -260,11 +272,13 @@ public class IntegrationHubEventPayloadCouponBasedNotifications {
 
   public void setValue(@javax.annotation.Nonnull String value) {
     this.value = value;
+    this.markPropertyAsSet(SERIALIZED_NAME_VALUE);
   }
 
 
   public IntegrationHubEventPayloadCouponBasedNotifications usageLimit(@javax.annotation.Nonnull Long usageLimit) {
     this.usageLimit = usageLimit;
+    this.markPropertyAsSet(SERIALIZED_NAME_USAGE_LIMIT);
     return this;
   }
 
@@ -279,11 +293,13 @@ public class IntegrationHubEventPayloadCouponBasedNotifications {
 
   public void setUsageLimit(@javax.annotation.Nonnull Long usageLimit) {
     this.usageLimit = usageLimit;
+    this.markPropertyAsSet(SERIALIZED_NAME_USAGE_LIMIT);
   }
 
 
   public IntegrationHubEventPayloadCouponBasedNotifications discountLimit(@javax.annotation.Nullable Float discountLimit) {
     this.discountLimit = discountLimit;
+    this.markPropertyAsSet(SERIALIZED_NAME_DISCOUNT_LIMIT);
     return this;
   }
 
@@ -298,11 +314,13 @@ public class IntegrationHubEventPayloadCouponBasedNotifications {
 
   public void setDiscountLimit(@javax.annotation.Nullable Float discountLimit) {
     this.discountLimit = discountLimit;
+    this.markPropertyAsSet(SERIALIZED_NAME_DISCOUNT_LIMIT);
   }
 
 
   public IntegrationHubEventPayloadCouponBasedNotifications reservationLimit(@javax.annotation.Nullable Long reservationLimit) {
     this.reservationLimit = reservationLimit;
+    this.markPropertyAsSet(SERIALIZED_NAME_RESERVATION_LIMIT);
     return this;
   }
 
@@ -317,11 +335,13 @@ public class IntegrationHubEventPayloadCouponBasedNotifications {
 
   public void setReservationLimit(@javax.annotation.Nullable Long reservationLimit) {
     this.reservationLimit = reservationLimit;
+    this.markPropertyAsSet(SERIALIZED_NAME_RESERVATION_LIMIT);
   }
 
 
   public IntegrationHubEventPayloadCouponBasedNotifications startDate(@javax.annotation.Nullable OffsetDateTime startDate) {
     this.startDate = startDate;
+    this.markPropertyAsSet(SERIALIZED_NAME_START_DATE);
     return this;
   }
 
@@ -336,11 +356,13 @@ public class IntegrationHubEventPayloadCouponBasedNotifications {
 
   public void setStartDate(@javax.annotation.Nullable OffsetDateTime startDate) {
     this.startDate = startDate;
+    this.markPropertyAsSet(SERIALIZED_NAME_START_DATE);
   }
 
 
   public IntegrationHubEventPayloadCouponBasedNotifications expiryDate(@javax.annotation.Nullable OffsetDateTime expiryDate) {
     this.expiryDate = expiryDate;
+    this.markPropertyAsSet(SERIALIZED_NAME_EXPIRY_DATE);
     return this;
   }
 
@@ -355,11 +377,13 @@ public class IntegrationHubEventPayloadCouponBasedNotifications {
 
   public void setExpiryDate(@javax.annotation.Nullable OffsetDateTime expiryDate) {
     this.expiryDate = expiryDate;
+    this.markPropertyAsSet(SERIALIZED_NAME_EXPIRY_DATE);
   }
 
 
   public IntegrationHubEventPayloadCouponBasedNotifications usageCounter(@javax.annotation.Nonnull Long usageCounter) {
     this.usageCounter = usageCounter;
+    this.markPropertyAsSet(SERIALIZED_NAME_USAGE_COUNTER);
     return this;
   }
 
@@ -374,11 +398,13 @@ public class IntegrationHubEventPayloadCouponBasedNotifications {
 
   public void setUsageCounter(@javax.annotation.Nonnull Long usageCounter) {
     this.usageCounter = usageCounter;
+    this.markPropertyAsSet(SERIALIZED_NAME_USAGE_COUNTER);
   }
 
 
   public IntegrationHubEventPayloadCouponBasedNotifications discountCounter(@javax.annotation.Nullable Float discountCounter) {
     this.discountCounter = discountCounter;
+    this.markPropertyAsSet(SERIALIZED_NAME_DISCOUNT_COUNTER);
     return this;
   }
 
@@ -393,11 +419,13 @@ public class IntegrationHubEventPayloadCouponBasedNotifications {
 
   public void setDiscountCounter(@javax.annotation.Nullable Float discountCounter) {
     this.discountCounter = discountCounter;
+    this.markPropertyAsSet(SERIALIZED_NAME_DISCOUNT_COUNTER);
   }
 
 
   public IntegrationHubEventPayloadCouponBasedNotifications discountRemainder(@javax.annotation.Nullable Float discountRemainder) {
     this.discountRemainder = discountRemainder;
+    this.markPropertyAsSet(SERIALIZED_NAME_DISCOUNT_REMAINDER);
     return this;
   }
 
@@ -412,11 +440,13 @@ public class IntegrationHubEventPayloadCouponBasedNotifications {
 
   public void setDiscountRemainder(@javax.annotation.Nullable Float discountRemainder) {
     this.discountRemainder = discountRemainder;
+    this.markPropertyAsSet(SERIALIZED_NAME_DISCOUNT_REMAINDER);
   }
 
 
   public IntegrationHubEventPayloadCouponBasedNotifications referralId(@javax.annotation.Nullable Long referralId) {
     this.referralId = referralId;
+    this.markPropertyAsSet(SERIALIZED_NAME_REFERRAL_ID);
     return this;
   }
 
@@ -431,11 +461,13 @@ public class IntegrationHubEventPayloadCouponBasedNotifications {
 
   public void setReferralId(@javax.annotation.Nullable Long referralId) {
     this.referralId = referralId;
+    this.markPropertyAsSet(SERIALIZED_NAME_REFERRAL_ID);
   }
 
 
   public IntegrationHubEventPayloadCouponBasedNotifications recipientIntegrationId(@javax.annotation.Nullable String recipientIntegrationId) {
     this.recipientIntegrationId = recipientIntegrationId;
+    this.markPropertyAsSet(SERIALIZED_NAME_RECIPIENT_INTEGRATION_ID);
     return this;
   }
 
@@ -450,11 +482,13 @@ public class IntegrationHubEventPayloadCouponBasedNotifications {
 
   public void setRecipientIntegrationId(@javax.annotation.Nullable String recipientIntegrationId) {
     this.recipientIntegrationId = recipientIntegrationId;
+    this.markPropertyAsSet(SERIALIZED_NAME_RECIPIENT_INTEGRATION_ID);
   }
 
 
   public IntegrationHubEventPayloadCouponBasedNotifications importId(@javax.annotation.Nullable Long importId) {
     this.importId = importId;
+    this.markPropertyAsSet(SERIALIZED_NAME_IMPORT_ID);
     return this;
   }
 
@@ -469,11 +503,13 @@ public class IntegrationHubEventPayloadCouponBasedNotifications {
 
   public void setImportId(@javax.annotation.Nullable Long importId) {
     this.importId = importId;
+    this.markPropertyAsSet(SERIALIZED_NAME_IMPORT_ID);
   }
 
 
   public IntegrationHubEventPayloadCouponBasedNotifications batchId(@javax.annotation.Nullable String batchId) {
     this.batchId = batchId;
+    this.markPropertyAsSet(SERIALIZED_NAME_BATCH_ID);
     return this;
   }
 
@@ -488,11 +524,13 @@ public class IntegrationHubEventPayloadCouponBasedNotifications {
 
   public void setBatchId(@javax.annotation.Nullable String batchId) {
     this.batchId = batchId;
+    this.markPropertyAsSet(SERIALIZED_NAME_BATCH_ID);
   }
 
 
   public IntegrationHubEventPayloadCouponBasedNotifications attributes(@javax.annotation.Nullable Object attributes) {
     this.attributes = attributes;
+    this.markPropertyAsSet(SERIALIZED_NAME_ATTRIBUTES);
     return this;
   }
 
@@ -507,11 +545,13 @@ public class IntegrationHubEventPayloadCouponBasedNotifications {
 
   public void setAttributes(@javax.annotation.Nullable Object attributes) {
     this.attributes = attributes;
+    this.markPropertyAsSet(SERIALIZED_NAME_ATTRIBUTES);
   }
 
 
   public IntegrationHubEventPayloadCouponBasedNotifications limits(@javax.annotation.Nullable List<IntegrationHubEventPayloadCouponBasedNotificationsLimits> limits) {
     this.limits = limits;
+    this.markPropertyAsSet(SERIALIZED_NAME_LIMITS);
     return this;
   }
 
@@ -520,6 +560,7 @@ public class IntegrationHubEventPayloadCouponBasedNotifications {
       this.limits = new ArrayList<>();
     }
     this.limits.add(limitsItem);
+    this.markPropertyAsSet(SERIALIZED_NAME_LIMITS);
     return this;
   }
 
@@ -534,11 +575,13 @@ public class IntegrationHubEventPayloadCouponBasedNotifications {
 
   public void setLimits(@javax.annotation.Nullable List<IntegrationHubEventPayloadCouponBasedNotificationsLimits> limits) {
     this.limits = limits;
+    this.markPropertyAsSet(SERIALIZED_NAME_LIMITS);
   }
 
 
   public IntegrationHubEventPayloadCouponBasedNotifications publishedAt(@javax.annotation.Nonnull OffsetDateTime publishedAt) {
     this.publishedAt = publishedAt;
+    this.markPropertyAsSet(SERIALIZED_NAME_PUBLISHED_AT);
     return this;
   }
 
@@ -553,11 +596,13 @@ public class IntegrationHubEventPayloadCouponBasedNotifications {
 
   public void setPublishedAt(@javax.annotation.Nonnull OffsetDateTime publishedAt) {
     this.publishedAt = publishedAt;
+    this.markPropertyAsSet(SERIALIZED_NAME_PUBLISHED_AT);
   }
 
 
   public IntegrationHubEventPayloadCouponBasedNotifications sourceOfEvent(@javax.annotation.Nonnull String sourceOfEvent) {
     this.sourceOfEvent = sourceOfEvent;
+    this.markPropertyAsSet(SERIALIZED_NAME_SOURCE_OF_EVENT);
     return this;
   }
 
@@ -572,11 +617,13 @@ public class IntegrationHubEventPayloadCouponBasedNotifications {
 
   public void setSourceOfEvent(@javax.annotation.Nonnull String sourceOfEvent) {
     this.sourceOfEvent = sourceOfEvent;
+    this.markPropertyAsSet(SERIALIZED_NAME_SOURCE_OF_EVENT);
   }
 
 
   public IntegrationHubEventPayloadCouponBasedNotifications employeeName(@javax.annotation.Nonnull String employeeName) {
     this.employeeName = employeeName;
+    this.markPropertyAsSet(SERIALIZED_NAME_EMPLOYEE_NAME);
     return this;
   }
 
@@ -591,6 +638,7 @@ public class IntegrationHubEventPayloadCouponBasedNotifications {
 
   public void setEmployeeName(@javax.annotation.Nonnull String employeeName) {
     this.employeeName = employeeName;
+    this.markPropertyAsSet(SERIALIZED_NAME_EMPLOYEE_NAME);
   }
 
   /**
@@ -636,6 +684,21 @@ public class IntegrationHubEventPayloadCouponBasedNotifications {
         return null;
     }
     return this.additionalProperties.get(key);
+  }
+
+  /** Omit null properties unless they were explicitly assigned or present in JSON input. */
+  protected final void removeUnsetNullFields(JsonObject obj) {
+    obj.entrySet().removeIf(entry -> entry.getValue().isJsonNull()
+        && !openapiExplicitlySetFields.contains(entry.getKey()));
+  }
+
+  protected final void markPropertyAsSet(String propertyName) {
+    openapiExplicitlySetFields.add(propertyName);
+  }
+
+  /** Gson populates fields directly, bypassing setters during deserialization. */
+  protected final void markPropertiesAsSet(Set<String> propertyNames) {
+    openapiExplicitlySetFields.addAll(propertyNames);
   }
 
 
@@ -785,7 +848,7 @@ public class IntegrationHubEventPayloadCouponBasedNotifications {
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
        if (!IntegrationHubEventPayloadCouponBasedNotifications.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'IntegrationHubEventPayloadCouponBasedNotifications' and its subtypes
+         return null; // let other model factories handle this type
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
        final TypeAdapter<IntegrationHubEventPayloadCouponBasedNotifications> thisAdapter
@@ -795,31 +858,22 @@ public class IntegrationHubEventPayloadCouponBasedNotifications {
            @Override
            public void write(JsonWriter out, IntegrationHubEventPayloadCouponBasedNotifications value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+             value.removeUnsetNullFields(obj);
              obj.remove("additionalProperties");
              // serialize additional properties
              if (value.getAdditionalProperties() != null) {
                for (Map.Entry<String, Object> entry : value.getAdditionalProperties().entrySet()) {
-                 if (entry.getValue() instanceof String)
-                   obj.addProperty(entry.getKey(), (String) entry.getValue());
-                 else if (entry.getValue() instanceof Number)
-                   obj.addProperty(entry.getKey(), (Number) entry.getValue());
-                 else if (entry.getValue() instanceof Boolean)
-                   obj.addProperty(entry.getKey(), (Boolean) entry.getValue());
-                 else if (entry.getValue() instanceof Character)
-                   obj.addProperty(entry.getKey(), (Character) entry.getValue());
-                 else {
-                   JsonElement jsonElement = gson.toJsonTree(entry.getValue());
-                   if (jsonElement.isJsonNull()) {
-                     obj.add(entry.getKey(), JsonNull.INSTANCE);
-                   } else if (jsonElement.isJsonArray()) {
-                     obj.add(entry.getKey(), jsonElement.getAsJsonArray());
-                   } else {
-                     obj.add(entry.getKey(), jsonElement.getAsJsonObject());
-                   }
-                 }
+                 // TypeAdapter.toJsonTree keeps explicit null entries in arbitrary maps too.
+                 obj.add(entry.getKey(), gson.getAdapter(Object.class).toJsonTree(entry.getValue()));
                }
              }
-             elementAdapter.write(out, obj);
+             boolean originalSerializeNulls = out.getSerializeNulls();
+             try {
+               out.setSerializeNulls(true);
+               elementAdapter.write(out, obj);
+             } finally {
+               out.setSerializeNulls(originalSerializeNulls);
+             }
            }
 
            @Override
@@ -829,6 +883,7 @@ public class IntegrationHubEventPayloadCouponBasedNotifications {
              JsonObject jsonObj = jsonElement.getAsJsonObject();
              // store additional fields in the deserialized instance
              IntegrationHubEventPayloadCouponBasedNotifications instance = thisAdapter.fromJsonTree(jsonObj);
+             instance.markPropertiesAsSet(jsonObj.keySet());
              for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
                if (!openapiFields.contains(entry.getKey())) {
                  if (entry.getValue().isJsonPrimitive()) { // primitive type

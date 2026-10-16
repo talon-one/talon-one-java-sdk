@@ -73,41 +73,51 @@ public class OutgoingIntegrationConfigurationPolicy extends AbstractOpenApiSchem
                 return null; // this class only serializes 'OutgoingIntegrationConfigurationPolicy' and its subtypes
             }
             final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-            final TypeAdapter<OutgoingIntegrationBrazePolicy> adapterOutgoingIntegrationBrazePolicy = gson.getDelegateAdapter(this, TypeToken.get(OutgoingIntegrationBrazePolicy.class));
-            final TypeAdapter<OutgoingIntegrationCleverTapPolicy> adapterOutgoingIntegrationCleverTapPolicy = gson.getDelegateAdapter(this, TypeToken.get(OutgoingIntegrationCleverTapPolicy.class));
-            final TypeAdapter<OutgoingIntegrationMoEngagePolicy> adapterOutgoingIntegrationMoEngagePolicy = gson.getDelegateAdapter(this, TypeToken.get(OutgoingIntegrationMoEngagePolicy.class));
-            final TypeAdapter<OutgoingIntegrationIterablePolicy> adapterOutgoingIntegrationIterablePolicy = gson.getDelegateAdapter(this, TypeToken.get(OutgoingIntegrationIterablePolicy.class));
+            final TypeAdapter<OutgoingIntegrationBrazePolicy> adapterOutgoingIntegrationBrazePolicy = gson.getAdapter(TypeToken.get(OutgoingIntegrationBrazePolicy.class));
+            final TypeAdapter<OutgoingIntegrationCleverTapPolicy> adapterOutgoingIntegrationCleverTapPolicy = gson.getAdapter(TypeToken.get(OutgoingIntegrationCleverTapPolicy.class));
+            final TypeAdapter<OutgoingIntegrationMoEngagePolicy> adapterOutgoingIntegrationMoEngagePolicy = gson.getAdapter(TypeToken.get(OutgoingIntegrationMoEngagePolicy.class));
+            final TypeAdapter<OutgoingIntegrationIterablePolicy> adapterOutgoingIntegrationIterablePolicy = gson.getAdapter(TypeToken.get(OutgoingIntegrationIterablePolicy.class));
 
             return (TypeAdapter<T>) new TypeAdapter<OutgoingIntegrationConfigurationPolicy>() {
+                private void writeJsonElement(JsonWriter out, JsonElement value) throws IOException {
+                    boolean originalSerializeNulls = out.getSerializeNulls();
+                    try {
+                        out.setSerializeNulls(true);
+                        elementAdapter.write(out, value);
+                    } finally {
+                        out.setSerializeNulls(originalSerializeNulls);
+                    }
+                }
+
                 @Override
                 public void write(JsonWriter out, OutgoingIntegrationConfigurationPolicy value) throws IOException {
                     if (value == null || value.getActualInstance() == null) {
-                        elementAdapter.write(out, null);
+                        writeJsonElement(out, null);
                         return;
                     }
 
                     // check if the actual instance is of the type `OutgoingIntegrationBrazePolicy`
                     if (value.getActualInstance() instanceof OutgoingIntegrationBrazePolicy) {
                         JsonElement element = adapterOutgoingIntegrationBrazePolicy.toJsonTree((OutgoingIntegrationBrazePolicy)value.getActualInstance());
-                        elementAdapter.write(out, element);
+                        writeJsonElement(out, element);
                         return;
                     }
                     // check if the actual instance is of the type `OutgoingIntegrationCleverTapPolicy`
                     if (value.getActualInstance() instanceof OutgoingIntegrationCleverTapPolicy) {
                         JsonElement element = adapterOutgoingIntegrationCleverTapPolicy.toJsonTree((OutgoingIntegrationCleverTapPolicy)value.getActualInstance());
-                        elementAdapter.write(out, element);
+                        writeJsonElement(out, element);
                         return;
                     }
                     // check if the actual instance is of the type `OutgoingIntegrationMoEngagePolicy`
                     if (value.getActualInstance() instanceof OutgoingIntegrationMoEngagePolicy) {
                         JsonElement element = adapterOutgoingIntegrationMoEngagePolicy.toJsonTree((OutgoingIntegrationMoEngagePolicy)value.getActualInstance());
-                        elementAdapter.write(out, element);
+                        writeJsonElement(out, element);
                         return;
                     }
                     // check if the actual instance is of the type `OutgoingIntegrationIterablePolicy`
                     if (value.getActualInstance() instanceof OutgoingIntegrationIterablePolicy) {
                         JsonElement element = adapterOutgoingIntegrationIterablePolicy.toJsonTree((OutgoingIntegrationIterablePolicy)value.getActualInstance());
-                        elementAdapter.write(out, element);
+                        writeJsonElement(out, element);
                         return;
                     }
                     throw new IOException("Failed to serialize as the type doesn't match oneOf schemas: OutgoingIntegrationBrazePolicy, OutgoingIntegrationCleverTapPolicy, OutgoingIntegrationIterablePolicy, OutgoingIntegrationMoEngagePolicy");
