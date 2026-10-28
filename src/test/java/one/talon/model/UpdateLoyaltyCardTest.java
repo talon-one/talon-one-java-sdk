@@ -53,4 +53,12 @@ public class UpdateLoyaltyCardTest {
         // TODO: test blockReason
     }
 
+    /**
+     * Test the property 'attributes'
+     */
+    @Test
+    public void attributesTest() {
+        // TODO: test attributes
+    }
+
 }

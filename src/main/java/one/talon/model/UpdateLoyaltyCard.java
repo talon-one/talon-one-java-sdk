@@ -64,6 +64,11 @@ public class UpdateLoyaltyCard {
   @javax.annotation.Nullable
   private String blockReason;
 
+  public static final String SERIALIZED_NAME_ATTRIBUTES = "attributes";
+  @SerializedName(SERIALIZED_NAME_ATTRIBUTES)
+  @javax.annotation.Nullable
+  private Object attributes;
+
   public UpdateLoyaltyCard() {
   }
 
@@ -106,6 +111,27 @@ public class UpdateLoyaltyCard {
   public void setBlockReason(@javax.annotation.Nullable String blockReason) {
     this.blockReason = blockReason;
     this.markPropertyAsSet(SERIALIZED_NAME_BLOCK_REASON);
+  }
+
+
+  public UpdateLoyaltyCard attributes(@javax.annotation.Nullable Object attributes) {
+    this.attributes = attributes;
+    this.markPropertyAsSet(SERIALIZED_NAME_ATTRIBUTES);
+    return this;
+  }
+
+  /**
+   * Set values for the [custom attributes](https://docs.talon.one/docs/dev/concepts/attributes#custom-attributes) of a loyalty card. These attributes must be created in the Campaign Manager before their values can be updated through this endpoint. 
+   * @return attributes
+   */
+  @javax.annotation.Nullable
+  public Object getAttributes() {
+    return attributes;
+  }
+
+  public void setAttributes(@javax.annotation.Nullable Object attributes) {
+    this.attributes = attributes;
+    this.markPropertyAsSet(SERIALIZED_NAME_ATTRIBUTES);
   }
 
   /**
@@ -179,13 +205,14 @@ public class UpdateLoyaltyCard {
     }
     UpdateLoyaltyCard updateLoyaltyCard = (UpdateLoyaltyCard) o;
     return Objects.equals(this.status, updateLoyaltyCard.status) &&
-        Objects.equals(this.blockReason, updateLoyaltyCard.blockReason)&&
+        Objects.equals(this.blockReason, updateLoyaltyCard.blockReason) &&
+        Objects.equals(this.attributes, updateLoyaltyCard.attributes)&&
         Objects.equals(this.additionalProperties, updateLoyaltyCard.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(status, blockReason, additionalProperties);
+    return Objects.hash(status, blockReason, attributes, additionalProperties);
   }
 
   @Override
@@ -194,6 +221,7 @@ public class UpdateLoyaltyCard {
     sb.append("class UpdateLoyaltyCard {\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    blockReason: ").append(toIndentedString(blockReason)).append("\n");
+    sb.append("    attributes: ").append(toIndentedString(attributes)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -213,7 +241,7 @@ public class UpdateLoyaltyCard {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("status", "blockReason"));
+    openapiFields = new HashSet<String>(Arrays.asList("status", "blockReason", "attributes"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("status"));

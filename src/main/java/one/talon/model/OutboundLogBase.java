@@ -49,7 +49,7 @@ import java.util.Set;
 import one.talon.JSON;
 
 /**
- * Shared details of an outbound notification or webhook message.
+ * OutboundLogBase
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.26.0")
 public class OutboundLogBase {
@@ -132,7 +132,7 @@ public class OutboundLogBase {
   }
 
   /**
-   * ID of the notification that produced the outbound request.
+   * ID of the notification that triggered the outbound message.
    * @return notificationId
    */
   @javax.annotation.Nullable
@@ -153,7 +153,7 @@ public class OutboundLogBase {
   }
 
   /**
-   * Name of the notification that produced the outbound request.
+   * Name of the notification that triggered the outbound message.
    * @return notificationName
    */
   @javax.annotation.Nullable
@@ -174,7 +174,7 @@ public class OutboundLogBase {
   }
 
   /**
-   * ID of the webhook that produced the outbound request.
+   * ID of the webhook that triggered the outbound message.
    * @return webhookId
    */
   @javax.annotation.Nullable
@@ -195,7 +195,7 @@ public class OutboundLogBase {
   }
 
   /**
-   * The name of the webhook that produced the outbound request.
+   * Name of the webhook that triggered the outbound message.
    * @return webhookName
    */
   @javax.annotation.Nullable
@@ -216,7 +216,7 @@ public class OutboundLogBase {
   }
 
   /**
-   * Type of notification that produced the outbound request.
+   * Type of notification that triggered the outbound message.
    * @return notificationType
    */
   @javax.annotation.Nonnull
@@ -237,7 +237,7 @@ public class OutboundLogBase {
   }
 
   /**
-   * ID of the Application associated with the outbound request.
+   * ID of the Application associated with the outbound message.
    * @return applicationId
    */
   @javax.annotation.Nullable
@@ -258,7 +258,7 @@ public class OutboundLogBase {
   }
 
   /**
-   * ID of the loyalty program associated with the outbound request.
+   * ID of the loyalty program associated with the outbound message.
    * @return loyaltyProgramId
    */
   @javax.annotation.Nullable

@@ -700,6 +700,7 @@ public class JSON {
         gsonBuilder.registerTypeAdapterFactory(new one.talon.model.EmailEntity.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new one.talon.model.EmbeddedAnalyticsConfiguration.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new one.talon.model.EmbeddedAnalyticsConfigurationDashboards.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new one.talon.model.EmbeddedAnalyticsToken.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new one.talon.model.EmbeddedDashboardConfiguration.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new one.talon.model.Endpoint.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new one.talon.model.Entity.CustomTypeAdapterFactory());

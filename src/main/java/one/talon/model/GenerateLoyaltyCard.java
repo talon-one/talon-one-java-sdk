@@ -123,6 +123,11 @@ public class GenerateLoyaltyCard {
   @javax.annotation.Nullable
   private String cardIdentifier;
 
+  public static final String SERIALIZED_NAME_ATTRIBUTES = "attributes";
+  @SerializedName(SERIALIZED_NAME_ATTRIBUTES)
+  @javax.annotation.Nullable
+  private Object attributes;
+
   public GenerateLoyaltyCard() {
   }
 
@@ -197,6 +202,27 @@ public class GenerateLoyaltyCard {
     this.markPropertyAsSet(SERIALIZED_NAME_CARD_IDENTIFIER);
   }
 
+
+  public GenerateLoyaltyCard attributes(@javax.annotation.Nullable Object attributes) {
+    this.attributes = attributes;
+    this.markPropertyAsSet(SERIALIZED_NAME_ATTRIBUTES);
+    return this;
+  }
+
+  /**
+   * Set values for the [custom attributes](https://docs.talon.one/docs/dev/concepts/attributes#custom-attributes) of a loyalty card. These attributes must be created in the Campaign Manager before their values can be updated through this endpoint. 
+   * @return attributes
+   */
+  @javax.annotation.Nullable
+  public Object getAttributes() {
+    return attributes;
+  }
+
+  public void setAttributes(@javax.annotation.Nullable Object attributes) {
+    this.attributes = attributes;
+    this.markPropertyAsSet(SERIALIZED_NAME_ATTRIBUTES);
+  }
+
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -269,13 +295,14 @@ public class GenerateLoyaltyCard {
     GenerateLoyaltyCard generateLoyaltyCard = (GenerateLoyaltyCard) o;
     return Objects.equals(this.status, generateLoyaltyCard.status) &&
         Objects.equals(this.customerProfileIds, generateLoyaltyCard.customerProfileIds) &&
-        Objects.equals(this.cardIdentifier, generateLoyaltyCard.cardIdentifier)&&
+        Objects.equals(this.cardIdentifier, generateLoyaltyCard.cardIdentifier) &&
+        Objects.equals(this.attributes, generateLoyaltyCard.attributes)&&
         Objects.equals(this.additionalProperties, generateLoyaltyCard.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(status, customerProfileIds, cardIdentifier, additionalProperties);
+    return Objects.hash(status, customerProfileIds, cardIdentifier, attributes, additionalProperties);
   }
 
   @Override
@@ -285,6 +312,7 @@ public class GenerateLoyaltyCard {
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    customerProfileIds: ").append(toIndentedString(customerProfileIds)).append("\n");
     sb.append("    cardIdentifier: ").append(toIndentedString(cardIdentifier)).append("\n");
+    sb.append("    attributes: ").append(toIndentedString(attributes)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -304,7 +332,7 @@ public class GenerateLoyaltyCard {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("status", "customerProfileIds", "cardIdentifier"));
+    openapiFields = new HashSet<String>(Arrays.asList("status", "customerProfileIds", "cardIdentifier", "attributes"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(0);

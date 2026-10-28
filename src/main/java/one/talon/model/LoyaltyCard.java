@@ -96,6 +96,11 @@ public class LoyaltyCard {
   @javax.annotation.Nullable
   private String blockReason;
 
+  public static final String SERIALIZED_NAME_ATTRIBUTES = "attributes";
+  @SerializedName(SERIALIZED_NAME_ATTRIBUTES)
+  @javax.annotation.Nullable
+  private Object attributes;
+
   public static final String SERIALIZED_NAME_IDENTIFIER = "identifier";
   @SerializedName(SERIALIZED_NAME_IDENTIFIER)
   @javax.annotation.Nonnull
@@ -288,6 +293,27 @@ public class LoyaltyCard {
   public void setBlockReason(@javax.annotation.Nullable String blockReason) {
     this.blockReason = blockReason;
     this.markPropertyAsSet(SERIALIZED_NAME_BLOCK_REASON);
+  }
+
+
+  public LoyaltyCard attributes(@javax.annotation.Nullable Object attributes) {
+    this.attributes = attributes;
+    this.markPropertyAsSet(SERIALIZED_NAME_ATTRIBUTES);
+    return this;
+  }
+
+  /**
+   * Set values for the [custom attributes](https://docs.talon.one/docs/dev/concepts/attributes#custom-attributes) of a loyalty card. These attributes must be created in the Campaign Manager before their values can be updated through this endpoint. 
+   * @return attributes
+   */
+  @javax.annotation.Nullable
+  public Object getAttributes() {
+    return attributes;
+  }
+
+  public void setAttributes(@javax.annotation.Nullable Object attributes) {
+    this.attributes = attributes;
+    this.markPropertyAsSet(SERIALIZED_NAME_ATTRIBUTES);
   }
 
 
@@ -575,6 +601,7 @@ public class LoyaltyCard {
         Objects.equals(this.programTitle, loyaltyCard.programTitle) &&
         Objects.equals(this.status, loyaltyCard.status) &&
         Objects.equals(this.blockReason, loyaltyCard.blockReason) &&
+        Objects.equals(this.attributes, loyaltyCard.attributes) &&
         Objects.equals(this.identifier, loyaltyCard.identifier) &&
         Objects.equals(this.usersPerCardLimit, loyaltyCard.usersPerCardLimit) &&
         Objects.equals(this.profiles, loyaltyCard.profiles) &&
@@ -589,7 +616,7 @@ public class LoyaltyCard {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, created, programID, programName, programTitle, status, blockReason, identifier, usersPerCardLimit, profiles, ledger, subledgers, modified, oldCardIdentifier, newCardIdentifier, batchId, additionalProperties);
+    return Objects.hash(id, created, programID, programName, programTitle, status, blockReason, attributes, identifier, usersPerCardLimit, profiles, ledger, subledgers, modified, oldCardIdentifier, newCardIdentifier, batchId, additionalProperties);
   }
 
   @Override
@@ -603,6 +630,7 @@ public class LoyaltyCard {
     sb.append("    programTitle: ").append(toIndentedString(programTitle)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    blockReason: ").append(toIndentedString(blockReason)).append("\n");
+    sb.append("    attributes: ").append(toIndentedString(attributes)).append("\n");
     sb.append("    identifier: ").append(toIndentedString(identifier)).append("\n");
     sb.append("    usersPerCardLimit: ").append(toIndentedString(usersPerCardLimit)).append("\n");
     sb.append("    profiles: ").append(toIndentedString(profiles)).append("\n");
@@ -631,7 +659,7 @@ public class LoyaltyCard {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("id", "created", "programID", "programName", "programTitle", "status", "blockReason", "identifier", "usersPerCardLimit", "profiles", "ledger", "subledgers", "modified", "oldCardIdentifier", "newCardIdentifier", "batchId"));
+    openapiFields = new HashSet<String>(Arrays.asList("id", "created", "programID", "programName", "programTitle", "status", "blockReason", "attributes", "identifier", "usersPerCardLimit", "profiles", "ledger", "subledgers", "modified", "oldCardIdentifier", "newCardIdentifier", "batchId"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("id", "created", "programID", "status", "identifier", "usersPerCardLimit"));

@@ -70,6 +70,7 @@ import one.talon.model.RewardUnlockRejection;
 import one.talon.model.UpdateAudience;
 import one.talon.model.UpdateCustomerProfileV2409Response;
 import one.talon.model.UpdateCustomerSessionV2409Response;
+import one.talon.model.UpdateLoyaltyCardRequest;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
@@ -551,6 +552,22 @@ public class IntegrationApiTest {
         String profileIntegrationId = null;
         String loyaltyCardId = null;
         IntegrationRewardsCatalog200Response response = api.integrationRewardsCatalog(pageSize, skip, pointsFrom, pointsTo, includeFree, loyaltyProgramId, subledgerId, profileIntegrationId, loyaltyCardId);
+        // TODO: test validations
+    }
+
+    /**
+     * Update loyalty card
+     *
+     * Updates the details of a specific loyalty card. Use this endpoint to modify the card&#39;s status and custom attribute values.  You must provide at least one of the following parameters: -   &#x60;status&#x60; -  &#x60;attributes&#x60; 
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void integrationUpdateLoyaltyCardTest() throws ApiException {
+        Long loyaltyProgramId = null;
+        String loyaltyCardId = null;
+        UpdateLoyaltyCardRequest updateLoyaltyCardRequest = null;
+        LoyaltyCard response = api.integrationUpdateLoyaltyCard(loyaltyProgramId, loyaltyCardId, updateLoyaltyCardRequest);
         // TODO: test validations
     }
 

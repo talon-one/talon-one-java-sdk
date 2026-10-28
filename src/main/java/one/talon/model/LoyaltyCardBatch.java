@@ -122,6 +122,11 @@ public class LoyaltyCardBatch {
   @javax.annotation.Nullable
   private StatusEnum status = StatusEnum.ACTIVE;
 
+  public static final String SERIALIZED_NAME_ATTRIBUTES = "attributes";
+  @SerializedName(SERIALIZED_NAME_ATTRIBUTES)
+  @javax.annotation.Nullable
+  private Object attributes;
+
   public static final String SERIALIZED_NAME_CARD_CODE_SETTINGS = "cardCodeSettings";
   @SerializedName(SERIALIZED_NAME_CARD_CODE_SETTINGS)
   @javax.annotation.Nullable
@@ -192,6 +197,27 @@ public class LoyaltyCardBatch {
   public void setStatus(@javax.annotation.Nullable StatusEnum status) {
     this.status = status;
     this.markPropertyAsSet(SERIALIZED_NAME_STATUS);
+  }
+
+
+  public LoyaltyCardBatch attributes(@javax.annotation.Nullable Object attributes) {
+    this.attributes = attributes;
+    this.markPropertyAsSet(SERIALIZED_NAME_ATTRIBUTES);
+    return this;
+  }
+
+  /**
+   * Set values for the [custom attributes](https://docs.talon.one/docs/dev/concepts/attributes#custom-attributes) of a loyalty card. These attributes must be created in the Campaign Manager before their values can be updated through this endpoint. 
+   * @return attributes
+   */
+  @javax.annotation.Nullable
+  public Object getAttributes() {
+    return attributes;
+  }
+
+  public void setAttributes(@javax.annotation.Nullable Object attributes) {
+    this.attributes = attributes;
+    this.markPropertyAsSet(SERIALIZED_NAME_ATTRIBUTES);
   }
 
 
@@ -288,13 +314,14 @@ public class LoyaltyCardBatch {
     return Objects.equals(this.numberOfCards, loyaltyCardBatch.numberOfCards) &&
         Objects.equals(this.batchId, loyaltyCardBatch.batchId) &&
         Objects.equals(this.status, loyaltyCardBatch.status) &&
+        Objects.equals(this.attributes, loyaltyCardBatch.attributes) &&
         Objects.equals(this.cardCodeSettings, loyaltyCardBatch.cardCodeSettings)&&
         Objects.equals(this.additionalProperties, loyaltyCardBatch.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(numberOfCards, batchId, status, cardCodeSettings, additionalProperties);
+    return Objects.hash(numberOfCards, batchId, status, attributes, cardCodeSettings, additionalProperties);
   }
 
   @Override
@@ -304,6 +331,7 @@ public class LoyaltyCardBatch {
     sb.append("    numberOfCards: ").append(toIndentedString(numberOfCards)).append("\n");
     sb.append("    batchId: ").append(toIndentedString(batchId)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
+    sb.append("    attributes: ").append(toIndentedString(attributes)).append("\n");
     sb.append("    cardCodeSettings: ").append(toIndentedString(cardCodeSettings)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
@@ -324,7 +352,7 @@ public class LoyaltyCardBatch {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("numberOfCards", "batchId", "status", "cardCodeSettings"));
+    openapiFields = new HashSet<String>(Arrays.asList("numberOfCards", "batchId", "status", "attributes", "cardCodeSettings"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("numberOfCards"));

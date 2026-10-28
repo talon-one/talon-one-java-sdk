@@ -20,6 +20,7 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
+import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -88,6 +89,16 @@ public class RewardCatalogItem {
   @SerializedName(SERIALIZED_NAME_ELIGIBILITY)
   @javax.annotation.Nullable
   private RewardEligibility eligibility;
+
+  public static final String SERIALIZED_NAME_VALIDITY_DURATION = "validityDuration";
+  @SerializedName(SERIALIZED_NAME_VALIDITY_DURATION)
+  @javax.annotation.Nullable
+  private String validityDuration;
+
+  public static final String SERIALIZED_NAME_EXPIRY_DATE = "expiryDate";
+  @SerializedName(SERIALIZED_NAME_EXPIRY_DATE)
+  @javax.annotation.Nullable
+  private OffsetDateTime expiryDate;
 
   public RewardCatalogItem() {
   }
@@ -226,6 +237,48 @@ public class RewardCatalogItem {
     this.markPropertyAsSet(SERIALIZED_NAME_ELIGIBILITY);
   }
 
+
+  public RewardCatalogItem validityDuration(@javax.annotation.Nullable String validityDuration) {
+    this.validityDuration = validityDuration;
+    this.markPropertyAsSet(SERIALIZED_NAME_VALIDITY_DURATION);
+    return this;
+  }
+
+  /**
+   * The duration for which the customer rewards unlocked from this reward remain active, relative to when the customer reward was unlocked.  The time format is an **integer** followed by one letter indicating the time unit.  Examples: &#x60;30m&#x60;, &#x60;1h&#x60;, &#x60;5D&#x60;, &#x60;7W&#x60;, &#x60;10M&#x60;, &#x60;15Y&#x60;.  Available units:  - &#x60;m&#x60;: minutes - &#x60;h&#x60;: hours - &#x60;D&#x60;: days - &#x60;W&#x60;: weeks - &#x60;M&#x60;: months - &#x60;Y&#x60;: years  Certain units can be rounded up or down: - &#x60;_D&#x60; for rounding down days only. Signifies the start of the day. - &#x60;_U&#x60; for rounding up days, weeks, months and years. Signifies the end of the day, week, month or year.  This field is not returned in combination with &#x60;expiryDate&#x60;. If both &#x60;validityDuration&#x60; and &#x60;expiryDate&#x60; are not returned, customer rewards have unlimited validity. 
+   * @return validityDuration
+   */
+  @javax.annotation.Nullable
+  public String getValidityDuration() {
+    return validityDuration;
+  }
+
+  public void setValidityDuration(@javax.annotation.Nullable String validityDuration) {
+    this.validityDuration = validityDuration;
+    this.markPropertyAsSet(SERIALIZED_NAME_VALIDITY_DURATION);
+  }
+
+
+  public RewardCatalogItem expiryDate(@javax.annotation.Nullable OffsetDateTime expiryDate) {
+    this.expiryDate = expiryDate;
+    this.markPropertyAsSet(SERIALIZED_NAME_EXPIRY_DATE);
+    return this;
+  }
+
+  /**
+   * Expiry date of the customer rewards unlocked from this reward. Customer rewards never expire if this is omitted and &#x60;validityDuration&#x60; is not set.  **Note:** - This field is not returned in combination with &#x60;validityDuration&#x60;. 
+   * @return expiryDate
+   */
+  @javax.annotation.Nullable
+  public OffsetDateTime getExpiryDate() {
+    return expiryDate;
+  }
+
+  public void setExpiryDate(@javax.annotation.Nullable OffsetDateTime expiryDate) {
+    this.expiryDate = expiryDate;
+    this.markPropertyAsSet(SERIALIZED_NAME_EXPIRY_DATE);
+  }
+
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -301,13 +354,15 @@ public class RewardCatalogItem {
         Objects.equals(this.description, rewardCatalogItem.description) &&
         Objects.equals(this.pointsRequired, rewardCatalogItem.pointsRequired) &&
         Objects.equals(this.rule, rewardCatalogItem.rule) &&
-        Objects.equals(this.eligibility, rewardCatalogItem.eligibility)&&
+        Objects.equals(this.eligibility, rewardCatalogItem.eligibility) &&
+        Objects.equals(this.validityDuration, rewardCatalogItem.validityDuration) &&
+        Objects.equals(this.expiryDate, rewardCatalogItem.expiryDate)&&
         Objects.equals(this.additionalProperties, rewardCatalogItem.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, name, description, pointsRequired, rule, eligibility, additionalProperties);
+    return Objects.hash(id, name, description, pointsRequired, rule, eligibility, validityDuration, expiryDate, additionalProperties);
   }
 
   @Override
@@ -320,6 +375,8 @@ public class RewardCatalogItem {
     sb.append("    pointsRequired: ").append(toIndentedString(pointsRequired)).append("\n");
     sb.append("    rule: ").append(toIndentedString(rule)).append("\n");
     sb.append("    eligibility: ").append(toIndentedString(eligibility)).append("\n");
+    sb.append("    validityDuration: ").append(toIndentedString(validityDuration)).append("\n");
+    sb.append("    expiryDate: ").append(toIndentedString(expiryDate)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -339,7 +396,7 @@ public class RewardCatalogItem {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("id", "name", "description", "pointsRequired", "rule", "eligibility"));
+    openapiFields = new HashSet<String>(Arrays.asList("id", "name", "description", "pointsRequired", "rule", "eligibility", "validityDuration", "expiryDate"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("id", "name", "rule"));
@@ -390,6 +447,9 @@ public class RewardCatalogItem {
       // validate the optional field `eligibility`
       if (jsonObj.get("eligibility") != null && !jsonObj.get("eligibility").isJsonNull()) {
         RewardEligibility.validateJsonElement(jsonObj.get("eligibility"));
+      }
+      if ((jsonObj.get("validityDuration") != null && !jsonObj.get("validityDuration").isJsonNull()) && !jsonObj.get("validityDuration").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `validityDuration` to be a primitive type in the JSON string but got `%s`", jsonObj.get("validityDuration").toString()));
       }
   }
 
