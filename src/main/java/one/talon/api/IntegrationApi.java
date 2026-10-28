@@ -83,6 +83,7 @@ import one.talon.model.RewardUnlockRejection;
 import one.talon.model.UpdateAudience;
 import one.talon.model.UpdateCustomerProfileV2409Response;
 import one.talon.model.UpdateCustomerSessionV2409Response;
+import one.talon.model.UpdateLoyaltyCardRequest;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -4559,6 +4560,165 @@ public class IntegrationApi {
 
         okhttp3.Call localVarCall = integrationRewardsCatalogValidateBeforeCall(pageSize, skip, pointsFrom, pointsTo, includeFree, loyaltyProgramId, subledgerId, profileIntegrationId, loyaltyCardId, _callback);
         Type localVarReturnType = new TypeToken<IntegrationRewardsCatalog200Response>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for integrationUpdateLoyaltyCard
+     * @param loyaltyProgramId Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint.  (required)
+     * @param loyaltyCardId Identifier of the loyalty card. You can get the identifier with the [List loyalty cards](https://docs.talon.one/management-api#tag/Loyalty-cards/operation/getLoyaltyCards) endpoint.  **Important**: The loyalty card ID requires [URL encoding](https://www.w3schools.com/tags//ref_urlencode.asp) if it contains special characters. For example, you must encode &#x60;NewCard2026%&#x60; as &#x60;NewCard2026%25&#x60;.  (required)
+     * @param updateLoyaltyCardRequest body (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call integrationUpdateLoyaltyCardCall(@javax.annotation.Nonnull Long loyaltyProgramId, @javax.annotation.Nonnull String loyaltyCardId, @javax.annotation.Nonnull UpdateLoyaltyCardRequest updateLoyaltyCardRequest, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = updateLoyaltyCardRequest;
+
+        // create path and map variables
+        String localVarPath = "/v1/loyalty_programs/{loyaltyProgramId}/cards/{loyaltyCardId}/update"
+            .replace("{" + "loyaltyProgramId" + "}", localVarApiClient.escapeString(loyaltyProgramId.toString()))
+            .replace("{" + "loyaltyCardId" + "}", localVarApiClient.escapeString(loyaltyCardId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "api_key_v1" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call integrationUpdateLoyaltyCardValidateBeforeCall(@javax.annotation.Nonnull Long loyaltyProgramId, @javax.annotation.Nonnull String loyaltyCardId, @javax.annotation.Nonnull UpdateLoyaltyCardRequest updateLoyaltyCardRequest, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'loyaltyProgramId' is set
+        if (loyaltyProgramId == null) {
+            throw new ApiException("Missing the required parameter 'loyaltyProgramId' when calling integrationUpdateLoyaltyCard(Async)");
+        }
+
+        // verify the required parameter 'loyaltyCardId' is set
+        if (loyaltyCardId == null) {
+            throw new ApiException("Missing the required parameter 'loyaltyCardId' when calling integrationUpdateLoyaltyCard(Async)");
+        }
+
+        // verify the required parameter 'updateLoyaltyCardRequest' is set
+        if (updateLoyaltyCardRequest == null) {
+            throw new ApiException("Missing the required parameter 'updateLoyaltyCardRequest' when calling integrationUpdateLoyaltyCard(Async)");
+        }
+
+        return integrationUpdateLoyaltyCardCall(loyaltyProgramId, loyaltyCardId, updateLoyaltyCardRequest, _callback);
+
+    }
+
+    /**
+     * Update loyalty card
+     * Updates the details of a specific loyalty card. Use this endpoint to modify the card&#39;s status and custom attribute values.  You must provide at least one of the following parameters: -   &#x60;status&#x60; -  &#x60;attributes&#x60; 
+     * @param loyaltyProgramId Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint.  (required)
+     * @param loyaltyCardId Identifier of the loyalty card. You can get the identifier with the [List loyalty cards](https://docs.talon.one/management-api#tag/Loyalty-cards/operation/getLoyaltyCards) endpoint.  **Important**: The loyalty card ID requires [URL encoding](https://www.w3schools.com/tags//ref_urlencode.asp) if it contains special characters. For example, you must encode &#x60;NewCard2026%&#x60; as &#x60;NewCard2026%25&#x60;.  (required)
+     * @param updateLoyaltyCardRequest body (required)
+     * @return LoyaltyCard
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
+     </table>
+     */
+    public LoyaltyCard integrationUpdateLoyaltyCard(@javax.annotation.Nonnull Long loyaltyProgramId, @javax.annotation.Nonnull String loyaltyCardId, @javax.annotation.Nonnull UpdateLoyaltyCardRequest updateLoyaltyCardRequest) throws ApiException {
+        ApiResponse<LoyaltyCard> localVarResp = integrationUpdateLoyaltyCardWithHttpInfo(loyaltyProgramId, loyaltyCardId, updateLoyaltyCardRequest);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Update loyalty card
+     * Updates the details of a specific loyalty card. Use this endpoint to modify the card&#39;s status and custom attribute values.  You must provide at least one of the following parameters: -   &#x60;status&#x60; -  &#x60;attributes&#x60; 
+     * @param loyaltyProgramId Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint.  (required)
+     * @param loyaltyCardId Identifier of the loyalty card. You can get the identifier with the [List loyalty cards](https://docs.talon.one/management-api#tag/Loyalty-cards/operation/getLoyaltyCards) endpoint.  **Important**: The loyalty card ID requires [URL encoding](https://www.w3schools.com/tags//ref_urlencode.asp) if it contains special characters. For example, you must encode &#x60;NewCard2026%&#x60; as &#x60;NewCard2026%25&#x60;.  (required)
+     * @param updateLoyaltyCardRequest body (required)
+     * @return ApiResponse&lt;LoyaltyCard&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<LoyaltyCard> integrationUpdateLoyaltyCardWithHttpInfo(@javax.annotation.Nonnull Long loyaltyProgramId, @javax.annotation.Nonnull String loyaltyCardId, @javax.annotation.Nonnull UpdateLoyaltyCardRequest updateLoyaltyCardRequest) throws ApiException {
+        okhttp3.Call localVarCall = integrationUpdateLoyaltyCardValidateBeforeCall(loyaltyProgramId, loyaltyCardId, updateLoyaltyCardRequest, null);
+        Type localVarReturnType = new TypeToken<LoyaltyCard>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Update loyalty card (asynchronously)
+     * Updates the details of a specific loyalty card. Use this endpoint to modify the card&#39;s status and custom attribute values.  You must provide at least one of the following parameters: -   &#x60;status&#x60; -  &#x60;attributes&#x60; 
+     * @param loyaltyProgramId Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint.  (required)
+     * @param loyaltyCardId Identifier of the loyalty card. You can get the identifier with the [List loyalty cards](https://docs.talon.one/management-api#tag/Loyalty-cards/operation/getLoyaltyCards) endpoint.  **Important**: The loyalty card ID requires [URL encoding](https://www.w3schools.com/tags//ref_urlencode.asp) if it contains special characters. For example, you must encode &#x60;NewCard2026%&#x60; as &#x60;NewCard2026%25&#x60;.  (required)
+     * @param updateLoyaltyCardRequest body (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call integrationUpdateLoyaltyCardAsync(@javax.annotation.Nonnull Long loyaltyProgramId, @javax.annotation.Nonnull String loyaltyCardId, @javax.annotation.Nonnull UpdateLoyaltyCardRequest updateLoyaltyCardRequest, final ApiCallback<LoyaltyCard> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = integrationUpdateLoyaltyCardValidateBeforeCall(loyaltyProgramId, loyaltyCardId, updateLoyaltyCardRequest, _callback);
+        Type localVarReturnType = new TypeToken<LoyaltyCard>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }

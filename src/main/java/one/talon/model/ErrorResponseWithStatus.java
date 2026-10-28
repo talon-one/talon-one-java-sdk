@@ -133,7 +133,7 @@ public class ErrorResponseWithStatus {
   }
 
   /**
-   * The error code
+   * The error code.
    * @return statusCode
    */
   @javax.annotation.Nullable

@@ -354,6 +354,7 @@ docs/EffectWillAwardGiveaway.md
 docs/EmailEntity.md
 docs/EmbeddedAnalyticsConfiguration.md
 docs/EmbeddedAnalyticsConfigurationDashboards.md
+docs/EmbeddedAnalyticsToken.md
 docs/EmbeddedDashboardConfiguration.md
 docs/Endpoint.md
 docs/Entity.md
@@ -1342,6 +1343,7 @@ src/main/java/one/talon/model/EffectWillAwardGiveaway.java
 src/main/java/one/talon/model/EmailEntity.java
 src/main/java/one/talon/model/EmbeddedAnalyticsConfiguration.java
 src/main/java/one/talon/model/EmbeddedAnalyticsConfigurationDashboards.java
+src/main/java/one/talon/model/EmbeddedAnalyticsToken.java
 src/main/java/one/talon/model/EmbeddedDashboardConfiguration.java
 src/main/java/one/talon/model/Endpoint.java
 src/main/java/one/talon/model/Entity.java
@@ -2301,6 +2303,7 @@ src/test/java/one/talon/model/EffectWillAwardGiveawayTest.java
 src/test/java/one/talon/model/EmailEntityTest.java
 src/test/java/one/talon/model/EmbeddedAnalyticsConfigurationDashboardsTest.java
 src/test/java/one/talon/model/EmbeddedAnalyticsConfigurationTest.java
+src/test/java/one/talon/model/EmbeddedAnalyticsTokenTest.java
 src/test/java/one/talon/model/EmbeddedDashboardConfigurationTest.java
 src/test/java/one/talon/model/EndpointTest.java
 src/test/java/one/talon/model/EntityTest.java

@@ -45,4 +45,12 @@ public class UpdateLoyaltyCardRequestTest {
         // TODO: test status
     }
 
+    /**
+     * Test the property 'attributes'
+     */
+    @Test
+    public void attributesTest() {
+        // TODO: test attributes
+    }
+
 }

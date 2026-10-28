@@ -51,7 +51,7 @@ import java.util.Set;
 import one.talon.JSON;
 
 /**
- * Log of an outbound notification or webhook request.
+ * OutboundLog
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.26.0")
 public class OutboundLog {
@@ -149,7 +149,7 @@ public class OutboundLog {
   }
 
   /**
-   * ID of the notification that produced the outbound request.
+   * ID of the notification that triggered the outbound message.
    * @return notificationId
    */
   @javax.annotation.Nullable
@@ -170,7 +170,7 @@ public class OutboundLog {
   }
 
   /**
-   * Name of the notification that produced the outbound request.
+   * Name of the notification that triggered the outbound message.
    * @return notificationName
    */
   @javax.annotation.Nullable
@@ -191,7 +191,7 @@ public class OutboundLog {
   }
 
   /**
-   * ID of the webhook that produced the outbound request.
+   * ID of the webhook that triggered the outbound message.
    * @return webhookId
    */
   @javax.annotation.Nullable
@@ -212,7 +212,7 @@ public class OutboundLog {
   }
 
   /**
-   * The name of the webhook that produced the outbound request.
+   * Name of the webhook that triggered the outbound message.
    * @return webhookName
    */
   @javax.annotation.Nullable
@@ -233,7 +233,7 @@ public class OutboundLog {
   }
 
   /**
-   * Type of notification that produced the outbound request.
+   * Type of notification that triggered the outbound message.
    * @return notificationType
    */
   @javax.annotation.Nonnull
@@ -254,7 +254,7 @@ public class OutboundLog {
   }
 
   /**
-   * ID of the Application associated with the outbound request.
+   * ID of the Application associated with the outbound message.
    * @return applicationId
    */
   @javax.annotation.Nullable
@@ -275,7 +275,7 @@ public class OutboundLog {
   }
 
   /**
-   * ID of the loyalty program associated with the outbound request.
+   * ID of the loyalty program associated with the outbound message.
    * @return loyaltyProgramId
    */
   @javax.annotation.Nullable
@@ -317,7 +317,7 @@ public class OutboundLog {
   }
 
   /**
-   * Timestamp when the log entry was created.
+   * Timestamp when the log was created.
    * @return createdAt
    */
   @javax.annotation.Nonnull
@@ -338,7 +338,7 @@ public class OutboundLog {
   }
 
   /**
-   * Processing time of the outbound request in milliseconds.
+   * Time in milliseconds between sending the outbound request and receiving the response.
    * @return processingTimeMs
    */
   @javax.annotation.Nonnull

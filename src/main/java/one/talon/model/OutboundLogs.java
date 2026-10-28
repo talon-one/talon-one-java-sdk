@@ -50,7 +50,7 @@ import java.util.Set;
 import one.talon.JSON;
 
 /**
- * Paginated list of outbound logs.
+ * OutboundLogs
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.26.0")
 public class OutboundLogs {

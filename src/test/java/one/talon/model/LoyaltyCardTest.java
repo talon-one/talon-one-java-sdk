@@ -101,6 +101,14 @@ public class LoyaltyCardTest {
     }
 
     /**
+     * Test the property 'attributes'
+     */
+    @Test
+    public void attributesTest() {
+        // TODO: test attributes
+    }
+
+    /**
      * Test the property 'identifier'
      */
     @Test
