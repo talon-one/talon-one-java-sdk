@@ -50,7 +50,7 @@ import one.talon.JSON;
 /**
  * This effect schema is returned when you use the **Discount individual items**, **Discount individual items pro rata**, or **Discount individual item in bundles** effect in a rule.  It indicates that a discount per item should be applied on the specific item specified in the effect.  The properties it contains depends on:  - Whether you used a pro rata effect or not. - Whether you used an effect with bundles or not. - Whether the partial discount feature is enabled.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.26.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.27.0")
 public class SetDiscountPerItemEffectProps {
   // Gson ignores transient state; only setters and JSON input mark properties as present.
   private transient Set<String> openapiExplicitlySetFields = new HashSet<>();
@@ -382,7 +382,7 @@ public class SetDiscountPerItemEffectProps {
   }
 
   /**
-   * When set to &#x60;true&#x60;, the applied discount is excluded from the item&#39;s price history.
+   * When set to &#x60;true&#x60;, the applied discount is excluded from the item&#39;s price history. When set to &#x60;false&#x60;, the applied discount is included in the item&#39;s price history. This property is only returned if the [best prior price](https://docs.talon.one/docs/dev/integration-guides/best-prior-price) setting is enabled for the Application.
    * @return excludedFromPriceHistory
    */
   @javax.annotation.Nullable

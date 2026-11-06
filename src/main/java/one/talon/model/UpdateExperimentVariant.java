@@ -50,7 +50,7 @@ import one.talon.JSON;
 /**
  * UpdateExperimentVariant
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.26.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.27.0")
 public class UpdateExperimentVariant {
   // Gson ignores transient state; only setters and JSON input mark properties as present.
   private transient Set<String> openapiExplicitlySetFields = new HashSet<>();
@@ -74,6 +74,11 @@ public class UpdateExperimentVariant {
   @SerializedName(SERIALIZED_NAME_WEIGHT)
   @javax.annotation.Nonnull
   private Long weight;
+
+  public static final String SERIALIZED_NAME_ORDER = "order";
+  @SerializedName(SERIALIZED_NAME_ORDER)
+  @javax.annotation.Nullable
+  private Long order;
 
   public static final String SERIALIZED_NAME_AUDIENCE_ID = "audienceId";
   @SerializedName(SERIALIZED_NAME_AUDIENCE_ID)
@@ -166,6 +171,28 @@ public class UpdateExperimentVariant {
   public void setWeight(@javax.annotation.Nonnull Long weight) {
     this.weight = weight;
     this.markPropertyAsSet(SERIALIZED_NAME_WEIGHT);
+  }
+
+
+  public UpdateExperimentVariant order(@javax.annotation.Nullable Long order) {
+    this.order = order;
+    this.markPropertyAsSet(SERIALIZED_NAME_ORDER);
+    return this;
+  }
+
+  /**
+   * The position of this variant in the experiment. The variant with &#x60;order: 0&#x60; is the primary variant. 
+   * minimum: 0
+   * @return order
+   */
+  @javax.annotation.Nullable
+  public Long getOrder() {
+    return order;
+  }
+
+  public void setOrder(@javax.annotation.Nullable Long order) {
+    this.order = order;
+    this.markPropertyAsSet(SERIALIZED_NAME_ORDER);
   }
 
 
@@ -263,13 +290,14 @@ public class UpdateExperimentVariant {
         Objects.equals(this.name, updateExperimentVariant.name) &&
         Objects.equals(this.ruleset, updateExperimentVariant.ruleset) &&
         Objects.equals(this.weight, updateExperimentVariant.weight) &&
+        Objects.equals(this.order, updateExperimentVariant.order) &&
         Objects.equals(this.audienceId, updateExperimentVariant.audienceId)&&
         Objects.equals(this.additionalProperties, updateExperimentVariant.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, name, ruleset, weight, audienceId, additionalProperties);
+    return Objects.hash(id, name, ruleset, weight, order, audienceId, additionalProperties);
   }
 
   @Override
@@ -280,6 +308,7 @@ public class UpdateExperimentVariant {
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    ruleset: ").append(toIndentedString(ruleset)).append("\n");
     sb.append("    weight: ").append(toIndentedString(weight)).append("\n");
+    sb.append("    order: ").append(toIndentedString(order)).append("\n");
     sb.append("    audienceId: ").append(toIndentedString(audienceId)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
@@ -300,7 +329,7 @@ public class UpdateExperimentVariant {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("id", "name", "ruleset", "weight", "audienceId"));
+    openapiFields = new HashSet<String>(Arrays.asList("id", "name", "ruleset", "weight", "order", "audienceId"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("id", "name", "ruleset", "weight"));

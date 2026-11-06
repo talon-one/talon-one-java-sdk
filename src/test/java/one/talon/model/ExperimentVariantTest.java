@@ -96,6 +96,14 @@ public class ExperimentVariantTest {
     }
 
     /**
+     * Test the property 'order'
+     */
+    @Test
+    public void orderTest() {
+        // TODO: test order
+    }
+
+    /**
      * Test the property 'audienceId'
      */
     @Test

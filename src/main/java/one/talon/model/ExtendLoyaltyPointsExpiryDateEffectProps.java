@@ -52,7 +52,7 @@ import one.talon.JSON;
 /**
  * If loyalty points have an expiry date, this effect extends the expiry of all active and pending point transactions by a selected duration. 
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.26.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.27.0")
 public class ExtendLoyaltyPointsExpiryDateEffectProps {
   // Gson ignores transient state; only setters and JSON input mark properties as present.
   private transient Set<String> openapiExplicitlySetFields = new HashSet<>();

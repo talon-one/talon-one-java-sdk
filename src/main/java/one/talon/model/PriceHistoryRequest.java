@@ -50,7 +50,7 @@ import one.talon.JSON;
 /**
  * PriceHistoryRequest
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.26.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.27.0")
 public class PriceHistoryRequest {
   // Gson ignores transient state; only setters and JSON input mark properties as present.
   private transient Set<String> openapiExplicitlySetFields = new HashSet<>();
@@ -80,7 +80,7 @@ public class PriceHistoryRequest {
   }
 
   /**
-   * The SKU of the item for which the historical prices are being retrieved.
+   * The SKU of the item for which the price records are being retrieved.
    * @return sku
    */
   @javax.annotation.Nonnull
@@ -101,7 +101,7 @@ public class PriceHistoryRequest {
   }
 
   /**
-   * The start date of the period for which historical prices should be retrieved.
+   * The start date of the period for which price records should be retrieved.
    * @return startDate
    */
   @javax.annotation.Nonnull
@@ -122,7 +122,7 @@ public class PriceHistoryRequest {
   }
 
   /**
-   * The end date of the period for which historical prices should be retrieved.
+   * The end date of the period for which price records should be retrieved.
    * @return endDate
    */
   @javax.annotation.Nonnull

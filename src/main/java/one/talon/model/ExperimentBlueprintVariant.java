@@ -50,7 +50,7 @@ import one.talon.JSON;
 /**
  * An experiment variant template stored in an experiment blueprint. Variants only contain the fields needed to recreate them in an experiment.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.26.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.27.0")
 public class ExperimentBlueprintVariant {
   // Gson ignores transient state; only setters and JSON input mark properties as present.
   private transient Set<String> openapiExplicitlySetFields = new HashSet<>();

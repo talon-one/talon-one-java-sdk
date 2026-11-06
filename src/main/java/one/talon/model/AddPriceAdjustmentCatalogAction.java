@@ -52,7 +52,7 @@ import one.talon.JSON;
 /**
  * The specific properties of the \&quot;ADD_PRICE_ADJUSTMENT\&quot; catalog sync action.        **Note:** You can only use this object if the &#x60;Beta&#x60; **price types** feature is enabled for your Application. To enable it, contact your Technical Account Manager. 
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.26.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.27.0")
 public class AddPriceAdjustmentCatalogAction {
   // Gson ignores transient state; only setters and JSON input mark properties as present.
   private transient Set<String> openapiExplicitlySetFields = new HashSet<>();

@@ -19,8 +19,10 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Arrays;
-import one.talon.model.CampaignSet;
+import java.util.List;
+import one.talon.model.CampaignEvaluationTreeChangedNotificationData;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
@@ -39,27 +41,27 @@ public class CampaignEvaluationTreeChangedNotificationTest {
     }
 
     /**
-     * Test the property 'applicationId'
+     * Test the property 'notificationType'
      */
     @Test
-    public void applicationIdTest() {
-        // TODO: test applicationId
+    public void notificationTypeTest() {
+        // TODO: test notificationType
     }
 
     /**
-     * Test the property 'oldEvaluationTree'
+     * Test the property 'totalResultSize'
      */
     @Test
-    public void oldEvaluationTreeTest() {
-        // TODO: test oldEvaluationTree
+    public void totalResultSizeTest() {
+        // TODO: test totalResultSize
     }
 
     /**
-     * Test the property 'evaluationTree'
+     * Test the property 'data'
      */
     @Test
-    public void evaluationTreeTest() {
-        // TODO: test evaluationTree
+    public void dataTest() {
+        // TODO: test data
     }
 
 }

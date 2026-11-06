@@ -53,7 +53,7 @@ import one.talon.JSON;
 /**
  * BestPriorPriceRequest
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.26.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.27.0")
 public class BestPriorPriceRequest {
   // Gson ignores transient state; only setters and JSON input mark properties as present.
   private transient Set<String> openapiExplicitlySetFields = new HashSet<>();
@@ -74,7 +74,7 @@ public class BestPriorPriceRequest {
   private String timeframe;
 
   /**
-   * Sets the timeframe for retrieving historical pricing data. Can be one of the following values: - &#x60;strict&#x60;: The timeframe ends at the &#x60;timeframeEndDate&#x60; value. - &#x60;price&#x60;: The timeframe ends at the start of current price value and takes the prices prior to the start of the current price value into account. - &#x60;sale&#x60;:  The timeframe ends at the start of the current sales event, as defined by the &#x60;contextId&#x60;. It takes the prices prior to the current sale event into account. 
+   * Sets the timeframe for retrieving historical pricing data. Can be one of the following values: - &#x60;strict&#x60;: The timeframe ends at the &#x60;timeframeEndDate&#x60; value. - &#x60;price&#x60;: The timeframe ends at the start of current price value and takes the prices prior to the start of the current price value into account. - &#x60;sale&#x60;:  The timeframe ends at the start of the current sales event, as defined by the &#x60;contextId&#x60;. It takes the prices prior to the current sale event into account.  For an example, see [Best prior price](https://docs.talon.one/docs/dev/integration-guides/best-prior-price#best-prior-price-timeframe-selection).  
    */
   @JsonAdapter(TimeframeEndDateTypeEnum.Adapter.class)
   public enum TimeframeEndDateTypeEnum {
@@ -219,7 +219,7 @@ public class BestPriorPriceRequest {
   }
 
   /**
-   * Sets the timeframe for retrieving historical pricing data. Can be one of the following values: - &#x60;strict&#x60;: The timeframe ends at the &#x60;timeframeEndDate&#x60; value. - &#x60;price&#x60;: The timeframe ends at the start of current price value and takes the prices prior to the start of the current price value into account. - &#x60;sale&#x60;:  The timeframe ends at the start of the current sales event, as defined by the &#x60;contextId&#x60;. It takes the prices prior to the current sale event into account. 
+   * Sets the timeframe for retrieving historical pricing data. Can be one of the following values: - &#x60;strict&#x60;: The timeframe ends at the &#x60;timeframeEndDate&#x60; value. - &#x60;price&#x60;: The timeframe ends at the start of current price value and takes the prices prior to the start of the current price value into account. - &#x60;sale&#x60;:  The timeframe ends at the start of the current sales event, as defined by the &#x60;contextId&#x60;. It takes the prices prior to the current sale event into account.  For an example, see [Best prior price](https://docs.talon.one/docs/dev/integration-guides/best-prior-price#best-prior-price-timeframe-selection).  
    * @return timeframeEndDateType
    */
   @javax.annotation.Nonnull

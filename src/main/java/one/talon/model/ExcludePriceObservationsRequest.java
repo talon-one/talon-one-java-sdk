@@ -51,7 +51,7 @@ import one.talon.JSON;
 /**
  * ExcludePriceObservationsRequest
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.26.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.27.0")
 public class ExcludePriceObservationsRequest {
   // Gson ignores transient state; only setters and JSON input mark properties as present.
   private transient Set<String> openapiExplicitlySetFields = new HashSet<>();
@@ -85,7 +85,7 @@ public class ExcludePriceObservationsRequest {
   }
 
   /**
-   * A list of historical price IDs to exclude from best prior price calculation. Must contain between 1 and 1000 IDs. All IDs must be valid &#x60;id&#x60; values obtained from the [Get summary of price history](https://docs.talon.one/management-api#tag/Catalogs/operation/priceHistory.responses.200.history) endpoint, must belong to the specified Application, and must not already be excluded from best prior price calculation. 
+   * A list of price record IDs to exclude from best prior price calculation. Must contain between 1 and 1000 IDs. All IDs must be valid &#x60;id&#x60; values obtained from the [Get summary of price history](https://docs.talon.one/management-api#tag/Catalogs/operation/priceHistory.responses.200.history) endpoint, must belong to the specified Application, and must not already be excluded from best prior price calculation. 
    * @return ids
    */
   @javax.annotation.Nonnull
@@ -106,7 +106,7 @@ public class ExcludePriceObservationsRequest {
   }
 
   /**
-   * The reason for excluding these historical price IDs. Applies to all IDs in the batch. 
+   * The reason for excluding these IDs. Applies to all IDs in the batch. 
    * @return reason
    */
   @javax.annotation.Nonnull

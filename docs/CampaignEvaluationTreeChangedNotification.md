@@ -2,15 +2,22 @@
 
 # CampaignEvaluationTreeChangedNotification
 
-Notification about an Application whose campaign evaluation tree changed.
 
 ## Properties
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**applicationId** | **Long** | The ID of the Application whose campaign evaluation tree changed. |  |
-|**oldEvaluationTree** | [**CampaignSet**](CampaignSet.md) | The previous campaign evaluation tree. |  [optional] |
-|**evaluationTree** | [**CampaignSet**](CampaignSet.md) | The new campaign evaluation tree. |  |
+|**notificationType** | [**NotificationTypeEnum**](#NotificationTypeEnum) | The type of the notification |  |
+|**totalResultSize** | **Long** | The total size of the result set. |  |
+|**data** | [**List&lt;CampaignEvaluationTreeChangedNotificationData&gt;**](CampaignEvaluationTreeChangedNotificationData.md) | The array of changes. |  |
+
+
+
+## Enum: NotificationTypeEnum
+
+| Name | Value |
+|---- | -----|
+| CAMPAIGN_EVALUATION_TREE_CHANGED | &quot;CampaignEvaluationTreeChanged&quot; |
 
 
 

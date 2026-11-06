@@ -55,7 +55,7 @@ import one.talon.JSON;
 /**
  * History
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.26.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.27.0")
 public class History {
   // Gson ignores transient state; only setters and JSON input mark properties as present.
   private transient Set<String> openapiExplicitlySetFields = new HashSet<>();
@@ -110,7 +110,7 @@ public class History {
   }
 
   /**
-   * The ID of the historical price.
+   * The ID of the price record.
    * @return id
    */
   @javax.annotation.Nonnull
@@ -131,7 +131,7 @@ public class History {
   }
 
   /**
-   * The date and time when the price was observed.
+   * The date and time from which the price record is effective.
    * @return observedAt
    */
   @javax.annotation.Nonnull
@@ -161,7 +161,7 @@ public class History {
   }
 
   /**
-   * The identifiers of the relevant context (the sales events, e.g. \&quot;Spring Sale\&quot;, \&quot;Summer Sale\&quot;) at the time the price was observed. Includes the context IDs of any price adjustments and of the campaigns that influenced the final price. 
+   * The identifiers of the relevant context (the sales events, e.g. \&quot;Spring Sale\&quot;, \&quot;Summer Sale\&quot;) at the time from which the price record is effective. Includes the context IDs of any price adjustments and of the campaigns that influenced the final price. 
    * @return contextIds
    */
   @javax.annotation.Nonnull
@@ -245,7 +245,7 @@ public class History {
   }
 
   /**
-   * The date and time when the historical price ID was excluded.
+   * The date and time when the price record was excluded.
    * @return excludedAt
    */
   @javax.annotation.Nullable
@@ -266,7 +266,7 @@ public class History {
   }
 
   /**
-   * The reason for excluding this historical price ID.
+   * The reason for excluding this price record.
    * @return exclusionReason
    */
   @javax.annotation.Nullable

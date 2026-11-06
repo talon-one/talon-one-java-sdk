@@ -23,17 +23,17 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import one.talon.model.AddedDeductedPointsBalancesNotificationPolicy;
-import one.talon.model.AddedDeductedPointsNotificationPolicy;
 import one.talon.model.CampaignNotificationPolicy;
-import one.talon.model.CardAddedDeductedPointsBalancesNotificationPolicy;
-import one.talon.model.CardAddedDeductedPointsNotificationPolicy;
-import one.talon.model.CardExpiringPointsNotificationPolicy;
-import one.talon.model.CatalogsStrikethroughNotificationPolicy;
+import one.talon.model.CouponCodeExpiringNotificationPolicy;
 import one.talon.model.CouponsNotificationPolicy;
-import one.talon.model.ExpiringCouponsNotificationPolicy;
-import one.talon.model.ExpiringPointsNotificationPolicy;
-import one.talon.model.PendingPointsNotificationPolicy;
+import one.talon.model.LoyaltyAddedDeductedPointsBalancesNotificationPolicy;
+import one.talon.model.LoyaltyCardAddedDeductedPointsBalancesNotificationPolicy;
+import one.talon.model.LoyaltyCardPointsAddedDeductedNotificationPolicy;
+import one.talon.model.LoyaltyCardPointsExpiringNotificationPolicy;
+import one.talon.model.LoyaltyPointsAddedDeductedNotificationPolicy;
+import one.talon.model.LoyaltyPointsExpiringNotificationPolicy;
+import one.talon.model.LoyaltyPointsPendingToActiveNotificationPolicy;
+import one.talon.model.StrikethroughPriceNotificationPolicy;
 import one.talon.model.TierDowngradeNotificationPolicy;
 import one.talon.model.TierUpgradeNotificationPolicy;
 import one.talon.model.TierWillDowngradeNotificationPolicy;
@@ -74,7 +74,7 @@ import com.google.gson.JsonParseException;
 
 import one.talon.JSON;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.26.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.27.0")
 public class BaseNotificationPolicy extends AbstractOpenApiSchema {
     private static final Logger log = Logger.getLogger(BaseNotificationPolicy.class.getName());
 
@@ -86,16 +86,16 @@ public class BaseNotificationPolicy extends AbstractOpenApiSchema {
                 return null; // this class only serializes 'BaseNotificationPolicy' and its subtypes
             }
             final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-            final TypeAdapter<ExpiringCouponsNotificationPolicy> adapterExpiringCouponsNotificationPolicy = gson.getAdapter(TypeToken.get(ExpiringCouponsNotificationPolicy.class));
-            final TypeAdapter<CardExpiringPointsNotificationPolicy> adapterCardExpiringPointsNotificationPolicy = gson.getAdapter(TypeToken.get(CardExpiringPointsNotificationPolicy.class));
-            final TypeAdapter<ExpiringPointsNotificationPolicy> adapterExpiringPointsNotificationPolicy = gson.getAdapter(TypeToken.get(ExpiringPointsNotificationPolicy.class));
-            final TypeAdapter<AddedDeductedPointsNotificationPolicy> adapterAddedDeductedPointsNotificationPolicy = gson.getAdapter(TypeToken.get(AddedDeductedPointsNotificationPolicy.class));
-            final TypeAdapter<CardAddedDeductedPointsNotificationPolicy> adapterCardAddedDeductedPointsNotificationPolicy = gson.getAdapter(TypeToken.get(CardAddedDeductedPointsNotificationPolicy.class));
-            final TypeAdapter<AddedDeductedPointsBalancesNotificationPolicy> adapterAddedDeductedPointsBalancesNotificationPolicy = gson.getAdapter(TypeToken.get(AddedDeductedPointsBalancesNotificationPolicy.class));
-            final TypeAdapter<CardAddedDeductedPointsBalancesNotificationPolicy> adapterCardAddedDeductedPointsBalancesNotificationPolicy = gson.getAdapter(TypeToken.get(CardAddedDeductedPointsBalancesNotificationPolicy.class));
+            final TypeAdapter<CouponCodeExpiringNotificationPolicy> adapterCouponCodeExpiringNotificationPolicy = gson.getAdapter(TypeToken.get(CouponCodeExpiringNotificationPolicy.class));
+            final TypeAdapter<LoyaltyCardPointsExpiringNotificationPolicy> adapterLoyaltyCardPointsExpiringNotificationPolicy = gson.getAdapter(TypeToken.get(LoyaltyCardPointsExpiringNotificationPolicy.class));
+            final TypeAdapter<LoyaltyPointsExpiringNotificationPolicy> adapterLoyaltyPointsExpiringNotificationPolicy = gson.getAdapter(TypeToken.get(LoyaltyPointsExpiringNotificationPolicy.class));
+            final TypeAdapter<LoyaltyPointsAddedDeductedNotificationPolicy> adapterLoyaltyPointsAddedDeductedNotificationPolicy = gson.getAdapter(TypeToken.get(LoyaltyPointsAddedDeductedNotificationPolicy.class));
+            final TypeAdapter<LoyaltyCardPointsAddedDeductedNotificationPolicy> adapterLoyaltyCardPointsAddedDeductedNotificationPolicy = gson.getAdapter(TypeToken.get(LoyaltyCardPointsAddedDeductedNotificationPolicy.class));
+            final TypeAdapter<LoyaltyAddedDeductedPointsBalancesNotificationPolicy> adapterLoyaltyAddedDeductedPointsBalancesNotificationPolicy = gson.getAdapter(TypeToken.get(LoyaltyAddedDeductedPointsBalancesNotificationPolicy.class));
+            final TypeAdapter<LoyaltyCardAddedDeductedPointsBalancesNotificationPolicy> adapterLoyaltyCardAddedDeductedPointsBalancesNotificationPolicy = gson.getAdapter(TypeToken.get(LoyaltyCardAddedDeductedPointsBalancesNotificationPolicy.class));
             final TypeAdapter<CouponsNotificationPolicy> adapterCouponsNotificationPolicy = gson.getAdapter(TypeToken.get(CouponsNotificationPolicy.class));
-            final TypeAdapter<CatalogsStrikethroughNotificationPolicy> adapterCatalogsStrikethroughNotificationPolicy = gson.getAdapter(TypeToken.get(CatalogsStrikethroughNotificationPolicy.class));
-            final TypeAdapter<PendingPointsNotificationPolicy> adapterPendingPointsNotificationPolicy = gson.getAdapter(TypeToken.get(PendingPointsNotificationPolicy.class));
+            final TypeAdapter<StrikethroughPriceNotificationPolicy> adapterStrikethroughPriceNotificationPolicy = gson.getAdapter(TypeToken.get(StrikethroughPriceNotificationPolicy.class));
+            final TypeAdapter<LoyaltyPointsPendingToActiveNotificationPolicy> adapterLoyaltyPointsPendingToActiveNotificationPolicy = gson.getAdapter(TypeToken.get(LoyaltyPointsPendingToActiveNotificationPolicy.class));
             final TypeAdapter<CampaignNotificationPolicy> adapterCampaignNotificationPolicy = gson.getAdapter(TypeToken.get(CampaignNotificationPolicy.class));
             final TypeAdapter<TierDowngradeNotificationPolicy> adapterTierDowngradeNotificationPolicy = gson.getAdapter(TypeToken.get(TierDowngradeNotificationPolicy.class));
             final TypeAdapter<TierUpgradeNotificationPolicy> adapterTierUpgradeNotificationPolicy = gson.getAdapter(TypeToken.get(TierUpgradeNotificationPolicy.class));
@@ -119,45 +119,45 @@ public class BaseNotificationPolicy extends AbstractOpenApiSchema {
                         return;
                     }
 
-                    // check if the actual instance is of the type `ExpiringCouponsNotificationPolicy`
-                    if (value.getActualInstance() instanceof ExpiringCouponsNotificationPolicy) {
-                        JsonElement element = adapterExpiringCouponsNotificationPolicy.toJsonTree((ExpiringCouponsNotificationPolicy)value.getActualInstance());
+                    // check if the actual instance is of the type `CouponCodeExpiringNotificationPolicy`
+                    if (value.getActualInstance() instanceof CouponCodeExpiringNotificationPolicy) {
+                        JsonElement element = adapterCouponCodeExpiringNotificationPolicy.toJsonTree((CouponCodeExpiringNotificationPolicy)value.getActualInstance());
                         writeJsonElement(out, element);
                         return;
                     }
-                    // check if the actual instance is of the type `CardExpiringPointsNotificationPolicy`
-                    if (value.getActualInstance() instanceof CardExpiringPointsNotificationPolicy) {
-                        JsonElement element = adapterCardExpiringPointsNotificationPolicy.toJsonTree((CardExpiringPointsNotificationPolicy)value.getActualInstance());
+                    // check if the actual instance is of the type `LoyaltyCardPointsExpiringNotificationPolicy`
+                    if (value.getActualInstance() instanceof LoyaltyCardPointsExpiringNotificationPolicy) {
+                        JsonElement element = adapterLoyaltyCardPointsExpiringNotificationPolicy.toJsonTree((LoyaltyCardPointsExpiringNotificationPolicy)value.getActualInstance());
                         writeJsonElement(out, element);
                         return;
                     }
-                    // check if the actual instance is of the type `ExpiringPointsNotificationPolicy`
-                    if (value.getActualInstance() instanceof ExpiringPointsNotificationPolicy) {
-                        JsonElement element = adapterExpiringPointsNotificationPolicy.toJsonTree((ExpiringPointsNotificationPolicy)value.getActualInstance());
+                    // check if the actual instance is of the type `LoyaltyPointsExpiringNotificationPolicy`
+                    if (value.getActualInstance() instanceof LoyaltyPointsExpiringNotificationPolicy) {
+                        JsonElement element = adapterLoyaltyPointsExpiringNotificationPolicy.toJsonTree((LoyaltyPointsExpiringNotificationPolicy)value.getActualInstance());
                         writeJsonElement(out, element);
                         return;
                     }
-                    // check if the actual instance is of the type `AddedDeductedPointsNotificationPolicy`
-                    if (value.getActualInstance() instanceof AddedDeductedPointsNotificationPolicy) {
-                        JsonElement element = adapterAddedDeductedPointsNotificationPolicy.toJsonTree((AddedDeductedPointsNotificationPolicy)value.getActualInstance());
+                    // check if the actual instance is of the type `LoyaltyPointsAddedDeductedNotificationPolicy`
+                    if (value.getActualInstance() instanceof LoyaltyPointsAddedDeductedNotificationPolicy) {
+                        JsonElement element = adapterLoyaltyPointsAddedDeductedNotificationPolicy.toJsonTree((LoyaltyPointsAddedDeductedNotificationPolicy)value.getActualInstance());
                         writeJsonElement(out, element);
                         return;
                     }
-                    // check if the actual instance is of the type `CardAddedDeductedPointsNotificationPolicy`
-                    if (value.getActualInstance() instanceof CardAddedDeductedPointsNotificationPolicy) {
-                        JsonElement element = adapterCardAddedDeductedPointsNotificationPolicy.toJsonTree((CardAddedDeductedPointsNotificationPolicy)value.getActualInstance());
+                    // check if the actual instance is of the type `LoyaltyCardPointsAddedDeductedNotificationPolicy`
+                    if (value.getActualInstance() instanceof LoyaltyCardPointsAddedDeductedNotificationPolicy) {
+                        JsonElement element = adapterLoyaltyCardPointsAddedDeductedNotificationPolicy.toJsonTree((LoyaltyCardPointsAddedDeductedNotificationPolicy)value.getActualInstance());
                         writeJsonElement(out, element);
                         return;
                     }
-                    // check if the actual instance is of the type `AddedDeductedPointsBalancesNotificationPolicy`
-                    if (value.getActualInstance() instanceof AddedDeductedPointsBalancesNotificationPolicy) {
-                        JsonElement element = adapterAddedDeductedPointsBalancesNotificationPolicy.toJsonTree((AddedDeductedPointsBalancesNotificationPolicy)value.getActualInstance());
+                    // check if the actual instance is of the type `LoyaltyAddedDeductedPointsBalancesNotificationPolicy`
+                    if (value.getActualInstance() instanceof LoyaltyAddedDeductedPointsBalancesNotificationPolicy) {
+                        JsonElement element = adapterLoyaltyAddedDeductedPointsBalancesNotificationPolicy.toJsonTree((LoyaltyAddedDeductedPointsBalancesNotificationPolicy)value.getActualInstance());
                         writeJsonElement(out, element);
                         return;
                     }
-                    // check if the actual instance is of the type `CardAddedDeductedPointsBalancesNotificationPolicy`
-                    if (value.getActualInstance() instanceof CardAddedDeductedPointsBalancesNotificationPolicy) {
-                        JsonElement element = adapterCardAddedDeductedPointsBalancesNotificationPolicy.toJsonTree((CardAddedDeductedPointsBalancesNotificationPolicy)value.getActualInstance());
+                    // check if the actual instance is of the type `LoyaltyCardAddedDeductedPointsBalancesNotificationPolicy`
+                    if (value.getActualInstance() instanceof LoyaltyCardAddedDeductedPointsBalancesNotificationPolicy) {
+                        JsonElement element = adapterLoyaltyCardAddedDeductedPointsBalancesNotificationPolicy.toJsonTree((LoyaltyCardAddedDeductedPointsBalancesNotificationPolicy)value.getActualInstance());
                         writeJsonElement(out, element);
                         return;
                     }
@@ -167,15 +167,15 @@ public class BaseNotificationPolicy extends AbstractOpenApiSchema {
                         writeJsonElement(out, element);
                         return;
                     }
-                    // check if the actual instance is of the type `CatalogsStrikethroughNotificationPolicy`
-                    if (value.getActualInstance() instanceof CatalogsStrikethroughNotificationPolicy) {
-                        JsonElement element = adapterCatalogsStrikethroughNotificationPolicy.toJsonTree((CatalogsStrikethroughNotificationPolicy)value.getActualInstance());
+                    // check if the actual instance is of the type `StrikethroughPriceNotificationPolicy`
+                    if (value.getActualInstance() instanceof StrikethroughPriceNotificationPolicy) {
+                        JsonElement element = adapterStrikethroughPriceNotificationPolicy.toJsonTree((StrikethroughPriceNotificationPolicy)value.getActualInstance());
                         writeJsonElement(out, element);
                         return;
                     }
-                    // check if the actual instance is of the type `PendingPointsNotificationPolicy`
-                    if (value.getActualInstance() instanceof PendingPointsNotificationPolicy) {
-                        JsonElement element = adapterPendingPointsNotificationPolicy.toJsonTree((PendingPointsNotificationPolicy)value.getActualInstance());
+                    // check if the actual instance is of the type `LoyaltyPointsPendingToActiveNotificationPolicy`
+                    if (value.getActualInstance() instanceof LoyaltyPointsPendingToActiveNotificationPolicy) {
+                        JsonElement element = adapterLoyaltyPointsPendingToActiveNotificationPolicy.toJsonTree((LoyaltyPointsPendingToActiveNotificationPolicy)value.getActualInstance());
                         writeJsonElement(out, element);
                         return;
                     }
@@ -203,7 +203,7 @@ public class BaseNotificationPolicy extends AbstractOpenApiSchema {
                         writeJsonElement(out, element);
                         return;
                     }
-                    throw new IOException("Failed to serialize as the type doesn't match oneOf schemas: AddedDeductedPointsBalancesNotificationPolicy, AddedDeductedPointsNotificationPolicy, CampaignNotificationPolicy, CardAddedDeductedPointsBalancesNotificationPolicy, CardAddedDeductedPointsNotificationPolicy, CardExpiringPointsNotificationPolicy, CatalogsStrikethroughNotificationPolicy, CouponsNotificationPolicy, ExpiringCouponsNotificationPolicy, ExpiringPointsNotificationPolicy, PendingPointsNotificationPolicy, TierDowngradeNotificationPolicy, TierUpgradeNotificationPolicy, TierWillDowngradeNotificationPolicy");
+                    throw new IOException("Failed to serialize as the type doesn't match oneOf schemas: CampaignNotificationPolicy, CouponCodeExpiringNotificationPolicy, CouponsNotificationPolicy, LoyaltyAddedDeductedPointsBalancesNotificationPolicy, LoyaltyCardAddedDeductedPointsBalancesNotificationPolicy, LoyaltyCardPointsAddedDeductedNotificationPolicy, LoyaltyCardPointsExpiringNotificationPolicy, LoyaltyPointsAddedDeductedNotificationPolicy, LoyaltyPointsExpiringNotificationPolicy, LoyaltyPointsPendingToActiveNotificationPolicy, StrikethroughPriceNotificationPolicy, TierDowngradeNotificationPolicy, TierUpgradeNotificationPolicy, TierWillDowngradeNotificationPolicy");
                 }
 
                 @Override
@@ -215,89 +215,89 @@ public class BaseNotificationPolicy extends AbstractOpenApiSchema {
                     ArrayList<String> errorMessages = new ArrayList<>();
                     TypeAdapter actualAdapter = elementAdapter;
 
-                    // deserialize ExpiringCouponsNotificationPolicy
+                    // deserialize CouponCodeExpiringNotificationPolicy
                     try {
                         // validate the JSON object to see if any exception is thrown
-                        ExpiringCouponsNotificationPolicy.validateJsonElement(jsonElement);
-                        actualAdapter = adapterExpiringCouponsNotificationPolicy;
+                        CouponCodeExpiringNotificationPolicy.validateJsonElement(jsonElement);
+                        actualAdapter = adapterCouponCodeExpiringNotificationPolicy;
                         match++;
-                        log.log(Level.FINER, "Input data matches schema 'ExpiringCouponsNotificationPolicy'");
+                        log.log(Level.FINER, "Input data matches schema 'CouponCodeExpiringNotificationPolicy'");
                     } catch (Exception e) {
                         // deserialization failed, continue
-                        errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for ExpiringCouponsNotificationPolicy failed with `%s`.", e.getMessage()));
-                        log.log(Level.FINER, "Input data does not match schema 'ExpiringCouponsNotificationPolicy'", e);
+                        errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for CouponCodeExpiringNotificationPolicy failed with `%s`.", e.getMessage()));
+                        log.log(Level.FINER, "Input data does not match schema 'CouponCodeExpiringNotificationPolicy'", e);
                     }
-                    // deserialize CardExpiringPointsNotificationPolicy
+                    // deserialize LoyaltyCardPointsExpiringNotificationPolicy
                     try {
                         // validate the JSON object to see if any exception is thrown
-                        CardExpiringPointsNotificationPolicy.validateJsonElement(jsonElement);
-                        actualAdapter = adapterCardExpiringPointsNotificationPolicy;
+                        LoyaltyCardPointsExpiringNotificationPolicy.validateJsonElement(jsonElement);
+                        actualAdapter = adapterLoyaltyCardPointsExpiringNotificationPolicy;
                         match++;
-                        log.log(Level.FINER, "Input data matches schema 'CardExpiringPointsNotificationPolicy'");
+                        log.log(Level.FINER, "Input data matches schema 'LoyaltyCardPointsExpiringNotificationPolicy'");
                     } catch (Exception e) {
                         // deserialization failed, continue
-                        errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for CardExpiringPointsNotificationPolicy failed with `%s`.", e.getMessage()));
-                        log.log(Level.FINER, "Input data does not match schema 'CardExpiringPointsNotificationPolicy'", e);
+                        errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for LoyaltyCardPointsExpiringNotificationPolicy failed with `%s`.", e.getMessage()));
+                        log.log(Level.FINER, "Input data does not match schema 'LoyaltyCardPointsExpiringNotificationPolicy'", e);
                     }
-                    // deserialize ExpiringPointsNotificationPolicy
+                    // deserialize LoyaltyPointsExpiringNotificationPolicy
                     try {
                         // validate the JSON object to see if any exception is thrown
-                        ExpiringPointsNotificationPolicy.validateJsonElement(jsonElement);
-                        actualAdapter = adapterExpiringPointsNotificationPolicy;
+                        LoyaltyPointsExpiringNotificationPolicy.validateJsonElement(jsonElement);
+                        actualAdapter = adapterLoyaltyPointsExpiringNotificationPolicy;
                         match++;
-                        log.log(Level.FINER, "Input data matches schema 'ExpiringPointsNotificationPolicy'");
+                        log.log(Level.FINER, "Input data matches schema 'LoyaltyPointsExpiringNotificationPolicy'");
                     } catch (Exception e) {
                         // deserialization failed, continue
-                        errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for ExpiringPointsNotificationPolicy failed with `%s`.", e.getMessage()));
-                        log.log(Level.FINER, "Input data does not match schema 'ExpiringPointsNotificationPolicy'", e);
+                        errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for LoyaltyPointsExpiringNotificationPolicy failed with `%s`.", e.getMessage()));
+                        log.log(Level.FINER, "Input data does not match schema 'LoyaltyPointsExpiringNotificationPolicy'", e);
                     }
-                    // deserialize AddedDeductedPointsNotificationPolicy
+                    // deserialize LoyaltyPointsAddedDeductedNotificationPolicy
                     try {
                         // validate the JSON object to see if any exception is thrown
-                        AddedDeductedPointsNotificationPolicy.validateJsonElement(jsonElement);
-                        actualAdapter = adapterAddedDeductedPointsNotificationPolicy;
+                        LoyaltyPointsAddedDeductedNotificationPolicy.validateJsonElement(jsonElement);
+                        actualAdapter = adapterLoyaltyPointsAddedDeductedNotificationPolicy;
                         match++;
-                        log.log(Level.FINER, "Input data matches schema 'AddedDeductedPointsNotificationPolicy'");
+                        log.log(Level.FINER, "Input data matches schema 'LoyaltyPointsAddedDeductedNotificationPolicy'");
                     } catch (Exception e) {
                         // deserialization failed, continue
-                        errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for AddedDeductedPointsNotificationPolicy failed with `%s`.", e.getMessage()));
-                        log.log(Level.FINER, "Input data does not match schema 'AddedDeductedPointsNotificationPolicy'", e);
+                        errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for LoyaltyPointsAddedDeductedNotificationPolicy failed with `%s`.", e.getMessage()));
+                        log.log(Level.FINER, "Input data does not match schema 'LoyaltyPointsAddedDeductedNotificationPolicy'", e);
                     }
-                    // deserialize CardAddedDeductedPointsNotificationPolicy
+                    // deserialize LoyaltyCardPointsAddedDeductedNotificationPolicy
                     try {
                         // validate the JSON object to see if any exception is thrown
-                        CardAddedDeductedPointsNotificationPolicy.validateJsonElement(jsonElement);
-                        actualAdapter = adapterCardAddedDeductedPointsNotificationPolicy;
+                        LoyaltyCardPointsAddedDeductedNotificationPolicy.validateJsonElement(jsonElement);
+                        actualAdapter = adapterLoyaltyCardPointsAddedDeductedNotificationPolicy;
                         match++;
-                        log.log(Level.FINER, "Input data matches schema 'CardAddedDeductedPointsNotificationPolicy'");
+                        log.log(Level.FINER, "Input data matches schema 'LoyaltyCardPointsAddedDeductedNotificationPolicy'");
                     } catch (Exception e) {
                         // deserialization failed, continue
-                        errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for CardAddedDeductedPointsNotificationPolicy failed with `%s`.", e.getMessage()));
-                        log.log(Level.FINER, "Input data does not match schema 'CardAddedDeductedPointsNotificationPolicy'", e);
+                        errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for LoyaltyCardPointsAddedDeductedNotificationPolicy failed with `%s`.", e.getMessage()));
+                        log.log(Level.FINER, "Input data does not match schema 'LoyaltyCardPointsAddedDeductedNotificationPolicy'", e);
                     }
-                    // deserialize AddedDeductedPointsBalancesNotificationPolicy
+                    // deserialize LoyaltyAddedDeductedPointsBalancesNotificationPolicy
                     try {
                         // validate the JSON object to see if any exception is thrown
-                        AddedDeductedPointsBalancesNotificationPolicy.validateJsonElement(jsonElement);
-                        actualAdapter = adapterAddedDeductedPointsBalancesNotificationPolicy;
+                        LoyaltyAddedDeductedPointsBalancesNotificationPolicy.validateJsonElement(jsonElement);
+                        actualAdapter = adapterLoyaltyAddedDeductedPointsBalancesNotificationPolicy;
                         match++;
-                        log.log(Level.FINER, "Input data matches schema 'AddedDeductedPointsBalancesNotificationPolicy'");
+                        log.log(Level.FINER, "Input data matches schema 'LoyaltyAddedDeductedPointsBalancesNotificationPolicy'");
                     } catch (Exception e) {
                         // deserialization failed, continue
-                        errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for AddedDeductedPointsBalancesNotificationPolicy failed with `%s`.", e.getMessage()));
-                        log.log(Level.FINER, "Input data does not match schema 'AddedDeductedPointsBalancesNotificationPolicy'", e);
+                        errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for LoyaltyAddedDeductedPointsBalancesNotificationPolicy failed with `%s`.", e.getMessage()));
+                        log.log(Level.FINER, "Input data does not match schema 'LoyaltyAddedDeductedPointsBalancesNotificationPolicy'", e);
                     }
-                    // deserialize CardAddedDeductedPointsBalancesNotificationPolicy
+                    // deserialize LoyaltyCardAddedDeductedPointsBalancesNotificationPolicy
                     try {
                         // validate the JSON object to see if any exception is thrown
-                        CardAddedDeductedPointsBalancesNotificationPolicy.validateJsonElement(jsonElement);
-                        actualAdapter = adapterCardAddedDeductedPointsBalancesNotificationPolicy;
+                        LoyaltyCardAddedDeductedPointsBalancesNotificationPolicy.validateJsonElement(jsonElement);
+                        actualAdapter = adapterLoyaltyCardAddedDeductedPointsBalancesNotificationPolicy;
                         match++;
-                        log.log(Level.FINER, "Input data matches schema 'CardAddedDeductedPointsBalancesNotificationPolicy'");
+                        log.log(Level.FINER, "Input data matches schema 'LoyaltyCardAddedDeductedPointsBalancesNotificationPolicy'");
                     } catch (Exception e) {
                         // deserialization failed, continue
-                        errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for CardAddedDeductedPointsBalancesNotificationPolicy failed with `%s`.", e.getMessage()));
-                        log.log(Level.FINER, "Input data does not match schema 'CardAddedDeductedPointsBalancesNotificationPolicy'", e);
+                        errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for LoyaltyCardAddedDeductedPointsBalancesNotificationPolicy failed with `%s`.", e.getMessage()));
+                        log.log(Level.FINER, "Input data does not match schema 'LoyaltyCardAddedDeductedPointsBalancesNotificationPolicy'", e);
                     }
                     // deserialize CouponsNotificationPolicy
                     try {
@@ -311,29 +311,29 @@ public class BaseNotificationPolicy extends AbstractOpenApiSchema {
                         errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for CouponsNotificationPolicy failed with `%s`.", e.getMessage()));
                         log.log(Level.FINER, "Input data does not match schema 'CouponsNotificationPolicy'", e);
                     }
-                    // deserialize CatalogsStrikethroughNotificationPolicy
+                    // deserialize StrikethroughPriceNotificationPolicy
                     try {
                         // validate the JSON object to see if any exception is thrown
-                        CatalogsStrikethroughNotificationPolicy.validateJsonElement(jsonElement);
-                        actualAdapter = adapterCatalogsStrikethroughNotificationPolicy;
+                        StrikethroughPriceNotificationPolicy.validateJsonElement(jsonElement);
+                        actualAdapter = adapterStrikethroughPriceNotificationPolicy;
                         match++;
-                        log.log(Level.FINER, "Input data matches schema 'CatalogsStrikethroughNotificationPolicy'");
+                        log.log(Level.FINER, "Input data matches schema 'StrikethroughPriceNotificationPolicy'");
                     } catch (Exception e) {
                         // deserialization failed, continue
-                        errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for CatalogsStrikethroughNotificationPolicy failed with `%s`.", e.getMessage()));
-                        log.log(Level.FINER, "Input data does not match schema 'CatalogsStrikethroughNotificationPolicy'", e);
+                        errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for StrikethroughPriceNotificationPolicy failed with `%s`.", e.getMessage()));
+                        log.log(Level.FINER, "Input data does not match schema 'StrikethroughPriceNotificationPolicy'", e);
                     }
-                    // deserialize PendingPointsNotificationPolicy
+                    // deserialize LoyaltyPointsPendingToActiveNotificationPolicy
                     try {
                         // validate the JSON object to see if any exception is thrown
-                        PendingPointsNotificationPolicy.validateJsonElement(jsonElement);
-                        actualAdapter = adapterPendingPointsNotificationPolicy;
+                        LoyaltyPointsPendingToActiveNotificationPolicy.validateJsonElement(jsonElement);
+                        actualAdapter = adapterLoyaltyPointsPendingToActiveNotificationPolicy;
                         match++;
-                        log.log(Level.FINER, "Input data matches schema 'PendingPointsNotificationPolicy'");
+                        log.log(Level.FINER, "Input data matches schema 'LoyaltyPointsPendingToActiveNotificationPolicy'");
                     } catch (Exception e) {
                         // deserialization failed, continue
-                        errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for PendingPointsNotificationPolicy failed with `%s`.", e.getMessage()));
-                        log.log(Level.FINER, "Input data does not match schema 'PendingPointsNotificationPolicy'", e);
+                        errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for LoyaltyPointsPendingToActiveNotificationPolicy failed with `%s`.", e.getMessage()));
+                        log.log(Level.FINER, "Input data does not match schema 'LoyaltyPointsPendingToActiveNotificationPolicy'", e);
                     }
                     // deserialize CampaignNotificationPolicy
                     try {
@@ -409,16 +409,16 @@ public class BaseNotificationPolicy extends AbstractOpenApiSchema {
     }
 
     static {
-        schemas.put("ExpiringCouponsNotificationPolicy", ExpiringCouponsNotificationPolicy.class);
-        schemas.put("CardExpiringPointsNotificationPolicy", CardExpiringPointsNotificationPolicy.class);
-        schemas.put("ExpiringPointsNotificationPolicy", ExpiringPointsNotificationPolicy.class);
-        schemas.put("AddedDeductedPointsNotificationPolicy", AddedDeductedPointsNotificationPolicy.class);
-        schemas.put("CardAddedDeductedPointsNotificationPolicy", CardAddedDeductedPointsNotificationPolicy.class);
-        schemas.put("AddedDeductedPointsBalancesNotificationPolicy", AddedDeductedPointsBalancesNotificationPolicy.class);
-        schemas.put("CardAddedDeductedPointsBalancesNotificationPolicy", CardAddedDeductedPointsBalancesNotificationPolicy.class);
+        schemas.put("CouponCodeExpiringNotificationPolicy", CouponCodeExpiringNotificationPolicy.class);
+        schemas.put("LoyaltyCardPointsExpiringNotificationPolicy", LoyaltyCardPointsExpiringNotificationPolicy.class);
+        schemas.put("LoyaltyPointsExpiringNotificationPolicy", LoyaltyPointsExpiringNotificationPolicy.class);
+        schemas.put("LoyaltyPointsAddedDeductedNotificationPolicy", LoyaltyPointsAddedDeductedNotificationPolicy.class);
+        schemas.put("LoyaltyCardPointsAddedDeductedNotificationPolicy", LoyaltyCardPointsAddedDeductedNotificationPolicy.class);
+        schemas.put("LoyaltyAddedDeductedPointsBalancesNotificationPolicy", LoyaltyAddedDeductedPointsBalancesNotificationPolicy.class);
+        schemas.put("LoyaltyCardAddedDeductedPointsBalancesNotificationPolicy", LoyaltyCardAddedDeductedPointsBalancesNotificationPolicy.class);
         schemas.put("CouponsNotificationPolicy", CouponsNotificationPolicy.class);
-        schemas.put("CatalogsStrikethroughNotificationPolicy", CatalogsStrikethroughNotificationPolicy.class);
-        schemas.put("PendingPointsNotificationPolicy", PendingPointsNotificationPolicy.class);
+        schemas.put("StrikethroughPriceNotificationPolicy", StrikethroughPriceNotificationPolicy.class);
+        schemas.put("LoyaltyPointsPendingToActiveNotificationPolicy", LoyaltyPointsPendingToActiveNotificationPolicy.class);
         schemas.put("CampaignNotificationPolicy", CampaignNotificationPolicy.class);
         schemas.put("TierDowngradeNotificationPolicy", TierDowngradeNotificationPolicy.class);
         schemas.put("TierUpgradeNotificationPolicy", TierUpgradeNotificationPolicy.class);
@@ -433,43 +433,43 @@ public class BaseNotificationPolicy extends AbstractOpenApiSchema {
     /**
      * Set the instance that matches the oneOf child schema, check
      * the instance parameter is valid against the oneOf child schemas:
-     * AddedDeductedPointsBalancesNotificationPolicy, AddedDeductedPointsNotificationPolicy, CampaignNotificationPolicy, CardAddedDeductedPointsBalancesNotificationPolicy, CardAddedDeductedPointsNotificationPolicy, CardExpiringPointsNotificationPolicy, CatalogsStrikethroughNotificationPolicy, CouponsNotificationPolicy, ExpiringCouponsNotificationPolicy, ExpiringPointsNotificationPolicy, PendingPointsNotificationPolicy, TierDowngradeNotificationPolicy, TierUpgradeNotificationPolicy, TierWillDowngradeNotificationPolicy
+     * CampaignNotificationPolicy, CouponCodeExpiringNotificationPolicy, CouponsNotificationPolicy, LoyaltyAddedDeductedPointsBalancesNotificationPolicy, LoyaltyCardAddedDeductedPointsBalancesNotificationPolicy, LoyaltyCardPointsAddedDeductedNotificationPolicy, LoyaltyCardPointsExpiringNotificationPolicy, LoyaltyPointsAddedDeductedNotificationPolicy, LoyaltyPointsExpiringNotificationPolicy, LoyaltyPointsPendingToActiveNotificationPolicy, StrikethroughPriceNotificationPolicy, TierDowngradeNotificationPolicy, TierUpgradeNotificationPolicy, TierWillDowngradeNotificationPolicy
      *
      * It could be an instance of the 'oneOf' schemas.
      */
     @Override
     public void setActualInstance(Object instance) {
-        if (instance instanceof ExpiringCouponsNotificationPolicy) {
+        if (instance instanceof CouponCodeExpiringNotificationPolicy) {
             super.setActualInstance(instance);
             return;
         }
 
-        if (instance instanceof CardExpiringPointsNotificationPolicy) {
+        if (instance instanceof LoyaltyCardPointsExpiringNotificationPolicy) {
             super.setActualInstance(instance);
             return;
         }
 
-        if (instance instanceof ExpiringPointsNotificationPolicy) {
+        if (instance instanceof LoyaltyPointsExpiringNotificationPolicy) {
             super.setActualInstance(instance);
             return;
         }
 
-        if (instance instanceof AddedDeductedPointsNotificationPolicy) {
+        if (instance instanceof LoyaltyPointsAddedDeductedNotificationPolicy) {
             super.setActualInstance(instance);
             return;
         }
 
-        if (instance instanceof CardAddedDeductedPointsNotificationPolicy) {
+        if (instance instanceof LoyaltyCardPointsAddedDeductedNotificationPolicy) {
             super.setActualInstance(instance);
             return;
         }
 
-        if (instance instanceof AddedDeductedPointsBalancesNotificationPolicy) {
+        if (instance instanceof LoyaltyAddedDeductedPointsBalancesNotificationPolicy) {
             super.setActualInstance(instance);
             return;
         }
 
-        if (instance instanceof CardAddedDeductedPointsBalancesNotificationPolicy) {
+        if (instance instanceof LoyaltyCardAddedDeductedPointsBalancesNotificationPolicy) {
             super.setActualInstance(instance);
             return;
         }
@@ -479,12 +479,12 @@ public class BaseNotificationPolicy extends AbstractOpenApiSchema {
             return;
         }
 
-        if (instance instanceof CatalogsStrikethroughNotificationPolicy) {
+        if (instance instanceof StrikethroughPriceNotificationPolicy) {
             super.setActualInstance(instance);
             return;
         }
 
-        if (instance instanceof PendingPointsNotificationPolicy) {
+        if (instance instanceof LoyaltyPointsPendingToActiveNotificationPolicy) {
             super.setActualInstance(instance);
             return;
         }
@@ -509,14 +509,14 @@ public class BaseNotificationPolicy extends AbstractOpenApiSchema {
             return;
         }
 
-        throw new RuntimeException("Invalid instance type. Must be AddedDeductedPointsBalancesNotificationPolicy, AddedDeductedPointsNotificationPolicy, CampaignNotificationPolicy, CardAddedDeductedPointsBalancesNotificationPolicy, CardAddedDeductedPointsNotificationPolicy, CardExpiringPointsNotificationPolicy, CatalogsStrikethroughNotificationPolicy, CouponsNotificationPolicy, ExpiringCouponsNotificationPolicy, ExpiringPointsNotificationPolicy, PendingPointsNotificationPolicy, TierDowngradeNotificationPolicy, TierUpgradeNotificationPolicy, TierWillDowngradeNotificationPolicy");
+        throw new RuntimeException("Invalid instance type. Must be CampaignNotificationPolicy, CouponCodeExpiringNotificationPolicy, CouponsNotificationPolicy, LoyaltyAddedDeductedPointsBalancesNotificationPolicy, LoyaltyCardAddedDeductedPointsBalancesNotificationPolicy, LoyaltyCardPointsAddedDeductedNotificationPolicy, LoyaltyCardPointsExpiringNotificationPolicy, LoyaltyPointsAddedDeductedNotificationPolicy, LoyaltyPointsExpiringNotificationPolicy, LoyaltyPointsPendingToActiveNotificationPolicy, StrikethroughPriceNotificationPolicy, TierDowngradeNotificationPolicy, TierUpgradeNotificationPolicy, TierWillDowngradeNotificationPolicy");
     }
 
     /**
      * Get the actual instance, which can be the following:
-     * AddedDeductedPointsBalancesNotificationPolicy, AddedDeductedPointsNotificationPolicy, CampaignNotificationPolicy, CardAddedDeductedPointsBalancesNotificationPolicy, CardAddedDeductedPointsNotificationPolicy, CardExpiringPointsNotificationPolicy, CatalogsStrikethroughNotificationPolicy, CouponsNotificationPolicy, ExpiringCouponsNotificationPolicy, ExpiringPointsNotificationPolicy, PendingPointsNotificationPolicy, TierDowngradeNotificationPolicy, TierUpgradeNotificationPolicy, TierWillDowngradeNotificationPolicy
+     * CampaignNotificationPolicy, CouponCodeExpiringNotificationPolicy, CouponsNotificationPolicy, LoyaltyAddedDeductedPointsBalancesNotificationPolicy, LoyaltyCardAddedDeductedPointsBalancesNotificationPolicy, LoyaltyCardPointsAddedDeductedNotificationPolicy, LoyaltyCardPointsExpiringNotificationPolicy, LoyaltyPointsAddedDeductedNotificationPolicy, LoyaltyPointsExpiringNotificationPolicy, LoyaltyPointsPendingToActiveNotificationPolicy, StrikethroughPriceNotificationPolicy, TierDowngradeNotificationPolicy, TierUpgradeNotificationPolicy, TierWillDowngradeNotificationPolicy
      *
-     * @return The actual instance (AddedDeductedPointsBalancesNotificationPolicy, AddedDeductedPointsNotificationPolicy, CampaignNotificationPolicy, CardAddedDeductedPointsBalancesNotificationPolicy, CardAddedDeductedPointsNotificationPolicy, CardExpiringPointsNotificationPolicy, CatalogsStrikethroughNotificationPolicy, CouponsNotificationPolicy, ExpiringCouponsNotificationPolicy, ExpiringPointsNotificationPolicy, PendingPointsNotificationPolicy, TierDowngradeNotificationPolicy, TierUpgradeNotificationPolicy, TierWillDowngradeNotificationPolicy)
+     * @return The actual instance (CampaignNotificationPolicy, CouponCodeExpiringNotificationPolicy, CouponsNotificationPolicy, LoyaltyAddedDeductedPointsBalancesNotificationPolicy, LoyaltyCardAddedDeductedPointsBalancesNotificationPolicy, LoyaltyCardPointsAddedDeductedNotificationPolicy, LoyaltyCardPointsExpiringNotificationPolicy, LoyaltyPointsAddedDeductedNotificationPolicy, LoyaltyPointsExpiringNotificationPolicy, LoyaltyPointsPendingToActiveNotificationPolicy, StrikethroughPriceNotificationPolicy, TierDowngradeNotificationPolicy, TierUpgradeNotificationPolicy, TierWillDowngradeNotificationPolicy)
      */
     @SuppressWarnings("unchecked")
     @Override
@@ -525,87 +525,87 @@ public class BaseNotificationPolicy extends AbstractOpenApiSchema {
     }
 
     /**
-     * Get the actual instance of `ExpiringCouponsNotificationPolicy`. If the actual instance is not `ExpiringCouponsNotificationPolicy`,
+     * Get the actual instance of `CouponCodeExpiringNotificationPolicy`. If the actual instance is not `CouponCodeExpiringNotificationPolicy`,
      * the ClassCastException will be thrown.
      *
-     * @return The actual instance of `ExpiringCouponsNotificationPolicy`
-     * @throws ClassCastException if the instance is not `ExpiringCouponsNotificationPolicy`
+     * @return The actual instance of `CouponCodeExpiringNotificationPolicy`
+     * @throws ClassCastException if the instance is not `CouponCodeExpiringNotificationPolicy`
      */
     @SuppressWarnings("unchecked")
-    public ExpiringCouponsNotificationPolicy getExpiringCouponsNotificationPolicy() throws ClassCastException {
-        return (ExpiringCouponsNotificationPolicy)super.getActualInstance();
+    public CouponCodeExpiringNotificationPolicy getCouponCodeExpiringNotificationPolicy() throws ClassCastException {
+        return (CouponCodeExpiringNotificationPolicy)super.getActualInstance();
     }
 
     /**
-     * Get the actual instance of `CardExpiringPointsNotificationPolicy`. If the actual instance is not `CardExpiringPointsNotificationPolicy`,
+     * Get the actual instance of `LoyaltyCardPointsExpiringNotificationPolicy`. If the actual instance is not `LoyaltyCardPointsExpiringNotificationPolicy`,
      * the ClassCastException will be thrown.
      *
-     * @return The actual instance of `CardExpiringPointsNotificationPolicy`
-     * @throws ClassCastException if the instance is not `CardExpiringPointsNotificationPolicy`
+     * @return The actual instance of `LoyaltyCardPointsExpiringNotificationPolicy`
+     * @throws ClassCastException if the instance is not `LoyaltyCardPointsExpiringNotificationPolicy`
      */
     @SuppressWarnings("unchecked")
-    public CardExpiringPointsNotificationPolicy getCardExpiringPointsNotificationPolicy() throws ClassCastException {
-        return (CardExpiringPointsNotificationPolicy)super.getActualInstance();
+    public LoyaltyCardPointsExpiringNotificationPolicy getLoyaltyCardPointsExpiringNotificationPolicy() throws ClassCastException {
+        return (LoyaltyCardPointsExpiringNotificationPolicy)super.getActualInstance();
     }
 
     /**
-     * Get the actual instance of `ExpiringPointsNotificationPolicy`. If the actual instance is not `ExpiringPointsNotificationPolicy`,
+     * Get the actual instance of `LoyaltyPointsExpiringNotificationPolicy`. If the actual instance is not `LoyaltyPointsExpiringNotificationPolicy`,
      * the ClassCastException will be thrown.
      *
-     * @return The actual instance of `ExpiringPointsNotificationPolicy`
-     * @throws ClassCastException if the instance is not `ExpiringPointsNotificationPolicy`
+     * @return The actual instance of `LoyaltyPointsExpiringNotificationPolicy`
+     * @throws ClassCastException if the instance is not `LoyaltyPointsExpiringNotificationPolicy`
      */
     @SuppressWarnings("unchecked")
-    public ExpiringPointsNotificationPolicy getExpiringPointsNotificationPolicy() throws ClassCastException {
-        return (ExpiringPointsNotificationPolicy)super.getActualInstance();
+    public LoyaltyPointsExpiringNotificationPolicy getLoyaltyPointsExpiringNotificationPolicy() throws ClassCastException {
+        return (LoyaltyPointsExpiringNotificationPolicy)super.getActualInstance();
     }
 
     /**
-     * Get the actual instance of `AddedDeductedPointsNotificationPolicy`. If the actual instance is not `AddedDeductedPointsNotificationPolicy`,
+     * Get the actual instance of `LoyaltyPointsAddedDeductedNotificationPolicy`. If the actual instance is not `LoyaltyPointsAddedDeductedNotificationPolicy`,
      * the ClassCastException will be thrown.
      *
-     * @return The actual instance of `AddedDeductedPointsNotificationPolicy`
-     * @throws ClassCastException if the instance is not `AddedDeductedPointsNotificationPolicy`
+     * @return The actual instance of `LoyaltyPointsAddedDeductedNotificationPolicy`
+     * @throws ClassCastException if the instance is not `LoyaltyPointsAddedDeductedNotificationPolicy`
      */
     @SuppressWarnings("unchecked")
-    public AddedDeductedPointsNotificationPolicy getAddedDeductedPointsNotificationPolicy() throws ClassCastException {
-        return (AddedDeductedPointsNotificationPolicy)super.getActualInstance();
+    public LoyaltyPointsAddedDeductedNotificationPolicy getLoyaltyPointsAddedDeductedNotificationPolicy() throws ClassCastException {
+        return (LoyaltyPointsAddedDeductedNotificationPolicy)super.getActualInstance();
     }
 
     /**
-     * Get the actual instance of `CardAddedDeductedPointsNotificationPolicy`. If the actual instance is not `CardAddedDeductedPointsNotificationPolicy`,
+     * Get the actual instance of `LoyaltyCardPointsAddedDeductedNotificationPolicy`. If the actual instance is not `LoyaltyCardPointsAddedDeductedNotificationPolicy`,
      * the ClassCastException will be thrown.
      *
-     * @return The actual instance of `CardAddedDeductedPointsNotificationPolicy`
-     * @throws ClassCastException if the instance is not `CardAddedDeductedPointsNotificationPolicy`
+     * @return The actual instance of `LoyaltyCardPointsAddedDeductedNotificationPolicy`
+     * @throws ClassCastException if the instance is not `LoyaltyCardPointsAddedDeductedNotificationPolicy`
      */
     @SuppressWarnings("unchecked")
-    public CardAddedDeductedPointsNotificationPolicy getCardAddedDeductedPointsNotificationPolicy() throws ClassCastException {
-        return (CardAddedDeductedPointsNotificationPolicy)super.getActualInstance();
+    public LoyaltyCardPointsAddedDeductedNotificationPolicy getLoyaltyCardPointsAddedDeductedNotificationPolicy() throws ClassCastException {
+        return (LoyaltyCardPointsAddedDeductedNotificationPolicy)super.getActualInstance();
     }
 
     /**
-     * Get the actual instance of `AddedDeductedPointsBalancesNotificationPolicy`. If the actual instance is not `AddedDeductedPointsBalancesNotificationPolicy`,
+     * Get the actual instance of `LoyaltyAddedDeductedPointsBalancesNotificationPolicy`. If the actual instance is not `LoyaltyAddedDeductedPointsBalancesNotificationPolicy`,
      * the ClassCastException will be thrown.
      *
-     * @return The actual instance of `AddedDeductedPointsBalancesNotificationPolicy`
-     * @throws ClassCastException if the instance is not `AddedDeductedPointsBalancesNotificationPolicy`
+     * @return The actual instance of `LoyaltyAddedDeductedPointsBalancesNotificationPolicy`
+     * @throws ClassCastException if the instance is not `LoyaltyAddedDeductedPointsBalancesNotificationPolicy`
      */
     @SuppressWarnings("unchecked")
-    public AddedDeductedPointsBalancesNotificationPolicy getAddedDeductedPointsBalancesNotificationPolicy() throws ClassCastException {
-        return (AddedDeductedPointsBalancesNotificationPolicy)super.getActualInstance();
+    public LoyaltyAddedDeductedPointsBalancesNotificationPolicy getLoyaltyAddedDeductedPointsBalancesNotificationPolicy() throws ClassCastException {
+        return (LoyaltyAddedDeductedPointsBalancesNotificationPolicy)super.getActualInstance();
     }
 
     /**
-     * Get the actual instance of `CardAddedDeductedPointsBalancesNotificationPolicy`. If the actual instance is not `CardAddedDeductedPointsBalancesNotificationPolicy`,
+     * Get the actual instance of `LoyaltyCardAddedDeductedPointsBalancesNotificationPolicy`. If the actual instance is not `LoyaltyCardAddedDeductedPointsBalancesNotificationPolicy`,
      * the ClassCastException will be thrown.
      *
-     * @return The actual instance of `CardAddedDeductedPointsBalancesNotificationPolicy`
-     * @throws ClassCastException if the instance is not `CardAddedDeductedPointsBalancesNotificationPolicy`
+     * @return The actual instance of `LoyaltyCardAddedDeductedPointsBalancesNotificationPolicy`
+     * @throws ClassCastException if the instance is not `LoyaltyCardAddedDeductedPointsBalancesNotificationPolicy`
      */
     @SuppressWarnings("unchecked")
-    public CardAddedDeductedPointsBalancesNotificationPolicy getCardAddedDeductedPointsBalancesNotificationPolicy() throws ClassCastException {
-        return (CardAddedDeductedPointsBalancesNotificationPolicy)super.getActualInstance();
+    public LoyaltyCardAddedDeductedPointsBalancesNotificationPolicy getLoyaltyCardAddedDeductedPointsBalancesNotificationPolicy() throws ClassCastException {
+        return (LoyaltyCardAddedDeductedPointsBalancesNotificationPolicy)super.getActualInstance();
     }
 
     /**
@@ -621,27 +621,27 @@ public class BaseNotificationPolicy extends AbstractOpenApiSchema {
     }
 
     /**
-     * Get the actual instance of `CatalogsStrikethroughNotificationPolicy`. If the actual instance is not `CatalogsStrikethroughNotificationPolicy`,
+     * Get the actual instance of `StrikethroughPriceNotificationPolicy`. If the actual instance is not `StrikethroughPriceNotificationPolicy`,
      * the ClassCastException will be thrown.
      *
-     * @return The actual instance of `CatalogsStrikethroughNotificationPolicy`
-     * @throws ClassCastException if the instance is not `CatalogsStrikethroughNotificationPolicy`
+     * @return The actual instance of `StrikethroughPriceNotificationPolicy`
+     * @throws ClassCastException if the instance is not `StrikethroughPriceNotificationPolicy`
      */
     @SuppressWarnings("unchecked")
-    public CatalogsStrikethroughNotificationPolicy getCatalogsStrikethroughNotificationPolicy() throws ClassCastException {
-        return (CatalogsStrikethroughNotificationPolicy)super.getActualInstance();
+    public StrikethroughPriceNotificationPolicy getStrikethroughPriceNotificationPolicy() throws ClassCastException {
+        return (StrikethroughPriceNotificationPolicy)super.getActualInstance();
     }
 
     /**
-     * Get the actual instance of `PendingPointsNotificationPolicy`. If the actual instance is not `PendingPointsNotificationPolicy`,
+     * Get the actual instance of `LoyaltyPointsPendingToActiveNotificationPolicy`. If the actual instance is not `LoyaltyPointsPendingToActiveNotificationPolicy`,
      * the ClassCastException will be thrown.
      *
-     * @return The actual instance of `PendingPointsNotificationPolicy`
-     * @throws ClassCastException if the instance is not `PendingPointsNotificationPolicy`
+     * @return The actual instance of `LoyaltyPointsPendingToActiveNotificationPolicy`
+     * @throws ClassCastException if the instance is not `LoyaltyPointsPendingToActiveNotificationPolicy`
      */
     @SuppressWarnings("unchecked")
-    public PendingPointsNotificationPolicy getPendingPointsNotificationPolicy() throws ClassCastException {
-        return (PendingPointsNotificationPolicy)super.getActualInstance();
+    public LoyaltyPointsPendingToActiveNotificationPolicy getLoyaltyPointsPendingToActiveNotificationPolicy() throws ClassCastException {
+        return (LoyaltyPointsPendingToActiveNotificationPolicy)super.getActualInstance();
     }
 
     /**
@@ -702,60 +702,60 @@ public class BaseNotificationPolicy extends AbstractOpenApiSchema {
         // validate oneOf schemas one by one
         int validCount = 0;
         ArrayList<String> errorMessages = new ArrayList<>();
-        // validate the json string with ExpiringCouponsNotificationPolicy
+        // validate the json string with CouponCodeExpiringNotificationPolicy
         try {
-            ExpiringCouponsNotificationPolicy.validateJsonElement(jsonElement);
+            CouponCodeExpiringNotificationPolicy.validateJsonElement(jsonElement);
             validCount++;
         } catch (Exception e) {
-            errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for ExpiringCouponsNotificationPolicy failed with `%s`.", e.getMessage()));
+            errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for CouponCodeExpiringNotificationPolicy failed with `%s`.", e.getMessage()));
             // continue to the next one
         }
-        // validate the json string with CardExpiringPointsNotificationPolicy
+        // validate the json string with LoyaltyCardPointsExpiringNotificationPolicy
         try {
-            CardExpiringPointsNotificationPolicy.validateJsonElement(jsonElement);
+            LoyaltyCardPointsExpiringNotificationPolicy.validateJsonElement(jsonElement);
             validCount++;
         } catch (Exception e) {
-            errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for CardExpiringPointsNotificationPolicy failed with `%s`.", e.getMessage()));
+            errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for LoyaltyCardPointsExpiringNotificationPolicy failed with `%s`.", e.getMessage()));
             // continue to the next one
         }
-        // validate the json string with ExpiringPointsNotificationPolicy
+        // validate the json string with LoyaltyPointsExpiringNotificationPolicy
         try {
-            ExpiringPointsNotificationPolicy.validateJsonElement(jsonElement);
+            LoyaltyPointsExpiringNotificationPolicy.validateJsonElement(jsonElement);
             validCount++;
         } catch (Exception e) {
-            errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for ExpiringPointsNotificationPolicy failed with `%s`.", e.getMessage()));
+            errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for LoyaltyPointsExpiringNotificationPolicy failed with `%s`.", e.getMessage()));
             // continue to the next one
         }
-        // validate the json string with AddedDeductedPointsNotificationPolicy
+        // validate the json string with LoyaltyPointsAddedDeductedNotificationPolicy
         try {
-            AddedDeductedPointsNotificationPolicy.validateJsonElement(jsonElement);
+            LoyaltyPointsAddedDeductedNotificationPolicy.validateJsonElement(jsonElement);
             validCount++;
         } catch (Exception e) {
-            errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for AddedDeductedPointsNotificationPolicy failed with `%s`.", e.getMessage()));
+            errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for LoyaltyPointsAddedDeductedNotificationPolicy failed with `%s`.", e.getMessage()));
             // continue to the next one
         }
-        // validate the json string with CardAddedDeductedPointsNotificationPolicy
+        // validate the json string with LoyaltyCardPointsAddedDeductedNotificationPolicy
         try {
-            CardAddedDeductedPointsNotificationPolicy.validateJsonElement(jsonElement);
+            LoyaltyCardPointsAddedDeductedNotificationPolicy.validateJsonElement(jsonElement);
             validCount++;
         } catch (Exception e) {
-            errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for CardAddedDeductedPointsNotificationPolicy failed with `%s`.", e.getMessage()));
+            errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for LoyaltyCardPointsAddedDeductedNotificationPolicy failed with `%s`.", e.getMessage()));
             // continue to the next one
         }
-        // validate the json string with AddedDeductedPointsBalancesNotificationPolicy
+        // validate the json string with LoyaltyAddedDeductedPointsBalancesNotificationPolicy
         try {
-            AddedDeductedPointsBalancesNotificationPolicy.validateJsonElement(jsonElement);
+            LoyaltyAddedDeductedPointsBalancesNotificationPolicy.validateJsonElement(jsonElement);
             validCount++;
         } catch (Exception e) {
-            errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for AddedDeductedPointsBalancesNotificationPolicy failed with `%s`.", e.getMessage()));
+            errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for LoyaltyAddedDeductedPointsBalancesNotificationPolicy failed with `%s`.", e.getMessage()));
             // continue to the next one
         }
-        // validate the json string with CardAddedDeductedPointsBalancesNotificationPolicy
+        // validate the json string with LoyaltyCardAddedDeductedPointsBalancesNotificationPolicy
         try {
-            CardAddedDeductedPointsBalancesNotificationPolicy.validateJsonElement(jsonElement);
+            LoyaltyCardAddedDeductedPointsBalancesNotificationPolicy.validateJsonElement(jsonElement);
             validCount++;
         } catch (Exception e) {
-            errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for CardAddedDeductedPointsBalancesNotificationPolicy failed with `%s`.", e.getMessage()));
+            errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for LoyaltyCardAddedDeductedPointsBalancesNotificationPolicy failed with `%s`.", e.getMessage()));
             // continue to the next one
         }
         // validate the json string with CouponsNotificationPolicy
@@ -766,20 +766,20 @@ public class BaseNotificationPolicy extends AbstractOpenApiSchema {
             errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for CouponsNotificationPolicy failed with `%s`.", e.getMessage()));
             // continue to the next one
         }
-        // validate the json string with CatalogsStrikethroughNotificationPolicy
+        // validate the json string with StrikethroughPriceNotificationPolicy
         try {
-            CatalogsStrikethroughNotificationPolicy.validateJsonElement(jsonElement);
+            StrikethroughPriceNotificationPolicy.validateJsonElement(jsonElement);
             validCount++;
         } catch (Exception e) {
-            errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for CatalogsStrikethroughNotificationPolicy failed with `%s`.", e.getMessage()));
+            errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for StrikethroughPriceNotificationPolicy failed with `%s`.", e.getMessage()));
             // continue to the next one
         }
-        // validate the json string with PendingPointsNotificationPolicy
+        // validate the json string with LoyaltyPointsPendingToActiveNotificationPolicy
         try {
-            PendingPointsNotificationPolicy.validateJsonElement(jsonElement);
+            LoyaltyPointsPendingToActiveNotificationPolicy.validateJsonElement(jsonElement);
             validCount++;
         } catch (Exception e) {
-            errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for PendingPointsNotificationPolicy failed with `%s`.", e.getMessage()));
+            errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for LoyaltyPointsPendingToActiveNotificationPolicy failed with `%s`.", e.getMessage()));
             // continue to the next one
         }
         // validate the json string with CampaignNotificationPolicy
@@ -815,7 +815,7 @@ public class BaseNotificationPolicy extends AbstractOpenApiSchema {
             // continue to the next one
         }
         if (validCount != 1) {
-            throw new IOException(String.format(java.util.Locale.ROOT, "The JSON string is invalid for BaseNotificationPolicy with oneOf schemas: AddedDeductedPointsBalancesNotificationPolicy, AddedDeductedPointsNotificationPolicy, CampaignNotificationPolicy, CardAddedDeductedPointsBalancesNotificationPolicy, CardAddedDeductedPointsNotificationPolicy, CardExpiringPointsNotificationPolicy, CatalogsStrikethroughNotificationPolicy, CouponsNotificationPolicy, ExpiringCouponsNotificationPolicy, ExpiringPointsNotificationPolicy, PendingPointsNotificationPolicy, TierDowngradeNotificationPolicy, TierUpgradeNotificationPolicy, TierWillDowngradeNotificationPolicy. %d class(es) match the result, expected 1. Detailed failure message for oneOf schemas: %s. JSON: %s", validCount, errorMessages, jsonElement.toString()));
+            throw new IOException(String.format(java.util.Locale.ROOT, "The JSON string is invalid for BaseNotificationPolicy with oneOf schemas: CampaignNotificationPolicy, CouponCodeExpiringNotificationPolicy, CouponsNotificationPolicy, LoyaltyAddedDeductedPointsBalancesNotificationPolicy, LoyaltyCardAddedDeductedPointsBalancesNotificationPolicy, LoyaltyCardPointsAddedDeductedNotificationPolicy, LoyaltyCardPointsExpiringNotificationPolicy, LoyaltyPointsAddedDeductedNotificationPolicy, LoyaltyPointsExpiringNotificationPolicy, LoyaltyPointsPendingToActiveNotificationPolicy, StrikethroughPriceNotificationPolicy, TierDowngradeNotificationPolicy, TierUpgradeNotificationPolicy, TierWillDowngradeNotificationPolicy. %d class(es) match the result, expected 1. Detailed failure message for oneOf schemas: %s. JSON: %s", validCount, errorMessages, jsonElement.toString()));
         }
     }
 

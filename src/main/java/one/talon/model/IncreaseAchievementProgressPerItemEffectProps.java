@@ -50,7 +50,7 @@ import one.talon.JSON;
 /**
  * This effect schema is returned when you use the **Update customer progress per item** effect in a rule.  It indicates that the customer&#39;s progress in an achievement was updated during the current session for a specific cart item.  If your list of cart items is a [bundle definition](https://docs.talon.one/docs/product/rules/create-and-manage-bundles), use the &#x60;bundleIndex&#x60; and &#x60;bundleName&#x60; properties to identify the bundle containing the item whose progress was updated.  If the cart item has a quantity greater than one, use the &#x60;cartItemSubPosition&#x60; property to identify the specific unit within the item&#39;s line item.  For [on-completion achievements](https://docs.talon.one/docs/product/achievements/overview#recurring-on-completion-achievements), any customer progress exceeding the target automatically starts a new iteration. This generates a new &#x60;progressTrackerId&#x60; for each iteration, and there can be multiple progress updates for the same achievement from a single validation of this effect.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.26.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.27.0")
 public class IncreaseAchievementProgressPerItemEffectProps {
   // Gson ignores transient state; only setters and JSON input mark properties as present.
   private transient Set<String> openapiExplicitlySetFields = new HashSet<>();

@@ -23,7 +23,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import one.talon.model.CampaignEvaluationTreeChangedNotification;
+import one.talon.model.CampaignEvaluationTreeChangedNotificationData;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -52,7 +52,7 @@ import one.talon.JSON;
 /**
  * BulkApplicationNotification
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.26.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.27.0")
 public class BulkApplicationNotification {
   // Gson ignores transient state; only setters and JSON input mark properties as present.
   private transient Set<String> openapiExplicitlySetFields = new HashSet<>();
@@ -65,7 +65,7 @@ public class BulkApplicationNotification {
   public static final String SERIALIZED_NAME_DATA = "data";
   @SerializedName(SERIALIZED_NAME_DATA)
   @javax.annotation.Nonnull
-  private List<CampaignEvaluationTreeChangedNotification> data = new ArrayList<>();
+  private List<CampaignEvaluationTreeChangedNotificationData> data = new ArrayList<>();
 
   public BulkApplicationNotification() {
   }
@@ -91,13 +91,13 @@ public class BulkApplicationNotification {
   }
 
 
-  public BulkApplicationNotification data(@javax.annotation.Nonnull List<CampaignEvaluationTreeChangedNotification> data) {
+  public BulkApplicationNotification data(@javax.annotation.Nonnull List<CampaignEvaluationTreeChangedNotificationData> data) {
     this.data = data;
     this.markPropertyAsSet(SERIALIZED_NAME_DATA);
     return this;
   }
 
-  public BulkApplicationNotification addDataItem(CampaignEvaluationTreeChangedNotification dataItem) {
+  public BulkApplicationNotification addDataItem(CampaignEvaluationTreeChangedNotificationData dataItem) {
     if (this.data == null) {
       this.data = new ArrayList<>();
     }
@@ -111,11 +111,11 @@ public class BulkApplicationNotification {
    * @return data
    */
   @javax.annotation.Nonnull
-  public List<CampaignEvaluationTreeChangedNotification> getData() {
+  public List<CampaignEvaluationTreeChangedNotificationData> getData() {
     return data;
   }
 
-  public void setData(@javax.annotation.Nonnull List<CampaignEvaluationTreeChangedNotification> data) {
+  public void setData(@javax.annotation.Nonnull List<CampaignEvaluationTreeChangedNotificationData> data) {
     this.data = data;
     this.markPropertyAsSet(SERIALIZED_NAME_DATA);
   }
@@ -258,7 +258,7 @@ public class BulkApplicationNotification {
         JsonArray jsonArraydata = jsonObj.getAsJsonArray("data");
         // validate the required field `data` (array)
         for (int i = 0; i < jsonArraydata.size(); i++) {
-          CampaignEvaluationTreeChangedNotification.validateJsonElement(jsonArraydata.get(i));
+          CampaignEvaluationTreeChangedNotificationData.validateJsonElement(jsonArraydata.get(i));
         }
       }
   }
