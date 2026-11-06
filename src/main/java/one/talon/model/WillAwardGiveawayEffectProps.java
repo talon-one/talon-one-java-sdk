@@ -49,7 +49,7 @@ import one.talon.JSON;
 /**
  * The equivalent of the &#x60;awardGiveaway&#x60; effect but returned when updating a session with any state other than &#x60;closed&#x60;. This ensures no giveaway codes are leaked when they are still not guaranteed to be awarded.  For more information about session states, see [Manage the session&#39;s state](https://docs.talon.one/docs/dev/concepts/entities/customer-sessions#manage-the-sessions-state).
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.26.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.27.0")
 public class WillAwardGiveawayEffectProps {
   // Gson ignores transient state; only setters and JSON input mark properties as present.
   private transient Set<String> openapiExplicitlySetFields = new HashSet<>();

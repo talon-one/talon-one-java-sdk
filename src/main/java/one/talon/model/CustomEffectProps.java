@@ -50,7 +50,7 @@ import one.talon.JSON;
 /**
  * If you want to return data as an effect but no effect matches your use case, you can [create a custom effect](https://docs.talon.one/docs/dev/tutorials/create-custom-effects).  Custom effects can be used as both rule effects and failure effects.  The structure of a custom effect depends on your specifications but is always named &#x60;customEffect&#x60;.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.26.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.27.0")
 public class CustomEffectProps {
   // Gson ignores transient state; only setters and JSON input mark properties as present.
   private transient Set<String> openapiExplicitlySetFields = new HashSet<>();

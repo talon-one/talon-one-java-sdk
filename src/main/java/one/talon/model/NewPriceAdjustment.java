@@ -52,7 +52,7 @@ import one.talon.JSON;
 /**
  * NewPriceAdjustment
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.26.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.27.0")
 public class NewPriceAdjustment {
   // Gson ignores transient state; only setters and JSON input mark properties as present.
   private transient Set<String> openapiExplicitlySetFields = new HashSet<>();
@@ -186,7 +186,7 @@ public class NewPriceAdjustment {
   }
 
   /**
-   * The date and time from which the price adjustment is effective.
+   * The date and time from which the price adjustment is effective.  **Note**: If no timeframe is defined, the price adjustment is applied immediately and is effective until another, more recent, price adjustment is synced with the catalog. 
    * @return effectiveFrom
    */
   @javax.annotation.Nullable
@@ -207,7 +207,7 @@ public class NewPriceAdjustment {
   }
 
   /**
-   * The date and time until which the price adjustment is effective.
+   * The date and time until which the price adjustment is effective.  **Note**: If no timeframe is defined, the price adjustment is applied immediately and is effective until another, more recent, price adjustment is synced with the catalog. 
    * @return effectiveUntil
    */
   @javax.annotation.Nullable

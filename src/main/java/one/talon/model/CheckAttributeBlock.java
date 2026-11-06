@@ -23,8 +23,15 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import one.talon.model.BetweenCheckAttributeBlock;
 import one.talon.model.Block;
-import org.openapitools.jackson.nullable.JsonNullable;
+import one.talon.model.ListCheckAttributeBlock;
+import one.talon.model.ListWithCountCheckAttributeBlock;
+import one.talon.model.LocationCheckAttributeBlock;
+import one.talon.model.LocationCheckAttributeBlock1Values;
+import one.talon.model.ScalarCheckAttributeBlock;
+import one.talon.model.UnaryCheckAttributeBlock;
+import one.talon.model.WithinCheckAttributeBlock;
 
 
 
@@ -61,7 +68,7 @@ import com.google.gson.JsonParseException;
 
 import one.talon.JSON;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.26.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.27.0")
 public class CheckAttributeBlock extends AbstractOpenApiSchema {
     private static final Logger log = Logger.getLogger(CheckAttributeBlock.class.getName());
 
@@ -141,7 +148,7 @@ public class CheckAttributeBlock extends AbstractOpenApiSchema {
                         writeJsonElement(out, element);
                         return;
                     }
-                    throw new IOException("Failed to serialize as the type doesn't match oneOf schemas: CheckAttributeBlockBase, Object");
+                    throw new IOException("Failed to serialize as the type doesn't match oneOf schemas: BetweenCheckAttributeBlock, ListCheckAttributeBlock, ListWithCountCheckAttributeBlock, LocationCheckAttributeBlock, ScalarCheckAttributeBlock, UnaryCheckAttributeBlock, WithinCheckAttributeBlock");
                 }
 
                 @Override
@@ -426,7 +433,7 @@ public class CheckAttributeBlock extends AbstractOpenApiSchema {
     /**
      * Set the instance that matches the oneOf child schema, check
      * the instance parameter is valid against the oneOf child schemas:
-     * CheckAttributeBlockBase, Object
+     * BetweenCheckAttributeBlock, ListCheckAttributeBlock, ListWithCountCheckAttributeBlock, LocationCheckAttributeBlock, ScalarCheckAttributeBlock, UnaryCheckAttributeBlock, WithinCheckAttributeBlock
      *
      * It could be an instance of the 'oneOf' schemas.
      */
@@ -467,14 +474,14 @@ public class CheckAttributeBlock extends AbstractOpenApiSchema {
             return;
         }
 
-        throw new RuntimeException("Invalid instance type. Must be CheckAttributeBlockBase, Object");
+        throw new RuntimeException("Invalid instance type. Must be BetweenCheckAttributeBlock, ListCheckAttributeBlock, ListWithCountCheckAttributeBlock, LocationCheckAttributeBlock, ScalarCheckAttributeBlock, UnaryCheckAttributeBlock, WithinCheckAttributeBlock");
     }
 
     /**
      * Get the actual instance, which can be the following:
-     * CheckAttributeBlockBase, Object
+     * BetweenCheckAttributeBlock, ListCheckAttributeBlock, ListWithCountCheckAttributeBlock, LocationCheckAttributeBlock, ScalarCheckAttributeBlock, UnaryCheckAttributeBlock, WithinCheckAttributeBlock
      *
-     * @return The actual instance (CheckAttributeBlockBase, Object)
+     * @return The actual instance (BetweenCheckAttributeBlock, ListCheckAttributeBlock, ListWithCountCheckAttributeBlock, LocationCheckAttributeBlock, ScalarCheckAttributeBlock, UnaryCheckAttributeBlock, WithinCheckAttributeBlock)
      */
     @SuppressWarnings("unchecked")
     @Override
@@ -633,7 +640,7 @@ public class CheckAttributeBlock extends AbstractOpenApiSchema {
             // continue to the next one
         }
         if (validCount != 1) {
-            throw new IOException(String.format(java.util.Locale.ROOT, "The JSON string is invalid for CheckAttributeBlock with oneOf schemas: CheckAttributeBlockBase, Object. %d class(es) match the result, expected 1. Detailed failure message for oneOf schemas: %s. JSON: %s", validCount, errorMessages, jsonElement.toString()));
+            throw new IOException(String.format(java.util.Locale.ROOT, "The JSON string is invalid for CheckAttributeBlock with oneOf schemas: BetweenCheckAttributeBlock, ListCheckAttributeBlock, ListWithCountCheckAttributeBlock, LocationCheckAttributeBlock, ScalarCheckAttributeBlock, UnaryCheckAttributeBlock, WithinCheckAttributeBlock. %d class(es) match the result, expected 1. Detailed failure message for oneOf schemas: %s. JSON: %s", validCount, errorMessages, jsonElement.toString()));
         }
     }
 

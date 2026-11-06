@@ -48,9 +48,9 @@ import java.util.Set;
 import one.talon.JSON;
 
 /**
- * Target type when a specific audience is selected. 
+ * Target type when a specific audience is selected.  Talon.One logs a separate price record per audience. You can use this object to compare the price records of a price type to those of a [base price](https://docs.talon.one/docs/dev/integration-guides/best-prior-price#price-history), for example. 
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.26.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.27.0")
 public class LabelTargetAudience {
   // Gson ignores transient state; only setters and JSON input mark properties as present.
   private transient Set<String> openapiExplicitlySetFields = new HashSet<>();

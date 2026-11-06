@@ -51,7 +51,7 @@ import one.talon.JSON;
 /**
  * Contains information about hidden conditions and effects in the Application.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.26.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.27.0")
 public class HiddenConditionsEffects {
   // Gson ignores transient state; only setters and JSON input mark properties as present.
   private transient Set<String> openapiExplicitlySetFields = new HashSet<>();

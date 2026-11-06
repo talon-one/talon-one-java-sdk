@@ -51,7 +51,7 @@ import one.talon.JSON;
 /**
  * ExperimentVariant
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.26.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.27.0")
 public class ExperimentVariant {
   // Gson ignores transient state; only setters and JSON input mark properties as present.
   private transient Set<String> openapiExplicitlySetFields = new HashSet<>();
@@ -87,9 +87,15 @@ public class ExperimentVariant {
   private Long weight;
 
   public static final String SERIALIZED_NAME_IS_PRIMARY = "isPrimary";
+  @Deprecated
   @SerializedName(SERIALIZED_NAME_IS_PRIMARY)
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   private Boolean isPrimary;
+
+  public static final String SERIALIZED_NAME_ORDER = "order";
+  @SerializedName(SERIALIZED_NAME_ORDER)
+  @javax.annotation.Nullable
+  private Long order;
 
   public static final String SERIALIZED_NAME_AUDIENCE_ID = "audienceId";
   @SerializedName(SERIALIZED_NAME_AUDIENCE_ID)
@@ -225,24 +231,50 @@ public class ExperimentVariant {
   }
 
 
-  public ExperimentVariant isPrimary(@javax.annotation.Nonnull Boolean isPrimary) {
+  @Deprecated
+  public ExperimentVariant isPrimary(@javax.annotation.Nullable Boolean isPrimary) {
     this.isPrimary = isPrimary;
     this.markPropertyAsSet(SERIALIZED_NAME_IS_PRIMARY);
     return this;
   }
 
   /**
-   * Get isPrimary
+   * **Deprecated.** Use &#x60;order&#x60; instead. Indicates whether this is the primary variant. This is computed as &#x60;order &#x3D;&#x3D; 0&#x60;. 
    * @return isPrimary
+   * @deprecated
    */
-  @javax.annotation.Nonnull
+  @Deprecated
+  @javax.annotation.Nullable
   public Boolean getIsPrimary() {
     return isPrimary;
   }
 
-  public void setIsPrimary(@javax.annotation.Nonnull Boolean isPrimary) {
+  @Deprecated
+  public void setIsPrimary(@javax.annotation.Nullable Boolean isPrimary) {
     this.isPrimary = isPrimary;
     this.markPropertyAsSet(SERIALIZED_NAME_IS_PRIMARY);
+  }
+
+
+  public ExperimentVariant order(@javax.annotation.Nullable Long order) {
+    this.order = order;
+    this.markPropertyAsSet(SERIALIZED_NAME_ORDER);
+    return this;
+  }
+
+  /**
+   * The position of this variant in the experiment. The variant with &#x60;order: 0&#x60; is the primary variant. 
+   * minimum: 0
+   * @return order
+   */
+  @javax.annotation.Nullable
+  public Long getOrder() {
+    return order;
+  }
+
+  public void setOrder(@javax.annotation.Nullable Long order) {
+    this.order = order;
+    this.markPropertyAsSet(SERIALIZED_NAME_ORDER);
   }
 
 
@@ -343,13 +375,14 @@ public class ExperimentVariant {
         Objects.equals(this.ruleset, experimentVariant.ruleset) &&
         Objects.equals(this.weight, experimentVariant.weight) &&
         Objects.equals(this.isPrimary, experimentVariant.isPrimary) &&
+        Objects.equals(this.order, experimentVariant.order) &&
         Objects.equals(this.audienceId, experimentVariant.audienceId)&&
         Objects.equals(this.additionalProperties, experimentVariant.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, created, name, experimentId, ruleset, weight, isPrimary, audienceId, additionalProperties);
+    return Objects.hash(id, created, name, experimentId, ruleset, weight, isPrimary, order, audienceId, additionalProperties);
   }
 
   @Override
@@ -363,6 +396,7 @@ public class ExperimentVariant {
     sb.append("    ruleset: ").append(toIndentedString(ruleset)).append("\n");
     sb.append("    weight: ").append(toIndentedString(weight)).append("\n");
     sb.append("    isPrimary: ").append(toIndentedString(isPrimary)).append("\n");
+    sb.append("    order: ").append(toIndentedString(order)).append("\n");
     sb.append("    audienceId: ").append(toIndentedString(audienceId)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
@@ -383,10 +417,10 @@ public class ExperimentVariant {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("id", "created", "name", "experimentId", "ruleset", "weight", "isPrimary", "audienceId"));
+    openapiFields = new HashSet<String>(Arrays.asList("id", "created", "name", "experimentId", "ruleset", "weight", "isPrimary", "order", "audienceId"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("id", "created", "name", "isPrimary"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("id", "created", "name"));
   }
 
   /**

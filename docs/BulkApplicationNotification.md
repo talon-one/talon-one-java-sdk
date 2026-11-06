@@ -8,7 +8,7 @@
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
 |**totalResultSize** | **Long** |  |  |
-|**data** | [**List&lt;CampaignEvaluationTreeChangedNotification&gt;**](CampaignEvaluationTreeChangedNotification.md) |  |  |
+|**data** | [**List&lt;CampaignEvaluationTreeChangedNotificationData&gt;**](CampaignEvaluationTreeChangedNotificationData.md) |  |  |
 
 
 

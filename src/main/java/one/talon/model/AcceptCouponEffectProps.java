@@ -49,7 +49,7 @@ import one.talon.JSON;
 /**
  * This effect indicates that the coupon code supplied was valid.  You should handle this effect by clearing any messages from previous &#x60;rejectCoupon&#x60; effects and informing the user that the coupon is valid.  The code is automatically redeemed when you close the session.  Other effects, such as [setDiscount](https://docs.talon.one/docs/dev/integration-api/api-effects#setdiscount), provide more information about the actual rewards received.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.26.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.27.0")
 public class AcceptCouponEffectProps {
   // Gson ignores transient state; only setters and JSON input mark properties as present.
   private transient Set<String> openapiExplicitlySetFields = new HashSet<>();

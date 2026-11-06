@@ -22,8 +22,15 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import one.talon.model.BetweenCheckAttributeBlock;
 import one.talon.model.Block;
-import org.openapitools.jackson.nullable.JsonNullable;
+import one.talon.model.ListCheckAttributeBlock;
+import one.talon.model.ListWithCountCheckAttributeBlock;
+import one.talon.model.LocationCheckAttributeBlock;
+import one.talon.model.LocationCheckAttributeBlock1Values;
+import one.talon.model.ScalarCheckAttributeBlock;
+import one.talon.model.UnaryCheckAttributeBlock;
+import one.talon.model.WithinCheckAttributeBlock;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 

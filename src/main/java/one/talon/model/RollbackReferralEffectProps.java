@@ -49,7 +49,7 @@ import one.talon.JSON;
 /**
  * This effect indicates that the redemption of the referral code has been rolled back. It triggers when a closed session that redeemed a referral is gets cancelled. The code becomes redeemable again.  For more information about session states, see [Managing states](https://docs.talon.one/docs/dev/concepts/entities/customer-sessions#customer-session-states).
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.26.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.27.0")
 public class RollbackReferralEffectProps {
   // Gson ignores transient state; only setters and JSON input mark properties as present.
   private transient Set<String> openapiExplicitlySetFields = new HashSet<>();

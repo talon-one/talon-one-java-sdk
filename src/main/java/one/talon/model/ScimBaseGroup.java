@@ -52,7 +52,7 @@ import one.talon.JSON;
 /**
  * Define the schema for base fields in a group using the SCIM provisioning protocol. Talon.One uses this schema to create roles.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.26.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.27.0")
 public class ScimBaseGroup {
   // Gson ignores transient state; only setters and JSON input mark properties as present.
   private transient Set<String> openapiExplicitlySetFields = new HashSet<>();

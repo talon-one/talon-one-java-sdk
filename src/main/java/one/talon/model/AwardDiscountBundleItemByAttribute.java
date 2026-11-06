@@ -49,7 +49,7 @@ import one.talon.JSON;
 /**
  * Identifies a bundle slot by ranking items by a per-item attribute expression and picking the highest- or lowest-ranked one.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.26.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.27.0")
 public class AwardDiscountBundleItemByAttribute {
   // Gson ignores transient state; only setters and JSON input mark properties as present.
   private transient Set<String> openapiExplicitlySetFields = new HashSet<>();

@@ -52,7 +52,7 @@ import one.talon.JSON;
 /**
  * A rule template stored in a catalog entry. Rules in catalog entries only contain title (no description, as description is at the catalog entry level).
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.26.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.27.0")
 public class CatalogRule {
   // Gson ignores transient state; only setters and JSON input mark properties as present.
   private transient Set<String> openapiExplicitlySetFields = new HashSet<>();

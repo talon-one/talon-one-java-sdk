@@ -51,7 +51,7 @@ import one.talon.model.CreateReferralBlock1UsageLimit;
 import one.talon.model.CustomEffectBlockReference;
 import one.talon.model.GiveawayPoolBlockReference;
 import one.talon.model.GroupBlock;
-import one.talon.model.LocationCheckAttributeBlockValues;
+import one.talon.model.LocationCheckAttributeBlock1Values;
 import one.talon.model.PassthroughBlock;
 import one.talon.model.RedeemLoyaltyPointsBlock;
 import one.talon.model.RedeemLoyaltyPointsBlock1Program;
@@ -103,7 +103,7 @@ import com.google.gson.JsonParseException;
 
 import one.talon.JSON;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.26.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.27.0")
 public class Block extends AbstractOpenApiSchema {
     private static final Logger log = Logger.getLogger(Block.class.getName());
 

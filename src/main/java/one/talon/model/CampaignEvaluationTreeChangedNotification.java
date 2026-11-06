@@ -20,8 +20,10 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Arrays;
-import one.talon.model.CampaignSet;
+import java.util.List;
+import one.talon.model.CampaignEvaluationTreeChangedNotificationData;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -48,91 +50,150 @@ import java.util.Set;
 import one.talon.JSON;
 
 /**
- * Notification about an Application whose campaign evaluation tree changed.
+ * CampaignEvaluationTreeChangedNotification
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.26.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.27.0")
 public class CampaignEvaluationTreeChangedNotification {
   // Gson ignores transient state; only setters and JSON input mark properties as present.
   private transient Set<String> openapiExplicitlySetFields = new HashSet<>();
 
-  public static final String SERIALIZED_NAME_APPLICATION_ID = "applicationId";
-  @SerializedName(SERIALIZED_NAME_APPLICATION_ID)
-  @javax.annotation.Nonnull
-  private Long applicationId;
+  /**
+   * The type of the notification
+   */
+  @JsonAdapter(NotificationTypeEnum.Adapter.class)
+  public enum NotificationTypeEnum {
+    CAMPAIGN_EVALUATION_TREE_CHANGED("CampaignEvaluationTreeChanged");
 
-  public static final String SERIALIZED_NAME_OLD_EVALUATION_TREE = "oldEvaluationTree";
-  @SerializedName(SERIALIZED_NAME_OLD_EVALUATION_TREE)
-  @javax.annotation.Nullable
-  private CampaignSet oldEvaluationTree;
+    private String value;
 
-  public static final String SERIALIZED_NAME_EVALUATION_TREE = "evaluationTree";
-  @SerializedName(SERIALIZED_NAME_EVALUATION_TREE)
+    NotificationTypeEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static NotificationTypeEnum fromValue(String value) {
+      for (NotificationTypeEnum b : NotificationTypeEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    }
+
+    public static class Adapter extends TypeAdapter<NotificationTypeEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final NotificationTypeEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public NotificationTypeEnum read(final JsonReader jsonReader) throws IOException {
+        String value =  jsonReader.nextString();
+        return NotificationTypeEnum.fromValue(value);
+      }
+    }
+
+    public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      String value = jsonElement.getAsString();
+      NotificationTypeEnum.fromValue(value);
+    }
+  }
+
+  public static final String SERIALIZED_NAME_NOTIFICATION_TYPE = "NotificationType";
+  @SerializedName(SERIALIZED_NAME_NOTIFICATION_TYPE)
   @javax.annotation.Nonnull
-  private CampaignSet evaluationTree;
+  private NotificationTypeEnum notificationType;
+
+  public static final String SERIALIZED_NAME_TOTAL_RESULT_SIZE = "TotalResultSize";
+  @SerializedName(SERIALIZED_NAME_TOTAL_RESULT_SIZE)
+  @javax.annotation.Nonnull
+  private Long totalResultSize;
+
+  public static final String SERIALIZED_NAME_DATA = "Data";
+  @SerializedName(SERIALIZED_NAME_DATA)
+  @javax.annotation.Nonnull
+  private List<CampaignEvaluationTreeChangedNotificationData> data = new ArrayList<>();
 
   public CampaignEvaluationTreeChangedNotification() {
   }
 
-  public CampaignEvaluationTreeChangedNotification applicationId(@javax.annotation.Nonnull Long applicationId) {
-    this.applicationId = applicationId;
-    this.markPropertyAsSet(SERIALIZED_NAME_APPLICATION_ID);
+  public CampaignEvaluationTreeChangedNotification notificationType(@javax.annotation.Nonnull NotificationTypeEnum notificationType) {
+    this.notificationType = notificationType;
+    this.markPropertyAsSet(SERIALIZED_NAME_NOTIFICATION_TYPE);
     return this;
   }
 
   /**
-   * The ID of the Application whose campaign evaluation tree changed.
-   * @return applicationId
+   * The type of the notification
+   * @return notificationType
    */
   @javax.annotation.Nonnull
-  public Long getApplicationId() {
-    return applicationId;
+  public NotificationTypeEnum getNotificationType() {
+    return notificationType;
   }
 
-  public void setApplicationId(@javax.annotation.Nonnull Long applicationId) {
-    this.applicationId = applicationId;
-    this.markPropertyAsSet(SERIALIZED_NAME_APPLICATION_ID);
+  public void setNotificationType(@javax.annotation.Nonnull NotificationTypeEnum notificationType) {
+    this.notificationType = notificationType;
+    this.markPropertyAsSet(SERIALIZED_NAME_NOTIFICATION_TYPE);
   }
 
 
-  public CampaignEvaluationTreeChangedNotification oldEvaluationTree(@javax.annotation.Nullable CampaignSet oldEvaluationTree) {
-    this.oldEvaluationTree = oldEvaluationTree;
-    this.markPropertyAsSet(SERIALIZED_NAME_OLD_EVALUATION_TREE);
+  public CampaignEvaluationTreeChangedNotification totalResultSize(@javax.annotation.Nonnull Long totalResultSize) {
+    this.totalResultSize = totalResultSize;
+    this.markPropertyAsSet(SERIALIZED_NAME_TOTAL_RESULT_SIZE);
     return this;
   }
 
   /**
-   * The previous campaign evaluation tree.
-   * @return oldEvaluationTree
-   */
-  @javax.annotation.Nullable
-  public CampaignSet getOldEvaluationTree() {
-    return oldEvaluationTree;
-  }
-
-  public void setOldEvaluationTree(@javax.annotation.Nullable CampaignSet oldEvaluationTree) {
-    this.oldEvaluationTree = oldEvaluationTree;
-    this.markPropertyAsSet(SERIALIZED_NAME_OLD_EVALUATION_TREE);
-  }
-
-
-  public CampaignEvaluationTreeChangedNotification evaluationTree(@javax.annotation.Nonnull CampaignSet evaluationTree) {
-    this.evaluationTree = evaluationTree;
-    this.markPropertyAsSet(SERIALIZED_NAME_EVALUATION_TREE);
-    return this;
-  }
-
-  /**
-   * The new campaign evaluation tree.
-   * @return evaluationTree
+   * The total size of the result set.
+   * @return totalResultSize
    */
   @javax.annotation.Nonnull
-  public CampaignSet getEvaluationTree() {
-    return evaluationTree;
+  public Long getTotalResultSize() {
+    return totalResultSize;
   }
 
-  public void setEvaluationTree(@javax.annotation.Nonnull CampaignSet evaluationTree) {
-    this.evaluationTree = evaluationTree;
-    this.markPropertyAsSet(SERIALIZED_NAME_EVALUATION_TREE);
+  public void setTotalResultSize(@javax.annotation.Nonnull Long totalResultSize) {
+    this.totalResultSize = totalResultSize;
+    this.markPropertyAsSet(SERIALIZED_NAME_TOTAL_RESULT_SIZE);
+  }
+
+
+  public CampaignEvaluationTreeChangedNotification data(@javax.annotation.Nonnull List<CampaignEvaluationTreeChangedNotificationData> data) {
+    this.data = data;
+    this.markPropertyAsSet(SERIALIZED_NAME_DATA);
+    return this;
+  }
+
+  public CampaignEvaluationTreeChangedNotification addDataItem(CampaignEvaluationTreeChangedNotificationData dataItem) {
+    if (this.data == null) {
+      this.data = new ArrayList<>();
+    }
+    this.data.add(dataItem);
+    this.markPropertyAsSet(SERIALIZED_NAME_DATA);
+    return this;
+  }
+
+  /**
+   * The array of changes.
+   * @return data
+   */
+  @javax.annotation.Nonnull
+  public List<CampaignEvaluationTreeChangedNotificationData> getData() {
+    return data;
+  }
+
+  public void setData(@javax.annotation.Nonnull List<CampaignEvaluationTreeChangedNotificationData> data) {
+    this.data = data;
+    this.markPropertyAsSet(SERIALIZED_NAME_DATA);
   }
 
   /**
@@ -205,24 +266,24 @@ public class CampaignEvaluationTreeChangedNotification {
       return false;
     }
     CampaignEvaluationTreeChangedNotification campaignEvaluationTreeChangedNotification = (CampaignEvaluationTreeChangedNotification) o;
-    return Objects.equals(this.applicationId, campaignEvaluationTreeChangedNotification.applicationId) &&
-        Objects.equals(this.oldEvaluationTree, campaignEvaluationTreeChangedNotification.oldEvaluationTree) &&
-        Objects.equals(this.evaluationTree, campaignEvaluationTreeChangedNotification.evaluationTree)&&
+    return Objects.equals(this.notificationType, campaignEvaluationTreeChangedNotification.notificationType) &&
+        Objects.equals(this.totalResultSize, campaignEvaluationTreeChangedNotification.totalResultSize) &&
+        Objects.equals(this.data, campaignEvaluationTreeChangedNotification.data)&&
         Objects.equals(this.additionalProperties, campaignEvaluationTreeChangedNotification.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(applicationId, oldEvaluationTree, evaluationTree, additionalProperties);
+    return Objects.hash(notificationType, totalResultSize, data, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class CampaignEvaluationTreeChangedNotification {\n");
-    sb.append("    applicationId: ").append(toIndentedString(applicationId)).append("\n");
-    sb.append("    oldEvaluationTree: ").append(toIndentedString(oldEvaluationTree)).append("\n");
-    sb.append("    evaluationTree: ").append(toIndentedString(evaluationTree)).append("\n");
+    sb.append("    notificationType: ").append(toIndentedString(notificationType)).append("\n");
+    sb.append("    totalResultSize: ").append(toIndentedString(totalResultSize)).append("\n");
+    sb.append("    data: ").append(toIndentedString(data)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -242,10 +303,10 @@ public class CampaignEvaluationTreeChangedNotification {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("applicationId", "oldEvaluationTree", "evaluationTree"));
+    openapiFields = new HashSet<String>(Arrays.asList("NotificationType", "TotalResultSize", "Data"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("applicationId", "evaluationTree"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("NotificationType", "TotalResultSize", "Data"));
   }
 
   /**
@@ -268,12 +329,21 @@ public class CampaignEvaluationTreeChangedNotification {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      // validate the optional field `oldEvaluationTree`
-      if (jsonObj.get("oldEvaluationTree") != null && !jsonObj.get("oldEvaluationTree").isJsonNull()) {
-        CampaignSet.validateJsonElement(jsonObj.get("oldEvaluationTree"));
+      if (!jsonObj.get("NotificationType").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `NotificationType` to be a primitive type in the JSON string but got `%s`", jsonObj.get("NotificationType").toString()));
       }
-      // validate the required field `evaluationTree`
-      CampaignSet.validateJsonElement(jsonObj.get("evaluationTree"));
+      // validate the required field `NotificationType`
+      NotificationTypeEnum.validateJsonElement(jsonObj.get("NotificationType"));
+      if (jsonObj.get("Data") != null) {
+        if (!jsonObj.get("Data").isJsonArray()) {
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `Data` to be an array in the JSON string but got `%s`", jsonObj.get("Data").toString()));
+        }
+        JsonArray jsonArraydata = jsonObj.getAsJsonArray("Data");
+        // validate the required field `Data` (array)
+        for (int i = 0; i < jsonArraydata.size(); i++) {
+          CampaignEvaluationTreeChangedNotificationData.validateJsonElement(jsonArraydata.get(i));
+        }
+      }
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {

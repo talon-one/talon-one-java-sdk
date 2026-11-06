@@ -20,7 +20,11 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
+import one.talon.model.Block;
+import org.openapitools.jackson.nullable.JsonNullable;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -47,12 +51,77 @@ import java.util.Set;
 import one.talon.JSON;
 
 /**
- * Variant of &#x60;CheckAttributeBlock&#x60; for the &#x60;within&#x60; and &#x60;not(within)&#x60; operators, which require both a start and end value.
+ * WithinCheckAttributeBlock
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.26.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.27.0")
 public class WithinCheckAttributeBlock {
   // Gson ignores transient state; only setters and JSON input mark properties as present.
   private transient Set<String> openapiExplicitlySetFields = new HashSet<>();
+
+  public static final String SERIALIZED_NAME_ID = "id";
+  @SerializedName(SERIALIZED_NAME_ID)
+  @javax.annotation.Nullable
+  private String id;
+
+  /**
+   * A block discriminator of type &#x60;checkAttribute&#x60;.
+   */
+  @JsonAdapter(TypeEnum.Adapter.class)
+  public enum TypeEnum {
+    CHECK_ATTRIBUTE("checkAttribute");
+
+    private String value;
+
+    TypeEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static TypeEnum fromValue(String value) {
+      for (TypeEnum b : TypeEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    }
+
+    public static class Adapter extends TypeAdapter<TypeEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final TypeEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public TypeEnum read(final JsonReader jsonReader) throws IOException {
+        String value =  jsonReader.nextString();
+        return TypeEnum.fromValue(value);
+      }
+    }
+
+    public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      String value = jsonElement.getAsString();
+      TypeEnum.fromValue(value);
+    }
+  }
+
+  public static final String SERIALIZED_NAME_TYPE = "type";
+  @SerializedName(SERIALIZED_NAME_TYPE)
+  @javax.annotation.Nonnull
+  private TypeEnum type;
+
+  public static final String SERIALIZED_NAME_TAGS = "tags";
+  @SerializedName(SERIALIZED_NAME_TAGS)
+  @javax.annotation.Nullable
+  private List<String> tags;
 
   /**
    * The range comparison operator. Must be &#x60;within&#x60; or &#x60;not(within)&#x60;.
@@ -108,8 +177,28 @@ public class WithinCheckAttributeBlock {
 
   public static final String SERIALIZED_NAME_OPERATOR = "operator";
   @SerializedName(SERIALIZED_NAME_OPERATOR)
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
   private OperatorEnum operator;
+
+  public static final String SERIALIZED_NAME_ATTRIBUTE = "attribute";
+  @SerializedName(SERIALIZED_NAME_ATTRIBUTE)
+  @javax.annotation.Nullable
+  private Object attribute = null;
+
+  public static final String SERIALIZED_NAME_VALUE = "value";
+  @SerializedName(SERIALIZED_NAME_VALUE)
+  @javax.annotation.Nullable
+  private Object value = null;
+
+  public static final String SERIALIZED_NAME_MIN = "min";
+  @SerializedName(SERIALIZED_NAME_MIN)
+  @javax.annotation.Nullable
+  private Object min = null;
+
+  public static final String SERIALIZED_NAME_MAX = "max";
+  @SerializedName(SERIALIZED_NAME_MAX)
+  @javax.annotation.Nullable
+  private Object max = null;
 
   public static final String SERIALIZED_NAME_START = "start";
   @SerializedName(SERIALIZED_NAME_START)
@@ -136,10 +225,79 @@ public class WithinCheckAttributeBlock {
   @javax.annotation.Nullable
   private Boolean timezoneInsensitive;
 
+  public static final String SERIALIZED_NAME_VALUES = "values";
+  @SerializedName(SERIALIZED_NAME_VALUES)
+  @javax.annotation.Nullable
+  private Object values = null;
+
+  public static final String SERIALIZED_NAME_COUNT = "count";
+  @SerializedName(SERIALIZED_NAME_COUNT)
+  @javax.annotation.Nullable
+  private Object count = null;
+
+  public static final String SERIALIZED_NAME_ON_FAILURE = "onFailure";
+  @SerializedName(SERIALIZED_NAME_ON_FAILURE)
+  @javax.annotation.Nullable
+  private List<Block> onFailure;
+
   public WithinCheckAttributeBlock() {
   }
 
-  public WithinCheckAttributeBlock operator(@javax.annotation.Nullable OperatorEnum operator) {
+  public WithinCheckAttributeBlock(
+     String id, 
+     List<String> tags
+  ) {
+    this();
+    this.id = id;
+    this.markPropertyAsSet(SERIALIZED_NAME_ID);
+    this.tags = tags;
+    this.markPropertyAsSet(SERIALIZED_NAME_TAGS);
+  }
+
+  /**
+   * Unique identifier for this block.
+   * @return id
+   */
+  @javax.annotation.Nullable
+  public String getId() {
+    return id;
+  }
+
+
+
+  public WithinCheckAttributeBlock type(@javax.annotation.Nonnull TypeEnum type) {
+    this.type = type;
+    this.markPropertyAsSet(SERIALIZED_NAME_TYPE);
+    return this;
+  }
+
+  /**
+   * A block discriminator of type &#x60;checkAttribute&#x60;.
+   * @return type
+   */
+  @javax.annotation.Nonnull
+  public TypeEnum getType() {
+    return type;
+  }
+
+  public void setType(@javax.annotation.Nonnull TypeEnum type) {
+    this.type = type;
+    this.markPropertyAsSet(SERIALIZED_NAME_TYPE);
+  }
+
+
+  /**
+   * Semantic labels attached to this block.
+   * @return tags
+   */
+  @javax.annotation.Nullable
+  public List<String> getTags() {
+    return tags;
+  }
+
+
+
+  public WithinCheckAttributeBlock operator(@javax.annotation.Nonnull OperatorEnum operator) {
     this.operator = operator;
     this.markPropertyAsSet(SERIALIZED_NAME_OPERATOR);
     return this;
@@ -149,14 +307,98 @@ public class WithinCheckAttributeBlock {
    * The range comparison operator. Must be &#x60;within&#x60; or &#x60;not(within)&#x60;.
    * @return operator
    */
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
   public OperatorEnum getOperator() {
     return operator;
   }
 
-  public void setOperator(@javax.annotation.Nullable OperatorEnum operator) {
+  public void setOperator(@javax.annotation.Nonnull OperatorEnum operator) {
     this.operator = operator;
     this.markPropertyAsSet(SERIALIZED_NAME_OPERATOR);
+  }
+
+
+  public WithinCheckAttributeBlock attribute(@javax.annotation.Nullable Object attribute) {
+    this.attribute = attribute;
+    this.markPropertyAsSet(SERIALIZED_NAME_ATTRIBUTE);
+    return this;
+  }
+
+  /**
+   * The attribute path identifier (e.g. \&quot;$Session.Total\&quot;).
+   * @return attribute
+   */
+  @javax.annotation.Nullable
+  public Object getAttribute() {
+    return attribute;
+  }
+
+  public void setAttribute(@javax.annotation.Nullable Object attribute) {
+    this.attribute = attribute;
+    this.markPropertyAsSet(SERIALIZED_NAME_ATTRIBUTE);
+  }
+
+
+  public WithinCheckAttributeBlock value(@javax.annotation.Nullable Object value) {
+    this.value = value;
+    this.markPropertyAsSet(SERIALIZED_NAME_VALUE);
+    return this;
+  }
+
+  /**
+   * The comparison value for scalar operators.
+   * @return value
+   */
+  @javax.annotation.Nullable
+  public Object getValue() {
+    return value;
+  }
+
+  public void setValue(@javax.annotation.Nullable Object value) {
+    this.value = value;
+    this.markPropertyAsSet(SERIALIZED_NAME_VALUE);
+  }
+
+
+  public WithinCheckAttributeBlock min(@javax.annotation.Nullable Object min) {
+    this.min = min;
+    this.markPropertyAsSet(SERIALIZED_NAME_MIN);
+    return this;
+  }
+
+  /**
+   * The minimum value allowed for the &#x60;between&#x60; operator.
+   * @return min
+   */
+  @javax.annotation.Nullable
+  public Object getMin() {
+    return min;
+  }
+
+  public void setMin(@javax.annotation.Nullable Object min) {
+    this.min = min;
+    this.markPropertyAsSet(SERIALIZED_NAME_MIN);
+  }
+
+
+  public WithinCheckAttributeBlock max(@javax.annotation.Nullable Object max) {
+    this.max = max;
+    this.markPropertyAsSet(SERIALIZED_NAME_MAX);
+    return this;
+  }
+
+  /**
+   * The maximum value allowed for the &#x60;between&#x60; operator.
+   * @return max
+   */
+  @javax.annotation.Nullable
+  public Object getMax() {
+    return max;
+  }
+
+  public void setMax(@javax.annotation.Nullable Object max) {
+    this.max = max;
+    this.markPropertyAsSet(SERIALIZED_NAME_MAX);
   }
 
 
@@ -264,6 +506,78 @@ public class WithinCheckAttributeBlock {
     this.markPropertyAsSet(SERIALIZED_NAME_TIMEZONE_INSENSITIVE);
   }
 
+
+  public WithinCheckAttributeBlock values(@javax.annotation.Nullable Object values) {
+    this.values = values;
+    this.markPropertyAsSet(SERIALIZED_NAME_VALUES);
+    return this;
+  }
+
+  /**
+   * The set of values to match against for list operators. For location operators (&#x60;in&#x60;, &#x60;not(in)&#x60;), an array of objects with a &#x60;geometry&#x60; (see &#x60;GeoJSONGeometry&#x60;) and an optional &#x60;name&#x60;, or a string reference to a list attribute.
+   * @return values
+   */
+  @javax.annotation.Nullable
+  public Object getValues() {
+    return values;
+  }
+
+  public void setValues(@javax.annotation.Nullable Object values) {
+    this.values = values;
+    this.markPropertyAsSet(SERIALIZED_NAME_VALUES);
+  }
+
+
+  public WithinCheckAttributeBlock count(@javax.annotation.Nullable Object count) {
+    this.count = count;
+    this.markPropertyAsSet(SERIALIZED_NAME_COUNT);
+    return this;
+  }
+
+  /**
+   * The count threshold for &#x60;containsAtLeast&#x60; and &#x60;containsExactly&#x60; operators.
+   * @return count
+   */
+  @javax.annotation.Nullable
+  public Object getCount() {
+    return count;
+  }
+
+  public void setCount(@javax.annotation.Nullable Object count) {
+    this.count = count;
+    this.markPropertyAsSet(SERIALIZED_NAME_COUNT);
+  }
+
+
+  public WithinCheckAttributeBlock onFailure(@javax.annotation.Nullable List<Block> onFailure) {
+    this.onFailure = onFailure;
+    this.markPropertyAsSet(SERIALIZED_NAME_ON_FAILURE);
+    return this;
+  }
+
+  public WithinCheckAttributeBlock addOnFailureItem(Block onFailureItem) {
+    if (this.onFailure == null) {
+      this.onFailure = new ArrayList<>();
+    }
+    this.onFailure.add(onFailureItem);
+    this.markPropertyAsSet(SERIALIZED_NAME_ON_FAILURE);
+    return this;
+  }
+
+  /**
+   * Promotion blocks evaluated when this block fails or returns false.
+   * @return onFailure
+   */
+  @javax.annotation.Nullable
+  public List<Block> getOnFailure() {
+    return onFailure;
+  }
+
+  public void setOnFailure(@javax.annotation.Nullable List<Block> onFailure) {
+    this.onFailure = onFailure;
+    this.markPropertyAsSet(SERIALIZED_NAME_ON_FAILURE);
+  }
+
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -334,30 +648,61 @@ public class WithinCheckAttributeBlock {
       return false;
     }
     WithinCheckAttributeBlock withinCheckAttributeBlock = (WithinCheckAttributeBlock) o;
-    return Objects.equals(this.operator, withinCheckAttributeBlock.operator) &&
+    return Objects.equals(this.id, withinCheckAttributeBlock.id) &&
+        Objects.equals(this.type, withinCheckAttributeBlock.type) &&
+        Objects.equals(this.tags, withinCheckAttributeBlock.tags) &&
+        Objects.equals(this.operator, withinCheckAttributeBlock.operator) &&
+        Objects.equals(this.attribute, withinCheckAttributeBlock.attribute) &&
+        Objects.equals(this.value, withinCheckAttributeBlock.value) &&
+        Objects.equals(this.min, withinCheckAttributeBlock.min) &&
+        Objects.equals(this.max, withinCheckAttributeBlock.max) &&
         Objects.equals(this.start, withinCheckAttributeBlock.start) &&
         Objects.equals(this.end, withinCheckAttributeBlock.end) &&
         Objects.equals(this.startInclusive, withinCheckAttributeBlock.startInclusive) &&
         Objects.equals(this.endInclusive, withinCheckAttributeBlock.endInclusive) &&
-        Objects.equals(this.timezoneInsensitive, withinCheckAttributeBlock.timezoneInsensitive)&&
+        Objects.equals(this.timezoneInsensitive, withinCheckAttributeBlock.timezoneInsensitive) &&
+        Objects.equals(this.values, withinCheckAttributeBlock.values) &&
+        Objects.equals(this.count, withinCheckAttributeBlock.count) &&
+        Objects.equals(this.onFailure, withinCheckAttributeBlock.onFailure)&&
         Objects.equals(this.additionalProperties, withinCheckAttributeBlock.additionalProperties);
+  }
+
+  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
+    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(operator, start, end, startInclusive, endInclusive, timezoneInsensitive, additionalProperties);
+    return Objects.hash(id, type, tags, operator, attribute, value, min, max, start, end, startInclusive, endInclusive, timezoneInsensitive, values, count, onFailure, additionalProperties);
+  }
+
+  private static <T> int hashCodeNullable(JsonNullable<T> a) {
+    if (a == null) {
+      return 1;
+    }
+    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class WithinCheckAttributeBlock {\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    type: ").append(toIndentedString(type)).append("\n");
+    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    operator: ").append(toIndentedString(operator)).append("\n");
+    sb.append("    attribute: ").append(toIndentedString(attribute)).append("\n");
+    sb.append("    value: ").append(toIndentedString(value)).append("\n");
+    sb.append("    min: ").append(toIndentedString(min)).append("\n");
+    sb.append("    max: ").append(toIndentedString(max)).append("\n");
     sb.append("    start: ").append(toIndentedString(start)).append("\n");
     sb.append("    end: ").append(toIndentedString(end)).append("\n");
     sb.append("    startInclusive: ").append(toIndentedString(startInclusive)).append("\n");
     sb.append("    endInclusive: ").append(toIndentedString(endInclusive)).append("\n");
     sb.append("    timezoneInsensitive: ").append(toIndentedString(timezoneInsensitive)).append("\n");
+    sb.append("    values: ").append(toIndentedString(values)).append("\n");
+    sb.append("    count: ").append(toIndentedString(count)).append("\n");
+    sb.append("    onFailure: ").append(toIndentedString(onFailure)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -377,10 +722,10 @@ public class WithinCheckAttributeBlock {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("operator", "start", "end", "startInclusive", "endInclusive", "timezoneInsensitive"));
+    openapiFields = new HashSet<String>(Arrays.asList("id", "type", "tags", "operator", "attribute", "value", "min", "max", "start", "end", "startInclusive", "endInclusive", "timezoneInsensitive", "values", "count", "onFailure"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("start", "end"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("type", "operator", "attribute", "start", "end"));
   }
 
   /**
@@ -403,12 +748,36 @@ public class WithinCheckAttributeBlock {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if ((jsonObj.get("operator") != null && !jsonObj.get("operator").isJsonNull()) && !jsonObj.get("operator").isJsonPrimitive()) {
+      if ((jsonObj.get("id") != null && !jsonObj.get("id").isJsonNull()) && !jsonObj.get("id").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("id").toString()));
+      }
+      if (!jsonObj.get("type").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("type").toString()));
+      }
+      // validate the required field `type`
+      TypeEnum.validateJsonElement(jsonObj.get("type"));
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("tags") != null && !jsonObj.get("tags").isJsonNull() && !jsonObj.get("tags").isJsonArray()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `tags` to be an array in the JSON string but got `%s`", jsonObj.get("tags").toString()));
+      }
+      if (!jsonObj.get("operator").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `operator` to be a primitive type in the JSON string but got `%s`", jsonObj.get("operator").toString()));
       }
-      // validate the optional field `operator`
-      if (jsonObj.get("operator") != null && !jsonObj.get("operator").isJsonNull()) {
-        OperatorEnum.validateJsonElement(jsonObj.get("operator"));
+      // validate the required field `operator`
+      OperatorEnum.validateJsonElement(jsonObj.get("operator"));
+      if (jsonObj.get("onFailure") != null && !jsonObj.get("onFailure").isJsonNull()) {
+        JsonArray jsonArrayonFailure = jsonObj.getAsJsonArray("onFailure");
+        if (jsonArrayonFailure != null) {
+          // ensure the json data is an array
+          if (!jsonObj.get("onFailure").isJsonArray()) {
+            throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `onFailure` to be an array in the JSON string but got `%s`", jsonObj.get("onFailure").toString()));
+          }
+
+          // validate the optional field `onFailure` (array)
+          for (int i = 0; i < jsonArrayonFailure.size(); i++) {
+            Block.validateJsonElement(jsonArrayonFailure.get(i));
+          };
+        }
       }
   }
 

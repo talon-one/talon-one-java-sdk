@@ -2,15 +2,35 @@
 
 # ListWithCountCheckAttributeBlock
 
-Variant of `CheckAttributeBlock` for operators that test list membership with a minimum or exact count threshold.
 
 ## Properties
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**operator** | [**OperatorEnum**](#OperatorEnum) | The list membership operator with a count threshold applied to the attribute. |  [optional] |
+|**id** | **String** | Unique identifier for this block. |  [optional] [readonly] |
+|**type** | [**TypeEnum**](#TypeEnum) | A block discriminator of type &#x60;checkAttribute&#x60;. |  |
+|**tags** | **List&lt;String&gt;** | Semantic labels attached to this block. |  [optional] [readonly] |
+|**operator** | [**OperatorEnum**](#OperatorEnum) | The list membership operator with a count threshold applied to the attribute. |  |
+|**attribute** | **Object** | The attribute path identifier (e.g. \&quot;$Session.Total\&quot;). |  |
+|**value** | **Object** | The comparison value for scalar operators. |  [optional] |
+|**min** | **Object** | The minimum value allowed for the &#x60;between&#x60; operator. |  [optional] |
+|**max** | **Object** | The maximum value allowed for the &#x60;between&#x60; operator. |  [optional] |
+|**start** | **Object** | The start value for the &#x60;within&#x60; operator. |  [optional] |
+|**end** | **Object** | The end value for the &#x60;within&#x60; operator. |  [optional] |
+|**startInclusive** | **Boolean** | When &#x60;true&#x60;, the &#x60;start&#x60; value is included in the range for the &#x60;within&#x60; operator. |  [optional] |
+|**endInclusive** | **Boolean** | When &#x60;true&#x60;, the &#x60;end&#x60; value is included in the range for the &#x60;within&#x60; operator. |  [optional] |
+|**timezoneInsensitive** | **Boolean** | Indicates whether the &#x60;within&#x60; operator ignores time zones and compares the wall-clock time only. When &#x60;false&#x60;, time zones are taken into account. |  [optional] |
 |**values** | **Object** | The set of values to match against. |  |
 |**count** | **Object** | The count threshold for this operator. |  |
+|**onFailure** | [**List&lt;Block&gt;**](Block.md) | Promotion blocks evaluated when this block fails or returns false. |  [optional] |
+
+
+
+## Enum: TypeEnum
+
+| Name | Value |
+|---- | -----|
+| CHECK_ATTRIBUTE | &quot;checkAttribute&quot; |
 
 
 

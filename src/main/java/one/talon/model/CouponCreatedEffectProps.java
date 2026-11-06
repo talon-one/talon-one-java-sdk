@@ -49,7 +49,7 @@ import one.talon.JSON;
 /**
  * This effect indicates that a coupon was created.  For referrals and retention marketing, a common use case is to generate a coupon that can only be redeemed by one specific customer.  Handle this effect by notifying the recipient about their new coupon code.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.26.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.27.0")
 public class CouponCreatedEffectProps {
   // Gson ignores transient state; only setters and JSON input mark properties as present.
   private transient Set<String> openapiExplicitlySetFields = new HashSet<>();

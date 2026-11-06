@@ -10,7 +10,8 @@
 |**name** | **String** | The name of this variant. |  |
 |**weight** | **Long** | The percentage split of this variant. For &#x60;random&#x60; assignment, the split must be between 1 and 99 and the sum across all variants must equal 100. Ignored for &#x60;audience&#x60; and &#x60;external&#x60; assignment.  |  |
 |**ruleset** | [**NewRuleset**](NewRuleset.md) |  |  |
-|**isPrimary** | **Boolean** |  |  |
+|**isPrimary** | **Boolean** | **Deprecated.** Use &#x60;order&#x60; instead. Indicates whether this is the primary variant. This is computed as &#x60;order &#x3D;&#x3D; 0&#x60;.  |  [optional] |
+|**order** | **Long** | The position of this variant in the experiment. The variant with &#x60;order: 0&#x60; is the primary variant. When omitted, the backend assigns order based on the array position.  |  [optional] |
 |**audienceId** | **Long** | The ID of the audience this variant targets. Only used when the experiment &#x60;assignmentType&#x60; is &#x60;audience&#x60;.  |  [optional] |
 
 

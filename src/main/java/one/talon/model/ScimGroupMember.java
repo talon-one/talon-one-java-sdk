@@ -49,7 +49,7 @@ import one.talon.JSON;
 /**
  * Member of the SCIM group. In Talon.One, the member is a [user](https://docs.talon.one/docs/product/account/account-settings/managing-users) assigned to a specific role.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.26.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.27.0")
 public class ScimGroupMember {
   // Gson ignores transient state; only setters and JSON input mark properties as present.
   private transient Set<String> openapiExplicitlySetFields = new HashSet<>();
