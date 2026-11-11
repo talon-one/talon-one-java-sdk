@@ -24,595 +24,291 @@ import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import one.talon.model.WebhookAuthenticationAllOfData;
+import one.talon.model.WebhookAuthenticationBasic;
+import one.talon.model.WebhookAuthenticationCustom;
+import one.talon.model.WebhookAuthenticationDataCustom;
 import one.talon.model.WebhookAuthenticationWebhookRef;
+
+
+
+import java.io.IOException;
+import java.lang.reflect.Type;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashSet;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonNull;
 import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapter;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
-import com.google.gson.TypeAdapter;
+import com.google.gson.JsonPrimitive;
+import com.google.gson.annotations.JsonAdapter;
+import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import java.io.IOException;
-
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
+import com.google.gson.JsonDeserializationContext;
+import com.google.gson.JsonDeserializer;
+import com.google.gson.JsonSerializationContext;
+import com.google.gson.JsonSerializer;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonParseException;
 
 import one.talon.JSON;
 
-/**
- * WebhookAuthentication
- */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.27.0")
-public class WebhookAuthentication {
-  // Gson ignores transient state; only setters and JSON input mark properties as present.
-  private transient Set<String> openapiExplicitlySetFields = new HashSet<>();
+public class WebhookAuthentication extends AbstractOpenApiSchema {
+    private static final Logger log = Logger.getLogger(WebhookAuthentication.class.getName());
 
-  public static final String SERIALIZED_NAME_ID = "id";
-  @SerializedName(SERIALIZED_NAME_ID)
-  @javax.annotation.Nonnull
-  private Long id;
+    public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
+        @SuppressWarnings("unchecked")
+        @Override
+        public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
+            if (!WebhookAuthentication.class.isAssignableFrom(type.getRawType())) {
+                return null; // this class only serializes 'WebhookAuthentication' and its subtypes
+            }
+            final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
+            final TypeAdapter<WebhookAuthenticationBasic> adapterWebhookAuthenticationBasic = gson.getAdapter(TypeToken.get(WebhookAuthenticationBasic.class));
+            final TypeAdapter<WebhookAuthenticationCustom> adapterWebhookAuthenticationCustom = gson.getAdapter(TypeToken.get(WebhookAuthenticationCustom.class));
 
-  public static final String SERIALIZED_NAME_CREATED = "created";
-  @SerializedName(SERIALIZED_NAME_CREATED)
-  @javax.annotation.Nonnull
-  private OffsetDateTime created;
+            return (TypeAdapter<T>) new TypeAdapter<WebhookAuthentication>() {
+                private void writeJsonElement(JsonWriter out, JsonElement value) throws IOException {
+                    boolean originalSerializeNulls = out.getSerializeNulls();
+                    try {
+                        out.setSerializeNulls(true);
+                        elementAdapter.write(out, value);
+                    } finally {
+                        out.setSerializeNulls(originalSerializeNulls);
+                    }
+                }
 
-  public static final String SERIALIZED_NAME_MODIFIED = "modified";
-  @SerializedName(SERIALIZED_NAME_MODIFIED)
-  @javax.annotation.Nonnull
-  private OffsetDateTime modified;
+                @Override
+                public void write(JsonWriter out, WebhookAuthentication value) throws IOException {
+                    if (value == null || value.getActualInstance() == null) {
+                        writeJsonElement(out, null);
+                        return;
+                    }
 
-  public static final String SERIALIZED_NAME_CREATED_BY = "createdBy";
-  @SerializedName(SERIALIZED_NAME_CREATED_BY)
-  @javax.annotation.Nonnull
-  private String createdBy;
+                    // check if the actual instance is of the type `WebhookAuthenticationBasic`
+                    if (value.getActualInstance() instanceof WebhookAuthenticationBasic) {
+                        JsonElement element = adapterWebhookAuthenticationBasic.toJsonTree((WebhookAuthenticationBasic)value.getActualInstance());
+                        writeJsonElement(out, element);
+                        return;
+                    }
+                    // check if the actual instance is of the type `WebhookAuthenticationCustom`
+                    if (value.getActualInstance() instanceof WebhookAuthenticationCustom) {
+                        JsonElement element = adapterWebhookAuthenticationCustom.toJsonTree((WebhookAuthenticationCustom)value.getActualInstance());
+                        writeJsonElement(out, element);
+                        return;
+                    }
+                    throw new IOException("Failed to serialize as the type doesn't match oneOf schemas: WebhookAuthenticationBasic, WebhookAuthenticationCustom");
+                }
 
-  public static final String SERIALIZED_NAME_MODIFIED_BY = "modifiedBy";
-  @SerializedName(SERIALIZED_NAME_MODIFIED_BY)
-  @javax.annotation.Nonnull
-  private String modifiedBy;
+                @Override
+                public WebhookAuthentication read(JsonReader in) throws IOException {
+                    Object deserialized = null;
+                    JsonElement jsonElement = elementAdapter.read(in);
 
-  public static final String SERIALIZED_NAME_WEBHOOKS = "webhooks";
-  @SerializedName(SERIALIZED_NAME_WEBHOOKS)
-  @javax.annotation.Nonnull
-  private List<WebhookAuthenticationWebhookRef> webhooks = new ArrayList<>();
+                    JsonObject jsonObject = jsonElement.getAsJsonObject();
 
-  public static final String SERIALIZED_NAME_NAME = "name";
-  @SerializedName(SERIALIZED_NAME_NAME)
-  @javax.annotation.Nonnull
-  private String name;
+                    // use discriminator value for faster oneOf lookup
+                    WebhookAuthentication newWebhookAuthentication = new WebhookAuthentication();
+                    if (jsonObject.get("type") == null) {
+                        log.log(Level.WARNING, "Failed to lookup discriminator value for WebhookAuthentication as `type` was not found in the payload or the payload is empty.");
+                    } else  {
+                        // look up the discriminator value in the field `type`
+                        switch (jsonObject.get("type").getAsString()) {
+                            case "basic":
+                                deserialized = adapterWebhookAuthenticationBasic.fromJsonTree(jsonObject);
+                                newWebhookAuthentication.setActualInstance(deserialized);
+                                return newWebhookAuthentication;
+                            case "custom":
+                                deserialized = adapterWebhookAuthenticationCustom.fromJsonTree(jsonObject);
+                                newWebhookAuthentication.setActualInstance(deserialized);
+                                return newWebhookAuthentication;
+                            default:
+                                log.log(Level.WARNING, String.format(java.util.Locale.ROOT, "Failed to lookup discriminator value `%s` for WebhookAuthentication. Possible values: basic custom", jsonObject.get("type").getAsString()));
+                        }
+                    }
 
-  /**
-   * Gets or Sets type
-   */
-  @JsonAdapter(TypeEnum.Adapter.class)
-  public enum TypeEnum {
-    BASIC("basic"),
-    
-    CUSTOM("custom");
+                    int match = 0;
+                    ArrayList<String> errorMessages = new ArrayList<>();
+                    TypeAdapter actualAdapter = elementAdapter;
 
-    private String value;
+                    // deserialize WebhookAuthenticationBasic
+                    try {
+                        // validate the JSON object to see if any exception is thrown
+                        WebhookAuthenticationBasic.validateJsonElement(jsonElement);
+                        actualAdapter = adapterWebhookAuthenticationBasic;
+                        match++;
+                        log.log(Level.FINER, "Input data matches schema 'WebhookAuthenticationBasic'");
+                    } catch (Exception e) {
+                        // deserialization failed, continue
+                        errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for WebhookAuthenticationBasic failed with `%s`.", e.getMessage()));
+                        log.log(Level.FINER, "Input data does not match schema 'WebhookAuthenticationBasic'", e);
+                    }
+                    // deserialize WebhookAuthenticationCustom
+                    try {
+                        // validate the JSON object to see if any exception is thrown
+                        WebhookAuthenticationCustom.validateJsonElement(jsonElement);
+                        actualAdapter = adapterWebhookAuthenticationCustom;
+                        match++;
+                        log.log(Level.FINER, "Input data matches schema 'WebhookAuthenticationCustom'");
+                    } catch (Exception e) {
+                        // deserialization failed, continue
+                        errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for WebhookAuthenticationCustom failed with `%s`.", e.getMessage()));
+                        log.log(Level.FINER, "Input data does not match schema 'WebhookAuthenticationCustom'", e);
+                    }
 
-    TypeEnum(String value) {
-      this.value = value;
+                    if (match == 1) {
+                        WebhookAuthentication ret = new WebhookAuthentication();
+                        ret.setActualInstance(actualAdapter.fromJsonTree(jsonElement));
+                        return ret;
+                    }
+
+                    throw new IOException(String.format(java.util.Locale.ROOT, "Failed deserialization for WebhookAuthentication: %d classes match result, expected 1. Detailed failure message for oneOf schemas: %s. JSON: %s", match, errorMessages, jsonElement.toString()));
+                }
+            }.nullSafe();
+        }
     }
 
-    public String getValue() {
-      return value;
+    // store a list of schema names defined in oneOf
+    public static final Map<String, Class<?>> schemas = new HashMap<String, Class<?>>();
+
+    public WebhookAuthentication() {
+        super("oneOf", Boolean.FALSE);
+    }
+
+    public WebhookAuthentication(Object o) {
+        super("oneOf", Boolean.FALSE);
+        setActualInstance(o);
+    }
+
+    static {
+        schemas.put("WebhookAuthenticationBasic", WebhookAuthenticationBasic.class);
+        schemas.put("WebhookAuthenticationCustom", WebhookAuthenticationCustom.class);
     }
 
     @Override
-    public String toString() {
-      return String.valueOf(value);
+    public Map<String, Class<?>> getSchemas() {
+        return WebhookAuthentication.schemas;
     }
 
-    public static TypeEnum fromValue(String value) {
-      for (TypeEnum b : TypeEnum.values()) {
-        if (b.value.equals(value)) {
-          return b;
+    /**
+     * Set the instance that matches the oneOf child schema, check
+     * the instance parameter is valid against the oneOf child schemas:
+     * WebhookAuthenticationBasic, WebhookAuthenticationCustom
+     *
+     * It could be an instance of the 'oneOf' schemas.
+     */
+    @Override
+    public void setActualInstance(Object instance) {
+        if (instance instanceof WebhookAuthenticationBasic) {
+            super.setActualInstance(instance);
+            return;
         }
-      }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
-    }
 
-    public static class Adapter extends TypeAdapter<TypeEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final TypeEnum enumeration) throws IOException {
-        jsonWriter.value(enumeration.getValue());
-      }
-
-      @Override
-      public TypeEnum read(final JsonReader jsonReader) throws IOException {
-        String value =  jsonReader.nextString();
-        return TypeEnum.fromValue(value);
-      }
-    }
-
-    public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-      String value = jsonElement.getAsString();
-      TypeEnum.fromValue(value);
-    }
-  }
-
-  public static final String SERIALIZED_NAME_TYPE = "type";
-  @SerializedName(SERIALIZED_NAME_TYPE)
-  @javax.annotation.Nonnull
-  private TypeEnum type;
-
-  public static final String SERIALIZED_NAME_DATA = "data";
-  @SerializedName(SERIALIZED_NAME_DATA)
-  @javax.annotation.Nonnull
-  private WebhookAuthenticationAllOfData data;
-
-  public WebhookAuthentication() {
-  }
-
-  public WebhookAuthentication id(@javax.annotation.Nonnull Long id) {
-    this.id = id;
-    this.markPropertyAsSet(SERIALIZED_NAME_ID);
-    return this;
-  }
-
-  /**
-   * The internal ID of this entity.
-   * @return id
-   */
-  @javax.annotation.Nonnull
-  public Long getId() {
-    return id;
-  }
-
-  public void setId(@javax.annotation.Nonnull Long id) {
-    this.id = id;
-    this.markPropertyAsSet(SERIALIZED_NAME_ID);
-  }
-
-
-  public WebhookAuthentication created(@javax.annotation.Nonnull OffsetDateTime created) {
-    this.created = created;
-    this.markPropertyAsSet(SERIALIZED_NAME_CREATED);
-    return this;
-  }
-
-  /**
-   * The time this entity was created.
-   * @return created
-   */
-  @javax.annotation.Nonnull
-  public OffsetDateTime getCreated() {
-    return created;
-  }
-
-  public void setCreated(@javax.annotation.Nonnull OffsetDateTime created) {
-    this.created = created;
-    this.markPropertyAsSet(SERIALIZED_NAME_CREATED);
-  }
-
-
-  public WebhookAuthentication modified(@javax.annotation.Nonnull OffsetDateTime modified) {
-    this.modified = modified;
-    this.markPropertyAsSet(SERIALIZED_NAME_MODIFIED);
-    return this;
-  }
-
-  /**
-   * The time this entity was last modified.
-   * @return modified
-   */
-  @javax.annotation.Nonnull
-  public OffsetDateTime getModified() {
-    return modified;
-  }
-
-  public void setModified(@javax.annotation.Nonnull OffsetDateTime modified) {
-    this.modified = modified;
-    this.markPropertyAsSet(SERIALIZED_NAME_MODIFIED);
-  }
-
-
-  public WebhookAuthentication createdBy(@javax.annotation.Nonnull String createdBy) {
-    this.createdBy = createdBy;
-    this.markPropertyAsSet(SERIALIZED_NAME_CREATED_BY);
-    return this;
-  }
-
-  /**
-   * The name of the user who created the webhook authentication.
-   * @return createdBy
-   */
-  @javax.annotation.Nonnull
-  public String getCreatedBy() {
-    return createdBy;
-  }
-
-  public void setCreatedBy(@javax.annotation.Nonnull String createdBy) {
-    this.createdBy = createdBy;
-    this.markPropertyAsSet(SERIALIZED_NAME_CREATED_BY);
-  }
-
-
-  public WebhookAuthentication modifiedBy(@javax.annotation.Nonnull String modifiedBy) {
-    this.modifiedBy = modifiedBy;
-    this.markPropertyAsSet(SERIALIZED_NAME_MODIFIED_BY);
-    return this;
-  }
-
-  /**
-   * The name of the user who last modified the webhook authentication.
-   * @return modifiedBy
-   */
-  @javax.annotation.Nonnull
-  public String getModifiedBy() {
-    return modifiedBy;
-  }
-
-  public void setModifiedBy(@javax.annotation.Nonnull String modifiedBy) {
-    this.modifiedBy = modifiedBy;
-    this.markPropertyAsSet(SERIALIZED_NAME_MODIFIED_BY);
-  }
-
-
-  public WebhookAuthentication webhooks(@javax.annotation.Nonnull List<WebhookAuthenticationWebhookRef> webhooks) {
-    this.webhooks = webhooks;
-    this.markPropertyAsSet(SERIALIZED_NAME_WEBHOOKS);
-    return this;
-  }
-
-  public WebhookAuthentication addWebhooksItem(WebhookAuthenticationWebhookRef webhooksItem) {
-    if (this.webhooks == null) {
-      this.webhooks = new ArrayList<>();
-    }
-    this.webhooks.add(webhooksItem);
-    this.markPropertyAsSet(SERIALIZED_NAME_WEBHOOKS);
-    return this;
-  }
-
-  /**
-   * Get webhooks
-   * @return webhooks
-   */
-  @javax.annotation.Nonnull
-  public List<WebhookAuthenticationWebhookRef> getWebhooks() {
-    return webhooks;
-  }
-
-  public void setWebhooks(@javax.annotation.Nonnull List<WebhookAuthenticationWebhookRef> webhooks) {
-    this.webhooks = webhooks;
-    this.markPropertyAsSet(SERIALIZED_NAME_WEBHOOKS);
-  }
-
-
-  public WebhookAuthentication name(@javax.annotation.Nonnull String name) {
-    this.name = name;
-    this.markPropertyAsSet(SERIALIZED_NAME_NAME);
-    return this;
-  }
-
-  /**
-   * The name of the webhook authentication.
-   * @return name
-   */
-  @javax.annotation.Nonnull
-  public String getName() {
-    return name;
-  }
-
-  public void setName(@javax.annotation.Nonnull String name) {
-    this.name = name;
-    this.markPropertyAsSet(SERIALIZED_NAME_NAME);
-  }
-
-
-  public WebhookAuthentication type(@javax.annotation.Nonnull TypeEnum type) {
-    this.type = type;
-    this.markPropertyAsSet(SERIALIZED_NAME_TYPE);
-    return this;
-  }
-
-  /**
-   * Get type
-   * @return type
-   */
-  @javax.annotation.Nonnull
-  public TypeEnum getType() {
-    return type;
-  }
-
-  public void setType(@javax.annotation.Nonnull TypeEnum type) {
-    this.type = type;
-    this.markPropertyAsSet(SERIALIZED_NAME_TYPE);
-  }
-
-
-  public WebhookAuthentication data(@javax.annotation.Nonnull WebhookAuthenticationAllOfData data) {
-    this.data = data;
-    this.markPropertyAsSet(SERIALIZED_NAME_DATA);
-    return this;
-  }
-
-  /**
-   * Get data
-   * @return data
-   */
-  @javax.annotation.Nonnull
-  public WebhookAuthenticationAllOfData getData() {
-    return data;
-  }
-
-  public void setData(@javax.annotation.Nonnull WebhookAuthenticationAllOfData data) {
-    this.data = data;
-    this.markPropertyAsSet(SERIALIZED_NAME_DATA);
-  }
-
-  /**
-   * A container for additional, undeclared properties.
-   * This is a holder for any undeclared properties as specified with
-   * the 'additionalProperties' keyword in the OAS document.
-   */
-  private Map<String, Object> additionalProperties;
-
-  /**
-   * Set the additional (undeclared) property with the specified name and value.
-   * If the property does not already exist, create it otherwise replace it.
-   *
-   * @param key name of the property
-   * @param value value of the property
-   * @return the WebhookAuthentication instance itself
-   */
-  public WebhookAuthentication putAdditionalProperty(String key, Object value) {
-    if (this.additionalProperties == null) {
-        this.additionalProperties = new HashMap<String, Object>();
-    }
-    this.additionalProperties.put(key, value);
-    return this;
-  }
-
-  /**
-   * Return the additional (undeclared) property.
-   *
-   * @return a map of objects
-   */
-  public Map<String, Object> getAdditionalProperties() {
-    return additionalProperties;
-  }
-
-  /**
-   * Return the additional (undeclared) property with the specified name.
-   *
-   * @param key name of the property
-   * @return an object
-   */
-  public Object getAdditionalProperty(String key) {
-    if (this.additionalProperties == null) {
-        return null;
-    }
-    return this.additionalProperties.get(key);
-  }
-
-  /** Omit null properties unless they were explicitly assigned or present in JSON input. */
-  protected final void removeUnsetNullFields(JsonObject obj) {
-    obj.entrySet().removeIf(entry -> entry.getValue().isJsonNull()
-        && !openapiExplicitlySetFields.contains(entry.getKey()));
-  }
-
-  protected final void markPropertyAsSet(String propertyName) {
-    openapiExplicitlySetFields.add(propertyName);
-  }
-
-  /** Gson populates fields directly, bypassing setters during deserialization. */
-  protected final void markPropertiesAsSet(Set<String> propertyNames) {
-    openapiExplicitlySetFields.addAll(propertyNames);
-  }
-
-
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
-    }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
-    }
-    WebhookAuthentication webhookAuthentication = (WebhookAuthentication) o;
-    return Objects.equals(this.id, webhookAuthentication.id) &&
-        Objects.equals(this.created, webhookAuthentication.created) &&
-        Objects.equals(this.modified, webhookAuthentication.modified) &&
-        Objects.equals(this.createdBy, webhookAuthentication.createdBy) &&
-        Objects.equals(this.modifiedBy, webhookAuthentication.modifiedBy) &&
-        Objects.equals(this.webhooks, webhookAuthentication.webhooks) &&
-        Objects.equals(this.name, webhookAuthentication.name) &&
-        Objects.equals(this.type, webhookAuthentication.type) &&
-        Objects.equals(this.data, webhookAuthentication.data)&&
-        Objects.equals(this.additionalProperties, webhookAuthentication.additionalProperties);
-  }
-
-  @Override
-  public int hashCode() {
-    return Objects.hash(id, created, modified, createdBy, modifiedBy, webhooks, name, type, data, additionalProperties);
-  }
-
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class WebhookAuthentication {\n");
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    created: ").append(toIndentedString(created)).append("\n");
-    sb.append("    modified: ").append(toIndentedString(modified)).append("\n");
-    sb.append("    createdBy: ").append(toIndentedString(createdBy)).append("\n");
-    sb.append("    modifiedBy: ").append(toIndentedString(modifiedBy)).append("\n");
-    sb.append("    webhooks: ").append(toIndentedString(webhooks)).append("\n");
-    sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    type: ").append(toIndentedString(type)).append("\n");
-    sb.append("    data: ").append(toIndentedString(data)).append("\n");
-    sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(Object o) {
-    return o == null ? "null" : o.toString().replace("\n", "\n    ");
-  }
-
-
-  public static HashSet<String> openapiFields;
-  public static HashSet<String> openapiRequiredFields;
-
-  static {
-    // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("id", "created", "modified", "createdBy", "modifiedBy", "webhooks", "name", "type", "data"));
-
-    // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("id", "created", "modified", "createdBy", "modifiedBy", "webhooks", "name", "type", "data"));
-  }
-
-  /**
-   * Validates the JSON Element and throws an exception if issues found
-   *
-   * @param jsonElement JSON Element
-   * @throws IOException if the JSON Element is invalid with respect to WebhookAuthentication
-   */
-  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-      if (jsonElement == null) {
-        if (!WebhookAuthentication.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in WebhookAuthentication is not found in the empty JSON string", WebhookAuthentication.openapiRequiredFields.toString()));
+        if (instance instanceof WebhookAuthenticationCustom) {
+            super.setActualInstance(instance);
+            return;
         }
-      }
 
-      // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : WebhookAuthentication.openapiRequiredFields) {
-        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
-        }
-      }
-        JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if (!jsonObj.get("createdBy").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `createdBy` to be a primitive type in the JSON string but got `%s`", jsonObj.get("createdBy").toString()));
-      }
-      if (!jsonObj.get("modifiedBy").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `modifiedBy` to be a primitive type in the JSON string but got `%s`", jsonObj.get("modifiedBy").toString()));
-      }
-      if (jsonObj.get("webhooks") != null) {
-        if (!jsonObj.get("webhooks").isJsonArray()) {
-          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `webhooks` to be an array in the JSON string but got `%s`", jsonObj.get("webhooks").toString()));
-        }
-        JsonArray jsonArraywebhooks = jsonObj.getAsJsonArray("webhooks");
-        // validate the required field `webhooks` (array)
-        for (int i = 0; i < jsonArraywebhooks.size(); i++) {
-          WebhookAuthenticationWebhookRef.validateJsonElement(jsonArraywebhooks.get(i));
-        }
-      }
-      if (!jsonObj.get("name").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
-      }
-      if (!jsonObj.get("type").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("type").toString()));
-      }
-      // validate the required field `type`
-      TypeEnum.validateJsonElement(jsonObj.get("type"));
-      // validate the required field `data`
-      WebhookAuthenticationAllOfData.validateJsonElement(jsonObj.get("data"));
-  }
+        throw new RuntimeException("Invalid instance type. Must be WebhookAuthenticationBasic, WebhookAuthenticationCustom");
+    }
 
-  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
+    /**
+     * Get the actual instance, which can be the following:
+     * WebhookAuthenticationBasic, WebhookAuthenticationCustom
+     *
+     * @return The actual instance (WebhookAuthenticationBasic, WebhookAuthenticationCustom)
+     */
     @SuppressWarnings("unchecked")
     @Override
-    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!WebhookAuthentication.class.isAssignableFrom(type.getRawType())) {
-         return null; // let other model factories handle this type
-       }
-       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<WebhookAuthentication> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(WebhookAuthentication.class));
-
-       return (TypeAdapter<T>) new TypeAdapter<WebhookAuthentication>() {
-           @Override
-           public void write(JsonWriter out, WebhookAuthentication value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
-             value.removeUnsetNullFields(obj);
-             obj.remove("additionalProperties");
-             // serialize additional properties
-             if (value.getAdditionalProperties() != null) {
-               for (Map.Entry<String, Object> entry : value.getAdditionalProperties().entrySet()) {
-                 // TypeAdapter.toJsonTree keeps explicit null entries in arbitrary maps too.
-                 obj.add(entry.getKey(), gson.getAdapter(Object.class).toJsonTree(entry.getValue()));
-               }
-             }
-             boolean originalSerializeNulls = out.getSerializeNulls();
-             try {
-               out.setSerializeNulls(true);
-               elementAdapter.write(out, obj);
-             } finally {
-               out.setSerializeNulls(originalSerializeNulls);
-             }
-           }
-
-           @Override
-           public WebhookAuthentication read(JsonReader in) throws IOException {
-             JsonElement jsonElement = elementAdapter.read(in);
-             validateJsonElement(jsonElement);
-             JsonObject jsonObj = jsonElement.getAsJsonObject();
-             // store additional fields in the deserialized instance
-             WebhookAuthentication instance = thisAdapter.fromJsonTree(jsonObj);
-             instance.markPropertiesAsSet(jsonObj.keySet());
-             for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
-               if (!openapiFields.contains(entry.getKey())) {
-                 if (entry.getValue().isJsonPrimitive()) { // primitive type
-                   if (entry.getValue().getAsJsonPrimitive().isString())
-                     instance.putAdditionalProperty(entry.getKey(), entry.getValue().getAsString());
-                   else if (entry.getValue().getAsJsonPrimitive().isNumber())
-                     instance.putAdditionalProperty(entry.getKey(), entry.getValue().getAsNumber());
-                   else if (entry.getValue().getAsJsonPrimitive().isBoolean())
-                     instance.putAdditionalProperty(entry.getKey(), entry.getValue().getAsBoolean());
-                   else
-                     throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` has unknown primitive type. Value: %s", entry.getKey(), entry.getValue().toString()));
-                 } else if (entry.getValue().isJsonArray()) {
-                     instance.putAdditionalProperty(entry.getKey(), gson.fromJson(entry.getValue(), List.class));
-                 } else { // JSON object
-                     instance.putAdditionalProperty(entry.getKey(), gson.fromJson(entry.getValue(), HashMap.class));
-                 }
-               }
-             }
-             return instance;
-           }
-
-       }.nullSafe();
+    public Object getActualInstance() {
+        return super.getActualInstance();
     }
-  }
 
-  /**
-   * Create an instance of WebhookAuthentication given an JSON string
-   *
-   * @param jsonString JSON string
-   * @return An instance of WebhookAuthentication
-   * @throws IOException if the JSON string is invalid with respect to WebhookAuthentication
-   */
-  public static WebhookAuthentication fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, WebhookAuthentication.class);
-  }
+    /**
+     * Get the actual instance of `WebhookAuthenticationBasic`. If the actual instance is not `WebhookAuthenticationBasic`,
+     * the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `WebhookAuthenticationBasic`
+     * @throws ClassCastException if the instance is not `WebhookAuthenticationBasic`
+     */
+    @SuppressWarnings("unchecked")
+    public WebhookAuthenticationBasic getWebhookAuthenticationBasic() throws ClassCastException {
+        return (WebhookAuthenticationBasic)super.getActualInstance();
+    }
 
-  /**
-   * Convert an instance of WebhookAuthentication to an JSON string
-   *
-   * @return JSON string
-   */
-  public String toJson() {
-    return JSON.getGson().toJson(this);
-  }
+    /**
+     * Get the actual instance of `WebhookAuthenticationCustom`. If the actual instance is not `WebhookAuthenticationCustom`,
+     * the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `WebhookAuthenticationCustom`
+     * @throws ClassCastException if the instance is not `WebhookAuthenticationCustom`
+     */
+    @SuppressWarnings("unchecked")
+    public WebhookAuthenticationCustom getWebhookAuthenticationCustom() throws ClassCastException {
+        return (WebhookAuthenticationCustom)super.getActualInstance();
+    }
+
+    /**
+     * Validates the JSON Element and throws an exception if issues found
+     *
+     * @param jsonElement JSON Element
+     * @throws IOException if the JSON Element is invalid with respect to WebhookAuthentication
+     */
+    public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+        // validate oneOf schemas one by one
+        int validCount = 0;
+        ArrayList<String> errorMessages = new ArrayList<>();
+        // validate the json string with WebhookAuthenticationBasic
+        try {
+            WebhookAuthenticationBasic.validateJsonElement(jsonElement);
+            validCount++;
+        } catch (Exception e) {
+            errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for WebhookAuthenticationBasic failed with `%s`.", e.getMessage()));
+            // continue to the next one
+        }
+        // validate the json string with WebhookAuthenticationCustom
+        try {
+            WebhookAuthenticationCustom.validateJsonElement(jsonElement);
+            validCount++;
+        } catch (Exception e) {
+            errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for WebhookAuthenticationCustom failed with `%s`.", e.getMessage()));
+            // continue to the next one
+        }
+        if (validCount != 1) {
+            throw new IOException(String.format(java.util.Locale.ROOT, "The JSON string is invalid for WebhookAuthentication with oneOf schemas: WebhookAuthenticationBasic, WebhookAuthenticationCustom. %d class(es) match the result, expected 1. Detailed failure message for oneOf schemas: %s. JSON: %s", validCount, errorMessages, jsonElement.toString()));
+        }
+    }
+
+    /**
+     * Create an instance of WebhookAuthentication given an JSON string
+     *
+     * @param jsonString JSON string
+     * @return An instance of WebhookAuthentication
+     * @throws IOException if the JSON string is invalid with respect to WebhookAuthentication
+     */
+    public static WebhookAuthentication fromJson(String jsonString) throws IOException {
+        return JSON.getGson().fromJson(jsonString, WebhookAuthentication.class);
+    }
+
+    /**
+     * Convert an instance of WebhookAuthentication to an JSON string
+     *
+     * @return JSON string
+     */
+    public String toJson() {
+        return JSON.getGson().toJson(this);
+    }
 }
 

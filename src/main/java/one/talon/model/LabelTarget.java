@@ -113,6 +113,28 @@ public class LabelTarget extends AbstractOpenApiSchema {
                     Object deserialized = null;
                     JsonElement jsonElement = elementAdapter.read(in);
 
+                    JsonObject jsonObject = jsonElement.getAsJsonObject();
+
+                    // use discriminator value for faster oneOf lookup
+                    LabelTarget newLabelTarget = new LabelTarget();
+                    if (jsonObject.get("type") == null) {
+                        log.log(Level.WARNING, "Failed to lookup discriminator value for LabelTarget as `type` was not found in the payload or the payload is empty.");
+                    } else  {
+                        // look up the discriminator value in the field `type`
+                        switch (jsonObject.get("type").getAsString()) {
+                            case "AUDIENCE":
+                                deserialized = adapterLabelTargetAudience.fromJsonTree(jsonObject);
+                                newLabelTarget.setActualInstance(deserialized);
+                                return newLabelTarget;
+                            case "NONE":
+                                deserialized = adapterLabelTargetNone.fromJsonTree(jsonObject);
+                                newLabelTarget.setActualInstance(deserialized);
+                                return newLabelTarget;
+                            default:
+                                log.log(Level.WARNING, String.format(java.util.Locale.ROOT, "Failed to lookup discriminator value `%s` for LabelTarget. Possible values: AUDIENCE NONE", jsonObject.get("type").getAsString()));
+                        }
+                    }
+
                     int match = 0;
                     ArrayList<String> errorMessages = new ArrayList<>();
                     TypeAdapter actualAdapter = elementAdapter;

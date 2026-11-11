@@ -23,7 +23,9 @@ import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import one.talon.model.WebhookAuthenticationAllOfData;
+import one.talon.model.WebhookAuthenticationBasic;
+import one.talon.model.WebhookAuthenticationCustom;
+import one.talon.model.WebhookAuthenticationDataCustom;
 import one.talon.model.WebhookAuthenticationWebhookRef;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
@@ -43,27 +45,27 @@ public class WebhookAuthenticationTest {
     }
 
     /**
-     * Test the property 'id'
+     * Test the property 'name'
      */
     @Test
-    public void idTest() {
-        // TODO: test id
+    public void nameTest() {
+        // TODO: test name
     }
 
     /**
-     * Test the property 'created'
+     * Test the property 'type'
      */
     @Test
-    public void createdTest() {
-        // TODO: test created
+    public void typeTest() {
+        // TODO: test type
     }
 
     /**
-     * Test the property 'modified'
+     * Test the property 'data'
      */
     @Test
-    public void modifiedTest() {
-        // TODO: test modified
+    public void dataTest() {
+        // TODO: test data
     }
 
     /**
@@ -91,27 +93,27 @@ public class WebhookAuthenticationTest {
     }
 
     /**
-     * Test the property 'name'
+     * Test the property 'id'
      */
     @Test
-    public void nameTest() {
-        // TODO: test name
+    public void idTest() {
+        // TODO: test id
     }
 
     /**
-     * Test the property 'type'
+     * Test the property 'created'
      */
     @Test
-    public void typeTest() {
-        // TODO: test type
+    public void createdTest() {
+        // TODO: test created
     }
 
     /**
-     * Test the property 'data'
+     * Test the property 'modified'
      */
     @Test
-    public void dataTest() {
-        // TODO: test data
+    public void modifiedTest() {
+        // TODO: test modified
     }
 
 }

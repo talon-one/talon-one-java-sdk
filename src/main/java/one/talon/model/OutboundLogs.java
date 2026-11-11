@@ -23,7 +23,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import one.talon.model.OutboundLog;
+import one.talon.model.OutboundLogsDataInner;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -65,7 +65,7 @@ public class OutboundLogs {
   public static final String SERIALIZED_NAME_DATA = "data";
   @SerializedName(SERIALIZED_NAME_DATA)
   @javax.annotation.Nonnull
-  private List<OutboundLog> data = new ArrayList<>();
+  private List<OutboundLogsDataInner> data = new ArrayList<>();
 
   public OutboundLogs() {
   }
@@ -91,13 +91,13 @@ public class OutboundLogs {
   }
 
 
-  public OutboundLogs data(@javax.annotation.Nonnull List<OutboundLog> data) {
+  public OutboundLogs data(@javax.annotation.Nonnull List<OutboundLogsDataInner> data) {
     this.data = data;
     this.markPropertyAsSet(SERIALIZED_NAME_DATA);
     return this;
   }
 
-  public OutboundLogs addDataItem(OutboundLog dataItem) {
+  public OutboundLogs addDataItem(OutboundLogsDataInner dataItem) {
     if (this.data == null) {
       this.data = new ArrayList<>();
     }
@@ -107,15 +107,15 @@ public class OutboundLogs {
   }
 
   /**
-   * List of outbound logs.
+   * List of outbound logs. When an error ends the response, an &#x60;OutboundLogStreamError&#x60; is the last item and the response is incomplete.
    * @return data
    */
   @javax.annotation.Nonnull
-  public List<OutboundLog> getData() {
+  public List<OutboundLogsDataInner> getData() {
     return data;
   }
 
-  public void setData(@javax.annotation.Nonnull List<OutboundLog> data) {
+  public void setData(@javax.annotation.Nonnull List<OutboundLogsDataInner> data) {
     this.data = data;
     this.markPropertyAsSet(SERIALIZED_NAME_DATA);
   }
@@ -258,7 +258,7 @@ public class OutboundLogs {
         JsonArray jsonArraydata = jsonObj.getAsJsonArray("data");
         // validate the required field `data` (array)
         for (int i = 0; i < jsonArraydata.size(); i++) {
-          OutboundLog.validateJsonElement(jsonArraydata.get(i));
+          OutboundLogsDataInner.validateJsonElement(jsonArraydata.get(i));
         }
       }
   }

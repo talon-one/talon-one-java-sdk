@@ -114,6 +114,28 @@ public class CampaignSetNode extends AbstractOpenApiSchema {
                     Object deserialized = null;
                     JsonElement jsonElement = elementAdapter.read(in);
 
+                    JsonObject jsonObject = jsonElement.getAsJsonObject();
+
+                    // use discriminator value for faster oneOf lookup
+                    CampaignSetNode newCampaignSetNode = new CampaignSetNode();
+                    if (jsonObject.get("type") == null) {
+                        log.log(Level.WARNING, "Failed to lookup discriminator value for CampaignSetNode as `type` was not found in the payload or the payload is empty.");
+                    } else  {
+                        // look up the discriminator value in the field `type`
+                        switch (jsonObject.get("type").getAsString()) {
+                            case "CAMPAIGN":
+                                deserialized = adapterCampaignSetLeafNode.fromJsonTree(jsonObject);
+                                newCampaignSetNode.setActualInstance(deserialized);
+                                return newCampaignSetNode;
+                            case "SET":
+                                deserialized = adapterCampaignSetBranchNode.fromJsonTree(jsonObject);
+                                newCampaignSetNode.setActualInstance(deserialized);
+                                return newCampaignSetNode;
+                            default:
+                                log.log(Level.WARNING, String.format(java.util.Locale.ROOT, "Failed to lookup discriminator value `%s` for CampaignSetNode. Possible values: CAMPAIGN SET", jsonObject.get("type").getAsString()));
+                        }
+                    }
+
                     int match = 0;
                     ArrayList<String> errorMessages = new ArrayList<>();
                     TypeAdapter actualAdapter = elementAdapter;
