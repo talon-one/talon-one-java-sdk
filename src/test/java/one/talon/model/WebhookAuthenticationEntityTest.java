@@ -19,50 +19,74 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
+import java.time.OffsetDateTime;
+import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
-import one.talon.model.WebhookAuthenticationDataBasic;
-import one.talon.model.WebhookAuthenticationDataCustom;
+import java.util.List;
+import one.talon.model.WebhookAuthenticationWebhookRef;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 /**
- * Model tests for WebhookAuthenticationAllOfData
+ * Model tests for WebhookAuthenticationEntity
  */
-public class WebhookAuthenticationAllOfDataTest {
-    private final WebhookAuthenticationAllOfData model = new WebhookAuthenticationAllOfData();
+public class WebhookAuthenticationEntityTest {
+    private final WebhookAuthenticationEntity model = new WebhookAuthenticationEntity();
 
     /**
-     * Model tests for WebhookAuthenticationAllOfData
+     * Model tests for WebhookAuthenticationEntity
      */
     @Test
-    public void testWebhookAuthenticationAllOfData() {
-        // TODO: test WebhookAuthenticationAllOfData
+    public void testWebhookAuthenticationEntity() {
+        // TODO: test WebhookAuthenticationEntity
     }
 
     /**
-     * Test the property 'username'
+     * Test the property 'id'
      */
     @Test
-    public void usernameTest() {
-        // TODO: test username
+    public void idTest() {
+        // TODO: test id
     }
 
     /**
-     * Test the property 'password'
+     * Test the property 'created'
      */
     @Test
-    public void passwordTest() {
-        // TODO: test password
+    public void createdTest() {
+        // TODO: test created
     }
 
     /**
-     * Test the property 'headers'
+     * Test the property 'modified'
      */
     @Test
-    public void headersTest() {
-        // TODO: test headers
+    public void modifiedTest() {
+        // TODO: test modified
+    }
+
+    /**
+     * Test the property 'createdBy'
+     */
+    @Test
+    public void createdByTest() {
+        // TODO: test createdBy
+    }
+
+    /**
+     * Test the property 'modifiedBy'
+     */
+    @Test
+    public void modifiedByTest() {
+        // TODO: test modifiedBy
+    }
+
+    /**
+     * Test the property 'webhooks'
+     */
+    @Test
+    public void webhooksTest() {
+        // TODO: test webhooks
     }
 
 }

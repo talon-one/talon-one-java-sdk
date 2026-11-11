@@ -42,7 +42,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>one.talon</groupId>
   <artifactId>talon-one-client</artifactId>
-  <version>26.22.1</version>
+  <version>26.23.0</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -52,7 +52,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "one.talon:talon-one-client:26.22.1"
+compile "one.talon:talon-one-client:26.23.0"
 ```
 
 ### Others
@@ -1043,6 +1043,8 @@ Class | Method | HTTP request | Description
 - [MCPOAuthProtectedResource](docs/MCPOAuthProtectedResource.md)
 - [MCPOAuthServerMetadata](docs/MCPOAuthServerMetadata.md)
 - [MCPOAuthSessionInfo](docs/MCPOAuthSessionInfo.md)
+- [MCPOAuthStaticClient](docs/MCPOAuthStaticClient.md)
+- [MCPOAuthStaticClientWithSecret](docs/MCPOAuthStaticClientWithSecret.md)
 - [MCPOAuthToken](docs/MCPOAuthToken.md)
 - [MCPOAuthTokenError](docs/MCPOAuthTokenError.md)
 - [MCPOAuthTokenRequest](docs/MCPOAuthTokenRequest.md)
@@ -1115,6 +1117,7 @@ Class | Method | HTTP request | Description
 - [NewLoyaltyTier](docs/NewLoyaltyTier.md)
 - [NewMCPKey](docs/NewMCPKey.md)
 - [NewMCPOAuthClient](docs/NewMCPOAuthClient.md)
+- [NewMCPOAuthStaticClient](docs/NewMCPOAuthStaticClient.md)
 - [NewManagementKey](docs/NewManagementKey.md)
 - [NewMessageTest](docs/NewMessageTest.md)
 - [NewMultipleAudiencesItem](docs/NewMultipleAudiencesItem.md)
@@ -1152,7 +1155,16 @@ Class | Method | HTTP request | Description
 - [OutboundLogBase](docs/OutboundLogBase.md)
 - [OutboundLogRequest](docs/OutboundLogRequest.md)
 - [OutboundLogResponse](docs/OutboundLogResponse.md)
+- [OutboundLogStreamCursor](docs/OutboundLogStreamCursor.md)
+- [OutboundLogStreamCursorEntry](docs/OutboundLogStreamCursorEntry.md)
+- [OutboundLogStreamEntry](docs/OutboundLogStreamEntry.md)
+- [OutboundLogStreamEntryType](docs/OutboundLogStreamEntryType.md)
+- [OutboundLogStreamError](docs/OutboundLogStreamError.md)
+- [OutboundLogStreamErrorEntry](docs/OutboundLogStreamErrorEntry.md)
+- [OutboundLogStreamLogEntry](docs/OutboundLogStreamLogEntry.md)
 - [OutboundLogs](docs/OutboundLogs.md)
+- [OutboundLogsDataInner](docs/OutboundLogsDataInner.md)
+- [OutboundLogsFormat](docs/OutboundLogsFormat.md)
 - [OutboundMessage](docs/OutboundMessage.md)
 - [OutboundMessageResponse](docs/OutboundMessageResponse.md)
 - [OutboundMessages](docs/OutboundMessages.md)
@@ -1401,12 +1413,14 @@ Class | Method | HTTP request | Description
 - [ValueMap](docs/ValueMap.md)
 - [Webhook](docs/Webhook.md)
 - [WebhookAuthentication](docs/WebhookAuthentication.md)
-- [WebhookAuthenticationAllOfData](docs/WebhookAuthenticationAllOfData.md)
 - [WebhookAuthenticationBase](docs/WebhookAuthenticationBase.md)
 - [WebhookAuthenticationBaseBasic](docs/WebhookAuthenticationBaseBasic.md)
 - [WebhookAuthenticationBaseCustom](docs/WebhookAuthenticationBaseCustom.md)
+- [WebhookAuthenticationBasic](docs/WebhookAuthenticationBasic.md)
+- [WebhookAuthenticationCustom](docs/WebhookAuthenticationCustom.md)
 - [WebhookAuthenticationDataBasic](docs/WebhookAuthenticationDataBasic.md)
 - [WebhookAuthenticationDataCustom](docs/WebhookAuthenticationDataCustom.md)
+- [WebhookAuthenticationEntity](docs/WebhookAuthenticationEntity.md)
 - [WebhookAuthenticationWebhookRef](docs/WebhookAuthenticationWebhookRef.md)
 - [WebhookBlockReference](docs/WebhookBlockReference.md)
 - [WebhookWithOutgoingIntegrationDetails](docs/WebhookWithOutgoingIntegrationDetails.md)
