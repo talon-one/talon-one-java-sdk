@@ -93,6 +93,11 @@ public class AwardDiscountBlock {
   @javax.annotation.Nonnull
   private AwardDiscountTarget target;
 
+  public static final String SERIALIZED_NAME_EXCLUDED_FROM_PRICE_HISTORY = "excludedFromPriceHistory";
+  @SerializedName(SERIALIZED_NAME_EXCLUDED_FROM_PRICE_HISTORY)
+  @javax.annotation.Nullable
+  private Boolean excludedFromPriceHistory;
+
   public AwardDiscountBlock() {
   }
 
@@ -233,6 +238,27 @@ public class AwardDiscountBlock {
     this.markPropertyAsSet(SERIALIZED_NAME_TARGET);
   }
 
+
+  public AwardDiscountBlock excludedFromPriceHistory(@javax.annotation.Nullable Boolean excludedFromPriceHistory) {
+    this.excludedFromPriceHistory = excludedFromPriceHistory;
+    this.markPropertyAsSet(SERIALIZED_NAME_EXCLUDED_FROM_PRICE_HISTORY);
+    return this;
+  }
+
+  /**
+   * When set to &#x60;true&#x60;, the applied discount is excluded from the item&#39;s [price history](https://docs.talon.one/docs/dev/integration-guides/best-prior-price#price-history).
+   * @return excludedFromPriceHistory
+   */
+  @javax.annotation.Nullable
+  public Boolean getExcludedFromPriceHistory() {
+    return excludedFromPriceHistory;
+  }
+
+  public void setExcludedFromPriceHistory(@javax.annotation.Nullable Boolean excludedFromPriceHistory) {
+    this.excludedFromPriceHistory = excludedFromPriceHistory;
+    this.markPropertyAsSet(SERIALIZED_NAME_EXCLUDED_FROM_PRICE_HISTORY);
+  }
+
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -309,13 +335,14 @@ public class AwardDiscountBlock {
         Objects.equals(this.name, awardDiscountBlock.name) &&
         Objects.equals(this.value, awardDiscountBlock.value) &&
         Objects.equals(this.partial, awardDiscountBlock.partial) &&
-        Objects.equals(this.target, awardDiscountBlock.target)&&
+        Objects.equals(this.target, awardDiscountBlock.target) &&
+        Objects.equals(this.excludedFromPriceHistory, awardDiscountBlock.excludedFromPriceHistory)&&
         Objects.equals(this.additionalProperties, awardDiscountBlock.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, type, tags, name, value, partial, target, additionalProperties);
+    return Objects.hash(id, type, tags, name, value, partial, target, excludedFromPriceHistory, additionalProperties);
   }
 
   @Override
@@ -329,6 +356,7 @@ public class AwardDiscountBlock {
     sb.append("    value: ").append(toIndentedString(value)).append("\n");
     sb.append("    partial: ").append(toIndentedString(partial)).append("\n");
     sb.append("    target: ").append(toIndentedString(target)).append("\n");
+    sb.append("    excludedFromPriceHistory: ").append(toIndentedString(excludedFromPriceHistory)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -348,7 +376,7 @@ public class AwardDiscountBlock {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("id", "type", "tags", "name", "value", "partial", "target"));
+    openapiFields = new HashSet<String>(Arrays.asList("id", "type", "tags", "name", "value", "partial", "target", "excludedFromPriceHistory"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("type", "name", "value", "partial", "target"));

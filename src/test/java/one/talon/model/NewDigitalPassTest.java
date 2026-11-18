@@ -22,6 +22,7 @@ import java.io.IOException;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.UUID;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
@@ -56,11 +57,11 @@ public class NewDigitalPassTest {
     }
 
     /**
-     * Test the property 'profileId'
+     * Test the property 'profileIntegrationId'
      */
     @Test
-    public void profileIdTest() {
-        // TODO: test profileId
+    public void profileIntegrationIdTest() {
+        // TODO: test profileIntegrationId
     }
 
     /**

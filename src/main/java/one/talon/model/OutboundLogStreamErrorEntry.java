@@ -49,7 +49,7 @@ import java.util.Set;
 import one.talon.JSON;
 
 /**
- * An error that ended an &#x60;ndjson&#x60; stream, such as a log entry that couldn&#39;t be read. It is the last entry and the response is incomplete.
+ * An error that ended a stream of outbound logs, such as a log entry that couldn&#39;t be read. It is the last entry and the response is incomplete.
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.27.0")
 public class OutboundLogStreamErrorEntry {

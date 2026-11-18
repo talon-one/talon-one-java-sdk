@@ -5,6 +5,7 @@
 .gitignore
 .travis.yml
 Example.java
+LICENSE
 MIGRATION.md
 Makefile
 README.md
@@ -695,6 +696,7 @@ docs/NewReferralsForMultipleAdvocates.md
 docs/NewReturn.md
 docs/NewRevisionVersion.md
 docs/NewReward.md
+docs/NewRewardBudget.md
 docs/NewRiskNotification.md
 docs/NewRole.md
 docs/NewRoleV2.md
@@ -791,11 +793,15 @@ docs/RevisionActivation.md
 docs/RevisionActivationRequest.md
 docs/RevisionVersion.md
 docs/Reward.md
+docs/RewardBudget.md
+docs/RewardBudgetLimitCounter.md
+docs/RewardBudgetWithLimitCounter.md
 docs/RewardCatalogItem.md
 docs/RewardEligibility.md
 docs/RewardEligibilityFailureDetails.md
 docs/RewardPointsRequired.md
 docs/RewardUnlockRejection.md
+docs/RewardWithBudgets.md
 docs/RewardWithUnlocks.md
 docs/Risk.md
 docs/RiskAffectedEntityItem.md
@@ -964,6 +970,7 @@ docs/UpdatePriceType.md
 docs/UpdateReferral.md
 docs/UpdateReferralBatch.md
 docs/UpdateReward.md
+docs/UpdateRewardBudget.md
 docs/UpdateRiskNotification.md
 docs/UpdateRole.md
 docs/UpdateStore.md
@@ -1698,6 +1705,7 @@ src/main/java/one/talon/model/NewReferralsForMultipleAdvocates.java
 src/main/java/one/talon/model/NewReturn.java
 src/main/java/one/talon/model/NewRevisionVersion.java
 src/main/java/one/talon/model/NewReward.java
+src/main/java/one/talon/model/NewRewardBudget.java
 src/main/java/one/talon/model/NewRiskNotification.java
 src/main/java/one/talon/model/NewRole.java
 src/main/java/one/talon/model/NewRoleV2.java
@@ -1794,11 +1802,15 @@ src/main/java/one/talon/model/RevisionActivation.java
 src/main/java/one/talon/model/RevisionActivationRequest.java
 src/main/java/one/talon/model/RevisionVersion.java
 src/main/java/one/talon/model/Reward.java
+src/main/java/one/talon/model/RewardBudget.java
+src/main/java/one/talon/model/RewardBudgetLimitCounter.java
+src/main/java/one/talon/model/RewardBudgetWithLimitCounter.java
 src/main/java/one/talon/model/RewardCatalogItem.java
 src/main/java/one/talon/model/RewardEligibility.java
 src/main/java/one/talon/model/RewardEligibilityFailureDetails.java
 src/main/java/one/talon/model/RewardPointsRequired.java
 src/main/java/one/talon/model/RewardUnlockRejection.java
+src/main/java/one/talon/model/RewardWithBudgets.java
 src/main/java/one/talon/model/RewardWithUnlocks.java
 src/main/java/one/talon/model/Risk.java
 src/main/java/one/talon/model/RiskAffectedEntityItem.java
@@ -1967,6 +1979,7 @@ src/main/java/one/talon/model/UpdatePriceType.java
 src/main/java/one/talon/model/UpdateReferral.java
 src/main/java/one/talon/model/UpdateReferralBatch.java
 src/main/java/one/talon/model/UpdateReward.java
+src/main/java/one/talon/model/UpdateRewardBudget.java
 src/main/java/one/talon/model/UpdateRiskNotification.java
 src/main/java/one/talon/model/UpdateRole.java
 src/main/java/one/talon/model/UpdateStore.java
@@ -2673,6 +2686,7 @@ src/test/java/one/talon/model/NewReferralTest.java
 src/test/java/one/talon/model/NewReferralsForMultipleAdvocatesTest.java
 src/test/java/one/talon/model/NewReturnTest.java
 src/test/java/one/talon/model/NewRevisionVersionTest.java
+src/test/java/one/talon/model/NewRewardBudgetTest.java
 src/test/java/one/talon/model/NewRewardTest.java
 src/test/java/one/talon/model/NewRiskNotificationTest.java
 src/test/java/one/talon/model/NewRoleTest.java
@@ -2769,12 +2783,16 @@ src/test/java/one/talon/model/RevisionActivationRequestTest.java
 src/test/java/one/talon/model/RevisionActivationTest.java
 src/test/java/one/talon/model/RevisionTest.java
 src/test/java/one/talon/model/RevisionVersionTest.java
+src/test/java/one/talon/model/RewardBudgetLimitCounterTest.java
+src/test/java/one/talon/model/RewardBudgetTest.java
+src/test/java/one/talon/model/RewardBudgetWithLimitCounterTest.java
 src/test/java/one/talon/model/RewardCatalogItemTest.java
 src/test/java/one/talon/model/RewardEligibilityFailureDetailsTest.java
 src/test/java/one/talon/model/RewardEligibilityTest.java
 src/test/java/one/talon/model/RewardPointsRequiredTest.java
 src/test/java/one/talon/model/RewardTest.java
 src/test/java/one/talon/model/RewardUnlockRejectionTest.java
+src/test/java/one/talon/model/RewardWithBudgetsTest.java
 src/test/java/one/talon/model/RewardWithUnlocksTest.java
 src/test/java/one/talon/model/RiskAffectedEntityItemTest.java
 src/test/java/one/talon/model/RiskCriticalityUpdateTest.java
@@ -2942,6 +2960,7 @@ src/test/java/one/talon/model/UpdatePicklistTest.java
 src/test/java/one/talon/model/UpdatePriceTypeTest.java
 src/test/java/one/talon/model/UpdateReferralBatchTest.java
 src/test/java/one/talon/model/UpdateReferralTest.java
+src/test/java/one/talon/model/UpdateRewardBudgetTest.java
 src/test/java/one/talon/model/UpdateRewardTest.java
 src/test/java/one/talon/model/UpdateRiskNotificationTest.java
 src/test/java/one/talon/model/UpdateRoleTest.java

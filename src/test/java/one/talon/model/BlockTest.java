@@ -172,6 +172,14 @@ public class BlockTest {
     }
 
     /**
+     * Test the property 'excludedFromPriceHistory'
+     */
+    @Test
+    public void excludedFromPriceHistoryTest() {
+        // TODO: test excludedFromPriceHistory
+    }
+
+    /**
      * Test the property 'expression'
      */
     @Test

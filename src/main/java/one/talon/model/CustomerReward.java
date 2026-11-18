@@ -75,6 +75,11 @@ public class CustomerReward {
   @javax.annotation.Nonnull
   private OffsetDateTime unlockedAt;
 
+  public static final String SERIALIZED_NAME_EXPIRY_DATE = "expiryDate";
+  @SerializedName(SERIALIZED_NAME_EXPIRY_DATE)
+  @javax.annotation.Nullable
+  private OffsetDateTime expiryDate;
+
   public static final String SERIALIZED_NAME_USED_AT = "usedAt";
   @SerializedName(SERIALIZED_NAME_USED_AT)
   @javax.annotation.Nullable
@@ -164,6 +169,27 @@ public class CustomerReward {
   public void setUnlockedAt(@javax.annotation.Nonnull OffsetDateTime unlockedAt) {
     this.unlockedAt = unlockedAt;
     this.markPropertyAsSet(SERIALIZED_NAME_UNLOCKED_AT);
+  }
+
+
+  public CustomerReward expiryDate(@javax.annotation.Nullable OffsetDateTime expiryDate) {
+    this.expiryDate = expiryDate;
+    this.markPropertyAsSet(SERIALIZED_NAME_EXPIRY_DATE);
+    return this;
+  }
+
+  /**
+   * The date and time when the customer reward expires, based on the  &#x60;validityDuration&#x60; or &#x60;expiryDate&#x60; of the reward when the reward was  unlocked. If the reward does not specify either property, the customer reward  has unlimited validity and this field is omitted.  **Note**: The expiry date is calculated using the time zone of the  Application connected to the reward. 
+   * @return expiryDate
+   */
+  @javax.annotation.Nullable
+  public OffsetDateTime getExpiryDate() {
+    return expiryDate;
+  }
+
+  public void setExpiryDate(@javax.annotation.Nullable OffsetDateTime expiryDate) {
+    this.expiryDate = expiryDate;
+    this.markPropertyAsSet(SERIALIZED_NAME_EXPIRY_DATE);
   }
 
 
@@ -261,13 +287,14 @@ public class CustomerReward {
         Objects.equals(this.profileIntegrationId, customerReward.profileIntegrationId) &&
         Objects.equals(this.integrationId, customerReward.integrationId) &&
         Objects.equals(this.unlockedAt, customerReward.unlockedAt) &&
+        Objects.equals(this.expiryDate, customerReward.expiryDate) &&
         Objects.equals(this.usedAt, customerReward.usedAt)&&
         Objects.equals(this.additionalProperties, customerReward.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(applicationId, profileIntegrationId, integrationId, unlockedAt, usedAt, additionalProperties);
+    return Objects.hash(applicationId, profileIntegrationId, integrationId, unlockedAt, expiryDate, usedAt, additionalProperties);
   }
 
   @Override
@@ -278,6 +305,7 @@ public class CustomerReward {
     sb.append("    profileIntegrationId: ").append(toIndentedString(profileIntegrationId)).append("\n");
     sb.append("    integrationId: ").append(toIndentedString(integrationId)).append("\n");
     sb.append("    unlockedAt: ").append(toIndentedString(unlockedAt)).append("\n");
+    sb.append("    expiryDate: ").append(toIndentedString(expiryDate)).append("\n");
     sb.append("    usedAt: ").append(toIndentedString(usedAt)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
@@ -298,7 +326,7 @@ public class CustomerReward {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("applicationId", "profileIntegrationId", "integrationId", "unlockedAt", "usedAt"));
+    openapiFields = new HashSet<String>(Arrays.asList("applicationId", "profileIntegrationId", "integrationId", "unlockedAt", "expiryDate", "usedAt"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("applicationId", "profileIntegrationId", "integrationId", "unlockedAt"));

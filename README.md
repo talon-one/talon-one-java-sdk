@@ -42,7 +42,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>one.talon</groupId>
   <artifactId>talon-one-client</artifactId>
-  <version>26.23.0</version>
+  <version>99.99.98</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -52,7 +52,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "one.talon:talon-one-client:26.23.0"
+compile "one.talon:talon-one-client:99.99.98"
 ```
 
 ### Others
@@ -1133,6 +1133,7 @@ Class | Method | HTTP request | Description
 - [NewReturn](docs/NewReturn.md)
 - [NewRevisionVersion](docs/NewRevisionVersion.md)
 - [NewReward](docs/NewReward.md)
+- [NewRewardBudget](docs/NewRewardBudget.md)
 - [NewRiskNotification](docs/NewRiskNotification.md)
 - [NewRole](docs/NewRole.md)
 - [NewRoleV2](docs/NewRoleV2.md)
@@ -1229,11 +1230,15 @@ Class | Method | HTTP request | Description
 - [RevisionActivationRequest](docs/RevisionActivationRequest.md)
 - [RevisionVersion](docs/RevisionVersion.md)
 - [Reward](docs/Reward.md)
+- [RewardBudget](docs/RewardBudget.md)
+- [RewardBudgetLimitCounter](docs/RewardBudgetLimitCounter.md)
+- [RewardBudgetWithLimitCounter](docs/RewardBudgetWithLimitCounter.md)
 - [RewardCatalogItem](docs/RewardCatalogItem.md)
 - [RewardEligibility](docs/RewardEligibility.md)
 - [RewardEligibilityFailureDetails](docs/RewardEligibilityFailureDetails.md)
 - [RewardPointsRequired](docs/RewardPointsRequired.md)
 - [RewardUnlockRejection](docs/RewardUnlockRejection.md)
+- [RewardWithBudgets](docs/RewardWithBudgets.md)
 - [RewardWithUnlocks](docs/RewardWithUnlocks.md)
 - [Risk](docs/Risk.md)
 - [RiskAffectedEntityItem](docs/RiskAffectedEntityItem.md)
@@ -1402,6 +1407,7 @@ Class | Method | HTTP request | Description
 - [UpdateReferral](docs/UpdateReferral.md)
 - [UpdateReferralBatch](docs/UpdateReferralBatch.md)
 - [UpdateReward](docs/UpdateReward.md)
+- [UpdateRewardBudget](docs/UpdateRewardBudget.md)
 - [UpdateRiskNotification](docs/UpdateRiskNotification.md)
 - [UpdateRole](docs/UpdateRole.md)
 - [UpdateStore](docs/UpdateStore.md)

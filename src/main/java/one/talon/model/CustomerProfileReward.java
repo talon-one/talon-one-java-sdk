@@ -92,13 +92,15 @@ public class CustomerProfileReward {
   private RuleMetadata rule;
 
   /**
-   * The status of the customer reward: - &#x60;unlocked&#x60;: The reward is available for use. - &#x60;used&#x60;: The reward has been used. 
+   * The status of the customer reward: - &#x60;unlocked&#x60;: The reward is available for use. - &#x60;used&#x60;: The reward has been used. - &#x60;expired&#x60;: The reward was not used before its expiry date. 
    */
   @JsonAdapter(StatusEnum.Adapter.class)
   public enum StatusEnum {
     UNLOCKED("unlocked"),
     
-    USED("used");
+    USED("used"),
+    
+    EXPIRED("expired");
 
     private String value;
 
@@ -157,6 +159,11 @@ public class CustomerProfileReward {
   @SerializedName(SERIALIZED_NAME_UNLOCKED_BY_PROFILE_INTEGRATION_ID)
   @javax.annotation.Nullable
   private String unlockedByProfileIntegrationId;
+
+  public static final String SERIALIZED_NAME_EXPIRY_DATE = "expiryDate";
+  @SerializedName(SERIALIZED_NAME_EXPIRY_DATE)
+  @javax.annotation.Nullable
+  private OffsetDateTime expiryDate;
 
   public static final String SERIALIZED_NAME_USED_AT = "usedAt";
   @SerializedName(SERIALIZED_NAME_USED_AT)
@@ -335,7 +342,7 @@ public class CustomerProfileReward {
   }
 
   /**
-   * The status of the customer reward: - &#x60;unlocked&#x60;: The reward is available for use. - &#x60;used&#x60;: The reward has been used. 
+   * The status of the customer reward: - &#x60;unlocked&#x60;: The reward is available for use. - &#x60;used&#x60;: The reward has been used. - &#x60;expired&#x60;: The reward was not used before its expiry date. 
    * @return status
    */
   @javax.annotation.Nonnull
@@ -388,6 +395,27 @@ public class CustomerProfileReward {
   public void setUnlockedByProfileIntegrationId(@javax.annotation.Nullable String unlockedByProfileIntegrationId) {
     this.unlockedByProfileIntegrationId = unlockedByProfileIntegrationId;
     this.markPropertyAsSet(SERIALIZED_NAME_UNLOCKED_BY_PROFILE_INTEGRATION_ID);
+  }
+
+
+  public CustomerProfileReward expiryDate(@javax.annotation.Nullable OffsetDateTime expiryDate) {
+    this.expiryDate = expiryDate;
+    this.markPropertyAsSet(SERIALIZED_NAME_EXPIRY_DATE);
+    return this;
+  }
+
+  /**
+   * The date and time when the customer reward expires, based on the  &#x60;validityDuration&#x60; or &#x60;expiryDate&#x60; of the reward when the reward was  unlocked. If the reward does not specify either property, the customer reward  has unlimited validity and this field is omitted.  **Note**: The expiry date is calculated using the time zone of the  Application connected to the reward. 
+   * @return expiryDate
+   */
+  @javax.annotation.Nullable
+  public OffsetDateTime getExpiryDate() {
+    return expiryDate;
+  }
+
+  public void setExpiryDate(@javax.annotation.Nullable OffsetDateTime expiryDate) {
+    this.expiryDate = expiryDate;
+    this.markPropertyAsSet(SERIALIZED_NAME_EXPIRY_DATE);
   }
 
 
@@ -554,6 +582,7 @@ public class CustomerProfileReward {
         Objects.equals(this.status, customerProfileReward.status) &&
         Objects.equals(this.unlockedAt, customerProfileReward.unlockedAt) &&
         Objects.equals(this.unlockedByProfileIntegrationId, customerProfileReward.unlockedByProfileIntegrationId) &&
+        Objects.equals(this.expiryDate, customerProfileReward.expiryDate) &&
         Objects.equals(this.usedAt, customerProfileReward.usedAt) &&
         Objects.equals(this.usedByProfileIntegrationId, customerProfileReward.usedByProfileIntegrationId) &&
         Objects.equals(this.loyaltyProgramId, customerProfileReward.loyaltyProgramId) &&
@@ -563,7 +592,7 @@ public class CustomerProfileReward {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, integrationId, rewardId, rewardIntegrationId, rewardName, description, rule, status, unlockedAt, unlockedByProfileIntegrationId, usedAt, usedByProfileIntegrationId, loyaltyProgramId, loyaltyCardId, additionalProperties);
+    return Objects.hash(id, integrationId, rewardId, rewardIntegrationId, rewardName, description, rule, status, unlockedAt, unlockedByProfileIntegrationId, expiryDate, usedAt, usedByProfileIntegrationId, loyaltyProgramId, loyaltyCardId, additionalProperties);
   }
 
   @Override
@@ -580,6 +609,7 @@ public class CustomerProfileReward {
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    unlockedAt: ").append(toIndentedString(unlockedAt)).append("\n");
     sb.append("    unlockedByProfileIntegrationId: ").append(toIndentedString(unlockedByProfileIntegrationId)).append("\n");
+    sb.append("    expiryDate: ").append(toIndentedString(expiryDate)).append("\n");
     sb.append("    usedAt: ").append(toIndentedString(usedAt)).append("\n");
     sb.append("    usedByProfileIntegrationId: ").append(toIndentedString(usedByProfileIntegrationId)).append("\n");
     sb.append("    loyaltyProgramId: ").append(toIndentedString(loyaltyProgramId)).append("\n");
@@ -603,7 +633,7 @@ public class CustomerProfileReward {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("id", "integrationId", "rewardId", "rewardIntegrationId", "rewardName", "description", "rule", "status", "unlockedAt", "unlockedByProfileIntegrationId", "usedAt", "usedByProfileIntegrationId", "loyaltyProgramId", "loyaltyCardId"));
+    openapiFields = new HashSet<String>(Arrays.asList("id", "integrationId", "rewardId", "rewardIntegrationId", "rewardName", "description", "rule", "status", "unlockedAt", "unlockedByProfileIntegrationId", "expiryDate", "usedAt", "usedByProfileIntegrationId", "loyaltyProgramId", "loyaltyCardId"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("id", "integrationId", "rewardId", "rewardIntegrationId", "rewardName", "status", "unlockedAt"));

@@ -97,4 +97,12 @@ public class AwardDiscountBlockTest {
         // TODO: test target
     }
 
+    /**
+     * Test the property 'excludedFromPriceHistory'
+     */
+    @Test
+    public void excludedFromPriceHistoryTest() {
+        // TODO: test excludedFromPriceHistory
+    }
+
 }

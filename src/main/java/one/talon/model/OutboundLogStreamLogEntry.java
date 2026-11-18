@@ -49,7 +49,7 @@ import java.util.Set;
 import one.talon.JSON;
 
 /**
- * An outbound log entry in an &#x60;ndjson&#x60; stream.
+ * An outbound log entry in a stream of outbound logs.
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.27.0")
 public class OutboundLogStreamLogEntry {

@@ -90,7 +90,11 @@ public class CheckAchievementBlock {
     
     COMPLETED("completed"),
     
-    NOT_COMPLETED_("not(completed)");
+    NOT_COMPLETED_("not(completed)"),
+    
+    EXPIRED("expired"),
+    
+    NOT_EXPIRED_("not(expired)");
 
     private String value;
 
