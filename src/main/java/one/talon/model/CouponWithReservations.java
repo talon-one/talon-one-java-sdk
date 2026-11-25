@@ -77,12 +77,12 @@ public class CouponWithReservations {
 
   public static final String SERIALIZED_NAME_VALUE = "value";
   @SerializedName(SERIALIZED_NAME_VALUE)
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
   private String value;
 
   public static final String SERIALIZED_NAME_USAGE_LIMIT = "usageLimit";
   @SerializedName(SERIALIZED_NAME_USAGE_LIMIT)
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
   private Long usageLimit;
 
   public static final String SERIALIZED_NAME_DISCOUNT_LIMIT = "discountLimit";
@@ -241,7 +241,7 @@ public class CouponWithReservations {
   }
 
 
-  public CouponWithReservations value(@javax.annotation.Nullable String value) {
+  public CouponWithReservations value(@javax.annotation.Nonnull String value) {
     this.value = value;
     this.markPropertyAsSet(SERIALIZED_NAME_VALUE);
     return this;
@@ -251,18 +251,18 @@ public class CouponWithReservations {
    * The coupon code.
    * @return value
    */
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
   public String getValue() {
     return value;
   }
 
-  public void setValue(@javax.annotation.Nullable String value) {
+  public void setValue(@javax.annotation.Nonnull String value) {
     this.value = value;
     this.markPropertyAsSet(SERIALIZED_NAME_VALUE);
   }
 
 
-  public CouponWithReservations usageLimit(@javax.annotation.Nullable Long usageLimit) {
+  public CouponWithReservations usageLimit(@javax.annotation.Nonnull Long usageLimit) {
     this.usageLimit = usageLimit;
     this.markPropertyAsSet(SERIALIZED_NAME_USAGE_LIMIT);
     return this;
@@ -274,12 +274,12 @@ public class CouponWithReservations {
    * maximum: 999999
    * @return usageLimit
    */
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
   public Long getUsageLimit() {
     return usageLimit;
   }
 
-  public void setUsageLimit(@javax.annotation.Nullable Long usageLimit) {
+  public void setUsageLimit(@javax.annotation.Nonnull Long usageLimit) {
     this.usageLimit = usageLimit;
     this.markPropertyAsSet(SERIALIZED_NAME_USAGE_LIMIT);
   }
@@ -834,7 +834,7 @@ public class CouponWithReservations {
     openapiFields = new HashSet<String>(Arrays.asList("id", "created", "campaignId", "value", "usageLimit", "discountLimit", "reservationLimit", "startDate", "expiryDate", "limits", "usageCounter", "discountCounter", "discountRemainder", "reservationCounter", "attributes", "referralId", "recipientIntegrationId", "importId", "reservation", "batchId", "isReservationMandatory", "implicitlyReserved", "reservations"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("id", "created", "campaignId", "usageCounter"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("id", "created", "campaignId", "value", "usageLimit", "usageCounter"));
   }
 
   /**
@@ -857,7 +857,7 @@ public class CouponWithReservations {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if ((jsonObj.get("value") != null && !jsonObj.get("value").isJsonNull()) && !jsonObj.get("value").isJsonPrimitive()) {
+      if (!jsonObj.get("value").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `value` to be a primitive type in the JSON string but got `%s`", jsonObj.get("value").toString()));
       }
       if (jsonObj.get("limits") != null && !jsonObj.get("limits").isJsonNull()) {

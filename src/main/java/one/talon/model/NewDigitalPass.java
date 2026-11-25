@@ -23,6 +23,7 @@ import java.io.IOException;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.UUID;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -64,12 +65,12 @@ public class NewDigitalPass {
   public static final String SERIALIZED_NAME_PASS_TEMPLATE_ID = "passTemplateId";
   @SerializedName(SERIALIZED_NAME_PASS_TEMPLATE_ID)
   @javax.annotation.Nonnull
-  private String passTemplateId;
+  private UUID passTemplateId;
 
-  public static final String SERIALIZED_NAME_PROFILE_ID = "profileId";
-  @SerializedName(SERIALIZED_NAME_PROFILE_ID)
+  public static final String SERIALIZED_NAME_PROFILE_INTEGRATION_ID = "profileIntegrationId";
+  @SerializedName(SERIALIZED_NAME_PROFILE_INTEGRATION_ID)
   @javax.annotation.Nonnull
-  private String profileId;
+  private String profileIntegrationId;
 
   public static final String SERIALIZED_NAME_LOYALTY_CARD_ID = "loyaltyCardId";
   @SerializedName(SERIALIZED_NAME_LOYALTY_CARD_ID)
@@ -163,45 +164,45 @@ public class NewDigitalPass {
   }
 
 
-  public NewDigitalPass passTemplateId(@javax.annotation.Nonnull String passTemplateId) {
+  public NewDigitalPass passTemplateId(@javax.annotation.Nonnull UUID passTemplateId) {
     this.passTemplateId = passTemplateId;
     this.markPropertyAsSet(SERIALIZED_NAME_PASS_TEMPLATE_ID);
     return this;
   }
 
   /**
-   * The ID of the digital pass template used to generate the pass. 
+   * The ID of the digital pass template used to generate the pass.
    * @return passTemplateId
    */
   @javax.annotation.Nonnull
-  public String getPassTemplateId() {
+  public UUID getPassTemplateId() {
     return passTemplateId;
   }
 
-  public void setPassTemplateId(@javax.annotation.Nonnull String passTemplateId) {
+  public void setPassTemplateId(@javax.annotation.Nonnull UUID passTemplateId) {
     this.passTemplateId = passTemplateId;
     this.markPropertyAsSet(SERIALIZED_NAME_PASS_TEMPLATE_ID);
   }
 
 
-  public NewDigitalPass profileId(@javax.annotation.Nonnull String profileId) {
-    this.profileId = profileId;
-    this.markPropertyAsSet(SERIALIZED_NAME_PROFILE_ID);
+  public NewDigitalPass profileIntegrationId(@javax.annotation.Nonnull String profileIntegrationId) {
+    this.profileIntegrationId = profileIntegrationId;
+    this.markPropertyAsSet(SERIALIZED_NAME_PROFILE_INTEGRATION_ID);
     return this;
   }
 
   /**
    * The integration ID of the customer profile the pass is issued for.
-   * @return profileId
+   * @return profileIntegrationId
    */
   @javax.annotation.Nonnull
-  public String getProfileId() {
-    return profileId;
+  public String getProfileIntegrationId() {
+    return profileIntegrationId;
   }
 
-  public void setProfileId(@javax.annotation.Nonnull String profileId) {
-    this.profileId = profileId;
-    this.markPropertyAsSet(SERIALIZED_NAME_PROFILE_ID);
+  public void setProfileIntegrationId(@javax.annotation.Nonnull String profileIntegrationId) {
+    this.profileIntegrationId = profileIntegrationId;
+    this.markPropertyAsSet(SERIALIZED_NAME_PROFILE_INTEGRATION_ID);
   }
 
 
@@ -263,7 +264,7 @@ public class NewDigitalPass {
   }
 
   /**
-   * A map of placeholder values that you provide to fill in the pass template. These values are not validated against the template. 
+   * A map of placeholder values that you provide to fill in the pass template. Pass templates reference each value as &#x60;CustomerProfile.Attributes.&lt;key&gt;&#x60;.  Each key must start with a letter or an underscore and can contain only letters, digits, and underscores. If the template requires a value that is missing, the request fails with a &#x60;422&#x60; error. 
    * @return attributes
    */
   @javax.annotation.Nullable
@@ -348,7 +349,7 @@ public class NewDigitalPass {
     NewDigitalPass newDigitalPass = (NewDigitalPass) o;
     return Objects.equals(this.loyaltyProgramId, newDigitalPass.loyaltyProgramId) &&
         Objects.equals(this.passTemplateId, newDigitalPass.passTemplateId) &&
-        Objects.equals(this.profileId, newDigitalPass.profileId) &&
+        Objects.equals(this.profileIntegrationId, newDigitalPass.profileIntegrationId) &&
         Objects.equals(this.loyaltyCardId, newDigitalPass.loyaltyCardId) &&
         Objects.equals(this.platform, newDigitalPass.platform) &&
         Objects.equals(this.attributes, newDigitalPass.attributes)&&
@@ -357,7 +358,7 @@ public class NewDigitalPass {
 
   @Override
   public int hashCode() {
-    return Objects.hash(loyaltyProgramId, passTemplateId, profileId, loyaltyCardId, platform, attributes, additionalProperties);
+    return Objects.hash(loyaltyProgramId, passTemplateId, profileIntegrationId, loyaltyCardId, platform, attributes, additionalProperties);
   }
 
   @Override
@@ -366,7 +367,7 @@ public class NewDigitalPass {
     sb.append("class NewDigitalPass {\n");
     sb.append("    loyaltyProgramId: ").append(toIndentedString(loyaltyProgramId)).append("\n");
     sb.append("    passTemplateId: ").append(toIndentedString(passTemplateId)).append("\n");
-    sb.append("    profileId: ").append(toIndentedString(profileId)).append("\n");
+    sb.append("    profileIntegrationId: ").append(toIndentedString(profileIntegrationId)).append("\n");
     sb.append("    loyaltyCardId: ").append(toIndentedString(loyaltyCardId)).append("\n");
     sb.append("    platform: ").append(toIndentedString(platform)).append("\n");
     sb.append("    attributes: ").append(toIndentedString(attributes)).append("\n");
@@ -389,10 +390,10 @@ public class NewDigitalPass {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("loyaltyProgramId", "passTemplateId", "profileId", "loyaltyCardId", "platform", "attributes"));
+    openapiFields = new HashSet<String>(Arrays.asList("loyaltyProgramId", "passTemplateId", "profileIntegrationId", "loyaltyCardId", "platform", "attributes"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("loyaltyProgramId", "passTemplateId", "profileId", "platform"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("loyaltyProgramId", "passTemplateId", "profileIntegrationId", "platform"));
   }
 
   /**
@@ -418,8 +419,8 @@ public class NewDigitalPass {
       if (!jsonObj.get("passTemplateId").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `passTemplateId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("passTemplateId").toString()));
       }
-      if (!jsonObj.get("profileId").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `profileId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("profileId").toString()));
+      if (!jsonObj.get("profileIntegrationId").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `profileIntegrationId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("profileIntegrationId").toString()));
       }
       if ((jsonObj.get("loyaltyCardId") != null && !jsonObj.get("loyaltyCardId").isJsonNull()) && !jsonObj.get("loyaltyCardId").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `loyaltyCardId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("loyaltyCardId").toString()));

@@ -19,13 +19,11 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
-import java.time.OffsetDateTime;
 import java.util.Arrays;
-import java.util.UUID;
-import one.talon.model.OutboundLog;
-import one.talon.model.OutboundLogRequest;
-import one.talon.model.OutboundLogResponse;
+import one.talon.model.OutboundLogStreamEntryType;
 import one.talon.model.OutboundLogStreamError;
+import one.talon.model.OutboundLogStreamErrorEntry;
+import one.talon.model.OutboundLogStreamLogEntry;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
@@ -44,115 +42,19 @@ public class OutboundLogsDataInnerTest {
     }
 
     /**
-     * Test the property 'uuid'
+     * Test the property 'type'
      */
     @Test
-    public void uuidTest() {
-        // TODO: test uuid
+    public void typeTest() {
+        // TODO: test type
     }
 
     /**
-     * Test the property 'notificationId'
+     * Test the property 'data'
      */
     @Test
-    public void notificationIdTest() {
-        // TODO: test notificationId
-    }
-
-    /**
-     * Test the property 'notificationName'
-     */
-    @Test
-    public void notificationNameTest() {
-        // TODO: test notificationName
-    }
-
-    /**
-     * Test the property 'webhookId'
-     */
-    @Test
-    public void webhookIdTest() {
-        // TODO: test webhookId
-    }
-
-    /**
-     * Test the property 'webhookName'
-     */
-    @Test
-    public void webhookNameTest() {
-        // TODO: test webhookName
-    }
-
-    /**
-     * Test the property 'notificationType'
-     */
-    @Test
-    public void notificationTypeTest() {
-        // TODO: test notificationType
-    }
-
-    /**
-     * Test the property 'applicationId'
-     */
-    @Test
-    public void applicationIdTest() {
-        // TODO: test applicationId
-    }
-
-    /**
-     * Test the property 'loyaltyProgramId'
-     */
-    @Test
-    public void loyaltyProgramIdTest() {
-        // TODO: test loyaltyProgramId
-    }
-
-    /**
-     * Test the property 'request'
-     */
-    @Test
-    public void requestTest() {
-        // TODO: test request
-    }
-
-    /**
-     * Test the property 'createdAt'
-     */
-    @Test
-    public void createdAtTest() {
-        // TODO: test createdAt
-    }
-
-    /**
-     * Test the property 'processingTimeMs'
-     */
-    @Test
-    public void processingTimeMsTest() {
-        // TODO: test processingTimeMs
-    }
-
-    /**
-     * Test the property 'response'
-     */
-    @Test
-    public void responseTest() {
-        // TODO: test response
-    }
-
-    /**
-     * Test the property 'error'
-     */
-    @Test
-    public void errorTest() {
-        // TODO: test error
-    }
-
-    /**
-     * Test the property 'id'
-     */
-    @Test
-    public void idTest() {
-        // TODO: test id
+    public void dataTest() {
+        // TODO: test data
     }
 
 }

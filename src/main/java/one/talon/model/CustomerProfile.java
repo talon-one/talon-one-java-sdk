@@ -79,8 +79,8 @@ public class CustomerProfile {
 
   public static final String SERIALIZED_NAME_ATTRIBUTES = "attributes";
   @SerializedName(SERIALIZED_NAME_ATTRIBUTES)
-  @javax.annotation.Nullable
-  private Map<String, Object> attributes;
+  @javax.annotation.Nonnull
+  private Map<String, Object> attributes = new HashMap<>();
 
   public static final String SERIALIZED_NAME_ACCOUNT_ID = "accountId";
   @SerializedName(SERIALIZED_NAME_ACCOUNT_ID)
@@ -184,7 +184,7 @@ public class CustomerProfile {
   }
 
 
-  public CustomerProfile attributes(@javax.annotation.Nullable Map<String, Object> attributes) {
+  public CustomerProfile attributes(@javax.annotation.Nonnull Map<String, Object> attributes) {
     this.attributes = attributes;
     this.markPropertyAsSet(SERIALIZED_NAME_ATTRIBUTES);
     return this;
@@ -203,12 +203,12 @@ public class CustomerProfile {
    * Arbitrary properties associated with this item.
    * @return attributes
    */
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
   public Map<String, Object> getAttributes() {
     return attributes;
   }
 
-  public void setAttributes(@javax.annotation.Nullable Map<String, Object> attributes) {
+  public void setAttributes(@javax.annotation.Nonnull Map<String, Object> attributes) {
     this.attributes = attributes;
     this.markPropertyAsSet(SERIALIZED_NAME_ATTRIBUTES);
   }
@@ -508,7 +508,7 @@ public class CustomerProfile {
     openapiFields = new HashSet<String>(Arrays.asList("id", "created", "integrationId", "attributes", "accountId", "closedSessions", "totalSales", "loyaltyMemberships", "audienceMemberships", "lastActivity", "sandbox"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("id", "created", "integrationId", "accountId", "closedSessions", "totalSales", "lastActivity"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("id", "created", "integrationId", "attributes", "accountId", "closedSessions", "totalSales", "lastActivity"));
   }
 
   /**

@@ -14,6 +14,7 @@
 |**responseTypesSupported** | **List&lt;String&gt;** | List of supported OAuth2 response types. |  |
 |**grantTypesSupported** | **List&lt;String&gt;** | List of supported OAuth2 grant types. |  |
 |**codeChallengeMethodsSupported** | **List&lt;String&gt;** | List of supported PKCE code challenge methods. |  |
+|**tokenEndpointAuthMethodsSupported** | **List&lt;String&gt;** | List of supported client authentication methods at the token endpoint. Public clients use &#x60;none&#x60;; confidential clients use &#x60;client_secret_post&#x60; or &#x60;client_secret_basic&#x60;. |  [optional] |
 
 
 

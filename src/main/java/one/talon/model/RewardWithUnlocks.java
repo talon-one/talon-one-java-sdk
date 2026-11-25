@@ -212,7 +212,7 @@ public class RewardWithUnlocks {
   }
 
   /**
-   * The customer profile&#39;s unlocks of this reward that are not yet &#x60;used&#x60;.
+   * The instances of this reward that the customer has unlocked but not used. Expired customer rewards are not returned.
    * @return unlocked
    */
   @javax.annotation.Nullable

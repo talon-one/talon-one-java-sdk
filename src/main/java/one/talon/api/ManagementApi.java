@@ -2217,7 +2217,8 @@ public class ManagementApi {
      * @param applicationId The ID of the Application. It is displayed in your Talon.One deployment URL. (required)
      * @param campaignId The ID of the campaign. It is displayed in your Talon.One deployment URL. (required)
      * @param newCoupons body (required)
-     * @param silent Possible values: &#x60;yes&#x60; or &#x60;no&#x60;. - &#x60;yes&#x60;: Increases the performance of the API call by returning a 204 response. - &#x60;no&#x60;: Returns a 200 response that contains the updated customer profiles.  (optional, default to yes)
+     * @param silent Possible values: &#x60;yes&#x60; or &#x60;no&#x60;. - &#x60;yes&#x60;: Increases the performance of the API call by returning a 204 response. Requires &#x60;full&#x60; to be &#x60;no&#x60;; otherwise a 400 error is returned. - &#x60;no&#x60;: Returns a 200 response that contains the created coupons.  (optional, default to no)
+     * @param full Possible values: &#x60;yes&#x60; or &#x60;no&#x60;. - &#x60;yes&#x60;: Returns all created coupons. Requires &#x60;silent&#x60; to be &#x60;no&#x60;; otherwise a 400 error is returned. - &#x60;no&#x60;: Returns at most 1000 created coupons.  (optional, default to no)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -2227,9 +2228,10 @@ public class ManagementApi {
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createCouponsCall(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, @javax.annotation.Nonnull NewCoupons newCoupons, @javax.annotation.Nullable String silent, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call createCouponsCall(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, @javax.annotation.Nonnull NewCoupons newCoupons, @javax.annotation.Nullable String silent, @javax.annotation.Nullable String full, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -2260,6 +2262,10 @@ public class ManagementApi {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("silent", silent));
         }
 
+        if (full != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("full", full));
+        }
+
         final String[] localVarAccepts = {
             "application/json"
         };
@@ -2281,7 +2287,7 @@ public class ManagementApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call createCouponsValidateBeforeCall(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, @javax.annotation.Nonnull NewCoupons newCoupons, @javax.annotation.Nullable String silent, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call createCouponsValidateBeforeCall(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, @javax.annotation.Nonnull NewCoupons newCoupons, @javax.annotation.Nullable String silent, @javax.annotation.Nullable String full, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'applicationId' is set
         if (applicationId == null) {
             throw new ApiException("Missing the required parameter 'applicationId' when calling createCoupons(Async)");
@@ -2297,7 +2303,7 @@ public class ManagementApi {
             throw new ApiException("Missing the required parameter 'newCoupons' when calling createCoupons(Async)");
         }
 
-        return createCouponsCall(applicationId, campaignId, newCoupons, silent, _callback);
+        return createCouponsCall(applicationId, campaignId, newCoupons, silent, full, _callback);
 
     }
 
@@ -2307,7 +2313,8 @@ public class ManagementApi {
      * @param applicationId The ID of the Application. It is displayed in your Talon.One deployment URL. (required)
      * @param campaignId The ID of the campaign. It is displayed in your Talon.One deployment URL. (required)
      * @param newCoupons body (required)
-     * @param silent Possible values: &#x60;yes&#x60; or &#x60;no&#x60;. - &#x60;yes&#x60;: Increases the performance of the API call by returning a 204 response. - &#x60;no&#x60;: Returns a 200 response that contains the updated customer profiles.  (optional, default to yes)
+     * @param silent Possible values: &#x60;yes&#x60; or &#x60;no&#x60;. - &#x60;yes&#x60;: Increases the performance of the API call by returning a 204 response. Requires &#x60;full&#x60; to be &#x60;no&#x60;; otherwise a 400 error is returned. - &#x60;no&#x60;: Returns a 200 response that contains the created coupons.  (optional, default to no)
+     * @param full Possible values: &#x60;yes&#x60; or &#x60;no&#x60;. - &#x60;yes&#x60;: Returns all created coupons. Requires &#x60;silent&#x60; to be &#x60;no&#x60;; otherwise a 400 error is returned. - &#x60;no&#x60;: Returns at most 1000 created coupons.  (optional, default to no)
      * @return CreateCoupons200Response
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2316,10 +2323,11 @@ public class ManagementApi {
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
      </table>
      */
-    public CreateCoupons200Response createCoupons(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, @javax.annotation.Nonnull NewCoupons newCoupons, @javax.annotation.Nullable String silent) throws ApiException {
-        ApiResponse<CreateCoupons200Response> localVarResp = createCouponsWithHttpInfo(applicationId, campaignId, newCoupons, silent);
+    public CreateCoupons200Response createCoupons(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, @javax.annotation.Nonnull NewCoupons newCoupons, @javax.annotation.Nullable String silent, @javax.annotation.Nullable String full) throws ApiException {
+        ApiResponse<CreateCoupons200Response> localVarResp = createCouponsWithHttpInfo(applicationId, campaignId, newCoupons, silent, full);
         return localVarResp.getData();
     }
 
@@ -2329,7 +2337,8 @@ public class ManagementApi {
      * @param applicationId The ID of the Application. It is displayed in your Talon.One deployment URL. (required)
      * @param campaignId The ID of the campaign. It is displayed in your Talon.One deployment URL. (required)
      * @param newCoupons body (required)
-     * @param silent Possible values: &#x60;yes&#x60; or &#x60;no&#x60;. - &#x60;yes&#x60;: Increases the performance of the API call by returning a 204 response. - &#x60;no&#x60;: Returns a 200 response that contains the updated customer profiles.  (optional, default to yes)
+     * @param silent Possible values: &#x60;yes&#x60; or &#x60;no&#x60;. - &#x60;yes&#x60;: Increases the performance of the API call by returning a 204 response. Requires &#x60;full&#x60; to be &#x60;no&#x60;; otherwise a 400 error is returned. - &#x60;no&#x60;: Returns a 200 response that contains the created coupons.  (optional, default to no)
+     * @param full Possible values: &#x60;yes&#x60; or &#x60;no&#x60;. - &#x60;yes&#x60;: Returns all created coupons. Requires &#x60;silent&#x60; to be &#x60;no&#x60;; otherwise a 400 error is returned. - &#x60;no&#x60;: Returns at most 1000 created coupons.  (optional, default to no)
      * @return ApiResponse&lt;CreateCoupons200Response&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2338,10 +2347,11 @@ public class ManagementApi {
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<CreateCoupons200Response> createCouponsWithHttpInfo(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, @javax.annotation.Nonnull NewCoupons newCoupons, @javax.annotation.Nullable String silent) throws ApiException {
-        okhttp3.Call localVarCall = createCouponsValidateBeforeCall(applicationId, campaignId, newCoupons, silent, null);
+    public ApiResponse<CreateCoupons200Response> createCouponsWithHttpInfo(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, @javax.annotation.Nonnull NewCoupons newCoupons, @javax.annotation.Nullable String silent, @javax.annotation.Nullable String full) throws ApiException {
+        okhttp3.Call localVarCall = createCouponsValidateBeforeCall(applicationId, campaignId, newCoupons, silent, full, null);
         Type localVarReturnType = new TypeToken<CreateCoupons200Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -2352,7 +2362,8 @@ public class ManagementApi {
      * @param applicationId The ID of the Application. It is displayed in your Talon.One deployment URL. (required)
      * @param campaignId The ID of the campaign. It is displayed in your Talon.One deployment URL. (required)
      * @param newCoupons body (required)
-     * @param silent Possible values: &#x60;yes&#x60; or &#x60;no&#x60;. - &#x60;yes&#x60;: Increases the performance of the API call by returning a 204 response. - &#x60;no&#x60;: Returns a 200 response that contains the updated customer profiles.  (optional, default to yes)
+     * @param silent Possible values: &#x60;yes&#x60; or &#x60;no&#x60;. - &#x60;yes&#x60;: Increases the performance of the API call by returning a 204 response. Requires &#x60;full&#x60; to be &#x60;no&#x60;; otherwise a 400 error is returned. - &#x60;no&#x60;: Returns a 200 response that contains the created coupons.  (optional, default to no)
+     * @param full Possible values: &#x60;yes&#x60; or &#x60;no&#x60;. - &#x60;yes&#x60;: Returns all created coupons. Requires &#x60;silent&#x60; to be &#x60;no&#x60;; otherwise a 400 error is returned. - &#x60;no&#x60;: Returns at most 1000 created coupons.  (optional, default to no)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -2362,11 +2373,12 @@ public class ManagementApi {
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createCouponsAsync(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, @javax.annotation.Nonnull NewCoupons newCoupons, @javax.annotation.Nullable String silent, final ApiCallback<CreateCoupons200Response> _callback) throws ApiException {
+    public okhttp3.Call createCouponsAsync(@javax.annotation.Nonnull Long applicationId, @javax.annotation.Nonnull Long campaignId, @javax.annotation.Nonnull NewCoupons newCoupons, @javax.annotation.Nullable String silent, @javax.annotation.Nullable String full, final ApiCallback<CreateCoupons200Response> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = createCouponsValidateBeforeCall(applicationId, campaignId, newCoupons, silent, _callback);
+        okhttp3.Call localVarCall = createCouponsValidateBeforeCall(applicationId, campaignId, newCoupons, silent, full, _callback);
         Type localVarReturnType = new TypeToken<CreateCoupons200Response>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

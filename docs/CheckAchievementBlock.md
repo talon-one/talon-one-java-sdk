@@ -27,6 +27,8 @@
 | NOT_IN_PROGRESS_ | &quot;not(inProgress)&quot; |
 | COMPLETED | &quot;completed&quot; |
 | NOT_COMPLETED_ | &quot;not(completed)&quot; |
+| EXPIRED | &quot;expired&quot; |
+| NOT_EXPIRED_ | &quot;not(expired)&quot; |
 
 
 

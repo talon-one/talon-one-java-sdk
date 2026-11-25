@@ -342,7 +342,7 @@ public class CampaignTemplate {
 
   public static final String SERIALIZED_NAME_CAMPAIGN_TYPE = "campaignType";
   @SerializedName(SERIALIZED_NAME_CAMPAIGN_TYPE)
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
   private CampaignTypeEnum campaignType = CampaignTypeEnum.ADVANCED;
 
   public static final String SERIALIZED_NAME_CAMPAIGNS_COUNT = "campaignsCount";
@@ -889,7 +889,7 @@ public class CampaignTemplate {
   }
 
 
-  public CampaignTemplate campaignType(@javax.annotation.Nullable CampaignTypeEnum campaignType) {
+  public CampaignTemplate campaignType(@javax.annotation.Nonnull CampaignTypeEnum campaignType) {
     this.campaignType = campaignType;
     this.markPropertyAsSet(SERIALIZED_NAME_CAMPAIGN_TYPE);
     return this;
@@ -899,12 +899,12 @@ public class CampaignTemplate {
    * The campaign type. Possible type values:   - &#x60;cartItem&#x60;: Type of campaign that can apply effects only to cart items.   - &#x60;advanced&#x60;: Type of campaign that can apply effects to customer sessions and cart items. 
    * @return campaignType
    */
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
   public CampaignTypeEnum getCampaignType() {
     return campaignType;
   }
 
-  public void setCampaignType(@javax.annotation.Nullable CampaignTypeEnum campaignType) {
+  public void setCampaignType(@javax.annotation.Nonnull CampaignTypeEnum campaignType) {
     this.campaignType = campaignType;
     this.markPropertyAsSet(SERIALIZED_NAME_CAMPAIGN_TYPE);
   }
@@ -1183,7 +1183,7 @@ public class CampaignTemplate {
     openapiFields = new HashSet<String>(Arrays.asList("id", "created", "accountId", "userId", "name", "description", "instructions", "campaignAttributes", "couponAttributes", "state", "activeRulesetId", "tags", "reevaluateOnReturn", "features", "couponSettings", "couponReservationSettings", "referralSettings", "limits", "templateParams", "applicationsIds", "campaignCollections", "defaultCampaignGroupId", "campaignType", "campaignsCount", "updated", "updatedBy", "validApplicationIds", "isUserFavorite"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("id", "created", "accountId", "userId", "name", "description", "instructions", "state", "reevaluateOnReturn", "applicationsIds", "validApplicationIds"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("id", "created", "accountId", "userId", "name", "description", "instructions", "state", "reevaluateOnReturn", "applicationsIds", "campaignType", "validApplicationIds"));
   }
 
   /**
@@ -1288,13 +1288,11 @@ public class CampaignTemplate {
           };
         }
       }
-      if ((jsonObj.get("campaignType") != null && !jsonObj.get("campaignType").isJsonNull()) && !jsonObj.get("campaignType").isJsonPrimitive()) {
+      if (!jsonObj.get("campaignType").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `campaignType` to be a primitive type in the JSON string but got `%s`", jsonObj.get("campaignType").toString()));
       }
-      // validate the optional field `campaignType`
-      if (jsonObj.get("campaignType") != null && !jsonObj.get("campaignType").isJsonNull()) {
-        CampaignTypeEnum.validateJsonElement(jsonObj.get("campaignType"));
-      }
+      // validate the required field `campaignType`
+      CampaignTypeEnum.validateJsonElement(jsonObj.get("campaignType"));
       if ((jsonObj.get("updatedBy") != null && !jsonObj.get("updatedBy").isJsonNull()) && !jsonObj.get("updatedBy").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `updatedBy` to be a primitive type in the JSON string but got `%s`", jsonObj.get("updatedBy").toString()));
       }

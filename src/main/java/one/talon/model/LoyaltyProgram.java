@@ -71,32 +71,32 @@ public class LoyaltyProgram {
 
   public static final String SERIALIZED_NAME_TITLE = "title";
   @SerializedName(SERIALIZED_NAME_TITLE)
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
   private String title;
 
   public static final String SERIALIZED_NAME_DESCRIPTION = "description";
   @SerializedName(SERIALIZED_NAME_DESCRIPTION)
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
   private String description;
 
   public static final String SERIALIZED_NAME_SUBSCRIBED_APPLICATIONS = "subscribedApplications";
   @SerializedName(SERIALIZED_NAME_SUBSCRIBED_APPLICATIONS)
-  @javax.annotation.Nullable
-  private List<Long> subscribedApplications;
+  @javax.annotation.Nonnull
+  private List<Long> subscribedApplications = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_DEFAULT_VALIDITY = "defaultValidity";
   @SerializedName(SERIALIZED_NAME_DEFAULT_VALIDITY)
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
   private String defaultValidity;
 
   public static final String SERIALIZED_NAME_DEFAULT_PENDING = "defaultPending";
   @SerializedName(SERIALIZED_NAME_DEFAULT_PENDING)
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
   private String defaultPending;
 
   public static final String SERIALIZED_NAME_ALLOW_SUBLEDGER = "allowSubledger";
   @SerializedName(SERIALIZED_NAME_ALLOW_SUBLEDGER)
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
   private Boolean allowSubledger;
 
   public static final String SERIALIZED_NAME_USERS_PER_CARD_LIMIT = "usersPerCardLimit";
@@ -106,7 +106,7 @@ public class LoyaltyProgram {
 
   public static final String SERIALIZED_NAME_SANDBOX = "sandbox";
   @SerializedName(SERIALIZED_NAME_SANDBOX)
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
   private Boolean sandbox;
 
   /**
@@ -450,7 +450,7 @@ public class LoyaltyProgram {
   }
 
 
-  public LoyaltyProgram title(@javax.annotation.Nullable String title) {
+  public LoyaltyProgram title(@javax.annotation.Nonnull String title) {
     this.title = title;
     this.markPropertyAsSet(SERIALIZED_NAME_TITLE);
     return this;
@@ -460,18 +460,18 @@ public class LoyaltyProgram {
    * The display title for the Loyalty Program.
    * @return title
    */
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
   public String getTitle() {
     return title;
   }
 
-  public void setTitle(@javax.annotation.Nullable String title) {
+  public void setTitle(@javax.annotation.Nonnull String title) {
     this.title = title;
     this.markPropertyAsSet(SERIALIZED_NAME_TITLE);
   }
 
 
-  public LoyaltyProgram description(@javax.annotation.Nullable String description) {
+  public LoyaltyProgram description(@javax.annotation.Nonnull String description) {
     this.description = description;
     this.markPropertyAsSet(SERIALIZED_NAME_DESCRIPTION);
     return this;
@@ -481,18 +481,18 @@ public class LoyaltyProgram {
    * Description of our Loyalty Program.
    * @return description
    */
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
   public String getDescription() {
     return description;
   }
 
-  public void setDescription(@javax.annotation.Nullable String description) {
+  public void setDescription(@javax.annotation.Nonnull String description) {
     this.description = description;
     this.markPropertyAsSet(SERIALIZED_NAME_DESCRIPTION);
   }
 
 
-  public LoyaltyProgram subscribedApplications(@javax.annotation.Nullable List<Long> subscribedApplications) {
+  public LoyaltyProgram subscribedApplications(@javax.annotation.Nonnull List<Long> subscribedApplications) {
     this.subscribedApplications = subscribedApplications;
     this.markPropertyAsSet(SERIALIZED_NAME_SUBSCRIBED_APPLICATIONS);
     return this;
@@ -511,18 +511,18 @@ public class LoyaltyProgram {
    * A list containing the IDs of all applications that are subscribed to this Loyalty Program.
    * @return subscribedApplications
    */
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
   public List<Long> getSubscribedApplications() {
     return subscribedApplications;
   }
 
-  public void setSubscribedApplications(@javax.annotation.Nullable List<Long> subscribedApplications) {
+  public void setSubscribedApplications(@javax.annotation.Nonnull List<Long> subscribedApplications) {
     this.subscribedApplications = subscribedApplications;
     this.markPropertyAsSet(SERIALIZED_NAME_SUBSCRIBED_APPLICATIONS);
   }
 
 
-  public LoyaltyProgram defaultValidity(@javax.annotation.Nullable String defaultValidity) {
+  public LoyaltyProgram defaultValidity(@javax.annotation.Nonnull String defaultValidity) {
     this.defaultValidity = defaultValidity;
     this.markPropertyAsSet(SERIALIZED_NAME_DEFAULT_VALIDITY);
     return this;
@@ -532,18 +532,18 @@ public class LoyaltyProgram {
    * The default duration after which new loyalty points should expire. Can be &#39;unlimited&#39; or a specific time. The time format is a number followed by one letter indicating the time unit, like &#39;30s&#39;, &#39;40m&#39;, &#39;1h&#39;, &#39;5D&#39;, &#39;7W&#39;, or 10M&#39;. These rounding suffixes are also supported: - &#39;_D&#39; for rounding down. Can be used as a suffix after &#39;D&#39;, and signifies the start of the day. - &#39;_U&#39; for rounding up. Can be used as a suffix after &#39;D&#39;, &#39;W&#39;, and &#39;M&#39;, and signifies the end of the day, week, and month. 
    * @return defaultValidity
    */
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
   public String getDefaultValidity() {
     return defaultValidity;
   }
 
-  public void setDefaultValidity(@javax.annotation.Nullable String defaultValidity) {
+  public void setDefaultValidity(@javax.annotation.Nonnull String defaultValidity) {
     this.defaultValidity = defaultValidity;
     this.markPropertyAsSet(SERIALIZED_NAME_DEFAULT_VALIDITY);
   }
 
 
-  public LoyaltyProgram defaultPending(@javax.annotation.Nullable String defaultPending) {
+  public LoyaltyProgram defaultPending(@javax.annotation.Nonnull String defaultPending) {
     this.defaultPending = defaultPending;
     this.markPropertyAsSet(SERIALIZED_NAME_DEFAULT_PENDING);
     return this;
@@ -553,18 +553,18 @@ public class LoyaltyProgram {
    * The default duration of the pending time after which points should be valid. Accepted values: &#39;immediate&#39;, &#39;on_action&#39; or a specific time. The time format is a number followed by one letter indicating the time unit, like &#39;30s&#39;, &#39;40m&#39;, &#39;1h&#39;, &#39;5D&#39;, &#39;7W&#39;, or 10M&#39;. These rounding suffixes are also supported: - &#39;_D&#39; for rounding down. Can be used as a suffix after &#39;D&#39;, and signifies the start of the day. - &#39;_U&#39; for rounding up. Can be used as a suffix after &#39;D&#39;, &#39;W&#39;, and &#39;M&#39;, and signifies the end of the day, week, and month. 
    * @return defaultPending
    */
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
   public String getDefaultPending() {
     return defaultPending;
   }
 
-  public void setDefaultPending(@javax.annotation.Nullable String defaultPending) {
+  public void setDefaultPending(@javax.annotation.Nonnull String defaultPending) {
     this.defaultPending = defaultPending;
     this.markPropertyAsSet(SERIALIZED_NAME_DEFAULT_PENDING);
   }
 
 
-  public LoyaltyProgram allowSubledger(@javax.annotation.Nullable Boolean allowSubledger) {
+  public LoyaltyProgram allowSubledger(@javax.annotation.Nonnull Boolean allowSubledger) {
     this.allowSubledger = allowSubledger;
     this.markPropertyAsSet(SERIALIZED_NAME_ALLOW_SUBLEDGER);
     return this;
@@ -574,12 +574,12 @@ public class LoyaltyProgram {
    * Indicates if this program supports subledgers inside the program.
    * @return allowSubledger
    */
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
   public Boolean getAllowSubledger() {
     return allowSubledger;
   }
 
-  public void setAllowSubledger(@javax.annotation.Nullable Boolean allowSubledger) {
+  public void setAllowSubledger(@javax.annotation.Nonnull Boolean allowSubledger) {
     this.allowSubledger = allowSubledger;
     this.markPropertyAsSet(SERIALIZED_NAME_ALLOW_SUBLEDGER);
   }
@@ -607,7 +607,7 @@ public class LoyaltyProgram {
   }
 
 
-  public LoyaltyProgram sandbox(@javax.annotation.Nullable Boolean sandbox) {
+  public LoyaltyProgram sandbox(@javax.annotation.Nonnull Boolean sandbox) {
     this.sandbox = sandbox;
     this.markPropertyAsSet(SERIALIZED_NAME_SANDBOX);
     return this;
@@ -617,12 +617,12 @@ public class LoyaltyProgram {
    * Indicates if this program is a live or sandbox program. Programs of a given type can only be connected to Applications of the same type.
    * @return sandbox
    */
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
   public Boolean getSandbox() {
     return sandbox;
   }
 
-  public void setSandbox(@javax.annotation.Nullable Boolean sandbox) {
+  public void setSandbox(@javax.annotation.Nonnull Boolean sandbox) {
     this.sandbox = sandbox;
     this.markPropertyAsSet(SERIALIZED_NAME_SANDBOX);
   }
@@ -1128,7 +1128,7 @@ public class LoyaltyProgram {
     openapiFields = new HashSet<String>(Arrays.asList("id", "created", "title", "description", "subscribedApplications", "defaultValidity", "defaultPending", "allowSubledger", "usersPerCardLimit", "sandbox", "programJoinPolicy", "tiersExpirationPolicy", "tierCycleStartDate", "tiersExpireIn", "tiersDowngradePolicy", "cardCodeSettings", "returnPolicy", "accountID", "name", "tiers", "timezone", "cardBased", "canUpdateTiers", "canUpdateTierExpirationPolicy", "canUpgradeToAdvancedTiers", "canUpdateSubledgers"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("id", "created", "accountID", "name", "timezone", "cardBased"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("id", "created", "title", "description", "subscribedApplications", "defaultValidity", "defaultPending", "allowSubledger", "sandbox", "accountID", "name", "timezone", "cardBased"));
   }
 
   /**
@@ -1151,20 +1151,22 @@ public class LoyaltyProgram {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if ((jsonObj.get("title") != null && !jsonObj.get("title").isJsonNull()) && !jsonObj.get("title").isJsonPrimitive()) {
+      if (!jsonObj.get("title").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `title` to be a primitive type in the JSON string but got `%s`", jsonObj.get("title").toString()));
       }
-      if ((jsonObj.get("description") != null && !jsonObj.get("description").isJsonNull()) && !jsonObj.get("description").isJsonPrimitive()) {
+      if (!jsonObj.get("description").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `description` to be a primitive type in the JSON string but got `%s`", jsonObj.get("description").toString()));
       }
-      // ensure the optional json data is an array if present
-      if (jsonObj.get("subscribedApplications") != null && !jsonObj.get("subscribedApplications").isJsonNull() && !jsonObj.get("subscribedApplications").isJsonArray()) {
+      // ensure the required json array is present
+      if (jsonObj.get("subscribedApplications") == null) {
+        throw new IllegalArgumentException("Expected the field `linkedContent` to be an array in the JSON string but got `null`");
+      } else if (!jsonObj.get("subscribedApplications").isJsonArray()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `subscribedApplications` to be an array in the JSON string but got `%s`", jsonObj.get("subscribedApplications").toString()));
       }
-      if ((jsonObj.get("defaultValidity") != null && !jsonObj.get("defaultValidity").isJsonNull()) && !jsonObj.get("defaultValidity").isJsonPrimitive()) {
+      if (!jsonObj.get("defaultValidity").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `defaultValidity` to be a primitive type in the JSON string but got `%s`", jsonObj.get("defaultValidity").toString()));
       }
-      if ((jsonObj.get("defaultPending") != null && !jsonObj.get("defaultPending").isJsonNull()) && !jsonObj.get("defaultPending").isJsonPrimitive()) {
+      if (!jsonObj.get("defaultPending").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `defaultPending` to be a primitive type in the JSON string but got `%s`", jsonObj.get("defaultPending").toString()));
       }
       if ((jsonObj.get("programJoinPolicy") != null && !jsonObj.get("programJoinPolicy").isJsonNull()) && !jsonObj.get("programJoinPolicy").isJsonPrimitive()) {

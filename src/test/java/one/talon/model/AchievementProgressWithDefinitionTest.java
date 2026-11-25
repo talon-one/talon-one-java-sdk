@@ -147,6 +147,14 @@ public class AchievementProgressWithDefinitionTest {
     }
 
     /**
+     * Test the property 'achievementPeriod'
+     */
+    @Test
+    public void achievementPeriodTest() {
+        // TODO: test achievementPeriod
+    }
+
+    /**
      * Test the property 'achievementRecurrencePolicy'
      */
     @Test

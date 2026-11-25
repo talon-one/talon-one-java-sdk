@@ -67,7 +67,7 @@ public class LedgerEntry {
 
   public static final String SERIALIZED_NAME_PROFILE_ID = "profileId";
   @SerializedName(SERIALIZED_NAME_PROFILE_ID)
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
   private String profileId;
 
   public static final String SERIALIZED_NAME_ACCOUNT_ID = "accountId";
@@ -150,7 +150,7 @@ public class LedgerEntry {
   }
 
 
-  public LedgerEntry profileId(@javax.annotation.Nullable String profileId) {
+  public LedgerEntry profileId(@javax.annotation.Nonnull String profileId) {
     this.profileId = profileId;
     this.markPropertyAsSet(SERIALIZED_NAME_PROFILE_ID);
     return this;
@@ -160,12 +160,12 @@ public class LedgerEntry {
    * ID of the customer profile set by your integration layer.  **Note:** If the customer does not yet have a known &#x60;profileId&#x60;, we recommend you use a guest &#x60;profileId&#x60;. 
    * @return profileId
    */
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
   public String getProfileId() {
     return profileId;
   }
 
-  public void setProfileId(@javax.annotation.Nullable String profileId) {
+  public void setProfileId(@javax.annotation.Nonnull String profileId) {
     this.profileId = profileId;
     this.markPropertyAsSet(SERIALIZED_NAME_PROFILE_ID);
   }
@@ -441,7 +441,7 @@ public class LedgerEntry {
     openapiFields = new HashSet<String>(Arrays.asList("id", "created", "profileId", "accountId", "loyaltyProgramId", "eventId", "amount", "reason", "expiryDate", "referenceId"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("id", "created", "accountId", "loyaltyProgramId", "eventId", "amount", "reason", "expiryDate"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("id", "created", "profileId", "accountId", "loyaltyProgramId", "eventId", "amount", "reason", "expiryDate"));
   }
 
   /**
@@ -464,7 +464,7 @@ public class LedgerEntry {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if ((jsonObj.get("profileId") != null && !jsonObj.get("profileId").isJsonNull()) && !jsonObj.get("profileId").isJsonPrimitive()) {
+      if (!jsonObj.get("profileId").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `profileId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("profileId").toString()));
       }
       if (!jsonObj.get("reason").isJsonPrimitive()) {

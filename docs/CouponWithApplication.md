@@ -10,8 +10,8 @@
 |**id** | **Long** | The internal ID of the coupon. |  |
 |**created** | **OffsetDateTime** | The time the coupon was created. |  |
 |**campaignId** | **Long** | The ID of the campaign that owns this entity. |  |
-|**value** | **String** | The coupon code. |  [optional] |
-|**usageLimit** | **Long** | The number of times the coupon code can be redeemed. &#x60;0&#x60; means unlimited redemptions but any campaign usage limits will still apply.  |  [optional] |
+|**value** | **String** | The coupon code. |  |
+|**usageLimit** | **Long** | The number of times the coupon code can be redeemed. &#x60;0&#x60; means unlimited redemptions but any campaign usage limits will still apply.  |  |
 |**discountLimit** | **BigDecimal** | The total discount value that the code can give. Typically used to represent a gift card value.  |  [optional] |
 |**reservationLimit** | **Long** | The number of reservations that can be made with this coupon code.  |  [optional] |
 |**startDate** | **OffsetDateTime** | Timestamp at which point the coupon becomes valid. |  [optional] |

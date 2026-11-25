@@ -55,7 +55,7 @@ public class RuleEligibilityFailureDetails {
   private transient Set<String> openapiExplicitlySetFields = new HashSet<>();
 
   /**
-   * A code identifying why the customer was not eligible for the rule in the current session.
+   * A code identifying why the customer was not eligible for the rule in the current session.  - &#x60;CONDITION_NOT_MET&#x60;: One or more conditions of the rule did not evaluate  to &#x60;true&#x60; for the customer.  - &#x60;EFFECT_FAILED&#x60;: The conditions of the rule were met but one of its effects  could not be applied. 
    */
   @JsonAdapter(FailureCodeEnum.Adapter.class)
   public enum FailureCodeEnum {
@@ -166,7 +166,7 @@ public class RuleEligibilityFailureDetails {
   }
 
   /**
-   * A code identifying why the customer was not eligible for the rule in the current session.
+   * A code identifying why the customer was not eligible for the rule in the current session.  - &#x60;CONDITION_NOT_MET&#x60;: One or more conditions of the rule did not evaluate  to &#x60;true&#x60; for the customer.  - &#x60;EFFECT_FAILED&#x60;: The conditions of the rule were met but one of its effects  could not be applied. 
    * @return failureCode
    */
   @javax.annotation.Nonnull

@@ -80,12 +80,12 @@ public class TemplateDef {
 
   public static final String SERIALIZED_NAME_DESCRIPTION = "description";
   @SerializedName(SERIALIZED_NAME_DESCRIPTION)
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
   private String description;
 
   public static final String SERIALIZED_NAME_HELP = "help";
   @SerializedName(SERIALIZED_NAME_HELP)
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
   private String help;
 
   public static final String SERIALIZED_NAME_CATEGORY = "category";
@@ -200,7 +200,7 @@ public class TemplateDef {
   }
 
 
-  public TemplateDef description(@javax.annotation.Nullable String description) {
+  public TemplateDef description(@javax.annotation.Nonnull String description) {
     this.description = description;
     this.markPropertyAsSet(SERIALIZED_NAME_DESCRIPTION);
     return this;
@@ -210,18 +210,18 @@ public class TemplateDef {
    * A short description of the template that will be shown in the rule editor.
    * @return description
    */
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
   public String getDescription() {
     return description;
   }
 
-  public void setDescription(@javax.annotation.Nullable String description) {
+  public void setDescription(@javax.annotation.Nonnull String description) {
     this.description = description;
     this.markPropertyAsSet(SERIALIZED_NAME_DESCRIPTION);
   }
 
 
-  public TemplateDef help(@javax.annotation.Nullable String help) {
+  public TemplateDef help(@javax.annotation.Nonnull String help) {
     this.help = help;
     this.markPropertyAsSet(SERIALIZED_NAME_HELP);
     return this;
@@ -231,12 +231,12 @@ public class TemplateDef {
    * Extended help text for the template.
    * @return help
    */
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
   public String getHelp() {
     return help;
   }
 
-  public void setHelp(@javax.annotation.Nullable String help) {
+  public void setHelp(@javax.annotation.Nonnull String help) {
     this.help = help;
     this.markPropertyAsSet(SERIALIZED_NAME_HELP);
   }
@@ -490,7 +490,7 @@ public class TemplateDef {
     openapiFields = new HashSet<String>(Arrays.asList("id", "created", "applicationId", "title", "description", "help", "category", "expr", "args", "expose", "name"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("id", "created", "applicationId", "title", "category", "expr", "args", "name"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("id", "created", "applicationId", "title", "description", "help", "category", "expr", "args", "name"));
   }
 
   /**
@@ -516,10 +516,10 @@ public class TemplateDef {
       if (!jsonObj.get("title").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `title` to be a primitive type in the JSON string but got `%s`", jsonObj.get("title").toString()));
       }
-      if ((jsonObj.get("description") != null && !jsonObj.get("description").isJsonNull()) && !jsonObj.get("description").isJsonPrimitive()) {
+      if (!jsonObj.get("description").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `description` to be a primitive type in the JSON string but got `%s`", jsonObj.get("description").toString()));
       }
-      if ((jsonObj.get("help") != null && !jsonObj.get("help").isJsonNull()) && !jsonObj.get("help").isJsonPrimitive()) {
+      if (!jsonObj.get("help").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `help` to be a primitive type in the JSON string but got `%s`", jsonObj.get("help").toString()));
       }
       if (!jsonObj.get("category").isJsonPrimitive()) {

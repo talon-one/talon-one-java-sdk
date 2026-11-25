@@ -69,7 +69,7 @@ public class NewReferralsForMultipleAdvocates {
 
   public static final String SERIALIZED_NAME_USAGE_LIMIT = "usageLimit";
   @SerializedName(SERIALIZED_NAME_USAGE_LIMIT)
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
   private Long usageLimit;
 
   public static final String SERIALIZED_NAME_CAMPAIGN_ID = "campaignId";
@@ -142,7 +142,7 @@ public class NewReferralsForMultipleAdvocates {
   }
 
 
-  public NewReferralsForMultipleAdvocates usageLimit(@javax.annotation.Nullable Long usageLimit) {
+  public NewReferralsForMultipleAdvocates usageLimit(@javax.annotation.Nonnull Long usageLimit) {
     this.usageLimit = usageLimit;
     this.markPropertyAsSet(SERIALIZED_NAME_USAGE_LIMIT);
     return this;
@@ -154,12 +154,12 @@ public class NewReferralsForMultipleAdvocates {
    * maximum: 999999
    * @return usageLimit
    */
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
   public Long getUsageLimit() {
     return usageLimit;
   }
 
-  public void setUsageLimit(@javax.annotation.Nullable Long usageLimit) {
+  public void setUsageLimit(@javax.annotation.Nonnull Long usageLimit) {
     this.usageLimit = usageLimit;
     this.markPropertyAsSet(SERIALIZED_NAME_USAGE_LIMIT);
   }
@@ -407,7 +407,7 @@ public class NewReferralsForMultipleAdvocates {
     openapiFields = new HashSet<String>(Arrays.asList("startDate", "expiryDate", "usageLimit", "campaignId", "advocateProfileIntegrationIds", "attributes", "validCharacters", "referralPattern"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("campaignId", "advocateProfileIntegrationIds"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("usageLimit", "campaignId", "advocateProfileIntegrationIds"));
   }
 
   /**

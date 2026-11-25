@@ -73,7 +73,7 @@ public class StrikethroughTrigger {
   public static final String SERIALIZED_NAME_TOTAL_AFFECTED_ITEMS = "totalAffectedItems";
   @SerializedName(SERIALIZED_NAME_TOTAL_AFFECTED_ITEMS)
   @javax.annotation.Nonnull
-  private Integer totalAffectedItems;
+  private Long totalAffectedItems;
 
   public static final String SERIALIZED_NAME_PAYLOAD = "payload";
   @SerializedName(SERIALIZED_NAME_PAYLOAD)
@@ -146,7 +146,7 @@ public class StrikethroughTrigger {
   }
 
 
-  public StrikethroughTrigger totalAffectedItems(@javax.annotation.Nonnull Integer totalAffectedItems) {
+  public StrikethroughTrigger totalAffectedItems(@javax.annotation.Nonnull Long totalAffectedItems) {
     this.totalAffectedItems = totalAffectedItems;
     this.markPropertyAsSet(SERIALIZED_NAME_TOTAL_AFFECTED_ITEMS);
     return this;
@@ -157,11 +157,11 @@ public class StrikethroughTrigger {
    * @return totalAffectedItems
    */
   @javax.annotation.Nonnull
-  public Integer getTotalAffectedItems() {
+  public Long getTotalAffectedItems() {
     return totalAffectedItems;
   }
 
-  public void setTotalAffectedItems(@javax.annotation.Nonnull Integer totalAffectedItems) {
+  public void setTotalAffectedItems(@javax.annotation.Nonnull Long totalAffectedItems) {
     this.totalAffectedItems = totalAffectedItems;
     this.markPropertyAsSet(SERIALIZED_NAME_TOTAL_AFFECTED_ITEMS);
   }

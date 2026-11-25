@@ -78,17 +78,17 @@ public class CustomerSession {
 
   public static final String SERIALIZED_NAME_PROFILE_ID = "profileId";
   @SerializedName(SERIALIZED_NAME_PROFILE_ID)
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
   private String profileId;
 
   public static final String SERIALIZED_NAME_COUPON = "coupon";
   @SerializedName(SERIALIZED_NAME_COUPON)
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
   private String coupon;
 
   public static final String SERIALIZED_NAME_REFERRAL = "referral";
   @SerializedName(SERIALIZED_NAME_REFERRAL)
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
   private String referral;
 
   /**
@@ -149,13 +149,13 @@ public class CustomerSession {
 
   public static final String SERIALIZED_NAME_STATE = "state";
   @SerializedName(SERIALIZED_NAME_STATE)
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
   private StateEnum state = StateEnum.OPEN;
 
   public static final String SERIALIZED_NAME_CART_ITEMS = "cartItems";
   @SerializedName(SERIALIZED_NAME_CART_ITEMS)
-  @javax.annotation.Nullable
-  private List<CartItem> cartItems;
+  @javax.annotation.Nonnull
+  private List<CartItem> cartItems = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_IDENTIFIERS = "identifiers";
   @SerializedName(SERIALIZED_NAME_IDENTIFIERS)
@@ -164,12 +164,12 @@ public class CustomerSession {
 
   public static final String SERIALIZED_NAME_TOTAL = "total";
   @SerializedName(SERIALIZED_NAME_TOTAL)
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
   private BigDecimal total;
 
   public static final String SERIALIZED_NAME_ATTRIBUTES = "attributes";
   @SerializedName(SERIALIZED_NAME_ATTRIBUTES)
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
   private Object attributes;
 
   public static final String SERIALIZED_NAME_FIRST_SESSION = "firstSession";
@@ -258,7 +258,7 @@ public class CustomerSession {
   }
 
 
-  public CustomerSession profileId(@javax.annotation.Nullable String profileId) {
+  public CustomerSession profileId(@javax.annotation.Nonnull String profileId) {
     this.profileId = profileId;
     this.markPropertyAsSet(SERIALIZED_NAME_PROFILE_ID);
     return this;
@@ -268,18 +268,18 @@ public class CustomerSession {
    * ID of the customer profile set by your integration layer.  **Note:** If the customer does not yet have a known &#x60;profileId&#x60;, we recommend you use a guest &#x60;profileId&#x60;. 
    * @return profileId
    */
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
   public String getProfileId() {
     return profileId;
   }
 
-  public void setProfileId(@javax.annotation.Nullable String profileId) {
+  public void setProfileId(@javax.annotation.Nonnull String profileId) {
     this.profileId = profileId;
     this.markPropertyAsSet(SERIALIZED_NAME_PROFILE_ID);
   }
 
 
-  public CustomerSession coupon(@javax.annotation.Nullable String coupon) {
+  public CustomerSession coupon(@javax.annotation.Nonnull String coupon) {
     this.coupon = coupon;
     this.markPropertyAsSet(SERIALIZED_NAME_COUPON);
     return this;
@@ -289,18 +289,18 @@ public class CustomerSession {
    * Any coupon code entered.
    * @return coupon
    */
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
   public String getCoupon() {
     return coupon;
   }
 
-  public void setCoupon(@javax.annotation.Nullable String coupon) {
+  public void setCoupon(@javax.annotation.Nonnull String coupon) {
     this.coupon = coupon;
     this.markPropertyAsSet(SERIALIZED_NAME_COUPON);
   }
 
 
-  public CustomerSession referral(@javax.annotation.Nullable String referral) {
+  public CustomerSession referral(@javax.annotation.Nonnull String referral) {
     this.referral = referral;
     this.markPropertyAsSet(SERIALIZED_NAME_REFERRAL);
     return this;
@@ -310,18 +310,18 @@ public class CustomerSession {
    * Any referral code entered.
    * @return referral
    */
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
   public String getReferral() {
     return referral;
   }
 
-  public void setReferral(@javax.annotation.Nullable String referral) {
+  public void setReferral(@javax.annotation.Nonnull String referral) {
     this.referral = referral;
     this.markPropertyAsSet(SERIALIZED_NAME_REFERRAL);
   }
 
 
-  public CustomerSession state(@javax.annotation.Nullable StateEnum state) {
+  public CustomerSession state(@javax.annotation.Nonnull StateEnum state) {
     this.state = state;
     this.markPropertyAsSet(SERIALIZED_NAME_STATE);
     return this;
@@ -331,18 +331,18 @@ public class CustomerSession {
    * Indicates the current state of the session. Sessions can be created as &#x60;open&#x60; or &#x60;closed&#x60;. The state transitions are:  1. &#x60;open&#x60; -&gt; &#x60;closed&#x60; 2. &#x60;open&#x60; -&gt; &#x60;cancelled&#x60; 3. &#x60;closed&#x60; -&gt; &#x60;cancelled&#x60; or &#x60;partially_returned&#x60; 4. &#x60;partially_returned&#x60; -&gt; &#x60;cancelled&#x60;  For more information, see [Customer session states](https://docs.talon.one/docs/dev/concepts/entities/customer-sessions). 
    * @return state
    */
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
   public StateEnum getState() {
     return state;
   }
 
-  public void setState(@javax.annotation.Nullable StateEnum state) {
+  public void setState(@javax.annotation.Nonnull StateEnum state) {
     this.state = state;
     this.markPropertyAsSet(SERIALIZED_NAME_STATE);
   }
 
 
-  public CustomerSession cartItems(@javax.annotation.Nullable List<CartItem> cartItems) {
+  public CustomerSession cartItems(@javax.annotation.Nonnull List<CartItem> cartItems) {
     this.cartItems = cartItems;
     this.markPropertyAsSet(SERIALIZED_NAME_CART_ITEMS);
     return this;
@@ -361,12 +361,12 @@ public class CustomerSession {
    * Serialized JSON representation.
    * @return cartItems
    */
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
   public List<CartItem> getCartItems() {
     return cartItems;
   }
 
-  public void setCartItems(@javax.annotation.Nullable List<CartItem> cartItems) {
+  public void setCartItems(@javax.annotation.Nonnull List<CartItem> cartItems) {
     this.cartItems = cartItems;
     this.markPropertyAsSet(SERIALIZED_NAME_CART_ITEMS);
   }
@@ -402,7 +402,7 @@ public class CustomerSession {
   }
 
 
-  public CustomerSession total(@javax.annotation.Nullable BigDecimal total) {
+  public CustomerSession total(@javax.annotation.Nonnull BigDecimal total) {
     this.total = total;
     this.markPropertyAsSet(SERIALIZED_NAME_TOTAL);
     return this;
@@ -412,18 +412,18 @@ public class CustomerSession {
    * The total sum of the cart in one session.
    * @return total
    */
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
   public BigDecimal getTotal() {
     return total;
   }
 
-  public void setTotal(@javax.annotation.Nullable BigDecimal total) {
+  public void setTotal(@javax.annotation.Nonnull BigDecimal total) {
     this.total = total;
     this.markPropertyAsSet(SERIALIZED_NAME_TOTAL);
   }
 
 
-  public CustomerSession attributes(@javax.annotation.Nullable Object attributes) {
+  public CustomerSession attributes(@javax.annotation.Nonnull Object attributes) {
     this.attributes = attributes;
     this.markPropertyAsSet(SERIALIZED_NAME_ATTRIBUTES);
     return this;
@@ -433,12 +433,12 @@ public class CustomerSession {
    * A key-value map of the sessions attributes. The potentially valid attributes are configured in your accounts developer settings. 
    * @return attributes
    */
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
   public Object getAttributes() {
     return attributes;
   }
 
-  public void setAttributes(@javax.annotation.Nullable Object attributes) {
+  public void setAttributes(@javax.annotation.Nonnull Object attributes) {
     this.attributes = attributes;
     this.markPropertyAsSet(SERIALIZED_NAME_ATTRIBUTES);
   }
@@ -670,7 +670,7 @@ public class CustomerSession {
     openapiFields = new HashSet<String>(Arrays.asList("integrationId", "created", "applicationId", "profileId", "coupon", "referral", "state", "cartItems", "identifiers", "total", "attributes", "firstSession", "updateCount", "discounts", "updated"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("integrationId", "created", "applicationId", "firstSession", "updateCount", "discounts", "updated"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("integrationId", "created", "applicationId", "profileId", "coupon", "referral", "state", "cartItems", "total", "attributes", "firstSession", "updateCount", "discounts", "updated"));
   }
 
   /**
@@ -696,34 +696,28 @@ public class CustomerSession {
       if (!jsonObj.get("integrationId").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `integrationId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("integrationId").toString()));
       }
-      if ((jsonObj.get("profileId") != null && !jsonObj.get("profileId").isJsonNull()) && !jsonObj.get("profileId").isJsonPrimitive()) {
+      if (!jsonObj.get("profileId").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `profileId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("profileId").toString()));
       }
-      if ((jsonObj.get("coupon") != null && !jsonObj.get("coupon").isJsonNull()) && !jsonObj.get("coupon").isJsonPrimitive()) {
+      if (!jsonObj.get("coupon").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `coupon` to be a primitive type in the JSON string but got `%s`", jsonObj.get("coupon").toString()));
       }
-      if ((jsonObj.get("referral") != null && !jsonObj.get("referral").isJsonNull()) && !jsonObj.get("referral").isJsonPrimitive()) {
+      if (!jsonObj.get("referral").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `referral` to be a primitive type in the JSON string but got `%s`", jsonObj.get("referral").toString()));
       }
-      if ((jsonObj.get("state") != null && !jsonObj.get("state").isJsonNull()) && !jsonObj.get("state").isJsonPrimitive()) {
+      if (!jsonObj.get("state").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `state` to be a primitive type in the JSON string but got `%s`", jsonObj.get("state").toString()));
       }
-      // validate the optional field `state`
-      if (jsonObj.get("state") != null && !jsonObj.get("state").isJsonNull()) {
-        StateEnum.validateJsonElement(jsonObj.get("state"));
-      }
-      if (jsonObj.get("cartItems") != null && !jsonObj.get("cartItems").isJsonNull()) {
+      // validate the required field `state`
+      StateEnum.validateJsonElement(jsonObj.get("state"));
+      if (jsonObj.get("cartItems") != null) {
+        if (!jsonObj.get("cartItems").isJsonArray()) {
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `cartItems` to be an array in the JSON string but got `%s`", jsonObj.get("cartItems").toString()));
+        }
         JsonArray jsonArraycartItems = jsonObj.getAsJsonArray("cartItems");
-        if (jsonArraycartItems != null) {
-          // ensure the json data is an array
-          if (!jsonObj.get("cartItems").isJsonArray()) {
-            throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `cartItems` to be an array in the JSON string but got `%s`", jsonObj.get("cartItems").toString()));
-          }
-
-          // validate the optional field `cartItems` (array)
-          for (int i = 0; i < jsonArraycartItems.size(); i++) {
-            CartItem.validateJsonElement(jsonArraycartItems.get(i));
-          };
+        // validate the required field `cartItems` (array)
+        for (int i = 0; i < jsonArraycartItems.size(); i++) {
+          CartItem.validateJsonElement(jsonArraycartItems.get(i));
         }
       }
       // ensure the optional json data is an array if present

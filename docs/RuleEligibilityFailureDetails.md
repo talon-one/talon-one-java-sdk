@@ -8,7 +8,7 @@ The details about why the customer was not eligible for the rule in the current 
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**failureCode** | [**FailureCodeEnum**](#FailureCodeEnum) | A code identifying why the customer was not eligible for the rule in the current session. |  |
+|**failureCode** | [**FailureCodeEnum**](#FailureCodeEnum) | A code identifying why the customer was not eligible for the rule in the current session.  - &#x60;CONDITION_NOT_MET&#x60;: One or more conditions of the rule did not evaluate  to &#x60;true&#x60; for the customer.  - &#x60;EFFECT_FAILED&#x60;: The conditions of the rule were met but one of its effects  could not be applied.  |  |
 |**couponID** | **Long** | The ID of the coupon that was being evaluated when the rule failed.  |  [optional] |
 |**couponValue** | **String** | The coupon code that was being evaluated when the rule failed.  |  [optional] |
 |**referralID** | **Long** | The ID of the referral that was being evaluated when the rule failed.  |  [optional] |
