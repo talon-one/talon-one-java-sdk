@@ -10,6 +10,7 @@
 |**grantType** | [**GrantTypeEnum**](#GrantTypeEnum) | OAuth2 grant type. |  |
 |**code** | **String** | Authorization code. Required for &#x60;authorization_code&#x60; grant. |  [optional] |
 |**clientId** | **String** | Client ID. Required for &#x60;authorization_code&#x60; grant. |  [optional] |
+|**clientSecret** | **String** | Client secret for confidential (static) clients. May also be supplied via HTTP Basic authentication. Public clients registered via dynamic client registration omit it. |  [optional] |
 |**redirectUri** | **String** | Redirect URI. Required for &#x60;authorization_code&#x60; grant. |  [optional] |
 |**codeVerifier** | **String** | PKCE code verifier. Required for &#x60;authorization_code&#x60; grant. |  [optional] |
 |**refreshToken** | **String** | Refresh token. Required for &#x60;refresh_token&#x60; grant. |  [optional] |

@@ -79,7 +79,7 @@ public class MultipleAudiencesItem {
 
   public static final String SERIALIZED_NAME_INTEGRATION_ID = "integrationId";
   @SerializedName(SERIALIZED_NAME_INTEGRATION_ID)
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
   private String integrationId;
 
   /**
@@ -237,7 +237,7 @@ public class MultipleAudiencesItem {
   }
 
 
-  public MultipleAudiencesItem integrationId(@javax.annotation.Nullable String integrationId) {
+  public MultipleAudiencesItem integrationId(@javax.annotation.Nonnull String integrationId) {
     this.integrationId = integrationId;
     this.markPropertyAsSet(SERIALIZED_NAME_INTEGRATION_ID);
     return this;
@@ -247,12 +247,12 @@ public class MultipleAudiencesItem {
    * The ID of this audience in the third-party integration.
    * @return integrationId
    */
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
   public String getIntegrationId() {
     return integrationId;
   }
 
-  public void setIntegrationId(@javax.annotation.Nullable String integrationId) {
+  public void setIntegrationId(@javax.annotation.Nonnull String integrationId) {
     this.integrationId = integrationId;
     this.markPropertyAsSet(SERIALIZED_NAME_INTEGRATION_ID);
   }
@@ -394,7 +394,7 @@ public class MultipleAudiencesItem {
     openapiFields = new HashSet<String>(Arrays.asList("id", "created", "name", "subscribedApplicationsIds", "integrationId", "status"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("id", "created", "name", "status"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("id", "created", "name", "integrationId", "status"));
   }
 
   /**
@@ -424,7 +424,7 @@ public class MultipleAudiencesItem {
       if (jsonObj.get("subscribedApplicationsIds") != null && !jsonObj.get("subscribedApplicationsIds").isJsonNull() && !jsonObj.get("subscribedApplicationsIds").isJsonArray()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `subscribedApplicationsIds` to be an array in the JSON string but got `%s`", jsonObj.get("subscribedApplicationsIds").toString()));
       }
-      if ((jsonObj.get("integrationId") != null && !jsonObj.get("integrationId").isJsonNull()) && !jsonObj.get("integrationId").isJsonPrimitive()) {
+      if (!jsonObj.get("integrationId").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `integrationId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("integrationId").toString()));
       }
       if (!jsonObj.get("status").isJsonPrimitive()) {

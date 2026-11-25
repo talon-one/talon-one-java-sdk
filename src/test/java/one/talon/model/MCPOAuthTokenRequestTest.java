@@ -62,6 +62,14 @@ public class MCPOAuthTokenRequestTest {
     }
 
     /**
+     * Test the property 'clientSecret'
+     */
+    @Test
+    public void clientSecretTest() {
+        // TODO: test clientSecret
+    }
+
+    /**
      * Test the property 'redirectUri'
      */
     @Test

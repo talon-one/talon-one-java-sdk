@@ -120,6 +120,14 @@ public class CustomerProfileRewardTest {
     }
 
     /**
+     * Test the property 'expiryDate'
+     */
+    @Test
+    public void expiryDateTest() {
+        // TODO: test expiryDate
+    }
+
+    /**
      * Test the property 'usedAt'
      */
     @Test

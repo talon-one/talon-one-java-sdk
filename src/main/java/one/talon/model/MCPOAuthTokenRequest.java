@@ -121,6 +121,11 @@ public class MCPOAuthTokenRequest {
   @javax.annotation.Nullable
   private String clientId;
 
+  public static final String SERIALIZED_NAME_CLIENT_SECRET = "client_secret";
+  @SerializedName(SERIALIZED_NAME_CLIENT_SECRET)
+  @javax.annotation.Nullable
+  private String clientSecret;
+
   public static final String SERIALIZED_NAME_REDIRECT_URI = "redirect_uri";
   @SerializedName(SERIALIZED_NAME_REDIRECT_URI)
   @javax.annotation.Nullable
@@ -199,6 +204,27 @@ public class MCPOAuthTokenRequest {
   public void setClientId(@javax.annotation.Nullable String clientId) {
     this.clientId = clientId;
     this.markPropertyAsSet(SERIALIZED_NAME_CLIENT_ID);
+  }
+
+
+  public MCPOAuthTokenRequest clientSecret(@javax.annotation.Nullable String clientSecret) {
+    this.clientSecret = clientSecret;
+    this.markPropertyAsSet(SERIALIZED_NAME_CLIENT_SECRET);
+    return this;
+  }
+
+  /**
+   * Client secret for confidential (static) clients. May also be supplied via HTTP Basic authentication. Public clients registered via dynamic client registration omit it.
+   * @return clientSecret
+   */
+  @javax.annotation.Nullable
+  public String getClientSecret() {
+    return clientSecret;
+  }
+
+  public void setClientSecret(@javax.annotation.Nullable String clientSecret) {
+    this.clientSecret = clientSecret;
+    this.markPropertyAsSet(SERIALIZED_NAME_CLIENT_SECRET);
   }
 
 
@@ -337,6 +363,7 @@ public class MCPOAuthTokenRequest {
     return Objects.equals(this.grantType, mcPOAuthTokenRequest.grantType) &&
         Objects.equals(this.code, mcPOAuthTokenRequest.code) &&
         Objects.equals(this.clientId, mcPOAuthTokenRequest.clientId) &&
+        Objects.equals(this.clientSecret, mcPOAuthTokenRequest.clientSecret) &&
         Objects.equals(this.redirectUri, mcPOAuthTokenRequest.redirectUri) &&
         Objects.equals(this.codeVerifier, mcPOAuthTokenRequest.codeVerifier) &&
         Objects.equals(this.refreshToken, mcPOAuthTokenRequest.refreshToken)&&
@@ -345,7 +372,7 @@ public class MCPOAuthTokenRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(grantType, code, clientId, redirectUri, codeVerifier, refreshToken, additionalProperties);
+    return Objects.hash(grantType, code, clientId, clientSecret, redirectUri, codeVerifier, refreshToken, additionalProperties);
   }
 
   @Override
@@ -355,6 +382,7 @@ public class MCPOAuthTokenRequest {
     sb.append("    grantType: ").append(toIndentedString(grantType)).append("\n");
     sb.append("    code: ").append(toIndentedString(code)).append("\n");
     sb.append("    clientId: ").append(toIndentedString(clientId)).append("\n");
+    sb.append("    clientSecret: ").append(toIndentedString(clientSecret)).append("\n");
     sb.append("    redirectUri: ").append(toIndentedString(redirectUri)).append("\n");
     sb.append("    codeVerifier: ").append(toIndentedString(codeVerifier)).append("\n");
     sb.append("    refreshToken: ").append(toIndentedString(refreshToken)).append("\n");
@@ -377,7 +405,7 @@ public class MCPOAuthTokenRequest {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("grant_type", "code", "client_id", "redirect_uri", "code_verifier", "refresh_token"));
+    openapiFields = new HashSet<String>(Arrays.asList("grant_type", "code", "client_id", "client_secret", "redirect_uri", "code_verifier", "refresh_token"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("grant_type"));
@@ -413,6 +441,9 @@ public class MCPOAuthTokenRequest {
       }
       if ((jsonObj.get("client_id") != null && !jsonObj.get("client_id").isJsonNull()) && !jsonObj.get("client_id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `client_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("client_id").toString()));
+      }
+      if ((jsonObj.get("client_secret") != null && !jsonObj.get("client_secret").isJsonNull()) && !jsonObj.get("client_secret").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `client_secret` to be a primitive type in the JSON string but got `%s`", jsonObj.get("client_secret").toString()));
       }
       if ((jsonObj.get("redirect_uri") != null && !jsonObj.get("redirect_uri").isJsonNull()) && !jsonObj.get("redirect_uri").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `redirect_uri` to be a primitive type in the JSON string but got `%s`", jsonObj.get("redirect_uri").toString()));

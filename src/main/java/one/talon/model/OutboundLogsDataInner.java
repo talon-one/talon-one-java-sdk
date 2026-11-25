@@ -20,13 +20,11 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
-import java.time.OffsetDateTime;
 import java.util.Arrays;
-import java.util.UUID;
-import one.talon.model.OutboundLog;
-import one.talon.model.OutboundLogRequest;
-import one.talon.model.OutboundLogResponse;
+import one.talon.model.OutboundLogStreamEntryType;
 import one.talon.model.OutboundLogStreamError;
+import one.talon.model.OutboundLogStreamErrorEntry;
+import one.talon.model.OutboundLogStreamLogEntry;
 
 
 
@@ -75,8 +73,8 @@ public class OutboundLogsDataInner extends AbstractOpenApiSchema {
                 return null; // this class only serializes 'OutboundLogsDataInner' and its subtypes
             }
             final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-            final TypeAdapter<OutboundLog> adapterOutboundLog = gson.getAdapter(TypeToken.get(OutboundLog.class));
-            final TypeAdapter<OutboundLogStreamError> adapterOutboundLogStreamError = gson.getAdapter(TypeToken.get(OutboundLogStreamError.class));
+            final TypeAdapter<OutboundLogStreamLogEntry> adapterOutboundLogStreamLogEntry = gson.getAdapter(TypeToken.get(OutboundLogStreamLogEntry.class));
+            final TypeAdapter<OutboundLogStreamErrorEntry> adapterOutboundLogStreamErrorEntry = gson.getAdapter(TypeToken.get(OutboundLogStreamErrorEntry.class));
 
             return (TypeAdapter<T>) new TypeAdapter<OutboundLogsDataInner>() {
                 private void writeJsonElement(JsonWriter out, JsonElement value) throws IOException {
@@ -96,19 +94,19 @@ public class OutboundLogsDataInner extends AbstractOpenApiSchema {
                         return;
                     }
 
-                    // check if the actual instance is of the type `OutboundLog`
-                    if (value.getActualInstance() instanceof OutboundLog) {
-                        JsonElement element = adapterOutboundLog.toJsonTree((OutboundLog)value.getActualInstance());
+                    // check if the actual instance is of the type `OutboundLogStreamLogEntry`
+                    if (value.getActualInstance() instanceof OutboundLogStreamLogEntry) {
+                        JsonElement element = adapterOutboundLogStreamLogEntry.toJsonTree((OutboundLogStreamLogEntry)value.getActualInstance());
                         writeJsonElement(out, element);
                         return;
                     }
-                    // check if the actual instance is of the type `OutboundLogStreamError`
-                    if (value.getActualInstance() instanceof OutboundLogStreamError) {
-                        JsonElement element = adapterOutboundLogStreamError.toJsonTree((OutboundLogStreamError)value.getActualInstance());
+                    // check if the actual instance is of the type `OutboundLogStreamErrorEntry`
+                    if (value.getActualInstance() instanceof OutboundLogStreamErrorEntry) {
+                        JsonElement element = adapterOutboundLogStreamErrorEntry.toJsonTree((OutboundLogStreamErrorEntry)value.getActualInstance());
                         writeJsonElement(out, element);
                         return;
                     }
-                    throw new IOException("Failed to serialize as the type doesn't match oneOf schemas: OutboundLog, OutboundLogStreamError");
+                    throw new IOException("Failed to serialize as the type doesn't match oneOf schemas: OutboundLogStreamErrorEntry, OutboundLogStreamLogEntry");
                 }
 
                 @Override
@@ -116,33 +114,55 @@ public class OutboundLogsDataInner extends AbstractOpenApiSchema {
                     Object deserialized = null;
                     JsonElement jsonElement = elementAdapter.read(in);
 
+                    JsonObject jsonObject = jsonElement.getAsJsonObject();
+
+                    // use discriminator value for faster oneOf lookup
+                    OutboundLogsDataInner newOutboundLogsDataInner = new OutboundLogsDataInner();
+                    if (jsonObject.get("type") == null) {
+                        log.log(Level.WARNING, "Failed to lookup discriminator value for OutboundLogsDataInner as `type` was not found in the payload or the payload is empty.");
+                    } else  {
+                        // look up the discriminator value in the field `type`
+                        switch (jsonObject.get("type").getAsString()) {
+                            case "error":
+                                deserialized = adapterOutboundLogStreamErrorEntry.fromJsonTree(jsonObject);
+                                newOutboundLogsDataInner.setActualInstance(deserialized);
+                                return newOutboundLogsDataInner;
+                            case "log":
+                                deserialized = adapterOutboundLogStreamLogEntry.fromJsonTree(jsonObject);
+                                newOutboundLogsDataInner.setActualInstance(deserialized);
+                                return newOutboundLogsDataInner;
+                            default:
+                                log.log(Level.WARNING, String.format(java.util.Locale.ROOT, "Failed to lookup discriminator value `%s` for OutboundLogsDataInner. Possible values: error log", jsonObject.get("type").getAsString()));
+                        }
+                    }
+
                     int match = 0;
                     ArrayList<String> errorMessages = new ArrayList<>();
                     TypeAdapter actualAdapter = elementAdapter;
 
-                    // deserialize OutboundLog
+                    // deserialize OutboundLogStreamLogEntry
                     try {
                         // validate the JSON object to see if any exception is thrown
-                        OutboundLog.validateJsonElement(jsonElement);
-                        actualAdapter = adapterOutboundLog;
+                        OutboundLogStreamLogEntry.validateJsonElement(jsonElement);
+                        actualAdapter = adapterOutboundLogStreamLogEntry;
                         match++;
-                        log.log(Level.FINER, "Input data matches schema 'OutboundLog'");
+                        log.log(Level.FINER, "Input data matches schema 'OutboundLogStreamLogEntry'");
                     } catch (Exception e) {
                         // deserialization failed, continue
-                        errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for OutboundLog failed with `%s`.", e.getMessage()));
-                        log.log(Level.FINER, "Input data does not match schema 'OutboundLog'", e);
+                        errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for OutboundLogStreamLogEntry failed with `%s`.", e.getMessage()));
+                        log.log(Level.FINER, "Input data does not match schema 'OutboundLogStreamLogEntry'", e);
                     }
-                    // deserialize OutboundLogStreamError
+                    // deserialize OutboundLogStreamErrorEntry
                     try {
                         // validate the JSON object to see if any exception is thrown
-                        OutboundLogStreamError.validateJsonElement(jsonElement);
-                        actualAdapter = adapterOutboundLogStreamError;
+                        OutboundLogStreamErrorEntry.validateJsonElement(jsonElement);
+                        actualAdapter = adapterOutboundLogStreamErrorEntry;
                         match++;
-                        log.log(Level.FINER, "Input data matches schema 'OutboundLogStreamError'");
+                        log.log(Level.FINER, "Input data matches schema 'OutboundLogStreamErrorEntry'");
                     } catch (Exception e) {
                         // deserialization failed, continue
-                        errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for OutboundLogStreamError failed with `%s`.", e.getMessage()));
-                        log.log(Level.FINER, "Input data does not match schema 'OutboundLogStreamError'", e);
+                        errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for OutboundLogStreamErrorEntry failed with `%s`.", e.getMessage()));
+                        log.log(Level.FINER, "Input data does not match schema 'OutboundLogStreamErrorEntry'", e);
                     }
 
                     if (match == 1) {
@@ -170,8 +190,8 @@ public class OutboundLogsDataInner extends AbstractOpenApiSchema {
     }
 
     static {
-        schemas.put("OutboundLog", OutboundLog.class);
-        schemas.put("OutboundLogStreamError", OutboundLogStreamError.class);
+        schemas.put("OutboundLogStreamLogEntry", OutboundLogStreamLogEntry.class);
+        schemas.put("OutboundLogStreamErrorEntry", OutboundLogStreamErrorEntry.class);
     }
 
     @Override
@@ -182,30 +202,30 @@ public class OutboundLogsDataInner extends AbstractOpenApiSchema {
     /**
      * Set the instance that matches the oneOf child schema, check
      * the instance parameter is valid against the oneOf child schemas:
-     * OutboundLog, OutboundLogStreamError
+     * OutboundLogStreamErrorEntry, OutboundLogStreamLogEntry
      *
      * It could be an instance of the 'oneOf' schemas.
      */
     @Override
     public void setActualInstance(Object instance) {
-        if (instance instanceof OutboundLog) {
+        if (instance instanceof OutboundLogStreamLogEntry) {
             super.setActualInstance(instance);
             return;
         }
 
-        if (instance instanceof OutboundLogStreamError) {
+        if (instance instanceof OutboundLogStreamErrorEntry) {
             super.setActualInstance(instance);
             return;
         }
 
-        throw new RuntimeException("Invalid instance type. Must be OutboundLog, OutboundLogStreamError");
+        throw new RuntimeException("Invalid instance type. Must be OutboundLogStreamErrorEntry, OutboundLogStreamLogEntry");
     }
 
     /**
      * Get the actual instance, which can be the following:
-     * OutboundLog, OutboundLogStreamError
+     * OutboundLogStreamErrorEntry, OutboundLogStreamLogEntry
      *
-     * @return The actual instance (OutboundLog, OutboundLogStreamError)
+     * @return The actual instance (OutboundLogStreamErrorEntry, OutboundLogStreamLogEntry)
      */
     @SuppressWarnings("unchecked")
     @Override
@@ -214,27 +234,27 @@ public class OutboundLogsDataInner extends AbstractOpenApiSchema {
     }
 
     /**
-     * Get the actual instance of `OutboundLog`. If the actual instance is not `OutboundLog`,
+     * Get the actual instance of `OutboundLogStreamLogEntry`. If the actual instance is not `OutboundLogStreamLogEntry`,
      * the ClassCastException will be thrown.
      *
-     * @return The actual instance of `OutboundLog`
-     * @throws ClassCastException if the instance is not `OutboundLog`
+     * @return The actual instance of `OutboundLogStreamLogEntry`
+     * @throws ClassCastException if the instance is not `OutboundLogStreamLogEntry`
      */
     @SuppressWarnings("unchecked")
-    public OutboundLog getOutboundLog() throws ClassCastException {
-        return (OutboundLog)super.getActualInstance();
+    public OutboundLogStreamLogEntry getOutboundLogStreamLogEntry() throws ClassCastException {
+        return (OutboundLogStreamLogEntry)super.getActualInstance();
     }
 
     /**
-     * Get the actual instance of `OutboundLogStreamError`. If the actual instance is not `OutboundLogStreamError`,
+     * Get the actual instance of `OutboundLogStreamErrorEntry`. If the actual instance is not `OutboundLogStreamErrorEntry`,
      * the ClassCastException will be thrown.
      *
-     * @return The actual instance of `OutboundLogStreamError`
-     * @throws ClassCastException if the instance is not `OutboundLogStreamError`
+     * @return The actual instance of `OutboundLogStreamErrorEntry`
+     * @throws ClassCastException if the instance is not `OutboundLogStreamErrorEntry`
      */
     @SuppressWarnings("unchecked")
-    public OutboundLogStreamError getOutboundLogStreamError() throws ClassCastException {
-        return (OutboundLogStreamError)super.getActualInstance();
+    public OutboundLogStreamErrorEntry getOutboundLogStreamErrorEntry() throws ClassCastException {
+        return (OutboundLogStreamErrorEntry)super.getActualInstance();
     }
 
     /**
@@ -247,24 +267,24 @@ public class OutboundLogsDataInner extends AbstractOpenApiSchema {
         // validate oneOf schemas one by one
         int validCount = 0;
         ArrayList<String> errorMessages = new ArrayList<>();
-        // validate the json string with OutboundLog
+        // validate the json string with OutboundLogStreamLogEntry
         try {
-            OutboundLog.validateJsonElement(jsonElement);
+            OutboundLogStreamLogEntry.validateJsonElement(jsonElement);
             validCount++;
         } catch (Exception e) {
-            errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for OutboundLog failed with `%s`.", e.getMessage()));
+            errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for OutboundLogStreamLogEntry failed with `%s`.", e.getMessage()));
             // continue to the next one
         }
-        // validate the json string with OutboundLogStreamError
+        // validate the json string with OutboundLogStreamErrorEntry
         try {
-            OutboundLogStreamError.validateJsonElement(jsonElement);
+            OutboundLogStreamErrorEntry.validateJsonElement(jsonElement);
             validCount++;
         } catch (Exception e) {
-            errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for OutboundLogStreamError failed with `%s`.", e.getMessage()));
+            errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for OutboundLogStreamErrorEntry failed with `%s`.", e.getMessage()));
             // continue to the next one
         }
         if (validCount != 1) {
-            throw new IOException(String.format(java.util.Locale.ROOT, "The JSON string is invalid for OutboundLogsDataInner with oneOf schemas: OutboundLog, OutboundLogStreamError. %d class(es) match the result, expected 1. Detailed failure message for oneOf schemas: %s. JSON: %s", validCount, errorMessages, jsonElement.toString()));
+            throw new IOException(String.format(java.util.Locale.ROOT, "The JSON string is invalid for OutboundLogsDataInner with oneOf schemas: OutboundLogStreamErrorEntry, OutboundLogStreamLogEntry. %d class(es) match the result, expected 1. Detailed failure message for oneOf schemas: %s. JSON: %s", validCount, errorMessages, jsonElement.toString()));
         }
     }
 

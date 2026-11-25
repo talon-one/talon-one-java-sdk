@@ -64,6 +64,7 @@ import one.talon.model.UpdateAchievementProgressBlock;
 import one.talon.model.UpdateAttributeValueBlock;
 import one.talon.model.UpdateAudienceMembershipBlock;
 import one.talon.model.UpdateLoyaltyPointsExpiryBlock;
+import one.talon.model.UpdateLoyaltyProgramMembershipBlock;
 import one.talon.model.WebhookBlockReference;
 import org.openapitools.jackson.nullable.JsonNullable;
 import org.junit.jupiter.api.Disabled;
@@ -169,6 +170,14 @@ public class BlockTest {
     @Test
     public void targetTest() {
         // TODO: test target
+    }
+
+    /**
+     * Test the property 'excludedFromPriceHistory'
+     */
+    @Test
+    public void excludedFromPriceHistoryTest() {
+        // TODO: test excludedFromPriceHistory
     }
 
     /**
@@ -505,6 +514,14 @@ public class BlockTest {
     @Test
     public void recipientTest() {
         // TODO: test recipient
+    }
+
+    /**
+     * Test the property 'joinDate'
+     */
+    @Test
+    public void joinDateTest() {
+        // TODO: test joinDate
     }
 
     /**

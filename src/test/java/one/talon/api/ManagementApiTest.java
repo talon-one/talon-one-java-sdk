@@ -403,7 +403,8 @@ public class ManagementApiTest {
         Long campaignId = null;
         NewCoupons newCoupons = null;
         String silent = null;
-        CreateCoupons200Response response = api.createCoupons(applicationId, campaignId, newCoupons, silent);
+        String full = null;
+        CreateCoupons200Response response = api.createCoupons(applicationId, campaignId, newCoupons, silent, full);
         // TODO: test validations
     }
 

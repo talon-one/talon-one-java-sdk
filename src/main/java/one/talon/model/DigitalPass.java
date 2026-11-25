@@ -22,6 +22,7 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.net.URI;
 import java.util.Arrays;
+import java.util.UUID;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -58,12 +59,12 @@ public class DigitalPass {
   public static final String SERIALIZED_NAME_PASS_ID = "passId";
   @SerializedName(SERIALIZED_NAME_PASS_ID)
   @javax.annotation.Nonnull
-  private String passId;
+  private UUID passId;
 
   public static final String SERIALIZED_NAME_PASS_TEMPLATE_ID = "passTemplateId";
   @SerializedName(SERIALIZED_NAME_PASS_TEMPLATE_ID)
   @javax.annotation.Nonnull
-  private String passTemplateId;
+  private UUID passTemplateId;
 
   /**
    * The status of the digital pass.  &#x60;created&#x60; indicates that the pass was generated and is ready to be added to a wallet. 
@@ -128,7 +129,7 @@ public class DigitalPass {
   public DigitalPass() {
   }
 
-  public DigitalPass passId(@javax.annotation.Nonnull String passId) {
+  public DigitalPass passId(@javax.annotation.Nonnull UUID passId) {
     this.passId = passId;
     this.markPropertyAsSet(SERIALIZED_NAME_PASS_ID);
     return this;
@@ -139,17 +140,17 @@ public class DigitalPass {
    * @return passId
    */
   @javax.annotation.Nonnull
-  public String getPassId() {
+  public UUID getPassId() {
     return passId;
   }
 
-  public void setPassId(@javax.annotation.Nonnull String passId) {
+  public void setPassId(@javax.annotation.Nonnull UUID passId) {
     this.passId = passId;
     this.markPropertyAsSet(SERIALIZED_NAME_PASS_ID);
   }
 
 
-  public DigitalPass passTemplateId(@javax.annotation.Nonnull String passTemplateId) {
+  public DigitalPass passTemplateId(@javax.annotation.Nonnull UUID passTemplateId) {
     this.passTemplateId = passTemplateId;
     this.markPropertyAsSet(SERIALIZED_NAME_PASS_TEMPLATE_ID);
     return this;
@@ -160,11 +161,11 @@ public class DigitalPass {
    * @return passTemplateId
    */
   @javax.annotation.Nonnull
-  public String getPassTemplateId() {
+  public UUID getPassTemplateId() {
     return passTemplateId;
   }
 
-  public void setPassTemplateId(@javax.annotation.Nonnull String passTemplateId) {
+  public void setPassTemplateId(@javax.annotation.Nonnull UUID passTemplateId) {
     this.passTemplateId = passTemplateId;
     this.markPropertyAsSet(SERIALIZED_NAME_PASS_TEMPLATE_ID);
   }
@@ -198,7 +199,7 @@ public class DigitalPass {
   }
 
   /**
-   * The URL you can use to let the customer add the digital pass to their wallet.
+   * The URL you can use to let the customer add the digital pass to their wallet.  **Note**: For Google Wallet, the URL is valid for 30 days. After 30 days, create the pass again to get a new URL. 
    * @return passUrl
    */
   @javax.annotation.Nonnull

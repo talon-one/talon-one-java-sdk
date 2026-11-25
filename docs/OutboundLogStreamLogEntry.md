@@ -2,7 +2,7 @@
 
 # OutboundLogStreamLogEntry
 
-An outbound log entry in an `ndjson` stream.
+An outbound log entry in a stream of outbound logs.
 
 ## Properties
 

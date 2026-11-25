@@ -476,6 +476,11 @@ public class RiskDetail {
   @javax.annotation.Nonnull
   private OffsetDateTime modified;
 
+  public static final String SERIALIZED_NAME_APPLICATION_NAME = "applicationName";
+  @SerializedName(SERIALIZED_NAME_APPLICATION_NAME)
+  @javax.annotation.Nullable
+  private String applicationName;
+
   public static final String SERIALIZED_NAME_AFFECTED_ENTITIES = "affectedEntities";
   @SerializedName(SERIALIZED_NAME_AFFECTED_ENTITIES)
   @javax.annotation.Nonnull
@@ -883,6 +888,27 @@ public class RiskDetail {
   }
 
 
+  public RiskDetail applicationName(@javax.annotation.Nullable String applicationName) {
+    this.applicationName = applicationName;
+    this.markPropertyAsSet(SERIALIZED_NAME_APPLICATION_NAME);
+    return this;
+  }
+
+  /**
+   * The current name of the Application this risk belongs to. Shown even if the user does not have access to that Application. Omitted if the Application has been deleted or the risk is not associated with an Application. 
+   * @return applicationName
+   */
+  @javax.annotation.Nullable
+  public String getApplicationName() {
+    return applicationName;
+  }
+
+  public void setApplicationName(@javax.annotation.Nullable String applicationName) {
+    this.applicationName = applicationName;
+    this.markPropertyAsSet(SERIALIZED_NAME_APPLICATION_NAME);
+  }
+
+
   public RiskDetail affectedEntities(@javax.annotation.Nonnull List<RiskAffectedEntityItem> affectedEntities) {
     this.affectedEntities = affectedEntities;
     this.markPropertyAsSet(SERIALIZED_NAME_AFFECTED_ENTITIES);
@@ -1001,13 +1027,14 @@ public class RiskDetail {
         Objects.equals(this.statusChangedBy, riskDetail.statusChangedBy) &&
         Objects.equals(this.statusChangedAt, riskDetail.statusChangedAt) &&
         Objects.equals(this.modified, riskDetail.modified) &&
+        Objects.equals(this.applicationName, riskDetail.applicationName) &&
         Objects.equals(this.affectedEntities, riskDetail.affectedEntities)&&
         Objects.equals(this.additionalProperties, riskDetail.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, created, notificationId, featureDate, groupKey, applicationId, status, criticality, entity, activity, timeFrame, reportedDate, affectedEntityCount, description, discardReason, statusComment, statusChangedBy, statusChangedAt, modified, affectedEntities, additionalProperties);
+    return Objects.hash(id, created, notificationId, featureDate, groupKey, applicationId, status, criticality, entity, activity, timeFrame, reportedDate, affectedEntityCount, description, discardReason, statusComment, statusChangedBy, statusChangedAt, modified, applicationName, affectedEntities, additionalProperties);
   }
 
   @Override
@@ -1033,6 +1060,7 @@ public class RiskDetail {
     sb.append("    statusChangedBy: ").append(toIndentedString(statusChangedBy)).append("\n");
     sb.append("    statusChangedAt: ").append(toIndentedString(statusChangedAt)).append("\n");
     sb.append("    modified: ").append(toIndentedString(modified)).append("\n");
+    sb.append("    applicationName: ").append(toIndentedString(applicationName)).append("\n");
     sb.append("    affectedEntities: ").append(toIndentedString(affectedEntities)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
@@ -1053,7 +1081,7 @@ public class RiskDetail {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("id", "created", "notificationId", "featureDate", "groupKey", "applicationId", "status", "criticality", "entity", "activity", "timeFrame", "reportedDate", "affectedEntityCount", "description", "discardReason", "statusComment", "statusChangedBy", "statusChangedAt", "modified", "affectedEntities"));
+    openapiFields = new HashSet<String>(Arrays.asList("id", "created", "notificationId", "featureDate", "groupKey", "applicationId", "status", "criticality", "entity", "activity", "timeFrame", "reportedDate", "affectedEntityCount", "description", "discardReason", "statusComment", "statusChangedBy", "statusChangedAt", "modified", "applicationName", "affectedEntities"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("id", "created", "notificationId", "featureDate", "groupKey", "status", "criticality", "entity", "activity", "timeFrame", "reportedDate", "affectedEntityCount", "modified", "affectedEntities"));
@@ -1119,6 +1147,9 @@ public class RiskDetail {
       }
       if ((jsonObj.get("statusComment") != null && !jsonObj.get("statusComment").isJsonNull()) && !jsonObj.get("statusComment").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `statusComment` to be a primitive type in the JSON string but got `%s`", jsonObj.get("statusComment").toString()));
+      }
+      if ((jsonObj.get("applicationName") != null && !jsonObj.get("applicationName").isJsonNull()) && !jsonObj.get("applicationName").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `applicationName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("applicationName").toString()));
       }
       if (jsonObj.get("affectedEntities") != null) {
         if (!jsonObj.get("affectedEntities").isJsonArray()) {

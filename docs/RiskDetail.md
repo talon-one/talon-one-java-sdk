@@ -27,6 +27,7 @@ Details of a risk, including its most severely affected entities.
 |**statusChangedBy** | **Long** | The ID of the user who performed the latest reclassification action. |  [optional] |
 |**statusChangedAt** | **OffsetDateTime** | The time of the latest reclassification action. |  [optional] |
 |**modified** | **OffsetDateTime** | Timestamp of the most recent update. |  |
+|**applicationName** | **String** | The current name of the Application this risk belongs to. Shown even if the user does not have access to that Application. Omitted if the Application has been deleted or the risk is not associated with an Application.  |  [optional] |
 |**affectedEntities** | [**List&lt;RiskAffectedEntityItem&gt;**](RiskAffectedEntityItem.md) | The affected entities with the highest severity ratios, in descending order. |  |
 
 

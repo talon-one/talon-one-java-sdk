@@ -102,7 +102,7 @@ public class OutboundMessage {
 
   public static final String SERIALIZED_NAME_REQUEST = "request";
   @SerializedName(SERIALIZED_NAME_REQUEST)
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
   private OutboundLogRequest request;
 
   public static final String SERIALIZED_NAME_FIRST_LOG_AT = "firstLogAt";
@@ -306,7 +306,7 @@ public class OutboundMessage {
   }
 
 
-  public OutboundMessage request(@javax.annotation.Nullable OutboundLogRequest request) {
+  public OutboundMessage request(@javax.annotation.Nonnull OutboundLogRequest request) {
     this.request = request;
     this.markPropertyAsSet(SERIALIZED_NAME_REQUEST);
     return this;
@@ -316,12 +316,12 @@ public class OutboundMessage {
    * Get request
    * @return request
    */
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
   public OutboundLogRequest getRequest() {
     return request;
   }
 
-  public void setRequest(@javax.annotation.Nullable OutboundLogRequest request) {
+  public void setRequest(@javax.annotation.Nonnull OutboundLogRequest request) {
     this.request = request;
     this.markPropertyAsSet(SERIALIZED_NAME_REQUEST);
   }
@@ -595,7 +595,7 @@ public class OutboundMessage {
     openapiFields = new HashSet<String>(Arrays.asList("uuid", "notificationId", "notificationName", "webhookId", "webhookName", "notificationType", "applicationId", "loyaltyProgramId", "request", "firstLogAt", "lastLogAt", "lastResponseCode", "status", "retryCount", "responses"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("uuid", "notificationType", "firstLogAt", "lastLogAt", "status"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("uuid", "notificationType", "request", "firstLogAt", "lastLogAt", "status"));
   }
 
   /**
@@ -630,10 +630,8 @@ public class OutboundMessage {
       if (!jsonObj.get("notificationType").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `notificationType` to be a primitive type in the JSON string but got `%s`", jsonObj.get("notificationType").toString()));
       }
-      // validate the optional field `request`
-      if (jsonObj.get("request") != null && !jsonObj.get("request").isJsonNull()) {
-        OutboundLogRequest.validateJsonElement(jsonObj.get("request"));
-      }
+      // validate the required field `request`
+      OutboundLogRequest.validateJsonElement(jsonObj.get("request"));
       if (!jsonObj.get("status").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `status` to be a primitive type in the JSON string but got `%s`", jsonObj.get("status").toString()));
       }

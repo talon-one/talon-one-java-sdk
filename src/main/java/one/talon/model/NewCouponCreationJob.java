@@ -59,7 +59,7 @@ public class NewCouponCreationJob {
 
   public static final String SERIALIZED_NAME_USAGE_LIMIT = "usageLimit";
   @SerializedName(SERIALIZED_NAME_USAGE_LIMIT)
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
   private Long usageLimit;
 
   public static final String SERIALIZED_NAME_DISCOUNT_LIMIT = "discountLimit";
@@ -105,7 +105,7 @@ public class NewCouponCreationJob {
   public NewCouponCreationJob() {
   }
 
-  public NewCouponCreationJob usageLimit(@javax.annotation.Nullable Long usageLimit) {
+  public NewCouponCreationJob usageLimit(@javax.annotation.Nonnull Long usageLimit) {
     this.usageLimit = usageLimit;
     this.markPropertyAsSet(SERIALIZED_NAME_USAGE_LIMIT);
     return this;
@@ -117,12 +117,12 @@ public class NewCouponCreationJob {
    * maximum: 999999
    * @return usageLimit
    */
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
   public Long getUsageLimit() {
     return usageLimit;
   }
 
-  public void setUsageLimit(@javax.annotation.Nullable Long usageLimit) {
+  public void setUsageLimit(@javax.annotation.Nonnull Long usageLimit) {
     this.usageLimit = usageLimit;
     this.markPropertyAsSet(SERIALIZED_NAME_USAGE_LIMIT);
   }
@@ -423,7 +423,7 @@ public class NewCouponCreationJob {
     openapiFields = new HashSet<String>(Arrays.asList("usageLimit", "discountLimit", "reservationLimit", "startDate", "expiryDate", "numberOfCoupons", "couponSettings", "attributes", "isReservationMandatory"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("numberOfCoupons", "attributes"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("usageLimit", "numberOfCoupons", "attributes"));
   }
 
   /**

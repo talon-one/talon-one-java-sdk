@@ -95,4 +95,12 @@ public class MCPOAuthServerMetadataTest {
         // TODO: test codeChallengeMethodsSupported
     }
 
+    /**
+     * Test the property 'tokenEndpointAuthMethodsSupported'
+     */
+    @Test
+    public void tokenEndpointAuthMethodsSupportedTest() {
+        // TODO: test tokenEndpointAuthMethodsSupported
+    }
+
 }

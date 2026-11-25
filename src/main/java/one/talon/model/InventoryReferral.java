@@ -79,7 +79,7 @@ public class InventoryReferral {
 
   public static final String SERIALIZED_NAME_USAGE_LIMIT = "usageLimit";
   @SerializedName(SERIALIZED_NAME_USAGE_LIMIT)
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
   private Long usageLimit;
 
   public static final String SERIALIZED_NAME_CAMPAIGN_ID = "campaignId";
@@ -214,7 +214,7 @@ public class InventoryReferral {
   }
 
 
-  public InventoryReferral usageLimit(@javax.annotation.Nullable Long usageLimit) {
+  public InventoryReferral usageLimit(@javax.annotation.Nonnull Long usageLimit) {
     this.usageLimit = usageLimit;
     this.markPropertyAsSet(SERIALIZED_NAME_USAGE_LIMIT);
     return this;
@@ -226,12 +226,12 @@ public class InventoryReferral {
    * maximum: 999999
    * @return usageLimit
    */
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
   public Long getUsageLimit() {
     return usageLimit;
   }
 
-  public void setUsageLimit(@javax.annotation.Nullable Long usageLimit) {
+  public void setUsageLimit(@javax.annotation.Nonnull Long usageLimit) {
     this.usageLimit = usageLimit;
     this.markPropertyAsSet(SERIALIZED_NAME_USAGE_LIMIT);
   }
@@ -566,7 +566,7 @@ public class InventoryReferral {
     openapiFields = new HashSet<String>(Arrays.asList("id", "created", "startDate", "expiryDate", "usageLimit", "campaignId", "advocateProfileIntegrationId", "friendProfileIntegrationId", "attributes", "importId", "code", "usageCounter", "batchId", "referredCustomers"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("id", "created", "campaignId", "advocateProfileIntegrationId", "code", "usageCounter", "referredCustomers"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("id", "created", "usageLimit", "campaignId", "advocateProfileIntegrationId", "code", "usageCounter", "referredCustomers"));
   }
 
   /**

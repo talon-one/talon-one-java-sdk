@@ -181,6 +181,11 @@ public class AchievementProgressWithDefinition {
   @javax.annotation.Nullable
   private BigDecimal target;
 
+  public static final String SERIALIZED_NAME_ACHIEVEMENT_PERIOD = "achievementPeriod";
+  @SerializedName(SERIALIZED_NAME_ACHIEVEMENT_PERIOD)
+  @javax.annotation.Nullable
+  private String achievementPeriod;
+
   /**
    * The policy that determines if and how the achievement recurs. - &#x60;no_recurrence&#x60;: The achievement can be completed only once. - &#x60;on_expiration&#x60;: The achievement resets after it expires and becomes available again. - &#x60;on_completion&#x60;: When the customer progress status reaches &#x60;completed&#x60;, the achievement resets and becomes available again. 
    */
@@ -610,6 +615,27 @@ public class AchievementProgressWithDefinition {
   }
 
 
+  public AchievementProgressWithDefinition achievementPeriod(@javax.annotation.Nullable String achievementPeriod) {
+    this.achievementPeriod = achievementPeriod;
+    this.markPropertyAsSet(SERIALIZED_NAME_ACHIEVEMENT_PERIOD);
+    return this;
+  }
+
+  /**
+   * The relative duration after which the achievement ends and resets for a particular customer profile. This property is omitted for on-completion achievements which have no specified period.  The period is a positive real number followed by one letter indicating the time unit, and an optional rounding suffix.  Examples: &#x60;30s&#x60;, &#x60;40m&#x60;, &#x60;1h&#x60;, &#x60;5D&#x60;, &#x60;7W&#x60;, &#x60;10M&#x60;, &#x60;15Y&#x60;, &#x60;30D_D&#x60;, &#x60;1W_U&#x60;.  The letters indicate the following time units:  - &#x60;s&#x60;: Seconds.  - &#x60;m&#x60;: Minutes.  - &#x60;h&#x60;: Hours.  - &#x60;D&#x60;: Days.  - &#x60;W&#x60;: Weeks.  - &#x60;M&#x60;: Months.  - &#x60;Y&#x60;: Years.  If a suffix is present, it indicates the following rounding:  - &#x60;_D&#x60;: Rounds down, to the start of the day. It applies to days only. For example, &#x60;30D_D&#x60; ends at the start of the day, 30 days after the customer starts the achievement.  - &#x60;_U&#x60;: Rounds up, to the end of the day, week, month or year. It applies to days, weeks, months and years. For example, &#x60;1W_U&#x60; ends at the end of the week in which the one-week period would end. 
+   * @return achievementPeriod
+   */
+  @javax.annotation.Nullable
+  public String getAchievementPeriod() {
+    return achievementPeriod;
+  }
+
+  public void setAchievementPeriod(@javax.annotation.Nullable String achievementPeriod) {
+    this.achievementPeriod = achievementPeriod;
+    this.markPropertyAsSet(SERIALIZED_NAME_ACHIEVEMENT_PERIOD);
+  }
+
+
   public AchievementProgressWithDefinition achievementRecurrencePolicy(@javax.annotation.Nonnull AchievementRecurrencePolicyEnum achievementRecurrencePolicy) {
     this.achievementRecurrencePolicy = achievementRecurrencePolicy;
     this.markPropertyAsSet(SERIALIZED_NAME_ACHIEVEMENT_RECURRENCE_POLICY);
@@ -797,6 +823,7 @@ public class AchievementProgressWithDefinition {
         Objects.equals(this.campaignIds, achievementProgressWithDefinition.campaignIds) &&
         Objects.equals(this.referencedByCampaigns, achievementProgressWithDefinition.referencedByCampaigns) &&
         Objects.equals(this.target, achievementProgressWithDefinition.target) &&
+        Objects.equals(this.achievementPeriod, achievementProgressWithDefinition.achievementPeriod) &&
         Objects.equals(this.achievementRecurrencePolicy, achievementProgressWithDefinition.achievementRecurrencePolicy) &&
         Objects.equals(this.achievementActivationPolicy, achievementProgressWithDefinition.achievementActivationPolicy) &&
         Objects.equals(this.achievementFixedStartDate, achievementProgressWithDefinition.achievementFixedStartDate) &&
@@ -807,7 +834,7 @@ public class AchievementProgressWithDefinition {
 
   @Override
   public int hashCode() {
-    return Objects.hash(status, progress, startDate, completionDate, endDate, achievementId, name, title, description, campaignId, campaignIds, referencedByCampaigns, target, achievementRecurrencePolicy, achievementActivationPolicy, achievementFixedStartDate, achievementEndDate, achievementAllowRollbackAfterCompletion, additionalProperties);
+    return Objects.hash(status, progress, startDate, completionDate, endDate, achievementId, name, title, description, campaignId, campaignIds, referencedByCampaigns, target, achievementPeriod, achievementRecurrencePolicy, achievementActivationPolicy, achievementFixedStartDate, achievementEndDate, achievementAllowRollbackAfterCompletion, additionalProperties);
   }
 
   @Override
@@ -827,6 +854,7 @@ public class AchievementProgressWithDefinition {
     sb.append("    campaignIds: ").append(toIndentedString(campaignIds)).append("\n");
     sb.append("    referencedByCampaigns: ").append(toIndentedString(referencedByCampaigns)).append("\n");
     sb.append("    target: ").append(toIndentedString(target)).append("\n");
+    sb.append("    achievementPeriod: ").append(toIndentedString(achievementPeriod)).append("\n");
     sb.append("    achievementRecurrencePolicy: ").append(toIndentedString(achievementRecurrencePolicy)).append("\n");
     sb.append("    achievementActivationPolicy: ").append(toIndentedString(achievementActivationPolicy)).append("\n");
     sb.append("    achievementFixedStartDate: ").append(toIndentedString(achievementFixedStartDate)).append("\n");
@@ -851,7 +879,7 @@ public class AchievementProgressWithDefinition {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("status", "progress", "startDate", "completionDate", "endDate", "achievementId", "name", "title", "description", "campaignId", "campaignIds", "referencedByCampaigns", "target", "achievementRecurrencePolicy", "achievementActivationPolicy", "achievementFixedStartDate", "achievementEndDate", "achievementAllowRollbackAfterCompletion"));
+    openapiFields = new HashSet<String>(Arrays.asList("status", "progress", "startDate", "completionDate", "endDate", "achievementId", "name", "title", "description", "campaignId", "campaignIds", "referencedByCampaigns", "target", "achievementPeriod", "achievementRecurrencePolicy", "achievementActivationPolicy", "achievementFixedStartDate", "achievementEndDate", "achievementAllowRollbackAfterCompletion"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("status", "progress", "achievementId", "name", "title", "description", "campaignIds", "referencedByCampaigns", "achievementRecurrencePolicy", "achievementActivationPolicy"));
@@ -906,6 +934,9 @@ public class AchievementProgressWithDefinition {
         for (int i = 0; i < jsonArrayreferencedByCampaigns.size(); i++) {
           CampaignReference.validateJsonElement(jsonArrayreferencedByCampaigns.get(i));
         }
+      }
+      if ((jsonObj.get("achievementPeriod") != null && !jsonObj.get("achievementPeriod").isJsonNull()) && !jsonObj.get("achievementPeriod").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `achievementPeriod` to be a primitive type in the JSON string but got `%s`", jsonObj.get("achievementPeriod").toString()));
       }
       if (!jsonObj.get("achievementRecurrencePolicy").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `achievementRecurrencePolicy` to be a primitive type in the JSON string but got `%s`", jsonObj.get("achievementRecurrencePolicy").toString()));

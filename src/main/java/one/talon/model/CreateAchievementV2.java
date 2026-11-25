@@ -60,22 +60,22 @@ public class CreateAchievementV2 {
 
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
   private String name;
 
   public static final String SERIALIZED_NAME_TITLE = "title";
   @SerializedName(SERIALIZED_NAME_TITLE)
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
   private String title;
 
   public static final String SERIALIZED_NAME_DESCRIPTION = "description";
   @SerializedName(SERIALIZED_NAME_DESCRIPTION)
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
   private String description;
 
   public static final String SERIALIZED_NAME_TARGET = "target";
   @SerializedName(SERIALIZED_NAME_TARGET)
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
   private BigDecimal target;
 
   public static final String SERIALIZED_NAME_PERIOD = "period";
@@ -232,7 +232,7 @@ public class CreateAchievementV2 {
   public CreateAchievementV2() {
   }
 
-  public CreateAchievementV2 name(@javax.annotation.Nullable String name) {
+  public CreateAchievementV2 name(@javax.annotation.Nonnull String name) {
     this.name = name;
     this.markPropertyAsSet(SERIALIZED_NAME_NAME);
     return this;
@@ -242,18 +242,18 @@ public class CreateAchievementV2 {
    * The internal name of the achievement used in API requests.  **Note**: The name should start with a letter. This cannot be changed after the achievement has been created. 
    * @return name
    */
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
   public String getName() {
     return name;
   }
 
-  public void setName(@javax.annotation.Nullable String name) {
+  public void setName(@javax.annotation.Nonnull String name) {
     this.name = name;
     this.markPropertyAsSet(SERIALIZED_NAME_NAME);
   }
 
 
-  public CreateAchievementV2 title(@javax.annotation.Nullable String title) {
+  public CreateAchievementV2 title(@javax.annotation.Nonnull String title) {
     this.title = title;
     this.markPropertyAsSet(SERIALIZED_NAME_TITLE);
     return this;
@@ -263,18 +263,18 @@ public class CreateAchievementV2 {
    * The display name for the achievement in the Campaign Manager.
    * @return title
    */
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
   public String getTitle() {
     return title;
   }
 
-  public void setTitle(@javax.annotation.Nullable String title) {
+  public void setTitle(@javax.annotation.Nonnull String title) {
     this.title = title;
     this.markPropertyAsSet(SERIALIZED_NAME_TITLE);
   }
 
 
-  public CreateAchievementV2 description(@javax.annotation.Nullable String description) {
+  public CreateAchievementV2 description(@javax.annotation.Nonnull String description) {
     this.description = description;
     this.markPropertyAsSet(SERIALIZED_NAME_DESCRIPTION);
     return this;
@@ -284,18 +284,18 @@ public class CreateAchievementV2 {
    * A description of the achievement.
    * @return description
    */
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
   public String getDescription() {
     return description;
   }
 
-  public void setDescription(@javax.annotation.Nullable String description) {
+  public void setDescription(@javax.annotation.Nonnull String description) {
     this.description = description;
     this.markPropertyAsSet(SERIALIZED_NAME_DESCRIPTION);
   }
 
 
-  public CreateAchievementV2 target(@javax.annotation.Nullable BigDecimal target) {
+  public CreateAchievementV2 target(@javax.annotation.Nonnull BigDecimal target) {
     this.target = target;
     this.markPropertyAsSet(SERIALIZED_NAME_TARGET);
     return this;
@@ -305,12 +305,12 @@ public class CreateAchievementV2 {
    * The required number of actions or the transactional milestone to complete the achievement.
    * @return target
    */
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
   public BigDecimal getTarget() {
     return target;
   }
 
-  public void setTarget(@javax.annotation.Nullable BigDecimal target) {
+  public void setTarget(@javax.annotation.Nonnull BigDecimal target) {
     this.target = target;
     this.markPropertyAsSet(SERIALIZED_NAME_TARGET);
   }
@@ -643,7 +643,7 @@ public class CreateAchievementV2 {
     openapiFields = new HashSet<String>(Arrays.asList("name", "title", "description", "target", "period", "recurrencePolicy", "activationPolicy", "fixedStartDate", "endDate", "allowRollbackAfterCompletion", "subscribedApplications", "sandbox", "timezone"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("sandbox", "timezone"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("name", "title", "description", "target", "sandbox", "timezone"));
   }
 
   /**
@@ -666,13 +666,13 @@ public class CreateAchievementV2 {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if ((jsonObj.get("name") != null && !jsonObj.get("name").isJsonNull()) && !jsonObj.get("name").isJsonPrimitive()) {
+      if (!jsonObj.get("name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
       }
-      if ((jsonObj.get("title") != null && !jsonObj.get("title").isJsonNull()) && !jsonObj.get("title").isJsonPrimitive()) {
+      if (!jsonObj.get("title").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `title` to be a primitive type in the JSON string but got `%s`", jsonObj.get("title").toString()));
       }
-      if ((jsonObj.get("description") != null && !jsonObj.get("description").isJsonNull()) && !jsonObj.get("description").isJsonPrimitive()) {
+      if (!jsonObj.get("description").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `description` to be a primitive type in the JSON string but got `%s`", jsonObj.get("description").toString()));
       }
       if ((jsonObj.get("period") != null && !jsonObj.get("period").isJsonNull()) && !jsonObj.get("period").isJsonPrimitive()) {

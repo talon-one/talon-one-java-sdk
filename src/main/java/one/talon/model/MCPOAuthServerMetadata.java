@@ -91,6 +91,11 @@ public class MCPOAuthServerMetadata {
   @javax.annotation.Nonnull
   private List<String> codeChallengeMethodsSupported = new ArrayList<>();
 
+  public static final String SERIALIZED_NAME_TOKEN_ENDPOINT_AUTH_METHODS_SUPPORTED = "token_endpoint_auth_methods_supported";
+  @SerializedName(SERIALIZED_NAME_TOKEN_ENDPOINT_AUTH_METHODS_SUPPORTED)
+  @javax.annotation.Nullable
+  private List<String> tokenEndpointAuthMethodsSupported;
+
   public MCPOAuthServerMetadata() {
   }
 
@@ -267,6 +272,36 @@ public class MCPOAuthServerMetadata {
     this.markPropertyAsSet(SERIALIZED_NAME_CODE_CHALLENGE_METHODS_SUPPORTED);
   }
 
+
+  public MCPOAuthServerMetadata tokenEndpointAuthMethodsSupported(@javax.annotation.Nullable List<String> tokenEndpointAuthMethodsSupported) {
+    this.tokenEndpointAuthMethodsSupported = tokenEndpointAuthMethodsSupported;
+    this.markPropertyAsSet(SERIALIZED_NAME_TOKEN_ENDPOINT_AUTH_METHODS_SUPPORTED);
+    return this;
+  }
+
+  public MCPOAuthServerMetadata addTokenEndpointAuthMethodsSupportedItem(String tokenEndpointAuthMethodsSupportedItem) {
+    if (this.tokenEndpointAuthMethodsSupported == null) {
+      this.tokenEndpointAuthMethodsSupported = new ArrayList<>();
+    }
+    this.tokenEndpointAuthMethodsSupported.add(tokenEndpointAuthMethodsSupportedItem);
+    this.markPropertyAsSet(SERIALIZED_NAME_TOKEN_ENDPOINT_AUTH_METHODS_SUPPORTED);
+    return this;
+  }
+
+  /**
+   * List of supported client authentication methods at the token endpoint. Public clients use &#x60;none&#x60;; confidential clients use &#x60;client_secret_post&#x60; or &#x60;client_secret_basic&#x60;.
+   * @return tokenEndpointAuthMethodsSupported
+   */
+  @javax.annotation.Nullable
+  public List<String> getTokenEndpointAuthMethodsSupported() {
+    return tokenEndpointAuthMethodsSupported;
+  }
+
+  public void setTokenEndpointAuthMethodsSupported(@javax.annotation.Nullable List<String> tokenEndpointAuthMethodsSupported) {
+    this.tokenEndpointAuthMethodsSupported = tokenEndpointAuthMethodsSupported;
+    this.markPropertyAsSet(SERIALIZED_NAME_TOKEN_ENDPOINT_AUTH_METHODS_SUPPORTED);
+  }
+
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -343,13 +378,14 @@ public class MCPOAuthServerMetadata {
         Objects.equals(this.registrationEndpoint, mcPOAuthServerMetadata.registrationEndpoint) &&
         Objects.equals(this.responseTypesSupported, mcPOAuthServerMetadata.responseTypesSupported) &&
         Objects.equals(this.grantTypesSupported, mcPOAuthServerMetadata.grantTypesSupported) &&
-        Objects.equals(this.codeChallengeMethodsSupported, mcPOAuthServerMetadata.codeChallengeMethodsSupported)&&
+        Objects.equals(this.codeChallengeMethodsSupported, mcPOAuthServerMetadata.codeChallengeMethodsSupported) &&
+        Objects.equals(this.tokenEndpointAuthMethodsSupported, mcPOAuthServerMetadata.tokenEndpointAuthMethodsSupported)&&
         Objects.equals(this.additionalProperties, mcPOAuthServerMetadata.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(issuer, authorizationEndpoint, tokenEndpoint, registrationEndpoint, responseTypesSupported, grantTypesSupported, codeChallengeMethodsSupported, additionalProperties);
+    return Objects.hash(issuer, authorizationEndpoint, tokenEndpoint, registrationEndpoint, responseTypesSupported, grantTypesSupported, codeChallengeMethodsSupported, tokenEndpointAuthMethodsSupported, additionalProperties);
   }
 
   @Override
@@ -363,6 +399,7 @@ public class MCPOAuthServerMetadata {
     sb.append("    responseTypesSupported: ").append(toIndentedString(responseTypesSupported)).append("\n");
     sb.append("    grantTypesSupported: ").append(toIndentedString(grantTypesSupported)).append("\n");
     sb.append("    codeChallengeMethodsSupported: ").append(toIndentedString(codeChallengeMethodsSupported)).append("\n");
+    sb.append("    tokenEndpointAuthMethodsSupported: ").append(toIndentedString(tokenEndpointAuthMethodsSupported)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -382,7 +419,7 @@ public class MCPOAuthServerMetadata {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("issuer", "authorization_endpoint", "token_endpoint", "registration_endpoint", "response_types_supported", "grant_types_supported", "code_challenge_methods_supported"));
+    openapiFields = new HashSet<String>(Arrays.asList("issuer", "authorization_endpoint", "token_endpoint", "registration_endpoint", "response_types_supported", "grant_types_supported", "code_challenge_methods_supported", "token_endpoint_auth_methods_supported"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("issuer", "authorization_endpoint", "token_endpoint", "registration_endpoint", "response_types_supported", "grant_types_supported", "code_challenge_methods_supported"));
@@ -437,6 +474,10 @@ public class MCPOAuthServerMetadata {
         throw new IllegalArgumentException("Expected the field `linkedContent` to be an array in the JSON string but got `null`");
       } else if (!jsonObj.get("code_challenge_methods_supported").isJsonArray()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `code_challenge_methods_supported` to be an array in the JSON string but got `%s`", jsonObj.get("code_challenge_methods_supported").toString()));
+      }
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("token_endpoint_auth_methods_supported") != null && !jsonObj.get("token_endpoint_auth_methods_supported").isJsonNull() && !jsonObj.get("token_endpoint_auth_methods_supported").isJsonArray()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `token_endpoint_auth_methods_supported` to be an array in the JSON string but got `%s`", jsonObj.get("token_endpoint_auth_methods_supported").toString()));
       }
   }
 

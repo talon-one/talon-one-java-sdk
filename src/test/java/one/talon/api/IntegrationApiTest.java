@@ -285,7 +285,7 @@ public class IntegrationApiTest {
     /**
      * List customer&#39;s available achievements
      *
-     * Retrieve all the achievements available to a given customer and their progress in them. 
+     * Retrieve all the achievements available to a given customer and their progress  in them. Use this endpoint to build an achievements page where customers can  browse the achievements they can participate in and see the details of each one.   The response contains one entry for each active achievement connected to  the Application, whether or not the customer has started it. Each entry  includes the achievement&#39;s details such as &#x60;target&#x60; and &#x60;period&#x60;, and the  customer&#39;s progress in the achievement. If the customer has not started  the achievement, &#x60;currentProgress.status&#x60; is &#x60;not_started&#x60;.   &gt; [!note] The [List customer data](https://docs.talon.one/integration-api#tag/Customer-profiles/operation/getCustomerInventory) &gt; endpoint also returns achievement data when &#x60;achievements&#x3D;true&#x60;, but with a &gt; different scope and structure: &gt; - It returns only the achievements the customer has started, completed, or &gt;  that have expired for them, one entry per progress record. Achievements the &gt;  customer has not started are not returned. &gt; - The results cannot be filtered or paginated. &gt; &gt; Use this endpoint when you need the customer&#39;s achievement progress &gt; together with other customer data, such as loyalty or coupons, in a single request. 
      *
      * @throws ApiException if the Api call fails
      */
@@ -305,7 +305,7 @@ public class IntegrationApiTest {
     /**
      * List customer data
      *
-     * Return the customer inventory regarding entities referencing this customer profile&#39;s &#x60;integrationId&#x60;.  Typical entities returned are: customer profile information, referral codes, loyalty points, loyalty cards and reserved coupons. Reserved coupons also include redeemed coupons. 
+     * Return a snapshot of the customer profile including the entities referencing this customer profile&#39;s &#x60;integrationId&#x60;. Typical entities returned are: customer profile information, referral codes, loyalty points, loyalty cards, reserved coupons and achievements.   &gt; [!note] Reserved coupons also include redeemed coupons.  When &#x60;achievements&#x3D;true&#x60;, the &#x60;achievements&#x60; array contains the customer&#39;s progress  in the achievements they have participated in. Only achievements the customer  has started are returned, whether they are in progress, completed, or expired.   Recurring achievements can appear more than once, once per iteration. The  achievements cannot be filtered or paginated.  &gt; [!note] To list all the achievements available to the customer, including the ones &gt; they have not started, and to filter or paginate the results, use the [List customer&#39;s available achievements](https://docs.talon.one/integration-api#tag/Achievements/operation/getCustomerAchievements) &gt; endpoint. 
      *
      * @throws ApiException if the Api call fails
      */

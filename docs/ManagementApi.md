@@ -1217,7 +1217,7 @@ public class Example {
 
 <a id="createCoupons"></a>
 # **createCoupons**
-> CreateCoupons200Response createCoupons(applicationId, campaignId, newCoupons, silent)
+> CreateCoupons200Response createCoupons(applicationId, campaignId, newCoupons, silent, full)
 
 Create coupons
 
@@ -1248,9 +1248,10 @@ public class Example {
     Long applicationId = 56L; // Long | The ID of the Application. It is displayed in your Talon.One deployment URL.
     Long campaignId = 56L; // Long | The ID of the campaign. It is displayed in your Talon.One deployment URL.
     NewCoupons newCoupons = new NewCoupons(); // NewCoupons | body
-    String silent = "yes"; // String | Possible values: `yes` or `no`. - `yes`: Increases the performance of the API call by returning a 204 response. - `no`: Returns a 200 response that contains the updated customer profiles. 
+    String silent = "no"; // String | Possible values: `yes` or `no`. - `yes`: Increases the performance of the API call by returning a 204 response. Requires `full` to be `no`; otherwise a 400 error is returned. - `no`: Returns a 200 response that contains the created coupons. 
+    String full = "no"; // String | Possible values: `yes` or `no`. - `yes`: Returns all created coupons. Requires `silent` to be `no`; otherwise a 400 error is returned. - `no`: Returns at most 1000 created coupons. 
     try {
-      CreateCoupons200Response result = apiInstance.createCoupons(applicationId, campaignId, newCoupons, silent);
+      CreateCoupons200Response result = apiInstance.createCoupons(applicationId, campaignId, newCoupons, silent, full);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ManagementApi#createCoupons");
@@ -1270,7 +1271,8 @@ public class Example {
 | **applicationId** | **Long**| The ID of the Application. It is displayed in your Talon.One deployment URL. | |
 | **campaignId** | **Long**| The ID of the campaign. It is displayed in your Talon.One deployment URL. | |
 | **newCoupons** | [**NewCoupons**](NewCoupons.md)| body | |
-| **silent** | **String**| Possible values: &#x60;yes&#x60; or &#x60;no&#x60;. - &#x60;yes&#x60;: Increases the performance of the API call by returning a 204 response. - &#x60;no&#x60;: Returns a 200 response that contains the updated customer profiles.  | [optional] [default to yes] |
+| **silent** | **String**| Possible values: &#x60;yes&#x60; or &#x60;no&#x60;. - &#x60;yes&#x60;: Increases the performance of the API call by returning a 204 response. Requires &#x60;full&#x60; to be &#x60;no&#x60;; otherwise a 400 error is returned. - &#x60;no&#x60;: Returns a 200 response that contains the created coupons.  | [optional] [default to no] |
+| **full** | **String**| Possible values: &#x60;yes&#x60; or &#x60;no&#x60;. - &#x60;yes&#x60;: Returns all created coupons. Requires &#x60;silent&#x60; to be &#x60;no&#x60;; otherwise a 400 error is returned. - &#x60;no&#x60;: Returns at most 1000 created coupons.  | [optional] [default to no] |
 
 ### Return type
 
@@ -1290,6 +1292,7 @@ public class Example {
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
 | **204** | No Content |  -  |
+| **400** | Bad request |  -  |
 
 <a id="createCouponsAsynchronously"></a>
 # **createCouponsAsynchronously**

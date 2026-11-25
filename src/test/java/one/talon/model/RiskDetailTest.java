@@ -195,6 +195,14 @@ public class RiskDetailTest {
     }
 
     /**
+     * Test the property 'applicationName'
+     */
+    @Test
+    public void applicationNameTest() {
+        // TODO: test applicationName
+    }
+
+    /**
      * Test the property 'affectedEntities'
      */
     @Test

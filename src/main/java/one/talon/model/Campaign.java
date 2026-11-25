@@ -88,7 +88,7 @@ public class Campaign {
 
   public static final String SERIALIZED_NAME_DESCRIPTION = "description";
   @SerializedName(SERIALIZED_NAME_DESCRIPTION)
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
   private String description;
 
   public static final String SERIALIZED_NAME_START_TIME = "startTime";
@@ -321,7 +321,7 @@ public class Campaign {
 
   public static final String SERIALIZED_NAME_TYPE = "type";
   @SerializedName(SERIALIZED_NAME_TYPE)
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
   private TypeEnum type = TypeEnum.ADVANCED;
 
   public static final String SERIALIZED_NAME_LINKED_STORE_IDS = "linkedStoreIds";
@@ -729,7 +729,7 @@ public class Campaign {
   }
 
 
-  public Campaign description(@javax.annotation.Nullable String description) {
+  public Campaign description(@javax.annotation.Nonnull String description) {
     this.description = description;
     this.markPropertyAsSet(SERIALIZED_NAME_DESCRIPTION);
     return this;
@@ -739,12 +739,12 @@ public class Campaign {
    * A detailed description of the campaign.
    * @return description
    */
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
   public String getDescription() {
     return description;
   }
 
-  public void setDescription(@javax.annotation.Nullable String description) {
+  public void setDescription(@javax.annotation.Nonnull String description) {
     this.description = description;
     this.markPropertyAsSet(SERIALIZED_NAME_DESCRIPTION);
   }
@@ -1038,7 +1038,7 @@ public class Campaign {
   }
 
 
-  public Campaign type(@javax.annotation.Nullable TypeEnum type) {
+  public Campaign type(@javax.annotation.Nonnull TypeEnum type) {
     this.type = type;
     this.markPropertyAsSet(SERIALIZED_NAME_TYPE);
     return this;
@@ -1048,12 +1048,12 @@ public class Campaign {
    * The campaign type. Possible type values:   - &#x60;cartItem&#x60;: Type of campaign that can apply effects only to cart items.   - &#x60;advanced&#x60;: Type of campaign that can apply effects to customer sessions and cart items. 
    * @return type
    */
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
   public TypeEnum getType() {
     return type;
   }
 
-  public void setType(@javax.annotation.Nullable TypeEnum type) {
+  public void setType(@javax.annotation.Nonnull TypeEnum type) {
     this.type = type;
     this.markPropertyAsSet(SERIALIZED_NAME_TYPE);
   }
@@ -2069,7 +2069,7 @@ public class Campaign {
     openapiFields = new HashSet<String>(Arrays.asList("id", "created", "applicationId", "userId", "name", "description", "startTime", "endTime", "attributes", "state", "activeRulesetId", "tags", "reevaluateOnReturn", "features", "couponSettings", "referralSettings", "limits", "campaignGroups", "type", "linkedStoreIds", "couponAttributes", "budgets", "couponRedemptionCount", "referralRedemptionCount", "discountCount", "discountEffectCount", "couponCreationCount", "customEffectCount", "referralCreationCount", "addFreeItemEffectCount", "awardedGiveawaysCount", "createdLoyaltyPointsCount", "createdLoyaltyPointsEffectCount", "redeemedLoyaltyPointsCount", "redeemedLoyaltyPointsEffectCount", "callApiEffectCount", "reservecouponEffectCount", "lastActivity", "updated", "createdBy", "updatedBy", "templateId", "frontendState", "storesImported", "valueMapsIds", "experimentId", "revisionFrontendState", "activeRevisionId", "activeRevisionVersionId", "version", "currentRevisionId", "currentRevisionVersionId", "stageRevision"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("id", "created", "applicationId", "userId", "name", "state", "tags", "reevaluateOnReturn", "features", "limits", "frontendState", "storesImported"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("id", "created", "applicationId", "userId", "name", "description", "state", "tags", "reevaluateOnReturn", "features", "limits", "type", "frontendState", "storesImported"));
   }
 
   /**
@@ -2095,7 +2095,7 @@ public class Campaign {
       if (!jsonObj.get("name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
       }
-      if ((jsonObj.get("description") != null && !jsonObj.get("description").isJsonNull()) && !jsonObj.get("description").isJsonPrimitive()) {
+      if (!jsonObj.get("description").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `description` to be a primitive type in the JSON string but got `%s`", jsonObj.get("description").toString()));
       }
       if (!jsonObj.get("state").isJsonPrimitive()) {
@@ -2137,13 +2137,11 @@ public class Campaign {
       if (jsonObj.get("campaignGroups") != null && !jsonObj.get("campaignGroups").isJsonNull() && !jsonObj.get("campaignGroups").isJsonArray()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `campaignGroups` to be an array in the JSON string but got `%s`", jsonObj.get("campaignGroups").toString()));
       }
-      if ((jsonObj.get("type") != null && !jsonObj.get("type").isJsonNull()) && !jsonObj.get("type").isJsonPrimitive()) {
+      if (!jsonObj.get("type").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("type").toString()));
       }
-      // validate the optional field `type`
-      if (jsonObj.get("type") != null && !jsonObj.get("type").isJsonNull()) {
-        TypeEnum.validateJsonElement(jsonObj.get("type"));
-      }
+      // validate the required field `type`
+      TypeEnum.validateJsonElement(jsonObj.get("type"));
       // ensure the optional json data is an array if present
       if (jsonObj.get("linkedStoreIds") != null && !jsonObj.get("linkedStoreIds").isJsonNull() && !jsonObj.get("linkedStoreIds").isJsonArray()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `linkedStoreIds` to be an array in the JSON string but got `%s`", jsonObj.get("linkedStoreIds").toString()));

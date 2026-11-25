@@ -42,7 +42,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>one.talon</groupId>
   <artifactId>talon-one-client</artifactId>
-  <version>26.23.0</version>
+  <version>26.24.0</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -52,7 +52,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "one.talon:talon-one-client:26.23.0"
+compile "one.talon:talon-one-client:26.24.0"
 ```
 
 ### Others
@@ -644,6 +644,7 @@ Class | Method | HTTP request | Description
 - [CatalogActionRemove](docs/CatalogActionRemove.md)
 - [CatalogActionRemoveMany](docs/CatalogActionRemoveMany.md)
 - [CatalogItem](docs/CatalogItem.md)
+- [CatalogItemSummary](docs/CatalogItemSummary.md)
 - [CatalogRule](docs/CatalogRule.md)
 - [CatalogRuleset](docs/CatalogRuleset.md)
 - [CatalogSyncRequest](docs/CatalogSyncRequest.md)
@@ -834,6 +835,12 @@ Class | Method | HTTP request | Description
 - [ExpiringCardPointsData](docs/ExpiringCardPointsData.md)
 - [ExpiringPointsData](docs/ExpiringPointsData.md)
 - [Export](docs/Export.md)
+- [ExportJob](docs/ExportJob.md)
+- [ExportJobDestination](docs/ExportJobDestination.md)
+- [ExportJobLog](docs/ExportJobLog.md)
+- [ExportJobLogResult](docs/ExportJobLogResult.md)
+- [ExportJobStatus](docs/ExportJobStatus.md)
+- [ExportJobType](docs/ExportJobType.md)
 - [ExtendLoyaltyPointsExpiryDateEffectProps](docs/ExtendLoyaltyPointsExpiryDateEffectProps.md)
 - [ExtendedCoupon](docs/ExtendedCoupon.md)
 - [FeatureFlag](docs/FeatureFlag.md)
@@ -1107,6 +1114,7 @@ Class | Method | HTTP request | Description
 - [NewExperimentBlueprint](docs/NewExperimentBlueprint.md)
 - [NewExperimentVariant](docs/NewExperimentVariant.md)
 - [NewExperimentVariantArray](docs/NewExperimentVariantArray.md)
+- [NewExportJob](docs/NewExportJob.md)
 - [NewExternalInvitation](docs/NewExternalInvitation.md)
 - [NewGiveawaysPool](docs/NewGiveawaysPool.md)
 - [NewIntegrationHubCoupons](docs/NewIntegrationHubCoupons.md)
@@ -1133,6 +1141,7 @@ Class | Method | HTTP request | Description
 - [NewReturn](docs/NewReturn.md)
 - [NewRevisionVersion](docs/NewRevisionVersion.md)
 - [NewReward](docs/NewReward.md)
+- [NewRewardBudget](docs/NewRewardBudget.md)
 - [NewRiskNotification](docs/NewRiskNotification.md)
 - [NewRole](docs/NewRole.md)
 - [NewRoleV2](docs/NewRoleV2.md)
@@ -1229,11 +1238,15 @@ Class | Method | HTTP request | Description
 - [RevisionActivationRequest](docs/RevisionActivationRequest.md)
 - [RevisionVersion](docs/RevisionVersion.md)
 - [Reward](docs/Reward.md)
+- [RewardBudget](docs/RewardBudget.md)
+- [RewardBudgetLimitCounter](docs/RewardBudgetLimitCounter.md)
+- [RewardBudgetWithLimitCounter](docs/RewardBudgetWithLimitCounter.md)
 - [RewardCatalogItem](docs/RewardCatalogItem.md)
 - [RewardEligibility](docs/RewardEligibility.md)
 - [RewardEligibilityFailureDetails](docs/RewardEligibilityFailureDetails.md)
 - [RewardPointsRequired](docs/RewardPointsRequired.md)
 - [RewardUnlockRejection](docs/RewardUnlockRejection.md)
+- [RewardWithBudgets](docs/RewardWithBudgets.md)
 - [RewardWithUnlocks](docs/RewardWithUnlocks.md)
 - [Risk](docs/Risk.md)
 - [RiskAffectedEntityItem](docs/RiskAffectedEntityItem.md)
@@ -1391,17 +1404,21 @@ Class | Method | HTTP request | Description
 - [UpdateExperimentVariant](docs/UpdateExperimentVariant.md)
 - [UpdateExperimentVariantArray](docs/UpdateExperimentVariantArray.md)
 - [UpdateExperimentVariantName](docs/UpdateExperimentVariantName.md)
+- [UpdateExportJob](docs/UpdateExportJob.md)
 - [UpdateLoyaltyCard](docs/UpdateLoyaltyCard.md)
 - [UpdateLoyaltyCardRequest](docs/UpdateLoyaltyCardRequest.md)
 - [UpdateLoyaltyPointsExpiryBlock](docs/UpdateLoyaltyPointsExpiryBlock.md)
 - [UpdateLoyaltyPointsExpiryBlock1Program](docs/UpdateLoyaltyPointsExpiryBlock1Program.md)
 - [UpdateLoyaltyProgram](docs/UpdateLoyaltyProgram.md)
+- [UpdateLoyaltyProgramMembershipBlock](docs/UpdateLoyaltyProgramMembershipBlock.md)
+- [UpdateLoyaltyProgramMembershipBlock1Program](docs/UpdateLoyaltyProgramMembershipBlock1Program.md)
 - [UpdateLoyaltyProgramTier](docs/UpdateLoyaltyProgramTier.md)
 - [UpdatePicklist](docs/UpdatePicklist.md)
 - [UpdatePriceType](docs/UpdatePriceType.md)
 - [UpdateReferral](docs/UpdateReferral.md)
 - [UpdateReferralBatch](docs/UpdateReferralBatch.md)
 - [UpdateReward](docs/UpdateReward.md)
+- [UpdateRewardBudget](docs/UpdateRewardBudget.md)
 - [UpdateRiskNotification](docs/UpdateRiskNotification.md)
 - [UpdateRole](docs/UpdateRole.md)
 - [UpdateStore](docs/UpdateStore.md)

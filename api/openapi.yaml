@@ -2322,11 +2322,19 @@ paths:
       - application/json
   /v1/customer_profiles/{integrationId}/inventory:
     get:
-      description: |
-        Return the customer inventory regarding entities referencing this customer profile's `integrationId`.
-
-        Typical entities returned are: customer profile information, referral codes, loyalty points, loyalty cards and reserved coupons.
-        Reserved coupons also include redeemed coupons.
+      description: "Return a snapshot of the customer profile including the entities\
+        \ referencing this customer\nprofile's `integrationId`. Typical entities returned\
+        \ are: customer profile information, referral codes,\nloyalty points, loyalty\
+        \ cards, reserved coupons and achievements. \n\n> [!note] Reserved coupons\
+        \ also include redeemed coupons.\n\nWhen `achievements=true`, the `achievements`\
+        \ array contains the customer's progress \nin the achievements they have participated\
+        \ in. Only achievements the customer \nhas started are returned, whether they\
+        \ are in progress, completed, or expired. \n\nRecurring achievements can appear\
+        \ more than once, once per iteration. The \nachievements cannot be filtered\
+        \ or paginated.\n\n> [!note] To list all the achievements available to the\
+        \ customer, including the ones\n> they have not started, and to filter or\
+        \ paginate the results, use the [List customer's available achievements](https://docs.talon.one/integration-api#tag/Achievements/operation/getCustomerAchievements)\n\
+        > endpoint.\n"
       operationId: getCustomerInventory
       parameters:
       - description: |
@@ -2381,7 +2389,11 @@ paths:
         schema:
           type: boolean
         style: form
-      - description: Set to `true` to include achievement information in the response.
+      - description: "Set to `true` to include the customer's progress in achievements\
+          \ in the \nresponse. Only achievements the customer has started are returned,\
+          \ whether \nthey are in progress, completed, or expired.\n\nRecurring achievements\
+          \ can appear more than once, once per iteration. The \nachievements cannot\
+          \ be filtered or paginated.\n"
         explode: true
         in: query
         name: achievements
@@ -2389,8 +2401,8 @@ paths:
         schema:
           type: boolean
         style: form
-      - description: Set to `true` to include `unlocked` rewards that have not been
-          `used` in the response.
+      - description: The instances of this reward that the customer has unlocked but
+          not used. Expired customer rewards are not returned.
         explode: true
         in: query
         name: unlockedRewards
@@ -2426,8 +2438,22 @@ paths:
       - application/json
   /v1/customer_profiles/{integrationId}/achievements:
     get:
-      description: |
-        Retrieve all the achievements available to a given customer and their progress in them.
+      description: "Retrieve all the achievements available to a given customer and\
+        \ their progress \nin them. Use this endpoint to build an achievements page\
+        \ where customers can \nbrowse the achievements they can participate in and\
+        \ see the details of each one.\n\n\nThe response contains one entry for each\
+        \ active achievement connected to \nthe Application, whether or not the customer\
+        \ has started it. Each entry \nincludes the achievement's details such as\
+        \ `target` and `period`, and the \ncustomer's progress in the achievement.\
+        \ If the customer has not started \nthe achievement, `currentProgress.status`\
+        \ is `not_started`.\n\n\n> [!note] The [List customer data](https://docs.talon.one/integration-api#tag/Customer-profiles/operation/getCustomerInventory)\n\
+        > endpoint also returns achievement data when `achievements=true`, but with\
+        \ a\n> different scope and structure:\n> - It returns only the achievements\
+        \ the customer has started, completed, or\n>  that have expired for them,\
+        \ one entry per progress record. Achievements the\n>  customer has not started\
+        \ are not returned.\n> - The results cannot be filtered or paginated.\n>\n\
+        > Use this endpoint when you need the customer's achievement progress\n> together\
+        \ with other customer data, such as loyalty or coupons, in a single request.\n"
       operationId: getCustomerAchievements
       parameters:
       - description: |
@@ -2671,6 +2697,7 @@ paths:
             enum:
             - unlocked
             - used
+            - expired
             type: string
           type: array
           default: null
@@ -4877,14 +4904,26 @@ paths:
       parameters:
       - description: |
           Possible values: `yes` or `no`.
-          - `yes`: Increases the performance of the API call by returning a 204 response.
-          - `no`: Returns a 200 response that contains the updated customer profiles.
+          - `yes`: Increases the performance of the API call by returning a 204 response. Requires `full` to be `no`; otherwise a 400 error is returned.
+          - `no`: Returns a 200 response that contains the created coupons.
         explode: true
         in: query
         name: silent
         required: false
         schema:
-          default: "yes"
+          default: "no"
+          type: string
+        style: form
+      - description: |
+          Possible values: `yes` or `no`.
+          - `yes`: Returns all created coupons. Requires `silent` to be `no`; otherwise a 400 error is returned.
+          - `no`: Returns at most 1000 created coupons.
+        explode: true
+        in: query
+        name: full
+        required: false
+        schema:
+          default: "no"
           type: string
         style: form
       - $ref: "#/components/parameters/applicationId"
@@ -4905,6 +4944,12 @@ paths:
           description: OK
         "204":
           description: No Content
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponseWithStatus"
+          description: Bad request
       summary: Create coupons
       tags:
       - management
@@ -16059,6 +16104,20 @@ components:
             $ref: "#/components/schemas/UpdateReward"
       description: body
       required: true
+    NewRewardBudget:
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/NewRewardBudget"
+      description: body
+      required: true
+    UpdateRewardBudget:
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/UpdateRewardBudget"
+      description: body
+      required: true
     IntegrationEventV3Request:
       content:
         application/json:
@@ -16197,6 +16256,19 @@ components:
       - $ref: "#/components/schemas/ApplicationEntity"
       - $ref: "#/components/schemas/AccountEntity"
       - $ref: "#/components/schemas/NewCouponCreationJob"
+      - required:
+        - attributes
+        - batchId
+        - chunkExecutionCount
+        - communicated
+        - createdAmount
+        - createdBy
+        - errors
+        - failCount
+        - requestedAmount
+        - status
+        - usageLimit
+        type: object
       - properties:
           batchId:
             description: The batch ID coupons created by this job will bear.
@@ -16263,18 +16335,6 @@ components:
             format: int64
             title: Chunk size
             type: integer
-        required:
-        - attributes
-        - batchId
-        - chunkExecutionCount
-        - communicated
-        - createdAmount
-        - createdBy
-        - errors
-        - failCount
-        - requestedAmount
-        - status
-        - usageLimit
     CouponDeletionJob:
       allOf:
       - $ref: "#/components/schemas/Entity"
@@ -16686,8 +16746,8 @@ components:
           member:
             price: 90
             adjustmentReferenceId: 68851723-e6fa-488f-ace9-112581e6c19b
-            effectiveFrom: 2025-05-25T00:00:00Z
-            effectiveUntil: 2025-05-30T00:00:00Z
+            adjustmentEffectiveFrom: 2025-05-25T00:00:00Z
+            adjustmentEffectiveUntil: 2025-05-30T00:00:00Z
           base:
             price: 100
       properties:
@@ -16836,8 +16896,8 @@ components:
             member:
               price: 90
               adjustmentReferenceId: 68851723-e6fa-488f-ace9-112581e6c19b
-              effectiveFrom: 2025-05-25T00:00:00Z
-              effectiveUntil: 2025-05-30T00:00:00Z
+              adjustmentEffectiveFrom: 2025-05-25T00:00:00Z
+              adjustmentEffectiveUntil: 2025-05-30T00:00:00Z
             base:
               price: 100
           readOnly: true
@@ -17004,6 +17064,23 @@ components:
       - $ref: "#/components/schemas/IntegrationEntity"
       - $ref: "#/components/schemas/ApplicationEntity"
       - $ref: "#/components/schemas/NewCustomerSessionV2"
+      - required:
+        - additionalCostTotal
+        - applicationId
+        - attributes
+        - cartItemAdditionalCostTotal
+        - cartItemTotal
+        - cartItems
+        - coupon
+        - firstSession
+        - integrationId
+        - profileId
+        - referral
+        - state
+        - total
+        - updateCount
+        - updated
+        type: object
       - properties:
           firstSession:
             description: Indicates whether this is the first session for the customer's
@@ -17049,14 +17126,6 @@ components:
             format: date-time
             title: Last activity on the session
             type: string
-        required:
-        - additionalCostTotal
-        - cartItemAdditionalCostTotal
-        - cartItemTotal
-        - firstSession
-        - total
-        - updateCount
-        - updated
       example:
         id: 6
         created: 2020-02-07T08:15:22Z
@@ -17104,8 +17173,8 @@ components:
             member:
               price: 90
               adjustmentReferenceId: 68851723-e6fa-488f-ace9-112581e6c19b
-              effectiveFrom: 2025-05-25T00:00:00Z
-              effectiveUntil: 2025-05-30T00:00:00Z
+              adjustmentEffectiveFrom: 2025-05-25T00:00:00Z
+              adjustmentEffectiveUntil: 2025-05-30T00:00:00Z
             base:
               price: 100
         - name: Air Glide
@@ -17136,8 +17205,8 @@ components:
             member:
               price: 90
               adjustmentReferenceId: 68851723-e6fa-488f-ace9-112581e6c19b
-              effectiveFrom: 2025-05-25T00:00:00Z
-              effectiveUntil: 2025-05-30T00:00:00Z
+              adjustmentEffectiveFrom: 2025-05-25T00:00:00Z
+              adjustmentEffectiveUntil: 2025-05-30T00:00:00Z
             base:
               price: 100
         experimentVariantAllocations:
@@ -20055,8 +20124,8 @@ components:
               member:
                 price: 90
                 adjustmentReferenceId: 68851723-e6fa-488f-ace9-112581e6c19b
-                effectiveFrom: 2025-05-25T00:00:00Z
-                effectiveUntil: 2025-05-30T00:00:00Z
+                adjustmentEffectiveFrom: 2025-05-25T00:00:00Z
+                adjustmentEffectiveUntil: 2025-05-30T00:00:00Z
               base:
                 price: 100
           - name: Air Glide
@@ -20087,8 +20156,8 @@ components:
               member:
                 price: 90
                 adjustmentReferenceId: 68851723-e6fa-488f-ace9-112581e6c19b
-                effectiveFrom: 2025-05-25T00:00:00Z
-                effectiveUntil: 2025-05-30T00:00:00Z
+                adjustmentEffectiveFrom: 2025-05-25T00:00:00Z
+                adjustmentEffectiveUntil: 2025-05-30T00:00:00Z
               base:
                 price: 100
           experimentVariantAllocations:
@@ -20378,6 +20447,13 @@ components:
       - $ref: "#/components/schemas/CustomerProfileEntity"
       - $ref: "#/components/schemas/IntegrationEntity"
       - $ref: "#/components/schemas/NewCustomerProfile"
+      - required:
+        - accountId
+        - attributes
+        - closedSessions
+        - lastActivity
+        - totalSales
+        type: object
       - properties:
           accountId:
             description: The ID of the Talon.One account that owns this profile.
@@ -20436,11 +20512,6 @@ components:
             example: false
             title: Sandbox
             type: boolean
-        required:
-        - accountId
-        - closedSessions
-        - lastActivity
-        - totalSales
       example:
         id: 6
         created: 2020-02-07T08:15:22Z
@@ -21510,7 +21581,10 @@ components:
       - $ref: "#/components/schemas/AdditionalCampaignProperties"
       - $ref: "#/components/schemas/CampaignVersions"
       - required:
+        - description
         - reevaluateOnReturn
+        - state
+        - type
         type: object
       example:
         id: 4
@@ -21747,8 +21821,14 @@ components:
         in the current session.
       properties:
         failureCode:
-          description: A code identifying why the customer was not eligible for the
-            campaign.
+          description: "A code identifying why the customer was not eligible for the\
+            \ campaign.\n\n- `ALL_RULES_FAILED`: Every rule in the campaign failed\
+            \ for the customer, \nso they are not eligible for the campaign.\n\n-\
+            \ `SKIPPED`: The campaign was not applied in the current session because\
+            \ \nit was not selected for evaluation. For example, another campaign\
+            \ in the \nsame evaluation group took precedence.\n\n- `AUDIENCE_NOT_MATCHED`:\
+            \ The campaign was not evaluated because the \ncustomer profile is not\
+            \ a member of any audience that the campaign targets.\n"
           enum:
           - ALL_RULES_FAILED
           - SKIPPED
@@ -21814,8 +21894,11 @@ components:
         in the current session.
       properties:
         failureCode:
-          description: A code identifying why the customer was not eligible for the
-            rule in the current session.
+          description: "A code identifying why the customer was not eligible for the\
+            \ rule in the current session.\n\n- `CONDITION_NOT_MET`: One or more conditions\
+            \ of the rule did not evaluate \nto `true` for the customer.\n\n- `EFFECT_FAILED`:\
+            \ The conditions of the rule were met but one of its effects \ncould not\
+            \ be applied.\n"
           enum:
           - CONDITION_NOT_MET
           - EFFECT_FAILED
@@ -22196,6 +22279,11 @@ components:
       - $ref: "#/components/schemas/CouponValue"
       - $ref: "#/components/schemas/CouponConstraints"
       - $ref: "#/components/schemas/CouponLimitConfigs"
+      - required:
+        - usageCounter
+        - usageLimit
+        - value
+        type: object
       - properties:
           usageCounter:
             description: The number of times the coupon has been successfully redeemed.
@@ -22268,8 +22356,6 @@ components:
             example: false
             title: Is coupon implicitly reserved for all customers
             type: boolean
-        required:
-        - usageCounter
       example:
         id: 6
         created: 2020-06-10T09:05:27.993483Z
@@ -22374,6 +22460,11 @@ components:
       - $ref: "#/components/schemas/Entity"
       - $ref: "#/components/schemas/NewReferral"
       - $ref: "#/components/schemas/ImportEntity"
+      - required:
+        - code
+        - usageCounter
+        - usageLimit
+        type: object
       - properties:
           code:
             description: The referral code.
@@ -22393,9 +22484,6 @@ components:
             example: tqyrgahe
             title: Batch ID
             type: string
-        required:
-        - code
-        - usageCounter
       example:
         id: 6
         created: 2020-06-10T09:05:27.993483Z
@@ -22413,6 +22501,12 @@ components:
     Giveaway:
       allOf:
       - $ref: "#/components/schemas/Entity"
+      - required:
+        - code
+        - created
+        - id
+        - poolId
+        type: object
       - properties:
           code:
             description: The code value of this giveaway.
@@ -22455,9 +22549,6 @@ components:
             example: 1
             format: int64
             type: integer
-        required:
-        - code
-        - poolId
       example:
         id: 6
         created: 2020-06-10T09:05:27.993483Z
@@ -22678,6 +22769,7 @@ components:
         profileIntegrationId: customer1
         integrationId: reward-unlock-123
         unlockedAt: 2024-01-01T00:00:00Z
+        expiryDate: 2024-03-31T23:59:59Z
         usedAt: 2024-01-02T00:00:00Z
       properties:
         applicationId:
@@ -22697,6 +22789,16 @@ components:
         unlockedAt:
           description: The date and time when the reward was unlocked.
           example: 2024-01-01T00:00:00Z
+          format: date-time
+          type: string
+        expiryDate:
+          description: "The date and time when the customer reward expires, based\
+            \ on the \n`validityDuration` or `expiryDate` of the reward when the reward\
+            \ was \nunlocked. If the reward does not specify either property, the\
+            \ customer reward \nhas unlimited validity and this field is omitted.\n\
+            \n**Note**: The expiry date is calculated using the time zone of the \n\
+            Application connected to the reward.\n"
+          example: 2024-03-31T23:59:59Z
           format: date-time
           type: string
         usedAt:
@@ -22723,11 +22825,13 @@ components:
           profileIntegrationId: customer1
           integrationId: reward-unlock-123
           unlockedAt: 2024-01-01T00:00:00Z
+          expiryDate: 2024-03-31T23:59:59Z
           usedAt: 2024-01-02T00:00:00Z
         - applicationId: 3
           profileIntegrationId: customer1
           integrationId: reward-unlock-123
           unlockedAt: 2024-01-01T00:00:00Z
+          expiryDate: 2024-03-31T23:59:59Z
           usedAt: 2024-01-02T00:00:00Z
       properties:
         id:
@@ -22752,8 +22856,8 @@ components:
           - $ref: "#/components/schemas/RuleMetadata"
           description: Customer-facing rule metadata for the reward.
         unlocked:
-          description: The customer profile's unlocks of this reward that are not
-            yet `used`.
+          description: The instances of this reward that the customer has unlocked
+            but not used. Expired customer rewards are not returned.
           items:
             $ref: "#/components/schemas/CustomerReward"
           type: array
@@ -22917,6 +23021,15 @@ components:
       allOf:
       - $ref: "#/components/schemas/Entity"
       - $ref: "#/components/schemas/IntegrationProfileEntity"
+      - required:
+        - accountId
+        - amount
+        - eventId
+        - expiryDate
+        - loyaltyProgramId
+        - profileId
+        - reason
+        type: object
       - description: Entry in the point ledger.
         properties:
           accountId:
@@ -22951,13 +23064,6 @@ components:
             description: The ID of the balancing ledgerEntry.
             format: int64
             type: integer
-        required:
-        - accountId
-        - amount
-        - eventId
-        - expiryDate
-        - loyaltyProgramId
-        - reason
       example:
         id: 6
         created: 2020-06-10T09:05:27.993483Z
@@ -25188,6 +25294,9 @@ components:
     NewAudience:
       allOf:
       - $ref: "#/components/schemas/NewInternalAudience"
+      - required:
+        - name
+        type: object
       - properties:
           integration:
             description: |
@@ -26199,6 +26308,20 @@ components:
       allOf:
       - $ref: "#/components/schemas/Entity"
       - $ref: "#/components/schemas/BaseLoyaltyProgram"
+      - required:
+        - accountID
+        - allowSubledger
+        - cardBased
+        - defaultPending
+        - defaultValidity
+        - description
+        - id
+        - name
+        - sandbox
+        - subscribedApplications
+        - timezone
+        - title
+        type: object
       - description: A Loyalty Program
         properties:
           id:
@@ -26274,12 +26397,6 @@ components:
               `True` if the `allowSubledger` property can be updated in the loyalty program.
             example: true
             type: boolean
-        required:
-        - accountID
-        - cardBased
-        - id
-        - name
-        - timezone
       example:
         id: 139
         created: 2020-06-10T09:05:27.993483Z
@@ -26624,6 +26741,11 @@ components:
       allOf:
       - $ref: "#/components/schemas/Entity"
       - $ref: "#/components/schemas/NewMultipleAudiencesItem"
+      - required:
+        - integrationId
+        - name
+        - status
+        type: object
       - properties:
           status:
             description: |
@@ -26634,8 +26756,6 @@ components:
             - new
             example: new
             type: string
-        required:
-        - status
     MultipleAudiences:
       properties:
         accountId:
@@ -26718,6 +26838,21 @@ components:
       - $ref: "#/components/schemas/IntegrationEntity"
       - $ref: "#/components/schemas/ApplicationEntity"
       - $ref: "#/components/schemas/NewCustomerSession"
+      - required:
+        - applicationId
+        - attributes
+        - cartItems
+        - coupon
+        - discounts
+        - firstSession
+        - integrationId
+        - profileId
+        - referral
+        - state
+        - total
+        - updateCount
+        - updated
+        type: object
       - properties:
           firstSession:
             description: Indicates whether this is the first session for the customer's
@@ -26748,12 +26883,6 @@ components:
             format: date-time
             title: Last activity on the session
             type: string
-        required:
-        - discounts
-        - firstSession
-        - integrationId
-        - updateCount
-        - updated
     IntegrationState:
       description: |
         Contains all state that might interest application integration plugins. This is the response type returned by all of the Integration API operations.
@@ -26781,12 +26910,11 @@ components:
           minimum: 1
           type: integer
         passTemplateId:
-          description: |
-            The ID of the digital pass template used to generate the pass.
-          example: tmpl_summer_loyalty
-          minLength: 1
+          description: The ID of the digital pass template used to generate the pass.
+          example: 3fa85f64-5717-4562-b3fc-2c963f66afa6
+          format: uuid
           type: string
-        profileId:
+        profileIntegrationId:
           description: The integration ID of the customer profile the pass is issued
             for.
           example: "12412412421"
@@ -26815,7 +26943,11 @@ components:
             type: string
           description: |
             A map of placeholder values that you provide to fill in the pass template.
-            These values are not validated against the template.
+            Pass templates reference each value as `CustomerProfile.Attributes.<key>`.
+
+            Each key must start with a letter or an underscore and can contain only
+            letters, digits, and underscores.
+            If the template requires a value that is missing, the request fails with a `422` error.
           example:
             hm_member_name: Jane Doe
           type: object
@@ -26823,16 +26955,18 @@ components:
       - loyaltyProgramId
       - passTemplateId
       - platform
-      - profileId
+      - profileIntegrationId
     DigitalPass:
       properties:
         passId:
           description: The ID of the generated digital pass.
-          example: pass_9c3f1a2b
+          example: 9c3f1a2b-4d5e-4f60-8a71-b2c3d4e5f607
+          format: uuid
           type: string
         passTemplateId:
           description: The ID of the digital pass template used to generate the pass.
-          example: tmpl_summer_loyalty
+          example: 3fa85f64-5717-4562-b3fc-2c963f66afa6
+          format: uuid
           type: string
         status:
           description: |
@@ -26844,9 +26978,11 @@ components:
           example: created
           type: string
         passUrl:
-          description: The URL you can use to let the customer add the digital pass
-            to their wallet.
-          example: https://wallet.example.com/passes/pass_9c3f1a2b
+          description: |
+            The URL you can use to let the customer add the digital pass to their wallet.
+
+            **Note**: For Google Wallet, the URL is valid for 30 days. After 30 days, create the pass again to get a new URL.
+          example: https://wallet.example.com/passes/9c3f1a2b-4d5e-4f60-8a71-b2c3d4e5f607
           format: uri
           type: string
       required:
@@ -27533,6 +27669,11 @@ components:
     NewReferralsForMultipleAdvocates:
       allOf:
       - $ref: "#/components/schemas/ReferralConstraints"
+      - required:
+        - advocateProfileIntegrationIds
+        - campaignId
+        - usageLimit
+        type: object
       - properties:
           campaignId:
             description: The ID of the campaign from which the referral received the
@@ -27597,9 +27738,6 @@ components:
             maxLength: 100
             minLength: 3
             type: string
-        required:
-        - advocateProfileIntegrationIds
-        - campaignId
       example:
         startDate: 2020-11-10T23:00:00Z
         expiryDate: 2021-11-10T23:00:00Z
@@ -27820,6 +27958,44 @@ components:
               to complete the achievement.
             example: 10
             type: number
+          achievementPeriod:
+            description: |
+              The relative duration after which the achievement ends and resets for
+              a particular customer profile. This property is omitted for
+              on-completion achievements which have no specified period.
+
+              The period is a positive real number followed by one letter indicating
+              the time unit, and an optional rounding suffix.
+
+              Examples: `30s`, `40m`, `1h`, `5D`, `7W`, `10M`, `15Y`, `30D_D`, `1W_U`.
+
+              The letters indicate the following time units:
+
+              - `s`: Seconds.
+
+              - `m`: Minutes.
+
+              - `h`: Hours.
+
+              - `D`: Days.
+
+              - `W`: Weeks.
+
+              - `M`: Months.
+
+              - `Y`: Years.
+
+              If a suffix is present, it indicates the following rounding:
+
+              - `_D`: Rounds down, to the start of the day. It applies to days only.
+              For example, `30D_D` ends at the start of the day, 30 days after the
+              customer starts the achievement.
+
+              - `_U`: Rounds up, to the end of the day, week, month or year. It
+              applies to days, weeks, months and years. For example, `1W_U` ends at
+              the end of the week in which the one-week period would end.
+            example: 1W
+            type: string
           achievementRecurrencePolicy:
             description: |
               The policy that determines if and how the achievement recurs.
@@ -27893,6 +28069,7 @@ components:
         - id: 1
           applicationId: 2
         target: 10
+        achievementPeriod: 1W
         achievementRecurrencePolicy: no_recurrence
         achievementActivationPolicy: fixed_schedule
         achievementFixedStartDate: 2024-01-15T15:04:05Z07:00
@@ -28160,6 +28337,7 @@ components:
           - id: 1
             applicationId: 2
           target: 10
+          achievementPeriod: 1W
           achievementRecurrencePolicy: no_recurrence
           achievementActivationPolicy: fixed_schedule
           achievementFixedStartDate: 2024-01-15T15:04:05Z07:00
@@ -28185,6 +28363,7 @@ components:
           - id: 1
             applicationId: 2
           target: 10
+          achievementPeriod: 1W
           achievementRecurrencePolicy: no_recurrence
           achievementActivationPolicy: fixed_schedule
           achievementFixedStartDate: 2024-01-15T15:04:05Z07:00
@@ -28201,11 +28380,13 @@ components:
             profileIntegrationId: customer1
             integrationId: reward-unlock-123
             unlockedAt: 2024-01-01T00:00:00Z
+            expiryDate: 2024-03-31T23:59:59Z
             usedAt: 2024-01-02T00:00:00Z
           - applicationId: 3
             profileIntegrationId: customer1
             integrationId: reward-unlock-123
             unlockedAt: 2024-01-01T00:00:00Z
+            expiryDate: 2024-03-31T23:59:59Z
             usedAt: 2024-01-02T00:00:00Z
         - id: 42
           integrationId: free-coffee
@@ -28217,11 +28398,13 @@ components:
             profileIntegrationId: customer1
             integrationId: reward-unlock-123
             unlockedAt: 2024-01-01T00:00:00Z
+            expiryDate: 2024-03-31T23:59:59Z
             usedAt: 2024-01-02T00:00:00Z
           - applicationId: 3
             profileIntegrationId: customer1
             integrationId: reward-unlock-123
             unlockedAt: 2024-01-01T00:00:00Z
+            expiryDate: 2024-03-31T23:59:59Z
             usedAt: 2024-01-02T00:00:00Z
       properties:
         profile:
@@ -28246,12 +28429,17 @@ components:
           type: array
           default: null
         achievements:
+          description: "The customer's progress in each achievement they have participated\
+            \ in. \nOnly achievements the customer has started are included, whether\
+            \ they \nare in progress, completed, or expired. Recurring achievements\
+            \ can appear \nmore than once, once per iteration.\n"
           items:
             $ref: "#/components/schemas/AchievementProgressWithDefinition"
           type: array
           default: null
         rewards:
-          description: The customer rewards that are `unlocked` and not yet `used`.
+          description: The rewards that the customer has unlocked but not used. Expired
+            customer rewards are not returned.
           items:
             $ref: "#/components/schemas/RewardWithUnlocks"
           type: array
@@ -28531,6 +28719,7 @@ components:
         status: unlocked
         unlockedAt: 2026-07-01T09:00:00Z
         unlockedByProfileIntegrationId: customer2839
+        expiryDate: 2026-08-31T23:59:59Z
         usedAt: 2026-07-02T10:30:00Z
         usedByProfileIntegrationId: customer2840
         loyaltyProgramId: 9
@@ -28573,9 +28762,11 @@ components:
             The status of the customer reward:
             - `unlocked`: The reward is available for use.
             - `used`: The reward has been used.
+            - `expired`: The reward was not used before its expiry date.
           enum:
           - unlocked
           - used
+          - expired
           example: unlocked
           type: string
         unlockedAt:
@@ -28588,6 +28779,16 @@ components:
             \ reward. \n\nFor rewards unlocked with a loyalty card, this can be any\
             \ customer profile \nlinked to that loyalty card.\n"
           example: customer2839
+          type: string
+        expiryDate:
+          description: "The date and time when the customer reward expires, based\
+            \ on the \n`validityDuration` or `expiryDate` of the reward when the reward\
+            \ was \nunlocked. If the reward does not specify either property, the\
+            \ customer reward \nhas unlimited validity and this field is omitted.\n\
+            \n**Note**: The expiry date is calculated using the time zone of the \n\
+            Application connected to the reward.\n"
+          example: 2026-08-31T23:59:59Z
+          format: date-time
           type: string
         usedAt:
           description: The date and time when the reward was used.
@@ -32100,6 +32301,7 @@ components:
           createReferral: "#/components/schemas/CreateReferralBlock"
           reserveCoupon: "#/components/schemas/ReserveCouponBlock"
           updateLoyaltyPointsExpiry: "#/components/schemas/UpdateLoyaltyPointsExpiryBlock"
+          updateLoyaltyProgramMembership: "#/components/schemas/UpdateLoyaltyProgramMembershipBlock"
           checkLoyaltyCard: "#/components/schemas/CheckLoyaltyCardBlock"
           checkTier: "#/components/schemas/CheckTierBlock"
           awardLoyaltyPoints: "#/components/schemas/AwardLoyaltyPointsBlock"
@@ -32129,6 +32331,7 @@ components:
       - $ref: "#/components/schemas/CreateReferralBlock"
       - $ref: "#/components/schemas/ReserveCouponBlock"
       - $ref: "#/components/schemas/UpdateLoyaltyPointsExpiryBlock"
+      - $ref: "#/components/schemas/UpdateLoyaltyProgramMembershipBlock"
       - $ref: "#/components/schemas/CheckLoyaltyCardBlock"
       - $ref: "#/components/schemas/CheckTierBlock"
       - $ref: "#/components/schemas/AwardLoyaltyPointsBlock"
@@ -32417,6 +32620,11 @@ components:
             type: boolean
           target:
             $ref: "#/components/schemas/AwardDiscountTarget"
+          excludedFromPriceHistory:
+            description: "When set to `true`, the applied discount is excluded from\
+              \ the item's [price history](https://docs.talon.one/docs/dev/integration-guides/best-prior-price#price-history)."
+            example: false
+            type: boolean
         required:
         - name
         - partial
@@ -33580,6 +33788,8 @@ components:
             - not(inProgress)
             - completed
             - not(completed)
+            - expired
+            - not(expired)
             example: justCompleted
             type: string
           achievement:
@@ -33784,6 +33994,38 @@ components:
         - subledger
         - value
         title: UpdateLoyaltyPointsExpiryBlock
+    UpdateLoyaltyProgramMembershipBlock:
+      allOf:
+      - $ref: "#/components/schemas/BaseBlock"
+      - description: "A block that enrolls a customer in a profile-based loyalty program.\
+          \ Fails if the customer has already joined the program, if the session has\
+          \ no customer profile, or if the program is card-based."
+        properties:
+          operator:
+            description: The action to perform. `join` adds the customer to the loyalty
+              program.
+            enum:
+            - join
+            example: join
+            type: string
+          program:
+            $ref: "#/components/schemas/UpdateLoyaltyProgramMembershipBlock_1_program"
+          joinDate:
+            description: |-
+              The date and time the customer joins the program. Cannot be in the future. Accepts one of:
+              - An absolute timestamp in RFC 3339 format (e.g. `2026-01-15T10:00:00Z`). - A reference to a value, such as `{{$Now}}` or an attribute. - A relative time: an object with a `baseline` time, a `duration`, and an `operator`
+                that is `laterBy` or `earlierBy`.
+              - A rounded time: an object with a `baseline` time, a `unit` (such as `day`, `hour` or
+                `month`), and a `direction` that is `start` or `end`. The baseline must be a relative
+                time whose duration uses the same unit.
+
+              See the examples for each form.
+            example: "{{$Now}}"
+        required:
+        - joinDate
+        - operator
+        - program
+        title: UpdateLoyaltyProgramMembershipBlock
     CheckLoyaltyCardBlock:
       allOf:
       - $ref: "#/components/schemas/BaseBlock"
@@ -34783,6 +35025,10 @@ components:
       allOf:
       - $ref: "#/components/schemas/CouponConstraints"
       - $ref: "#/components/schemas/CouponLimitConfigs"
+      - required:
+        - numberOfCoupons
+        - usageLimit
+        type: object
       - properties:
           numberOfCoupons:
             description: The number of new coupon codes to generate for the campaign.
@@ -34857,8 +35103,6 @@ components:
               or rejected. Applied when `supportRequestId` is provided.
             example: Approved as compensation for the delayed order.
             type: string
-        required:
-        - numberOfCoupons
       example:
         usageLimit: 100
         discountLimit: 30
@@ -34894,6 +35138,10 @@ components:
     NewCouponsForMultipleRecipients:
       allOf:
       - $ref: "#/components/schemas/CouponConstraints"
+      - required:
+        - recipientsIntegrationIds
+        - usageLimit
+        type: object
       - properties:
           batchId:
             description: "The batch ID that all coupons created by the request will\
@@ -34956,8 +35204,6 @@ components:
             maxLength: 100
             minLength: 3
             type: string
-        required:
-        - recipientsIntegrationIds
       example:
         usageLimit: 100
         discountLimit: 30
@@ -35000,6 +35246,11 @@ components:
     NewCouponCreationJob:
       allOf:
       - $ref: "#/components/schemas/CouponConstraints"
+      - required:
+        - attributes
+        - numberOfCoupons
+        - usageLimit
+        type: object
       - properties:
           numberOfCoupons:
             description: The number of new coupon codes to generate for the campaign.
@@ -35018,9 +35269,6 @@ components:
               it has been reserved first.
             example: false
             type: boolean
-        required:
-        - attributes
-        - numberOfCoupons
       example:
         usageLimit: 100
         discountLimit: 30
@@ -35665,6 +35913,11 @@ components:
       - $ref: "#/components/schemas/AccountEntity"
       - $ref: "#/components/schemas/UserEntity"
       - $ref: "#/components/schemas/UpdateCampaignTemplate"
+      - required:
+        - applicationIds
+        - campaignType
+        - validApplicationIds
+        type: object
       - properties:
           applicationsIds:
             example:
@@ -35709,8 +35962,6 @@ components:
               a favorite.
             example: false
             type: boolean
-        required:
-        - validApplicationIds
       - required:
         - reevaluateOnReturn
         type: object
@@ -38259,6 +38510,16 @@ components:
     NewLoyaltyProgram:
       allOf:
       - $ref: "#/components/schemas/BaseLoyaltyProgram"
+      - required:
+        - allowSubledger
+        - cardBased
+        - defaultPending
+        - defaultValidity
+        - name
+        - sandbox
+        - timezone
+        - title
+        type: object
       - description: A new loyalty program
         properties:
           name:
@@ -38284,15 +38545,6 @@ components:
               - `false`: the program is profile-based.
             example: true
             type: boolean
-        required:
-        - allowSubledger
-        - cardBased
-        - defaultPending
-        - defaultValidity
-        - name
-        - sandbox
-        - timezone
-        - title
     UpdateLoyaltyProgram:
       allOf:
       - $ref: "#/components/schemas/BaseLoyaltyProgram"
@@ -39635,6 +39887,10 @@ components:
       - signOnURL
     SamlConnection:
       allOf:
+      - required:
+        - assertionConsumerServiceURL
+        - audienceURI
+        type: object
       - description: A SAML 2.0 connection.
         properties:
           assertionConsumerServiceURL:
@@ -39646,9 +39902,6 @@ components:
             example: 2021-07-20T21:59:00Z
             format: date-time
             type: string
-        required:
-        - assertionConsumerServiceURL
-        - audienceURI
       - $ref: "#/components/schemas/BaseSamlConnection"
       - $ref: "#/components/schemas/Entity"
     NewSamlConnection:
@@ -40153,6 +40406,20 @@ components:
     CustomerActivityReport:
       allOf:
       - $ref: "#/components/schemas/IntegrationEntity"
+      - required:
+        - accruedDiscounts
+        - accruedRevenue
+        - campaignName
+        - couponFailedAttempts
+        - couponRedemptions
+        - couponUseAttempts
+        - created
+        - customerId
+        - integrationId
+        - name
+        - totalOrders
+        - totalOrdersNoCoupon
+        type: object
       - properties:
           name:
             description: The name for this customer profile.
@@ -40194,17 +40461,6 @@ components:
           campaignName:
             description: The name of the campaign this customer belongs to.
             type: string
-        required:
-        - accruedDiscounts
-        - accruedRevenue
-        - campaignName
-        - couponFailedAttempts
-        - couponRedemptions
-        - couponUseAttempts
-        - customerId
-        - name
-        - totalOrders
-        - totalOrdersNoCoupon
       description: A summary report of customer activity for a given time range.
       example:
         integrationId: URNGV8294NV
@@ -40387,8 +40643,8 @@ components:
             member:
               price: 90
               adjustmentReferenceId: 68851723-e6fa-488f-ace9-112581e6c19b
-              effectiveFrom: 2025-05-25T00:00:00Z
-              effectiveUntil: 2025-05-30T00:00:00Z
+              adjustmentEffectiveFrom: 2025-05-25T00:00:00Z
+              adjustmentEffectiveUntil: 2025-05-30T00:00:00Z
             base:
               price: 100
         - name: Air Glide
@@ -40419,8 +40675,8 @@ components:
             member:
               price: 90
               adjustmentReferenceId: 68851723-e6fa-488f-ace9-112581e6c19b
-              effectiveFrom: 2025-05-25T00:00:00Z
-              effectiveUntil: 2025-05-30T00:00:00Z
+              adjustmentEffectiveFrom: 2025-05-25T00:00:00Z
+              adjustmentEffectiveUntil: 2025-05-30T00:00:00Z
             base:
               price: 100
         discounts:
@@ -40742,13 +40998,16 @@ components:
       - $ref: "#/components/schemas/Entity"
       - $ref: "#/components/schemas/ApplicationEntity"
       - $ref: "#/components/schemas/NewTemplateDef"
+      - required:
+        - description
+        - help
+        - name
+        type: object
       - properties:
           name:
             description: The template name used in Talang.
             minLength: 1
             type: string
-        required:
-        - name
     AchievementAdditionalProperties:
       properties:
         campaignId:
@@ -41026,6 +41285,16 @@ components:
         - variables
     LibraryAttribute:
       allOf:
+      - required:
+        - description
+        - entity
+        - name
+        - presets
+        - suggestions
+        - tags
+        - title
+        - type
+        type: object
       - properties:
           entity:
             description: "The name of the entity that can have this attribute. When\
@@ -41076,15 +41345,6 @@ components:
               type: string
             type: array
             default: null
-        required:
-        - description
-        - entity
-        - name
-        - presets
-        - suggestions
-        - tags
-        - title
-        - type
     BestPriorTarget:
       description: Specifies the target for which the best prior price calculation
         is taken into consideration.
@@ -41670,6 +41930,50 @@ components:
           value: ""
         product:
           name: sample_product
+    CatalogItemSummary:
+      properties:
+        id:
+          description: The internal ID of the catalog item.
+          example: 6
+          format: int64
+          type: integer
+        catalogId:
+          description: The ID of the catalog the item belongs to.
+          example: 6
+          format: int64
+          type: integer
+        sku:
+          description: The stock keeping unit of the item.
+          example: SKU1241028
+          type: string
+        price:
+          description: The price of the item.
+          example: 99.99
+          type: number
+        productName:
+          description: The name of the product the item belongs to.
+          example: Running shoes
+          type: string
+        productId:
+          description: |
+            The ID of the product the item is linked to.
+
+            **Note:** Only returned when the product catalog integration is enabled.
+          example: 12
+          format: int64
+          type: integer
+        skuId:
+          description: |
+            The ID of the SKU the item is linked to.
+
+            **Note:** Only returned when the product catalog integration is enabled.
+          example: 34
+          format: int64
+          type: integer
+      required:
+      - catalogId
+      - id
+      - sku
     AddItemCatalogAction:
       description: |
         The specific properties of the "ADD" catalog sync action.
@@ -41773,7 +42077,10 @@ components:
         action.
       properties:
         attr:
-          description: The name of the attribute to filter on.
+          description: "The name of the attribute to filter on. The attribute must\
+            \ exist in the catalog. For the `LT`, `LE`, `GT`, and `GE` comparison\
+            \ operators, the attribute must be of type `number`."
+          example: color
           type: string
         op:
           description: The filtering operator.
@@ -41784,9 +42091,12 @@ components:
           - GT
           - GE
           - IN
+          example: EQ
           type: string
         value:
-          description: The value to filter for.
+          description: "The value to filter for. For the `LT`, `LE`, `GT`, and `GE`\
+            \ comparison operators, the value must be a number or a numeric string."
+          example: blue
       required:
       - attr
       - op
@@ -43464,6 +43774,13 @@ components:
       allOf:
       - $ref: "#/components/schemas/Risk"
       - properties:
+          applicationName:
+            description: |
+              The current name of the Application this risk belongs to. Shown even if the
+              user does not have access to that Application. Omitted if the Application
+              has been deleted or the risk is not associated with an Application.
+            example: My Application
+            type: string
           affectedEntities:
             description: "The affected entities with the highest severity ratios,\
               \ in descending order."
@@ -44404,6 +44721,15 @@ components:
     ApplicationAPIKey:
       allOf:
       - $ref: "#/components/schemas/CreateApplicationAPIKey"
+      - required:
+        - accountID
+        - applicationID
+        - created
+        - createdBy
+        - expires
+        - id
+        - title
+        type: object
       - properties:
           id:
             description: ID of the API Key.
@@ -44430,12 +44756,6 @@ components:
             example: 2022-03-02T16:46:17.758585Z
             format: date-time
             type: string
-        required:
-        - accountID
-        - applicationID
-        - created
-        - createdBy
-        - id
     NewApplicationAPIKey:
       allOf:
       - $ref: "#/components/schemas/ApplicationAPIKey"
@@ -44554,6 +44874,15 @@ components:
     ManagementKey:
       allOf:
       - $ref: "#/components/schemas/CreateManagementKey"
+      - required:
+        - accountID
+        - created
+        - createdBy
+        - endpoints
+        - expiryDate
+        - id
+        - name
+        type: object
       - properties:
           id:
             description: ID of the management key.
@@ -44585,11 +44914,6 @@ components:
             example: 2022-03-02T16:46:17.758585Z
             format: date-time
             type: string
-        required:
-        - accountID
-        - created
-        - createdBy
-        - id
     NewManagementKey:
       allOf:
       - $ref: "#/components/schemas/ManagementKey"
@@ -44617,6 +44941,14 @@ components:
     MCPKey:
       allOf:
       - $ref: "#/components/schemas/CreateMCPKey"
+      - required:
+        - accountID
+        - created
+        - createdBy
+        - expiryDate
+        - id
+        - name
+        type: object
       - properties:
           id:
             description: ID of the MCP key.
@@ -44648,11 +44980,6 @@ components:
             example: 2026-03-02T16:46:17.758585Z
             format: date-time
             type: string
-        required:
-        - accountID
-        - created
-        - createdBy
-        - id
     NewMCPKey:
       allOf:
       - $ref: "#/components/schemas/MCPKey"
@@ -44768,6 +45095,12 @@ components:
         client_id:
           description: Client ID. Required for `authorization_code` grant.
           example: a3f8c1e2b4d56789
+          type: string
+        client_secret:
+          description: Client secret for confidential (static) clients. May also be
+            supplied via HTTP Basic authentication. Public clients registered via
+            dynamic client registration omit it.
+          example: 7b1f0c9d8e2a4f6b1c3d5e7f9a0b2c4d
           type: string
         redirect_uri:
           description: Redirect URI. Required for `authorization_code` grant.
@@ -44929,6 +45262,18 @@ components:
             type: string
           type: array
           default: null
+        token_endpoint_auth_methods_supported:
+          description: List of supported client authentication methods at the token
+            endpoint. Public clients use `none`; confidential clients use `client_secret_post`
+            or `client_secret_basic`.
+          example:
+          - none
+          - client_secret_post
+          - client_secret_basic
+          items:
+            type: string
+          type: array
+          default: null
       required:
       - authorization_endpoint
       - code_challenge_methods_supported
@@ -45006,6 +45351,12 @@ components:
       allOf:
       - $ref: "#/components/schemas/Entity"
       - $ref: "#/components/schemas/NewStore"
+      - required:
+        - applicationId
+        - created
+        - integrationId
+        - updated
+        type: object
       - properties:
           created:
             description: The time this entity was created.
@@ -45034,10 +45385,6 @@ components:
               type: integer
             type: array
             default: null
-        required:
-        - applicationId
-        - created
-        - updated
       example:
         id: 6
         created: 2020-02-07T08:15:22Z
@@ -45641,6 +45988,18 @@ components:
       - $ref: "#/components/schemas/Entity"
       - $ref: "#/components/schemas/AchievementBaseV2"
       - $ref: "#/components/schemas/AchievementAdditionalPropertiesV2"
+      - required:
+        - activationPolicy
+        - description
+        - name
+        - recurrencePolicy
+        - referencedByCampaigns
+        - sandbox
+        - subscribedApplications
+        - target
+        - timezone
+        - title
+        type: object
       - properties:
           sandbox:
             description: Indicates if this achievement is a live or sandbox achievement.
@@ -45670,10 +46029,6 @@ components:
               $ref: "#/components/schemas/CampaignReference"
             type: array
             default: null
-        required:
-        - referencedByCampaigns
-        - sandbox
-        - timezone
       example:
         id: 6
         created: 2020-06-10T09:05:27.993483Z
@@ -45706,6 +46061,14 @@ components:
     CreateAchievementV2:
       allOf:
       - $ref: "#/components/schemas/AchievementBaseV2"
+      - required:
+        - description
+        - name
+        - sandbox
+        - target
+        - timezone
+        - title
+        type: object
       - properties:
           sandbox:
             description: Indicates if this achievement is a live or sandbox achievement.
@@ -45719,9 +46082,6 @@ components:
             example: Europe/Berlin
             minLength: 1
             type: string
-        required:
-        - sandbox
-        - timezone
       example:
         name: Order50Discount
         title: 50% off on 50th purchase.
@@ -46635,6 +46995,13 @@ components:
       allOf:
       - $ref: "#/components/schemas/CouponConstraints"
       - $ref: "#/components/schemas/CouponLimitConfigs"
+      - required:
+        - applicationId
+        - batchId
+        - campaignId
+        - numberOfCoupons
+        - usageLimit
+        type: object
       - properties:
           applicationId:
             description: The ID of the Application the coupons will belong to.
@@ -46710,12 +47077,6 @@ components:
               or rejected. Applied when `supportRequestId` is provided.
             example: Approved as compensation for the delayed order.
             type: string
-        required:
-        - applicationId
-        - batchId
-        - campaignId
-        - numberOfCoupons
-        - usageLimit
     CouponWithApplication:
       allOf:
       - $ref: "#/components/schemas/Coupon"
@@ -47364,6 +47725,113 @@ components:
       - id
       - name
       - rule
+    RewardBudget:
+      allOf:
+      - $ref: "#/components/schemas/Entity"
+      - properties:
+          rewardId:
+            description: The ID of the reward this budget applies to.
+            example: 34
+            format: int64
+            type: integer
+          metric:
+            description: The customer action that counts towards the budget.
+            enum:
+            - unlocks
+            example: unlocks
+            type: string
+          scope:
+            description: "The type of count that the budget keeps of how many times\
+              \ the reward has \nbeen unlocked.\n\n- `perReward`: Counts how many\
+              \ times the reward has been unlocked by all customers.\n- `perProfile`:\
+              \ Counts how many times each customer profile has unlocked the reward.\n"
+            enum:
+            - perReward
+            - perProfile
+            example: perReward
+            type: string
+          period:
+            description: |
+              The time frame after which the budget count resets to `0`. If you select
+              `overall`, the budget never resets.
+
+              The count resets at the start of each calendar time frame, not on the day
+              the budget was created. For example, a `monthly` budget created on 20
+              October counts each time the reward is unlocked from 20 to 31 October. On 1 November,
+
+              resets to `0`.
+            enum:
+            - overall
+            - daily
+            - weekly
+            - monthly
+            - yearly
+            example: monthly
+            type: string
+          limit:
+            description: The maximum number of times the reward can be unlocked in
+              the time frame.
+            example: 5000
+            format: int64
+            type: integer
+        required:
+        - limit
+        - metric
+        - period
+        - rewardId
+        - scope
+    RewardBudgetLimitCounter:
+      description: "The count of times the reward has been unlocked in the current\
+        \ period, and how many times it can still be unlocked. It is shown when the\
+        \ budget scope is `perReward`."
+      properties:
+        counter:
+          description: The number of times the reward has been unlocked in the current
+            period. It is `0` if the reward has not been unlocked by any profile yet.
+          example: 120
+          format: int64
+          type: integer
+        remaining:
+          description: The number of times the reward can still be unlocked. It is
+            never negative.
+          example: 4880
+          format: int64
+          type: integer
+      required:
+      - counter
+      - remaining
+    RewardBudgetWithLimitCounter:
+      allOf:
+      - $ref: "#/components/schemas/RewardBudget"
+      - properties:
+          limitCounter:
+            description: |
+              The count of times the reward has been unlocked in the current period,
+              and how many times it can still be unlocked before the limit is reached.
+              It is only returned for budgets with the `perReward` scope, because
+              every customer profile has their own count in a `perProfile` budget.
+
+              The count is stored for each Application. A reward is connected to one
+              Application, so the list always has exactly one item.
+            items:
+              $ref: "#/components/schemas/RewardBudgetLimitCounter"
+            maxItems: 1
+            minItems: 1
+            type: array
+            x-omit-if-zero: true
+            default: null
+    RewardWithBudgets:
+      allOf:
+      - $ref: "#/components/schemas/Reward"
+      - properties:
+          budgets:
+            description: The budgets associated with the reward. This property is
+              returned only when `includeBudgets` is `true`.
+            items:
+              $ref: "#/components/schemas/RewardBudgetWithLimitCounter"
+            type: array
+            x-omit-if-zero: true
+            default: null
     UpdateReward:
       properties:
         name:
@@ -47462,6 +47930,64 @@ components:
       required:
       - name
       - status
+    NewRewardBudget:
+      properties:
+        metric:
+          default: unlocks
+          description: The customer action that counts towards the budget.
+          enum:
+          - unlocks
+          example: unlocks
+          type: string
+        scope:
+          description: "The type of count that the budget keeps of how many times\
+            \ the reward has \nbeen unlocked.\n\n\n- `perReward`: Counts how many\
+            \ times the reward has been unlocked by all customers.\n- `perProfile`:\
+            \ Counts how many times each customer profile has unlocked the reward.\n"
+          enum:
+          - perReward
+          - perProfile
+          example: perReward
+          type: string
+        period:
+          description: |
+            The time frame after which the budget count resets to `0`. If you select
+            `overall`, the budget never resets.
+
+            The count resets at the start of each calendar time frame, not on the day
+            the budget was created. For example, a `monthly` budget created on 20
+            October counts the unlocks from 20 to 31 October. On 1 November, the count
+            resets to `0`.
+          enum:
+          - overall
+          - daily
+          - weekly
+          - monthly
+          - yearly
+          example: monthly
+          type: string
+        limit:
+          description: The maximum number of times the reward can be unlocked in the
+            time frame.
+          example: 5000
+          format: int64
+          minimum: 1
+          type: integer
+      required:
+      - limit
+      - period
+      - scope
+    UpdateRewardBudget:
+      properties:
+        limit:
+          description: The new limit for the maximum number of times the reward can
+            be unlocked in the given period.
+          example: 8000
+          format: int64
+          minimum: 1
+          type: integer
+      required:
+      - limit
     IntegrationUnlockRewardRequest:
       description: |
         The request body for unlocking a reward for a customer profile, optionally
@@ -48449,6 +48975,20 @@ components:
       example: ndjson
       type: string
       x-generate-enum-go: true
+    OutboundLogStreamEntryType:
+      description: |
+        Kind of entry in an `ndjson` stream of outbound logs:
+
+        - `log`: An outbound log entry.
+        - `error`: An error that ended the stream.
+        - `cursor`: The cursor for the next page. Always the last entry.
+      enum:
+      - log
+      - error
+      - cursor
+      example: log
+      type: string
+      x-generate-enum-go: true
     OutboundLogRequest:
       description: Details of the outbound HTTP request.
       properties:
@@ -48571,6 +49111,17 @@ components:
         required:
         - createdAt
         - processingTimeMs
+    OutboundLogStreamLogEntry:
+      description: An outbound log entry in a stream of outbound logs.
+      properties:
+        type:
+          $ref: "#/components/schemas/OutboundLogStreamEntryType"
+        data:
+          $ref: "#/components/schemas/OutboundLog"
+      required:
+      - data
+      - type
+      title: OutboundLogStreamLogEntry
     OutboundLogStreamError:
       description: Details about an error that ended the stream.
       properties:
@@ -48585,51 +49136,9 @@ components:
           type: string
       required:
       - error
-    OutboundLogs:
-      properties:
-        nextCursor:
-          description: Cursor for the next page of results. Omitted when there are
-            no more results.
-          example: SmJlNERRMHdyNWFsTmRDZDVYU0c=
-          format: byte
-          type: string
-        data:
-          description: "List of outbound logs. When an error ends the response, an\
-            \ `OutboundLogStreamError` is the last item and the response is incomplete."
-          items:
-            $ref: "#/components/schemas/OutboundLogs_data_inner"
-          type: array
-          default: null
-      required:
-      - data
-    OutboundLogStreamEntryType:
-      description: |
-        Kind of entry in an `ndjson` stream of outbound logs:
-
-        - `log`: An outbound log entry.
-        - `error`: An error that ended the stream.
-        - `cursor`: The cursor for the next page. Always the last entry.
-      enum:
-      - log
-      - error
-      - cursor
-      example: log
-      type: string
-      x-generate-enum-go: true
-    OutboundLogStreamLogEntry:
-      description: An outbound log entry in an `ndjson` stream.
-      properties:
-        type:
-          $ref: "#/components/schemas/OutboundLogStreamEntryType"
-        data:
-          $ref: "#/components/schemas/OutboundLog"
-      required:
-      - data
-      - type
-      title: OutboundLogStreamLogEntry
     OutboundLogStreamErrorEntry:
-      description: "An error that ended an `ndjson` stream, such as a log entry that\
-        \ couldn't be read. It is the last entry and the response is incomplete."
+      description: "An error that ended a stream of outbound logs, such as a log entry\
+        \ that couldn't be read. It is the last entry and the response is incomplete."
       properties:
         type:
           $ref: "#/components/schemas/OutboundLogStreamEntryType"
@@ -48639,6 +49148,24 @@ components:
       - data
       - type
       title: OutboundLogStreamErrorEntry
+    OutboundLogs:
+      properties:
+        nextCursor:
+          description: Cursor for the next page of results. Omitted when there are
+            no more results.
+          example: SmJlNERRMHdyNWFsTmRDZDVYU0c=
+          format: byte
+          type: string
+        data:
+          description: "List of outbound log entries. The `type` field determines\
+            \ the kind of entry. When an error ends the response, an `OutboundLogStreamErrorEntry`\
+            \ is the last item and the response is incomplete."
+          items:
+            $ref: "#/components/schemas/OutboundLogs_data_inner"
+          type: array
+          default: null
+      required:
+      - data
     OutboundLogStreamCursor:
       description: Cursor for the next page of results.
       properties:
@@ -48696,6 +49223,12 @@ components:
     OutboundMessage:
       allOf:
       - $ref: "#/components/schemas/OutboundLogBase"
+      - required:
+        - firstLogAt
+        - lastLogAt
+        - request
+        - status
+        type: object
       - properties:
           firstLogAt:
             description: Timestamp of the first log entry for this message.
@@ -48727,10 +49260,6 @@ components:
               $ref: "#/components/schemas/OutboundMessageResponse"
             type: array
             default: null
-        required:
-        - firstLogAt
-        - lastLogAt
-        - status
     OutboundMessages:
       description: Paginated list of outbound messages.
       properties:
@@ -48748,6 +49277,197 @@ components:
           default: null
       required:
       - data
+    ExportJobType:
+      description: Export job type.
+      enum:
+      - active_customer_profiles
+      - loyalty_balance
+      - loyalty_ledger_entries
+      example: active_customer_profiles
+      type: string
+      x-generate-enum-go: true
+    ExportJobDestination:
+      properties:
+        type:
+          description: Destination type can be Google Cloud Storage (gcs) or file.
+          enum:
+          - gcs
+          - file
+          example: gcs
+          type: string
+          x-generate-enum-go: true
+        compression:
+          default: none
+          description: Compression applied to the exported file.
+          enum:
+          - zip
+          - gzip
+          - none
+          example: gzip
+          type: string
+          x-generate-enum-go: true
+        path:
+          description: Directory on the exporter host where the file is written. Required
+            for file destinations; must be omitted for gcs.
+          example: exports/loyalty
+          maxLength: 255
+          pattern: "^/?[A-Za-z0-9_-][A-Za-z0-9._/-]*$"
+          type: string
+        bucket:
+          description: GCS bucket name for storage. Absent for file.
+          example: acme-exports
+          pattern: "^[a-z0-9][a-z0-9._-]{1,61}[a-z0-9]$"
+          type: string
+      required:
+      - type
+    NewExportJob:
+      properties:
+        type:
+          $ref: "#/components/schemas/ExportJobType"
+        args:
+          additionalProperties: true
+          description: Arguments for the exporter. Their structure depends on `type`
+            and is validated by the service.
+          example:
+            loyaltyProgramID: 6
+          type: object
+        destination:
+          description: Destinations for the export job.
+          example:
+          - type: gcs
+            bucket: acme-exports
+            compression: gzip
+          items:
+            $ref: "#/components/schemas/ExportJobDestination"
+          minItems: 1
+          type: array
+          default: null
+        cronSchedule:
+          description: Schedule in standard 5-field cron format.
+          example: 0 3 * * *
+          maxLength: 100
+          minLength: 9
+          type: string
+        timezone:
+          default: UTC
+          description: A string containing an IANA timezone descriptor.
+          example: Europe/Berlin
+          maxLength: 32
+          minLength: 1
+          type: string
+        enabled:
+          default: false
+          description: Whether the export job is enabled.
+          example: true
+          type: boolean
+        allowConcurrentRuns:
+          default: false
+          description: Whether to allow concurrent runs of the job.
+          type: boolean
+        overrideFilename:
+          description: "Filename that replaces the generated export filename, without\
+            \ extension."
+          example: acme-exports
+          maxLength: 255
+          pattern: "^/?[A-Za-z0-9_-][A-Za-z0-9._/-]*$"
+          type: string
+      required:
+      - args
+      - cronSchedule
+      - destination
+      - type
+    ExportJobStatus:
+      default: idle
+      description: The status of the export job. Interrupted jobs are both active
+        and running. Completion status is kept in export job logs.
+      enum:
+      - idle
+      - running
+      type: string
+      x-generate-enum-go: true
+    ExportJob:
+      allOf:
+      - $ref: "#/components/schemas/NewExportJob"
+      - properties:
+          id:
+            description: The internal ID of this entity.
+            example: 6
+            format: int64
+            type: integer
+          accountId:
+            description: The ID of the account that owns this entity.
+            example: 3886
+            format: int64
+            type: integer
+          status:
+            $ref: "#/components/schemas/ExportJobStatus"
+          created:
+            description: The time this entity was created.
+            example: 2020-06-10T09:05:27.993483Z
+            format: date-time
+            type: string
+          modified:
+            description: The time this entity was modified.
+            example: 2020-06-10T09:05:27.993483Z
+            format: date-time
+            type: string
+        required:
+        - accountId
+        - created
+        - id
+        - status
+    UpdateExportJob:
+      allOf:
+      - $ref: "#/components/schemas/NewExportJob"
+    ExportJobLogResult:
+      description: Result of an export job run.
+      enum:
+      - success
+      - failed
+      type: string
+      x-generate-enum-go: true
+    ExportJobLog:
+      properties:
+        id:
+          description: The internal ID of this entity.
+          example: 6
+          format: int64
+          type: integer
+        exportJobId:
+          description: The internal ID of the connected export job.
+          example: 6
+          format: int64
+          type: integer
+        type:
+          $ref: "#/components/schemas/ExportJobType"
+        result:
+          $ref: "#/components/schemas/ExportJobLogResult"
+        filename:
+          description: "Name of the exported file, without extension."
+          example: 6_loyalty_ledger_entries_2026-11-10
+          type: string
+        log:
+          description: The log text.
+          example: 1 rows exported to 1 destinations
+          type: string
+        startedAt:
+          description: Time when the export job run started.
+          example: 2020-06-10T09:05:27.993483Z
+          format: date-time
+          type: string
+        finishedAt:
+          description: Time when the export job run finished.
+          example: 2020-06-10T09:05:27.993483Z
+          format: date-time
+          type: string
+      required:
+      - exportJobId
+      - filename
+      - id
+      - log
+      - result
+      - startedAt
+      - type
     CampaignNotificationBase:
       properties:
         NotificationType:
@@ -48847,6 +49567,9 @@ components:
     CampaignCreatedNotification:
       allOf:
       - $ref: "#/components/schemas/CampaignNotificationBase"
+      - required:
+        - TotalResultSize
+        type: object
       - properties:
           Data:
             description: A list of campaign notification data.
@@ -48854,8 +49577,6 @@ components:
               $ref: "#/components/schemas/CampaignCreatedNotificationItem"
             type: array
             default: null
-        required:
-        - TotalResultSize
     CampaignStateChangedNotificationItem:
       allOf:
       - $ref: "#/components/schemas/CampaignNotificationItemBase"
@@ -48893,6 +49614,9 @@ components:
     CampaignStateChangedNotification:
       allOf:
       - $ref: "#/components/schemas/CampaignNotificationBase"
+      - required:
+        - TotalResultSize
+        type: object
       - properties:
           Data:
             description: A list of campaign notification data.
@@ -48900,8 +49624,6 @@ components:
               $ref: "#/components/schemas/CampaignStateChangedNotificationItem"
             type: array
             default: null
-        required:
-        - TotalResultSize
     CampaignRulesetChangedNotificationItem:
       allOf:
       - $ref: "#/components/schemas/CampaignNotificationItemBase"
@@ -48938,6 +49660,9 @@ components:
     CampaignRulesetChangedNotification:
       allOf:
       - $ref: "#/components/schemas/CampaignNotificationBase"
+      - required:
+        - TotalResultSize
+        type: object
       - properties:
           Data:
             description: A list of campaign notification data.
@@ -48945,8 +49670,6 @@ components:
               $ref: "#/components/schemas/CampaignRulesetChangedNotificationItem"
             type: array
             default: null
-        required:
-        - TotalResultSize
     CampaignEditedNotificationItem:
       allOf:
       - $ref: "#/components/schemas/CampaignNotificationItemBase"
@@ -48977,6 +49700,9 @@ components:
     CampaignEditedNotification:
       allOf:
       - $ref: "#/components/schemas/CampaignNotificationBase"
+      - required:
+        - TotalResultSize
+        type: object
       - properties:
           Data:
             description: A list of campaign notification data.
@@ -48984,8 +49710,6 @@ components:
               $ref: "#/components/schemas/CampaignEditedNotificationItem"
             type: array
             default: null
-        required:
-        - TotalResultSize
     CampaignCollectionEditedNotificationItem:
       allOf:
       - $ref: "#/components/schemas/CampaignNotificationItemBase"
@@ -49016,6 +49740,9 @@ components:
     CampaignCollectionEditedNotification:
       allOf:
       - $ref: "#/components/schemas/CampaignNotificationBase"
+      - required:
+        - TotalResultSize
+        type: object
       - properties:
           Data:
             description: A list of campaign notification data.
@@ -49023,8 +49750,6 @@ components:
               $ref: "#/components/schemas/CampaignCollectionEditedNotificationItem"
             type: array
             default: null
-        required:
-        - TotalResultSize
     CampaignDeletedNotificationItem:
       allOf:
       - $ref: "#/components/schemas/CampaignNotificationItemBase"
@@ -49045,6 +49770,9 @@ components:
     CampaignDeletedNotification:
       allOf:
       - $ref: "#/components/schemas/CampaignNotificationBase"
+      - required:
+        - TotalResultSize
+        type: object
       - properties:
           Data:
             description: A list of campaign notification data.
@@ -49052,8 +49780,6 @@ components:
               $ref: "#/components/schemas/CampaignDeletedNotificationItem"
             type: array
             default: null
-        required:
-        - TotalResultSize
     CampaignEvaluationTreeChangedNotificationData:
       description: Notification about an Application whose campaign evaluation tree
         changed.
@@ -49118,7 +49844,7 @@ components:
           description: The total number of items affected by the event that triggered
             the strikethrough labeling.
           example: 1500
-          format: date-time
+          format: int64
           type: integer
         payload:
           description: The arbitrary properties associated with this trigger type.
@@ -51142,6 +51868,7 @@ components:
           status: unlocked
           unlockedAt: 2026-07-01T09:00:00Z
           unlockedByProfileIntegrationId: customer2839
+          expiryDate: 2026-08-31T23:59:59Z
           usedAt: 2026-07-02T10:30:00Z
           usedByProfileIntegrationId: customer2840
           loyaltyProgramId: 9
@@ -51156,6 +51883,7 @@ components:
           status: unlocked
           unlockedAt: 2026-07-01T09:00:00Z
           unlockedByProfileIntegrationId: customer2839
+          expiryDate: 2026-08-31T23:59:59Z
           usedAt: 2026-07-02T10:30:00Z
           usedByProfileIntegrationId: customer2840
           loyaltyProgramId: 9
@@ -55099,8 +55827,8 @@ components:
               member:
                 price: 90
                 adjustmentReferenceId: 68851723-e6fa-488f-ace9-112581e6c19b
-                effectiveFrom: 2025-05-25T00:00:00Z
-                effectiveUntil: 2025-05-30T00:00:00Z
+                adjustmentEffectiveFrom: 2025-05-25T00:00:00Z
+                adjustmentEffectiveUntil: 2025-05-30T00:00:00Z
               base:
                 price: 100
           - name: Air Glide
@@ -55131,8 +55859,8 @@ components:
               member:
                 price: 90
                 adjustmentReferenceId: 68851723-e6fa-488f-ace9-112581e6c19b
-                effectiveFrom: 2025-05-25T00:00:00Z
-                effectiveUntil: 2025-05-30T00:00:00Z
+                adjustmentEffectiveFrom: 2025-05-25T00:00:00Z
+                adjustmentEffectiveUntil: 2025-05-30T00:00:00Z
               base:
                 price: 100
           discounts:
@@ -55179,8 +55907,8 @@ components:
               member:
                 price: 90
                 adjustmentReferenceId: 68851723-e6fa-488f-ace9-112581e6c19b
-                effectiveFrom: 2025-05-25T00:00:00Z
-                effectiveUntil: 2025-05-30T00:00:00Z
+                adjustmentEffectiveFrom: 2025-05-25T00:00:00Z
+                adjustmentEffectiveUntil: 2025-05-30T00:00:00Z
               base:
                 price: 100
           - name: Air Glide
@@ -55211,8 +55939,8 @@ components:
               member:
                 price: 90
                 adjustmentReferenceId: 68851723-e6fa-488f-ace9-112581e6c19b
-                effectiveFrom: 2025-05-25T00:00:00Z
-                effectiveUntil: 2025-05-30T00:00:00Z
+                adjustmentEffectiveFrom: 2025-05-25T00:00:00Z
+                adjustmentEffectiveUntil: 2025-05-30T00:00:00Z
               base:
                 price: 100
           discounts:
@@ -55274,8 +56002,8 @@ components:
               member:
                 price: 90
                 adjustmentReferenceId: 68851723-e6fa-488f-ace9-112581e6c19b
-                effectiveFrom: 2025-05-25T00:00:00Z
-                effectiveUntil: 2025-05-30T00:00:00Z
+                adjustmentEffectiveFrom: 2025-05-25T00:00:00Z
+                adjustmentEffectiveUntil: 2025-05-30T00:00:00Z
               base:
                 price: 100
           - name: Air Glide
@@ -55306,8 +56034,8 @@ components:
               member:
                 price: 90
                 adjustmentReferenceId: 68851723-e6fa-488f-ace9-112581e6c19b
-                effectiveFrom: 2025-05-25T00:00:00Z
-                effectiveUntil: 2025-05-30T00:00:00Z
+                adjustmentEffectiveFrom: 2025-05-25T00:00:00Z
+                adjustmentEffectiveUntil: 2025-05-30T00:00:00Z
               base:
                 price: 100
           discounts:
@@ -55354,8 +56082,8 @@ components:
               member:
                 price: 90
                 adjustmentReferenceId: 68851723-e6fa-488f-ace9-112581e6c19b
-                effectiveFrom: 2025-05-25T00:00:00Z
-                effectiveUntil: 2025-05-30T00:00:00Z
+                adjustmentEffectiveFrom: 2025-05-25T00:00:00Z
+                adjustmentEffectiveUntil: 2025-05-30T00:00:00Z
               base:
                 price: 100
           - name: Air Glide
@@ -55386,8 +56114,8 @@ components:
               member:
                 price: 90
                 adjustmentReferenceId: 68851723-e6fa-488f-ace9-112581e6c19b
-                effectiveFrom: 2025-05-25T00:00:00Z
-                effectiveUntil: 2025-05-30T00:00:00Z
+                adjustmentEffectiveFrom: 2025-05-25T00:00:00Z
+                adjustmentEffectiveUntil: 2025-05-30T00:00:00Z
               base:
                 price: 100
           discounts:
@@ -56436,6 +57164,7 @@ components:
           - id: 1
             applicationId: 2
           target: 10
+          achievementPeriod: 1W
           achievementRecurrencePolicy: no_recurrence
           achievementActivationPolicy: fixed_schedule
           achievementFixedStartDate: 2024-01-15T15:04:05Z07:00
@@ -56461,6 +57190,7 @@ components:
           - id: 1
             applicationId: 2
           target: 10
+          achievementPeriod: 1W
           achievementRecurrencePolicy: no_recurrence
           achievementActivationPolicy: fixed_schedule
           achievementFixedStartDate: 2024-01-15T15:04:05Z07:00
@@ -56877,6 +57607,26 @@ components:
           type: string
       required:
       - id
+    UpdateLoyaltyProgramMembershipBlock_1_program:
+      description: The loyalty program the customer joins.
+      properties:
+        id:
+          description: The ID of the loyalty program.
+          example: 10
+          format: int64
+          type: integer
+        name:
+          description: The internal name of the loyalty program.
+          example: MainProgram
+          readOnly: true
+          type: string
+        title:
+          description: The display name of the loyalty program.
+          example: Main Loyalty Program
+          readOnly: true
+          type: string
+      required:
+      - id
     AwardLoyaltyPointsBlock_1_program:
       description: The loyalty program points are added to.
       properties:
@@ -57125,9 +57875,14 @@ components:
           - $ref: "#/components/schemas/EmbeddedDashboardConfiguration"
           description: The configuration of the embedded Insights dashboard for campaigns.
     OutboundLogs_data_inner:
+      discriminator:
+        mapping:
+          log: "#/components/schemas/OutboundLogStreamLogEntry"
+          error: "#/components/schemas/OutboundLogStreamErrorEntry"
+        propertyName: type
       oneOf:
-      - $ref: "#/components/schemas/OutboundLog"
-      - $ref: "#/components/schemas/OutboundLogStreamError"
+      - $ref: "#/components/schemas/OutboundLogStreamLogEntry"
+      - $ref: "#/components/schemas/OutboundLogStreamErrorEntry"
     IntegrationHubEventPayloadCouponBasedNotifications_allOf_Attributes:
       type: object
   securitySchemes:

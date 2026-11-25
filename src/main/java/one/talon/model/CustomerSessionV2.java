@@ -85,7 +85,7 @@ public class CustomerSessionV2 {
 
   public static final String SERIALIZED_NAME_PROFILE_ID = "profileId";
   @SerializedName(SERIALIZED_NAME_PROFILE_ID)
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
   private String profileId;
 
   public static final String SERIALIZED_NAME_STORE_INTEGRATION_ID = "storeIntegrationId";
@@ -176,13 +176,13 @@ public class CustomerSessionV2 {
 
   public static final String SERIALIZED_NAME_STATE = "state";
   @SerializedName(SERIALIZED_NAME_STATE)
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
   private StateEnum state = StateEnum.OPEN;
 
   public static final String SERIALIZED_NAME_CART_ITEMS = "cartItems";
   @SerializedName(SERIALIZED_NAME_CART_ITEMS)
-  @javax.annotation.Nullable
-  private List<CartItem> cartItems;
+  @javax.annotation.Nonnull
+  private List<CartItem> cartItems = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_EXPERIMENT_VARIANT_ALLOCATIONS = "experimentVariantAllocations";
   @SerializedName(SERIALIZED_NAME_EXPERIMENT_VARIANT_ALLOCATIONS)
@@ -201,8 +201,8 @@ public class CustomerSessionV2 {
 
   public static final String SERIALIZED_NAME_ATTRIBUTES = "attributes";
   @SerializedName(SERIALIZED_NAME_ATTRIBUTES)
-  @javax.annotation.Nullable
-  private Map<String, Object> attributes;
+  @javax.annotation.Nonnull
+  private Map<String, Object> attributes = new HashMap<>();
 
   public static final String SERIALIZED_NAME_FIRST_SESSION = "firstSession";
   @SerializedName(SERIALIZED_NAME_FIRST_SESSION)
@@ -334,7 +334,7 @@ public class CustomerSessionV2 {
   }
 
 
-  public CustomerSessionV2 profileId(@javax.annotation.Nullable String profileId) {
+  public CustomerSessionV2 profileId(@javax.annotation.Nonnull String profileId) {
     this.profileId = profileId;
     this.markPropertyAsSet(SERIALIZED_NAME_PROFILE_ID);
     return this;
@@ -344,12 +344,12 @@ public class CustomerSessionV2 {
    * ID of the customer profile set by your integration layer.  **Note:** If the customer does not yet have a known &#x60;profileId&#x60;, we recommend you use a guest &#x60;profileId&#x60;. 
    * @return profileId
    */
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
   public String getProfileId() {
     return profileId;
   }
 
-  public void setProfileId(@javax.annotation.Nullable String profileId) {
+  public void setProfileId(@javax.annotation.Nonnull String profileId) {
     this.profileId = profileId;
     this.markPropertyAsSet(SERIALIZED_NAME_PROFILE_ID);
   }
@@ -517,7 +517,7 @@ public class CustomerSessionV2 {
   }
 
 
-  public CustomerSessionV2 state(@javax.annotation.Nullable StateEnum state) {
+  public CustomerSessionV2 state(@javax.annotation.Nonnull StateEnum state) {
     this.state = state;
     this.markPropertyAsSet(SERIALIZED_NAME_STATE);
     return this;
@@ -527,18 +527,18 @@ public class CustomerSessionV2 {
    * Indicates the current state of the session. Sessions can be created as &#x60;open&#x60; or &#x60;closed&#x60;. The state transitions are:  1. &#x60;open&#x60; -&gt; &#x60;closed&#x60; 2. &#x60;open&#x60; -&gt; &#x60;cancelled&#x60; 3. Either:    - &#x60;closed&#x60; -&gt; &#x60;cancelled&#x60; (**only** via [Update customer session](https://docs.talon.one/integration-api#tag/Customer-sessions/operation/updateCustomerSessionV2)) or    - &#x60;closed&#x60; -&gt; &#x60;partially_returned&#x60; (**only** via [Return cart items](https://docs.talon.one/integration-api#tag/Customer-sessions/operation/returnCartItems))    - &#x60;closed&#x60; -&gt; &#x60;open&#x60; (**only** via [Reopen customer session](https://docs.talon.one/integration-api#tag/Customer-sessions/operation/reopenCustomerSession)) 4. &#x60;partially_returned&#x60; -&gt; &#x60;cancelled&#x60;  For more information, see [Customer session states](https://docs.talon.one/docs/dev/concepts/entities/customer-sessions). 
    * @return state
    */
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
   public StateEnum getState() {
     return state;
   }
 
-  public void setState(@javax.annotation.Nullable StateEnum state) {
+  public void setState(@javax.annotation.Nonnull StateEnum state) {
     this.state = state;
     this.markPropertyAsSet(SERIALIZED_NAME_STATE);
   }
 
 
-  public CustomerSessionV2 cartItems(@javax.annotation.Nullable List<CartItem> cartItems) {
+  public CustomerSessionV2 cartItems(@javax.annotation.Nonnull List<CartItem> cartItems) {
     this.cartItems = cartItems;
     this.markPropertyAsSet(SERIALIZED_NAME_CART_ITEMS);
     return this;
@@ -557,12 +557,12 @@ public class CustomerSessionV2 {
    * The items to add to this session. **Do not exceed 1000 items** and ensure the sum of all cart item&#39;s &#x60;quantity&#x60; **does not exceed 10.000** per request. 
    * @return cartItems
    */
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
   public List<CartItem> getCartItems() {
     return cartItems;
   }
 
-  public void setCartItems(@javax.annotation.Nullable List<CartItem> cartItems) {
+  public void setCartItems(@javax.annotation.Nonnull List<CartItem> cartItems) {
     this.cartItems = cartItems;
     this.markPropertyAsSet(SERIALIZED_NAME_CART_ITEMS);
   }
@@ -658,7 +658,7 @@ public class CustomerSessionV2 {
   }
 
 
-  public CustomerSessionV2 attributes(@javax.annotation.Nullable Map<String, Object> attributes) {
+  public CustomerSessionV2 attributes(@javax.annotation.Nonnull Map<String, Object> attributes) {
     this.attributes = attributes;
     this.markPropertyAsSet(SERIALIZED_NAME_ATTRIBUTES);
     return this;
@@ -677,12 +677,12 @@ public class CustomerSessionV2 {
    * Use this property to set a value for the attributes of your choice. Attributes represent any information to attach to your session, like the shipping city.  You can use [built-in attributes](https://docs.talon.one/docs/dev/concepts/attributes#built-in-attributes) or [custom ones](https://docs.talon.one/docs/dev/concepts/attributes#custom-attributes). Custom attributes must be created in the Campaign Manager before you set them with this property. 
    * @return attributes
    */
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
   public Map<String, Object> getAttributes() {
     return attributes;
   }
 
-  public void setAttributes(@javax.annotation.Nullable Map<String, Object> attributes) {
+  public void setAttributes(@javax.annotation.Nonnull Map<String, Object> attributes) {
     this.attributes = attributes;
     this.markPropertyAsSet(SERIALIZED_NAME_ATTRIBUTES);
   }
@@ -976,7 +976,7 @@ public class CustomerSessionV2 {
     openapiFields = new HashSet<String>(Arrays.asList("id", "created", "integrationId", "applicationId", "profileId", "storeIntegrationId", "evaluableCampaignIds", "couponCodes", "referralCode", "loyaltyCards", "rewardIntegrationIds", "state", "cartItems", "experimentVariantAllocations", "additionalCosts", "identifiers", "attributes", "firstSession", "updateCount", "total", "cartItemTotal", "additionalCostTotal", "cartItemAdditionalCostTotal", "updated"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("id", "created", "integrationId", "applicationId", "firstSession", "updateCount", "total", "cartItemTotal", "additionalCostTotal", "cartItemAdditionalCostTotal", "updated"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("id", "created", "integrationId", "applicationId", "profileId", "state", "cartItems", "attributes", "firstSession", "updateCount", "total", "cartItemTotal", "additionalCostTotal", "cartItemAdditionalCostTotal", "updated"));
   }
 
   /**
@@ -1002,7 +1002,7 @@ public class CustomerSessionV2 {
       if (!jsonObj.get("integrationId").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `integrationId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("integrationId").toString()));
       }
-      if ((jsonObj.get("profileId") != null && !jsonObj.get("profileId").isJsonNull()) && !jsonObj.get("profileId").isJsonPrimitive()) {
+      if (!jsonObj.get("profileId").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `profileId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("profileId").toString()));
       }
       if ((jsonObj.get("storeIntegrationId") != null && !jsonObj.get("storeIntegrationId").isJsonNull()) && !jsonObj.get("storeIntegrationId").isJsonPrimitive()) {
@@ -1027,25 +1027,19 @@ public class CustomerSessionV2 {
       if (jsonObj.get("rewardIntegrationIds") != null && !jsonObj.get("rewardIntegrationIds").isJsonNull() && !jsonObj.get("rewardIntegrationIds").isJsonArray()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `rewardIntegrationIds` to be an array in the JSON string but got `%s`", jsonObj.get("rewardIntegrationIds").toString()));
       }
-      if ((jsonObj.get("state") != null && !jsonObj.get("state").isJsonNull()) && !jsonObj.get("state").isJsonPrimitive()) {
+      if (!jsonObj.get("state").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `state` to be a primitive type in the JSON string but got `%s`", jsonObj.get("state").toString()));
       }
-      // validate the optional field `state`
-      if (jsonObj.get("state") != null && !jsonObj.get("state").isJsonNull()) {
-        StateEnum.validateJsonElement(jsonObj.get("state"));
-      }
-      if (jsonObj.get("cartItems") != null && !jsonObj.get("cartItems").isJsonNull()) {
+      // validate the required field `state`
+      StateEnum.validateJsonElement(jsonObj.get("state"));
+      if (jsonObj.get("cartItems") != null) {
+        if (!jsonObj.get("cartItems").isJsonArray()) {
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `cartItems` to be an array in the JSON string but got `%s`", jsonObj.get("cartItems").toString()));
+        }
         JsonArray jsonArraycartItems = jsonObj.getAsJsonArray("cartItems");
-        if (jsonArraycartItems != null) {
-          // ensure the json data is an array
-          if (!jsonObj.get("cartItems").isJsonArray()) {
-            throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `cartItems` to be an array in the JSON string but got `%s`", jsonObj.get("cartItems").toString()));
-          }
-
-          // validate the optional field `cartItems` (array)
-          for (int i = 0; i < jsonArraycartItems.size(); i++) {
-            CartItem.validateJsonElement(jsonArraycartItems.get(i));
-          };
+        // validate the required field `cartItems` (array)
+        for (int i = 0; i < jsonArraycartItems.size(); i++) {
+          CartItem.validateJsonElement(jsonArraycartItems.get(i));
         }
       }
       if (jsonObj.get("experimentVariantAllocations") != null && !jsonObj.get("experimentVariantAllocations").isJsonNull()) {
